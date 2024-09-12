@@ -1,0 +1,1157 @@
+Term,Translate,Context,Reference,Comment
+Base64⦙0,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGl2ZS9MaXZlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmRvL1VuZG8uTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlVwZGF0ZS9VcGRhdGUuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlByb3BlcnR5L1Byb3BlcnR5Lk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYXRjaGRvZy9XYXRjaGRvZy5OTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Locale.NL.xaml,Please don't touch the translation in this line.
+Discord.BrowseButton,Bladeren,,Discord\Discord.NL.xaml,
+Discord.Details,Achtergrond Engine,,Discord\Discord.NL.xaml,
+Discord.DownloadButton,Downloaden,,Discord\Discord.NL.xaml,
+PASS⦙0,PASS⦙0,Don't Touch,Discord\Discord.NL.xaml,Please don't touch the translation in this line.
+Discord.LargestText0,De Kracht van Bananenroomijs,,Discord\Discord.NL.xaml,
+Discord.LargestText1,De Glimlachende Hoedmonster,,Discord\Discord.NL.xaml,
+Discord.LargestText2,De Vogels Die de Wolken Kleuren,,Discord\Discord.NL.xaml,
+Discord.LargestText3,Het Geheime Avontuur van Rennende Pinguïns,,Discord\Discord.NL.xaml,
+Discord.LargestText4,Konijnen Die Verdwalen in een Veld van Madeliefjes,,Discord\Discord.NL.xaml,
+Discord.LargestText5,Zingende Windbloemen,,Discord\Discord.NL.xaml,
+Discord.LargestText6,Geheimzinnige Bijen van het Betoverde Bos,,Discord\Discord.NL.xaml,
+Discord.LargestText7,Droomachtige School Vissen,,Discord\Discord.NL.xaml,
+Discord.LargestText8,Dans van de Kristalogen Draak,,Discord\Discord.NL.xaml,
+Discord.LargestText9,Sprookjesachtig Pad Bedekt met Bloemen,,Discord\Discord.NL.xaml,
+Discord.LargestText10,Sterren Die Vallen uit de Hemel,,Discord\Discord.NL.xaml,
+Discord.LargestText11,Dansen in het Licht van de Gebroken Maan,,Discord\Discord.NL.xaml,
+Discord.LargestText12,Mysterieuze Regenboog Draken,,Discord\Discord.NL.xaml,
+Discord.LargestText13,Magisch Bosverhaal,,Discord\Discord.NL.xaml,
+Discord.LargestText14,Bloemenregen naar de Hemel,,Discord\Discord.NL.xaml,
+Discord.LargestText15,De Stille Aanraking van de Tijd,,Discord\Discord.NL.xaml,
+Discord.LargestText16,Surreëel Dromenland,,Discord\Discord.NL.xaml,
+Discord.LargestText17,Gouden Watervalliederen,,Discord\Discord.NL.xaml,
+Discord.LargestText18,Sprookjesschepen Zwevend naar de Hemel,,Discord\Discord.NL.xaml,
+Discord.LargestText19,Kleurrijk Ballonnenbos,,Discord\Discord.NL.xaml,
+Discord.LargestText20,Geheimzinnige Onderwaterstad,,Discord\Discord.NL.xaml,
+Discord.LargestText21,Sterrenstofhemel,,Discord\Discord.NL.xaml,
+Discord.LargestText22,Winden Die Achter het Onbekende Aanrennen,,Discord\Discord.NL.xaml,
+Discord.LargestText23,Meeslepende Verhalen bij het Maanlicht,,Discord\Discord.NL.xaml,
+PASS⦙1,PASS⦙1,Don't Touch,Discord\Discord.NL.xaml,Please don't touch the translation in this line.
+Discord.SmallestText0,Mysterieuze Voetafdrukken,,Discord\Discord.NL.xaml,
+Discord.SmallestText1,Vliegende Ballonvissen,,Discord\Discord.NL.xaml,
+Discord.SmallestText2,Lachende Bloemen,,Discord\Discord.NL.xaml,
+Discord.SmallestText3,Suikerspinwolken,,Discord\Discord.NL.xaml,
+Discord.SmallestText4,Bevroren Pizzadraak,,Discord\Discord.NL.xaml,
+Discord.SmallestText5,Glanzende Paddenstoel Piraten,,Discord\Discord.NL.xaml,
+Discord.SmallestText6,Onzichtbare Eenhoorn Voetafdrukken,,Discord\Discord.NL.xaml,
+Discord.SmallestText7,Gekleurde Stofwolken,,Discord\Discord.NL.xaml,
+Discord.SmallestText8,Gouden Ballonvlinders,,Discord\Discord.NL.xaml,
+Discord.SmallestText9,Suikerkretenreis,,Discord\Discord.NL.xaml,
+Discord.SmallestText10,Raketvliegende Pizzapunten,,Discord\Discord.NL.xaml,
+Discord.SmallestText11,Schelpen Die Dansen met de Zon,,Discord\Discord.NL.xaml,
+Discord.SmallestText12,Onzichtbare Sterrenvingers,,Discord\Discord.NL.xaml,
+Discord.SmallestText13,Mistige Onderwaterdans,,Discord\Discord.NL.xaml,
+Discord.SmallestText14,Regenboogvogeltreks,,Discord\Discord.NL.xaml,
+Discord.SmallestText15,Suikerstormpad,,Discord\Discord.NL.xaml,
+Discord.SmallestText16,Oneindige Pizzagalaxie,,Discord\Discord.NL.xaml,
+Discord.SmallestText17,De Glimlach van de Zon,,Discord\Discord.NL.xaml,
+Discord.SmallestText18,De Verloren Glimlach van het Geheime Meer,,Discord\Discord.NL.xaml,
+Discord.SmallestText19,De Schaduw van Droomvogels,,Discord\Discord.NL.xaml,
+Discord.SmallestText20,Vlinders Die omhoog Zweven naar de Hemel,,Discord\Discord.NL.xaml,
+Discord.SmallestText21,Liedjes Die Verborgen Zijn Achter de Sterren,,Discord\Discord.NL.xaml,
+Discord.SmallestText22,Mistige Bergen in het Sprookje,,Discord\Discord.NL.xaml,
+Discord.SmallestText23,De Fee van het Geheimzinnige Bos,,Discord\Discord.NL.xaml,
+PASS⦙2,PASS⦙2,Don't Touch,Discord\Discord.NL.xaml,Please don't touch the translation in this line.
+Discord.StatementText0,Een Universum Vol Chaos,,Discord\Discord.NL.xaml,
+Discord.StatementText1,Midden in Oneindige Avonturen,,Discord\Discord.NL.xaml,
+Discord.StatementText2,Een Vreemde en Magische Wereld,,Discord\Discord.NL.xaml,
+Discord.StatementText3,De Grenzen van de Verbeelding Verleggend,,Discord\Discord.NL.xaml,
+Discord.StatementText4,Een Buitengewone Realiteit,,Discord\Discord.NL.xaml,
+Discord.StatementText5,In de Diepten van de Verbeelding,,Discord\Discord.NL.xaml,
+Discord.StatementText6,Een Betoverende Ontdekkingsreis,,Discord\Discord.NL.xaml,
+Discord.StatementText7,Aan de Poorten van Onbekende Rijken,,Discord\Discord.NL.xaml,
+Discord.StatementText8,Een Complex Droomland,,Discord\Discord.NL.xaml,
+Discord.StatementText9,Een Avontuur dat Grenzen Verlegt,,Discord\Discord.NL.xaml,
+Discord.StatementText10,Een Dynamische en Verbazingwekkende Ervaring,,Discord\Discord.NL.xaml,
+Discord.StatementText11,In een Fantastisch Sprookje,,Discord\Discord.NL.xaml,
+Discord.StatementText12,Tussen Magische Poorten,,Discord\Discord.NL.xaml,
+Discord.StatementText13,Reis naar de Nachtelijke Hemel,,Discord\Discord.NL.xaml,
+Discord.StatementText14,Op Zoek naar het Spoor van het Verloren Continent,,Discord\Discord.NL.xaml,
+Discord.StatementText15,Het Verhaal van Onbekende Planeten,,Discord\Discord.NL.xaml,
+Discord.StatementText16,Verkenning van Parallelle Universums,,Discord\Discord.NL.xaml,
+Discord.StatementText17,De Ingang naar Legendarische Rijken,,Discord\Discord.NL.xaml,
+Discord.StatementText18,Geweven Realiteit met de Textuur van Dromen,,Discord\Discord.NL.xaml,
+Discord.StatementText19,Een Droom tussen de Sterren,,Discord\Discord.NL.xaml,
+Discord.StatementText20,Achter de Deuren van de Tijd,,Discord\Discord.NL.xaml,
+Discord.StatementText21,Het Twinkelende Sterrenteam,,Discord\Discord.NL.xaml,
+Discord.StatementText22,De Stille Schreeuw van het Onbekende,,Discord\Discord.NL.xaml,
+Discord.StatementText23,Een Meeslepende Wereld,,Discord\Discord.NL.xaml,
+Discord.StatementText24,Op de Top van de Mysterieuze Bergen,,Discord\Discord.NL.xaml,
+Discord.StatementText25,Op Zoek naar de Sporen van Verloren Koninkrijken,,Discord\Discord.NL.xaml,
+Discord.StatementText26,Sterrenreis tussen de Sterren,,Discord\Discord.NL.xaml,
+Discord.StatementText27,Magische Nachtwezens,,Discord\Discord.NL.xaml,
+Discord.StatementText28,Het Begin van een Oneindig Verhaal,,Discord\Discord.NL.xaml,
+Discord.StatementText29,Kleurrijke Ballonnen die naar de Hemel Stijgen,,Discord\Discord.NL.xaml,
+Discord.StatementText30,Mysterieuze Nachtelijke Hemel,,Discord\Discord.NL.xaml,
+Discord.StatementText31,Droompad naar het Verloren Koninkrijk,,Discord\Discord.NL.xaml,
+Discord.StatementText32,De Deur naar Onbekende Landen,,Discord\Discord.NL.xaml,
+Discord.StatementText33,Dans in de Armen van de Tijd,,Discord\Discord.NL.xaml,
+Discord.StatementText34,Verhalen begraven in de Nacht,,Discord\Discord.NL.xaml,
+Discord.StatementText35,Magische Spiegelwereld,,Discord\Discord.NL.xaml,
+Discord.StatementText36,Reis bij de Poorten van Oneindigheid,,Discord\Discord.NL.xaml,
+Discord.StatementText37,Nachtreis van de Dromenjager,,Discord\Discord.NL.xaml,
+Discord.StatementText38,Droom van een Kristallen Stad,,Discord\Discord.NL.xaml,
+Discord.StatementText39,Sterren die Schitteren in het Donker,,Discord\Discord.NL.xaml,
+Discord.StatementText40,Geheime Nacht achter de Sterren,,Discord\Discord.NL.xaml,
+Discord.StatementText41,Mysterieuze Maanlichtverhalen,,Discord\Discord.NL.xaml,
+Discord.StatementText42,Bij de Drempel van Onbekende Werelden,,Discord\Discord.NL.xaml,
+Discord.StatementText43,Magische Wegen op een Betoverde Nacht,,Discord\Discord.NL.xaml,
+Discord.StatementText44,Dromerige Ballonnen die naar de Hemel Stijgen,,Discord\Discord.NL.xaml,
+Discord.StatementText45,Droompad onder de Sterren,,Discord\Discord.NL.xaml,
+Discord.StatementText46,Verborgen Stad aan de Sterrenkust,,Discord\Discord.NL.xaml,
+Discord.StatementText47,Het Avontuur achter de Mistige Berg,,Discord\Discord.NL.xaml,
+Discord.StatementText48,Sterrennacht die Schittert in het Donker,,Discord\Discord.NL.xaml,
+Launcher.WallCustomizeText,Achtergrond aanpassen,,Launcher\Launcher.NL.xaml,
+PASS⦙3,PASS⦙3,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.
+Launcher.CreateLogText,Logbestand maken,,Launcher\Launcher.NL.xaml,
+PASS⦙4,PASS⦙4,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.
+Launcher.ExitText,Afsluiten,,Launcher\Launcher.NL.xaml,
+PASS⦙5,PASS⦙5,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.
+Launcher.OpenReportText,Probleem melden,,Launcher\Launcher.NL.xaml,
+PASS⦙6,PASS⦙6,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.
+Launcher.OpenText,Sucrose openen,,Launcher\Launcher.NL.xaml,
+PASS⦙7,PASS⦙7,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.
+Launcher.ReportText,Probleem melden,,Launcher\Launcher.NL.xaml,
+PASS⦙8,PASS⦙8,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.
+Launcher.ReportWindowTitle,Sucrose Diagnose,,Launcher\Launcher.NL.xaml,
+PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.
+Launcher.SaveDialogFilter,ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*,,Launcher\Launcher.NL.xaml,
+Launcher.SaveDialogTitle,Logbestand opslaan,,Launcher\Launcher.NL.xaml,
+PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.
+Launcher.SettingText,Instellingen,,Launcher\Launcher.NL.xaml,
+PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.
+Launcher.TrayText,Sucrose Wallpaper Engine,,Launcher\Launcher.NL.xaml,
+PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.
+Launcher.WallChangeText,Achtergrond wijzigen,,Launcher\Launcher.NL.xaml,
+Launcher.WallCloseText,Achtergrond sluiten,,Launcher\Launcher.NL.xaml,
+Launcher.WallOpenText,Achtergrond openen,,Launcher\Launcher.NL.xaml,
+Launcher.WallStartText,Achtergrond starten,,Launcher\Launcher.NL.xaml,
+Launcher.WallStopText,Achtergrond stoppen,,Launcher\Launcher.NL.xaml,
+PASS⦙13,PASS⦙13,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.
+Launcher.ClosedText,Gesloten,,Launcher\Launcher.NL.xaml,
+Launcher.PausedText,Gepauzeerd,,Launcher\Launcher.NL.xaml,
+PASS⦙14,PASS⦙14,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.
+Launcher.UpdateText,Controleren op updates,,Launcher\Launcher.NL.xaml,
+PASS⦙15,PASS⦙15,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.
+Launcher.UpdateText.Done,Update voorbereiden,,Launcher\Launcher.NL.xaml,
+Launcher.UpdateText.Check,Controleren op updates,,Launcher\Launcher.NL.xaml,
+Launcher.UpdateText.Progress,Updatevoortgang {0},,Launcher\Launcher.NL.xaml,
+Live.Title,{0} Melding,,Live\Live.NL.xaml,
+PASS⦙16,PASS⦙16,Don't Touch,Live\Live.NL.xaml,Please don't touch the translation in this line.
+Live.Close,Sluiten,,Live\Live.NL.xaml,
+Live.Continue,Doorgaan,,Live\Live.NL.xaml,
+Live.Download,Downloaden,,Live\Live.NL.xaml,
+Live.Remember,Herinneren,,Live\Live.NL.xaml,
+PASS⦙17,PASS⦙17,Don't Touch,Live\Live.NL.xaml,Please don't touch the translation in this line.
+Live.Info.WebView,WebView Vereiste,,Live\Live.NL.xaml,
+Live.Info.CefSharp,CefSharp Vereiste,,Live\Live.NL.xaml,
+PASS⦙18,PASS⦙18,Don't Touch,Live\Live.NL.xaml,Please don't touch the translation in this line.
+Live.Message.WebView,WebView2 Runtime is niet geïnstalleerd. WebView2 Runtime is een component die het gebruik van moderne webtechnologieën in applicaties mogelijk maakt. Daarom is WebView2 Runtime vereist om de geselecteerde achtergrond in te stellen.,,Live\Live.NL.xaml,
+Live.Message.CefSharp,VC++ Redistributable is niet geïnstalleerd. VC++ Redistributable levert enkele systeemcomponenten die nodig zijn voor een juiste werking van CefSharp. CefSharp is een framework dat het gebruik van moderne webtechnologieën in applicaties mogelijk maakt. Daarom is VC++ Redistributable vereist om de geselecteerde achtergrond in te stellen.,,Live\Live.NL.xaml,
+Base64⦙1,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5Lk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93Lk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5OTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\Portal.NL.xaml,Please don't touch the translation in this line.
+Property.WindowTitle,Sucrose Property,,Property\Property.NL.xaml,
+PASS⦙19,PASS⦙19,Don't Touch,Property\Property.NL.xaml,Please don't touch the translation in this line.
+Property.DeleteTip,Kopie verwijderen,,Property\Property.NL.xaml,
+Property.RefreshTip,Interface vernieuwen,,Property\Property.NL.xaml,
+Property.RestoreTip,Standaard herstellen,,Property\Property.NL.xaml,
+PASS⦙20,PASS⦙20,Don't Touch,Property\Property.NL.xaml,Please don't touch the translation in this line.
+Property.Type.NotSupport,Het besturingselementtype '{0}' wordt niet ondersteund.,,Property\Property.NL.xaml,
+PASS⦙21,PASS⦙21,Don't Touch,Property\Property.NL.xaml,Please don't touch the translation in this line.
+Property.ColorPicker.Color,Kleur,,Property\Property.NL.xaml,
+Property.ColorPicker.Cancel,Annuleren,,Property\Property.NL.xaml,
+Property.ColorPicker.Confirm,Bevestigen,,Property\Property.NL.xaml,
+Property.ColorPicker.EyeDropper,Pipet,,Property\Property.NL.xaml,
+Property.ColorPicker.Popup.Title,Sucrose Property Color Picker,,Property\Property.NL.xaml,
+PASS⦙22,PASS⦙22,Don't Touch,Property\Property.NL.xaml,Please don't touch the translation in this line.
+Property.FileDropDown.Tip,Selecteer een bestand,,Property\Property.NL.xaml,
+Property.FileDropDown.Filter,Alle bestanden (*.*)|*.*,,Property\Property.NL.xaml,
+PASS⦙23,PASS⦙23,Don't Touch,Property\Property.NL.xaml,Please don't touch the translation in this line.
+Property.FileDropDown.Access.Close,Begrepen,,Property\Property.NL.xaml,
+Property.FileDropDown.Access.Title,Toegangswaarschuwing,,Property\Property.NL.xaml,
+Property.FileDropDown.Access.Message,U heeft geen toestemming om toegang te krijgen tot het geselecteerde bestand.,,Property\Property.NL.xaml,
+Undo.QuestionTitle,Sucrose Undo,,Undo\Undo.NL.xaml,
+PASS⦙24,PASS⦙24,Don't Touch,Undo\Undo.NL.xaml,Please don't touch the translation in this line.
+Undo.QuestionMessage,Wil je Sucrose Wallpaper Engine echt verwijderen?,,Undo\Undo.NL.xaml,
+Undo.QuestionDescription,"Om alles met alle instellingen te verwijderen, selecteer Ja; om de instellingen te behouden en alleen te verwijderen, selecteer Nee; en om het verwijderingsproces te annuleren, selecteer Annuleren.",,Undo\Undo.NL.xaml,
+Update.WindowTitle,Sucrose Update,,Update\Update.NL.xaml,
+PASS⦙25,PASS⦙25,Don't Touch,Update\Update.NL.xaml,Please don't touch the translation in this line.
+Update.HelpText,Probleem Oplossen,,Update\Update.NL.xaml,
+PASS⦙26,PASS⦙26,Don't Touch,Update\Update.NL.xaml,Please don't touch the translation in this line.
+Update.ReloadText,PROBEER OPNIEUW,,Update\Update.NL.xaml,
+PASS⦙27,PASS⦙27,Don't Touch,Update\Update.NL.xaml,Please don't touch the translation in this line.
+Update.ReloadText.Browser.Opened,GEOPEND IN DE BROWSER,,Update\Update.NL.xaml,
+Update.ReloadText.Browser.Opening,WORDT GEOPEND IN DE BROWSER,,Update\Update.NL.xaml,
+PASS⦙28,PASS⦙28,Don't Touch,Update\Update.NL.xaml,Please don't touch the translation in this line.
+Update.MessageText.Preparing,VOORBEREIDING VAN NOODZAKELIJKE VOORBEREIDINGEN,,Update\Update.NL.xaml,
+PASS⦙29,PASS⦙29,Don't Touch,Update\Update.NL.xaml,Please don't touch the translation in this line.
+Update.MessageText.Temporary,CONTROLEREN VAN TIJDELIJKE LOCATIES,,Update\Update.NL.xaml,
+Update.MessageText.Temporary.Error,TIJDELIJKE LOCATIES KONDEN NIET WORDEN GECONTROLEERD,,Update\Update.NL.xaml,
+PASS⦙30,PASS⦙30,Don't Touch,Update\Update.NL.xaml,Please don't touch the translation in this line.
+Update.MessageText.Connection,CONTROLEREN VAN INTERNETVERBINDING,,Update\Update.NL.xaml,
+Update.MessageText.Connection.None,GEEN INTERNETVERBINDING,,Update\Update.NL.xaml,
+Update.MessageText.Connection.Error,INTERNETVERBINDING KON NIET WORDEN GECONTROLEERD,,Update\Update.NL.xaml,
+PASS⦙31,PASS⦙31,Don't Touch,Update\Update.NL.xaml,Please don't touch the translation in this line.
+Update.MessageText.Listing,OPHALEN VAN DE VEREISTE LIJSTEN,,Update\Update.NL.xaml,
+Update.MessageText.Listing.Empty,VEREISTE LIJSTEN ZIJN LEEG,,Update\Update.NL.xaml,
+Update.MessageText.Listing.Error,VEREISTE LIJSTEN KONDEN NIET WORDEN ONTVANGEN,,Update\Update.NL.xaml,
+PASS⦙32,PASS⦙32,Don't Touch,Update\Update.NL.xaml,Please don't touch the translation in this line.
+Update.MessageText.Filtering,LIJSTEN WORDEN GEFILTERD,,Update\Update.NL.xaml,
+Update.MessageText.Filtering.Not,LIJSTEN KUNNEN NIET WORDEN GEFILTERD,,Update\Update.NL.xaml,
+Update.MessageText.Filtering.Error,LIJSTEN KONDEN NIET WORDEN GEFILTERD,,Update\Update.NL.xaml,
+PASS⦙33,PASS⦙33,Don't Touch,Update\Update.NL.xaml,Please don't touch the translation in this line.
+Update.MessageText.Comparing,LIJSTEN VERGELIJKEN,,Update\Update.NL.xaml,
+Update.MessageText.Comparing.Update,TOEPASSING IS AL UP-TO-DATE,,Update\Update.NL.xaml,
+Update.MessageText.Comparing.Error,LIJSTEN VERGELIJKEN MISLUKT,,Update\Update.NL.xaml,
+PASS⦙34,PASS⦙34,Don't Touch,Update\Update.NL.xaml,Please don't touch the translation in this line.
+Update.MessageText.Searching,ZOEKEN NAAR VEREISTE BESTANDEN,,Update\Update.NL.xaml,
+Update.MessageText.Searching.Not,VEREISTE BESTANDEN NIET GEVONDEN,,Update\Update.NL.xaml,
+Update.MessageText.Searching.Error,VEREISTE BESTANDEN KONDEN NIET WORDEN GEZOCHT,,Update\Update.NL.xaml,
+Update.MessageText.Searching.Condition,VEREISTE BESTANDEN NIET GEVONDEN,,Update\Update.NL.xaml,
+PASS⦙35,PASS⦙35,Don't Touch,Update\Update.NL.xaml,Please don't touch the translation in this line.
+Update.MessageText.Downloading,DOWNLOADEN VAN VEREISTE BESTANDEN,,Update\Update.NL.xaml,
+Update.MessageText.Downloading.Error,VEREISTE BESTANDEN KONDEN NIET WORDEN GEDOWNLOAD,,Update\Update.NL.xaml,
+Update.MessageText.Downloading.Complete.Cancel,HET DOWNLOADEN VAN HET VEREISTE BESTAND WERD GEANNULEERD,,Update\Update.NL.xaml,
+Update.MessageText.Downloading.Complete.Error,ER IS EEN FOUT OPGETREDEN TIJDENS HET DOWNLOADEN VAN HET VEREISTE BESTAND,,Update\Update.NL.xaml,
+PASS⦙36,PASS⦙36,Don't Touch,Update\Update.NL.xaml,Please don't touch the translation in this line.
+Update.MessageText.Running,GEDOWNLOADE BESTAND VOORBEREIDEN,,Update\Update.NL.xaml,
+Update.MessageText.Running.Executing,GEDOWNLOADE BESTAND UITVOEREN,,Update\Update.NL.xaml,
+Update.MessageText.Running.Executed,GEDOWNLOADE BESTAND UITGEVOERD,,Update\Update.NL.xaml,
+Update.MessageText.Running.Not,GEDOWNLOADE BESTAND NIET BRUIKBAAR,,Update\Update.NL.xaml,
+Update.MessageText.Running.Error,GEDOWNLOADE BESTAND VOORBEREIDEN MISLUKT,,Update\Update.NL.xaml,
+PASS⦙37,PASS⦙37,Don't Touch,Update\Update.NL.xaml,Please don't touch the translation in this line.
+Update.MessageText.Extracting,HET EXTRACTEREN VAN HET GEDOWNLOADE BESTAND,,Update\Update.NL.xaml,
+Update.MessageText.Extracting.Executing,HET UITGEPAKTE BESTAND WORDT UITGEVOERD,,Update\Update.NL.xaml,
+Update.MessageText.Extracting.Executed,HET UITGEPAKTE BESTAND IS UITGEVOERD,,Update\Update.NL.xaml,
+Update.MessageText.Extracting.Failed,HET GEDOWNLOADE BESTAND IS MISLUKT,,Update\Update.NL.xaml,
+Update.MessageText.Extracting.Corrupt,HET GEDOWNLOADE BESTAND IS BESCHADIGD,,Update\Update.NL.xaml,
+Update.MessageText.Extracting.Not,HET GEDOWNLOADE BESTAND IS NIET GEBRUIKBAAR,,Update\Update.NL.xaml,
+Update.MessageText.Extracting.Error,HET GEDOWNLOADE BESTAND KON NIET WORDEN GEËXTRAHEERD,,Update\Update.NL.xaml,
+Watchdog.HelpButton,Help,,Watchdog\Watchdog.NL.xaml,
+Watchdog.CloseButton,Afsluiten,,Watchdog\Watchdog.NL.xaml,
+Watchdog.ErrorEmpty,Helaas konden de foutdetails niet worden vastgelegd.,,Watchdog\Watchdog.NL.xaml,
+Watchdog.ErrorMessage,Er is een onverwachte fout opgetreden:,,Watchdog\Watchdog.NL.xaml,
+Watchdog.ErrorTitle,Fout,,Watchdog\Watchdog.NL.xaml,
+Watchdog.HideButton,Verbergen,,Watchdog\Watchdog.NL.xaml,
+Watchdog.ShowButton,Tonen,,Watchdog\Watchdog.NL.xaml,
+Watchdog.StackTrace,Stapeltracering:,,Watchdog\Watchdog.NL.xaml,
+Watchdog.WindowTitle,Sucrose Watchdog,,Watchdog\Watchdog.NL.xaml,
+Portal.Area.Data,Gegevens,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Sound,Geluid,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Log,Logboek,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Hook,Haak,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Store,Winkel,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Donate,Doneren,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.System,Systeem,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Cache,Cache,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Laptop,Laptop,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Support,Ondersteuning,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Reset,Resetten,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Backup,Back-up,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Priority,Prioriteit,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Engines,Motoren,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Update,Update,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Library,Bibliotheek,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Developer,Ontwikkelaar,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.Extensions,Uitbreidingen,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.SystemResources,Systeembronnen,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Area.AppearanceBehavior,Uiterlijk en Gedrag,,Portal\Area\Portal.Area.NL.xaml,
+Portal.Category.All,Alle,,Portal\Category\Portal.Category.NL.xaml,
+PASS⦙38,PASS⦙38,Don't Touch,Portal\Category\Portal.Category.NL.xaml,Please don't touch the translation in this line.
+Portal.Category.Abstract,Abstract,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Ambience,Omgeving,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Animals,Dieren,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Animation,Animatie,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Anime,Anime,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.ArchitectureandBuildings,Architectuur en Gebouwen,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.ArtandAbstract,Kunst en Abstract,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.ArtificialIntelligence,Kunstmatige Intelligentie,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Artworks,Kunstwerken,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Bard,Bard,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.BlackandWhite,Zwart en Wit,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Brands,Merken,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.CartoonandComics,Cartoon en Strips,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.CitiesandPlaces,Steden en Plaatsen,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.CloudsandSkies,Wolken en Luchten,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Colorful,Kleurrijk,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.ColorfulGradients,Kleurrijke Gradiënten,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.ComicBooks,Stripboeken,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.DigitalArt,Digitale Kunst,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Dynamic,Dynamisch,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Education,Onderwijs,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.EnchantedForests,Betoverde Bossen,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Fantasy,Fantasie,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Fashion,Mode,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.FilmandTV,Film en TV,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.FoodandDrinks,Eten en Drinken,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Galaxy,Melkweg,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Game,Spel,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.GeometricPatterns,Geometrische Patronen,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.HolidaysandSeasons,Feestdagen en Seizoenen,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.HorrorandHalloween,Horror en Halloween,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.InspirationalQuotes,Inspirerende Citaten,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.KidsandCartoon,Kinderen en Cartoons,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Landscape,Landschap,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Lifestyle,Levensstijl,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.LineArt,Lijnkunst,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Medieval,Middeleeuws,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Minimalist,Minimalistisch,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Music,Muziek,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Nature,Natuur,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Nightscapes,Nachtlandschappen,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.PatternsandTextures,Patronen en Texturen,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Persons,Personen,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.PixelArt,Pixelkunst,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Retro,Retro,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Science,Wetenschap,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.ScienceFiction,Sciencefiction,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Sky,Lucht,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Software,Software,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Space,Ruimte,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Sports,Sport,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Superheroes,Superhelden,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.System,Systeem,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Tavern,Taverne,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Technology,Technologie,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Temple,Tempel,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Time,Tijd,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.UnderwaterandMarine,Onderwater en Zee,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Vehicles,Voertuigen,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.Vintage,Vintage,,Portal\Category\Portal.Category.NL.xaml,
+Portal.Category.War,Oorlog,,Portal\Category\Portal.Category.NL.xaml,
+Base64⦙2,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVHJheUljb24vUG9ydGFsLlRyYXlJY29uLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJPdGhlckhlbHAvUG9ydGFsLk90aGVySGVscC5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVFZGl0L1BvcnRhbC5UaGVtZUVkaXQuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlQ2FyZC9Qb3J0YWwuU3RvcmVDYXJkLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJPdGhlckFib3V0L1BvcnRhbC5PdGhlckFib3V0Lk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQYWdpbmF0aW9uL1BvcnRhbC5QYWdpbmF0aW9uLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZVNoYXJlL1BvcnRhbC5UaGVtZVNoYXJlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5Q2FyZC9Qb3J0YWwuTGlicmFyeUNhcmQuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRGVsZXRlL1BvcnRhbC5UaGVtZURlbGV0ZS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVSZXZpZXcvUG9ydGFsLlRoZW1lUmV2aWV3Lk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUltcG9ydC9Qb3J0YWwuVGhlbWVJbXBvcnQuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lQ3JlYXRlL1BvcnRhbC5UaGVtZUNyZWF0ZS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVSZXBvcnQvUG9ydGFsLlRoZW1lUmVwb3J0Lk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJFeHBhbmRlckNhcmQvUG9ydGFsLkV4cGFuZGVyQ2FyZC5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2FsbHBhcGVyQ3ljbGluZy9Qb3J0YWwuV2FsbHBhcGVyQ3ljbGluZy5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRGlzcGxheVByZWZlcmVuY2VzL1BvcnRhbC5EaXNwbGF5UHJlZmVyZW5jZXMuTkwueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\Controls\Portal.Controls.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.Stretch.Fill,Vullen,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.Stretch.None,Geen,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.Stretch.Uniform,Uniform,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.Stretch.UniformToFill,Uniform Vullen,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙39,PASS⦙39,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.ReportType.Spam,Spam,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.ReportType.Other,Ander,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.ReportType.Nudity,Naaktheid,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.ReportType.Harmful,Schadelijk,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.ReportType.Violence,Geweld,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.ReportType.Malicious,Kwaadaardig,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.ReportType.CopyrightViolation,Schending van Auteursrechten,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.ReportType.MisleadingInformation,Misleidende Informatie,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙40,PASS⦙40,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.SortModeType.None,Geen,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.SortModeType.Name,Naam,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.SortModeType.Creation,Creatie,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.SortModeType.Modification,Aanpassing,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙41,PASS⦙41,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.InputType.Close,Gesloten,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.InputType.OnlyMouse,Alleen Muis,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.InputType.OnlyKeyboard,Alleen Toetsenbord,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.InputType.MouseKeyboard,Muis en Toetsenbord,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.StoreType.GitHub,GitHub,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.StoreType.Soferity,Soferity,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.StretchType.Fill,Vullen,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.StretchType.None,Geen,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.StretchType.Uniform,Uniform,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.StretchType.UniformToFill,Uniform Vullen,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.CommunicationType.Pipe,Pipe,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CommunicationType.Signal,Signal,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.PerformanceType.Close,Sluiten,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.PerformanceType.Pause,Pauzeren,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.PerformanceType.Resume,Hervatten,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.WindowBackdropType.Mica,Mica,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.WindowBackdropType.None,Geen,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.WindowBackdropType.Auto,Automatisch,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.WindowBackdropType.Tabbed,In Tabbladen,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.WindowBackdropType.Acrylic,Acryl,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.InputModuleType.Native,Native,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.InputModuleType.RawInput,RawInput,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.ChannelType.Release,Standaard,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.ChannelType.PreRelease,Ontwikkelaar,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.TransitionType.Random,Willekeurig,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.TransitionType.Sequential,Opeenvolgend,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.PausePerformanceType.Heavy,Zwaar,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.PausePerformanceType.Light,Licht,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.SortKindType.Ascending,Oplopend [A-Z],,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.SortKindType.Descending,Aflopend [Z-A],,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.ExpandScreenType.Default,Standaard,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.ExpandScreenType.Advanced,Geavanceerd,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.UpdateType.Compressed,Gecomprimeerd,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.UpdateType.Executable,Uitvoerbaar,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.ScreenType.WorkingArea,Werkruimte,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.ScreenType.DisplayBound,Schermgrenzen,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.DuplicateScreenType.Default,Standaard,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.DuplicateScreenType.Advanced,Geavanceerd,,Portal\Enum\Portal.Enum.NL.xaml,
+PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.NL.xaml,Please don't touch the translation in this line.
+Portal.Enum.CompatibilityType.Pass,Succesvol,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.Tags,'Tags' bevat te veel waarden,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.Type,Thema is gemaakt voor een niet-ondersteund type,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.Title,'Title' is leeg of te lang,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.Access,U heeft geen toestemming om toegang te krijgen tot het betreffende bestand,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.Author,'Author' is leeg of te lang,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.Folder,Themabestanden bevinden zich niet in de hoofdmap van het archief,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.Source,Bestand 'Source' niet gevonden,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.Contact,'Contact' is leeg of te lang,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.Preview,Bestand 'Preview' niet gevonden,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.Encrypt,Het relevante bestand is versleuteld,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.ZipType,Het relevante bestand is geen echt '.zip' bestand,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.InfoFile,Bestand 'SucroseInfo.json' niet gevonden,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.NotFound,Het relevante bestand is niet gevonden,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.LoopMode,Ongeldige 'LoopMode' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.Arguments,'Arguments' is te lang,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.Extension,Het relevante bestand heeft geen '.zip' extensie,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.Thumbnail,Bestand 'Thumbnail' niet gevonden,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.SystemCpu,Ongeldige 'SystemCpu' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.EmptyInfo,Bestand 'SucroseInfo.json' is leeg,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.AppVersion,Thema is gemaakt voor een hogere versie van de toepassing,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.InvalidUrl,'Source' bevat een ongeldige waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.SystemBios,Ongeldige 'SystemBios' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.SystemDate,Ongeldige 'SystemDate' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.SystemAudio,Ongeldige 'SystemAudio' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.Description,'Description' is leeg of te lang,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.InvalidInfo,Bestand 'SucroseInfo.json' is ongeldig,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.TriggerTime,Ongeldige 'TriggerTime' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.StretchMode,Ongeldige 'StretchMode' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.VolumeLevel,Ongeldige 'VolumeLevel' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.ShuffleMode,Ongeldige 'ShuffleMode' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.InvalidTags,'Tags' waarden zijn te kort of te lang,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.InvalidFile,Ongeldig bestand,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.PropertyList,'PropertyList' is leeg,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.SystemMemory,Ongeldige 'SystemMemory' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.SystemBattery,Ongeldige 'SystemBattery' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.SystemGraphic,Ongeldige 'SystemGraphic' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.SystemNetwork,Ongeldige 'SystemNetwork' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.InvalidContact,'Contact' is geen 'URL' of 'E-mailadres',,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.InvalidExtension,Ongeldige bestandsextensie,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.EmptyCompatible,Bestand 'SucroseCompatible.json' is leeg,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.EmptyProperties,Bestand 'SucroseProperties.json' is leeg,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.PropertyListener,Ongeldige 'PropertyListener' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.SystemMotherboard,Ongeldige 'SystemMotherboard' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.InvalidCompatible,Bestand 'SucroseCompatible.json' is ongeldig,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.InvalidProperties,Bestand 'SucroseProperties.json' is ongeldig,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.PropertyLocalization,Ongeldige 'PropertyLocalization' waarde,,Portal\Enum\Portal.Enum.NL.xaml,
+Portal.Enum.CompatibilityType.UnforeseenConsequences,Onvoorziene Gevolgen,,Portal\Enum\Portal.Enum.NL.xaml,
+Base64⦙3,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5OTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙57,PASS⦙57,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.NL.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.NL.xaml,
+PASS⦙58,PASS⦙58,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.NL.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Import.Successful,Het thema genaamd '{0}' is succesvol toegevoegd aan de bibliotheek.,,Portal\LibraryPage\Portal.LibraryPage.NL.xaml,
+Portal.LibraryPage.Import.Unsuccessful,Het thema genaamd '{0}' kon niet aan de bibliotheek worden toegevoegd. Reden: '{1}'.,,Portal\LibraryPage\Portal.LibraryPage.NL.xaml,
+Portal.MainWindow.Title,Sucrose Wallpaper Engine,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+PASS⦙59,PASS⦙59,Don't Touch,Portal\MainWindow\Portal.MainWindow.NL.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuHelp,Help,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuAbout,Over,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+PASS⦙60,PASS⦙60,Don't Touch,Portal\MainWindow\Portal.MainWindow.NL.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuHelpTip,Help bekijken,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuAboutTip,Over bekijken,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+PASS⦙61,PASS⦙61,Don't Touch,Portal\MainWindow\Portal.MainWindow.NL.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuLibrary,Bibliotheek,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuStore,Winkel,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+PASS⦙62,PASS⦙62,Don't Touch,Portal\MainWindow\Portal.MainWindow.NL.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuLibraryTip,Themabibliotheek,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuStoreTip,Themawinkel,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+PASS⦙63,PASS⦙63,Don't Touch,Portal\MainWindow\Portal.MainWindow.NL.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuGeneral,Algemeen,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuPersonal,Persoonlijk,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuPerformance,Prestaties,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuWallpaper,Achtergrond,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuSystem,Systeem,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuDonate,Doneren,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuOther,Overige,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.NL.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuBackTip,Terug,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuGeneralTip,Algemene instellingen,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuPersonalTip,Persoonlijke instellingen,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuPerformanceTip,Prestatie-instellingen,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuWallpaperTip,Achtergrondinstellingen,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuSystemTip,Systeeminstellingen,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuDonateTip,Donatie-instellingen,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuOtherTip,Overige instellingen,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.NL.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuSettingTip,Instellingen,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.NL.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxHint,Zoek een achtergrond,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.NL.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxTip,Heeft u moeite met vinden wat u nodig heeft?,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.NL.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuLightTip,Lichte modus,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuDarkTip,Donkere modus,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+PASS⦙69,PASS⦙69,Don't Touch,Portal\MainWindow\Portal.MainWindow.NL.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuCreateWallpaperTip,Achtergrond maken,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuWallpaperCyclingTip,Achtergrondafbeeldingen Fietsen,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuDisplayPreferencesTip,Schermvoorkeuren,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuDonateOptionsTip,Donatieopties,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Portal.MainWindow.MenuOtherOptionsTip,Andere opties,,Portal\MainWindow\Portal.MainWindow.NL.xaml,
+Base64⦙4,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuTkwueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\SettingPage\Portal.SettingPage.NL.xaml,Please don't touch the translation in this line.
+Base64⦙5,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLk5MLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==,Don't Touch,Portal\StorePage\Portal.StorePage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙70,PASS⦙70,Don't Touch,Portal\StorePage\Portal.StorePage.NL.xaml,Please don't touch the translation in this line.
+Portal.StorePage.Title,StorePage,,Portal\StorePage\Portal.StorePage.NL.xaml,
+Portal.DisplayPreferences.Title,Schermvoorkeuren,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,
+Portal.DisplayPreferences.Close,Sluiten,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,
+PASS⦙71,PASS⦙71,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expander,Uitvouwen,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,
+Portal.DisplayPreferences.Expander.Description,Hoe behang op actieve schermen toegepast wordt.,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,
+PASS⦙72,PASS⦙72,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Screen,Alleen geselecteerd scherm,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,
+PASS⦙73,PASS⦙73,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expand,Uitbreiden over schermen,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,
+PASS⦙74,PASS⦙74,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expand.Monitor,Alle monitoren,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,
+PASS⦙75,PASS⦙75,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expand.Hint,Selecteer de uitbreidingsmodus tussen schermen,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,
+PASS⦙76,PASS⦙76,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate,Dupliceer dezelfde achtergrond,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,
+PASS⦙77,PASS⦙77,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate.Hint,Selecteer de modus voor het dupliceren van dezelfde achtergrond,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,
+Portal.ExpanderCard.TitleText,Titel,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.NL.xaml,
+Portal.ExpanderCard.DescriptionText,Beschrijving,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.NL.xaml,
+PASS⦙78,PASS⦙78,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.NL.xaml,Please don't touch the translation in this line.
+Portal.ExpanderCard.ExpandUpTip,Vouw samen,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.NL.xaml,
+Portal.ExpanderCard.ExpandDownTip,Uitvouwen,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.NL.xaml,
+Portal.LibraryCard.TitleText,Titel,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+Portal.LibraryCard.DescriptionText,Beschrijving,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+PASS⦙79,PASS⦙79,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.MoreTip,Meer,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+Portal.LibraryCard.VersionTip,"Om dit thema te gebruiken, update Sucrose",,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+PASS⦙80,PASS⦙80,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.MenuReview,Beoordelen,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+Portal.LibraryCard.MenuUse,Gebruiken,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+Portal.LibraryCard.MenuPreview,Voorbeeld,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+Portal.LibraryCard.MenuCustomize,Aanpassen,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+Portal.LibraryCard.MenuCyclingAdd,Toevoegen aan Cyclus,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+Portal.LibraryCard.MenuCyclingRemove,Verwijderen uit Cyclus,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+Portal.LibraryCard.MenuFind,Vinden,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+Portal.LibraryCard.MenuShare,Delen,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+Portal.LibraryCard.MenuDelete,Verwijderen,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+Portal.LibraryCard.MenuEdit,Bewerken,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+PASS⦙81,PASS⦙81,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Closed,Gesloten,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+Portal.LibraryCard.Paused,Gepauzeerd,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Selected,Geselecteerd,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Incompatible,Incompatibel,,Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,
+Portal.OtherAbout.Title,Over,,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,
+Portal.OtherAbout.Close,Sluiten,,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,
+PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.About,"Hallo, mijn naam is Bayram Emekli, ook wel bekend als Taiizor. Ik ben de ontwikkelaar van Sucrose Wallpaper Engine, een gratis en open-source applicatie. Bedankt voor het gebruik van de door mij ontwikkelde app.",,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,
+PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Update,Versie: v{0},,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,
+Portal.OtherAbout.Update.Description,Laatste controle: {0},,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,
+PASS⦙86,PASS⦙86,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Update.Notes,Update Notities,,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,
+PASS⦙87,PASS⦙87,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Partners,Partners,,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,
+PASS⦙88,PASS⦙88,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Contributors,Bijdragers,,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,
+PASS⦙89,PASS⦙89,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.TermsOfService,Servicevoorwaarden,,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,
+PASS⦙90,PASS⦙90,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.PrivacyPolicy,Privacybeleid,,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,
+PASS⦙91,PASS⦙91,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.CodeOfConduct,Gedragscode,,Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,
+Portal.OtherHelp.Title,Hulp,,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,
+Portal.OtherHelp.Close,Sluiten,,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,
+PASS⦙92,PASS⦙92,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.WebPage,Website,,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,
+Portal.OtherHelp.WebPage.Description,Officiële Sucrose Wallpaper Engine-website,,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,
+PASS⦙93,PASS⦙93,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Documentation,Documentatie,,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,
+Portal.OtherHelp.Documentation.Description,Officiële documentatiepagina van Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,
+PASS⦙94,PASS⦙94,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Repository,Broncode,,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,
+Portal.OtherHelp.Repository.Description,Officiële pagina voor de broncode van Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,
+PASS⦙95,PASS⦙95,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Discussions,Discussies,,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,
+Portal.OtherHelp.Discussions.Description,Officiële pagina voor discussies over Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,
+PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Report,Foutmelding,,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,
+Portal.OtherHelp.Report.Description,Officiële pagina voor het melden van fouten in Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,
+Portal.Pagination.PageJump,Overslaan,,Portal\Controls\Pagination\Portal.Pagination.NL.xaml,
+Portal.StoreCard.TitleText,Titel,,Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,
+Portal.StoreCard.DescriptionText,Beschrijving,,Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,
+PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.VersionTip,"Om dit thema te gebruiken, update Sucrose",,Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,
+PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.MenuUpdating,Controleren op Updates,,Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,
+Portal.StoreCard.MenuUpdate,Controleer op Updates,,Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,
+Portal.StoreCard.MenuInstall,Installeren,,Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,
+Portal.StoreCard.MenuReport,Melden,,Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,
+PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.Incompatible,Incompatibel,,Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,
+Portal.ThemeCreate.Title,Thema Maken,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.Create,Aanmaken,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.Close,Sluiten,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Gif,Gif Thema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.Gif.Description,Maak je eigen thema van het type Gif.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Url,Url Thema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.Url.Description,Maak je eigen thema van het type Url.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙102,PASS⦙102,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Web,Web Thema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.Web.Description,Maak je eigen thema van het type Web.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Video,Video Thema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.Video.Description,Maak je eigen thema van het type Video.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.YouTube,YouTube Thema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.YouTube.Description,Maak je eigen thema van het type YouTube.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Application,Application Thema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.Application.Description,Maak je eigen thema van het type Application.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemeUrl,Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeWeb,Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeApplication,Applicatie,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeThumbnail,Afbeelding,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemePreview,Voorbeeld,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeTitle,Titel,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeDescription,Beschrijving,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeAuthor,Auteur,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeContact,Contact,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeTags,Tags,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeArguments,Argumenten,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemeUrl.Hint,Voer een geldige Url in,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeWeb.Hint,Selecteer een webpagina,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeApplication.Hint,Selecteer een toepassingsbestand,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeThumbnail.Hint,Selecteer een omslagafbeelding,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemePreview.Hint,Selecteer een voorbeeldbestand,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeTitle.Hint,Voer een geldige titel in,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeDescription.Hint,Voer een geldige beschrijving in,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeAuthor.Hint,Voer een geldige auteursnaam in,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeContact.Hint,Voer een geldig contactadres in,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeTags.Hint,Voer geldige thema-tags in,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeArguments.Hint,Voer geldige applicatie-argumenten in,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Delete,Ongedaan Maken,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Gif.Title,Selecteer Gif-bestand,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.DragDrop.Gif.Filter,Gif-bestanden (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Video.Title,Selecteer Videobestand,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.DragDrop.Video.Filter,Videobestanden (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Gif,Sleep en zet hier je gif-bestand,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.DragDrop.Video,Sleep en zet hier je videobestand,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemeThumbnail.Title,Selecteer een Omslagafbeelding,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemeThumbnail.Filter,Afbeeldingsbestanden (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙113,PASS⦙113,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemePreview.Title,Selecteer een Voorbeeldbestand,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ThemePreview.Filter,Gif-bestanden (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.WebSource.Title,Selecteer Webpagina,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.WebSource.Filter,Webpagina's (*.html)|*.html,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ApplicationSource.Title,Selecteer Toepassingsbestand,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.ApplicationSource.Filter,Toepassingsbestanden (*.exe)|*.exe,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Copy.Close,Begrepen,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.Copy.Title,Belangrijke Mededeling,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.Copy.Message,Het geselecteerde bestand wordt samen met alle andere bestanden en mappen in de directory opgenomen in het thema.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Access.Close,Begrepen,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.Access.Title,Toegangswaarschuwing,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeCreate.Access.Message,U heeft geen toestemming om toegang te krijgen tot het geselecteerde bestand.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,
+Portal.ThemeDelete.Title,Thema Verwijderen,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.Delete,Verwijderen,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.Close,Sluiten,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeDelete.ThemeTitle,Titel,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.ThemeDescription,Beschrijving,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.ThemeType,Type,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.ThemeTypeName,Gif,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.ThemeAuthor,Auteur,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.ThemeAuthorName,Taiizor,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.ThemeSize,Grootte,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.ThemeSizeTotal,0 b,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.ThemeVersion,Versie,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0),,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.ThemeTags,Tags,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.ThemeTagsText,Geen,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.ThemeCreate,Gemaakt,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.ThemeCreateDate,Onbekend,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.ThemeModify,Bewerkt,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeDelete.ThemeModifyDate,Onbekend,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,
+Portal.ThemeEdit.Title,Thema Bewerken,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,
+Portal.ThemeEdit.Close,Sluiten,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,
+Portal.ThemeEdit.Save,Opslaan,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,
+PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeEdit.ThemeTitle,Titel,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,
+Portal.ThemeEdit.ThemeDescription,Beschrijving,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,
+Portal.ThemeEdit.ThemeAuthor,Auteur,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,
+Portal.ThemeEdit.ThemeContact,Contact,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,
+Portal.ThemeEdit.ThemeTags,Tags,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,
+Portal.ThemeEdit.ThemeArguments,Argumenten,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,
+PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeEdit.ThemeTitle.Hint,Voer een geldige titel in,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,
+Portal.ThemeEdit.ThemeDescription.Hint,Voer een geldige beschrijving in,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,
+Portal.ThemeEdit.ThemeAuthor.Hint,Voer een geldige auteursnaam in,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,
+Portal.ThemeEdit.ThemeContact.Hint,Voer een geldig contactadres in,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,
+Portal.ThemeEdit.ThemeTags.Hint,Voer geldige thema-tags in,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,
+Portal.ThemeEdit.ThemeArguments.Hint,Voer geldige applicatie-argumenten in,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,
+Portal.ThemeImport.Title,Thema Importeren,,Portal\Controls\ThemeImport\Portal.ThemeImport.NL.xaml,
+Portal.ThemeImport.Close,Sluiten,,Portal\Controls\ThemeImport\Portal.ThemeImport.NL.xaml,
+PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeImport.Info,Thema Informatie,,Portal\Controls\ThemeImport\Portal.ThemeImport.NL.xaml,
+Portal.ThemeImport.Type,Redenomschrijvingen,,Portal\Controls\ThemeImport\Portal.ThemeImport.NL.xaml,
+Portal.ThemeReport.Title,Thema Rapportage,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+Portal.ThemeReport.Close,Sluiten,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.ThemeTitle,Titel,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+Portal.ThemeReport.ThemeDescription,Beschrijving,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter,Rapporteren,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+Portal.ThemeReport.Reporter.Description,Specificeer uw redenen om het thema te rapporteren.,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Contact.Placeholder,Voer alstublieft een geldig e-mailadres in,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Description.Text,Aanvullende Notities:,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+Portal.ThemeReport.Reporter.Description.Placeholder,Beschrijf de reden voor het rapport in detail.,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Preparing,Voorbereidingen voor rapportage beginnen binnenkort..,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Checking,Noodzakelijke controles worden uitgevoerd voor rapportage..,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+Portal.ThemeReport.Reporter.Checking.Error,Er is een onbekende fout opgetreden tijdens de noodzakelijke controles voor rapportage.,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+Portal.ThemeReport.Reporter.Checking.Status,"Geschikte omstandigheden voor rapportage konden op dit moment niet worden gecreëerd, probeer het later opnieuw..",,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+PASS⦙128,PASS⦙128,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Sending,Informatie wordt verzonden voor rapportage..,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+Portal.ThemeReport.Reporter.Sending.Error,Er is een fout opgetreden bij het verzenden van het rapport.,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+Portal.ThemeReport.Reporter.Sending.Errored,Er is een onverwachte fout opgetreden bij het verzenden van het rapport: {0}.,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+Portal.ThemeReport.Reporter.Sending.Succeded,"Het rapport is succesvol verzonden, dank u.",,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+PASS⦙129,PASS⦙129,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Network,Een internetverbinding is vereist om te rapporteren.,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Report,Rapporteren,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+Portal.ThemeReport.Reporter.GitHub,Rapporteren vanaf GitHub,,Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,
+Portal.ThemeReview.Title,Thema Beoordelen,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.Close,Sluiten,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+PASS⦙131,PASS⦙131,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeReview.ThemeTitle,Titel,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeDescription,Beschrijving,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeType,Type,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeTypeName,Gif,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeAuthor,Auteur,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeAuthorName,Taiizor,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeSize,Grootte,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeSizeTotal,0 b,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeVersion,Versie,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0),,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeTags,Tags,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeTagsText,Geen,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeCreate,Aangemaakt,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeCreateDate,Onbekend,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeModify,Aangepast,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeModifyDate,Onbekend,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeReview.ThemeContact,Thema Contactadres,,Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,
+Portal.ThemeShare.Title,Thema Delen,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+Portal.ThemeShare.Close,Sluiten,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemeTitle,Titel,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+Portal.ThemeShare.ThemeDescription,Beschrijving,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemeExport,Exporteren,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+Portal.ThemeShare.ThemePublish,Publiceren in de Winkel,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+Portal.ThemeShare.ThemeCopy,Koppeling Kopiëren,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+PASS⦙134,PASS⦙134,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Publish,Publiceren,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+Portal.ThemeShare.ThemePublish.Preparing,De voorbereidingen voor publicatie beginnen binnenkort..,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit,Uw dagelijkse uploadlimiet voor thema's wordt gecontroleerd..,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit.Exceeded,"U heeft uw dagelijkse uploadlimiet voor thema's bereikt, probeer het later opnieuw.",,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+Portal.ThemeShare.ThemePublish.Limit.Error,Er is een onbekende fout opgetreden bij het controleren van uw dagelijkse uploadlimiet voor thema's.,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Compress,Het thema wordt gecomprimeerd voordat het wordt geüpload..,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+Portal.ThemeShare.ThemePublish.Compress.Error,Er is een fout opgetreden bij het comprimeren van het thema.,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size,De grootte van het gecomprimeerde thema wordt gecontroleerd..,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size.Exceeded,Het gecomprimeerde thema kan niet worden geüpload omdat het groter is dan {0} MB.,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+PASS⦙140,PASS⦙140,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Check,De integriteit van het gecomprimeerde thema wordt gecontroleerd voordat het wordt geüpload..,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+Portal.ThemeShare.ThemePublish.Check.Error,Er is een fout opgetreden bij het controleren van de integriteit van het gecomprimeerde thema.,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload,Het gecomprimeerde thema wordt voorbereid voor uploaden..,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload.Start,Het gecomprimeerde thema wordt geüpload..,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+Portal.ThemeShare.ThemePublish.Upload.Error,Er is een onbekende fout opgetreden bij het uploaden van het gecomprimeerde thema.,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+Portal.ThemeShare.ThemePublish.Upload.Errored,Er is een onverwachte fout opgetreden bij het uploaden van het gecomprimeerde thema: {0}.,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+Portal.ThemeShare.ThemePublish.Upload.Succeded,Het gecomprimeerde thema is succesvol geüpload en wordt na verificatie in de winkel gepubliceerd.,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+PASS⦙143,PASS⦙143,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.SaveDialogFilter,ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+Portal.ThemeShare.SaveDialogTitle,Thema Opslaan als Bestand,,Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,
+Portal.TrayIcon.Title,Systeemvak,,Portal\Controls\TrayIcon\Portal.TrayIcon.NL.xaml,
+Portal.TrayIcon.Close,Sluiten,,Portal\Controls\TrayIcon\Portal.TrayIcon.NL.xaml,
+PASS⦙144,PASS⦙144,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.NL.xaml,Please don't touch the translation in this line.
+Portal.TrayIcon.Message,Sucrose is geminimaliseerd naar het systeemvak. Klik met de rechtermuisknop op het Sucrose-pictogram om door te gaan.,,Portal\Controls\TrayIcon\Portal.TrayIcon.NL.xaml,
+Portal.WallpaperCycling.Title,Achtergrondafbeeldingcyclus,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
+Portal.WallpaperCycling.Close,Sluiten,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
+PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.Cycling,Automatische Achtergrondafbeeldingcyclus,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
+Portal.WallpaperCycling.Cycling.Description,Of de achtergrondafbeelding automatisch verandert of niet.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
+PASS⦙146,PASS⦙146,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.Time,Tijdsinterval,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
+Portal.WallpaperCycling.Time.Description,Het tijdsinterval nadat de achtergrondafbeelding verandert.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
+PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.Transition,Overgangsmodus,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
+Portal.WallpaperCycling.Transition.Description,Stelt de overgangsmodus tussen achtergrondafbeeldingen in.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
+PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.List,Cycluslijst,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
+Portal.WallpaperCycling.List.Description,Stelt de cycluslijst opnieuw in op standaard.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
+PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.List.Reset,Opnieuw instellen,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
+Portal.EmptyLibraryPage.Title,EmptyLibraryPage,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.NL.xaml,
+PASS⦙150,PASS⦙150,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.NL.xaml,Please don't touch the translation in this line.
+Portal.EmptyLibraryPage.TitleText,Uw bibliotheek is geweven door spinnenwebben,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.NL.xaml,
+Portal.EmptyLibraryPage.DescriptionText,In plaats van wallpapers is er een prachtig kunstwerk ontstaan door spinnenwebben,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.NL.xaml,
+Portal.FullLibraryPage.Title,FullLibraryPage,,Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.NL.xaml,
+Portal.SearchLibraryPage.Title,SearchLibraryPage,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.NL.xaml,
+PASS⦙151,PASS⦙151,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SearchLibraryPage.TitleText,Uw bibliotheek is betoverd met spinnenwebben,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.NL.xaml,
+Portal.SearchLibraryPage.DescriptionText,Er is geen ruimte meer voor wallpapers vanwege uw fijne keuze in wallpapers,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.NL.xaml,
+Portal.DonateSettingPage.Title,DonateSettingPage,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,
+PASS⦙152,PASS⦙152,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.DonateMenu,Donatiemenu,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,
+Portal.DonateSettingPage.DonateMenu.Description,De zichtbaarheid van het donatiemenu in de interface.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,
+PASS⦙153,PASS⦙153,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Zichtbaar,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,
+Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Onzichtbaar,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,
+PASS⦙154,PASS⦙154,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.Advertising,Gesponsorde Ondersteuning,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,
+Portal.DonateSettingPage.Advertising.Description,Draag bij aan de ontwikkeling van de app door advertenties te bekijken.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,
+PASS⦙155,PASS⦙155,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.Advertising.AdvertisingDelay,Advertentieduur (minuten):,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,
+Portal.DonateSettingPage.Advertising.AdvertisingHint,Tip: Advertenties worden zo min mogelijk storend voor u weergegeven.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,
+Portal.GeneralSettingPage.Title,GeneralSettingPage,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙156,PASS⦙156,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationLanguage,Toepassingstaal,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.ApplicationLanguage.Description,Kies de taal waarin u de toepassing wilt bekijken.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationStartup,Opstarten bij opstarten,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Description,Sucrose moet op de achtergrond draaien om wallpapers te kunnen afspelen.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Geen,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Normaal,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioriteit,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Planner,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Begrijp ik,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Beheerder Rechten Waarschuwing,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,U hebt beheerdersrechten nodig om de opstartstatus te wijzigen.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon,Systeemvakpictogram,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.NotifyIcon.Description,Zichtbaarheid van het systeemvak. Sucrose blijft op de achtergrond actief.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Zichtbaar,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Onzichtbaar,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Sluiten van het systeemvak betekent afsluiten van alle Sucrose-toepassingen,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop,Vensterachtergrond,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.Description,Gebruikt om de achtergrond van de toepassingsvensters aan te passen.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Achtergrondafbeelding Selecteren,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Selecteer een achtergrondafbeelding,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Afbeeldingsbestanden (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,Helaas heb je geen toestemming om toegang te krijgen tot het geselecteerde afbeeldingsbestand,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Achtergrond Passend maken:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Achtergrond Ondoorzichtigheid (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.EngineVolume,Geluidsvolume,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.EngineVolume.Description,Geluidsvolume dat geldt voor alle wallpapers.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Speel geluid alleen af wanneer gefocust op het bureaublad,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.EngineVolume.VolumeActive,Speel geluid af alleen wanneer alle applicaties zijn gedempt,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Gevoeligheid (Seconden):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.PrivateLibrary,Bibliotheeklocatie,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.PrivateLibrary.Description,Locatie waar toegevoegde thema's in uw bibliotheek worden opgeslagen.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,Helaas hebt u geen toegang tot de nieuwe locatie,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Selecteer alstublieft een lege map,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"Even geduld, locatie wordt gewijzigd",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Verplaats uw huidige bibliotheek naar een nieuwe locatie,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,
+Portal.OtherSettingPage.Title,OtherSettingPage,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.ReportData,Automatische Foutenrapportage,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+Portal.OtherSettingPage.ReportData.Description,Sucrose onderneemt actie om het snel te rapporteren bij een fout.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.StatisticsData,Deel Gebruiksstatistieken,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+Portal.OtherSettingPage.StatisticsData.Description,Sucrose maakt het mogelijk om uw gebruiksstatistieken te verzamelen om bij te dragen aan de ontwikkeling van de applicatie.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.DiscordHook,Discord,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+Portal.OtherSettingPage.DiscordHook.Description,Sucrose maakt communicatie met Discord mogelijk.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Verbinding Vernieuwen:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+Portal.OtherSettingPage.DiscordHook.DiscordDelay,Vernieuwingsinterval (seconden):,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Agent,Internetvertegenwoordiger,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+Portal.OtherSettingPage.Agent.Description,Uw vertegenwoordigers-ID in situaties waar internetverbinding vereist is.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key,Persoonlijke Toegangssleutel,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+Portal.OtherSettingPage.Key.Description,Noodzakelijk voor een naadloos gebruik van de winkel en app-updates.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.HintKey,"Als u niet weet hoe u een persoonlijke toegangssleutel kunt verkrijgen, klik dan hier.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.PersonalKey,Voer alstublieft een persoonlijke toegangssleutel in,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+Portal.OtherSettingPage.Key.PersonalKey.Valid,Voer een geldige persoonlijke toegangssleutel in,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Channel,Updatekanaal,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+Portal.OtherSettingPage.Channel.Description,Het kanaal waar de updatebewerking plaatsvindt.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update,Update Methode,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+Portal.OtherSettingPage.Update.Description,De methode waarmee de updatebewerking wordt uitgevoerd.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update.Limit,Downloadbandbreedtelimiet:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Auto,Automatische Update,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+Portal.OtherSettingPage.Auto.Description,Of het updateproces automatisch wordt gecontroleerd.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer,Ontwikkelaarshulpmiddelen,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+Portal.OtherSettingPage.Developer.Description,Beheer ontwikkelaarstools voor de WebView- en CefSharp-engine.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperMode,Standaard Ontwikkelaarstools:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,Debugging-Poort:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperHint,"Hint: Standaard ontwikkelaarstools werken mogelijk niet correct in ondersteunde thema's. De debugging-poort werkt over het algemeen beter. Wanneer je klaar bent, kun je het adres 'http://localhost:{0}' of 'chrome://inspect' voor de Chrome-browser, 'opera://inspect' voor de Opera-browser, 'edge://inspect' voor de Edge-browser gebruiken.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter,Prestatie Tellers,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Counter.Description,Of alle prestatietellers op de achtergrond werken.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter.CounterHint,Opmerking: Sommige Web-gebaseerde thema's werken mogelijk niet correct en geen van de onderstaande prestatie-instellingen zal van toepassing zijn.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Pause,Pauze Regels,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Pause.Description,Bepaalt de regel voor het pauzeren van de achtergrond op basis van uw prestatie-instellingen.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Communication,Communicatietype,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Communication.Description,Bepaalt de methode om berichten te verzenden naar thema's van het type Web.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu,CPU-Gebruik,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Cpu.Description,Het effect van uw CPU-gebruiksinstellingen op de achtergrondafbeelding.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU-gebruik (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu,GPU Gebruik,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Gpu.Description,Wat er met de achtergrondafbeelding gebeurt op basis van je GPU-gebruikinstellingen.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,De lijst met grafische verwerkingsunits is nog niet aangemaakt,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU Gebruik (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory,Geheugengebruik,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Memory.Description,Het effect van uw geheugengebruiksinstellingen op de achtergrondafbeelding.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory.MemoryUsage,Geheugengebruik (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network,Netwerkgebruik,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Network.Description,Het effect van uw netwerkgebruiksinstellingen op de achtergrondafbeelding.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkAdapter,Netwerkadapter:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,De lijst van netwerkadapters is nog niet aangemaakt,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkUpload,Uploadgrootte:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkDownload,Downloadgrootte:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Ping-waarde (ms):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery,Batterijstatus,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Battery.Description,Het effect van uw batterijgebruiksinstellingen op de achtergrondafbeelding wanneer u werkt op batterijstroom.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery.BatteryUsage,Batterijstatus (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Saver,Energiespaarstand,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Saver.Description,Het effect van uw instellingen voor energiespaarstand op de achtergrondafbeelding wanneer uw laptop in de spaarstand staat.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Virtual,Virtualisatie,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Virtual.Description,Het effect van virtualisatietoepassingen op de achtergrondafbeelding.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Remote,Extern bureaublad,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Remote.Description,Het effect van externe bureaubladtoepassingen op de achtergrondafbeelding.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Fullscreen,Volledig schermmodus,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Fullscreen.Description,Het effect van het uitvoeren van elke toepassing in volledig scherm op de achtergrondafbeelding.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Focus,Focusmodus,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Focus.Description,Het effect van het hebben van een andere actieve toepassing in de focusmodus op de achtergrondafbeelding.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server,Winkelserver,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+Portal.PersonalSettingPage.Server.Description,Geeft aan welke server zal worden gebruikt om de in de winkel vermelde thema's weer te geven.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server.ServerHint,"Opmerking: Als {0} is geselecteerd als de server, is het noodzakelijk om een {2} in te voeren om verzoeklimieten te vermijden. Anders kunt u problemen ondervinden bij het openen van thema's in de winkel. Als {1} is geselecteerd, hebt u een soepelere winkelervaring.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Duration,Winkel Vernieuwen,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+Portal.PersonalSettingPage.Duration.Description,Hoe vaak de thema's in de winkellijst vernieuwd moeten worden.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.StoreStart,Automatisch Starten,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+Portal.PersonalSettingPage.StoreStart.Description,Of een gedownload thema automatisch als achtergrond moet worden ingesteld.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adult,Onveilige Inhoud,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+Portal.PersonalSettingPage.Adult.Description,Of inhoud die als niet veilig voor werk (NSFW) is gemarkeerd in de winkel getoond moet worden.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Confirm,Verwijderingsbevestiging,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+Portal.PersonalSettingPage.Confirm.Description,Of er een bevestiging moet worden gevraagd bij het verwijderen van thema's uit de bibliotheek.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete,Beschadigde Themata,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+Portal.PersonalSettingPage.Delete.Description,Of beschadigde of ontbrekende thema's in de bibliotheek automatisch verwijderd moeten worden.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete.DeleteHint,"Let op: Wees voorzichtig, want dit kan gegevensverlies veroorzaken.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.LibraryStart,Automatisch Starten,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+Portal.PersonalSettingPage.LibraryStart.Description,Of een gemaakt thema automatisch als achtergrond moet worden ingesteld.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Preview,Themavoorbeeld,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+Portal.PersonalSettingPage.Preview.Description,Of thema's moeten worden gepreviewd wanneer u eroverheen gaat met de muisaanwijzer.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Preview.StorePreview,Winkelvoorbeeld:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+Portal.PersonalSettingPage.Preview.StorePreviewHide,Details Verbergen:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Preview.LibraryPreview,Bibliotheekvoorbeeld:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Details Verbergen:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive,Aanpasbaar Lay-out,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+Portal.PersonalSettingPage.Adaptive.Description,Pas de lay-out of afstand van weergegeven thema's aan.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Margeafstand (pixels):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Lay-outvolgorde (aantal):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort,Bibliotheek Sorteren,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+Portal.PersonalSettingPage.Sort.Description,Bepaal hoe thema's in uw bibliotheek worden gesorteerd en in welk formaat.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortMode,Sorteermode:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,Sorteertype:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Store,Winkel Paginering,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+Portal.PersonalSettingPage.Store.Description,Bepaal hoeveel thema's er op elke pagina in de winkel worden weergegeven.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Library,Bibliotheek Paginering,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+Portal.PersonalSettingPage.Library.Description,Bepaal hoeveel thema's er op elke pagina in uw bibliotheek worden weergegeven.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary,Logbestanden,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+Portal.SystemSettingPage.LogTemporary.Description,Beheer alle logbestanden die de toepassing heeft aangemaakt.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Create,Aanmaken,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Delete,Opschonen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,Opmerking: Totale ruimte ingenomen door logbestanden is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary,Cache Opruimen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+Portal.SystemSettingPage.CacheTemporary.Description,Ruim alle cachebestanden op die de toepassing heeft aangemaakt.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Start,Begin met Opruimen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,Opmerking: Totale ruimte ingenomen door cachebestanden is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary,Winkel Opruimen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+Portal.SystemSettingPage.StoreTemporary.Description,Ruim alle winkelbestanden op die de toepassing heeft aangemaakt.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Start,Begin met Opruimen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,Opmerking: Totale ruimte ingenomen door winkelbestanden is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary,Bibliotheek Opruimen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+Portal.SystemSettingPage.LibraryTemporary.Description,Ruim alle themabestanden op die in uw bibliotheek staan of die de toepassing heeft aangemaakt.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Start,Begin met Opruimen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,Opmerking: Totale ruimte ingenomen door themabestanden in uw bibliotheek is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup,Instellingsbestanden,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+Portal.SystemSettingPage.SettingBackup.Description,Beheer alle instellingsbestanden die de toepassing heeft aangemaakt.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Export,Back-up maken,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Import,Herstellen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,Opmerking: Alle toepassingen worden afgesloten wanneer de geselecteerde bewerking begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset,Instellingen Herstellen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+Portal.SystemSettingPage.SettingReset.Description,Herstel alle instellingenbestanden die de toepassing heeft aangemaakt.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Start,Begin met Herstellen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,Opmerking: Alle toepassingen worden afgesloten wanneer het herstellen begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.Log.SaveDialogTitle,Logbestand Opslaan,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.Access.Close,Begrepen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+Portal.SystemSettingPage.Access.Title,Toegangswaarschuwing,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+Portal.SystemSettingPage.Access.Message,U heeft geen toestemming om toegang te krijgen tot de geselecteerde locatie.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode,Interactiemethode,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+Portal.WallpaperSettingPage.InputMode.Description,Bepaalt de methoden waarmee interactie kan plaatsvinden met ondersteunde achtergronden.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.InputModule,Interactiemodule:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.InputDesktop,Interactie alleen verwerken wanneer het bureaublad is gefocust,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,Verbergen om per ongeluk selecteren van bureaubladpictogrammen te voorkomen,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.ScreenLayout,Schermindeling,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+Portal.WallpaperSettingPage.ScreenLayout.Description,Wijzigt de schikking van uw achtergronden op het scherm.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.StretchMode,Rekmodus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+Portal.WallpaperSettingPage.StretchMode.Description,Verandert de schaalmethode voor ondersteunde achtergronden.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.LoopMode,Herhalingsmodus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+Portal.WallpaperSettingPage.LoopMode.Description,Verandert de herhalingsinstelling voor ondersteunde achtergronden.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.ShuffleMode,Schudmodus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+Portal.WallpaperSettingPage.ShuffleMode.Description,Verandert de schudinstelling voor ondersteunde achtergronden.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.GifPlayer,Gif Speler,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+Portal.WallpaperSettingPage.GifPlayer.Description,Selecteer de plug-in die Gif-thema's in uw bibliotheek zal afspelen.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.VideoPlayer,Video Speler,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+Portal.WallpaperSettingPage.VideoPlayer.Description,Selecteer de plug-in die Video-thema's in uw bibliotheek zal afspelen.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.UrlPlayer,Url Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+Portal.WallpaperSettingPage.UrlPlayer.Description,Selecteer de motor die Url-thema's in uw bibliotheek zal uitvoeren.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.WebPlayer,Web Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+Portal.WallpaperSettingPage.WebPlayer.Description,Selecteer de motor die Web-thema's in uw bibliotheek zal uitvoeren.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.YouTubePlayer,YouTube Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+Portal.WallpaperSettingPage.YouTubePlayer.Description,Selecteer de motor die YouTube-thema's in uw bibliotheek zal uitvoeren.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.ApplicationPlayer,Toepassingsmotor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+Portal.WallpaperSettingPage.ApplicationPlayer.Description,Selecteer de motor die Toepassings-thema's in uw bibliotheek zal uitvoeren.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,
+PASS⦙267,PASS⦙267,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,Please don't touch the translation in this line.
+Portal.BrokenStorePage.TitleText,Een Moment van Gedoofde Internetlichten,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,
+Portal.BrokenStorePage.DescriptionText,"Zoals een sterrenloze hemel, hier ontbreekt de glans van het internet",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,
+Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.NL.xaml,
+Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,
+PASS⦙268,PASS⦙268,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,Please don't touch the translation in this line.
+Portal.SearchStorePage.TitleText,Het Antwoord op wat je zoekt kan in de lucht verborgen zijn,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,
+Portal.SearchStorePage.DescriptionText,"Als de resultaten niet zijn wat je verwachtte, kan de lucht je een nieuwe ervaring bieden",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,
+Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,
+PASS⦙269,PASS⦙269,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,Please don't touch the translation in this line.
+Portal.UnknownStorePage.TitleText,Ontdek het mysterieuze geval in de winkel,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,
+Portal.UnknownStorePage.DescriptionText,Ga op zoek naar het onbekende en begin aan een reis om het mysterieuze geval in de winkel op te helderen,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,

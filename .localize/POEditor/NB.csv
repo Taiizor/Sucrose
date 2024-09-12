@@ -1,0 +1,1157 @@
+Term,Translate,Context,Reference,Comment
+Base64⦙0,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGl2ZS9MaXZlLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmRvL1VuZG8uTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlVwZGF0ZS9VcGRhdGUuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC5OQi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlByb3BlcnR5L1Byb3BlcnR5Lk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYXRjaGRvZy9XYXRjaGRvZy5OQi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Locale.NB.xaml,Please don't touch the translation in this line.
+Discord.BrowseButton,Bla Gjennom,,Discord\Discord.NB.xaml,
+Discord.Details,Bakgrunnsmotor,,Discord\Discord.NB.xaml,
+Discord.DownloadButton,Last Ned,,Discord\Discord.NB.xaml,
+PASS⦙0,PASS⦙0,Don't Touch,Discord\Discord.NB.xaml,Please don't touch the translation in this line.
+Discord.LargestText0,Bananglassmaktkraft,,Discord\Discord.NB.xaml,
+Discord.LargestText1,Smilende Hattemonster,,Discord\Discord.NB.xaml,
+Discord.LargestText2,Fargerike Spurve som Farger Skyene,,Discord\Discord.NB.xaml,
+Discord.LargestText3,Løpende Pingviners Hemmelige Eventyr,,Discord\Discord.NB.xaml,
+Discord.LargestText4,Kaniner som Har Forsvunnet i Prestekragefeltet,,Discord\Discord.NB.xaml,
+Discord.LargestText5,Sangende Vindblomster,,Discord\Discord.NB.xaml,
+Discord.LargestText6,Mystiske bier i hemmelig skog,,Discord\Discord.NB.xaml,
+Discord.LargestText7,Drømmeaktig fiskestim,,Discord\Discord.NB.xaml,
+Discord.LargestText8,Krystalløyde dragedanser,,Discord\Discord.NB.xaml,
+Discord.LargestText9,Eventyrsti dekket med blomster,,Discord\Discord.NB.xaml,
+Discord.LargestText10,Stjerner faller fra himmelen,,Discord\Discord.NB.xaml,
+Discord.LargestText11,Dans under det knuste månelyset,,Discord\Discord.NB.xaml,
+Discord.LargestText12,Mystiske regnbue drager,,Discord\Discord.NB.xaml,
+Discord.LargestText13,Magisk skogeventyr,,Discord\Discord.NB.xaml,
+Discord.LargestText14,Blomsterregn mot himmelen,,Discord\Discord.NB.xaml,
+Discord.LargestText15,Tidens stille berøring,,Discord\Discord.NB.xaml,
+Discord.LargestText16,Surrealistisk drømmeland,,Discord\Discord.NB.xaml,
+Discord.LargestText17,Gullfossenes sanger,,Discord\Discord.NB.xaml,
+Discord.LargestText18,Eventyrbåter som svever mot himmelen,,Discord\Discord.NB.xaml,
+Discord.LargestText19,Fargerik ballongskog,,Discord\Discord.NB.xaml,
+Discord.LargestText20,Mystisk undervannsby,,Discord\Discord.NB.xaml,
+Discord.LargestText21,Stjernestøvde himmel,,Discord\Discord.NB.xaml,
+Discord.LargestText22,Vinder som forfølger det ukjente,,Discord\Discord.NB.xaml,
+Discord.LargestText23,Fengende historier under månelys,,Discord\Discord.NB.xaml,
+PASS⦙1,PASS⦙1,Don't Touch,Discord\Discord.NB.xaml,Please don't touch the translation in this line.
+Discord.SmallestText0,Mystiske Fotspor,,Discord\Discord.NB.xaml,
+Discord.SmallestText1,Flyvende Ballongfisk,,Discord\Discord.NB.xaml,
+Discord.SmallestText2,Blomster som Ler Høyt,,Discord\Discord.NB.xaml,
+Discord.SmallestText3,Søtsmakende Sukkervatnskyer,,Discord\Discord.NB.xaml,
+Discord.SmallestText4,Frosne Pizzadrager,,Discord\Discord.NB.xaml,
+Discord.SmallestText5,Lyse Soppkorsarer,,Discord\Discord.NB.xaml,
+Discord.SmallestText6,Usynlige enhjørningsfotspor,,Discord\Discord.NB.xaml,
+Discord.SmallestText7,Fargede støvskyer,,Discord\Discord.NB.xaml,
+Discord.SmallestText8,Gullballong sommerfugler,,Discord\Discord.NB.xaml,
+Discord.SmallestText9,Sukkerkraterreise,,Discord\Discord.NB.xaml,
+Discord.SmallestText10,Pizzastråler flyr med rakett,,Discord\Discord.NB.xaml,
+Discord.SmallestText11,Dansende sjøskjell med solen,,Discord\Discord.NB.xaml,
+Discord.SmallestText12,Usynlige stjernedryppende fingre,,Discord\Discord.NB.xaml,
+Discord.SmallestText13,Tåkete undervannsdans,,Discord\Discord.NB.xaml,
+Discord.SmallestText14,Regnbuefuglmigrasjon,,Discord\Discord.NB.xaml,
+Discord.SmallestText15,Sukkerstormens vei,,Discord\Discord.NB.xaml,
+Discord.SmallestText16,Uendelig pizzagalakse,,Discord\Discord.NB.xaml,
+Discord.SmallestText17,Solen smiler,,Discord\Discord.NB.xaml,
+Discord.SmallestText18,Den tapte latteren til den skjulte dammen,,Discord\Discord.NB.xaml,
+Discord.SmallestText19,Drømmefuglenes skygge,,Discord\Discord.NB.xaml,
+Discord.SmallestText20,Sommerfugler som stiger mot himmelen,,Discord\Discord.NB.xaml,
+Discord.SmallestText21,Sanger skjult bak stjernene,,Discord\Discord.NB.xaml,
+Discord.SmallestText22,Tåkete fjell i eventyret,,Discord\Discord.NB.xaml,
+Discord.SmallestText23,Den mystiske skogens fe,,Discord\Discord.NB.xaml,
+PASS⦙2,PASS⦙2,Don't Touch,Discord\Discord.NB.xaml,Please don't touch the translation in this line.
+Discord.StatementText0,Et Univers Fylt av Kaos,,Discord\Discord.NB.xaml,
+Discord.StatementText1,Midt i Uendelige Eventyr,,Discord\Discord.NB.xaml,
+Discord.StatementText2,En Merkelig og Magisk Verden,,Discord\Discord.NB.xaml,
+Discord.StatementText3,Som Utfordrer Fantasiens Grenser,,Discord\Discord.NB.xaml,
+Discord.StatementText4,En Uvanlig Virkelighet,,Discord\Discord.NB.xaml,
+Discord.StatementText5,I Fantasiens Dyp,,Discord\Discord.NB.xaml,
+Discord.StatementText6,En Magisk Oppdagelsesreise,,Discord\Discord.NB.xaml,
+Discord.StatementText7,Ved Porten til Ukjente Riker,,Discord\Discord.NB.xaml,
+Discord.StatementText8,En Kompleks Drømmeverden,,Discord\Discord.NB.xaml,
+Discord.StatementText9,En Eventyr som Utfordrer Grensene,,Discord\Discord.NB.xaml,
+Discord.StatementText10,En Dynamisk og Overraskende Opplevelse,,Discord\Discord.NB.xaml,
+Discord.StatementText11,I en Fantastisk Eventyrfortelling,,Discord\Discord.NB.xaml,
+Discord.StatementText12,Mellom magiske porter,,Discord\Discord.NB.xaml,
+Discord.StatementText13,Reise til nattehimmelen,,Discord\Discord.NB.xaml,
+Discord.StatementText14,På sporet av den tapte kontinentet,,Discord\Discord.NB.xaml,
+Discord.StatementText15,Historien om ukjente planeter,,Discord\Discord.NB.xaml,
+Discord.StatementText16,Utforsking av parallelle universer,,Discord\Discord.NB.xaml,
+Discord.StatementText17,Inngangen til legendariske riker,,Discord\Discord.NB.xaml,
+Discord.StatementText18,Vevd virkelighet med drømmens tekstur,,Discord\Discord.NB.xaml,
+Discord.StatementText19,En drøm blant stjernene,,Discord\Discord.NB.xaml,
+Discord.StatementText20,Bak dørene til tiden,,Discord\Discord.NB.xaml,
+Discord.StatementText21,Det glitrende stjernelaget,,Discord\Discord.NB.xaml,
+Discord.StatementText22,Det ukjente roper stille,,Discord\Discord.NB.xaml,
+Discord.StatementText23,En fengslende verden,,Discord\Discord.NB.xaml,
+Discord.StatementText24,På toppen av de mystiske fjellene,,Discord\Discord.NB.xaml,
+Discord.StatementText25,På sporet av tapte riker,,Discord\Discord.NB.xaml,
+Discord.StatementText26,Drømmereisen mellom stjernene,,Discord\Discord.NB.xaml,
+Discord.StatementText27,Magiske nattskapninger,,Discord\Discord.NB.xaml,
+Discord.StatementText28,Starten på en uendelig fortelling,,Discord\Discord.NB.xaml,
+Discord.StatementText29,Fargerike ballonger som stiger til himmelen,,Discord\Discord.NB.xaml,
+Discord.StatementText30,Mystisk nattsky,,Discord\Discord.NB.xaml,
+Discord.StatementText31,Drømmestien til det tapte kongeriket,,Discord\Discord.NB.xaml,
+Discord.StatementText32,Porten til ukjente riker,,Discord\Discord.NB.xaml,
+Discord.StatementText33,Dans i armene til tiden,,Discord\Discord.NB.xaml,
+Discord.StatementText34,Historier begravd i natten,,Discord\Discord.NB.xaml,
+Discord.StatementText35,Magisk speilverden,,Discord\Discord.NB.xaml,
+Discord.StatementText36,Reise ved portene av uendeligheten,,Discord\Discord.NB.xaml,
+Discord.StatementText37,Nattreisen til drømmejegeren,,Discord\Discord.NB.xaml,
+Discord.StatementText38,Drømmen om en krystallby,,Discord\Discord.NB.xaml,
+Discord.StatementText39,Stjerner som skinner i mørket,,Discord\Discord.NB.xaml,
+Discord.StatementText40,Mystisk natt bak stjernene,,Discord\Discord.NB.xaml,
+Discord.StatementText41,Mystiske måneskinnsfortellinger,,Discord\Discord.NB.xaml,
+Discord.StatementText42,Ved terskelen til ukjente verdener,,Discord\Discord.NB.xaml,
+Discord.StatementText43,Mystiske veier på magisk natt,,Discord\Discord.NB.xaml,
+Discord.StatementText44,Drømmende ballonger som stiger til himmelen,,Discord\Discord.NB.xaml,
+Discord.StatementText45,Drømmestien under stjernene,,Discord\Discord.NB.xaml,
+Discord.StatementText46,Den skjulte byen ved stjernebredden,,Discord\Discord.NB.xaml,
+Discord.StatementText47,Eventyret bak tåkefjellet,,Discord\Discord.NB.xaml,
+Discord.StatementText48,Stjernespekket natt i mørket,,Discord\Discord.NB.xaml,
+Launcher.WallCustomizeText,Tilpass Bakgrunn,,Launcher\Launcher.NB.xaml,
+PASS⦙3,PASS⦙3,Don't Touch,Launcher\Launcher.NB.xaml,Please don't touch the translation in this line.
+Launcher.CreateLogText,Opprett Loggfil,,Launcher\Launcher.NB.xaml,
+PASS⦙4,PASS⦙4,Don't Touch,Launcher\Launcher.NB.xaml,Please don't touch the translation in this line.
+Launcher.ExitText,Avslutt,,Launcher\Launcher.NB.xaml,
+PASS⦙5,PASS⦙5,Don't Touch,Launcher\Launcher.NB.xaml,Please don't touch the translation in this line.
+Launcher.OpenReportText,Rapporter et problem,,Launcher\Launcher.NB.xaml,
+PASS⦙6,PASS⦙6,Don't Touch,Launcher\Launcher.NB.xaml,Please don't touch the translation in this line.
+Launcher.OpenText,Åpne Sucrose,,Launcher\Launcher.NB.xaml,
+PASS⦙7,PASS⦙7,Don't Touch,Launcher\Launcher.NB.xaml,Please don't touch the translation in this line.
+Launcher.ReportText,Rapporter et problem,,Launcher\Launcher.NB.xaml,
+PASS⦙8,PASS⦙8,Don't Touch,Launcher\Launcher.NB.xaml,Please don't touch the translation in this line.
+Launcher.ReportWindowTitle,Sucrose Diagnostikk,,Launcher\Launcher.NB.xaml,
+PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.NB.xaml,Please don't touch the translation in this line.
+Launcher.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*,,Launcher\Launcher.NB.xaml,
+Launcher.SaveDialogTitle,Lagre Loggfil,,Launcher\Launcher.NB.xaml,
+PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.NB.xaml,Please don't touch the translation in this line.
+Launcher.SettingText,Innstillinger,,Launcher\Launcher.NB.xaml,
+PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.NB.xaml,Please don't touch the translation in this line.
+Launcher.TrayText,Sucrose Wallpaper Engine,,Launcher\Launcher.NB.xaml,
+PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.NB.xaml,Please don't touch the translation in this line.
+Launcher.WallChangeText,Endre Bakgrunn,,Launcher\Launcher.NB.xaml,
+Launcher.WallCloseText,Lukk Bakgrunn,,Launcher\Launcher.NB.xaml,
+Launcher.WallOpenText,Åpne Bakgrunn,,Launcher\Launcher.NB.xaml,
+Launcher.WallStartText,Start Bakgrunn,,Launcher\Launcher.NB.xaml,
+Launcher.WallStopText,Stopp Bakgrunn,,Launcher\Launcher.NB.xaml,
+PASS⦙13,PASS⦙13,Don't Touch,Launcher\Launcher.NB.xaml,Please don't touch the translation in this line.
+Launcher.ClosedText,Lukket,,Launcher\Launcher.NB.xaml,
+Launcher.PausedText,Pauset,,Launcher\Launcher.NB.xaml,
+PASS⦙14,PASS⦙14,Don't Touch,Launcher\Launcher.NB.xaml,Please don't touch the translation in this line.
+Launcher.UpdateText,Sjekk etter Oppdateringer,,Launcher\Launcher.NB.xaml,
+PASS⦙15,PASS⦙15,Don't Touch,Launcher\Launcher.NB.xaml,Please don't touch the translation in this line.
+Launcher.UpdateText.Done,Forbereder Oppdatering,,Launcher\Launcher.NB.xaml,
+Launcher.UpdateText.Check,Sjekker etter Oppdateringer,,Launcher\Launcher.NB.xaml,
+Launcher.UpdateText.Progress,Oppdateringsprogresjon {0},,Launcher\Launcher.NB.xaml,
+Live.Title,{0} Varsel,,Live\Live.NB.xaml,
+PASS⦙16,PASS⦙16,Don't Touch,Live\Live.NB.xaml,Please don't touch the translation in this line.
+Live.Close,Lukk,,Live\Live.NB.xaml,
+Live.Continue,Fortsett,,Live\Live.NB.xaml,
+Live.Download,Last Ned,,Live\Live.NB.xaml,
+Live.Remember,Husk,,Live\Live.NB.xaml,
+PASS⦙17,PASS⦙17,Don't Touch,Live\Live.NB.xaml,Please don't touch the translation in this line.
+Live.Info.WebView,WebView-Krav,,Live\Live.NB.xaml,
+Live.Info.CefSharp,CefSharp-Krav,,Live\Live.NB.xaml,
+PASS⦙18,PASS⦙18,Don't Touch,Live\Live.NB.xaml,Please don't touch the translation in this line.
+Live.Message.WebView,WebView2 Runtime er ikke installert. WebView2 Runtime er en komponent som gjør det mulig å bruke moderne webteknologier i applikasjoner. Derfor er WebView2 Runtime nødvendig for å sette den valgte bakgrunnen.,,Live\Live.NB.xaml,
+Live.Message.CefSharp,VC++ Redistributable er ikke installert. VC++ Redistributable gir noen systemkomponenter som er nødvendige for at CefSharp skal fungere ordentlig. CefSharp er et rammeverk som gjør det mulig å bruke moderne webteknologier i applikasjoner. Derfor er VC++ Redistributable nødvendig for å sette den valgte bakgrunnen.,,Live\Live.NB.xaml,
+Base64⦙1,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5OQi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5OQi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5Lk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93Lk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5OQi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\Portal.NB.xaml,Please don't touch the translation in this line.
+Property.WindowTitle,Sucrose Property,,Property\Property.NB.xaml,
+PASS⦙19,PASS⦙19,Don't Touch,Property\Property.NB.xaml,Please don't touch the translation in this line.
+Property.DeleteTip,Slett kopi,,Property\Property.NB.xaml,
+Property.RefreshTip,Oppdater grensesnitt,,Property\Property.NB.xaml,
+Property.RestoreTip,Gjenopprett standard,,Property\Property.NB.xaml,
+PASS⦙20,PASS⦙20,Don't Touch,Property\Property.NB.xaml,Please don't touch the translation in this line.
+Property.Type.NotSupport,Kontrolltypen '{0}' støttes ikke.,,Property\Property.NB.xaml,
+PASS⦙21,PASS⦙21,Don't Touch,Property\Property.NB.xaml,Please don't touch the translation in this line.
+Property.ColorPicker.Color,Farge,,Property\Property.NB.xaml,
+Property.ColorPicker.Cancel,Avbryt,,Property\Property.NB.xaml,
+Property.ColorPicker.Confirm,Bekreft,,Property\Property.NB.xaml,
+Property.ColorPicker.EyeDropper,Dråpeteller,,Property\Property.NB.xaml,
+Property.ColorPicker.Popup.Title,Sucrose Property Color Picker,,Property\Property.NB.xaml,
+PASS⦙22,PASS⦙22,Don't Touch,Property\Property.NB.xaml,Please don't touch the translation in this line.
+Property.FileDropDown.Tip,Velg en fil,,Property\Property.NB.xaml,
+Property.FileDropDown.Filter,Alle filer (*.*)|*.*,,Property\Property.NB.xaml,
+PASS⦙23,PASS⦙23,Don't Touch,Property\Property.NB.xaml,Please don't touch the translation in this line.
+Property.FileDropDown.Access.Close,Forstått,,Property\Property.NB.xaml,
+Property.FileDropDown.Access.Title,Tilgangsvarsel,,Property\Property.NB.xaml,
+Property.FileDropDown.Access.Message,Du har ikke tillatelse til å få tilgang til den valgte filen.,,Property\Property.NB.xaml,
+Undo.QuestionTitle,Sucrose Undo,,Undo\Undo.NB.xaml,
+PASS⦙24,PASS⦙24,Don't Touch,Undo\Undo.NB.xaml,Please don't touch the translation in this line.
+Undo.QuestionMessage,Ønsker du virkelig å avinstallere Sucrose Wallpaper Engine?,,Undo\Undo.NB.xaml,
+Undo.QuestionDescription,"For å fjerne med alle innstillinger, velg Ja; for å beholde innstillingene og bare fjerne, velg Nei; og for å avbryte fjerningsprosessen, velg Avbryt.",,Undo\Undo.NB.xaml,
+Update.WindowTitle,Sucrose Update,,Update\Update.NB.xaml,
+PASS⦙25,PASS⦙25,Don't Touch,Update\Update.NB.xaml,Please don't touch the translation in this line.
+Update.HelpText,Løs Problemet,,Update\Update.NB.xaml,
+PASS⦙26,PASS⦙26,Don't Touch,Update\Update.NB.xaml,Please don't touch the translation in this line.
+Update.ReloadText,PRØV IGJEN,,Update\Update.NB.xaml,
+PASS⦙27,PASS⦙27,Don't Touch,Update\Update.NB.xaml,Please don't touch the translation in this line.
+Update.ReloadText.Browser.Opened,ÅPNET I NETTLESER,,Update\Update.NB.xaml,
+Update.ReloadText.Browser.Opening,ÅPNER I NETTLESER,,Update\Update.NB.xaml,
+PASS⦙28,PASS⦙28,Don't Touch,Update\Update.NB.xaml,Please don't touch the translation in this line.
+Update.MessageText.Preparing,FORBEREDER NØDVENDIGE FORBEREDELSER,,Update\Update.NB.xaml,
+PASS⦙29,PASS⦙29,Don't Touch,Update\Update.NB.xaml,Please don't touch the translation in this line.
+Update.MessageText.Temporary,SJEKKER MIDlERTIDIGE LOKASJONER,,Update\Update.NB.xaml,
+Update.MessageText.Temporary.Error,MIDLERTIDIGE LOKASJONER KUNNE IKKE SJEKKES,,Update\Update.NB.xaml,
+PASS⦙30,PASS⦙30,Don't Touch,Update\Update.NB.xaml,Please don't touch the translation in this line.
+Update.MessageText.Connection,SJEKKER INTERNETTILKOBLING,,Update\Update.NB.xaml,
+Update.MessageText.Connection.None,INGEN INTERNETTILKOBLING,,Update\Update.NB.xaml,
+Update.MessageText.Connection.Error,INTERNETTILKOBLINGEN KUNNE IKKE SJEKKES,,Update\Update.NB.xaml,
+PASS⦙31,PASS⦙31,Don't Touch,Update\Update.NB.xaml,Please don't touch the translation in this line.
+Update.MessageText.Listing,HENTER DE NØDVENDIGE LISTENE,,Update\Update.NB.xaml,
+Update.MessageText.Listing.Empty,NØDVENDIGE LISTENE ER TOMME,,Update\Update.NB.xaml,
+Update.MessageText.Listing.Error,NØDVENDIGE LISTENE KUNNE IKKE MOTTAS,,Update\Update.NB.xaml,
+PASS⦙32,PASS⦙32,Don't Touch,Update\Update.NB.xaml,Please don't touch the translation in this line.
+Update.MessageText.Filtering,LISTENE BLIR FILTRERT,,Update\Update.NB.xaml,
+Update.MessageText.Filtering.Not,LISTENE KAN IKKE FILTRERES,,Update\Update.NB.xaml,
+Update.MessageText.Filtering.Error,LISTENE KUNNE IKKE FILTRERES,,Update\Update.NB.xaml,
+PASS⦙33,PASS⦙33,Don't Touch,Update\Update.NB.xaml,Please don't touch the translation in this line.
+Update.MessageText.Comparing,SAMMENLIGNER LISTER,,Update\Update.NB.xaml,
+Update.MessageText.Comparing.Update,APPLIKASJONEN ER ALLEREDE OPPDATERT,,Update\Update.NB.xaml,
+Update.MessageText.Comparing.Error,KUNNE IKKE SAMMENLIGNE LISTER,,Update\Update.NB.xaml,
+PASS⦙34,PASS⦙34,Don't Touch,Update\Update.NB.xaml,Please don't touch the translation in this line.
+Update.MessageText.Searching,LETER ETTER NØDVENDIGE FILER,,Update\Update.NB.xaml,
+Update.MessageText.Searching.Not,NØDVENDIGE FILER IKKE FUNNET,,Update\Update.NB.xaml,
+Update.MessageText.Searching.Error,NØDVENDIGE FILER KUNNE IKKE SØKES ETTER,,Update\Update.NB.xaml,
+Update.MessageText.Searching.Condition,NØDVENDIGE FILER IKKE FUNNET,,Update\Update.NB.xaml,
+PASS⦙35,PASS⦙35,Don't Touch,Update\Update.NB.xaml,Please don't touch the translation in this line.
+Update.MessageText.Downloading,NEDLASTING AV NØDVENDIGE FILER,,Update\Update.NB.xaml,
+Update.MessageText.Downloading.Error,NØDVENDIGE FILER KUNNE IKKE LASTES NED,,Update\Update.NB.xaml,
+Update.MessageText.Downloading.Complete.Cancel,NEDLASTINGEN AV DEN NØDVENDIGE FILEN BLE AVBRUTT,,Update\Update.NB.xaml,
+Update.MessageText.Downloading.Complete.Error,DET OPPSTO EN FEIL UNDER NEDLASTINGEN AV DEN NØDVENDIGE FILEN,,Update\Update.NB.xaml,
+PASS⦙36,PASS⦙36,Don't Touch,Update\Update.NB.xaml,Please don't touch the translation in this line.
+Update.MessageText.Running,FORBEREDER NEDLASTET FIL,,Update\Update.NB.xaml,
+Update.MessageText.Running.Executing,UTFØRER NEDLASTET FIL,,Update\Update.NB.xaml,
+Update.MessageText.Running.Executed,NEDLASTET FIL UTFØRT,,Update\Update.NB.xaml,
+Update.MessageText.Running.Not,NEDLASTET FIL IKKE BRUKBAR,,Update\Update.NB.xaml,
+Update.MessageText.Running.Error,KUNNE IKKE FORBEREDE NEDLASTET FIL,,Update\Update.NB.xaml,
+PASS⦙37,PASS⦙37,Don't Touch,Update\Update.NB.xaml,Please don't touch the translation in this line.
+Update.MessageText.Extracting,EKSTRAHERER DEN NEDLASTEDE FILEN,,Update\Update.NB.xaml,
+Update.MessageText.Extracting.Executing,DEN EKSTRAHERTE FILEN BLIR UTFØRT,,Update\Update.NB.xaml,
+Update.MessageText.Extracting.Executed,DEN EKSTRAHERTE FILEN HAR BLITT UTFØRT,,Update\Update.NB.xaml,
+Update.MessageText.Extracting.Failed,DEN NEDLASTEDE FILEN MISLYKTES,,Update\Update.NB.xaml,
+Update.MessageText.Extracting.Corrupt,DEN NEDLASTEDE FILEN ER KORRUPT,,Update\Update.NB.xaml,
+Update.MessageText.Extracting.Not,DEN NEDLASTEDE FILEN ER IKKE BRUKBAR,,Update\Update.NB.xaml,
+Update.MessageText.Extracting.Error,DEN NEDLASTEDE FILEN KUNNE IKKE EKSTRAHERES,,Update\Update.NB.xaml,
+Watchdog.HelpButton,Hjelp,,Watchdog\Watchdog.NB.xaml,
+Watchdog.CloseButton,Lukk,,Watchdog\Watchdog.NB.xaml,
+Watchdog.ErrorEmpty,Dessverre kunne ikke feildetaljene fanges opp.,,Watchdog\Watchdog.NB.xaml,
+Watchdog.ErrorMessage,Det oppstod en uventet feil:,,Watchdog\Watchdog.NB.xaml,
+Watchdog.ErrorTitle,Feil,,Watchdog\Watchdog.NB.xaml,
+Watchdog.HideButton,Skjul,,Watchdog\Watchdog.NB.xaml,
+Watchdog.ShowButton,Vis,,Watchdog\Watchdog.NB.xaml,
+Watchdog.StackTrace,Stakkspor:,,Watchdog\Watchdog.NB.xaml,
+Watchdog.WindowTitle,Sucrose Watchdog,,Watchdog\Watchdog.NB.xaml,
+Portal.Area.Data,Data,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Sound,Lyd,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Log,Logg,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Hook,Krok,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Store,Butikk,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Donate,Doner,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.System,System,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Cache,Buffer,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Laptop,Bærbar Datamaskin,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Support,Støtte,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Reset,Tilbakestill,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Backup,Sikkerhetskopiering,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Priority,Prioritet,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Engines,Motorer,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Update,Oppdatering,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Library,Bibliotek,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Developer,Utvikler,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.Extensions,Utvidelser,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.SystemResources,Systemressurser,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Area.AppearanceBehavior,Utseende og Oppførsel,,Portal\Area\Portal.Area.NB.xaml,
+Portal.Category.All,Alle,,Portal\Category\Portal.Category.NB.xaml,
+PASS⦙38,PASS⦙38,Don't Touch,Portal\Category\Portal.Category.NB.xaml,Please don't touch the translation in this line.
+Portal.Category.Abstract,Abstrakt,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Ambience,Atmosfære,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Animals,Dyr,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Animation,Animasjon,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Anime,Anime,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.ArchitectureandBuildings,Arkitektur og Bygninger,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.ArtandAbstract,Kunst og Abstrakt,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.ArtificialIntelligence,Kunstig Intelligens,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Artworks,Kunstverk,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Bard,Skald,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.BlackandWhite,Svart og Hvitt,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Brands,Merker,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.CartoonandComics,Tegnefilm og Tegneserier,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.CitiesandPlaces,Byer og Steder,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.CloudsandSkies,Skyer og Himmel,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Colorful,Fargerik,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.ColorfulGradients,Fargerike Gradients,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.ComicBooks,Tegneseriebøker,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.DigitalArt,Digital Kunst,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Dynamic,Dynamisk,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Education,Utdanning,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.EnchantedForests,Forheksete Skoger,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Fantasy,Fantasi,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Fashion,Mote,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.FilmandTV,Film og TV,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.FoodandDrinks,Mat og Drikke,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Galaxy,Galakse,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Game,Spill,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.GeometricPatterns,Geometriske Mønstre,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.HolidaysandSeasons,Ferie og Årstider,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.HorrorandHalloween,Skrekk og Halloween,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.InspirationalQuotes,Inspirerende Sitater,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.KidsandCartoon,Barn og Tegnefilm,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Landscape,Landskap,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Lifestyle,Livsstil,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.LineArt,Linjekunst,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Medieval,Middelalder,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Minimalist,Minimalistisk,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Music,Musikk,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Nature,Natur,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Nightscapes,Nattlandskap,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.PatternsandTextures,Mønstre og Teksturer,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Persons,Personer,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.PixelArt,Pikselkunst,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Retro,Retro,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Science,Vitenskap,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.ScienceFiction,Science Fiction,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Sky,Himmel,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Software,Programvare,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Space,Rom,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Sports,Sport,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Superheroes,Superhelter,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.System,System,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Tavern,Kro,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Technology,Teknologi,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Temple,Tempel,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Time,Tid,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.UnderwaterandMarine,Undervanns- og Marine,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Vehicles,Kjøretøy,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.Vintage,Vintage,,Portal\Category\Portal.Category.NB.xaml,
+Portal.Category.War,Krig,,Portal\Category\Portal.Category.NB.xaml,
+Base64⦙2,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVHJheUljb24vUG9ydGFsLlRyYXlJY29uLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJPdGhlckhlbHAvUG9ydGFsLk90aGVySGVscC5OQi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVFZGl0L1BvcnRhbC5UaGVtZUVkaXQuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlQ2FyZC9Qb3J0YWwuU3RvcmVDYXJkLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJPdGhlckFib3V0L1BvcnRhbC5PdGhlckFib3V0Lk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQYWdpbmF0aW9uL1BvcnRhbC5QYWdpbmF0aW9uLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZVNoYXJlL1BvcnRhbC5UaGVtZVNoYXJlLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5Q2FyZC9Qb3J0YWwuTGlicmFyeUNhcmQuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRGVsZXRlL1BvcnRhbC5UaGVtZURlbGV0ZS5OQi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVSZXZpZXcvUG9ydGFsLlRoZW1lUmV2aWV3Lk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUltcG9ydC9Qb3J0YWwuVGhlbWVJbXBvcnQuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lQ3JlYXRlL1BvcnRhbC5UaGVtZUNyZWF0ZS5OQi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVSZXBvcnQvUG9ydGFsLlRoZW1lUmVwb3J0Lk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJFeHBhbmRlckNhcmQvUG9ydGFsLkV4cGFuZGVyQ2FyZC5OQi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2FsbHBhcGVyQ3ljbGluZy9Qb3J0YWwuV2FsbHBhcGVyQ3ljbGluZy5OQi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRGlzcGxheVByZWZlcmVuY2VzL1BvcnRhbC5EaXNwbGF5UHJlZmVyZW5jZXMuTkIueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\Controls\Portal.Controls.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.Stretch.Fill,Fyll,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.Stretch.None,Ingen,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.Stretch.Uniform,Uniform,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.Stretch.UniformToFill,Uniform for å fylle,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙39,PASS⦙39,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.ReportType.Spam,Søppelpost,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.ReportType.Other,Annet,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.ReportType.Nudity,Nakenhet,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.ReportType.Harmful,Skadelig,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.ReportType.Violence,Vold,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.ReportType.Malicious,Ondsinnet,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.ReportType.CopyrightViolation,Brudd på Opphavsrett,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.ReportType.MisleadingInformation,Misvisende Informasjon,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙40,PASS⦙40,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.SortModeType.None,Ingen,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.SortModeType.Name,Navn,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.SortModeType.Creation,Opprettelse,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.SortModeType.Modification,Endring,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙41,PASS⦙41,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.InputType.Close,Lukket,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.InputType.OnlyMouse,Bare Mus,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.InputType.OnlyKeyboard,Bare Tastatur,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.InputType.MouseKeyboard,Mus og Tastatur,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.StoreType.GitHub,GitHub,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.StoreType.Soferity,Soferity,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.StretchType.Fill,Fyll,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.StretchType.None,Ingen,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.StretchType.Uniform,Uniform,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.StretchType.UniformToFill,Uniform for å fylle,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.CommunicationType.Pipe,Pipe,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CommunicationType.Signal,Signal,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.PerformanceType.Close,Lukk,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.PerformanceType.Pause,Pause,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.PerformanceType.Resume,Fortsett,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.WindowBackdropType.Mica,Mika,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.WindowBackdropType.None,Ingen,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.WindowBackdropType.Auto,Auto,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.WindowBackdropType.Tabbed,Faner,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.WindowBackdropType.Acrylic,Akryl,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.InputModuleType.Native,Native,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.InputModuleType.RawInput,RawInput,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.ChannelType.Release,Standard,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.ChannelType.PreRelease,Utvikler,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.TransitionType.Random,Tilfeldig,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.TransitionType.Sequential,Sekvensiell,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.PausePerformanceType.Heavy,Tung,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.PausePerformanceType.Light,Lett,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.SortKindType.Ascending,Stigende [A-Z],,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.SortKindType.Descending,Synkende [Z-A],,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.ExpandScreenType.Default,Standard,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.ExpandScreenType.Advanced,Avansert,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.UpdateType.Compressed,Komprimert,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.UpdateType.Executable,Kjørbar,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.ScreenType.WorkingArea,Arbeidsområde,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.ScreenType.DisplayBound,Skjermgrenser,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.DuplicateScreenType.Default,Standard,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.DuplicateScreenType.Advanced,Avansert,,Portal\Enum\Portal.Enum.NB.xaml,
+PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.NB.xaml,Please don't touch the translation in this line.
+Portal.Enum.CompatibilityType.Pass,Vellykket resultat,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.Tags,'Tags' har for mange verdier,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.Type,Tema er opprettet for en type som ikke støttes av applikasjonen,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.Title,'Title' verdien er tom eller for lang,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.Access,Du har ikke tillatelse til å få tilgang til den aktuelle filen,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.Author,'Author' verdien er tom eller for lang,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.Folder,Temafiler er ikke i rotkatalogen til arkivet,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.Source,'Source' filen ble ikke funnet,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.Contact,'Contact' verdien er tom eller for lang,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.Preview,'Preview' filen ble ikke funnet,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.Encrypt,Den tilknyttede filen er kryptert,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.ZipType,Den tilknyttede filen er faktisk ikke en '.zip' fil,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.InfoFile,'SucroseInfo.json' filen ble ikke funnet,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.NotFound,Den tilknyttede filen ble ikke funnet,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.LoopMode,Ugyldig 'LoopMode' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.Arguments,'Arguments' verdien er for lang,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.Extension,Den tilknyttede filen har ikke '.zip' filendelse,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.Thumbnail,'Thumbnail' filen ble ikke funnet,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.SystemCpu,Ugyldig 'SystemCpu' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.EmptyInfo,'SucroseInfo.json' filen er tom,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.AppVersion,Temaet er opprettet for en høyere versjon av applikasjonen,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.InvalidUrl,'Source' inneholder en ugyldig verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.SystemBios,Ugyldig 'SystemBios' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.SystemDate,Ugyldig 'SystemDate' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.SystemAudio,Ugyldig 'SystemAudio' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.Description,'Description' verdien er tom eller for lang,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.InvalidInfo,'SucroseInfo.json' filen er ugyldig,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.TriggerTime,Ugyldig 'TriggerTime' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.StretchMode,Ugyldig 'StretchMode' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.VolumeLevel,Ugyldig 'VolumeLevel' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.ShuffleMode,Ugyldig 'ShuffleMode' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.InvalidTags,'Tags' verdiene er enten for korte eller for lange,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.InvalidFile,Ugyldig fil,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.PropertyList,'PropertyList' verdien er tom,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.SystemMemory,Ugyldig 'SystemMemory' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.SystemBattery,Ugyldig 'SystemBattery' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.SystemGraphic,Ugyldig 'SystemGraphic' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.SystemNetwork,Ugyldig 'SystemNetwork' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.InvalidContact,'Contact' verdien er verken en 'URL' eller en 'E-postadresse',,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.InvalidExtension,Ugyldig filtype,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.EmptyCompatible,'SucroseCompatible.json' filen er tom,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.EmptyProperties,'SucroseProperties.json' filen er tom,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.PropertyListener,Ugyldig 'PropertyListener' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.SystemMotherboard,Ugyldig 'SystemMotherboard' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.InvalidCompatible,'SucroseCompatible.json' filen er ugyldig,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.InvalidProperties,'SucroseProperties.json' filen er ugyldig,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.PropertyLocalization,Ugyldig 'PropertyLocalization' verdi,,Portal\Enum\Portal.Enum.NB.xaml,
+Portal.Enum.CompatibilityType.UnforeseenConsequences,Uforutsette Konsekvenser,,Portal\Enum\Portal.Enum.NB.xaml,
+Base64⦙3,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5OQi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.NB.xaml,Please don't touch the translation in this line.
+PASS⦙57,PASS⦙57,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.NB.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.NB.xaml,
+PASS⦙58,PASS⦙58,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.NB.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Import.Successful,Temaen med navnet '{0}' ble lagt til i tema-biblioteket ditt.,,Portal\LibraryPage\Portal.LibraryPage.NB.xaml,
+Portal.LibraryPage.Import.Unsuccessful,Temaen med navnet '{0}' kunne ikke legges til i tema-biblioteket. Årsak: '{1}'.,,Portal\LibraryPage\Portal.LibraryPage.NB.xaml,
+Portal.MainWindow.Title,Sucrose Wallpaper Engine,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+PASS⦙59,PASS⦙59,Don't Touch,Portal\MainWindow\Portal.MainWindow.NB.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuHelp,Hjelp,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuAbout,Om,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+PASS⦙60,PASS⦙60,Don't Touch,Portal\MainWindow\Portal.MainWindow.NB.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuHelpTip,Vis hjelp,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuAboutTip,Vis informasjon,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+PASS⦙61,PASS⦙61,Don't Touch,Portal\MainWindow\Portal.MainWindow.NB.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuLibrary,Bibliotek,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuStore,Butikk,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+PASS⦙62,PASS⦙62,Don't Touch,Portal\MainWindow\Portal.MainWindow.NB.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuLibraryTip,Tema bibliotek,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuStoreTip,Tema butikk,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+PASS⦙63,PASS⦙63,Don't Touch,Portal\MainWindow\Portal.MainWindow.NB.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuGeneral,Generelt,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuPersonal,Personlig,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuPerformance,Ytelse,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuWallpaper,Bakgrunn,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuSystem,System,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuDonate,Doner,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuOther,Annet,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.NB.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuBackTip,Gå tilbake,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuGeneralTip,Generelle innstillinger,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuPersonalTip,Personlige innstillinger,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuPerformanceTip,Ytelsesinnstillinger,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuWallpaperTip,Bakgrunnsinnstillinger,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuSystemTip,Systeminnstillinger,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuDonateTip,Donasjonsinnstillinger,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuOtherTip,Andre innstillinger,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.NB.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuSettingTip,Innstillinger,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.NB.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxHint,Søk etter en bakgrunn,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.NB.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxTip,Har du problemer med å finne det du trenger?,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.NB.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuLightTip,Lyst tema,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuDarkTip,Mørkt tema,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+PASS⦙69,PASS⦙69,Don't Touch,Portal\MainWindow\Portal.MainWindow.NB.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuCreateWallpaperTip,Opprett bakgrunn,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuWallpaperCyclingTip,Bakgrunnsbilder Sykling,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuDisplayPreferencesTip,Skjermpreferanser,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuDonateOptionsTip,Donasjonsalternativer,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Portal.MainWindow.MenuOtherOptionsTip,Andre alternativer,,Portal\MainWindow\Portal.MainWindow.NB.xaml,
+Base64⦙4,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5OQi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuTkIueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\SettingPage\Portal.SettingPage.NB.xaml,Please don't touch the translation in this line.
+Base64⦙5,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5OQi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLk5CLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==,Don't Touch,Portal\StorePage\Portal.StorePage.NB.xaml,Please don't touch the translation in this line.
+PASS⦙70,PASS⦙70,Don't Touch,Portal\StorePage\Portal.StorePage.NB.xaml,Please don't touch the translation in this line.
+Portal.StorePage.Title,StorePage,,Portal\StorePage\Portal.StorePage.NB.xaml,
+Portal.DisplayPreferences.Title,Skjermpreferanser,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,
+Portal.DisplayPreferences.Close,Lukk,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,
+PASS⦙71,PASS⦙71,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expander,Plasseringsmodus,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,
+Portal.DisplayPreferences.Expander.Description,Hvordan bakgrunnsbilder skal brukes på aktive skjermer.,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,
+PASS⦙72,PASS⦙72,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Screen,Bare valgt skjerm,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,
+PASS⦙73,PASS⦙73,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expand,Utvid over skjermer,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,
+PASS⦙74,PASS⦙74,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expand.Monitor,Alle skjermer,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,
+PASS⦙75,PASS⦙75,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expand.Hint,Velg utvidelsesmodus for skjermer,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,
+PASS⦙76,PASS⦙76,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate,Dupliser samme bakgrunnsbilde,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,
+PASS⦙77,PASS⦙77,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate.Hint,Velg duplisering av samme bakgrunnsbilde-modus,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NB.xaml,
+Portal.ExpanderCard.TitleText,Tittel,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.NB.xaml,
+Portal.ExpanderCard.DescriptionText,Beskrivelse,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.NB.xaml,
+PASS⦙78,PASS⦙78,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.NB.xaml,Please don't touch the translation in this line.
+Portal.ExpanderCard.ExpandUpTip,Krymp,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.NB.xaml,
+Portal.ExpanderCard.ExpandDownTip,Utvid,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.NB.xaml,
+Portal.LibraryCard.TitleText,Tittel,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+Portal.LibraryCard.DescriptionText,Beskrivelse,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+PASS⦙79,PASS⦙79,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.MoreTip,Mer,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+Portal.LibraryCard.VersionTip,"For å bruke dette temaet, må du oppdatere Sucrose",,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+PASS⦙80,PASS⦙80,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.MenuReview,Gjennomgå,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+Portal.LibraryCard.MenuUse,Bruk,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+Portal.LibraryCard.MenuPreview,Forhåndsvisning,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+Portal.LibraryCard.MenuCustomize,Tilpass,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+Portal.LibraryCard.MenuCyclingAdd,Legg til i Syklus,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+Portal.LibraryCard.MenuCyclingRemove,Fjern fra Syklus,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+Portal.LibraryCard.MenuFind,Finn,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+Portal.LibraryCard.MenuShare,Del,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+Portal.LibraryCard.MenuDelete,Slett,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+Portal.LibraryCard.MenuEdit,Rediger,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+PASS⦙81,PASS⦙81,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Closed,Lukket,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+Portal.LibraryCard.Paused,Pauset,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Selected,Valgt,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Incompatible,Inkompatibel,,Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,
+Portal.OtherAbout.Title,Om,,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,
+Portal.OtherAbout.Close,Lukk,,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,
+PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.About,"Hei, jeg heter Bayram Emekli, også kjent som brukernavnet Taiizor. Jeg er utvikleren av Sucrose Wallpaper Engine, en gratis og åpen kildekode-applikasjon. Takk for at du bruker programmet jeg har utviklet.",,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,
+PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Update,Versjon: v{0},,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,
+Portal.OtherAbout.Update.Description,Siste sjekk: {0},,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,
+PASS⦙86,PASS⦙86,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Update.Notes,Oppdateringsnotater,,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,
+PASS⦙87,PASS⦙87,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Partners,Partnere,,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,
+PASS⦙88,PASS⦙88,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Contributors,Bidragsytere,,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,
+PASS⦙89,PASS⦙89,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.TermsOfService,Bruksvilkår,,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,
+PASS⦙90,PASS⦙90,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.PrivacyPolicy,Personvernregler,,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,
+PASS⦙91,PASS⦙91,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.CodeOfConduct,Kode for god atferd,,Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,
+Portal.OtherHelp.Title,Hjelp,,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,
+Portal.OtherHelp.Close,Lukk,,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,
+PASS⦙92,PASS⦙92,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.WebPage,Nettside,,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,
+Portal.OtherHelp.WebPage.Description,Offisiell nettside for Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,
+PASS⦙93,PASS⦙93,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Documentation,Dokumentasjon,,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,
+Portal.OtherHelp.Documentation.Description,Offisiell dokumentasjonsside for Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,
+PASS⦙94,PASS⦙94,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Repository,Kildekode,,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,
+Portal.OtherHelp.Repository.Description,Offisiell kildekode-side for Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,
+PASS⦙95,PASS⦙95,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Discussions,Diskusjoner,,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,
+Portal.OtherHelp.Discussions.Description,Offisiell diskusjonsside for Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,
+PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Report,Feilmelding,,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,
+Portal.OtherHelp.Report.Description,Offisiell feilmeldingsside for Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.NB.xaml,
+Portal.Pagination.PageJump,Hopp,,Portal\Controls\Pagination\Portal.Pagination.NB.xaml,
+Portal.StoreCard.TitleText,Tittel,,Portal\Controls\StoreCard\Portal.StoreCard.NB.xaml,
+Portal.StoreCard.DescriptionText,Beskrivelse,,Portal\Controls\StoreCard\Portal.StoreCard.NB.xaml,
+PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.NB.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.VersionTip,"For å bruke dette temaet, må du oppdatere Sucrose",,Portal\Controls\StoreCard\Portal.StoreCard.NB.xaml,
+PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.NB.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.MenuUpdating,Sjekker Etter Oppdateringer,,Portal\Controls\StoreCard\Portal.StoreCard.NB.xaml,
+Portal.StoreCard.MenuUpdate,Sjekk Etter Oppdateringer,,Portal\Controls\StoreCard\Portal.StoreCard.NB.xaml,
+Portal.StoreCard.MenuInstall,Installer,,Portal\Controls\StoreCard\Portal.StoreCard.NB.xaml,
+Portal.StoreCard.MenuReport,Rapporter,,Portal\Controls\StoreCard\Portal.StoreCard.NB.xaml,
+PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.NB.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.Incompatible,Inkompatibel,,Portal\Controls\StoreCard\Portal.StoreCard.NB.xaml,
+Portal.ThemeCreate.Title,Opprett Tema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.Create,Opprett,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.Close,Lukk,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Gif,Gif Tema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.Gif.Description,Opprett ditt eget tema i Gif-format.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Url,Url Tema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.Url.Description,Opprett ditt eget tema i Url-format.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙102,PASS⦙102,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Web,Web Tema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.Web.Description,Opprett ditt eget tema i Web-format.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Video,Video Tema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.Video.Description,Opprett ditt eget tema i Video-format.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.YouTube,YouTube Tema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.YouTube.Description,Opprett ditt eget tema i YouTube-format.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Application,Application Tema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.Application.Description,Opprett ditt eget tema i Application-format.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemeUrl,Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeWeb,Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeApplication,Applikasjon,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeThumbnail,Forsidebilde,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemePreview,Forhåndsvisning,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeTitle,Tittel,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeDescription,Beskrivelse,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeAuthor,Forfatter,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeContact,Kontakt,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeTags,Merker,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeArguments,Argumenter,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemeUrl.Hint,Vennligst oppgi en gyldig URL,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeWeb.Hint,Velg en nettside,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeApplication.Hint,Velg en programfil,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeThumbnail.Hint,Velg et forsidebilde,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemePreview.Hint,Velg en forhåndsvisningsfil,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeTitle.Hint,Vennligst oppgi en gyldig tittel,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeDescription.Hint,Vennligst oppgi en gyldig beskrivelse,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeAuthor.Hint,Vennligst oppgi en gyldig forfatter,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeContact.Hint,Vennligst oppgi en gyldig kontaktadresse,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeTags.Hint,Vennligst oppgi gyldige tema-merker,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeArguments.Hint,Vennligst oppgi gyldige applikasjonsargumenter,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Delete,Angre,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Gif.Title,Velg Gif-fil,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.DragDrop.Gif.Filter,Gif-filer (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Video.Title,Velg Videofil,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.DragDrop.Video.Filter,Videofiler (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Gif,Dra og slipp Gif-filen din her,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.DragDrop.Video,Dra og slipp videofilen din her,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemeThumbnail.Title,Velg Forsidebilde,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemeThumbnail.Filter,Bildefiler (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙113,PASS⦙113,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemePreview.Title,Velg Forhåndsvisningsfil,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ThemePreview.Filter,Gif-filer (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.WebSource.Title,Velg Nettside,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.WebSource.Filter,Nettsider (*.html)|*.html,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ApplicationSource.Title,Velg Programfil,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.ApplicationSource.Filter,Programfiler (*.exe)|*.exe,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Copy.Close,Forstått,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.Copy.Title,Viktig Advarsel,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.Copy.Message,Den valgte filen vil bli inkludert i temaet sammen med alle andre filer og mapper i katalogen.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Access.Close,Forstått,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.Access.Title,Tilgangsvarsel,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeCreate.Access.Message,Du har ikke tillatelse til å få tilgang til den valgte filen.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,
+Portal.ThemeDelete.Title,Slett Tema,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.Delete,Slett,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.Close,Lukk,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeDelete.ThemeTitle,Tittel,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.ThemeDescription,Beskrivelse,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.ThemeType,Type,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.ThemeTypeName,Gif,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.ThemeAuthor,Forfatter,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.ThemeAuthorName,Taiizor,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.ThemeSize,Størrelse,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.ThemeSizeTotal,0 b,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.ThemeVersion,Versjon,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0),,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.ThemeTags,Merker,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.ThemeTagsText,Ingen,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.ThemeCreate,Opprettet,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.ThemeCreateDate,Ukjent,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.ThemeModify,Endret,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeDelete.ThemeModifyDate,Ukjent,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,
+Portal.ThemeEdit.Title,Rediger Tema,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,
+Portal.ThemeEdit.Close,Lukk,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,
+Portal.ThemeEdit.Save,Lagre,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,
+PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeEdit.ThemeTitle,Tittel,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,
+Portal.ThemeEdit.ThemeDescription,Beskrivelse,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,
+Portal.ThemeEdit.ThemeAuthor,Forfatter,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,
+Portal.ThemeEdit.ThemeContact,Kontakt,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,
+Portal.ThemeEdit.ThemeTags,Merker,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,
+Portal.ThemeEdit.ThemeArguments,Argumenter,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,
+PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeEdit.ThemeTitle.Hint,Vennligst oppgi en gyldig tittel,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,
+Portal.ThemeEdit.ThemeDescription.Hint,Vennligst oppgi en gyldig beskrivelse,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,
+Portal.ThemeEdit.ThemeAuthor.Hint,Vennligst oppgi en gyldig forfatter,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,
+Portal.ThemeEdit.ThemeContact.Hint,Vennligst oppgi en gyldig kontaktadresse,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,
+Portal.ThemeEdit.ThemeTags.Hint,Vennligst oppgi gyldige tema-merker,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,
+Portal.ThemeEdit.ThemeArguments.Hint,Vennligst oppgi gyldige applikasjonsargumenter,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.NB.xaml,
+Portal.ThemeImport.Title,Importer Tema,,Portal\Controls\ThemeImport\Portal.ThemeImport.NB.xaml,
+Portal.ThemeImport.Close,Lukk,,Portal\Controls\ThemeImport\Portal.ThemeImport.NB.xaml,
+PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeImport.Info,Tema Informasjon,,Portal\Controls\ThemeImport\Portal.ThemeImport.NB.xaml,
+Portal.ThemeImport.Type,Årsak Beskrivelser,,Portal\Controls\ThemeImport\Portal.ThemeImport.NB.xaml,
+Portal.ThemeReport.Title,Tema Rapportering,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+Portal.ThemeReport.Close,Lukk,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.ThemeTitle,Tittel,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+Portal.ThemeReport.ThemeDescription,Beskrivelse,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter,Rapport,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+Portal.ThemeReport.Reporter.Description,Spesifiser dine grunner for å rapportere temaet.,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Contact.Placeholder,Vennligst skriv inn en gyldig e-postadresse,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Description.Text,Tilleggsnotater:,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+Portal.ThemeReport.Reporter.Description.Placeholder,Vennligst beskriv grunnen til rapporten i detalj.,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Preparing,Forberedelser for rapportering vil starte snart..,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Checking,Nødvendige sjekker utføres for rapportering..,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+Portal.ThemeReport.Reporter.Checking.Error,En ukjent feil oppstod under nødvendige sjekker for rapportering.,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+Portal.ThemeReport.Reporter.Checking.Status,"Egnede forhold for rapportering kunne ikke opprettes for øyeblikket, vennligst prøv igjen senere..",,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+PASS⦙128,PASS⦙128,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Sending,Sender informasjon for rapportering..,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+Portal.ThemeReport.Reporter.Sending.Error,En feil oppstod under sending av rapporten.,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+Portal.ThemeReport.Reporter.Sending.Errored,En uventet feil oppstod under sending av rapporten: {0}.,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+Portal.ThemeReport.Reporter.Sending.Succeded,"Rapporten ble sendt vellykket, takk.",,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+PASS⦙129,PASS⦙129,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Network,En internettforbindelse er nødvendig for å rapportere.,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Report,Rapporter,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+Portal.ThemeReport.Reporter.GitHub,Rapporter fra GitHub,,Portal\Controls\ThemeReport\Portal.ThemeReport.NB.xaml,
+Portal.ThemeReview.Title,Gjennomgå Tema,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.Close,Lukk,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+PASS⦙131,PASS⦙131,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeReview.ThemeTitle,Tittel,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeDescription,Beskrivelse,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeType,Type,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeTypeName,Gif,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeAuthor,Forfatter,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeAuthorName,Taiizor,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeSize,Størrelse,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeSizeTotal,0 b,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeVersion,Versjon,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0),,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeTags,Merker,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeTagsText,Ingen,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeCreate,Opprettet,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeCreateDate,Ukjent,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeModify,Endret,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeModifyDate,Ukjent,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeReview.ThemeContact,Tema Kontaktadresse,,Portal\Controls\ThemeReview\Portal.ThemeReview.NB.xaml,
+Portal.ThemeShare.Title,Del Tema,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+Portal.ThemeShare.Close,Lukk,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemeTitle,Tittel,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+Portal.ThemeShare.ThemeDescription,Beskrivelse,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemeExport,Eksporter,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+Portal.ThemeShare.ThemePublish,Publiser i Butikk,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+Portal.ThemeShare.ThemeCopy,Kopier kobling,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+PASS⦙134,PASS⦙134,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Publish,Publiser,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+Portal.ThemeShare.ThemePublish.Preparing,Forberedelsene til publisering vil begynne snart..,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit,Din daglige temaopplastningsgrense blir sjekket..,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Du har nådd din daglige grense for opplastning av temaer, prøv igjen senere.",,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+Portal.ThemeShare.ThemePublish.Limit.Error,En ukjent feil oppstod ved sjekking av din daglige temaopplastningsgrense.,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Compress,Temaet blir komprimert før opplastning..,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+Portal.ThemeShare.ThemePublish.Compress.Error,En feil oppstod ved komprimering av temaet.,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size,Størrelsen på det komprimerte temaet blir sjekket..,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size.Exceeded,Det komprimerte temaet kan ikke lastes opp fordi det overstiger {0} MB.,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+PASS⦙140,PASS⦙140,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Check,Integriteten til det komprimerte temaet sjekkes før opplasting..,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+Portal.ThemeShare.ThemePublish.Check.Error,En feil oppstod under kontrollen av integriteten til det komprimerte temaet.,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload,Det komprimerte temaet blir forberedt for opplastning..,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload.Start,Det komprimerte temaet lastes opp..,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+Portal.ThemeShare.ThemePublish.Upload.Error,En ukjent feil oppstod ved opplastning av det komprimerte temaet.,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+Portal.ThemeShare.ThemePublish.Upload.Errored,En uventet feil oppstod ved opplastning av det komprimerte temaet: {0}.,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+Portal.ThemeShare.ThemePublish.Upload.Succeded,Det komprimerte temaet ble lastet opp med hell og vil bli publisert i butikken etter verifikasjon.,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+PASS⦙143,PASS⦙143,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+Portal.ThemeShare.SaveDialogTitle,Lagre Temafilen,,Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,
+Portal.TrayIcon.Title,Systemkurv,,Portal\Controls\TrayIcon\Portal.TrayIcon.NB.xaml,
+Portal.TrayIcon.Close,Lukk,,Portal\Controls\TrayIcon\Portal.TrayIcon.NB.xaml,
+PASS⦙144,PASS⦙144,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.NB.xaml,Please don't touch the translation in this line.
+Portal.TrayIcon.Message,Sucrose er minimert til systemkurven. Høyreklikk på Sucrose-ikonet for å fortsette.,,Portal\Controls\TrayIcon\Portal.TrayIcon.NB.xaml,
+Portal.WallpaperCycling.Title,Bakgrunnsbilder Sykling,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,
+Portal.WallpaperCycling.Close,Lukk,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,
+PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.Cycling,Automatisk Bakgrunnsbilder Sykling,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,
+Portal.WallpaperCycling.Cycling.Description,Om bakgrunnen endres automatisk eller ikke.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,
+PASS⦙146,PASS⦙146,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.Time,Tidsintervall,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,
+Portal.WallpaperCycling.Time.Description,Tidsintervallet etter hvilket bakgrunnen endres.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,
+PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.Transition,Overgangsmodus,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,
+Portal.WallpaperCycling.Transition.Description,Angir overgangsmodus mellom bakgrunnsbilder.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,
+PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.List,Syklusliste,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,
+Portal.WallpaperCycling.List.Description,Tilbakestiller sykluslisten til standard.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,
+PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.List.Reset,Tilbakestill,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,
+Portal.EmptyLibraryPage.Title,EmptyLibraryPage,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.NB.xaml,
+PASS⦙150,PASS⦙150,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.NB.xaml,Please don't touch the translation in this line.
+Portal.EmptyLibraryPage.TitleText,Biblioteket ditt er innhyllet i edderkoppnett,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.NB.xaml,
+Portal.EmptyLibraryPage.DescriptionText,I stedet for bakgrunnsbilder har du fått et praktverk av edderkoppnett,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.NB.xaml,
+Portal.FullLibraryPage.Title,FullLibraryPage,,Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.NB.xaml,
+Portal.SearchLibraryPage.Title,SearchLibraryPage,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.NB.xaml,
+PASS⦙151,PASS⦙151,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SearchLibraryPage.TitleText,Biblioteket ditt er forhekset av edderkoppnett,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.NB.xaml,
+Portal.SearchLibraryPage.DescriptionText,På grunn av din nøye utvalgte bakgrunnsbilder er det ikke plass igjen til flere,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.NB.xaml,
+Portal.DonateSettingPage.Title,DonateSettingPage,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NB.xaml,
+PASS⦙152,PASS⦙152,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.DonateMenu,Donasjonsmeny,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NB.xaml,
+Portal.DonateSettingPage.DonateMenu.Description,Synligheten til donasjonsmenyen i grensesnittet.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NB.xaml,
+PASS⦙153,PASS⦙153,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Vis,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NB.xaml,
+Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Skjul,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NB.xaml,
+PASS⦙154,PASS⦙154,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.Advertising,Reklamestøtte,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NB.xaml,
+Portal.DonateSettingPage.Advertising.Description,Bidra til utviklingen av appen ved å se på reklamer.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NB.xaml,
+PASS⦙155,PASS⦙155,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.Advertising.AdvertisingDelay,Reklametid (minutter):,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NB.xaml,
+Portal.DonateSettingPage.Advertising.AdvertisingHint,Tips: Reklamer vil bli vist for deg på en måte som gir deg minst mulig forstyrrelse.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NB.xaml,
+Portal.GeneralSettingPage.Title,GeneralSettingPage,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙156,PASS⦙156,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationLanguage,Programspråk,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.ApplicationLanguage.Description,Velg språket du vil se programmet på.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationStartup,Start ved oppstart,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Description,"For å kunne spille bakgrunnsbilder, må Sucrose kjøre i bakgrunnen ved oppstart.",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Ingen,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Normal,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioritet,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Planlegger,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Forstått,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Administratorrettigheter Advarsel,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Du trenger administratorrettigheter for å endre oppstartsstatusen.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon,Varslingsikon,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.NotifyIcon.Description,Synlighet for systemstatusfeltet. Sucrose vil fortsette å kjøre i bakgrunnen på en diskret måte.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Vis,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Skjul,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Lukk alle Sucrose-apper når systemstatusfeltet lukkes,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop,Vindusbakgrunn,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.Description,Brukes til å tilpasse bakgrunnen til programvinduet.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Velg bakgrunnsbilde,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Velg et bakgrunnsbilde,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Bildefiler (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,Dessverre har du ikke tillatelse til å få tilgang til den valgte bildefilen,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Bakgrunnsstrekking:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Bakgrunnsugjennomsiktighet (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.EngineVolume,Lydvolum,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.EngineVolume.Description,Lydvolumet som gjelder for alle bakgrunnsbilder.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Spill lyden bare når skrivebordet er i fokus,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.EngineVolume.VolumeActive,Spill lyd kun når alle applikasjoner er stille,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Følsomhet (Sekunder):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.PrivateLibrary,Biblioteksplassering,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.PrivateLibrary.Description,"Plasseringen der temaene du legger til i biblioteket, lagres.",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,Dessverre har du ikke tilgang til den nye plasseringen,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Velg en tom mappe,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Vennligst vent mens plasseringen endres,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Flytt ditt nåværende bibliotek til ny plassering,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,
+Portal.OtherSettingPage.Title,OtherSettingPage,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.ReportData,Automatisk Feilrapportering,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+Portal.OtherSettingPage.ReportData.Description,Sucrose tar handling for å rapportere det raskt ved feil.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.StatisticsData,Del Bruksstatistikk,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+Portal.OtherSettingPage.StatisticsData.Description,Sucrose muliggjør innsamling av bruksstatistikken din for å bidra til utviklingen av applikasjonen.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.DiscordHook,Discord,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+Portal.OtherSettingPage.DiscordHook.Description,Sucrose muliggjør kommunikasjon med Discord.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Oppdatering av tilkobling:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+Portal.OtherSettingPage.DiscordHook.DiscordDelay,Oppdateringsfrekvens (sekunder):,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Agent,Nettverksagent,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+Portal.OtherSettingPage.Agent.Description,Din agentidentitet for situasjoner som krever nettverkstilgang.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key,Personlig tilgangstoken,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+Portal.OtherSettingPage.Key.Description,Nødvendig for å bruke butikken og applikasjonsoppdateringer problemfritt.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.HintKey,"Hvis du ikke vet hvordan du skal skaffe en personlig tilgangstoken, kan du klikke her.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.PersonalKey,Vennligst angi en personlig tilgangstoken,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+Portal.OtherSettingPage.Key.PersonalKey.Valid,Vennligst angi en gyldig personlig tilgangstoken,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Channel,Oppdateringskanal,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+Portal.OtherSettingPage.Channel.Description,Kanalen som oppdateringsprosessen skal bruke eller ikke.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update,Oppdateringsmetode,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+Portal.OtherSettingPage.Update.Description,Metoden som skal brukes for oppdateringsprosessen.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update.Limit,Nedlastingsbåndbreddegrense:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Auto,Automatisk Oppdatering,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+Portal.OtherSettingPage.Auto.Description,Om oppdateringsprosessen vil bli sjekket automatisk.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer,Utviklerverktøy,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+Portal.OtherSettingPage.Developer.Description,Administrer utviklerverktøy for WebView og CefSharp-motoren.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperMode,Standard Utviklerverktøy:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,Feilsøkingsport:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperHint,"Hint: Standard utviklerverktøy fungerer kanskje ikke skikkelig i støttede temaer. Feilsøkingsporten pleier å fungere bedre. Når du er klar, kan du bruke 'http://localhost:{0}'-adressen eller 'chrome://inspect' for Chrome-nettleseren, 'opera://inspect' for Opera-nettleseren, 'edge://inspect' for Edge-nettleseren.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter,Ytelsesmålere,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Counter.Description,Om alle ytelsesmålerne skal kjøre i bakgrunnen.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter.CounterHint,"Merk: Noen Webbaserte temaer kan kanskje ikke fungere skikkelig, og ingen av følgende ytelsesinnstillinger vil være aktive.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Pause,Pause Regelen,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Pause.Description,Bestemmer regelen for å pause bakgrunnen basert på dine ytelsesinnstillinger.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Communication,Kommunikasjonstype,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Communication.Description,Bestemmer metoden for å sende meldinger til temaer av typen Web.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu,CPU-bruk,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Cpu.Description,Hvordan tapetet skal reagere på dine CPU-bruksinnstillinger.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU-bruk (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu,GPU Bruk,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Gpu.Description,Hva som skjer med bakgrunnsbildet basert på GPU-bruksinnstillingene dine.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Listen over grafikkprosessorer er ennå ikke opprettet,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU Bruk (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory,Minnebruk,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Memory.Description,Hvordan tapetet skal reagere på dine minnebrukinnstillinger.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory.MemoryUsage,Minnebruk (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network,Nettverksbruk,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Network.Description,Hvordan tapetet skal reagere på dine nettverksbrukinnstillinger.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkAdapter,Nettverksadapter:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Listen over nettverksadaptere er ennå ikke opprettet,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkUpload,Opplastningsstørrelse:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkDownload,Nedlastingsstørrelse:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Ping-verdi (ms):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery,Batteristrøm,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Battery.Description,Hvordan tapetet skal reagere når du bruker batteristrøm på en bærbar datamaskin.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery.BatteryUsage,Batteristatus (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Saver,Strømsparemodus,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Saver.Description,Hvordan tapetet skal reagere når du bruker strømsparemodus på en bærbar datamaskin.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Virtual,Virtualisering,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Virtual.Description,Hvordan tapetet skal reagere når virtualiseringsprogrammer kjører.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Remote,Fjernskrivebord,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Remote.Description,Hvordan tapetet skal reagere når fjernskrivebordprogrammer kjører.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Fullscreen,Fullskjermmode,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Fullscreen.Description,Hvordan tapetet skal reagere når en hvilken som helst annen applikasjon kjører i fullskjerm.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Focus,Fokuseringsmodus,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PerformanceSettingPage.Focus.Description,Hvordan tapetet skal reagere når en annen applikasjon er i fokus.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
+Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server,Butikkserver,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+Portal.PersonalSettingPage.Server.Description,Angir hvilken server som vil bli brukt til å vise temaene som er oppført i butikken.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server.ServerHint,"Merk: Hvis {0} er valgt som server, er det nødvendig å skrive inn {2} for å unngå forespørselsbegrensninger. Ellers kan du oppleve problemer med å få tilgang til temaer i butikken. Hvis {1} er valgt, vil du ha en jevnere butikkopplevelse.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Duration,Butikk Oppdatering,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+Portal.PersonalSettingPage.Duration.Description,Hvor lenge temaene som vises i butikken skal oppdateres.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.StoreStart,Automatisk Start,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+Portal.PersonalSettingPage.StoreStart.Description,Om temaene som lastes ned fra butikken skal stilles inn som bakgrunnsbilde automatisk.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adult,Ikke-sikre Innhold,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+Portal.PersonalSettingPage.Adult.Description,Om innhold som er merket som ikke-sikkert (NSFW) i butikken skal vises eller ikke.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Confirm,Bekreft Sletting,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+Portal.PersonalSettingPage.Confirm.Description,Om det skal be om bekreftelse når du sletter temaer fra biblioteket.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete,Ødelagte Temaer,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+Portal.PersonalSettingPage.Delete.Description,Om ødelagte eller manglende temaer i biblioteket skal slettes automatisk.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete.DeleteHint,"Merk: Dette bør gjøres med forsiktighet, da det kan føre til tap av data.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.LibraryStart,Automatisk Start,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+Portal.PersonalSettingPage.LibraryStart.Description,Om det opprettede temaet skal stilles inn som bakgrunnsbilde automatisk.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Preview,Tema Forhåndsvisning,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+Portal.PersonalSettingPage.Preview.Description,"Om temaer som holdes over, skal forhåndsvises.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Preview.StorePreview,Butikk Forhåndsvisning:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+Portal.PersonalSettingPage.Preview.StorePreviewHide,Skjul Detaljer:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Preview.LibraryPreview,Bibliotek Forhåndsvisning:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Skjul Detaljer:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive,Tilpassbar Oppsett,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+Portal.PersonalSettingPage.Adaptive.Description,Tilpass oppsettet eller avstanden mellom temaene som vises.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Mellomrom (Piksler):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Oppsett Rekkefølge (Antall):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort,Bibliotek Sortering,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+Portal.PersonalSettingPage.Sort.Description,Angi hvordan temaene i biblioteket ditt skal sorteres og i hvilket format.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortMode,Sorteringsmodus:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,Sorterings Type:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Store,Butikk Sideinndeling,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+Portal.PersonalSettingPage.Store.Description,Angi hvor mange temaer som skal være til stede for hver side i butikken.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Library,Bibliotek Sideinndeling,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+Portal.PersonalSettingPage.Library.Description,Angi hvor mange temaer som skal være til stede for hver side i biblioteket ditt.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,
+Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary,Log-filer,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+Portal.SystemSettingPage.LogTemporary.Description,Administrer alle logger opprettet av programmet.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Create,Opprett,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Delete,Slett,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,Merk: Samlet størrelse av loggfiler er {0}. Alle programmer vil bli avsluttet når rengjøringsprosessen starter.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary,Cache Rydding,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+Portal.SystemSettingPage.CacheTemporary.Description,Rydd alle cache-filer opprettet av programmet.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Start,Start rengjøring,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,Merk: Samlet størrelse av cache-filer er {0}. Alle programmer vil bli avsluttet når rengjøringsprosessen starter.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary,Butikkrydding,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+Portal.SystemSettingPage.StoreTemporary.Description,Rydd alle butikkfiler opprettet av programmet.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Start,Start rengjøring,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,Merk: Samlet størrelse av butikkfiler er {0}. Alle programmer vil bli avsluttet når rengjøringsprosessen starter.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary,Bibliotekrydding,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+Portal.SystemSettingPage.LibraryTemporary.Description,"Rydd alle temafiler i biblioteket ditt, enten de er opprettet eller importert.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Start,Start rengjøring,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,Merk: Samlet størrelse av temaer i biblioteket ditt er {0}. Alle programmer vil bli avsluttet når rengjøringsprosessen starter.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup,Innstillingsfiler,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+Portal.SystemSettingPage.SettingBackup.Description,Administrer alle innstillingsfiler opprettet av programmet.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Export,Eksporter,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Import,Importer,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,Merk: Alle programmer vil bli avsluttet når valgt handling starter.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset,Tilbakestill Innstillinger,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+Portal.SystemSettingPage.SettingReset.Description,Tilbakestill alle programinnstillinger opprettet av programmet.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Start,Start tilbakestilling,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,Merk: Alle programmer vil bli avsluttet når tilbakestillingen starter.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.Log.SaveDialogTitle,Lagre Loggfil,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.Access.Close,Forstått,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+Portal.SystemSettingPage.Access.Title,Tilgangsvarsling,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+Portal.SystemSettingPage.Access.Message,Du har ikke tillatelse til å få tilgang til den valgte plasseringen.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,
+Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode,Interaksjonsmetode,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+Portal.WallpaperSettingPage.InputMode.Description,Bestemmer metodene der interaksjon kan forekomme med støttede bakgrunnsbilder.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.InputModule,Interaksjonsmodul:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.InputDesktop,Behandle interaksjon kun når skrivebordet er i fokus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,Skjul for å unngå utilsiktet valg av skrivebordsikoner,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.ScreenLayout,Skjermoppsett,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+Portal.WallpaperSettingPage.ScreenLayout.Description,Endrer plasseringen av bakgrunnsbilder på skjermen din.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.StretchMode,Strekningmodus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+Portal.WallpaperSettingPage.StretchMode.Description,Endrer skaleringen av støttede bakgrunnsbilder.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.LoopMode,Løkke-Modus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+Portal.WallpaperSettingPage.LoopMode.Description,Endrer løkke-modus for støttede bakgrunnsbilder.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.ShuffleMode,Blandingsmodus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+Portal.WallpaperSettingPage.ShuffleMode.Description,Endrer blandingsmodus for støttede bakgrunnsbilder.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.GifPlayer,Gif-Spiller,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+Portal.WallpaperSettingPage.GifPlayer.Description,Velg en plugin som vil spille av temaer av typen Gif i biblioteket ditt.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.VideoPlayer,Video-Spiller,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+Portal.WallpaperSettingPage.VideoPlayer.Description,Velg en plugin som vil spille av temaer av typen Video i biblioteket ditt.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.UrlPlayer,Url-Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+Portal.WallpaperSettingPage.UrlPlayer.Description,Velg en motor som vil kjøre temaer av typen Url i biblioteket ditt.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.WebPlayer,Web-Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+Portal.WallpaperSettingPage.WebPlayer.Description,Velg en motor som vil kjøre temaer av typen Web i biblioteket ditt.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.YouTubePlayer,YouTube-Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+Portal.WallpaperSettingPage.YouTubePlayer.Description,Velg en motor som vil kjøre temaer av typen YouTube i biblioteket ditt.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.ApplicationPlayer,Application-Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+Portal.WallpaperSettingPage.ApplicationPlayer.Description,Velg en motor som vil kjøre temaer av typen Application i biblioteket ditt.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,
+Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NB.xaml,
+PASS⦙267,PASS⦙267,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NB.xaml,Please don't touch the translation in this line.
+Portal.BrokenStorePage.TitleText,Et øyeblikk uten internettlys,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NB.xaml,
+Portal.BrokenStorePage.DescriptionText,"Som en stjernefri himmel, er det ingen glans av internett her",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NB.xaml,
+Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.NB.xaml,
+Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NB.xaml,
+PASS⦙268,PASS⦙268,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NB.xaml,Please don't touch the translation in this line.
+Portal.SearchStorePage.TitleText,Svaret på det du leter etter kan være skjult i himmelen,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NB.xaml,
+Portal.SearchStorePage.DescriptionText,"Hvis resultatene ikke kommer som forventet, kan himmelen gi deg en ny opplevelse",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NB.xaml,
+Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NB.xaml,
+PASS⦙269,PASS⦙269,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NB.xaml,Please don't touch the translation in this line.
+Portal.UnknownStorePage.TitleText,Utforsk det uforklarlige som skjer i butikken,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NB.xaml,
+Portal.UnknownStorePage.DescriptionText,Gå på jakt etter det ukjente og begi deg ut på reisen for å avdekke det mystiske som skjer i butikken,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NB.xaml,

@@ -1,0 +1,1157 @@
+Term,Translate,Context,Reference,Comment
+Base64⦙0,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGl2ZS9MaXZlLlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmRvL1VuZG8uWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlVwZGF0ZS9VcGRhdGUuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlByb3BlcnR5L1Byb3BlcnR5LlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYXRjaGRvZy9XYXRjaGRvZy5aSC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Locale.ZH.xaml,Please don't touch the translation in this line.
+Discord.BrowseButton,浏览,,Discord\Discord.ZH.xaml,
+Discord.Details,壁纸引擎,,Discord\Discord.ZH.xaml,
+Discord.DownloadButton,下载,,Discord\Discord.ZH.xaml,
+PASS⦙0,PASS⦙0,Don't Touch,Discord\Discord.ZH.xaml,Please don't touch the translation in this line.
+Discord.LargestText0,香蕉冰淇淋之力,,Discord\Discord.ZH.xaml,
+Discord.LargestText1,笑容帽怪兽,,Discord\Discord.ZH.xaml,
+Discord.LargestText2,染彩云雀,,Discord\Discord.ZH.xaml,
+Discord.LargestText3,奔跑的企鹅的秘密冒险,,Discord\Discord.ZH.xaml,
+Discord.LargestText4,雏菊田间迷路的兔子,,Discord\Discord.ZH.xaml,
+Discord.LargestText5,歌唱风铃鸟,,Discord\Discord.ZH.xaml,
+Discord.LargestText6,神秘森林的秘密蜜蜂,,Discord\Discord.ZH.xaml,
+Discord.LargestText7,充满梦幻的鱼群,,Discord\Discord.ZH.xaml,
+Discord.LargestText8,水晶眼的龙之舞,,Discord\Discord.ZH.xaml,
+Discord.LargestText9,花朵覆盖的童话之路,,Discord\Discord.ZH.xaml,
+Discord.LargestText10,星星从天空落下,,Discord\Discord.ZH.xaml,
+Discord.LargestText11,在破碎的月光中舞蹈,,Discord\Discord.ZH.xaml,
+Discord.LargestText12,神秘的彩虹龙,,Discord\Discord.ZH.xaml,
+Discord.LargestText13,魔幻的森林故事,,Discord\Discord.ZH.xaml,
+Discord.LargestText14,花瓣雨上升到天空,,Discord\Discord.ZH.xaml,
+Discord.LargestText15,时间的静默触摸,,Discord\Discord.ZH.xaml,
+Discord.LargestText16,超现实的梦幻国度,,Discord\Discord.ZH.xaml,
+Discord.LargestText17,黄金瀑布之歌,,Discord\Discord.ZH.xaml,
+Discord.LargestText18,飘浮在天空的童话船,,Discord\Discord.ZH.xaml,
+Discord.LargestText19,彩色气球覆盖的森林,,Discord\Discord.ZH.xaml,
+Discord.LargestText20,神秘的水下城市,,Discord\Discord.ZH.xaml,
+Discord.LargestText21,星尘弥漫的天空,,Discord\Discord.ZH.xaml,
+Discord.LargestText22,追逐未知的风,,Discord\Discord.ZH.xaml,
+Discord.LargestText23,在月光下的引人入胜的故事,,Discord\Discord.ZH.xaml,
+PASS⦙1,PASS⦙1,Don't Touch,Discord\Discord.ZH.xaml,Please don't touch the translation in this line.
+Discord.SmallestText0,神秘足迹,,Discord\Discord.ZH.xaml,
+Discord.SmallestText1,飞行气球鱼,,Discord\Discord.ZH.xaml,
+Discord.SmallestText2,笑声花,,Discord\Discord.ZH.xaml,
+Discord.SmallestText3,糖棉云,,Discord\Discord.ZH.xaml,
+Discord.SmallestText4,冰冻比萨龙,,Discord\Discord.ZH.xaml,
+Discord.SmallestText5,明亮蘑菇海盗,,Discord\Discord.ZH.xaml,
+Discord.SmallestText6,隐形独角兽的脚印,,Discord\Discord.ZH.xaml,
+Discord.SmallestText7,多彩的尘埃云,,Discord\Discord.ZH.xaml,
+Discord.SmallestText8,金色气球蝴蝶,,Discord\Discord.ZH.xaml,
+Discord.SmallestText9,糖果陨石之旅,,Discord\Discord.ZH.xaml,
+Discord.SmallestText10,火箭飞行的比萨片,,Discord\Discord.ZH.xaml,
+Discord.SmallestText11,与阳光共舞的海螺,,Discord\Discord.ZH.xaml,
+Discord.SmallestText12,隐形星星手指,,Discord\Discord.ZH.xaml,
+Discord.SmallestText13,雾中水下舞蹈,,Discord\Discord.ZH.xaml,
+Discord.SmallestText14,彩虹鸟群,,Discord\Discord.ZH.xaml,
+Discord.SmallestText15,糖果风暴之路,,Discord\Discord.ZH.xaml,
+Discord.SmallestText16,无尽的比萨银河,,Discord\Discord.ZH.xaml,
+Discord.SmallestText17,阳光的微笑,,Discord\Discord.ZH.xaml,
+Discord.SmallestText18,失落的池塘微笑,,Discord\Discord.ZH.xaml,
+Discord.SmallestText19,梦幻鸟的阴影,,Discord\Discord.ZH.xaml,
+Discord.SmallestText20,升向天空的蝴蝶,,Discord\Discord.ZH.xaml,
+Discord.SmallestText21,隐藏在星星后面的歌曲,,Discord\Discord.ZH.xaml,
+Discord.SmallestText22,仙境雾山,,Discord\Discord.ZH.xaml,
+Discord.SmallestText23,神秘森林的仙子,,Discord\Discord.ZH.xaml,
+PASS⦙2,PASS⦙2,Don't Touch,Discord\Discord.ZH.xaml,Please don't touch the translation in this line.
+Discord.StatementText0,充满混乱的宇宙,,Discord\Discord.ZH.xaml,
+Discord.StatementText1,无尽冒险之中,,Discord\Discord.ZH.xaml,
+Discord.StatementText2,奇妙而神奇的世界,,Discord\Discord.ZH.xaml,
+Discord.StatementText3,挑战想象的界限,,Discord\Discord.ZH.xaml,
+Discord.StatementText4,非同寻常的现实,,Discord\Discord.ZH.xaml,
+Discord.StatementText5,深入想象的深处,,Discord\Discord.ZH.xaml,
+Discord.StatementText6,神奇的探索之旅,,Discord\Discord.ZH.xaml,
+Discord.StatementText7,未知世界之门,,Discord\Discord.ZH.xaml,
+Discord.StatementText8,复杂的梦境世界,,Discord\Discord.ZH.xaml,
+Discord.StatementText9,挑战边界的冒险,,Discord\Discord.ZH.xaml,
+Discord.StatementText10,充满活力和惊喜的体验,,Discord\Discord.ZH.xaml,
+Discord.StatementText11,童话故事中,,Discord\Discord.ZH.xaml,
+Discord.StatementText12,在魔法传送门之间,,Discord\Discord.ZH.xaml,
+Discord.StatementText13,夜空之旅,,Discord\Discord.ZH.xaml,
+Discord.StatementText14,追寻失落大陆,,Discord\Discord.ZH.xaml,
+Discord.StatementText15,未知星球的故事,,Discord\Discord.ZH.xaml,
+Discord.StatementText16,平行宇宙的发现,,Discord\Discord.ZH.xaml,
+Discord.StatementText17,传奇之地的入口,,Discord\Discord.ZH.xaml,
+Discord.StatementText18,用梦幻编织的现实,,Discord\Discord.ZH.xaml,
+Discord.StatementText19,星际梦之旅,,Discord\Discord.ZH.xaml,
+Discord.StatementText20,在时间之门后面,,Discord\Discord.ZH.xaml,
+Discord.StatementText21,闪耀星星团,,Discord\Discord.ZH.xaml,
+Discord.StatementText22,未知的沉默呼声,,Discord\Discord.ZH.xaml,
+Discord.StatementText23,引人入胜的世界,,Discord\Discord.ZH.xaml,
+Discord.StatementText24,在神秘山巅,,Discord\Discord.ZH.xaml,
+Discord.StatementText25,寻找失落的王国,,Discord\Discord.ZH.xaml,
+Discord.StatementText26,星际梦幻之旅,,Discord\Discord.ZH.xaml,
+Discord.StatementText27,魔幻夜晚生物,,Discord\Discord.ZH.xaml,
+Discord.StatementText28,无尽童话的开始,,Discord\Discord.ZH.xaml,
+Discord.StatementText29,升向天空的丰富多彩气球,,Discord\Discord.ZH.xaml,
+Discord.StatementText30,神秘的夜空,,Discord\Discord.ZH.xaml,
+Discord.StatementText31,梦幻之路失落的王国,,Discord\Discord.ZH.xaml,
+Discord.StatementText32,通往未知世界的门户,,Discord\Discord.ZH.xaml,
+Discord.StatementText33,在时间的怀抱中舞蹈,,Discord\Discord.ZH.xaml,
+Discord.StatementText34,沉浸在夜晚的故事中,,Discord\Discord.ZH.xaml,
+Discord.StatementText35,魔幻镜子的世界,,Discord\Discord.ZH.xaml,
+Discord.StatementText36,穿越无尽之门,,Discord\Discord.ZH.xaml,
+Discord.StatementText37,梦想家的夜晚之旅,,Discord\Discord.ZH.xaml,
+Discord.StatementText38,水晶城梦境,,Discord\Discord.ZH.xaml,
+Discord.StatementText39,黑暗中闪耀的星星,,Discord\Discord.ZH.xaml,
+Discord.StatementText40,星星后面的神秘夜晚,,Discord\Discord.ZH.xaml,
+Discord.StatementText41,神秘月光故事,,Discord\Discord.ZH.xaml,
+Discord.StatementText42,在未知国度的门槛上的金门,,Discord\Discord.ZH.xaml,
+Discord.StatementText43,神秘夜晚的神秘之路,,Discord\Discord.ZH.xaml,
+Discord.StatementText44,升向天空的梦幻气球,,Discord\Discord.ZH.xaml,
+Discord.StatementText45,星星下的梦幻之路,,Discord\Discord.ZH.xaml,
+Discord.StatementText46,星边小镇的秘密世界,,Discord\Discord.ZH.xaml,
+Discord.StatementText47,雾山背后的童话,,Discord\Discord.ZH.xaml,
+Discord.StatementText48,黑夜中闪烁的星星之夜,,Discord\Discord.ZH.xaml,
+Launcher.WallCustomizeText,自定义壁纸,,Launcher\Launcher.ZH.xaml,
+PASS⦙3,PASS⦙3,Don't Touch,Launcher\Launcher.ZH.xaml,Please don't touch the translation in this line.
+Launcher.CreateLogText,创建日志文件,,Launcher\Launcher.ZH.xaml,
+PASS⦙4,PASS⦙4,Don't Touch,Launcher\Launcher.ZH.xaml,Please don't touch the translation in this line.
+Launcher.ExitText,退出,,Launcher\Launcher.ZH.xaml,
+PASS⦙5,PASS⦙5,Don't Touch,Launcher\Launcher.ZH.xaml,Please don't touch the translation in this line.
+Launcher.OpenReportText,报告问题,,Launcher\Launcher.ZH.xaml,
+PASS⦙6,PASS⦙6,Don't Touch,Launcher\Launcher.ZH.xaml,Please don't touch the translation in this line.
+Launcher.OpenText,打开Sucrose,,Launcher\Launcher.ZH.xaml,
+PASS⦙7,PASS⦙7,Don't Touch,Launcher\Launcher.ZH.xaml,Please don't touch the translation in this line.
+Launcher.ReportText,报告问题,,Launcher\Launcher.ZH.xaml,
+PASS⦙8,PASS⦙8,Don't Touch,Launcher\Launcher.ZH.xaml,Please don't touch the translation in this line.
+Launcher.ReportWindowTitle,Sucrose诊断,,Launcher\Launcher.ZH.xaml,
+PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.ZH.xaml,Please don't touch the translation in this line.
+Launcher.SaveDialogFilter,ZIP文件 (*.zip)|*.zip|所有文件 (*.*)|*.*,,Launcher\Launcher.ZH.xaml,
+Launcher.SaveDialogTitle,保存日志文件,,Launcher\Launcher.ZH.xaml,
+PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.ZH.xaml,Please don't touch the translation in this line.
+Launcher.SettingText,设置,,Launcher\Launcher.ZH.xaml,
+PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.ZH.xaml,Please don't touch the translation in this line.
+Launcher.TrayText,Sucrose Wallpaper Engine,,Launcher\Launcher.ZH.xaml,
+PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.ZH.xaml,Please don't touch the translation in this line.
+Launcher.WallChangeText,更改壁纸,,Launcher\Launcher.ZH.xaml,
+Launcher.WallCloseText,关闭壁纸,,Launcher\Launcher.ZH.xaml,
+Launcher.WallOpenText,打开壁纸,,Launcher\Launcher.ZH.xaml,
+Launcher.WallStartText,启动壁纸,,Launcher\Launcher.ZH.xaml,
+Launcher.WallStopText,停止壁纸,,Launcher\Launcher.ZH.xaml,
+PASS⦙13,PASS⦙13,Don't Touch,Launcher\Launcher.ZH.xaml,Please don't touch the translation in this line.
+Launcher.ClosedText,已关闭,,Launcher\Launcher.ZH.xaml,
+Launcher.PausedText,已暂停,,Launcher\Launcher.ZH.xaml,
+PASS⦙14,PASS⦙14,Don't Touch,Launcher\Launcher.ZH.xaml,Please don't touch the translation in this line.
+Launcher.UpdateText,检查更新,,Launcher\Launcher.ZH.xaml,
+PASS⦙15,PASS⦙15,Don't Touch,Launcher\Launcher.ZH.xaml,Please don't touch the translation in this line.
+Launcher.UpdateText.Done,准备更新,,Launcher\Launcher.ZH.xaml,
+Launcher.UpdateText.Check,检查更新,,Launcher\Launcher.ZH.xaml,
+Launcher.UpdateText.Progress,更新进度 {0},,Launcher\Launcher.ZH.xaml,
+Live.Title,{0} 通知,,Live\Live.ZH.xaml,
+PASS⦙16,PASS⦙16,Don't Touch,Live\Live.ZH.xaml,Please don't touch the translation in this line.
+Live.Close,关闭,,Live\Live.ZH.xaml,
+Live.Continue,继续,,Live\Live.ZH.xaml,
+Live.Download,下载,,Live\Live.ZH.xaml,
+Live.Remember,记住,,Live\Live.ZH.xaml,
+PASS⦙17,PASS⦙17,Don't Touch,Live\Live.ZH.xaml,Please don't touch the translation in this line.
+Live.Info.WebView,WebView 要求,,Live\Live.ZH.xaml,
+Live.Info.CefSharp,CefSharp 要求,,Live\Live.ZH.xaml,
+PASS⦙18,PASS⦙18,Don't Touch,Live\Live.ZH.xaml,Please don't touch the translation in this line.
+Live.Message.WebView,未安装 WebView2 运行时。WebView2 运行时是一个组件，可在应用程序中使用现代 Web 技术。因此，需要 WebView2 运行时来设置选定的壁纸。,,Live\Live.ZH.xaml,
+Live.Message.CefSharp,未安装 VC++ 可再发行组件。VC++ 可再发行组件提供了 CefSharp 正常运行所需的一些系统组件。CefSharp 是一个框架，使应用程序能够使用现代 Web 技术。因此，需要 VC++ 可再发行组件来设置选定的壁纸。,,Live\Live.ZH.xaml,
+Base64⦙1,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5aSC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\Portal.ZH.xaml,Please don't touch the translation in this line.
+Property.WindowTitle,Sucrose Property,,Property\Property.ZH.xaml,
+PASS⦙19,PASS⦙19,Don't Touch,Property\Property.ZH.xaml,Please don't touch the translation in this line.
+Property.DeleteTip,删除副本,,Property\Property.ZH.xaml,
+Property.RefreshTip,刷新界面,,Property\Property.ZH.xaml,
+Property.RestoreTip,恢复默认,,Property\Property.ZH.xaml,
+PASS⦙20,PASS⦙20,Don't Touch,Property\Property.ZH.xaml,Please don't touch the translation in this line.
+Property.Type.NotSupport,不支持控件类型 '{0}'。,,Property\Property.ZH.xaml,
+PASS⦙21,PASS⦙21,Don't Touch,Property\Property.ZH.xaml,Please don't touch the translation in this line.
+Property.ColorPicker.Color,颜色,,Property\Property.ZH.xaml,
+Property.ColorPicker.Cancel,取消,,Property\Property.ZH.xaml,
+Property.ColorPicker.Confirm,确认,,Property\Property.ZH.xaml,
+Property.ColorPicker.EyeDropper,取色器,,Property\Property.ZH.xaml,
+Property.ColorPicker.Popup.Title,Sucrose Property Color Picker,,Property\Property.ZH.xaml,
+PASS⦙22,PASS⦙22,Don't Touch,Property\Property.ZH.xaml,Please don't touch the translation in this line.
+Property.FileDropDown.Tip,选择文件,,Property\Property.ZH.xaml,
+Property.FileDropDown.Filter,所有文件 (*.*)|*.*,,Property\Property.ZH.xaml,
+PASS⦙23,PASS⦙23,Don't Touch,Property\Property.ZH.xaml,Please don't touch the translation in this line.
+Property.FileDropDown.Access.Close,明白,,Property\Property.ZH.xaml,
+Property.FileDropDown.Access.Title,访问警告,,Property\Property.ZH.xaml,
+Property.FileDropDown.Access.Message,您没有权限访问所选文件。,,Property\Property.ZH.xaml,
+Undo.QuestionTitle,Sucrose Undo,,Undo\Undo.ZH.xaml,
+PASS⦙24,PASS⦙24,Don't Touch,Undo\Undo.ZH.xaml,Please don't touch the translation in this line.
+Undo.QuestionMessage,您真的要卸载 Sucrose Wallpaper Engine 吗？,,Undo\Undo.ZH.xaml,
+Undo.QuestionDescription,要删除所有设置，请选择“是”；要保留设置并仅删除，请选择“否”；要取消删除过程，请选择“取消”。,,Undo\Undo.ZH.xaml,
+Update.WindowTitle,Sucrose Update,,Update\Update.ZH.xaml,
+PASS⦙25,PASS⦙25,Don't Touch,Update\Update.ZH.xaml,Please don't touch the translation in this line.
+Update.HelpText,解决问题,,Update\Update.ZH.xaml,
+PASS⦙26,PASS⦙26,Don't Touch,Update\Update.ZH.xaml,Please don't touch the translation in this line.
+Update.ReloadText,重试,,Update\Update.ZH.xaml,
+PASS⦙27,PASS⦙27,Don't Touch,Update\Update.ZH.xaml,Please don't touch the translation in this line.
+Update.ReloadText.Browser.Opened,在浏览器中打开,,Update\Update.ZH.xaml,
+Update.ReloadText.Browser.Opening,正在浏览器中打开,,Update\Update.ZH.xaml,
+PASS⦙28,PASS⦙28,Don't Touch,Update\Update.ZH.xaml,Please don't touch the translation in this line.
+Update.MessageText.Preparing,准备必要的准备工作,,Update\Update.ZH.xaml,
+PASS⦙29,PASS⦙29,Don't Touch,Update\Update.ZH.xaml,Please don't touch the translation in this line.
+Update.MessageText.Temporary,检查临时位置,,Update\Update.ZH.xaml,
+Update.MessageText.Temporary.Error,无法检查临时位置,,Update\Update.ZH.xaml,
+PASS⦙30,PASS⦙30,Don't Touch,Update\Update.ZH.xaml,Please don't touch the translation in this line.
+Update.MessageText.Connection,检查网络连接,,Update\Update.ZH.xaml,
+Update.MessageText.Connection.None,没有网络连接,,Update\Update.ZH.xaml,
+Update.MessageText.Connection.Error,无法检查网络连接,,Update\Update.ZH.xaml,
+PASS⦙31,PASS⦙31,Don't Touch,Update\Update.ZH.xaml,Please don't touch the translation in this line.
+Update.MessageText.Listing,获取所需列表,,Update\Update.ZH.xaml,
+Update.MessageText.Listing.Empty,所需列表为空,,Update\Update.ZH.xaml,
+Update.MessageText.Listing.Error,无法获取所需列表,,Update\Update.ZH.xaml,
+PASS⦙32,PASS⦙32,Don't Touch,Update\Update.ZH.xaml,Please don't touch the translation in this line.
+Update.MessageText.Filtering,列表正在过滤,,Update\Update.ZH.xaml,
+Update.MessageText.Filtering.Not,无法过滤列表,,Update\Update.ZH.xaml,
+Update.MessageText.Filtering.Error,无法过滤列表,,Update\Update.ZH.xaml,
+PASS⦙33,PASS⦙33,Don't Touch,Update\Update.ZH.xaml,Please don't touch the translation in this line.
+Update.MessageText.Comparing,正在比较列表,,Update\Update.ZH.xaml,
+Update.MessageText.Comparing.Update,应用程序已是最新,,Update\Update.ZH.xaml,
+Update.MessageText.Comparing.Error,无法比较列表,,Update\Update.ZH.xaml,
+PASS⦙34,PASS⦙34,Don't Touch,Update\Update.ZH.xaml,Please don't touch the translation in this line.
+Update.MessageText.Searching,搜索所需文件,,Update\Update.ZH.xaml,
+Update.MessageText.Searching.Not,未找到所需文件,,Update\Update.ZH.xaml,
+Update.MessageText.Searching.Error,无法搜索所需文件,,Update\Update.ZH.xaml,
+Update.MessageText.Searching.Condition,未找到所需文件,,Update\Update.ZH.xaml,
+PASS⦙35,PASS⦙35,Don't Touch,Update\Update.ZH.xaml,Please don't touch the translation in this line.
+Update.MessageText.Downloading,下载所需文件,,Update\Update.ZH.xaml,
+Update.MessageText.Downloading.Error,无法下载所需文件,,Update\Update.ZH.xaml,
+Update.MessageText.Downloading.Complete.Cancel,所需文件的下载已取消,,Update\Update.ZH.xaml,
+Update.MessageText.Downloading.Complete.Error,下载所需文件时出现错误,,Update\Update.ZH.xaml,
+PASS⦙36,PASS⦙36,Don't Touch,Update\Update.ZH.xaml,Please don't touch the translation in this line.
+Update.MessageText.Running,正在准备下载的文件,,Update\Update.ZH.xaml,
+Update.MessageText.Running.Executing,正在执行下载的文件,,Update\Update.ZH.xaml,
+Update.MessageText.Running.Executed,已执行下载的文件,,Update\Update.ZH.xaml,
+Update.MessageText.Running.Not,下载的文件不可用,,Update\Update.ZH.xaml,
+Update.MessageText.Running.Error,无法准备下载的文件,,Update\Update.ZH.xaml,
+PASS⦙37,PASS⦙37,Don't Touch,Update\Update.ZH.xaml,Please don't touch the translation in this line.
+Update.MessageText.Extracting,提取已下载的文件,,Update\Update.ZH.xaml,
+Update.MessageText.Extracting.Executing,正在执行已提取的文件,,Update\Update.ZH.xaml,
+Update.MessageText.Extracting.Executed,已执行提取的文件,,Update\Update.ZH.xaml,
+Update.MessageText.Extracting.Failed,已下载的文件失败,,Update\Update.ZH.xaml,
+Update.MessageText.Extracting.Corrupt,已下载的文件损坏,,Update\Update.ZH.xaml,
+Update.MessageText.Extracting.Not,已下载的文件无法使用,,Update\Update.ZH.xaml,
+Update.MessageText.Extracting.Error,无法提取已下载的文件,,Update\Update.ZH.xaml,
+Watchdog.HelpButton,帮助,,Watchdog\Watchdog.ZH.xaml,
+Watchdog.CloseButton,关闭,,Watchdog\Watchdog.ZH.xaml,
+Watchdog.ErrorEmpty,很抱歉，无法捕获错误详细信息。,,Watchdog\Watchdog.ZH.xaml,
+Watchdog.ErrorMessage,出现了意外错误：,,Watchdog\Watchdog.ZH.xaml,
+Watchdog.ErrorTitle,错误,,Watchdog\Watchdog.ZH.xaml,
+Watchdog.HideButton,隐藏,,Watchdog\Watchdog.ZH.xaml,
+Watchdog.ShowButton,显示,,Watchdog\Watchdog.ZH.xaml,
+Watchdog.StackTrace,堆栈跟踪：,,Watchdog\Watchdog.ZH.xaml,
+Watchdog.WindowTitle,Sucrose Watchdog,,Watchdog\Watchdog.ZH.xaml,
+Portal.Area.Data,数据,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Sound,声音,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Log,日志,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Hook,挂钩,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Store,商店,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Donate,捐赠,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.System,系统,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Cache,缓存,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Laptop,笔记本电脑,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Support,支持,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Reset,重置,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Backup,备份,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Priority,优先级,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Engines,引擎,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Update,更新,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Library,库,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Developer,开发人员,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.Extensions,扩展,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.SystemResources,系统资源,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Area.AppearanceBehavior,外观与行为,,Portal\Area\Portal.Area.ZH.xaml,
+Portal.Category.All,全部,,Portal\Category\Portal.Category.ZH.xaml,
+PASS⦙38,PASS⦙38,Don't Touch,Portal\Category\Portal.Category.ZH.xaml,Please don't touch the translation in this line.
+Portal.Category.Abstract,抽象,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Ambience,环境,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Animals,动物,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Animation,动画,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Anime,动漫,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.ArchitectureandBuildings,建筑与建筑物,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.ArtandAbstract,艺术与抽象,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.ArtificialIntelligence,人工智能,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Artworks,艺术作品,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Bard,诗人,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.BlackandWhite,黑白,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Brands,品牌,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.CartoonandComics,卡通与漫画,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.CitiesandPlaces,城市与地点,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.CloudsandSkies,云和天空,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Colorful,多彩的,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.ColorfulGradients,多彩渐变,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.ComicBooks,漫画书,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.DigitalArt,数字艺术,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Dynamic,动态,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Education,教育,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.EnchantedForests,仙境森林,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Fantasy,幻想,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Fashion,时尚,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.FilmandTV,电影和电视,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.FoodandDrinks,食品与饮料,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Galaxy,星系,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Game,游戏,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.GeometricPatterns,几何图案,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.HolidaysandSeasons,假期和季节,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.HorrorandHalloween,恐怖和万圣节,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.InspirationalQuotes,启发引用,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.KidsandCartoon,儿童和卡通,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Landscape,风景,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Lifestyle,生活方式,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.LineArt,线条艺术,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Medieval,中世纪,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Minimalist,极简,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Music,音乐,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Nature,自然,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Nightscapes,夜景,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.PatternsandTextures,图案和纹理,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Persons,人物,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.PixelArt,像素艺术,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Retro,复古,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Science,科学,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.ScienceFiction,科幻小说,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Sky,天空,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Software,软件,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Space,太空,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Sports,体育,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Superheroes,超级英雄,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.System,系统,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Tavern,酒馆,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Technology,技术,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Temple,寺庙,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Time,时间,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.UnderwaterandMarine,水下和海洋,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Vehicles,车辆,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.Vintage,复古,,Portal\Category\Portal.Category.ZH.xaml,
+Portal.Category.War,战争,,Portal\Category\Portal.Category.ZH.xaml,
+Base64⦙2,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVHJheUljb24vUG9ydGFsLlRyYXlJY29uLlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJPdGhlckhlbHAvUG9ydGFsLk90aGVySGVscC5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVFZGl0L1BvcnRhbC5UaGVtZUVkaXQuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlQ2FyZC9Qb3J0YWwuU3RvcmVDYXJkLlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJPdGhlckFib3V0L1BvcnRhbC5PdGhlckFib3V0LlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQYWdpbmF0aW9uL1BvcnRhbC5QYWdpbmF0aW9uLlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZVNoYXJlL1BvcnRhbC5UaGVtZVNoYXJlLlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5Q2FyZC9Qb3J0YWwuTGlicmFyeUNhcmQuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRGVsZXRlL1BvcnRhbC5UaGVtZURlbGV0ZS5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVSZXZpZXcvUG9ydGFsLlRoZW1lUmV2aWV3LlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUltcG9ydC9Qb3J0YWwuVGhlbWVJbXBvcnQuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lQ3JlYXRlL1BvcnRhbC5UaGVtZUNyZWF0ZS5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVSZXBvcnQvUG9ydGFsLlRoZW1lUmVwb3J0LlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJFeHBhbmRlckNhcmQvUG9ydGFsLkV4cGFuZGVyQ2FyZC5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2FsbHBhcGVyQ3ljbGluZy9Qb3J0YWwuV2FsbHBhcGVyQ3ljbGluZy5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRGlzcGxheVByZWZlcmVuY2VzL1BvcnRhbC5EaXNwbGF5UHJlZmVyZW5jZXMuWkgueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\Controls\Portal.Controls.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.Stretch.Fill,填充,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.Stretch.None,无,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.Stretch.Uniform,均匀,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.Stretch.UniformToFill,均匀填充,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙39,PASS⦙39,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.ReportType.Spam,垃圾邮件,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.ReportType.Other,其他,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.ReportType.Nudity,裸露,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.ReportType.Harmful,有害,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.ReportType.Violence,暴力,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.ReportType.Malicious,恶意,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.ReportType.CopyrightViolation,版权侵犯,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.ReportType.MisleadingInformation,误导信息,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙40,PASS⦙40,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.SortModeType.None,无,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.SortModeType.Name,名称,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.SortModeType.Creation,创建,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.SortModeType.Modification,修改,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙41,PASS⦙41,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.InputType.Close,关闭,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.InputType.OnlyMouse,仅鼠标,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.InputType.OnlyKeyboard,仅键盘,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.InputType.MouseKeyboard,鼠标和键盘,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.StoreType.GitHub,GitHub,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.StoreType.Soferity,Soferity,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.StretchType.Fill,填充,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.StretchType.None,无,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.StretchType.Uniform,均匀,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.StretchType.UniformToFill,均匀填充,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.CommunicationType.Pipe,Pipe,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CommunicationType.Signal,Signal,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.PerformanceType.Close,关闭,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.PerformanceType.Pause,暂停,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.PerformanceType.Resume,继续,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.WindowBackdropType.Mica,云母,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.WindowBackdropType.None,无,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.WindowBackdropType.Auto,自动,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.WindowBackdropType.Tabbed,标签页,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.WindowBackdropType.Acrylic,亚克力,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.InputModuleType.Native,Native,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.InputModuleType.RawInput,RawInput,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.ChannelType.Release,默认,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.ChannelType.PreRelease,开发版,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.TransitionType.Random,随机,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.TransitionType.Sequential,顺序,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.PausePerformanceType.Heavy,重型,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.PausePerformanceType.Light,轻型,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.SortKindType.Ascending,升序 [A-Z],,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.SortKindType.Descending,降序 [Z-A],,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.ExpandScreenType.Default,默认,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.ExpandScreenType.Advanced,高级,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.UpdateType.Compressed,压缩,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.UpdateType.Executable,可执行,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.ScreenType.WorkingArea,工作区,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.ScreenType.DisplayBound,显示边界,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.DuplicateScreenType.Default,默认,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.DuplicateScreenType.Advanced,高级,,Portal\Enum\Portal.Enum.ZH.xaml,
+PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.ZH.xaml,Please don't touch the translation in this line.
+Portal.Enum.CompatibilityType.Pass,通过,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.Tags,'Tags' 包含太多值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.Type,主题针对应用不支持的类型创建,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.Title,'Title' 值为空或太长,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.Access,您没有权限访问相关文件,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.Author,'Author' 值为空或太长,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.Folder,主题文件不在存档的根目录中,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.Source,'Source' 文件未找到,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.Contact,'Contact' 值为空或太长,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.Preview,'Preview' 文件未找到,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.Encrypt,相关文件已加密,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.ZipType,相关文件实际上不是'.zip'文件,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.InfoFile,'SucroseInfo.json' 文件未找到,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.NotFound,相关文件未找到,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.LoopMode,无效的'LoopMode'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.Arguments,'Arguments' 值太长,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.Extension,相关文件不是'.zip'扩展名,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.Thumbnail,'Thumbnail' 文件未找到,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.SystemCpu,无效的'SystemCpu'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.EmptyInfo,'SucroseInfo.json' 文件为空,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.AppVersion,主题是为应用的较高版本创建的,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.InvalidUrl,'Source' 包含无效值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.SystemBios,无效的'SystemBios'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.SystemDate,无效的'SystemDate'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.SystemAudio,无效的'SystemAudio'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.Description,'Description' 值为空或太长,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.InvalidInfo,'SucroseInfo.json' 文件无效,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.TriggerTime,无效的'TriggerTime'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.StretchMode,无效的'StretchMode'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.VolumeLevel,无效的'VolumeLevel'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.ShuffleMode,无效的'ShuffleMode'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.InvalidTags,'Tags' 值太短或太长,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.InvalidFile,无效的文件,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.PropertyList,'PropertyList' 值为空,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.SystemMemory,无效的'SystemMemory'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.SystemBattery,无效的'SystemBattery'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.SystemGraphic,无效的'SystemGraphic'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.SystemNetwork,无效的'SystemNetwork'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.InvalidContact,'Contact' 值不是'Url'或'电子邮件地址',,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.InvalidExtension,无效的文件扩展名,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.EmptyCompatible,'SucroseCompatible.json' 文件为空,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.EmptyProperties,'SucroseProperties.json' 文件为空,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.PropertyListener,无效的'PropertyListener'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.SystemMotherboard,无效的'SystemMotherboard'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.InvalidCompatible,'SucroseCompatible.json' 文件无效,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.InvalidProperties,'SucroseProperties.json' 文件无效,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.PropertyLocalization,无效的'PropertyLocalization'值,,Portal\Enum\Portal.Enum.ZH.xaml,
+Portal.Enum.CompatibilityType.UnforeseenConsequences,未预见的后果,,Portal\Enum\Portal.Enum.ZH.xaml,
+Base64⦙3,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5aSC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙57,PASS⦙57,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.ZH.xaml,
+PASS⦙58,PASS⦙58,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Import.Successful,成功将主题'{0}'添加到主题库。,,Portal\LibraryPage\Portal.LibraryPage.ZH.xaml,
+Portal.LibraryPage.Import.Unsuccessful,无法将主题'{0}'添加到主题库。原因：'{1}'。,,Portal\LibraryPage\Portal.LibraryPage.ZH.xaml,
+Portal.MainWindow.Title,Sucrose Wallpaper Engine,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+PASS⦙59,PASS⦙59,Don't Touch,Portal\MainWindow\Portal.MainWindow.ZH.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuHelp,帮助,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuAbout,关于,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+PASS⦙60,PASS⦙60,Don't Touch,Portal\MainWindow\Portal.MainWindow.ZH.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuHelpTip,查看帮助,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuAboutTip,关于信息,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+PASS⦙61,PASS⦙61,Don't Touch,Portal\MainWindow\Portal.MainWindow.ZH.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuLibrary,库,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuStore,商店,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+PASS⦙62,PASS⦙62,Don't Touch,Portal\MainWindow\Portal.MainWindow.ZH.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuLibraryTip,主题库,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuStoreTip,主题商店,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+PASS⦙63,PASS⦙63,Don't Touch,Portal\MainWindow\Portal.MainWindow.ZH.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuGeneral,常规,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuPersonal,个人,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuPerformance,性能,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuWallpaper,壁纸,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuSystem,系统,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuDonate,捐赠,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuOther,其他,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.ZH.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuBackTip,返回,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuGeneralTip,常规设置,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuPersonalTip,个人设置,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuPerformanceTip,性能设置,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuWallpaperTip,壁纸设置,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuSystemTip,系统设置,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuDonateTip,捐赠设置,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuOtherTip,其他设置,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.ZH.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuSettingTip,设置,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.ZH.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxHint,搜索壁纸,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.ZH.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxTip,有困难找到你需要的吗？,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.ZH.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuLightTip,明亮主题,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuDarkTip,深色主题,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+PASS⦙69,PASS⦙69,Don't Touch,Portal\MainWindow\Portal.MainWindow.ZH.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuCreateWallpaperTip,创建壁纸,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuWallpaperCyclingTip,壁纸循环,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuDisplayPreferencesTip,显示首选项,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuDonateOptionsTip,捐赠选项,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Portal.MainWindow.MenuOtherOptionsTip,其他选项,,Portal\MainWindow\Portal.MainWindow.ZH.xaml,
+Base64⦙4,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuWkgueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\SettingPage\Portal.SettingPage.ZH.xaml,Please don't touch the translation in this line.
+Base64⦙5,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLlpILnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==,Don't Touch,Portal\StorePage\Portal.StorePage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙70,PASS⦙70,Don't Touch,Portal\StorePage\Portal.StorePage.ZH.xaml,Please don't touch the translation in this line.
+Portal.StorePage.Title,StorePage,,Portal\StorePage\Portal.StorePage.ZH.xaml,
+Portal.DisplayPreferences.Title,显示首选项,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,
+Portal.DisplayPreferences.Close,关闭,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,
+PASS⦙71,PASS⦙71,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expander,布局模式,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,
+Portal.DisplayPreferences.Expander.Description,如何应用壁纸到活动屏幕。,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,
+PASS⦙72,PASS⦙72,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Screen,仅选定的屏幕,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,
+PASS⦙73,PASS⦙73,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expand,扩展跨屏,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,
+PASS⦙74,PASS⦙74,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expand.Monitor,所有显示器,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,
+PASS⦙75,PASS⦙75,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expand.Hint,选择扩展跨屏模式,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,
+PASS⦙76,PASS⦙76,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate,复制相同的壁纸,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,
+PASS⦙77,PASS⦙77,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate.Hint,选择复制相同的壁纸模式,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ZH.xaml,
+Portal.ExpanderCard.TitleText,标题,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.ZH.xaml,
+Portal.ExpanderCard.DescriptionText,描述,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.ZH.xaml,
+PASS⦙78,PASS⦙78,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.ZH.xaml,Please don't touch the translation in this line.
+Portal.ExpanderCard.ExpandUpTip,折叠,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.ZH.xaml,
+Portal.ExpanderCard.ExpandDownTip,展开,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.ZH.xaml,
+Portal.LibraryCard.TitleText,标题,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+Portal.LibraryCard.DescriptionText,描述,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+PASS⦙79,PASS⦙79,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.MoreTip,更多,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+Portal.LibraryCard.VersionTip,升级 Sucrose 以使用此主题,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+PASS⦙80,PASS⦙80,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.MenuReview,查看,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+Portal.LibraryCard.MenuUse,使用,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+Portal.LibraryCard.MenuPreview,预览,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+Portal.LibraryCard.MenuCustomize,自定义,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+Portal.LibraryCard.MenuCyclingAdd,添加到周期,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+Portal.LibraryCard.MenuCyclingRemove,从周期中移除,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+Portal.LibraryCard.MenuFind,查找,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+Portal.LibraryCard.MenuShare,分享,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+Portal.LibraryCard.MenuDelete,删除,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+Portal.LibraryCard.MenuEdit,编辑,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+PASS⦙81,PASS⦙81,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Closed,已关闭,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+Portal.LibraryCard.Paused,已暂停,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Selected,已选择,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Incompatible,不兼容,,Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,
+Portal.OtherAbout.Title,关于,,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,
+Portal.OtherAbout.Close,关闭,,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,
+PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.About,你好，我的名字是 Bayram Emekli，也被称为 Taiizor 用户名。我是 Sucrose Wallpaper Engine 应用的免费和开源开发者。感谢你使用我开发的应用。,,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,
+PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Update,版本：v{0},,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,
+Portal.OtherAbout.Update.Description,上次检查：{0},,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,
+PASS⦙86,PASS⦙86,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Update.Notes,更新说明,,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,
+PASS⦙87,PASS⦙87,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Partners,合作伙伴,,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,
+PASS⦙88,PASS⦙88,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Contributors,贡献者,,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,
+PASS⦙89,PASS⦙89,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.TermsOfService,服务条款,,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,
+PASS⦙90,PASS⦙90,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.PrivacyPolicy,隐私政策,,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,
+PASS⦙91,PASS⦙91,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.CodeOfConduct,社区行为准则,,Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,
+Portal.OtherHelp.Title,帮助,,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,
+Portal.OtherHelp.Close,关闭,,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,
+PASS⦙92,PASS⦙92,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.WebPage,网站,,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,
+Portal.OtherHelp.WebPage.Description,Sucrose Wallpaper Engine 官方网站,,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,
+PASS⦙93,PASS⦙93,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Documentation,文档,,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,
+Portal.OtherHelp.Documentation.Description,Sucrose Wallpaper Engine 官方文档页面,,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,
+PASS⦙94,PASS⦙94,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Repository,源代码,,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,
+Portal.OtherHelp.Repository.Description,Sucrose Wallpaper Engine 官方源代码页面,,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,
+PASS⦙95,PASS⦙95,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Discussions,讨论,,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,
+Portal.OtherHelp.Discussions.Description,Sucrose Wallpaper Engine 官方讨论页面,,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,
+PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Report,报告问题,,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,
+Portal.OtherHelp.Report.Description,Sucrose Wallpaper Engine 官方问题报告页面,,Portal\Controls\OtherHelp\Portal.OtherHelp.ZH.xaml,
+Portal.Pagination.PageJump,跳转,,Portal\Controls\Pagination\Portal.Pagination.ZH.xaml,
+Portal.StoreCard.TitleText,标题,,Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,
+Portal.StoreCard.DescriptionText,描述,,Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,
+PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.VersionTip,请更新 Sucrose 以使用此主题,,Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,
+PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.MenuUpdating,正在检查更新,,Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,
+Portal.StoreCard.MenuUpdate,检查更新,,Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,
+Portal.StoreCard.MenuInstall,安装,,Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,
+Portal.StoreCard.MenuReport,报告,,Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,
+PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.Incompatible,不兼容,,Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,
+Portal.ThemeCreate.Title,主题创建,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.Create,创建,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.Close,关闭,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Gif,Gif 主题,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.Gif.Description,创建您自己的 Gif 主题。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Url,Url 主题,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.Url.Description,创建您自己的 Url 主题。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙102,PASS⦙102,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Web,Web 主题,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.Web.Description,创建您自己的 Web 主题。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Video,视频主题,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.Video.Description,创建您自己的 Video 主题。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.YouTube,YouTube 主题,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.YouTube.Description,创建您自己的 YouTube 主题。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Application,Application主题,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.Application.Description,创建您自己的 Application 主题。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemeUrl,Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeWeb,Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeApplication,应用程序,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeThumbnail,封面,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemePreview,预览,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeTitle,标题,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeDescription,描述,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeAuthor,作者,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeContact,联系方式,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeTags,标签,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeArguments,参数,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemeUrl.Hint,请输入有效的 url 地址,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeWeb.Hint,选择一个网页,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeApplication.Hint,选择一个应用程序文件,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeThumbnail.Hint,请选择一张封面图片,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemePreview.Hint,请选择一个预览文件,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeTitle.Hint,请输入有效的标题,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeDescription.Hint,请输入有效的描述,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeAuthor.Hint,请输入有效的作者姓名,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeContact.Hint,请输入有效的联系方式,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeTags.Hint,请输入有效的主题标签,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeArguments.Hint,请输入有效的应用程序参数,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Delete,撤销,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Gif.Title,选择 Gif 文件,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.DragDrop.Gif.Filter,Gif 文件 (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Video.Title,选择视频文件,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.DragDrop.Video.Filter,视频文件 (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Gif,将您的 Gif 文件拖放到这里,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.DragDrop.Video,将您的视频文件拖放到这里,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemeThumbnail.Title,选择封面图片,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemeThumbnail.Filter,图像文件 (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙113,PASS⦙113,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemePreview.Title,选择预览文件,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ThemePreview.Filter,Gif 文件 (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.WebSource.Title,选择网页,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.WebSource.Filter,网页 (*.html)|*.html,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ApplicationSource.Title,选择应用程序文件,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.ApplicationSource.Filter,应用程序文件 (*.exe)|*.exe,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Copy.Close,明白了,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.Copy.Title,重要提示,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.Copy.Message,所选文件将与目录中的所有其他文件和文件夹一起包含在主题中。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Access.Close,明白,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.Access.Title,访问警告,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeCreate.Access.Message,您没有权限访问所选文件。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,
+Portal.ThemeDelete.Title,删除主题,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.Delete,删除,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.Close,关闭,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeDelete.ThemeTitle,标题,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.ThemeDescription,描述,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.ThemeType,类型,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.ThemeTypeName,Gif,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.ThemeAuthor,作者,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.ThemeAuthorName,Taiizor,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.ThemeSize,大小,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.ThemeSizeTotal,0 b,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.ThemeVersion,版本,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0),,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.ThemeTags,标签,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.ThemeTagsText,无,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.ThemeCreate,创建日期,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.ThemeCreateDate,未知,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.ThemeModify,修改日期,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeDelete.ThemeModifyDate,未知,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,
+Portal.ThemeEdit.Title,主题编辑,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,
+Portal.ThemeEdit.Close,关闭,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,
+Portal.ThemeEdit.Save,保存,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,
+PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeEdit.ThemeTitle,标题,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,
+Portal.ThemeEdit.ThemeDescription,描述,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,
+Portal.ThemeEdit.ThemeAuthor,作者,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,
+Portal.ThemeEdit.ThemeContact,联系方式,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,
+Portal.ThemeEdit.ThemeTags,标签,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,
+Portal.ThemeEdit.ThemeArguments,参数,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,
+PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeEdit.ThemeTitle.Hint,请输入有效的标题,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,
+Portal.ThemeEdit.ThemeDescription.Hint,请输入有效的描述,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,
+Portal.ThemeEdit.ThemeAuthor.Hint,请输入有效的作者姓名,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,
+Portal.ThemeEdit.ThemeContact.Hint,请输入有效的联系方式,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,
+Portal.ThemeEdit.ThemeTags.Hint,请输入有效的主题标签,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,
+Portal.ThemeEdit.ThemeArguments.Hint,请输入有效的应用程序参数,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.ZH.xaml,
+Portal.ThemeImport.Title,主题导入,,Portal\Controls\ThemeImport\Portal.ThemeImport.ZH.xaml,
+Portal.ThemeImport.Close,关闭,,Portal\Controls\ThemeImport\Portal.ThemeImport.ZH.xaml,
+PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeImport.Info,主题信息,,Portal\Controls\ThemeImport\Portal.ThemeImport.ZH.xaml,
+Portal.ThemeImport.Type,原因说明,,Portal\Controls\ThemeImport\Portal.ThemeImport.ZH.xaml,
+Portal.ThemeReport.Title,主题报告,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+Portal.ThemeReport.Close,关闭,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.ThemeTitle,标题,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+Portal.ThemeReport.ThemeDescription,描述,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter,报告,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+Portal.ThemeReport.Reporter.Description,请说明报告该主题的原因。,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Contact.Placeholder,请输入有效的电子邮件地址,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Description.Text,附加备注：,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+Portal.ThemeReport.Reporter.Description.Placeholder,请详细描述报告原因。,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Preparing,报告的准备工作即将开始..,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Checking,正在进行必要的报告检查..,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+Portal.ThemeReport.Reporter.Checking.Error,执行必要的报告检查时发生未知错误。,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+Portal.ThemeReport.Reporter.Checking.Status,目前无法创建适合报告的条件，请稍后再试..,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+PASS⦙128,PASS⦙128,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Sending,正在发送报告信息..,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+Portal.ThemeReport.Reporter.Sending.Error,发送报告时发生错误。,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+Portal.ThemeReport.Reporter.Sending.Errored,发送报告时发生意外错误：{0}。,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+Portal.ThemeReport.Reporter.Sending.Succeded,报告已成功发送，感谢您的反馈。,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+PASS⦙129,PASS⦙129,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Network,报告需要互联网连接。,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Report,报告,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+Portal.ThemeReport.Reporter.GitHub,通过 GitHub 报告,,Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,
+Portal.ThemeReview.Title,主题审查,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.Close,关闭,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+PASS⦙131,PASS⦙131,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeReview.ThemeTitle,标题,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeDescription,描述,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeType,类型,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeTypeName,Gif,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeAuthor,作者,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeAuthorName,Taiizor,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeSize,大小,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeSizeTotal,0 b,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeVersion,版本,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0),,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeTags,标签,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeTagsText,无,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeCreate,创建日期,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeCreateDate,未知,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeModify,修改日期,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeModifyDate,未知,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeReview.ThemeContact,主题联系地址,,Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,
+Portal.ThemeShare.Title,主题分享,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+Portal.ThemeShare.Close,关闭,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemeTitle,标题,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+Portal.ThemeShare.ThemeDescription,描述,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemeExport,导出,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+Portal.ThemeShare.ThemePublish,发布到商店,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+Portal.ThemeShare.ThemeCopy,复制链接,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+PASS⦙134,PASS⦙134,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Publish,发布,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+Portal.ThemeShare.ThemePublish.Preparing,发布准备即将开始..,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit,正在检查您的每日主题上传限制..,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit.Exceeded,您已达到每日主题上传限制，请稍后再试。,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+Portal.ThemeShare.ThemePublish.Limit.Error,检查您的每日主题上传限制时发生未知错误。,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Compress,主题在上传前正在压缩..,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+Portal.ThemeShare.ThemePublish.Compress.Error,压缩主题时发生错误。,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size,正在检查压缩主题的大小..,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size.Exceeded,压缩主题的大小超过 {0} MB，无法上传。,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+PASS⦙140,PASS⦙140,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Check,正在检查压缩主题的完整性，然后再上传..,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+Portal.ThemeShare.ThemePublish.Check.Error,检查压缩主题的完整性时出错。,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload,压缩主题正在准备上传..,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload.Start,压缩主题正在上传..,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+Portal.ThemeShare.ThemePublish.Upload.Error,上传压缩主题时发生未知错误。,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+Portal.ThemeShare.ThemePublish.Upload.Errored,上传压缩主题时发生意外错误: {0}。,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+Portal.ThemeShare.ThemePublish.Upload.Succeded,压缩主题已成功上传，验证后将在商店发布。,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+PASS⦙143,PASS⦙143,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.SaveDialogFilter,ZIP 文件 (*.zip)|*.zip|所有文件 (*.*)|*.*,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+Portal.ThemeShare.SaveDialogTitle,保存主题文件,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+Portal.TrayIcon.Title,系统托盘,,Portal\Controls\TrayIcon\Portal.TrayIcon.ZH.xaml,
+Portal.TrayIcon.Close,关闭,,Portal\Controls\TrayIcon\Portal.TrayIcon.ZH.xaml,
+PASS⦙144,PASS⦙144,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.ZH.xaml,Please don't touch the translation in this line.
+Portal.TrayIcon.Message,Sucrose已最小化到系统托盘。请右键单击Sucrose图标以继续。,,Portal\Controls\TrayIcon\Portal.TrayIcon.ZH.xaml,
+Portal.WallpaperCycling.Title,壁纸循环,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
+Portal.WallpaperCycling.Close,关闭,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
+PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.Cycling,自动壁纸循环,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
+Portal.WallpaperCycling.Cycling.Description,壁纸是否自动更换。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
+PASS⦙146,PASS⦙146,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.Time,时间间隔,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
+Portal.WallpaperCycling.Time.Description,壁纸更换后的时间间隔。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
+PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.Transition,过渡模式,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
+Portal.WallpaperCycling.Transition.Description,设置壁纸之间的过渡模式。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
+PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.List,循环列表,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
+Portal.WallpaperCycling.List.Description,将循环列表重置为默认值。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
+PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.List.Reset,重置,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
+Portal.EmptyLibraryPage.Title,EmptyLibraryPage,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.ZH.xaml,
+PASS⦙150,PASS⦙150,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.EmptyLibraryPage.TitleText,你的图库被蜘蛛网覆盖了,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.ZH.xaml,
+Portal.EmptyLibraryPage.DescriptionText,壁纸已经被美丽的蜘蛛网替代了,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.ZH.xaml,
+Portal.FullLibraryPage.Title,FullLibraryPage,,Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.ZH.xaml,
+Portal.SearchLibraryPage.Title,SearchLibraryPage,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.ZH.xaml,
+PASS⦙151,PASS⦙151,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SearchLibraryPage.TitleText,你的图库被蜘蛛网所吞噬,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.ZH.xaml,
+Portal.SearchLibraryPage.DescriptionText,由于您的壁纸选择太多，没有空间容纳更多壁纸了,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.ZH.xaml,
+Portal.DonateSettingPage.Title,DonateSettingPage,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
+PASS⦙152,PASS⦙152,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.DonateMenu,捐赠菜单,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
+Portal.DonateSettingPage.DonateMenu.Description,界面上捐赠菜单的可见性。,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
+PASS⦙153,PASS⦙153,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,显示,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
+Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,隐藏,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
+PASS⦙154,PASS⦙154,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.Advertising,广告支持,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
+Portal.DonateSettingPage.Advertising.Description,通过观看广告来支持应用程序的开发。,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
+PASS⦙155,PASS⦙155,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.Advertising.AdvertisingDelay,广告间隔（分钟）：,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
+Portal.DonateSettingPage.Advertising.AdvertisingHint,提示：广告将以尽量减少打扰您的方式显示。,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.Title,GeneralSettingPage,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙156,PASS⦙156,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationLanguage,应用程序语言,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.ApplicationLanguage.Description,选择您想要查看应用程序的语言。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationStartup,应用程序启动,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Description,为了播放壁纸，Sucrose需要在启动时在后台运行。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationStartup.Startup.None,无,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,普通,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,优先,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,计划任务,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,明白,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,管理员权限警告,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,您需要管理员权限才能更改启动状态。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon,通知图标,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.NotifyIcon.Description,系统托盘的可见性。Sucrose将继续以隐藏的方式运行。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.Notify.Show,显示,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,隐藏,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.NotifyExit,关闭系统托盘时关闭所有 Sucrose 应用程序,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop,窗口背景,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.Description,用于自定义应用程序窗口背景。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,选择背景图像,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,选择一个背景图像,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,图像文件 (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,抱歉，您没有权限访问所选图片文件,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,背景缩放：,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,背景不透明度 (%)：,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.EngineVolume,音量,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.EngineVolume.Description,适用于所有壁纸的音量设置。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,仅在桌面聚焦时播放声音,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.EngineVolume.VolumeActive,只有所有应用程序静音时才播放声音,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,灵敏度（秒：,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.PrivateLibrary,个人库位置,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.PrivateLibrary.Description,存储您添加到库中的主题的位置。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,抱歉，您无权访问新位置,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,请选择一个空文件夹,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,请稍等，正在移动位置,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,将您的现有库移动到新位置,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.OtherSettingPage.Title,OtherSettingPage,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.ReportData,自动错误报告,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+Portal.OtherSettingPage.ReportData.Description,当遇到错误时，Sucrose 会迅速采取行动进行报告。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.StatisticsData,分享使用统计信息,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+Portal.OtherSettingPage.StatisticsData.Description,Sucrose 使您能够收集您的使用统计信息，以促进应用程序的发展。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.DiscordHook,Discord钩子,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+Portal.OtherSettingPage.DiscordHook.Description,Sucrose与Discord之间的通信。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.DiscordHook.DiscordRefresh,刷新连接:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+Portal.OtherSettingPage.DiscordHook.DiscordDelay,刷新间隔 (秒):,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Agent,网络代理,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+Portal.OtherSettingPage.Agent.Description,您在需要互联网连接的情况下使用的代理标识。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key,个人访问令牌,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+Portal.OtherSettingPage.Key.Description,用于无缝使用商店和应用程序更新所需的密钥。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.HintKey,如果您不知道如何获取个人访问令牌，请单击此处。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.PersonalKey,请输入个人访问令牌,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+Portal.OtherSettingPage.Key.PersonalKey.Valid,请输入有效的个人访问令牌,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Channel,更新渠道,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+Portal.OtherSettingPage.Channel.Description,更新操作将使用哪个渠道进行。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update,更新方法,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+Portal.OtherSettingPage.Update.Description,更新操作将使用哪种方法进行。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update.Limit,下载带宽限制:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Auto,自动更新,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+Portal.OtherSettingPage.Auto.Description,是否将自动检查更新过程。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer,开发工具,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+Portal.OtherSettingPage.Developer.Description,管理 WebView 和 CefSharp 引擎的开发者工具。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperMode,默认开发者工具：,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,调试端口：,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperHint,提示：默认的开发者工具在支持的主题中可能无法正常工作。调试端口通常效果更好。当您准备好时，您可以使用 'http://localhost:{0}' 地址或 'chrome://inspect' 查看 Chrome 浏览器，'opera://inspect' 查看 Opera 浏览器，'edge://inspect' 查看 Edge 浏览器。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter,性能计数器,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Counter.Description,所有性能计数器是否在后台运行。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter.CounterHint,注意：某些Web类型的主题可能无法正常工作，下面的性能设置将不起作用。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Pause,暂停规则,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Pause.Description,根据您的性能设置确定暂停壁纸的规则。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Communication,通信类型,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Communication.Description,确定将消息发送到 Web 类型主题的方法。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu,CPU使用率,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Cpu.Description,根据您的CPU使用设置，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU使用率 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu,GPU 使用率,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Gpu.Description,根据您的 GPU 使用设置，壁纸会发生什么。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,图形处理单元列表尚未创建,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU 使用率 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory,内存使用,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Memory.Description,根据您的内存使用设置，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory.MemoryUsage,内存使用率 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network,网络使用,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Network.Description,根据您的网络使用设置，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkAdapter,网络适配器:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,尚未创建网络适配器列表,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkUpload,上传速度:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkDownload,下载速度:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Ping时间 (毫秒):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery,电池电量,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Battery.Description,当笔记本电脑在电池电量状态下运行时，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery.BatteryUsage,电池电量 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Saver,电池节能模式,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Saver.Description,当笔记本电脑在电池节能模式下运行时，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Virtual,虚拟化,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Virtual.Description,当虚拟化应用程序运行时，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Remote,远程桌面,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Remote.Description,当远程桌面应用程序运行时，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Fullscreen,全屏模式,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Fullscreen.Description,当任何应用程序在全屏模式下运行时，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Focus,焦点模式,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Focus.Description,当您的焦点在其他任何应用程序上时，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server,商店服务器,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.Server.Description,指定用于显示商店中列出的主题的服务器。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server.ServerHint,注意：如果选择 {0} 作为服务器，则必须输入 {2} 以避免请求限制。否则，您可能会在访问商店主题时遇到问题。如果选择 {1}，您将拥有更流畅的商店体验。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Duration,商店刷新,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.Duration.Description,商店列表中的主题刷新频率。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.StoreStart,自动启动,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.StoreStart.Description,下载的主题是否自动设置为壁纸。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adult,不安全内容,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.Adult.Description,是否显示在商店中标记为不安全 (NSFW) 的内容。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Confirm,删除确认,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.Confirm.Description,在删除库中的主题时是否要求确认。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete,删除损坏主题,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.Delete.Description,是否自动删除库中的损坏或缺失的主题。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete.DeleteHint,注意：请谨慎操作，否则可能会导致数据丢失。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.LibraryStart,自动启动,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.LibraryStart.Description,创建的主题是否自动设置为壁纸。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Preview,主题预览,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.Preview.Description,鼠标悬停在主题上时是否显示预览。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Preview.StorePreview,商店预览:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.Preview.StorePreviewHide,隐藏详细信息:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Preview.LibraryPreview,库预览:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.Preview.LibraryPreviewHide,隐藏详细信息:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive,自适应布局,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.Adaptive.Description,自定义主题的布局或间距。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,间距距离 (像素):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,布局顺序 (数量):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort,库排序,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.Sort.Description,确定您的库中主题的排序方式和格式。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortMode,排序模式：,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,排序类型：,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Store,商店分页,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.Store.Description,为商店中的每个页面设置主题数量。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Library,库分页,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.Library.Description,为库中的每个页面设置主题数量。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary,日志文件,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.LogTemporary.Description,管理应用程序创建的所有日志文件。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Create,创建,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Delete,清除,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,注意：所有日志文件的总大小为 {0}。开始清除时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary,清除缓存,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.CacheTemporary.Description,清除应用程序创建的所有缓存文件。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Start,开始清理,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,注意：所有缓存文件的总大小为 {0}。开始清除时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary,清除商店,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.StoreTemporary.Description,清除应用程序创建的所有商店文件。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Start,开始清理,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,注意：所有商店文件的总大小为 {0}。开始清除时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary,清除库,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.LibraryTemporary.Description,清除库中的所有主题文件，包括您创建或添加的主题。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Start,开始清理,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,注意：所有库中的主题总大小为 {0}。开始清除时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup,设置文件,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.SettingBackup.Description,管理应用程序创建的所有设置文件。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Export,备份,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Import,还原,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,注意：选择的操作开始时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset,重置设置,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.SettingReset.Description,重置应用程序创建的所有设置文件。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Start,开始重置,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,注意：开始重置时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.Log.SaveDialogTitle,保存日志文件,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP 文件 (*.zip)|*.zip|所有文件 (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.Access.Close,明白了,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.Access.Title,访问警告,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.Access.Message,您无权访问所选位置。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode,交互方法,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+Portal.WallpaperSettingPage.InputMode.Description,确定与支持的壁纸进行交互的方法。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.InputModule,交互模块：,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.InputDesktop,只有在桌面聚焦时处理交互,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,隐藏以避免意外选择桌面图标,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.ScreenLayout,屏幕布局,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+Portal.WallpaperSettingPage.ScreenLayout.Description,更改壁纸在屏幕上的布局。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.StretchMode,拉伸模式,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+Portal.WallpaperSettingPage.StretchMode.Description,更改支持的壁纸的缩放方式。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.LoopMode,循环模式,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+Portal.WallpaperSettingPage.LoopMode.Description,更改支持的壁纸的循环方式。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.ShuffleMode,随机播放模式,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+Portal.WallpaperSettingPage.ShuffleMode.Description,更改支持的壁纸的随机播放方式。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.GifPlayer,Gif播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+Portal.WallpaperSettingPage.GifPlayer.Description,选择要播放库中的Gif主题的插件。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.VideoPlayer,Video播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+Portal.WallpaperSettingPage.VideoPlayer.Description,选择要播放库中的Video主题的插件。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.UrlPlayer,Url播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+Portal.WallpaperSettingPage.UrlPlayer.Description,选择要运行库中的Url主题的引擎。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.WebPlayer,Web播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+Portal.WallpaperSettingPage.WebPlayer.Description,选择要运行库中的Web主题的引擎。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.YouTubePlayer,YouTube播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+Portal.WallpaperSettingPage.YouTubePlayer.Description,选择要运行库中的YouTube主题的引擎。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.ApplicationPlayer,Application播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+Portal.WallpaperSettingPage.ApplicationPlayer.Description,选择要运行库中的Application主题的引擎。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ZH.xaml,
+PASS⦙267,PASS⦙267,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ZH.xaml,Please don't touch the translation in this line.
+Portal.BrokenStorePage.TitleText,互联网之光熄灭的一刻,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ZH.xaml,
+Portal.BrokenStorePage.DescriptionText,就像没有星星的夜空一样，这里没有互联网的闪烁,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ZH.xaml,
+Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.ZH.xaml,
+Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ZH.xaml,
+PASS⦙268,PASS⦙268,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SearchStorePage.TitleText,你寻找的答案可能隐藏在天空中,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ZH.xaml,
+Portal.SearchStorePage.DescriptionText,如果结果不如预期，天空可能为您提供新的体验,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ZH.xaml,
+Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ZH.xaml,
+PASS⦙269,PASS⦙269,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ZH.xaml,Please don't touch the translation in this line.
+Portal.UnknownStorePage.TitleText,探索商店中的神秘情况,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ZH.xaml,
+Portal.UnknownStorePage.DescriptionText,追寻未知之事，开始揭开商店中发生的神秘事件之旅,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ZH.xaml,

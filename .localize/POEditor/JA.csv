@@ -1,0 +1,1157 @@
+Term,Translate,Context,Reference,Comment
+Base64⦙0,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGl2ZS9MaXZlLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmRvL1VuZG8uSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlVwZGF0ZS9VcGRhdGUuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlByb3BlcnR5L1Byb3BlcnR5LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYXRjaGRvZy9XYXRjaGRvZy5KQS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Locale.JA.xaml,Please don't touch the translation in this line.
+Discord.BrowseButton,閲覧,,Discord\Discord.JA.xaml,
+Discord.Details,壁紙エンジン,,Discord\Discord.JA.xaml,
+Discord.DownloadButton,ダウンロード,,Discord\Discord.JA.xaml,
+PASS⦙0,PASS⦙0,Don't Touch,Discord\Discord.JA.xaml,Please don't touch the translation in this line.
+Discord.LargestText0,バナナアイスクリームの力,,Discord\Discord.JA.xaml,
+Discord.LargestText1,微笑む帽子のモンスター,,Discord\Discord.JA.xaml,
+Discord.LargestText2,空を彩る雀たち,,Discord\Discord.JA.xaml,
+Discord.LargestText3,走るペンギンの秘密の冒険,,Discord\Discord.JA.xaml,
+Discord.LargestText4,デイジーの畑で迷子のウサギ,,Discord\Discord.JA.xaml,
+Discord.LargestText5,歌う風薫る花,,Discord\Discord.JA.xaml,
+Discord.LargestText6,不思議な森の秘密の蜂,,Discord\Discord.JA.xaml,
+Discord.LargestText7,夢に満ちた魚の群れ,,Discord\Discord.JA.xaml,
+Discord.LargestText8,クリスタルアイのドラゴンダンス,,Discord\Discord.JA.xaml,
+Discord.LargestText9,花で覆われたおとぎ話の道,,Discord\Discord.JA.xaml,
+Discord.LargestText10,空から降り注ぐ星々,,Discord\Discord.JA.xaml,
+Discord.LargestText11,折れた月の光の中での舞踏,,Discord\Discord.JA.xaml,
+Discord.LargestText12,不思議な虹のドラゴン,,Discord\Discord.JA.xaml,
+Discord.LargestText13,魔法の森の物語,,Discord\Discord.JA.xaml,
+Discord.LargestText14,空に降る花の雨,,Discord\Discord.JA.xaml,
+Discord.LargestText15,時間の静かな触れ,,Discord\Discord.JA.xaml,
+Discord.LargestText16,シュールな夢の国,,Discord\Discord.JA.xaml,
+Discord.LargestText17,金色の滝の歌,,Discord\Discord.JA.xaml,
+Discord.LargestText18,空を浮遊するおとぎ話の船,,Discord\Discord.JA.xaml,
+Discord.LargestText19,色とりどりのバルーンの森,,Discord\Discord.JA.xaml,
+Discord.LargestText20,不思議な海底の街,,Discord\Discord.JA.xaml,
+Discord.LargestText21,星屑の空,,Discord\Discord.JA.xaml,
+Discord.LargestText22,未知を追いかける風,,Discord\Discord.JA.xaml,
+Discord.LargestText23,月明かりの下での引き込まれる物語,,Discord\Discord.JA.xaml,
+PASS⦙1,PASS⦙1,Don't Touch,Discord\Discord.JA.xaml,Please don't touch the translation in this line.
+Discord.SmallestText0,謎の足跡,,Discord\Discord.JA.xaml,
+Discord.SmallestText1,飛ぶ風船の魚,,Discord\Discord.JA.xaml,
+Discord.SmallestText2,笑う花々,,Discord\Discord.JA.xaml,
+Discord.SmallestText3,綿菓子の雲,,Discord\Discord.JA.xaml,
+Discord.SmallestText4,凍ったピザドラゴン,,Discord\Discord.JA.xaml,
+Discord.SmallestText5,輝くキノコの海賊,,Discord\Discord.JA.xaml,
+Discord.SmallestText6,見えないユニコーンの足跡,,Discord\Discord.JA.xaml,
+Discord.SmallestText7,カラフルな粉雲,,Discord\Discord.JA.xaml,
+Discord.SmallestText8,金のバルーン蝶々,,Discord\Discord.JA.xaml,
+Discord.SmallestText9,シュガークレーターの旅,,Discord\Discord.JA.xaml,
+Discord.SmallestText10,ロケットで飛ぶピザのスライス,,Discord\Discord.JA.xaml,
+Discord.SmallestText11,太陽と踊る海の貝殻,,Discord\Discord.JA.xaml,
+Discord.SmallestText12,見えない星の指,,Discord\Discord.JA.xaml,
+Discord.SmallestText13,霧の中の海底ダンス,,Discord\Discord.JA.xaml,
+Discord.SmallestText14,虹色の鳥の移動,,Discord\Discord.JA.xaml,
+Discord.SmallestText15,シュガーストームの道,,Discord\Discord.JA.xaml,
+Discord.SmallestText16,無限のピザ銀河,,Discord\Discord.JA.xaml,
+Discord.SmallestText17,太陽の微笑み,,Discord\Discord.JA.xaml,
+Discord.SmallestText18,秘密の池の失われた笑顔,,Discord\Discord.JA.xaml,
+Discord.SmallestText19,夢の鳥の影,,Discord\Discord.JA.xaml,
+Discord.SmallestText20,空に向かって舞う蝶々,,Discord\Discord.JA.xaml,
+Discord.SmallestText21,星の後ろに隠れた歌,,Discord\Discord.JA.xaml,
+Discord.SmallestText22,おとぎ話の霧の山,,Discord\Discord.JA.xaml,
+Discord.SmallestText23,不思議の森の妖精,,Discord\Discord.JA.xaml,
+PASS⦙2,PASS⦙2,Don't Touch,Discord\Discord.JA.xaml,Please don't touch the translation in this line.
+Discord.StatementText0,カオスに満ちた宇宙,,Discord\Discord.JA.xaml,
+Discord.StatementText1,無限の冒険の中で,,Discord\Discord.JA.xaml,
+Discord.StatementText2,奇妙で魔法のような世界,,Discord\Discord.JA.xaml,
+Discord.StatementText3,想像力の限界を挑む,,Discord\Discord.JA.xaml,
+Discord.StatementText4,非凡な現実,,Discord\Discord.JA.xaml,
+Discord.StatementText5,想像力の深奥に,,Discord\Discord.JA.xaml,
+Discord.StatementText6,魔法の発見の冒険,,Discord\Discord.JA.xaml,
+Discord.StatementText7,未知の領域の扉,,Discord\Discord.JA.xaml,
+Discord.StatementText8,複雑な夢の世界,,Discord\Discord.JA.xaml,
+Discord.StatementText9,限界に挑む冒険,,Discord\Discord.JA.xaml,
+Discord.StatementText10,ダイナミックで驚くべき体験,,Discord\Discord.JA.xaml,
+Discord.StatementText11,ファンタジックな童話の中で,,Discord\Discord.JA.xaml,
+Discord.StatementText12,魔法のポータルの間で,,Discord\Discord.JA.xaml,
+Discord.StatementText13,夜の空への旅,,Discord\Discord.JA.xaml,
+Discord.StatementText14,失われた大陸の足跡,,Discord\Discord.JA.xaml,
+Discord.StatementText15,未知の惑星の物語,,Discord\Discord.JA.xaml,
+Discord.StatementText16,平行宇宙の発見,,Discord\Discord.JA.xaml,
+Discord.StatementText17,伝説の国々への入り口,,Discord\Discord.JA.xaml,
+Discord.StatementText18,夢に織り交ぜられた現実,,Discord\Discord.JA.xaml,
+Discord.StatementText19,星の間の夢,,Discord\Discord.JA.xaml,
+Discord.StatementText20,時間の扉の向こう,,Discord\Discord.JA.xaml,
+Discord.StatementText21,輝く星のチーム,,Discord\Discord.JA.xaml,
+Discord.StatementText22,未知の静かな叫び,,Discord\Discord.JA.xaml,
+Discord.StatementText23,魅力的な世界,,Discord\Discord.JA.xaml,
+Discord.StatementText24,霧の山の頂上で,,Discord\Discord.JA.xaml,
+Discord.StatementText25,失われた王国の足跡,,Discord\Discord.JA.xaml,
+Discord.StatementText26,星の間の夢の旅,,Discord\Discord.JA.xaml,
+Discord.StatementText27,魔法の夜の生き物,,Discord\Discord.JA.xaml,
+Discord.StatementText28,無限の物語の始まり,,Discord\Discord.JA.xaml,
+Discord.StatementText29,空に昇るカラフルなバルーン,,Discord\Discord.JA.xaml,
+Discord.StatementText30,不思議な夜空,,Discord\Discord.JA.xaml,
+Discord.StatementText31,夢の道、失われた王国,,Discord\Discord.JA.xaml,
+Discord.StatementText32,未知の地へ続く扉,,Discord\Discord.JA.xaml,
+Discord.StatementText33,時間の腕の中で踊る,,Discord\Discord.JA.xaml,
+Discord.StatementText34,夜に埋もれた物語,,Discord\Discord.JA.xaml,
+Discord.StatementText35,魔法の鏡の世界,,Discord\Discord.JA.xaml,
+Discord.StatementText36,無限の扉での旅,,Discord\Discord.JA.xaml,
+Discord.StatementText37,夢狩りの夜の旅,,Discord\Discord.JA.xaml,
+Discord.StatementText38,クリスタルシティの夢,,Discord\Discord.JA.xaml,
+Discord.StatementText39,暗闇に輝く星,,Discord\Discord.JA.xaml,
+Discord.StatementText40,星の後ろにある秘密の夜,,Discord\Discord.JA.xaml,
+Discord.StatementText41,不思議な月明かりの物語,,Discord\Discord.JA.xaml,
+Discord.StatementText42,未知の国の扉の前で,,Discord\Discord.JA.xaml,
+Discord.StatementText43,魔法の夜の神秘的な道,,Discord\Discord.JA.xaml,
+Discord.StatementText44,空に昇る夢のバルーン,,Discord\Discord.JA.xaml,
+Discord.StatementText45,夜空の星の下の夢の道,,Discord\Discord.JA.xaml,
+Discord.StatementText46,星の岸辺の隠れた町,,Discord\Discord.JA.xaml,
+Discord.StatementText47,霧の山の向こうの物語,,Discord\Discord.JA.xaml,
+Discord.StatementText48,暗闇に輝く星の夜,,Discord\Discord.JA.xaml,
+Launcher.WallCustomizeText,壁紙をカスタマイズ,,Launcher\Launcher.JA.xaml,
+PASS⦙3,PASS⦙3,Don't Touch,Launcher\Launcher.JA.xaml,Please don't touch the translation in this line.
+Launcher.CreateLogText,ログファイルを作成,,Launcher\Launcher.JA.xaml,
+PASS⦙4,PASS⦙4,Don't Touch,Launcher\Launcher.JA.xaml,Please don't touch the translation in this line.
+Launcher.ExitText,終了,,Launcher\Launcher.JA.xaml,
+PASS⦙5,PASS⦙5,Don't Touch,Launcher\Launcher.JA.xaml,Please don't touch the translation in this line.
+Launcher.OpenReportText,問題を報告,,Launcher\Launcher.JA.xaml,
+PASS⦙6,PASS⦙6,Don't Touch,Launcher\Launcher.JA.xaml,Please don't touch the translation in this line.
+Launcher.OpenText,Sucroseを開く,,Launcher\Launcher.JA.xaml,
+PASS⦙7,PASS⦙7,Don't Touch,Launcher\Launcher.JA.xaml,Please don't touch the translation in this line.
+Launcher.ReportText,問題を報告,,Launcher\Launcher.JA.xaml,
+PASS⦙8,PASS⦙8,Don't Touch,Launcher\Launcher.JA.xaml,Please don't touch the translation in this line.
+Launcher.ReportWindowTitle,Sucrose診断,,Launcher\Launcher.JA.xaml,
+PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.JA.xaml,Please don't touch the translation in this line.
+Launcher.SaveDialogFilter,ZIPファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*,,Launcher\Launcher.JA.xaml,
+Launcher.SaveDialogTitle,ログファイルを保存,,Launcher\Launcher.JA.xaml,
+PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.JA.xaml,Please don't touch the translation in this line.
+Launcher.SettingText,設定,,Launcher\Launcher.JA.xaml,
+PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.JA.xaml,Please don't touch the translation in this line.
+Launcher.TrayText,Sucrose Wallpaper Engine,,Launcher\Launcher.JA.xaml,
+PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.JA.xaml,Please don't touch the translation in this line.
+Launcher.WallChangeText,壁紙を変更,,Launcher\Launcher.JA.xaml,
+Launcher.WallCloseText,壁紙を閉じる,,Launcher\Launcher.JA.xaml,
+Launcher.WallOpenText,壁紙を開く,,Launcher\Launcher.JA.xaml,
+Launcher.WallStartText,壁紙を開始,,Launcher\Launcher.JA.xaml,
+Launcher.WallStopText,壁紙を停止,,Launcher\Launcher.JA.xaml,
+PASS⦙13,PASS⦙13,Don't Touch,Launcher\Launcher.JA.xaml,Please don't touch the translation in this line.
+Launcher.ClosedText,閉じられました,,Launcher\Launcher.JA.xaml,
+Launcher.PausedText,一時停止中,,Launcher\Launcher.JA.xaml,
+PASS⦙14,PASS⦙14,Don't Touch,Launcher\Launcher.JA.xaml,Please don't touch the translation in this line.
+Launcher.UpdateText,更新を確認,,Launcher\Launcher.JA.xaml,
+PASS⦙15,PASS⦙15,Don't Touch,Launcher\Launcher.JA.xaml,Please don't touch the translation in this line.
+Launcher.UpdateText.Done,更新の準備中,,Launcher\Launcher.JA.xaml,
+Launcher.UpdateText.Check,更新を確認中,,Launcher\Launcher.JA.xaml,
+Launcher.UpdateText.Progress,更新進行中 {0},,Launcher\Launcher.JA.xaml,
+Live.Title,{0} 通知,,Live\Live.JA.xaml,
+PASS⦙16,PASS⦙16,Don't Touch,Live\Live.JA.xaml,Please don't touch the translation in this line.
+Live.Close,閉じる,,Live\Live.JA.xaml,
+Live.Continue,続行,,Live\Live.JA.xaml,
+Live.Download,ダウンロード,,Live\Live.JA.xaml,
+Live.Remember,覚えて,,Live\Live.JA.xaml,
+PASS⦙17,PASS⦙17,Don't Touch,Live\Live.JA.xaml,Please don't touch the translation in this line.
+Live.Info.WebView,WebView 必要条件,,Live\Live.JA.xaml,
+Live.Info.CefSharp,CefSharp 必要条件,,Live\Live.JA.xaml,
+PASS⦙18,PASS⦙18,Don't Touch,Live\Live.JA.xaml,Please don't touch the translation in this line.
+Live.Message.WebView,WebView2 Runtime がインストールされていません。WebView2 Runtime は、アプリケーションでの現代の Web 技術の利用を可能にするコンポーネントです。したがって、選択した壁紙を設定するには、WebView2 Runtime が必要です。,,Live\Live.JA.xaml,
+Live.Message.CefSharp,VC++ Redistributable がインストールされていません。VC++ Redistributable は、CefSharp の正常な動作に必要な一部のシステムコンポーネントを提供します。CefSharp は、アプリケーションでの現代の Web 技術の利用を可能にするフレームワークです。したがって、選択した壁紙を設定するには、VC++ Redistributable が必要です。,,Live\Live.JA.xaml,
+Base64⦙1,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5KQS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\Portal.JA.xaml,Please don't touch the translation in this line.
+Property.WindowTitle,Sucrose Property,,Property\Property.JA.xaml,
+PASS⦙19,PASS⦙19,Don't Touch,Property\Property.JA.xaml,Please don't touch the translation in this line.
+Property.DeleteTip,コピーを削除,,Property\Property.JA.xaml,
+Property.RefreshTip,インターフェイスを更新,,Property\Property.JA.xaml,
+Property.RestoreTip,デフォルトに戻す,,Property\Property.JA.xaml,
+PASS⦙20,PASS⦙20,Don't Touch,Property\Property.JA.xaml,Please don't touch the translation in this line.
+Property.Type.NotSupport,コントロール タイプ '{0}' はサポートされていません。,,Property\Property.JA.xaml,
+PASS⦙21,PASS⦙21,Don't Touch,Property\Property.JA.xaml,Please don't touch the translation in this line.
+Property.ColorPicker.Color,色,,Property\Property.JA.xaml,
+Property.ColorPicker.Cancel,キャンセル,,Property\Property.JA.xaml,
+Property.ColorPicker.Confirm,確認,,Property\Property.JA.xaml,
+Property.ColorPicker.EyeDropper,目詰め管,,Property\Property.JA.xaml,
+Property.ColorPicker.Popup.Title,Sucrose Property Color Picker,,Property\Property.JA.xaml,
+PASS⦙22,PASS⦙22,Don't Touch,Property\Property.JA.xaml,Please don't touch the translation in this line.
+Property.FileDropDown.Tip,ファイルを選択,,Property\Property.JA.xaml,
+Property.FileDropDown.Filter,すべてのファイル (*.*)|*.*,,Property\Property.JA.xaml,
+PASS⦙23,PASS⦙23,Don't Touch,Property\Property.JA.xaml,Please don't touch the translation in this line.
+Property.FileDropDown.Access.Close,わかりました,,Property\Property.JA.xaml,
+Property.FileDropDown.Access.Title,アクセス警告,,Property\Property.JA.xaml,
+Property.FileDropDown.Access.Message,選択したファイルにアクセスする権限がありません。,,Property\Property.JA.xaml,
+Undo.QuestionTitle,Sucrose Undo,,Undo\Undo.JA.xaml,
+PASS⦙24,PASS⦙24,Don't Touch,Undo\Undo.JA.xaml,Please don't touch the translation in this line.
+Undo.QuestionMessage,本当に Sucrose Wallpaper Engine をアンインストールしますか？,,Undo\Undo.JA.xaml,
+Undo.QuestionDescription,すべての設定を削除するには「はい」を選択し、設定を保持して削除するには「いいえ」を選択し、削除プロセスをキャンセルするには「キャンセル」を選択してください。,,Undo\Undo.JA.xaml,
+Update.WindowTitle,Sucrose Update,,Update\Update.JA.xaml,
+PASS⦙25,PASS⦙25,Don't Touch,Update\Update.JA.xaml,Please don't touch the translation in this line.
+Update.HelpText,問題を解決する,,Update\Update.JA.xaml,
+PASS⦙26,PASS⦙26,Don't Touch,Update\Update.JA.xaml,Please don't touch the translation in this line.
+Update.ReloadText,再試行,,Update\Update.JA.xaml,
+PASS⦙27,PASS⦙27,Don't Touch,Update\Update.JA.xaml,Please don't touch the translation in this line.
+Update.ReloadText.Browser.Opened,ブラウザで開きました,,Update\Update.JA.xaml,
+Update.ReloadText.Browser.Opening,ブラウザで開いています,,Update\Update.JA.xaml,
+PASS⦙28,PASS⦙28,Don't Touch,Update\Update.JA.xaml,Please don't touch the translation in this line.
+Update.MessageText.Preparing,必要な準備をしています,,Update\Update.JA.xaml,
+PASS⦙29,PASS⦙29,Don't Touch,Update\Update.JA.xaml,Please don't touch the translation in this line.
+Update.MessageText.Temporary,一時的な場所をチェックしています,,Update\Update.JA.xaml,
+Update.MessageText.Temporary.Error,一時的な場所をチェックできませんでした,,Update\Update.JA.xaml,
+PASS⦙30,PASS⦙30,Don't Touch,Update\Update.JA.xaml,Please don't touch the translation in this line.
+Update.MessageText.Connection,インターネット接続をチェックしています,,Update\Update.JA.xaml,
+Update.MessageText.Connection.None,インターネットに接続されていません,,Update\Update.JA.xaml,
+Update.MessageText.Connection.Error,インターネット接続をチェックできませんでした,,Update\Update.JA.xaml,
+PASS⦙31,PASS⦙31,Don't Touch,Update\Update.JA.xaml,Please don't touch the translation in this line.
+Update.MessageText.Listing,必要なリストを取得しています,,Update\Update.JA.xaml,
+Update.MessageText.Listing.Empty,必要なリストは空です,,Update\Update.JA.xaml,
+Update.MessageText.Listing.Error,必要なリストを受信できませんでした,,Update\Update.JA.xaml,
+PASS⦙32,PASS⦙32,Don't Touch,Update\Update.JA.xaml,Please don't touch the translation in this line.
+Update.MessageText.Filtering,リストをフィルタリングしています,,Update\Update.JA.xaml,
+Update.MessageText.Filtering.Not,リストをフィルタリングできません,,Update\Update.JA.xaml,
+Update.MessageText.Filtering.Error,リストをフィルタリングできませんでした,,Update\Update.JA.xaml,
+PASS⦙33,PASS⦙33,Don't Touch,Update\Update.JA.xaml,Please don't touch the translation in this line.
+Update.MessageText.Comparing,リストの比較中,,Update\Update.JA.xaml,
+Update.MessageText.Comparing.Update,アプリケーションは既に最新です,,Update\Update.JA.xaml,
+Update.MessageText.Comparing.Error,リストの比較に失敗しました,,Update\Update.JA.xaml,
+PASS⦙34,PASS⦙34,Don't Touch,Update\Update.JA.xaml,Please don't touch the translation in this line.
+Update.MessageText.Searching,必要なファイルを検索しています,,Update\Update.JA.xaml,
+Update.MessageText.Searching.Not,必要なファイルが見つかりません,,Update\Update.JA.xaml,
+Update.MessageText.Searching.Error,必要なファイルを検索できませんでした,,Update\Update.JA.xaml,
+Update.MessageText.Searching.Condition,必要なファイルが見つかりません,,Update\Update.JA.xaml,
+PASS⦙35,PASS⦙35,Don't Touch,Update\Update.JA.xaml,Please don't touch the translation in this line.
+Update.MessageText.Downloading,必要なファイルをダウンロードしています,,Update\Update.JA.xaml,
+Update.MessageText.Downloading.Error,必要なファイルをダウンロードできませんでした,,Update\Update.JA.xaml,
+Update.MessageText.Downloading.Complete.Cancel,必要なファイルのダウンロードがキャンセルされました,,Update\Update.JA.xaml,
+Update.MessageText.Downloading.Complete.Error,必要なファイルのダウンロード中にエラーが発生しました,,Update\Update.JA.xaml,
+PASS⦙36,PASS⦙36,Don't Touch,Update\Update.JA.xaml,Please don't touch the translation in this line.
+Update.MessageText.Running,ダウンロードしたファイルを準備中,,Update\Update.JA.xaml,
+Update.MessageText.Running.Executing,ダウンロードしたファイルを実行中,,Update\Update.JA.xaml,
+Update.MessageText.Running.Executed,ダウンロードしたファイルを実行しました,,Update\Update.JA.xaml,
+Update.MessageText.Running.Not,ダウンロードしたファイルは使用できません,,Update\Update.JA.xaml,
+Update.MessageText.Running.Error,ダウンロードしたファイルの準備に失敗しました,,Update\Update.JA.xaml,
+PASS⦙37,PASS⦙37,Don't Touch,Update\Update.JA.xaml,Please don't touch the translation in this line.
+Update.MessageText.Extracting,ダウンロードしたファイルを展開しています,,Update\Update.JA.xaml,
+Update.MessageText.Extracting.Executing,展開されたファイルが実行されています,,Update\Update.JA.xaml,
+Update.MessageText.Extracting.Executed,展開されたファイルが実行されました,,Update\Update.JA.xaml,
+Update.MessageText.Extracting.Failed,ダウンロードしたファイルが失敗しました,,Update\Update.JA.xaml,
+Update.MessageText.Extracting.Corrupt,ダウンロードしたファイルが壊れています,,Update\Update.JA.xaml,
+Update.MessageText.Extracting.Not,ダウンロードしたファイルは使用できません,,Update\Update.JA.xaml,
+Update.MessageText.Extracting.Error,ダウンロードしたファイルを展開できませんでした,,Update\Update.JA.xaml,
+Watchdog.HelpButton,ヘルプ,,Watchdog\Watchdog.JA.xaml,
+Watchdog.CloseButton,閉じる,,Watchdog\Watchdog.JA.xaml,
+Watchdog.ErrorEmpty,申し訳ありませんが、エラーディテールをキャプチャできませんでした。,,Watchdog\Watchdog.JA.xaml,
+Watchdog.ErrorMessage,予期しないエラーが発生しました:,,Watchdog\Watchdog.JA.xaml,
+Watchdog.ErrorTitle,エラー,,Watchdog\Watchdog.JA.xaml,
+Watchdog.HideButton,非表示,,Watchdog\Watchdog.JA.xaml,
+Watchdog.ShowButton,表示,,Watchdog\Watchdog.JA.xaml,
+Watchdog.StackTrace,スタックトレース:,,Watchdog\Watchdog.JA.xaml,
+Watchdog.WindowTitle,Sucrose Watchdog,,Watchdog\Watchdog.JA.xaml,
+Portal.Area.Data,データ,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Sound,サウンド,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Log,ログ,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Hook,フック,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Store,ストア,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Donate,寄付,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.System,システム,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Cache,キャッシュ,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Laptop,ラップトップ,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Support,サポート,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Reset,リセット,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Backup,バックアップ,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Priority,優先度,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Engines,エンジン,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Update,更新,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Library,ライブラリ,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Developer,開発者,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.Extensions,拡張,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.SystemResources,システムリソース,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Area.AppearanceBehavior,外観と動作,,Portal\Area\Portal.Area.JA.xaml,
+Portal.Category.All,すべて,,Portal\Category\Portal.Category.JA.xaml,
+PASS⦙38,PASS⦙38,Don't Touch,Portal\Category\Portal.Category.JA.xaml,Please don't touch the translation in this line.
+Portal.Category.Abstract,抽象,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Ambience,環境,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Animals,動物,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Animation,アニメーション,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Anime,アニメ,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.ArchitectureandBuildings,建築と建物,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.ArtandAbstract,アートと抽象,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.ArtificialIntelligence,人工知能,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Artworks,アートワーク,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Bard,吟遊詩人,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.BlackandWhite,白黒,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Brands,ブランド,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.CartoonandComics,アニメとコミック,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.CitiesandPlaces,都市と場所,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.CloudsandSkies,雲と空,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Colorful,カラフル,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.ColorfulGradients,カラフルなグラデーション,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.ComicBooks,コミックブック,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.DigitalArt,デジタルアート,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Dynamic,ダイナミック,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Education,教育,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.EnchantedForests,魔法の森,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Fantasy,ファンタジー,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Fashion,ファッション,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.FilmandTV,映画とテレビ,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.FoodandDrinks,食べ物と飲み物,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Galaxy,銀河,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Game,ゲーム,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.GeometricPatterns,幾何学的なパターン,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.HolidaysandSeasons,休暇と季節,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.HorrorandHalloween,ホラーとハロウィン,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.InspirationalQuotes,インスピレーション引用,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.KidsandCartoon,子供とカートゥーン,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Landscape,風景,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Lifestyle,ライフスタイル,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.LineArt,線画,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Medieval,中世,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Minimalist,ミニマリスト,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Music,音楽,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Nature,自然,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Nightscapes,夜景,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.PatternsandTextures,パターンとテクスチャ,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Persons,人物,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.PixelArt,ピクセルアート,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Retro,レトロ,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Science,科学,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.ScienceFiction,サイエンスフィクション,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Sky,空,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Software,ソフトウェア,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Space,宇宙,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Sports,スポーツ,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Superheroes,スーパーヒーロー,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.System,システム,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Tavern,酒場,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Technology,技術,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Temple,寺院,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Time,時間,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.UnderwaterandMarine,水中と海洋,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Vehicles,乗り物,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.Vintage,ヴィンテージ,,Portal\Category\Portal.Category.JA.xaml,
+Portal.Category.War,戦争,,Portal\Category\Portal.Category.JA.xaml,
+Base64⦙2,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVHJheUljb24vUG9ydGFsLlRyYXlJY29uLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJPdGhlckhlbHAvUG9ydGFsLk90aGVySGVscC5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVFZGl0L1BvcnRhbC5UaGVtZUVkaXQuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlQ2FyZC9Qb3J0YWwuU3RvcmVDYXJkLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJPdGhlckFib3V0L1BvcnRhbC5PdGhlckFib3V0LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQYWdpbmF0aW9uL1BvcnRhbC5QYWdpbmF0aW9uLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZVNoYXJlL1BvcnRhbC5UaGVtZVNoYXJlLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5Q2FyZC9Qb3J0YWwuTGlicmFyeUNhcmQuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRGVsZXRlL1BvcnRhbC5UaGVtZURlbGV0ZS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVSZXZpZXcvUG9ydGFsLlRoZW1lUmV2aWV3LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUltcG9ydC9Qb3J0YWwuVGhlbWVJbXBvcnQuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lQ3JlYXRlL1BvcnRhbC5UaGVtZUNyZWF0ZS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVSZXBvcnQvUG9ydGFsLlRoZW1lUmVwb3J0LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJFeHBhbmRlckNhcmQvUG9ydGFsLkV4cGFuZGVyQ2FyZC5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2FsbHBhcGVyQ3ljbGluZy9Qb3J0YWwuV2FsbHBhcGVyQ3ljbGluZy5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRGlzcGxheVByZWZlcmVuY2VzL1BvcnRhbC5EaXNwbGF5UHJlZmVyZW5jZXMuSkEueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\Controls\Portal.Controls.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.Stretch.Fill,フィル,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.Stretch.None,なし,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.Stretch.Uniform,均等,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.Stretch.UniformToFill,均等にフィル,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙39,PASS⦙39,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.ReportType.Spam,스팸,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ReportType.Other,기타,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ReportType.Nudity,나체,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ReportType.Harmful,유해,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ReportType.Violence,폭력,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ReportType.Malicious,악의적인,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ReportType.CopyrightViolation,저작권 침해,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ReportType.MisleadingInformation,오해의 소지가 있는 정보,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙40,PASS⦙40,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.SortModeType.None,なし,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.SortModeType.Name,名前,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.SortModeType.Creation,作成,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.SortModeType.Modification,変更,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙41,PASS⦙41,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.InputType.Close,閉じる,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.InputType.OnlyMouse,マウスのみ,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.InputType.OnlyKeyboard,キーボードのみ,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.InputType.MouseKeyboard,マウス＆キーボード,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.StoreType.GitHub,GitHub,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.StoreType.Soferity,Soferity,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.StretchType.Fill,フィル,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.StretchType.None,なし,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.StretchType.Uniform,均等,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.StretchType.UniformToFill,均等にフィル,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.CommunicationType.Pipe,Pipe,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CommunicationType.Signal,Signal,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.PerformanceType.Close,閉じる,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.PerformanceType.Pause,一時停止,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.PerformanceType.Resume,再開,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.WindowBackdropType.Mica,マイカ,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.WindowBackdropType.None,なし,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.WindowBackdropType.Auto,自動,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.WindowBackdropType.Tabbed,タブ,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.WindowBackdropType.Acrylic,アクリル,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.InputModuleType.Native,Native,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.InputModuleType.RawInput,RawInput,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.ChannelType.Release,デフォルト,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ChannelType.PreRelease,開発者,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.TransitionType.Random,ランダム,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.TransitionType.Sequential,順次,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.PausePerformanceType.Heavy,重い,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.PausePerformanceType.Light,軽い,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.SortKindType.Ascending,昇順 [A-Z],,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.SortKindType.Descending,降順 [Z-A],,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.ExpandScreenType.Default,デフォルト,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ExpandScreenType.Advanced,高度な,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.UpdateType.Compressed,圧縮,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.UpdateType.Executable,実行可能,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.ScreenType.WorkingArea,作業領域,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ScreenType.DisplayBound,ディスプレイ境界,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.DuplicateScreenType.Default,デフォルト,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.DuplicateScreenType.Advanced,高度な,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.CompatibilityType.Pass,成功,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.Tags,'Tags'は多すぎる値を持っています,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.Type,テーマはアプリケーションでサポートされていないタイプのために作成されました,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.Title,'Title'の値は空または非常に長いです,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.Access,関連するファイルにアクセスする権限がありません,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.Author,'Author'の値は空または非常に長いです,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.Folder,テーマファイルはアーカイブのルートディレクトリにありません,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.Source,'Source'ファイルが見つかりませんでした,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.Contact,'Contact'の値は空または非常に長いです,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.Preview,'Preview'ファイルが見つかりませんでした,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.Encrypt,関連ファイルは暗号化されています,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.ZipType,関連ファイルは実際には '.zip' ファイルではありません,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.InfoFile,'SucroseInfo.json'ファイルが見つかりませんでした,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.NotFound,関連ファイルが見つかりませんでした,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.LoopMode,'LoopMode'値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.Arguments,'Arguments'の値が非常に長いです,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.Extension,関連ファイルは '.zip' 拡張子ではありません,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.Thumbnail,'Thumbnail'ファイルが見つかりませんでした,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.SystemCpu,'SystemCpu'値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.EmptyInfo,'SucroseInfo.json'ファイルは空です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.AppVersion,テーマはより高いアプリケーションバージョンのために作成されました,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.InvalidUrl,'Source'が無効な値を含んでいます,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.SystemBios,'SystemBios'値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.SystemDate,'SystemDate'値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.SystemAudio,'SystemAudio'値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.Description,'Description'の値は空または非常に長いです,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.InvalidInfo,'SucroseInfo.json'ファイルが無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.TriggerTime,'TriggerTime'値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.StretchMode,'StretchMode'値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.VolumeLevel,'VolumeLevel'値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.ShuffleMode,'ShuffleMode'値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.InvalidTags,'Tags'値は非常に短いか非常に長いです,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.InvalidFile,無効なファイル,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.PropertyList,'PropertyList'の値は空です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.SystemMemory,'SystemMemory'値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.SystemBattery,'SystemBattery'値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.SystemGraphic,'SystemGraphic'値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.SystemNetwork,'SystemNetwork'値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.InvalidContact,'Contact'の値は 'Url' または 'メールアドレス' ではありません,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.InvalidExtension,無効なファイル拡張子,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.EmptyCompatible,'SucroseCompatible.json'ファイルは空です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.EmptyProperties,'SucroseProperties.json'ファイルは空です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.PropertyListener,'PropertyListener'の値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.SystemMotherboard,'SystemMotherboard'の値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.InvalidCompatible,'SucroseCompatible.json'ファイルが無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.InvalidProperties,'SucroseProperties.json'ファイルが無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.PropertyLocalization,'PropertyLocalization'の値が無効です,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.CompatibilityType.UnforeseenConsequences,予測不可能な結果,,Portal\Enum\Portal.Enum.JA.xaml,
+Base64⦙3,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5KQS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.JA.xaml,Please don't touch the translation in this line.
+PASS⦙57,PASS⦙57,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.JA.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.JA.xaml,
+PASS⦙58,PASS⦙58,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.JA.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Import.Successful,'{0}' というテーマがライブラリに正常に追加されました。,,Portal\LibraryPage\Portal.LibraryPage.JA.xaml,
+Portal.LibraryPage.Import.Unsuccessful,'{0}' というテーマはライブラリに追加できませんでした。理由: '{1}'。,,Portal\LibraryPage\Portal.LibraryPage.JA.xaml,
+Portal.MainWindow.Title,Sucrose Wallpaper Engine,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+PASS⦙59,PASS⦙59,Don't Touch,Portal\MainWindow\Portal.MainWindow.JA.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuHelp,ヘルプ,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuAbout,約,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+PASS⦙60,PASS⦙60,Don't Touch,Portal\MainWindow\Portal.MainWindow.JA.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuHelpTip,ヘルプを表示,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuAboutTip,アバウトを表示,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+PASS⦙61,PASS⦙61,Don't Touch,Portal\MainWindow\Portal.MainWindow.JA.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuLibrary,ライブラリ,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuStore,ストア,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+PASS⦙62,PASS⦙62,Don't Touch,Portal\MainWindow\Portal.MainWindow.JA.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuLibraryTip,テーマライブラリ,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuStoreTip,テーマストア,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+PASS⦙63,PASS⦙63,Don't Touch,Portal\MainWindow\Portal.MainWindow.JA.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuGeneral,一般,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuPersonal,個人的な,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuPerformance,パフォーマンス,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuWallpaper,壁紙,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuSystem,システム,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuDonate,寄付,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuOther,その他,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.JA.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuBackTip,戻る,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuGeneralTip,一般設定,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuPersonalTip,個人設定,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuPerformanceTip,パフォーマンス設定,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuWallpaperTip,壁紙設定,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuSystemTip,システム設定,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuDonateTip,寄付設定,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuOtherTip,その他の設定,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.JA.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuSettingTip,設定,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.JA.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxHint,壁紙を検索,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.JA.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxTip,お探しのものが見つからないですか？,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.JA.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuLightTip,ライト テーマ,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuDarkTip,ダーク テーマ,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+PASS⦙69,PASS⦙69,Don't Touch,Portal\MainWindow\Portal.MainWindow.JA.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuCreateWallpaperTip,壁紙を作成,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuWallpaperCyclingTip,壁紙のサイクリング,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuDisplayPreferencesTip,ディスプレイ設定,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuDonateOptionsTip,寄付オプション,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Portal.MainWindow.MenuOtherOptionsTip,その他のオプション,,Portal\MainWindow\Portal.MainWindow.JA.xaml,
+Base64⦙4,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuSkEueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\SettingPage\Portal.SettingPage.JA.xaml,Please don't touch the translation in this line.
+Base64⦙5,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLkpBLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==,Don't Touch,Portal\StorePage\Portal.StorePage.JA.xaml,Please don't touch the translation in this line.
+PASS⦙70,PASS⦙70,Don't Touch,Portal\StorePage\Portal.StorePage.JA.xaml,Please don't touch the translation in this line.
+Portal.StorePage.Title,StorePage,,Portal\StorePage\Portal.StorePage.JA.xaml,
+Portal.DisplayPreferences.Title,ディスプレイ設定,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,
+Portal.DisplayPreferences.Close,閉じる,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,
+PASS⦙71,PASS⦙71,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expander,拡張モード,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,
+Portal.DisplayPreferences.Expander.Description,壁紙をアクティブなディスプレイにどのように適用するか。,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,
+PASS⦙72,PASS⦙72,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Screen,選択したディスプレイのみ,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,
+PASS⦙73,PASS⦙73,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expand,ディスプレイ間で拡張,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,
+PASS⦙74,PASS⦙74,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expand.Monitor,すべてのモニター,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,
+PASS⦙75,PASS⦙75,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expand.Hint,拡張モードを選択します,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,
+PASS⦙76,PASS⦙76,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate,同じ壁紙を複製,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,
+PASS⦙77,PASS⦙77,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate.Hint,同じ壁紙を複製モードを選択します,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,
+Portal.ExpanderCard.TitleText,タイトル,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.JA.xaml,
+Portal.ExpanderCard.DescriptionText,説明,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.JA.xaml,
+PASS⦙78,PASS⦙78,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.JA.xaml,Please don't touch the translation in this line.
+Portal.ExpanderCard.ExpandUpTip,縮小,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.JA.xaml,
+Portal.ExpanderCard.ExpandDownTip,拡大,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.JA.xaml,
+Portal.LibraryCard.TitleText,タイトル,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+Portal.LibraryCard.DescriptionText,説明,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+PASS⦙79,PASS⦙79,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.MoreTip,詳細,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+Portal.LibraryCard.VersionTip,このテーマを使用するには、Sucroseを更新してください,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+PASS⦙80,PASS⦙80,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.MenuReview,レビュー,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+Portal.LibraryCard.MenuUse,使用,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+Portal.LibraryCard.MenuPreview,プレビュー,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+Portal.LibraryCard.MenuCustomize,カスタマイズ,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+Portal.LibraryCard.MenuCyclingAdd,サイクルに追加,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+Portal.LibraryCard.MenuCyclingRemove,サイクルから削除,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+Portal.LibraryCard.MenuFind,検索,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+Portal.LibraryCard.MenuShare,共有,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+Portal.LibraryCard.MenuDelete,削除,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+Portal.LibraryCard.MenuEdit,編集,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+PASS⦙81,PASS⦙81,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Closed,閉じられました,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+Portal.LibraryCard.Paused,一時停止中,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Selected,選択された,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Incompatible,非互換,,Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,
+Portal.OtherAbout.Title,について,,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,
+Portal.OtherAbout.Close,閉じる,,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,
+PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.About,こんにちは、私の名前はBayram Emekliで、Taiizorとしても知られています。無料でオープンソースのSucrose Wallpaper Engineアプリの開発者です。私の開発したアプリをご利用いただきありがとうございます。,,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,
+PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Update,バージョン：v{0},,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,
+Portal.OtherAbout.Update.Description,最終チェック：{0},,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,
+PASS⦙86,PASS⦙86,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Update.Notes,更新ノート,,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,
+PASS⦙87,PASS⦙87,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Partners,パートナー,,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,
+PASS⦙88,PASS⦙88,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Contributors,貢献者,,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,
+PASS⦙89,PASS⦙89,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.TermsOfService,利用規約,,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,
+PASS⦙90,PASS⦙90,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.PrivacyPolicy,プライバシーポリシー,,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,
+PASS⦙91,PASS⦙91,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.CodeOfConduct,貢献行動規範,,Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,
+Portal.OtherHelp.Title,ヘルプ,,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,
+Portal.OtherHelp.Close,閉じる,,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,
+PASS⦙92,PASS⦙92,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.WebPage,ウェブサイト,,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,
+Portal.OtherHelp.WebPage.Description,Sucrose Wallpaper Engineの公式ウェブサイト,,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,
+PASS⦙93,PASS⦙93,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Documentation,ドキュメンテーション,,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,
+Portal.OtherHelp.Documentation.Description,Sucrose Wallpaper Engineの公式ドキュメンテーションページ,,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,
+PASS⦙94,PASS⦙94,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Repository,ソースコード,,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,
+Portal.OtherHelp.Repository.Description,Sucrose Wallpaper Engineの公式ソースコードページ,,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,
+PASS⦙95,PASS⦙95,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Discussions,ディスカッション,,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,
+Portal.OtherHelp.Discussions.Description,Sucrose Wallpaper Engineの公式ディスカッションページ,,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,
+PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Report,バグ報告,,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,
+Portal.OtherHelp.Report.Description,Sucrose Wallpaper Engineの公式バグ報告ページ,,Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,
+Portal.Pagination.PageJump,ジャンプ,,Portal\Controls\Pagination\Portal.Pagination.JA.xaml,
+Portal.StoreCard.TitleText,タイトル,,Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,
+Portal.StoreCard.DescriptionText,説明,,Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,
+PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.VersionTip,このテーマを使用するには、Sucroseを更新してください,,Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,
+PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.MenuUpdating,更新を確認しています,,Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,
+Portal.StoreCard.MenuUpdate,更新を確認,,Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,
+Portal.StoreCard.MenuInstall,インストール,,Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,
+Portal.StoreCard.MenuReport,レポート,,Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,
+PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.Incompatible,非互換,,Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,
+Portal.ThemeCreate.Title,テーマの作成,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.Create,作成,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.Close,閉じる,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Gif,Gif テーマ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.Gif.Description,Gif形式のテーマを作成します。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Url,Url テーマ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.Url.Description,Url形式のテーマを作成します。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙102,PASS⦙102,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Web,Web テーマ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.Web.Description,Web形式のテーマを作成します。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Video,Video テーマ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.Video.Description,Video形式のテーマを作成します。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.YouTube,YouTube テーマ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.YouTube.Description,YouTube形式のテーマを作成します。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Application,Application テーマ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.Application.Description,Application形式のテーマを作成します。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemeUrl,Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeWeb,Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeApplication,アプリケーション,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeThumbnail,サムネイル,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemePreview,プレビュー,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeTitle,タイトル,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeDescription,説明,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeAuthor,著者,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeContact,お問い合わせ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeTags,タグ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeArguments,引数,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemeUrl.Hint,有効なUrlを入力してください,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeWeb.Hint,Webページを選択,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeApplication.Hint,アプリケーションファイルを選択,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeThumbnail.Hint,サムネイル画像を選択してください,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemePreview.Hint,プレビューファイルを選択してください,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeTitle.Hint,有効なタイトルを入力してください,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeDescription.Hint,有効な説明を入力してください,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeAuthor.Hint,有効な著者名を入力してください,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeContact.Hint,有効な連絡先情報を入力してください,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeTags.Hint,有効なテーマタグを入力してください,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeArguments.Hint,有効なアプリケーション引数を入力してください,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Delete,元に戻す,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Gif.Title,Gif ファイルを選択,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.DragDrop.Gif.Filter,Gif ファイル (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Video.Title,ビデオファイルを選択,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.DragDrop.Video.Filter,ビデオファイル (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Gif,Gifファイルをここにドラッグアンドドロップ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.DragDrop.Video,ビデオファイルをここにドラッグアンドドロップ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemeThumbnail.Title,サムネイル画像を選択,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemeThumbnail.Filter,画像ファイル (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙113,PASS⦙113,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemePreview.Title,プレビューファイルを選択,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ThemePreview.Filter,Gif ファイル (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.WebSource.Title,Webページを選択,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.WebSource.Filter,Webページ (*.html)|*.html,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ApplicationSource.Title,アプリケーションファイルを選択,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.ApplicationSource.Filter,アプリケーションファイル (*.exe)|*.exe,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Copy.Close,わかりました,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.Copy.Title,重要なお知らせ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.Copy.Message,選択されたファイルは、そのディレクトリ内の他のすべてのファイルやフォルダと一緒にテーマに含まれます。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Access.Close,わかりました,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.Access.Title,アクセス警告,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeCreate.Access.Message,選択したファイルにアクセスする権限がありません。,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,
+Portal.ThemeDelete.Title,テーマの削除,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.Delete,削除,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.Close,閉じる,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeDelete.ThemeTitle,タイトル,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.ThemeDescription,説明,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.ThemeType,種類,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.ThemeTypeName,Gif,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.ThemeAuthor,著者,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.ThemeAuthorName,Taiizor,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.ThemeSize,サイズ,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.ThemeSizeTotal,0 b,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.ThemeVersion,バージョン,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0),,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.ThemeTags,タグ,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.ThemeTagsText,なし,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.ThemeCreate,作成日,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.ThemeCreateDate,不明,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.ThemeModify,変更日,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeDelete.ThemeModifyDate,不明,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,
+Portal.ThemeEdit.Title,テーマの編集,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,
+Portal.ThemeEdit.Close,閉じる,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,
+Portal.ThemeEdit.Save,保存,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,
+PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeEdit.ThemeTitle,タイトル,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,
+Portal.ThemeEdit.ThemeDescription,説明,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,
+Portal.ThemeEdit.ThemeAuthor,著者,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,
+Portal.ThemeEdit.ThemeContact,お問い合わせ,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,
+Portal.ThemeEdit.ThemeTags,タグ,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,
+Portal.ThemeEdit.ThemeArguments,引数,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,
+PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeEdit.ThemeTitle.Hint,有効なタイトルを入力してください,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,
+Portal.ThemeEdit.ThemeDescription.Hint,有効な説明を入力してください,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,
+Portal.ThemeEdit.ThemeAuthor.Hint,有効な著者名を入力してください,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,
+Portal.ThemeEdit.ThemeContact.Hint,有効な連絡先情報を入力してください,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,
+Portal.ThemeEdit.ThemeTags.Hint,有効なテーマタグを入力してください,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,
+Portal.ThemeEdit.ThemeArguments.Hint,有効なアプリケーション引数を入力してください,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,
+Portal.ThemeImport.Title,テーマのインポート,,Portal\Controls\ThemeImport\Portal.ThemeImport.JA.xaml,
+Portal.ThemeImport.Close,閉じる,,Portal\Controls\ThemeImport\Portal.ThemeImport.JA.xaml,
+PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeImport.Info,テーマ情報,,Portal\Controls\ThemeImport\Portal.ThemeImport.JA.xaml,
+Portal.ThemeImport.Type,理由の説明,,Portal\Controls\ThemeImport\Portal.ThemeImport.JA.xaml,
+Portal.ThemeReport.Title,テーマの報告,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+Portal.ThemeReport.Close,閉じる,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.ThemeTitle,タイトル,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+Portal.ThemeReport.ThemeDescription,説明,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter,報告,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+Portal.ThemeReport.Reporter.Description,テーマを報告する理由を指定してください。,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Contact.Placeholder,有効なメールアドレスを入力してください,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Description.Text,追加のメモ:,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+Portal.ThemeReport.Reporter.Description.Placeholder,報告の理由を詳細に説明してください。,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Preparing,報告の準備がまもなく開始されます..,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Checking,報告のための必要なチェックを実行しています..,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+Portal.ThemeReport.Reporter.Checking.Error,報告のための必要なチェックを実行中に不明なエラーが発生しました。,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+Portal.ThemeReport.Reporter.Checking.Status,現時点では報告に適した条件を作成できませんでしたので、後でもう一度お試しください..,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+PASS⦙128,PASS⦙128,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Sending,報告のための情報を送信しています..,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+Portal.ThemeReport.Reporter.Sending.Error,報告の送信中にエラーが発生しました。,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+Portal.ThemeReport.Reporter.Sending.Errored,報告の送信中に予期しないエラーが発生しました: {0}。,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+Portal.ThemeReport.Reporter.Sending.Succeded,報告は正常に送信されました、ありがとうございます。,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+PASS⦙129,PASS⦙129,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Network,報告するにはインターネット接続が必要です。,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Report,報告,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+Portal.ThemeReport.Reporter.GitHub,GitHubから報告,,Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,
+Portal.ThemeReview.Title,テーマのレビュー,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.Close,閉じる,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+PASS⦙131,PASS⦙131,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeReview.ThemeTitle,タイトル,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeDescription,説明,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeType,種類,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeTypeName,Gif,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeAuthor,著者,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeAuthorName,Taiizor,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeSize,サイズ,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeSizeTotal,0 b,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeVersion,バージョン,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0),,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeTags,タグ,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeTagsText,なし,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeCreate,作成日,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeCreateDate,不明,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeModify,変更日,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeModifyDate,不明,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeReview.ThemeContact,テーマのお問い合わせ先,,Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,
+Portal.ThemeShare.Title,テーマの共有,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+Portal.ThemeShare.Close,閉じる,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemeTitle,タイトル,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+Portal.ThemeShare.ThemeDescription,説明,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemeExport,エクスポート,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+Portal.ThemeShare.ThemePublish,ストアで公開,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+Portal.ThemeShare.ThemeCopy,リンクをコピー,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+PASS⦙134,PASS⦙134,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Publish,公開する,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+Portal.ThemeShare.ThemePublish.Preparing,公開の準備がまもなく始まります..,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit,あなたの日々のテーマアップロード制限が確認されています..,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit.Exceeded,あなたは日々のテーマアップロード制限に達しました。後でもう一度お試しください。,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+Portal.ThemeShare.ThemePublish.Limit.Error,日々のテーマアップロード制限を確認中に不明なエラーが発生しました。,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Compress,テーマがアップロード前に圧縮されています..,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+Portal.ThemeShare.ThemePublish.Compress.Error,テーマの圧縮中にエラーが発生しました。,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size,圧縮されたテーマのサイズが確認されています..,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size.Exceeded,圧縮されたテーマは{0} MBを超えているため、アップロードできません。,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+PASS⦙140,PASS⦙140,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Check,圧縮されたテーマの整合性がアップロード前にチェックされています..,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+Portal.ThemeShare.ThemePublish.Check.Error,圧縮されたテーマの整合性を確認中にエラーが発生しました。,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload,圧縮されたテーマがアップロードの準備をしています..,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload.Start,圧縮されたテーマがアップロードされています..,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+Portal.ThemeShare.ThemePublish.Upload.Error,圧縮されたテーマのアップロード中に不明なエラーが発生しました。,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+Portal.ThemeShare.ThemePublish.Upload.Errored,圧縮されたテーマのアップロード中に予期しないエラーが発生しました: {0}。,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+Portal.ThemeShare.ThemePublish.Upload.Succeded,圧縮されたテーマが正常にアップロードされ、確認後にストアで公開されます。,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+PASS⦙143,PASS⦙143,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.SaveDialogFilter,ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+Portal.ThemeShare.SaveDialogTitle,テーマファイルを保存,,Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,
+Portal.TrayIcon.Title,システムトレイ,,Portal\Controls\TrayIcon\Portal.TrayIcon.JA.xaml,
+Portal.TrayIcon.Close,閉じる,,Portal\Controls\TrayIcon\Portal.TrayIcon.JA.xaml,
+PASS⦙144,PASS⦙144,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.JA.xaml,Please don't touch the translation in this line.
+Portal.TrayIcon.Message,Sucroseはシステムトレイに最小化されました。続行するには、Sucroseアイコンを右クリックしてください。,,Portal\Controls\TrayIcon\Portal.TrayIcon.JA.xaml,
+Portal.WallpaperCycling.Title,壁紙サイクリング,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
+Portal.WallpaperCycling.Close,閉じる,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
+PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.Cycling,自動壁紙サイクリング,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
+Portal.WallpaperCycling.Cycling.Description,壁紙が自動的に変わるかどうか。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
+PASS⦙146,PASS⦙146,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.Time,時間間隔,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
+Portal.WallpaperCycling.Time.Description,壁紙が変わる時間間隔。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
+PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.Transition,トランジションモード,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
+Portal.WallpaperCycling.Transition.Description,壁紙間のトランジションモードを設定します。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
+PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.List,サイクルリスト,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
+Portal.WallpaperCycling.List.Description,サイクルリストをデフォルトにリセットします。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
+PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.List.Reset,リセット,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
+Portal.EmptyLibraryPage.Title,EmptyLibraryPage,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.JA.xaml,
+PASS⦙150,PASS⦙150,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.JA.xaml,Please don't touch the translation in this line.
+Portal.EmptyLibraryPage.TitleText,あなたのライブラリはクモの巣で覆われています,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.JA.xaml,
+Portal.EmptyLibraryPage.DescriptionText,壁紙の代わりに素晴らしいアートワークがクモの巣で作成されました,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.JA.xaml,
+Portal.FullLibraryPage.Title,FullLibraryPage,,Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.JA.xaml,
+Portal.SearchLibraryPage.Title,SearchLibraryPage,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.JA.xaml,
+PASS⦙151,PASS⦙151,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SearchLibraryPage.TitleText,あなたのライブラリはクモの巣で魔法にかけられています,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.JA.xaml,
+Portal.SearchLibraryPage.DescriptionText,壁紙の選択の精巧さのため、壁紙のスペースがなくなりました,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.JA.xaml,
+Portal.DonateSettingPage.Title,DonateSettingPage,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,
+PASS⦙152,PASS⦙152,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.DonateMenu,寄付メニュー,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,
+Portal.DonateSettingPage.DonateMenu.Description,インターフェース内の寄付メニューの表示設定。,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,
+PASS⦙153,PASS⦙153,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,表示,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,
+Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,非表示,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,
+PASS⦙154,PASS⦙154,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.Advertising,広告サポート,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,
+Portal.DonateSettingPage.Advertising.Description,アプリの開発に寄与するために広告を視聴してください。,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,
+PASS⦙155,PASS⦙155,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.Advertising.AdvertisingDelay,広告間隔（分）：,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,
+Portal.DonateSettingPage.Advertising.AdvertisingHint,ヒント：広告はできるだけあなたに最小限の不便をかけないように表示されます。,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,
+Portal.GeneralSettingPage.Title,GeneralSettingPage,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙156,PASS⦙156,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationLanguage,アプリケーション言語,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.ApplicationLanguage.Description,表示言語を選択してください。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationStartup,起動,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Description,壁紙を再生するには、Sucroseがバックグラウンドで実行されている必要があります。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationStartup.Startup.None,なし,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,通常,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,優先,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,スケジューラ,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,了解しました,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,管理者権限警告,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,起動時の状態を変更するには、管理者権限が必要です。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon,通知アイコン,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.NotifyIcon.Description,システムトレイの表示設定。Sucroseは非表示のままで動作します。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.Notify.Show,表示,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,非表示,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.NotifyExit,システムトレイを閉じたとき、すべてのSucroseアプリを終了する,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop,ウィンドウ背景,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.Description,アプリウィンドウの背景をカスタマイズします。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,背景画像を選択,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,背景画像を選択,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,画像ファイル (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,残念ながら、選択した画像ファイルにアクセスする権限がありません,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,背景の拡大縮小:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,背景の透明度 (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.EngineVolume,音量,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.EngineVolume.Description,すべての壁紙に適用される音量設定。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,デスクトップにフォーカスがあるときのみ音を再生,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.EngineVolume.VolumeActive,すべてのアプリケーションがミュートされているときのみ音を再生する,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,感度 (秒):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.PrivateLibrary,ライブラリの場所,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.PrivateLibrary.Description,追加したテーマが保存される場所。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,残念ながら、新しい場所にアクセスできません,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,空のフォルダを選択してください,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,場所を移動する際、お待ちください,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,現在のライブラリを新しい場所に移動する,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,
+Portal.OtherSettingPage.Title,OtherSettingPage,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.ReportData,自動エラー報告,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+Portal.OtherSettingPage.ReportData.Description,エラーが発生した場合、Sucrose 速やかに報告するための行動を取ります。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.StatisticsData,使用統計の共有,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+Portal.OtherSettingPage.StatisticsData.Description,Sucrose は、アプリケーションの開発に貢献するために、使用統計の収集を可能にします。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.DiscordHook,Discord,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+Portal.OtherSettingPage.DiscordHook.Description,SucroseはDiscordとの通信を担当します。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.DiscordHook.DiscordRefresh,接続の更新:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+Portal.OtherSettingPage.DiscordHook.DiscordDelay,更新間隔 (秒):,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Agent,代理人,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+Portal.OtherSettingPage.Agent.Description,インターネット接続が必要な場合の代理人識別子。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key,個人アクセスキー,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+Portal.OtherSettingPage.Key.Description,ストアおよびアプリのアップデートをスムーズに使用するために必要です。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.HintKey,個人アクセスキーを取得方法がわからない場合は、ここをクリックしてください。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.PersonalKey,有効な個人アクセスキーを入力してください,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+Portal.OtherSettingPage.Key.PersonalKey.Valid,有効な個人アクセスキーを入力してください,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Channel,更新チャンネル,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+Portal.OtherSettingPage.Channel.Description,更新プロセスがどのチャンネルを使用して実行されるか。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update,更新方法,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+Portal.OtherSettingPage.Update.Description,更新プロセスがどの方法で実行されるか。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update.Limit,ダウンロード帯域幅制限:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Auto,自動更新,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+Portal.OtherSettingPage.Auto.Description,更新プロセスが自動的にチェックされるかどうか。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer,開発者ツール,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+Portal.OtherSettingPage.Developer.Description,WebView および CefSharp エンジンの開発者ツールを管理します。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperMode,デフォルトの開発者ツール:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,デバッグポート:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperHint,ヒント: デフォルトの開発者ツールは、サポートされているテーマでは正常に機能しない場合があります。デバッグポートの方がより良く動作します。準備ができたら、'http://localhost:{0}' アドレスまたは Chrome ブラウザー用の 'chrome://inspect'、Opera ブラウザー用の 'opera://inspect'、Edge ブラウザー用の 'edge://inspect' を使用できます。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter,パフォーマンス カウンター,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Counter.Description,すべてのパフォーマンス カウンターがバックグラウンドで実行されるかどうか。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter.CounterHint,注意: 一部のWebベースのテーマは正しく動作しない場合があり、以下のパフォーマンス設定は機能しない場合があります。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Pause,一時停止ルール,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Pause.Description,パフォーマンス設定に基づいて壁紙の一時停止ルールを決定します。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Communication,通信タイプ,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Communication.Description,Web タイプのテーマにメッセージを送信する方法を決定します。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu,CPU 使用率,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Cpu.Description,CPU 使用率の設定による壁紙の動作。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU 使用率 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu,Utilizzo GPU,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Gpu.Description,Cosa succede allo sfondo in base alle impostazioni di utilizzo della GPU.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,La lista delle unità di elaborazione grafica non è ancora stata creata,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuUsage,Utilizzo GPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory,メモリ 使用率,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Memory.Description,メモリ 使用率の設定による壁紙の動作。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory.MemoryUsage,メモリ 使用率 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network,ネットワーク使用,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Network.Description,ネットワーク使用の設定による壁紙の動作。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkAdapter,ネットワーク アダプタ:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,ネットワーク アダプタのリストはまだ作成されていません,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkUpload,アップロード サイズ:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkDownload,ダウンロード サイズ:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Ping 値 (ミリ秒):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery,バッテリー,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Battery.Description,ノートパソコンのバッテリー使用中に壁紙の動作。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery.BatteryUsage,バッテリー残量 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Saver,バッテリー節約モード,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Saver.Description,ノートパソコンのバッテリー節約モード中に壁紙の動作。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Virtual,仮想化,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Virtual.Description,仮想化アプリケーションが実行中の場合の壁紙の動作。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Remote,リモート デスクトップ,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Remote.Description,リモート デスクトップ アプリケーションが実行中の場合の壁紙の動作。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Fullscreen,フルスクリーン モード,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Fullscreen.Description,フルスクリーン モードで他のアプリケーションが実行中の場合の壁紙の動作。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Focus,フォーカス モード,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PerformanceSettingPage.Focus.Description,他のアプリケーションがフォーカスされている場合の壁紙の動作。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
+Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server,ストアサーバー,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+Portal.PersonalSettingPage.Server.Description,ストアにリストされているテーマを表示するために使用されるサーバーを指定します。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server.ServerHint,注意：{0} をサーバーとして選択した場合、リクエスト制限を回避するために {2} を入力する必要があります。そうしないと、ストアのテーマへのアクセスに問題が発生する可能性があります。{1} を選択すると、ストアの体験がスムーズになります。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Duration,ストア更新,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+Portal.PersonalSettingPage.Duration.Description,表示されるテーマが更新されるまでの期間。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.StoreStart,自動起動,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+Portal.PersonalSettingPage.StoreStart.Description,ストアからダウンロードしたテーマが自動的に壁紙に設定されるかどうか。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adult,成人向けコンテンツ,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+Portal.PersonalSettingPage.Adult.Description,ストアでNSFW（安全でないコンテンツ）としてマークされたコンテンツを表示するかどうか。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Confirm,削除の確認,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+Portal.PersonalSettingPage.Confirm.Description,ライブラリ内のテーマを削除する際に確認を求めるかどうか。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete,壊れたテーマ,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+Portal.PersonalSettingPage.Delete.Description,ライブラリ内の壊れたまたは欠落しているテーマを自動的に削除するかどうか。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete.DeleteHint,注意: 慎重に操作する必要があります。それ以外の場合、データ損失を引き起こす可能性があります。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.LibraryStart,自動起動,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+Portal.PersonalSettingPage.LibraryStart.Description,作成されたテーマが自動的に壁紙に設定されるかどうか。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Preview,テーマプレビュー,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+Portal.PersonalSettingPage.Preview.Description,テーマをポイントするとプレビューが表示されるかどうか。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Preview.StorePreview,ストア プレビュー:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+Portal.PersonalSettingPage.Preview.StorePreviewHide,詳細を非表示にする:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Preview.LibraryPreview,ライブラリ プレビュー:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+Portal.PersonalSettingPage.Preview.LibraryPreviewHide,詳細を非表示にする:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive,適応型レイアウト,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+Portal.PersonalSettingPage.Adaptive.Description,表示されるテーマのレイアウトや間隔をカスタマイズします。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,余白のサイズ（ピクセル）:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,レイアウトの順序（個）:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort,ライブラリの並べ替え,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+Portal.PersonalSettingPage.Sort.Description,ライブラリ内のテーマをどのようにどの形式で並べ替えるかを指定します。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortMode,並べ替えモード:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,並べ替え種類:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Store,ストア ページング,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+Portal.PersonalSettingPage.Store.Description,各ストアのページに表示されるテーマの数を設定します。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Library,ライブラリ ページング,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+Portal.PersonalSettingPage.Library.Description,各ライブラリのページに表示されるテーマの数を設定します。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,
+Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary,ログ ファイル,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+Portal.SystemSettingPage.LogTemporary.Description,アプリケーションが作成したすべてのログ ファイルを管理します。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Create,作成,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Delete,クリア,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,注意: ログ ファイル全体のサイズは {0} です。クリア操作を開始すると、すべてのアプリケーションが終了します。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary,キャッシュのクリア,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+Portal.SystemSettingPage.CacheTemporary.Description,アプリケーションが作成したすべてのキャッシュ ファイルを削除します。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Start,クリアを開始,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,注意: キャッシュ ファイル全体のサイズは {0} です。クリア操作を開始すると、すべてのアプリケーションが終了します。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary,ストアのクリア,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+Portal.SystemSettingPage.StoreTemporary.Description,アプリケーションが作成したすべてのストア ファイルを削除します。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Start,クリアを開始,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,注意: ストア ファイル全体のサイズは {0} です。クリア操作を開始すると、すべてのアプリケーションが終了します。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary,ライブラリのクリア,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+Portal.SystemSettingPage.LibraryTemporary.Description,ライブラリにある、またはアプリケーションが作成したすべてのテーマ ファイルを削除します。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Start,クリアを開始,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,注意: ライブラリ内のテーマ全体のサイズは {0} です。クリア操作を開始すると、すべてのアプリケーションが終了します。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup,設定ファイル,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+Portal.SystemSettingPage.SettingBackup.Description,アプリケーションが作成したすべての設定ファイルを管理します。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Export,バックアップ,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Import,リストア,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,注意: 選択した操作を開始すると、すべてのアプリケーションが終了します。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset,設定のリセット,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+Portal.SystemSettingPage.SettingReset.Description,アプリケーションが作成したすべての設定ファイルをリセットします。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Start,リセットを開始,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,注意: リセット操作を開始すると、すべてのアプリケーションが終了します。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.Log.SaveDialogTitle,ログ ファイルの保存,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.Access.Close,わかりました,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+Portal.SystemSettingPage.Access.Title,アクセス警告,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+Portal.SystemSettingPage.Access.Message,選択した場所にアクセスする権限がありません。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,
+Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode,インタラクション メソッド,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+Portal.WallpaperSettingPage.InputMode.Description,サポートされている壁紙とのインタラクションが発生する方法を決定します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.InputModule,インタラクションモジュール：,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.InputDesktop,デスクトップがフォーカスされている場合にのみインタラクションを処理する,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,デスクトップアイコンを誤って選択しないように非表示にする,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.ScreenLayout,画面の配置,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+Portal.WallpaperSettingPage.ScreenLayout.Description,壁紙の画面上での配置を変更します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.StretchMode,拡大モード,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+Portal.WallpaperSettingPage.StretchMode.Description,サポートされる壁紙の拡大モードを変更します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.LoopMode,ループモード,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+Portal.WallpaperSettingPage.LoopMode.Description,サポートされる壁紙のループモードを変更します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.ShuffleMode,シャッフルモード,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+Portal.WallpaperSettingPage.ShuffleMode.Description,サポートされる壁紙のシャッフルモードを変更します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.GifPlayer,Gif プレイヤー,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+Portal.WallpaperSettingPage.GifPlayer.Description,ライブラリ内の Gif 形式のテーマを再生するプラグインを選択します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.VideoPlayer,Video プレイヤー,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+Portal.WallpaperSettingPage.VideoPlayer.Description,ライブラリ内の Video 形式のテーマを再生するプラグインを選択します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.UrlPlayer,Url プレーヤー,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+Portal.WallpaperSettingPage.UrlPlayer.Description,ライブラリ内の Url 形式のテーマを実行するエンジンを選択します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.WebPlayer,Web エンジン,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+Portal.WallpaperSettingPage.WebPlayer.Description,ライブラリ内の Web 形式のテーマを実行するエンジンを選択します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.YouTubePlayer,YouTube エンジン,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+Portal.WallpaperSettingPage.YouTubePlayer.Description,ライブラリ内の YouTube 形式のテーマを実行するエンジンを選択します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.ApplicationPlayer,Application エンジン,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+Portal.WallpaperSettingPage.ApplicationPlayer.Description,ライブラリ内の Application 形式のテーマを実行するエンジンを選択します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.JA.xaml,
+PASS⦙267,PASS⦙267,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.JA.xaml,Please don't touch the translation in this line.
+Portal.BrokenStorePage.TitleText,インターネットの光が消えた瞬間,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.JA.xaml,
+Portal.BrokenStorePage.DescriptionText,星のない夜空のように、ここにもインターネットの輝きはありません,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.JA.xaml,
+Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.JA.xaml,
+Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.JA.xaml,
+PASS⦙268,PASS⦙268,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.JA.xaml,Please don't touch the translation in this line.
+Portal.SearchStorePage.TitleText,あなたの探しているものの答えは空に隠れているかもしれません,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.JA.xaml,
+Portal.SearchStorePage.DescriptionText,結果が期待通りにならない場合、空は新しい体験を提供できるかもしれません,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.JA.xaml,
+Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.JA.xaml,
+PASS⦙269,PASS⦙269,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.JA.xaml,Please don't touch the translation in this line.
+Portal.UnknownStorePage.TitleText,ストアでの謎の状況を発見,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.JA.xaml,
+Portal.UnknownStorePage.DescriptionText,未知のものを探求し、ストアで起こった謎の状況を解明する旅に出ましょう,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.JA.xaml,

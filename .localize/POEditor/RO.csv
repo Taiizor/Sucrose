@@ -1,0 +1,1157 @@
+Term,Translate,Context,Reference,Comment
+Base64⦙0,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGl2ZS9MaXZlLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmRvL1VuZG8uUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlVwZGF0ZS9VcGRhdGUuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC5STy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlByb3BlcnR5L1Byb3BlcnR5LlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYXRjaGRvZy9XYXRjaGRvZy5STy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Locale.RO.xaml,Please don't touch the translation in this line.
+Discord.BrowseButton,Răsfoiește,,Discord\Discord.RO.xaml,
+Discord.Details,Motor de Fundal,,Discord\Discord.RO.xaml,
+Discord.DownloadButton,Descarcă,,Discord\Discord.RO.xaml,
+PASS⦙0,PASS⦙0,Don't Touch,Discord\Discord.RO.xaml,Please don't touch the translation in this line.
+Discord.LargestText0,Puterea Înghețatei de Banană,,Discord\Discord.RO.xaml,
+Discord.LargestText1,Monstrul Zâmbitor cu Pălărie,,Discord\Discord.RO.xaml,
+Discord.LargestText2,Privighetoarele Care Înnoadă Norii,,Discord\Discord.RO.xaml,
+Discord.LargestText3,Aventurile Secrete Ale Pinguinilor Cursă,,Discord\Discord.RO.xaml,
+Discord.LargestText4,Iepurașii Pierduți în Câmpul de Margarete,,Discord\Discord.RO.xaml,
+Discord.LargestText5,Florile Vântului Care Cântă,,Discord\Discord.RO.xaml,
+Discord.LargestText6,Albinele Misterioase ale Pădurii,,Discord\Discord.RO.xaml,
+Discord.LargestText7,Turma de Pești Plină de Visuri,,Discord\Discord.RO.xaml,
+Discord.LargestText8,Dansul Dragonului cu Ochi de Cristal,,Discord\Discord.RO.xaml,
+Discord.LargestText9,Calea Poveștilor Acoperită cu Flori,,Discord\Discord.RO.xaml,
+Discord.LargestText10,Stele Căzătoare din Cer,,Discord\Discord.RO.xaml,
+Discord.LargestText11,Dans în Lumina Lunii Frânte,,Discord\Discord.RO.xaml,
+Discord.LargestText12,Dragonii Misterioși ai Curcubeului,,Discord\Discord.RO.xaml,
+Discord.LargestText13,Poveste Magică a Pădurii,,Discord\Discord.RO.xaml,
+Discord.LargestText14,Ploaie de Flori către Cer,,Discord\Discord.RO.xaml,
+Discord.LargestText15,Atingerea Tăcută a Timpului,,Discord\Discord.RO.xaml,
+Discord.LargestText16,Țara Viselor Surrealiste,,Discord\Discord.RO.xaml,
+Discord.LargestText17,Cântecele Cascadelor de Aur,,Discord\Discord.RO.xaml,
+Discord.LargestText18,Corăbii de Poveste Plutind spre Cer,,Discord\Discord.RO.xaml,
+Discord.LargestText19,Pădurea cu Baloane Colorate,,Discord\Discord.RO.xaml,
+Discord.LargestText20,Orașul Subacvatic Misterios,,Discord\Discord.RO.xaml,
+Discord.LargestText21,Cerul Pudrat cu Pulbere de Stele,,Discord\Discord.RO.xaml,
+Discord.LargestText22,Vânturile care Aleargă După Necunoscut,,Discord\Discord.RO.xaml,
+Discord.LargestText23,Povești Fascinante Sub Lumina Lunii,,Discord\Discord.RO.xaml,
+PASS⦙1,PASS⦙1,Don't Touch,Discord\Discord.RO.xaml,Please don't touch the translation in this line.
+Discord.SmallestText0,Urmă Misterioasă,,Discord\Discord.RO.xaml,
+Discord.SmallestText1,Peștii Balon Zburători,,Discord\Discord.RO.xaml,
+Discord.SmallestText2,Florile Care Râd în Hohote,,Discord\Discord.RO.xaml,
+Discord.SmallestText3,Norii de Zahăr de Pufoșenie,,Discord\Discord.RO.xaml,
+Discord.SmallestText4,Dragonii Pizza Înghețată,,Discord\Discord.RO.xaml,
+Discord.SmallestText5,Pirații Ciuperci Strălucitori,,Discord\Discord.RO.xaml,
+Discord.SmallestText6,Urmă de Picior de Unicorn Invizibil,,Discord\Discord.RO.xaml,
+Discord.SmallestText7,Norii Colorați de Praf,,Discord\Discord.RO.xaml,
+Discord.SmallestText8,Fluturi Aurii în Baloane,,Discord\Discord.RO.xaml,
+Discord.SmallestText9,Călătorie în Craterul de Zahăr,,Discord\Discord.RO.xaml,
+Discord.SmallestText10,Felii de Pizza Zburând cu Rachie,,Discord\Discord.RO.xaml,
+Discord.SmallestText11,Dansul Scoicilor în Soare,,Discord\Discord.RO.xaml,
+Discord.SmallestText12,Degete de Stele Invizibile,,Discord\Discord.RO.xaml,
+Discord.SmallestText13,Dans Subacvatic în Ceață,,Discord\Discord.RO.xaml,
+Discord.SmallestText14,Migrația Păsărilor în Curcubeu,,Discord\Discord.RO.xaml,
+Discord.SmallestText15,Drumul Furtunii de Zahăr,,Discord\Discord.RO.xaml,
+Discord.SmallestText16,Galaxia Infinită a Pizzei,,Discord\Discord.RO.xaml,
+Discord.SmallestText17,Zâmbetul Soarelui,,Discord\Discord.RO.xaml,
+Discord.SmallestText18,Zâmbetul Pierdut al Lacului Secret,,Discord\Discord.RO.xaml,
+Discord.SmallestText19,Umbră de Păsări de Vis,,Discord\Discord.RO.xaml,
+Discord.SmallestText20,Fluturi Zburând spre Cer,,Discord\Discord.RO.xaml,
+Discord.SmallestText21,Cântecele Ascunse în Spatele Stelelor,,Discord\Discord.RO.xaml,
+Discord.SmallestText22,Munții Învolburați în Poveste,,Discord\Discord.RO.xaml,
+Discord.SmallestText23,Zâna Pădurii Misterioase,,Discord\Discord.RO.xaml,
+PASS⦙2,PASS⦙2,Don't Touch,Discord\Discord.RO.xaml,Please don't touch the translation in this line.
+Discord.StatementText0,Un Univers Plin de Haos,,Discord\Discord.RO.xaml,
+Discord.StatementText1,În Inima Aventurilor Infinite,,Discord\Discord.RO.xaml,
+Discord.StatementText2,O Lume Ciudată și Magică,,Discord\Discord.RO.xaml,
+Discord.StatementText3,Care Își Încalcă Limitele Imaginației,,Discord\Discord.RO.xaml,
+Discord.StatementText4,O Realitate Neobișnuită,,Discord\Discord.RO.xaml,
+Discord.StatementText5,În Adâncul Imaginației,,Discord\Discord.RO.xaml,
+Discord.StatementText6,O Călătorie de Descoperire Magică,,Discord\Discord.RO.xaml,
+Discord.StatementText7,La Ușa Lumilor Necunoscute,,Discord\Discord.RO.xaml,
+Discord.StatementText8,O Lume a Viselor Complexă,,Discord\Discord.RO.xaml,
+Discord.StatementText9,O Aventură Care Își Încalcă Limitele,,Discord\Discord.RO.xaml,
+Discord.StatementText10,O Experiență Dinamică și Surprinzătoare,,Discord\Discord.RO.xaml,
+Discord.StatementText11,Într-o Poveste Fantastică,,Discord\Discord.RO.xaml,
+Discord.StatementText12,Printre Portaluri Magice,,Discord\Discord.RO.xaml,
+Discord.StatementText13,Călătorie în Noaptea Cerului,,Discord\Discord.RO.xaml,
+Discord.StatementText14,Pe Urmărirea Continentului Pierdut,,Discord\Discord.RO.xaml,
+Discord.StatementText15,Povestea Planetelor Necunoscute,,Discord\Discord.RO.xaml,
+Discord.StatementText16,Descoperirea Universurilor Paralele,,Discord\Discord.RO.xaml,
+Discord.StatementText17,Intrarea în Ținuturile Legendare,,Discord\Discord.RO.xaml,
+Discord.StatementText18,Realitatea Împletită cu Textura Viselor,,Discord\Discord.RO.xaml,
+Discord.StatementText19,Vis Între Stele,,Discord\Discord.RO.xaml,
+Discord.StatementText20,În Spatele Ușilor Timpului,,Discord\Discord.RO.xaml,
+Discord.StatementText21,Echipa Strălucitoare a Stelelor,,Discord\Discord.RO.xaml,
+Discord.StatementText22,Strigătul Tăcut al Necunoscutului,,Discord\Discord.RO.xaml,
+Discord.StatementText23,O Lume Fascinantă,,Discord\Discord.RO.xaml,
+Discord.StatementText24,Pe Vârful Munților Mistici,,Discord\Discord.RO.xaml,
+Discord.StatementText25,Pe Urmărirea Regatelor Pierdute,,Discord\Discord.RO.xaml,
+Discord.StatementText26,Călătorie Printre Stele,,Discord\Discord.RO.xaml,
+Discord.StatementText27,Creaturi Magice ale Nopții,,Discord\Discord.RO.xaml,
+Discord.StatementText28,Începutul Poveștii Nesfârșite,,Discord\Discord.RO.xaml,
+Discord.StatementText29,Balonuri Colorate Spre Cer,,Discord\Discord.RO.xaml,
+Discord.StatementText30,Noaptea Misterioasă a Cerului,,Discord\Discord.RO.xaml,
+Discord.StatementText31,Calea Pierdută a Regatului Visat,,Discord\Discord.RO.xaml,
+Discord.StatementText32,Ușa Către Tărâmurile Necunoscute,,Discord\Discord.RO.xaml,
+Discord.StatementText33,Dansând în Bratele Timpului,,Discord\Discord.RO.xaml,
+Discord.StatementText34,Povești Îngropate în Noapte,,Discord\Discord.RO.xaml,
+Discord.StatementText35,Lumea Fermecată a Oglinzilor,,Discord\Discord.RO.xaml,
+Discord.StatementText36,Călătorind Pe Porțile Eternității,,Discord\Discord.RO.xaml,
+Discord.StatementText37,Călătorie Nocturnă a Vânătorului de Vise,,Discord\Discord.RO.xaml,
+Discord.StatementText38,Visul unui Oraș de Cristal,,Discord\Discord.RO.xaml,
+Discord.StatementText39,Stele Strălucitoare în Întuneric,,Discord\Discord.RO.xaml,
+Discord.StatementText40,"În Spatele Stelelor, Noaptea Plină de Mister",,Discord\Discord.RO.xaml,
+Discord.StatementText41,Povești cu Lumina Misterioasă a Lunii,,Discord\Discord.RO.xaml,
+Discord.StatementText42,Ușa de Aur la Pragul Tărâmurilor Necunoscute,,Discord\Discord.RO.xaml,
+Discord.StatementText43,Cărările Magice ale Nopții Misterioase,,Discord\Discord.RO.xaml,
+Discord.StatementText44,Balonuri de Vis Spre Cer,,Discord\Discord.RO.xaml,
+Discord.StatementText45,Calea Visului Sub Stele,,Discord\Discord.RO.xaml,
+Discord.StatementText46,O Lume Secretă în Orașul de pe Malul Stelelor,,Discord\Discord.RO.xaml,
+Discord.StatementText47,Povestea din Spatele Munților Învolburați în Ceață,,Discord\Discord.RO.xaml,
+Discord.StatementText48,Noaptea Stelelor Strălucitoare în Întuneric,,Discord\Discord.RO.xaml,
+Launcher.WallCustomizeText,Personalizare Tapet,,Launcher\Launcher.RO.xaml,
+PASS⦙3,PASS⦙3,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.
+Launcher.CreateLogText,Creare Fișier Jurnal,,Launcher\Launcher.RO.xaml,
+PASS⦙4,PASS⦙4,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.
+Launcher.ExitText,Ieșire,,Launcher\Launcher.RO.xaml,
+PASS⦙5,PASS⦙5,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.
+Launcher.OpenReportText,Raportați o Problemă,,Launcher\Launcher.RO.xaml,
+PASS⦙6,PASS⦙6,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.
+Launcher.OpenText,Deschideți Sucrose,,Launcher\Launcher.RO.xaml,
+PASS⦙7,PASS⦙7,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.
+Launcher.ReportText,Raportați o Problemă,,Launcher\Launcher.RO.xaml,
+PASS⦙8,PASS⦙8,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.
+Launcher.ReportWindowTitle,Diagnosticare Sucrose,,Launcher\Launcher.RO.xaml,
+PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.
+Launcher.SaveDialogFilter,Fișiere ZIP (*.zip)|*.zip|Toate fișierele (*.*)|*.*,,Launcher\Launcher.RO.xaml,
+Launcher.SaveDialogTitle,Salvare Fișier Jurnal,,Launcher\Launcher.RO.xaml,
+PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.
+Launcher.SettingText,Setări,,Launcher\Launcher.RO.xaml,
+PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.
+Launcher.TrayText,Sucrose Wallpaper Engine,,Launcher\Launcher.RO.xaml,
+PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.
+Launcher.WallChangeText,Schimbați Tapetul,,Launcher\Launcher.RO.xaml,
+Launcher.WallCloseText,Închideți Tapetul,,Launcher\Launcher.RO.xaml,
+Launcher.WallOpenText,Deschideți Tapetul,,Launcher\Launcher.RO.xaml,
+Launcher.WallStartText,Porniți Tapetul,,Launcher\Launcher.RO.xaml,
+Launcher.WallStopText,Opriți Tapetul,,Launcher\Launcher.RO.xaml,
+PASS⦙13,PASS⦙13,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.
+Launcher.ClosedText,Închis,,Launcher\Launcher.RO.xaml,
+Launcher.PausedText,Pus pe Pauză,,Launcher\Launcher.RO.xaml,
+PASS⦙14,PASS⦙14,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.
+Launcher.UpdateText,Verificați Actualizări,,Launcher\Launcher.RO.xaml,
+PASS⦙15,PASS⦙15,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.
+Launcher.UpdateText.Done,Pregătire Actualizare,,Launcher\Launcher.RO.xaml,
+Launcher.UpdateText.Check,Verificare Actualizări,,Launcher\Launcher.RO.xaml,
+Launcher.UpdateText.Progress,Progres Actualizare {0},,Launcher\Launcher.RO.xaml,
+Live.Title,{0} Notificare,,Live\Live.RO.xaml,
+PASS⦙16,PASS⦙16,Don't Touch,Live\Live.RO.xaml,Please don't touch the translation in this line.
+Live.Close,Închide,,Live\Live.RO.xaml,
+Live.Continue,Continuă,,Live\Live.RO.xaml,
+Live.Download,Descarcă,,Live\Live.RO.xaml,
+Live.Remember,Amintiți-Vă,,Live\Live.RO.xaml,
+PASS⦙17,PASS⦙17,Don't Touch,Live\Live.RO.xaml,Please don't touch the translation in this line.
+Live.Info.WebView,Cerință WebView,,Live\Live.RO.xaml,
+Live.Info.CefSharp,Cerință CefSharp,,Live\Live.RO.xaml,
+PASS⦙18,PASS⦙18,Don't Touch,Live\Live.RO.xaml,Please don't touch the translation in this line.
+Live.Message.WebView,"Runtime-ul WebView2 nu este instalat. WebView2 Runtime este un component care permite utilizarea tehnologiilor web moderne în aplicații. Prin urmare, WebView2 Runtime este necesar pentru a seta tapetul selectat.",,Live\Live.RO.xaml,
+Live.Message.CefSharp,"VC++ Redistributable nu este instalat. VC++ Redistributable furnizează unele componente de sistem necesare pentru ca CefSharp să funcționeze corect. CefSharp este un framework care permite utilizarea tehnologiilor web moderne în aplicații. Prin urmare, VC++ Redistributable este necesar pentru a seta tapetul selectat.",,Live\Live.RO.xaml,
+Base64⦙1,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5STy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5STy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5STy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\Portal.RO.xaml,Please don't touch the translation in this line.
+Property.WindowTitle,Sucrose Property,,Property\Property.RO.xaml,
+PASS⦙19,PASS⦙19,Don't Touch,Property\Property.RO.xaml,Please don't touch the translation in this line.
+Property.DeleteTip,Ștergeți copia,,Property\Property.RO.xaml,
+Property.RefreshTip,Reîmprospătați interfața,,Property\Property.RO.xaml,
+Property.RestoreTip,Restabiliți implicitul,,Property\Property.RO.xaml,
+PASS⦙20,PASS⦙20,Don't Touch,Property\Property.RO.xaml,Please don't touch the translation in this line.
+Property.Type.NotSupport,Tipul de control '{0}' nu este suportat.,,Property\Property.RO.xaml,
+PASS⦙21,PASS⦙21,Don't Touch,Property\Property.RO.xaml,Please don't touch the translation in this line.
+Property.ColorPicker.Color,Culoare,,Property\Property.RO.xaml,
+Property.ColorPicker.Cancel,Anulare,,Property\Property.RO.xaml,
+Property.ColorPicker.Confirm,Confirmare,,Property\Property.RO.xaml,
+Property.ColorPicker.EyeDropper,Pipetă,,Property\Property.RO.xaml,
+Property.ColorPicker.Popup.Title,Sucrose Property Color Picker,,Property\Property.RO.xaml,
+PASS⦙22,PASS⦙22,Don't Touch,Property\Property.RO.xaml,Please don't touch the translation in this line.
+Property.FileDropDown.Tip,Selectați un fișier,,Property\Property.RO.xaml,
+Property.FileDropDown.Filter,Toate fișierele (*.*)|*.*,,Property\Property.RO.xaml,
+PASS⦙23,PASS⦙23,Don't Touch,Property\Property.RO.xaml,Please don't touch the translation in this line.
+Property.FileDropDown.Access.Close,Am înțeles,,Property\Property.RO.xaml,
+Property.FileDropDown.Access.Title,Avertisment de Acces,,Property\Property.RO.xaml,
+Property.FileDropDown.Access.Message,Nu aveți permisiunea de a accesa fișierul selectat.,,Property\Property.RO.xaml,
+Undo.QuestionTitle,Sucrose Undo,,Undo\Undo.RO.xaml,
+PASS⦙24,PASS⦙24,Don't Touch,Undo\Undo.RO.xaml,Please don't touch the translation in this line.
+Undo.QuestionMessage,Doriți cu adevărat să dezinstalați Sucrose Wallpaper Engine?,,Undo\Undo.RO.xaml,
+Undo.QuestionDescription,"Pentru a elimina cu toate setările, selectați Da; pentru a păstra setările și a elimina doar, selectați Nu; și pentru a anula procesul de eliminare, selectați Anulare.",,Undo\Undo.RO.xaml,
+Update.WindowTitle,Sucrose Update,,Update\Update.RO.xaml,
+PASS⦙25,PASS⦙25,Don't Touch,Update\Update.RO.xaml,Please don't touch the translation in this line.
+Update.HelpText,Rezolvă Problema,,Update\Update.RO.xaml,
+PASS⦙26,PASS⦙26,Don't Touch,Update\Update.RO.xaml,Please don't touch the translation in this line.
+Update.ReloadText,ÎNCERCAȚI DIN NOU,,Update\Update.RO.xaml,
+PASS⦙27,PASS⦙27,Don't Touch,Update\Update.RO.xaml,Please don't touch the translation in this line.
+Update.ReloadText.Browser.Opened,DESCHIS ÎN BROWSER,,Update\Update.RO.xaml,
+Update.ReloadText.Browser.Opening,SE DESCHIDE ÎN BROWSER,,Update\Update.RO.xaml,
+PASS⦙28,PASS⦙28,Don't Touch,Update\Update.RO.xaml,Please don't touch the translation in this line.
+Update.MessageText.Preparing,SE PREGĂTESC PREGĂTIRILE NECESARE,,Update\Update.RO.xaml,
+PASS⦙29,PASS⦙29,Don't Touch,Update\Update.RO.xaml,Please don't touch the translation in this line.
+Update.MessageText.Temporary,SE VERIFICĂ LOCURILE TEMPORARE,,Update\Update.RO.xaml,
+Update.MessageText.Temporary.Error,NU S-AU PUTUT VERIFICA LOCURILE TEMPORARE,,Update\Update.RO.xaml,
+PASS⦙30,PASS⦙30,Don't Touch,Update\Update.RO.xaml,Please don't touch the translation in this line.
+Update.MessageText.Connection,SE VERIFICĂ CONEXIUNEA LA INTERNET,,Update\Update.RO.xaml,
+Update.MessageText.Connection.None,NU EXISTĂ CONEXIUNE LA INTERNET,,Update\Update.RO.xaml,
+Update.MessageText.Connection.Error,NU S-A PUTUT VERIFICA CONEXIUNEA LA INTERNET,,Update\Update.RO.xaml,
+PASS⦙31,PASS⦙31,Don't Touch,Update\Update.RO.xaml,Please don't touch the translation in this line.
+Update.MessageText.Listing,SE OBȚIN LISTELE NECESARE,,Update\Update.RO.xaml,
+Update.MessageText.Listing.Empty,LISTELE NECESARE SUNT GOALE,,Update\Update.RO.xaml,
+Update.MessageText.Listing.Error,NU S-AU PUTUT PRIMI LISTELE NECESARE,,Update\Update.RO.xaml,
+PASS⦙32,PASS⦙32,Don't Touch,Update\Update.RO.xaml,Please don't touch the translation in this line.
+Update.MessageText.Filtering,SE FILTREAZĂ LISTELE,,Update\Update.RO.xaml,
+Update.MessageText.Filtering.Not,LISTELE NU POT FI FILTRATE,,Update\Update.RO.xaml,
+Update.MessageText.Filtering.Error,NU S-AU PUTUT FILTRA LISTELE,,Update\Update.RO.xaml,
+PASS⦙33,PASS⦙33,Don't Touch,Update\Update.RO.xaml,Please don't touch the translation in this line.
+Update.MessageText.Comparing,COMPARAREA LISTELOR,,Update\Update.RO.xaml,
+Update.MessageText.Comparing.Update,APLICAȚIA ESTE DEJA ACTUALIZATĂ,,Update\Update.RO.xaml,
+Update.MessageText.Comparing.Error,NU S-A PUTUT COMPARA LISTELE,,Update\Update.RO.xaml,
+PASS⦙34,PASS⦙34,Don't Touch,Update\Update.RO.xaml,Please don't touch the translation in this line.
+Update.MessageText.Searching,SE CAUTĂ FIȘIERELE NECESARE,,Update\Update.RO.xaml,
+Update.MessageText.Searching.Not,FIȘIERELE NECESARE NU AU FOST GĂSITE,,Update\Update.RO.xaml,
+Update.MessageText.Searching.Error,NU S-AU PUTUT CĂUTA FIȘIERELE NECESARE,,Update\Update.RO.xaml,
+Update.MessageText.Searching.Condition,FIȘIERELE NECESARE NU AU FOST GĂSITE,,Update\Update.RO.xaml,
+PASS⦙35,PASS⦙35,Don't Touch,Update\Update.RO.xaml,Please don't touch the translation in this line.
+Update.MessageText.Downloading,SE DESCARCĂ FIȘIERELE NECESARE,,Update\Update.RO.xaml,
+Update.MessageText.Downloading.Error,NU S-AU PUTUT DESCĂRCA FIȘIERELE NECESARE,,Update\Update.RO.xaml,
+Update.MessageText.Downloading.Complete.Cancel,DESCĂRCAREA FIȘIERULUI NECESAR A FOST ANULATĂ,,Update\Update.RO.xaml,
+Update.MessageText.Downloading.Complete.Error,A APĂRUT O EROARE ÎN TIMPUL DESCĂRCĂRII FIȘIERULUI NECESAR,,Update\Update.RO.xaml,
+PASS⦙36,PASS⦙36,Don't Touch,Update\Update.RO.xaml,Please don't touch the translation in this line.
+Update.MessageText.Running,PREGĂTIREA FIȘIERULUI DESCĂRCAT,,Update\Update.RO.xaml,
+Update.MessageText.Running.Executing,EXECUTAREA FIȘIERULUI DESCĂRCAT,,Update\Update.RO.xaml,
+Update.MessageText.Running.Executed,FIȘIERUL DESCĂRCAT A FOST EXECUTAT,,Update\Update.RO.xaml,
+Update.MessageText.Running.Not,FIȘIERUL DESCĂRCAT NU ESTE UTILIZABIL,,Update\Update.RO.xaml,
+Update.MessageText.Running.Error,NU S-A PUTUT PREGĂTI FIȘIERUL DESCĂRCAT,,Update\Update.RO.xaml,
+PASS⦙37,PASS⦙37,Don't Touch,Update\Update.RO.xaml,Please don't touch the translation in this line.
+Update.MessageText.Extracting,SE EXTRAGE FIȘIERUL DESCĂRCAT,,Update\Update.RO.xaml,
+Update.MessageText.Extracting.Executing,FIȘIERUL EXTRAS ESTE ÎN CURS DE EXECUȚIE,,Update\Update.RO.xaml,
+Update.MessageText.Extracting.Executed,FIȘIERUL EXTRAS A FOST EXECUTAT,,Update\Update.RO.xaml,
+Update.MessageText.Extracting.Failed,FIȘIERUL DESCĂRCAT A EȘUAT,,Update\Update.RO.xaml,
+Update.MessageText.Extracting.Corrupt,FIȘIERUL DESCĂRCAT ESTE CORUPT,,Update\Update.RO.xaml,
+Update.MessageText.Extracting.Not,FIȘIERUL DESCĂRCAT NU ESTE UTILIZABIL,,Update\Update.RO.xaml,
+Update.MessageText.Extracting.Error,NU S-A PUTUT EXTRAGE FIȘIERUL DESCĂRCAT,,Update\Update.RO.xaml,
+Watchdog.HelpButton,Ajutor,,Watchdog\Watchdog.RO.xaml,
+Watchdog.CloseButton,Închide,,Watchdog\Watchdog.RO.xaml,
+Watchdog.ErrorEmpty,"Din păcate, nu au putut fi capturate detaliile erorii.",,Watchdog\Watchdog.RO.xaml,
+Watchdog.ErrorMessage,A apărut o eroare neașteptată:,,Watchdog\Watchdog.RO.xaml,
+Watchdog.ErrorTitle,Eroare,,Watchdog\Watchdog.RO.xaml,
+Watchdog.HideButton,Ascunde,,Watchdog\Watchdog.RO.xaml,
+Watchdog.ShowButton,Arată,,Watchdog\Watchdog.RO.xaml,
+Watchdog.StackTrace,Urme de stivă:,,Watchdog\Watchdog.RO.xaml,
+Watchdog.WindowTitle,Sucrose Watchdog,,Watchdog\Watchdog.RO.xaml,
+Portal.Area.Data,Date,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Sound,Sunet,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Log,Jurnal,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Hook,Clește,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Store,Magazin,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Donate,Donare,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.System,Sistem,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Cache,Cache,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Laptop,Laptop,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Support,Asistență,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Reset,Resetare,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Backup,Backup,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Priority,Prioritate,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Engines,Motoare,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Update,Actualizare,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Library,Bibliotecă,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Developer,Dezvoltator,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.Extensions,Extensii,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.SystemResources,Resurse de Sistem,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Area.AppearanceBehavior,Aspect și Comportament,,Portal\Area\Portal.Area.RO.xaml,
+Portal.Category.All,Toate,,Portal\Category\Portal.Category.RO.xaml,
+PASS⦙38,PASS⦙38,Don't Touch,Portal\Category\Portal.Category.RO.xaml,Please don't touch the translation in this line.
+Portal.Category.Abstract,Abstract,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Ambience,Ambianță,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Animals,Animale,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Animation,Animație,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Anime,Anime,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.ArchitectureandBuildings,Arhitectură și Clădiri,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.ArtandAbstract,Artă și Abstract,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.ArtificialIntelligence,Inteligența Artificială,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Artworks,Lucrări de Artă,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Bard,Bard,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.BlackandWhite,Alb și Negru,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Brands,Mărci,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.CartoonandComics,Desene animate și Benzi Desenate,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.CitiesandPlaces,Orașe și Locuri,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.CloudsandSkies,Norii și Cerul,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Colorful,Colorat,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.ColorfulGradients,Gradienți Colorați,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.ComicBooks,Benzi desenate,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.DigitalArt,Artă Digitală,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Dynamic,Dinamic,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Education,Educație,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.EnchantedForests,Păduri Fermecate,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Fantasy,Fantezie,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Fashion,Modă,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.FilmandTV,Film și TV,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.FoodandDrinks,Mâncare și Băuturi,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Galaxy,Galaxie,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Game,Joc,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.GeometricPatterns,Modele Geometrice,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.HolidaysandSeasons,Sărbători și Anotimpuri,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.HorrorandHalloween,Groază și Halloween,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.InspirationalQuotes,Citate Inspirante,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.KidsandCartoon,Copii și Desene Animate,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Landscape,Peisaj,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Lifestyle,Stil de Viață,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.LineArt,Artă Linie,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Medieval,Medieval,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Minimalist,Minimalist,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Music,Muzică,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Nature,Natură,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Nightscapes,Peisaje de Noapte,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.PatternsandTextures,Modele și Texturi,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Persons,Persoane,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.PixelArt,Artă Pixel,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Retro,Retro,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Science,Știință,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.ScienceFiction,Științifico-Fantastic,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Sky,Cer,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Software,Software,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Space,Spațiu,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Sports,Sport,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Superheroes,Supereroi,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.System,Sistem,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Tavern,Tavernă,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Technology,Tehnologie,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Temple,Templu,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Time,Timp,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.UnderwaterandMarine,Subacvatic și Marin,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Vehicles,Vehicule,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.Vintage,Vintage,,Portal\Category\Portal.Category.RO.xaml,
+Portal.Category.War,Război,,Portal\Category\Portal.Category.RO.xaml,
+Base64⦙2,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVHJheUljb24vUG9ydGFsLlRyYXlJY29uLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJPdGhlckhlbHAvUG9ydGFsLk90aGVySGVscC5STy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVFZGl0L1BvcnRhbC5UaGVtZUVkaXQuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlQ2FyZC9Qb3J0YWwuU3RvcmVDYXJkLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJPdGhlckFib3V0L1BvcnRhbC5PdGhlckFib3V0LlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQYWdpbmF0aW9uL1BvcnRhbC5QYWdpbmF0aW9uLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZVNoYXJlL1BvcnRhbC5UaGVtZVNoYXJlLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5Q2FyZC9Qb3J0YWwuTGlicmFyeUNhcmQuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRGVsZXRlL1BvcnRhbC5UaGVtZURlbGV0ZS5STy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVSZXZpZXcvUG9ydGFsLlRoZW1lUmV2aWV3LlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUltcG9ydC9Qb3J0YWwuVGhlbWVJbXBvcnQuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lQ3JlYXRlL1BvcnRhbC5UaGVtZUNyZWF0ZS5STy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVSZXBvcnQvUG9ydGFsLlRoZW1lUmVwb3J0LlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJFeHBhbmRlckNhcmQvUG9ydGFsLkV4cGFuZGVyQ2FyZC5STy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2FsbHBhcGVyQ3ljbGluZy9Qb3J0YWwuV2FsbHBhcGVyQ3ljbGluZy5STy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRGlzcGxheVByZWZlcmVuY2VzL1BvcnRhbC5EaXNwbGF5UHJlZmVyZW5jZXMuUk8ueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\Controls\Portal.Controls.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.Stretch.Fill,Umple,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.Stretch.None,Niciunul,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.Stretch.Uniform,Uniform,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.Stretch.UniformToFill,Uniform pentru a umple,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙39,PASS⦙39,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.ReportType.Spam,Spam,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.ReportType.Other,Altul,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.ReportType.Nudity,Nuditate,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.ReportType.Harmful,Dăunător,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.ReportType.Violence,Violență,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.ReportType.Malicious,Răuvoitor,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.ReportType.CopyrightViolation,Încălcarea Drepturilor de Autor,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.ReportType.MisleadingInformation,Informații Înșelătoare,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙40,PASS⦙40,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.SortModeType.None,Niciunul,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.SortModeType.Name,Nume,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.SortModeType.Creation,Creare,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.SortModeType.Modification,Modificare,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙41,PASS⦙41,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.InputType.Close,Închis,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.InputType.OnlyMouse,Doar Mouse,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.InputType.OnlyKeyboard,Doar Tastatură,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.InputType.MouseKeyboard,Mouse și Tastatură,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.StoreType.GitHub,GitHub,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.StoreType.Soferity,Soferity,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.StretchType.Fill,Umple,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.StretchType.None,Niciunul,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.StretchType.Uniform,Uniform,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.StretchType.UniformToFill,Uniform pentru a umple,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.CommunicationType.Pipe,Pipe,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CommunicationType.Signal,Signal,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.PerformanceType.Close,Închide,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.PerformanceType.Pause,Pauză,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.PerformanceType.Resume,Reia,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.WindowBackdropType.Mica,Mica,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.WindowBackdropType.None,Niciunul,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.WindowBackdropType.Auto,Automat,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.WindowBackdropType.Tabbed,Tab-uri,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.WindowBackdropType.Acrylic,Acrilic,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.InputModuleType.Native,Native,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.InputModuleType.RawInput,RawInput,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.ChannelType.Release,Implicit,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.ChannelType.PreRelease,Dezvoltator,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.TransitionType.Random,Aleator,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.TransitionType.Sequential,Secvențial,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.PausePerformanceType.Heavy,Greu,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.PausePerformanceType.Light,Ușor,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.SortKindType.Ascending,Crescător [A-Z],,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.SortKindType.Descending,Descrescător [Z-A],,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.ExpandScreenType.Default,Implicit,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.ExpandScreenType.Advanced,Avansat,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.UpdateType.Compressed,Comprimat,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.UpdateType.Executable,Executabil,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.ScreenType.WorkingArea,Zona de lucru,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.ScreenType.DisplayBound,Limita afișării,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.DuplicateScreenType.Default,Implicit,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.DuplicateScreenType.Advanced,Avansat,,Portal\Enum\Portal.Enum.RO.xaml,
+PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.RO.xaml,Please don't touch the translation in this line.
+Portal.Enum.CompatibilityType.Pass,Rezultat de succes,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.Tags,Prea multe valori pentru 'Tags',,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.Type,"Tema creată pentru un tip nepotrivit, neprovizionat de aplicație",,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.Title,Valoarea 'Title' este goală sau prea lungă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.Access,Nu aveți permisiunea de a accesa fișierul relevant,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.Author,Valoarea 'Author' este goală sau prea lungă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.Folder,Fișierele temei nu sunt în directorul rădăcină al arhivei,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.Source,Fișierul 'Source' nu a fost găsit,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.Contact,Valoarea 'Contact' este goală sau prea lungă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.Preview,Fișierul 'Preview' nu a fost găsit,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.Encrypt,Fișierul specificat este criptat,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.ZipType,Fișierul specificat nu este cu adevărat un fișier '.zip',,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.InfoFile,Fișierul 'SucroseInfo.json' nu a fost găsit,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.NotFound,Fișierul specificat nu a fost găsit,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.LoopMode,Valoare 'LoopMode' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.Arguments,Valoarea 'Arguments' este prea lungă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.Extension,Fișierul specificat nu are extensia '.zip',,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.Thumbnail,Fișierul 'Thumbnail' nu a fost găsit,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.SystemCpu,Valoare 'SystemCpu' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.EmptyInfo,Fișierul 'SucroseInfo.json' este gol,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.AppVersion,Tema a fost creată pentru o versiune mai înaltă a aplicației,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.InvalidUrl,Valoarea 'Source' conține un URL nevalid,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.SystemBios,Valoare 'SystemBios' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.SystemDate,Valoare 'SystemDate' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.SystemAudio,Valoare 'SystemAudio' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.Description,Valoarea 'Description' este goală sau prea lungă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.InvalidInfo,Fișierul 'SucroseInfo.json' este nevalid,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.TriggerTime,Valoare 'TriggerTime' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.StretchMode,Valoare 'StretchMode' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.VolumeLevel,Valoare 'VolumeLevel' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.ShuffleMode,Valoare 'ShuffleMode' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.InvalidTags,Valori 'Tags' prea scurte sau prea lungi,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.InvalidFile,Fișier nevalid,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.PropertyList,Valoarea 'PropertyList' este goală,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.SystemMemory,Valoare 'SystemMemory' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.SystemBattery,Valoare 'SystemBattery' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.SystemGraphic,Valoare 'SystemGraphic' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.SystemNetwork,Valoare 'SystemNetwork' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.InvalidContact,Valoarea 'Contact' nu este nici un URL sau adresă de email,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.InvalidExtension,Extensie de fișier nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.EmptyCompatible,Fișierul 'SucroseCompatible.json' este gol,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.EmptyProperties,Fișierul 'SucroseProperties.json' este gol,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.PropertyListener,Valoare 'PropertyListener' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.SystemMotherboard,Valoare 'SystemMotherboard' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.InvalidCompatible,Fișierul 'SucroseCompatible.json' este nevalid,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.InvalidProperties,Fișierul 'SucroseProperties.json' este nevalid,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.PropertyLocalization,Valoare 'PropertyLocalization' nevalidă,,Portal\Enum\Portal.Enum.RO.xaml,
+Portal.Enum.CompatibilityType.UnforeseenConsequences,Consecințe neprevăzute,,Portal\Enum\Portal.Enum.RO.xaml,
+Base64⦙3,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5STy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙57,PASS⦙57,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.RO.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.RO.xaml,
+PASS⦙58,PASS⦙58,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.RO.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Import.Successful,Tema '{0}' a fost adăugată cu succes în bibliotecă.,,Portal\LibraryPage\Portal.LibraryPage.RO.xaml,
+Portal.LibraryPage.Import.Unsuccessful,Tema '{0}' nu a putut fi adăugată în bibliotecă. Motiv: '{1}'.,,Portal\LibraryPage\Portal.LibraryPage.RO.xaml,
+Portal.MainWindow.Title,Sucrose Wallpaper Engine,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+PASS⦙59,PASS⦙59,Don't Touch,Portal\MainWindow\Portal.MainWindow.RO.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuHelp,Ajutor,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuAbout,Despre,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+PASS⦙60,PASS⦙60,Don't Touch,Portal\MainWindow\Portal.MainWindow.RO.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuHelpTip,Vizualizare Ajutor,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuAboutTip,Vizualizare Despre,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+PASS⦙61,PASS⦙61,Don't Touch,Portal\MainWindow\Portal.MainWindow.RO.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuLibrary,Bibliotecă,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuStore,Magazin,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+PASS⦙62,PASS⦙62,Don't Touch,Portal\MainWindow\Portal.MainWindow.RO.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuLibraryTip,Bibliotecă de Tema,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuStoreTip,Magazin de Tema,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+PASS⦙63,PASS⦙63,Don't Touch,Portal\MainWindow\Portal.MainWindow.RO.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuGeneral,General,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuPersonal,Personal,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuPerformance,Performanță,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuWallpaper,Tapet,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuSystem,Sistem,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuDonate,Donare,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuOther,Altele,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.RO.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuBackTip,Înapoi,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuGeneralTip,Setări Generale,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuPersonalTip,Setări Personale,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuPerformanceTip,Setări de Performanță,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuWallpaperTip,Setări de Tapet,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuSystemTip,Setări de Sistem,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuDonateTip,Setări de Donare,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuOtherTip,Setări Diverse,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.RO.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuSettingTip,Setări,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.RO.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxHint,Caută un Tapet,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.RO.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxTip,Aveți dificultăți în găsirea ceea ce căutați?,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.RO.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuLightTip,Tema Luminoasă,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuDarkTip,Tema Întunecată,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+PASS⦙69,PASS⦙69,Don't Touch,Portal\MainWindow\Portal.MainWindow.RO.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.MenuCreateWallpaperTip,Crează Tapet,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuWallpaperCyclingTip,Ciclare Tapet,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuDisplayPreferencesTip,Preferințe de Afișare,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuDonateOptionsTip,Opțiuni de Donare,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Portal.MainWindow.MenuOtherOptionsTip,Alte Opțiuni,,Portal\MainWindow\Portal.MainWindow.RO.xaml,
+Base64⦙4,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5STy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuUk8ueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\SettingPage\Portal.SettingPage.RO.xaml,Please don't touch the translation in this line.
+Base64⦙5,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5STy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLlJPLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==,Don't Touch,Portal\StorePage\Portal.StorePage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙70,PASS⦙70,Don't Touch,Portal\StorePage\Portal.StorePage.RO.xaml,Please don't touch the translation in this line.
+Portal.StorePage.Title,StorePage,,Portal\StorePage\Portal.StorePage.RO.xaml,
+Portal.DisplayPreferences.Title,Preferințe Ecran,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,
+Portal.DisplayPreferences.Close,Închide,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,
+PASS⦙71,PASS⦙71,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expander,Mod de Afișare,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,
+Portal.DisplayPreferences.Expander.Description,Cum vor fi aplicate imaginile tale de fundal pe ecranele active.,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,
+PASS⦙72,PASS⦙72,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Screen,Doar pe ecranul selectat,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,
+PASS⦙73,PASS⦙73,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expand,Extinde între ecrane,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,
+PASS⦙74,PASS⦙74,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expand.Monitor,Pe toate monitoarele,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,
+PASS⦙75,PASS⦙75,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Expand.Hint,Selectați modul de extindere între ecrane,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,
+PASS⦙76,PASS⦙76,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate,Duplică același fundal,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,
+PASS⦙77,PASS⦙77,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate.Hint,Selectați modul de duplicare a aceluiași fundal,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RO.xaml,
+Portal.ExpanderCard.TitleText,Titlu,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.RO.xaml,
+Portal.ExpanderCard.DescriptionText,Descriere,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.RO.xaml,
+PASS⦙78,PASS⦙78,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.RO.xaml,Please don't touch the translation in this line.
+Portal.ExpanderCard.ExpandUpTip,Micșorează,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.RO.xaml,
+Portal.ExpanderCard.ExpandDownTip,Mărește,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.RO.xaml,
+Portal.LibraryCard.TitleText,Titlu,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+Portal.LibraryCard.DescriptionText,Descriere,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+PASS⦙79,PASS⦙79,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.MoreTip,Mai mult,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+Portal.LibraryCard.VersionTip,"Pentru a utiliza acest aspect, actualizați Sucrose",,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+PASS⦙80,PASS⦙80,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.MenuReview,Recenzie,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+Portal.LibraryCard.MenuUse,Utilizează,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+Portal.LibraryCard.MenuPreview,Previzualizare,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+Portal.LibraryCard.MenuCustomize,Personalizare,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+Portal.LibraryCard.MenuCyclingAdd,Adăugați în Ciclu,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+Portal.LibraryCard.MenuCyclingRemove,Eliminați din Ciclu,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+Portal.LibraryCard.MenuFind,Găsește,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+Portal.LibraryCard.MenuShare,Partajează,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+Portal.LibraryCard.MenuDelete,Șterge,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+Portal.LibraryCard.MenuEdit,Editează,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+PASS⦙81,PASS⦙81,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Closed,Închis,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+Portal.LibraryCard.Paused,Pus pe Pauză,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Selected,Selectat,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Incompatible,Incompatibil,,Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,
+Portal.OtherAbout.Title,Despre,,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,
+Portal.OtherAbout.Close,Închide,,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,
+PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.About,"Salut, numele meu este Bayram Emekli, cunoscut și sub pseudonimul Taiizor. Sunt dezvoltatorul aplicației Sucrose Wallpaper Engine, care este gratuit și open source. Vă mulțumesc că utilizați aplicația pe care am dezvoltat-o.",,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,
+PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Update,Versiune: v{0},,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,
+Portal.OtherAbout.Update.Description,Ultima verificare: {0},,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,
+PASS⦙86,PASS⦙86,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Update.Notes,Note de actualizare,,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,
+PASS⦙87,PASS⦙87,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Partners,Partenerii noștri,,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,
+PASS⦙88,PASS⦙88,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.Contributors,Contribuitori,,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,
+PASS⦙89,PASS⦙89,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.TermsOfService,Termeni și condiții de utilizare,,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,
+PASS⦙90,PASS⦙90,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.PrivacyPolicy,Politica de confidențialitate,,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,
+PASS⦙91,PASS⦙91,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.CodeOfConduct,Cod de conduită al comunității,,Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,
+Portal.OtherHelp.Title,Ajutor,,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,
+Portal.OtherHelp.Close,Închide,,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,
+PASS⦙92,PASS⦙92,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.WebPage,Pagina web,,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,
+Portal.OtherHelp.WebPage.Description,Pagina web oficială Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,
+PASS⦙93,PASS⦙93,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Documentation,Documentație,,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,
+Portal.OtherHelp.Documentation.Description,Pagina oficială de documentație Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,
+PASS⦙94,PASS⦙94,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Repository,Codul sursă,,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,
+Portal.OtherHelp.Repository.Description,Pagina oficială de cod sursă Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,
+PASS⦙95,PASS⦙95,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Discussions,Discuții,,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,
+Portal.OtherHelp.Discussions.Description,Pagina oficială de discuții Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,
+PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherHelp.Report,Raportează o problemă,,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,
+Portal.OtherHelp.Report.Description,Pagina oficială de raportare a problemelor Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.RO.xaml,
+Portal.Pagination.PageJump,Sari la,,Portal\Controls\Pagination\Portal.Pagination.RO.xaml,
+Portal.StoreCard.TitleText,Titlu,,Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,
+Portal.StoreCard.DescriptionText,Descriere,,Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,
+PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.VersionTip,"Pentru a utiliza acest aspect, actualizați Sucrose",,Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,
+PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.MenuUpdating,Verificare Actualizări,,Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,
+Portal.StoreCard.MenuUpdate,Verificați Actualizări,,Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,
+Portal.StoreCard.MenuInstall,Instalează,,Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,
+Portal.StoreCard.MenuReport,Raportează,,Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,
+PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.Incompatible,Incompatibil,,Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,
+Portal.ThemeCreate.Title,Creare Temă,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.Create,Creează,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.Close,Închide,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Gif,Temă Gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.Gif.Description,Creează-ți propria temă de tip Gif.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Url,Temă Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.Url.Description,Creează-ți propria temă de tip Url.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙102,PASS⦙102,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Web,Temă Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.Web.Description,Creează-ți propria temă de tip Web.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Video,Temă Video,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.Video.Description,Creează-ți propria temă de tip Video.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.YouTube,Temă YouTube,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.YouTube.Description,Creează-ți propria temă de tip YouTube.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Application,Temă Aplicație,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.Application.Description,Creează-ți propria temă de tip Application.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemeUrl,Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeWeb,Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeApplication,Aplicație,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeThumbnail,Miniatură,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemePreview,Previzualizare,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeTitle,Titlu,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeDescription,Descriere,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeAuthor,Autor,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeContact,Contact,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeTags,Etichete,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeArguments,Argumente,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemeUrl.Hint,Vă rugăm să introduceți un Url valid,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeWeb.Hint,Selectați o pagină web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeApplication.Hint,Selectați un fișier de aplicație,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeThumbnail.Hint,Alegeți o imagine miniaturală,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemePreview.Hint,Alegeți un fișier de previzualizare,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeTitle.Hint,Vă rugăm să introduceți un titlu valid,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeDescription.Hint,Vă rugăm să introduceți o descriere validă,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeAuthor.Hint,Vă rugăm să introduceți un nume de autor valid,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeContact.Hint,Vă rugăm să introduceți o adresă de contact validă,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeTags.Hint,Vă rugăm să introduceți etichete de temă valide,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeArguments.Hint,Vă rugăm să introduceți argumente de aplicație valide,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Delete,Anulează,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Gif.Title,Selectați Fișier Gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.DragDrop.Gif.Filter,Fișiere Gif (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Video.Title,Selectați Fișier Video,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.DragDrop.Video.Filter,Fișiere Video (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Gif,Trageți și lăsați fișierul Gif aici,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.DragDrop.Video,Trageți și lăsați fișierul video aici,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemeThumbnail.Title,Alegeți o imagine miniaturală,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemeThumbnail.Filter,Fișiere de imagine (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙113,PASS⦙113,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ThemePreview.Title,Alegeți un fișier de previzualizare,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ThemePreview.Filter,Fișiere Gif (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.WebSource.Title,Selectați Pagina Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.WebSource.Filter,Pagini Web (*.html)|*.html,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.ApplicationSource.Title,Selectați Fișierul de Aplicație,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.ApplicationSource.Filter,Fișiere de Aplicație (*.exe)|*.exe,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Copy.Close,Am Înțeles,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.Copy.Title,Notificare Importantă,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.Copy.Message,Fișierul selectat va fi inclus în tema împreună cu toate celelalte fișiere și foldere din director.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.Access.Close,Am Înțeles,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.Access.Title,Avertisment de Acces,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeCreate.Access.Message,Nu aveți permisiunea de a accesa fișierul selectat.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,
+Portal.ThemeDelete.Title,Ștergere Temă,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.Delete,Șterge,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.Close,Închide,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeDelete.ThemeTitle,Titlu,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.ThemeDescription,Descriere,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.ThemeType,Tip,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.ThemeTypeName,Gif,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.ThemeAuthor,Autor,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.ThemeAuthorName,Taiizor,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.ThemeSize,Dimensiune,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.ThemeSizeTotal,0 b,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.ThemeVersion,Versiune,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0),,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.ThemeTags,Etichete,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.ThemeTagsText,Nicio etichetă,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.ThemeCreate,Creată,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.ThemeCreateDate,Necunoscută,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.ThemeModify,Modificată,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeDelete.ThemeModifyDate,Necunoscută,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,
+Portal.ThemeEdit.Title,Editare Temă,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,
+Portal.ThemeEdit.Close,Închide,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,
+Portal.ThemeEdit.Save,Salvează,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,
+PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeEdit.ThemeTitle,Titlu,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,
+Portal.ThemeEdit.ThemeDescription,Descriere,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,
+Portal.ThemeEdit.ThemeAuthor,Autor,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,
+Portal.ThemeEdit.ThemeContact,Contact,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,
+Portal.ThemeEdit.ThemeTags,Etichete,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,
+Portal.ThemeEdit.ThemeArguments,Argumente,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,
+PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeEdit.ThemeTitle.Hint,Vă rugăm să introduceți un titlu valid,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,
+Portal.ThemeEdit.ThemeDescription.Hint,Vă rugăm să introduceți o descriere validă,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,
+Portal.ThemeEdit.ThemeAuthor.Hint,Vă rugăm să introduceți un nume de autor valid,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,
+Portal.ThemeEdit.ThemeContact.Hint,Vă rugăm să introduceți o adresă de contact validă,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,
+Portal.ThemeEdit.ThemeTags.Hint,Vă rugăm să introduceți etichete de temă valide,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,
+Portal.ThemeEdit.ThemeArguments.Hint,Vă rugăm să introduceți argumente de aplicație valide,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.RO.xaml,
+Portal.ThemeImport.Title,Importare Temă,,Portal\Controls\ThemeImport\Portal.ThemeImport.RO.xaml,
+Portal.ThemeImport.Close,Închide,,Portal\Controls\ThemeImport\Portal.ThemeImport.RO.xaml,
+PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeImport.Info,Informații Temă,,Portal\Controls\ThemeImport\Portal.ThemeImport.RO.xaml,
+Portal.ThemeImport.Type,Motiv Descrieri,,Portal\Controls\ThemeImport\Portal.ThemeImport.RO.xaml,
+Portal.ThemeReport.Title,Raportare Temă,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+Portal.ThemeReport.Close,Închide,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.ThemeTitle,Titlu,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+Portal.ThemeReport.ThemeDescription,Descriere,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter,Raport,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+Portal.ThemeReport.Reporter.Description,Specificați motivele pentru raportarea temei.,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Contact.Placeholder,Vă rugăm să introduceți o adresă de email validă,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Description.Text,Note suplimentare:,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+Portal.ThemeReport.Reporter.Description.Placeholder,Vă rugăm să descrieți în detaliu motivul raportării.,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Preparing,Pregătirile pentru raportare vor începe în curând..,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Checking,Se efectuează verificările necesare pentru raportare..,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+Portal.ThemeReport.Reporter.Checking.Error,A apărut o eroare necunoscută în timpul verificărilor necesare pentru raportare.,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+Portal.ThemeReport.Reporter.Checking.Status,"Nu s-au putut crea condiții adecvate pentru raportare în acest moment, vă rugăm să încercați din nou mai târziu..",,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+PASS⦙128,PASS⦙128,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Sending,Trimiterea informațiilor pentru raportare..,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+Portal.ThemeReport.Reporter.Sending.Error,A apărut o eroare în timpul trimiterii raportului.,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+Portal.ThemeReport.Reporter.Sending.Errored,A apărut o eroare neașteptată în timpul trimiterii raportului: {0}.,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+Portal.ThemeReport.Reporter.Sending.Succeded,"Raportul a fost trimis cu succes, vă mulțumim.",,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+PASS⦙129,PASS⦙129,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Network,Este necesară o conexiune la internet pentru raportare.,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Report,Raportează,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+Portal.ThemeReport.Reporter.GitHub,Raportează din GitHub,,Portal\Controls\ThemeReport\Portal.ThemeReport.RO.xaml,
+Portal.ThemeReview.Title,Revizuire Temă,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.Close,Închide,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+PASS⦙131,PASS⦙131,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeReview.ThemeTitle,Titlu,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeDescription,Descriere,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeType,Tip,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeTypeName,Gif,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeAuthor,Autor,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeAuthorName,Taiizor,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeSize,Dimensiune,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeSizeTotal,0 b,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeVersion,Versiune,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0),,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeTags,Etichete,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeTagsText,Nicio etichetă,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeCreate,Creată,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeCreateDate,Necunoscută,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeModify,Modificată,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeModifyDate,Necunoscută,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeReview.ThemeContact,Adresa de contact pentru temă,,Portal\Controls\ThemeReview\Portal.ThemeReview.RO.xaml,
+Portal.ThemeShare.Title,Partajare Temă,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+Portal.ThemeShare.Close,Închide,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemeTitle,Titlu,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+Portal.ThemeShare.ThemeDescription,Descriere,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemeExport,Exportare Temă,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+Portal.ThemeShare.ThemePublish,Publicare în Magazin,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+Portal.ThemeShare.ThemeCopy,Copiere Link,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+PASS⦙134,PASS⦙134,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Publish,Publică,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+Portal.ThemeShare.ThemePublish.Preparing,Pregătirile pentru publicare vor începe în curând..,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit,Limita dvs. zilnică de încărcare a temelor este verificată..,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Ați atins limita zilnică de încărcare a temelor, încercați din nou mai târziu.",,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+Portal.ThemeShare.ThemePublish.Limit.Error,A apărut o eroare necunoscută la verificarea limitei zilnice de încărcare a temelor.,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Compress,Tema este comprimată înainte de încărcare..,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+Portal.ThemeShare.ThemePublish.Compress.Error,A apărut o eroare la comprimarea temei.,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size,Dimensiunea temei comprimate este verificată..,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size.Exceeded,Tema comprimată nu poate fi încărcată deoarece depășește {0} MB.,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+PASS⦙140,PASS⦙140,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Check,Integritatea temei comprimate este verificată înainte de încărcare..,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+Portal.ThemeShare.ThemePublish.Check.Error,A apărut o eroare în timpul verificării integrității temei comprimate.,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload,Tema comprimată este pregătită pentru încărcare..,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload.Start,Tema comprimată este încărcată..,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+Portal.ThemeShare.ThemePublish.Upload.Error,A apărut o eroare necunoscută la încărcarea temei comprimate.,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+Portal.ThemeShare.ThemePublish.Upload.Errored,A apărut o eroare neașteptată la încărcarea temei comprimate: {0}.,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+Portal.ThemeShare.ThemePublish.Upload.Succeded,Tema comprimată a fost încărcată cu succes și va fi publicată în magazin după verificare.,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+PASS⦙143,PASS⦙143,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.SaveDialogFilter,Fișiere ZIP (*.zip)|*.zip|Toate fișierele (*.*)|*.*,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+Portal.ThemeShare.SaveDialogTitle,Salvează Fișier Temă,,Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,
+Portal.TrayIcon.Title,Bara de Sistem,,Portal\Controls\TrayIcon\Portal.TrayIcon.RO.xaml,
+Portal.TrayIcon.Close,Închide,,Portal\Controls\TrayIcon\Portal.TrayIcon.RO.xaml,
+PASS⦙144,PASS⦙144,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.RO.xaml,Please don't touch the translation in this line.
+Portal.TrayIcon.Message,Sucrose a fost minimizat în bara de sistem. Faceți clic dreapta pe pictograma Sucrose pentru a continua.,,Portal\Controls\TrayIcon\Portal.TrayIcon.RO.xaml,
+Portal.WallpaperCycling.Title,Ciclare Tapet,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
+Portal.WallpaperCycling.Close,Închide,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
+PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.Cycling,Ciclare Automată a Tapetului,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
+Portal.WallpaperCycling.Cycling.Description,Dacă tapetul se schimbă automat sau nu.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
+PASS⦙146,PASS⦙146,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.Time,Interval de Timp,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
+Portal.WallpaperCycling.Time.Description,Intervalul de timp după care se schimbă tapetul.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
+PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.Transition,Mod Tranzitie,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
+Portal.WallpaperCycling.Transition.Description,Stabilește modul de tranziție între tapete.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
+PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.List,Listă Cicluri,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
+Portal.WallpaperCycling.List.Description,Resetează lista de cicluri la valorile implicite.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
+PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperCycling.List.Reset,Resetare,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
+Portal.EmptyLibraryPage.Title,EmptyLibraryPage,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.RO.xaml,
+PASS⦙150,PASS⦙150,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.RO.xaml,Please don't touch the translation in this line.
+Portal.EmptyLibraryPage.TitleText,Biblioteca Ta a Fost Învelită de Pânzele Păianjenilor,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.RO.xaml,
+Portal.EmptyLibraryPage.DescriptionText,"În locul tapetelor, a apărut o capodoperă cu pânze de păianjen",,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.RO.xaml,
+Portal.FullLibraryPage.Title,FullLibraryPage,,Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.RO.xaml,
+Portal.SearchLibraryPage.Title,SearchLibraryPage,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.RO.xaml,
+PASS⦙151,PASS⦙151,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SearchLibraryPage.TitleText,Biblioteca Ta a Fost Fermecată de Pânzele Păianjenilor,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.RO.xaml,
+Portal.SearchLibraryPage.DescriptionText,"Datorită gustului tău rafinat în alegerea tapetelor, nu mai este spațiu pentru alte tapete",,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.RO.xaml,
+Portal.DonateSettingPage.Title,DonateSettingPage,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RO.xaml,
+PASS⦙152,PASS⦙152,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.DonateMenu,Meniu Donații,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RO.xaml,
+Portal.DonateSettingPage.DonateMenu.Description,Vizibilitatea meniului de donații din interfață.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RO.xaml,
+PASS⦙153,PASS⦙153,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Vizibil,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RO.xaml,
+Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Invizibil,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RO.xaml,
+PASS⦙154,PASS⦙154,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.Advertising,Susținere Publicitară,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RO.xaml,
+Portal.DonateSettingPage.Advertising.Description,Contribuiți la dezvoltarea aplicației vizionând reclame.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RO.xaml,
+PASS⦙155,PASS⦙155,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.DonateSettingPage.Advertising.AdvertisingDelay,Durata Reclamelor (minute):,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RO.xaml,
+Portal.DonateSettingPage.Advertising.AdvertisingHint,Sugestie: Reclamele vor fi afișate pentru a vă deranja cât mai puțin.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RO.xaml,
+Portal.GeneralSettingPage.Title,GeneralSettingPage,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙156,PASS⦙156,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationLanguage,Limba Aplicației,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.ApplicationLanguage.Description,Alegeți limba în care doriți să vizualizați aplicația.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationStartup,Pornire la Aplicație,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Description,"Pentru a putea reda tapetul, Sucrose trebuie să ruleze în fundal la pornirea aplicației.",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Niciunul,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Normal,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioritar,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Planificat,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Am Înțeles,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Atenționare Drepturi de Administrator,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Aveți nevoie de drepturi de administrator pentru a modifica starea de pornire.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon,Iconiță de Notificare,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.NotifyIcon.Description,Vizibilitatea în zona de notificare a sistemului. Sucrose va continua să ruleze în mod discret.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Vizibil,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Invizibil,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.NotifyExit,"La închiderea zonei de notificare, închide toate aplicațiile Sucrose",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop,Fundal Fereastră,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.Description,Utilizat pentru personalizarea fundalului ferestrei aplicației.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Selectați Imagine de Fundal,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Alegeți o imagine de fundal,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Fișiere imagine (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,"Din păcate, nu aveți permisiunea de a accesa fișierul imagine selectat",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Redimensionare Fundal:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Opacitate Fundal (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.EngineVolume,Nivel de Sunet,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.EngineVolume.Description,Nivelul global al sunetului pentru toate tapetele.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Redă sunet numai când focusul este pe desktop,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.EngineVolume.VolumeActive,Redați sunetul doar când toate aplicațiile sunt în surdină,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Sensibilitate (Secunde):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.PrivateLibrary,Locația Bibliotecii Private,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.PrivateLibrary.Description,Locația în care temele adăugate în biblioteca dvs. vor fi stocate.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,"Din păcate, nu aveți acces la noua locație",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Vă rugăm să selectați un director gol,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Așteptați puțin când se schimbă locația,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Mută biblioteca curentă în noua locație,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,
+Portal.OtherSettingPage.Title,OtherSettingPage,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.ReportData,Raportare Automată a Erorilor,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+Portal.OtherSettingPage.ReportData.Description,Sucrose ia măsuri pentru a raporta rapid când întâlnește o eroare.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.StatisticsData,Partajarea Statisticilor de Utilizare,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+Portal.OtherSettingPage.StatisticsData.Description,Sucrose permite colectarea statisticilor dvs. de utilizare pentru a contribui la dezvoltarea aplicației.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.DiscordHook,Discord,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+Portal.OtherSettingPage.DiscordHook.Description,Sucrose facilitează comunicarea cu Discord.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Reîmprospătare Conexiune:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+Portal.OtherSettingPage.DiscordHook.DiscordDelay,Interval de Reîmprospătare (secunde):,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Agent,Reprezentant Internet,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+Portal.OtherSettingPage.Agent.Description,Identitatea dvs. de reprezentant în situații care necesită conexiune la internet.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key,Cheie de Acces Personală,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+Portal.OtherSettingPage.Key.Description,Necesară pentru utilizarea fără probleme a magazinului și a actualizărilor aplicației.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.HintKey,Faceți clic aici dacă nu știți cum să obțineți o cheie de acces personală.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.PersonalKey,Vă rugăm să introduceți o cheie de acces personală,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+Portal.OtherSettingPage.Key.PersonalKey.Valid,Vă rugăm să introduceți o cheie de acces personală validă,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Channel,Canal de Actualizare,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+Portal.OtherSettingPage.Channel.Description,Unde ar trebui să aibă loc procesul de actualizare.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update,Metoda de Actualizare,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+Portal.OtherSettingPage.Update.Description,Cum ar trebui să se desfășoare procesul de actualizare.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update.Limit,Limită Lățime de Bandă pentru Descărcare:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Auto,Actualizare Automată,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+Portal.OtherSettingPage.Auto.Description,Dacă procesul de actualizare va fi verificat automat.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer,Instrumente de Dezvoltare,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+Portal.OtherSettingPage.Developer.Description,Gestionați instrumentele de dezvoltare pentru motorul WebView și CefSharp.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperMode,Instrumente de Dezvoltare Implicite:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,Port de Depanare:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperHint,"Sugestie: Instrumentele de dezvoltare implicite pot să nu funcționeze corect în temele suportate. Portul de depanare are tendința să funcționeze mai bine. Când sunteți gata, puteți utiliza adresa 'http://localhost:{0}' sau 'chrome://inspect' pentru browserul Chrome, 'opera://inspect' pentru browserul Opera, 'edge://inspect' pentru browserul Edge.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter,Contoare de Performanță,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Counter.Description,Dacă toate contoarele de performanță vor funcționa în fundal.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter.CounterHint,Notă: Unele teme de tip Web pot să nu funcționeze corect și niciuna dintre următoarele setări de performanță nu va funcționa.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Pause,Regulă de Pauză,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Pause.Description,Stabilește regula pentru pauzarea tapetului pe baza setărilor de performanță.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Communication,Tip de Comunicare,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Communication.Description,Determină metoda de trimitere a mesajelor către temele de tip Web.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu,Utilizare Procesor,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Cpu.Description,Ce se întâmplă cu fundalul temei dvs. în funcție de setările de utilizare a procesorului.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu.CpuUsage,Utilizare Procesor (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu,Utilizare GPU,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Gpu.Description,Ce se întâmplă cu imaginea de fundal în funcție de setările de utilizare a GPU-ului.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Lista unităților de procesare grafică nu a fost încă creată,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuUsage,Utilizare GPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory,Utilizare Memorii,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Memory.Description,Ce se întâmplă cu fundalul temei dvs. în funcție de setările de utilizare a memoriei.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory.MemoryUsage,Utilizare Memorii (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network,Utilizare Rețea,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Network.Description,Ce se întâmplă cu fundalul temei dvs. în funcție de setările legate de utilizarea rețelei.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkAdapter,Adaptor de Rețea:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Lista de adaptoare de rețea nu a fost încă creată,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkUpload,Dimensiune Încărcare:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkDownload,Dimensiune Descărcare:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Valoare Ping (ms):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery,Baterie,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Battery.Description,Ce se întâmplă cu fundalul temei dvs. atunci când funcționează pe baterie.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery.BatteryUsage,Starea Bateriei (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Saver,Mod Economisire Baterie,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Saver.Description,Ce se întâmplă cu fundalul temei dvs. atunci când modul de economisire a bateriei este activat.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Virtual,Virtualizare,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Virtual.Description,Ce se întâmplă cu fundalul temei dvs. atunci când se utilizează aplicații de virtualizare.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Remote,Desktop la Distanță,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Remote.Description,Ce se întâmplă cu fundalul temei dvs. atunci când se utilizează aplicații pentru desktop la distanță.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Fullscreen,Mod Ecran Complet,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Fullscreen.Description,Ce se întâmplă cu fundalul temei dvs. atunci când se utilizează aplicații în modul ecran complet.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Focus,Mod Focus,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Focus.Description,Ce se întâmplă cu fundalul temei dvs. atunci când există alte aplicații în prim-plan.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server,Server Magazin,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+Portal.PersonalSettingPage.Server.Description,Specifică care server va fi utilizat pentru afișarea temelor listate în magazin.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server.ServerHint,"Notă: Dacă {0} este selectat ca server, este necesar să introduceți un {2} pentru a evita limitele de cerere. În caz contrar, puteți întâmpina probleme în accesarea temelor din magazin. Dacă este selectat {1}, veți avea o experiență mai fluidă în magazin.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Duration,Actualizare Magazin,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+Portal.PersonalSettingPage.Duration.Description,Durata pentru care temele listate în magazin se vor actualiza.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.StoreStart,Pornire Automată,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+Portal.PersonalSettingPage.StoreStart.Description,Dacă temele descărcate din magazin vor fi setate automat ca fundal de ecran.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adult,Conținut pentru Adulți,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+Portal.PersonalSettingPage.Adult.Description,Dacă se vor afișa sau nu conținuturile marcate ca fiind pentru adulți (NSFW) din magazin.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Confirm,Confirmare Ștergere,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+Portal.PersonalSettingPage.Confirm.Description,Dacă se va cere confirmare când se șterg temele din bibliotecă.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete,Teme Corupte,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+Portal.PersonalSettingPage.Delete.Description,Dacă temele corupte sau incomplete din bibliotecă vor fi șterse automat sau nu.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete.DeleteHint,"Notă: Trebuie să fiți atent, deoarece aceasta poate duce la pierderea datelor.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.LibraryStart,Pornire Automată,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+Portal.PersonalSettingPage.LibraryStart.Description,Dacă temele create vor fi setate automat ca fundal de ecran.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Preview,Previzualizare Temă,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+Portal.PersonalSettingPage.Preview.Description,Dacă temele vor fi sau nu previzualizate când treceti peste ele.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Preview.StorePreview,Previzualizare Magazin:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+Portal.PersonalSettingPage.Preview.StorePreviewHide,Ascunde Detaliile:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Preview.LibraryPreview,Previzualizare Bibliotecă:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Ascunde Detaliile:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive,Aspect Adaptabil,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+Portal.PersonalSettingPage.Adaptive.Description,Personalizați aspectul sau distanța dintre temele afișate.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Margine (Pixeli):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Aspect Ordine (Bucăți):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort,Sortare Bibliotecă,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+Portal.PersonalSettingPage.Sort.Description,Specificați modul în care temele din biblioteca dvs. vor fi sortate și în ce format.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortMode,Mod de Sortare:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,Tip de Sortare:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Store,Paginare Magazin,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+Portal.PersonalSettingPage.Store.Description,Setați numărul de teme pentru fiecare pagină din magazin.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Library,Paginare Bibliotecă,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+Portal.PersonalSettingPage.Library.Description,Setați numărul de teme pentru fiecare pagină din bibliotecă.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary,Fișierele Jurnal,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+Portal.SystemSettingPage.LogTemporary.Description,Gestionarea tuturor fișierelor jurnal create de aplicație.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Create,Creare,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Delete,Ștergere,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,Notă: Spațiul total ocupat de fișierele jurnal este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary,Ștergere Cache,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+Portal.SystemSettingPage.CacheTemporary.Description,Ștergerea tuturor fișierelor cache create de aplicație.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Start,Începe Curățarea,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,Notă: Spațiul total ocupat de fișierele cache este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary,Ștergere Magazin,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+Portal.SystemSettingPage.StoreTemporary.Description,Ștergerea tuturor fișierelor magazin create de aplicație.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Start,Începe Curățarea,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,Notă: Spațiul total ocupat de fișierele magazin este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary,Ștergere Bibliotecă,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+Portal.SystemSettingPage.LibraryTemporary.Description,"Ștergerea tuturor fișierelor temă din bibliotecă, fie că sunt în bibliotecă sau create de utilizator.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Start,Începe Curățarea,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,Notă: Spațiul total ocupat de fișierele temă din bibliotecă este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup,Fișiere Setări,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+Portal.SystemSettingPage.SettingBackup.Description,Gestionarea tuturor fișierelor de setări create de aplicație.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Export,Exportare,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Import,Importare,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,Notă: Toate aplicațiile vor fi închise doar atunci când începe operațiunea aleasă.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset,Resetare Setări,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+Portal.SystemSettingPage.SettingReset.Description,Resetarea tuturor fișierelor de setări create de aplicație.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Start,Începe Resetarea,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,Notă: Toate aplicațiile vor fi închise doar atunci când începe operațiunea aleasă.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.Log.SaveDialogTitle,Salvează Fișierul Jurnal,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+Portal.SystemSettingPage.Log.SaveDialogFilter,Fișiere ZIP (*.zip)|*.zip|Toate Fișierele (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.Access.Close,Înțeles,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+Portal.SystemSettingPage.Access.Title,Avertisment de Acces,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+Portal.SystemSettingPage.Access.Message,Nu aveți permisiunea de a accesa locația selectată.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode,Metoda de Interacțiune,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+Portal.WallpaperSettingPage.InputMode.Description,Stabilește metodele prin care poate avea loc interacțiunea cu tapetele acceptate.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.InputModule,Modul de Interacțiune:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.InputDesktop,Procesează interacțiunea doar când desktop-ul este în focus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,Ascundeți pentru a evita selectarea accidentală a pictogramelor de pe desktop,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.ScreenLayout,Aranjament Ecran,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+Portal.WallpaperSettingPage.ScreenLayout.Description,Schimbă aranjamentul imaginilor tale de fundal pe ecran.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.StretchMode,Mod Redimensionare,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+Portal.WallpaperSettingPage.StretchMode.Description,Schimbă modul de redimensionare pentru imagini de fundal acceptate.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.LoopMode,Mod Repetare,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+Portal.WallpaperSettingPage.LoopMode.Description,Schimbă modul de repetare pentru imagini de fundal acceptate.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.ShuffleMode,Mod Amestecare,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+Portal.WallpaperSettingPage.ShuffleMode.Description,Schimbă modul de amestecare pentru imagini de fundal acceptate.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.GifPlayer,Modul Gif,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+Portal.WallpaperSettingPage.GifPlayer.Description,Alege modul care va reda temele de tip Gif din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.VideoPlayer,Modul Video,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+Portal.WallpaperSettingPage.VideoPlayer.Description,Alege modul care va reda temele de tip Video din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.UrlPlayer,Motor Url,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+Portal.WallpaperSettingPage.UrlPlayer.Description,Alege motorul care va reda temele de tip Url din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.WebPlayer,Motor Web,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+Portal.WallpaperSettingPage.WebPlayer.Description,Alege motorul care va reda temele de tip Web din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.YouTubePlayer,Motor YouTube,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+Portal.WallpaperSettingPage.YouTubePlayer.Description,Alege motorul care va reda temele de tip YouTube din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.ApplicationPlayer,Motor Application,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+Portal.WallpaperSettingPage.ApplicationPlayer.Description,Alege motorul care va reda temele de tip Application din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RO.xaml,
+PASS⦙267,PASS⦙267,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RO.xaml,Please don't touch the translation in this line.
+Portal.BrokenStorePage.TitleText,Un Moment în Care Lumina Internetului se Stinge,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RO.xaml,
+Portal.BrokenStorePage.DescriptionText,"Aici, așa cum este și cerul fără stele, strălucirea internetului lipsește",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RO.xaml,
+Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.RO.xaml,
+Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RO.xaml,
+PASS⦙268,PASS⦙268,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RO.xaml,Please don't touch the translation in this line.
+Portal.SearchStorePage.TitleText,Răspunsul Căutărilor Tale Poate Fi Ascuns în Cer,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RO.xaml,
+Portal.SearchStorePage.DescriptionText,"Dacă rezultatele nu sunt ceea ce te așteptai, cerul îți poate oferi o experiență nouă",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RO.xaml,
+Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RO.xaml,
+PASS⦙269,PASS⦙269,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RO.xaml,Please don't touch the translation in this line.
+Portal.UnknownStorePage.TitleText,Descoperiți Misterul Apariției în Magazin,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RO.xaml,
+Portal.UnknownStorePage.DescriptionText,Pornește în căutarea necunoscutului și începe călătoria de a dezvălui misterul apariției în magazin,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RO.xaml,

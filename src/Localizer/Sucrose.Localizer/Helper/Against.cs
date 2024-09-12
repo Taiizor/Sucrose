@@ -1,8 +1,10 @@
-﻿namespace Sucrose.Localizer.Helper
+﻿using System.Text.RegularExpressions;
+
+namespace Sucrose.Localizer.Helper
 {
     internal static class Against
     {
-        public static void Check(string csvDirectory)
+        public static void CheckCsv(string csvDirectory)
         {
             string[] csvFiles = Directory.GetFiles(csvDirectory, "*.csv")
                 .Where(filePath => Path.GetFileNameWithoutExtension(filePath).Length == 2)
@@ -23,6 +25,27 @@
             Console.WriteLine();
         }
 
+        public static void CheckPoe(string poeDirectory)
+        {
+            string[] poeFiles = Directory.GetFiles(poeDirectory, "*.csv")
+                .Where(filePath => Path.GetFileNameWithoutExtension(filePath).Length == 2)
+                .ToArray();
+
+            for (int i = 0; i < poeFiles.Length; i++)
+            {
+                for (int j = i + 1; j < poeFiles.Length; j++)
+                {
+                    Console.WriteLine($"-- Comparing {Path.GetFileName(poeFiles[i])} and {Path.GetFileName(poeFiles[j])} --");
+                    ComparePoeFiles(poeFiles[i], poeFiles[j]);
+                    Console.WriteLine();
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("POEditor file checking is complete.");
+            Console.WriteLine();
+        }
+
         private static void CompareCsvFiles(string filePath1, string filePath2)
         {
             string[] lines1 = File.ReadAllLines(filePath1);
@@ -40,6 +63,42 @@
 
                 string key1 = fields1[1];
                 string key2 = fields2[1];
+
+                bool areInSameRow = GetFilenameWithoutLanguageCode(file1) == GetFilenameWithoutLanguageCode(file2) && key1 == key2;
+
+                if (areInSameRow)
+                {
+                    //Console.WriteLine($"Row {i + 1}: Present in both files.");
+                }
+                else
+                {
+                    Console.WriteLine($"Row {i + 1}: Present in both files but different.");
+                }
+            }
+
+            if (lines1.Length != lines2.Length)
+            {
+                Console.WriteLine("Warning: Files are of different lengths!");
+            }
+        }
+
+        private static void ComparePoeFiles(string filePath1, string filePath2)
+        {
+            string[] lines1 = File.ReadAllLines(filePath1);
+            string[] lines2 = File.ReadAllLines(filePath2);
+
+            int minLineCount = Math.Min(lines1.Length, lines2.Length);
+
+            for (int i = 0; i < minLineCount; i++)
+            {
+                string[] fields1 = Regex.Replace(lines1[i], @"""(.*?)""", m => m.Value.Replace(",", "")).Split(',');
+                string[] fields2 = Regex.Replace(lines2[i], @"""(.*?)""", m => m.Value.Replace(",", "")).Split(',');
+
+                string file1 = fields1[3];
+                string file2 = fields2[3];
+
+                string key1 = fields1[0];
+                string key2 = fields2[0];
 
                 bool areInSameRow = GetFilenameWithoutLanguageCode(file1) == GetFilenameWithoutLanguageCode(file2) && key1 == key2;
 

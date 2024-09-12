@@ -1,0 +1,7 @@
+Term,Translate,Context,Reference,Comment
+Launcher.ExitIcon,Assets/Exit.ico,,Launcher\Launcher.xaml,
+Launcher.ReportIcon,Assets/Error.ico,,Launcher\Launcher.xaml,
+Launcher.UpdateIcon,Assets/Update.ico,,Launcher\Launcher.xaml,
+Launcher.TrayIcon,Assets/TrayIcon.ico,,Launcher\Launcher.xaml,
+Launcher.OpenIcon,Assets/FitWidth.ico,,Launcher\Launcher.xaml,
+Launcher.SettingIcon,Assets/Setting.ico,,Launcher\Launcher.xaml,
