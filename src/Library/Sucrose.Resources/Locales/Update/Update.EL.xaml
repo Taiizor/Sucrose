@@ -8,6 +8,8 @@
 
     <system:String x:Key="Update.ReloadText">ΔΟΚΙΜΑΣΤΕ ΞΑΝΑ</system:String>
 
+    <system:String x:Key="Update.ReloadText.Check.Again">ΕΛΕΓΧΟΣ ΞΑΝΑ</system:String>
+
     <system:String x:Key="Update.ReloadText.Browser.Opened">ΑΝΟΙΞΕ ΣΤΟΝ ΠΕΡΙΗΓΗΤΗ</system:String>
     <system:String x:Key="Update.ReloadText.Browser.Opening">ΑΝΟΙΓΕΤΑΙ ΣΤΟΝ ΠΕΡΙΗΓΗΤΗ</system:String>
 

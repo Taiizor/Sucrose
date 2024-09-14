@@ -8,6 +8,8 @@
 
     <system:String x:Key="Update.ReloadText">ÎNCERCAȚI DIN NOU</system:String>
 
+    <system:String x:Key="Update.ReloadText.Check.Again">VERIFICĂ DIN NOU</system:String>
+
     <system:String x:Key="Update.ReloadText.Browser.Opened">DESCHIS ÎN BROWSER</system:String>
     <system:String x:Key="Update.ReloadText.Browser.Opening">SE DESCHIDE ÎN BROWSER</system:String>
 

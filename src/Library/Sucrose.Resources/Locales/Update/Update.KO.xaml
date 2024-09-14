@@ -8,6 +8,8 @@
 
     <system:String x:Key="Update.ReloadText">다시 시도</system:String>
 
+    <system:String x:Key="Update.ReloadText.Check.Again">다시 확인</system:String>
+
     <system:String x:Key="Update.ReloadText.Browser.Opened">브라우저에서 열림</system:String>
     <system:String x:Key="Update.ReloadText.Browser.Opening">브라우저에서 열리는 중</system:String>
 

@@ -8,6 +8,8 @@
 
     <system:String x:Key="Update.ReloadText">TEKRAR DENEYİN</system:String>
 
+    <system:String x:Key="Update.ReloadText.Check.Again">YENİDEN DENETLE</system:String>
+
     <system:String x:Key="Update.ReloadText.Browser.Opened">TARAYICIDA AÇILDI</system:String>
     <system:String x:Key="Update.ReloadText.Browser.Opening">TARAYICIDA AÇILIYOR</system:String>
 

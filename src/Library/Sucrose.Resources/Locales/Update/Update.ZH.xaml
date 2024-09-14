@@ -8,6 +8,8 @@
 
     <system:String x:Key="Update.ReloadText">重试</system:String>
 
+    <system:String x:Key="Update.ReloadText.Check.Again">重新检查</system:String>
+
     <system:String x:Key="Update.ReloadText.Browser.Opened">在浏览器中打开</system:String>
     <system:String x:Key="Update.ReloadText.Browser.Opening">正在浏览器中打开</system:String>
 

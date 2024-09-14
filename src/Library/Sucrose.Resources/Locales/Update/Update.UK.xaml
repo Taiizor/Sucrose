@@ -8,6 +8,8 @@
 
     <system:String x:Key="Update.ReloadText">СПРОБУВАТИ ЗНОВУ</system:String>
 
+    <system:String x:Key="Update.ReloadText.Check.Again">ПЕРЕВІРИТИ ЩЕ РАЗ</system:String>
+
     <system:String x:Key="Update.ReloadText.Browser.Opened">ВІДКРИТО В БРАУЗЕРІ</system:String>
     <system:String x:Key="Update.ReloadText.Browser.Opening">ВІДКРИВАЄТЬСЯ В БРАУЗЕРІ</system:String>
 

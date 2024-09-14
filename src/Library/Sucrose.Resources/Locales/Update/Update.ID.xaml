@@ -8,6 +8,8 @@
 
     <system:String x:Key="Update.ReloadText">COBA LAGI</system:String>
 
+    <system:String x:Key="Update.ReloadText.Check.Again">PERIKSA LAGI</system:String>
+
     <system:String x:Key="Update.ReloadText.Browser.Opened">DIBUKA DI BROWSER</system:String>
     <system:String x:Key="Update.ReloadText.Browser.Opening">MEMBUKA DI BROWSER</system:String>
 

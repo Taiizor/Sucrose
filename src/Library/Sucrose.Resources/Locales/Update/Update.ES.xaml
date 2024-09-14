@@ -8,6 +8,8 @@
 
     <system:String x:Key="Update.ReloadText">INTENTAR DE NUEVO</system:String>
 
+    <system:String x:Key="Update.ReloadText.Check.Again">COMPROBAR DE NUEVO</system:String>
+
     <system:String x:Key="Update.ReloadText.Browser.Opened">ABIERTO EN EL NAVEGADOR</system:String>
     <system:String x:Key="Update.ReloadText.Browser.Opening">ABRIENDO EN EL NAVEGADOR</system:String>
 

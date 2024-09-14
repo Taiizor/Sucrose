@@ -8,6 +8,8 @@
 
     <system:String x:Key="Update.ReloadText">再試行</system:String>
 
+    <system:String x:Key="Update.ReloadText.Check.Again">再チェック</system:String>
+
     <system:String x:Key="Update.ReloadText.Browser.Opened">ブラウザで開きました</system:String>
     <system:String x:Key="Update.ReloadText.Browser.Opening">ブラウザで開いています</system:String>
 

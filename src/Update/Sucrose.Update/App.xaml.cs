@@ -7,6 +7,9 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
+using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
+using SSCHU = Sucrose.Shared.Core.Helper.Update;
+using SSSHE = Sucrose.Shared.Space.Helper.Extension;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
@@ -86,9 +89,9 @@ namespace Sucrose.Update
             {
                 HasError = false;
 
-                string Source = SUMI.Source;
                 string Path = SMMI.UpdateLogManager.LogFile();
                 string Text = SRER.GetValue("Update", "HelpText");
+                string Source = SSSHE.Change(SUMI.Source, SSCHU.GetDescription(SSCEUT.Executable));
 
                 SSSHW.Start(SMR.Update, Exception, Path, Source, Text);
 

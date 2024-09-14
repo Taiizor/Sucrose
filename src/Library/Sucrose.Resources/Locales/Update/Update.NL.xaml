@@ -8,6 +8,8 @@
 
     <system:String x:Key="Update.ReloadText">PROBEER OPNIEUW</system:String>
 
+    <system:String x:Key="Update.ReloadText.Check.Again">OPNIEUW CONTROLEREN</system:String>
+
     <system:String x:Key="Update.ReloadText.Browser.Opened">GEOPEND IN DE BROWSER</system:String>
     <system:String x:Key="Update.ReloadText.Browser.Opening">WORDT GEOPEND IN DE BROWSER</system:String>
 

@@ -372,6 +372,8 @@ namespace Sucrose.Update.View
                 {
                     Message.Text = SRER.GetValue("Update", "MessageText", "Comparing", "Update");
 
+                    Reload.Content = SRER.GetValue("Update", "ReloadText", "Check", "Again");
+
                     return false;
                 }
             }
@@ -589,6 +591,8 @@ namespace Sucrose.Update.View
             Message.Visibility = Visibility.Visible;
             Progress.Visibility = Visibility.Hidden;
 
+            Reload.Content = SRER.GetValue("Update", "ReloadText");
+
             await Start();
         }
 
@@ -651,6 +655,7 @@ namespace Sucrose.Update.View
                 {
                     SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECST.Bundle}{SMR.ValueSeparator}{SUMI.Source}");
                 }
+
                 Reload.Content = SRER.GetValue("Update", "ReloadText", "Browser", "Opened");
 
                 await Task.Delay(MaxDelay);

@@ -8,6 +8,8 @@
 
     <system:String x:Key="Update.ReloadText">पुनः प्रयास करें</system:String>
 
+    <system:String x:Key="Update.ReloadText.Check.Again">फिर से जाँचें</system:String>
+
     <system:String x:Key="Update.ReloadText.Browser.Opened">ब्राउज़र में खोला गया</system:String>
     <system:String x:Key="Update.ReloadText.Browser.Opening">ब्राउज़र में खुल रहा है</system:String>
 
