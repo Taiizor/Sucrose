@@ -176,7 +176,7 @@
 
         public static readonly string ReportdogMutex = "{Sucrose-Wallpaper-Engine-Reportdog}";
 
-        public static readonly string UserAgent = "Sucrose/1.6 (Wallpaper Engine) SucroseWebKit";
+        public static readonly string UserAgent = "Sucrose/1.7 (Wallpaper Engine) SucroseWebKit";
 
         public static readonly string BrowseWebsite = $"https://github.com/{Owner}/{Repository}";
 
