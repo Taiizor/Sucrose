@@ -1,12 +1,15 @@
 window.onload = function () {
     //MARK: Update
     const version = "v7.3.0";
+    var logging = true;
 
     checkForUpdates = async () => {
         const url = 'https://api.github.com/repos/IPdotSetAF/NeoMatrix/tags';
-        const tags = await fetch(url).then(_ => _.json());
-        if (tags[0]['name'] > version)
-            Log("New release available: " + tags[0]['name']);
+        try {
+            const tags = await fetch(url).then(_ => _.json());
+            if (tags[0]['name'] > version)
+                Log("New release available: " + tags[0]['name']);
+        } catch { }
     }
 
     readProjectConfig = async () => {
@@ -110,7 +113,7 @@ window.onload = function () {
         window.SucroseAudioData = function (audioArray) {
             frequencyArray = audioArray.Data;
         };
-    else
+    else if (window.self === window.top)
         drawGui();
 
     //MARK: GUI
@@ -243,367 +246,131 @@ window.onload = function () {
     //MARK: Wallpaper Engine
     window.wallpaperPropertyListener = {
         applyUserProperties: function (properties) {
-            if (properties.ui_rain_matrixspeed)
-                options.fpsInterval = calculateFpsInterval(properties.ui_rain_matrixspeed.value);
-            if (properties.ui_rain_traillength) {
-                options.trailLength = calculateTrailLength(properties.ui_rain_traillength.value);
-                updateMask();
-            }
-            if (properties.ui_rain_initialanimation)
-                options.ui_rain_initialAnimation = properties.ui_rain_initialanimation.value;
-            if (properties.ui_rain_dropcount)
-                options.ui_rain_dropCount = properties.ui_rain_dropcount.value;
-            if (properties.ui_rain_initialanimation || properties.ui_rain_dropcount)
-                initialAnimation();
-
-            if (properties.ui_color_colormode)
-                options.ui_color_colorMode = properties.ui_color_colormode.value;
-            if (properties.ui_color_matrixcolor)
-                options.matrixColor = rgbToHue(properties.ui_color_matrixcolor.value.split(' '))
-            if (properties.ui_color_coloranimationspeed)
-                options.colorAnimationSpeed = calculateColorAnimationSpeed(properties.ui_color_coloranimationspeed.value);
-            if (properties.ui_color_highlightfirstcharacter)
-                options.ui_color_highlightFirstCharacter = properties.ui_color_highlightfirstcharacter.value;
-
-            if (properties.ui_characters_charset)
-                options.ui_characters_charset = properties.ui_characters_charset.value;
-            if (properties.ui_characters_customcharset)
-                options.ui_characters_customCharset = properties.ui_characters_customcharset.value;
-            if (properties.ui_characters_charset || properties.ui_characters_customcharset)
-                updateCharSet();
-
-            if (properties.ui_font_font)
-                options.ui_font_font = properties.ui_font_font.value;
-            if (properties.ui_font_customFont)
-                options.ui_font_customFont = properties.ui_font_customFont.value;
-            if (properties.ui_font_size)
-                options.ui_font_size = properties.ui_font_size.value;
-            if (properties.ui_font_font || properties.ui_font_customFont || properties.ui_font_size)
-                updateFont();
-
-            if (properties.ui_audio_audioresponsive)
-                options.ui_audio_audioResponsive = properties.ui_audio_audioresponsive.value;
-            if (properties.ui_audio_audiosensetivity)
-                options.ui_audio_audioSensetivity = properties.ui_audio_audiosensetivity.value;
-            if (properties.ui_audio_silenceanimation)
-                options.ui_audio_silenceAnimation = properties.ui_audio_silenceanimation.value;
-            if (properties.ui_audio_silencetimeoutseconds)
-                options.ui_audio_silenceTimeoutSeconds = properties.ui_audio_silencetimeoutseconds.value;
-
-            if (properties.ui_logo_logo)
-                options.ui_logo_logo = properties.ui_logo_logo.value;
-            if (properties.ui_logo_customlogo)
-                options.ui_logo_customLogo = properties.ui_logo_customlogo.value;
-            if (properties.ui_logo_scale)
-                options.ui_logo_scale = properties.ui_logo_scale.value;
-            if (properties.ui_logo_positionx)
-                options.ui_logo_positionX = properties.ui_logo_positionx.value;
-            if (properties.ui_logo_positiony)
-                options.ui_logo_positionY = properties.ui_logo_positiony.value;
-            if (properties.ui_logo_preservecolor)
-                options.ui_logo_preserveColor = properties.ui_logo_preservecolor.value;
-            if (properties.ui_logo_logo || properties.ui_logo_customlogo || properties.ui_logo_scale ||
-                properties.ui_logo_positionx || properties.ui_logo_positiony || properties.ui_logo_preservecolor)
-                updateLogo();
-
-            if (properties.ui_clock_clock)
-                options.ui_clock_clock = properties.ui_clock_clock.value;
-            if (properties.ui_clock_24hourformat) {
-                options.ui_clock_24HourFormat = properties.ui_clock_24hourformat.value;
-                updateTime();
-            }
-            if (properties.ui_clock_daylightsaving) {
-                options.ui_clock_dayLightSaving = properties.ui_clock_daylightsaving.value;
-                updateTime();
-            }
-            if (properties.ui_clock_scale)
-                options.ui_clock_scale = properties.ui_clock_scale.value;
-            if (properties.ui_clock_positionx)
-                options.ui_clock_positionX = properties.ui_clock_positionx.value;
-            if (properties.ui_clock_positiony)
-                options.ui_clock_positionY = properties.ui_clock_positiony.value;
-            if (properties.ui_clock_clock || properties.ui_clock_24hourformat || properties.ui_clock_daylightsaving ||
-                properties.ui_clock_scale || properties.ui_clock_positionx || properties.ui_clock_positiony)
-                updateMask();
-
-            if (properties.ui_day_day)
-                options.ui_day_day = properties.ui_day_day.value;
-            if (properties.ui_day_allcaps)
-                options.ui_day_allCaps = properties.ui_day_allcaps.value;
-            if (properties.ui_day_orientation)
-                options.ui_day_orientation = properties.ui_day_orientation.value;
-            if (properties.ui_day_scale)
-                options.ui_day_scale = properties.ui_day_scale.value;
-            if (properties.ui_day_positionx)
-                options.ui_day_positionX = properties.ui_day_positionx.value;
-            if (properties.ui_day_positiony)
-                options.ui_day_positionY = properties.ui_day_positiony.value;
-            if (properties.ui_day_day || properties.ui_day_allcaps || properties.ui_day_orientation ||
-                properties.ui_day_scale || properties.ui_day_positionx || properties.ui_day_positiony)
-                updateMask();
-
-            if (properties.ui_date_date) {
-                options.ui_date_date = properties.ui_date_date.value;
-                updateTime();
-            }
-            if (properties.ui_date_style)
-                options.ui_date_style = properties.ui_date_style.value;
-            if (properties.ui_date_year)
-                options.ui_date_year = properties.ui_date_year.value;
-            if (properties.ui_date_order)
-                options.ui_date_order = properties.ui_date_order.value;
-            if (properties.ui_date_monthname)
-                options.ui_date_monthName = properties.ui_date_monthname.value;
-            if (properties.ui_date_allcaps)
-                options.ui_date_allCaps = properties.ui_date_allcaps.value;
-            if (properties.ui_date_delimiter)
-                options.ui_date_delimiter = properties.ui_date_delimiter.value;
-            if (properties.ui_date_scale)
-                options.ui_date_scale = properties.ui_date_scale.value;
-            if (properties.ui_date_positionx)
-                options.ui_date_positionX = properties.ui_date_positionx.value;
-            if (properties.ui_date_positiony)
-                options.ui_date_positionY = properties.ui_date_positiony.value;
-            if (properties.ui_date_date || properties.ui_date_style || properties.ui_date_year ||
-                properties.ui_date_order || properties.ui_date_monthname || properties.ui_date_allcaps ||
-                properties.ui_date_delimiter || properties.ui_date_scale || properties.ui_date_positionx
-                || properties.ui_date_positiony)
-                updateMask();
-
-            if (properties.ui_message_message)
-                options.ui_message_message = properties.ui_message_message.value;
-            if (properties.ui_message_text)
-                options.ui_message_text = properties.ui_message_text.value;
-            if (properties.ui_message_scale)
-                options.ui_message_scale = properties.ui_message_scale.value;
-            if (properties.ui_message_positionx)
-                options.ui_message_positionX = properties.ui_message_positionx.value;
-            if (properties.ui_message_positiony)
-                options.ui_message_positionY = properties.ui_message_positiony.value;
-            if (properties.ui_message_message || properties.ui_message_text || properties.ui_message_scale ||
-                properties.ui_message_positionx || properties.ui_message_positiony)
-                updateMask();
-
-            if (properties.ui_other_codescommaseparated) {
-                options.codes = makeCodes(properties.ui_other_codescommaseparated.value);
-                initialAnimation();
-            }
+            mapAndApply(preProcessProperties(properties), options, WE_MapperDefinition);
         }
     };
 
-    //MARK: Sucrose Wallpaper Engine
-    window.SucrosePropertyListener = function (name, val) {
-        switch (name) {
-            case "ui_rain_matrixspeed":
-                options.fpsInterval = calculateFpsInterval(val.value);
-                break;
-            case "ui_rain_traillength":
-                options.trailLength = calculateTrailLength(val.value / 100);
-                updateMask();
-                break;
-            case "ui_rain_initialanimation":
-                options.ui_rain_initialAnimation = val.value.toString();
-                initialAnimation();
-                break;
-            case "ui_rain_dropcount":
-                options.ui_rain_dropCount = val.value;
-                initialAnimation();
-                break;
+    const WE_MapperDefinition = {
+        mapUndefined: false,
+        properties: {
+            ui_rain_matrixspeed: { key: 'fpsInterval', convert: v => calculateFpsInterval(v) },
+            ui_rain_traillength: { key: 'trailLength', convert: v => calculateTrailLength(v), onChange: updateMask },
+            ui_rain_initialanimation: { key: 'ui_rain_initialAnimation', onChange: initialAnimation },
+            ui_rain_dropcount: { key: 'ui_rain_dropCount', onChange: initialAnimation },
 
-            case "ui_color_colormode":
-                options.ui_color_colorMode = val.value.toString();
-                break;
-            case "ui_color_matrixcolor":
-                const tmp = hexToRgb(val.value);
-                options.matrixColor = rgbToHue([tmp.r, tmp.g, tmp.b])
-                break;
-            case "ui_color_coloranimationspeed":
-                options.colorAnimationSpeed = calculateColorAnimationSpeed(val.value / 10);
-                break;
-            case "ui_color_highlightfirstcharacter":
-                options.ui_color_highlightFirstCharacter = val.value;
-                break;
+            ui_color_colormode: { key: 'ui_color_colorMode' },
+            ui_color_matrixcolor: { key: 'matrixColor', convert: v => rgbToHue(v.split(' ')) },
+            ui_color_coloranimationspeed: { key: 'colorAnimationSpeed', convert: v => calculateColorAnimationSpeed(v) },
+            ui_color_highlightfirstcharacter: { key: 'ui_color_highlightFirstCharacter' },
 
-            case "ui_characters_charset":
-                options.ui_characters_charset = val.value.toString();
-                updateCharSet();
-                break;
-            case "ui_characters_customcharset":
-                options.ui_characters_customCharset = val.value;
-                updateCharSet();
-                break;
+            ui_characters_charset: { onChange: updateCharSet },
+            ui_characters_customcharset: { key: 'ui_characters_customCharset', onChange: updateCharSet },
 
-            case "ui_font_font":
-                options.ui_font_font = val.value.toString();
-                updateFont();
-                break;
-            case "ui_font_customfont":
-                options.ui_font_customFont = val.value;
-                updateFont();
-                break;
-            case "ui_font_size":
-                options.ui_font_size = val.value;
-                updateFont();
-                break;
+            ui_font_font: { onChange: updateFont },
+            ui_font_customfont: { key: 'ui_font_customFont', onChange: updateFont },
+            ui_font_size: { onChange: updateFont },
 
-            case "ui_audio_audioresponsive":
-                options.ui_audio_audioResponsive = val.value;
-                break;
-            case "ui_audio_audiosensetivity":
-                options.ui_audio_audioSensetivity = val.value;
-                break;
-            case "ui_audio_silenceanimation":
-                options.ui_audio_silenceAnimation = val.value;
-                break;
-            case "ui_audio_silencetimeoutseconds":
-                options.ui_audio_silenceTimeoutSeconds = val.value;
-                break;
+            ui_audio_audioresponsive: { key: 'ui_audio_audioResponsive' },
+            ui_audio_audiosensetivity: { key: 'ui_audio_audioSensetivity' },
+            ui_audio_silenceanimation: { key: 'ui_audio_silenceAnimation' },
+            ui_audio_silencetimeoutseconds: { key: 'ui_audio_silenceTimeoutSeconds' },
 
-            case "ui_logo_logo":
-                options.ui_logo_logo = val.value.toString();
-                updateLogo();
-                break;
-            case "ui_logo_customlogo":
-                options.ui_logo_customLogo = val.value;
-                updateLogo();
-                break;
-            case "ui_logo_preservecolor":
-                options.ui_logo_preserveColor = val.value;
-                updateLogo();
-                break;
-            case "ui_logo_scale":
-                options.ui_logo_scale = val.value / 10;
-                updateLogo();
-                break;
-            case "ui_logo_positionx":
-                options.ui_logo_positionX = val.value;
-                updateLogo();
-                break;
-            case "ui_logo_positiony":
-                options.ui_logo_positionY = val.value;
-                updateLogo();
-                break;
+            ui_logo_logo: { onChange: updateLogo },
+            ui_logo_customlogo: { key: 'ui_logo_customLogo', onChange: updateLogo },
+            ui_logo_scale: { onChange: updateLogo },
+            ui_logo_positionx: { key: 'ui_logo_positionX', onChange: updateLogo },
+            ui_logo_positiony: { key: 'ui_logo_positionY', onChange: updateLogo },
+            ui_logo_preservecolor: { key: 'ui_logo_preserveColor', onChange: updateLogo },
 
-            case "ui_clock_clock":
-                options.ui_clock_clock = val.value.toString();
-                updateMask();
-                break;
-            case "ui_clock_24hourformat":
-                options.ui_clock_24HourFormat = val.value;
-                updateTime();
-                updateMask();
-                break;
-            case "ui_clock_daylightsaving":
-                options.ui_clock_dayLightSaving = val.value;
-                updateTime();
-                updateMask();
-                break;
-            case "ui_clock_scale":
-                options.ui_clock_scale = val.value;
-                updateMask();
-                break;
-            case "ui_clock_positionx":
-                options.ui_clock_positionX = val.value;
-                updateMask();
-                break;
-            case "ui_clock_positiony":
-                options.ui_clock_positionY = val.value;
-                updateMask();
-                break;
+            ui_clock_clock: { onChange: updateMask },
+            ui_clock_24hourformat: {
+                key: 'ui_clock_24HourFormat', onChange: () => {
+                    updateTime();
+                    updateMask();
+                }
+            },
+            ui_clock_daylightsaving: {
+                key: 'ui_clock_dayLightSaving', onChange: () => {
+                    updateTime();
+                    updateMask();
+                }
+            },
+            ui_clock_scale: { onChange: updateMask },
+            ui_clock_positionx: { key: 'ui_clock_positionX', onChange: updateMask },
+            ui_clock_positiony: { key: 'ui_clock_positionY', onChange: updateMask },
 
-            case "ui_day_day":
-                options.ui_day_day = val.value.toString();
-                updateMask();
-                break;
-            case "ui_day_allcaps":
-                options.ui_day_allCaps = val.value;
-                updateMask();
-                break;
-            case "ui_day_orientation":
-                options.ui_day_orientation = val.value;
-                updateMask();
-                break;
-            case "ui_day_scale":
-                options.ui_day_scale = val.value;
-                updateMask();
-                break;
-            case "ui_day_positionx":
-                options.ui_day_positionX = val.value;
-                updateMask();
-                break;
-            case "ui_day_positiony":
-                options.ui_day_positionY = val.value;
-                updateMask();
-                break;
+            ui_day_day: { onChange: updateMask },
+            ui_day_allcaps: { key: 'ui_day_allCaps', onChange: updateMask },
+            ui_day_orientation: { onChange: updateMask },
+            ui_day_scale: { onChange: updateMask },
+            ui_day_positionx: { key: 'ui_day_positionX', onChange: updateMask },
+            ui_day_positiony: { key: 'ui_day_positionY', onChange: updateMask },
 
-            case "ui_date_date":
-                options.ui_date_date = val.value.toString();
-                updateTime();
-                updateMask();
-                break;
-            case "ui_date_style":
-                options.ui_date_style = val.value;
-                updateMask();
-                break;
-            case "ui_date_year":
-                options.ui_date_year = val.value.toString();
-                updateMask();
-                break;
-            case "ui_date_order":
-                options.ui_date_order = val.value.toString();
-                updateMask();
-                break;
-            case "ui_date_monthname":
-                options.ui_date_monthName = val.value;
-                updateMask();
-                break;
-            case "ui_date_allcaps":
-                options.ui_date_allCaps = val.value;
-                updateMask();
-                break;
-            case "ui_date_delimiter":
-                options.ui_date_delimiter = val.value.toString();
-                updateMask();
-                break;
-            case "ui_date_scale":
-                options.ui_date_scale = val.value;
-                updateMask();
-                break;
-            case "ui_date_positionx":
-                options.ui_date_positionX = val.value;
-                updateMask();
-                break;
-            case "ui_date_positiony":
-                options.ui_date_positionY = val.value;
-                updateMask();
-                break;
+            ui_date_date: {
+                onChange: () => {
+                    updateTime();
+                    updateMask();
+                }
+            },
+            ui_date_style: { onChange: updateMask },
+            ui_date_year: { onChange: updateMask },
+            ui_date_order: { onChange: updateMask },
+            ui_date_monthname: { key: 'ui_date_monthName', onChange: updateMask },
+            ui_date_allcaps: { key: 'ui_date_allCaps', onChange: updateMask },
+            ui_date_delimiter: { onChange: updateMask },
+            ui_date_scale: { onChange: updateMask },
+            ui_date_positionx: { key: 'ui_date_positionX', onChange: updateMask },
+            ui_date_positiony: { key: 'ui_date_positionY', onChange: updateMask },
 
-            case "ui_message_message":
-                options.ui_message_message = val.value;
-                updateMask();
-                break;
-            case "ui_message_text":
-                options.ui_message_text = val.value;
-                updateMask();
-                break;
-            case "ui_message_scale":
-                options.ui_message_scale = val.value;
-                updateMask();
-                break;
-            case "ui_message_positionx":
-                options.ui_message_positionX = val.value;
-                updateMask();
-                break;
-            case "ui_message_positiony":
-                options.ui_message_positionY = val.value;
-                updateMask();
-                break;
+            ui_message_message: { onChange: updateMask },
+            ui_message_text: { onChange: updateMask },
+            ui_message_scale: { onChange: updateMask },
+            ui_message_positionx: { key: 'ui_message_positionX', onChange: updateMask },
+            ui_message_positiony: { key: 'ui_message_positionY', onChange: updateMask },
 
-            case "ui_other_codescommaseparated":
-                options.codes = makeCodes(val.value);
-                initialAnimation();
-                break;
+            ui_other_codescommaseparated: { key: 'codes', convert: v => makeCodes(v), onChange: initialAnimation },
         }
+    };
+
+    //MARK: IFrame
+    window.addEventListener('message', (event) => {
+        const receivedData = event.data;
+        if (receivedData.preset)
+            mapAndApply(preProcessPreset(receivedData.preset), options, WE_MapperDefinition);
+    });
+
+    //MARK: Sucrose Wallpaper Engine
+    const SucroseMapperDefinition = {
+        mapUndefined: true,
+        properties: {
+            ui_rain_traillength: { convert: v => v / 100 },
+            ui_rain_initialanimation: { convert: v => v.toString() },
+            ui_color_colormode: { convert: v => v.toString() },
+            ui_color_matrixcolor: {
+                convert: v => {
+                    const tmp = hexToRgb(v);
+                    return [tmp.r, tmp.g, tmp.b].join(" ");
+                }
+            },
+            ui_color_coloranimationspeed: { convert: v => v / 10 },
+            ui_characters_charset: { convert: v => v.toString() },
+            ui_font_font: { convert: v => v.toString() },
+            ui_logo_logo: { convert: v => v.toString() },
+            ui_logo_scale: { convert: v => v / 10 },
+            ui_clock_clock: { convert: v => v.toString() },
+            ui_day_day: { convert: v => v.toString() },
+            ui_date_date: { convert: v => v.toString() },
+            ui_date_year: { convert: v => v.toString() },
+            ui_date_order: { convert: v => v.toString() },
+            ui_date_delimiter: { convert: v => v.toString() },
+        }
+    }
+
+    window.SucrosePropertyListener = function (name, val) {
+        const tmp = {}, tmp2 = {};
+        tmp[name] = val.value;
+        mapAndApply(tmp, tmp2, SucroseMapperDefinition);
+        mapAndApply(tmp2, options, WE_MapperDefinition);
     };
 
     window.addEventListener('resize', function () {
@@ -829,7 +596,7 @@ window.onload = function () {
                 }
             }
 
-            if(options.ui_date_order == 1){
+            if (options.ui_date_order == 1) {
                 let tmp = text2;
                 text2 = text3;
                 text3 = tmp;
@@ -1160,8 +927,9 @@ window.onload = function () {
         return codes;
     }
 
-    //MARK: Helpers
     function Log(text) {
+        if (!logging)
+            return;
         debug.classList.remove("hide");
         void debug.offsetWidth;
         logs.push(text);
@@ -1171,104 +939,6 @@ window.onload = function () {
         logs.forEach(l => { tmp += l + "\n" });
         debug.innerText = tmp;
         debug.classList.add("hide");
-    }
-
-    function rgbToHue(color) {
-        let tmp = color.map(function (c) {
-            return Math.ceil(c * 255)
-        });
-        return rgbToHsl(...tmp)[0] * 360;
-    }
-
-    function hexToRgb(hex) {
-        let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-        return result ? {
-            r: parseInt(result[2], 16),
-            g: parseInt(result[3], 16),
-            b: parseInt(result[4], 16)
-        } : null;
-    }
-
-    function rgbToHsl(r, g, b) {
-        r /= 255, g /= 255, b /= 255;
-
-        var max = Math.max(r, g, b), min = Math.min(r, g, b);
-        var h, s, l = (max + min) / 2;
-
-        if (max == min) {
-            h = s = 0; // achromatic
-        } else {
-            var d = max - min;
-            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-
-            switch (max) {
-                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-                case g: h = (b - r) / d + 2; break;
-                case b: h = (r - g) / d + 4; break;
-            }
-
-            h /= 6;
-        }
-
-        return [h, s, l];
-    }
-
-    function map(value, from_a, from_b, to_a, to_b) {
-        return (((value - from_a) * (to_b - to_a)) / (from_b - from_a)) + to_a;
-    }
-
-    function clamp(min, max, value) {
-        if (value < min)
-            return min;
-        if (value > max)
-            return max;
-        return value;
-    }
-
-    function optionsToDict(options) {
-        return options.reduce((acc, option) => {
-            acc[option.label] = option.value;
-            return acc;
-        }, {});
-    }
-
-    function paramsToUrl(urlParams, paramDefaults, filter) {
-        var defaults = new URLSearchParams(paramDefaults)
-        var params = new URLSearchParams(urlParams)
-
-        filter.forEach(key => {
-            params.delete(key);
-            defaults.delete(key);
-        });
-
-        defaults.forEach((value, key) => {
-            if (params.get(key) === value)
-                params.delete(key);
-        });
-
-        return window.location.origin + window.location.pathname + "?" + params.toString();
-    }
-
-    function copyToClipboard(text) {
-        const el = document.createElement('textarea');
-        el.value = text;
-        el.setAttribute('readonly', '');
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand('copy');
-        document.body.removeChild(el);
-    }
-
-    function getUrlParams() {
-        urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.size == 0)
-            return null;
-
-        params = {};
-        for (const [key, value] of urlParams)
-            params[key] = value;
-
-        return params;
     }
 };
 

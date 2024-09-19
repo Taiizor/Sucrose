@@ -40,7 +40,7 @@ namespace Sucrose.Update.Manage
             RequestConfiguration = new()
             {
                 Accept = "*/*",
-                KeepAlive = true,
+                KeepAlive = false,
                 UserAgent = SMMM.UserAgent,
                 UseDefaultCredentials = false,
                 ProtocolVersion = HttpVersion.Version11
