@@ -17,8 +17,8 @@ namespace Sucrose.Shared.Launcher.Helper
         {
             Point MousePosition = Control.MousePosition;
 
-            AnchorStyles Anchor = SWHWT.GetAnchorStyle();
-            Rectangle TaskbarPosition = SWHWT.GetPosition();
+            AnchorStyles Anchor = SWHWT.GetAnchorStyle(false);
+            Rectangle TaskbarPosition = SWHWT.GetCoordonates();
 
             return Anchor switch
             {

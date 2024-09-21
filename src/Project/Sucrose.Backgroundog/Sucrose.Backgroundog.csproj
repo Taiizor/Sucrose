@@ -74,8 +74,8 @@
     <ItemGroup>
         <PackageReference Include="NAudio" Version="2.2.1" />
         <PackageReference Include="NPSMLib" Version="0.9.14" />
-        <PackageReference Include="Skylark.Wing" Version="3.1.6.4" />
-        <PackageReference Include="Skylark.Standard" Version="3.1.6.5" />
+        <PackageReference Include="Skylark.Wing" Version="3.1.6.6" />
+        <PackageReference Include="Skylark.Standard" Version="3.1.6.6" />
         <PackageReference Include="MathNet.Numerics" Version="6.0.0-beta1" />
         <PackageReference Include="LibreHardwareMonitorLib" Version="0.9.4-pre346" />
     </ItemGroup>

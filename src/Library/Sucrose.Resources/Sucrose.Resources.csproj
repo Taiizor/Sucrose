@@ -18,7 +18,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.1.4.6" />
+        <PackageReference Include="Skylark" Version="3.1.4.7" />
     </ItemGroup>
 
     <ItemGroup>

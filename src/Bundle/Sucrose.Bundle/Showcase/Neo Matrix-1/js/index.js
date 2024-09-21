@@ -778,7 +778,8 @@ window.onload = function () {
     }
 
     function startAnimating() {
-        checkForUpdates();
+        if (logging)
+            checkForUpdates();
         then = Date.now();
         startTime = then;
         loop();
@@ -941,4 +942,3 @@ window.onload = function () {
         debug.classList.add("hide");
     }
 };
-

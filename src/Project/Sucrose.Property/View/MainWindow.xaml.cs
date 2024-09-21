@@ -100,8 +100,7 @@ namespace Sucrose.Property.View
             double ScreenWidth = SystemParameters.PrimaryScreenWidth;
             double ScreenHeight = SystemParameters.PrimaryScreenHeight;
 
-            AnchorStyles Anchor = SWHWTR.GetAnchorStyle();
-            Rectangle TaskbarPosition = SWHWTR.GetPosition();
+            AnchorStyles Anchor = SWHWTR.GetAnchorStyle(false);
             Rectangle TaskbarCoordinates = SWHWTR.GetCoordonates();
 
             switch (Anchor)
@@ -116,7 +115,7 @@ namespace Sucrose.Property.View
                     MaxHeight = ScreenHeight - TaskbarCoordinates.Height - 20;
 
                     Left = ScreenWidth - Width - 10;
-                    Top = TaskbarPosition.Top - Height - 10;
+                    Top = TaskbarCoordinates.Top - Height - 10;
                     break;
                 case AnchorStyles.Left:
                     MaxHeight = ScreenHeight - 20;
@@ -127,7 +126,7 @@ namespace Sucrose.Property.View
                 case AnchorStyles.Right:
                     MaxHeight = ScreenHeight - 20;
 
-                    Left = TaskbarPosition.Left - Width - 10;
+                    Left = TaskbarCoordinates.Left - Width - 10;
                     Top = ScreenHeight - Height - 10;
                     break;
                 default:
