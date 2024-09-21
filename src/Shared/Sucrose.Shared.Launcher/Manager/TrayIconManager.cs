@@ -79,7 +79,21 @@ namespace Sucrose.Shared.Launcher.Manager
                 ContextMenu.Renderer = new SSLRLR();
             }
 
-            ContextMenu.Items.Add(SRER.GetValue("Launcher", "OpenText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "OpenIcon"))), CommandInterface);
+            ToolStripItem Interface = new ToolStripMenuItem();
+
+            if (SSSHP.Work(SSSMI.Portal))
+            {
+                Interface = new ToolStripMenuItem(SRER.GetValue("Launcher", "OpenText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "OpenIcon"))))
+                {
+                    Enabled = false
+                };
+            }
+            else
+            {
+                Interface = new ToolStripMenuItem(SRER.GetValue("Launcher", "OpenText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "OpenIcon"))), CommandInterface);
+            }
+
+            ContextMenu.Items.Add(Interface);
 
             SSLSSS Separator1 = new(SSDMM.ThemeType);
 
@@ -91,14 +105,14 @@ namespace Sucrose.Shared.Launcher.Manager
 
                 if (SMMM.PausePerformance && SSSHP.Work(SSSMI.Backgroundog))
                 {
-                    Wallpaper = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallCloseText")} ({SRER.GetValue("Launcher", "PausedText")})")
+                    Wallpaper = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallCloseText")} ({SRER.GetValue("Launcher", "PausedText")})", Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallCloseIcon"))))
                     {
                         Enabled = false
                     };
                 }
                 else
                 {
-                    Wallpaper = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallCloseText"), null, CommandEngine);
+                    Wallpaper = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallCloseText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallCloseIcon"))), CommandEngine);
                 }
 
                 ContextMenu.Items.Add(Separator1.Strip);
@@ -113,14 +127,14 @@ namespace Sucrose.Shared.Launcher.Manager
                 {
                     if (SMMM.PausePerformance && SSSHP.Work(SSSMI.Backgroundog))
                     {
-                        Change = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallChangeText")} ({SRER.GetValue("Launcher", "PausedText")})")
+                        Change = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallChangeText")} ({SRER.GetValue("Launcher", "PausedText")})", Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallChangeIcon"))))
                         {
                             Enabled = false
                         };
                     }
                     else
                     {
-                        Change = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallChangeText"), null, CommandChange);
+                        Change = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallChangeText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallChangeIcon"))), CommandChange);
                     }
 
                     ContextMenu.Items.Add(Change);
@@ -140,14 +154,17 @@ namespace Sucrose.Shared.Launcher.Manager
                         {
                             if (SMMM.PausePerformance && SSSHP.Work(SSSMI.Backgroundog))
                             {
-                                Customize = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallCustomizeText")} ({SRER.GetValue("Launcher", "PausedText")})")
+                                Customize = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallCustomizeText")} ({SRER.GetValue("Launcher", "PausedText")})", Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallCustomizeIcon"))))
                                 {
                                     Enabled = false
                                 };
                             }
                             else
                             {
-                                Customize = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallCustomizeText"), null, CommandProperty);
+                                Customize = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallCustomizeText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallCustomizeIcon"))), CommandProperty)
+                                {
+                                    Enabled = !SSSHP.Work(SSSMI.Property)
+                                };
                             }
 
                             ContextMenu.Items.Add(Customize);
@@ -169,14 +186,14 @@ namespace Sucrose.Shared.Launcher.Manager
 
                         if (SMMM.ClosePerformance && SSSHP.Work(SSSMI.Backgroundog))
                         {
-                            Wallpaper = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallOpenText")} ({SRER.GetValue("Launcher", "ClosedText")})")
+                            Wallpaper = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallOpenText")} ({SRER.GetValue("Launcher", "ClosedText")})", Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallOpenIcon"))))
                             {
                                 Enabled = false
                             };
                         }
                         else
                         {
-                            Wallpaper = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallOpenText"), null, CommandEngine);
+                            Wallpaper = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallOpenText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallOpenIcon"))), CommandEngine);
                         }
 
                         ContextMenu.Items.Add(Separator1.Strip);
@@ -189,23 +206,46 @@ namespace Sucrose.Shared.Launcher.Manager
             SSLSSS Separator2 = new(SSDMM.ThemeType);
             ContextMenu.Items.Add(Separator2.Strip);
 
-            ContextMenu.Items.Add(SRER.GetValue("Launcher", "SettingText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "SettingIcon"))), CommandSetting);
+            ToolStripItem Setting = new ToolStripMenuItem();
+
+            if (SSSHP.Work(SSSMI.Portal))
+            {
+                Setting = new ToolStripMenuItem(SRER.GetValue("Launcher", "SettingText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "SettingIcon"))))
+                {
+                    Enabled = false
+                };
+            }
+            else
+            {
+                Setting = new ToolStripMenuItem(SRER.GetValue("Launcher", "SettingText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "SettingIcon"))), CommandSetting);
+            }
+
+            ContextMenu.Items.Add(Setting);
+
             ContextMenu.Items.Add(SRER.GetValue("Launcher", "ReportText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "ReportIcon"))), CommandReport);
 
-            ToolStripMenuItem Update = new(SRER.GetValue("Launcher", "UpdateText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "UpdateIcon"))), CommandUpdate);
+            ToolStripItem Update = new ToolStripMenuItem();
 
             if (SSSHP.Work(SSSMI.Update))
             {
-                Update.Click -= CommandUpdate;
-
                 if (SMMM.UpdateState)
                 {
-                    Update.Text = SRER.GetValue("Launcher", "UpdateText", "Done");
+                    Update = new ToolStripMenuItem(SRER.GetValue("Launcher", "UpdateText", "Done"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "UpdateIcon"))))
+                    {
+                        Enabled = false
+                    };
                 }
                 else
                 {
-                    Update.Text = SRER.GetValue("Launcher", "UpdateText", "Check");
+                    Update = new ToolStripMenuItem(SRER.GetValue("Launcher", "UpdateText", "Check"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "UpdateIcon"))))
+                    {
+                        Enabled = false
+                    };
                 }
+            }
+            else
+            {
+                Update = new ToolStripMenuItem(SRER.GetValue("Launcher", "UpdateText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "UpdateIcon"))), CommandUpdate);
             }
 
             ContextMenu.Items.Add(Update);
