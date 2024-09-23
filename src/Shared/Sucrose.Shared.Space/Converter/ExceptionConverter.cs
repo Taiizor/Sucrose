@@ -14,6 +14,7 @@ namespace Sucrose.Shared.Space.Converter
         public override void WriteJson(JsonWriter writer, Exception value, JsonSerializer serializer)
         {
             SSSISE serializableException = ConvertToSerializableException(value);
+
             serializer.Serialize(writer, serializableException);
         }
 
@@ -42,6 +43,7 @@ namespace Sucrose.Shared.Space.Converter
         private List<SSSISFD> ParseStackTrace(Exception exception)
         {
             StackTrace stackTrace = new(exception, true);
+
             StackFrame[] frames = stackTrace.GetFrames();
 
             if (frames == null)
@@ -71,6 +73,7 @@ namespace Sucrose.Shared.Space.Converter
         public override Exception ReadJson(JsonReader reader, Type objectType, Exception existingValue, bool hasExistingValue, JsonSerializer serializer)
         {
             SSSISE serializableException = serializer.Deserialize<SSSISE>(reader);
+
             return ConvertToException(serializableException);
         }
 
@@ -88,7 +91,21 @@ namespace Sucrose.Shared.Space.Converter
                 exceptionType = typeof(Exception);
             }
 
-            Exception exception = (Exception)Activator.CreateInstance(exceptionType, serializableException.Message);
+            Exception exception = null;
+
+            try
+            {
+                exception = (Exception)Activator.CreateInstance(exceptionType, serializableException.Message);
+            }
+            catch
+            {
+                exception = (Exception)Activator.CreateInstance(exceptionType);
+
+                FieldInfo messageField = typeof(Exception).GetField("_message", BindingFlags.NonPublic | BindingFlags.Instance);
+
+                messageField?.SetValue(exception, serializableException.Message);
+            }
+
             exception.HelpLink = serializableException.HelpURL;
 
             if (serializableException.Data != null && serializableException.Data.Count > 0)
@@ -97,10 +114,7 @@ namespace Sucrose.Shared.Space.Converter
                 {
                     FieldInfo dataField = typeof(Exception).GetField("_data", BindingFlags.NonPublic | BindingFlags.Instance);
 
-                    if (dataField != null)
-                    {
-                        dataField.SetValue(exception, new Dictionary<object, object>());
-                    }
+                    dataField?.SetValue(exception, new Dictionary<object, object>());
                 }
 
                 foreach (DictionaryEntry entry in serializableException.Data)
@@ -112,8 +126,10 @@ namespace Sucrose.Shared.Space.Converter
             if (serializableException.InnerException != null)
             {
                 Exception innerException = ConvertToException(serializableException.InnerException);
+
                 FieldInfo field = typeof(Exception).GetField("_innerException", BindingFlags.NonPublic | BindingFlags.Instance);
-                field.SetValue(exception, innerException);
+
+                field?.SetValue(exception, innerException);
             }
 
             return exception;
