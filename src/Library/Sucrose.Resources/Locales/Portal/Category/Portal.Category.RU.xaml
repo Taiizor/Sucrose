@@ -22,6 +22,7 @@
     <system:String x:Key="Portal.Category.Colorful">Красочный</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Цветные Градиенты</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Комиксы</system:String>
+    <system:String x:Key="Portal.Category.Cute">Милый</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Цифровое Искусство</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Динамичные</system:String>
     <system:String x:Key="Portal.Category.Education">Образование</system:String>

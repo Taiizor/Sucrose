@@ -62,6 +62,7 @@ namespace Sucrose.Portal.Manage
             { "Music", SymbolRegular.MusicNote224 },
             { "Abstract", SymbolRegular.HandDraw24 },
             { "Animals", SymbolRegular.AnimalCat24 },
+            { "Cute", SymbolRegular.AnimalRabbit24 },
             { "Colorful", SymbolRegular.Lightbulb24 },
             { "Digital Art", SymbolRegular.Tablet24 },
             { "Medieval", SymbolRegular.Hourglass24 },

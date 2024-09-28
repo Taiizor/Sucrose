@@ -22,6 +22,7 @@
     <system:String x:Key="Portal.Category.Colorful">Kolorowy</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Kolorowe Gradienty</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Komiksy</system:String>
+    <system:String x:Key="Portal.Category.Cute">Słodki</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Sztuka Cyfrowa</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dynamiczne</system:String>
     <system:String x:Key="Portal.Category.Education">Edukacja</system:String>

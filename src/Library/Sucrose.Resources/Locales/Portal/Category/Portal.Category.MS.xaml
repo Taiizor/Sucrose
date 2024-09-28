@@ -22,6 +22,7 @@
     <system:String x:Key="Portal.Category.Colorful">Berwarna-Warni</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Gradien Berwarna-warni</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Buku Komik</system:String>
+    <system:String x:Key="Portal.Category.Cute">Comel</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Seni Digital</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dinamik</system:String>
     <system:String x:Key="Portal.Category.Education">Pendidikan</system:String>

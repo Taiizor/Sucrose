@@ -22,6 +22,7 @@
     <system:String x:Key="Portal.Category.Colorful">カラフル</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">カラフルなグラデーション</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">コミックブック</system:String>
+    <system:String x:Key="Portal.Category.Cute">かわいい</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">デジタルアート</system:String>
     <system:String x:Key="Portal.Category.Dynamic">ダイナミック</system:String>
     <system:String x:Key="Portal.Category.Education">教育</system:String>

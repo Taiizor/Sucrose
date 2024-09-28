@@ -22,6 +22,7 @@
     <system:String x:Key="Portal.Category.Colorful">Renkli</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Renkli Gradyanlar</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Çizgi Romanlar</system:String>
+    <system:String x:Key="Portal.Category.Cute">Sevimli</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Dijital Sanat</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dinamik</system:String>
     <system:String x:Key="Portal.Category.Education">Eğitim</system:String>

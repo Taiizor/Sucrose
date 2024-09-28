@@ -22,6 +22,7 @@
     <system:String x:Key="Portal.Category.Colorful">Colorat</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Gradienți Colorați</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Benzi desenate</system:String>
+    <system:String x:Key="Portal.Category.Cute">Drăguț</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Artă Digitală</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dinamic</system:String>
     <system:String x:Key="Portal.Category.Education">Educație</system:String>

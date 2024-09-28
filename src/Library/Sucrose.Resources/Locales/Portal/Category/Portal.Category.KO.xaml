@@ -22,6 +22,7 @@
     <system:String x:Key="Portal.Category.Colorful">다채로운</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">다채로운 그라데이션</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">만화책</system:String>
+    <system:String x:Key="Portal.Category.Cute">귀여운</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">디지털 아트</system:String>
     <system:String x:Key="Portal.Category.Dynamic">동적</system:String>
     <system:String x:Key="Portal.Category.Education">교육</system:String>

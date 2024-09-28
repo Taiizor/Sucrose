@@ -22,6 +22,7 @@
     <system:String x:Key="Portal.Category.Colorful">Barevný</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Barevné Gradienty</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Komiksy</system:String>
+    <system:String x:Key="Portal.Category.Cute">Roztomilý</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Digitální Umění</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dynamické</system:String>
     <system:String x:Key="Portal.Category.Education">Vzdělání</system:String>

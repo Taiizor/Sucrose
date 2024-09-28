@@ -22,6 +22,7 @@
     <system:String x:Key="Portal.Category.Colorful">Kleurrijk</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Kleurrijke Gradiënten</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Stripboeken</system:String>
+    <system:String x:Key="Portal.Category.Cute">Schattig</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Digitale Kunst</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dynamisch</system:String>
     <system:String x:Key="Portal.Category.Education">Onderwijs</system:String>

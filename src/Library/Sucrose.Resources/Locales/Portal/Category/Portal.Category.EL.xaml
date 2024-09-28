@@ -22,6 +22,7 @@
     <system:String x:Key="Portal.Category.Colorful">Πολύχρωμος</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Πολύχρωμα Διακυμάνσεις</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Κόμικς</system:String>
+    <system:String x:Key="Portal.Category.Cute">Χαριτωμένο</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Ψηφιακή Τέχνη</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Δυναμικά</system:String>
     <system:String x:Key="Portal.Category.Education">Εκπαίδευση</system:String>

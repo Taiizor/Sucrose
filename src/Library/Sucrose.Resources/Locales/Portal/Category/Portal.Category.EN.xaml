@@ -22,6 +22,7 @@
     <system:String x:Key="Portal.Category.Colorful">Colorful</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Colorful Gradients</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Comic Books</system:String>
+    <system:String x:Key="Portal.Category.Cute">Cute</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Digital Art</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dynamic</system:String>
     <system:String x:Key="Portal.Category.Education">Education</system:String>

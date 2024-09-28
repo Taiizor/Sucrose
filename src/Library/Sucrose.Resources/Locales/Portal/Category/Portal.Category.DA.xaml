@@ -22,6 +22,7 @@
     <system:String x:Key="Portal.Category.Colorful">Farverig</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Farverige Gradients</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Tegneserier</system:String>
+    <system:String x:Key="Portal.Category.Cute">Sød</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Digital Kunst</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dynamisk</system:String>
     <system:String x:Key="Portal.Category.Education">Uddannelse</system:String>

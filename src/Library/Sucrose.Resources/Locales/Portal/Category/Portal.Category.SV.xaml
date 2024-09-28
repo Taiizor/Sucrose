@@ -22,6 +22,7 @@
     <system:String x:Key="Portal.Category.Colorful">Färgglad</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Färgglada Gradienter</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Serieböcker</system:String>
+    <system:String x:Key="Portal.Category.Cute">Söt</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Digital Konst</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dynamisk</system:String>
     <system:String x:Key="Portal.Category.Education">Utbildning</system:String>
