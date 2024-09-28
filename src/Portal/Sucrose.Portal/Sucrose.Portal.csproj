@@ -90,7 +90,7 @@
         <PackageReference Condition="$(TargetFramework.StartsWith('net7'))" Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
         <PackageReference Condition="$(TargetFramework.StartsWith('net8'))" Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
         <PackageReference Condition="$(TargetFramework.StartsWith('net48'))" Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
-        <PackageReference Condition="$(TargetFramework.StartsWith('net9'))" Include="Microsoft.Extensions.Hosting" Version="9.0.0-rtm.24470.3" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net9'))" Include="Microsoft.Extensions.Hosting" Version="9.0.0-rtm.24476.4" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
