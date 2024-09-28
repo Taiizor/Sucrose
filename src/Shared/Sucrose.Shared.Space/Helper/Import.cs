@@ -41,8 +41,8 @@ namespace Sucrose.Shared.Space.Helper
 
             await Task.Delay(TimeSpan.FromSeconds(1));
 
-            SSSHP.Run(Application);
             SSSHP.Run(SSSMI.Portal, $"{SSDEACT.SystemSetting}");
+            SSSHP.Run(Application);
 
             await Task.CompletedTask;
         }
