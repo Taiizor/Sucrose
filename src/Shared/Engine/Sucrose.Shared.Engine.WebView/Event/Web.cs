@@ -1,6 +1,8 @@
 ﻿using Microsoft.Web.WebView2.Core;
 using System.IO;
 using SEIT = Skylark.Enum.InputType;
+using SELLT = Skylark.Enum.LevelLogType;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
@@ -34,6 +36,23 @@ namespace Sucrose.Shared.Engine.WebView.Event
                     await SSWW.Watch_CatchException(Exception);
                 }
             });
+        }
+
+        public static void WebEngineProcessFailed(object sender, CoreWebView2ProcessFailedEventArgs e)
+        {
+            SMMI.WebViewLiveLogManager.Log(SELLT.Fatal, $"Reason: {e.Reason}");
+            SMMI.WebViewLiveLogManager.Log(SELLT.Fatal, $"Exit Code: {e.ExitCode}");
+            SMMI.WebViewLiveLogManager.Log(SELLT.Fatal, $"Process Failed Kind: {e.ProcessFailedKind}");
+            SMMI.WebViewLiveLogManager.Log(SELLT.Fatal, $"Process Description: {e.ProcessDescription}");
+            SMMI.WebViewLiveLogManager.Log(SELLT.Fatal, $"Failure Source Module Path: {e.FailureSourceModulePath}");
+
+            if (e.FrameInfosForFailedProcess != null && e.FrameInfosForFailedProcess.Any())
+            {
+                foreach (CoreWebView2FrameInfo FrameInfo in e.FrameInfosForFailedProcess)
+                {
+                    SMMI.WebViewLiveLogManager.Log(SELLT.Fatal, $"Failed Process; Frame ID: {FrameInfo.FrameId}, Frame Kind: {FrameInfo.FrameKind}, Name: {FrameInfo.Name}, Source: {FrameInfo.Source}");
+                }
+            }
         }
 
         public static void WebEngineDOMContentLoaded(object sender, CoreWebView2DOMContentLoadedEventArgs e)
@@ -70,6 +89,8 @@ namespace Sucrose.Shared.Engine.WebView.Event
 
         public static void WebEngineInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
+            SSEWVMI.WebEngine.CoreWebView2.ProcessFailed += WebEngineProcessFailed;
+
             SSEWVHW.StartCompatible();
 
             SSEWVMI.WebEngine.CoreWebView2.Settings.UserAgent = SMMM.UserAgent;

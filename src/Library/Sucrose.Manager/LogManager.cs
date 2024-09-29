@@ -51,7 +51,7 @@ namespace Sucrose.Manager
             }
         }
 
-        public void Log(SELLT level, string[] messages)
+        public void Log(SELLT level, params string[] messages)
         {
             if (logType == SELT.None)
             {
