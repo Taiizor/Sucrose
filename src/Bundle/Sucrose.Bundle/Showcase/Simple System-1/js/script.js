@@ -320,15 +320,17 @@ function SucroseGpuData(obj) {
 			amdGpu = obj.Amd;
 			intelGpu = obj.Intel;
 			nvidiaGpu = obj.Nvidia;
+			
+			gpuName = obj.Name;
 
 			let highestNow = -Infinity;
+			
+			let manufacturer = obj.Manufacturer;
 
 			//hw name
 			//chart data
 
-			if (nvidiaGpu != null) {
-				gpuName = nvidiaGpu[0].Name;
-
+			if (manufacturer == "Nvidia" && nvidiaGpu != null) {
 				nvidiaGpu.forEach(gpu => {
 					if (gpu.Type === "Load" && gpu.Now !== null && gpu.Now > highestNow) {
 						highestNow = gpu.Now;
@@ -336,9 +338,7 @@ function SucroseGpuData(obj) {
 				});
 
 				gpuCounter = highestNow.toFixed(2);
-			} else if (amdGpu != null) {
-				gpuName = amdGpu[0].Name;
-
+			} else if (manufacturer == "Amd" && amdGpu != null) {
 				amdGpu.forEach(gpu => {
 					if (gpu.Type === "Load" && gpu.Now !== null && gpu.Now > highestNow) {
 						highestNow = gpu.Now;
@@ -346,9 +346,7 @@ function SucroseGpuData(obj) {
 				});
 
 				gpuCounter = highestNow.toFixed(2);
-			} else if (intelGpu != null) {
-				gpuName = intelGpu[0].Name;
-
+			} else if (manufacturer == "Intel" && intelGpu != null) {
 				intelGpu.forEach(gpu => {
 					if (gpu.Type === "Load" && gpu.Now !== null && gpu.Now > highestNow) {
 						highestNow = gpu.Now;

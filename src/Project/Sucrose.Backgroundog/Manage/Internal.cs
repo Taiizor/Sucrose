@@ -78,6 +78,8 @@ namespace Sucrose.Backgroundog.Manage
 
         public static bool BatteryManagement = true;
 
+        public static bool GraphicManagement2 = true;
+
         public static string PingHost = string.Empty;
 
         public static bool NetworkManagement2 = true;
@@ -223,7 +225,9 @@ namespace Sucrose.Backgroundog.Manage
             Amd = new(),
             State = false,
             Intel = new(),
-            Nvidia = new()
+            Nvidia = new(),
+            Name = string.Empty,
+            Manufacturer = string.Empty
         };
 
         public static SBSDNS NetworkData = new()

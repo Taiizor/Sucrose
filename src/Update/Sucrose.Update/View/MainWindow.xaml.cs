@@ -47,7 +47,6 @@ using SUMI = Sucrose.Update.Manage.Internal;
 using SUMM = Sucrose.Update.Manage.Manager;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWNM = Skylark.Wing.Native.Methods;
-using Timer = System.Timers.Timer;
 
 namespace Sucrose.Update.View
 {
@@ -68,7 +67,11 @@ namespace Sucrose.Update.View
 
         private static SSIIR Release { get; set; } = null;
 
-        public static bool Updater { get; set; } = true;
+        private static double Value { get; set; } = 0;
+
+        private static int MaxCount { get; set; } = 5;
+
+        private static int Count { get; set; } = 0;
 
         private static int MinDelay => 1000;
 
@@ -554,6 +557,8 @@ namespace Sucrose.Update.View
 
                 UpdateLimit();
 
+                CheckProgress();
+
                 SUMI.DownloadService = new(SUMI.DownloadConfiguration);
 
                 SUMI.DownloadService.DownloadStarted += OnDownloadStarted;
@@ -583,6 +588,9 @@ namespace Sucrose.Update.View
 
             Message.Text = SRER.GetValue("Update", "MessageText", "Preparing");
 
+            Count = 0;
+            Value = 0;
+
             Ring.Progress = 0;
             Progress.Value = 0;
 
@@ -598,13 +606,9 @@ namespace Sucrose.Update.View
 
         private static void UpdateLimit()
         {
-            if (Updater)
+            if (!SUMI.Limiter.Enabled)
             {
-                Updater = false;
-
-                Timer Limiter = new(3000);
-
-                Limiter.Elapsed += (s, e) =>
+                SUMI.Limiter.Elapsed += (s, e) =>
                 {
                     try
                     {
@@ -627,10 +631,50 @@ namespace Sucrose.Update.View
                     }
                 };
 
-                Limiter.AutoReset = true;
-
-                Limiter.Start();
+                SUMI.Limiter.Start();
             }
+        }
+
+        private async void CheckProgress()
+        {
+            if (!SUMI.Checker.Enabled)
+            {
+                SUMI.Checker.Elapsed += async (s, e) =>
+                {
+                    await Application.Current.Dispatcher.InvokeAsync(async () =>
+                    {
+                        if (Ring.Progress > 0 && Progress.Value < 100)
+                        {
+                            if (Value != Progress.Value)
+                            {
+                                Value = Ring.Progress;
+
+                                Count = 0;
+                            }
+                            else if (Value != 0)
+                            {
+                                Count++;
+
+                                if (Count > MaxCount)
+                                {
+                                    Count = 0;
+                                    Value = 0;
+
+                                    await SUMI.DownloadService.CancelTaskAsync();
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Count = 0;
+                        }
+                    });
+                };
+
+                SUMI.Checker.Start();
+            }
+
+            await Task.CompletedTask;
         }
 
         private async void Reload_Click(object sender, RoutedEventArgs e)
@@ -693,6 +737,9 @@ namespace Sucrose.Update.View
         {
             await Application.Current.Dispatcher.InvokeAsync(() =>
             {
+                Count = 0;
+                Value = 0;
+
                 HasBundle = true;
 
                 Reload.Visibility = Visibility.Hidden;
@@ -721,17 +768,20 @@ namespace Sucrose.Update.View
             {
                 if (e.Error != null || e.Cancelled)
                 {
+                    Count = 0;
+                    Value = 0;
+
                     HasBundle = false;
 
                     SUMI.Trying = true;
 
-                    if (e.Error != null)
+                    if (e.Cancelled)
                     {
-                        Message.Text = SRER.GetValue("Update", "MessageText", "Downloading", "Complete", "Error");
+                        Message.Text = SRER.GetValue("Update", "MessageText", "Downloading", "Complete", "Cancel");
                     }
                     else
                     {
-                        Message.Text = SRER.GetValue("Update", "MessageText", "Downloading", "Complete", "Cancel");
+                        Message.Text = SRER.GetValue("Update", "MessageText", "Downloading", "Complete", "Error");
                     }
 
                     Ring.Visibility = Visibility.Hidden;
@@ -749,6 +799,9 @@ namespace Sucrose.Update.View
                 }
                 else
                 {
+                    Count = 0;
+                    Value = 100;
+
                     Ring.Progress = 100;
                     Progress.Value = 100;
 

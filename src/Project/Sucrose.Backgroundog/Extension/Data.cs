@@ -139,9 +139,11 @@ namespace Sucrose.Backgroundog.Extension
             return new JObject
             {
                 { "Amd", SBMI.GraphicData.Amd },
+                { "Name", SBMI.GraphicData.Name },
                 { "State", SBMI.GraphicData.State },
                 { "Intel", SBMI.GraphicData.Intel },
-                { "Nvidia", SBMI.GraphicData.Nvidia }
+                { "Nvidia", SBMI.GraphicData.Nvidia },
+                { "Manufacturer", SBMI.GraphicData.Manufacturer }
             };
         }
 

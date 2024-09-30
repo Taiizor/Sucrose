@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using SBEAS = Sucrose.Backgroundog.Extension.AudioSession;
 using SBED = Sucrose.Backgroundog.Extension.Data;
+using SBEG = Sucrose.Backgroundog.Extension.Graphic;
 using SBER = Sucrose.Backgroundog.Extension.Remote;
 using SBEUV = Sucrose.Backgroundog.Extension.UpdateVisitor;
 using SBEV = Sucrose.Backgroundog.Extension.Virtual;
@@ -331,6 +332,29 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.GraphicManagement = true;
+                            await SSWW.Watch_CatchException(Exception);
+                        }
+                    });
+                }
+
+                if (SBMI.GraphicManagement2)
+                {
+                    SBMI.GraphicManagement2 = false;
+
+                    _ = Task.Run(async () =>
+                    {
+                        try
+                        {
+                            SBMI.GraphicData.Name = SMMM.GraphicAdapter;
+                            SBMI.GraphicData.Manufacturer = SBEG.Manufacturer();
+
+                            await Task.Delay(SBMI.SpecificationLessTime);
+
+                            SBMI.GraphicManagement2 = true;
+                        }
+                        catch (Exception Exception)
+                        {
+                            SBMI.GraphicManagement2 = true;
                             await SSWW.Watch_CatchException(Exception);
                         }
                     });
