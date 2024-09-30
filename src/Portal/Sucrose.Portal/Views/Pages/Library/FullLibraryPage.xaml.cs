@@ -46,7 +46,7 @@ namespace Sucrose.Portal.Views.Pages.Library
 
             if (Search.Any())
             {
-                foreach (KeyValuePair<string, string> Pair in Searches.ToArray().Select(Pair => new { Pair.Key, Pair.Value, MatchCount = CountMatchingWords(Pair.Value, Search) }).Where(Pair => Pair.MatchCount > 0).OrderByDescending(Pair => Pair.MatchCount).ToDictionary(Pair => Pair.Key, Pair => Pair.Value))
+                foreach (KeyValuePair<string, string> Pair in Searches.Where(Theme => Directory.Exists(Path.Combine(SMMM.LibraryLocation, Theme.Key))).ToDictionary(Theme => Theme.Key, Theme => Theme.Value).ToArray().Select(Pair => new { Pair.Key, Pair.Value, MatchCount = CountMatchingWords(Pair.Value, Search) }).Where(Pair => Pair.MatchCount > 0).OrderByDescending(Pair => Pair.MatchCount).ToDictionary(Pair => Pair.Key, Pair => Pair.Value))
                 {
                     if (SMMM.LibraryPagination * Page > Count && SMMM.LibraryPagination * Page <= Count + SMMM.LibraryPagination)
                     {
@@ -70,7 +70,7 @@ namespace Sucrose.Portal.Views.Pages.Library
             }
             else
             {
-                foreach (string Theme in Themes.ToList())
+                foreach (string Theme in Themes.Where(Theme => Directory.Exists(Path.Combine(SMMM.LibraryLocation, Theme))).ToList())
                 {
                     if (SMMM.LibraryPagination * Page > Count && SMMM.LibraryPagination * Page <= Count + SMMM.LibraryPagination)
                     {
