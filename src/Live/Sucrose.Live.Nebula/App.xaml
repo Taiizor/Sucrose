@@ -7,6 +7,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Sucrose.Resources;component/Styles/Button.xaml" />
+                <ResourceDictionary Source="/Sucrose.Resources;component/Styles/ScrollBar.xaml" />
 
                 <ResourceDictionary Source="/Sucrose.Resources;component/Locales/Locale.EN.xaml" />
             </ResourceDictionary.MergedDictionaries>

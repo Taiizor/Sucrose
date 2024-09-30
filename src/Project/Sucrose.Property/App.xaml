@@ -9,9 +9,13 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <hc:Theme />
+
                 <ui:ControlsDictionary />
+
                 <ui:ThemesDictionary Theme="Dark" />
+
                 <hc:ThemeResources RequestedTheme="Dark" />
+
                 <ResourceDictionary Source="/Sucrose.Resources;component/Locales/Locale.EN.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

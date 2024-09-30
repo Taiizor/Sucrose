@@ -47,6 +47,10 @@
                     Color="#888888" />
             </Border.Effect>
             <ScrollViewer Margin="20" VerticalScrollBarVisibility="Auto">
+                <ScrollViewer.Resources>
+                    <Style BasedOn="{StaticResource SucroseDarkScrollBar}" TargetType="{x:Type ScrollBar}" />
+                </ScrollViewer.Resources>
+
                 <StackPanel>
                     <TextBlock
                         x:Name="Dialog_Info"

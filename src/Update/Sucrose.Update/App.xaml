@@ -8,7 +8,9 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ui:ControlsDictionary />
+
                 <ui:ThemesDictionary Theme="Dark" />
+
                 <ResourceDictionary Source="/Sucrose.Resources;component/Locales/Locale.EN.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

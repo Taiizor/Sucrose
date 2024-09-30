@@ -6,6 +6,7 @@
         <Setter Property="Foreground" Value="White" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="5" />
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -17,11 +18,13 @@
                         CornerRadius="5">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
+
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="ContentBorder" Property="Background" Value="#FF393939" />
                             <Setter TargetName="ContentBorder" Property="BorderBrush" Value="#FF848484" />
                         </Trigger>
+
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Foreground" Value="#FFB0B0B0" />
                             <Setter TargetName="ContentBorder" Property="Background" Value="#FF606060" />
@@ -39,6 +42,7 @@
         <Setter Property="Foreground" Value="#333333" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="5" />
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -50,11 +54,13 @@
                         CornerRadius="5">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
+
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="ContentBorder" Property="Background" Value="#E5E5E5" />
                             <Setter TargetName="ContentBorder" Property="BorderBrush" Value="#888888" />
                         </Trigger>
+
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Foreground" Value="#666666" />
                             <Setter TargetName="ContentBorder" Property="Background" Value="#CCCCCC" />

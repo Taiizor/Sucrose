@@ -1,0 +1,262 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cor="clr-namespace:System;assembly=mscorlib">
+
+    <cor:Double x:Key="ScrollBarWidth">16</cor:Double>
+    <cor:Double x:Key="ScrollBarArrowWidth">8</cor:Double>
+    <cor:Double x:Key="ScrollBarArrowHeight">4</cor:Double>
+
+    <SolidColorBrush x:Key="ScrollBarTrackBrush" Color="#222222" />
+    <SolidColorBrush x:Key="ScrollBarButtonBackgroundBrush" Color="#333333" />
+    <SolidColorBrush x:Key="ScrollBarButtonArrowForegroundBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="ScrollBarButtonHighlightBackgroundBrush" Color="#555555" />
+
+    <Style x:Key="SucroseDarkScrollBar" TargetType="{x:Type ScrollBar}">
+        <Style.Triggers>
+            <Trigger Property="Orientation" Value="Vertical">
+                <Setter Property="Width" Value="{StaticResource ScrollBarWidth}" />
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ScrollBar}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Button
+                                    Grid.Row="0"
+                                    Height="{StaticResource ScrollBarWidth}"
+                                    Command="ScrollBar.LineUpCommand">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Rectangle x:Name="ButtonRectangle" Fill="{StaticResource ScrollBarButtonBackgroundBrush}" />
+                                                <Path
+                                                    Width="{StaticResource ScrollBarArrowWidth}"
+                                                    Height="{StaticResource ScrollBarArrowHeight}"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Data="M 0 10 L 10 10 L 5 0 Z"
+                                                    Fill="{StaticResource ScrollBarButtonArrowForegroundBrush}"
+                                                    Stretch="Fill" />
+                                            </Grid>
+
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="ButtonRectangle" Property="Fill" Value="{StaticResource ScrollBarButtonHighlightBackgroundBrush}" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                                <Track
+                                    Name="PART_Track"
+                                    Grid.Row="1"
+                                    VerticalAlignment="Stretch"
+                                    IsDirectionReversed="True">
+                                    <Track.DecreaseRepeatButton>
+                                        <RepeatButton Background="{StaticResource ScrollBarTrackBrush}" Command="ScrollBar.PageUpCommand">
+                                            <RepeatButton.Template>
+                                                <ControlTemplate TargetType="RepeatButton">
+                                                    <Rectangle
+                                                        Width="{TemplateBinding ActualWidth}"
+                                                        Height="{TemplateBinding ActualHeight}"
+                                                        Fill="{TemplateBinding Background}" />
+                                                </ControlTemplate>
+                                            </RepeatButton.Template>
+                                        </RepeatButton>
+                                    </Track.DecreaseRepeatButton>
+
+                                    <Track.Thumb>
+                                        <Thumb>
+                                            <Thumb.Template>
+                                                <ControlTemplate TargetType="Thumb">
+                                                    <Rectangle x:Name="ThumbRectangle" Fill="{StaticResource ScrollBarButtonBackgroundBrush}" />
+
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter TargetName="ThumbRectangle" Property="Fill" Value="{StaticResource ScrollBarButtonHighlightBackgroundBrush}" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Thumb.Template>
+                                        </Thumb>
+                                    </Track.Thumb>
+
+                                    <Track.IncreaseRepeatButton>
+                                        <RepeatButton Background="{StaticResource ScrollBarTrackBrush}" Command="ScrollBar.PageDownCommand">
+                                            <RepeatButton.Template>
+                                                <ControlTemplate TargetType="RepeatButton">
+                                                    <Rectangle
+                                                        Width="{TemplateBinding ActualWidth}"
+                                                        Height="{TemplateBinding ActualHeight}"
+                                                        Fill="{TemplateBinding Background}" />
+                                                </ControlTemplate>
+                                            </RepeatButton.Template>
+                                        </RepeatButton>
+                                    </Track.IncreaseRepeatButton>
+                                </Track>
+
+                                <Button
+                                    Grid.Row="2"
+                                    Height="{StaticResource ScrollBarWidth}"
+                                    Command="ScrollBar.LineDownCommand">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Rectangle x:Name="ButtonRectangle" Fill="{StaticResource ScrollBarButtonBackgroundBrush}" />
+
+                                                <Path
+                                                    Width="{StaticResource ScrollBarArrowWidth}"
+                                                    Height="{StaticResource ScrollBarArrowHeight}"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Data="M 0 0 L 10 0 L 5 10 Z"
+                                                    Fill="{StaticResource ScrollBarButtonArrowForegroundBrush}"
+                                                    Stretch="Fill" />
+                                            </Grid>
+
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="ButtonRectangle" Property="Fill" Value="{StaticResource ScrollBarButtonHighlightBackgroundBrush}" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+
+            <Trigger Property="Orientation" Value="Horizontal">
+                <Setter Property="Height" Value="{StaticResource ScrollBarWidth}" />
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ScrollBar}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Button
+                                    Grid.Column="0"
+                                    Width="{StaticResource ScrollBarWidth}"
+                                    Command="ScrollBar.LineLeftCommand">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Rectangle x:Name="ButtonRectangle" Fill="{StaticResource ScrollBarButtonBackgroundBrush}" />
+
+                                                <Path
+                                                    Width="{StaticResource ScrollBarArrowHeight}"
+                                                    Height="{StaticResource ScrollBarArrowWidth}"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Data="M 0 5 L 10 0 L 10 10 Z"
+                                                    Fill="{StaticResource ScrollBarButtonArrowForegroundBrush}"
+                                                    Stretch="Fill" />
+                                            </Grid>
+
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="ButtonRectangle" Property="Fill" Value="{StaticResource ScrollBarButtonHighlightBackgroundBrush}" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                                <Track
+                                    Name="PART_Track"
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Stretch"
+                                    IsDirectionReversed="False">
+                                    <Track.DecreaseRepeatButton>
+                                        <RepeatButton Background="{StaticResource ScrollBarTrackBrush}" Command="ScrollBar.PageLeftCommand">
+                                            <RepeatButton.Template>
+                                                <ControlTemplate TargetType="RepeatButton">
+                                                    <Rectangle
+                                                        Width="{TemplateBinding ActualWidth}"
+                                                        Height="{TemplateBinding ActualHeight}"
+                                                        Fill="{TemplateBinding Background}" />
+                                                </ControlTemplate>
+                                            </RepeatButton.Template>
+                                        </RepeatButton>
+                                    </Track.DecreaseRepeatButton>
+
+                                    <Track.Thumb>
+                                        <Thumb>
+                                            <Thumb.Template>
+                                                <ControlTemplate TargetType="Thumb">
+                                                    <Rectangle x:Name="ThumbRectangle" Fill="{StaticResource ScrollBarButtonBackgroundBrush}" />
+
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter TargetName="ThumbRectangle" Property="Fill" Value="{StaticResource ScrollBarButtonHighlightBackgroundBrush}" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Thumb.Template>
+                                        </Thumb>
+                                    </Track.Thumb>
+
+                                    <Track.IncreaseRepeatButton>
+                                        <RepeatButton Background="{StaticResource ScrollBarTrackBrush}" Command="ScrollBar.PageRightCommand">
+                                            <RepeatButton.Template>
+                                                <ControlTemplate TargetType="RepeatButton">
+                                                    <Rectangle
+                                                        Width="{TemplateBinding ActualWidth}"
+                                                        Height="{TemplateBinding ActualHeight}"
+                                                        Fill="{TemplateBinding Background}" />
+                                                </ControlTemplate>
+                                            </RepeatButton.Template>
+                                        </RepeatButton>
+                                    </Track.IncreaseRepeatButton>
+                                </Track>
+
+                                <Button
+                                    Grid.Column="2"
+                                    Width="{StaticResource ScrollBarWidth}"
+                                    Command="ScrollBar.LineRightCommand">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Rectangle x:Name="ButtonRectangle" Fill="{StaticResource ScrollBarButtonBackgroundBrush}" />
+
+                                                <Path
+                                                    Width="{StaticResource ScrollBarArrowHeight}"
+                                                    Height="{StaticResource ScrollBarArrowWidth}"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Data="M 10 5 L 0 0 L 0 10 Z"
+                                                    Fill="{StaticResource ScrollBarButtonArrowForegroundBrush}"
+                                                    Stretch="Fill" />
+                                            </Grid>
+
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="ButtonRectangle" Property="Fill" Value="{StaticResource ScrollBarButtonHighlightBackgroundBrush}" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>
