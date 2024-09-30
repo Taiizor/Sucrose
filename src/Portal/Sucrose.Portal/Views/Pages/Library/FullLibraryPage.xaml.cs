@@ -127,7 +127,6 @@ namespace Sucrose.Portal.Views.Pages.Library
                 {
                     Themes.Remove(Theme);
                     Searches.Remove(Theme);
-                    SMMM.Themes.Remove(Theme);
                 }
 
                 await Task.Delay(250);

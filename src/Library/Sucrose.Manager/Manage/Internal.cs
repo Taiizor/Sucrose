@@ -25,8 +25,6 @@ namespace Sucrose.Manager.Manage
 
         public static readonly SMSM SystemSettingManager = new("System.json");
 
-        public static readonly SMSM ThemesSettingManager = new("Themes.json");
-
         public static readonly SMSM UpdateSettingManager = new("Update.json");
 
         public static readonly SMSM CyclingSettingManager = new("Cycling.json");

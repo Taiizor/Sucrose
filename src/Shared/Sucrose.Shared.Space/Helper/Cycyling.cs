@@ -21,13 +21,27 @@ namespace Sucrose.Shared.Space.Helper
     {
         public static bool Check()
         {
-            List<string> Themes = SMMM.Themes;
-
-            Themes = Themes.Except(SMMM.DisableCycyling).ToList();
-
-            if (SMMM.Cycyling && Themes.Count > 1 && SMMM.PassingCycyling >= Converter(SMMM.CycylingTime))
+            if (Directory.Exists(SMMM.LibraryLocation))
             {
-                return true;
+                List<string> Themes = Directory.GetDirectories(SMMM.LibraryLocation).Select(Path.GetFileName).ToList();
+
+                if (Themes.Any())
+                {
+                    Themes = Themes.Except(SMMM.DisableCycyling).ToList();
+
+                    if (SMMM.Cycyling && (Themes.Count > 1 || (Themes.Count == 1 && !Themes.Contains(SMMM.LibrarySelected))) && SMMM.PassingCycyling >= Converter(SMMM.CycylingTime))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
@@ -39,87 +53,93 @@ namespace Sucrose.Shared.Space.Helper
         {
             if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
             {
-                List<string> Themes = SMMM.Themes;
-
-                string LibrarySelected = SMMM.LibrarySelected;
-
-                Themes = Themes.Where(Theme => !SMMM.DisableCycyling.Contains(Theme) || Theme == LibrarySelected).ToList();
-
-                if (Themes.Count > 1)
+                if (Directory.Exists(SMMM.LibraryLocation))
                 {
-                    string Selected = string.Empty;
+                    List<string> Themes = Directory.GetDirectories(SMMM.LibraryLocation).Select(Path.GetFileName).ToList();
 
-                    int Index = Themes.IndexOf(LibrarySelected);
-
-                    switch (SSDMM.TransitionType)
+                    if (Themes.Any())
                     {
-                        case SSDETT.Random:
-                            while (string.IsNullOrEmpty(Selected))
+                        string LibrarySelected = SMMM.LibrarySelected;
+
+                        Themes = Themes.Where(Theme => !SMMM.DisableCycyling.Contains(Theme) || Theme == LibrarySelected).ToList();
+
+                        if (Themes.Count > 1)
+                        {
+                            string Selected = string.Empty;
+
+                            int Index = Themes.IndexOf(LibrarySelected);
+
+                            switch (SSDMM.TransitionType)
                             {
-                                while (Index == Themes.IndexOf(LibrarySelected))
-                                {
-                                    Index = SMR.Randomise.Next(Themes.Count);
-                                }
-
-                                string Current = Themes[Index];
-
-                                string ThemePath = Path.Combine(SMMM.LibraryLocation, Current);
-                                string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
-
-                                if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
-                                {
-                                    SSTHI Info = SSTHI.ReadJson(InfoPath);
-
-                                    if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                                case SSDETT.Random:
+                                    while (string.IsNullOrEmpty(Selected))
                                     {
-                                        Selected = Current;
+                                        while (Index == Themes.IndexOf(LibrarySelected))
+                                        {
+                                            Index = SMR.Randomise.Next(Themes.Count);
+                                        }
+
+                                        string Current = Themes[Index];
+
+                                        string ThemePath = Path.Combine(SMMM.LibraryLocation, Current);
+                                        string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
+
+                                        if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
+                                        {
+                                            SSTHI Info = SSTHI.ReadJson(InfoPath);
+
+                                            if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                                            {
+                                                Selected = Current;
+                                            }
+                                        }
                                     }
-                                }
-                            }
-                            break;
-                        case SSDETT.Sequential:
-                            if (Index < 0 || Index >= Themes.Count)
-                            {
-                                Index = 0;
-                            }
-                            else
-                            {
-                                Index += 1;
-
-                                if (Index >= Themes.Count)
-                                {
-                                    Index = 0;
-                                }
-                            }
-
-                            foreach (string Theme in Themes.Skip(Index))
-                            {
-                                string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
-                                string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
-
-                                if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
-                                {
-                                    SSTHI Info = SSTHI.ReadJson(InfoPath);
-
-                                    if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                                    break;
+                                case SSDETT.Sequential:
+                                    if (Index < 0 || Index >= Themes.Count)
                                     {
-                                        Selected = Theme;
-                                        break;
+                                        Index = 0;
                                     }
-                                }
+                                    else
+                                    {
+                                        Index += 1;
+
+                                        if (Index >= Themes.Count)
+                                        {
+                                            Index = 0;
+                                        }
+                                    }
+
+                                    foreach (string Theme in Themes.Skip(Index))
+                                    {
+                                        string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
+                                        string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
+
+                                        if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
+                                        {
+                                            SSTHI Info = SSTHI.ReadJson(InfoPath);
+
+                                            if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                                            {
+                                                Selected = Theme;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    break;
+                                default:
+                                    break;
                             }
-                            break;
-                        default:
-                            break;
-                    }
 
-                    if (!string.IsNullOrEmpty(Selected))
-                    {
-                        SMMI.CyclingSettingManager.SetSetting(SMC.PassingCycyling, 0);
+                            if (!string.IsNullOrEmpty(Selected))
+                            {
+                                SMMI.CyclingSettingManager.SetSetting(SMC.PassingCycyling, 0);
 
-                        SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Selected);
+                                SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Selected);
 
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Cycyling}{SMR.ValueSeparator}{SMR.Unknown}");
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Cycyling}{SMR.ValueSeparator}{SMR.Unknown}");
+                            }
+                        }
                     }
                 }
             }

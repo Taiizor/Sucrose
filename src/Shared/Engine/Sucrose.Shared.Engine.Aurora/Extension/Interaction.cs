@@ -9,6 +9,7 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SSDEIMT = Sucrose.Shared.Dependency.Enum.InputModuleType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HandleStruct;
+using SSEAEA = Sucrose.Shared.Engine.Aurora.Event.Application;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SWHC = Skylark.Wing.Helper.Calculate;
 using SWHDM = Skylark.Wing.Helper.DisplayManager;
@@ -16,7 +17,6 @@ using SWIIDM = Skylark.Wing.Interface.IDisplayManager;
 using SWNM = Skylark.Wing.Native.Methods;
 using SWUD = Skylark.Wing.Utility.Desktop;
 using Timer = System.Timers.Timer;
-using SSEAEA = Sucrose.Shared.Engine.Aurora.Event.Application;
 
 namespace Sucrose.Shared.Engine.Aurora.Extension
 {

@@ -32,11 +32,11 @@ namespace Sucrose.Portal.Views.Pages
     {
         private Dictionary<string, string> Searches = new();
 
-        private static List<string> Themes = SMMM.Themes;
-
         private SPVPLELP EmptyLibraryPage { get; set; }
 
         private SPVPLFLP FullLibraryPage { get; set; }
+
+        private static List<string> Themes = new();
 
         public SPVMPLVM ViewModel { get; }
 
@@ -119,50 +119,6 @@ namespace Sucrose.Portal.Views.Pages
 
             if (Directory.Exists(SMMM.LibraryLocation))
             {
-                if (Themes != null && Themes.Any())
-                {
-                    foreach (string Theme in Themes.ToList())
-                    {
-                        string PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
-                        string PropertiesFile = Path.Combine(PropertiesCache, $"{Theme}.json");
-                        string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
-                        string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
-
-                        if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
-                        {
-                            string InfoContent = SSTHI.ReadInfo(InfoPath);
-
-                            if (InfoContent != null && SSTHI.CheckJson(InfoContent))
-                            {
-                                SSTHI Info = SSTHI.FromJson(InfoContent);
-
-                                if (Info != null && !string.IsNullOrEmpty(Info.Preview) && !string.IsNullOrEmpty(Info.Thumbnail))
-                                {
-                                    string PreviewPath = Path.Combine(ThemePath, Info.Preview);
-                                    string ThumbnailPath = Path.Combine(ThemePath, Info.Thumbnail);
-
-                                    if (File.Exists(PreviewPath) && File.Exists(ThumbnailPath) && (SSTHV.IsUrl(Info.Source) || File.Exists(Path.Combine(ThemePath, Info.Source))))
-                                    {
-                                        continue;
-                                    }
-                                }
-                            }
-                        }
-
-                        Themes.Remove(Theme);
-
-                        if (Directory.Exists(ThemePath) && SMMM.LibraryDelete && SSSHA.Directory(ThemePath))
-                        {
-                            Directory.Delete(ThemePath, true);
-
-                            if (File.Exists(PropertiesFile))
-                            {
-                                File.Delete(PropertiesFile);
-                            }
-                        }
-                    }
-                }
-
                 string[] Folders = Directory.GetDirectories(SMMM.LibraryLocation);
 
                 if (Folders != null && Folders.Any())
@@ -270,8 +226,6 @@ namespace Sucrose.Portal.Views.Pages
 
                 Directory.CreateDirectory(SMMM.LibraryLocation);
             }
-
-            SMMI.ThemesSettingManager.SetSetting(SMC.Themes, Themes);
         }
 
         private async Task Start(bool Progress = false)

@@ -116,8 +116,6 @@ namespace Sucrose.Manager.Manage
 
         public static DateTime UpdateTime => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateTime, new DateTime());
 
-        public static List<string> Themes => SMMI.ThemesSettingManager.GetSetting(SMC.Themes, new List<string>());
-
         public static bool StorePreviewHide => SMMI.PortalSettingManager.GetSetting(SMC.StorePreviewHide, false);
 
         public static bool AudioRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.AudioRequired, false);
