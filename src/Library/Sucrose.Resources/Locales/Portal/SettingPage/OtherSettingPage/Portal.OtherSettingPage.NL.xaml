@@ -27,6 +27,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Voer alstublieft een persoonlijke toegangssleutel in</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Voer een geldige persoonlijke toegangssleutel in</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Server">Update Server</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Server.Description">De server waarop updates worden uitgevoerd.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Opmerking: Als {0} is geselecteerd als server, moet u een {2} invoeren om aanvraaglimieten te vermijden. Anders kunt u problemen ondervinden bij updates. Als {1} is geselecteerd, zult u een soepeler update-ervaring hebben.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Updatekanaal</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Het kanaal waar de updatebewerking plaatsvindt.</system:String>
 

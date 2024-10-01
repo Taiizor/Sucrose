@@ -918,6 +918,11 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Key.PersonalKey,Lütfen bir kişisel erişim belirteci girin
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Lütfen geçerli bir kişisel erişim belirteci girin
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Server,Güncelleme Sunucusu
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Server.Description,Güncelleme işlemlerinin hangi sunucu üzerinden yapılacağı.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Server.ServerHint,Not: Sunucu olarak {0} seçilmişse istek limitlerine takılmamak için bir {2} girilmesi gerekiyor. Aksi taktirde güncelleme işlemlerinde sorun yaşayabilirsiniz. Eğer ki {1} seçilmişse görece daha sorunsuz bir güncelleme deneyimi yaşarsınız.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Channel,Güncelleme Kanalı
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Channel.Description,Güncelleme işleminin hangi kanal üzerinden yapılıp yapılmayacağı.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
@@ -1004,7 +1009,7 @@ Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Server,Mağaza Sunucusu
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Server.Description,Mağazada listelenen temaların hangi sunucu üzerinden görüntüleneceği.
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Server.ServerHint,Not: Sunucu olarak {0} seçilmişse istek limitlerine takılmamak için bir {2} girilmesi gerekiyor. Aksi taktirde mağazadaki temalara erişirken sorun yaşayabilirsiniz. Eğer ki {1} seçilmişse görece daha sorunsuz bir mağaza deneyimi yaşarsınız
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Server.ServerHint,Not: Sunucu olarak {0} seçilmişse istek limitlerine takılmamak için bir {2} girilmesi gerekiyor. Aksi taktirde mağazadaki temalara erişirken sorun yaşayabilirsiniz. Eğer ki {1} seçilmişse görece daha sorunsuz bir mağaza deneyimi yaşarsınız.
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Duration,Mağaza Yenileme
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Duration.Description,Mağazada listelenen temaların ne kadar süreyle yenilenip yenilenmeyeceği.

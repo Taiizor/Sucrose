@@ -27,6 +27,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Lütfen bir kişisel erişim belirteci girin</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Lütfen geçerli bir kişisel erişim belirteci girin</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Server">Güncelleme Sunucusu</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Server.Description">Güncelleme işlemlerinin hangi sunucu üzerinden yapılacağı.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Not: Sunucu olarak {0} seçilmişse istek limitlerine takılmamak için bir {2} girilmesi gerekiyor. Aksi taktirde güncelleme işlemlerinde sorun yaşayabilirsiniz. Eğer ki {1} seçilmişse görece daha sorunsuz bir güncelleme deneyimi yaşarsınız.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Güncelleme Kanalı</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Güncelleme işleminin hangi kanal üzerinden yapılıp yapılmayacağı.</system:String>
 

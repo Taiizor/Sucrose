@@ -15,6 +15,8 @@ using SSCEUCT = Sucrose.Shared.Core.Enum.UpdateChannelType;
 using SSCEUET = Sucrose.Shared.Core.Enum.UpdateExtensionType;
 using SSCMM = Sucrose.Shared.Core.Manage.Manager;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
+using SSDEUST = Sucrose.Shared.Dependency.Enum.UpdateServerType;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
@@ -279,6 +281,46 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(UpdateArea);
 
+            SPVCEC Server = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            Server.LeftIcon.Symbol = SymbolRegular.ServerSurfaceMultiple16; //SymbolRegular.CloudFlow24
+            Server.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "Server");
+            Server.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "Server", "Description");
+
+            ComboBox ServerType = new();
+
+            ServerType.SelectionChanged += (s, e) => ServerTypeSelected(ServerType.SelectedIndex);
+
+            foreach (SSDEUST Type in Enum.GetValues(typeof(SSDEUST)))
+            {
+                ServerType.Items.Add(new ComboBoxItem()
+                {
+                    Content = SRER.GetValue("Portal", "Enum", "UpdateServerType", $"{Type}")
+                });
+            }
+
+            ServerType.SelectedIndex = (int)SSDMM.UpdateServerType;
+
+            Server.HeaderFrame = ServerType;
+
+            TextBlock ServerHint = new()
+            {
+                Text = string.Format(SRER.GetValue("Portal", "OtherSettingPage", "Server", "ServerHint"), SRER.GetValue("Portal", "Enum", "UpdateServerType", $"{SSDEUST.GitHub}"), SRER.GetValue("Portal", "Enum", "UpdateServerType", $"{SSDEUST.Soferity}"), SRER.GetValue("Portal", "OtherSettingPage", "Key")),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                TextWrapping = TextWrapping.WrapWithOverflow,
+                TextAlignment = TextAlignment.Left,
+                Margin = new Thickness(0, 0, 0, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            Server.FooterCard = ServerHint;
+
+            Contents.Add(Server);
+
             SPVCEC Channel = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
@@ -522,6 +564,16 @@ namespace Sucrose.Portal.ViewModels.Pages
         private void AutoStateChecked(bool State)
         {
             SMMI.UpdateSettingManager.SetSetting(SMC.AutoUpdate, State);
+        }
+
+        private void ServerTypeSelected(int Index)
+        {
+            if (Index != (int)SSDMM.UpdateServerType)
+            {
+                SSDEUST Type = (SSDEUST)Index;
+
+                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateServerType, Type);
+            }
         }
 
         private void UpdateTypeSelected(int Index)

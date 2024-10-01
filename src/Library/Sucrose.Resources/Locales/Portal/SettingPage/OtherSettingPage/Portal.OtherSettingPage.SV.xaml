@@ -27,6 +27,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Ange din personliga åtkomsttoken</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Ange en giltig personlig åtkomsttoken</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Server">Uppdateringsserver</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Server.Description">Servern genom vilken uppdateringarna kommer att utföras.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Observera: Om {0} är vald som server måste du ange en {2} för att undvika förfrågningsgränser. Annars kan du uppleva problem med uppdateringar. Om {1} är vald kommer du att få en smidigare uppdateringsupplevelse.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Uppdateringskanal</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Vilken kanal uppdateringsprocessen kommer att använda.</system:String>
 

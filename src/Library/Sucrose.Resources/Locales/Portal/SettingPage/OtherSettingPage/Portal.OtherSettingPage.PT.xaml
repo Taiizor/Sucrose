@@ -27,6 +27,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Por favor, insira uma chave de acesso pessoal</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Por favor, insira uma chave de acesso pessoal válida</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Server">Servidor de Atualizações</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Server.Description">O servidor através do qual as atualizações serão realizadas.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Nota: Se {0} for selecionado como servidor, você precisará inserir um {2} para evitar limites de solicitação. Caso contrário, você poderá enfrentar problemas com as atualizações. Se {1} for selecionado, você terá uma experiência de atualização mais suave.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Canal de Atualização</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Onde as atualizações serão feitas.</system:String>
 

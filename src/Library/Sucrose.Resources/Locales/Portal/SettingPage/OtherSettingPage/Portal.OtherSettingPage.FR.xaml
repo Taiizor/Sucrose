@@ -27,6 +27,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Veuillez entrer un jeton d'accès personnel</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Veuillez entrer un jeton d'accès personnel valide</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Server">Serveur de Mise à Jour</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Server.Description">Le serveur par lequel les mises à jour seront effectuées.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Remarque : Si {0} est sélectionné comme serveur, vous devez entrer un {2} pour éviter les limites de requêtes. Sinon, vous pourriez rencontrer des problèmes avec les mises à jour. Si {1} est sélectionné, vous vivrez une expérience de mise à jour plus fluide.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Canal de Mise à Jour</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Le canal par lequel les mises à jour seront effectuées ou non.</system:String>
 

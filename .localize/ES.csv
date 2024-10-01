@@ -918,6 +918,11 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Key.PersonalKey,"Por favor, ingresa un token de acceso personal"
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,"Por favor, ingresa un token de acceso personal válido"
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Server,Servidor de Actualizaciones
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Server.Description,El servidor a través del cual se realizarán las actualizaciones.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Server.ServerHint,"Nota: Si se selecciona {0} como servidor, debe ingresar un {2} para evitar los límites de solicitudes. De lo contrario, podría tener problemas con las actualizaciones. Si se selecciona {1}, tendrá una experiencia de actualización más fluida."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Channel,Canal de Actualización
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Channel.Description,El canal a través del cual se realizarán o no las actualizaciones.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,,

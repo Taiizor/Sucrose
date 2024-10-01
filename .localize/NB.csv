@@ -918,6 +918,11 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Key.PersonalKey,Vennligst angi en personlig tilgangstoken
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Vennligst angi en gyldig personlig tilgangstoken
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Server,Oppdateringsserver
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Server.Description,Serveren hvor oppdateringer vil bli utført.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Server.ServerHint,"Merk: Hvis {0} er valgt som server, må du legge inn en {2} for å unngå forespørselsgrenser. Hvis ikke, kan du oppleve problemer med oppdateringer. Hvis {1} er valgt, vil du få en jevnere oppdateringsopplevelse."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Channel,Oppdateringskanal
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Channel.Description,Kanalen som oppdateringsprosessen skal bruke eller ikke.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,

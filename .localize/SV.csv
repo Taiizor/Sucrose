@@ -918,6 +918,11 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Key.PersonalKey,Ange din personliga åtkomsttoken
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Ange en giltig personlig åtkomsttoken
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Server,Uppdateringsserver
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Server.Description,Servern genom vilken uppdateringarna kommer att utföras.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Server.ServerHint,Observera: Om {0} är vald som server måste du ange en {2} för att undvika förfrågningsgränser. Annars kan du uppleva problem med uppdateringar. Om {1} är vald kommer du att få en smidigare uppdateringsupplevelse.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Channel,Uppdateringskanal
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Channel.Description,Vilken kanal uppdateringsprocessen kommer att använda.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,

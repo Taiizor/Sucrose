@@ -918,6 +918,11 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Key.PersonalKey,"Пожалуйста, введите персональный ключ доступа"
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,"Пожалуйста, введите действительный персональный ключ доступа"
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Server,Сервер Обновлений
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Server.Description,"Сервер, через который будут выполняться обновления."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Server.ServerHint,"Примечание: Если в качестве сервера выбран {0}, необходимо ввести {2}, чтобы избежать ограничения запросов. В противном случае могут возникнуть проблемы с обновлением. Если выбран {1}, вы получите более гладкий процесс обновления."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Channel,Канал Обновлений
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Channel.Description,"Канал, через который будет выполняться процесс обновления."
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,

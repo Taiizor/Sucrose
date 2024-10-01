@@ -918,6 +918,11 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,Portal.OtherSettingPage.Key.PersonalKey,Proszę wprowadzić osobisty token dostępu
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Proszę wprowadzić prawidłowy osobisty token dostępu
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,Portal.OtherSettingPage.Server,Serwer Aktualizacji
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,Portal.OtherSettingPage.Server.Description,"Serwer, za pośrednictwem którego będą wykonywane aktualizacje."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,Portal.OtherSettingPage.Server.ServerHint,"Uwaga: Jeśli wybrano {0} jako serwer, musisz wprowadzić {2}, aby uniknąć ograniczeń żądań. W przeciwnym razie możesz napotkać problemy z aktualizacjami. Jeśli wybrano {1}, będziesz mieć płynniejsze doświadczenie aktualizacji."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,Portal.OtherSettingPage.Channel,Kanał Aktualizacji
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,Portal.OtherSettingPage.Channel.Description,"Kanał, przez który będą lub nie będą wykonywane aktualizacje."
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,,

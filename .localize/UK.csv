@@ -918,6 +918,11 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Key.PersonalKey,"Будь ласка, введіть особистий ключ доступу"
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,"Будь ласка, введіть дійсний особистий ключ доступу"
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Server,Сервер Оновлень
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Server.Description,"Сервер, через який виконуватимуться оновлення."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Server.ServerHint,"Примітка: Якщо вибрано {0} як сервер, потрібно ввести {2}, щоб уникнути обмежень на запити. Інакше ви можете зіткнутися з проблемами з оновленнями. Якщо вибрано {1}, ви отримаєте більш плавний досвід оновлення."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Channel,Канал Оновлення
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Channel.Description,"Визначте канал, через який здійснювати оновлення."
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,

@@ -918,246 +918,251 @@ PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.Oth
 Portal.OtherSettingPage.Key.PersonalKey,Indtast venligst din personlige adgangstoken,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
 Portal.OtherSettingPage.Key.PersonalKey.Valid,Indtast venligst en gyldig personlig adgangstoken,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
 PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server,Opdateringsserver,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
+Portal.OtherSettingPage.Server.Description,"Serveren, hvorfra opdateringerne vil blive udført.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
+PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server.ServerHint,"Bemærk: Hvis serveren {0} er valgt, skal du indtaste en {2} for at undgå anmodningsbegrænsninger. Ellers kan du opleve problemer med opdateringer. Hvis {1} er valgt, vil du opleve en mere problemfri opdateringsproces.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
+PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Channel,Opdateringskanal,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
 Portal.OtherSettingPage.Channel.Description,Hvilken kanal opdateringsprocessen skal bruge.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
-PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update,Opdateringsmetode,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
 Portal.OtherSettingPage.Update.Description,Metoden til at udføre opdateringen eller ej.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
-PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update.Limit,Downloadbåndbreddegrænse:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
-PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Auto,Automatisk Opdatering,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
 Portal.OtherSettingPage.Auto.Description,Om opdateringen skal kontrolleres automatisk.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
-PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer,Udviklerværktøjer,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
 Portal.OtherSettingPage.Developer.Description,Administrer udviklerværktøjer til WebView og CefSharp-motor.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
-PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperMode,Standard Udviklerværktøjer:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
-PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperPort,Fejlfinding Port:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
 PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperMode,Standard Udviklerværktøjer:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
+PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,Fejlfinding Port:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
+PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer.DeveloperHint,"Hint: Standard udviklerværktøjer fungerer måske ikke korrekt i understøttede temaer. Fejlfindingsporten har tendens til at fungere bedre. Når du er klar, kan du bruge 'http://localhost:{0}' adressen eller 'chrome://inspect' for Chrome-browseren, 'opera://inspect' for Opera-browseren, 'edge://inspect' for Edge-browseren.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter,Ydelsesmålere,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Counter.Description,Om alle ydelsesmålere skal køre i baggrunden.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter.CounterHint,"Bemærk: Nogle webbaserede temaer fungerer muligvis ikke korrekt, og ingen af de følgende ydelsesindstillinger vil fungere.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Pause,Pause Regel,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Pause.Description,Bestemmer reglen for at sætte tapetet på pause baseret på dine ydeevneindstillinger.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Communication,Kommunikationstype,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Communication.Description,Afgør metoden til at sende beskeder til temaer af typen Web.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu,CPU-brug,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Cpu.Description,Hvad der skal ske med tapetet baseret på dine CPU-brugsindstillinger.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU-brug (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu,GPU Brug,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Gpu.Description,Hvad der skal ske med tapetet baseret på dine GPU-brugsindstillinger.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Grafikbehandlingsenhederne er endnu ikke oprettet,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU Brug (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory,Hukommelsesbrug,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Memory.Description,Hvad der skal ske med tapetet baseret på dine hukommelsesbrugsindstillinger.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory.MemoryUsage,Hukommelsesbrug (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network,Netværksbrug,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Network.Description,Hvad der skal ske med tapetet baseret på dine netværksbrugsindstillinger.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network.NetworkAdapter,Netværksadapter:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Listen over netværksadaptere er ikke blevet oprettet endnu,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkUpload,Upload-størrelse:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkDownload,Download-størrelse:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkPing,Ping-værdi (ms):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
+Portal.PerformanceSettingPage.Network.NetworkUpload,Upload-størrelse:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkDownload,Download-størrelse:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
+PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Ping-værdi (ms):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery,Batteristrøm,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Battery.Description,"Hvad der skal ske med tapetet, når du bruger en bærbar computer på batteri.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery.BatteryUsage,Batteriniveau (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Saver,Batterisparetilstand,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Saver.Description,"Hvad der skal ske med tapetet, når du bruger en bærbar computer i batterisparetilstand.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Virtual,Virtualisering,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Virtual.Description,"Hvad der skal ske med tapetet, når virtualiseringsapplikationer kører.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Remote,Fjernskrivebord,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Remote.Description,"Hvad der skal ske med tapetet, når fjernskrivebordsapplikationer kører.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Fullscreen,Fuldskærmsmodus,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Fullscreen.Description,"Hvad der skal ske med tapetet, når enhver anden applikation kører i fuldskærmstilstand.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
-PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Focus,Fokustilstand,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PerformanceSettingPage.Focus.Description,"Hvad der skal ske med tapetet, når der er en anden applikation i fokus.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server,Butiksserver,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 Portal.PersonalSettingPage.Server.Description,"Angiver hvilken server der vil blive brugt til at vise de temaer, der er angivet i butikken.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server.ServerHint,"Bemærk: Hvis {0} vælges som server, er det nødvendigt at indtaste en {2} for at undgå anmodningsbegrænsninger. Ellers kan du opleve problemer med at få adgang til temaer i butikken. Hvis {1} vælges, får du en mere problemfri butiksoplevelse.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Duration,Butik Genindlæsning,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 Portal.PersonalSettingPage.Duration.Description,Hvor længe temalister i butikken skal genindlæses.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.StoreStart,Automatisk Start,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 Portal.PersonalSettingPage.StoreStart.Description,"Hvorvidt temaer, der er downloadet fra butikken, automatisk skal indstilles som tapet.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adult,Uegnet Indhold,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 Portal.PersonalSettingPage.Adult.Description,"Hvorvidt indhold, der er markeret som ikke-sikkert for arbejde (NSFW), skal vises eller ej i butikken.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Confirm,Sletningsbekræftelse,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 Portal.PersonalSettingPage.Confirm.Description,Hvorvidt der skal anmodes om bekræftelse ved sletning af temaer i din bibliotek.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete,Defekte Temaer,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 Portal.PersonalSettingPage.Delete.Description,Hvorvidt defekte eller manglende temaer i din bibliotek automatisk skal slettes.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete.DeleteHint,"Bemærk: Vær forsigtig, da det kan medføre datatab.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.LibraryStart,Automatisk Start,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 Portal.PersonalSettingPage.LibraryStart.Description,Hvorvidt oprettede temaer automatisk skal indstilles som tapet.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview,Temaforhåndsvisning,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 Portal.PersonalSettingPage.Preview.Description,Hvorvidt temaer skal forhåndsvises ved at sveje musen over dem.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.StorePreview,Butikforhåndsvisning:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 Portal.PersonalSettingPage.Preview.StorePreviewHide,Skjul detaljer:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.LibraryPreview,Biblioteksforhåndsvisning:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Skjul detaljer:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adaptive,Tilpasning,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 Portal.PersonalSettingPage.Adaptive.Description,Tilpas layoutet eller afstanden af de viste temaer.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Margeafstand (pixels):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Layoutordning (antal):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Margeafstand (pixels):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Layoutordning (antal):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Sort,Bibliotekssortering,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 Portal.PersonalSettingPage.Sort.Description,"Bestem, hvordan emnerne i din bibliotek skal sorteres og i hvilket format.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortMode,Sorteringsmetode:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortKind,Sorteringsart:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortMode,Sorteringsmetode:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
+PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,Sorteringsart:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
+PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Store,Butikssideinddeling,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 Portal.PersonalSettingPage.Store.Description,Bestem antallet af temaer på hver side i butikken.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
-PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Library,Biblioteksinddeling,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 Portal.PersonalSettingPage.Library.Description,Bestem antallet af temaer på hver side i din bibliotek.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,
 Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
-PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LogTemporary,Logfiler,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 Portal.SystemSettingPage.LogTemporary.Description,"Administrer alle de logfiler, som applikationen har oprettet.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
-PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Create,Opret,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
-PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Delete,Ryd,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Hint,"Bemærk: Den samlede plads, som logfilerne optager, er {0}. Alle applikationer lukkes, når rydningen begynder.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
+Portal.SystemSettingPage.LogTemporary.Create,Opret,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Delete,Ryd,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,"Bemærk: Den samlede plads, som logfilerne optager, er {0}. Alle applikationer lukkes, når rydningen begynder.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.CacheTemporary,Cache Rydning,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 Portal.SystemSettingPage.CacheTemporary.Description,"Ryd alle de cache-filer, som applikationen har oprettet.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
-PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Start,Start Rydning,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
-PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Hint,"Bemærk: Den samlede plads, som cache-filerne optager, er {0}. Alle applikationer lukkes, når rydningen begynder.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Start,Start Rydning,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
+PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,"Bemærk: Den samlede plads, som cache-filerne optager, er {0}. Alle applikationer lukkes, når rydningen begynder.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
+PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.StoreTemporary,Butik Rydning,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 Portal.SystemSettingPage.StoreTemporary.Description,"Ryd alle de butiksfiler, som applikationen har oprettet.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
-PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Start,Start Rydning,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
-PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Hint,"Bemærk: Den samlede plads, som butiksfilerne optager, er {0}. Alle applikationer lukkes, når rydningen begynder.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Start,Start Rydning,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
+PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,"Bemærk: Den samlede plads, som butiksfilerne optager, er {0}. Alle applikationer lukkes, når rydningen begynder.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
+PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LibraryTemporary,Bibliotek Rydning,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 Portal.SystemSettingPage.LibraryTemporary.Description,"Ryd alle de tema-filer, som findes i dit bibliotek, eller som du har oprettet.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
-PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Start,Start Rydning,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
-PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Hint,"Bemærk: Den samlede plads, som temaerne i dit bibliotek optager, er {0}. Alle applikationer lukkes, når rydningen begynder.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Start,Start Rydning,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
+PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,"Bemærk: Den samlede plads, som temaerne i dit bibliotek optager, er {0}. Alle applikationer lukkes, når rydningen begynder.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
+PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingBackup,Indstillingsfiler,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 Portal.SystemSettingPage.SettingBackup.Description,"Administrer alle de indstillingsfiler, som applikationen har oprettet.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
-PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Export,Eksporter,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
-PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Import,Importér,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Hint,"Bemærk: Alle applikationer lukkes, når handlingen er valgt.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
+Portal.SystemSettingPage.SettingBackup.Export,Eksporter,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Import,Importér,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
+PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,"Bemærk: Alle applikationer lukkes, når handlingen er valgt.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
+PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingReset,Nulstil Indstillinger,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 Portal.SystemSettingPage.SettingReset.Description,"Nulstil alle de indstillingsfiler, som applikationen har oprettet.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
-PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Start,Start Nulstilling,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
-PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Hint,"Bemærk: Alle applikationer lukkes, når nulstillingen begynder.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Start,Start Nulstilling,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
+PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,"Bemærk: Alle applikationer lukkes, når nulstillingen begynder.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
+PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Log.SaveDialogTitle,Gem Logfil,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
-PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Access.Close,Forstået,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 Portal.SystemSettingPage.Access.Title,Adgangs Advarsel,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 Portal.SystemSettingPage.Access.Message,Du har ikke adgang til den valgte placering.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,
 Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
-PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.InputMode,Interaktionsmetode,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
 Portal.WallpaperSettingPage.InputMode.Description,"Afgør de metoder, hvormed interaktion kan forekomme med understøttede tapeter.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
-PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputModule,Interaktionsmodul:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
-PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputDesktop,Behandle interaktion kun når skrivebordet er i fokus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
 PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.DesktopIcon,Skjul for at undgå utilsigtet valg af skrivebordsikoner,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
+Portal.WallpaperSettingPage.InputMode.InputModule,Interaktionsmodul:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
 PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.InputDesktop,Behandle interaktion kun når skrivebordet er i fokus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,Skjul for at undgå utilsigtet valg af skrivebordsikoner,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ScreenLayout,Skærm Layout,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
 Portal.WallpaperSettingPage.ScreenLayout.Description,Ændrer dit tapet's skærm layout.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
-PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.StretchMode,Strækning Metode,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
 Portal.WallpaperSettingPage.StretchMode.Description,Ændrer skaleringen af understøttede tapeter.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
-PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.LoopMode,Loop Tilstand,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
 Portal.WallpaperSettingPage.LoopMode.Description,Ændrer loop tilstanden af understøttede tapeter.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
-PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ShuffleMode,Blanding Tilstand,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Ændrer blanding tilstanden af understøttede tapeter.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
-PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Gif Afspiller,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,Vælg plugin til at afspille Gif-temaer i din samling.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
-PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Video Afspiller,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,Vælg plugin til at afspille Video-temaer i din samling.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
-PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Url Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,Vælg motor til at afspille Url-temaer i din samling.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
-PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Web Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,Vælg motor til at afspille Web-temaer i din samling.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
-PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,YouTube Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,Vælg motor til at afspille YouTube-temaer i din samling.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
-PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Application Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,Vælg motor til at afspille Application-temaer i din samling.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.DA.xaml,
-PASS⦙269,PASS⦙269,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙271,PASS⦙271,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.DA.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,"Et Øjeblik, Hvor Internettets Lys Dæmpes",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.DA.xaml,
 Portal.BrokenStorePage.DescriptionText,Ligesom en stjernefri himmel mangler denne side internettets glans.,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.DA.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.DA.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.DA.xaml,
-PASS⦙270,PASS⦙270,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙272,PASS⦙272,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.DA.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,"Svaret på det, du leder efter, kan gemme sig på himlen",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.DA.xaml,
 Portal.SearchStorePage.DescriptionText,"Hvis resultaterne ikke kommer som forventet, kan himlen give dig en ny oplevelse.",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.DA.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.DA.xaml,
-PASS⦙271,PASS⦙271,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.DA.xaml,Please don't touch the translation in this line.
+PASS⦙273,PASS⦙273,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.DA.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,Opdag det Mystiske i Butikken,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.DA.xaml,
 Portal.UnknownStorePage.DescriptionText,"Gå på opdagelse i det ukendte og begiv dig ud på en rejse for at opklare det mysteriøse, der er sket i butikken.",,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.DA.xaml,

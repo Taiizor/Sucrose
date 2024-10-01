@@ -918,246 +918,251 @@ PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.Oth
 Portal.OtherSettingPage.Key.PersonalKey,Voer alstublieft een persoonlijke toegangssleutel in,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
 Portal.OtherSettingPage.Key.PersonalKey.Valid,Voer een geldige persoonlijke toegangssleutel in,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
 PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server,Update Server,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+Portal.OtherSettingPage.Server.Description,De server waarop updates worden uitgevoerd.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server.ServerHint,"Opmerking: Als {0} is geselecteerd als server, moet u een {2} invoeren om aanvraaglimieten te vermijden. Anders kunt u problemen ondervinden bij updates. Als {1} is geselecteerd, zult u een soepeler update-ervaring hebben.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Channel,Updatekanaal,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
 Portal.OtherSettingPage.Channel.Description,Het kanaal waar de updatebewerking plaatsvindt.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
-PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update,Update Methode,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
 Portal.OtherSettingPage.Update.Description,De methode waarmee de updatebewerking wordt uitgevoerd.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
-PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update.Limit,Downloadbandbreedtelimiet:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
-PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Auto,Automatische Update,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
 Portal.OtherSettingPage.Auto.Description,Of het updateproces automatisch wordt gecontroleerd.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
-PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer,Ontwikkelaarshulpmiddelen,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
 Portal.OtherSettingPage.Developer.Description,Beheer ontwikkelaarstools voor de WebView- en CefSharp-engine.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
-PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperMode,Standaard Ontwikkelaarstools:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
-PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperPort,Debugging-Poort:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
 PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperMode,Standaard Ontwikkelaarstools:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,Debugging-Poort:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
+PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer.DeveloperHint,"Hint: Standaard ontwikkelaarstools werken mogelijk niet correct in ondersteunde thema's. De debugging-poort werkt over het algemeen beter. Wanneer je klaar bent, kun je het adres 'http://localhost:{0}' of 'chrome://inspect' voor de Chrome-browser, 'opera://inspect' voor de Opera-browser, 'edge://inspect' voor de Edge-browser gebruiken.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter,Prestatie Tellers,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Counter.Description,Of alle prestatietellers op de achtergrond werken.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter.CounterHint,Opmerking: Sommige Web-gebaseerde thema's werken mogelijk niet correct en geen van de onderstaande prestatie-instellingen zal van toepassing zijn.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Pause,Pauze Regels,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Pause.Description,Bepaalt de regel voor het pauzeren van de achtergrond op basis van uw prestatie-instellingen.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Communication,Communicatietype,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Communication.Description,Bepaalt de methode om berichten te verzenden naar thema's van het type Web.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu,CPU-Gebruik,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Cpu.Description,Het effect van uw CPU-gebruiksinstellingen op de achtergrondafbeelding.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU-gebruik (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu,GPU Gebruik,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Gpu.Description,Wat er met de achtergrondafbeelding gebeurt op basis van je GPU-gebruikinstellingen.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,De lijst met grafische verwerkingsunits is nog niet aangemaakt,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU Gebruik (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory,Geheugengebruik,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Memory.Description,Het effect van uw geheugengebruiksinstellingen op de achtergrondafbeelding.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory.MemoryUsage,Geheugengebruik (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network,Netwerkgebruik,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Network.Description,Het effect van uw netwerkgebruiksinstellingen op de achtergrondafbeelding.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network.NetworkAdapter,Netwerkadapter:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,De lijst van netwerkadapters is nog niet aangemaakt,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkUpload,Uploadgrootte:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkDownload,Downloadgrootte:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkPing,Ping-waarde (ms):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+Portal.PerformanceSettingPage.Network.NetworkUpload,Uploadgrootte:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkDownload,Downloadgrootte:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Ping-waarde (ms):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery,Batterijstatus,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Battery.Description,Het effect van uw batterijgebruiksinstellingen op de achtergrondafbeelding wanneer u werkt op batterijstroom.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery.BatteryUsage,Batterijstatus (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Saver,Energiespaarstand,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Saver.Description,Het effect van uw instellingen voor energiespaarstand op de achtergrondafbeelding wanneer uw laptop in de spaarstand staat.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Virtual,Virtualisatie,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Virtual.Description,Het effect van virtualisatietoepassingen op de achtergrondafbeelding.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Remote,Extern bureaublad,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Remote.Description,Het effect van externe bureaubladtoepassingen op de achtergrondafbeelding.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Fullscreen,Volledig schermmodus,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Fullscreen.Description,Het effect van het uitvoeren van elke toepassing in volledig scherm op de achtergrondafbeelding.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
-PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Focus,Focusmodus,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PerformanceSettingPage.Focus.Description,Het effect van het hebben van een andere actieve toepassing in de focusmodus op de achtergrondafbeelding.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server,Winkelserver,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 Portal.PersonalSettingPage.Server.Description,Geeft aan welke server zal worden gebruikt om de in de winkel vermelde thema's weer te geven.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server.ServerHint,"Opmerking: Als {0} is geselecteerd als de server, is het noodzakelijk om een {2} in te voeren om verzoeklimieten te vermijden. Anders kunt u problemen ondervinden bij het openen van thema's in de winkel. Als {1} is geselecteerd, hebt u een soepelere winkelervaring.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Duration,Winkel Vernieuwen,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 Portal.PersonalSettingPage.Duration.Description,Hoe vaak de thema's in de winkellijst vernieuwd moeten worden.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.StoreStart,Automatisch Starten,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 Portal.PersonalSettingPage.StoreStart.Description,Of een gedownload thema automatisch als achtergrond moet worden ingesteld.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adult,Onveilige Inhoud,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 Portal.PersonalSettingPage.Adult.Description,Of inhoud die als niet veilig voor werk (NSFW) is gemarkeerd in de winkel getoond moet worden.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Confirm,Verwijderingsbevestiging,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 Portal.PersonalSettingPage.Confirm.Description,Of er een bevestiging moet worden gevraagd bij het verwijderen van thema's uit de bibliotheek.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete,Beschadigde Themata,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 Portal.PersonalSettingPage.Delete.Description,Of beschadigde of ontbrekende thema's in de bibliotheek automatisch verwijderd moeten worden.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete.DeleteHint,"Let op: Wees voorzichtig, want dit kan gegevensverlies veroorzaken.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.LibraryStart,Automatisch Starten,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 Portal.PersonalSettingPage.LibraryStart.Description,Of een gemaakt thema automatisch als achtergrond moet worden ingesteld.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview,Themavoorbeeld,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 Portal.PersonalSettingPage.Preview.Description,Of thema's moeten worden gepreviewd wanneer u eroverheen gaat met de muisaanwijzer.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.StorePreview,Winkelvoorbeeld:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 Portal.PersonalSettingPage.Preview.StorePreviewHide,Details Verbergen:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.LibraryPreview,Bibliotheekvoorbeeld:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Details Verbergen:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adaptive,Aanpasbaar Lay-out,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 Portal.PersonalSettingPage.Adaptive.Description,Pas de lay-out of afstand van weergegeven thema's aan.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Margeafstand (pixels):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Lay-outvolgorde (aantal):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Margeafstand (pixels):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Lay-outvolgorde (aantal):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Sort,Bibliotheek Sorteren,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 Portal.PersonalSettingPage.Sort.Description,Bepaal hoe thema's in uw bibliotheek worden gesorteerd en in welk formaat.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortMode,Sorteermode:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortKind,Sorteertype:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortMode,Sorteermode:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,Sorteertype:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
+PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Store,Winkel Paginering,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 Portal.PersonalSettingPage.Store.Description,Bepaal hoeveel thema's er op elke pagina in de winkel worden weergegeven.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
-PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Library,Bibliotheek Paginering,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 Portal.PersonalSettingPage.Library.Description,Bepaal hoeveel thema's er op elke pagina in uw bibliotheek worden weergegeven.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,
 Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
-PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LogTemporary,Logbestanden,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 Portal.SystemSettingPage.LogTemporary.Description,Beheer alle logbestanden die de toepassing heeft aangemaakt.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
-PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Create,Aanmaken,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
-PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Delete,Opschonen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Hint,Opmerking: Totale ruimte ingenomen door logbestanden is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+Portal.SystemSettingPage.LogTemporary.Create,Aanmaken,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Delete,Opschonen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,Opmerking: Totale ruimte ingenomen door logbestanden is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.CacheTemporary,Cache Opruimen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 Portal.SystemSettingPage.CacheTemporary.Description,Ruim alle cachebestanden op die de toepassing heeft aangemaakt.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
-PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Start,Begin met Opruimen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
-PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Hint,Opmerking: Totale ruimte ingenomen door cachebestanden is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Start,Begin met Opruimen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,Opmerking: Totale ruimte ingenomen door cachebestanden is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.StoreTemporary,Winkel Opruimen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 Portal.SystemSettingPage.StoreTemporary.Description,Ruim alle winkelbestanden op die de toepassing heeft aangemaakt.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
-PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Start,Begin met Opruimen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
-PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Hint,Opmerking: Totale ruimte ingenomen door winkelbestanden is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Start,Begin met Opruimen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,Opmerking: Totale ruimte ingenomen door winkelbestanden is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LibraryTemporary,Bibliotheek Opruimen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 Portal.SystemSettingPage.LibraryTemporary.Description,Ruim alle themabestanden op die in uw bibliotheek staan of die de toepassing heeft aangemaakt.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
-PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Start,Begin met Opruimen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
-PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Hint,Opmerking: Totale ruimte ingenomen door themabestanden in uw bibliotheek is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Start,Begin met Opruimen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,Opmerking: Totale ruimte ingenomen door themabestanden in uw bibliotheek is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingBackup,Instellingsbestanden,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 Portal.SystemSettingPage.SettingBackup.Description,Beheer alle instellingsbestanden die de toepassing heeft aangemaakt.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
-PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Export,Back-up maken,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
-PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Import,Herstellen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Hint,Opmerking: Alle toepassingen worden afgesloten wanneer de geselecteerde bewerking begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+Portal.SystemSettingPage.SettingBackup.Export,Back-up maken,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Import,Herstellen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,Opmerking: Alle toepassingen worden afgesloten wanneer de geselecteerde bewerking begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingReset,Instellingen Herstellen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 Portal.SystemSettingPage.SettingReset.Description,Herstel alle instellingenbestanden die de toepassing heeft aangemaakt.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
-PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Start,Begin met Herstellen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
-PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Hint,Opmerking: Alle toepassingen worden afgesloten wanneer het herstellen begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Start,Begin met Herstellen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,Opmerking: Alle toepassingen worden afgesloten wanneer het herstellen begint.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
+PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Log.SaveDialogTitle,Logbestand Opslaan,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
-PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Access.Close,Begrepen,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 Portal.SystemSettingPage.Access.Title,Toegangswaarschuwing,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 Portal.SystemSettingPage.Access.Message,U heeft geen toestemming om toegang te krijgen tot de geselecteerde locatie.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.InputMode,Interactiemethode,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.InputMode.Description,Bepaalt de methoden waarmee interactie kan plaatsvinden met ondersteunde achtergronden.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputModule,Interactiemodule:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputDesktop,Interactie alleen verwerken wanneer het bureaublad is gefocust,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.DesktopIcon,Verbergen om per ongeluk selecteren van bureaubladpictogrammen te voorkomen,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+Portal.WallpaperSettingPage.InputMode.InputModule,Interactiemodule:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.InputDesktop,Interactie alleen verwerken wanneer het bureaublad is gefocust,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,Verbergen om per ongeluk selecteren van bureaubladpictogrammen te voorkomen,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ScreenLayout,Schermindeling,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.ScreenLayout.Description,Wijzigt de schikking van uw achtergronden op het scherm.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.StretchMode,Rekmodus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.StretchMode.Description,Verandert de schaalmethode voor ondersteunde achtergronden.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.LoopMode,Herhalingsmodus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.LoopMode.Description,Verandert de herhalingsinstelling voor ondersteunde achtergronden.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ShuffleMode,Schudmodus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Verandert de schudinstelling voor ondersteunde achtergronden.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Gif Speler,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,Selecteer de plug-in die Gif-thema's in uw bibliotheek zal afspelen.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Video Speler,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,Selecteer de plug-in die Video-thema's in uw bibliotheek zal afspelen.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Url Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,Selecteer de motor die Url-thema's in uw bibliotheek zal uitvoeren.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Web Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,Selecteer de motor die Web-thema's in uw bibliotheek zal uitvoeren.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,YouTube Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,Selecteer de motor die YouTube-thema's in uw bibliotheek zal uitvoeren.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Toepassingsmotor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,Selecteer de motor die Toepassings-thema's in uw bibliotheek zal uitvoeren.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,
-PASS⦙269,PASS⦙269,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙271,PASS⦙271,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,Een Moment van Gedoofde Internetlichten,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,
 Portal.BrokenStorePage.DescriptionText,"Zoals een sterrenloze hemel, hier ontbreekt de glans van het internet",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.NL.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,
-PASS⦙270,PASS⦙270,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙272,PASS⦙272,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Het Antwoord op wat je zoekt kan in de lucht verborgen zijn,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,
 Portal.SearchStorePage.DescriptionText,"Als de resultaten niet zijn wat je verwachtte, kan de lucht je een nieuwe ervaring bieden",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,
-PASS⦙271,PASS⦙271,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙273,PASS⦙273,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,Ontdek het mysterieuze geval in de winkel,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,
 Portal.UnknownStorePage.DescriptionText,Ga op zoek naar het onbekende en begin aan een reis om het mysterieuze geval in de winkel op te helderen,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,

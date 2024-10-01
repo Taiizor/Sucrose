@@ -918,246 +918,251 @@ PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.Oth
 Portal.OtherSettingPage.Key.PersonalKey,유효한 개인 액세스 토큰을 입력하십시오,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
 Portal.OtherSettingPage.Key.PersonalKey.Valid,유효한 개인 액세스 토큰을 입력하십시오,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
 PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server,업데이트 서버,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
+Portal.OtherSettingPage.Server.Description,업데이트가 수행될 서버입니다.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
+PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server.ServerHint,참고: {0}이(가) 서버로 선택된 경우 요청 제한을 피하기 위해 {2}을(를) 입력해야 합니다. 그렇지 않으면 업데이트에 문제가 발생할 수 있습니다. {1}이(가) 선택되면 더 원활한 업데이트 경험을 할 수 있습니다.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
+PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Channel,업데이트 채널,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
 Portal.OtherSettingPage.Channel.Description,업데이트 작업이 어느 채널을 통해 수행될지 선택합니다.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
-PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update,업데이트 방법,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
 Portal.OtherSettingPage.Update.Description,업데이트 작업이 어떤 방법으로 수행될지 선택합니다.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
-PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update.Limit,다운로드 대역폭 제한:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
-PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Auto,자동 업데이트,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
 Portal.OtherSettingPage.Auto.Description,업데이트 프로세스가 자동으로 확인될지 여부입니다.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
-PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer,개발자 도구,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
 Portal.OtherSettingPage.Developer.Description,WebView 및 CefSharp 엔진용 개발자 도구 관리.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
-PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperMode,기본 개발자 도구:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
-PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperPort,디버깅 포트:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
 PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperMode,기본 개발자 도구:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
+PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,디버깅 포트:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
+PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer.DeveloperHint,"힌트: 기본 개발자 도구는 지원되는 테마에서 제대로 작동하지 않을 수 있습니다. 디버깅 포트가 더 잘 작동합니다. 준비가 되면 'http://localhost:{0}' 주소 또는 Chrome 브라우저용 'chrome://inspect', Opera 브라우저용 'opera://inspect', Edge 브라우저용 'edge://inspect'를 사용할 수 있습니다.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter,성능 카운터,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Counter.Description,모든 성능 카운터가 백그라운드에서 작동할지 여부.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter.CounterHint,참고: 일부 Web 기반 테마는 제대로 작동하지 않을 수 있으며 다음 성능 설정 중 어느 하나도 작동하지 않을 것입니다.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Pause,일시 정지 규칙,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Pause.Description,성능 설정을 기반으로 배경화면을 일시 중지하는 규칙을 결정합니다.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Communication,통신 유형,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Communication.Description,Web 타입의 테마에 메시지를 보내는 방법을 결정합니다.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu,CPU 사용률,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Cpu.Description,CPU 사용률 설정에 따라 배경화면이 어떻게 작동할지.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU 사용률 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu,GPU 사용,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Gpu.Description,GPU 사용 설정에 따라 배경 화면에 어떤 일이 발생하는지.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,그래픽 처리 장치 목록이 아직 생성되지 않았습니다,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU 사용 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory,메모리 사용량,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Memory.Description,메모리 사용 설정에 따라 배경화면이 어떻게 작동할지.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory.MemoryUsage,메모리 사용률 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network,네트워크 사용량,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Network.Description,네트워크 사용 설정에 따라 배경화면이 어떻게 작동할지.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network.NetworkAdapter,네트워크 어댑터:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,네트워크 어댑터 목록이 아직 생성되지 않았습니다.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkUpload,업로드 크기:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkDownload,다운로드 크기:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkPing,Ping 값 (밀리초):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
+Portal.PerformanceSettingPage.Network.NetworkUpload,업로드 크기:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkDownload,다운로드 크기:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
+PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Ping 값 (밀리초):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery,배터리 전원,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Battery.Description,노트북 배터리 전원을 사용하는 동안 배경화면이 어떻게 작동할지.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery.BatteryUsage,배터리 상태 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Saver,배터리 절약 모드,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Saver.Description,노트북 배터리 절약 모드에서 배경화면이 어떻게 작동할지.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Virtual,가상화,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Virtual.Description,가상화 응용 프로그램이 실행되는 동안 배경화면이 어떻게 작동할지.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Remote,원격 데스크톱,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Remote.Description,원격 데스크톱 응용 프로그램이 실행되는 동안 배경화면이 어떻게 작동할지.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Fullscreen,전체 화면 모드,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Fullscreen.Description,전체 화면에서 다른 어떤 애플리케이션이 실행 중일 때 배경화면이 어떻게 작동할지.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
-PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Focus,포커스 모드,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PerformanceSettingPage.Focus.Description,다른 어플리케이션이 활성화되어 있는 동안 배경화면 행동에 대한 설정입니다.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,
 Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server,스토어 서버,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 Portal.PersonalSettingPage.Server.Description,상점에 나열된 테마를 표시하는 데 사용될 서버를 지정합니다.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server.ServerHint,"참고: 서버로 {0}이 선택된 경우, 요청 제한을 피하기 위해 {2}을(를) 입력해야 합니다. 그렇지 않으면 상점의 테마에 액세스하는 데 문제가 발생할 수 있습니다. {1}이(가) 선택된 경우, 더 원활한 상점 경험을 얻을 수 있습니다.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Duration,스토어 갱신,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 Portal.PersonalSettingPage.Duration.Description,스토어에 표시되는 테마가 갱신되는 데 걸리는 시간입니다.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.StoreStart,자동 시작,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 Portal.PersonalSettingPage.StoreStart.Description,스토어에서 다운로드한 테마를 자동으로 배경화면으로 설정할지 여부입니다.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adult,성인 콘텐츠,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 Portal.PersonalSettingPage.Adult.Description,스토어에서 안전하지 않다고 표시된 (NSFW) 콘텐츠를 표시할지 여부입니다.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Confirm,삭제 확인,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 Portal.PersonalSettingPage.Confirm.Description,라이브러리에서 테마를 삭제할 때 확인을 요청할지 여부입니다.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete,손상된 테마,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 Portal.PersonalSettingPage.Delete.Description,라이브러리에서 손상된 또는 누락된 테마를 자동으로 삭제할지 여부입니다.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete.DeleteHint,참고: 조심스럽게 다룰 필요가 있습니다. 그렇지 않으면 데이터 손실이 발생할 수 있습니다.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.LibraryStart,자동 시작,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 Portal.PersonalSettingPage.LibraryStart.Description,생성된 테마를 자동으로 배경화면으로 설정할지 여부입니다.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview,테마 미리 보기,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 Portal.PersonalSettingPage.Preview.Description,테마 위로 마우스를 가져갈 때 미리 보여질지 여부입니다.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.StorePreview,스토어 미리 보기:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 Portal.PersonalSettingPage.Preview.StorePreviewHide,세부 정보 숨김:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.LibraryPreview,라이브러리 미리 보기:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 Portal.PersonalSettingPage.Preview.LibraryPreviewHide,세부 정보 숨김:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adaptive,적응형 레이아웃,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 Portal.PersonalSettingPage.Adaptive.Description,표시된 테마의 레이아웃이나 간격을 사용자 정의합니다.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,여백 간격 (픽셀):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,레이아웃 순서 (개수):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,여백 간격 (픽셀):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,레이아웃 순서 (개수):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Sort,라이브러리 정렬,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 Portal.PersonalSettingPage.Sort.Description,라이브러리에 있는 테마를 어떤 형식으로 어떻게 정렬할지 지정합니다.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortMode,정렬 모드:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortKind,정렬 종류:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortMode,정렬 모드:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
+PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,정렬 종류:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
+PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Store,스토어 페이지,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 Portal.PersonalSettingPage.Store.Description,각 스토어 페이지에 표시될 테마 수를 설정합니다.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
-PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Library,라이브러리 페이지,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 Portal.PersonalSettingPage.Library.Description,라이브러리의 각 페이지에 표시될 테마 수를 설정합니다.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,
 Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
-PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LogTemporary,로그 파일,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 Portal.SystemSettingPage.LogTemporary.Description,앱에서 생성한 모든 로그 파일 관리.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
-PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Create,생성,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
-PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Delete,지우기,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Hint,참고: 로그 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
+Portal.SystemSettingPage.LogTemporary.Create,생성,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Delete,지우기,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,참고: 로그 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.CacheTemporary,캐시 지우기,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 Portal.SystemSettingPage.CacheTemporary.Description,앱에서 생성한 모든 캐시 파일 지우기.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
-PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Start,지우기 시작,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
-PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Hint,참고: 캐시 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Start,지우기 시작,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
+PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,참고: 캐시 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
+PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.StoreTemporary,스토어 지우기,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 Portal.SystemSettingPage.StoreTemporary.Description,앱에서 생성한 모든 스토어 파일 지우기.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
-PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Start,지우기 시작,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
-PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Hint,참고: 스토어 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Start,지우기 시작,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
+PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,참고: 스토어 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
+PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LibraryTemporary,라이브러리 지우기,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 Portal.SystemSettingPage.LibraryTemporary.Description,라이브러리에서 찾거나 생성한 모든 테마 파일 지우기.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
-PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Start,지우기 시작,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
-PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Hint,참고: 라이브러리의 테마 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Start,지우기 시작,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
+PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,참고: 라이브러리의 테마 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
+PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingBackup,설정 파일,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 Portal.SystemSettingPage.SettingBackup.Description,앱에서 생성한 모든 설정 파일 관리.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
-PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Export,백업,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
-PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Import,복원,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Hint,참고: 선택한 작업을 시작하면 모든 앱이 닫힙니다.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
+Portal.SystemSettingPage.SettingBackup.Export,백업,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Import,복원,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
+PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,참고: 선택한 작업을 시작하면 모든 앱이 닫힙니다.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
+PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingReset,설정 초기화,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 Portal.SystemSettingPage.SettingReset.Description,앱에서 생성한 모든 설정 파일 초기화.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
-PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Start,초기화 시작,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
-PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Hint,참고: 초기화 작업을 시작하면 모든 앱이 닫힙니다.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Start,초기화 시작,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
+PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,참고: 초기화 작업을 시작하면 모든 앱이 닫힙니다.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
+PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Log.SaveDialogTitle,로그 파일 저장,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
-PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Access.Close,알겠습니다,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 Portal.SystemSettingPage.Access.Title,접근 경고,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 Portal.SystemSettingPage.Access.Message,선택한 위치에 접근할 권한이 없습니다.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,
 Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
-PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.InputMode,상호 작용 방법,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
 Portal.WallpaperSettingPage.InputMode.Description,지원되는 배경 화면과의 상호 작용 방법을 결정합니다.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
-PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputModule,상호 작용 모듈:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
-PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputDesktop,바탕 화면이 초점을 맞춘 경우에만 상호 작용 처리,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
 PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.DesktopIcon,의도하지 않은 바탕 화면 아이콘 선택을 피하기 위해 숨기기,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
+Portal.WallpaperSettingPage.InputMode.InputModule,상호 작용 모듈:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
 PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.InputDesktop,바탕 화면이 초점을 맞춘 경우에만 상호 작용 처리,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,의도하지 않은 바탕 화면 아이콘 선택을 피하기 위해 숨기기,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ScreenLayout,화면 레이아웃,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
 Portal.WallpaperSettingPage.ScreenLayout.Description,바탕 화면 배치를 변경합니다.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
-PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.StretchMode,크기 맞추기 모드,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
 Portal.WallpaperSettingPage.StretchMode.Description,지원되는 바탕 화면에서 크기 맞추기를 변경합니다.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
-PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.LoopMode,반복 모드,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
 Portal.WallpaperSettingPage.LoopMode.Description,지원되는 바탕 화면에서 반복 모드를 변경합니다.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
-PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ShuffleMode,섞기 모드,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,지원되는 바탕 화면에서 섞기 모드를 변경합니다.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
-PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Gif 플레이어,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,라이브러리에서 사용할 Gif 테마 플레이어를 선택합니다.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
-PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Video 플레이어,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,라이브러리에서 사용할 Video 테마 플레이어를 선택합니다.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
-PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Url 엔진,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,라이브러리에서 사용할 Url 테마 엔진을 선택합니다.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
-PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Web 엔진,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,라이브러리에서 사용할 Web 테마 엔진을 선택합니다.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
-PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,YouTube 엔진,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,라이브러리에서 사용할 YouTube 테마 엔진을 선택합니다.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
-PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Application 엔진,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,라이브러리에서 사용할 Application 테마 엔진을 선택합니다.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.KO.xaml,
-PASS⦙269,PASS⦙269,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙271,PASS⦙271,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.KO.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,인터넷 불빛이 꺼진 한 순간,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.KO.xaml,
 Portal.BrokenStorePage.DescriptionText,별이 없는 하늘처럼 여기에도 인터넷의 빛이 없습니다,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.KO.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.KO.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.KO.xaml,
-PASS⦙270,PASS⦙270,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙272,PASS⦙272,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.KO.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,찾는 것의 답은 하늘에 있을지도 모릅니다,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.KO.xaml,
 Portal.SearchStorePage.DescriptionText,결과가 기대와 다르다면 하늘은 새로운 경험을 제공할 수 있습니다,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.KO.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.KO.xaml,
-PASS⦙271,PASS⦙271,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.KO.xaml,Please don't touch the translation in this line.
+PASS⦙273,PASS⦙273,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.KO.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,스토어에서 발생한 미지의 사태를 발견하세요,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.KO.xaml,
 Portal.UnknownStorePage.DescriptionText,알려지지 않은 것을 추적하고 스토어에서 발생한 미지의 사태를 밝히는 여정에 나서세요,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.KO.xaml,

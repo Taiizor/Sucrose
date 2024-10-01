@@ -918,6 +918,11 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Key.PersonalKey,Silakan masukkan token akses pribadi
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Silakan masukkan token akses pribadi yang valid
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Server,Server Pembaruan
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Server.Description,Server tempat pembaruan akan dilakukan.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Server.ServerHint,"Catatan: Jika {0} dipilih sebagai server, Anda harus memasukkan {2} untuk menghindari batas permintaan. Jika tidak, Anda mungkin mengalami masalah dengan pembaruan. Jika {1} dipilih, Anda akan mendapatkan pengalaman pembaruan yang lebih lancar."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Channel,Saluran Pembaruan
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Channel.Description,Saluran yang digunakan untuk melakukan pembaruan.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,

@@ -918,6 +918,11 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Key.PersonalKey,유효한 개인 액세스 토큰을 입력하십시오
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,유효한 개인 액세스 토큰을 입력하십시오
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Server,업데이트 서버
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Server.Description,업데이트가 수행될 서버입니다.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Server.ServerHint,참고: {0}이(가) 서버로 선택된 경우 요청 제한을 피하기 위해 {2}을(를) 입력해야 합니다. 그렇지 않으면 업데이트에 문제가 발생할 수 있습니다. {1}이(가) 선택되면 더 원활한 업데이트 경험을 할 수 있습니다.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Channel,업데이트 채널
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Channel.Description,업데이트 작업이 어느 채널을 통해 수행될지 선택합니다.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,

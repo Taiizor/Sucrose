@@ -27,6 +27,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Vă rugăm să introduceți o cheie de acces personală</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Vă rugăm să introduceți o cheie de acces personală validă</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Server">Server de Actualizare</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Server.Description">Serverul prin care se vor face actualizările.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Notă: Dacă {0} este selectat ca server, trebuie să introduceți un {2} pentru a evita limitele de cerere. În caz contrar, este posibil să întâmpinați probleme la actualizări. Dacă {1} este selectat, veți avea o experiență de actualizare mai lină.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Canal de Actualizare</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Unde ar trebui să aibă loc procesul de actualizare.</system:String>
 

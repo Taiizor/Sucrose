@@ -7,7 +7,7 @@
     <system:String x:Key="Portal.PersonalSettingPage.Server">Mağaza Sunucusu</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Server.Description">Mağazada listelenen temaların hangi sunucu üzerinden görüntüleneceği.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">Not: Sunucu olarak {0} seçilmişse istek limitlerine takılmamak için bir {2} girilmesi gerekiyor. Aksi taktirde mağazadaki temalara erişirken sorun yaşayabilirsiniz. Eğer ki {1} seçilmişse görece daha sorunsuz bir mağaza deneyimi yaşarsınız</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">Not: Sunucu olarak {0} seçilmişse istek limitlerine takılmamak için bir {2} girilmesi gerekiyor. Aksi taktirde mağazadaki temalara erişirken sorun yaşayabilirsiniz. Eğer ki {1} seçilmişse görece daha sorunsuz bir mağaza deneyimi yaşarsınız.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Mağaza Yenileme</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Mağazada listelenen temaların ne kadar süreyle yenilenip yenilenmeyeceği.</system:String>

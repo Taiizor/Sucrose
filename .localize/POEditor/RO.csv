@@ -918,246 +918,251 @@ PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.Oth
 Portal.OtherSettingPage.Key.PersonalKey,Vă rugăm să introduceți o cheie de acces personală,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
 Portal.OtherSettingPage.Key.PersonalKey.Valid,Vă rugăm să introduceți o cheie de acces personală validă,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
 PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server,Server de Actualizare,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+Portal.OtherSettingPage.Server.Description,Serverul prin care se vor face actualizările.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server.ServerHint,"Notă: Dacă {0} este selectat ca server, trebuie să introduceți un {2} pentru a evita limitele de cerere. În caz contrar, este posibil să întâmpinați probleme la actualizări. Dacă {1} este selectat, veți avea o experiență de actualizare mai lină.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Channel,Canal de Actualizare,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
 Portal.OtherSettingPage.Channel.Description,Unde ar trebui să aibă loc procesul de actualizare.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
-PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update,Metoda de Actualizare,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
 Portal.OtherSettingPage.Update.Description,Cum ar trebui să se desfășoare procesul de actualizare.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
-PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update.Limit,Limită Lățime de Bandă pentru Descărcare:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
-PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Auto,Actualizare Automată,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
 Portal.OtherSettingPage.Auto.Description,Dacă procesul de actualizare va fi verificat automat.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
-PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer,Instrumente de Dezvoltare,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
 Portal.OtherSettingPage.Developer.Description,Gestionați instrumentele de dezvoltare pentru motorul WebView și CefSharp.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
-PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperMode,Instrumente de Dezvoltare Implicite:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
-PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperPort,Port de Depanare:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
 PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperMode,Instrumente de Dezvoltare Implicite:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,Port de Depanare:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
+PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer.DeveloperHint,"Sugestie: Instrumentele de dezvoltare implicite pot să nu funcționeze corect în temele suportate. Portul de depanare are tendința să funcționeze mai bine. Când sunteți gata, puteți utiliza adresa 'http://localhost:{0}' sau 'chrome://inspect' pentru browserul Chrome, 'opera://inspect' pentru browserul Opera, 'edge://inspect' pentru browserul Edge.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter,Contoare de Performanță,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Counter.Description,Dacă toate contoarele de performanță vor funcționa în fundal.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter.CounterHint,Notă: Unele teme de tip Web pot să nu funcționeze corect și niciuna dintre următoarele setări de performanță nu va funcționa.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Pause,Regulă de Pauză,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Pause.Description,Stabilește regula pentru pauzarea tapetului pe baza setărilor de performanță.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Communication,Tip de Comunicare,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Communication.Description,Determină metoda de trimitere a mesajelor către temele de tip Web.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu,Utilizare Procesor,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Cpu.Description,Ce se întâmplă cu fundalul temei dvs. în funcție de setările de utilizare a procesorului.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu.CpuUsage,Utilizare Procesor (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu,Utilizare GPU,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Gpu.Description,Ce se întâmplă cu imaginea de fundal în funcție de setările de utilizare a GPU-ului.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Lista unităților de procesare grafică nu a fost încă creată,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuUsage,Utilizare GPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory,Utilizare Memorii,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Memory.Description,Ce se întâmplă cu fundalul temei dvs. în funcție de setările de utilizare a memoriei.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory.MemoryUsage,Utilizare Memorii (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network,Utilizare Rețea,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Network.Description,Ce se întâmplă cu fundalul temei dvs. în funcție de setările legate de utilizarea rețelei.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network.NetworkAdapter,Adaptor de Rețea:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Lista de adaptoare de rețea nu a fost încă creată,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkUpload,Dimensiune Încărcare:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkDownload,Dimensiune Descărcare:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkPing,Valoare Ping (ms):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+Portal.PerformanceSettingPage.Network.NetworkUpload,Dimensiune Încărcare:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkDownload,Dimensiune Descărcare:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Valoare Ping (ms):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery,Baterie,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Battery.Description,Ce se întâmplă cu fundalul temei dvs. atunci când funcționează pe baterie.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery.BatteryUsage,Starea Bateriei (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Saver,Mod Economisire Baterie,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Saver.Description,Ce se întâmplă cu fundalul temei dvs. atunci când modul de economisire a bateriei este activat.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Virtual,Virtualizare,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Virtual.Description,Ce se întâmplă cu fundalul temei dvs. atunci când se utilizează aplicații de virtualizare.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Remote,Desktop la Distanță,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Remote.Description,Ce se întâmplă cu fundalul temei dvs. atunci când se utilizează aplicații pentru desktop la distanță.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Fullscreen,Mod Ecran Complet,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Fullscreen.Description,Ce se întâmplă cu fundalul temei dvs. atunci când se utilizează aplicații în modul ecran complet.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
-PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Focus,Mod Focus,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PerformanceSettingPage.Focus.Description,Ce se întâmplă cu fundalul temei dvs. atunci când există alte aplicații în prim-plan.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RO.xaml,
 Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server,Server Magazin,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 Portal.PersonalSettingPage.Server.Description,Specifică care server va fi utilizat pentru afișarea temelor listate în magazin.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server.ServerHint,"Notă: Dacă {0} este selectat ca server, este necesar să introduceți un {2} pentru a evita limitele de cerere. În caz contrar, puteți întâmpina probleme în accesarea temelor din magazin. Dacă este selectat {1}, veți avea o experiență mai fluidă în magazin.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Duration,Actualizare Magazin,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 Portal.PersonalSettingPage.Duration.Description,Durata pentru care temele listate în magazin se vor actualiza.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.StoreStart,Pornire Automată,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 Portal.PersonalSettingPage.StoreStart.Description,Dacă temele descărcate din magazin vor fi setate automat ca fundal de ecran.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adult,Conținut pentru Adulți,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 Portal.PersonalSettingPage.Adult.Description,Dacă se vor afișa sau nu conținuturile marcate ca fiind pentru adulți (NSFW) din magazin.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Confirm,Confirmare Ștergere,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 Portal.PersonalSettingPage.Confirm.Description,Dacă se va cere confirmare când se șterg temele din bibliotecă.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete,Teme Corupte,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 Portal.PersonalSettingPage.Delete.Description,Dacă temele corupte sau incomplete din bibliotecă vor fi șterse automat sau nu.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete.DeleteHint,"Notă: Trebuie să fiți atent, deoarece aceasta poate duce la pierderea datelor.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.LibraryStart,Pornire Automată,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 Portal.PersonalSettingPage.LibraryStart.Description,Dacă temele create vor fi setate automat ca fundal de ecran.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview,Previzualizare Temă,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 Portal.PersonalSettingPage.Preview.Description,Dacă temele vor fi sau nu previzualizate când treceti peste ele.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.StorePreview,Previzualizare Magazin:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 Portal.PersonalSettingPage.Preview.StorePreviewHide,Ascunde Detaliile:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.LibraryPreview,Previzualizare Bibliotecă:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Ascunde Detaliile:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adaptive,Aspect Adaptabil,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 Portal.PersonalSettingPage.Adaptive.Description,Personalizați aspectul sau distanța dintre temele afișate.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Margine (Pixeli):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Aspect Ordine (Bucăți):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Margine (Pixeli):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Aspect Ordine (Bucăți):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Sort,Sortare Bibliotecă,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 Portal.PersonalSettingPage.Sort.Description,Specificați modul în care temele din biblioteca dvs. vor fi sortate și în ce format.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortMode,Mod de Sortare:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortKind,Tip de Sortare:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortMode,Mod de Sortare:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,Tip de Sortare:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
+PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Store,Paginare Magazin,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 Portal.PersonalSettingPage.Store.Description,Setați numărul de teme pentru fiecare pagină din magazin.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
-PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Library,Paginare Bibliotecă,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 Portal.PersonalSettingPage.Library.Description,Setați numărul de teme pentru fiecare pagină din bibliotecă.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RO.xaml,
 Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
-PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LogTemporary,Fișierele Jurnal,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 Portal.SystemSettingPage.LogTemporary.Description,Gestionarea tuturor fișierelor jurnal create de aplicație.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
-PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Create,Creare,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
-PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Delete,Ștergere,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Hint,Notă: Spațiul total ocupat de fișierele jurnal este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+Portal.SystemSettingPage.LogTemporary.Create,Creare,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Delete,Ștergere,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,Notă: Spațiul total ocupat de fișierele jurnal este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.CacheTemporary,Ștergere Cache,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 Portal.SystemSettingPage.CacheTemporary.Description,Ștergerea tuturor fișierelor cache create de aplicație.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
-PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Start,Începe Curățarea,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
-PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Hint,Notă: Spațiul total ocupat de fișierele cache este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Start,Începe Curățarea,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,Notă: Spațiul total ocupat de fișierele cache este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.StoreTemporary,Ștergere Magazin,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 Portal.SystemSettingPage.StoreTemporary.Description,Ștergerea tuturor fișierelor magazin create de aplicație.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
-PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Start,Începe Curățarea,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
-PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Hint,Notă: Spațiul total ocupat de fișierele magazin este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Start,Începe Curățarea,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,Notă: Spațiul total ocupat de fișierele magazin este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LibraryTemporary,Ștergere Bibliotecă,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 Portal.SystemSettingPage.LibraryTemporary.Description,"Ștergerea tuturor fișierelor temă din bibliotecă, fie că sunt în bibliotecă sau create de utilizator.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
-PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Start,Începe Curățarea,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
-PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Hint,Notă: Spațiul total ocupat de fișierele temă din bibliotecă este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Start,Începe Curățarea,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,Notă: Spațiul total ocupat de fișierele temă din bibliotecă este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingBackup,Fișiere Setări,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 Portal.SystemSettingPage.SettingBackup.Description,Gestionarea tuturor fișierelor de setări create de aplicație.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
-PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Export,Exportare,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
-PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Import,Importare,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Hint,Notă: Toate aplicațiile vor fi închise doar atunci când începe operațiunea aleasă.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+Portal.SystemSettingPage.SettingBackup.Export,Exportare,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Import,Importare,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,Notă: Toate aplicațiile vor fi închise doar atunci când începe operațiunea aleasă.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingReset,Resetare Setări,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 Portal.SystemSettingPage.SettingReset.Description,Resetarea tuturor fișierelor de setări create de aplicație.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
-PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Start,Începe Resetarea,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
-PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Hint,Notă: Toate aplicațiile vor fi închise doar atunci când începe operațiunea aleasă.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Start,Începe Resetarea,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,Notă: Toate aplicațiile vor fi închise doar atunci când începe operațiunea aleasă.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
+PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Log.SaveDialogTitle,Salvează Fișierul Jurnal,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 Portal.SystemSettingPage.Log.SaveDialogFilter,Fișiere ZIP (*.zip)|*.zip|Toate Fișierele (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
-PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Access.Close,Înțeles,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 Portal.SystemSettingPage.Access.Title,Avertisment de Acces,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 Portal.SystemSettingPage.Access.Message,Nu aveți permisiunea de a accesa locația selectată.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.InputMode,Metoda de Interacțiune,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.InputMode.Description,Stabilește metodele prin care poate avea loc interacțiunea cu tapetele acceptate.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputModule,Modul de Interacțiune:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputDesktop,Procesează interacțiunea doar când desktop-ul este în focus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.DesktopIcon,Ascundeți pentru a evita selectarea accidentală a pictogramelor de pe desktop,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+Portal.WallpaperSettingPage.InputMode.InputModule,Modul de Interacțiune:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.InputDesktop,Procesează interacțiunea doar când desktop-ul este în focus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,Ascundeți pentru a evita selectarea accidentală a pictogramelor de pe desktop,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ScreenLayout,Aranjament Ecran,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.ScreenLayout.Description,Schimbă aranjamentul imaginilor tale de fundal pe ecran.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.StretchMode,Mod Redimensionare,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.StretchMode.Description,Schimbă modul de redimensionare pentru imagini de fundal acceptate.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.LoopMode,Mod Repetare,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.LoopMode.Description,Schimbă modul de repetare pentru imagini de fundal acceptate.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ShuffleMode,Mod Amestecare,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Schimbă modul de amestecare pentru imagini de fundal acceptate.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Modul Gif,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,Alege modul care va reda temele de tip Gif din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Modul Video,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,Alege modul care va reda temele de tip Video din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Motor Url,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,Alege motorul care va reda temele de tip Url din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Motor Web,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,Alege motorul care va reda temele de tip Web din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,Motor YouTube,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,Alege motorul care va reda temele de tip YouTube din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Motor Application,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,Alege motorul care va reda temele de tip Application din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RO.xaml,
-PASS⦙269,PASS⦙269,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙271,PASS⦙271,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RO.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,Un Moment în Care Lumina Internetului se Stinge,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RO.xaml,
 Portal.BrokenStorePage.DescriptionText,"Aici, așa cum este și cerul fără stele, strălucirea internetului lipsește",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RO.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.RO.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RO.xaml,
-PASS⦙270,PASS⦙270,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙272,PASS⦙272,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RO.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Răspunsul Căutărilor Tale Poate Fi Ascuns în Cer,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RO.xaml,
 Portal.SearchStorePage.DescriptionText,"Dacă rezultatele nu sunt ceea ce te așteptai, cerul îți poate oferi o experiență nouă",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RO.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RO.xaml,
-PASS⦙271,PASS⦙271,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙273,PASS⦙273,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RO.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,Descoperiți Misterul Apariției în Magazin,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RO.xaml,
 Portal.UnknownStorePage.DescriptionText,Pornește în căutarea necunoscutului și începe călătoria de a dezvălui misterul apariției în magazin,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RO.xaml,

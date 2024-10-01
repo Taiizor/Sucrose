@@ -27,6 +27,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Proszę wprowadzić osobisty token dostępu</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Proszę wprowadzić prawidłowy osobisty token dostępu</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Server">Serwer Aktualizacji</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Server.Description">Serwer, za pośrednictwem którego będą wykonywane aktualizacje.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Uwaga: Jeśli wybrano {0} jako serwer, musisz wprowadzić {2}, aby uniknąć ograniczeń żądań. W przeciwnym razie możesz napotkać problemy z aktualizacjami. Jeśli wybrano {1}, będziesz mieć płynniejsze doświadczenie aktualizacji.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Kanał Aktualizacji</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Kanał, przez który będą lub nie będą wykonywane aktualizacje.</system:String>
 

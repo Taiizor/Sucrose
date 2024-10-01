@@ -27,6 +27,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">कृपया एक व्यक्तिगत पहुँच कुंजी दर्ज करें</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">कृपया एक मान्य व्यक्तिगत पहुँच कुंजी दर्ज करें</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Server">अपडेट सर्वर</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Server.Description">सर्वर जिसके माध्यम से अपडेट किए जाएंगे।</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">नोट: यदि {0} को सर्वर के रूप में चुना गया है, तो आपको अनुरोध सीमाओं से बचने के लिए एक {2} दर्ज करना होगा। अन्यथा, आपको अपडेट में समस्याओं का सामना करना पड़ सकता है। यदि {1} चुना गया है, तो आपको एक सुचारू अपडेट अनुभव प्राप्त होगा।</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">अपडेट चैनल</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">अपडेट प्रक्रिया किस चैनल के माध्यम से की जाएगी या नहीं।</system:String>
 

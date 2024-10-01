@@ -918,6 +918,11 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Key.PersonalKey,Sila masukkan token akses peribadi
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Sila masukkan token akses peribadi yang sah
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Server,Pelayan Kemas Kini
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Server.Description,Pelayan di mana kemas kini akan dilakukan.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Server.ServerHint,"Nota: Jika {0} dipilih sebagai pelayan, anda perlu memasukkan {2} untuk mengelakkan had permintaan. Jika tidak, anda mungkin mengalami masalah dengan kemas kini. Jika {1} dipilih, anda akan mengalami kemas kini yang lebih lancar."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Channel,Saluran Pembaharuan
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Channel.Description,Saluran yang digunakan untuk proses pembaharuan.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,

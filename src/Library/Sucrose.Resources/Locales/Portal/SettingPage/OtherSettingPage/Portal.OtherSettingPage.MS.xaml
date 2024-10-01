@@ -27,6 +27,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Sila masukkan token akses peribadi</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Sila masukkan token akses peribadi yang sah</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Server">Pelayan Kemas Kini</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Server.Description">Pelayan di mana kemas kini akan dilakukan.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Nota: Jika {0} dipilih sebagai pelayan, anda perlu memasukkan {2} untuk mengelakkan had permintaan. Jika tidak, anda mungkin mengalami masalah dengan kemas kini. Jika {1} dipilih, anda akan mengalami kemas kini yang lebih lancar.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Saluran Pembaharuan</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Saluran yang digunakan untuk proses pembaharuan.</system:String>
 

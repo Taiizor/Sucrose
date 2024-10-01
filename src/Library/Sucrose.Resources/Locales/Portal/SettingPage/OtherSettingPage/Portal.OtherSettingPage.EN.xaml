@@ -27,6 +27,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Please enter a personal access token</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Please enter a valid personal access token</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Server">Update Server</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Server.Description">The server through which updates will be performed.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Note: If {0} is selected as the server, you need to enter a {2} to avoid request limits. Otherwise, you may experience issues with updates. If {1} is selected, you will have a smoother update experience.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Update Channel</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">The channel through which updates will or will not be performed.</system:String>
 

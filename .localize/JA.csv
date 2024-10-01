@@ -918,6 +918,11 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Key.PersonalKey,有効な個人アクセスキーを入力してください
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,有効な個人アクセスキーを入力してください
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Server,アップデートサーバー
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Server.Description,更新が実行されるサーバー。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Server.ServerHint,注意: {0}がサーバーとして選択されている場合、リクエスト制限を回避するために{2}を入力する必要があります。そうしないと、更新に問題が発生する可能性があります。{1}が選択されている場合、よりスムーズな更新体験が得られます。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Channel,更新チャンネル
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Channel.Description,更新プロセスがどのチャンネルを使用して実行されるか。
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,

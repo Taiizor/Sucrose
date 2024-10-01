@@ -918,6 +918,11 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Key.PersonalKey,Παρακαλώ εισάγετε ένα προσωπικό κλειδί πρόσβασης
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Παρακαλώ εισάγετε ένα έγκυρο προσωπικό κλειδί πρόσβασης
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Server,Διακομιστής Ενημερώσεων
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Server.Description,Ο διακομιστής μέσω του οποίου θα πραγματοποιούνται οι ενημερώσεις.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Server.ServerHint,"Σημείωση: Εάν επιλεγεί ο διακομιστής {0}, πρέπει να εισαγάγετε έναν {2} για να αποφύγετε τα όρια αιτήσεων. Διαφορετικά, μπορεί να αντιμετωπίσετε προβλήματα με τις ενημερώσεις. Εάν επιλεγεί ο {1}, θα έχετε μια πιο ομαλή εμπειρία ενημέρωσης."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Channel,Κανάλι Ενημερώσεων
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Channel.Description,Ποιο κανάλι θα χρησιμοποιηθεί για τις ενημερώσεις.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,

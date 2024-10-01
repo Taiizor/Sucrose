@@ -27,6 +27,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Будь ласка, введіть особистий ключ доступу</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Будь ласка, введіть дійсний особистий ключ доступу</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Server">Сервер Оновлень</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Server.Description">Сервер, через який виконуватимуться оновлення.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Примітка: Якщо вибрано {0} як сервер, потрібно ввести {2}, щоб уникнути обмежень на запити. Інакше ви можете зіткнутися з проблемами з оновленнями. Якщо вибрано {1}, ви отримаєте більш плавний досвід оновлення.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Канал Оновлення</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Визначте канал, через який здійснювати оновлення.</system:String>
 

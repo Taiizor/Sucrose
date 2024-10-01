@@ -918,6 +918,11 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Key.PersonalKey,Indtast venligst din personlige adgangstoken
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Indtast venligst en gyldig personlig adgangstoken
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Server,Opdateringsserver
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Server.Description,"Serveren, hvorfra opdateringerne vil blive udført."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Server.ServerHint,"Bemærk: Hvis serveren {0} er valgt, skal du indtaste en {2} for at undgå anmodningsbegrænsninger. Ellers kan du opleve problemer med opdateringer. Hvis {1} er valgt, vil du opleve en mere problemfri opdateringsproces."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Channel,Opdateringskanal
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Channel.Description,Hvilken kanal opdateringsprocessen skal bruge.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,

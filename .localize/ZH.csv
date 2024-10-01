@@ -918,6 +918,11 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Key.PersonalKey,请输入个人访问令牌
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,请输入有效的个人访问令牌
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Server,更新服务器
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Server.Description,通过哪个服务器执行更新。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Server.ServerHint,注意：如果选择了{0}作为服务器，则需要输入{2}以避免请求限制。否则，您可能会遇到更新问题。如果选择了{1}，您将获得更顺畅的更新体验。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Channel,更新渠道
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Channel.Description,更新操作将使用哪个渠道进行。
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,,

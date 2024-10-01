@@ -918,6 +918,11 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.FR.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.FR.xaml,Portal.OtherSettingPage.Key.PersonalKey,Veuillez entrer un jeton d'accès personnel
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.FR.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Veuillez entrer un jeton d'accès personnel valide
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.FR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.FR.xaml,Portal.OtherSettingPage.Server,Serveur de Mise à Jour
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.FR.xaml,Portal.OtherSettingPage.Server.Description,Le serveur par lequel les mises à jour seront effectuées.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.FR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.FR.xaml,Portal.OtherSettingPage.Server.ServerHint,"Remarque : Si {0} est sélectionné comme serveur, vous devez entrer un {2} pour éviter les limites de requêtes. Sinon, vous pourriez rencontrer des problèmes avec les mises à jour. Si {1} est sélectionné, vous vivrez une expérience de mise à jour plus fluide."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.FR.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.FR.xaml,Portal.OtherSettingPage.Channel,Canal de Mise à Jour
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.FR.xaml,Portal.OtherSettingPage.Channel.Description,Le canal par lequel les mises à jour seront effectuées ou non.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.FR.xaml,,
