@@ -19,7 +19,7 @@ namespace Sucrose.Update.Manage
 
         public static bool Chance = SMR.Randomise.Next(2) == 0;
 
-        public static readonly SSCEUT UpdateType = SMMI.UpdateSettingManager.GetSetting(SMC.UpdateType, SSCEUT.Compressed);
+        public static readonly SSCEUT UpdateType = SMMI.UpdateSettingManager.GetSetting(SMC.UpdateType, SSCEUT.Executable);
 
         public static Timer Checker = new()
         {
