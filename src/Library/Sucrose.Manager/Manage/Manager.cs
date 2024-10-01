@@ -120,6 +120,8 @@ namespace Sucrose.Manager.Manage
 
         public static bool AudioRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.AudioRequired, false);
 
+        public static SEIT InputType => SMMI.EngineSettingManager.GetSetting(SMC.InputType, SEIT.MouseKeyboard);
+
         public static bool AdvertisingState => SMMI.DonateSettingManager.GetSetting(SMC.AdvertisingState, true);
 
         public static bool PipeRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.PipeRequired, false);
@@ -135,8 +137,6 @@ namespace Sucrose.Manager.Manage
         public static bool LibraryPreview => SMMI.PortalSettingManager.GetSetting(SMC.LibraryPreview, false);
 
         public static bool LibraryDelete => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryDelete, false);
-
-        public static SEIT InputType => SMMI.EngineSettingManager.GetSetting(SMC.InputType, SEIT.OnlyMouse);
 
         public static bool DeveloperMode => SMMI.EngineSettingManager.GetSetting(SMC.DeveloperMode, false);
 
