@@ -72,7 +72,7 @@ namespace Sucrose.Portal.Views.Controls
             {
                 ReportMode.Items.Add(new ComboBoxItem()
                 {
-                    Content = SRER.GetValue("Portal", "Enum", "ReportType", $"{Type}"),
+                    Content = SRER.GetValue("Portal", "Enum", "ReportThemeType", $"{Type}"),
                     Tag = $"{Type}"
                 });
             }

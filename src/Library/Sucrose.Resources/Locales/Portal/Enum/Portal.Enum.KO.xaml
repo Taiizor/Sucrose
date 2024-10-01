@@ -7,15 +7,6 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">균일하게</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">균일하게 채우기</system:String>
 
-    <system:String x:Key="Portal.Enum.ReportType.Spam">스팸</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Other">기타</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Nudity">나체</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Harmful">유해</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Violence">폭력</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Malicious">악의적인</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">저작권 침해</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">오해의 소지가 있는 정보</system:String>
-
     <system:String x:Key="Portal.Enum.SortModeType.None">없음</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">이름</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">생성</system:String>
@@ -26,13 +17,19 @@
     <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">키보드만</system:String>
     <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">마우스 &amp; 키보드</system:String>
 
-    <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
-    <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
-
     <system:String x:Key="Portal.Enum.StretchType.Fill">채우기</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">없음</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">균일하게</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">균일하게 채우기</system:String>
+
+    <system:String x:Key="Portal.Enum.ReportThemeType.Spam">스팸</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Other">기타</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Nudity">나체</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Harmful">유해</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Violence">폭력</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Malicious">악의적인</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.CopyrightViolation">저작권 침해</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.MisleadingInformation">오해의 소지가 있는 정보</system:String>
 
     <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
     <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
@@ -49,6 +46,9 @@
 
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
+    <system:String x:Key="Portal.Enum.StoreServerType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.StoreServerType.Soferity">Soferity</system:String>
 
     <system:String x:Key="Portal.Enum.TransitionType.Random">랜덤</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">순차적</system:String>

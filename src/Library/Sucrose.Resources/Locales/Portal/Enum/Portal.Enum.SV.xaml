@@ -7,15 +7,6 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniform</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Uniform att Fylla</system:String>
 
-    <system:String x:Key="Portal.Enum.ReportType.Spam">Skräppost</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Other">Annat</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Nudity">Nakenhet</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Harmful">Skadligt</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Violence">Våld</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Malicious">Elakartad</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Upphovsrättsbrott</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Vilseledande Information</system:String>
-
     <system:String x:Key="Portal.Enum.SortModeType.None">Ingen</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">Namn</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Skapande</system:String>
@@ -26,13 +17,19 @@
     <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Endast Tangentbord</system:String>
     <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Mus och Tangentbord</system:String>
 
-    <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
-    <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
-
     <system:String x:Key="Portal.Enum.StretchType.Fill">Fyll</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Ingen</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniform</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Uniform att Fylla</system:String>
+
+    <system:String x:Key="Portal.Enum.ReportThemeType.Spam">Skräppost</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Other">Annat</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Nudity">Nakenhet</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Harmful">Skadligt</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Violence">Våld</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Malicious">Elakartad</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.CopyrightViolation">Upphovsrättsbrott</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.MisleadingInformation">Vilseledande Information</system:String>
 
     <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
     <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
@@ -49,6 +46,9 @@
 
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
+    <system:String x:Key="Portal.Enum.StoreServerType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.StoreServerType.Soferity">Soferity</system:String>
 
     <system:String x:Key="Portal.Enum.TransitionType.Random">Slumpmässig</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Sekventiell</system:String>

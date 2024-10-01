@@ -7,15 +7,6 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniforme</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Preencher Uniformemente</system:String>
 
-    <system:String x:Key="Portal.Enum.ReportType.Spam">Spam</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Other">Outro</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Nudity">Nudez</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Harmful">Prejudicial</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Violence">Violência</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Malicious">Malicioso</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Violação de Direitos Autorais</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Informação Enganosa</system:String>
-
     <system:String x:Key="Portal.Enum.SortModeType.None">Nenhum</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">Nome</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Criação</system:String>
@@ -26,13 +17,19 @@
     <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Apenas Teclado</system:String>
     <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Rato e Teclado</system:String>
 
-    <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
-    <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
-
     <system:String x:Key="Portal.Enum.StretchType.Fill">Preencher</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Nenhum</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniforme</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Preencher Uniformemente</system:String>
+
+    <system:String x:Key="Portal.Enum.ReportThemeType.Spam">Spam</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Other">Outro</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Nudity">Nudez</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Harmful">Prejudicial</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Violence">Violência</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Malicious">Malicioso</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.CopyrightViolation">Violação de Direitos Autorais</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.MisleadingInformation">Informação Enganosa</system:String>
 
     <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
     <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
@@ -49,6 +46,9 @@
 
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
+    <system:String x:Key="Portal.Enum.StoreServerType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.StoreServerType.Soferity">Soferity</system:String>
 
     <system:String x:Key="Portal.Enum.TransitionType.Random">Aleatório</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Sequencial</system:String>

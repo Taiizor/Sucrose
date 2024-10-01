@@ -10,7 +10,7 @@ using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
-using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
+using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
@@ -57,21 +57,21 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             StoreType.SelectionChanged += (s, e) => StoreTypeSelected(StoreType.SelectedIndex);
 
-            foreach (SSDEST Type in Enum.GetValues(typeof(SSDEST)))
+            foreach (SSDESST Type in Enum.GetValues(typeof(SSDESST)))
             {
                 StoreType.Items.Add(new ComboBoxItem()
                 {
-                    Content = SRER.GetValue("Portal", "Enum", "StoreType", $"{Type}")
+                    Content = SRER.GetValue("Portal", "Enum", "StoreServerType", $"{Type}")
                 });
             }
 
-            StoreType.SelectedIndex = (int)SSDMM.StoreType;
+            StoreType.SelectedIndex = (int)SSDMM.StoreServerType;
 
             Server.HeaderFrame = StoreType;
 
             TextBlock ServerHint = new()
             {
-                Text = string.Format(SRER.GetValue("Portal", "PersonalSettingPage", "Server", "ServerHint"), SRER.GetValue("Portal", "Enum", "StoreType", $"{SSDEST.GitHub}"), SRER.GetValue("Portal", "Enum", "StoreType", $"{SSDEST.Soferity}"), SRER.GetValue("Portal", "OtherSettingPage", "Key")),
+                Text = string.Format(SRER.GetValue("Portal", "PersonalSettingPage", "Server", "ServerHint"), SRER.GetValue("Portal", "Enum", "StoreServerType", $"{SSDESST.GitHub}"), SRER.GetValue("Portal", "Enum", "StoreServerType", $"{SSDESST.Soferity}"), SRER.GetValue("Portal", "OtherSettingPage", "Key")),
                 Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
@@ -596,12 +596,12 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void StoreTypeSelected(int Index)
         {
-            SSDEST NewStore = (SSDEST)Index;
+            SSDESST NewStore = (SSDESST)Index;
 
-            if (NewStore != SSDMM.StoreType)
+            if (NewStore != SSDMM.StoreServerType)
             {
                 SSSMI.State = true;
-                SMMI.PortalSettingManager.SetSetting(SMC.StoreType, NewStore);
+                SMMI.PortalSettingManager.SetSetting(SMC.StoreServerType, NewStore);
             }
         }
 

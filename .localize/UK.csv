@@ -329,15 +329,6 @@ Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.Stretch.None,Ні
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.Stretch.Uniform,Пропорційно
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.Stretch.UniformToFill,Пропорційно заповнити
 Portal\Enum\Portal.Enum.UK.xaml,,
-Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportType.Spam,Спам
-Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportType.Other,Інше
-Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportType.Nudity,Нагота
-Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportType.Harmful,Шкідливий
-Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportType.Violence,Насильство
-Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportType.Malicious,Зловмисний
-Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportType.CopyrightViolation,Порушення Aвторських Прав
-Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportType.MisleadingInformation,Оманлива Iнформація
-Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.SortModeType.None,Жоден
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.SortModeType.Name,Назва
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.SortModeType.Creation,Створення
@@ -348,13 +339,19 @@ Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.InputType.OnlyMouse,Тільки м�
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.InputType.OnlyKeyboard,Тільки клавіатура
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.InputType.MouseKeyboard,Миша та клавіатура
 Portal\Enum\Portal.Enum.UK.xaml,,
-Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StoreType.GitHub,GitHub
-Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StoreType.Soferity,Soferity
-Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StretchType.Fill,Заповнити
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StretchType.None,Ні
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StretchType.Uniform,Пропорційно
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StretchType.UniformToFill,Пропорційно заповнити
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportThemeType.Spam,Спам
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportThemeType.Other,Інше
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportThemeType.Nudity,Нагота
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportThemeType.Harmful,Шкідливий
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportThemeType.Violence,Насильство
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportThemeType.Malicious,Зловмисний
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportThemeType.CopyrightViolation,Порушення Aвторських Прав
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ReportThemeType.MisleadingInformation,Оманлива Iнформація
 Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CommunicationType.Signal,Signal
@@ -371,6 +368,9 @@ Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.WindowBackdropType.Acrylic,Акри�
 Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.TransitionType.Random,Випадковий
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.TransitionType.Sequential,Послідовний

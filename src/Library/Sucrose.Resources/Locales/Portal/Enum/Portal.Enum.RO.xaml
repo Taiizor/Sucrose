@@ -7,15 +7,6 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniform</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Uniform pentru a umple</system:String>
 
-    <system:String x:Key="Portal.Enum.ReportType.Spam">Spam</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Other">Altul</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Nudity">Nuditate</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Harmful">Dăunător</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Violence">Violență</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Malicious">Răuvoitor</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Încălcarea Drepturilor de Autor</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Informații Înșelătoare</system:String>
-
     <system:String x:Key="Portal.Enum.SortModeType.None">Niciunul</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">Nume</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Creare</system:String>
@@ -26,13 +17,19 @@
     <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Doar Tastatură</system:String>
     <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Mouse și Tastatură</system:String>
 
-    <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
-    <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
-
     <system:String x:Key="Portal.Enum.StretchType.Fill">Umple</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Niciunul</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniform</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Uniform pentru a umple</system:String>
+
+    <system:String x:Key="Portal.Enum.ReportThemeType.Spam">Spam</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Other">Altul</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Nudity">Nuditate</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Harmful">Dăunător</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Violence">Violență</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Malicious">Răuvoitor</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.CopyrightViolation">Încălcarea Drepturilor de Autor</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.MisleadingInformation">Informații Înșelătoare</system:String>
 
     <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
     <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
@@ -49,6 +46,9 @@
 
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
+    <system:String x:Key="Portal.Enum.StoreServerType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.StoreServerType.Soferity">Soferity</system:String>
 
     <system:String x:Key="Portal.Enum.TransitionType.Random">Aleator</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Secvențial</system:String>

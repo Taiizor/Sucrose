@@ -7,15 +7,6 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Ομοιόμορφη</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Ομοιόμορφο Γέμισμα</system:String>
 
-    <system:String x:Key="Portal.Enum.ReportType.Spam">Σπαμ</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Other">Άλλο</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Nudity">Γύμνια</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Harmful">Επιβλαβές</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Violence">Βία</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Malicious">Κακόβουλο</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Παραβίαση Πνευματικών Δικαιωμάτων</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Παραπλανητικές Πληροφορίες</system:String>
-
     <system:String x:Key="Portal.Enum.SortModeType.None">Καμία</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">Όνομα</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Δημιουργία</system:String>
@@ -26,13 +17,19 @@
     <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Μόνο Πληκτρολόγιο</system:String>
     <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Ποντίκι &amp; Πληκτρολόγιο</system:String>
 
-    <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
-    <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
-
     <system:String x:Key="Portal.Enum.StretchType.Fill">Γέμισμα</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Καμία</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Ομοιόμορφη</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Ομοιόμορφο Γέμισμα</system:String>
+
+    <system:String x:Key="Portal.Enum.ReportThemeType.Spam">Σπαμ</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Other">Άλλο</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Nudity">Γύμνια</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Harmful">Επιβλαβές</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Violence">Βία</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Malicious">Κακόβουλο</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.CopyrightViolation">Παραβίαση Πνευματικών Δικαιωμάτων</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.MisleadingInformation">Παραπλανητικές Πληροφορίες</system:String>
 
     <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
     <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
@@ -49,6 +46,9 @@
 
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
+    <system:String x:Key="Portal.Enum.StoreServerType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.StoreServerType.Soferity">Soferity</system:String>
 
     <system:String x:Key="Portal.Enum.TransitionType.Random">Τυχαίο</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Σειριακό</system:String>

@@ -7,10 +7,10 @@ using SSDEET = Sucrose.Shared.Dependency.Enum.EngineType;
 using SSDEIMT = Sucrose.Shared.Dependency.Enum.InputModuleType;
 using SSDEPPT = Sucrose.Shared.Dependency.Enum.PausePerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
-using SSDESET = Sucrose.Shared.Dependency.Enum.StoreType;
 using SSDESHT = Sucrose.Shared.Dependency.Enum.StretchType;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
+using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSDETT = Sucrose.Shared.Dependency.Enum.TransitionType;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
@@ -49,6 +49,8 @@ namespace Sucrose.Shared.Dependency.Manage
 
         public static SSDEET VideoEngine => SMMI.EngineSettingManager.GetSetting(SMC.VideoEngine, (SSDEET)SSSMI.VideoEngine);
 
+        public static SSDESST StoreServerType => SMMI.PortalSettingManager.GetSetting(SMC.StoreServerType, SSDESST.Soferity);
+
         public static SSDESMT LibrarySortMode => SMMI.PortalSettingManager.GetSetting(SMC.LibrarySortMode, SSDESMT.Creation);
 
         public static SSDEIMT InputModuleType => SMMI.EngineSettingManager.GetSetting(SMC.InputModuleType, SSDEIMT.RawInput);
@@ -66,8 +68,6 @@ namespace Sucrose.Shared.Dependency.Manage
         public static SSDEET GifEngine => SMMI.EngineSettingManager.GetSetting(SMC.GifEngine, (SSDEET)SSSMI.GifEngine);
 
         public static SSDESHT StretchType => SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SSDESHT.Fill);
-
-        public static SSDESET StoreType => SMMI.PortalSettingManager.GetSetting(SMC.StoreType, SSDESET.Soferity);
 
         public static SEWTT ThemeType => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 

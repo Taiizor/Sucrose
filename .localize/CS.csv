@@ -329,15 +329,6 @@ Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.Stretch.None,Žádný
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.Stretch.Uniform,Rovnoměrný
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.Stretch.UniformToFill,Rovnoměrně vyplnit
 Portal\Enum\Portal.Enum.CS.xaml,,
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportType.Spam,Spam
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportType.Other,Jiný
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportType.Nudity,Nahota
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportType.Harmful,Škodlivé
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportType.Violence,Násilí
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportType.Malicious,Zlovolný
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportType.CopyrightViolation,Porušení Autorských Práv
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportType.MisleadingInformation,Zavádějící Informace
-Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.SortModeType.None,Žádný
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.SortModeType.Name,Název
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.SortModeType.Creation,Vytvoření
@@ -348,13 +339,19 @@ Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.InputType.OnlyMouse,Pouze Myš
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.InputType.OnlyKeyboard,Pouze Klávesnice
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.InputType.MouseKeyboard,Myš a Klávesnice
 Portal\Enum\Portal.Enum.CS.xaml,,
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StoreType.GitHub,GitHub
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StoreType.Soferity,Soferity
-Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StretchType.Fill,Vyplnit
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StretchType.None,Žádný
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StretchType.Uniform,Rovnoměrný
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StretchType.UniformToFill,Rovnoměrně vyplnit
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportThemeType.Spam,Spam
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportThemeType.Other,Jiný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportThemeType.Nudity,Nahota
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportThemeType.Harmful,Škodlivé
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportThemeType.Violence,Násilí
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportThemeType.Malicious,Zlovolný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportThemeType.CopyrightViolation,Porušení Autorských Práv
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ReportThemeType.MisleadingInformation,Zavádějící Informace
 Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CommunicationType.Signal,Signal
@@ -371,6 +368,9 @@ Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.WindowBackdropType.Acrylic,Akrilový
 Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.TransitionType.Random,Náhodné
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.TransitionType.Sequential,Postupné

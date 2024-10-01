@@ -7,15 +7,6 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Пропорционально</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Заполнить с сохранением пропорций</system:String>
 
-    <system:String x:Key="Portal.Enum.ReportType.Spam">Спам</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Other">Другое</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Nudity">Нагота</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Harmful">Вредоносный</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Violence">Насилие</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Malicious">Злонамеренный</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Нарушение Авторских Прав</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Вводящая в Заблуждение Информация</system:String>
-
     <system:String x:Key="Portal.Enum.SortModeType.None">Нет</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">Имя</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Создание</system:String>
@@ -26,13 +17,19 @@
     <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Только Клавиатура</system:String>
     <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Мышь и Клавиатура</system:String>
 
-    <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
-    <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
-
     <system:String x:Key="Portal.Enum.StretchType.Fill">Заполнить</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Нет</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Пропорционально</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Заполнить с сохранением пропорций</system:String>
+
+    <system:String x:Key="Portal.Enum.ReportThemeType.Spam">Спам</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Other">Другое</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Nudity">Нагота</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Harmful">Вредоносный</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Violence">Насилие</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Malicious">Злонамеренный</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.CopyrightViolation">Нарушение Авторских Прав</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.MisleadingInformation">Вводящая в Заблуждение Информация</system:String>
 
     <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
     <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
@@ -49,6 +46,9 @@
 
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
+    <system:String x:Key="Portal.Enum.StoreServerType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.StoreServerType.Soferity">Soferity</system:String>
 
     <system:String x:Key="Portal.Enum.TransitionType.Random">Случайный</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Последовательный</system:String>

@@ -329,15 +329,6 @@ Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.Stretch.None,Tidak Ada
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.Stretch.Uniform,Seragam
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.Stretch.UniformToFill,Seragam Untuk Isi
 Portal\Enum\Portal.Enum.ID.xaml,,
-Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportType.Spam,Spam
-Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportType.Other,Lainnya
-Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportType.Nudity,Ketelanjangan
-Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportType.Harmful,Berbahaya
-Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportType.Violence,Kekerasan
-Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportType.Malicious,Berbahaya
-Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportType.CopyrightViolation,Pelanggaran Hak Cipta
-Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportType.MisleadingInformation,Informasi Menyesatkan
-Portal\Enum\Portal.Enum.ID.xaml,,
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.SortModeType.None,Tidak Ada
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.SortModeType.Name,Nama
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.SortModeType.Creation,Pembuatan
@@ -348,13 +339,19 @@ Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.InputType.OnlyMouse,Hanya Mouse
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.InputType.OnlyKeyboard,Hanya Keyboard
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.InputType.MouseKeyboard,Mouse &amp; Keyboard
 Portal\Enum\Portal.Enum.ID.xaml,,
-Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StoreType.GitHub,GitHub
-Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StoreType.Soferity,Soferity
-Portal\Enum\Portal.Enum.ID.xaml,,
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StretchType.Fill,Isi
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StretchType.None,Tidak Ada
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StretchType.Uniform,Seragam
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StretchType.UniformToFill,Seragam Untuk Isi
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportThemeType.Spam,Spam
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportThemeType.Other,Lainnya
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportThemeType.Nudity,Ketelanjangan
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportThemeType.Harmful,Berbahaya
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportThemeType.Violence,Kekerasan
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportThemeType.Malicious,Berbahaya
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportThemeType.CopyrightViolation,Pelanggaran Hak Cipta
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ReportThemeType.MisleadingInformation,Informasi Menyesatkan
 Portal\Enum\Portal.Enum.ID.xaml,,
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CommunicationType.Signal,Signal
@@ -371,6 +368,9 @@ Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.WindowBackdropType.Acrylic,Akrilik
 Portal\Enum\Portal.Enum.ID.xaml,,
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.ID.xaml,,
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.TransitionType.Random,Acak
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.TransitionType.Sequential,Berturut-turut

@@ -329,15 +329,6 @@ Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.Stretch.None,なし
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.Stretch.Uniform,均等
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.Stretch.UniformToFill,均等にフィル
 Portal\Enum\Portal.Enum.JA.xaml,,
-Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.Spam,스팸
-Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.Other,기타
-Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.Nudity,나체
-Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.Harmful,유해
-Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.Violence,폭력
-Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.Malicious,악의적인
-Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.CopyrightViolation,저작권 침해
-Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.MisleadingInformation,오해의 소지가 있는 정보
-Portal\Enum\Portal.Enum.JA.xaml,,
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.SortModeType.None,なし
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.SortModeType.Name,名前
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.SortModeType.Creation,作成
@@ -348,13 +339,19 @@ Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.InputType.OnlyMouse,マウスのみ
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.InputType.OnlyKeyboard,キーボードのみ
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.InputType.MouseKeyboard,マウス＆キーボード
 Portal\Enum\Portal.Enum.JA.xaml,,
-Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StoreType.GitHub,GitHub
-Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StoreType.Soferity,Soferity
-Portal\Enum\Portal.Enum.JA.xaml,,
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StretchType.Fill,フィル
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StretchType.None,なし
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StretchType.Uniform,均等
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StretchType.UniformToFill,均等にフィル
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportThemeType.Spam,스팸
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportThemeType.Other,기타
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportThemeType.Nudity,나체
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportThemeType.Harmful,유해
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportThemeType.Violence,폭력
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportThemeType.Malicious,악의적인
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportThemeType.CopyrightViolation,저작권 침해
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportThemeType.MisleadingInformation,오해의 소지가 있는 정보
 Portal\Enum\Portal.Enum.JA.xaml,,
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CommunicationType.Signal,Signal
@@ -371,6 +368,9 @@ Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.WindowBackdropType.Acrylic,アクリ
 Portal\Enum\Portal.Enum.JA.xaml,,
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.JA.xaml,,
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.TransitionType.Random,ランダム
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.TransitionType.Sequential,順次

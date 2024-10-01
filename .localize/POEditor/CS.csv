@@ -329,48 +329,48 @@ Portal.Enum.Stretch.None,Žádný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.Stretch.Uniform,Rovnoměrný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.Stretch.UniformToFill,Rovnoměrně vyplnit,,Portal\Enum\Portal.Enum.CS.xaml,
 PASS⦙40,PASS⦙40,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
-Portal.Enum.ReportType.Spam,Spam,,Portal\Enum\Portal.Enum.CS.xaml,
-Portal.Enum.ReportType.Other,Jiný,,Portal\Enum\Portal.Enum.CS.xaml,
-Portal.Enum.ReportType.Nudity,Nahota,,Portal\Enum\Portal.Enum.CS.xaml,
-Portal.Enum.ReportType.Harmful,Škodlivé,,Portal\Enum\Portal.Enum.CS.xaml,
-Portal.Enum.ReportType.Violence,Násilí,,Portal\Enum\Portal.Enum.CS.xaml,
-Portal.Enum.ReportType.Malicious,Zlovolný,,Portal\Enum\Portal.Enum.CS.xaml,
-Portal.Enum.ReportType.CopyrightViolation,Porušení Autorských Práv,,Portal\Enum\Portal.Enum.CS.xaml,
-Portal.Enum.ReportType.MisleadingInformation,Zavádějící Informace,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙41,PASS⦙41,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.SortModeType.None,Žádný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.SortModeType.Name,Název,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.SortModeType.Creation,Vytvoření,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.SortModeType.Modification,Úprava,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙41,PASS⦙41,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.InputType.Close,Zavřeno,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.InputType.OnlyMouse,Pouze Myš,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.InputType.OnlyKeyboard,Pouze Klávesnice,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.InputType.MouseKeyboard,Myš a Klávesnice,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
-Portal.Enum.StoreType.GitHub,GitHub,,Portal\Enum\Portal.Enum.CS.xaml,
-Portal.Enum.StoreType.Soferity,Soferity,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.StretchType.Fill,Vyplnit,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.StretchType.None,Žádný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.StretchType.Uniform,Rovnoměrný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.StretchType.UniformToFill,Rovnoměrně vyplnit,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+Portal.Enum.ReportThemeType.Spam,Spam,,Portal\Enum\Portal.Enum.CS.xaml,
+Portal.Enum.ReportThemeType.Other,Jiný,,Portal\Enum\Portal.Enum.CS.xaml,
+Portal.Enum.ReportThemeType.Nudity,Nahota,,Portal\Enum\Portal.Enum.CS.xaml,
+Portal.Enum.ReportThemeType.Harmful,Škodlivé,,Portal\Enum\Portal.Enum.CS.xaml,
+Portal.Enum.ReportThemeType.Violence,Násilí,,Portal\Enum\Portal.Enum.CS.xaml,
+Portal.Enum.ReportThemeType.Malicious,Zlovolný,,Portal\Enum\Portal.Enum.CS.xaml,
+Portal.Enum.ReportThemeType.CopyrightViolation,Porušení Autorských Práv,,Portal\Enum\Portal.Enum.CS.xaml,
+Portal.Enum.ReportThemeType.MisleadingInformation,Zavádějící Informace,,Portal\Enum\Portal.Enum.CS.xaml,
+PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.CommunicationType.Pipe,Pipe,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.CommunicationType.Signal,Signal,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.PerformanceType.Close,Zavřít,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.PerformanceType.Pause,Pozastavit,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.PerformanceType.Resume,Pokračovat,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.WindowBackdropType.Mica,Mika,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.WindowBackdropType.None,Žádný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.WindowBackdropType.Auto,Automatický,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.WindowBackdropType.Tabbed,Kartáčovaný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.WindowBackdropType.Acrylic,Akrilový,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.InputModuleType.Native,Native,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.InputModuleType.RawInput,RawInput,,Portal\Enum\Portal.Enum.CS.xaml,
+PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+Portal.Enum.StoreServerType.GitHub,GitHub,,Portal\Enum\Portal.Enum.CS.xaml,
+Portal.Enum.StoreServerType.Soferity,Soferity,,Portal\Enum\Portal.Enum.CS.xaml,
 PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.TransitionType.Random,Náhodné,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.TransitionType.Sequential,Postupné,,Portal\Enum\Portal.Enum.CS.xaml,

@@ -1,18 +1,18 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
 using SMR = Sucrose.Memory.Readonly;
-using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
+using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
 
 namespace Sucrose.Shared.Store.Helper
 {
     internal static class Store
     {
-        public static string Source(SSDEST Store)
+        public static string Source(SSDESST Store)
         {
             return Store switch
             {
-                SSDEST.GitHub => SMR.GitHubRawWebsite,
+                SSDESST.GitHub => SMR.GitHubRawWebsite,
                 _ => SMR.SoferityRawWebsite,
             };
         }

@@ -329,15 +329,6 @@ Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.Stretch.None,Нет
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.Stretch.Uniform,Пропорционально
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.Stretch.UniformToFill,Заполнить с сохранением пропорций
 Portal\Enum\Portal.Enum.RU.xaml,,
-Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportType.Spam,Спам
-Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportType.Other,Другое
-Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportType.Nudity,Нагота
-Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportType.Harmful,Вредоносный
-Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportType.Violence,Насилие
-Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportType.Malicious,Злонамеренный
-Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportType.CopyrightViolation,Нарушение Авторских Прав
-Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportType.MisleadingInformation,Вводящая в Заблуждение Информация
-Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.SortModeType.None,Нет
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.SortModeType.Name,Имя
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.SortModeType.Creation,Создание
@@ -348,13 +339,19 @@ Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.InputType.OnlyMouse,Только М�
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.InputType.OnlyKeyboard,Только Клавиатура
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.InputType.MouseKeyboard,Мышь и Клавиатура
 Portal\Enum\Portal.Enum.RU.xaml,,
-Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StoreType.GitHub,GitHub
-Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StoreType.Soferity,Soferity
-Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StretchType.Fill,Заполнить
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StretchType.None,Нет
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StretchType.Uniform,Пропорционально
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StretchType.UniformToFill,Заполнить с сохранением пропорций
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportThemeType.Spam,Спам
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportThemeType.Other,Другое
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportThemeType.Nudity,Нагота
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportThemeType.Harmful,Вредоносный
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportThemeType.Violence,Насилие
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportThemeType.Malicious,Злонамеренный
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportThemeType.CopyrightViolation,Нарушение Авторских Прав
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ReportThemeType.MisleadingInformation,Вводящая в Заблуждение Информация
 Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CommunicationType.Signal,Signal
@@ -371,6 +368,9 @@ Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.WindowBackdropType.Acrylic,Акри�
 Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.TransitionType.Random,Случайный
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.TransitionType.Sequential,Последовательный

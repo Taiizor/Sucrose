@@ -329,15 +329,6 @@ Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.Stretch.None,Καμία
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.Stretch.Uniform,Ομοιόμορφη
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.Stretch.UniformToFill,Ομοιόμορφο Γέμισμα
 Portal\Enum\Portal.Enum.EL.xaml,,
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportType.Spam,Σπαμ
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportType.Other,Άλλο
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportType.Nudity,Γύμνια
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportType.Harmful,Επιβλαβές
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportType.Violence,Βία
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportType.Malicious,Κακόβουλο
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportType.CopyrightViolation,Παραβίαση Πνευματικών Δικαιωμάτων
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportType.MisleadingInformation,Παραπλανητικές Πληροφορίες
-Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.SortModeType.None,Καμία
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.SortModeType.Name,Όνομα
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.SortModeType.Creation,Δημιουργία
@@ -348,13 +339,19 @@ Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.InputType.OnlyMouse,Μόνο Πον�
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.InputType.OnlyKeyboard,Μόνο Πληκτρολόγιο
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.InputType.MouseKeyboard,Ποντίκι &amp; Πληκτρολόγιο
 Portal\Enum\Portal.Enum.EL.xaml,,
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StoreType.GitHub,GitHub
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StoreType.Soferity,Soferity
-Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StretchType.Fill,Γέμισμα
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StretchType.None,Καμία
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StretchType.Uniform,Ομοιόμορφη
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StretchType.UniformToFill,Ομοιόμορφο Γέμισμα
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportThemeType.Spam,Σπαμ
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportThemeType.Other,Άλλο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportThemeType.Nudity,Γύμνια
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportThemeType.Harmful,Επιβλαβές
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportThemeType.Violence,Βία
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportThemeType.Malicious,Κακόβουλο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportThemeType.CopyrightViolation,Παραβίαση Πνευματικών Δικαιωμάτων
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ReportThemeType.MisleadingInformation,Παραπλανητικές Πληροφορίες
 Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CommunicationType.Signal,Signal
@@ -371,6 +368,9 @@ Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.WindowBackdropType.Acrylic,Ακρυ�
 Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.TransitionType.Random,Τυχαίο
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.TransitionType.Sequential,Σειριακό

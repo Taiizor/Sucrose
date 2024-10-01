@@ -7,15 +7,6 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Seragam</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Seragam Untuk Isi</system:String>
 
-    <system:String x:Key="Portal.Enum.ReportType.Spam">Spam</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Other">Lainnya</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Nudity">Ketelanjangan</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Harmful">Berbahaya</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Violence">Kekerasan</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Malicious">Berbahaya</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Pelanggaran Hak Cipta</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Informasi Menyesatkan</system:String>
-
     <system:String x:Key="Portal.Enum.SortModeType.None">Tidak Ada</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">Nama</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Pembuatan</system:String>
@@ -26,13 +17,19 @@
     <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Hanya Keyboard</system:String>
     <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Mouse &amp; Keyboard</system:String>
 
-    <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
-    <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
-
     <system:String x:Key="Portal.Enum.StretchType.Fill">Isi</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Tidak Ada</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Seragam</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Seragam Untuk Isi</system:String>
+
+    <system:String x:Key="Portal.Enum.ReportThemeType.Spam">Spam</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Other">Lainnya</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Nudity">Ketelanjangan</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Harmful">Berbahaya</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Violence">Kekerasan</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Malicious">Berbahaya</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.CopyrightViolation">Pelanggaran Hak Cipta</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.MisleadingInformation">Informasi Menyesatkan</system:String>
 
     <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
     <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
@@ -49,6 +46,9 @@
 
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
+    <system:String x:Key="Portal.Enum.StoreServerType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.StoreServerType.Soferity">Soferity</system:String>
 
     <system:String x:Key="Portal.Enum.TransitionType.Random">Acak</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Berturut-turut</system:String>

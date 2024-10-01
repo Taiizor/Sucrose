@@ -7,15 +7,6 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">均匀</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">均匀填充</system:String>
 
-    <system:String x:Key="Portal.Enum.ReportType.Spam">垃圾邮件</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Other">其他</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Nudity">裸露</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Harmful">有害</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Violence">暴力</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Malicious">恶意</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">版权侵犯</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">误导信息</system:String>
-
     <system:String x:Key="Portal.Enum.SortModeType.None">无</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">名称</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">创建</system:String>
@@ -26,13 +17,19 @@
     <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">仅键盘</system:String>
     <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">鼠标和键盘</system:String>
 
-    <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
-    <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
-
     <system:String x:Key="Portal.Enum.StretchType.Fill">填充</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">无</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">均匀</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">均匀填充</system:String>
+
+    <system:String x:Key="Portal.Enum.ReportThemeType.Spam">垃圾邮件</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Other">其他</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Nudity">裸露</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Harmful">有害</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Violence">暴力</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Malicious">恶意</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.CopyrightViolation">版权侵犯</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.MisleadingInformation">误导信息</system:String>
 
     <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
     <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
@@ -49,6 +46,9 @@
 
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
+    <system:String x:Key="Portal.Enum.StoreServerType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.StoreServerType.Soferity">Soferity</system:String>
 
     <system:String x:Key="Portal.Enum.TransitionType.Random">随机</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">顺序</system:String>

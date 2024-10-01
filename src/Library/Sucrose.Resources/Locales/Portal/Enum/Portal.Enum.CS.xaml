@@ -7,15 +7,6 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Rovnoměrný</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Rovnoměrně vyplnit</system:String>
 
-    <system:String x:Key="Portal.Enum.ReportType.Spam">Spam</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Other">Jiný</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Nudity">Nahota</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Harmful">Škodlivé</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Violence">Násilí</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Malicious">Zlovolný</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Porušení Autorských Práv</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Zavádějící Informace</system:String>
-
     <system:String x:Key="Portal.Enum.SortModeType.None">Žádný</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">Název</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Vytvoření</system:String>
@@ -26,13 +17,19 @@
     <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Pouze Klávesnice</system:String>
     <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Myš a Klávesnice</system:String>
 
-    <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
-    <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
-
     <system:String x:Key="Portal.Enum.StretchType.Fill">Vyplnit</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Žádný</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Rovnoměrný</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Rovnoměrně vyplnit</system:String>
+
+    <system:String x:Key="Portal.Enum.ReportThemeType.Spam">Spam</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Other">Jiný</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Nudity">Nahota</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Harmful">Škodlivé</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Violence">Násilí</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Malicious">Zlovolný</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.CopyrightViolation">Porušení Autorských Práv</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.MisleadingInformation">Zavádějící Informace</system:String>
 
     <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
     <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
@@ -49,6 +46,9 @@
 
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
+    <system:String x:Key="Portal.Enum.StoreServerType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.StoreServerType.Soferity">Soferity</system:String>
 
     <system:String x:Key="Portal.Enum.TransitionType.Random">Náhodné</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Postupné</system:String>

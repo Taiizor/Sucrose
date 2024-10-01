@@ -7,15 +7,6 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Orantılı</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Orantılı Doldur</system:String>
 
-    <system:String x:Key="Portal.Enum.ReportType.Spam">Spam</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Other">Diğer</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Nudity">Çıplaklık</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Harmful">Zararlı</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Violence">Şiddet</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Malicious">Kötü Niyetli</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Telif Hakkı İhlali</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Yanıltıcı Bilgi</system:String>
-
     <system:String x:Key="Portal.Enum.SortModeType.None">Yok</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">İsim</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Oluşturma</system:String>
@@ -26,13 +17,19 @@
     <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Yalnızca Klavye</system:String>
     <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Fare ve Klavye</system:String>
 
-    <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
-    <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
-
     <system:String x:Key="Portal.Enum.StretchType.Fill">Doldur</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Hiçbiri</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Orantılı</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Orantılı Doldur</system:String>
+
+    <system:String x:Key="Portal.Enum.ReportThemeType.Spam">Spam</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Other">Diğer</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Nudity">Çıplaklık</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Harmful">Zararlı</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Violence">Şiddet</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Malicious">Kötü Niyetli</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.CopyrightViolation">Telif Hakkı İhlali</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.MisleadingInformation">Yanıltıcı Bilgi</system:String>
 
     <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
     <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
@@ -49,6 +46,9 @@
 
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
+    <system:String x:Key="Portal.Enum.StoreServerType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.StoreServerType.Soferity">Soferity</system:String>
 
     <system:String x:Key="Portal.Enum.TransitionType.Random">Rastgele</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Ardışık</system:String>

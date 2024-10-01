@@ -329,15 +329,6 @@ Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.Stretch.None,कोई नहीं
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.Stretch.Uniform,समानानुपातिक
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.Stretch.UniformToFill,समानानुपातिक भरना
 Portal\Enum\Portal.Enum.HI.xaml,,
-Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.Spam,स्पैम
-Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.Other,अन्य
-Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.Nudity,नग्नता
-Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.Harmful,हानिकारक
-Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.Violence,हिंसा
-Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.Malicious,दुर्भावनापूर्ण
-Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.CopyrightViolation,कॉपीराइट उल्लंघन
-Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.MisleadingInformation,भ्रामक जानकारी
-Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.SortModeType.None,कोई नहीं
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.SortModeType.Name,नाम
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.SortModeType.Creation,सृजन
@@ -348,13 +339,19 @@ Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.InputType.OnlyMouse,केवल म
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.InputType.OnlyKeyboard,केवल कीबोर्ड
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.InputType.MouseKeyboard,माउस और कीबोर्ड
 Portal\Enum\Portal.Enum.HI.xaml,,
-Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StoreType.GitHub,GitHub
-Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StoreType.Soferity,Soferity
-Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StretchType.Fill,भरना
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StretchType.None,कोई नहीं
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StretchType.Uniform,समानानुपातिक
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StretchType.UniformToFill,समानानुपातिक भरना
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportThemeType.Spam,स्पैम
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportThemeType.Other,अन्य
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportThemeType.Nudity,नग्नता
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportThemeType.Harmful,हानिकारक
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportThemeType.Violence,हिंसा
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportThemeType.Malicious,दुर्भावनापूर्ण
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportThemeType.CopyrightViolation,कॉपीराइट उल्लंघन
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportThemeType.MisleadingInformation,भ्रामक जानकारी
 Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CommunicationType.Signal,Signal
@@ -371,6 +368,9 @@ Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.WindowBackdropType.Acrylic,ऐक्
 Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.TransitionType.Random,यादृच्छिक
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.TransitionType.Sequential,क्रमिक

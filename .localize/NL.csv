@@ -329,15 +329,6 @@ Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.Stretch.None,Geen
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.Stretch.Uniform,Uniform
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.Stretch.UniformToFill,Uniform Vullen
 Portal\Enum\Portal.Enum.NL.xaml,,
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportType.Spam,Spam
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportType.Other,Ander
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportType.Nudity,Naaktheid
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportType.Harmful,Schadelijk
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportType.Violence,Geweld
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportType.Malicious,Kwaadaardig
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportType.CopyrightViolation,Schending van Auteursrechten
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportType.MisleadingInformation,Misleidende Informatie
-Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.SortModeType.None,Geen
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.SortModeType.Name,Naam
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.SortModeType.Creation,Creatie
@@ -348,13 +339,19 @@ Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.InputType.OnlyMouse,Alleen Muis
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.InputType.OnlyKeyboard,Alleen Toetsenbord
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.InputType.MouseKeyboard,Muis en Toetsenbord
 Portal\Enum\Portal.Enum.NL.xaml,,
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StoreType.GitHub,GitHub
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StoreType.Soferity,Soferity
-Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StretchType.Fill,Vullen
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StretchType.None,Geen
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StretchType.Uniform,Uniform
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StretchType.UniformToFill,Uniform Vullen
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportThemeType.Spam,Spam
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportThemeType.Other,Ander
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportThemeType.Nudity,Naaktheid
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportThemeType.Harmful,Schadelijk
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportThemeType.Violence,Geweld
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportThemeType.Malicious,Kwaadaardig
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportThemeType.CopyrightViolation,Schending van Auteursrechten
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ReportThemeType.MisleadingInformation,Misleidende Informatie
 Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CommunicationType.Signal,Signal
@@ -371,6 +368,9 @@ Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.WindowBackdropType.Acrylic,Acryl
 Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.TransitionType.Random,Willekeurig
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.TransitionType.Sequential,Opeenvolgend

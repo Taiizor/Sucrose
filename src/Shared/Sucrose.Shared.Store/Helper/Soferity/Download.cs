@@ -4,7 +4,7 @@ using System.Net.Http;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
+using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSIC = Sucrose.Shared.Store.Interface.Contents;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
@@ -45,7 +45,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
             try
             {
-                using HttpResponseMessage Response = SSSMI.Client.GetAsync($"{SSSHS.Source(SSDEST.Soferity)}/{SMR.StoreSource}/{SMR.StoreFile}").Result;
+                using HttpResponseMessage Response = SSSMI.Client.GetAsync($"{SSSHS.Source(SSDESST.Soferity)}/{SMR.StoreSource}/{SMR.StoreFile}").Result;
 
                 Response.EnsureSuccessStatusCode();
 

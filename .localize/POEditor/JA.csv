@@ -329,48 +329,48 @@ Portal.Enum.Stretch.None,なし,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.Stretch.Uniform,均等,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.Stretch.UniformToFill,均等にフィル,,Portal\Enum\Portal.Enum.JA.xaml,
 PASS⦙40,PASS⦙40,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
-Portal.Enum.ReportType.Spam,스팸,,Portal\Enum\Portal.Enum.JA.xaml,
-Portal.Enum.ReportType.Other,기타,,Portal\Enum\Portal.Enum.JA.xaml,
-Portal.Enum.ReportType.Nudity,나체,,Portal\Enum\Portal.Enum.JA.xaml,
-Portal.Enum.ReportType.Harmful,유해,,Portal\Enum\Portal.Enum.JA.xaml,
-Portal.Enum.ReportType.Violence,폭력,,Portal\Enum\Portal.Enum.JA.xaml,
-Portal.Enum.ReportType.Malicious,악의적인,,Portal\Enum\Portal.Enum.JA.xaml,
-Portal.Enum.ReportType.CopyrightViolation,저작권 침해,,Portal\Enum\Portal.Enum.JA.xaml,
-Portal.Enum.ReportType.MisleadingInformation,오해의 소지가 있는 정보,,Portal\Enum\Portal.Enum.JA.xaml,
-PASS⦙41,PASS⦙41,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
 Portal.Enum.SortModeType.None,なし,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.SortModeType.Name,名前,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.SortModeType.Creation,作成,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.SortModeType.Modification,変更,,Portal\Enum\Portal.Enum.JA.xaml,
-PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+PASS⦙41,PASS⦙41,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
 Portal.Enum.InputType.Close,閉じる,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.InputType.OnlyMouse,マウスのみ,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.InputType.OnlyKeyboard,キーボードのみ,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.InputType.MouseKeyboard,マウス＆キーボード,,Portal\Enum\Portal.Enum.JA.xaml,
-PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
-Portal.Enum.StoreType.GitHub,GitHub,,Portal\Enum\Portal.Enum.JA.xaml,
-Portal.Enum.StoreType.Soferity,Soferity,,Portal\Enum\Portal.Enum.JA.xaml,
-PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
 Portal.Enum.StretchType.Fill,フィル,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.StretchType.None,なし,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.StretchType.Uniform,均等,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.StretchType.UniformToFill,均等にフィル,,Portal\Enum\Portal.Enum.JA.xaml,
-PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.ReportThemeType.Spam,스팸,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ReportThemeType.Other,기타,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ReportThemeType.Nudity,나체,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ReportThemeType.Harmful,유해,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ReportThemeType.Violence,폭력,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ReportThemeType.Malicious,악의적인,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ReportThemeType.CopyrightViolation,저작권 침해,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.ReportThemeType.MisleadingInformation,오해의 소지가 있는 정보,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
 Portal.Enum.CommunicationType.Pipe,Pipe,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.CommunicationType.Signal,Signal,,Portal\Enum\Portal.Enum.JA.xaml,
-PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
 Portal.Enum.PerformanceType.Close,閉じる,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.PerformanceType.Pause,一時停止,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.PerformanceType.Resume,再開,,Portal\Enum\Portal.Enum.JA.xaml,
-PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
 Portal.Enum.WindowBackdropType.Mica,マイカ,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.WindowBackdropType.None,なし,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.WindowBackdropType.Auto,自動,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.WindowBackdropType.Tabbed,タブ,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.WindowBackdropType.Acrylic,アクリル,,Portal\Enum\Portal.Enum.JA.xaml,
-PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
 Portal.Enum.InputModuleType.Native,Native,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.InputModuleType.RawInput,RawInput,,Portal\Enum\Portal.Enum.JA.xaml,
+PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
+Portal.Enum.StoreServerType.GitHub,GitHub,,Portal\Enum\Portal.Enum.JA.xaml,
+Portal.Enum.StoreServerType.Soferity,Soferity,,Portal\Enum\Portal.Enum.JA.xaml,
 PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.JA.xaml,Please don't touch the translation in this line.
 Portal.Enum.TransitionType.Random,ランダム,,Portal\Enum\Portal.Enum.JA.xaml,
 Portal.Enum.TransitionType.Sequential,順次,,Portal\Enum\Portal.Enum.JA.xaml,

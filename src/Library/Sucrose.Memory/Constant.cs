@@ -44,8 +44,6 @@
 
         public const string PingValue = "PingValue";
 
-        public const string StoreType = "StoreType";
-
         public const string ThemeType = "ThemeType";
 
         public const string UrlEngine = "UrlEngine";
@@ -173,6 +171,8 @@
         public const string PassingCycyling = "PassingCycyling";
 
         public const string StorePagination = "StorePagination";
+
+        public const string StoreServerType = "StoreServerType";
 
         public const string UpdateLimitType = "UpdateLimitType";
 

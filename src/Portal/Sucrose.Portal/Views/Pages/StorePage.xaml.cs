@@ -7,8 +7,8 @@ using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;
 using SPVPSBSP = Sucrose.Portal.Views.Pages.Store.BrokenStorePage;
 using SPVPSFSP = Sucrose.Portal.Views.Pages.Store.FullStorePage;
 using SPVPSUSP = Sucrose.Portal.Views.Pages.Store.UnknownStorePage;
-using SSDESST = Sucrose.Shared.Dependency.Enum.StoreStageType;
-using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
+using SSDESSET = Sucrose.Shared.Dependency.Enum.StoreStageType;
+using SSDESSRT = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSSHGHD = Sucrose.Shared.Store.Helper.GitHub.Download;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
@@ -29,7 +29,7 @@ namespace Sucrose.Portal.Views.Pages
 
         private SPVPSFSP FullStorePage { get; set; }
 
-        private SSDESST StoreStage { get; set; }
+        private SSDESSET StoreStage { get; set; }
 
         public SPVMPSVM ViewModel { get; }
 
@@ -50,15 +50,15 @@ namespace Sucrose.Portal.Views.Pages
                 string PatternFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.PatternFile);
                 string StoreFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 
-                bool Result = SSDMM.StoreType switch
+                bool Result = SSDMM.StoreServerType switch
                 {
-                    SSDEST.GitHub => SSSHGHD.Store(StoreFile, SMMM.UserAgent, SMMM.Key),
+                    SSDESSRT.GitHub => SSSHGHD.Store(StoreFile, SMMM.UserAgent, SMMM.Key),
                     _ => SSSHSD.Store(StoreFile, SMMM.UserAgent)
                 };
 
                 if (Result)
                 {
-                    if (SSDMM.StoreType == SSDEST.Soferity && SSSHSD.Pattern(PatternFile, SMMM.UserAgent))
+                    if (SSDMM.StoreServerType == SSDESSRT.Soferity && SSSHSD.Pattern(PatternFile, SMMM.UserAgent))
                     {
                         Root = SSSHS.DeserializeRoot(PatternFile);
                     }
@@ -67,28 +67,28 @@ namespace Sucrose.Portal.Views.Pages
                         Root = SSSHS.DeserializeRoot(StoreFile);
                     }
 
-                    StoreStage = SSDESST.Full;
+                    StoreStage = SSDESSET.Full;
                 }
                 else
                 {
-                    StoreStage = SSDESST.Unknown;
+                    StoreStage = SSDESSET.Unknown;
                 }
             }
             else
             {
-                StoreStage = SSDESST.Broken;
+                StoreStage = SSDESSET.Broken;
             }
         }
 
         private async Task Start()
         {
-            if (StoreStage == SSDESST.Full)
+            if (StoreStage == SSDESSET.Full)
             {
                 FullStorePage = new(Root);
 
                 FrameStore.Content = FullStorePage;
             }
-            else if (StoreStage == SSDESST.Unknown)
+            else if (StoreStage == SSDESSET.Unknown)
             {
                 UnknownStorePage = new();
 

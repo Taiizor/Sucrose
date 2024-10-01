@@ -19,7 +19,7 @@ using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReport;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
-using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
+using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
@@ -157,9 +157,9 @@ namespace Sucrose.Portal.Views.Controls
                 string LibraryPath = Path.Combine(SMMM.LibraryLocation, Keys);
                 string TemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
 
-                switch (SSDMM.StoreType)
+                switch (SSDMM.StoreServerType)
                 {
-                    case SSDEST.GitHub:
+                    case SSDESST.GitHub:
                         await SSSHGHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Guid, Keys, Key);
                         break;
                     default:
@@ -233,9 +233,9 @@ namespace Sucrose.Portal.Views.Controls
             {
                 SPMI.StoreDownloader[Theme] = false;
 
-                SPMI.StoreDownloader[Theme] = SSDMM.StoreType switch
+                SPMI.StoreDownloader[Theme] = SSDMM.StoreServerType switch
                 {
-                    SSDEST.GitHub => SSSHGHD.Cache(Wallpaper, Theme, Agent, Key),
+                    SSDESST.GitHub => SSSHGHD.Cache(Wallpaper, Theme, Agent, Key),
                     _ => SSSHSD.Cache(Wallpaper, Theme, Agent),
                 };
 
@@ -364,7 +364,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             if (Info != null && SMMM.StorePreview)
             {
-                string GifPath = $"{SSSHS.Source(SSDMM.StoreType)}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Live}";
+                string GifPath = $"{SSSHS.Source(SSDMM.StoreServerType)}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Live}";
 
                 SXAGAB.SetSourceUri(Imaginer, new(GifPath));
                 SXAGAB.AddLoadedHandler(Imaginer, Imaginer_MediaOpened);

@@ -14,7 +14,7 @@ using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
-using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
+using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSSEPS = Sucrose.Shared.Space.Extension.ProgressStream;
 using SSSHC = Sucrose.Shared.Space.Helper.Clean;
@@ -100,9 +100,9 @@ namespace Sucrose.Portal.Views.Controls
 
                     string StoreFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 
-                    bool Result = SSDMM.StoreType switch
+                    bool Result = SSDMM.StoreServerType switch
                     {
-                        SSDEST.GitHub => SSSHGHD.Store(StoreFile, SMMM.UserAgent, SMMM.Key),
+                        SSDESST.GitHub => SSSHGHD.Store(StoreFile, SMMM.UserAgent, SMMM.Key),
                         _ => SSSHSD.Store(StoreFile, SMMM.UserAgent),
                     };
 

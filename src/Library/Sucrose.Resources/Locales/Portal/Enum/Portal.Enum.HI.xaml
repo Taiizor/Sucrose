@@ -7,15 +7,6 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">समानानुपातिक</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">समानानुपातिक भरना</system:String>
 
-    <system:String x:Key="Portal.Enum.ReportType.Spam">स्पैम</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Other">अन्य</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Nudity">नग्नता</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Harmful">हानिकारक</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Violence">हिंसा</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.Malicious">दुर्भावनापूर्ण</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">कॉपीराइट उल्लंघन</system:String>
-    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">भ्रामक जानकारी</system:String>
-
     <system:String x:Key="Portal.Enum.SortModeType.None">कोई नहीं</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">नाम</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">सृजन</system:String>
@@ -26,13 +17,19 @@
     <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">केवल कीबोर्ड</system:String>
     <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">माउस और कीबोर्ड</system:String>
 
-    <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
-    <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
-
     <system:String x:Key="Portal.Enum.StretchType.Fill">भरना</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">कोई नहीं</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">समानानुपातिक</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">समानानुपातिक भरना</system:String>
+
+    <system:String x:Key="Portal.Enum.ReportThemeType.Spam">स्पैम</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Other">अन्य</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Nudity">नग्नता</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Harmful">हानिकारक</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Violence">हिंसा</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.Malicious">दुर्भावनापूर्ण</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.CopyrightViolation">कॉपीराइट उल्लंघन</system:String>
+    <system:String x:Key="Portal.Enum.ReportThemeType.MisleadingInformation">भ्रामक जानकारी</system:String>
 
     <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
     <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
@@ -49,6 +46,9 @@
 
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
+    <system:String x:Key="Portal.Enum.StoreServerType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.StoreServerType.Soferity">Soferity</system:String>
 
     <system:String x:Key="Portal.Enum.TransitionType.Random">यादृच्छिक</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">क्रमिक</system:String>
