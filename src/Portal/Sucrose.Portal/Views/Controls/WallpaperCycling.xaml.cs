@@ -5,7 +5,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SRER = Sucrose.Resources.Extension.Resources;
-using SSDETT = Sucrose.Shared.Dependency.Enum.TransitionType;
+using SSDETCT = Sucrose.Shared.Dependency.Enum.TransitionCycleType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 
 namespace Sucrose.Portal.Views.Controls
@@ -66,15 +66,15 @@ namespace Sucrose.Portal.Views.Controls
 
             TransitionType.SelectionChanged += (s, e) => TransitionTypeSelected(TransitionType.SelectedIndex);
 
-            foreach (SSDETT Type in Enum.GetValues(typeof(SSDETT)))
+            foreach (SSDETCT Type in Enum.GetValues(typeof(SSDETCT)))
             {
                 TransitionType.Items.Add(new ComboBoxItem()
                 {
-                    Content = SRER.GetValue("Portal", "Enum", "TransitionType", $"{Type}")
+                    Content = SRER.GetValue("Portal", "Enum", "TransitionCycleType", $"{Type}")
                 });
             }
 
-            TransitionType.SelectedIndex = (int)SSDMM.TransitionType;
+            TransitionType.SelectedIndex = (int)SSDMM.TransitionCycleType;
 
             Transition.HeaderFrame = TransitionType;
 
@@ -89,11 +89,11 @@ namespace Sucrose.Portal.Views.Controls
 
         private void TransitionTypeSelected(int Index)
         {
-            SSDETT NewStore = (SSDETT)Index;
+            SSDETCT NewType = (SSDETCT)Index;
 
-            if (NewStore != SSDMM.TransitionType)
+            if (NewType != SSDMM.TransitionCycleType)
             {
-                SMMI.CyclingSettingManager.SetSetting(SMC.TransitionType, NewStore);
+                SMMI.CyclingSettingManager.SetSetting(SMC.TransitionCycleType, NewType);
             }
         }
 

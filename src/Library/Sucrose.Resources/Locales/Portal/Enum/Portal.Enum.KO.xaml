@@ -50,8 +50,8 @@
     <system:String x:Key="Portal.Enum.StoreServerType.GitHub">GitHub</system:String>
     <system:String x:Key="Portal.Enum.StoreServerType.Soferity">Soferity</system:String>
 
-    <system:String x:Key="Portal.Enum.TransitionType.Random">랜덤</system:String>
-    <system:String x:Key="Portal.Enum.TransitionType.Sequential">순차적</system:String>
+    <system:String x:Key="Portal.Enum.UpdateServerType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.UpdateServerType.Soferity">Soferity</system:String>
 
     <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">무거운</system:String>
     <system:String x:Key="Portal.Enum.PausePerformanceType.Light">가벼운</system:String>
@@ -61,6 +61,9 @@
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">기본</system:String>
     <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">고급</system:String>
+
+    <system:String x:Key="Portal.Enum.TransitionCycleType.Random">랜덤</system:String>
+    <system:String x:Key="Portal.Enum.TransitionCycleType.Sequential">순차적</system:String>
 
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">작업 영역</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">화면 경계</system:String>

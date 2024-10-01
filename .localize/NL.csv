@@ -372,8 +372,8 @@ Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.NL.xaml,,
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.TransitionType.Random,Willekeurig
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.TransitionType.Sequential,Opeenvolgend
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.PausePerformanceType.Heavy,Zwaar
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.PausePerformanceType.Light,Licht
@@ -383,6 +383,9 @@ Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.SortKindType.Descending,Aflopend [Z-
 Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ExpandScreenType.Default,Standaard
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ExpandScreenType.Advanced,Geavanceerd
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.TransitionCycleType.Random,Willekeurig
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.TransitionCycleType.Sequential,Opeenvolgend
 Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ScreenType.WorkingArea,Werkruimte
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ScreenType.DisplayBound,Schermgrenzen

@@ -8,7 +8,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
-using SSDETT = Sucrose.Shared.Dependency.Enum.TransitionType;
+using SSDETCT = Sucrose.Shared.Dependency.Enum.TransitionCycleType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSETTE = Skylark.Standard.Extension.Time.TimeExtension;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -69,9 +69,9 @@ namespace Sucrose.Shared.Space.Helper
 
                             int Index = Themes.IndexOf(LibrarySelected);
 
-                            switch (SSDMM.TransitionType)
+                            switch (SSDMM.TransitionCycleType)
                             {
-                                case SSDETT.Random:
+                                case SSDETCT.Random:
                                     while (string.IsNullOrEmpty(Selected))
                                     {
                                         while (Index == Themes.IndexOf(LibrarySelected))
@@ -95,7 +95,7 @@ namespace Sucrose.Shared.Space.Helper
                                         }
                                     }
                                     break;
-                                case SSDETT.Sequential:
+                                case SSDETCT.Sequential:
                                     if (Index < 0 || Index >= Themes.Count)
                                     {
                                         Index = 0;

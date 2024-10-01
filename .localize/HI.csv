@@ -372,8 +372,8 @@ Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.HI.xaml,,
-Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.TransitionType.Random,यादृच्छिक
-Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.TransitionType.Sequential,क्रमिक
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.PausePerformanceType.Heavy,भारी
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.PausePerformanceType.Light,हल्का
@@ -383,6 +383,9 @@ Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.SortKindType.Descending,अवरो
 Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ExpandScreenType.Default,डिफ़ॉल्ट
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ExpandScreenType.Advanced,उन्नत
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.TransitionCycleType.Random,यादृच्छिक
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.TransitionCycleType.Sequential,क्रमिक
 Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ScreenType.WorkingArea,काम क्षेत्र
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ScreenType.DisplayBound,प्रदर्शन सीमा

@@ -372,8 +372,8 @@ Portal\Enum\Portal.Enum.KO.xaml,,
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.KO.xaml,,
-Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.TransitionType.Random,랜덤
-Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.TransitionType.Sequential,순차적
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.KO.xaml,,
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.PausePerformanceType.Heavy,무거운
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.PausePerformanceType.Light,가벼운
@@ -383,6 +383,9 @@ Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.SortKindType.Descending,내림차순
 Portal\Enum\Portal.Enum.KO.xaml,,
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ExpandScreenType.Default,기본
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ExpandScreenType.Advanced,고급
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.TransitionCycleType.Random,랜덤
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.TransitionCycleType.Sequential,순차적
 Portal\Enum\Portal.Enum.KO.xaml,,
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ScreenType.WorkingArea,작업 영역
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ScreenType.DisplayBound,화면 경계

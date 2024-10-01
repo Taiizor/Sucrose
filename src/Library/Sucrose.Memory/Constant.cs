@@ -152,8 +152,6 @@
 
         public const string SignalRequired = "SignalRequired";
 
-        public const string TransitionType = "TransitionType";
-
         public const string BackgroundImage = "BackgroundImage";
 
         public const string DisableCycyling = "DisableCycyling";
@@ -239,6 +237,8 @@
         public const string UpdateExtensionType = "UpdateExtensionType";
 
         public const string ProcessorInterfaces = "ProcessorInterfaces";
+
+        public const string TransitionCycleType = "TransitionCycleType";
 
         public const string PausePerformanceType = "PausePerformanceType";
 

@@ -372,8 +372,8 @@ PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.UK.xaml,Please don't tou
 Portal.Enum.StoreServerType.GitHub,GitHub,,Portal\Enum\Portal.Enum.UK.xaml,
 Portal.Enum.StoreServerType.Soferity,Soferity,,Portal\Enum\Portal.Enum.UK.xaml,
 PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.UK.xaml,Please don't touch the translation in this line.
-Portal.Enum.TransitionType.Random,Випадковий,,Portal\Enum\Portal.Enum.UK.xaml,
-Portal.Enum.TransitionType.Sequential,Послідовний,,Portal\Enum\Portal.Enum.UK.xaml,
+Portal.Enum.UpdateServerType.GitHub,GitHub,,Portal\Enum\Portal.Enum.UK.xaml,
+Portal.Enum.UpdateServerType.Soferity,Soferity,,Portal\Enum\Portal.Enum.UK.xaml,
 PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.UK.xaml,Please don't touch the translation in this line.
 Portal.Enum.PausePerformanceType.Heavy,Важкий,,Portal\Enum\Portal.Enum.UK.xaml,
 Portal.Enum.PausePerformanceType.Light,Легкий,,Portal\Enum\Portal.Enum.UK.xaml,
@@ -384,18 +384,21 @@ PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.UK.xaml,Please don't tou
 Portal.Enum.ExpandScreenType.Default,За замовчуванням,,Portal\Enum\Portal.Enum.UK.xaml,
 Portal.Enum.ExpandScreenType.Advanced,Розширений,,Portal\Enum\Portal.Enum.UK.xaml,
 PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.UK.xaml,Please don't touch the translation in this line.
+Portal.Enum.TransitionCycleType.Random,Випадковий,,Portal\Enum\Portal.Enum.UK.xaml,
+Portal.Enum.TransitionCycleType.Sequential,Послідовний,,Portal\Enum\Portal.Enum.UK.xaml,
+PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.UK.xaml,Please don't touch the translation in this line.
 Portal.Enum.ScreenType.WorkingArea,Робоча область,,Portal\Enum\Portal.Enum.UK.xaml,
 Portal.Enum.ScreenType.DisplayBound,Межі дисплея,,Portal\Enum\Portal.Enum.UK.xaml,
-PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.UK.xaml,Please don't touch the translation in this line.
+PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.UK.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateChannelType.Release,За замовчуванням,,Portal\Enum\Portal.Enum.UK.xaml,
 Portal.Enum.UpdateChannelType.PreRelease,Розробник,,Portal\Enum\Portal.Enum.UK.xaml,
-PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.UK.xaml,Please don't touch the translation in this line.
+PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.UK.xaml,Please don't touch the translation in this line.
 Portal.Enum.DuplicateScreenType.Default,За замовчуванням,,Portal\Enum\Portal.Enum.UK.xaml,
 Portal.Enum.DuplicateScreenType.Advanced,Розширений,,Portal\Enum\Portal.Enum.UK.xaml,
-PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.UK.xaml,Please don't touch the translation in this line.
+PASS⦙57,PASS⦙57,Don't Touch,Portal\Enum\Portal.Enum.UK.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateExtensionType.Compressed,Стиснутий,,Portal\Enum\Portal.Enum.UK.xaml,
 Portal.Enum.UpdateExtensionType.Executable,Виконуваний,,Portal\Enum\Portal.Enum.UK.xaml,
-PASS⦙57,PASS⦙57,Don't Touch,Portal\Enum\Portal.Enum.UK.xaml,Please don't touch the translation in this line.
+PASS⦙58,PASS⦙58,Don't Touch,Portal\Enum\Portal.Enum.UK.xaml,Please don't touch the translation in this line.
 Portal.Enum.CompatibilityType.Pass,Успішний результат,,Portal\Enum\Portal.Enum.UK.xaml,
 Portal.Enum.CompatibilityType.Tags,Занадто багато значень у 'Tags',,Portal\Enum\Portal.Enum.UK.xaml,
 Portal.Enum.CompatibilityType.Type,"Тема призначена для типу, який програма не підтримує",,Portal\Enum\Portal.Enum.UK.xaml,
@@ -445,25 +448,25 @@ Portal.Enum.CompatibilityType.InvalidProperties,Файл 'SucroseProperties.json
 Portal.Enum.CompatibilityType.PropertyLocalization,Недійсне значення 'PropertyLocalization',,Portal\Enum\Portal.Enum.UK.xaml,
 Portal.Enum.CompatibilityType.UnforeseenConsequences,Непередбачені Наслідки,,Portal\Enum\Portal.Enum.UK.xaml,
 Base64⦙3,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5VSy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.UK.xaml,Please don't touch the translation in this line.
-PASS⦙58,PASS⦙58,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.UK.xaml,Please don't touch the translation in this line.
-Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.UK.xaml,
 PASS⦙59,PASS⦙59,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.UK.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.UK.xaml,
+PASS⦙60,PASS⦙60,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.UK.xaml,Please don't touch the translation in this line.
 Portal.LibraryPage.Import.Successful,Тему з назвою '{0}' успішно імпортовано до бібліотеки.,,Portal\LibraryPage\Portal.LibraryPage.UK.xaml,
 Portal.LibraryPage.Import.Unsuccessful,Тему з назвою '{0}' не вдалося імпортувати до бібліотеки. Причина: '{1}'.,,Portal\LibraryPage\Portal.LibraryPage.UK.xaml,
 Portal.MainWindow.Title,Sucrose Wallpaper Engine,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
-PASS⦙60,PASS⦙60,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
+PASS⦙61,PASS⦙61,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuHelp,Довідка,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Portal.MainWindow.MenuAbout,Про програму,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
-PASS⦙61,PASS⦙61,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
+PASS⦙62,PASS⦙62,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuHelpTip,Переглянути довідку,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Portal.MainWindow.MenuAboutTip,Переглянути інформацію про програму,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
-PASS⦙62,PASS⦙62,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
+PASS⦙63,PASS⦙63,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLibrary,Бібліотека,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Portal.MainWindow.MenuStore,Магазин,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
-PASS⦙63,PASS⦙63,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
+PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLibraryTip,Бібліотека тем,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Portal.MainWindow.MenuStoreTip,Магазин тем,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
-PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
+PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuGeneral,Загальні,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Portal.MainWindow.MenuPersonal,Особисті,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Portal.MainWindow.MenuPerformance,Продуктивність,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
@@ -471,7 +474,7 @@ Portal.MainWindow.MenuWallpaper,Шпалери,,Portal\MainWindow\Portal.MainWin
 Portal.MainWindow.MenuSystem,Система,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Portal.MainWindow.MenuDonate,Пожертвування,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Portal.MainWindow.MenuOther,Інше,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
-PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
+PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuBackTip,Повернутися,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Portal.MainWindow.MenuGeneralTip,Загальні налаштування,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Portal.MainWindow.MenuPersonalTip,Особисті налаштування,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
@@ -480,16 +483,16 @@ Portal.MainWindow.MenuWallpaperTip,Налаштування шпалер,,Portal
 Portal.MainWindow.MenuSystemTip,Налаштування системи,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Portal.MainWindow.MenuDonateTip,Налаштування пожертвувань,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Portal.MainWindow.MenuOtherTip,Інші налаштування,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
-PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.MenuSettingTip,Налаштування,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.SearchBoxHint,Пошук шпалери,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
+Portal.MainWindow.MenuSettingTip,Налаштування,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.SearchBoxTip,Маєте труднощі у пошуку необхідного?,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
+Portal.MainWindow.SearchBoxHint,Пошук шпалери,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 PASS⦙69,PASS⦙69,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxTip,Маєте труднощі у пошуку необхідного?,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
+PASS⦙70,PASS⦙70,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLightTip,Світла тема,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Portal.MainWindow.MenuDarkTip,Темна тема,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
-PASS⦙70,PASS⦙70,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
+PASS⦙71,PASS⦙71,Don't Touch,Portal\MainWindow\Portal.MainWindow.UK.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuCreateWallpaperTip,Створити шпалери,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Portal.MainWindow.MenuWallpaperCyclingTip,Цикління шпалер,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Portal.MainWindow.MenuDisplayPreferencesTip,Налаштування екрану,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
@@ -497,36 +500,36 @@ Portal.MainWindow.MenuDonateOptionsTip,Параметри пожертвуван
 Portal.MainWindow.MenuOtherOptionsTip,Інші параметри,,Portal\MainWindow\Portal.MainWindow.UK.xaml,
 Base64⦙4,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuVUsueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\SettingPage\Portal.SettingPage.UK.xaml,Please don't touch the translation in this line.
 Base64⦙5,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLlVLLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==,Don't Touch,Portal\StorePage\Portal.StorePage.UK.xaml,Please don't touch the translation in this line.
-PASS⦙71,PASS⦙71,Don't Touch,Portal\StorePage\Portal.StorePage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙72,PASS⦙72,Don't Touch,Portal\StorePage\Portal.StorePage.UK.xaml,Please don't touch the translation in this line.
 Portal.StorePage.Title,StorePage,,Portal\StorePage\Portal.StorePage.UK.xaml,
 Portal.DisplayPreferences.Title,Налаштування екрану,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,
 Portal.DisplayPreferences.Close,Закрити,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,
-PASS⦙72,PASS⦙72,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Please don't touch the translation in this line.
+PASS⦙73,PASS⦙73,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Please don't touch the translation in this line.
 Portal.DisplayPreferences.Expander,Режим розміщення,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,
 Portal.DisplayPreferences.Expander.Description,Як ви бажаєте застосовувати шпалери на активні екрани.,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,
-PASS⦙73,PASS⦙73,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Screen,Тільки обраний екран,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,
 PASS⦙74,PASS⦙74,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand,Розширити між екранами,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,
+Portal.DisplayPreferences.Screen,Тільки обраний екран,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,
 PASS⦙75,PASS⦙75,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand.Monitor,На всі монітори,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,
+Portal.DisplayPreferences.Expand,Розширити між екранами,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,
 PASS⦙76,PASS⦙76,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand.Hint,Виберіть режим розширення між екранами.,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,
+Portal.DisplayPreferences.Expand.Monitor,На всі монітори,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,
 PASS⦙77,PASS⦙77,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Duplicate,Повторити однаковий шпалер,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,
+Portal.DisplayPreferences.Expand.Hint,Виберіть режим розширення між екранами.,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,
 PASS⦙78,PASS⦙78,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate,Повторити однаковий шпалер,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,
+PASS⦙79,PASS⦙79,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Please don't touch the translation in this line.
 Portal.DisplayPreferences.Duplicate.Hint,Виберіть режим повторення однакового шпалеру.,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,
 Portal.ExpanderCard.TitleText,Заголовок,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.UK.xaml,
 Portal.ExpanderCard.DescriptionText,Опис,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.UK.xaml,
-PASS⦙79,PASS⦙79,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.UK.xaml,Please don't touch the translation in this line.
+PASS⦙80,PASS⦙80,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.UK.xaml,Please don't touch the translation in this line.
 Portal.ExpanderCard.ExpandUpTip,Згорнути,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.UK.xaml,
 Portal.ExpanderCard.ExpandDownTip,Розгорнути,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.UK.xaml,
 Portal.LibraryCard.TitleText,Заголовок,,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,
 Portal.LibraryCard.DescriptionText,Опис,,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,
-PASS⦙80,PASS⦙80,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Please don't touch the translation in this line.
+PASS⦙81,PASS⦙81,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.MoreTip,Більше,,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,
 Portal.LibraryCard.VersionTip,"Щоб використовувати цю тему, оновіть Sucrose",,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,
-PASS⦙81,PASS⦙81,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Please don't touch the translation in this line.
+PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.MenuReview,Оглянути,,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,
 Portal.LibraryCard.MenuUse,Використовувати,,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,
 Portal.LibraryCard.MenuPreview,Попередній перегляд,,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,
@@ -537,83 +540,83 @@ Portal.LibraryCard.MenuFind,Знайти,,Portal\Controls\LibraryCard\Portal.Lib
 Portal.LibraryCard.MenuShare,Поділитися,,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,
 Portal.LibraryCard.MenuDelete,Видалити,,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,
 Portal.LibraryCard.MenuEdit,Редагувати,,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,
-PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Please don't touch the translation in this line.
+PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.Closed,Закрито,,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,
 Portal.LibraryCard.Paused,Призупинено,,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,
-PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Please don't touch the translation in this line.
-Portal.LibraryCard.Selected,Вибрано,,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,
 PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Selected,Вибрано,,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,
+PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.Incompatible,Несумісний,,Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,
 Portal.OtherAbout.Title,Про програму,,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
 Portal.OtherAbout.Close,Закрити,,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
-PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.About,"Привіт, мене звуть Bayram Emekli, я також відомий під ім'ям користувача Taiizor. Я є розробником Sucrose Wallpaper Engine - безкоштовного та відкритого для розробки програмного забезпечення. Дякую, що ви використовуєте мою розробку.",,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
 PASS⦙86,PASS⦙86,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.About,"Привіт, мене звуть Bayram Emekli, я також відомий під ім'ям користувача Taiizor. Я є розробником Sucrose Wallpaper Engine - безкоштовного та відкритого для розробки програмного забезпечення. Дякую, що ви використовуєте мою розробку.",,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
+PASS⦙87,PASS⦙87,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherAbout.Update,Версія: v{0},,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
 Portal.OtherAbout.Update.Description,Останнє оновлення: {0},,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
-PASS⦙87,PASS⦙87,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Update.Notes,Примітки до оновлення,,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
 PASS⦙88,PASS⦙88,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Partners,Партнери,,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
+Portal.OtherAbout.Update.Notes,Примітки до оновлення,,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
 PASS⦙89,PASS⦙89,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Contributors,Учасники,,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
+Portal.OtherAbout.Partners,Партнери,,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
 PASS⦙90,PASS⦙90,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.TermsOfService,Умови надання послуг,,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
+Portal.OtherAbout.Contributors,Учасники,,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
 PASS⦙91,PASS⦙91,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.PrivacyPolicy,Політика конфіденційності,,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
+Portal.OtherAbout.TermsOfService,Умови надання послуг,,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
 PASS⦙92,PASS⦙92,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.PrivacyPolicy,Політика конфіденційності,,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
+PASS⦙93,PASS⦙93,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherAbout.CodeOfConduct,Кодекс поведінки учасника спільноти,,Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,
 Portal.OtherHelp.Title,Довідка,,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,
 Portal.OtherHelp.Close,Закрити,,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,
-PASS⦙93,PASS⦙93,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Please don't touch the translation in this line.
+PASS⦙94,PASS⦙94,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.WebPage,Веб-сайт,,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,
 Portal.OtherHelp.WebPage.Description,Офіційний веб-сайт Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,
-PASS⦙94,PASS⦙94,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Please don't touch the translation in this line.
+PASS⦙95,PASS⦙95,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Documentation,Документація,,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,
 Portal.OtherHelp.Documentation.Description,Офіційна сторінка документації Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,
-PASS⦙95,PASS⦙95,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Please don't touch the translation in this line.
+PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Repository,Вихідний код,,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,
 Portal.OtherHelp.Repository.Description,Офіційна сторінка вихідного коду Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,
-PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Please don't touch the translation in this line.
+PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Discussions,Обговорення,,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,
 Portal.OtherHelp.Discussions.Description,Офіційна сторінка обговорення Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,
-PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Please don't touch the translation in this line.
+PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Report,Повідомити про помилку,,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,
 Portal.OtherHelp.Report.Description,Офіційна сторінка звітування про помилки в Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,
 Portal.Pagination.PageJump,Перейти,,Portal\Controls\Pagination\Portal.Pagination.UK.xaml,
 Portal.StoreCard.TitleText,Заголовок,,Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,
 Portal.StoreCard.DescriptionText,Опис,,Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,
-PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,Please don't touch the translation in this line.
-Portal.StoreCard.VersionTip,"Для встановлення цієї теми, оновіть Sucrose",,Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,
 PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.VersionTip,"Для встановлення цієї теми, оновіть Sucrose",,Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,
+PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,Please don't touch the translation in this line.
 Portal.StoreCard.MenuUpdating,Перевірка Oновлень,,Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,
 Portal.StoreCard.MenuUpdate,Перевірити Oновлення,,Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,
 Portal.StoreCard.MenuInstall,Встановити,,Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,
 Portal.StoreCard.MenuReport,Повідомити,,Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,
-PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,Please don't touch the translation in this line.
+PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,Please don't touch the translation in this line.
 Portal.StoreCard.Incompatible,Несумісний,,Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,
 Portal.ThemeCreate.Title,Створення Теми,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.Create,Створити,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.Close,Закрити,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙102,PASS⦙102,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Gif,Тема Gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.Gif.Description,Створити власну тему у форматі Gif.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙102,PASS⦙102,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Url,Тема за Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.Url.Description,Створити власну тему у форматі Url.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Web,Тема Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.Web.Description,Створити власну тему у форматі Web.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Video,Тема Video,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.Video.Description,Створити власну тему у форматі Video.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.YouTube,Тема YouTube,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.YouTube.Description,Створити власну тему у форматі YouTube.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Application,Тема Application,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.Application.Description,Створити власну тему у форматі Application.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeUrl,Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.ThemeWeb,Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.ThemeApplication,Додаток,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
@@ -625,7 +628,7 @@ Portal.ThemeCreate.ThemeAuthor,Автор,,Portal\Controls\ThemeCreate\Portal.Th
 Portal.ThemeCreate.ThemeContact,Контакт,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.ThemeTags,Теги,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.ThemeArguments,Аргументи,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeUrl.Hint,"Будь ласка, введіть дійсну Url-адресу",,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.ThemeWeb.Hint,Виберіть Web-сторінку,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.ThemeApplication.Hint,Виберіть файл додатка,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
@@ -637,41 +640,41 @@ Portal.ThemeCreate.ThemeAuthor.Hint,"Будь ласка, введіть дій�
 Portal.ThemeCreate.ThemeContact.Hint,"Будь ласка, введіть дійсну контактну інформацію",,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.ThemeTags.Hint,"Будь ласка, введіть дійсні теги теми",,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.ThemeArguments.Hint,"Будь ласка, введіть дійсні аргументи додатку",,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
-Portal.ThemeCreate.DragDrop.Delete,Скасувати,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Delete,Скасувати,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
+PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Gif.Title,Виберіть Файл Gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.DragDrop.Gif.Filter,Файли Gif (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Video.Title,Виберіть Відеофайл,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.DragDrop.Video.Filter,Відеофайли (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙113,PASS⦙113,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Gif,Перетягніть тут свій файл GIF і відпустіть,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.DragDrop.Video,Перетягніть сюди свій файл відео і відпустіть,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙113,PASS⦙113,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeThumbnail.Title,Виберіть обкладинку,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.ThemeThumbnail.Filter,Зображення (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemePreview.Title,Виберіть файл попереднього перегляду,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.ThemePreview.Filter,Файли GIF (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.WebSource.Title,Виберіть Web-Сторінку,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.WebSource.Filter,Web-Сторінки (*.html)|*.html,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ApplicationSource.Title,Виберіть Файл додатка,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.ApplicationSource.Filter,Файли додатків (*.exe)|*.exe,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Copy.Close,Зрозумів,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.Copy.Title,Важливе Попередження,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.Copy.Message,Вибраний файл буде включений у тему разом з усіма іншими файлами та папками в каталозі.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
-PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
+PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Access.Close,Зрозуміло,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.Access.Title,Попередження про Доступ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeCreate.Access.Message,У вас немає дозволу на доступ до вибраного файлу.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,
 Portal.ThemeDelete.Title,Видалення Теми,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,
 Portal.ThemeDelete.Delete,Видалити,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,
 Portal.ThemeDelete.Close,Закрити,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,
-PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Please don't touch the translation in this line.
+PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeDelete.ThemeTitle,Заголовок,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,
 Portal.ThemeDelete.ThemeDescription,Опис,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,
 Portal.ThemeDelete.ThemeType,Тип,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,
@@ -691,14 +694,14 @@ Portal.ThemeDelete.ThemeModifyDate,Невідомо,,Portal\Controls\ThemeDelete
 Portal.ThemeEdit.Title,Редагування Теми,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,
 Portal.ThemeEdit.Close,Закрити,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,
 Portal.ThemeEdit.Save,Зберегти,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,
-PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Please don't touch the translation in this line.
+PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeEdit.ThemeTitle,Заголовок,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,
 Portal.ThemeEdit.ThemeDescription,Опис,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,
 Portal.ThemeEdit.ThemeAuthor,Автор,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,
 Portal.ThemeEdit.ThemeContact,Контакт,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,
 Portal.ThemeEdit.ThemeTags,Мітки,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,
 Portal.ThemeEdit.ThemeArguments,Аргументи,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,
-PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Please don't touch the translation in this line.
+PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeEdit.ThemeTitle.Hint,"Будь ласка, введіть дійсний заголовок",,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,
 Portal.ThemeEdit.ThemeDescription.Hint,"Будь ласка, введіть дійсний опис",,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,
 Portal.ThemeEdit.ThemeAuthor.Hint,"Будь ласка, введіть дійсне ім'я автора",,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,
@@ -707,41 +710,41 @@ Portal.ThemeEdit.ThemeTags.Hint,"Будь ласка, введіть дійсн�
 Portal.ThemeEdit.ThemeArguments.Hint,"Будь ласка, введіть дійсні аргументи додатка",,Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,
 Portal.ThemeImport.Title,Імпорт Теми,,Portal\Controls\ThemeImport\Portal.ThemeImport.UK.xaml,
 Portal.ThemeImport.Close,Закрити,,Portal\Controls\ThemeImport\Portal.ThemeImport.UK.xaml,
-PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.UK.xaml,Please don't touch the translation in this line.
+PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeImport.Info,Інформація про Тему,,Portal\Controls\ThemeImport\Portal.ThemeImport.UK.xaml,
 Portal.ThemeImport.Type,Причини та пояснення,,Portal\Controls\ThemeImport\Portal.ThemeImport.UK.xaml,
 Portal.ThemeReport.Title,Звіт Про Тему,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
 Portal.ThemeReport.Close,Закрити,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
-PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Please don't touch the translation in this line.
+PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.ThemeTitle,Назва,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
 Portal.ThemeReport.ThemeDescription,Опис,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
-PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Please don't touch the translation in this line.
+PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter,Звіт,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
 Portal.ThemeReport.Reporter.Description,Вкажіть причини звіту про тему.,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
-PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Contact.Placeholder,"Будь ласка, введіть дійсну адресу електронної пошти",,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
 PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Contact.Placeholder,"Будь ласка, введіть дійсну адресу електронної пошти",,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
+PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Description.Text,Додаткові нотатки:,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
 Portal.ThemeReport.Reporter.Description.Placeholder,"Будь ласка, детально опишіть причину звіту.",,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
-PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Preparing,Підготовка до звіту незабаром розпочнеться..,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
 PASS⦙128,PASS⦙128,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Preparing,Підготовка до звіту незабаром розпочнеться..,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
+PASS⦙129,PASS⦙129,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Checking,Необхідні перевірки для звіту проводяться..,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
 Portal.ThemeReport.Reporter.Checking.Error,Сталася невідома помилка під час проведення необхідних перевірок для звіту.,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
 Portal.ThemeReport.Reporter.Checking.Status,"В даний момент неможливо створити відповідні умови для звіту, будь ласка, спробуйте пізніше..",,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
-PASS⦙129,PASS⦙129,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Please don't touch the translation in this line.
+PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Sending,Відправка інформації для звіту..,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
 Portal.ThemeReport.Reporter.Sending.Error,Сталася помилка під час відправки звіту.,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
 Portal.ThemeReport.Reporter.Sending.Errored,Сталася несподівана помилка під час відправки звіту: {0}.,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
 Portal.ThemeReport.Reporter.Sending.Succeded,"Звіт успішно відправлений, дякуємо.",,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
-PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Network,Для звіту потрібне інтернет-з'єднання.,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
 PASS⦙131,PASS⦙131,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Network,Для звіту потрібне інтернет-з'єднання.,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
+PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Report,Звітувати,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
 Portal.ThemeReport.Reporter.GitHub,Звітувати через GitHub,,Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,
 Portal.ThemeReview.Title,Огляд Теми,,Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,
 Portal.ThemeReview.Close,Закрити,,Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,
-PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Please don't touch the translation in this line.
+PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeReview.ThemeTitle,Заголовок,,Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,
 Portal.ThemeReview.ThemeDescription,Опис,,Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,
 Portal.ThemeReview.ThemeType,Тип,,Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,
@@ -761,400 +764,400 @@ Portal.ThemeReview.ThemeModifyDate,Невідомо,,Portal\Controls\ThemeReview
 Portal.ThemeReview.ThemeContact,Контактна інформація теми,,Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,
 Portal.ThemeShare.Title,Поділитися Темою,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 Portal.ThemeShare.Close,Закрити,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
-PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
+PASS⦙134,PASS⦙134,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemeTitle,Заголовок,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 Portal.ThemeShare.ThemeDescription,Опис,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
-PASS⦙134,PASS⦙134,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
+PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemeExport,Експортувати,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 Portal.ThemeShare.ThemePublish,Опублікувати в магазині,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 Portal.ThemeShare.ThemeCopy,Скопіювати посилання,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
-PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
+PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Publish,Опублікувати,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 Portal.ThemeShare.ThemePublish.Preparing,Підготовка до публікації незабаром розпочнеться..,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
-PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Limit,Перевіряється ваш денний ліміт на завантаження тем..,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit,Перевіряється ваш денний ліміт на завантаження тем..,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
+PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Ви досягли свого денного ліміту на завантаження тем, спробуйте пізніше.",,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 Portal.ThemeShare.ThemePublish.Limit.Error,Сталася невідома помилка під час перевірки вашого денного ліміту на завантаження тем.,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
-PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
+PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Compress,Тема стискається перед завантаженням..,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 Portal.ThemeShare.ThemePublish.Compress.Error,Сталася помилка під час стискання теми.,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
-PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Size,Перевіряється розмір стисненої теми..,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 PASS⦙140,PASS⦙140,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Size.Exceeded,"Стиснену тему не можна завантажити, оскільки вона перевищує {0} МB.",,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
+Portal.ThemeShare.ThemePublish.Size,Перевіряється розмір стисненої теми..,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size.Exceeded,"Стиснену тему не можна завантажити, оскільки вона перевищує {0} МB.",,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
+PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Check,Перевіряється цілісність стиснутої теми перед завантаженням..,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 Portal.ThemeShare.ThemePublish.Check.Error,Сталася помилка під час перевірки цілісності стиснутої теми.,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
-PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Upload,Стиснена тема готується до завантаження..,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 PASS⦙143,PASS⦙143,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload,Стиснена тема готується до завантаження..,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
+PASS⦙144,PASS⦙144,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Upload.Start,Стиснена тема завантажується..,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Error,Сталася невідома помилка під час завантаження стисненої теми.,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Errored,Сталася несподівана помилка під час завантаження стисненої теми: {0}.,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Succeded,Стиснену тему успішно завантажено і після перевірки вона буде опублікована в магазині.,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
-PASS⦙144,PASS⦙144,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
+PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.SaveDialogFilter,ZIP Файли (*.zip)|*.zip|Всі файли (*.*)|*.*,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 Portal.ThemeShare.SaveDialogTitle,Зберегти файл теми,,Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,
 Portal.TrayIcon.Title,Системний Tрей,,Portal\Controls\TrayIcon\Portal.TrayIcon.UK.xaml,
 Portal.TrayIcon.Close,Закрити,,Portal\Controls\TrayIcon\Portal.TrayIcon.UK.xaml,
-PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.UK.xaml,Please don't touch the translation in this line.
+PASS⦙146,PASS⦙146,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.UK.xaml,Please don't touch the translation in this line.
 Portal.TrayIcon.Message,"Sucrose було згорнуто в системний трей. Натисніть правою кнопкою миші на значок Sucrose, щоб продовжити.",,Portal\Controls\TrayIcon\Portal.TrayIcon.UK.xaml,
 Portal.WallpaperCycling.Title,Циклінг Шпалер,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,
 Portal.WallpaperCycling.Close,Закрити,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,
-PASS⦙146,PASS⦙146,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Please don't touch the translation in this line.
+PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Cycling,Автоматичний Циклінг Шпалер,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,
 Portal.WallpaperCycling.Cycling.Description,Чи змінюється шпалери автоматично чи ні.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,
-PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Please don't touch the translation in this line.
+PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,Інтервал Часу,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,
 Portal.WallpaperCycling.Time.Description,"Часовий інтервал, після якого змінюється шпалер.",,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,
-PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Please don't touch the translation in this line.
+PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,Режим Переходу,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,
 Portal.WallpaperCycling.Transition.Description,Встановлює режим переходу між шпалерами.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,
-PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Please don't touch the translation in this line.
+PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List,Список Циклу,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,
 Portal.WallpaperCycling.List.Description,Скидає список циклу до значень за замовчуванням.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,
-PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Please don't touch the translation in this line.
+PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List.Reset,Скинути,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,
 Portal.EmptyLibraryPage.Title,EmptyLibraryPage,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.UK.xaml,
-PASS⦙151,PASS⦙151,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙152,PASS⦙152,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.UK.xaml,Please don't touch the translation in this line.
 Portal.EmptyLibraryPage.TitleText,Ваша бібліотека обплетена павутинням,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.UK.xaml,
 Portal.EmptyLibraryPage.DescriptionText,"Замість шпалер ви побачите шедевр, який створено павутинням",,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.UK.xaml,
 Portal.FullLibraryPage.Title,FullLibraryPage,,Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.UK.xaml,
 Portal.SearchLibraryPage.Title,SearchLibraryPage,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.UK.xaml,
-PASS⦙152,PASS⦙152,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙153,PASS⦙153,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.UK.xaml,Please don't touch the translation in this line.
 Portal.SearchLibraryPage.TitleText,Ваша бібліотека заворожена павутинням,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.UK.xaml,
 Portal.SearchLibraryPage.DescriptionText,"Ваша обережність у виборі шпалер призвела до того, що місця для них не залишилося",,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.UK.xaml,
 Portal.DonateSettingPage.Title,DonateSettingPage,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,
-PASS⦙153,PASS⦙153,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙154,PASS⦙154,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu,Меню Пожертв,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,
 Portal.DonateSettingPage.DonateMenu.Description,Видимість меню пожертв в інтерфейсі.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,
-PASS⦙154,PASS⦙154,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙155,PASS⦙155,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Показати,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Приховати,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,
-PASS⦙155,PASS⦙155,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙156,PASS⦙156,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising,Підтримка рекламою,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,
 Portal.DonateSettingPage.Advertising.Description,"Допоможіть у розвитку додатка, переглядаючи рекламу.",,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,
-PASS⦙156,PASS⦙156,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising.AdvertisingDelay,Тривалість реклами (хвилини):,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,
 Portal.DonateSettingPage.Advertising.AdvertisingHint,Підказка: Реклами будуть показані вам з мінімальними незручностями.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,
 Portal.GeneralSettingPage.Title,GeneralSettingPage,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
-PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationLanguage,Мова програми,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.ApplicationLanguage.Description,Виберіть мову для відображення програми.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
-PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup,Запуск програми при старті,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Description,Для відтворення шпалеру програмі Sucrose необхідно запускатися при старті системи в фоновому режимі.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
-PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Вимкнути,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Звичайний,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,З високим пріоритетом,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,За розкладом,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
-PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Зрозуміло,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Попередження Прав Aдміністратора,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,"Щоб змінити статус запуску, вам потрібні права адміністратора.",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
-PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon,Піктограма в області сповіщень,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Description,Видимість піктограми в системному треї. Програма Sucrose буде працювати в фоновому режимі.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
-PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Показати,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Сховати,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
-PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.NotifyIcon.NotifyExit,"Закриваючи піктограму в області сповіщень, закривати всі програми Sucrose",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.NotifyExit,"Закриваючи піктограму в області сповіщень, закривати всі програми Sucrose",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
+PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop,Фон вікна,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.Description,Використовується для налаштування фону вікна програми.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
-PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Обрати фонове зображення,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Вибрати фонове зображення,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Зображення (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,"На жаль, у вас немає дозволу на доступ до вибраного файлу зображення",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
-PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Розтягнути фон:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Прозорість фону (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Розтягнути фон:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Прозорість фону (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
+PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume,Рівень звуку,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.EngineVolume.Description,"Рівень звуку, який застосовується до всіх шпалер.",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
-PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Звук відтворюється лише при фокусуванні на робочому столі,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeActive,"Відтворювати звук лише тоді, коли всі програми приглушені",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Чутливість (Секунди):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
-PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary,Місце розташування бібліотеки,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.Description,"Місце, де зберігатимуться теми, які ви додали до бібліотеки.",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
-PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,"На жаль, ви не маєте доступу до нового місця розташування",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,"Будь ласка, оберіть порожню папку",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"Зачекайте трохи, поки папку переміщується",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
-PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Перемістити вашу поточну бібліотеку в нове місце,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,
 Portal.OtherSettingPage.Title,OtherSettingPage,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
-PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.ReportData,Автоматична Звітність Про Помилки,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 Portal.OtherSettingPage.ReportData.Description,"Сукроза діє таким чином, щоб швидко повідомляти про помилку при її виявленні.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
-PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.StatisticsData,Поділіться Cтатистикою Використання,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 Portal.OtherSettingPage.StatisticsData.Description,Сукроза дозволяє збирати вашу статистику використання для сприяння розвитку додатка.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
-PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook,Discord,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 Portal.OtherSettingPage.DiscordHook.Description,Sucrose забезпечує зв'язок з Discord.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
-PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Оновлення зв'язку:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 Portal.OtherSettingPage.DiscordHook.DiscordDelay,Частота оновлення (секунди):,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
-PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Agent,Представник інтернету,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 Portal.OtherSettingPage.Agent.Description,"Ваш ідентифікатор представника для випадків, коли потрібне підключення до інтернету.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
-PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key,Особистий ключ доступу,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 Portal.OtherSettingPage.Key.Description,Необхідно для безпроблемного користування магазином та оновленням програми.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
-PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Key.HintKey,"Як отримати особистий ключ доступу, дізнайтеся тут, якщо ви цього не знаєте.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.HintKey,"Як отримати особистий ключ доступу, дізнайтеся тут, якщо ви цього не знаєте.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
+PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key.PersonalKey,"Будь ласка, введіть особистий ключ доступу",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 Portal.OtherSettingPage.Key.PersonalKey.Valid,"Будь ласка, введіть дійсний особистий ключ доступу",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
-PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Channel,Канал Оновлення,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 Portal.OtherSettingPage.Channel.Description,"Визначте канал, через який здійснювати оновлення.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
-PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update,Спосіб Оновлення,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 Portal.OtherSettingPage.Update.Description,Визначте спосіб оновлення програми.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
-PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Update.Limit,Обмеження ширина смуги для завантаження:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update.Limit,Обмеження ширина смуги для завантаження:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Auto,Автоматичне Оновлення,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 Portal.OtherSettingPage.Auto.Description,Чи буде процес оновлення перевірятися автоматично.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
-PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer,Інструменти розробника,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 Portal.OtherSettingPage.Developer.Description,Керуйте інструментами розробника для движка WebView та CefSharp.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
-PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperMode,Стандартні Інструменти Розробника:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperPort,Порт Налагодження:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
+Portal.OtherSettingPage.Developer.DeveloperMode,Стандартні Інструменти Розробника:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,Порт Налагодження:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
+PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer.DeveloperHint,"Підказка: Стандартні інструменти розробника можуть не працювати належним чином у підтримуваних темах. Порт налагодження працює краще. Коли ви будете готові, ви можете використовувати адресу 'http://localhost:{0}' або 'chrome://inspect' для браузера Chrome, 'opera://inspect' для браузера Opera, 'edge://inspect' для браузера Edge.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
-PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter,Показники продуктивності,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Counter.Description,Чи працюватимуть всі показники продуктивності у фоновому режимі.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
-PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Counter.CounterHint,"Примітка: Деякі теми Web-сайтів можуть працювати не належним чином, і жоден із наступних параметрів продуктивності не буде працювати.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter.CounterHint,"Примітка: Деякі теми Web-сайтів можуть працювати не належним чином, і жоден із наступних параметрів продуктивності не буде працювати.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Pause,Правило паузи,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Pause.Description,Визначає правило для призупинення робочого столу згідно з вашими налаштуваннями продуктивності.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
-PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Communication,Тип комунікації,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Communication.Description,Визначає метод надсилання повідомлень темам типу Web.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
-PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu,Використання процесора,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Cpu.Description,Як використання процесора впливає на робочий стіл.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
-PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Cpu.CpuUsage,Використання процесора (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu.CpuUsage,Використання процесора (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu,Використання GPU,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Gpu.Description,Що відбувається зі шпалерами на основі налаштувань використання GPU.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
-PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Список графічних процесорів ще не створено,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
-PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Gpu.GpuUsage,Використання GPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuUsage,Використання GPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory,Використання пам'яті,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Memory.Description,Як використання пам'яті впливає на робочий стіл.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
-PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Memory.MemoryUsage,Використання пам'яті (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory.MemoryUsage,Використання пам'яті (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
+PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network,Використання мережі,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Network.Description,Як використання мережі впливає на робочий стіл.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
-PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network.NetworkAdapter,Мережевий адаптер:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Список мережевих адаптерів ще не створено,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
-PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkUpload,Розмір відвантаження:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkDownload,Розмір завантаження:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
+Portal.PerformanceSettingPage.Network.NetworkUpload,Розмір відвантаження:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkPing,Значення Ping (мс):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
+Portal.PerformanceSettingPage.Network.NetworkDownload,Розмір завантаження:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Значення Ping (мс):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
+PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery,Заряд батареї,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Battery.Description,Як використання батареї впливає на робочий стіл.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
-PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Battery.BatteryUsage,Стан заряду батареї (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery.BatteryUsage,Стан заряду батареї (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Saver,Економія енергії батареї,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Saver.Description,Як економія енергії батареї впливає на робочий стіл під час роботи з ноутбука.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
-PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Virtual,Віртуалізація,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Virtual.Description,Як віртуалізація впливає на робочий стіл під час роботи з віртуальними програмами.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
-PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Remote,Віддалений робочий стіл,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Remote.Description,Як робочий стіл віддаленої системи впливає на робочий стіл.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
-PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Fullscreen,Повноекранний режим,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Fullscreen.Description,Як робочий стіл повноекранної програми впливає на робочий стіл.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
-PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Focus,Режим фокусування,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PerformanceSettingPage.Focus.Description,Як робочий стіл відображається під час наявності активної програми.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
-PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server,Сервер магазину,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 Portal.PersonalSettingPage.Server.Description,"Вказує, який сервер буде використовуватися для відображення тем, перерахованих у магазині.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
-PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Server.ServerHint,"Примітка: Якщо вибрано {0} як сервер, необхідно ввести {2}, щоб уникнути обмежень запитів. В іншому випадку можуть виникнути проблеми з доступом до тем у магазині. Якщо вибрано {1}, ви отримаєте більш плавний досвід в магазині.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server.ServerHint,"Примітка: Якщо вибрано {0} як сервер, необхідно ввести {2}, щоб уникнути обмежень запитів. В іншому випадку можуть виникнути проблеми з доступом до тем у магазині. Якщо вибрано {1}, ви отримаєте більш плавний досвід в магазині.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Duration,Оновлення магазину,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 Portal.PersonalSettingPage.Duration.Description,Тривалість оновлення списку тем у магазині.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
-PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.StoreStart,Автозапуск,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 Portal.PersonalSettingPage.StoreStart.Description,Автоматично встановлювати завантажену тему з магазину як шпалери.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
-PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adult,Вміст для дорослих,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 Portal.PersonalSettingPage.Adult.Description,"Відображати вміст, який відзначений як не безпечний для роботи (NSFW), чи ні.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
-PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Confirm,Підтвердження видалення,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 Portal.PersonalSettingPage.Confirm.Description,Чи вимагати підтвердження при видаленні тем з бібліотеки.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
-PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete,Пошкоджені теми,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 Portal.PersonalSettingPage.Delete.Description,Автоматично видаляти пошкоджені або відсутні теми з бібліотеки.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
-PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Delete.DeleteHint,Примітка: Будьте обережні. Некоректна робота може призвести до втрати даних.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete.DeleteHint,Примітка: Будьте обережні. Некоректна робота може призвести до втрати даних.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
+PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.LibraryStart,Автозапуск,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 Portal.PersonalSettingPage.LibraryStart.Description,Автоматично встановлювати створену тему як шпалери.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
-PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview,Попередній перегляд тем,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 Portal.PersonalSettingPage.Preview.Description,Показувати попередній перегляд тем при наведенні курсору.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
-PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.StorePreview,Попередній перегляд магазину:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 Portal.PersonalSettingPage.Preview.StorePreviewHide,Приховати деталі:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
-PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.LibraryPreview,Попередній перегляд бібліотеки:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Приховати деталі:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
-PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adaptive,Адаптивний макет,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 Portal.PersonalSettingPage.Adaptive.Description,Налаштуйте розмір або розташування відображених тем.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
-PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Відстань відступу (пікселі):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Порядок макету (шт.):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Відстань відступу (пікселі):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Порядок макету (шт.):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
+PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Sort,Сортування бібліотеки,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 Portal.PersonalSettingPage.Sort.Description,"Визначте, як теми у вашій бібліотеці будуть сортуватися та в якому форматі.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
-PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortMode,Режим сортування:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortKind,Тип сортування:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
+Portal.PersonalSettingPage.Sort.SortMode,Режим сортування:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,Тип сортування:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
+PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Store,Сторінки магазину,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 Portal.PersonalSettingPage.Store.Description,"Визначте, скільки тем буде на кожній сторінці магазину.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
-PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Library,Сторінки бібліотеки,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 Portal.PersonalSettingPage.Library.Description,"Визначте, скільки тем буде на кожній сторінці вашої бібліотеки.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,
 Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
-PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LogTemporary,Файли журналу,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 Portal.SystemSettingPage.LogTemporary.Description,"Управління всіма файлами журналу, створеними програмою.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
-PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Create,Створити,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Delete,Очистити,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
+Portal.SystemSettingPage.LogTemporary.Create,Створити,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Hint,Примітка: Загальний обсяг файлів журналу становить {0}. При початку очищення всі програми будуть закриті.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
+Portal.SystemSettingPage.LogTemporary.Delete,Очистити,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,Примітка: Загальний обсяг файлів журналу становить {0}. При початку очищення всі програми будуть закриті.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
+PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.CacheTemporary,Очищення кешу,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 Portal.SystemSettingPage.CacheTemporary.Description,"Очищення всіх файлів кешу, створених програмою.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
-PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Start,Почати очищення,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Hint,Примітка: Загальний обсяг файлів кешу становить {0}. При початку очищення всі програми будуть закриті.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
+Portal.SystemSettingPage.CacheTemporary.Start,Почати очищення,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,Примітка: Загальний обсяг файлів кешу становить {0}. При початку очищення всі програми будуть закриті.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
+PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.StoreTemporary,Очищення магазину,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 Portal.SystemSettingPage.StoreTemporary.Description,"Очищення всіх файлів магазину, створених програмою.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
-PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Start,Почати очищення,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Hint,Примітка: Загальний обсяг файлів магазину становить {0}. При початку очищення всі програми будуть закриті.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
+Portal.SystemSettingPage.StoreTemporary.Start,Почати очищення,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,Примітка: Загальний обсяг файлів магазину становить {0}. При початку очищення всі програми будуть закриті.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
+PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LibraryTemporary,Очищення бібліотеки,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 Portal.SystemSettingPage.LibraryTemporary.Description,"Очищення всіх файлів тем у вашій бібліотеці, включаючи завантажені та створені теми.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
-PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Start,Почати очищення,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Hint,Примітка: Загальний обсяг файлів тем в вашій бібліотеці становить {0}. При початку очищення всі програми будуть закриті.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
+Portal.SystemSettingPage.LibraryTemporary.Start,Почати очищення,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,Примітка: Загальний обсяг файлів тем в вашій бібліотеці становить {0}. При початку очищення всі програми будуть закриті.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
+PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingBackup,Резервні копії налаштувань,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 Portal.SystemSettingPage.SettingBackup.Description,"Управління всіма файлами налаштувань, створеними програмою.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
-PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Export,Зробити резервну копію,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Import,Відновити,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
+Portal.SystemSettingPage.SettingBackup.Export,Зробити резервну копію,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Hint,Примітка: При початку обраної дії всі програми будуть закриті.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
+Portal.SystemSettingPage.SettingBackup.Import,Відновити,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,Примітка: При початку обраної дії всі програми будуть закриті.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
+PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingReset,Скидання налаштувань,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 Portal.SystemSettingPage.SettingReset.Description,Скидання всіх налаштувань програми до значень за замовчуванням.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
-PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Start,Почати скидання,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Hint,Примітка: При початку дії зкидання всі програми будуть закриті.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
+Portal.SystemSettingPage.SettingReset.Start,Почати скидання,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,Примітка: При початку дії зкидання всі програми будуть закриті.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
+PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Log.SaveDialogTitle,Зберегти файл журналу,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 Portal.SystemSettingPage.Log.SaveDialogFilter,Файли ZIP (*.zip)|*.zip|Всі файли (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
-PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Access.Close,Зрозуміло,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 Portal.SystemSettingPage.Access.Title,Попередження Про Доступ,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 Portal.SystemSettingPage.Access.Message,У вас немає дозволу на доступ до вибраного місця.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,
 Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
-PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.InputMode,Метод Взаємодії,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
 Portal.WallpaperSettingPage.InputMode.Description,"Визначає методи, за допомогою яких може відбуватися взаємодія з підтримуваними шпалерами.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
-PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputModule,Модуль Взаємодії:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
 PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputDesktop,Обробляти взаємодію лише при активному робочому столі,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
+Portal.WallpaperSettingPage.InputMode.InputModule,Модуль Взаємодії:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
 PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.DesktopIcon,"Приховати, щоб уникнути випадкового вибору значків на робочому столі",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
+Portal.WallpaperSettingPage.InputMode.InputDesktop,Обробляти взаємодію лише при активному робочому столі,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
 PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,"Приховати, щоб уникнути випадкового вибору значків на робочому столі",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
+PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ScreenLayout,Розміщення на екрані,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
 Portal.WallpaperSettingPage.ScreenLayout.Description,Змінює розміщення вашого шпалеру на екрані.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
-PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.StretchMode,Метод розтягнення,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
 Portal.WallpaperSettingPage.StretchMode.Description,Змінює метод розтягнення для підтримуваних шпалерів.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
-PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.LoopMode,Режим повторення,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
 Portal.WallpaperSettingPage.LoopMode.Description,Змінює режим повторення для підтримуваних шпалерів.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
-PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ShuffleMode,Режим перемішування,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Змінює режим перемішування для підтримуваних шпалерів.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
-PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Модуль Gif,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,"Виберіть модуль для відтворення шпалерів у форматі Gif, які знаходяться в вашій бібліотеці.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
-PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Модуль Video,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,"Виберіть модуль для відтворення шпалерів у форматі Video, які знаходяться в вашій бібліотеці.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
-PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Двигун Url,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,"Виберіть двигун для відтворення Url-шпалерів, які знаходяться в вашій бібліотеці.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
-PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Двигун Web,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,"Виберіть двигун для відтворення Web-шпалерів, які знаходяться в вашій бібліотеці.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
-PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,Двигун YouTube,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,"Виберіть двигун для відтворення YouTube-шпалерів, які знаходяться в вашій бібліотеці.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
-PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Двигун Application,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,"Виберіть двигун для відтворення Application-шпалерів, які знаходяться в вашій бібліотеці.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.UK.xaml,
-PASS⦙268,PASS⦙268,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙269,PASS⦙269,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.UK.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,"Мить, коли світло інтернету вигасає",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.UK.xaml,
 Portal.BrokenStorePage.DescriptionText,Схоже на зірковий небесний світ без інтернету,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.UK.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.UK.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.UK.xaml,
-PASS⦙269,PASS⦙269,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙270,PASS⦙270,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.UK.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Відповідь на ваші запити може бути прихована на небі,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.UK.xaml,
 Portal.SearchStorePage.DescriptionText,"Якщо результати не задовольняють ваші очікування, небо може запропонувати вам новий досвід",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.UK.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.UK.xaml,
-PASS⦙270,PASS⦙270,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.UK.xaml,Please don't touch the translation in this line.
+PASS⦙271,PASS⦙271,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.UK.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,Дізнайтеся Таємничий Стан в Магазині,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.UK.xaml,
 Portal.UnknownStorePage.DescriptionText,"Переслідуйте невідоме і вирушайте в подорож по розкриттю таємничого стану, який стався в магазині",,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.UK.xaml,

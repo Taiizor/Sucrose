@@ -372,8 +372,8 @@ Portal\Enum\Portal.Enum.TR.xaml,,
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.TR.xaml,,
-Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.TransitionType.Random,Rastgele
-Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.TransitionType.Sequential,Ardışık
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.TR.xaml,,
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.PausePerformanceType.Heavy,Ağır
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.PausePerformanceType.Light,Hafif
@@ -383,6 +383,9 @@ Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.SortKindType.Descending,Azalan [Z-A]
 Portal\Enum\Portal.Enum.TR.xaml,,
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ExpandScreenType.Default,Varsayılan
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ExpandScreenType.Advanced,Gelişmiş
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.TransitionCycleType.Random,Rastgele
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.TransitionCycleType.Sequential,Ardışık
 Portal\Enum\Portal.Enum.TR.xaml,,
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ScreenType.WorkingArea,Çalışma Alanı
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ScreenType.DisplayBound,Ekran Sınırları

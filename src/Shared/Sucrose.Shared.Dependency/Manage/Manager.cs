@@ -11,7 +11,8 @@ using SSDESHT = Sucrose.Shared.Dependency.Enum.StretchType;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
 using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
-using SSDETT = Sucrose.Shared.Dependency.Enum.TransitionType;
+using SSDETCT = Sucrose.Shared.Dependency.Enum.TransitionCycleType;
+using SSDEUST = Sucrose.Shared.Dependency.Enum.UpdateServerType;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
@@ -33,6 +34,8 @@ namespace Sucrose.Shared.Dependency.Manage
 
         public static SSDEPT BatteryPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.BatteryPerformance, SSDEPT.Resume);
 
+        public static SSDETCT TransitionCycleType => SMMI.CyclingSettingManager.GetSetting(SMC.TransitionCycleType, SSDETCT.Random);
+
         public static SSDEET YouTubeEngine => SMMI.EngineSettingManager.GetSetting(SMC.YouTubeEngine, (SSDEET)SSSMI.YouTubeEngine);
 
         public static SSDEPT RemotePerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.RemotePerformance, SSDEPT.Resume);
@@ -44,6 +47,8 @@ namespace Sucrose.Shared.Dependency.Manage
         public static SSDEPT FocusPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.FocusPerformance, SSDEPT.Resume);
 
         public static SSDECT CommunicationType => SMMI.BackgroundogSettingManager.GetSetting(SMC.CommunicationType, SSDECT.Pipe);
+
+        public static SSDEUST UpdateServerType => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateServerType, SSDEUST.Soferity);
 
         public static SSDESKT LibrarySortKind => SMMI.PortalSettingManager.GetSetting(SMC.LibrarySortKind, SSDESKT.Descending);
 
@@ -58,8 +63,6 @@ namespace Sucrose.Shared.Dependency.Manage
         public static SSDEPT GpuPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.GpuPerformance, SSDEPT.Resume);
 
         public static SSDEPT CpuPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.CpuPerformance, SSDEPT.Resume);
-
-        public static SSDETT TransitionType => SMMI.CyclingSettingManager.GetSetting(SMC.TransitionType, SSDETT.Random);
 
         public static SSDEET WebEngine => SMMI.EngineSettingManager.GetSetting(SMC.WebEngine, (SSDEET)SSSMI.WebEngine);
 

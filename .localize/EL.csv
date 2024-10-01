@@ -372,8 +372,8 @@ Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.EL.xaml,,
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.TransitionType.Random,Τυχαίο
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.TransitionType.Sequential,Σειριακό
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.PausePerformanceType.Heavy,Βαρύ
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.PausePerformanceType.Light,Ελαφρύ
@@ -383,6 +383,9 @@ Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.SortKindType.Descending,Φθίνου
 Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ExpandScreenType.Default,Προεπιλογή
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ExpandScreenType.Advanced,Προχωρημένο
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.TransitionCycleType.Random,Τυχαίο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.TransitionCycleType.Sequential,Σειριακό
 Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ScreenType.WorkingArea,Χώρος Εργασίας
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ScreenType.DisplayBound,Όρια Οθόνης

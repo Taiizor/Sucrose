@@ -372,8 +372,8 @@ Portal\Enum\Portal.Enum.JA.xaml,,
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.JA.xaml,,
-Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.TransitionType.Random,ランダム
-Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.TransitionType.Sequential,順次
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.JA.xaml,,
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.PausePerformanceType.Heavy,重い
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.PausePerformanceType.Light,軽い
@@ -383,6 +383,9 @@ Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.SortKindType.Descending,降順 [Z-A]
 Portal\Enum\Portal.Enum.JA.xaml,,
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ExpandScreenType.Default,デフォルト
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ExpandScreenType.Advanced,高度な
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.TransitionCycleType.Random,ランダム
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.TransitionCycleType.Sequential,順次
 Portal\Enum\Portal.Enum.JA.xaml,,
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ScreenType.WorkingArea,作業領域
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ScreenType.DisplayBound,ディスプレイ境界

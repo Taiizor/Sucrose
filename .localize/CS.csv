@@ -372,8 +372,8 @@ Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.CS.xaml,,
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.TransitionType.Random,Náhodné
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.TransitionType.Sequential,Postupné
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.PausePerformanceType.Heavy,Těžký
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.PausePerformanceType.Light,Lehký
@@ -383,6 +383,9 @@ Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.SortKindType.Descending,Sestupně [Z
 Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ExpandScreenType.Default,Výchozí
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ExpandScreenType.Advanced,Pokročilý
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.TransitionCycleType.Random,Náhodné
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.TransitionCycleType.Sequential,Postupné
 Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ScreenType.WorkingArea,Pracovní plocha
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ScreenType.DisplayBound,Ohraničení obrazovky

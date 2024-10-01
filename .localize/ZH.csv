@@ -372,8 +372,8 @@ Portal\Enum\Portal.Enum.ZH.xaml,,
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.ZH.xaml,,
-Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.TransitionType.Random,随机
-Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.TransitionType.Sequential,顺序
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.ZH.xaml,,
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.PausePerformanceType.Heavy,重型
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.PausePerformanceType.Light,轻型
@@ -383,6 +383,9 @@ Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.SortKindType.Descending,降序 [Z-A]
 Portal\Enum\Portal.Enum.ZH.xaml,,
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.ExpandScreenType.Default,默认
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.ExpandScreenType.Advanced,高级
+Portal\Enum\Portal.Enum.ZH.xaml,,
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.TransitionCycleType.Random,随机
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.TransitionCycleType.Sequential,顺序
 Portal\Enum\Portal.Enum.ZH.xaml,,
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.ScreenType.WorkingArea,工作区
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.ScreenType.DisplayBound,显示边界

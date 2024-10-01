@@ -1,6 +1,6 @@
 ﻿namespace Sucrose.Shared.Dependency.Enum
 {
-    internal enum TransitionType
+    internal enum TransitionCycleType
     {
         Random,
         Sequential

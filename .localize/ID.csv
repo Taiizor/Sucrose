@@ -372,8 +372,8 @@ Portal\Enum\Portal.Enum.ID.xaml,,
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.ID.xaml,,
-Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.TransitionType.Random,Acak
-Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.TransitionType.Sequential,Berturut-turut
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.ID.xaml,,
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.PausePerformanceType.Heavy,Berat
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.PausePerformanceType.Light,Ringan
@@ -383,6 +383,9 @@ Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.SortKindType.Descending,Menurun [Z-A
 Portal\Enum\Portal.Enum.ID.xaml,,
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ExpandScreenType.Default,Standar
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ExpandScreenType.Advanced,Lanjutan
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.TransitionCycleType.Random,Acak
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.TransitionCycleType.Sequential,Berturut-Turut
 Portal\Enum\Portal.Enum.ID.xaml,,
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ScreenType.WorkingArea,Area Kerja
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ScreenType.DisplayBound,Batasan Tampilan

@@ -17,6 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enum\EngineType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\InputType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\ReportType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enum\UpdateType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\TransitionType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\SortType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\StoreType.cs" />

@@ -372,8 +372,8 @@ Portal\Enum\Portal.Enum.PL.xaml,,
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.PL.xaml,,
-Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.TransitionType.Random,Losowy
-Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.TransitionType.Sequential,Sekwencyjny
+Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
+Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.PL.xaml,,
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.PausePerformanceType.Heavy,Ciężki
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.PausePerformanceType.Light,Lekki
@@ -383,6 +383,9 @@ Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.SortKindType.Descending,Malejąco [Z
 Portal\Enum\Portal.Enum.PL.xaml,,
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.ExpandScreenType.Default,Domyślny
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.ExpandScreenType.Advanced,Zaawansowany
+Portal\Enum\Portal.Enum.PL.xaml,,
+Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.TransitionCycleType.Random,Losowy
+Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.TransitionCycleType.Sequential,Sekwencyjny
 Portal\Enum\Portal.Enum.PL.xaml,,
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.ScreenType.WorkingArea,Obszar Roboczy
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.ScreenType.DisplayBound,Granica Wyświetlacza

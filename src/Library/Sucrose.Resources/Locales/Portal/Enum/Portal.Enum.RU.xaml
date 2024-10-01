@@ -50,8 +50,8 @@
     <system:String x:Key="Portal.Enum.StoreServerType.GitHub">GitHub</system:String>
     <system:String x:Key="Portal.Enum.StoreServerType.Soferity">Soferity</system:String>
 
-    <system:String x:Key="Portal.Enum.TransitionType.Random">Случайный</system:String>
-    <system:String x:Key="Portal.Enum.TransitionType.Sequential">Последовательный</system:String>
+    <system:String x:Key="Portal.Enum.UpdateServerType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.UpdateServerType.Soferity">Soferity</system:String>
 
     <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">Сильный</system:String>
     <system:String x:Key="Portal.Enum.PausePerformanceType.Light">Легкий</system:String>
@@ -61,6 +61,9 @@
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">По умолчанию</system:String>
     <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">Продвинутый</system:String>
+
+    <system:String x:Key="Portal.Enum.TransitionCycleType.Random">Случайный</system:String>
+    <system:String x:Key="Portal.Enum.TransitionCycleType.Sequential">Последовательный</system:String>
 
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Рабочая область</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Границы экрана</system:String>
