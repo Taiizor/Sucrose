@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.EN.xaml,,
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.EN.xaml,,
-Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.ChannelType.Release,Default
-Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.ChannelType.PreRelease,Developer
-Portal\Enum\Portal.Enum.EN.xaml,,
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.TransitionType.Random,Random
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.TransitionType.Sequential,Sequential
 Portal\Enum\Portal.Enum.EN.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.EN.xaml,,
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.ExpandScreenType.Default,Default
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.ExpandScreenType.Advanced,Advanced
 Portal\Enum\Portal.Enum.EN.xaml,,
-Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.UpdateType.Compressed,Compressed
-Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.UpdateType.Executable,Executable
-Portal\Enum\Portal.Enum.EN.xaml,,
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.ScreenType.WorkingArea,Working Area
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.ScreenType.DisplayBound,Display Bound
 Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.UpdateChannelType.Release,Default
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.UpdateChannelType.PreRelease,Developer
+Portal\Enum\Portal.Enum.EN.xaml,,
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.DuplicateScreenType.Default,Default
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.DuplicateScreenType.Advanced,Advanced
+Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.UpdateExtensionType.Compressed,Compressed
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.UpdateExtensionType.Executable,Executable
 Portal\Enum\Portal.Enum.EN.xaml,,
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Pass,Successful Result
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' has too many values

@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.RO.xaml,,
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.RO.xaml,,
-Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.ChannelType.Release,Implicit
-Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.ChannelType.PreRelease,Dezvoltator
-Portal\Enum\Portal.Enum.RO.xaml,,
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.TransitionType.Random,Aleator
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.TransitionType.Sequential,Secvențial
 Portal\Enum\Portal.Enum.RO.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.RO.xaml,,
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.ExpandScreenType.Default,Implicit
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.ExpandScreenType.Advanced,Avansat
 Portal\Enum\Portal.Enum.RO.xaml,,
-Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.UpdateType.Compressed,Comprimat
-Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.UpdateType.Executable,Executabil
-Portal\Enum\Portal.Enum.RO.xaml,,
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.ScreenType.WorkingArea,Zona de lucru
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.ScreenType.DisplayBound,Limita afișării
 Portal\Enum\Portal.Enum.RO.xaml,,
+Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.UpdateChannelType.Release,Implicit
+Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.UpdateChannelType.PreRelease,Dezvoltator
+Portal\Enum\Portal.Enum.RO.xaml,,
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.DuplicateScreenType.Default,Implicit
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.DuplicateScreenType.Advanced,Avansat
+Portal\Enum\Portal.Enum.RO.xaml,,
+Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.UpdateExtensionType.Compressed,Comprimat
+Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.UpdateExtensionType.Executable,Executabil
 Portal\Enum\Portal.Enum.RO.xaml,,
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.CompatibilityType.Pass,Rezultat de succes
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.CompatibilityType.Tags,Prea multe valori pentru 'Tags'

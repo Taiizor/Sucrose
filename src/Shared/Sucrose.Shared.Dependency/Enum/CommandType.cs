@@ -1,6 +1,6 @@
 ﻿namespace Sucrose.Shared.Dependency.Enum
 {
-    internal enum CommandsType
+    internal enum CommandType
     {
         Log,
         Kill,
@@ -33,7 +33,7 @@
         Backgroundog
     }
 
-    internal enum ArgumentCommandsType
+    internal enum ArgumentCommandType
     {
         OtherSetting,
         DonateSetting,
@@ -44,7 +44,7 @@
         PerformanceSetting
     }
 
-    internal enum SchedulerCommandsType
+    internal enum SchedulerCommandType
     {
         Create,
         Enable,

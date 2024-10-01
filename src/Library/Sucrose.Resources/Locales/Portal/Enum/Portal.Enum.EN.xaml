@@ -50,9 +50,6 @@
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
 
-    <system:String x:Key="Portal.Enum.ChannelType.Release">Default</system:String>
-    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Developer</system:String>
-
     <system:String x:Key="Portal.Enum.TransitionType.Random">Random</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Sequential</system:String>
 
@@ -65,14 +62,17 @@
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Default</system:String>
     <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">Advanced</system:String>
 
-    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Compressed</system:String>
-    <system:String x:Key="Portal.Enum.UpdateType.Executable">Executable</system:String>
-
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Working Area</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Display Bound</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateChannelType.Release">Default</system:String>
+    <system:String x:Key="Portal.Enum.UpdateChannelType.PreRelease">Developer</system:String>
+
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Default</system:String>
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">Advanced</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Compressed">Compressed</system:String>
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Executable">Executable</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Successful Result</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' has too many values</system:String>

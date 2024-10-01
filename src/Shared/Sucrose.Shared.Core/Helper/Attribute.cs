@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Reflection;
-using SSCECT = Sucrose.Shared.Core.Enum.ChannelType;
 using SSCEFT = Sucrose.Shared.Core.Enum.FrameworkType;
-using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
+using SSCEUCT = Sucrose.Shared.Core.Enum.UpdateChannelType;
+using SSCEUET = Sucrose.Shared.Core.Enum.UpdateExtensionType;
 
 namespace Sucrose.Shared.Core.Helper
 {
@@ -15,14 +15,14 @@ namespace Sucrose.Shared.Core.Helper
             return Field?.GetCustomAttribute<DisplayAttribute>();
         }
 
-        public static DisplayAttribute GetDisplay(SSCEUT Enum)
+        public static DisplayAttribute GetDisplay(SSCEUCT Enum)
         {
             FieldInfo Field = Enum.GetType().GetField(Enum.ToString());
 
             return Field?.GetCustomAttribute<DisplayAttribute>();
         }
 
-        public static DisplayAttribute GetDisplay(SSCECT Enum)
+        public static DisplayAttribute GetDisplay(SSCEUET Enum)
         {
             FieldInfo Field = Enum.GetType().GetField(Enum.ToString());
 

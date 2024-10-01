@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.TR.xaml,,
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.TR.xaml,,
-Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ChannelType.Release,Varsayılan
-Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ChannelType.PreRelease,Geliştirici
-Portal\Enum\Portal.Enum.TR.xaml,,
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.TransitionType.Random,Rastgele
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.TransitionType.Sequential,Ardışık
 Portal\Enum\Portal.Enum.TR.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.TR.xaml,,
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ExpandScreenType.Default,Varsayılan
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ExpandScreenType.Advanced,Gelişmiş
 Portal\Enum\Portal.Enum.TR.xaml,,
-Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.UpdateType.Compressed,Sıkıştırılmış
-Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.UpdateType.Executable,Yürütülebilir
-Portal\Enum\Portal.Enum.TR.xaml,,
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ScreenType.WorkingArea,Çalışma Alanı
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ScreenType.DisplayBound,Ekran Sınırları
 Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.UpdateChannelType.Release,Varsayılan
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.UpdateChannelType.PreRelease,Geliştirici
+Portal\Enum\Portal.Enum.TR.xaml,,
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.DuplicateScreenType.Default,Varsayılan
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.DuplicateScreenType.Advanced,Gelişmiş
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.UpdateExtensionType.Compressed,Sıkıştırılmış
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.UpdateExtensionType.Executable,Yürütülebilir
 Portal\Enum\Portal.Enum.TR.xaml,,
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Pass,Başarılı Sonuç
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' çok fazla değere sahip

@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.CS.xaml,,
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ChannelType.Release,Výchozí
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ChannelType.PreRelease,Předběžná verze
-Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.TransitionType.Random,Náhodné
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.TransitionType.Sequential,Postupné
 Portal\Enum\Portal.Enum.CS.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ExpandScreenType.Default,Výchozí
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ExpandScreenType.Advanced,Pokročilý
 Portal\Enum\Portal.Enum.CS.xaml,,
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.UpdateType.Compressed,Kompresovaný
-Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.UpdateType.Executable,Spustitelný
-Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ScreenType.WorkingArea,Pracovní plocha
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ScreenType.DisplayBound,Ohraničení obrazovky
 Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.UpdateChannelType.Release,Výchozí
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.UpdateChannelType.PreRelease,Předběžná verze
+Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.DuplicateScreenType.Default,Výchozí
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.DuplicateScreenType.Advanced,Pokročilý
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.UpdateExtensionType.Compressed,Kompresovaný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.UpdateExtensionType.Executable,Spustitelný
 Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Pass,Úspěšný výsledek
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Tags,Tagy obsahují příliš mnoho hodnot

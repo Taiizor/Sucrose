@@ -14,8 +14,8 @@ using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
-using SSDERT = Sucrose.Shared.Dependency.Enum.ReportType;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
+using SSDERTT = Sucrose.Shared.Dependency.Enum.ReportThemeType;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
@@ -68,7 +68,7 @@ namespace Sucrose.Portal.Views.Controls
 
             DynamicScrollViewer.SetVerticalScrollBarVisibility(ReportMode, ScrollBarVisibility.Auto);
 
-            foreach (SSDERT Type in Enum.GetValues(typeof(SSDERT)))
+            foreach (SSDERTT Type in Enum.GetValues(typeof(SSDERTT)))
             {
                 ReportMode.Items.Add(new ComboBoxItem()
                 {
@@ -77,7 +77,7 @@ namespace Sucrose.Portal.Views.Controls
                 });
             }
 
-            ReportMode.SelectedIndex = (int)SSDERT.Other;
+            ReportMode.SelectedIndex = (int)SSDERTT.Other;
 
             Reporter.HeaderFrame = ReportMode;
 

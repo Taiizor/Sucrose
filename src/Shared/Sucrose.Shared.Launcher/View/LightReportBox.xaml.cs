@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using SMR = Sucrose.Memory.Readonly;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSLHC = Sucrose.Shared.Launcher.Helper.Create;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;

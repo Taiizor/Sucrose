@@ -50,9 +50,6 @@
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
 
-    <system:String x:Key="Portal.Enum.ChannelType.Release">Προεπιλεγμένο</system:String>
-    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Προ-Κυκλοφορία</system:String>
-
     <system:String x:Key="Portal.Enum.TransitionType.Random">Τυχαίο</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Σειριακό</system:String>
 
@@ -65,14 +62,17 @@
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Προεπιλογή</system:String>
     <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">Προχωρημένο</system:String>
 
-    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Συμπιεσμένο</system:String>
-    <system:String x:Key="Portal.Enum.UpdateType.Executable">Εκτελέσιμο</system:String>
-
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Χώρος Εργασίας</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Όρια Οθόνης</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateChannelType.Release">Προεπιλεγμένο</system:String>
+    <system:String x:Key="Portal.Enum.UpdateChannelType.PreRelease">Προ-Κυκλοφορία</system:String>
+
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Προεπιλογή</system:String>
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">Προχωρημένο</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Compressed">Συμπιεσμένο</system:String>
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Executable">Εκτελέσιμο</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Επιτυχημένο</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' περιλαμβάνει πολλές τιμές</system:String>

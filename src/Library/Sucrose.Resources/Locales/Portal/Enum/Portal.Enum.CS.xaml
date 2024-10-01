@@ -50,9 +50,6 @@
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
 
-    <system:String x:Key="Portal.Enum.ChannelType.Release">Výchozí</system:String>
-    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Předběžná verze</system:String>
-
     <system:String x:Key="Portal.Enum.TransitionType.Random">Náhodné</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Postupné</system:String>
 
@@ -65,14 +62,17 @@
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Výchozí</system:String>
     <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">Pokročilý</system:String>
 
-    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Kompresovaný</system:String>
-    <system:String x:Key="Portal.Enum.UpdateType.Executable">Spustitelný</system:String>
-
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Pracovní plocha</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Ohraničení obrazovky</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateChannelType.Release">Výchozí</system:String>
+    <system:String x:Key="Portal.Enum.UpdateChannelType.PreRelease">Předběžná verze</system:String>
+
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Výchozí</system:String>
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">Pokročilý</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Compressed">Kompresovaný</system:String>
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Executable">Spustitelný</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Úspěšný výsledek</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">Tagy obsahují příliš mnoho hodnot</system:String>

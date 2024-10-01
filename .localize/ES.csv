@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.ES.xaml,,
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.ES.xaml,,
-Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.ChannelType.Release,Por Defecto
-Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.ChannelType.PreRelease,Desarrollador
-Portal\Enum\Portal.Enum.ES.xaml,,
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.TransitionType.Random,Aleatorio
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.TransitionType.Sequential,Secuencial
 Portal\Enum\Portal.Enum.ES.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.ES.xaml,,
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.ExpandScreenType.Default,Por Defecto
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.ExpandScreenType.Advanced,Avanzado
 Portal\Enum\Portal.Enum.ES.xaml,,
-Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.UpdateType.Compressed,Comprimido
-Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.UpdateType.Executable,Ejecutable
-Portal\Enum\Portal.Enum.ES.xaml,,
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.ScreenType.WorkingArea,Área de Trabajo
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.ScreenType.DisplayBound,Límite de Pantalla
 Portal\Enum\Portal.Enum.ES.xaml,,
+Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.UpdateChannelType.Release,Por Defecto
+Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.UpdateChannelType.PreRelease,Desarrollador
+Portal\Enum\Portal.Enum.ES.xaml,,
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.DuplicateScreenType.Default,Por Defecto
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.DuplicateScreenType.Advanced,Avanzado
+Portal\Enum\Portal.Enum.ES.xaml,,
+Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.UpdateExtensionType.Compressed,Comprimido
+Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.UpdateExtensionType.Executable,Ejecutable
 Portal\Enum\Portal.Enum.ES.xaml,,
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.CompatibilityType.Pass,Resultado Exitoso
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' tiene demasiados valores

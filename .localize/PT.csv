@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.PT.xaml,,
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.PT.xaml,,
-Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.ChannelType.Release,Liberação
-Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.ChannelType.PreRelease,Pré-Lançamento
-Portal\Enum\Portal.Enum.PT.xaml,,
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.TransitionType.Random,Aleatório
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.TransitionType.Sequential,Sequencial
 Portal\Enum\Portal.Enum.PT.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.PT.xaml,,
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.ExpandScreenType.Default,Padrão
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.ExpandScreenType.Advanced,Avançado
 Portal\Enum\Portal.Enum.PT.xaml,,
-Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.UpdateType.Compressed,Comprimido
-Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.UpdateType.Executable,Executável
-Portal\Enum\Portal.Enum.PT.xaml,,
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.ScreenType.WorkingArea,Área de Trabalho
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.ScreenType.DisplayBound,Limite de Exibição
 Portal\Enum\Portal.Enum.PT.xaml,,
+Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.UpdateChannelType.Release,Liberação
+Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.UpdateChannelType.PreRelease,Pré-Lançamento
+Portal\Enum\Portal.Enum.PT.xaml,,
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.DuplicateScreenType.Default,Padrão
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.DuplicateScreenType.Advanced,Avançado
+Portal\Enum\Portal.Enum.PT.xaml,,
+Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.UpdateExtensionType.Compressed,Comprimido
+Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.UpdateExtensionType.Executable,Executável
 Portal\Enum\Portal.Enum.PT.xaml,,
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.Pass,Sucesso
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' com muitos valores

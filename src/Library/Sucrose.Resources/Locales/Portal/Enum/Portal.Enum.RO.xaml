@@ -50,9 +50,6 @@
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
 
-    <system:String x:Key="Portal.Enum.ChannelType.Release">Implicit</system:String>
-    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Dezvoltator</system:String>
-
     <system:String x:Key="Portal.Enum.TransitionType.Random">Aleator</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Secvențial</system:String>
 
@@ -65,14 +62,17 @@
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Implicit</system:String>
     <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">Avansat</system:String>
 
-    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Comprimat</system:String>
-    <system:String x:Key="Portal.Enum.UpdateType.Executable">Executabil</system:String>
-
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Zona de lucru</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Limita afișării</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateChannelType.Release">Implicit</system:String>
+    <system:String x:Key="Portal.Enum.UpdateChannelType.PreRelease">Dezvoltator</system:String>
+
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Implicit</system:String>
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">Avansat</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Compressed">Comprimat</system:String>
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Executable">Executabil</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Rezultat de succes</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">Prea multe valori pentru 'Tags'</system:String>

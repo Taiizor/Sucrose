@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using SMR = Sucrose.Memory.Readonly;
-using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandsType;
+using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;

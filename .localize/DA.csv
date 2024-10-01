@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.DA.xaml,,
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.DA.xaml,,
-Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.ChannelType.Release,Standard
-Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.ChannelType.PreRelease,Udvikler
-Portal\Enum\Portal.Enum.DA.xaml,,
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.TransitionType.Random,Tilfældig
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.TransitionType.Sequential,Sekventiel
 Portal\Enum\Portal.Enum.DA.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.DA.xaml,,
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.ExpandScreenType.Default,Standard
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.ExpandScreenType.Advanced,Avanceret
 Portal\Enum\Portal.Enum.DA.xaml,,
-Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.UpdateType.Compressed,Komprimeret
-Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.UpdateType.Executable,Kørbar
-Portal\Enum\Portal.Enum.DA.xaml,,
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.ScreenType.WorkingArea,Arbejdsområde
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.ScreenType.DisplayBound,Skærmbegrænsninger
 Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.UpdateChannelType.Release,Standard
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.UpdateChannelType.PreRelease,Udvikler
+Portal\Enum\Portal.Enum.DA.xaml,,
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.DuplicateScreenType.Default,Standard
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.DuplicateScreenType.Advanced,Avanceret
+Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.UpdateExtensionType.Compressed,Komprimeret
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.UpdateExtensionType.Executable,Kørbar
 Portal\Enum\Portal.Enum.DA.xaml,,
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Pass,Succesfuld
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' indeholder for mange værdier

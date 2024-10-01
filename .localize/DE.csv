@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.DE.xaml,,
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.DE.xaml,,
-Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.ChannelType.Release,Standard
-Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.ChannelType.PreRelease,Entwickler
-Portal\Enum\Portal.Enum.DE.xaml,,
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.TransitionType.Random,Zufällig
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.TransitionType.Sequential,Sequentiell
 Portal\Enum\Portal.Enum.DE.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.DE.xaml,,
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.ExpandScreenType.Default,Standard
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.ExpandScreenType.Advanced,Fortgeschritten
 Portal\Enum\Portal.Enum.DE.xaml,,
-Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.UpdateType.Compressed,Komprimiert
-Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.UpdateType.Executable,Ausführbar
-Portal\Enum\Portal.Enum.DE.xaml,,
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.ScreenType.WorkingArea,Arbeitsbereich
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.ScreenType.DisplayBound,Anzeigegrenze
 Portal\Enum\Portal.Enum.DE.xaml,,
+Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.UpdateChannelType.Release,Standard
+Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.UpdateChannelType.PreRelease,Entwickler
+Portal\Enum\Portal.Enum.DE.xaml,,
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.DuplicateScreenType.Default,Standard
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.DuplicateScreenType.Advanced,Fortgeschritten
+Portal\Enum\Portal.Enum.DE.xaml,,
+Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.UpdateExtensionType.Compressed,Komprimiert
+Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.UpdateExtensionType.Executable,Ausführbar
 Portal\Enum\Portal.Enum.DE.xaml,,
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.CompatibilityType.Pass,Erfolgreich
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' hat zu viele Werte

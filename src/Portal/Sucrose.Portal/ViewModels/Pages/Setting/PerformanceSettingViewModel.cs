@@ -10,8 +10,8 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SSDECDT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDECNT = Sucrose.Shared.Dependency.Enum.CommunicationType;
-using SSDECST = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDEPPT = Sucrose.Shared.Dependency.Enum.PausePerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
@@ -1104,7 +1104,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             if (State)
             {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECST.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECDT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
             }
             else
             {

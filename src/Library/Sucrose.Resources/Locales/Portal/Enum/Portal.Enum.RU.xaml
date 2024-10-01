@@ -50,9 +50,6 @@
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
 
-    <system:String x:Key="Portal.Enum.ChannelType.Release">По умолчанию</system:String>
-    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Для разработчиков</system:String>
-
     <system:String x:Key="Portal.Enum.TransitionType.Random">Случайный</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Последовательный</system:String>
 
@@ -65,14 +62,17 @@
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">По умолчанию</system:String>
     <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">Продвинутый</system:String>
 
-    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Сжатый</system:String>
-    <system:String x:Key="Portal.Enum.UpdateType.Executable">Исполняемый</system:String>
-
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Рабочая область</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Границы экрана</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateChannelType.Release">По умолчанию</system:String>
+    <system:String x:Key="Portal.Enum.UpdateChannelType.PreRelease">Для разработчиков</system:String>
+
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">По умолчанию</system:String>
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">Продвинутый</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Compressed">Сжатый</system:String>
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Executable">Исполняемый</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Успешно</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">Слишком много значений в 'Tags'</system:String>

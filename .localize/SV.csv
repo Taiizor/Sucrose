@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.SV.xaml,,
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.SV.xaml,,
-Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ChannelType.Release,Standard
-Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ChannelType.PreRelease,Utvecklare
-Portal\Enum\Portal.Enum.SV.xaml,,
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.TransitionType.Random,Slumpmässig
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.TransitionType.Sequential,Sekventiell
 Portal\Enum\Portal.Enum.SV.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.SV.xaml,,
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ExpandScreenType.Default,Standard
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ExpandScreenType.Advanced,Avancerad
 Portal\Enum\Portal.Enum.SV.xaml,,
-Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.UpdateType.Compressed,Komprimerad
-Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.UpdateType.Executable,Körbar
-Portal\Enum\Portal.Enum.SV.xaml,,
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ScreenType.WorkingArea,Arbetsområde
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ScreenType.DisplayBound,Skärmgräns
 Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.UpdateChannelType.Release,Standard
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.UpdateChannelType.PreRelease,Utvecklare
+Portal\Enum\Portal.Enum.SV.xaml,,
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.DuplicateScreenType.Default,Standard
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.DuplicateScreenType.Advanced,Avancerad
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.UpdateExtensionType.Compressed,Komprimerad
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.UpdateExtensionType.Executable,Körbar
 Portal\Enum\Portal.Enum.SV.xaml,,
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Pass,Lyckat resultat
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Tags,För många 'Tags'

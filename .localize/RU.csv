@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.RU.xaml,,
-Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ChannelType.Release,По умолчанию
-Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ChannelType.PreRelease,Для разработчиков
-Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.TransitionType.Random,Случайный
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.TransitionType.Sequential,Последовательный
 Portal\Enum\Portal.Enum.RU.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ExpandScreenType.Default,По умолчанию
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ExpandScreenType.Advanced,Продвинутый
 Portal\Enum\Portal.Enum.RU.xaml,,
-Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.UpdateType.Compressed,Сжатый
-Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.UpdateType.Executable,Исполняемый
-Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ScreenType.WorkingArea,Рабочая область
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ScreenType.DisplayBound,Границы экрана
 Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.UpdateChannelType.Release,По умолчанию
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.UpdateChannelType.PreRelease,Для разработчиков
+Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.DuplicateScreenType.Default,По умолчанию
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.DuplicateScreenType.Advanced,Продвинутый
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.UpdateExtensionType.Compressed,Сжатый
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.UpdateExtensionType.Executable,Исполняемый
 Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Pass,Успешно
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Tags,Слишком много значений в 'Tags'

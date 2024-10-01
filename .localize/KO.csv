@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.KO.xaml,,
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.KO.xaml,,
-Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ChannelType.Release,기본
-Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ChannelType.PreRelease,개발자
-Portal\Enum\Portal.Enum.KO.xaml,,
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.TransitionType.Random,랜덤
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.TransitionType.Sequential,순차적
 Portal\Enum\Portal.Enum.KO.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.KO.xaml,,
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ExpandScreenType.Default,기본
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ExpandScreenType.Advanced,고급
 Portal\Enum\Portal.Enum.KO.xaml,,
-Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.UpdateType.Compressed,압축
-Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.UpdateType.Executable,실행 가능
-Portal\Enum\Portal.Enum.KO.xaml,,
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ScreenType.WorkingArea,작업 영역
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ScreenType.DisplayBound,화면 경계
 Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.UpdateChannelType.Release,기본
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.UpdateChannelType.PreRelease,개발자
+Portal\Enum\Portal.Enum.KO.xaml,,
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.DuplicateScreenType.Default,기본
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.DuplicateScreenType.Advanced,고급
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.UpdateExtensionType.Compressed,압축
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.UpdateExtensionType.Executable,실행 가능
 Portal\Enum\Portal.Enum.KO.xaml,,
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Pass,성공
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' 값이 너무 많음

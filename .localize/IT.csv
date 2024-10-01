@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.IT.xaml,,
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.IT.xaml,,
-Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.ChannelType.Release,Predefinito
-Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.ChannelType.PreRelease,Sviluppatore
-Portal\Enum\Portal.Enum.IT.xaml,,
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.TransitionType.Random,Casuale
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.TransitionType.Sequential,Sequenziale
 Portal\Enum\Portal.Enum.IT.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.IT.xaml,,
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.ExpandScreenType.Default,Predefinito
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.ExpandScreenType.Advanced,Avanzato
 Portal\Enum\Portal.Enum.IT.xaml,,
-Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.UpdateType.Compressed,Compresso
-Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.UpdateType.Executable,Eseguibile
-Portal\Enum\Portal.Enum.IT.xaml,,
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.ScreenType.WorkingArea,Area di lavoro
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.ScreenType.DisplayBound,Limiti dello schermo
 Portal\Enum\Portal.Enum.IT.xaml,,
+Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.UpdateChannelType.Release,Predefinito
+Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.UpdateChannelType.PreRelease,Sviluppatore
+Portal\Enum\Portal.Enum.IT.xaml,,
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.DuplicateScreenType.Default,Predefinito
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.DuplicateScreenType.Advanced,Avanzato
+Portal\Enum\Portal.Enum.IT.xaml,,
+Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.UpdateExtensionType.Compressed,Compresso
+Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.UpdateExtensionType.Executable,Eseguibile
 Portal\Enum\Portal.Enum.IT.xaml,,
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.CompatibilityType.Pass,Esito positivo
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.CompatibilityType.Tags,Troppi valori nei 'Tags'

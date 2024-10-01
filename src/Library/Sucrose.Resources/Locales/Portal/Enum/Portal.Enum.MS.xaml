@@ -50,9 +50,6 @@
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
 
-    <system:String x:Key="Portal.Enum.ChannelType.Release">Lalai</system:String>
-    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Pengembang</system:String>
-
     <system:String x:Key="Portal.Enum.TransitionType.Random">Rawak</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Berturut-turut</system:String>
 
@@ -65,14 +62,17 @@
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Lalai</system:String>
     <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">Pertingkat</system:String>
 
-    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Mampatan</system:String>
-    <system:String x:Key="Portal.Enum.UpdateType.Executable">Eksekutif</system:String>
-
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Kawasan Kerja</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Had Pameran</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateChannelType.Release">Lalai</system:String>
+    <system:String x:Key="Portal.Enum.UpdateChannelType.PreRelease">Pengembang</system:String>
+
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Lalai</system:String>
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">Pertingkat</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Compressed">Mampatan</system:String>
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Executable">Eksekutif</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Berjaya</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' terlalu banyak nilai</system:String>

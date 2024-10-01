@@ -50,9 +50,6 @@
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
 
-    <system:String x:Key="Portal.Enum.ChannelType.Release">Standard</system:String>
-    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Utvecklare</system:String>
-
     <system:String x:Key="Portal.Enum.TransitionType.Random">Slumpmässig</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Sekventiell</system:String>
 
@@ -65,14 +62,17 @@
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Standard</system:String>
     <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">Avancerad</system:String>
 
-    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Komprimerad</system:String>
-    <system:String x:Key="Portal.Enum.UpdateType.Executable">Körbar</system:String>
-
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Arbetsområde</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Skärmgräns</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateChannelType.Release">Standard</system:String>
+    <system:String x:Key="Portal.Enum.UpdateChannelType.PreRelease">Utvecklare</system:String>
+
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Standard</system:String>
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">Avancerad</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Compressed">Komprimerad</system:String>
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Executable">Körbar</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Lyckat resultat</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">För många 'Tags'</system:String>

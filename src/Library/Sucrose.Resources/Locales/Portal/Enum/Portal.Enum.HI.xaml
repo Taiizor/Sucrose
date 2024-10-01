@@ -50,9 +50,6 @@
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
 
-    <system:String x:Key="Portal.Enum.ChannelType.Release">डिफ़ॉल्ट</system:String>
-    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">डेवलपर</system:String>
-
     <system:String x:Key="Portal.Enum.TransitionType.Random">यादृच्छिक</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">क्रमिक</system:String>
 
@@ -65,14 +62,17 @@
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">डिफ़ॉल्ट</system:String>
     <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">उन्नत</system:String>
 
-    <system:String x:Key="Portal.Enum.UpdateType.Compressed">संकुचित</system:String>
-    <system:String x:Key="Portal.Enum.UpdateType.Executable">क्रियान्वित</system:String>
-
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">काम क्षेत्र</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">प्रदर्शन सीमा</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateChannelType.Release">डिफ़ॉल्ट</system:String>
+    <system:String x:Key="Portal.Enum.UpdateChannelType.PreRelease">डेवलपर</system:String>
+
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">डिफ़ॉल्ट</system:String>
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">उन्नत</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Compressed">संकुचित</system:String>
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Executable">क्रियान्वित</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">सफल परिणाम</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' में बहुत सारे मूल्य हैं</system:String>

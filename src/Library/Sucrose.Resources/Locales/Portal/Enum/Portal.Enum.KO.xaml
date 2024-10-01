@@ -50,9 +50,6 @@
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
 
-    <system:String x:Key="Portal.Enum.ChannelType.Release">기본</system:String>
-    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">개발자</system:String>
-
     <system:String x:Key="Portal.Enum.TransitionType.Random">랜덤</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">순차적</system:String>
 
@@ -65,14 +62,17 @@
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">기본</system:String>
     <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">고급</system:String>
 
-    <system:String x:Key="Portal.Enum.UpdateType.Compressed">압축</system:String>
-    <system:String x:Key="Portal.Enum.UpdateType.Executable">실행 가능</system:String>
-
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">작업 영역</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">화면 경계</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateChannelType.Release">기본</system:String>
+    <system:String x:Key="Portal.Enum.UpdateChannelType.PreRelease">개발자</system:String>
+
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">기본</system:String>
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">고급</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Compressed">압축</system:String>
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Executable">실행 가능</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">성공</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' 값이 너무 많음</system:String>

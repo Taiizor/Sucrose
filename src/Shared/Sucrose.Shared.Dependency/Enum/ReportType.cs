@@ -1,6 +1,6 @@
 ﻿namespace Sucrose.Shared.Dependency.Enum
 {
-    internal enum ReportType
+    internal enum ReportThemeType
     {
         Spam,
         Other,

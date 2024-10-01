@@ -1,6 +1,6 @@
 ﻿namespace Sucrose.Shared.Dependency.Enum
 {
-    internal enum StoreType
+    internal enum StoreType //StoreServerType
     {
         GitHub,
         Soferity

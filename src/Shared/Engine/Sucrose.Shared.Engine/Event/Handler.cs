@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using SEDST = Skylark.Enum.DisplayScreenType;
 using SMR = Sucrose.Memory.Readonly;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HandleStruct;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;

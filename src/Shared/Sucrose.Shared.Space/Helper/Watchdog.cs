@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using SMR = Sucrose.Memory.Readonly;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHWE = Sucrose.Shared.Space.Helper.WatchException;

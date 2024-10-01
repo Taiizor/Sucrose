@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.MS.xaml,,
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.MS.xaml,,
-Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.ChannelType.Release,Lalai
-Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.ChannelType.PreRelease,Pengembang
-Portal\Enum\Portal.Enum.MS.xaml,,
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.TransitionType.Random,Rawak
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.TransitionType.Sequential,Berturut-turut
 Portal\Enum\Portal.Enum.MS.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.MS.xaml,,
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.ExpandScreenType.Default,Lalai
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.ExpandScreenType.Advanced,Pertingkat
 Portal\Enum\Portal.Enum.MS.xaml,,
-Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.UpdateType.Compressed,Mampatan
-Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.UpdateType.Executable,Eksekutif
-Portal\Enum\Portal.Enum.MS.xaml,,
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.ScreenType.WorkingArea,Kawasan Kerja
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.ScreenType.DisplayBound,Had Pameran
 Portal\Enum\Portal.Enum.MS.xaml,,
+Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.UpdateChannelType.Release,Lalai
+Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.UpdateChannelType.PreRelease,Pengembang
+Portal\Enum\Portal.Enum.MS.xaml,,
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.DuplicateScreenType.Default,Lalai
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.DuplicateScreenType.Advanced,Pertingkat
+Portal\Enum\Portal.Enum.MS.xaml,,
+Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.UpdateExtensionType.Compressed,Mampatan
+Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.UpdateExtensionType.Executable,Eksekutif
 Portal\Enum\Portal.Enum.MS.xaml,,
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.CompatibilityType.Pass,Berjaya
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' terlalu banyak nilai

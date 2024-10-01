@@ -372,29 +372,29 @@ PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't tou
 Portal.Enum.InputModuleType.Native,Native,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.InputModuleType.RawInput,RawInput,,Portal\Enum\Portal.Enum.HI.xaml,
 PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
-Portal.Enum.ChannelType.Release,डिफ़ॉल्ट,,Portal\Enum\Portal.Enum.HI.xaml,
-Portal.Enum.ChannelType.PreRelease,डेवलपर,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.TransitionType.Random,यादृच्छिक,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.TransitionType.Sequential,क्रमिक,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.PausePerformanceType.Heavy,भारी,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.PausePerformanceType.Light,हल्का,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.SortKindType.Ascending,आरोही [A-Z],,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.SortKindType.Descending,अवरोही [Z-A],,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.ExpandScreenType.Default,डिफ़ॉल्ट,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.ExpandScreenType.Advanced,उन्नत,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
-Portal.Enum.UpdateType.Compressed,संकुचित,,Portal\Enum\Portal.Enum.HI.xaml,
-Portal.Enum.UpdateType.Executable,क्रियान्वित,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.ScreenType.WorkingArea,काम क्षेत्र,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.ScreenType.DisplayBound,प्रदर्शन सीमा,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+Portal.Enum.UpdateChannelType.Release,डिफ़ॉल्ट,,Portal\Enum\Portal.Enum.HI.xaml,
+Portal.Enum.UpdateChannelType.PreRelease,डेवलपर,,Portal\Enum\Portal.Enum.HI.xaml,
+PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.DuplicateScreenType.Default,डिफ़ॉल्ट,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.DuplicateScreenType.Advanced,उन्नत,,Portal\Enum\Portal.Enum.HI.xaml,
+PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+Portal.Enum.UpdateExtensionType.Compressed,संकुचित,,Portal\Enum\Portal.Enum.HI.xaml,
+Portal.Enum.UpdateExtensionType.Executable,क्रियान्वित,,Portal\Enum\Portal.Enum.HI.xaml,
 PASS⦙57,PASS⦙57,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.CompatibilityType.Pass,सफल परिणाम,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.CompatibilityType.Tags,'Tags' में बहुत सारे मूल्य हैं,,Portal\Enum\Portal.Enum.HI.xaml,

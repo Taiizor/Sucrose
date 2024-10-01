@@ -50,9 +50,6 @@
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
 
-    <system:String x:Key="Portal.Enum.ChannelType.Release">デフォルト</system:String>
-    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">開発者</system:String>
-
     <system:String x:Key="Portal.Enum.TransitionType.Random">ランダム</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">順次</system:String>
 
@@ -65,14 +62,17 @@
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">デフォルト</system:String>
     <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">高度な</system:String>
 
-    <system:String x:Key="Portal.Enum.UpdateType.Compressed">圧縮</system:String>
-    <system:String x:Key="Portal.Enum.UpdateType.Executable">実行可能</system:String>
-
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">作業領域</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">ディスプレイ境界</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateChannelType.Release">デフォルト</system:String>
+    <system:String x:Key="Portal.Enum.UpdateChannelType.PreRelease">開発者</system:String>
+
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">デフォルト</system:String>
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">高度な</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Compressed">圧縮</system:String>
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Executable">実行可能</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">成功</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags'は多すぎる値を持っています</system:String>

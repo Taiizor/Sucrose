@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.FR.xaml,,
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.FR.xaml,,
-Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.ChannelType.Release,Par Défaut
-Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.ChannelType.PreRelease,Développeur
-Portal\Enum\Portal.Enum.FR.xaml,,
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.TransitionType.Random,Aléatoire
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.TransitionType.Sequential,Séquentiel
 Portal\Enum\Portal.Enum.FR.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.FR.xaml,,
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.ExpandScreenType.Default,Défaut
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.ExpandScreenType.Advanced,Avancé
 Portal\Enum\Portal.Enum.FR.xaml,,
-Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.UpdateType.Compressed,Compressé
-Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.UpdateType.Executable,Exécutable
-Portal\Enum\Portal.Enum.FR.xaml,,
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.ScreenType.WorkingArea,Zone de Travail
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.ScreenType.DisplayBound,Limites d'Affichage
 Portal\Enum\Portal.Enum.FR.xaml,,
+Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.UpdateChannelType.Release,Par Défaut
+Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.UpdateChannelType.PreRelease,Développeur
+Portal\Enum\Portal.Enum.FR.xaml,,
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.DuplicateScreenType.Default,Défaut
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.DuplicateScreenType.Advanced,Avancé
+Portal\Enum\Portal.Enum.FR.xaml,,
+Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.UpdateExtensionType.Compressed,Compressé
+Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.UpdateExtensionType.Executable,Exécutable
 Portal\Enum\Portal.Enum.FR.xaml,,
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.CompatibilityType.Pass,Résultat Réussi
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' a trop de valeurs

@@ -1,14 +1,14 @@
 ﻿using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SSCECT = Sucrose.Shared.Core.Enum.ChannelType;
-using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
+using SSCEUCT = Sucrose.Shared.Core.Enum.UpdateChannelType;
+using SSCEUET = Sucrose.Shared.Core.Enum.UpdateExtensionType;
 
 namespace Sucrose.Shared.Core.Manage
 {
     internal static class Manager
     {
-        public static SSCEUT UpdateType => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateType, SSCEUT.Executable);
+        public static SSCEUET UpdateExtensionType => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateExtensionType, SSCEUET.Executable);
 
-        public static SSCECT ChannelType => SMMI.UpdateSettingManager.GetSetting(SMC.ChannelType, SSCECT.Release);
+        public static SSCEUCT UpdateChannelType => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateChannelType, SSCEUCT.Release);
     }
 }

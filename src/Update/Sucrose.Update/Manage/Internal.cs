@@ -4,7 +4,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
-using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
+using SSCEUET = Sucrose.Shared.Core.Enum.UpdateExtensionType;
 using Timer = System.Timers.Timer;
 
 namespace Sucrose.Update.Manage
@@ -19,7 +19,7 @@ namespace Sucrose.Update.Manage
 
         public static bool Chance = SMR.Randomise.Next(2) == 0;
 
-        public static readonly SSCEUT UpdateType = SMMI.UpdateSettingManager.GetSetting(SMC.UpdateType, SSCEUT.Executable);
+        public static readonly SSCEUET UpdateExtensionType = SMMI.UpdateSettingManager.GetSetting(SMC.UpdateExtensionType, SSCEUET.Executable);
 
         public static Timer Checker = new()
         {

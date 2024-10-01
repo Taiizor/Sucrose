@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.PL.xaml,,
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.PL.xaml,,
-Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.ChannelType.Release,Domyślny
-Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.ChannelType.PreRelease,Deweloper
-Portal\Enum\Portal.Enum.PL.xaml,,
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.TransitionType.Random,Losowy
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.TransitionType.Sequential,Sekwencyjny
 Portal\Enum\Portal.Enum.PL.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.PL.xaml,,
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.ExpandScreenType.Default,Domyślny
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.ExpandScreenType.Advanced,Zaawansowany
 Portal\Enum\Portal.Enum.PL.xaml,,
-Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.UpdateType.Compressed,Skompresowany
-Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.UpdateType.Executable,Wykonywalny
-Portal\Enum\Portal.Enum.PL.xaml,,
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.ScreenType.WorkingArea,Obszar Roboczy
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.ScreenType.DisplayBound,Granica Wyświetlacza
 Portal\Enum\Portal.Enum.PL.xaml,,
+Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.UpdateChannelType.Release,Domyślny
+Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.UpdateChannelType.PreRelease,Deweloper
+Portal\Enum\Portal.Enum.PL.xaml,,
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.DuplicateScreenType.Default,Domyślny
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.DuplicateScreenType.Advanced,Zaawansowany
+Portal\Enum\Portal.Enum.PL.xaml,,
+Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.UpdateExtensionType.Compressed,Skompresowany
+Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.UpdateExtensionType.Executable,Wykonywalny
 Portal\Enum\Portal.Enum.PL.xaml,,
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.CompatibilityType.Pass,Sukces
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' ma zbyt wiele wartości

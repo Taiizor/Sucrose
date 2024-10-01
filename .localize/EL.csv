@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.EL.xaml,,
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ChannelType.Release,Προεπιλεγμένο
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ChannelType.PreRelease,Προ-Κυκλοφορία
-Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.TransitionType.Random,Τυχαίο
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.TransitionType.Sequential,Σειριακό
 Portal\Enum\Portal.Enum.EL.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ExpandScreenType.Default,Προεπιλογή
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ExpandScreenType.Advanced,Προχωρημένο
 Portal\Enum\Portal.Enum.EL.xaml,,
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.UpdateType.Compressed,Συμπιεσμένο
-Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.UpdateType.Executable,Εκτελέσιμο
-Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ScreenType.WorkingArea,Χώρος Εργασίας
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ScreenType.DisplayBound,Όρια Οθόνης
 Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.UpdateChannelType.Release,Προεπιλεγμένο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.UpdateChannelType.PreRelease,Προ-Κυκλοφορία
+Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.DuplicateScreenType.Default,Προεπιλογή
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.DuplicateScreenType.Advanced,Προχωρημένο
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.UpdateExtensionType.Compressed,Συμπιεσμένο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.UpdateExtensionType.Executable,Εκτελέσιμο
 Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Pass,Επιτυχημένο
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' περιλαμβάνει πολλές τιμές

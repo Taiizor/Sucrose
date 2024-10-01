@@ -66,11 +66,7 @@
 
         public const string UpdateTime = "UpdateTime";
 
-        public const string UpdateType = "UpdateType";
-
         public const string UploadType = "UploadType";
-
-        public const string ChannelType = "ChannelType";
 
         public const string Information = "Information";
 
@@ -202,6 +198,8 @@
 
         public const string UpdateLimitValue = "UpdateLimitValue";
 
+        public const string UpdateServerType = "UpdateServerType";
+
         public const string ApplicationEngine = "ApplicationEngine";
 
         public const string BackgroundOpacity = "BackgroundOpacity";
@@ -222,6 +220,8 @@
 
         public const string RemotePerformance = "RemotePerformance";
 
+        public const string UpdateChannelType = "UpdateChannelType";
+
         public const string VolumeSensitivity = "VolumeSensitivity";
 
         public const string LibraryPreviewHide = "LibraryPreviewHide";
@@ -235,6 +235,8 @@
         public const string BatteryPerformance = "BatteryPerformance";
 
         public const string DuplicateScreenType = "DuplicateScreenType";
+
+        public const string UpdateExtensionType = "UpdateExtensionType";
 
         public const string ProcessorInterfaces = "ProcessorInterfaces";
 

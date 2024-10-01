@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.NL.xaml,,
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ChannelType.Release,Standaard
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ChannelType.PreRelease,Ontwikkelaar
-Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.TransitionType.Random,Willekeurig
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.TransitionType.Sequential,Opeenvolgend
 Portal\Enum\Portal.Enum.NL.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ExpandScreenType.Default,Standaard
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ExpandScreenType.Advanced,Geavanceerd
 Portal\Enum\Portal.Enum.NL.xaml,,
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.UpdateType.Compressed,Gecomprimeerd
-Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.UpdateType.Executable,Uitvoerbaar
-Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ScreenType.WorkingArea,Werkruimte
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ScreenType.DisplayBound,Schermgrenzen
 Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.UpdateChannelType.Release,Standaard
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.UpdateChannelType.PreRelease,Ontwikkelaar
+Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.DuplicateScreenType.Default,Standaard
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.DuplicateScreenType.Advanced,Geavanceerd
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.UpdateExtensionType.Compressed,Gecomprimeerd
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.UpdateExtensionType.Executable,Uitvoerbaar
 Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Pass,Succesvol
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' bevat te veel waarden

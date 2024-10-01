@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.NB.xaml,,
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.NB.xaml,,
-Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.ChannelType.Release,Standard
-Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.ChannelType.PreRelease,Utvikler
-Portal\Enum\Portal.Enum.NB.xaml,,
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.TransitionType.Random,Tilfeldig
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.TransitionType.Sequential,Sekvensiell
 Portal\Enum\Portal.Enum.NB.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.NB.xaml,,
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.ExpandScreenType.Default,Standard
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.ExpandScreenType.Advanced,Avansert
 Portal\Enum\Portal.Enum.NB.xaml,,
-Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.UpdateType.Compressed,Komprimert
-Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.UpdateType.Executable,Kjørbar
-Portal\Enum\Portal.Enum.NB.xaml,,
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.ScreenType.WorkingArea,Arbeidsområde
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.ScreenType.DisplayBound,Skjermgrenser
 Portal\Enum\Portal.Enum.NB.xaml,,
+Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.UpdateChannelType.Release,Standard
+Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.UpdateChannelType.PreRelease,Utvikler
+Portal\Enum\Portal.Enum.NB.xaml,,
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.DuplicateScreenType.Default,Standard
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.DuplicateScreenType.Advanced,Avansert
+Portal\Enum\Portal.Enum.NB.xaml,,
+Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.UpdateExtensionType.Compressed,Komprimert
+Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.UpdateExtensionType.Executable,Kjørbar
 Portal\Enum\Portal.Enum.NB.xaml,,
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.CompatibilityType.Pass,Vellykket resultat
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' har for mange verdier

@@ -372,29 +372,29 @@ PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't tou
 Portal.Enum.InputModuleType.Native,Native,,Portal\Enum\Portal.Enum.ES.xaml,
 Portal.Enum.InputModuleType.RawInput,RawInput,,Portal\Enum\Portal.Enum.ES.xaml,
 PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
-Portal.Enum.ChannelType.Release,Por Defecto,,Portal\Enum\Portal.Enum.ES.xaml,
-Portal.Enum.ChannelType.PreRelease,Desarrollador,,Portal\Enum\Portal.Enum.ES.xaml,
-PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
 Portal.Enum.TransitionType.Random,Aleatorio,,Portal\Enum\Portal.Enum.ES.xaml,
 Portal.Enum.TransitionType.Sequential,Secuencial,,Portal\Enum\Portal.Enum.ES.xaml,
-PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
+PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
 Portal.Enum.PausePerformanceType.Heavy,Pesado,,Portal\Enum\Portal.Enum.ES.xaml,
 Portal.Enum.PausePerformanceType.Light,Ligero,,Portal\Enum\Portal.Enum.ES.xaml,
-PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
+PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
 Portal.Enum.SortKindType.Ascending,Ascendente [A-Z],,Portal\Enum\Portal.Enum.ES.xaml,
 Portal.Enum.SortKindType.Descending,Descendente [Z-A],,Portal\Enum\Portal.Enum.ES.xaml,
-PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
+PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
 Portal.Enum.ExpandScreenType.Default,Por Defecto,,Portal\Enum\Portal.Enum.ES.xaml,
 Portal.Enum.ExpandScreenType.Advanced,Avanzado,,Portal\Enum\Portal.Enum.ES.xaml,
-PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
-Portal.Enum.UpdateType.Compressed,Comprimido,,Portal\Enum\Portal.Enum.ES.xaml,
-Portal.Enum.UpdateType.Executable,Ejecutable,,Portal\Enum\Portal.Enum.ES.xaml,
-PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
+PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
 Portal.Enum.ScreenType.WorkingArea,Área de Trabajo,,Portal\Enum\Portal.Enum.ES.xaml,
 Portal.Enum.ScreenType.DisplayBound,Límite de Pantalla,,Portal\Enum\Portal.Enum.ES.xaml,
-PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
+PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
+Portal.Enum.UpdateChannelType.Release,Por Defecto,,Portal\Enum\Portal.Enum.ES.xaml,
+Portal.Enum.UpdateChannelType.PreRelease,Desarrollador,,Portal\Enum\Portal.Enum.ES.xaml,
+PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
 Portal.Enum.DuplicateScreenType.Default,Por Defecto,,Portal\Enum\Portal.Enum.ES.xaml,
 Portal.Enum.DuplicateScreenType.Advanced,Avanzado,,Portal\Enum\Portal.Enum.ES.xaml,
+PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
+Portal.Enum.UpdateExtensionType.Compressed,Comprimido,,Portal\Enum\Portal.Enum.ES.xaml,
+Portal.Enum.UpdateExtensionType.Executable,Ejecutable,,Portal\Enum\Portal.Enum.ES.xaml,
 PASS⦙57,PASS⦙57,Don't Touch,Portal\Enum\Portal.Enum.ES.xaml,Please don't touch the translation in this line.
 Portal.Enum.CompatibilityType.Pass,Resultado Exitoso,,Portal\Enum\Portal.Enum.ES.xaml,
 Portal.Enum.CompatibilityType.Tags,'Tags' tiene demasiados valores,,Portal\Enum\Portal.Enum.ES.xaml,

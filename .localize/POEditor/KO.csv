@@ -372,29 +372,29 @@ PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't tou
 Portal.Enum.InputModuleType.Native,Native,,Portal\Enum\Portal.Enum.KO.xaml,
 Portal.Enum.InputModuleType.RawInput,RawInput,,Portal\Enum\Portal.Enum.KO.xaml,
 PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
-Portal.Enum.ChannelType.Release,기본,,Portal\Enum\Portal.Enum.KO.xaml,
-Portal.Enum.ChannelType.PreRelease,개발자,,Portal\Enum\Portal.Enum.KO.xaml,
-PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
 Portal.Enum.TransitionType.Random,랜덤,,Portal\Enum\Portal.Enum.KO.xaml,
 Portal.Enum.TransitionType.Sequential,순차적,,Portal\Enum\Portal.Enum.KO.xaml,
-PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
+PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
 Portal.Enum.PausePerformanceType.Heavy,무거운,,Portal\Enum\Portal.Enum.KO.xaml,
 Portal.Enum.PausePerformanceType.Light,가벼운,,Portal\Enum\Portal.Enum.KO.xaml,
-PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
+PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
 Portal.Enum.SortKindType.Ascending,오름차순 [A-Z],,Portal\Enum\Portal.Enum.KO.xaml,
 Portal.Enum.SortKindType.Descending,내림차순 [Z-A],,Portal\Enum\Portal.Enum.KO.xaml,
-PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
+PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
 Portal.Enum.ExpandScreenType.Default,기본,,Portal\Enum\Portal.Enum.KO.xaml,
 Portal.Enum.ExpandScreenType.Advanced,고급,,Portal\Enum\Portal.Enum.KO.xaml,
-PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
-Portal.Enum.UpdateType.Compressed,압축,,Portal\Enum\Portal.Enum.KO.xaml,
-Portal.Enum.UpdateType.Executable,실행 가능,,Portal\Enum\Portal.Enum.KO.xaml,
-PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
+PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
 Portal.Enum.ScreenType.WorkingArea,작업 영역,,Portal\Enum\Portal.Enum.KO.xaml,
 Portal.Enum.ScreenType.DisplayBound,화면 경계,,Portal\Enum\Portal.Enum.KO.xaml,
-PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
+PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
+Portal.Enum.UpdateChannelType.Release,기본,,Portal\Enum\Portal.Enum.KO.xaml,
+Portal.Enum.UpdateChannelType.PreRelease,개발자,,Portal\Enum\Portal.Enum.KO.xaml,
+PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
 Portal.Enum.DuplicateScreenType.Default,기본,,Portal\Enum\Portal.Enum.KO.xaml,
 Portal.Enum.DuplicateScreenType.Advanced,고급,,Portal\Enum\Portal.Enum.KO.xaml,
+PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
+Portal.Enum.UpdateExtensionType.Compressed,압축,,Portal\Enum\Portal.Enum.KO.xaml,
+Portal.Enum.UpdateExtensionType.Executable,실행 가능,,Portal\Enum\Portal.Enum.KO.xaml,
 PASS⦙57,PASS⦙57,Don't Touch,Portal\Enum\Portal.Enum.KO.xaml,Please don't touch the translation in this line.
 Portal.Enum.CompatibilityType.Pass,성공,,Portal\Enum\Portal.Enum.KO.xaml,
 Portal.Enum.CompatibilityType.Tags,'Tags' 값이 너무 많음,,Portal\Enum\Portal.Enum.KO.xaml,

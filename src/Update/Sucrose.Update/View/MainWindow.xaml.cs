@@ -20,14 +20,14 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
-using SSCECT = Sucrose.Shared.Core.Enum.ChannelType;
-using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
+using SSCEUCT = Sucrose.Shared.Core.Enum.UpdateChannelType;
+using SSCEUET = Sucrose.Shared.Core.Enum.UpdateExtensionType;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHU = Sucrose.Shared.Core.Helper.Update;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSCMM = Sucrose.Shared.Core.Manage.Manager;
-using SSDECST = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSDECDT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDECYT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SSHG = Skylark.Standard.Helper.GitHub;
@@ -305,7 +305,7 @@ namespace Sucrose.Update.View
 
                 Release = Releases.FirstOrDefault();
 
-                if (SSCMM.ChannelType == SSCECT.Release)
+                if (SSCMM.UpdateChannelType == SSCEUCT.Release)
                 {
                     Release = Releases.FirstOrDefault(Releasing => !Releasing.PreRelease);
                 }
@@ -398,11 +398,11 @@ namespace Sucrose.Update.View
                 {
                     foreach (SSIIA Asset in Assets)
                     {
-                        string Name = $"{SMR.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHU.GetDescription(SUMI.UpdateType)}";
+                        string Name = $"{SMR.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHU.GetDescription(SUMI.UpdateExtensionType)}";
 
                         string[] Required =
                         {
-                            SSCHU.GetDescription(SUMI.UpdateType),
+                            SSCHU.GetDescription(SUMI.UpdateExtensionType),
                             SSCHF.GetDescription(),
                             SSCHA.GetText(),
                             $"{Latest}",
@@ -511,7 +511,7 @@ namespace Sucrose.Update.View
                         {
                             await Task.Delay(MinDelay);
 
-                            Bundle = SSSHE.Change(Bundle, SSCHU.GetDescription(SSCEUT.Executable));
+                            Bundle = SSSHE.Change(Bundle, SSCHU.GetDescription(SSCEUET.Executable));
 
                             Message.Text = SRER.GetValue("Update", "MessageText", "Extracting", "Executing");
 
@@ -691,13 +691,13 @@ namespace Sucrose.Update.View
 
                 await Task.Delay(MinDelay);
 
-                if (SUMI.UpdateType == SSCEUT.Compressed)
+                if (SUMI.UpdateExtensionType == SSCEUET.Compressed)
                 {
-                    SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECST.Bundle}{SMR.ValueSeparator}{SSSHE.Change(SUMI.Source, SSCHU.GetDescription(SSCEUT.Executable))}");
+                    SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECDT.Bundle}{SMR.ValueSeparator}{SSSHE.Change(SUMI.Source, SSCHU.GetDescription(SSCEUET.Executable))}");
                 }
                 else
                 {
-                    SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECST.Bundle}{SMR.ValueSeparator}{SUMI.Source}");
+                    SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECDT.Bundle}{SMR.ValueSeparator}{SUMI.Source}");
                 }
 
                 Reload.Content = SRER.GetValue("Update", "ReloadText", "Browser", "Opened");
@@ -809,12 +809,12 @@ namespace Sucrose.Update.View
 
                     await Task.Delay(MinDelay);
 
-                    switch (SUMI.UpdateType)
+                    switch (SUMI.UpdateExtensionType)
                     {
-                        case SSCEUT.Compressed:
+                        case SSCEUET.Compressed:
                             await StepExtracting();
                             break;
-                        case SSCEUT.Executable:
+                        case SSCEUET.Executable:
                             await StepRunning();
                             break;
                         default:

@@ -372,9 +372,6 @@ Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.InputModuleType.Native,Native
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.UK.xaml,,
-Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ChannelType.Release,За замовчуванням
-Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ChannelType.PreRelease,Розробник
-Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.TransitionType.Random,Випадковий
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.TransitionType.Sequential,Послідовний
 Portal\Enum\Portal.Enum.UK.xaml,,
@@ -387,14 +384,17 @@ Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ExpandScreenType.Default,За замовчуванням
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ExpandScreenType.Advanced,Розширений
 Portal\Enum\Portal.Enum.UK.xaml,,
-Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.UpdateType.Compressed,Стиснутий
-Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.UpdateType.Executable,Виконуваний
-Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ScreenType.WorkingArea,Робоча область
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ScreenType.DisplayBound,Межі дисплея
 Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.UpdateChannelType.Release,За замовчуванням
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.UpdateChannelType.PreRelease,Розробник
+Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.DuplicateScreenType.Default,За замовчуванням
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.DuplicateScreenType.Advanced,Розширений
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.UpdateExtensionType.Compressed,Стиснутий
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.UpdateExtensionType.Executable,Виконуваний
 Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Pass,Успішний результат
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Tags,Занадто багато значень у 'Tags'

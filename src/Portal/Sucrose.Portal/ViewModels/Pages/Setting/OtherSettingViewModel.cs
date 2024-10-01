@@ -11,10 +11,10 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
-using SSCECT = Sucrose.Shared.Core.Enum.ChannelType;
-using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
+using SSCEUCT = Sucrose.Shared.Core.Enum.UpdateChannelType;
+using SSCEUET = Sucrose.Shared.Core.Enum.UpdateExtensionType;
 using SSCMM = Sucrose.Shared.Core.Manage.Manager;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
@@ -293,12 +293,12 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ChannelType.SelectionChanged += (s, e) => ChannelTypeSelected(ChannelType.SelectedIndex);
 
-            foreach (SSCECT Type in Enum.GetValues(typeof(SSCECT)))
+            foreach (SSCEUCT Type in Enum.GetValues(typeof(SSCEUCT)))
             {
-                ChannelType.Items.Add(SRER.GetValue("Portal", "Enum", "ChannelType", $"{Type}"));
+                ChannelType.Items.Add(SRER.GetValue("Portal", "Enum", "UpdateChannelType", $"{Type}"));
             }
 
-            ChannelType.SelectedIndex = (int)SSCMM.ChannelType;
+            ChannelType.SelectedIndex = (int)SSCMM.UpdateChannelType;
 
             Channel.HeaderFrame = ChannelType;
 
@@ -318,12 +318,12 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             UpdateType.SelectionChanged += (s, e) => UpdateTypeSelected(UpdateType.SelectedIndex);
 
-            foreach (SSCEUT Type in Enum.GetValues(typeof(SSCEUT)))
+            foreach (SSCEUET Type in Enum.GetValues(typeof(SSCEUET)))
             {
-                UpdateType.Items.Add(SRER.GetValue("Portal", "Enum", "UpdateType", $"{Type}"));
+                UpdateType.Items.Add(SRER.GetValue("Portal", "Enum", "UpdateExtensionType", $"{Type}"));
             }
 
-            UpdateType.SelectedIndex = (int)SSCMM.UpdateType;
+            UpdateType.SelectedIndex = (int)SSCMM.UpdateExtensionType;
 
             Update.HeaderFrame = UpdateType;
 
@@ -526,11 +526,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void UpdateTypeSelected(int Index)
         {
-            if (Index != (int)SSCMM.UpdateType)
+            if (Index != (int)SSCMM.UpdateExtensionType)
             {
-                SSCEUT Type = (SSCEUT)Index;
+                SSCEUET Type = (SSCEUET)Index;
 
-                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateType, Type);
+                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateExtensionType, Type);
             }
         }
 
@@ -553,11 +553,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void ChannelTypeSelected(int Index)
         {
-            if (Index != (int)SSCMM.ChannelType)
+            if (Index != (int)SSCMM.UpdateChannelType)
             {
-                SSCECT Type = (SSCECT)Index;
+                SSCEUCT Type = (SSCEUCT)Index;
 
-                SMMI.UpdateSettingManager.SetSetting(SMC.ChannelType, Type);
+                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateChannelType, Type);
             }
         }
 

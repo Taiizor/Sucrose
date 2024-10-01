@@ -50,9 +50,6 @@
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
 
-    <system:String x:Key="Portal.Enum.ChannelType.Release">Standar</system:String>
-    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Pengembang</system:String>
-
     <system:String x:Key="Portal.Enum.TransitionType.Random">Acak</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">Berturut-turut</system:String>
 
@@ -65,14 +62,17 @@
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Standar</system:String>
     <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">Lanjutan</system:String>
 
-    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Dikompresi</system:String>
-    <system:String x:Key="Portal.Enum.UpdateType.Executable">Ekseskusi</system:String>
-
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Area Kerja</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Batasan Tampilan</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateChannelType.Release">Standar</system:String>
+    <system:String x:Key="Portal.Enum.UpdateChannelType.PreRelease">Pengembang</system:String>
+
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Standar</system:String>
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">Lanjutan</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Compressed">Dikompresi</system:String>
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Executable">Ekseskusi</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Sukses</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' memiliki terlalu banyak nilai</system:String>

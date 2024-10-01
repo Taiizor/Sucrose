@@ -50,9 +50,6 @@
     <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
     <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
 
-    <system:String x:Key="Portal.Enum.ChannelType.Release">默认</system:String>
-    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">开发版</system:String>
-
     <system:String x:Key="Portal.Enum.TransitionType.Random">随机</system:String>
     <system:String x:Key="Portal.Enum.TransitionType.Sequential">顺序</system:String>
 
@@ -65,14 +62,17 @@
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">默认</system:String>
     <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">高级</system:String>
 
-    <system:String x:Key="Portal.Enum.UpdateType.Compressed">压缩</system:String>
-    <system:String x:Key="Portal.Enum.UpdateType.Executable">可执行</system:String>
-
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">工作区</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">显示边界</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateChannelType.Release">默认</system:String>
+    <system:String x:Key="Portal.Enum.UpdateChannelType.PreRelease">开发版</system:String>
+
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">默认</system:String>
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">高级</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Compressed">压缩</system:String>
+    <system:String x:Key="Portal.Enum.UpdateExtensionType.Executable">可执行</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">通过</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' 包含太多值</system:String>
