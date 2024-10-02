@@ -1,11 +1,11 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:cor="clr-namespace:System;assembly=mscorlib">
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <cor:Double x:Key="ScrollBarWidth">16</cor:Double>
-    <cor:Double x:Key="ScrollBarArrowWidth">8</cor:Double>
-    <cor:Double x:Key="ScrollBarArrowHeight">4</cor:Double>
+    <system:Double x:Key="ScrollBarWidth">16</system:Double>
+    <system:Double x:Key="ScrollBarArrowWidth">8</system:Double>
+    <system:Double x:Key="ScrollBarArrowHeight">4</system:Double>
 
     <SolidColorBrush x:Key="ScrollBarTrackBrush" Color="#222222" />
     <SolidColorBrush x:Key="ScrollBarButtonBackgroundBrush" Color="#333333" />

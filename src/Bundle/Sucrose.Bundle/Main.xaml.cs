@@ -116,10 +116,7 @@ namespace Sucrose.Bundle
                     SWNM.DwmSetWindowAttribute(SWHWI.Handle(this), Attribute, ref Preference, (uint)Marshal.SizeOf(typeof(uint)));
                 }
             }
-            catch
-            {
-                //
-            }
+            catch { }
         }
 
         private static async Task ExtractArchive()

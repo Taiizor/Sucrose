@@ -17,6 +17,7 @@ using SSLCS = Sucrose.Shared.Launcher.Command.Setting;
 using SSLCU = Sucrose.Shared.Launcher.Command.Update;
 using SSLHC = Sucrose.Shared.Launcher.Helper.Calculate;
 using SSLHR = Sucrose.Shared.Launcher.Helper.Radius;
+using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
 using SSLPE = Sucrose.Shared.Launcher.Command.Property;
 using SSLRDR = Sucrose.Shared.Launcher.Renderer.DarkRenderer;
 using SSLRLR = Sucrose.Shared.Launcher.Renderer.LightRenderer;
@@ -79,21 +80,10 @@ namespace Sucrose.Shared.Launcher.Manager
                 ContextMenu.Renderer = new SSLRLR();
             }
 
-            ToolStripItem Interface = new ToolStripMenuItem();
-
-            if (SSSHP.Work(SSSMI.Portal))
+            ContextMenu.Items.Add(new ToolStripMenuItem(SRER.GetValue("Launcher", "OpenText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "OpenIcon"))), CommandInterface)
             {
-                Interface = new ToolStripMenuItem(SRER.GetValue("Launcher", "OpenText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "OpenIcon"))))
-                {
-                    Enabled = false
-                };
-            }
-            else
-            {
-                Interface = new ToolStripMenuItem(SRER.GetValue("Launcher", "OpenText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "OpenIcon"))), CommandInterface);
-            }
-
-            ContextMenu.Items.Add(Interface);
+                Enabled = !SSSHP.Work(SSSMI.Portal)
+            });
 
             SSLSSS Separator1 = new(SSDMM.ThemeType);
 
@@ -212,23 +202,15 @@ namespace Sucrose.Shared.Launcher.Manager
             SSLSSS Separator2 = new(SSDMM.ThemeType);
             ContextMenu.Items.Add(Separator2.Strip);
 
-            ToolStripItem Setting = new ToolStripMenuItem();
-
-            if (SSSHP.Work(SSSMI.Portal))
+            ContextMenu.Items.Add(new ToolStripMenuItem(SRER.GetValue("Launcher", "SettingText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "SettingIcon"))), CommandSetting)
             {
-                Setting = new ToolStripMenuItem(SRER.GetValue("Launcher", "SettingText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "SettingIcon"))))
-                {
-                    Enabled = false
-                };
-            }
-            else
+                Enabled = !SSSHP.Work(SSSMI.Portal)
+            });
+
+            ContextMenu.Items.Add(new ToolStripMenuItem(SRER.GetValue("Launcher", "ReportText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "ReportIcon"))), CommandReport)
             {
-                Setting = new ToolStripMenuItem(SRER.GetValue("Launcher", "SettingText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "SettingIcon"))), CommandSetting);
-            }
-
-            ContextMenu.Items.Add(Setting);
-
-            ContextMenu.Items.Add(SRER.GetValue("Launcher", "ReportText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "ReportIcon"))), CommandReport);
+                Enabled = SSLMI.ReportBox
+            });
 
             ToolStripItem Update = new ToolStripMenuItem();
 

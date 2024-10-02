@@ -29,6 +29,8 @@ using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSCMM = Sucrose.Shared.Core.Manage.Manager;
 using SSDECDT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDECYT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
+using SSDEUST = Sucrose.Shared.Dependency.Enum.UpdateServerType;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIA = Skylark.Standard.Interface.IAssets;
@@ -117,10 +119,7 @@ namespace Sucrose.Update.View
                     SWNM.DwmSetWindowAttribute(SWHWI.Handle(this), Attribute, ref Preference, (uint)Marshal.SizeOf(typeof(uint)));
                 }
             }
-            catch
-            {
-                //
-            }
+            catch { }
         }
 
         private async Task Start()
@@ -334,6 +333,18 @@ namespace Sucrose.Update.View
             try
             {
                 Message.Text = SRER.GetValue("Update", "MessageText", "Listing");
+
+                switch (SSDMM.UpdateServerType)
+                {
+                    case SSDEUST.GitHub:
+                        SSHG.SetUri(SMR.GitHubWebsite);
+                        break;
+                    case SSDEUST.Soferity:
+                        SSHG.SetUri(SMR.SoferityWebsite);
+                        break;
+                    default:
+                        break;
+                }
 
                 Releases = SSHG.ReleasesList(SMR.Owner, SMR.Repository, SMMM.UserAgent, SMMM.Key);
 

@@ -138,9 +138,11 @@
 
         public static readonly string YouTubeContent = "YouTubeContent.html";
 
-        public static readonly string WebViewLive = "Sucrose.Live.WebView.exe";
+        public static readonly string GitHubWebsite = "https://api.github.com";
 
         public static readonly string ValueSeparator = $"{ValueSeparatorChar}";
+
+        public static readonly string WebViewLive = "Sucrose.Live.WebView.exe";
 
         public static readonly string Backgroundog = "Sucrose.Backgroundog.exe";
 
@@ -164,7 +166,7 @@
 
         public static readonly string PortalMutex = "{Sucrose-Wallpaper-Engine-Portal}";
 
-        public static readonly string SoferityWebsite = $"https://sucrose.soferity.com";
+        public static readonly string SoferityWebsite = "https://sucrose.soferity.com";
 
         public static readonly string UpdateMutex = "{Sucrose-Wallpaper-Engine-Update}";
 
@@ -176,11 +178,11 @@
 
         public static readonly string ReportdogMutex = "{Sucrose-Wallpaper-Engine-Reportdog}";
 
-        public static readonly string UserAgent = "Sucrose/1.7 (Wallpaper Engine) SucroseWebKit";
-
         public static readonly string BrowseWebsite = $"https://github.com/{Owner}/{Repository}";
 
-        public static readonly string KeyYouTube = $"https://www.youtube.com/watch?v=kRyML8axJxA";
+        public static readonly string UserAgent = "Sucrose/1.7 (Wallpaper Engine) SucroseWebKit";
+
+        public static readonly string KeyYouTube = "https://www.youtube.com/watch?v=kRyML8axJxA";
 
         public static readonly string SoferityRawWebsite = $"{SoferityWebsite}/{StoreRepository}";
 
@@ -206,7 +208,7 @@
 
         public static readonly string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-        public static readonly string DownloadStore = $"https://apps.microsoft.com/detail/XP8JGPBHTJGLCQ?launch=true&mode=full";
+        public static readonly string DownloadStore = "https://apps.microsoft.com/detail/XP8JGPBHTJGLCQ?launch=true&mode=full";
 
         public static readonly string GitHubRawWebsite = $"https://raw.githubusercontent.com/{Owner}/{StoreRepository}/{Branch}";
 

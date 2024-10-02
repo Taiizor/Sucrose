@@ -14,10 +14,7 @@ namespace Sucrose.Shared.Launcher.Helper
 
                 SWNM.DwmSetWindowAttribute(ContextMenu.Handle, Attribute, ref Preference, (uint)Marshal.SizeOf(typeof(uint)));
             }
-            catch
-            {
-                //
-            }
+            catch { }
         }
     }
 }

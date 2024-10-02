@@ -50,32 +50,35 @@ namespace Sucrose.Portal.Views.Pages.Store
 
             Categories.Add(AllMenu);
 
-            foreach (KeyValuePair<string, SSSIC> Category in Root.Categories)
+            if (Root != null && Root.Categories != null && Root.Categories.Any())
             {
-                if (Category.Value.Wallpapers.Any() && (SMMM.Adult || Category.Value.Wallpapers.Count(Wallpaper => Wallpaper.Value.Adult) != Category.Value.Wallpapers.Count()))
+                foreach (KeyValuePair<string, SSSIC> Category in Root.Categories)
                 {
-                    SymbolRegular Symbol = SPMI.DefaultIcon;
-
-                    SymbolTip = new()
+                    if (Category.Value.Wallpapers.Any() && (SMMM.Adult || Category.Value.Wallpapers.Count(Wallpaper => Wallpaper.Value.Adult) != Category.Value.Wallpapers.Count()))
                     {
-                        Content = SRER.GetValue("Portal", "Category", Category.Key.Replace(" ", ""))
-                    };
+                        SymbolRegular Symbol = SPMI.DefaultIcon;
 
-                    if (SPMI.CategoryIcons.TryGetValue(Category.Key, out SymbolRegular Icon))
-                    {
-                        Symbol = Icon;
+                        SymbolTip = new()
+                        {
+                            Content = SRER.GetValue("Portal", "Category", Category.Key.Replace(" ", ""))
+                        };
+
+                        if (SPMI.CategoryIcons.TryGetValue(Category.Key, out SymbolRegular Icon))
+                        {
+                            Symbol = Icon;
+                        }
+
+                        NavigationViewItem Menu = new(SRER.GetValue("Portal", "Category", Category.Key.Replace(" ", "")), Symbol, null)
+                        {
+                            Tag = Category.Key,
+                            ToolTip = SymbolTip,
+                            IsActive = SPMI.CategoryService.CategoryTag == Category.Key
+                        };
+
+                        Menu.Click += (s, e) => CategoryClick(s);
+
+                        Categories.Add(Menu);
                     }
-
-                    NavigationViewItem Menu = new(SRER.GetValue("Portal", "Category", Category.Key.Replace(" ", "")), Symbol, null)
-                    {
-                        Tag = Category.Key,
-                        ToolTip = SymbolTip,
-                        IsActive = SPMI.CategoryService.CategoryTag == Category.Key
-                    };
-
-                    Menu.Click += (s, e) => CategoryClick(s);
-
-                    Categories.Add(Menu);
                 }
             }
 
