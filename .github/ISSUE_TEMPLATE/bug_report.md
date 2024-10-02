@@ -34,7 +34,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots/video to help explain your problem.
 
 **Desktop (please complete the following information):**
- - OS: [e.g. Windows 10 1909]
+- OS: [e.g. Windows 10 1909]
 - Which wallpaper was running at the time if any.
 
 **Additional Context**
@@ -42,6 +42,8 @@ Add any other context about the problem here.
 
 **Log File (Important)**
 Share the diagnostic files by:
+Right click on the system tray icon -> Report Issue -> Create Log File
+or
 Open Sucrose settings (Gear icon) top-right -> System -> Log Files -> Create
 or 
 Navigate to the Appdata folder `C:\Users\<UserName>\AppData\Roaming\Sucrose\Log`
