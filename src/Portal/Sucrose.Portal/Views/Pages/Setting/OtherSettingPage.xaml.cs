@@ -21,7 +21,7 @@ namespace Sucrose.Portal.Views.Pages.Setting
 
         private async Task Start()
         {
-            foreach (UIElement Content in ViewModel.Contents)
+            foreach (UIElement Content in ViewModel.Contents.ToList())
             {
                 FrameSetting.Children.Add(Content);
 
