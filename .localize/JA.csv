@@ -120,6 +120,8 @@ Launcher\Launcher.JA.xaml,,
 Launcher\Launcher.JA.xaml,Launcher.SaveDialogFilter,ZIPファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*
 Launcher\Launcher.JA.xaml,Launcher.SaveDialogTitle,ログファイルを保存
 Launcher\Launcher.JA.xaml,,
+Launcher\Launcher.JA.xaml,Launcher.FeedbackText,リクエストとフィードバック
+Launcher\Launcher.JA.xaml,,
 Launcher\Launcher.JA.xaml,Launcher.SettingText,設定
 Launcher\Launcher.JA.xaml,,
 Launcher\Launcher.JA.xaml,Launcher.TrayText,Sucrose Wallpaper Engine

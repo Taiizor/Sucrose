@@ -2,39 +2,41 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Launcher.WallCustomizeText">Dostosuj tapetę</system:String>
+    <system:String x:Key="Launcher.WallCustomizeText">Dostosuj Tapetę</system:String>
 
-    <system:String x:Key="Launcher.CreateLogText">Utwórz plik dziennika</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Utwórz Plik Dziennika</system:String>
 
     <system:String x:Key="Launcher.ExitText">Wyjdź</system:String>
 
-    <system:String x:Key="Launcher.OpenReportText">Zgłoś problem</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Zgłoś Problem</system:String>
 
     <system:String x:Key="Launcher.OpenText">Otwórz Sucrose</system:String>
 
-    <system:String x:Key="Launcher.ReportText">Zgłoś problem</system:String>
+    <system:String x:Key="Launcher.ReportText">Zgłoś Problem</system:String>
 
     <system:String x:Key="Launcher.ReportWindowTitle">Diagnostyka Sucrose</system:String>
 
-    <system:String x:Key="Launcher.SaveDialogFilter">Pliki ZIP (*.zip)|*.zip|Wszystkie pliki (*.*)|*.*</system:String>
-    <system:String x:Key="Launcher.SaveDialogTitle">Zapisz plik dziennika</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">Pliki ZIP (*.zip)|*.zip|Wszystkie Pliki (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Zapisz Plik Dziennika</system:String>
+
+    <system:String x:Key="Launcher.FeedbackText">Prośby i Opinie</system:String>
 
     <system:String x:Key="Launcher.SettingText">Ustawienia</system:String>
 
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
 
-    <system:String x:Key="Launcher.WallChangeText">Zmień tapetę</system:String>
-    <system:String x:Key="Launcher.WallCloseText">Zamknij tapetę</system:String>
-    <system:String x:Key="Launcher.WallOpenText">Otwórz tapetę</system:String>
-    <system:String x:Key="Launcher.WallStartText">Uruchom tapetę</system:String>
-    <system:String x:Key="Launcher.WallStopText">Zatrzymaj tapetę</system:String>
+    <system:String x:Key="Launcher.WallChangeText">Zmień Tapetę</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Zamknij Tapetę</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Otwórz Tapetę</system:String>
+    <system:String x:Key="Launcher.WallStartText">Uruchom Tapetę</system:String>
+    <system:String x:Key="Launcher.WallStopText">Zatrzymaj Tapetę</system:String>
 
     <system:String x:Key="Launcher.ClosedText">Zamknięte</system:String>
     <system:String x:Key="Launcher.PausedText">Wstrzymane</system:String>
 
-    <system:String x:Key="Launcher.UpdateText">Sprawdź aktualizacje</system:String>
+    <system:String x:Key="Launcher.UpdateText">Sprawdź Aktualizacje</system:String>
 
-    <system:String x:Key="Launcher.UpdateText.Done">Przygotowanie aktualizacji</system:String>
-    <system:String x:Key="Launcher.UpdateText.Check">Sprawdzanie aktualizacji</system:String>
-    <system:String x:Key="Launcher.UpdateText.Progress">Postęp aktualizacji {0}</system:String>
+    <system:String x:Key="Launcher.UpdateText.Done">Przygotowanie Aktualizacji</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Sprawdzanie Aktualizacji</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Postęp Aktualizacji {0}</system:String>
 </ResourceDictionary>

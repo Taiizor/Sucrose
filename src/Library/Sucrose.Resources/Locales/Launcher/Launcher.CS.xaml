@@ -2,39 +2,41 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Launcher.WallCustomizeText">Přizpůsobit tapetu</system:String>
+    <system:String x:Key="Launcher.WallCustomizeText">Přizpůsobit Tapetu</system:String>
 
-    <system:String x:Key="Launcher.CreateLogText">Vytvořit záznam souboru</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Vytvořit Záznam Souboru</system:String>
 
     <system:String x:Key="Launcher.ExitText">Ukončit</system:String>
 
-    <system:String x:Key="Launcher.OpenReportText">Nahlásit problém</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Nahlásit Problém</system:String>
 
     <system:String x:Key="Launcher.OpenText">Otevřít Sucrose</system:String>
 
-    <system:String x:Key="Launcher.ReportText">Nahlásit problém</system:String>
+    <system:String x:Key="Launcher.ReportText">Nahlásit Problém</system:String>
 
     <system:String x:Key="Launcher.ReportWindowTitle">Diagnostika Sucrose</system:String>
 
-    <system:String x:Key="Launcher.SaveDialogFilter">ZIP soubory (*.zip)|*.zip|Všechny soubory (*.*)|*.*</system:String>
-    <system:String x:Key="Launcher.SaveDialogTitle">Uložit záznam souboru</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">ZIP Soubory (*.zip)|*.zip|Všechny Soubory (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Uložit Záznam Souboru</system:String>
+
+    <system:String x:Key="Launcher.FeedbackText">Požadavky a Zpětná Vazba</system:String>
 
     <system:String x:Key="Launcher.SettingText">Nastavení</system:String>
 
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
 
-    <system:String x:Key="Launcher.WallChangeText">Změnit tapetu</system:String>
-    <system:String x:Key="Launcher.WallCloseText">Zavřít tapetu</system:String>
-    <system:String x:Key="Launcher.WallOpenText">Otevřít tapetu</system:String>
-    <system:String x:Key="Launcher.WallStartText">Spustit tapetu</system:String>
-    <system:String x:Key="Launcher.WallStopText">Zastavit tapetu</system:String>
+    <system:String x:Key="Launcher.WallChangeText">Změnit Tapetu</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Zavřít Tapetu</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Otevřít Tapetu</system:String>
+    <system:String x:Key="Launcher.WallStartText">Spustit Tapetu</system:String>
+    <system:String x:Key="Launcher.WallStopText">Zastavit Tapetu</system:String>
 
     <system:String x:Key="Launcher.ClosedText">Zavřeno</system:String>
     <system:String x:Key="Launcher.PausedText">Pozastaveno</system:String>
 
-    <system:String x:Key="Launcher.UpdateText">Kontrolovat aktualizace</system:String>
+    <system:String x:Key="Launcher.UpdateText">Kontrolovat Aktualizace</system:String>
 
-    <system:String x:Key="Launcher.UpdateText.Done">Příprava aktualizace</system:String>
-    <system:String x:Key="Launcher.UpdateText.Check">Kontrola aktualizací</system:String>
-    <system:String x:Key="Launcher.UpdateText.Progress">Průběh aktualizace {0}</system:String>
+    <system:String x:Key="Launcher.UpdateText.Done">Příprava Aktualizace</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Kontrola Aktualizací</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Průběh Aktualizace {0}</system:String>
 </ResourceDictionary>

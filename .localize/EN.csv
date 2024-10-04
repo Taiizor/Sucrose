@@ -120,6 +120,8 @@ Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.SaveDialogFilter,ZIP Files (*.zip)|*.zip|All Files (*.*)|*.*
 Launcher\Launcher.EN.xaml,Launcher.SaveDialogTitle,Save Log File
 Launcher\Launcher.EN.xaml,,
+Launcher\Launcher.EN.xaml,Launcher.FeedbackText,Requests and Feedback
+Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.SettingText,Settings
 Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.TrayText,Sucrose Wallpaper Engine

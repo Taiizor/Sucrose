@@ -1,7 +1,8 @@
 File,Key,Value
 Launcher\Launcher.xaml,Launcher.ExitIcon,Assets/Exit.ico
-Launcher\Launcher.xaml,Launcher.UpdateIcon,Assets/Reload.ico
+Launcher\Launcher.xaml,Launcher.FeedbackIcon,Assets/Sent.ico
 Launcher\Launcher.xaml,Launcher.TrayIcon,Assets/TrayIcon.ico
+Launcher\Launcher.xaml,Launcher.UpdateIcon,Assets/Reload.ico
 Launcher\Launcher.xaml,Launcher.ReportIcon,Assets/TestTube.ico
 Launcher\Launcher.xaml,Launcher.WallOpenIcon,Assets/LightOn.ico
 Launcher\Launcher.xaml,Launcher.WallChangeIcon,Assets/Change.ico

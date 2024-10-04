@@ -120,6 +120,8 @@ Launcher\Launcher.RO.xaml,,
 Launcher\Launcher.RO.xaml,Launcher.SaveDialogFilter,Fișiere ZIP (*.zip)|*.zip|Toate fișierele (*.*)|*.*
 Launcher\Launcher.RO.xaml,Launcher.SaveDialogTitle,Salvare Fișier Jurnal
 Launcher\Launcher.RO.xaml,,
+Launcher\Launcher.RO.xaml,Launcher.FeedbackText,Cerințe și Feedback
+Launcher\Launcher.RO.xaml,,
 Launcher\Launcher.RO.xaml,Launcher.SettingText,Setări
 Launcher\Launcher.RO.xaml,,
 Launcher\Launcher.RO.xaml,Launcher.TrayText,Sucrose Wallpaper Engine

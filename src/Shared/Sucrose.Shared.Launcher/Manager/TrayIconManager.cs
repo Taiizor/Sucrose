@@ -10,6 +10,7 @@ using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSLCC = Sucrose.Shared.Launcher.Command.Close;
 using SSLCE = Sucrose.Shared.Launcher.Command.Engine;
+using SSLCF = Sucrose.Shared.Launcher.Command.Feedback;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLCRG = Sucrose.Shared.Launcher.Command.Reportdog;
 using SSLCRT = Sucrose.Shared.Launcher.Command.Report;
@@ -212,6 +213,11 @@ namespace Sucrose.Shared.Launcher.Manager
                 Enabled = SSLMI.ReportBox
             });
 
+            ContextMenu.Items.Add(new ToolStripMenuItem(SRER.GetValue("Launcher", "FeedbackText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "FeedbackIcon"))), CommandFeedback)
+            {
+                Enabled = SSLMI.FeedbackBox
+            });
+
             ToolStripItem Update = new ToolStripMenuItem();
 
             if (SSSHP.Work(SSSMI.Update))
@@ -301,6 +307,11 @@ namespace Sucrose.Shared.Launcher.Manager
         private void CommandProperty(object sender, EventArgs e)
         {
             SSLPE.Command();
+        }
+
+        private void CommandFeedback(object sender, EventArgs e)
+        {
+            SSLCF.Command();
         }
 
         private void CommandSetting(object sender, EventArgs e)

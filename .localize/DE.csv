@@ -103,40 +103,42 @@ Discord\Discord.DE.xaml,Discord.StatementText45,Die Reise entlang des Traumpfade
 Discord\Discord.DE.xaml,Discord.StatementText46,Verborgene Stadt am Sternenufer
 Discord\Discord.DE.xaml,Discord.StatementText47,Das Abenteuer hinter dem Nebelberg
 Discord\Discord.DE.xaml,Discord.StatementText48,"Sternenstreifen, die im Dunkeln glitzern"
-Launcher\Launcher.DE.xaml,Launcher.WallCustomizeText,Hintergrund anpassen
+Launcher\Launcher.DE.xaml,Launcher.WallCustomizeText,Hintergrund Anpassen
 Launcher\Launcher.DE.xaml,,
-Launcher\Launcher.DE.xaml,Launcher.CreateLogText,Protokolldatei erstellen
+Launcher\Launcher.DE.xaml,Launcher.CreateLogText,Protokolldatei Erstellen
 Launcher\Launcher.DE.xaml,,
 Launcher\Launcher.DE.xaml,Launcher.ExitText,Beenden
 Launcher\Launcher.DE.xaml,,
-Launcher\Launcher.DE.xaml,Launcher.OpenReportText,Problem melden
+Launcher\Launcher.DE.xaml,Launcher.OpenReportText,Problem Melden
 Launcher\Launcher.DE.xaml,,
-Launcher\Launcher.DE.xaml,Launcher.OpenText,Sucrose öffnen
+Launcher\Launcher.DE.xaml,Launcher.OpenText,Sucrose Öffnen
 Launcher\Launcher.DE.xaml,,
-Launcher\Launcher.DE.xaml,Launcher.ReportText,Problem melden
+Launcher\Launcher.DE.xaml,Launcher.ReportText,Problem Melden
 Launcher\Launcher.DE.xaml,,
 Launcher\Launcher.DE.xaml,Launcher.ReportWindowTitle,Sucrose Diagnose
 Launcher\Launcher.DE.xaml,,
 Launcher\Launcher.DE.xaml,Launcher.SaveDialogFilter,ZIP-Dateien (*.zip)|*.zip|Alle Dateien (*.*)|*.*
-Launcher\Launcher.DE.xaml,Launcher.SaveDialogTitle,Protokolldatei speichern
+Launcher\Launcher.DE.xaml,Launcher.SaveDialogTitle,Protokolldatei Speichern
+Launcher\Launcher.DE.xaml,,
+Launcher\Launcher.DE.xaml,Launcher.FeedbackText,Anfragen und Rückmeldungen
 Launcher\Launcher.DE.xaml,,
 Launcher\Launcher.DE.xaml,Launcher.SettingText,Einstellungen
 Launcher\Launcher.DE.xaml,,
 Launcher\Launcher.DE.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
 Launcher\Launcher.DE.xaml,,
-Launcher\Launcher.DE.xaml,Launcher.WallChangeText,Hintergrund ändern
-Launcher\Launcher.DE.xaml,Launcher.WallCloseText,Hintergrund schließen
-Launcher\Launcher.DE.xaml,Launcher.WallOpenText,Hintergrund öffnen
-Launcher\Launcher.DE.xaml,Launcher.WallStartText,Hintergrund starten
-Launcher\Launcher.DE.xaml,Launcher.WallStopText,Hintergrund stoppen
+Launcher\Launcher.DE.xaml,Launcher.WallChangeText,Hintergrund Ändern
+Launcher\Launcher.DE.xaml,Launcher.WallCloseText,Hintergrund Schließen
+Launcher\Launcher.DE.xaml,Launcher.WallOpenText,Hintergrund Öffnen
+Launcher\Launcher.DE.xaml,Launcher.WallStartText,Hintergrund Starten
+Launcher\Launcher.DE.xaml,Launcher.WallStopText,Hintergrund Stoppen
 Launcher\Launcher.DE.xaml,,
 Launcher\Launcher.DE.xaml,Launcher.ClosedText,Geschlossen
 Launcher\Launcher.DE.xaml,Launcher.PausedText,Angehalten
 Launcher\Launcher.DE.xaml,,
-Launcher\Launcher.DE.xaml,Launcher.UpdateText,Auf Updates prüfen
+Launcher\Launcher.DE.xaml,Launcher.UpdateText,Auf Updates Prüfen
 Launcher\Launcher.DE.xaml,,
-Launcher\Launcher.DE.xaml,Launcher.UpdateText.Done,Update wird vorbereitet
-Launcher\Launcher.DE.xaml,Launcher.UpdateText.Check,Überprüfen auf Updates
+Launcher\Launcher.DE.xaml,Launcher.UpdateText.Done,Update Wird Vorbereitet
+Launcher\Launcher.DE.xaml,Launcher.UpdateText.Check,Überprüfen Auf Updates
 Launcher\Launcher.DE.xaml,Launcher.UpdateText.Progress,Update Fortschritt {0}
 Live\Live.DE.xaml,Live.Title,{0} Benachrichtigung
 Live\Live.DE.xaml,,

@@ -3,8 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Launcher.ExitIcon">Assets/Exit.ico</system:String>
-    <system:String x:Key="Launcher.UpdateIcon">Assets/Reload.ico</system:String>
+    <system:String x:Key="Launcher.FeedbackIcon">Assets/Sent.ico</system:String>
     <system:String x:Key="Launcher.TrayIcon">Assets/TrayIcon.ico</system:String>
+    <system:String x:Key="Launcher.UpdateIcon">Assets/Reload.ico</system:String>
     <system:String x:Key="Launcher.ReportIcon">Assets/TestTube.ico</system:String>
     <system:String x:Key="Launcher.WallOpenIcon">Assets/LightOn.ico</system:String>
     <system:String x:Key="Launcher.WallChangeIcon">Assets/Change.ico</system:String>

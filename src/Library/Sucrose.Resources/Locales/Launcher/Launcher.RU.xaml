@@ -4,37 +4,39 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Launcher.WallCustomizeText">Настройка Обоев</system:String>
 
-    <system:String x:Key="Launcher.CreateLogText">Создать файл журнала</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Создать Файл Журнала</system:String>
 
     <system:String x:Key="Launcher.ExitText">Выход</system:String>
 
-    <system:String x:Key="Launcher.OpenReportText">Сообщить о проблеме</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Сообщить о Проблеме</system:String>
 
     <system:String x:Key="Launcher.OpenText">Открыть Sucrose</system:String>
 
-    <system:String x:Key="Launcher.ReportText">Сообщить о проблеме</system:String>
+    <system:String x:Key="Launcher.ReportText">Сообщить о Проблеме</system:String>
 
     <system:String x:Key="Launcher.ReportWindowTitle">Диагностика Sucrose</system:String>
 
     <system:String x:Key="Launcher.SaveDialogFilter">Файлы ZIP (*.zip)|*.zip|Все файлы (*.*)|*.*</system:String>
-    <system:String x:Key="Launcher.SaveDialogTitle">Сохранить файл журнала</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Сохранить Файл Журнала</system:String>
+
+    <system:String x:Key="Launcher.FeedbackText">Запросы и Отзывы</system:String>
 
     <system:String x:Key="Launcher.SettingText">Настройки</system:String>
 
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
 
-    <system:String x:Key="Launcher.WallChangeText">Изменить обои</system:String>
-    <system:String x:Key="Launcher.WallCloseText">Закрыть обои</system:String>
-    <system:String x:Key="Launcher.WallOpenText">Открыть обои</system:String>
-    <system:String x:Key="Launcher.WallStartText">Запустить обои</system:String>
-    <system:String x:Key="Launcher.WallStopText">Остановить обои</system:String>
+    <system:String x:Key="Launcher.WallChangeText">Изменить Oбои</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Закрыть Oбои</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Открыть Oбои</system:String>
+    <system:String x:Key="Launcher.WallStartText">Запустить Oбои</system:String>
+    <system:String x:Key="Launcher.WallStopText">Остановить Oбои</system:String>
 
     <system:String x:Key="Launcher.ClosedText">Закрыто</system:String>
     <system:String x:Key="Launcher.PausedText">Приостановлено</system:String>
 
-    <system:String x:Key="Launcher.UpdateText">Проверить обновления</system:String>
+    <system:String x:Key="Launcher.UpdateText">Проверить Oбновления</system:String>
 
-    <system:String x:Key="Launcher.UpdateText.Done">Подготовка к обновлению</system:String>
-    <system:String x:Key="Launcher.UpdateText.Check">Проверка обновлений</system:String>
-    <system:String x:Key="Launcher.UpdateText.Progress">Прогресс обновления {0}</system:String>
+    <system:String x:Key="Launcher.UpdateText.Done">Подготовка к Oбновлению</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Проверка Oбновлений</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Прогресс Oбновления {0}</system:String>
 </ResourceDictionary>

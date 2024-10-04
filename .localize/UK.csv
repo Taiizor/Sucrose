@@ -103,41 +103,43 @@ Discord\Discord.UK.xaml,Discord.StatementText45,Подорож Шляхом Сн
 Discord\Discord.UK.xaml,Discord.StatementText46,Секретне Місто біля Берега Зірок
 Discord\Discord.UK.xaml,Discord.StatementText47,Сага За Туманом Гори
 Discord\Discord.UK.xaml,Discord.StatementText48,Зіркова Ніч за Темрявою
-Launcher\Launcher.UK.xaml,Launcher.WallCustomizeText,Налаштувати шпалери
+Launcher\Launcher.UK.xaml,Launcher.WallCustomizeText,Налаштувати Шпалери
 Launcher\Launcher.UK.xaml,,
-Launcher\Launcher.UK.xaml,Launcher.CreateLogText,Створити файл журналу
+Launcher\Launcher.UK.xaml,Launcher.CreateLogText,Створити Файл Журналу
 Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.ExitText,Вийти
 Launcher\Launcher.UK.xaml,,
-Launcher\Launcher.UK.xaml,Launcher.OpenReportText,Повідомити про проблему
+Launcher\Launcher.UK.xaml,Launcher.OpenReportText,Повідомити Про Проблему
 Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.OpenText,Відкрити Sucrose
 Launcher\Launcher.UK.xaml,,
-Launcher\Launcher.UK.xaml,Launcher.ReportText,Повідомити про проблему
+Launcher\Launcher.UK.xaml,Launcher.ReportText,Повідомити Про Проблему
 Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.ReportWindowTitle,Діагностика Sucrose
 Launcher\Launcher.UK.xaml,,
-Launcher\Launcher.UK.xaml,Launcher.SaveDialogFilter,Файли ZIP (*.zip)|*.zip|Всі файли (*.*)|*.*
-Launcher\Launcher.UK.xaml,Launcher.SaveDialogTitle,Зберегти файл журналу
+Launcher\Launcher.UK.xaml,Launcher.SaveDialogFilter,Файли ZIP (*.zip)|*.zip|Всі Файли (*.*)|*.*
+Launcher\Launcher.UK.xaml,Launcher.SaveDialogTitle,Зберегти Файл Журналу
+Launcher\Launcher.UK.xaml,,
+Launcher\Launcher.UK.xaml,Launcher.FeedbackText,Запити та Відгуки
 Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.SettingText,Налаштування
 Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
 Launcher\Launcher.UK.xaml,,
-Launcher\Launcher.UK.xaml,Launcher.WallChangeText,Змінити шпалери
-Launcher\Launcher.UK.xaml,Launcher.WallCloseText,Закрити шпалери
-Launcher\Launcher.UK.xaml,Launcher.WallOpenText,Відкрити шпалери
-Launcher\Launcher.UK.xaml,Launcher.WallStartText,Запустити шпалери
-Launcher\Launcher.UK.xaml,Launcher.WallStopText,Зупинити шпалери
+Launcher\Launcher.UK.xaml,Launcher.WallChangeText,Змінити Шпалери
+Launcher\Launcher.UK.xaml,Launcher.WallCloseText,Закрити Шпалери
+Launcher\Launcher.UK.xaml,Launcher.WallOpenText,Відкрити Шпалери
+Launcher\Launcher.UK.xaml,Launcher.WallStartText,Запустити Шпалери
+Launcher\Launcher.UK.xaml,Launcher.WallStopText,Зупинити Шпалери
 Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.ClosedText,Закрито
 Launcher\Launcher.UK.xaml,Launcher.PausedText,Призупинено
 Launcher\Launcher.UK.xaml,,
-Launcher\Launcher.UK.xaml,Launcher.UpdateText,Перевірити оновлення
+Launcher\Launcher.UK.xaml,Launcher.UpdateText,Перевірити Oновлення
 Launcher\Launcher.UK.xaml,,
-Launcher\Launcher.UK.xaml,Launcher.UpdateText.Done,Підготовка оновлення
-Launcher\Launcher.UK.xaml,Launcher.UpdateText.Check,Перевірка оновлень
-Launcher\Launcher.UK.xaml,Launcher.UpdateText.Progress,Прогрес оновлення {0}
+Launcher\Launcher.UK.xaml,Launcher.UpdateText.Done,Підготовка Oновлення
+Launcher\Launcher.UK.xaml,Launcher.UpdateText.Check,Перевірка Oновлень
+Launcher\Launcher.UK.xaml,Launcher.UpdateText.Progress,Прогрес Oновлення {0}
 Live\Live.UK.xaml,Live.Title,{0} Сповіщення
 Live\Live.UK.xaml,,
 Live\Live.UK.xaml,Live.Close,Закрити

@@ -19,6 +19,8 @@
     <system:String x:Key="Launcher.SaveDialogFilter">Arquivos ZIP (*.zip)|*.zip|Todos os Arquivos (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Salvar Arquivo de Log</system:String>
 
+    <system:String x:Key="Launcher.FeedbackText">Solicitações e Feedback</system:String>
+
     <system:String x:Key="Launcher.SettingText">Configurações</system:String>
 
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>

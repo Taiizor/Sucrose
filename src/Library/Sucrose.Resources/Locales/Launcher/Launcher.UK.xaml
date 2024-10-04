@@ -2,39 +2,41 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Launcher.WallCustomizeText">Налаштувати шпалери</system:String>
+    <system:String x:Key="Launcher.WallCustomizeText">Налаштувати Шпалери</system:String>
 
-    <system:String x:Key="Launcher.CreateLogText">Створити файл журналу</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Створити Файл Журналу</system:String>
 
     <system:String x:Key="Launcher.ExitText">Вийти</system:String>
 
-    <system:String x:Key="Launcher.OpenReportText">Повідомити про проблему</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Повідомити Про Проблему</system:String>
 
     <system:String x:Key="Launcher.OpenText">Відкрити Sucrose</system:String>
 
-    <system:String x:Key="Launcher.ReportText">Повідомити про проблему</system:String>
+    <system:String x:Key="Launcher.ReportText">Повідомити Про Проблему</system:String>
 
     <system:String x:Key="Launcher.ReportWindowTitle">Діагностика Sucrose</system:String>
 
-    <system:String x:Key="Launcher.SaveDialogFilter">Файли ZIP (*.zip)|*.zip|Всі файли (*.*)|*.*</system:String>
-    <system:String x:Key="Launcher.SaveDialogTitle">Зберегти файл журналу</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">Файли ZIP (*.zip)|*.zip|Всі Файли (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Зберегти Файл Журналу</system:String>
+
+    <system:String x:Key="Launcher.FeedbackText">Запити та Відгуки</system:String>
 
     <system:String x:Key="Launcher.SettingText">Налаштування</system:String>
 
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
 
-    <system:String x:Key="Launcher.WallChangeText">Змінити шпалери</system:String>
-    <system:String x:Key="Launcher.WallCloseText">Закрити шпалери</system:String>
-    <system:String x:Key="Launcher.WallOpenText">Відкрити шпалери</system:String>
-    <system:String x:Key="Launcher.WallStartText">Запустити шпалери</system:String>
-    <system:String x:Key="Launcher.WallStopText">Зупинити шпалери</system:String>
+    <system:String x:Key="Launcher.WallChangeText">Змінити Шпалери</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Закрити Шпалери</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Відкрити Шпалери</system:String>
+    <system:String x:Key="Launcher.WallStartText">Запустити Шпалери</system:String>
+    <system:String x:Key="Launcher.WallStopText">Зупинити Шпалери</system:String>
 
     <system:String x:Key="Launcher.ClosedText">Закрито</system:String>
     <system:String x:Key="Launcher.PausedText">Призупинено</system:String>
 
-    <system:String x:Key="Launcher.UpdateText">Перевірити оновлення</system:String>
+    <system:String x:Key="Launcher.UpdateText">Перевірити Oновлення</system:String>
 
-    <system:String x:Key="Launcher.UpdateText.Done">Підготовка оновлення</system:String>
-    <system:String x:Key="Launcher.UpdateText.Check">Перевірка оновлень</system:String>
-    <system:String x:Key="Launcher.UpdateText.Progress">Прогрес оновлення {0}</system:String>
+    <system:String x:Key="Launcher.UpdateText.Done">Підготовка Oновлення</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Перевірка Oновлень</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Прогрес Oновлення {0}</system:String>
 </ResourceDictionary>

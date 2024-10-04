@@ -105,39 +105,41 @@ Discord\Discord.RU.xaml,Discord.StatementText47,Сказка за Туманны
 Discord\Discord.RU.xaml,Discord.StatementText48,Темная Ночь с Блеском Звезд
 Launcher\Launcher.RU.xaml,Launcher.WallCustomizeText,Настройка Обоев
 Launcher\Launcher.RU.xaml,,
-Launcher\Launcher.RU.xaml,Launcher.CreateLogText,Создать файл журнала
+Launcher\Launcher.RU.xaml,Launcher.CreateLogText,Создать Файл Журнала
 Launcher\Launcher.RU.xaml,,
 Launcher\Launcher.RU.xaml,Launcher.ExitText,Выход
 Launcher\Launcher.RU.xaml,,
-Launcher\Launcher.RU.xaml,Launcher.OpenReportText,Сообщить о проблеме
+Launcher\Launcher.RU.xaml,Launcher.OpenReportText,Сообщить о Проблеме
 Launcher\Launcher.RU.xaml,,
 Launcher\Launcher.RU.xaml,Launcher.OpenText,Открыть Sucrose
 Launcher\Launcher.RU.xaml,,
-Launcher\Launcher.RU.xaml,Launcher.ReportText,Сообщить о проблеме
+Launcher\Launcher.RU.xaml,Launcher.ReportText,Сообщить о Проблеме
 Launcher\Launcher.RU.xaml,,
 Launcher\Launcher.RU.xaml,Launcher.ReportWindowTitle,Диагностика Sucrose
 Launcher\Launcher.RU.xaml,,
 Launcher\Launcher.RU.xaml,Launcher.SaveDialogFilter,Файлы ZIP (*.zip)|*.zip|Все файлы (*.*)|*.*
-Launcher\Launcher.RU.xaml,Launcher.SaveDialogTitle,Сохранить файл журнала
+Launcher\Launcher.RU.xaml,Launcher.SaveDialogTitle,Сохранить Файл Журнала
+Launcher\Launcher.RU.xaml,,
+Launcher\Launcher.RU.xaml,Launcher.FeedbackText,Запросы и Отзывы
 Launcher\Launcher.RU.xaml,,
 Launcher\Launcher.RU.xaml,Launcher.SettingText,Настройки
 Launcher\Launcher.RU.xaml,,
 Launcher\Launcher.RU.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
 Launcher\Launcher.RU.xaml,,
-Launcher\Launcher.RU.xaml,Launcher.WallChangeText,Изменить обои
-Launcher\Launcher.RU.xaml,Launcher.WallCloseText,Закрыть обои
-Launcher\Launcher.RU.xaml,Launcher.WallOpenText,Открыть обои
-Launcher\Launcher.RU.xaml,Launcher.WallStartText,Запустить обои
-Launcher\Launcher.RU.xaml,Launcher.WallStopText,Остановить обои
+Launcher\Launcher.RU.xaml,Launcher.WallChangeText,Изменить Oбои
+Launcher\Launcher.RU.xaml,Launcher.WallCloseText,Закрыть Oбои
+Launcher\Launcher.RU.xaml,Launcher.WallOpenText,Открыть Oбои
+Launcher\Launcher.RU.xaml,Launcher.WallStartText,Запустить Oбои
+Launcher\Launcher.RU.xaml,Launcher.WallStopText,Остановить Oбои
 Launcher\Launcher.RU.xaml,,
 Launcher\Launcher.RU.xaml,Launcher.ClosedText,Закрыто
 Launcher\Launcher.RU.xaml,Launcher.PausedText,Приостановлено
 Launcher\Launcher.RU.xaml,,
-Launcher\Launcher.RU.xaml,Launcher.UpdateText,Проверить обновления
+Launcher\Launcher.RU.xaml,Launcher.UpdateText,Проверить Oбновления
 Launcher\Launcher.RU.xaml,,
-Launcher\Launcher.RU.xaml,Launcher.UpdateText.Done,Подготовка к обновлению
-Launcher\Launcher.RU.xaml,Launcher.UpdateText.Check,Проверка обновлений
-Launcher\Launcher.RU.xaml,Launcher.UpdateText.Progress,Прогресс обновления {0}
+Launcher\Launcher.RU.xaml,Launcher.UpdateText.Done,Подготовка к Oбновлению
+Launcher\Launcher.RU.xaml,Launcher.UpdateText.Check,Проверка Oбновлений
+Launcher\Launcher.RU.xaml,Launcher.UpdateText.Progress,Прогресс Oбновления {0}
 Live\Live.RU.xaml,Live.Title,{0} Уведомление
 Live\Live.RU.xaml,,
 Live\Live.RU.xaml,Live.Close,Закрыть

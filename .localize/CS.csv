@@ -103,41 +103,43 @@ Discord\Discord.CS.xaml,Discord.StatementText45,Cesta Snů pod Hvězdami
 Discord\Discord.CS.xaml,Discord.StatementText46,Skrytý Svět Města na Břehu Hvězd
 Discord\Discord.CS.xaml,Discord.StatementText47,Pohádka za Mlžnou Horou
 Discord\Discord.CS.xaml,Discord.StatementText48,Hvězdná Noc Zářící ve Tmě
-Launcher\Launcher.CS.xaml,Launcher.WallCustomizeText,Přizpůsobit tapetu
+Launcher\Launcher.CS.xaml,Launcher.WallCustomizeText,Přizpůsobit Tapetu
 Launcher\Launcher.CS.xaml,,
-Launcher\Launcher.CS.xaml,Launcher.CreateLogText,Vytvořit záznam souboru
+Launcher\Launcher.CS.xaml,Launcher.CreateLogText,Vytvořit Záznam Souboru
 Launcher\Launcher.CS.xaml,,
 Launcher\Launcher.CS.xaml,Launcher.ExitText,Ukončit
 Launcher\Launcher.CS.xaml,,
-Launcher\Launcher.CS.xaml,Launcher.OpenReportText,Nahlásit problém
+Launcher\Launcher.CS.xaml,Launcher.OpenReportText,Nahlásit Problém
 Launcher\Launcher.CS.xaml,,
 Launcher\Launcher.CS.xaml,Launcher.OpenText,Otevřít Sucrose
 Launcher\Launcher.CS.xaml,,
-Launcher\Launcher.CS.xaml,Launcher.ReportText,Nahlásit problém
+Launcher\Launcher.CS.xaml,Launcher.ReportText,Nahlásit Problém
 Launcher\Launcher.CS.xaml,,
 Launcher\Launcher.CS.xaml,Launcher.ReportWindowTitle,Diagnostika Sucrose
 Launcher\Launcher.CS.xaml,,
-Launcher\Launcher.CS.xaml,Launcher.SaveDialogFilter,ZIP soubory (*.zip)|*.zip|Všechny soubory (*.*)|*.*
-Launcher\Launcher.CS.xaml,Launcher.SaveDialogTitle,Uložit záznam souboru
+Launcher\Launcher.CS.xaml,Launcher.SaveDialogFilter,ZIP Soubory (*.zip)|*.zip|Všechny Soubory (*.*)|*.*
+Launcher\Launcher.CS.xaml,Launcher.SaveDialogTitle,Uložit Záznam Souboru
+Launcher\Launcher.CS.xaml,,
+Launcher\Launcher.CS.xaml,Launcher.FeedbackText,Požadavky a Zpětná Vazba
 Launcher\Launcher.CS.xaml,,
 Launcher\Launcher.CS.xaml,Launcher.SettingText,Nastavení
 Launcher\Launcher.CS.xaml,,
 Launcher\Launcher.CS.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
 Launcher\Launcher.CS.xaml,,
-Launcher\Launcher.CS.xaml,Launcher.WallChangeText,Změnit tapetu
-Launcher\Launcher.CS.xaml,Launcher.WallCloseText,Zavřít tapetu
-Launcher\Launcher.CS.xaml,Launcher.WallOpenText,Otevřít tapetu
-Launcher\Launcher.CS.xaml,Launcher.WallStartText,Spustit tapetu
-Launcher\Launcher.CS.xaml,Launcher.WallStopText,Zastavit tapetu
+Launcher\Launcher.CS.xaml,Launcher.WallChangeText,Změnit Tapetu
+Launcher\Launcher.CS.xaml,Launcher.WallCloseText,Zavřít Tapetu
+Launcher\Launcher.CS.xaml,Launcher.WallOpenText,Otevřít Tapetu
+Launcher\Launcher.CS.xaml,Launcher.WallStartText,Spustit Tapetu
+Launcher\Launcher.CS.xaml,Launcher.WallStopText,Zastavit Tapetu
 Launcher\Launcher.CS.xaml,,
 Launcher\Launcher.CS.xaml,Launcher.ClosedText,Zavřeno
 Launcher\Launcher.CS.xaml,Launcher.PausedText,Pozastaveno
 Launcher\Launcher.CS.xaml,,
-Launcher\Launcher.CS.xaml,Launcher.UpdateText,Kontrolovat aktualizace
+Launcher\Launcher.CS.xaml,Launcher.UpdateText,Kontrolovat Aktualizace
 Launcher\Launcher.CS.xaml,,
-Launcher\Launcher.CS.xaml,Launcher.UpdateText.Done,Příprava aktualizace
-Launcher\Launcher.CS.xaml,Launcher.UpdateText.Check,Kontrola aktualizací
-Launcher\Launcher.CS.xaml,Launcher.UpdateText.Progress,Průběh aktualizace {0}
+Launcher\Launcher.CS.xaml,Launcher.UpdateText.Done,Příprava Aktualizace
+Launcher\Launcher.CS.xaml,Launcher.UpdateText.Check,Kontrola Aktualizací
+Launcher\Launcher.CS.xaml,Launcher.UpdateText.Progress,Průběh Aktualizace {0}
 Live\Live.CS.xaml,Live.Title,{0} Upozornění
 Live\Live.CS.xaml,,
 Live\Live.CS.xaml,Live.Close,Zavřít

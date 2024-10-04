@@ -2,39 +2,41 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Launcher.WallCustomizeText">Achtergrond aanpassen</system:String>
+    <system:String x:Key="Launcher.WallCustomizeText">Achtergrond Aanpassen</system:String>
 
-    <system:String x:Key="Launcher.CreateLogText">Logbestand maken</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Logbestand Maken</system:String>
 
     <system:String x:Key="Launcher.ExitText">Afsluiten</system:String>
 
-    <system:String x:Key="Launcher.OpenReportText">Probleem melden</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Probleem Melden</system:String>
 
-    <system:String x:Key="Launcher.OpenText">Sucrose openen</system:String>
+    <system:String x:Key="Launcher.OpenText">Sucrose Openen</system:String>
 
-    <system:String x:Key="Launcher.ReportText">Probleem melden</system:String>
+    <system:String x:Key="Launcher.ReportText">Probleem Melden</system:String>
 
     <system:String x:Key="Launcher.ReportWindowTitle">Sucrose Diagnose</system:String>
 
-    <system:String x:Key="Launcher.SaveDialogFilter">ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*</system:String>
-    <system:String x:Key="Launcher.SaveDialogTitle">Logbestand opslaan</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">ZIP-Bestanden (*.zip)|*.zip|Alle Bestanden (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Logbestand Opslaan</system:String>
+
+    <system:String x:Key="Launcher.FeedbackText">Verzoeken en Feedback</system:String>
 
     <system:String x:Key="Launcher.SettingText">Instellingen</system:String>
 
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
 
-    <system:String x:Key="Launcher.WallChangeText">Achtergrond wijzigen</system:String>
-    <system:String x:Key="Launcher.WallCloseText">Achtergrond sluiten</system:String>
-    <system:String x:Key="Launcher.WallOpenText">Achtergrond openen</system:String>
-    <system:String x:Key="Launcher.WallStartText">Achtergrond starten</system:String>
-    <system:String x:Key="Launcher.WallStopText">Achtergrond stoppen</system:String>
+    <system:String x:Key="Launcher.WallChangeText">Achtergrond Wijzigen</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Achtergrond Sluiten</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Achtergrond Openen</system:String>
+    <system:String x:Key="Launcher.WallStartText">Achtergrond Starten</system:String>
+    <system:String x:Key="Launcher.WallStopText">Achtergrond Stoppen</system:String>
 
     <system:String x:Key="Launcher.ClosedText">Gesloten</system:String>
     <system:String x:Key="Launcher.PausedText">Gepauzeerd</system:String>
 
-    <system:String x:Key="Launcher.UpdateText">Controleren op updates</system:String>
+    <system:String x:Key="Launcher.UpdateText">Controleren op Updates</system:String>
 
-    <system:String x:Key="Launcher.UpdateText.Done">Update voorbereiden</system:String>
-    <system:String x:Key="Launcher.UpdateText.Check">Controleren op updates</system:String>
+    <system:String x:Key="Launcher.UpdateText.Done">Update Voorbereiden</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Controleren op Updates</system:String>
     <system:String x:Key="Launcher.UpdateText.Progress">Updatevoortgang {0}</system:String>
 </ResourceDictionary>

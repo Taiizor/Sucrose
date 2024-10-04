@@ -6,6 +6,8 @@ namespace Sucrose.Shared.Launcher.Manage
     {
         public static bool ReportBox = true;
 
+        public static bool FeedbackBox = false;
+
         public static SSLMTIM TrayIconManager = new();
     }
 }

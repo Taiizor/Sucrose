@@ -103,41 +103,43 @@ Discord\Discord.EL.xaml,Discord.StatementText45,Το Μονοπάτι των Ο�
 Discord\Discord.EL.xaml,Discord.StatementText46,Κρυμμένη πόλη κοντά στην ακτή των αστεριών
 Discord\Discord.EL.xaml,Discord.StatementText47,Η περιπέτεια πίσω από τον ομιχλώδη βουνό
 Discord\Discord.EL.xaml,Discord.StatementText48,"Στο σκοτεινό, αστραφτερό νυχτερινό ουρανό"
-Launcher\Launcher.EL.xaml,Launcher.WallCustomizeText,Προσαρμογή ταπετσαρίας
+Launcher\Launcher.EL.xaml,Launcher.WallCustomizeText,Προσαρμογή Ταπετσαρίας
 Launcher\Launcher.EL.xaml,,
-Launcher\Launcher.EL.xaml,Launcher.CreateLogText,Δημιουργία αρχείου καταγραφής
+Launcher\Launcher.EL.xaml,Launcher.CreateLogText,Δημιουργία Αρχείου Καταγραφής
 Launcher\Launcher.EL.xaml,,
 Launcher\Launcher.EL.xaml,Launcher.ExitText,Έξοδος
 Launcher\Launcher.EL.xaml,,
-Launcher\Launcher.EL.xaml,Launcher.OpenReportText,Αναφορά προβλήματος
+Launcher\Launcher.EL.xaml,Launcher.OpenReportText,Αναφορά Προβλήματος
 Launcher\Launcher.EL.xaml,,
-Launcher\Launcher.EL.xaml,Launcher.OpenText,Άνοιγμα του Sucrose
+Launcher\Launcher.EL.xaml,Launcher.OpenText,Άνοιγμα Tου Sucrose
 Launcher\Launcher.EL.xaml,,
-Launcher\Launcher.EL.xaml,Launcher.ReportText,Αναφορά προβλήματος
+Launcher\Launcher.EL.xaml,Launcher.ReportText,Αναφορά Προβλήματος
 Launcher\Launcher.EL.xaml,,
 Launcher\Launcher.EL.xaml,Launcher.ReportWindowTitle,Διάγνωση Sucrose
 Launcher\Launcher.EL.xaml,,
-Launcher\Launcher.EL.xaml,Launcher.SaveDialogFilter,Αρχεία ZIP (*.zip)|*.zip|Όλα τα αρχεία (*.*)|*.*
-Launcher\Launcher.EL.xaml,Launcher.SaveDialogTitle,Αποθήκευση αρχείου καταγραφής
+Launcher\Launcher.EL.xaml,Launcher.SaveDialogFilter,Αρχεία ZIP (*.zip)|*.zip|Όλα τα Αρχεία (*.*)|*.*
+Launcher\Launcher.EL.xaml,Launcher.SaveDialogTitle,Αποθήκευση Aρχείου Καταγραφής
+Launcher\Launcher.EL.xaml,,
+Launcher\Launcher.EL.xaml,Launcher.FeedbackText,Αιτήματα Και Σχόλια
 Launcher\Launcher.EL.xaml,,
 Launcher\Launcher.EL.xaml,Launcher.SettingText,Ρυθμίσεις
 Launcher\Launcher.EL.xaml,,
 Launcher\Launcher.EL.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
 Launcher\Launcher.EL.xaml,,
-Launcher\Launcher.EL.xaml,Launcher.WallChangeText,Αλλαγή ταπετσαρίας
-Launcher\Launcher.EL.xaml,Launcher.WallCloseText,Κλείσιμο ταπετσαρίας
-Launcher\Launcher.EL.xaml,Launcher.WallOpenText,Άνοιγμα ταπετσαρίας
-Launcher\Launcher.EL.xaml,Launcher.WallStartText,Εκκίνηση ταπετσαρίας
-Launcher\Launcher.EL.xaml,Launcher.WallStopText,Διακοπή ταπετσαρίας
+Launcher\Launcher.EL.xaml,Launcher.WallChangeText,Αλλαγή Ταπετσαρίας
+Launcher\Launcher.EL.xaml,Launcher.WallCloseText,Κλείσιμο Ταπετσαρίας
+Launcher\Launcher.EL.xaml,Launcher.WallOpenText,Άνοιγμα Ταπετσαρίας
+Launcher\Launcher.EL.xaml,Launcher.WallStartText,Εκκίνηση Ταπετσαρίας
+Launcher\Launcher.EL.xaml,Launcher.WallStopText,Διακοπή Ταπετσαρίας
 Launcher\Launcher.EL.xaml,,
 Launcher\Launcher.EL.xaml,Launcher.ClosedText,Κλειστό
-Launcher\Launcher.EL.xaml,Launcher.PausedText,Σε παύση
+Launcher\Launcher.EL.xaml,Launcher.PausedText,Σε Παύση
 Launcher\Launcher.EL.xaml,,
-Launcher\Launcher.EL.xaml,Launcher.UpdateText,Έλεγχος για ενημερώσεις
+Launcher\Launcher.EL.xaml,Launcher.UpdateText,Έλεγχος Για Ενημερώσεις
 Launcher\Launcher.EL.xaml,,
-Launcher\Launcher.EL.xaml,Launcher.UpdateText.Done,Προετοιμασία ενημέρωσης
-Launcher\Launcher.EL.xaml,Launcher.UpdateText.Check,Έλεγχος για ενημερώσεις
-Launcher\Launcher.EL.xaml,Launcher.UpdateText.Progress,Πρόοδος ενημέρωσης {0}
+Launcher\Launcher.EL.xaml,Launcher.UpdateText.Done,Προετοιμασία Ενημέρωσης
+Launcher\Launcher.EL.xaml,Launcher.UpdateText.Check,Έλεγχος Για Ενημερώσεις
+Launcher\Launcher.EL.xaml,Launcher.UpdateText.Progress,Πρόοδος Ενημέρωσης {0}
 Live\Live.EL.xaml,Live.Title,{0} Ειδοποίηση
 Live\Live.EL.xaml,,
 Live\Live.EL.xaml,Live.Close,Κλείσιμο

@@ -103,41 +103,43 @@ Discord\Discord.ES.xaml,Discord.StatementText45,Camino de los Sueños Bajo las E
 Discord\Discord.ES.xaml,Discord.StatementText46,Pueblo en la Orilla de las Estrellas del Mundo Secreto
 Discord\Discord.ES.xaml,Discord.StatementText47,Cuento detrás de la Montaña Brumosa
 Discord\Discord.ES.xaml,Discord.StatementText48,Noche Estrellada que Brilla en la Oscuridad
-Launcher\Launcher.ES.xaml,Launcher.WallCustomizeText,Personalizar fondo de pantalla
+Launcher\Launcher.ES.xaml,Launcher.WallCustomizeText,Personalizar Fondo de Pantalla
 Launcher\Launcher.ES.xaml,,
-Launcher\Launcher.ES.xaml,Launcher.CreateLogText,Crear archivo de registro
+Launcher\Launcher.ES.xaml,Launcher.CreateLogText,Crear Archivo de Registro
 Launcher\Launcher.ES.xaml,,
 Launcher\Launcher.ES.xaml,Launcher.ExitText,Salir
 Launcher\Launcher.ES.xaml,,
-Launcher\Launcher.ES.xaml,Launcher.OpenReportText,Informar de un problema
+Launcher\Launcher.ES.xaml,Launcher.OpenReportText,Informar de un Problema
 Launcher\Launcher.ES.xaml,,
 Launcher\Launcher.ES.xaml,Launcher.OpenText,Abrir Sucrose
 Launcher\Launcher.ES.xaml,,
-Launcher\Launcher.ES.xaml,Launcher.ReportText,Informar de un problema
+Launcher\Launcher.ES.xaml,Launcher.ReportText,Informar de un Problema
 Launcher\Launcher.ES.xaml,,
 Launcher\Launcher.ES.xaml,Launcher.ReportWindowTitle,Diagnóstico de Sucrose
 Launcher\Launcher.ES.xaml,,
-Launcher\Launcher.ES.xaml,Launcher.SaveDialogFilter,Archivos ZIP (*.zip)|*.zip|Todos los archivos (*.*)|*.*
-Launcher\Launcher.ES.xaml,Launcher.SaveDialogTitle,Guardar archivo de registro
+Launcher\Launcher.ES.xaml,Launcher.SaveDialogFilter,Archivos ZIP (*.zip)|*.zip|Todos los Archivos (*.*)|*.*
+Launcher\Launcher.ES.xaml,Launcher.SaveDialogTitle,Guardar Archivo de Registro
+Launcher\Launcher.ES.xaml,,
+Launcher\Launcher.ES.xaml,Launcher.FeedbackText,Solicitudes y Comentarios
 Launcher\Launcher.ES.xaml,,
 Launcher\Launcher.ES.xaml,Launcher.SettingText,Configuración
 Launcher\Launcher.ES.xaml,,
 Launcher\Launcher.ES.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
 Launcher\Launcher.ES.xaml,,
-Launcher\Launcher.ES.xaml,Launcher.WallChangeText,Cambiar fondo de pantalla
-Launcher\Launcher.ES.xaml,Launcher.WallCloseText,Cerrar fondo de pantalla
-Launcher\Launcher.ES.xaml,Launcher.WallOpenText,Abrir fondo de pantalla
-Launcher\Launcher.ES.xaml,Launcher.WallStartText,Iniciar fondo de pantalla
-Launcher\Launcher.ES.xaml,Launcher.WallStopText,Detener fondo de pantalla
+Launcher\Launcher.ES.xaml,Launcher.WallChangeText,Cambiar Fondo de Pantalla
+Launcher\Launcher.ES.xaml,Launcher.WallCloseText,Cerrar Fondo de Pantalla
+Launcher\Launcher.ES.xaml,Launcher.WallOpenText,Abrir Fondo de Pantalla
+Launcher\Launcher.ES.xaml,Launcher.WallStartText,Iniciar Fondo de Pantalla
+Launcher\Launcher.ES.xaml,Launcher.WallStopText,Detener Fondo de Pantalla
 Launcher\Launcher.ES.xaml,,
 Launcher\Launcher.ES.xaml,Launcher.ClosedText,Cerrado
 Launcher\Launcher.ES.xaml,Launcher.PausedText,En Pausa
 Launcher\Launcher.ES.xaml,,
-Launcher\Launcher.ES.xaml,Launcher.UpdateText,Buscar actualizaciones
+Launcher\Launcher.ES.xaml,Launcher.UpdateText,Buscar Actualizaciones
 Launcher\Launcher.ES.xaml,,
-Launcher\Launcher.ES.xaml,Launcher.UpdateText.Done,Preparando actualización
-Launcher\Launcher.ES.xaml,Launcher.UpdateText.Check,Buscando actualizaciones
-Launcher\Launcher.ES.xaml,Launcher.UpdateText.Progress,Progreso de actualización {0}
+Launcher\Launcher.ES.xaml,Launcher.UpdateText.Done,Preparando Actualización
+Launcher\Launcher.ES.xaml,Launcher.UpdateText.Check,Buscando Actualizaciones
+Launcher\Launcher.ES.xaml,Launcher.UpdateText.Progress,Progreso de Actualización {0}
 Live\Live.ES.xaml,Live.Title,{0} Notificación
 Live\Live.ES.xaml,,
 Live\Live.ES.xaml,Live.Close,Cerrar

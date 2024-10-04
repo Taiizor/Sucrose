@@ -120,6 +120,8 @@ Launcher\Launcher.PT.xaml,,
 Launcher\Launcher.PT.xaml,Launcher.SaveDialogFilter,Arquivos ZIP (*.zip)|*.zip|Todos os Arquivos (*.*)|*.*
 Launcher\Launcher.PT.xaml,Launcher.SaveDialogTitle,Salvar Arquivo de Log
 Launcher\Launcher.PT.xaml,,
+Launcher\Launcher.PT.xaml,Launcher.FeedbackText,Solicitações e Feedback
+Launcher\Launcher.PT.xaml,,
 Launcher\Launcher.PT.xaml,Launcher.SettingText,Configurações
 Launcher\Launcher.PT.xaml,,
 Launcher\Launcher.PT.xaml,Launcher.TrayText,Sucrose Wallpaper Engine

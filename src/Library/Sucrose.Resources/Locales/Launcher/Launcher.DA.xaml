@@ -2,39 +2,41 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Launcher.WallCustomizeText">Tilpas tapet</system:String>
+    <system:String x:Key="Launcher.WallCustomizeText">Tilpas Tapet</system:String>
 
-    <system:String x:Key="Launcher.CreateLogText">Opret logfil</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Opret Logfil</system:String>
 
     <system:String x:Key="Launcher.ExitText">Afslut</system:String>
 
-    <system:String x:Key="Launcher.OpenReportText">Rapporter et problem</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Rapporter et Problem</system:String>
 
     <system:String x:Key="Launcher.OpenText">Åbn Sucrose</system:String>
 
-    <system:String x:Key="Launcher.ReportText">Rapporter problem</system:String>
+    <system:String x:Key="Launcher.ReportText">Rapporter Problem</system:String>
 
     <system:String x:Key="Launcher.ReportWindowTitle">Sucrose Diagnostik</system:String>
 
-    <system:String x:Key="Launcher.SaveDialogFilter">ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*</system:String>
-    <system:String x:Key="Launcher.SaveDialogTitle">Gem logfil</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">ZIP-Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Gem Logfil</system:String>
+
+    <system:String x:Key="Launcher.FeedbackText">Anmodninger og Feedback</system:String>
 
     <system:String x:Key="Launcher.SettingText">Indstillinger</system:String>
 
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
 
-    <system:String x:Key="Launcher.WallChangeText">Skift tapet</system:String>
-    <system:String x:Key="Launcher.WallCloseText">Luk tapet</system:String>
-    <system:String x:Key="Launcher.WallOpenText">Åbn tapet</system:String>
-    <system:String x:Key="Launcher.WallStartText">Start tapet</system:String>
-    <system:String x:Key="Launcher.WallStopText">Stop tapet</system:String>
+    <system:String x:Key="Launcher.WallChangeText">Skift Tapet</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Luk Tapet</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Åbn Tapet</system:String>
+    <system:String x:Key="Launcher.WallStartText">Start Tapet</system:String>
+    <system:String x:Key="Launcher.WallStopText">Stop Tapet</system:String>
 
     <system:String x:Key="Launcher.ClosedText">Lukket</system:String>
     <system:String x:Key="Launcher.PausedText">På Pause</system:String>
 
-    <system:String x:Key="Launcher.UpdateText">Tjek efter opdateringer</system:String>
+    <system:String x:Key="Launcher.UpdateText">Tjek Efter Opdateringer</system:String>
 
-    <system:String x:Key="Launcher.UpdateText.Done">Forbereder opdatering</system:String>
-    <system:String x:Key="Launcher.UpdateText.Check">Søger efter opdateringer</system:String>
+    <system:String x:Key="Launcher.UpdateText.Done">Forbereder Opdatering</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Søger Efter Opdateringer</system:String>
     <system:String x:Key="Launcher.UpdateText.Progress">Opdateringsfremskridt {0}</system:String>
 </ResourceDictionary>

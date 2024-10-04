@@ -109,16 +109,18 @@ Launcher\Launcher.NB.xaml,Launcher.CreateLogText,Opprett Loggfil
 Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.ExitText,Avslutt
 Launcher\Launcher.NB.xaml,,
-Launcher\Launcher.NB.xaml,Launcher.OpenReportText,Rapporter et problem
+Launcher\Launcher.NB.xaml,Launcher.OpenReportText,Rapporter et Problem
 Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.OpenText,Åpne Sucrose
 Launcher\Launcher.NB.xaml,,
-Launcher\Launcher.NB.xaml,Launcher.ReportText,Rapporter et problem
+Launcher\Launcher.NB.xaml,Launcher.ReportText,Rapporter et Problem
 Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.ReportWindowTitle,Sucrose Diagnostikk
 Launcher\Launcher.NB.xaml,,
-Launcher\Launcher.NB.xaml,Launcher.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*
+Launcher\Launcher.NB.xaml,Launcher.SaveDialogFilter,ZIP-Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*
 Launcher\Launcher.NB.xaml,Launcher.SaveDialogTitle,Lagre Loggfil
+Launcher\Launcher.NB.xaml,,
+Launcher\Launcher.NB.xaml,Launcher.FeedbackText,Forespørsler og Tilbakemeldinger
 Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.SettingText,Innstillinger
 Launcher\Launcher.NB.xaml,,

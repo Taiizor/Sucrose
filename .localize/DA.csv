@@ -103,40 +103,42 @@ Discord\Discord.DA.xaml,Discord.StatementText45,Rejsen ad Drømmestien under Stj
 Discord\Discord.DA.xaml,Discord.StatementText46,Skjult By ved Stjernens Kyst
 Discord\Discord.DA.xaml,Discord.StatementText47,Eventyret bag den Tågede Bjerg
 Discord\Discord.DA.xaml,Discord.StatementText48,Stjernestrimler Glitrende i Mørket
-Launcher\Launcher.DA.xaml,Launcher.WallCustomizeText,Tilpas tapet
+Launcher\Launcher.DA.xaml,Launcher.WallCustomizeText,Tilpas Tapet
 Launcher\Launcher.DA.xaml,,
-Launcher\Launcher.DA.xaml,Launcher.CreateLogText,Opret logfil
+Launcher\Launcher.DA.xaml,Launcher.CreateLogText,Opret Logfil
 Launcher\Launcher.DA.xaml,,
 Launcher\Launcher.DA.xaml,Launcher.ExitText,Afslut
 Launcher\Launcher.DA.xaml,,
-Launcher\Launcher.DA.xaml,Launcher.OpenReportText,Rapporter et problem
+Launcher\Launcher.DA.xaml,Launcher.OpenReportText,Rapporter et Problem
 Launcher\Launcher.DA.xaml,,
 Launcher\Launcher.DA.xaml,Launcher.OpenText,Åbn Sucrose
 Launcher\Launcher.DA.xaml,,
-Launcher\Launcher.DA.xaml,Launcher.ReportText,Rapporter problem
+Launcher\Launcher.DA.xaml,Launcher.ReportText,Rapporter Problem
 Launcher\Launcher.DA.xaml,,
 Launcher\Launcher.DA.xaml,Launcher.ReportWindowTitle,Sucrose Diagnostik
 Launcher\Launcher.DA.xaml,,
-Launcher\Launcher.DA.xaml,Launcher.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*
-Launcher\Launcher.DA.xaml,Launcher.SaveDialogTitle,Gem logfil
+Launcher\Launcher.DA.xaml,Launcher.SaveDialogFilter,ZIP-Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*
+Launcher\Launcher.DA.xaml,Launcher.SaveDialogTitle,Gem Logfil
+Launcher\Launcher.DA.xaml,,
+Launcher\Launcher.DA.xaml,Launcher.FeedbackText,Anmodninger og Feedback
 Launcher\Launcher.DA.xaml,,
 Launcher\Launcher.DA.xaml,Launcher.SettingText,Indstillinger
 Launcher\Launcher.DA.xaml,,
 Launcher\Launcher.DA.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
 Launcher\Launcher.DA.xaml,,
-Launcher\Launcher.DA.xaml,Launcher.WallChangeText,Skift tapet
-Launcher\Launcher.DA.xaml,Launcher.WallCloseText,Luk tapet
-Launcher\Launcher.DA.xaml,Launcher.WallOpenText,Åbn tapet
-Launcher\Launcher.DA.xaml,Launcher.WallStartText,Start tapet
-Launcher\Launcher.DA.xaml,Launcher.WallStopText,Stop tapet
+Launcher\Launcher.DA.xaml,Launcher.WallChangeText,Skift Tapet
+Launcher\Launcher.DA.xaml,Launcher.WallCloseText,Luk Tapet
+Launcher\Launcher.DA.xaml,Launcher.WallOpenText,Åbn Tapet
+Launcher\Launcher.DA.xaml,Launcher.WallStartText,Start Tapet
+Launcher\Launcher.DA.xaml,Launcher.WallStopText,Stop Tapet
 Launcher\Launcher.DA.xaml,,
 Launcher\Launcher.DA.xaml,Launcher.ClosedText,Lukket
 Launcher\Launcher.DA.xaml,Launcher.PausedText,På Pause
 Launcher\Launcher.DA.xaml,,
-Launcher\Launcher.DA.xaml,Launcher.UpdateText,Tjek efter opdateringer
+Launcher\Launcher.DA.xaml,Launcher.UpdateText,Tjek Efter Opdateringer
 Launcher\Launcher.DA.xaml,,
-Launcher\Launcher.DA.xaml,Launcher.UpdateText.Done,Forbereder opdatering
-Launcher\Launcher.DA.xaml,Launcher.UpdateText.Check,Søger efter opdateringer
+Launcher\Launcher.DA.xaml,Launcher.UpdateText.Done,Forbereder Opdatering
+Launcher\Launcher.DA.xaml,Launcher.UpdateText.Check,Søger Efter Opdateringer
 Launcher\Launcher.DA.xaml,Launcher.UpdateText.Progress,Opdateringsfremskridt {0}
 Live\Live.DA.xaml,Live.Title,{0} Meddelelse
 Live\Live.DA.xaml,,

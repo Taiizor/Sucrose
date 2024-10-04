@@ -120,6 +120,8 @@ Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.SaveDialogFilter,ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*
 Launcher\Launcher.TR.xaml,Launcher.SaveDialogTitle,Günlük Dosyasını Kaydet
 Launcher\Launcher.TR.xaml,,
+Launcher\Launcher.TR.xaml,Launcher.FeedbackText,İstek ve Geri Bildirim
+Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.SettingText,Ayarlar
 Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.TrayText,Sucrose Wallpaper Engine

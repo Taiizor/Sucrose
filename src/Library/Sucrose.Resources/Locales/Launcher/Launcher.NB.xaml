@@ -8,16 +8,18 @@
 
     <system:String x:Key="Launcher.ExitText">Avslutt</system:String>
 
-    <system:String x:Key="Launcher.OpenReportText">Rapporter et problem</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Rapporter et Problem</system:String>
 
     <system:String x:Key="Launcher.OpenText">Åpne Sucrose</system:String>
 
-    <system:String x:Key="Launcher.ReportText">Rapporter et problem</system:String>
+    <system:String x:Key="Launcher.ReportText">Rapporter et Problem</system:String>
 
     <system:String x:Key="Launcher.ReportWindowTitle">Sucrose Diagnostikk</system:String>
 
-    <system:String x:Key="Launcher.SaveDialogFilter">ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">ZIP-Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Lagre Loggfil</system:String>
+
+    <system:String x:Key="Launcher.FeedbackText">Forespørsler og Tilbakemeldinger</system:String>
 
     <system:String x:Key="Launcher.SettingText">Innstillinger</system:String>
 

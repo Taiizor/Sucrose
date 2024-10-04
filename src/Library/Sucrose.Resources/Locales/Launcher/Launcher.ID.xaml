@@ -19,6 +19,8 @@
     <system:String x:Key="Launcher.SaveDialogFilter">File ZIP (*.zip)|*.zip|Semua File (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Simpan File Log</system:String>
 
+    <system:String x:Key="Launcher.FeedbackText">Permintaan dan Umpan Balik</system:String>
+
     <system:String x:Key="Launcher.SettingText">Pengaturan</system:String>
 
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>

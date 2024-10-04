@@ -9,6 +9,7 @@
     <Import_RootNamespace>Sucrose.Shared.Launcher</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Command\Feedback.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Reportdog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Setting.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Property.cs" />
@@ -102,6 +103,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)Assets\LightOff.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Assets\Sent.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Assets\Sent.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

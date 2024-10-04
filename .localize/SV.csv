@@ -117,8 +117,10 @@ Launcher\Launcher.SV.xaml,Launcher.ReportText,Rapportera ett Problem
 Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.ReportWindowTitle,Sucrose Diagnostik
 Launcher\Launcher.SV.xaml,,
-Launcher\Launcher.SV.xaml,Launcher.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alla filer (*.*)|*.*
+Launcher\Launcher.SV.xaml,Launcher.SaveDialogFilter,ZIP-Filer (*.zip)|*.zip|Alla Filer (*.*)|*.*
 Launcher\Launcher.SV.xaml,Launcher.SaveDialogTitle,Spara Loggfil
+Launcher\Launcher.SV.xaml,,
+Launcher\Launcher.SV.xaml,Launcher.FeedbackText,Förfrågningar och Feedback
 Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.SettingText,Inställningar
 Launcher\Launcher.SV.xaml,,

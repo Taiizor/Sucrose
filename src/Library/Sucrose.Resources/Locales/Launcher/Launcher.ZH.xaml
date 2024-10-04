@@ -19,6 +19,8 @@
     <system:String x:Key="Launcher.SaveDialogFilter">ZIP文件 (*.zip)|*.zip|所有文件 (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">保存日志文件</system:String>
 
+    <system:String x:Key="Launcher.FeedbackText">请求与反馈</system:String>
+
     <system:String x:Key="Launcher.SettingText">设置</system:String>
 
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>

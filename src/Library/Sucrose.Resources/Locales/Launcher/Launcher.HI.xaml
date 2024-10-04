@@ -19,6 +19,8 @@
     <system:String x:Key="Launcher.SaveDialogFilter">ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">लॉग फ़ाइल सहेजें</system:String>
 
+    <system:String x:Key="Launcher.FeedbackText">अनुरोध और प्रतिक्रिया</system:String>
+
     <system:String x:Key="Launcher.SettingText">सेटिंग्स</system:String>
 
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
