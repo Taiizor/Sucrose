@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
 using SHC = Skylark.Helper.Culture;
+using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -126,40 +127,47 @@ namespace Sucrose.Live.MpvPlayer
                 {
                     SSEMI.Info = SSTHI.ReadJson(InfoPath);
 
-                    string Source = SSEMI.Info.Source;
-
-                    if (!SSTHV.IsUrl(Source))
+                    if (SSEMI.Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
                     {
-                        Source = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, Source);
-                    }
+                        string Source = SSEMI.Info.Source;
 
-                    SMMI.BackgroundogSettingManager.SetSetting(new KeyValuePair<string, bool>[]
-                    {
-                        new(SMC.PipeRequired, false),
-                        new(SMC.AudioRequired, false),
-                        new(SMC.SignalRequired, false),
-                        new(SMC.PausePerformance, false)
-                    });
-
-                    if (SSTHV.IsUrl(Source) || File.Exists(Source))
-                    {
-                        SSSHS.Apply();
-
-                        SSEHC.Start();
-
-                        switch (SSEMI.Info.Type)
+                        if (!SSTHV.IsUrl(Source))
                         {
-                            case SSDEWT.Gif:
-                                SSEMPVG Gif = new(Source);
-                                Gif.Show();
-                                break;
-                            case SSDEWT.Video:
-                                SSEMPVV Video = new(Source);
-                                Video.Show();
-                                break;
-                            default:
-                                Close();
-                                break;
+                            Source = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, Source);
+                        }
+
+                        SMMI.BackgroundogSettingManager.SetSetting(new KeyValuePair<string, bool>[]
+                        {
+                            new(SMC.PipeRequired, false),
+                            new(SMC.AudioRequired, false),
+                            new(SMC.SignalRequired, false),
+                            new(SMC.PausePerformance, false)
+                        });
+
+                        if (SSTHV.IsUrl(Source) || File.Exists(Source))
+                        {
+                            SSSHS.Apply();
+
+                            SSEHC.Start();
+
+                            switch (SSEMI.Info.Type)
+                            {
+                                case SSDEWT.Gif:
+                                    SSEMPVG Gif = new(Source);
+                                    Gif.Show();
+                                    break;
+                                case SSDEWT.Video:
+                                    SSEMPVV Video = new(Source);
+                                    Video.Show();
+                                    break;
+                                default:
+                                    Close();
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            Close();
                         }
                     }
                     else

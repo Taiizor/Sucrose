@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
 using SHC = Skylark.Helper.Culture;
+using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -125,45 +126,52 @@ namespace Sucrose.Live.Aurora
                 {
                     SSEMI.Info = SSTHI.ReadJson(SSEMI.InfoPath);
 
-                    string Source = SSEMI.Info.Source;
-
-                    if (SSTHV.IsUrl(Source))
+                    if (SSEMI.Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
                     {
-                        Close();
-                    }
-                    else
-                    {
-                        Source = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, Source);
+                        string Source = SSEMI.Info.Source;
 
-                        SMMI.BackgroundogSettingManager.SetSetting(new KeyValuePair<string, bool>[]
-                        {
-                            new(SMC.PipeRequired, false),
-                            new(SMC.AudioRequired, false),
-                            new(SMC.SignalRequired, false),
-                            new(SMC.PausePerformance, false)
-                        });
-
-                        if (File.Exists(Source))
-                        {
-                            SSSHS.Apply();
-
-                            SSEHC.Start();
-
-                            switch (SSEMI.Info.Type)
-                            {
-                                case SSDEWT.Application:
-                                    SSEAVA Application = new(Source, SSEMI.Info.Arguments);
-                                    Application.Show();
-                                    break;
-                                default:
-                                    Close();
-                                    break;
-                            }
-                        }
-                        else
+                        if (SSTHV.IsUrl(Source))
                         {
                             Close();
                         }
+                        else
+                        {
+                            Source = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, Source);
+
+                            SMMI.BackgroundogSettingManager.SetSetting(new KeyValuePair<string, bool>[]
+                            {
+                                new(SMC.PipeRequired, false),
+                                new(SMC.AudioRequired, false),
+                                new(SMC.SignalRequired, false),
+                                new(SMC.PausePerformance, false)
+                            });
+
+                            if (File.Exists(Source))
+                            {
+                                SSSHS.Apply();
+
+                                SSEHC.Start();
+
+                                switch (SSEMI.Info.Type)
+                                {
+                                    case SSDEWT.Application:
+                                        SSEAVA Application = new(Source, SSEMI.Info.Arguments);
+                                        Application.Show();
+                                        break;
+                                    default:
+                                        Close();
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                Close();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Close();
                     }
                 }
                 else

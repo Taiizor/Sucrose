@@ -110,31 +110,21 @@ namespace Sucrose.Shared.Launcher.Manager
 
                 ContextMenu.Items.Add(Wallpaper);
 
-                if (Directory.Exists(SMMM.LibraryLocation))
+                if (SSSHC.Check(false))
                 {
-                    List<string> Themes = Directory.GetDirectories(SMMM.LibraryLocation).Select(Path.GetFileName).ToList();
-
-                    if (Themes.Any())
+                    if (SMMM.PausePerformance && SSSHP.Work(SSSMI.Backgroundog))
                     {
-                        Themes = Themes.Except(SMMM.DisableCycyling).ToList();
-
-                        if (SMMM.Cycyling && (Themes.Count > 1 || (Themes.Count == 1 && !Themes.Contains(SMMM.LibrarySelected))))
+                        Change = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallChangeText")} ({SRER.GetValue("Launcher", "PausedText")})", Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallChangeIcon"))))
                         {
-                            if (SMMM.PausePerformance && SSSHP.Work(SSSMI.Backgroundog))
-                            {
-                                Change = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallChangeText")} ({SRER.GetValue("Launcher", "PausedText")})", Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallChangeIcon"))))
-                                {
-                                    Enabled = false
-                                };
-                            }
-                            else
-                            {
-                                Change = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallChangeText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallChangeIcon"))), CommandChange);
-                            }
-
-                            ContextMenu.Items.Add(Change);
-                        }
+                            Enabled = false
+                        };
                     }
+                    else
+                    {
+                        Change = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallChangeText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallChangeIcon"))), CommandChange);
+                    }
+
+                    ContextMenu.Items.Add(Change);
                 }
 
                 string PropertiesPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseProperties);

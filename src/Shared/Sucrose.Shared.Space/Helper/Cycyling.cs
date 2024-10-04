@@ -19,7 +19,7 @@ namespace Sucrose.Shared.Space.Helper
 {
     internal static class Cycyling
     {
-        public static bool Check()
+        public static bool Check(bool Time = true)
         {
             if (Directory.Exists(SMMM.LibraryLocation))
             {
@@ -29,9 +29,31 @@ namespace Sucrose.Shared.Space.Helper
                 {
                     Themes = Themes.Except(SMMM.DisableCycyling).ToList();
 
-                    if (SMMM.Cycyling && (Themes.Count > 1 || (Themes.Count == 1 && !Themes.Contains(SMMM.LibrarySelected))) && SMMM.PassingCycyling >= Converter(SMMM.CycylingTime))
+                    if (SMMM.Cycyling && (Themes.Count > 1 || (Themes.Count == 1 && !Themes.Contains(SMMM.LibrarySelected))) && (SMMM.PassingCycyling >= Converter(SMMM.CycylingTime) || !Time))
                     {
-                        return true;
+                        foreach (string Theme in Themes)
+                        {
+                            string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
+                            string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
+
+                            if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
+                            {
+                                if (SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
+                                {
+                                    SSTHI Info = SSTHI.ReadJson(InfoPath);
+
+                                    if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                                    {
+                                        if (Theme != SMMM.LibrarySelected)
+                                        {
+                                            return true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        return false;
                     }
                     else
                     {
@@ -86,11 +108,14 @@ namespace Sucrose.Shared.Space.Helper
 
                                         if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
                                         {
-                                            SSTHI Info = SSTHI.ReadJson(InfoPath);
-
-                                            if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                                            if (SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
                                             {
-                                                Selected = Current;
+                                                SSTHI Info = SSTHI.ReadJson(InfoPath);
+
+                                                if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                                                {
+                                                    Selected = Current;
+                                                }
                                             }
                                         }
                                     }
@@ -117,12 +142,16 @@ namespace Sucrose.Shared.Space.Helper
 
                                         if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
                                         {
-                                            SSTHI Info = SSTHI.ReadJson(InfoPath);
-
-                                            if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                                            if (SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
                                             {
-                                                Selected = Theme;
-                                                break;
+                                                SSTHI Info = SSTHI.ReadJson(InfoPath);
+
+                                                if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                                                {
+                                                    Selected = Theme;
+
+                                                    break;
+                                                }
                                             }
                                         }
                                     }
