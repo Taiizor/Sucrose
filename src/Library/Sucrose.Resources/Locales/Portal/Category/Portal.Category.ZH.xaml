@@ -41,6 +41,7 @@
     <system:String x:Key="Portal.Category.Landscape">风景</system:String>
     <system:String x:Key="Portal.Category.Lifestyle">生活方式</system:String>
     <system:String x:Key="Portal.Category.LineArt">线条艺术</system:String>
+    <system:String x:Key="Portal.Category.Love">爱</system:String>
     <system:String x:Key="Portal.Category.Medieval">中世纪</system:String>
     <system:String x:Key="Portal.Category.Minimalist">极简</system:String>
     <system:String x:Key="Portal.Category.Music">音乐</system:String>

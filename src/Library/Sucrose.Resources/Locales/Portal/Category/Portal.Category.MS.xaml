@@ -41,6 +41,7 @@
     <system:String x:Key="Portal.Category.Landscape">Lanskap</system:String>
     <system:String x:Key="Portal.Category.Lifestyle">Gaya Hidup</system:String>
     <system:String x:Key="Portal.Category.LineArt">Seni Garis</system:String>
+    <system:String x:Key="Portal.Category.Love">Cinta</system:String>
     <system:String x:Key="Portal.Category.Medieval">Zaman Pertengahan</system:String>
     <system:String x:Key="Portal.Category.Minimalist">Minimalis</system:String>
     <system:String x:Key="Portal.Category.Music">Muzik</system:String>

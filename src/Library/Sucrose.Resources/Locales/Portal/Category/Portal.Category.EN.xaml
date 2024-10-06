@@ -41,6 +41,7 @@
     <system:String x:Key="Portal.Category.Landscape">Landscape</system:String>
     <system:String x:Key="Portal.Category.Lifestyle">Lifestyle</system:String>
     <system:String x:Key="Portal.Category.LineArt">Line Art</system:String>
+    <system:String x:Key="Portal.Category.Love">Love</system:String>
     <system:String x:Key="Portal.Category.Medieval">Medieval</system:String>
     <system:String x:Key="Portal.Category.Minimalist">Minimalist</system:String>
     <system:String x:Key="Portal.Category.Music">Music</system:String>

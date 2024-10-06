@@ -41,6 +41,7 @@
     <system:String x:Key="Portal.Category.Landscape">दृश्य</system:String>
     <system:String x:Key="Portal.Category.Lifestyle">जीवन शैली</system:String>
     <system:String x:Key="Portal.Category.LineArt">रेखा कला</system:String>
+    <system:String x:Key="Portal.Category.Love">प्यार</system:String>
     <system:String x:Key="Portal.Category.Medieval">मध्यकाल</system:String>
     <system:String x:Key="Portal.Category.Minimalist">न्यूनात्मक</system:String>
     <system:String x:Key="Portal.Category.Music">संगीत</system:String>

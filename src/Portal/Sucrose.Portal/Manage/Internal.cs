@@ -49,6 +49,7 @@ namespace Sucrose.Portal.Manage
         {
             { "Brands", SymbolRegular.Tag24 },
             { "Game", SymbolRegular.Games24 },
+            { "Love", SymbolRegular.Heart24 },
             { "Time", SymbolRegular.Clock24 },
             { "Retro", SymbolRegular.Color24 },
             { "Sports", SymbolRegular.Sport24 },

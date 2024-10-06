@@ -41,6 +41,7 @@
     <system:String x:Key="Portal.Category.Landscape">Τοπία</system:String>
     <system:String x:Key="Portal.Category.Lifestyle">Τρόπος ζωής</system:String>
     <system:String x:Key="Portal.Category.LineArt">Γραμμική Τέχνη</system:String>
+    <system:String x:Key="Portal.Category.Love">Αγάπη</system:String>
     <system:String x:Key="Portal.Category.Medieval">Μεσαιωνικά</system:String>
     <system:String x:Key="Portal.Category.Minimalist">Μινιμαλιστικό</system:String>
     <system:String x:Key="Portal.Category.Music">Μουσική</system:String>

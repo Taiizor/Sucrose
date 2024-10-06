@@ -41,6 +41,7 @@
     <system:String x:Key="Portal.Category.Landscape">풍경</system:String>
     <system:String x:Key="Portal.Category.Lifestyle">라이프스타일</system:String>
     <system:String x:Key="Portal.Category.LineArt">선 그림</system:String>
+    <system:String x:Key="Portal.Category.Love">사랑</system:String>
     <system:String x:Key="Portal.Category.Medieval">중세</system:String>
     <system:String x:Key="Portal.Category.Minimalist">미니멀리스트</system:String>
     <system:String x:Key="Portal.Category.Music">음악</system:String>

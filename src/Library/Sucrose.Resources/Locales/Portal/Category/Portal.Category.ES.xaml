@@ -41,6 +41,7 @@
     <system:String x:Key="Portal.Category.Landscape">Paisaje</system:String>
     <system:String x:Key="Portal.Category.Lifestyle">Estilo de Vida</system:String>
     <system:String x:Key="Portal.Category.LineArt">Arte Lineal</system:String>
+    <system:String x:Key="Portal.Category.Love">Amor</system:String>
     <system:String x:Key="Portal.Category.Medieval">Medieval</system:String>
     <system:String x:Key="Portal.Category.Minimalist">Minimalista</system:String>
     <system:String x:Key="Portal.Category.Music">Música</system:String>

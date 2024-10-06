@@ -41,6 +41,7 @@
     <system:String x:Key="Portal.Category.Landscape">Krajina</system:String>
     <system:String x:Key="Portal.Category.Lifestyle">Životní Styl</system:String>
     <system:String x:Key="Portal.Category.LineArt">Linková Grafika</system:String>
+    <system:String x:Key="Portal.Category.Love">Láska</system:String>
     <system:String x:Key="Portal.Category.Medieval">Středověk</system:String>
     <system:String x:Key="Portal.Category.Minimalist">Minimalistické</system:String>
     <system:String x:Key="Portal.Category.Music">Hudba</system:String>

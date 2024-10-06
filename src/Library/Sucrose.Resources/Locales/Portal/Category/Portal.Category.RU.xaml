@@ -41,6 +41,7 @@
     <system:String x:Key="Portal.Category.Landscape">Пейзаж</system:String>
     <system:String x:Key="Portal.Category.Lifestyle">Образ Жизни</system:String>
     <system:String x:Key="Portal.Category.LineArt">Линейное Искусство</system:String>
+    <system:String x:Key="Portal.Category.Love">Любовь</system:String>
     <system:String x:Key="Portal.Category.Medieval">Средневековье</system:String>
     <system:String x:Key="Portal.Category.Minimalist">Минимализм</system:String>
     <system:String x:Key="Portal.Category.Music">Музыка</system:String>

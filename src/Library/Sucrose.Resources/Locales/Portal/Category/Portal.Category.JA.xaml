@@ -41,6 +41,7 @@
     <system:String x:Key="Portal.Category.Landscape">風景</system:String>
     <system:String x:Key="Portal.Category.Lifestyle">ライフスタイル</system:String>
     <system:String x:Key="Portal.Category.LineArt">線画</system:String>
+    <system:String x:Key="Portal.Category.Love">愛</system:String>
     <system:String x:Key="Portal.Category.Medieval">中世</system:String>
     <system:String x:Key="Portal.Category.Minimalist">ミニマリスト</system:String>
     <system:String x:Key="Portal.Category.Music">音楽</system:String>
