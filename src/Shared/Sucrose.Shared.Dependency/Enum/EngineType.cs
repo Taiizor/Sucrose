@@ -8,9 +8,7 @@
         XavierLive,
         WebViewLive,
         CefSharpLive,
-#if X86 || X64
         MpvPlayerLive
-#endif
     }
 
     internal enum GifEngineType
@@ -19,9 +17,7 @@
         Xavier = EngineType.XavierLive,
         WebView = EngineType.WebViewLive,
         CefSharp = EngineType.CefSharpLive,
-#if X86 || X64
         MpvPlayer = EngineType.MpvPlayerLive
-#endif
     }
 
     internal enum UrlEngineType
@@ -41,9 +37,7 @@
         Nebula = EngineType.NebulaLive,
         WebView = EngineType.WebViewLive,
         CefSharp = EngineType.CefSharpLive,
-#if X86 || X64
         MpvPlayer = EngineType.MpvPlayerLive
-#endif
     }
 
     internal enum YouTubeEngineType

@@ -116,4 +116,7 @@ _Take a moment, preview GIF clips may take some time to load._
   <files>
     <file src="tools\**" target="tools" />
   </files>
+  <dependencies>
+    <dependency id="dotnetfx" version="4.8.0.20220524" />
+  </dependencies>
 </package>
