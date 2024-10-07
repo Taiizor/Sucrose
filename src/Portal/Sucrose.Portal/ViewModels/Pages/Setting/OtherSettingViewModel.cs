@@ -15,6 +15,7 @@ using SSCEUCT = Sucrose.Shared.Core.Enum.UpdateChannelType;
 using SSCEUET = Sucrose.Shared.Core.Enum.UpdateExtensionType;
 using SSCMM = Sucrose.Shared.Core.Manage.Manager;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
+using SSDEUMT = Sucrose.Shared.Dependency.Enum.UpdateModuleType;
 using SSDEUST = Sucrose.Shared.Dependency.Enum.UpdateServerType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -321,13 +322,38 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(Server);
 
+            SPVCEC Module = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            Module.LeftIcon.Symbol = SymbolRegular.BoxToolbox24;
+            Module.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "Module");
+            Module.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "Module", "Description");
+
+            ComboBox ModuleType = new();
+
+            ModuleType.SelectionChanged += (s, e) => ModuleTypeSelected(ModuleType.SelectedIndex);
+
+            foreach (SSDEUMT Type in Enum.GetValues(typeof(SSDEUMT)))
+            {
+                ModuleType.Items.Add(SRER.GetValue("Portal", "Enum", "UpdateModuleType", $"{Type}"));
+            }
+
+            ModuleType.SelectedIndex = (int)SSDMM.UpdateModuleType;
+
+            Module.HeaderFrame = ModuleType;
+
+            Contents.Add(Module);
+
             SPVCEC Channel = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
                 Expandable = false
             };
 
-            Channel.LeftIcon.Symbol = SymbolRegular.ChannelShare24;
+            Channel.LeftIcon.Symbol = SymbolRegular.Production24;
             Channel.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "Channel");
             Channel.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "Channel", "Description");
 
@@ -352,7 +378,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IsExpand = true
             };
 
-            Update.LeftIcon.Symbol = SymbolRegular.ArrowSwap24;
+            Update.LeftIcon.Symbol = SymbolRegular.BoxMultiple24;
             Update.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "Update");
             Update.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "Update", "Description");
 
@@ -443,7 +469,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Auto.LeftIcon.Symbol = SymbolRegular.Component2DoubleTapSwipeDown24; //ArrowCircleDownDouble24
+            Auto.LeftIcon.Symbol = SymbolRegular.CubeArrowCurveDown20; //Component2DoubleTapSwipeDown24 - ArrowCircleDownDouble24
             Auto.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "Auto");
             Auto.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "Auto", "Description");
 
@@ -564,6 +590,16 @@ namespace Sucrose.Portal.ViewModels.Pages
         private void AutoStateChecked(bool State)
         {
             SMMI.UpdateSettingManager.SetSetting(SMC.AutoUpdate, State);
+        }
+
+        private void ModuleTypeSelected(int Index)
+        {
+            if (Index != (int)SSDMM.UpdateModuleType)
+            {
+                SSDEUMT Type = (SSDEUMT)Index;
+
+                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateModuleType, Type);
+            }
         }
 
         private void ServerTypeSelected(int Index)

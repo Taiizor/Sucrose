@@ -72,11 +72,15 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Downloader" Version="3.1.2" />
         <PackageReference Include="WPF-UI" Version="4.0.0-rc.2" />
         <PackageReference Include="SharpCompress" Version="0.38.0" />
         <PackageReference Include="Skylark.Wing" Version="3.1.6.6" />
         <PackageReference Include="Skylark.Standard" Version="3.1.6.6" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Condition="$(TargetFramework.StartsWith('net48'))" Include="Downloader" Version="3.1.2" />
+        <PackageReference Condition="!$(TargetFramework.StartsWith('net48'))" Include="Downloader" Version="3.2.1" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">

@@ -32,6 +32,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Note: If {0} is selected as the server, you need to enter a {2} to avoid request limits. Otherwise, you may experience issues with updates. If {1} is selected, you will have a smoother update experience.</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Module">Update Module</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Module.Description">Which module will be used for the update process.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Update Channel</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">The channel through which updates will or will not be performed.</system:String>
 

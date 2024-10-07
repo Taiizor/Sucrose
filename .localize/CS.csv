@@ -375,6 +375,9 @@ Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.UpdateModuleType.Native,Native
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.UpdateModuleType.Downloader,Downloader
+Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.CS.xaml,,
@@ -925,6 +928,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Server.Description,"Server, přes který budou prováděny aktualizace."
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Server.ServerHint,"Poznámka: Pokud je jako server vybrán {0}, je nutné zadat {2}, abyste se vyhnuli omezením požadavků. Jinak můžete mít problémy s aktualizací. Pokud je vybrán {1}, zažijete hladší aktualizační proces."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Module,Modul Aktualizace
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Module.Description,Který modul bude použit pro aktualizaci.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Channel,Kanál Aktualizace
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Channel.Description,"Kanál, kterým se provádí aktualizace."

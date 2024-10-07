@@ -32,6 +32,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Bemærk: Hvis serveren {0} er valgt, skal du indtaste en {2} for at undgå anmodningsbegrænsninger. Ellers kan du opleve problemer med opdateringer. Hvis {1} er valgt, vil du opleve en mere problemfri opdateringsproces.</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Module">Opdateringsmodul</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Module.Description">Hvilken modul der skal bruges til opdatering.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Opdateringskanal</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Hvilken kanal opdateringsprocessen skal bruge.</system:String>
 

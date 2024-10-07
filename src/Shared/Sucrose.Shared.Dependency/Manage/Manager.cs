@@ -12,6 +12,7 @@ using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
 using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSDETCT = Sucrose.Shared.Dependency.Enum.TransitionCycleType;
+using SSDEUMT = Sucrose.Shared.Dependency.Enum.UpdateModuleType;
 using SSDEUST = Sucrose.Shared.Dependency.Enum.UpdateServerType;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
@@ -41,6 +42,8 @@ namespace Sucrose.Shared.Dependency.Manage
         public static SSDEPT RemotePerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.RemotePerformance, SSDEPT.Resume);
 
         public static SSDEPT MemoryPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.MemoryPerformance, SSDEPT.Resume);
+
+        public static SSDEUMT UpdateModuleType => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateModuleType, SSDEUMT.Downloader);
 
         public static SSDEPT SaverPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.SaverPerformance, SSDEPT.Resume);
 

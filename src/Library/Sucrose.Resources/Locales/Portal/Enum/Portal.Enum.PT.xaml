@@ -50,6 +50,9 @@
     <system:String x:Key="Portal.Enum.StoreServerType.GitHub">GitHub</system:String>
     <system:String x:Key="Portal.Enum.StoreServerType.Soferity">Soferity</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateModuleType.Native">Native</system:String>
+    <system:String x:Key="Portal.Enum.UpdateModuleType.Downloader">Downloader</system:String>
+
     <system:String x:Key="Portal.Enum.UpdateServerType.GitHub">GitHub</system:String>
     <system:String x:Key="Portal.Enum.UpdateServerType.Soferity">Soferity</system:String>
 

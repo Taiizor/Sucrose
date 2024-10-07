@@ -32,6 +32,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Notă: Dacă {0} este selectat ca server, trebuie să introduceți un {2} pentru a evita limitele de cerere. În caz contrar, este posibil să întâmpinați probleme la actualizări. Dacă {1} este selectat, veți avea o experiență de actualizare mai lină.</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Module">Modul de Actualizare</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Module.Description">Ce modul va fi folosit pentru procesul de actualizare.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Canal de Actualizare</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Unde ar trebui să aibă loc procesul de actualizare.</system:String>
 

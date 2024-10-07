@@ -32,6 +32,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Nota: Jika {0} dipilih sebagai pelayan, anda perlu memasukkan {2} untuk mengelakkan had permintaan. Jika tidak, anda mungkin mengalami masalah dengan kemas kini. Jika {1} dipilih, anda akan mengalami kemas kini yang lebih lancar.</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Module">Modul Kemas Kini</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Module.Description">Modul mana yang akan digunakan untuk proses kemas kini.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Saluran Pembaharuan</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Saluran yang digunakan untuk proses pembaharuan.</system:String>
 

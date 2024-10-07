@@ -375,6 +375,9 @@ Portal\Enum\Portal.Enum.DA.xaml,,
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.UpdateModuleType.Native,Native
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.UpdateModuleType.Downloader,Downloader
+Portal\Enum\Portal.Enum.DA.xaml,,
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.DA.xaml,,
@@ -925,6 +928,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Server.Description,"Serveren, hvorfra opdateringerne vil blive udført."
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Server.ServerHint,"Bemærk: Hvis serveren {0} er valgt, skal du indtaste en {2} for at undgå anmodningsbegrænsninger. Ellers kan du opleve problemer med opdateringer. Hvis {1} er valgt, vil du opleve en mere problemfri opdateringsproces."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Module,Opdateringsmodul
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Module.Description,Hvilken modul der skal bruges til opdatering.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Channel,Opdateringskanal
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Channel.Description,Hvilken kanal opdateringsprocessen skal bruge.

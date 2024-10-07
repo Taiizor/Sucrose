@@ -375,6 +375,9 @@ Portal\Enum\Portal.Enum.TR.xaml,,
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.UpdateModuleType.Native,Native
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.UpdateModuleType.Downloader,Downloader
+Portal\Enum\Portal.Enum.TR.xaml,,
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.TR.xaml,,
@@ -925,6 +928,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Server.Description,Güncelleme işlemlerinin hangi sunucu üzerinden yapılacağı.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Server.ServerHint,Not: Sunucu olarak {0} seçilmişse istek limitlerine takılmamak için bir {2} girilmesi gerekiyor. Aksi taktirde güncelleme işlemlerinde sorun yaşayabilirsiniz. Eğer ki {1} seçilmişse görece daha sorunsuz bir güncelleme deneyimi yaşarsınız.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Module,Güncelleme Modülü
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Module.Description,Güncelleme işleminin hangi modül üzerinden yapılacağı.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Channel,Güncelleme Kanalı
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Channel.Description,Güncelleme işleminin hangi kanal üzerinden yapılıp yapılmayacağı.

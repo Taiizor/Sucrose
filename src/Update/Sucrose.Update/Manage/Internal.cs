@@ -5,6 +5,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSCEUET = Sucrose.Shared.Core.Enum.UpdateExtensionType;
+using SSDEUMT = Sucrose.Shared.Dependency.Enum.UpdateModuleType;
 using Timer = System.Timers.Timer;
 
 namespace Sucrose.Update.Manage
@@ -18,6 +19,8 @@ namespace Sucrose.Update.Manage
         public static DownloadService DownloadService;
 
         public static bool Chance = SMR.Randomise.Next(2) == 0;
+
+        public static readonly SSDEUMT UpdateModuleType = SMMI.UpdateSettingManager.GetSetting(SMC.UpdateModuleType, SSDEUMT.Downloader);
 
         public static readonly SSCEUET UpdateExtensionType = SMMI.UpdateSettingManager.GetSetting(SMC.UpdateExtensionType, SSCEUET.Executable);
 

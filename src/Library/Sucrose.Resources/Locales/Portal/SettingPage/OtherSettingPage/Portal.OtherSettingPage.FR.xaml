@@ -32,6 +32,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Remarque : Si {0} est sélectionné comme serveur, vous devez entrer un {2} pour éviter les limites de requêtes. Sinon, vous pourriez rencontrer des problèmes avec les mises à jour. Si {1} est sélectionné, vous vivrez une expérience de mise à jour plus fluide.</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Module">Module de Mise à Jour</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Module.Description">Quel module sera utilisé pour la mise à jour.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Canal de Mise à Jour</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Le canal par lequel les mises à jour seront effectuées ou non.</system:String>
 

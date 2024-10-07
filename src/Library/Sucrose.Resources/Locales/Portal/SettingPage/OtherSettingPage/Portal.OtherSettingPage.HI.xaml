@@ -32,6 +32,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">नोट: यदि {0} को सर्वर के रूप में चुना गया है, तो आपको अनुरोध सीमाओं से बचने के लिए एक {2} दर्ज करना होगा। अन्यथा, आपको अपडेट में समस्याओं का सामना करना पड़ सकता है। यदि {1} चुना गया है, तो आपको एक सुचारू अपडेट अनुभव प्राप्त होगा।</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Module">अद्यतन मॉड्यूल</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Module.Description">अद्यतन प्रक्रिया के लिए किस मॉड्यूल का उपयोग किया जाएगा।</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">अपडेट चैनल</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">अपडेट प्रक्रिया किस चैनल के माध्यम से की जाएगी या नहीं।</system:String>
 

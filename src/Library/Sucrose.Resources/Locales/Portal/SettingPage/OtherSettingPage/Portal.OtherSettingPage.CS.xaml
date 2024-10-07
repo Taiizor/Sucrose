@@ -32,6 +32,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Poznámka: Pokud je jako server vybrán {0}, je nutné zadat {2}, abyste se vyhnuli omezením požadavků. Jinak můžete mít problémy s aktualizací. Pokud je vybrán {1}, zažijete hladší aktualizační proces.</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Module">Modul Aktualizace</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Module.Description">Který modul bude použit pro aktualizaci.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Kanál Aktualizace</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Kanál, kterým se provádí aktualizace.</system:String>
 

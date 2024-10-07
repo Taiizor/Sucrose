@@ -375,6 +375,9 @@ Portal\Enum\Portal.Enum.RO.xaml,,
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.RO.xaml,,
+Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.UpdateModuleType.Native,Native
+Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.UpdateModuleType.Downloader,Downloader
+Portal\Enum\Portal.Enum.RO.xaml,,
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.RO.xaml,,
@@ -925,6 +928,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.Server.Description,Serverul prin care se vor face actualizările.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.Server.ServerHint,"Notă: Dacă {0} este selectat ca server, trebuie să introduceți un {2} pentru a evita limitele de cerere. În caz contrar, este posibil să întâmpinați probleme la actualizări. Dacă {1} este selectat, veți avea o experiență de actualizare mai lină."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.Module,Modul de Actualizare
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.Module.Description,Ce modul va fi folosit pentru procesul de actualizare.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.Channel,Canal de Actualizare
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.Channel.Description,Unde ar trebui să aibă loc procesul de actualizare.

@@ -375,6 +375,9 @@ Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.UpdateModuleType.Native,Native
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.UpdateModuleType.Downloader,Downloader
+Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.HI.xaml,,
@@ -925,6 +928,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Server.Description,सर्वर जिसके माध्यम से अपडेट किए जाएंगे।
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Server.ServerHint,"नोट: यदि {0} को सर्वर के रूप में चुना गया है, तो आपको अनुरोध सीमाओं से बचने के लिए एक {2} दर्ज करना होगा। अन्यथा, आपको अपडेट में समस्याओं का सामना करना पड़ सकता है। यदि {1} चुना गया है, तो आपको एक सुचारू अपडेट अनुभव प्राप्त होगा।"
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Module,अद्यतन मॉड्यूल
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Module.Description,अद्यतन प्रक्रिया के लिए किस मॉड्यूल का उपयोग किया जाएगा।
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Channel,अपडेट चैनल
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Channel.Description,अपडेट प्रक्रिया किस चैनल के माध्यम से की जाएगी या नहीं।

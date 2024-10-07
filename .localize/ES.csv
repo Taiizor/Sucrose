@@ -375,6 +375,9 @@ Portal\Enum\Portal.Enum.ES.xaml,,
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.ES.xaml,,
+Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.UpdateModuleType.Native,Native
+Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.UpdateModuleType.Downloader,Downloader
+Portal\Enum\Portal.Enum.ES.xaml,,
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.ES.xaml,,
@@ -925,6 +928,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Server.Description,El servidor a través del cual se realizarán las actualizaciones.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Server.ServerHint,"Nota: Si se selecciona {0} como servidor, debe ingresar un {2} para evitar los límites de solicitudes. De lo contrario, podría tener problemas con las actualizaciones. Si se selecciona {1}, tendrá una experiencia de actualización más fluida."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Module,Módulo de Actualización
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Module.Description,Qué módulo se utilizará para el proceso de actualización.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Channel,Canal de Actualización
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Channel.Description,El canal a través del cual se realizarán o no las actualizaciones.

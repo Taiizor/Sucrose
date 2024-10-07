@@ -29,12 +29,14 @@ using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSCMM = Sucrose.Shared.Core.Manage.Manager;
 using SSDECDT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDECYT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
+using SSDEUMT = Sucrose.Shared.Dependency.Enum.UpdateModuleType;
 using SSDEUST = Sucrose.Shared.Dependency.Enum.UpdateServerType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIA = Skylark.Standard.Interface.IAssets;
 using SSIIR = Skylark.Standard.Interface.IReleases;
+using SSSEPS = Sucrose.Shared.Space.Extension.ProgressStream;
 using SSSHE = Sucrose.Shared.Space.Helper.Extension;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -566,19 +568,88 @@ namespace Sucrose.Update.View
             {
                 Message.Text = SRER.GetValue("Update", "MessageText", "Downloading");
 
-                UpdateLimit();
-
                 CheckProgress();
 
-                SUMI.DownloadService = new(SUMI.DownloadConfiguration);
+                switch (SUMI.UpdateModuleType)
+                {
+                    case SSDEUMT.Native:
+                        {
+                            int BufferSize = 8192;
 
-                SUMI.DownloadService.DownloadStarted += OnDownloadStarted;
-                SUMI.DownloadService.DownloadFileCompleted += OnDownloadFileCompleted;
-                SUMI.DownloadService.DownloadProgressChanged += OnDownloadProgressChanged;
+                            using HttpClient Client = new();
 
-                await SUMI.DownloadService.DownloadFileTaskAsync(SUMI.Source, Bundle);
+                            Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
 
-                return true;
+                            using HttpResponseMessage Response = await Client.GetAsync(SUMI.Source, HttpCompletionOption.ResponseHeadersRead);
+
+                            Response.EnsureSuccessStatusCode();
+
+                            long TotalBytes = Response.Content.Headers.ContentLength ?? -1L;
+
+                            using Stream ContentStream = await Response.Content.ReadAsStreamAsync();
+                            using FileStream FileStream = new(Bundle, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None, BufferSize, true);
+                            using SSSEPS ProgressStream = new(ContentStream, TotalBytes, ReportProgress);
+
+                            ProgressStream.ProgressCompleted += ProgressStream_ProgressCompleted;
+                            ProgressStream.ProgressStarted += ProgressStream_ProgressStarted;
+                            ProgressStream.ProgressFailed += ProgressStream_ProgressFailed;
+
+                            byte[] Buffer = new byte[BufferSize];
+                            long BytesDownloadedThisSecond = 0;
+                            DateTime StartTime = DateTime.Now;
+                            int BytesRead;
+
+#if NET48_OR_GREATER
+                            while ((BytesRead = await ProgressStream.ReadAsync(Buffer, 0, Buffer.Length)) > 0)
+#else
+                            while ((BytesRead = await ProgressStream.ReadAsync(Buffer)) > 0)
+#endif
+                            {
+#if NET48_OR_GREATER
+                                await FileStream.WriteAsync(Buffer, 0, BytesRead);
+#else
+                                await FileStream.WriteAsync(Buffer.AsMemory(0, BytesRead));
+#endif
+
+                                long Limit = GetLimit();
+
+                                if (Limit > 0)
+                                {
+                                    BytesDownloadedThisSecond += BytesRead;
+
+                                    if (BytesDownloadedThisSecond >= Limit)
+                                    {
+                                        TimeSpan Elapsed = DateTime.Now - StartTime;
+
+                                        if (Elapsed.TotalSeconds < 1)
+                                        {
+                                            await Task.Delay(TimeSpan.FromSeconds(1) - Elapsed);
+                                        }
+
+                                        BytesDownloadedThisSecond = 0;
+
+                                        StartTime = DateTime.Now;
+                                    }
+                                }
+                            }
+                        }
+
+                        return true;
+                    case SSDEUMT.Downloader:
+                        UpdateLimit();
+
+                        SUMI.DownloadService = new(SUMI.DownloadConfiguration);
+
+                        SUMI.DownloadService.DownloadStarted += OnDownloadStarted;
+                        SUMI.DownloadService.DownloadFileCompleted += OnDownloadFileCompleted;
+                        SUMI.DownloadService.DownloadProgressChanged += OnDownloadProgressChanged;
+
+                        await SUMI.DownloadService.DownloadFileTaskAsync(SUMI.Source, Bundle);
+
+                        return true;
+                    default:
+                        return true;
+                }
             }
             catch
             {
@@ -615,31 +686,36 @@ namespace Sucrose.Update.View
             await Start();
         }
 
+        private static long GetLimit()
+        {
+            try
+            {
+                if (SMMM.UpdateLimitValue > 0)
+                {
+                    double UpdateLimit = SSESSE.Convert(SMMM.UpdateLimitValue, SMMM.UpdateLimitType, SEST.Byte, SEMST.Palila);
+
+                    long Limit = Convert.ToInt64(SHN.Numeral(UpdateLimit, false, false, 0, '0', SECNT.None));
+
+                    return Limit;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
         private static void UpdateLimit()
         {
             if (!SUMI.Limiter.Enabled)
             {
                 SUMI.Limiter.Elapsed += (s, e) =>
                 {
-                    try
-                    {
-                        if (SMMM.UpdateLimitValue > 0)
-                        {
-                            double UpdateLimit = SSESSE.Convert(SMMM.UpdateLimitValue, SMMM.UpdateLimitType, SEST.Byte, SEMST.Palila);
-
-                            long Limit = Convert.ToInt64(SHN.Numeral(UpdateLimit, false, false, 0, '0', SECNT.None));
-
-                            SUMI.DownloadConfiguration.MaximumBytesPerSecond = Limit;
-                        }
-                        else
-                        {
-                            SUMI.DownloadConfiguration.MaximumBytesPerSecond = 0;
-                        }
-                    }
-                    catch
-                    {
-                        SUMI.DownloadConfiguration.MaximumBytesPerSecond = 0;
-                    }
+                    SUMI.DownloadConfiguration.MaximumBytesPerSecond = GetLimit();
                 };
 
                 SUMI.Limiter.Start();
@@ -744,6 +820,63 @@ namespace Sucrose.Update.View
             await Start();
         }
 
+        private async void ProgressStream_ProgressFailed(object sender, Exception e)
+        {
+            await Application.Current.Dispatcher.InvokeAsync(async () =>
+            {
+                Count = 0;
+                Value = 0;
+
+                HasBundle = false;
+
+                SUMI.Trying = true;
+
+                Message.Text = SRER.GetValue("Update", "MessageText", "Downloading", "Complete", "Error");
+
+                Ring.Visibility = Visibility.Hidden;
+                Message.Visibility = Visibility.Visible;
+                Progress.Visibility = Visibility.Hidden;
+
+                TaskBarProgress.SetState(this, TaskBarProgressState.Error);
+
+                await Task.Delay(MaxDelay);
+
+                Message.Visibility = Visibility.Hidden;
+                Reload.Visibility = Visibility.Visible;
+
+                TaskBarProgress.SetState(this, TaskBarProgressState.None);
+            });
+        }
+
+        private async void ProgressStream_ProgressStarted(object sender, EventArgs e)
+        {
+            await Application.Current.Dispatcher.InvokeAsync(() =>
+            {
+                Count = 0;
+                Value = 0;
+
+                HasBundle = true;
+
+                Reload.Visibility = Visibility.Hidden;
+                Message.Visibility = Visibility.Hidden;
+
+                if (SUMI.Chance)
+                {
+                    Ring.Visibility = Visibility.Visible;
+                    Progress.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    Ring.Visibility = Visibility.Hidden;
+                    Progress.Visibility = Visibility.Visible;
+                }
+
+                TaskBarProgress.SetValue(this, TaskBarProgressState.Normal, 0);
+
+                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateState, true);
+            });
+        }
+
         private async void OnDownloadStarted(object sender, DownloadStartedEventArgs e)
         {
             await Application.Current.Dispatcher.InvokeAsync(() =>
@@ -770,6 +903,34 @@ namespace Sucrose.Update.View
                 TaskBarProgress.SetValue(this, TaskBarProgressState.Normal, 0);
 
                 SMMI.UpdateSettingManager.SetSetting(SMC.UpdateState, true);
+            });
+        }
+
+        private async void ProgressStream_ProgressCompleted(object sender, EventArgs e)
+        {
+            await Application.Current.Dispatcher.InvokeAsync(async () =>
+            {
+                Count = 0;
+                Value = 100;
+
+                Ring.Progress = 100;
+                Progress.Value = 100;
+
+                TaskBarProgress.SetValue(this, TaskBarProgressState.Normal, 100);
+
+                await Task.Delay(MinDelay);
+
+                switch (SUMI.UpdateExtensionType)
+                {
+                    case SSCEUET.Compressed:
+                        await StepExtracting();
+                        break;
+                    case SSCEUET.Executable:
+                        await StepRunning();
+                        break;
+                    default:
+                        break;
+                }
             });
         }
 
@@ -843,6 +1004,17 @@ namespace Sucrose.Update.View
                 Progress.Value = e.ProgressPercentage;
 
                 TaskBarProgress.SetValue(this, TaskBarProgressState.Normal, Convert.ToInt32(e.ProgressPercentage));
+            });
+        }
+
+        private async void ReportProgress(long bytesTransferred, long totalBytes, double progress)
+        {
+            await Application.Current.Dispatcher.InvokeAsync(() =>
+            {
+                Ring.Progress = progress;
+                Progress.Value = progress;
+
+                TaskBarProgress.SetValue(this, TaskBarProgressState.Normal, Convert.ToInt32(progress));
             });
         }
 

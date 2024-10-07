@@ -52,7 +52,7 @@
 
         public static readonly string Repository = "Sucrose";
 
-        public static readonly string SoferityVersion = "v5";
+        public static readonly string SoferityVersion = "v6";
 
         public static readonly string ExceptionSplit = " -> ";
 
@@ -180,7 +180,7 @@
 
         public static readonly string BrowseWebsite = $"https://github.com/{Owner}/{Repository}";
 
-        public static readonly string UserAgent = "Sucrose/1.7 (Wallpaper Engine) SucroseWebKit";
+        public static readonly string UserAgent = "Sucrose/1.8 (Wallpaper Engine) SucroseWebKit";
 
         public static readonly string KeyYouTube = "https://www.youtube.com/watch?v=kRyML8axJxA";
 

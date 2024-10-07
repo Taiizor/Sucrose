@@ -16,11 +16,11 @@ namespace Sucrose.Bundle
             Current.DispatcherUnhandledException += Current_DispatcherUnhandledException;
         }
 
-        protected void Close()
+        protected void Close(int Code = 0)
         {
-            Environment.Exit(0);
-            Current.Shutdown();
-            Shutdown();
+            Environment.Exit(Code);
+            Current.Shutdown(Code);
+            Shutdown(Code);
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -66,7 +66,7 @@ namespace Sucrose.Bundle
 
             Main.ShowDialog();
 
-            Close();
+            Close(0);
         }
 
         private static bool CheckLanguage(string Lang)
@@ -101,7 +101,7 @@ namespace Sucrose.Bundle
             {
                 MessageBox.Show(Exception.Message + Environment.NewLine + Environment.NewLine + Exception.StackTrace, "Error Information", MessageBoxButton.OK, MessageBoxImage.Error);
 
-                Close();
+                Close(1);
             }
         }
 
@@ -115,7 +115,7 @@ namespace Sucrose.Bundle
 
                 e.Handled = true;
 
-                Close();
+                Close(1);
             }
         }
     }

@@ -196,6 +196,8 @@
 
         public const string UpdateLimitValue = "UpdateLimitValue";
 
+        public const string UpdateModuleType = "UpdateModuleType";
+
         public const string UpdateServerType = "UpdateServerType";
 
         public const string ApplicationEngine = "ApplicationEngine";

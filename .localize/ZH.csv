@@ -375,6 +375,9 @@ Portal\Enum\Portal.Enum.ZH.xaml,,
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.ZH.xaml,,
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.UpdateModuleType.Native,Native
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.UpdateModuleType.Downloader,Downloader
+Portal\Enum\Portal.Enum.ZH.xaml,,
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.ZH.xaml,,
@@ -925,6 +928,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Server.Description,通过哪个服务器执行更新。
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Server.ServerHint,注意：如果选择了{0}作为服务器，则需要输入{2}以避免请求限制。否则，您可能会遇到更新问题。如果选择了{1}，您将获得更顺畅的更新体验。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Module,更新模块
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Module.Description,用于更新的模块。
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Channel,更新渠道
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Channel.Description,更新操作将使用哪个渠道进行。

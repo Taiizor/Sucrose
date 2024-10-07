@@ -375,6 +375,9 @@ Portal\Enum\Portal.Enum.JA.xaml,,
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.UpdateModuleType.Native,Native
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.UpdateModuleType.Downloader,Downloader
+Portal\Enum\Portal.Enum.JA.xaml,,
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.JA.xaml,,
@@ -925,6 +928,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Server.Description,更新が実行されるサーバー。
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Server.ServerHint,注意: {0}がサーバーとして選択されている場合、リクエスト制限を回避するために{2}を入力する必要があります。そうしないと、更新に問題が発生する可能性があります。{1}が選択されている場合、よりスムーズな更新体験が得られます。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Module,更新モジュール
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Module.Description,どのモジュールを使用して更新を行うか。
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Channel,更新チャンネル
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Channel.Description,更新プロセスがどのチャンネルを使用して実行されるか。

@@ -375,6 +375,9 @@ Portal\Enum\Portal.Enum.IT.xaml,,
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.IT.xaml,,
+Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.UpdateModuleType.Native,Native
+Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.UpdateModuleType.Downloader,Downloader
+Portal\Enum\Portal.Enum.IT.xaml,,
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.IT.xaml,,
@@ -925,6 +928,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.Server.Description,Il server attraverso il quale verranno eseguiti gli aggiornamenti.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.Server.ServerHint,"Nota: Se viene selezionato {0} come server, è necessario inserire un {2} per evitare limiti di richieste. Altrimenti, potresti riscontrare problemi con gli aggiornamenti. Se viene selezionato {1}, avrai un'esperienza di aggiornamento più fluida."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.Module,Modulo di Aggiornamento
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.Module.Description,Quale modulo verrà utilizzato per l'aggiornamento.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.Channel,Canale di Aggiornamento
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.Channel.Description,Indica il canale tramite il quale verranno effettuati gli aggiornamenti.

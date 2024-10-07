@@ -32,6 +32,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Catatan: Jika {0} dipilih sebagai server, Anda harus memasukkan {2} untuk menghindari batas permintaan. Jika tidak, Anda mungkin mengalami masalah dengan pembaruan. Jika {1} dipilih, Anda akan mendapatkan pengalaman pembaruan yang lebih lancar.</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Module">Modul Pembaruan</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Module.Description">Modul mana yang akan digunakan untuk proses pembaruan.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Saluran Pembaruan</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Saluran yang digunakan untuk melakukan pembaruan.</system:String>
 

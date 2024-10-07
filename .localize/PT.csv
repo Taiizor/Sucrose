@@ -375,6 +375,9 @@ Portal\Enum\Portal.Enum.PT.xaml,,
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.PT.xaml,,
+Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.UpdateModuleType.Native,Native
+Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.UpdateModuleType.Downloader,Downloader
+Portal\Enum\Portal.Enum.PT.xaml,,
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.PT.xaml,,
@@ -925,6 +928,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Portal.OtherSettingPage.Server.Description,O servidor através do qual as atualizações serão realizadas.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Portal.OtherSettingPage.Server.ServerHint,"Nota: Se {0} for selecionado como servidor, você precisará inserir um {2} para evitar limites de solicitação. Caso contrário, você poderá enfrentar problemas com as atualizações. Se {1} for selecionado, você terá uma experiência de atualização mais suave."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Portal.OtherSettingPage.Module,Módulo de Atualização
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Portal.OtherSettingPage.Module.Description,Qual módulo será utilizado para o processo de atualização.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Portal.OtherSettingPage.Channel,Canal de Atualização
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Portal.OtherSettingPage.Channel.Description,Onde as atualizações serão feitas.

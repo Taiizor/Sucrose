@@ -375,33 +375,36 @@ PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't tou
 Portal.Enum.StoreServerType.GitHub,GitHub,,Portal\Enum\Portal.Enum.SV.xaml,
 Portal.Enum.StoreServerType.Soferity,Soferity,,Portal\Enum\Portal.Enum.SV.xaml,
 PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
+Portal.Enum.UpdateModuleType.Native,Native,,Portal\Enum\Portal.Enum.SV.xaml,
+Portal.Enum.UpdateModuleType.Downloader,Downloader,,Portal\Enum\Portal.Enum.SV.xaml,
+PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateServerType.GitHub,GitHub,,Portal\Enum\Portal.Enum.SV.xaml,
 Portal.Enum.UpdateServerType.Soferity,Soferity,,Portal\Enum\Portal.Enum.SV.xaml,
-PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
+PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
 Portal.Enum.PausePerformanceType.Heavy,Tung,,Portal\Enum\Portal.Enum.SV.xaml,
 Portal.Enum.PausePerformanceType.Light,Lätt,,Portal\Enum\Portal.Enum.SV.xaml,
-PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
+PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
 Portal.Enum.SortKindType.Ascending,Stigande [A-Z],,Portal\Enum\Portal.Enum.SV.xaml,
 Portal.Enum.SortKindType.Descending,Fallande [Z-A],,Portal\Enum\Portal.Enum.SV.xaml,
-PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
+PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
 Portal.Enum.ExpandScreenType.Default,Standard,,Portal\Enum\Portal.Enum.SV.xaml,
 Portal.Enum.ExpandScreenType.Advanced,Avancerad,,Portal\Enum\Portal.Enum.SV.xaml,
-PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
+PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
 Portal.Enum.TransitionCycleType.Random,Slumpmässig,,Portal\Enum\Portal.Enum.SV.xaml,
 Portal.Enum.TransitionCycleType.Sequential,Sekventiell,,Portal\Enum\Portal.Enum.SV.xaml,
-PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
+PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
 Portal.Enum.ScreenType.WorkingArea,Arbetsområde,,Portal\Enum\Portal.Enum.SV.xaml,
 Portal.Enum.ScreenType.DisplayBound,Skärmgräns,,Portal\Enum\Portal.Enum.SV.xaml,
-PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
+PASS⦙57,PASS⦙57,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateChannelType.Release,Standard,,Portal\Enum\Portal.Enum.SV.xaml,
 Portal.Enum.UpdateChannelType.PreRelease,Utvecklare,,Portal\Enum\Portal.Enum.SV.xaml,
-PASS⦙57,PASS⦙57,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
+PASS⦙58,PASS⦙58,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
 Portal.Enum.DuplicateScreenType.Default,Standard,,Portal\Enum\Portal.Enum.SV.xaml,
 Portal.Enum.DuplicateScreenType.Advanced,Avancerad,,Portal\Enum\Portal.Enum.SV.xaml,
-PASS⦙58,PASS⦙58,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
+PASS⦙59,PASS⦙59,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateExtensionType.Compressed,Komprimerad,,Portal\Enum\Portal.Enum.SV.xaml,
 Portal.Enum.UpdateExtensionType.Executable,Körbar,,Portal\Enum\Portal.Enum.SV.xaml,
-PASS⦙59,PASS⦙59,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
+PASS⦙60,PASS⦙60,Don't Touch,Portal\Enum\Portal.Enum.SV.xaml,Please don't touch the translation in this line.
 Portal.Enum.CompatibilityType.Pass,Lyckat resultat,,Portal\Enum\Portal.Enum.SV.xaml,
 Portal.Enum.CompatibilityType.Tags,För många 'Tags',,Portal\Enum\Portal.Enum.SV.xaml,
 Portal.Enum.CompatibilityType.Type,Temat är skapat för en typ som inte stöds av applikationen,,Portal\Enum\Portal.Enum.SV.xaml,
@@ -451,25 +454,25 @@ Portal.Enum.CompatibilityType.InvalidProperties,Filen 'SucroseProperties.json' �
 Portal.Enum.CompatibilityType.PropertyLocalization,Ogiltigt värde för 'PropertyLocalization',,Portal\Enum\Portal.Enum.SV.xaml,
 Portal.Enum.CompatibilityType.UnforeseenConsequences,Oväntade Konsekvenser,,Portal\Enum\Portal.Enum.SV.xaml,
 Base64⦙3,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5TVi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.SV.xaml,Please don't touch the translation in this line.
-PASS⦙60,PASS⦙60,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.SV.xaml,Please don't touch the translation in this line.
-Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.SV.xaml,
 PASS⦙61,PASS⦙61,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.SV.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.SV.xaml,
+PASS⦙62,PASS⦙62,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.SV.xaml,Please don't touch the translation in this line.
 Portal.LibraryPage.Import.Successful,Temat med namnet '{0}' har framgångsrikt importerats till biblioteket.,,Portal\LibraryPage\Portal.LibraryPage.SV.xaml,
 Portal.LibraryPage.Import.Unsuccessful,Det gick inte att importera temat med namnet '{0}' till biblioteket. Orsak: '{1}'.,,Portal\LibraryPage\Portal.LibraryPage.SV.xaml,
 Portal.MainWindow.Title,Sucrose Wallpaper Engine,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
-PASS⦙62,PASS⦙62,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
+PASS⦙63,PASS⦙63,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuHelp,Hjälp,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Portal.MainWindow.MenuAbout,Om,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
-PASS⦙63,PASS⦙63,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
+PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuHelpTip,Visa hjälp,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Portal.MainWindow.MenuAboutTip,Visa om,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
-PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
+PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLibrary,Bibliotek,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Portal.MainWindow.MenuStore,Butik,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
-PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
+PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLibraryTip,Temabibliotek,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Portal.MainWindow.MenuStoreTip,Temabutik,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
-PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
+PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuGeneral,Allmänt,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Portal.MainWindow.MenuPersonal,Personlig,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Portal.MainWindow.MenuPerformance,Prestanda,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
@@ -477,7 +480,7 @@ Portal.MainWindow.MenuWallpaper,Bakgrund,,Portal\MainWindow\Portal.MainWindow.SV
 Portal.MainWindow.MenuSystem,System,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Portal.MainWindow.MenuDonate,Donera,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Portal.MainWindow.MenuOther,Annat,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
-PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
+PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuBackTip,Gå tillbaka,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Portal.MainWindow.MenuGeneralTip,Allmänna inställningar,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Portal.MainWindow.MenuPersonalTip,Personliga inställningar,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
@@ -486,16 +489,16 @@ Portal.MainWindow.MenuWallpaperTip,Bakgrund inställningar,,Portal\MainWindow\Po
 Portal.MainWindow.MenuSystemTip,Systeminställningar,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Portal.MainWindow.MenuDonateTip,Donationsinställningar,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Portal.MainWindow.MenuOtherTip,Andra inställningar,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
-PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.MenuSettingTip,Inställningar,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 PASS⦙69,PASS⦙69,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.SearchBoxHint,Sök efter en bakgrund,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
+Portal.MainWindow.MenuSettingTip,Inställningar,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 PASS⦙70,PASS⦙70,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.SearchBoxTip,Har du svårt att hitta vad du behöver?,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
+Portal.MainWindow.SearchBoxHint,Sök efter en bakgrund,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 PASS⦙71,PASS⦙71,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxTip,Har du svårt att hitta vad du behöver?,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
+PASS⦙72,PASS⦙72,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLightTip,Ljust tema,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Portal.MainWindow.MenuDarkTip,Mörkt tema,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
-PASS⦙72,PASS⦙72,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
+PASS⦙73,PASS⦙73,Don't Touch,Portal\MainWindow\Portal.MainWindow.SV.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuCreateWallpaperTip,Skapa bakgrund,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Portal.MainWindow.MenuWallpaperCyclingTip,Bakgrundsbilder Cykling,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Portal.MainWindow.MenuDisplayPreferencesTip,Visningspreferenser,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
@@ -503,36 +506,36 @@ Portal.MainWindow.MenuDonateOptionsTip,Donationsalternativ,,Portal\MainWindow\Po
 Portal.MainWindow.MenuOtherOptionsTip,Andra alternativ,,Portal\MainWindow\Portal.MainWindow.SV.xaml,
 Base64⦙4,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuU1YueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\SettingPage\Portal.SettingPage.SV.xaml,Please don't touch the translation in this line.
 Base64⦙5,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLlNWLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==,Don't Touch,Portal\StorePage\Portal.StorePage.SV.xaml,Please don't touch the translation in this line.
-PASS⦙73,PASS⦙73,Don't Touch,Portal\StorePage\Portal.StorePage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙74,PASS⦙74,Don't Touch,Portal\StorePage\Portal.StorePage.SV.xaml,Please don't touch the translation in this line.
 Portal.StorePage.Title,StorePage,,Portal\StorePage\Portal.StorePage.SV.xaml,
 Portal.DisplayPreferences.Title,Visningspreferenser,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,
 Portal.DisplayPreferences.Close,Stäng,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,
-PASS⦙74,PASS⦙74,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Please don't touch the translation in this line.
+PASS⦙75,PASS⦙75,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Please don't touch the translation in this line.
 Portal.DisplayPreferences.Expander,Placeringsläge,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,
 Portal.DisplayPreferences.Expander.Description,Hur bakgrundsbilder tillämpas på aktiva skärmar.,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,
-PASS⦙75,PASS⦙75,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Screen,Endast vald skärm,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,
 PASS⦙76,PASS⦙76,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand,Förläng över skärmar,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,
+Portal.DisplayPreferences.Screen,Endast vald skärm,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,
 PASS⦙77,PASS⦙77,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand.Monitor,Alla bildskärmar,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,
+Portal.DisplayPreferences.Expand,Förläng över skärmar,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,
 PASS⦙78,PASS⦙78,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand.Hint,Välj läget för att förlänga över skärmar,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,
+Portal.DisplayPreferences.Expand.Monitor,Alla bildskärmar,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,
 PASS⦙79,PASS⦙79,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Duplicate,Duplicera samma bakgrundsbild,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,
+Portal.DisplayPreferences.Expand.Hint,Välj läget för att förlänga över skärmar,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,
 PASS⦙80,PASS⦙80,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate,Duplicera samma bakgrundsbild,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,
+PASS⦙81,PASS⦙81,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Please don't touch the translation in this line.
 Portal.DisplayPreferences.Duplicate.Hint,Välj läget för att duplicera samma bakgrundsbild,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,
 Portal.ExpanderCard.TitleText,Rubrik,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.SV.xaml,
 Portal.ExpanderCard.DescriptionText,Beskrivning,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.SV.xaml,
-PASS⦙81,PASS⦙81,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.SV.xaml,Please don't touch the translation in this line.
+PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.SV.xaml,Please don't touch the translation in this line.
 Portal.ExpanderCard.ExpandUpTip,Förminska,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.SV.xaml,
 Portal.ExpanderCard.ExpandDownTip,Förstora,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.SV.xaml,
 Portal.LibraryCard.TitleText,Rubrik,,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,
 Portal.LibraryCard.DescriptionText,Beskrivning,,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,
-PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Please don't touch the translation in this line.
+PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.MoreTip,Mer,,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,
 Portal.LibraryCard.VersionTip,Uppdatera Sucrose för att använda detta tema,,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,
-PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Please don't touch the translation in this line.
+PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.MenuReview,Granska,,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,
 Portal.LibraryCard.MenuUse,Använd,,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,
 Portal.LibraryCard.MenuPreview,Förhandsgranska,,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,
@@ -543,83 +546,83 @@ Portal.LibraryCard.MenuFind,Hitta,,Portal\Controls\LibraryCard\Portal.LibraryCar
 Portal.LibraryCard.MenuShare,Dela,,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,
 Portal.LibraryCard.MenuDelete,Ta bort,,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,
 Portal.LibraryCard.MenuEdit,Redigera,,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,
-PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Please don't touch the translation in this line.
+PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.Closed,Stängd,,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,
 Portal.LibraryCard.Paused,Pausad,,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,
-PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Please don't touch the translation in this line.
-Portal.LibraryCard.Selected,Vald,,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,
 PASS⦙86,PASS⦙86,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Selected,Vald,,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,
+PASS⦙87,PASS⦙87,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.Incompatible,Inkompatibel,,Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,
 Portal.OtherAbout.Title,Om oss,,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
 Portal.OtherAbout.Close,Stäng,,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
-PASS⦙87,PASS⦙87,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.About,"Hej, mitt namn är Bayram Emekli, även känd som användarnamnet Taiizor. Jag är utvecklaren av Sucrose Wallpaper Engine, en gratis och öppen källkodsapplikation. Tack för att du använder den utvecklade applikationen.",,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
 PASS⦙88,PASS⦙88,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.About,"Hej, mitt namn är Bayram Emekli, även känd som användarnamnet Taiizor. Jag är utvecklaren av Sucrose Wallpaper Engine, en gratis och öppen källkodsapplikation. Tack för att du använder den utvecklade applikationen.",,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
+PASS⦙89,PASS⦙89,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherAbout.Update,Version: v{0},,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
 Portal.OtherAbout.Update.Description,Senast kontrollerad: {0},,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
-PASS⦙89,PASS⦙89,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Update.Notes,Versionsanteckningar,,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
 PASS⦙90,PASS⦙90,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Partners,Våra partners,,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
+Portal.OtherAbout.Update.Notes,Versionsanteckningar,,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
 PASS⦙91,PASS⦙91,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Contributors,Bidragsgivare,,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
+Portal.OtherAbout.Partners,Våra partners,,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
 PASS⦙92,PASS⦙92,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.TermsOfService,Användarvillkor,,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
+Portal.OtherAbout.Contributors,Bidragsgivare,,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
 PASS⦙93,PASS⦙93,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.PrivacyPolicy,Integritetspolicy,,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
+Portal.OtherAbout.TermsOfService,Användarvillkor,,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
 PASS⦙94,PASS⦙94,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.PrivacyPolicy,Integritetspolicy,,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
+PASS⦙95,PASS⦙95,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherAbout.CodeOfConduct,Beteendekod,,Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,
 Portal.OtherHelp.Title,Hjälp,,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,
 Portal.OtherHelp.Close,Stäng,,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,
-PASS⦙95,PASS⦙95,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Please don't touch the translation in this line.
+PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.WebPage,Webbsida,,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,
 Portal.OtherHelp.WebPage.Description,Officiell webbsida för Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,
-PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Please don't touch the translation in this line.
+PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Documentation,Dokumentation,,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,
 Portal.OtherHelp.Documentation.Description,Officiell dokumentationssida för Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,
-PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Please don't touch the translation in this line.
+PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Repository,Källkod,,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,
 Portal.OtherHelp.Repository.Description,Officiell sida för källkoden till Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,
-PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Please don't touch the translation in this line.
+PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Discussions,Diskussioner,,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,
 Portal.OtherHelp.Discussions.Description,Officiell sida för diskussioner om Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,
-PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Please don't touch the translation in this line.
+PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Report,Rapportera fel,,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,
 Portal.OtherHelp.Report.Description,Officiell sida för att rapportera fel i Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,
 Portal.Pagination.PageJump,Gå Till Sida,,Portal\Controls\Pagination\Portal.Pagination.SV.xaml,
 Portal.StoreCard.TitleText,Rubrik,,Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,
 Portal.StoreCard.DescriptionText,Beskrivning,,Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,
-PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,Please don't touch the translation in this line.
-Portal.StoreCard.VersionTip,Uppdatera Sucrose för att använda det här temat,,Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,
 PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.VersionTip,Uppdatera Sucrose för att använda det här temat,,Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,
+PASS⦙102,PASS⦙102,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,Please don't touch the translation in this line.
 Portal.StoreCard.MenuUpdating,Kontrollerar Uppdateringar,,Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,
 Portal.StoreCard.MenuUpdate,Kontrollera Uppdateringar,,Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,
 Portal.StoreCard.MenuInstall,Installera,,Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,
 Portal.StoreCard.MenuReport,Rapportera,,Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,
-PASS⦙102,PASS⦙102,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,Please don't touch the translation in this line.
+PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,Please don't touch the translation in this line.
 Portal.StoreCard.Incompatible,Inkompatibel,,Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,
 Portal.ThemeCreate.Title,Skapa Tema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.Create,Skapa,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.Close,Stäng,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Gif,Gif-tema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.Gif.Description,Skapa ditt eget tema av typen Gif.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Url,Url-tema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.Url.Description,Skapa ditt eget tema av typen Url.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Web,Web-tema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.Web.Description,Skapa ditt eget tema av typen Web.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Video,Video-tema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.Video.Description,Skapa ditt eget tema av typen Video.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.YouTube,YouTube-tema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.YouTube.Description,Skapa ditt eget tema av typen YouTube.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Application,Application-tema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.Application.Description,Skapa ditt eget tema av typen Application.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeUrl,Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.ThemeWeb,Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.ThemeApplication,Applikation,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
@@ -631,7 +634,7 @@ Portal.ThemeCreate.ThemeAuthor,Författare,,Portal\Controls\ThemeCreate\Portal.T
 Portal.ThemeCreate.ThemeContact,Kontakt,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.ThemeTags,Taggar,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.ThemeArguments,Argument,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeUrl.Hint,Ange en giltig Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.ThemeWeb.Hint,Välj en webbsida,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.ThemeApplication.Hint,Välj en applikationsfil,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
@@ -643,41 +646,41 @@ Portal.ThemeCreate.ThemeAuthor.Hint,Ange en giltig författarnamn,,Portal\Contro
 Portal.ThemeCreate.ThemeContact.Hint,Ange en giltig kontaktinformation,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.ThemeTags.Hint,Ange giltiga temataggar,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.ThemeArguments.Hint,Ange giltiga applikationsargument,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
-Portal.ThemeCreate.DragDrop.Delete,Ångra,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Delete,Ångra,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
+PASS⦙113,PASS⦙113,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Gif.Title,Välj Gif-fil,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.DragDrop.Gif.Filter,Gif-filer (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙113,PASS⦙113,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Video.Title,Välj Videofil,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.DragDrop.Video.Filter,Videofiler (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Gif,Dra och släpp din gif-fil här,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.DragDrop.Video,Dra och släpp din video-fil här,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeThumbnail.Title,Välj miniatyrbild,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.ThemeThumbnail.Filter,Bildfiler (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemePreview.Title,Välj förhandsgranskningsfil,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.ThemePreview.Filter,Gif-filer (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.WebSource.Title,Välj Webbsida,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.WebSource.Filter,Webbsidor (*.html)|*.html,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ApplicationSource.Title,Välj Applikationsfil,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.ApplicationSource.Filter,Applikationsfiler (*.exe)|*.exe,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Copy.Close,Förstått,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.Copy.Title,Viktigt Meddelande,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.Copy.Message,Den valda filen kommer att inkluderas i temat tillsammans med alla andra filer och mappar i katalogen.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
-PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
+PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Access.Close,Förstått,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.Access.Title,Åtkomstvarning,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeCreate.Access.Message,Du har inte behörighet att få åtkomst till den valda filen.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,
 Portal.ThemeDelete.Title,Ta bort Tema,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,
 Portal.ThemeDelete.Delete,Ta bort,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,
 Portal.ThemeDelete.Close,Stäng,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,
-PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Please don't touch the translation in this line.
+PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeDelete.ThemeTitle,Rubrik,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,
 Portal.ThemeDelete.ThemeDescription,Beskrivning,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,
 Portal.ThemeDelete.ThemeType,Typ,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,
@@ -697,14 +700,14 @@ Portal.ThemeDelete.ThemeModifyDate,Okänt,,Portal\Controls\ThemeDelete\Portal.Th
 Portal.ThemeEdit.Title,Redigera Tema,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,
 Portal.ThemeEdit.Close,Stäng,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,
 Portal.ThemeEdit.Save,Spara,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,
-PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Please don't touch the translation in this line.
+PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeEdit.ThemeTitle,Rubrik,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,
 Portal.ThemeEdit.ThemeDescription,Beskrivning,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,
 Portal.ThemeEdit.ThemeAuthor,Författare,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,
 Portal.ThemeEdit.ThemeContact,Kontakt,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,
 Portal.ThemeEdit.ThemeTags,Taggar,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,
 Portal.ThemeEdit.ThemeArguments,Argument,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,
-PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Please don't touch the translation in this line.
+PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeEdit.ThemeTitle.Hint,Ange en giltig rubrik,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,
 Portal.ThemeEdit.ThemeDescription.Hint,Ange en giltig beskrivning,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,
 Portal.ThemeEdit.ThemeAuthor.Hint,Ange ett giltigt författarnamn,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,
@@ -713,41 +716,41 @@ Portal.ThemeEdit.ThemeTags.Hint,Ange giltiga temataggar,,Portal\Controls\ThemeEd
 Portal.ThemeEdit.ThemeArguments.Hint,Ange giltiga programargument,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,
 Portal.ThemeImport.Title,Importera Tema,,Portal\Controls\ThemeImport\Portal.ThemeImport.SV.xaml,
 Portal.ThemeImport.Close,Stäng,,Portal\Controls\ThemeImport\Portal.ThemeImport.SV.xaml,
-PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.SV.xaml,Please don't touch the translation in this line.
+PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeImport.Info,Tema Information,,Portal\Controls\ThemeImport\Portal.ThemeImport.SV.xaml,
 Portal.ThemeImport.Type,Anledning för Import,,Portal\Controls\ThemeImport\Portal.ThemeImport.SV.xaml,
 Portal.ThemeReport.Title,Temarapportering,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
 Portal.ThemeReport.Close,Stäng,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
-PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Please don't touch the translation in this line.
+PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.ThemeTitle,Titel,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
 Portal.ThemeReport.ThemeDescription,Beskrivning,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
-PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Please don't touch the translation in this line.
+PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter,Rapportera,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
 Portal.ThemeReport.Reporter.Description,Ange dina skäl för att rapportera temat.,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
-PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Contact.Placeholder,Vänligen ange en giltig e-postadress,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
 PASS⦙128,PASS⦙128,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Contact.Placeholder,Vänligen ange en giltig e-postadress,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
+PASS⦙129,PASS⦙129,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Description.Text,Ytterligare Anteckningar:,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
 Portal.ThemeReport.Reporter.Description.Placeholder,Vänligen beskriv anledningen till rapporten i detalj.,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
-PASS⦙129,PASS⦙129,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Preparing,Förberedelser för rapportering kommer att börja snart..,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
 PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Preparing,Förberedelser för rapportering kommer att börja snart..,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
+PASS⦙131,PASS⦙131,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Checking,Nödvändiga kontroller utförs för rapportering..,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
 Portal.ThemeReport.Reporter.Checking.Error,Ett okänt fel inträffade vid utförandet av nödvändiga kontroller för rapportering.,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
 Portal.ThemeReport.Reporter.Checking.Status,"Lämpliga förutsättningar för rapportering kunde inte skapas för tillfället, vänligen försök igen senare..",,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
-PASS⦙131,PASS⦙131,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Please don't touch the translation in this line.
+PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Sending,Skickar information för rapportering..,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
 Portal.ThemeReport.Reporter.Sending.Error,Ett fel uppstod vid sändning av rapporten.,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
 Portal.ThemeReport.Reporter.Sending.Errored,Ett oväntat fel uppstod vid sändning av rapporten: {0}.,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
 Portal.ThemeReport.Reporter.Sending.Succeded,"Rapporten skickades framgångsrikt, tack.",,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
-PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Network,En internetanslutning krävs för att rapportera.,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
 PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Network,En internetanslutning krävs för att rapportera.,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
+PASS⦙134,PASS⦙134,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Report,Rapportera,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
 Portal.ThemeReport.Reporter.GitHub,Rapportera från GitHub,,Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,
 Portal.ThemeReview.Title,Recensera Tema,,Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,
 Portal.ThemeReview.Close,Stäng,,Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,
-PASS⦙134,PASS⦙134,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Please don't touch the translation in this line.
+PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeReview.ThemeTitle,Titel,,Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,
 Portal.ThemeReview.ThemeDescription,Beskrivning,,Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,
 Portal.ThemeReview.ThemeType,Typ,,Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,
@@ -767,405 +770,408 @@ Portal.ThemeReview.ThemeModifyDate,Okänt,,Portal\Controls\ThemeReview\Portal.Th
 Portal.ThemeReview.ThemeContact,Kontakt för Tema,,Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,
 Portal.ThemeShare.Title,Dela Tema,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 Portal.ThemeShare.Close,Stäng,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
-PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
+PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemeTitle,Titel,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 Portal.ThemeShare.ThemeDescription,Beskrivning,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
-PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
+PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemeExport,Exportera Tema,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 Portal.ThemeShare.ThemePublish,Publicera i Butiken,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 Portal.ThemeShare.ThemeCopy,Kopiera Länken,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
-PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
+PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Publish,Publicera,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 Portal.ThemeShare.ThemePublish.Preparing,Förberedelser för publicering kommer att börja inom kort..,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
-PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Limit,Din dagliga temauppladdningsgräns kontrolleras..,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit,Din dagliga temauppladdningsgräns kontrolleras..,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
+PASS⦙140,PASS⦙140,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Du har nått din dagliga temauppladdningsgräns, försök igen senare.",,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 Portal.ThemeShare.ThemePublish.Limit.Error,Ett okänt fel inträffade vid kontroll av din dagliga temauppladdningsgräns.,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
-PASS⦙140,PASS⦙140,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
+PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Compress,Temat komprimeras innan uppladdning..,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 Portal.ThemeShare.ThemePublish.Compress.Error,Ett fel inträffade vid komprimering av temat.,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
-PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Size,Storleken på det komprimerade temat kontrolleras..,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Size.Exceeded,Det komprimerade temat kan inte laddas upp eftersom det överskrider {0} MB.,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
+Portal.ThemeShare.ThemePublish.Size,Storleken på det komprimerade temat kontrolleras..,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 PASS⦙143,PASS⦙143,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size.Exceeded,Det komprimerade temat kan inte laddas upp eftersom det överskrider {0} MB.,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
+PASS⦙144,PASS⦙144,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Check,Den komprimerade temats integritet kontrolleras innan uppladdning..,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 Portal.ThemeShare.ThemePublish.Check.Error,Ett fel inträffade vid kontroll av integriteten hos det komprimerade temat.,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
-PASS⦙144,PASS⦙144,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Upload,Det komprimerade temat förbereds för uppladdning..,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload,Det komprimerade temat förbereds för uppladdning..,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
+PASS⦙146,PASS⦙146,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Upload.Start,Det komprimerade temat laddas upp..,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Error,Ett okänt fel inträffade vid uppladdning av det komprimerade temat.,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Errored,Ett oväntat fel inträffade vid uppladdning av det komprimerade temat: {0}.,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Succeded,Det komprimerade temat laddades upp framgångsrikt och kommer att publiceras i butiken efter verifiering.,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
-PASS⦙146,PASS⦙146,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
+PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alla filer (*.*)|*.*,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 Portal.ThemeShare.SaveDialogTitle,Spara Temafil,,Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,
 Portal.TrayIcon.Title,Systemfältet,,Portal\Controls\TrayIcon\Portal.TrayIcon.SV.xaml,
 Portal.TrayIcon.Close,Stäng,,Portal\Controls\TrayIcon\Portal.TrayIcon.SV.xaml,
-PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.SV.xaml,Please don't touch the translation in this line.
+PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.SV.xaml,Please don't touch the translation in this line.
 Portal.TrayIcon.Message,Sucrose har minimerats till systemfältet. Högerklicka på Sucrose-ikonen för att fortsätta.,,Portal\Controls\TrayIcon\Portal.TrayIcon.SV.xaml,
 Portal.WallpaperCycling.Title,Bakgrundsbildcykling,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,
 Portal.WallpaperCycling.Close,Stäng,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,
-PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,Please don't touch the translation in this line.
+PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Cycling,Automatisk Bakgrundsbildscykling,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,
 Portal.WallpaperCycling.Cycling.Description,Om bakgrundsbilden ändras automatiskt eller inte.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,
-PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,Please don't touch the translation in this line.
+PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,Tidsintervall,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,
 Portal.WallpaperCycling.Time.Description,Tidsintervallet efter vilket bakgrundsbilden ändras.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,
-PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,Please don't touch the translation in this line.
+PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,Övergångsläge,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,
 Portal.WallpaperCycling.Transition.Description,Ställer in övergångsläget mellan bakgrundsbilder.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,
-PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,Please don't touch the translation in this line.
+PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List,Cykellista,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,
 Portal.WallpaperCycling.List.Description,Återställer cykellistan till standard.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,
-PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,Please don't touch the translation in this line.
+PASS⦙153,PASS⦙153,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List.Reset,Återställ,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,
 Portal.EmptyLibraryPage.Title,EmptyLibraryPage,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.SV.xaml,
-PASS⦙153,PASS⦙153,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙154,PASS⦙154,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.SV.xaml,Please don't touch the translation in this line.
 Portal.EmptyLibraryPage.TitleText,Ditt bibliotek har vävts av spindelnät,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.SV.xaml,
 Portal.EmptyLibraryPage.DescriptionText,Istället för tapeter har en praktfull konstverk skapats med spindelnät,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.SV.xaml,
 Portal.FullLibraryPage.Title,FullLibraryPage,,Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.SV.xaml,
 Portal.SearchLibraryPage.Title,SearchLibraryPage,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.SV.xaml,
-PASS⦙154,PASS⦙154,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙155,PASS⦙155,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.SV.xaml,Please don't touch the translation in this line.
 Portal.SearchLibraryPage.TitleText,Ditt bibliotek har förlovats med spindelnät,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.SV.xaml,
 Portal.SearchLibraryPage.DescriptionText,På grund av din finess vid val av tapet har det inte blivit plats för fler tapeter,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.SV.xaml,
 Portal.DonateSettingPage.Title,DonateSettingPage,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,
-PASS⦙155,PASS⦙155,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙156,PASS⦙156,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu,Donera Meny,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,
 Portal.DonateSettingPage.DonateMenu.Description,Synligheten av donationsmenyn på gränssnittet.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,
-PASS⦙156,PASS⦙156,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Visa,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Dölj,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,
-PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising,Annonsstöd,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,
 Portal.DonateSettingPage.Advertising.Description,Bidra till appens utveckling genom att titta på annonser.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,
-PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising.AdvertisingDelay,Annonsvaraktighet (minuter):,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,
 Portal.DonateSettingPage.Advertising.AdvertisingHint,Tips: Annonser visas för dig med så lite störning som möjligt.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,
 Portal.GeneralSettingPage.Title,GeneralSettingPage,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
-PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationLanguage,Applikationsspråk,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.ApplicationLanguage.Description,Välj det språk du vill se programmet på.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
-PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup,Starta vid uppstart,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Description,För att kunna spela en tapet måste Sucrose köra i bakgrunden vid uppstart.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
-PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Ingen,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Normal,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioriterad,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Planerad,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
-PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Förstått,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Administratörsbehörighetsvarning,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Du behöver administratörsbehörighet för att ändra startstatus.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
-PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon,Meddelandefältssymbol,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Description,Synlighet för systemfältet. Sucrose kommer att fortsätta köra i bakgrunden.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
-PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Visa,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Dölj,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
-PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Stäng alla Sucrose-program när meddelandefältet stängs,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Stäng alla Sucrose-program när meddelandefältet stängs,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
+PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop,Fönsterbakgrund,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.Description,Används för att anpassa bakgrunden i programfönstret.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
-PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Välj bakgrundsbild,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Välj en bakgrundsbild,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Bilddokument (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,Tyvärr har du inte behörighet att komma åt den valda bildfilen,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
-PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Bakgrundsanpassning:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Bakgrundsnedsänkning (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Bakgrundsanpassning:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Bakgrundsnedsänkning (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
+PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume,Ljudvolym,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.EngineVolume.Description,Ljudnivån som gäller för alla tapeter.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
-PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Spela ljudet endast när skrivbordet är i fokus,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeActive,Spela ljud bara när alla applikationer är tysta,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Känslighet (Sekunder):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
-PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary,Biblioteksplats,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.Description,Plats där teman som läggs till i ditt bibliotek lagras.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
-PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,Tyvärr har du inte tillgång till den nya platsen,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Vänligen välj en tom mapp,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Vänta en stund när platsen flyttas,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
-PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Flytta ditt nuvarande bibliotek till den nya platsen,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,
 Portal.OtherSettingPage.Title,OtherSettingPage,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
-PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.ReportData,Automatisk Felrapportering,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 Portal.OtherSettingPage.ReportData.Description,Sucrose vidtar åtgärder för att snabbt rapportera när det uppstår ett fel.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
-PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.StatisticsData,Dela Användningsstatistik,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 Portal.OtherSettingPage.StatisticsData.Description,Sucrose möjliggör insamling av din användningsstatistik för att bidra till utvecklingen av applikationen.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
-PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook,Discord,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 Portal.OtherSettingPage.DiscordHook.Description,Sucrose möjliggör kommunikation med Discord.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
-PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Uppdateringsfrekvens:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 Portal.OtherSettingPage.DiscordHook.DiscordDelay,Uppdateringsintervall (sekunder):,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
-PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Agent,Internetagent,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 Portal.OtherSettingPage.Agent.Description,Din representantidentitet i situationer som kräver internetanslutning.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
-PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key,Personlig åtkomsttoken,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 Portal.OtherSettingPage.Key.Description,Nödvändig för att använda butiken och uppdatera programmet smidigt.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
-PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Key.HintKey,Klicka här om du inte vet hur du får din personliga åtkomsttoken.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.HintKey,Klicka här om du inte vet hur du får din personliga åtkomsttoken.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
+PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key.PersonalKey,Ange din personliga åtkomsttoken,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 Portal.OtherSettingPage.Key.PersonalKey.Valid,Ange en giltig personlig åtkomsttoken,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
-PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Server,Uppdateringsserver,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 Portal.OtherSettingPage.Server.Description,Servern genom vilken uppdateringarna kommer att utföras.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
-PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Server.ServerHint,Observera: Om {0} är vald som server måste du ange en {2} för att undvika förfrågningsgränser. Annars kan du uppleva problem med uppdateringar. Om {1} är vald kommer du att få en smidigare uppdateringsupplevelse.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server.ServerHint,Observera: Om {0} är vald som server måste du ange en {2} för att undvika förfrågningsgränser. Annars kan du uppleva problem med uppdateringar. Om {1} är vald kommer du att få en smidigare uppdateringsupplevelse.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
+PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Module,Uppdateringsmodul,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
+Portal.OtherSettingPage.Module.Description,Vilken modul som används för uppdateringen.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
+PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Channel,Uppdateringskanal,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 Portal.OtherSettingPage.Channel.Description,Vilken kanal uppdateringsprocessen kommer att använda.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
-PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update,Uppdateringsmetod,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 Portal.OtherSettingPage.Update.Description,Vilken metod som kommer att användas för uppdateringsprocessen.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
-PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update.Limit,Nedladdningsbandbreddsbegränsning:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
-PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Auto,Automatisk Uppdatering,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 Portal.OtherSettingPage.Auto.Description,Om uppdateringsprocessen kommer att kontrolleras automatiskt.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
-PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer,Utvecklarverktyg,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 Portal.OtherSettingPage.Developer.Description,Hantera utvecklarverktyg för WebView och CefSharp-motorn.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
-PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperMode,Standardutvecklarverktyg:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
-PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperPort,Felsökningsport:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperMode,Standardutvecklarverktyg:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
+PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,Felsökningsport:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
+PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer.DeveloperHint,"Tips: Standardutvecklarverktyg kanske inte fungerar korrekt i de stödda temana. Felsökningsporten tenderar att fungera bättre. När du är redo kan du använda adressen 'http://localhost:{0}' eller 'chrome://inspect' för Chrome-webbläsaren, 'opera://inspect' för Opera-webbläsaren, 'edge://inspect' för Edge-webbläsaren.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter,Prestandamätare,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Counter.Description,Om alla prestandamätare ska köra i bakgrunden.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter.CounterHint,"Obs: Vissa Webbaserade teman kan fungera dåligt, och ingen av följande prestandainställningar kommer att användas.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Pause,Pausregel,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Pause.Description,Bestämmer regeln för att pausa bakgrundsbilden baserat på dina prestandainställningar.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Communication,Kommunikationstyp,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Communication.Description,Bestämmer metod för att skicka meddelanden till teman av typen Web.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu,CPU-användning,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Cpu.Description,Din CPU-användningsinställning kommer att påverka vad som händer med bakgrundsbilden.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU-användning (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu,GPU Användning,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Gpu.Description,Vad som händer med bakgrundsbilden baserat på dina GPU-användningsinställningar.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Listan över grafiska processorer har ännu inte skapats,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU Användning (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory,Minnesanvändning,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Memory.Description,Dina minnesanvändningsinställningar kommer att påverka vad som händer med bakgrundsbilden.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory.MemoryUsage,Minnesanvändning (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network,Nätverksanvändning,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Network.Description,Dina nätverksanvändningsinställningar kommer att påverka vad som händer med bakgrundsbilden.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network.NetworkAdapter,Nätverksadapter:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Nätverksadapterlista har ännu inte skapats,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkUpload,Uppladdningsstorlek:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkDownload,Nedladdningsstorlek:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkPing,Ping-värde (ms):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
+Portal.PerformanceSettingPage.Network.NetworkUpload,Uppladdningsstorlek:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkDownload,Nedladdningsstorlek:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
+PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Ping-värde (ms):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
+PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery,Batteriström,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Battery.Description,Dina inställningar för batteriström kommer att påverka vad som händer med bakgrundsbilden när du använder en bärbar dator.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery.BatteryUsage,Batteristatus (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Saver,Strömsparläge,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Saver.Description,Dina inställningar för strömsparläge kommer att påverka vad som händer med bakgrundsbilden när du använder en bärbar dator i strömsparläge.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Virtual,Virtualisering,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Virtual.Description,Vad som händer med bakgrundsbilden när du använder virtualiseringsprogram.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Remote,Fjärrskrivbord,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Remote.Description,Vad som händer med bakgrundsbilden när du använder fjärrskrivbordsprogram.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Fullscreen,Helskärmsläge,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Fullscreen.Description,Vad som händer med bakgrundsbilden när du använder vilken som helst applikation i helskärmsläge.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
-PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Focus,Fokusläge,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PerformanceSettingPage.Focus.Description,Vad som händer med bakgrundsbilden när du har någon annan applikation i fokus.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server,Butiksserver,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 Portal.PersonalSettingPage.Server.Description,Anger vilken server som kommer att användas för att visa de teman som listas i butiken.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server.ServerHint,Observera: Om {0} väljs som server måste en {2} anges för att undvika begänsningar för förfrågningar. Annars kan du uppleva problem med att komma åt teman i butiken. Om {1} väljs får du en smidigare butiksupplevelse.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Duration,Butik Uppdatering,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 Portal.PersonalSettingPage.Duration.Description,Hur länge de listade temana i butiken ska uppdateras.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.StoreStart,Automatisk Start,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 Portal.PersonalSettingPage.StoreStart.Description,Om teman som laddas ner från butiken automatiskt ska ställas in som bakgrundsbild.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adult,Ocensurerat Innehåll,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 Portal.PersonalSettingPage.Adult.Description,Om innehåll som inte är säkert för arbete (NSFW) i butiken ska visas eller döljas.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Confirm,Bekräftelse vid Radering,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 Portal.PersonalSettingPage.Confirm.Description,Om bekräftelse ska begäras när du tar bort teman från din bibliotek.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete,Radera Dåliga Teman,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 Portal.PersonalSettingPage.Delete.Description,Om dåliga eller bristfälliga teman i ditt bibliotek ska raderas automatiskt.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete.DeleteHint,OBS: Var försiktig med detta. Det kan leda till datamissförluster om du inte är försiktig.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.LibraryStart,Automatisk Start,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 Portal.PersonalSettingPage.LibraryStart.Description,Om teman som du skapar automatiskt ska ställas in som bakgrundsbild.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview,Temaförhandsgranskning,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 Portal.PersonalSettingPage.Preview.Description,Om teman ska förhandsgranskas när du hovrar över dem.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.StorePreview,Butiksförhandsvisning:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 Portal.PersonalSettingPage.Preview.StorePreviewHide,Dölj detaljer:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.LibraryPreview,Biblioteksförhandsvisning:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Dölj detaljer:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adaptive,Anpassningsbar Layout,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 Portal.PersonalSettingPage.Adaptive.Description,Anpassa layouten eller avståndet för de visade temana.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Avstånd (pixlar):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Layout Ordning (antal):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Avstånd (pixlar):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
+PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Layout Ordning (antal):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
+PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Sort,Sortering av Bibliotek,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 Portal.PersonalSettingPage.Sort.Description,Ange hur teman i din bibliotek ska sorteras och i vilket format.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortMode,Sorteringsläge:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortKind,Sorterings Typ:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortMode,Sorteringsläge:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
+PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,Sorterings Typ:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
+PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Store,Butikssidor,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 Portal.PersonalSettingPage.Store.Description,Bestäm antalet teman per sida i butiken.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
-PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Library,Bibliotekssidor,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 Portal.PersonalSettingPage.Library.Description,Bestäm antalet teman per sida i ditt bibliotek.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,
 Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
-PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LogTemporary,Loggfiler,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 Portal.SystemSettingPage.LogTemporary.Description,Hantera alla loggfiler som programmet skapar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
-PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Create,Skapa,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
-PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Delete,Rensa,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Hint,Obs: Den totala storleken av loggfiler är {0}. Alla program kommer att stängas när rengöringen påbörjas.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
+Portal.SystemSettingPage.LogTemporary.Create,Skapa,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Delete,Rensa,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
+PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,Obs: Den totala storleken av loggfiler är {0}. Alla program kommer att stängas när rengöringen påbörjas.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
+PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.CacheTemporary,Rensa Cache,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 Portal.SystemSettingPage.CacheTemporary.Description,Rensa alla cache-filer som programmet skapar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
-PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Start,Börja Rengöring,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
-PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Hint,Obs: Den totala storleken av cache-filer är {0}. Alla program kommer att stängas när rengöringen påbörjas.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Start,Börja Rengöring,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
+PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,Obs: Den totala storleken av cache-filer är {0}. Alla program kommer att stängas när rengöringen påbörjas.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
+PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.StoreTemporary,Rensa Butik,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 Portal.SystemSettingPage.StoreTemporary.Description,Rensa alla butiksfiler som programmet skapar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
-PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Start,Börja Rengöring,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
-PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Hint,Obs: Den totala storleken av butiksfiler är {0}. Alla program kommer att stängas när rengöringen påbörjas.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Start,Börja Rengöring,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
+PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,Obs: Den totala storleken av butiksfiler är {0}. Alla program kommer att stängas när rengöringen påbörjas.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
+PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LibraryTemporary,Rensa Bibliotek,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 Portal.SystemSettingPage.LibraryTemporary.Description,"Rensa alla tema-filer i ditt bibliotek, oavsett om de är nedladdade eller skapade.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
-PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Start,Börja Rengöring,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
-PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Hint,Obs: Den totala storleken av teman i ditt bibliotek är {0}. Alla program kommer att stängas när rengöringen påbörjas.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Start,Börja Rengöring,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
+PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,Obs: Den totala storleken av teman i ditt bibliotek är {0}. Alla program kommer att stängas när rengöringen påbörjas.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
+PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingBackup,Inställningsfiler,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 Portal.SystemSettingPage.SettingBackup.Description,Hantera alla inställningsfiler som programmet skapar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
-PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Export,Säkerhetskopiera,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
-PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Import,Återställ,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Hint,Obs: Alla program kommer att stängas när du påbörjar den valda åtgärden.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
+Portal.SystemSettingPage.SettingBackup.Export,Säkerhetskopiera,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Import,Återställ,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
+PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,Obs: Alla program kommer att stängas när du påbörjar den valda åtgärden.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
+PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingReset,Återställ Inställningar,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 Portal.SystemSettingPage.SettingReset.Description,Återställ alla inställningsfiler som programmet skapar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
-PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Start,Börja Återställning,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
-PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Hint,Obs: Alla program kommer att stängas när återställningen påbörjas.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Start,Börja Återställning,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
+PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,Obs: Alla program kommer att stängas när återställningen påbörjas.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
+PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Log.SaveDialogTitle,Spara Loggfil,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alla filer (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
-PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Access.Close,Förstått,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 Portal.SystemSettingPage.Access.Title,Åtkomstvarning,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 Portal.SystemSettingPage.Access.Message,Du har inte behörighet att komma åt den valda platsen.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,
 Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
-PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.InputMode,Interaktionsmetod,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
 Portal.WallpaperSettingPage.InputMode.Description,Bestämmer metoderna genom vilka interaktion kan ske med stödda bakgrundsbilder.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
-PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputModule,Interaktionsmodul:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
-PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputDesktop,Bearbeta interaktion endast när skrivbordet är i fokus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
 PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.DesktopIcon,Göm för att undvika oavsiktlig val av skrivbordsikoner,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
+Portal.WallpaperSettingPage.InputMode.InputModule,Interaktionsmodul:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
 PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.InputDesktop,Bearbeta interaktion endast när skrivbordet är i fokus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
+PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,Göm för att undvika oavsiktlig val av skrivbordsikoner,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
+PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ScreenLayout,Skärm Layout,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
 Portal.WallpaperSettingPage.ScreenLayout.Description,Ändrar hur dina tapeter är placerade på skärmen.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
-PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.StretchMode,Storlägesmetod,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
 Portal.WallpaperSettingPage.StretchMode.Description,Ändrar skalningsmetoden för stödda tapeter.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
-PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.LoopMode,Loopläge,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
 Portal.WallpaperSettingPage.LoopMode.Description,Ändrar upprepningssättet för stödda tapeter.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
-PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ShuffleMode,Blandningsläge,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Ändrar blandningsläge för stödda tapeter.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
-PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Gif-Spelare,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,Välj en plugin som kommer att spela Gif-teman i din samling.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
-PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Videospelare,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,Välj en plugin som kommer att spela Video-teman i din samling.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
-PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Url Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,Välj en motor som kommer att spela Url-teman i din samling.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
-PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Webbmotor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,Välj en motor som kommer att spela Web-teman i din samling.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
-PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙272,PASS⦙272,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,YouTube Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,Välj en motor som kommer att spela YouTube-teman i din samling.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
-PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙273,PASS⦙273,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Application Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,Välj en motor som kommer att spela Application-teman i din samling.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.SV.xaml,
-PASS⦙272,PASS⦙272,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙274,PASS⦙274,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.SV.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,En Stund Där Internetljuset Slocknade,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.SV.xaml,
 Portal.BrokenStorePage.DescriptionText,Precis som en stjärnlös himmel saknar även internetets glans här,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.SV.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.SV.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.SV.xaml,
-PASS⦙273,PASS⦙273,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙275,PASS⦙275,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.SV.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Svaren på vad du letar efter kan finnas i himlen,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.SV.xaml,
 Portal.SearchStorePage.DescriptionText,Om resultaten inte är som du förväntar dig kan himlen erbjuda dig en ny upplevelse,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.SV.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.SV.xaml,
-PASS⦙274,PASS⦙274,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.SV.xaml,Please don't touch the translation in this line.
+PASS⦙276,PASS⦙276,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.SV.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,Upptäck Mysteriet som Uppstod i Butiken,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.SV.xaml,
 Portal.UnknownStorePage.DescriptionText,Följ det okända och ge dig ut på en resa för att klargöra det mysterium som har uppstått i butiken,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.SV.xaml,

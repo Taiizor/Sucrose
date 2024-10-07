@@ -375,6 +375,9 @@ Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.UpdateModuleType.Native,Native
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.UpdateModuleType.Downloader,Downloader
+Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.RU.xaml,,
@@ -925,6 +928,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Server.Description,"Сервер, через который будут выполняться обновления."
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Server.ServerHint,"Примечание: Если в качестве сервера выбран {0}, необходимо ввести {2}, чтобы избежать ограничения запросов. В противном случае могут возникнуть проблемы с обновлением. Если выбран {1}, вы получите более гладкий процесс обновления."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Module,Модуль Обновления
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Module.Description,Какой модуль будет использоваться для обновления.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Channel,Канал Обновлений
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Channel.Description,"Канал, через который будет выполняться процесс обновления."

@@ -5,4 +5,10 @@
         GitHub,
         Soferity
     }
+
+    internal enum UpdateModuleType
+    {
+        Native,
+        Downloader
+    }
 }

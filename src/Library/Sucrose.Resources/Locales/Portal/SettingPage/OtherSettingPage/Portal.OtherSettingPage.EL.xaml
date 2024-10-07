@@ -32,6 +32,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Σημείωση: Εάν επιλεγεί ο διακομιστής {0}, πρέπει να εισαγάγετε έναν {2} για να αποφύγετε τα όρια αιτήσεων. Διαφορετικά, μπορεί να αντιμετωπίσετε προβλήματα με τις ενημερώσεις. Εάν επιλεγεί ο {1}, θα έχετε μια πιο ομαλή εμπειρία ενημέρωσης.</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Module">Μονάδα Ενημέρωσης</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Module.Description">Ποια μονάδα θα χρησιμοποιηθεί για την ενημέρωση.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Κανάλι Ενημερώσεων</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Ποιο κανάλι θα χρησιμοποιηθεί για τις ενημερώσεις.</system:String>
 

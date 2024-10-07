@@ -375,6 +375,9 @@ Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.UpdateModuleType.Native,Native
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.UpdateModuleType.Downloader,Downloader
+Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.UK.xaml,,
@@ -925,6 +928,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Server.Description,"Сервер, через який виконуватимуться оновлення."
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Server.ServerHint,"Примітка: Якщо вибрано {0} як сервер, потрібно ввести {2}, щоб уникнути обмежень на запити. Інакше ви можете зіткнутися з проблемами з оновленнями. Якщо вибрано {1}, ви отримаєте більш плавний досвід оновлення."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Module,Модуль Оновлення
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Module.Description,Який модуль буде використано для оновлення.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Channel,Канал Оновлення
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Channel.Description,"Визначте канал, через який здійснювати оновлення."

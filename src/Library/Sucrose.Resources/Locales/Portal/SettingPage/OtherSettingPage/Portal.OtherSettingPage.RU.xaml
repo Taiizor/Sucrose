@@ -32,6 +32,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Server.ServerHint">Примечание: Если в качестве сервера выбран {0}, необходимо ввести {2}, чтобы избежать ограничения запросов. В противном случае могут возникнуть проблемы с обновлением. Если выбран {1}, вы получите более гладкий процесс обновления.</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Module">Модуль Обновления</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Module.Description">Какой модуль будет использоваться для обновления.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Channel">Канал Обновлений</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Канал, через который будет выполняться процесс обновления.</system:String>
 

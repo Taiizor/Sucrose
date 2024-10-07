@@ -375,6 +375,9 @@ Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StoreServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StoreServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.UpdateModuleType.Native,Native
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.UpdateModuleType.Downloader,Downloader
+Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.UpdateServerType.GitHub,GitHub
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.UpdateServerType.Soferity,Soferity
 Portal\Enum\Portal.Enum.NL.xaml,,
@@ -925,6 +928,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Server.Description,De server waarop updates worden uitgevoerd.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Server.ServerHint,"Opmerking: Als {0} is geselecteerd als server, moet u een {2} invoeren om aanvraaglimieten te vermijden. Anders kunt u problemen ondervinden bij updates. Als {1} is geselecteerd, zult u een soepeler update-ervaring hebben."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Module,Update-Module
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Module.Description,Welke module zal worden gebruikt voor de update.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Channel,Updatekanaal
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Channel.Description,Het kanaal waar de updatebewerking plaatsvindt.
