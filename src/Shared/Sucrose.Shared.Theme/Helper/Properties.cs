@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System.IO;
+using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 using SSTMCM = Sucrose.Shared.Theme.Model.ControlModel;
 
 namespace Sucrose.Shared.Theme.Helper
@@ -47,14 +47,14 @@ namespace Sucrose.Shared.Theme.Helper
 
         public static string ReadProperties(string Path)
         {
-            string Content = File.ReadAllText(Path);
+            string Content = SSSHF.Read(Path);
 
             return string.IsNullOrWhiteSpace(Content) ? string.Empty : Content;
         }
 
         public static void WriteJson(string Path, Properties Properties)
         {
-            File.WriteAllText(Path, JsonConvert.SerializeObject(Properties, Converter.Settings));
+            SSSHF.Write(Path, JsonConvert.SerializeObject(Properties, Converter.Settings));
         }
     }
 }

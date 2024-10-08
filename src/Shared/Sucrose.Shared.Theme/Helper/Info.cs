@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System.IO;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 
 namespace Sucrose.Shared.Theme.Helper
 {
@@ -74,14 +74,14 @@ namespace Sucrose.Shared.Theme.Helper
 
         public static string ReadInfo(string Path)
         {
-            string Content = File.ReadAllText(Path);
+            string Content = SSSHF.Read(Path);
 
             return string.IsNullOrWhiteSpace(Content) ? string.Empty : Content;
         }
 
         public static void WriteJson(string Path, Info Info)
         {
-            File.WriteAllText(Path, JsonConvert.SerializeObject(Info, Converter.Settings));
+            SSSHF.Write(Path, JsonConvert.SerializeObject(Info, Converter.Settings));
         }
     }
 }

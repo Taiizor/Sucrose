@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System.IO;
+using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 
 namespace Sucrose.Shared.Theme.Helper
 {
@@ -76,14 +76,14 @@ namespace Sucrose.Shared.Theme.Helper
 
         public static string ReadCompatible(string Path)
         {
-            string Content = File.ReadAllText(Path);
+            string Content = SSSHF.Read(Path);
 
             return string.IsNullOrWhiteSpace(Content) ? string.Empty : Content;
         }
 
         public static void WriteJson(string Path, Compatible Compatible)
         {
-            File.WriteAllText(Path, JsonConvert.SerializeObject(Compatible, Converter.Settings));
+            SSSHF.Write(Path, JsonConvert.SerializeObject(Compatible, Converter.Settings));
         }
     }
 }

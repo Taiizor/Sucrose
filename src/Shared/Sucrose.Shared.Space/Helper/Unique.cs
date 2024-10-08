@@ -14,7 +14,7 @@ namespace Sucrose.Shared.Space.Helper
 
         public static string GenerateText(string Value)
         {
-            return SHG.GuidToText(SHG.ByteToGuid(MD5.Create().ComputeHash(SHE.GetBytes(Value, SEET.UTF8))));
+            return SHG.GuidToText(Generate(Value));
         }
     }
 }

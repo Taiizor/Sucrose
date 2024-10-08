@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using System.IO;
 using SMR = Sucrose.Memory.Readonly;
 using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
+using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
 
 namespace Sucrose.Shared.Store.Helper
@@ -19,7 +19,7 @@ namespace Sucrose.Shared.Store.Helper
 
         public static string Json(string Store)
         {
-            string Content = File.ReadAllText(Store);
+            string Content = SSSHF.Read(Store);
 
             return string.IsNullOrWhiteSpace(Content) ? string.Empty : Content;
         }

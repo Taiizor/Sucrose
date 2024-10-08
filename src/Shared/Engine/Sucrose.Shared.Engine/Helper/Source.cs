@@ -7,6 +7,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
+using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SWHSM = Skylark.Wing.Helper.ScreenManage;
 
@@ -128,7 +129,7 @@ namespace Sucrose.Shared.Engine.Helper
                 Directory.CreateDirectory(Path.GetDirectoryName(GifContentPath));
             }
 
-            File.WriteAllText(GifContentPath, GetGifContent(Content));
+            SSSHF.Write(GifContentPath, GetGifContent(Content));
         }
 
         public static void WriteVideoContent(string VideoContentPath, Uri Content)
@@ -143,7 +144,7 @@ namespace Sucrose.Shared.Engine.Helper
                 Directory.CreateDirectory(Path.GetDirectoryName(ImageContentPath));
             }
 
-            File.WriteAllText(ImageContentPath, GetImageContent(Content));
+            SSSHF.Write(ImageContentPath, GetImageContent(Content));
         }
 
         public static void WriteYouTubeContent(string YouTubeContentPath, string Video, string Playlist)
@@ -153,7 +154,7 @@ namespace Sucrose.Shared.Engine.Helper
                 Directory.CreateDirectory(Path.GetDirectoryName(YouTubeContentPath));
             }
 
-            File.WriteAllText(YouTubeContentPath, GetYouTubeContent(Video, Playlist));
+            SSSHF.Write(YouTubeContentPath, GetYouTubeContent(Video, Playlist));
         }
 
         public static void WriteVideoContent(string VideoContentPath, string Content)
@@ -163,7 +164,7 @@ namespace Sucrose.Shared.Engine.Helper
                 Directory.CreateDirectory(Path.GetDirectoryName(VideoContentPath));
             }
 
-            File.WriteAllText(VideoContentPath, GetVideoContent(Content));
+            SSSHF.Write(VideoContentPath, GetVideoContent(Content));
         }
 
         public static string GetGifContentPath()

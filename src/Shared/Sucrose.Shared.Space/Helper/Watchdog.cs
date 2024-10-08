@@ -2,6 +2,7 @@
 using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
+using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHWE = Sucrose.Shared.Space.Helper.WatchException;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
@@ -17,10 +18,7 @@ namespace Sucrose.Shared.Space.Helper
                 Directory.CreateDirectory(Path.GetDirectoryName(FilePath));
             }
 
-            using FileStream FileStream = new(FilePath, FileMode.Open, FileAccess.Read, FileShare.None);
-            using StreamReader Reader = new(FileStream);
-
-            return Reader.ReadToEnd();
+            return SSSHF.ReadStream(FilePath);
         }
 
         public static void Write(string FilePath, string FileContent)
@@ -30,10 +28,7 @@ namespace Sucrose.Shared.Space.Helper
                 Directory.CreateDirectory(Path.GetDirectoryName(FilePath));
             }
 
-            using FileStream FileStream = new(FilePath, FileMode.CreateNew, FileAccess.Write, FileShare.None);
-            using StreamWriter Writer = new(FileStream);
-
-            Writer.Write(FileContent);
+            SSSHF.WriteStream(FilePath, FileContent);
         }
 
         public static void Start(string Application, Exception Exception, string Path)
