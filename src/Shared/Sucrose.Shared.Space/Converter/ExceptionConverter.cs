@@ -119,7 +119,21 @@ namespace Sucrose.Shared.Space.Converter
 
                 foreach (DictionaryEntry entry in serializableException.Data)
                 {
-                    exception.Data.Add(entry.Key, entry.Value);
+                    try
+                    {
+                        exception.Data.Add(JsonConvert.SerializeObject(entry.Key), JsonConvert.SerializeObject(entry.Value));
+                    }
+                    catch
+                    {
+                        try
+                        {
+                            exception.Data.Add(entry.Key, entry.Value);
+                        }
+                        catch
+                        {
+                            exception.Data.Add(entry.Key, null);
+                        }
+                    }
                 }
             }
 
