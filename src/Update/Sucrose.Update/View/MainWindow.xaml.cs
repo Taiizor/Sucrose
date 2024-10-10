@@ -339,7 +339,7 @@ namespace Sucrose.Update.View
                 switch (SSDMM.UpdateServerType)
                 {
                     case SSDEUST.GitHub:
-                        SSHG.SetUri(SMR.GitHubWebsite);
+                        //SSHG.SetUri(SMR.GitHubWebsite);
                         break;
                     case SSDEUST.Soferity:
                         SSHG.SetUri(SMR.SoferityWebsite);

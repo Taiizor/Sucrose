@@ -73,10 +73,10 @@
 
     <ItemGroup>
         <PackageReference Include="WPF-UI" Version="4.0.0-rc.2" />
-        <PackageReference Include="Skylark.Wing" Version="3.1.6.6" />
+        <PackageReference Include="Skylark.Wing" Version="3.1.6.7" />
         <PackageReference Include="XamlFlair.WPF" Version="1.2.13" />
-        <PackageReference Include="Skylark.Standard" Version="3.1.6.6" />
-        <PackageReference Include="Skylark.Clipboard" Version="3.1.4.1" />
+        <PackageReference Include="Skylark.Standard" Version="3.1.6.7" />
+        <PackageReference Include="Skylark.Clipboard" Version="3.1.4.2" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
         <PackageReference Include="WindowsAPICodePackShell" Version="8.0.5" />
         <PackageReference Include="WPF-UI.DependencyInjection" Version="4.0.0-rc.2" />
@@ -90,7 +90,7 @@
         <PackageReference Condition="$(TargetFramework.StartsWith('net7'))" Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
         <PackageReference Condition="$(TargetFramework.StartsWith('net8'))" Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
         <PackageReference Condition="$(TargetFramework.StartsWith('net48'))" Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
-        <PackageReference Condition="$(TargetFramework.StartsWith('net9'))" Include="Microsoft.Extensions.Hosting" Version="9.0.0-rtm.24508.17" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net9'))" Include="Microsoft.Extensions.Hosting" Version="9.0.0-rtm.24509.7" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">

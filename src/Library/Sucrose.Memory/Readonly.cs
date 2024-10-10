@@ -138,8 +138,6 @@
 
         public static readonly string YouTubeContent = "YouTubeContent.html";
 
-        public static readonly string GitHubWebsite = "https://api.github.com";
-
         public static readonly string ValueSeparator = $"{ValueSeparatorChar}";
 
         public static readonly string WebViewLive = "Sucrose.Live.WebView.exe";
