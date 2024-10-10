@@ -24,7 +24,14 @@
 #endif
                 }
 
-                return Content;
+                if (Content.StartsWith("{{") || Content.EndsWith("}}"))
+                {
+                    return Clean(Content);
+                }
+                else
+                {
+                    return Content;
+                }
             }
             catch
             {

@@ -261,6 +261,7 @@ namespace Sucrose.Live.CefSharp
                         CefSettings Settings = new()
                         {
                             UserAgent = SMMM.UserAgent,
+                            PersistSessionCookies = true,
                             CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.CefSharp)
                         };
 

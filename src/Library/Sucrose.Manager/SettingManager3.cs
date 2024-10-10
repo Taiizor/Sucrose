@@ -4,6 +4,7 @@ using System.Net;
 using SMCEC = Sucrose.Manager.Converter.EnumConverter;
 using SMCIPAC = Sucrose.Manager.Converter.IPAddressConverter;
 using SMHR = Sucrose.Manager.Helper.Reader;
+using SMHV = Sucrose.Manager.Helper.Validator;
 using SMHW = Sucrose.Manager.Helper.Writer;
 using SMR = Sucrose.Memory.Readonly;
 
@@ -186,6 +187,10 @@ namespace Sucrose.Manager
                 string json = ReadSetting();
 
                 if (string.IsNullOrEmpty(json))
+                {
+                    ApplySetting();
+                }
+                else if (!SMHV.Json(json))
                 {
                     ApplySetting();
                 }

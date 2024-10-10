@@ -93,6 +93,7 @@ namespace Sucrose.Shared.Engine.Manage
             "--enable-begin-frame-scheduling",
             "--disable-breakpad",
             "--disable-extensions",
+            "--disable-third-party-extensions",
 
             "--multi-threaded-message-loop",
             "--no-sandbox",
@@ -101,6 +102,7 @@ namespace Sucrose.Shared.Engine.Manage
 
             "--disable-web-security",
             "--disable-geolocation",
+            "--disable-oor-cors",
 
             "--disable-surfaces",
 
@@ -122,7 +124,9 @@ namespace Sucrose.Shared.Engine.Manage
 
             "--allow-file-access",
             "--allow-file-access-from-files",
-            "--allow-universal-access-from-files"
+            "--allow-universal-access-from-files",
+
+            "--disable-features=MediaEngagementBypassAutoplayPolicies,BlockInsecurePrivateNetworkRequests,PreloadMediaEngagementData,OutOfBlinkCors,IsolateOrigins"
         };
 
         public static Dictionary<string, string> CefArguments = new()
@@ -135,6 +139,7 @@ namespace Sucrose.Shared.Engine.Manage
             { "enable-begin-frame-scheduling", "1" },
             { "disable-breakpad", "1" },
             { "disable-extensions", "1" },
+            { "disable-third-party-extensions", "1" },
 
             { "multi-threaded-message-loop", "1" },
             { "no-sandbox", "1" },
@@ -144,6 +149,7 @@ namespace Sucrose.Shared.Engine.Manage
 
             { "disable-web-security", "1" },
             { "disable-geolocation", "1" },
+            { "disable-oor-cors", "1" },
 
             { "disable-surfaces", "1" },
 
@@ -165,7 +171,9 @@ namespace Sucrose.Shared.Engine.Manage
 
             { "allow-file-access", "1" },
             { "allow-file-access-from-files", "1" },
-            { "allow-universal-access-from-files", "1" }
+            { "allow-universal-access-from-files", "1" },
+
+            { "disable-features", "MediaEngagementBypassAutoplayPolicies,BlockInsecurePrivateNetworkRequests,PreloadMediaEngagementData,OutOfBlinkCors,IsolateOrigins" }
         };
     }
 }

@@ -17,6 +17,8 @@ namespace Sucrose.Shared.Watchdog
 
         public static async Task Watch_FirstChanceException(Exception Exception)
         {
+            return;
+
             await WatchLog(Exception, "FIRST CHANCE");
         }
 
