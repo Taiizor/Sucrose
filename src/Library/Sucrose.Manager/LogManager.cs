@@ -2,7 +2,8 @@
 using SELT = Skylark.Enum.LogType;
 using SMHW = Sucrose.Manager.Helper.Writer;
 using SMR = Sucrose.Memory.Readonly;
-using SMV = Sucrose.Memory.Valuable;
+using SMMVL = Sucrose.Memory.Manage.Valuable.Log;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 
 namespace Sucrose.Manager
 {
@@ -18,7 +19,7 @@ namespace Sucrose.Manager
 
             threadId = SMR.Randomise.Next(1000, 9999);
 
-            logFilePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.LogFolder, string.Format(logFileName, SMV.LogFileDate));
+            logFilePath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.LogFolder, string.Format(logFileName, SMMVL.FileNameDate));
 
             Directory.CreateDirectory(Path.GetDirectoryName(logFilePath));
         }
@@ -43,7 +44,7 @@ namespace Sucrose.Manager
                     //
                 }
 
-                SMHW.WriteBasic(logFilePath, $"[{SMV.LogFileTime}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
+                SMHW.WriteBasic(logFilePath, $"[{SMMVL.FileTimeLine}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
             }
             finally
             {
@@ -73,7 +74,7 @@ namespace Sucrose.Manager
 
                 foreach (string message in messages)
                 {
-                    SMHW.WriteBasic(logFilePath, $"[{SMV.LogFileTime}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
+                    SMHW.WriteBasic(logFilePath, $"[{SMMVL.FileTimeLine}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
                 }
             }
             finally

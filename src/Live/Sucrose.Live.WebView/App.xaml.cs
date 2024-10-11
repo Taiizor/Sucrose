@@ -14,10 +14,13 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DialogType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
@@ -125,7 +128,7 @@ namespace Sucrose.Live.WebView
 
                 string Path = SMMI.WebViewLiveLogManager.LogFile();
 
-                SSSHW.Start(SMR.WebViewLive, Exception, Path);
+                SSSHW.Start(SMMRA.WebViewLive, Exception, Path);
 
                 Close();
             }
@@ -267,7 +270,7 @@ namespace Sucrose.Live.WebView
                             }
                         }
 
-                        Task<CoreWebView2Environment> Environment = CoreWebView2Environment.CreateAsync(null, Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.WebView2), Options);
+                        Task<CoreWebView2Environment> Environment = CoreWebView2Environment.CreateAsync(null, Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.WebView2), Options);
 
                         SSEWVMI.WebEngine.EnsureCoreWebView2Async(Environment.Result);
 
@@ -294,7 +297,7 @@ namespace Sucrose.Live.WebView
 
                             if (File.Exists(SSEMI.PropertiesPath))
                             {
-                                SSEMI.PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                                SSEMI.PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Properties);
                                 SSEMI.PropertiesFile = Path.Combine(SSEMI.PropertiesCache, $"{SSEMI.LibrarySelected}.json");
                                 SSEMI.WatcherFile = Path.Combine(SSEMI.PropertiesCache, $"*.{SSEMI.LibrarySelected}.json");
 
@@ -440,7 +443,7 @@ namespace Sucrose.Live.WebView
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (SSSHI.Basic(SMR.LiveMutex, SMR.WebViewLive) && SSEHR.Check())
+            if (SSSHI.Basic(SMMRM.Live, SMMRA.WebViewLive) && SSEHR.Check())
             {
                 if (SSSHC.Check())
                 {

@@ -13,8 +13,9 @@ using MessageBox = Wpf.Ui.Controls.MessageBox;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SMMVL = Sucrose.Memory.Manage.Valuable.Log;
 using SMR = Sucrose.Memory.Readonly;
-using SMV = Sucrose.Memory.Valuable;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
@@ -29,13 +30,13 @@ namespace Sucrose.Portal.ViewModels.Pages
 {
     public partial class SystemSettingViewModel : ViewModel, IDisposable
     {
-        private string StoreTemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store);
+        private string StoreTemporaryPath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store);
 
-        private string SettingTemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.SettingFolder);
+        private string SettingTemporaryPath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.SettingFolder);
 
-        private string CacheTemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder);
+        private string CacheTemporaryPath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder);
 
-        private string LogTemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.LogFolder);
+        private string LogTemporaryPath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.LogFolder);
 
         private DispatcherTimer InitializeTimer = new();
 
@@ -402,14 +403,14 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             SaveFileDialog SaveDialog = new()
             {
-                FileName = SMV.LogCompress,
+                FileName = SMMVL.FileNameCompress,
 
                 Filter = SRER.GetValue("Portal", "SystemSettingPage", "Log", "SaveDialogFilter"),
                 FilterIndex = 1,
 
                 Title = SRER.GetValue("Portal", "SystemSettingPage", "Log", "SaveDialogTitle"),
 
-                InitialDirectory = SMR.DesktopPath
+                InitialDirectory = SMMRP.Desktop
             };
 
             if (SaveDialog.ShowDialog() == true)

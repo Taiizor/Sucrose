@@ -13,6 +13,7 @@ using SEAT = Skylark.Enum.AssemblyType;
 using SHA = Skylark.Helper.Assemblies;
 using SHG = Skylark.Helper.Generator;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPETC = Sucrose.Portal.Extension.ThemeCreate;
 using SPETL = Sucrose.Portal.Extension.ThumbnailLoader;
@@ -298,7 +299,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             Button Button = sender as Button;
 
-            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMR.DesktopPath;
+            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMMRP.Desktop;
 
             OpenFileDialog FileDialog = new()
             {
@@ -356,7 +357,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             Button Button = sender as Button;
 
-            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMR.DesktopPath;
+            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMMRP.Desktop;
 
             OpenFileDialog FileDialog = new()
             {
@@ -400,7 +401,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             Button Button = sender as Button;
 
-            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMR.DesktopPath;
+            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMMRP.Desktop;
 
             OpenFileDialog FileDialog = new()
             {
@@ -465,7 +466,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             Button Button = sender as Button;
 
-            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMR.DesktopPath;
+            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMMRP.Desktop;
 
             OpenFileDialog FileDialog = new()
             {
@@ -511,7 +512,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void GifArea_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            string Startup = Loader != null && !string.IsNullOrEmpty($"{Loader.SourceUri}") && File.Exists(Loader.SourceUri.LocalPath) ? Path.GetDirectoryName(Loader.SourceUri.LocalPath) : SMR.DesktopPath;
+            string Startup = Loader != null && !string.IsNullOrEmpty($"{Loader.SourceUri}") && File.Exists(Loader.SourceUri.LocalPath) ? Path.GetDirectoryName(Loader.SourceUri.LocalPath) : SMMRP.Desktop;
 
             OpenFileDialog FileDialog = new()
             {
@@ -551,7 +552,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void VideoArea_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            string Startup = Loader != null && !string.IsNullOrEmpty($"{Loader.SourceUri}") && File.Exists(Loader.SourceUri.LocalPath) ? Path.GetDirectoryName(Loader.SourceUri.LocalPath) : SMR.DesktopPath;
+            string Startup = Loader != null && !string.IsNullOrEmpty($"{Loader.SourceUri}") && File.Exists(Loader.SourceUri.LocalPath) ? Path.GetDirectoryName(Loader.SourceUri.LocalPath) : SMMRP.Desktop;
 
             OpenFileDialog FileDialog = new()
             {

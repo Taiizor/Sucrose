@@ -1,7 +1,7 @@
 ﻿using SELLT = Skylark.Enum.LevelLogType;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -26,44 +26,44 @@ namespace Sucrose.Shared.Launcher.Command
                     SSLHK.StopSubprocess();
                 }
 
-                if (SSSHP.Work(SMR.Undo))
+                if (SSSHP.Work(SMMRA.Undo))
                 {
-                    SSSHP.Kill(SMR.Undo);
+                    SSSHP.Kill(SMMRA.Undo);
                 }
 
-                if (SSSHP.Work(SMR.Portal))
+                if (SSSHP.Work(SMMRA.Portal))
                 {
-                    SSSHP.Kill(SMR.Portal);
+                    SSSHP.Kill(SMMRA.Portal);
                 }
 
-                if (SSSHP.Work(SMR.Update))
+                if (SSSHP.Work(SMMRA.Update))
                 {
-                    SSSHP.Kill(SMR.Update);
+                    SSSHP.Kill(SMMRA.Update);
                 }
 
-                if (SSSHP.Work(SMR.Property))
+                if (SSSHP.Work(SMMRA.Property))
                 {
-                    SSSHP.Kill(SMR.Property);
+                    SSSHP.Kill(SMMRA.Property);
                 }
 
-                if (SSSHP.Work(SMR.Watchdog))
+                if (SSSHP.Work(SMMRA.Watchdog))
                 {
-                    SSSHP.Kill(SMR.Watchdog);
+                    SSSHP.Kill(SMMRA.Watchdog);
                 }
 
-                if (SSSHP.Work(SMR.Commandog))
+                if (SSSHP.Work(SMMRA.Commandog))
                 {
-                    SSSHP.Kill(SMR.Commandog);
+                    SSSHP.Kill(SMMRA.Commandog);
                 }
 
-                if (SSSHP.Work(SMR.Reportdog))
+                if (SSSHP.Work(SMMRA.Reportdog))
                 {
-                    SSSHP.Kill(SMR.Reportdog);
+                    SSSHP.Kill(SMMRA.Reportdog);
                 }
 
-                if (SSSHP.Work(SMR.Backgroundog))
+                if (SSSHP.Work(SMMRA.Backgroundog))
                 {
-                    SSSHP.Kill(SMR.Backgroundog);
+                    SSSHP.Kill(SMMRA.Backgroundog);
                 }
             }
 

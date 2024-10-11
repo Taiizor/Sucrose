@@ -1,8 +1,9 @@
 ﻿using System.IO;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SMMVL = Sucrose.Memory.Manage.Valuable.Log;
 using SMR = Sucrose.Memory.Readonly;
-using SMV = Sucrose.Memory.Valuable;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 
@@ -14,14 +15,14 @@ namespace Sucrose.Shared.Launcher.Helper
         {
             SaveFileDialog SaveDialog = new()
             {
-                FileName = SMV.LogCompress,
+                FileName = SMMVL.FileNameCompress,
 
                 Filter = SRER.GetValue("Launcher", "SaveDialogFilter"),
                 FilterIndex = 1,
 
                 Title = SRER.GetValue("Launcher", "SaveDialogTitle"),
 
-                InitialDirectory = SMR.DesktopPath
+                InitialDirectory = SMMRP.Desktop
             };
 
             if (SaveDialog.ShowDialog() == true)
@@ -30,8 +31,8 @@ namespace Sucrose.Shared.Launcher.Helper
 
                 string[] Sources = new[]
                 {
-                    Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.LogFolder),
-                    Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.SettingFolder)
+                    Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.LogFolder),
+                    Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.SettingFolder)
                 };
 
                 string[] Excludes = new[]

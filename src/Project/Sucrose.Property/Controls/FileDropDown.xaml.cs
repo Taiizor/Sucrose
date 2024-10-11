@@ -10,6 +10,7 @@ using SSSHA = Sucrose.Shared.Space.Helper.Access;
 using SSTMFDDM = Sucrose.Shared.Theme.Model.FileDropDownModel;
 using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 
 namespace Sucrose.Property.Controls
 {
@@ -93,7 +94,7 @@ namespace Sucrose.Property.Controls
 
                     Multiselect = false,
 
-                    InitialDirectory = SMR.DesktopPath
+                    InitialDirectory = SMMRP.Desktop
                 };
 
                 if (FileDialog.ShowDialog() == true)

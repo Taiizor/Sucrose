@@ -12,6 +12,7 @@ using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
@@ -155,7 +156,7 @@ namespace Sucrose.Portal.Views.Controls
                 SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
 
                 string LibraryPath = Path.Combine(SMMM.LibraryLocation, Keys);
-                string TemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
+                string TemporaryPath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
 
                 switch (SSDMM.StoreServerType)
                 {

@@ -11,7 +11,8 @@ using SHA = Skylark.Helper.Assemblies;
 using SHC = Skylark.Helper.Culture;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SPMAC = Sucrose.Portal.Models.AppConfig;
 using SPSAHS = Sucrose.Portal.Services.ApplicationHostService;
 using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
@@ -205,7 +206,7 @@ namespace Sucrose.Portal
 
                 string Path = SMMI.PortalLogManager.LogFile();
 
-                SSSHW.Start(SMR.Portal, Exception, Path);
+                SSSHW.Start(SMMRA.Portal, Exception, Path);
 
                 Close();
             }
@@ -239,7 +240,7 @@ namespace Sucrose.Portal
 
             ShutdownMode = ShutdownMode.OnLastWindowClose;
 
-            if (SSSHI.Basic(SMR.PortalMutex, SMR.Portal))
+            if (SSSHI.Basic(SMMRM.Portal, SMMRA.Portal))
             {
                 Configure();
             }

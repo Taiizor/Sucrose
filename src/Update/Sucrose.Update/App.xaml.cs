@@ -4,7 +4,8 @@ using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSCEUET = Sucrose.Shared.Core.Enum.UpdateExtensionType;
@@ -93,7 +94,7 @@ namespace Sucrose.Update
                 string Text = SRER.GetValue("Update", "HelpText");
                 string Source = SSSHE.Change(SUMI.Source, SSCHU.GetDescription(SSCEUET.Executable));
 
-                SSSHW.Start(SMR.Update, Exception, Path, Source, Text);
+                SSSHW.Start(SMMRA.Update, Exception, Path, Source, Text);
 
                 Close();
             }
@@ -133,7 +134,7 @@ namespace Sucrose.Update
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (SSSHI.Basic(SMR.UpdateMutex, SMR.Update))
+            if (SSSHI.Basic(SMMRM.Update, SMMRA.Update))
             {
                 SMMI.UpdateSettingManager.SetSetting(SMC.UpdateState, false);
 

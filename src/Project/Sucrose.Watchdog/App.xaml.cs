@@ -19,6 +19,7 @@ using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 using SSSHE = Sucrose.Shared.Space.Helper.Exceptioner;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SSSHUE = Sucrose.Shared.Space.Helper.Unique;
 using SSSHUR = Sucrose.Shared.Space.Helper.User;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
@@ -27,6 +28,8 @@ using SSSMDD = Sucrose.Shared.Space.Model.DiagnosticsData;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHSI = Skylark.Wing.Helper.SystemInfo;
 using SWNM = Skylark.Wing.Native.Methods;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SWVDEMB = Sucrose.Watchdog.View.DarkErrorMessageBox;
 using SWVLEMB = Sucrose.Watchdog.View.LightErrorMessageBox;
 
@@ -103,7 +106,7 @@ namespace Sucrose.Watchdog
 
                 string Path = SMMI.WatchdogLogManager.LogFile();
 
-                SSSHW.Start(SMR.Watchdog, Exception, Path);
+                SSSHW.Start(SMMRA.Watchdog, Exception, Path);
 
                 Close();
             }
@@ -132,9 +135,9 @@ namespace Sucrose.Watchdog
 
                     SSSMDD DiagnosticsData = new(Id, SSSHUE.Generate($"{Name}-{Model}-{Manufacturer}"), Application, AppId, Name, Model, SSCHOS.GetServer(), SMMM.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), JObject.Parse(Arguments[1]), SSCHOS.GetWorkstation(), Culture.Name, SSCHA.GetText(), Manufacturer, Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
 
-                    SSSHW.Write(Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.ReportFolder, $"{Id}.json"), JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented));
+                    SSSHW.Write(Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.ReportFolder, $"{Id}.json"), JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented));
 
-                    if (Application != SMR.Watchdog)
+                    if (Application != SMMRA.Watchdog)
                     {
                         SSSHP.Kill(Application);
                     }

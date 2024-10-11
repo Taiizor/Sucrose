@@ -17,6 +17,8 @@ using SSEVVG = Sucrose.Shared.Engine.Vexana.View.Gif;
 using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
@@ -107,7 +109,7 @@ namespace Sucrose.Live.Vexana
 
                 string Path = SMMI.VexanaLiveLogManager.LogFile();
 
-                SSSHW.Start(SMR.VexanaLive, Exception, Path);
+                SSSHW.Start(SMMRA.VexanaLive, Exception, Path);
 
                 Close();
             }
@@ -198,7 +200,7 @@ namespace Sucrose.Live.Vexana
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (SSSHI.Basic(SMR.LiveMutex, SMR.VexanaLive) && SSEHR.Check())
+            if (SSSHI.Basic(SMMRM.Live, SMMRA.VexanaLive) && SSEHR.Check())
             {
                 if (SSSHC.Check())
                 {

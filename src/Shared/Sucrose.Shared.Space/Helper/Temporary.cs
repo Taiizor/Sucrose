@@ -3,7 +3,7 @@ using SECNT = Skylark.Enum.ClearNumericType;
 using SEMST = Skylark.Enum.ModeStorageType;
 using SEST = Skylark.Enum.StorageType;
 using SHN = Skylark.Helper.Numeric;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandType;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
@@ -19,14 +19,14 @@ namespace Sucrose.Shared.Space.Helper
         {
             SSLHK.Stop();
 
-            SSSHP.Kill(SMR.Undo);
-            SSSHP.Kill(SMR.Portal);
-            SSSHP.Kill(SMR.Update);
-            SSSHP.Kill(SMR.Launcher);
-            SSSHP.Kill(SMR.Property);
-            SSSHP.Kill(SMR.Watchdog);
-            SSSHP.Kill(SMR.Reportdog);
-            SSSHP.Kill(SMR.Backgroundog);
+            SSSHP.Kill(SMMRA.Undo);
+            SSSHP.Kill(SMMRA.Portal);
+            SSSHP.Kill(SMMRA.Update);
+            SSSHP.Kill(SMMRA.Launcher);
+            SSSHP.Kill(SMMRA.Property);
+            SSSHP.Kill(SMMRA.Watchdog);
+            SSSHP.Kill(SMMRA.Reportdog);
+            SSSHP.Kill(SMMRA.Backgroundog);
 
             await Task.Delay(TimeSpan.FromSeconds(3));
 

@@ -21,6 +21,8 @@ using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 
 namespace Sucrose.Live.Aurora
 {
@@ -107,7 +109,7 @@ namespace Sucrose.Live.Aurora
 
                 string Path = SMMI.AuroraLiveLogManager.LogFile();
 
-                SSSHW.Start(SMR.AuroraLive, Exception, Path);
+                SSSHW.Start(SMMRA.AuroraLive, Exception, Path);
 
                 Close();
             }
@@ -202,7 +204,7 @@ namespace Sucrose.Live.Aurora
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (SSSHI.Basic(SMR.LiveMutex, SMR.AuroraLive) && SSEHR.Check())
+            if (SSSHI.Basic(SMMRM.Live, SMMRA.AuroraLive) && SSEHR.Check())
             {
                 if (SSSHC.Check())
                 {

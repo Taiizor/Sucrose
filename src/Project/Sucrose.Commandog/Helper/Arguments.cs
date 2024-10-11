@@ -16,6 +16,8 @@ using SSSHT = Sucrose.Shared.Space.Helper.Temporary;
 using SWHWS = Skylark.Wing.Helper.WindowsStartup;
 using SWHWSM = Skylark.Wing.Helper.WindowsStartupMachine;
 using SWHWSP = Skylark.Wing.Helper.WindowsStartupPriority;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 
 namespace Sucrose.Commandog.Helper
 {
@@ -203,7 +205,7 @@ namespace Sucrose.Commandog.Helper
 
                                     SSLHK.StopSubprocess();
 
-                                    SSSHP.Kill(SMR.Backgroundog);
+                                    SSSHP.Kill(SMMRA.Backgroundog);
 
                                     SSLHR.Start();
 

@@ -7,6 +7,7 @@ using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPVCTD = Sucrose.Portal.Views.Controls.ThemeDelete;
@@ -220,7 +221,7 @@ namespace Sucrose.Portal.Views.Controls
 
                 await Task.Run(() =>
                 {
-                    string PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                    string PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Properties);
                     string PropertiesFile = Path.Combine(PropertiesCache, $"{Path.GetFileName(Theme)}.json");
 
                     if (File.Exists(PropertiesFile))

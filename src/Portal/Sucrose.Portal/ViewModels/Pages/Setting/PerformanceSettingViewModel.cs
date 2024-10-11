@@ -7,6 +7,7 @@ using SEST = Skylark.Enum.StorageType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMR = Sucrose.Memory.Readonly;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
@@ -1108,9 +1109,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
             else
             {
-                if (SSSHP.Work(SMR.Backgroundog))
+                if (SSSHP.Work(SMMRA.Backgroundog))
                 {
-                    SSSHP.Kill(SMR.Backgroundog);
+                    SSSHP.Kill(SMMRA.Backgroundog);
                 }
             }
         }

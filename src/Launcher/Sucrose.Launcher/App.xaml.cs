@@ -5,7 +5,8 @@ using SELLT = Skylark.Enum.LevelLogType;
 using SHC = Skylark.Helper.Culture;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDH = Sucrose.Shared.Discord.Hook;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
@@ -105,7 +106,7 @@ namespace Sucrose.Launcher
 
                 string Path = SMMI.LauncherLogManager.LogFile();
 
-                SSSHW.Start(SMR.Launcher, Exception, Path);
+                SSSHW.Start(SMMRA.Launcher, Exception, Path);
 
                 Close();
             }
@@ -155,7 +156,7 @@ namespace Sucrose.Launcher
 
             SMMI.LauncherLogManager.Log(SELLT.Info, "Application initializing..");
 
-            if (SSSHI.Basic(SMR.LauncherMutex, SMR.Launcher))
+            if (SSSHI.Basic(SMMRM.Launcher, SMMRA.Launcher))
             {
                 Configure();
 

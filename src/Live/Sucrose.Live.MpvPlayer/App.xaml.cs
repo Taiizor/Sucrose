@@ -18,6 +18,8 @@ using SSEMPVV = Sucrose.Shared.Engine.MpvPlayer.View.Video;
 using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
@@ -108,7 +110,7 @@ namespace Sucrose.Live.MpvPlayer
 
                 string Path = SMMI.MpvPlayerLiveLogManager.LogFile();
 
-                SSSHW.Start(SMR.MpvPlayerLive, Exception, Path);
+                SSSHW.Start(SMMRA.MpvPlayerLive, Exception, Path);
 
                 Close();
             }
@@ -203,7 +205,7 @@ namespace Sucrose.Live.MpvPlayer
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (SSSHI.Basic(SMR.LiveMutex, SMR.MpvPlayerLive) && SSEHR.Check())
+            if (SSSHI.Basic(SMMRM.Live, SMMRA.MpvPlayerLive) && SSEHR.Check())
             {
                 if (SSSHC.Check())
                 {

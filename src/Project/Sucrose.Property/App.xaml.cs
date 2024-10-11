@@ -15,7 +15,10 @@ using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 
 namespace Sucrose.Property
 {
@@ -91,7 +94,7 @@ namespace Sucrose.Property
 
                 string Path = SMMI.PropertyLogManager.LogFile();
 
-                SSSHW.Start(SMR.Property, Exception, Path);
+                SSSHW.Start(SMMRA.Property, Exception, Path);
 
                 Close();
             }
@@ -128,7 +131,7 @@ namespace Sucrose.Property
 
                         if (SPMI.Info.Type == SSDEWT.Web)
                         {
-                            SPMI.PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                            SPMI.PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Properties);
                             SPMI.PropertiesFile = Path.Combine(SPMI.PropertiesCache, $"{SPMI.LibrarySelected}.json");
                             SPMI.WatcherFile = Path.Combine(SPMI.PropertiesCache, $"*.{SPMI.LibrarySelected}.json");
 
@@ -186,7 +189,7 @@ namespace Sucrose.Property
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (SSSHI.Basic(SMR.PropertyMutex, SMR.Property))
+            if (SSSHI.Basic(SMMRM.Property, SMMRA.Property))
             {
                 Configure(e.Args);
             }

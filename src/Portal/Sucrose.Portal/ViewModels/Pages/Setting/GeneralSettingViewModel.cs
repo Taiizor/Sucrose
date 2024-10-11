@@ -17,6 +17,8 @@ using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
@@ -493,7 +495,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                 SMMI.LauncherSettingManager.SetSetting(SMC.Visible, State);
 
-                if (SSSHP.Work(SMR.Launcher))
+                if (SSSHP.Work(SMMRA.Launcher))
                 {
                     if (State)
                     {
@@ -630,7 +632,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             BackgroundImage.IsEnabled = false;
 
-            string Startup = string.IsNullOrEmpty(SMMM.BackgroundImage) ? SMR.DesktopPath : Path.GetDirectoryName(SMMM.BackgroundImage);
+            string Startup = string.IsNullOrEmpty(SMMM.BackgroundImage) ? SMMRP.Desktop : Path.GetDirectoryName(SMMM.BackgroundImage);
 
             OpenFileDialog FileDialog = new()
             {

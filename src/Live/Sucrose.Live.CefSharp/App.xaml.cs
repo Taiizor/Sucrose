@@ -9,11 +9,14 @@ using System.Windows;
 using Application = System.Windows.Application;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DialogType;
@@ -126,7 +129,7 @@ namespace Sucrose.Live.CefSharp
 
                 string Path = SMMI.CefSharpLiveLogManager.LogFile();
 
-                SSSHW.Start(SMR.CefSharpLive, Exception, Path);
+                SSSHW.Start(SMMRA.CefSharpLive, Exception, Path);
 
                 Close();
             }
@@ -262,7 +265,7 @@ namespace Sucrose.Live.CefSharp
                         {
                             UserAgent = SMMM.UserAgent,
                             PersistSessionCookies = true,
-                            CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.CefSharp)
+                            CachePath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.CefSharp)
                         };
 
                         SSEMI.BrowserSettings.CefSharp = SMMM.CefArguments;
@@ -321,7 +324,7 @@ namespace Sucrose.Live.CefSharp
 
                             if (File.Exists(SSEMI.PropertiesPath))
                             {
-                                SSEMI.PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                                SSEMI.PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Properties);
                                 SSEMI.PropertiesFile = Path.Combine(SSEMI.PropertiesCache, $"{SSEMI.LibrarySelected}.json");
                                 SSEMI.WatcherFile = Path.Combine(SSEMI.PropertiesCache, $"*.{SSEMI.LibrarySelected}.json");
 
@@ -474,7 +477,7 @@ namespace Sucrose.Live.CefSharp
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (SSSHI.Basic(SMR.LiveMutex, SMR.CefSharpLive) && SSEHR.Check())
+            if (SSSHI.Basic(SMMRM.Live, SMMRA.CefSharpLive) && SSEHR.Check())
             {
                 if (SSSHC.Check())
                 {

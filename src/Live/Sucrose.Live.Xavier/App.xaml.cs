@@ -20,6 +20,8 @@ using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Live.Xavier
@@ -107,7 +109,7 @@ namespace Sucrose.Live.Xavier
 
                 string Path = SMMI.XavierLiveLogManager.LogFile();
 
-                SSSHW.Start(SMR.XavierLive, Exception, Path);
+                SSSHW.Start(SMMRA.XavierLive, Exception, Path);
 
                 Close();
             }
@@ -198,7 +200,7 @@ namespace Sucrose.Live.Xavier
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (SSSHI.Basic(SMR.LiveMutex, SMR.XavierLive) && SSEHR.Check())
+            if (SSSHI.Basic(SMMRM.Live, SMMRA.XavierLive) && SSEHR.Check())
             {
                 if (SSSHC.Check())
                 {

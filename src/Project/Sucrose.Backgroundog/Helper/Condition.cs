@@ -18,6 +18,8 @@ using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -106,7 +108,7 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         SSSEL.Resume(SBMI.Live);
 
-                        if (SMR.WebViewLive.Contains(SBMI.Live.ProcessName) || SMR.CefSharpLive.Contains(SBMI.Live.ProcessName))
+                        if (SMMRA.WebViewLive.Contains(SBMI.Live.ProcessName) || SMMRA.CefSharpLive.Contains(SBMI.Live.ProcessName))
                         {
                             try
                             {

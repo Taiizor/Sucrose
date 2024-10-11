@@ -16,6 +16,8 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSENVV = Sucrose.Shared.Engine.Nebula.View.Video;
 using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
@@ -107,7 +109,7 @@ namespace Sucrose.Live.Nebula
 
                 string Path = SMMI.NebulaLiveLogManager.LogFile();
 
-                SSSHW.Start(SMR.NebulaLive, Exception, Path);
+                SSSHW.Start(SMMRA.NebulaLive, Exception, Path);
 
                 Close();
             }
@@ -198,7 +200,7 @@ namespace Sucrose.Live.Nebula
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (SSSHI.Basic(SMR.LiveMutex, SMR.NebulaLive) && SSEHR.Check())
+            if (SSSHI.Basic(SMMRM.Live, SMMRA.NebulaLive) && SSEHR.Check())
             {
                 if (SSSHC.Check())
                 {

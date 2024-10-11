@@ -15,6 +15,7 @@ using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
@@ -114,7 +115,7 @@ namespace Sucrose.Portal.Views.Windows
 
             SXAGAB.SetClientUserAgent(SMMM.UserAgent);
             SXAGAB.SetDownloadCacheExpiration(TimeSpan.FromHours(SMMM.StoreDuration));
-            SXAGAB.SetDownloadCacheLocation(Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary));
+            SXAGAB.SetDownloadCacheLocation(Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary));
         }
 
         private void ApplyTheme(Button Button)

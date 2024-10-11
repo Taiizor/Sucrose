@@ -4,13 +4,14 @@ using SSHD = Sucrose.Signal.Helper.Deleter;
 using SSHR = Sucrose.Signal.Helper.Reader;
 using SSHW = Sucrose.Signal.Helper.Writer;
 using Timer = System.Timers.Timer;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 
 namespace Sucrose.Signal
 {
     public class SignalT(string Name)
     {
         private readonly JsonSerializerSettings SerializerSettings = new() { TypeNameHandling = TypeNameHandling.None, Formatting = Formatting.None };
-        private readonly string Source = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.SignalT);
+        private readonly string Source = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.SignalT);
         private FileSystemWatcher FileWatcher;
 
         public FileSystemEventHandler CreatedEventHandler;

@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using Wpf.Ui.Controls;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
@@ -72,7 +73,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     Title = SRER.GetValue("Portal", "ThemeShare", "SaveDialogTitle"),
 
-                    InitialDirectory = SMR.DesktopPath
+                    InitialDirectory = SMMRP.Desktop
                 };
 
                 if (SaveDialog.ShowDialog() == true)
@@ -98,7 +99,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     await Task.Delay(500);
 
-                    string StoreFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
+                    string StoreFile = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 
                     bool Result = SSDMM.StoreServerType switch
                     {

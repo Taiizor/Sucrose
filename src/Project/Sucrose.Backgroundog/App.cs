@@ -4,6 +4,8 @@ using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SHC = Skylark.Helper.Culture;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
@@ -21,7 +23,7 @@ namespace Sucrose.Backgroundog
 
                 SHC.All = new CultureInfo(SMMM.Culture, true);
 
-                if (SSSHI.Basic(SMR.BackgroundogMutex, SMR.Backgroundog))
+                if (SSSHI.Basic(SMMRM.Backgroundog, SMMRA.Backgroundog))
                 {
                     SSSHS.Apply();
 

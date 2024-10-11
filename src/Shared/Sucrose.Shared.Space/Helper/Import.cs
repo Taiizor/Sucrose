@@ -1,4 +1,6 @@
 ﻿using System.IO;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
@@ -13,14 +15,14 @@ namespace Sucrose.Shared.Space.Helper
         {
             SSLHK.Stop();
 
-            SSSHP.Kill(SMR.Undo);
-            SSSHP.Kill(SMR.Portal);
-            SSSHP.Kill(SMR.Update);
-            SSSHP.Kill(SMR.Launcher);
-            SSSHP.Kill(SMR.Property);
-            SSSHP.Kill(SMR.Watchdog);
-            SSSHP.Kill(SMR.Reportdog);
-            SSSHP.Kill(SMR.Backgroundog);
+            SSSHP.Kill(SMMRA.Undo);
+            SSSHP.Kill(SMMRA.Portal);
+            SSSHP.Kill(SMMRA.Update);
+            SSSHP.Kill(SMMRA.Launcher);
+            SSSHP.Kill(SMMRA.Property);
+            SSSHP.Kill(SMMRA.Watchdog);
+            SSSHP.Kill(SMMRA.Reportdog);
+            SSSHP.Kill(SMMRA.Backgroundog);
 
             await Task.Delay(TimeSpan.FromSeconds(3));
 
@@ -29,14 +31,14 @@ namespace Sucrose.Shared.Space.Helper
                 Directory.CreateDirectory(Destination);
             }
 
-            if (!Directory.Exists(Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.SettingFolder)))
+            if (!Directory.Exists(Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.SettingFolder)))
             {
-                Directory.CreateDirectory(Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.SettingFolder));
+                Directory.CreateDirectory(Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.SettingFolder));
             }
 
             foreach (string Setting in Settings(Destination))
             {
-                File.Copy(Setting, Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.SettingFolder, Path.GetFileName(Setting)), true);
+                File.Copy(Setting, Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.SettingFolder, Path.GetFileName(Setting)), true);
             }
 
             await Task.Delay(TimeSpan.FromSeconds(1));

@@ -5,6 +5,7 @@ using SHG = Skylark.Helper.Generator;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCTI = Sucrose.Portal.Views.Controls.ThemeImport;
@@ -81,7 +82,7 @@ namespace Sucrose.Portal.Views.Pages
 
         private void CheckShowcase()
         {
-            string ShowcasePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.Showcase);
+            string ShowcasePath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.Showcase);
 
             if (Directory.Exists(ShowcasePath))
             {
@@ -125,7 +126,7 @@ namespace Sucrose.Portal.Views.Pages
                 {
                     foreach (string Folder in Folders)
                     {
-                        string PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                        string PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Properties);
                         string PropertiesFile = Path.Combine(PropertiesCache, $"{Path.GetFileName(Folder)}.json");
                         string InfoPath = Path.Combine(Folder, SMR.SucroseInfo);
 

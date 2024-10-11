@@ -2,6 +2,7 @@
 using System.Windows;
 using Wpf.Ui.Abstractions.Controls;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;
 using SPVPSBSP = Sucrose.Portal.Views.Pages.Store.BrokenStorePage;
@@ -47,8 +48,8 @@ namespace Sucrose.Portal.Views.Pages
         {
             if (SSSHN.GetHostEntry())
             {
-                string PatternFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.PatternFile);
-                string StoreFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
+                string PatternFile = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.PatternFile);
+                string StoreFile = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 
                 bool Result = SSDMM.StoreServerType switch
                 {
