@@ -16,6 +16,7 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWUS = Skylark.Wing.Utility.Screene;
+using SMMCA = Sucrose.Memory.Manage.Constant.Aurora;
 
 namespace Sucrose.Shared.Engine.Aurora.View
 {
@@ -31,7 +32,7 @@ namespace Sucrose.Shared.Engine.Aurora.View
             SSEAMI.Application = Application;
             SSEAMI.ApplicationArguments = Arguments;
             SSEAMI.ApplicationName = Path.GetFileName(Application);
-            SMMI.AuroraSettingManager.SetSetting(SMC.App, SSEAMI.ApplicationName);
+            SMMI.AuroraSettingManager.SetSetting(SMMCA.AppProcessName, SSEAMI.ApplicationName);
 
             SourceInitialized += (s, e) =>
             {

@@ -24,6 +24,7 @@ using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
 using TextBox = Wpf.Ui.Controls.TextBox;
+using SMMCH = Sucrose.Memory.Manage.Constant.Hook;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -652,7 +653,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void DiscordStateChecked(bool State)
         {
-            SMMI.HookSettingManager.SetSetting(SMC.DiscordState, State);
+            SMMI.HookSettingManager.SetSetting(SMMCH.DiscordState, State);
         }
 
         private void DeveloperModeChecked(bool State)
@@ -662,7 +663,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void DiscordRefreshChecked(bool State)
         {
-            SMMI.HookSettingManager.SetSetting(SMC.DiscordRefresh, State);
+            SMMI.HookSettingManager.SetSetting(SMMCH.DiscordRefresh, State);
         }
 
         private void UserAgentChanged(TextBox TextBox)
@@ -718,7 +719,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             if (NewValue != SMMM.DiscordDelay)
             {
-                SMMI.HookSettingManager.SetSetting(SMC.DiscordDelay, NewValue);
+                SMMI.HookSettingManager.SetSetting(SMMCH.DiscordDelay, NewValue);
             }
         }
 

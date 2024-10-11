@@ -4,6 +4,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SMMCU = Sucrose.Memory.Manage.Constant.User;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -61,7 +62,7 @@ namespace Sucrose.Portal.Views.Controls
             GC.Collect();
             GC.SuppressFinalize(this);
 
-            SMMI.UserSettingManager.SetSetting(SMC.HintTrayIcon, false);
+            SMMI.UserSettingManager.SetSetting(SMMCU.HintTrayIcon, false);
         }
     }
 }

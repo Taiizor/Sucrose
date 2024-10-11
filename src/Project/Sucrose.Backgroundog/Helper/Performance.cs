@@ -14,6 +14,7 @@ using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSSEL = Sucrose.Shared.Space.Extension.Lifecycle;
+using SMMCA = Sucrose.Memory.Manage.Constant.Aurora;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -124,9 +125,9 @@ namespace Sucrose.Backgroundog.Helper
 
                 if (SBMI.PausePerformance == SSDEPPT.Heavy)
                 {
-                    if (!string.IsNullOrEmpty(SMMM.App))
+                    if (!string.IsNullOrEmpty(SMMM.AppProcessName))
                     {
-                        SBMI.Apps = SSSHP.Gets(SMMM.App);
+                        SBMI.Apps = SSSHP.Gets(SMMM.AppProcessName);
 
                         if (SBMI.Apps != null)
                         {

@@ -8,6 +8,7 @@ using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SWUD = Skylark.Wing.Utility.Desktop;
+using SMMCA = Sucrose.Memory.Manage.Constant.Aurora;
 
 namespace Sucrose.Shared.Live.Helper
 {
@@ -17,14 +18,14 @@ namespace Sucrose.Shared.Live.Helper
         {
             SSSHL.Kill();
 
-            if (!string.IsNullOrEmpty(SMMM.App))
+            if (!string.IsNullOrEmpty(SMMM.AppProcessName))
             {
-                SSSHP.Kill(SMMM.App);
+                SSSHP.Kill(SMMM.AppProcessName);
             }
 
             SWUD.RefreshDesktop();
 
-            SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
+            SMMI.AuroraSettingManager.SetSetting(SMMCA.AppProcessName, string.Empty);
         }
 
         public static void StopSubprocess()

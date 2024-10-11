@@ -16,8 +16,4 @@
         <Optimize>false</Optimize>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="Manage\Constant\" />
-    </ItemGroup>
-
 </Project>

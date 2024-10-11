@@ -20,6 +20,7 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMCA = Sucrose.Memory.Manage.Constant.Aurora;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -133,9 +134,9 @@ namespace Sucrose.Backgroundog.Helper
 
                 if (SBMI.PausePerformance == SSDEPPT.Heavy)
                 {
-                    if (!string.IsNullOrEmpty(SMMM.App))
+                    if (!string.IsNullOrEmpty(SMMM.AppProcessName))
                     {
-                        SBMI.Apps = SSSHP.Gets(SMMM.App);
+                        SBMI.Apps = SSSHP.Gets(SMMM.AppProcessName);
 
                         if (SBMI.Apps != null)
                         {

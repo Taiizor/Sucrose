@@ -12,6 +12,7 @@ using SHC = Skylark.Helper.Culture;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
+using SMMCU = Sucrose.Memory.Manage.Constant.User;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
@@ -218,7 +219,7 @@ namespace Sucrose.Live.CefSharp
                         Configure();
                         break;
                     case SSDEDT.Download:
-                        SMMI.UserSettingManager.SetSetting(SMC.CefsharpContinue, true);
+                        SMMI.UserSettingManager.SetSetting(SMMCU.CefsharpContinue, true);
                         Downloader();
                         break;
                     case SSDEDT.Remember:
@@ -233,7 +234,7 @@ namespace Sucrose.Live.CefSharp
 
         protected void Remember()
         {
-            SMMI.UserSettingManager.SetSetting(SMC.CefSharpTime, DateTime.Now.AddDays(1));
+            SMMI.UserSettingManager.SetSetting(SMMCU.CefSharpTime, DateTime.Now.AddDays(1));
 
             Configure();
         }

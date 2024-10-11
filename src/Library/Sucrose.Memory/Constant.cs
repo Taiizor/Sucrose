@@ -2,8 +2,6 @@
 {
     public static class Constant
     {
-        public const string App = "App";
-
         public const string Key = "Key";
 
         public const string Loop = "Loop";
@@ -36,8 +34,6 @@
 
         public const string PingType = "PingType";
 
-        public const string Showcase = "Showcase";
-
         public const string GifEngine = "GifEngine";
 
         public const string InputType = "InputType";
@@ -66,8 +62,6 @@
 
         public const string UploadType = "UploadType";
 
-        public const string Information = "Information";
-
         public const string LibraryMove = "LibraryMove";
 
         public const string MemoryUsage = "MemoryUsage";
@@ -82,25 +76,15 @@
 
         public const string VideoEngine = "VideoEngine";
 
-        public const string WebViewTime = "WebViewTime";
-
         public const string BackdropType = "BackdropType";
 
         public const string BatteryUsage = "BatteryUsage";
 
         public const string CefArguments = "CefArguments";
 
-        public const string CefSharpTime = "CefSharpTime";
-
         public const string CycylingTime = "CycylingTime";
 
-        public const string DiscordDelay = "DiscordDelay";
-
-        public const string DiscordState = "DiscordState";
-
         public const string DownloadType = "DownloadType";
-
-        public const string HintTrayIcon = "HintTrayIcon";
 
         public const string LibraryStart = "LibraryStart";
 
@@ -138,8 +122,6 @@
 
         public const string CpuPerformance = "CpuPerformance";
 
-        public const string DiscordRefresh = "DiscordRefresh";
-
         public const string GpuPerformance = "GpuPerformance";
 
         public const string GraphicAdapter = "GraphicAdapter";
@@ -174,13 +156,9 @@
 
         public const string UpdateLimitType = "UpdateLimitType";
 
-        public const string WebViewContinue = "WebViewContinue";
-
         public const string AdvertisingDelay = "AdvertisingDelay";
 
         public const string AdvertisingState = "AdvertisingState";
-
-        public const string CefsharpContinue = "CefsharpContinue";
 
         public const string ClosePerformance = "ClosePerformance";
 

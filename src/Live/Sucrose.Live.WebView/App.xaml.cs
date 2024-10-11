@@ -18,6 +18,7 @@ using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DialogType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SMMCU = Sucrose.Memory.Manage.Constant.User;
 using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
@@ -197,7 +198,7 @@ namespace Sucrose.Live.WebView
                         Configure();
                         break;
                     case SSDEDT.Download:
-                        SMMI.UserSettingManager.SetSetting(SMC.WebViewContinue, true);
+                        SMMI.UserSettingManager.SetSetting(SMMCU.WebViewContinue, true);
                         Downloader();
                         break;
                     case SSDEDT.Remember:
@@ -212,7 +213,7 @@ namespace Sucrose.Live.WebView
 
         protected void Remember()
         {
-            SMMI.UserSettingManager.SetSetting(SMC.WebViewTime, DateTime.Now.AddDays(1));
+            SMMI.UserSettingManager.SetSetting(SMMCU.WebViewTime, DateTime.Now.AddDays(1));
 
             Configure();
         }

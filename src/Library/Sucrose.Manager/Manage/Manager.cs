@@ -10,6 +10,9 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SMMCH = Sucrose.Memory.Manage.Constant.Hook;
+using SMMCU = Sucrose.Memory.Manage.Constant.User;
+using SMMCA = Sucrose.Memory.Manage.Constant.Aurora;
 
 namespace Sucrose.Manager.Manage
 {
@@ -61,6 +64,8 @@ namespace Sucrose.Manager.Manage
 
         public static int PingValue => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.PingValue, 100), 0, 1000);
 
+        public static int DiscordDelay => SHS.Clamp(SMMI.HookSettingManager.GetSettingStable(SMMCH.DiscordDelay, 60), 60, 3600);
+
         public static int AdaptiveMargin => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveMargin, 5), 5, 25);
 
         public static int CycylingTime => SHS.Clamp(SMMI.CyclingSettingManager.GetSettingStable(SMC.CycylingTime, 30), 1, 999);
@@ -68,8 +73,6 @@ namespace Sucrose.Manager.Manage
         public static List<string> WebArguments => SMMI.EngineSettingManager.GetSetting(SMC.WebArguments, new List<string>());
 
         public static int StoreDuration => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.StoreDuration, 3), 1, 24);
-
-        public static int DiscordDelay => SHS.Clamp(SMMI.HookSettingManager.GetSettingStable(SMC.DiscordDelay, 60), 60, 3600);
 
         public static int GpuUsage => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.GpuUsage, 70), 0, 100);
 
@@ -93,17 +96,21 @@ namespace Sucrose.Manager.Manage
 
         public static string BackgroundImage => SMMI.PortalSettingManager.GetSetting(SMC.BackgroundImage, string.Empty);
 
+        public static string AppProcessName => SMMI.AuroraSettingManager.GetSetting(SMMCA.AppProcessName, string.Empty);
+
         public static bool PausePerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.PausePerformance, false);
 
         public static bool ClosePerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.ClosePerformance, false);
+
+        public static List<string> Showcase => SMMI.UserSettingManager.GetSetting(SMMCU.Showcase, new List<string>());
+
+        public static DateTime CefSharpTime => SMMI.UserSettingManager.GetSetting(SMMCU.CefSharpTime, new DateTime());
 
         public static SESET UploadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.UploadType, SESET.Kilobyte);
 
         public static bool LibraryPreviewHide => SMMI.PortalSettingManager.GetSetting(SMC.LibraryPreviewHide, false);
 
-        public static List<string> Showcase => SMMI.UserSettingManager.GetSetting(SMC.Showcase, new List<string>());
-
-        public static DateTime CefSharpTime => SMMI.UserSettingManager.GetSetting(SMC.CefSharpTime, new DateTime());
+        public static DateTime WebViewTime => SMMI.UserSettingManager.GetSetting(SMMCU.WebViewTime, new DateTime());
 
         public static int Volume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100), 0, 100);
 
@@ -113,11 +120,11 @@ namespace Sucrose.Manager.Manage
 
         public static SESNT ScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SESNT.DisplayBound);
 
-        public static DateTime WebViewTime => SMMI.UserSettingManager.GetSetting(SMC.WebViewTime, new DateTime());
-
         public static DateTime UpdateTime => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateTime, new DateTime());
 
         public static bool StorePreviewHide => SMMI.PortalSettingManager.GetSetting(SMC.StorePreviewHide, false);
+
+        public static bool CefsharpContinue => SMMI.UserSettingManager.GetSetting(SMMCU.CefsharpContinue, false);
 
         public static bool AudioRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.AudioRequired, false);
 
@@ -125,19 +132,19 @@ namespace Sucrose.Manager.Manage
 
         public static bool AdvertisingState => SMMI.DonateSettingManager.GetSetting(SMC.AdvertisingState, true);
 
+        public static bool WebViewContinue => SMMI.UserSettingManager.GetSetting(SMMCU.WebViewContinue, false);
+
         public static bool PipeRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.PipeRequired, false);
 
-        public static bool CefsharpContinue => SMMI.UserSettingManager.GetSetting(SMC.CefsharpContinue, false);
-
         public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
-
-        public static bool WebViewContinue => SMMI.UserSettingManager.GetSetting(SMC.WebViewContinue, false);
 
         public static bool LibraryConfirm => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryConfirm, true);
 
         public static bool LibraryPreview => SMMI.PortalSettingManager.GetSetting(SMC.LibraryPreview, false);
 
         public static bool LibraryDelete => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryDelete, false);
+
+        public static bool DiscordRefresh => SMMI.HookSettingManager.GetSetting(SMMCH.DiscordRefresh, true);
 
         public static bool DeveloperMode => SMMI.EngineSettingManager.GetSetting(SMC.DeveloperMode, false);
 
@@ -147,8 +154,6 @@ namespace Sucrose.Manager.Manage
 
         public static bool DonateVisible => SMMI.DonateSettingManager.GetSetting(SMC.DonateVisible, true);
 
-        public static bool DiscordRefresh => SMMI.HookSettingManager.GetSetting(SMC.DiscordRefresh, true);
-
         public static bool VolumeActive => SMMI.EngineSettingManager.GetSetting(SMC.VolumeActive, false);
 
         public static bool StorePreview => SMMI.PortalSettingManager.GetSetting(SMC.StorePreview, false);
@@ -157,13 +162,13 @@ namespace Sucrose.Manager.Manage
 
         public static bool LibraryStart => SMMI.EngineSettingManager.GetSetting(SMC.LibraryStart, true);
 
+        public static bool HintTrayIcon => SMMI.UserSettingManager.GetSetting(SMMCU.HintTrayIcon, true);
+
+        public static bool DiscordState => SMMI.HookSettingManager.GetSetting(SMMCH.DiscordState, true);
+
         public static bool UpdateState => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateState, false);
 
         public static bool LibraryMove => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryMove, true);
-
-        public static bool HintTrayIcon => SMMI.UserSettingManager.GetSetting(SMC.HintTrayIcon, true);
-
-        public static bool DiscordState => SMMI.HookSettingManager.GetSetting(SMC.DiscordState, true);
 
         public static bool Statistics => SMMI.GeneralSettingManager.GetSetting(SMC.Statistics, true);
 
@@ -176,8 +181,6 @@ namespace Sucrose.Manager.Manage
         public static bool AppExit => SMMI.LauncherSettingManager.GetSetting(SMC.AppExit, false);
 
         public static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);
-
-        public static string App => SMMI.AuroraSettingManager.GetSetting(SMC.App, string.Empty);
 
         public static bool Shuffle => SMMI.EngineSettingManager.GetSetting(SMC.Shuffle, true);
 

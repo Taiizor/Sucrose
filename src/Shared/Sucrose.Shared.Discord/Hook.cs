@@ -8,6 +8,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDMI = Sucrose.Shared.Discord.Manage.Internal;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SMMCH = Sucrose.Memory.Manage.Constant.Hook;
 
 namespace Sucrose.Shared.Discord
 {
@@ -49,12 +50,12 @@ namespace Sucrose.Shared.Discord
 
         public void Enable()
         {
-            SMMI.HookSettingManager.SetSetting(SMC.DiscordState, true);
+            SMMI.HookSettingManager.SetSetting(SMMCH.DiscordState, true);
         }
 
         public void Disable()
         {
-            SMMI.HookSettingManager.SetSetting(SMC.DiscordState, false);
+            SMMI.HookSettingManager.SetSetting(SMMCH.DiscordState, false);
         }
 
         public void SetPresence()

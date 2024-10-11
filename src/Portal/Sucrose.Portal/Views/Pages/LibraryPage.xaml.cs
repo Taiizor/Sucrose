@@ -11,6 +11,7 @@ using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCTI = Sucrose.Portal.Views.Controls.ThemeImport;
 using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
 using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
+using SMMCU = Sucrose.Memory.Manage.Constant.User;
 using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
@@ -106,7 +107,7 @@ namespace Sucrose.Portal.Views.Pages
 
                 if (State)
                 {
-                    SMMI.UserSettingManager.SetSetting(SMC.Showcase, Showcase);
+                    SMMI.UserSettingManager.SetSetting(SMMCU.Showcase, Showcase);
                 }
             }
         }
