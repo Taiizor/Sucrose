@@ -1,9 +1,9 @@
 ﻿namespace Sucrose.Shared.Space.Model
 {
-    internal class UpdateData(bool Silent, string Version)
+    internal class UpdateData(bool SilentMode, string AppVersion)
     {
-        public bool Silent { get; set; } = Silent;
+        public bool SilentMode { get; set; } = SilentMode;
 
-        public string Version { get; set; } = Version;
+        public string AppVersion { get; set; } = AppVersion;
     }
 }

@@ -1,11 +1,12 @@
 ﻿namespace Sucrose.Shared.Space.Model
 {
-    internal class SearchData(string Page, string Query, string Version)
+    internal class SearchData(string ActivePage, string AppVersion, string SearchQuery)
     {
-        public string Page { get; set; } = Page;
 
-        public string Query { get; set; } = Query;
+        public string ActivePage { get; set; } = ActivePage;
 
-        public string Version { get; set; } = Version;
+        public string AppVersion { get; set; } = AppVersion;
+
+        public string SearchQuery { get; set; } = SearchQuery;
     }
 }

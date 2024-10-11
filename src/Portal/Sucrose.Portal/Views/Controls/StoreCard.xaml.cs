@@ -125,7 +125,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     try
                     {
-                        SSSMSD StoreData = new(Wallpaper.Key, SSCHV.GetText(), $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}", $"{Info.AppVersion}", $"{Info.Version}");
+                        SSSMSD StoreData = new(SSCHV.GetText(), Wallpaper.Key, $"{Info.Version}", $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}", $"{Info.AppVersion}");
 
                         StringContent Content = new(JsonConvert.SerializeObject(StoreData, Formatting.Indented), Encoding.UTF8, "application/json");
 

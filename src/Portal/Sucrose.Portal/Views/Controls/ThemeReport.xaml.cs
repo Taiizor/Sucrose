@@ -221,7 +221,7 @@ namespace Sucrose.Portal.Views.Controls
 
                             try
                             {
-                                SSSMRD ReportData = new(Wallpaper.Key, ReportContact.Text, SSCHV.GetText(), $"{(ReportMode.SelectedItem as ComboBoxItem).Tag}", $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}", $"{Info.AppVersion}", ReportDescription.Text, $"{Info.Version}");
+                                SSSMRD ReportData = new(SSCHV.GetText(), ReportContact.Text, Wallpaper.Key, $"{(ReportMode.SelectedItem as ComboBoxItem).Tag}", $"{Info.Version}", $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}", ReportDescription.Text, $"{Info.AppVersion}");
 
                                 StringContent Content = new(JsonConvert.SerializeObject(ReportData, Formatting.Indented), Encoding.UTF8, "application/json");
 

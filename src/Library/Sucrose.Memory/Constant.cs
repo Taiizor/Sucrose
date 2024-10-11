@@ -6,8 +6,6 @@
 
         public const string Key = "Key";
 
-        public const string Exit = "Exit";
-
         public const string Loop = "Loop";
 
         public const string Adult = "Adult";
@@ -19,6 +17,8 @@
         public const string Themes = "Themes";
 
         public const string Volume = "Volume";
+
+        public const string AppExit = "AppExit";
 
         public const string Culture = "Culture";
 

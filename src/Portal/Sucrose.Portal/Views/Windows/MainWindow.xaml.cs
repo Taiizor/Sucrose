@@ -293,7 +293,7 @@ namespace Sucrose.Portal.Views.Windows
 
                             try
                             {
-                                SSSMSD SearchData = new(ActivePage, SearchBox.Text.Trim(), SSCHV.GetText());
+                                SSSMSD SearchData = new(ActivePage, SSCHV.GetText(), SearchBox.Text.Trim());
 
                                 StringContent Content = new(JsonConvert.SerializeObject(SearchData, Formatting.Indented), Encoding.UTF8, "application/json");
 

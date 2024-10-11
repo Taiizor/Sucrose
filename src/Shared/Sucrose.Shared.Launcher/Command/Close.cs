@@ -15,7 +15,7 @@ namespace Sucrose.Shared.Launcher.Command
         {
             SMMI.LauncherLogManager.Log(SELLT.Info, $"Application has been closed.");
 
-            if (SMMM.Exit)
+            if (SMMM.AppExit)
             {
                 if (SSSHL.Run())
                 {

@@ -172,6 +172,8 @@ namespace Sucrose.Manager.Manage
 
         public static bool Cycyling => SMMI.CyclingSettingManager.GetSetting(SMC.Cycyling, false);
 
+        public static bool AppExit => SMMI.LauncherSettingManager.GetSetting(SMC.AppExit, false);
+
         public static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);
 
         public static string App => SMMI.AuroraSettingManager.GetSetting(SMC.App, string.Empty);
@@ -181,8 +183,6 @@ namespace Sucrose.Manager.Manage
         public static bool Report => SMMI.GeneralSettingManager.GetSetting(SMC.Report, true);
 
         public static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
-
-        public static bool Exit => SMMI.LauncherSettingManager.GetSetting(SMC.Exit, false);
 
         public static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, true);
 

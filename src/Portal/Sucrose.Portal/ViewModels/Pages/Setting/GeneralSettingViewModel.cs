@@ -152,7 +152,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             CheckBox NotifyExit = new()
             {
                 Content = SRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "NotifyExit"),
-                IsChecked = SMMM.Exit
+                IsChecked = SMMM.AppExit
             };
 
             NotifyExit.Checked += (s, e) => NotifyExitChecked(true);
@@ -529,7 +529,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void NotifyExitChecked(bool State)
         {
-            SMMI.LauncherSettingManager.SetSetting(SMC.Exit, State);
+            SMMI.LauncherSettingManager.SetSetting(SMC.AppExit, State);
         }
 
         private void LibraryMoveChecked(bool State)

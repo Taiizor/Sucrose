@@ -1,13 +1,13 @@
 ﻿namespace Sucrose.Shared.Space.Model
 {
-    internal class FeedbackData(int Stars, string Message, string Version, string Category)
+    internal class FeedbackData(int VotedStar, string UserMessage, string AppVersion, string RelatedCategory)
     {
-        public int Stars { get; set; } = Stars;
+        public int VotedStar { get; set; } = VotedStar;
 
-        public string Message { get; set; } = Message;
+        public string AppVersion { get; set; } = AppVersion;
 
-        public string Version { get; set; } = Version;
+        public string UserMessage { get; set; } = UserMessage;
 
-        public string Category { get; set; } = Category;
+        public string RelatedCategory { get; set; } = RelatedCategory;
     }
 }

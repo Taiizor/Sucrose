@@ -63,11 +63,14 @@ namespace Sucrose.Mpv.NET.API
             Guard.AgainstNullOrEmptyOrWhiteSpaceString(dllPath, nameof(dllPath));
 
             dllHandle = PlatformDll.Utils.LoadLibrary(dllPath);
+
             if (dllHandle == IntPtr.Zero)
             {
                 int errorCode = Marshal.GetLastWin32Error();
+
                 //throw new MpvAPIException("Failed to load Mpv DLL. .NET apps by default are 32-bit so make sure you're loading the 32-bit DLL.");
-                throw new MpvAPIException($"Failed to load Mpv DLL. Error Code: {errorCode}. .NET apps by default are 32-bit so make sure you're loading the correct architecture DLL.");
+                throw new MpvAPIException($"Failed to load Mpv DLL. Error Code: {errorCode}. Make sure you're loading the correct architecture DLL.");
+                //throw new MpvAPIException($"Failed to load Mpv DLL. Error Code: {errorCode}. .NET apps by default are 32-bit so make sure you're loading the correct architecture DLL.");
             }
         }
 

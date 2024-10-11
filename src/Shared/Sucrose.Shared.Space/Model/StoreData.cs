@@ -1,15 +1,15 @@
 ﻿namespace Sucrose.Shared.Space.Model
 {
-    internal class StoreData(string Title, string Version, string Location, string AppVersion, string ThemeVersion)
+    internal class StoreData(string AppVersion, string WallpaperTitle, string WallpaperVersion, string WallpaperLocation, string WallpaperAppVersion)
     {
-        public string Title { get; set; } = Title;
-
-        public string Version { get; set; } = Version;
-
-        public string Location { get; set; } = Location;
-
         public string AppVersion { get; set; } = AppVersion;
 
-        public string ThemeVersion { get; set; } = ThemeVersion;
+        public string WallpaperTitle { get; set; } = WallpaperTitle;
+
+        public string WallpaperVersion { get; set; } = WallpaperVersion;
+
+        public string WallpaperLocation { get; set; } = WallpaperLocation;
+
+        public string WallpaperAppVersion { get; set; } = WallpaperAppVersion;
     }
 }

@@ -1,21 +1,21 @@
 ﻿namespace Sucrose.Shared.Space.Model
 {
-    internal class ReportData(string Title, string Contact, string Version, string Category, string Location, string AppVersion, string Description, string ThemeVersion)
+    internal class ReportData(string AppVersion, string ContactEmail, string WallpaperTitle, string RelatedCategory, string WallpaperVersion, string WallpaperLocation, string DescriptionMessage, string WallpaperAppVersion)
     {
-        public string Title { get; set; } = Title;
-
-        public string Contact { get; set; } = Contact;
-
-        public string Version { get; set; } = Version;
-
-        public string Category { get; set; } = Category;
-
-        public string Location { get; set; } = Location;
-
         public string AppVersion { get; set; } = AppVersion;
 
-        public string Description { get; set; } = Description;
+        public string ContactEmail { get; set; } = ContactEmail;
 
-        public string ThemeVersion { get; set; } = ThemeVersion;
+        public string WallpaperTitle { get; set; } = WallpaperTitle;
+
+        public string RelatedCategory { get; set; } = RelatedCategory;
+
+        public string WallpaperVersion { get; set; } = WallpaperVersion;
+
+        public string WallpaperLocation { get; set; } = WallpaperLocation;
+
+        public string DescriptionMessage { get; set; } = DescriptionMessage;
+
+        public string WallpaperAppVersion { get; set; } = WallpaperAppVersion;
     }
 }

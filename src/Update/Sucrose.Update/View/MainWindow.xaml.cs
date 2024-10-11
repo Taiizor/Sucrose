@@ -47,6 +47,7 @@ using SSSMUD = Sucrose.Shared.Space.Model.UpdateData;
 using SSSZEZ = Sucrose.Shared.SevenZip.Extension.Zip;
 using SSSZHZ = Sucrose.Shared.SevenZip.Helper.Zip;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SUHU = Sucrose.Update.Helper.Update;
 using SUMI = Sucrose.Update.Manage.Internal;
 using SUMM = Sucrose.Update.Manage.Manager;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
@@ -336,19 +337,12 @@ namespace Sucrose.Update.View
             {
                 Message.Text = SRER.GetValue("Update", "MessageText", "Listing");
 
-                switch (SSDMM.UpdateServerType)
+                Releases = SSDMM.UpdateServerType switch
                 {
-                    case SSDEUST.GitHub:
-                        //SSHG.SetUri(SMR.GitHubWebsite);
-                        break;
-                    case SSDEUST.Soferity:
-                        SSHG.SetUri(SMR.SoferityWebsite);
-                        break;
-                    default:
-                        break;
-                }
-
-                Releases = SSHG.ReleasesList(SMR.Owner, SMR.Repository, SMMM.UserAgent, SMMM.Key);
+                    SSDEUST.GitHub => SSHG.ReleasesList(SMR.Owner, SMR.Repository, SMMM.UserAgent, SMMM.Key),
+                    SSDEUST.Soferity => SUHU.ReleasesList($"{SMR.SoferityWebsite}/{SMR.SoferityUpdate}", SMMM.UserAgent),
+                    _ => new(),
+                };
 
                 if (Releases.Any())
                 {
