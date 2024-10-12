@@ -1,4 +1,5 @@
 ﻿using SMMRGH = Sucrose.Memory.Manage.Readonly.GitHub;
+using SMMRS = Sucrose.Memory.Manage.Readonly.Soferity;
 
 namespace Sucrose.Memory.Manage.Readonly
 {
