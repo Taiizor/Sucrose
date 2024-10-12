@@ -11,6 +11,8 @@ using SSEVEG = Sucrose.Shared.Engine.Vexana.Event.Gif;
 using SSEVHG = Sucrose.Shared.Engine.Vexana.Helper.Gif;
 using SSEVHP = Sucrose.Shared.Engine.Vexana.Helper.Parse;
 using SSEVMI = Sucrose.Shared.Engine.Vexana.Manage.Internal;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.Vexana.View
 {
@@ -52,7 +54,7 @@ namespace Sucrose.Shared.Engine.Vexana.View
 
             SSEVMI.ImageEngine.Stretch = (Stretch)SSEHD.GetStretch();
 
-            if (SMMM.PausePerformance)
+            if (SMMB.PausePerformance)
             {
                 SSEVHG.Pause();
 

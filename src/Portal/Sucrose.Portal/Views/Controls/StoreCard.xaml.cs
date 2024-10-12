@@ -44,6 +44,8 @@ using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -178,7 +180,7 @@ namespace Sucrose.Portal.Views.Controls
                 {
                     SSSHC.Folder(TemporaryPath, LibraryPath);
 
-                    if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
+                    if ((!SMMB.ClosePerformance && !SMMB.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
                     {
                         if (SMME.StoreStart)
                         {

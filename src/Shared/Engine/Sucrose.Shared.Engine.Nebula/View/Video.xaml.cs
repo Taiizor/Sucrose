@@ -11,6 +11,8 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSENEV = Sucrose.Shared.Engine.Nebula.Event.Video;
 using SSENHV = Sucrose.Shared.Engine.Nebula.Helper.Video;
 using SSENMI = Sucrose.Shared.Engine.Nebula.Manage.Internal;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.Nebula.View
 {
@@ -59,7 +61,7 @@ namespace Sucrose.Shared.Engine.Nebula.View
 
             SSENMI.MediaEngine.Stretch = (Stretch)SSEHD.GetStretch();
 
-            if (SMMM.PausePerformance)
+            if (SMMB.PausePerformance)
             {
                 SSENHV.Pause();
 

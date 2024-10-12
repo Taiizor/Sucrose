@@ -7,6 +7,7 @@ using SHC = Skylark.Helper.Culture;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
+using SMMU = Sucrose.Manager.Manage.Update;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -25,7 +26,7 @@ namespace Sucrose.Portal.Views.Controls
             string Version = SSCHV.GetText();
 
             Update.TitleText = string.Format(SRER.GetValue("Portal", "OtherAbout", "Update"), Version);
-            Update.DescriptionText = string.Format(SRER.GetValue("Portal", "OtherAbout", "Update", "Description"), SMMM.UpdateTime.ToString(SHC.CurrentUI));
+            Update.DescriptionText = string.Format(SRER.GetValue("Portal", "OtherAbout", "Update", "Description"), SMMU.UpdateTime.ToString(SHC.CurrentUI));
 
             HyperlinkButton Navigate = new()
             {

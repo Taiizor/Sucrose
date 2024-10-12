@@ -11,6 +11,8 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEXHG = Sucrose.Shared.Engine.Xavier.Helper.Gif;
 using SSEXMI = Sucrose.Shared.Engine.Xavier.Manage.Internal;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.Xavier.View
 {
@@ -55,7 +57,7 @@ namespace Sucrose.Shared.Engine.Xavier.View
 
             SSEXMI.ImageEngine.Stretch = (Stretch)SSEHD.GetStretch();
 
-            if (SMMM.PausePerformance)
+            if (SMMB.PausePerformance)
             {
                 SSEXHG.Pause();
 

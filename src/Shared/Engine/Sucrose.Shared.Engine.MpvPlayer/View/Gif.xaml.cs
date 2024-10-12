@@ -9,6 +9,8 @@ using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMPHG = Sucrose.Shared.Engine.MpvPlayer.Helper.Gif;
 using SSEMPMI = Sucrose.Shared.Engine.MpvPlayer.Manage.Internal;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.MpvPlayer.View
 {
@@ -53,7 +55,7 @@ namespace Sucrose.Shared.Engine.MpvPlayer.View
 
             SSEMPHG.SetStretch((Stretch)SSEHD.GetStretch());
 
-            if (SMMM.PausePerformance)
+            if (SMMB.PausePerformance)
             {
                 SSEMPHG.Pause();
 

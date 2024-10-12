@@ -5,7 +5,6 @@ using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SEST = Skylark.Enum.StorageType;
 using SMC = Sucrose.Memory.Constant;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
@@ -22,6 +21,8 @@ using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -54,8 +55,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             SPVCEC Counter = new()
             {
-                Expandable = !SMMM.PerformanceCounter,
-                IsExpand = !SMMM.PerformanceCounter,
+                Expandable = !SMMB.PerformanceCounter,
+                IsExpand = !SMMB.PerformanceCounter,
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
@@ -65,7 +66,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch CounterState = new()
             {
-                IsChecked = SMMM.PerformanceCounter
+                IsChecked = SMMB.PerformanceCounter
             };
 
             CounterState.Checked += (s, e) => CounterStateChecked(Counter, true);
@@ -190,7 +191,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
                 ClearButtonEnabled = false,
-                Value = SMMM.CpuUsage,
+                Value = SMMB.CpuUsage,
                 MaxDecimalPlaces = 0,
                 Maximum = 100,
                 MaxLength = 3,
@@ -261,7 +262,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                     GpuAdapter.Items.Add(Interface);
                 }
 
-                string SelectedAdapter = SMMM.GraphicAdapter;
+                string SelectedAdapter = SMMB.GraphicAdapter;
 
                 if (string.IsNullOrEmpty(SelectedAdapter))
                 {
@@ -302,7 +303,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
                 ClearButtonEnabled = false,
-                Value = SMMM.GpuUsage,
+                Value = SMMB.GpuUsage,
                 MaxDecimalPlaces = 0,
                 Maximum = 100,
                 MaxLength = 3,
@@ -366,7 +367,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
                 ClearButtonEnabled = false,
-                Value = SMMM.MemoryUsage,
+                Value = SMMB.MemoryUsage,
                 MaxDecimalPlaces = 0,
                 Maximum = 100,
                 MaxLength = 3,
@@ -437,7 +438,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                     NetworkAdapter.Items.Add(Interface);
                 }
 
-                string SelectedAdapter = SMMM.NetworkAdapter;
+                string SelectedAdapter = SMMB.NetworkAdapter;
 
                 if (string.IsNullOrEmpty(SelectedAdapter))
                 {
@@ -478,7 +479,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
                 ClearButtonEnabled = false,
-                Value = SMMM.UploadValue,
+                Value = SMMB.UploadValue,
                 MaxDecimalPlaces = 0,
                 Maximum = 99999999,
                 MaxLength = 8,
@@ -501,7 +502,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 NetworkUploadType.Items.Add(Type);
             }
 
-            NetworkUploadType.SelectedIndex = (int)SMMM.UploadType;
+            NetworkUploadType.SelectedIndex = (int)SMMB.UploadType;
 
             StackPanel NetworkDownloadContent = new()
             {
@@ -524,7 +525,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
                 ClearButtonEnabled = false,
-                Value = SMMM.DownloadValue,
+                Value = SMMB.DownloadValue,
                 MaxDecimalPlaces = 0,
                 Maximum = 99999999,
                 MaxLength = 8,
@@ -547,7 +548,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 NetworkDownloadType.Items.Add(Type);
             }
 
-            NetworkDownloadType.SelectedIndex = (int)SMMM.DownloadType;
+            NetworkDownloadType.SelectedIndex = (int)SMMB.DownloadType;
 
             StackPanel NetworkPingContent = new()
             {
@@ -570,7 +571,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
                 ClearButtonEnabled = false,
-                Value = SMMM.PingValue,
+                Value = SMMB.PingValue,
                 MaxDecimalPlaces = 0,
                 Maximum = 1000,
                 MaxLength = 4,
@@ -593,7 +594,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 NetworkPingType.Items.Add(Host.Name);
             }
 
-            NetworkPingType.SelectedValue = SMMM.PingType;
+            NetworkPingType.SelectedValue = SMMB.PingType;
 
             NetworkAdapterContent.Children.Add(NetworkAdapterText);
             NetworkAdapterContent.Children.Add(NetworkAdapter);
@@ -634,7 +635,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
-            Battery.LeftIcon.Symbol = BatterySymbol(SMMM.BatteryUsage);
+            Battery.LeftIcon.Symbol = BatterySymbol(SMMB.BatteryUsage);
             Battery.Title.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Battery");
             Battery.Description.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Battery", "Description");
 
@@ -671,7 +672,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
                 ClearButtonEnabled = false,
-                Value = SMMM.BatteryUsage,
+                Value = SMMB.BatteryUsage,
                 MaxDecimalPlaces = 0,
                 Maximum = 100,
                 MaxLength = 3,
@@ -877,9 +878,9 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.CpuUsage)
+            if (NewValue != SMMB.CpuUsage)
             {
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.CpuUsage, NewValue);
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.CpuUsage, NewValue);
             }
         }
 
@@ -887,17 +888,17 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.GpuUsage)
+            if (NewValue != SMMB.GpuUsage)
             {
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.GpuUsage, NewValue);
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.GpuUsage, NewValue);
             }
         }
 
         private void GpuAdapterSelected(string Value)
         {
-            if (Value != SMMM.GraphicAdapter)
+            if (Value != SMMB.GraphicAdapter)
             {
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.GraphicAdapter, Value);
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.GraphicAdapter, Value);
             }
         }
 
@@ -925,9 +926,9 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.MemoryUsage)
+            if (NewValue != SMMB.MemoryUsage)
             {
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.MemoryUsage, NewValue);
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.MemoryUsage, NewValue);
             }
         }
 
@@ -935,9 +936,9 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.PingValue)
+            if (NewValue != SMMB.PingValue)
             {
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.PingValue, NewValue);
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.PingValue, NewValue);
             }
         }
 
@@ -945,9 +946,9 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.UploadValue)
+            if (NewValue != SMMB.UploadValue)
             {
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.UploadValue, NewValue);
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.UploadValue, NewValue);
             }
         }
 
@@ -993,19 +994,19 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void NetworkUploadTypeSelected(int Index)
         {
-            if (Index != (int)SMMM.UploadType)
+            if (Index != (int)SMMB.UploadType)
             {
                 SEST Type = (SEST)Index;
 
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.UploadType, Type);
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.UploadType, Type);
             }
         }
 
         private void NetworkAdapterSelected(string Value)
         {
-            if (Value != SMMM.NetworkAdapter)
+            if (Value != SMMB.NetworkAdapter)
             {
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.NetworkAdapter, Value);
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.NetworkAdapter, Value);
             }
         }
 
@@ -1031,9 +1032,9 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void NetworkPingTypeSelected(string Value)
         {
-            if (Value != SMMM.PingType)
+            if (Value != SMMB.PingType)
             {
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.PingType, Value);
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.PingType, Value);
             }
         }
 
@@ -1061,19 +1062,19 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.DownloadValue)
+            if (NewValue != SMMB.DownloadValue)
             {
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.DownloadValue, NewValue);
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.DownloadValue, NewValue);
             }
         }
 
         private void NetworkDownloadTypeSelected(int Index)
         {
-            if (Index != (int)SMMM.DownloadType)
+            if (Index != (int)SMMB.DownloadType)
             {
                 SEST Type = (SEST)Index;
 
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.DownloadType, Type);
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.DownloadType, Type);
             }
         }
 
@@ -1102,7 +1103,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             Battery.IsExpand = !State;
             Battery.Expandable = !State;
 
-            SMMI.BackgroundogSettingManager.SetSetting(SMC.PerformanceCounter, State);
+            SMMI.BackgroundogSettingManager.SetSetting(SMMCB.PerformanceCounter, State);
 
             if (State)
             {
@@ -1121,11 +1122,11 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.BatteryUsage)
+            if (NewValue != SMMB.BatteryUsage)
             {
                 Battery.LeftIcon.Symbol = BatterySymbol(NewValue);
 
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.BatteryUsage, NewValue);
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.BatteryUsage, NewValue);
             }
         }
 

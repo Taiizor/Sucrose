@@ -10,6 +10,8 @@ using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEHV = Sucrose.Shared.Engine.Helper.Volume;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.CefSharp.View
 {
@@ -64,7 +66,7 @@ namespace Sucrose.Shared.Engine.CefSharp.View
 
                 SSECSHYT.SetShuffle(SSEHD.GetShuffle());
 
-                if (SMMM.PausePerformance)
+                if (SMMB.PausePerformance)
                 {
                     SSECSHYT.Pause();
 

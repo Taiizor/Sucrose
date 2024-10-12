@@ -52,6 +52,8 @@ using SUMI = Sucrose.Update.Manage.Internal;
 using SUMMU = Sucrose.Update.Manage.Manager.Update;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWNM = Skylark.Wing.Native.Methods;
+using SMMU = Sucrose.Manager.Manage.Update;
+using SMMCU = Sucrose.Memory.Manage.Constant.Update;
 
 namespace Sucrose.Update.View
 {
@@ -251,7 +253,7 @@ namespace Sucrose.Update.View
                 {
                     SSSHS.Apply();
 
-                    SMMI.UpdateSettingManager.SetSetting(SMC.UpdateTime, DateTime.Now);
+                    SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateTime, DateTime.Now);
 
                     try
                     {
@@ -684,9 +686,9 @@ namespace Sucrose.Update.View
         {
             try
             {
-                if (SMMM.UpdateLimitValue > 0)
+                if (SMMU.UpdateLimitValue > 0)
                 {
-                    double UpdateLimit = SSESSE.Convert(SMMM.UpdateLimitValue, SMMM.UpdateLimitType, SEST.Byte, SEMST.Palila);
+                    double UpdateLimit = SSESSE.Convert(SMMU.UpdateLimitValue, SMMU.UpdateLimitType, SEST.Byte, SEMST.Palila);
 
                     long Limit = Convert.ToInt64(SHN.Numeral(UpdateLimit, false, false, 0, '0', SECNT.None));
 
@@ -867,7 +869,7 @@ namespace Sucrose.Update.View
 
                 TaskBarProgress.SetValue(this, TaskBarProgressState.Normal, 0);
 
-                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateState, true);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateState, true);
             });
         }
 
@@ -896,7 +898,7 @@ namespace Sucrose.Update.View
 
                 TaskBarProgress.SetValue(this, TaskBarProgressState.Normal, 0);
 
-                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateState, true);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateState, true);
             });
         }
 

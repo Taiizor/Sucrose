@@ -26,6 +26,8 @@ using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMCL = Sucrose.Memory.Manage.Constant.Library;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -51,7 +53,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             if (Directory.Exists(Theme))
             {
-                if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
+                if ((!SMMB.ClosePerformance && !SMMB.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
                 {
                     if (SMML.LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
                     {
@@ -291,7 +293,7 @@ namespace Sucrose.Portal.Views.Controls
                 MenuCyclingRemove.Visibility = Visibility.Collapsed;
             }
 
-            if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
+            if ((!SMMB.ClosePerformance && !SMMB.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
             {
                 if (SMML.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
                 {
@@ -323,13 +325,13 @@ namespace Sucrose.Portal.Views.Controls
                 MenuDelete.IsEnabled = false;
                 MenuCustomize.IsEnabled = false;
 
-                if (SMMM.ClosePerformance)
+                if (SMMB.ClosePerformance)
                 {
                     MenuUse.Header += $" ({SRER.GetValue("Portal", "LibraryCard", "Closed")})";
                     MenuDelete.Header += $" ({SRER.GetValue("Portal", "LibraryCard", "Closed")})";
                     MenuCustomize.Header += $" ({SRER.GetValue("Portal", "LibraryCard", "Closed")})";
                 }
-                else if (SMMM.PausePerformance)
+                else if (SMMB.PausePerformance)
                 {
                     MenuUse.Header += $" ({SRER.GetValue("Portal", "LibraryCard", "Paused")})";
                     MenuDelete.Header += $" ({SRER.GetValue("Portal", "LibraryCard", "Paused")})";

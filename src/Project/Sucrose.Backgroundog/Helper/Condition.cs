@@ -22,6 +22,7 @@ using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMMCA = Sucrose.Memory.Manage.Constant.Aurora;
 using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -171,7 +172,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (SMMM.CpuUsage <= 0 || SBMI.CpuData.Now < SMMM.CpuUsage || SSDMMB.CpuPerformance == SSDEPT.Resume)
+                while (SMMB.CpuUsage <= 0 || SBMI.CpuData.Now < SMMB.CpuUsage || SSDMMB.CpuPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {
@@ -201,7 +202,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (SMMM.GpuUsage <= 0 || SBEG.Condition() || SSDMMB.GpuPerformance == SSDEPT.Resume)
+                while (SMMB.GpuUsage <= 0 || SBEG.Condition() || SSDMMB.GpuPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {
@@ -291,7 +292,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (SMMM.MemoryUsage <= 0 || SBMI.MemoryData.MemoryLoad < SMMM.MemoryUsage || SSDMMB.MemoryPerformance == SSDEPT.Resume)
+                while (SMMB.MemoryUsage <= 0 || SBMI.MemoryData.MemoryLoad < SMMB.MemoryUsage || SSDMMB.MemoryPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {
@@ -324,7 +325,7 @@ namespace Sucrose.Backgroundog.Helper
 
                 if (SBMI.NetworkPerformance == SSDENPT.Ping)
                 {
-                    while (SMMM.PingValue <= 0 || SBMI.NetworkData.Ping < SMMM.PingValue || SSDMMB.NetworkPerformance == SSDEPT.Resume)
+                    while (SMMB.PingValue <= 0 || SBMI.NetworkData.Ping < SMMB.PingValue || SSDMMB.NetworkPerformance == SSDEPT.Resume)
                     {
                         if (Count >= MaxCount)
                         {
@@ -346,7 +347,7 @@ namespace Sucrose.Backgroundog.Helper
                 }
                 else if (SBMI.NetworkPerformance == SSDENPT.Upload)
                 {
-                    while (SMMM.UploadValue <= 0 || SBMI.NetworkData.Upload < StorageExtension.Convert(SMMM.UploadValue, SMMM.UploadType, StorageType.Byte, ModeStorageType.Palila) || SSDMMB.NetworkPerformance == SSDEPT.Resume)
+                    while (SMMB.UploadValue <= 0 || SBMI.NetworkData.Upload < StorageExtension.Convert(SMMB.UploadValue, SMMB.UploadType, StorageType.Byte, ModeStorageType.Palila) || SSDMMB.NetworkPerformance == SSDEPT.Resume)
                     {
                         if (Count >= MaxCount)
                         {
@@ -368,7 +369,7 @@ namespace Sucrose.Backgroundog.Helper
                 }
                 else if (SBMI.NetworkPerformance == SSDENPT.Download)
                 {
-                    while (SMMM.DownloadValue <= 0 || SBMI.NetworkData.Download < StorageExtension.Convert(SMMM.DownloadValue, SMMM.DownloadType, StorageType.Byte, ModeStorageType.Palila) || SSDMMB.NetworkPerformance == SSDEPT.Resume)
+                    while (SMMB.DownloadValue <= 0 || SBMI.NetworkData.Download < StorageExtension.Convert(SMMB.DownloadValue, SMMB.DownloadType, StorageType.Byte, ModeStorageType.Palila) || SSDMMB.NetworkPerformance == SSDEPT.Resume)
                     {
                         if (Count >= MaxCount)
                         {
@@ -430,7 +431,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (SMMM.BatteryUsage <= 0 || SBMI.BatteryData.PowerLineStatus == PowerLineStatus.Online || SBMI.BatteryData.ACPowerStatus == "Online" || SBMI.BatteryData.ChargeLevel > SMMM.BatteryUsage || SSDMMB.BatteryPerformance == SSDEPT.Resume)
+                while (SMMB.BatteryUsage <= 0 || SBMI.BatteryData.PowerLineStatus == PowerLineStatus.Online || SBMI.BatteryData.ACPowerStatus == "Online" || SBMI.BatteryData.ChargeLevel > SMMB.BatteryUsage || SSDMMB.BatteryPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {

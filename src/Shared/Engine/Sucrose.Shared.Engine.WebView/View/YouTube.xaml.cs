@@ -9,6 +9,8 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVEYT = Sucrose.Shared.Engine.WebView.Event.YouTube;
 using SSEWVHYT = Sucrose.Shared.Engine.WebView.Helper.YouTube;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.WebView.View
 {
@@ -57,7 +59,7 @@ namespace Sucrose.Shared.Engine.WebView.View
 
                 SSEWVHYT.SetShuffle(SSEHD.GetShuffle());
 
-                if (SMMM.PausePerformance)
+                if (SMMB.PausePerformance)
                 {
                     SSEWVHYT.Pause();
 

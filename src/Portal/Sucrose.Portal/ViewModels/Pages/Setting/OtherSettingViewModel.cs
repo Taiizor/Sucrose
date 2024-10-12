@@ -7,7 +7,6 @@ using Wpf.Ui.Controls;
 using SEST = Skylark.Enum.StorageType;
 using SMC = Sucrose.Memory.Constant;
 using SMMCH = Sucrose.Memory.Manage.Constant.Hook;
-using SMMCU = Sucrose.Memory.Manage.Constant.Update;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
@@ -29,6 +28,10 @@ using TextBox = Wpf.Ui.Controls.TextBox;
 using SMME = Sucrose.Manager.Manage.Engine;
 using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
 using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMU = Sucrose.Manager.Manage.Update;
+using SMMCU = Sucrose.Memory.Manage.Constant.Update;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -420,7 +423,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Icon = new SymbolIcon(SymbolRegular.ArrowBetweenDown24),
                 IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
-                Value = SMMM.UpdateLimitValue,
+                Value = SMMU.UpdateLimitValue,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
                 Maximum = 99999999,
@@ -459,7 +462,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 }
             }
 
-            UpdateLimitType.SelectedIndex = (int)SMMM.DownloadType;
+            UpdateLimitType.SelectedIndex = (int)SMMB.DownloadType;
 
             UpdateContent.Children.Add(UpdateLimitText);
             UpdateContent.Children.Add(UpdateLimit);
@@ -481,7 +484,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch AutoState = new()
             {
-                IsChecked = SMMM.AutoUpdate
+                IsChecked = SMMU.AutoUpdate
             };
 
             AutoState.Checked += (s, e) => AutoStateChecked(true);
@@ -595,7 +598,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void AutoStateChecked(bool State)
         {
-            SMMI.UpdateSettingManager.SetSetting(SMC.AutoUpdate, State);
+            SMMI.UpdateSettingManager.SetSetting(SMMCU.AutoUpdate, State);
         }
 
         private void ModuleTypeSelected(int Index)
@@ -684,7 +687,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.UpdateLimitValue)
+            if (NewValue != SMMU.UpdateLimitValue)
             {
                 SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateLimitValue, NewValue);
             }
@@ -709,11 +712,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void UpdateLimitTypeSelected(int Index)
         {
-            if (Index != (int)SMMM.UpdateLimitType)
+            if (Index != (int)SMMU.UpdateLimitType)
             {
                 SEST Type = (SEST)Index;
 
-                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateLimitType, Type);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateLimitType, Type);
             }
         }
 

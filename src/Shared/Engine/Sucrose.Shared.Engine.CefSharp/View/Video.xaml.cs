@@ -11,6 +11,8 @@ using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEHV = Sucrose.Shared.Engine.Helper.Volume;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.CefSharp.View
 {
@@ -63,7 +65,7 @@ namespace Sucrose.Shared.Engine.CefSharp.View
 
                 SSECSHV.SetStretch(SSEHD.GetStretch());
 
-                if (SMMM.PausePerformance)
+                if (SMMB.PausePerformance)
                 {
                     SSECSHV.Pause();
 

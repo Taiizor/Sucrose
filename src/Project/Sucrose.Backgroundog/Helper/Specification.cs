@@ -39,6 +39,8 @@ using SWNM = Skylark.Wing.Native.Methods;
 using SWUD = Skylark.Wing.Utility.Desktop;
 using SWUP = Skylark.Wing.Utility.Power;
 using SWUS = Skylark.Wing.Utility.Screene;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 using SystemInformation = System.Windows.Forms.SystemInformation;
 
 namespace Sucrose.Backgroundog.Helper
@@ -144,7 +146,7 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         try
                         {
-                            if (SMMM.AudioRequired)
+                            if (SMMB.AudioRequired)
                             {
                                 if (SBMI.SessionManagement)
                                 {
@@ -243,9 +245,9 @@ namespace Sucrose.Backgroundog.Helper
 
                                 foreach (SSDSHS Host in Hosts)
                                 {
-                                    if (SMMM.PingType == Host.Name)
+                                    if (SMMB.PingType == Host.Name)
                                     {
-                                        if (string.IsNullOrEmpty(SBMI.PingAddress) || SMMM.PingType != SBMI.PingHost)
+                                        if (string.IsNullOrEmpty(SBMI.PingAddress) || SMMB.PingType != SBMI.PingHost)
                                         {
                                             foreach (IPAddress Address in SSSHN.GetHostAddresses(Host.Address))
                                             {
@@ -255,7 +257,7 @@ namespace Sucrose.Backgroundog.Helper
 
                                                     SBMI.NetworkData.PingData = await SSEPPE.SendAsync(SBMI.PingAddress, 1000);
 
-                                                    SBMI.PingHost = SMMM.PingType;
+                                                    SBMI.PingHost = SMMB.PingType;
                                                     SBMI.NetworkData.Host = Host.Address;
                                                     SBMI.NetworkData.Ping = SBMI.NetworkData.PingData.RoundTrip;
                                                     SBMI.NetworkData.PingAddress = $"{SBMI.NetworkData.PingData.Address} ({Host.Address})";
@@ -324,9 +326,9 @@ namespace Sucrose.Backgroundog.Helper
 
                             SMMI.SystemSettingManager.SetSetting(SMC.GraphicInterfaces, SBMI.GraphicInterfaces);
 
-                            if (SBMI.GraphicInterfaces.Any() && (string.IsNullOrEmpty(SMMM.GraphicAdapter) || !SBMI.GraphicInterfaces.Contains(SMMM.GraphicAdapter)))
+                            if (SBMI.GraphicInterfaces.Any() && (string.IsNullOrEmpty(SMMB.GraphicAdapter) || !SBMI.GraphicInterfaces.Contains(SMMB.GraphicAdapter)))
                             {
-                                SMMI.BackgroundogSettingManager.SetSetting(SMC.GraphicAdapter, SBMI.GraphicInterfaces.FirstOrDefault());
+                                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.GraphicAdapter, SBMI.GraphicInterfaces.FirstOrDefault());
                             }
                         }
                         catch (Exception Exception)
@@ -345,7 +347,7 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         try
                         {
-                            SBMI.GraphicData.Name = SMMM.GraphicAdapter;
+                            SBMI.GraphicData.Name = SMMB.GraphicAdapter;
                             SBMI.GraphicData.Manufacturer = SBEG.Manufacturer();
 
                             await Task.Delay(SBMI.SpecificationLessTime);
@@ -372,9 +374,9 @@ namespace Sucrose.Backgroundog.Helper
 
                             SMMI.SystemSettingManager.SetSetting(SMC.NetworkInterfaces, SBMI.NetworkInterfaces);
 
-                            if (SBMI.NetworkInterfaces.Any() && (string.IsNullOrEmpty(SMMM.NetworkAdapter) || !SBMI.NetworkInterfaces.Contains(SMMM.NetworkAdapter)))
+                            if (SBMI.NetworkInterfaces.Any() && (string.IsNullOrEmpty(SMMB.NetworkAdapter) || !SBMI.NetworkInterfaces.Contains(SMMB.NetworkAdapter)))
                             {
-                                SMMI.BackgroundogSettingManager.SetSetting(SMC.NetworkAdapter, SBMI.NetworkInterfaces.FirstOrDefault());
+                                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.NetworkAdapter, SBMI.NetworkInterfaces.FirstOrDefault());
                             }
                         }
                         catch (Exception Exception)
@@ -393,16 +395,16 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         try
                         {
-                            if (SBMI.NetworkInterfaces.Contains(SMMM.NetworkAdapter))
+                            if (SBMI.NetworkInterfaces.Contains(SMMB.NetworkAdapter))
                             {
                                 foreach (string Name in SBMI.NetworkInterfaces)
                                 {
-                                    if (SMMM.NetworkAdapter == Name)
+                                    if (SMMB.NetworkAdapter == Name)
                                     {
-                                        if (SMMM.NetworkAdapter != SBMI.NetworkData.Name)
+                                        if (SMMB.NetworkAdapter != SBMI.NetworkData.Name)
                                         {
                                             SBMI.NetworkData.State = true;
-                                            SBMI.NetworkData.Name = SMMM.NetworkAdapter;
+                                            SBMI.NetworkData.Name = SMMB.NetworkAdapter;
 
                                             SBMI.UploadCounter = new("Network Interface", "Bytes Sent/sec", Name);
                                             SBMI.DownloadCounter = new("Network Interface", "Bytes Received/sec", Name);
@@ -433,7 +435,7 @@ namespace Sucrose.Backgroundog.Helper
                             else
                             {
                                 SBMI.NetworkData.State = false;
-                                SBMI.NetworkData.Name = SMMM.NetworkAdapter;
+                                SBMI.NetworkData.Name = SMMB.NetworkAdapter;
                             }
 
                             await Task.Delay(SBMI.SpecificationLessTime);
@@ -833,7 +835,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     try
                     {
-                        if (SBMI.PipeManagement && SMMM.PipeRequired)
+                        if (SBMI.PipeManagement && SMMB.PipeRequired)
                         {
                             SBMI.PipeManagement = false;
 
@@ -870,7 +872,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     try
                     {
-                        if (SBMI.SignalManagement && SMMM.SignalRequired)
+                        if (SBMI.SignalManagement && SMMB.SignalRequired)
                         {
                             SBMI.SignalManagement = false;
 

@@ -9,6 +9,8 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVEU = Sucrose.Shared.Engine.WebView.Event.Url;
 using SSEWVHU = Sucrose.Shared.Engine.WebView.Helper.Url;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.WebView.View
 {
@@ -49,7 +51,7 @@ namespace Sucrose.Shared.Engine.WebView.View
 
             SSEWVHU.SetVolume(SSEHD.GetVolume());
 
-            if (SMMM.PausePerformance)
+            if (SMMB.PausePerformance)
             {
                 SSEWVHU.Pause();
 

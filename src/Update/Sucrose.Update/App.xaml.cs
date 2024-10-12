@@ -16,6 +16,8 @@ using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SUMI = Sucrose.Update.Manage.Internal;
 using SUVMW = Sucrose.Update.View.MainWindow;
+using SMMU = Sucrose.Manager.Manage.Update;
+using SMMCU = Sucrose.Memory.Manage.Constant.Update;
 
 namespace Sucrose.Update
 {
@@ -77,7 +79,7 @@ namespace Sucrose.Update
 
         protected void Close()
         {
-            SMMI.UpdateSettingManager.SetSetting(SMC.UpdateState, false);
+            SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateState, false);
 
             Environment.Exit(0);
             Current.Shutdown();
@@ -136,7 +138,7 @@ namespace Sucrose.Update
 
             if (SSSHI.Basic(SMMRM.Update, SMMRA.Update))
             {
-                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateState, false);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateState, false);
 
                 Configure(e.Args.Any());
             }

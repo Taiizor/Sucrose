@@ -24,6 +24,8 @@ using SPVCOH = Sucrose.Portal.Views.Controls.OtherHelp;
 using SPVCTC = Sucrose.Portal.Views.Controls.ThemeCreate;
 using SPVCWC = Sucrose.Portal.Views.Controls.WallpaperCycling;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHM = Sucrose.Shared.Core.Helper.Memory;
@@ -270,7 +272,7 @@ namespace Sucrose.Portal.ViewModels.Windows
 
             if (Result == ContentDialogResult.Primary)
             {
-                if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
+                if ((!SMMB.ClosePerformance && !SMMB.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
                 {
                     if (SMME.LibraryStart)
                     {

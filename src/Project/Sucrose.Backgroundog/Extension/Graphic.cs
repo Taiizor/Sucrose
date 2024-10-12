@@ -5,6 +5,8 @@ using SESPT = Skylark.Enum.SimilarPasswordType;
 using SHN = Skylark.Helper.Numeric;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSEPPE = Skylark.Standard.Extension.Password.PasswordExtension;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Backgroundog.Extension
 {
@@ -24,14 +26,14 @@ namespace Sucrose.Backgroundog.Extension
                     return false;
                 }
 
-                if (Array[0] is not JObject First || First["Name"] == null || Convert.ToInt32(SHN.Numeral(SSEPPE.Similarity(First["Name"].ToString(), SMMM.GraphicAdapter, SESPT.Jaccard), false, false, 0, '0', SECNT.None)) < 75)
+                if (Array[0] is not JObject First || First["Name"] == null || Convert.ToInt32(SHN.Numeral(SSEPPE.Similarity(First["Name"].ToString(), SMMB.GraphicAdapter, SESPT.Jaccard), false, false, 0, '0', SECNT.None)) < 75)
                 {
                     return false;
                 }
 
                 IEnumerable<JObject> Items = Array.OfType<JObject>().Where(Item => Item["Type"]?.ToString() == "Load" && Item["Now"] != null);
 
-                return Items.OfType<JObject>().All(Item => double.TryParse(Item["Now"].ToString(), out double Now) && Now < SMMM.GpuUsage);
+                return Items.OfType<JObject>().All(Item => double.TryParse(Item["Now"].ToString(), out double Now) && Now < SMMB.GpuUsage);
             }
             catch
             {
@@ -53,12 +55,12 @@ namespace Sucrose.Backgroundog.Extension
                     return false;
                 }
 
-                if (Array[0] is not JObject First || First["Name"] == null || Convert.ToInt32(SHN.Numeral(SSEPPE.Similarity(First["Name"].ToString(), SMMM.GraphicAdapter, SESPT.Jaccard), false, false, 0, '0', SECNT.None)) < 75)
+                if (Array[0] is not JObject First || First["Name"] == null || Convert.ToInt32(SHN.Numeral(SSEPPE.Similarity(First["Name"].ToString(), SMMB.GraphicAdapter, SESPT.Jaccard), false, false, 0, '0', SECNT.None)) < 75)
                 {
                     return false;
                 }
 
-                return Array.OfType<JObject>().Any(Item => Item["Type"]?.ToString() == "Load" && Item["Now"] != null && double.TryParse(Item["Now"].ToString(), out double Now) && Now >= SMMM.GpuUsage);
+                return Array.OfType<JObject>().Any(Item => Item["Type"]?.ToString() == "Load" && Item["Now"] != null && double.TryParse(Item["Now"].ToString(), out double Now) && Now >= SMMB.GpuUsage);
             }
             catch
             {
@@ -77,7 +79,7 @@ namespace Sucrose.Backgroundog.Extension
             {
                 if (Amd != null && Amd.Count > 0)
                 {
-                    if (Amd[0] is JObject First && First["Name"] != null && Convert.ToInt32(SHN.Numeral(SSEPPE.Similarity(First["Name"].ToString(), SMMM.GraphicAdapter, SESPT.Jaccard), false, false, 0, '0', SECNT.None)) >= 75)
+                    if (Amd[0] is JObject First && First["Name"] != null && Convert.ToInt32(SHN.Numeral(SSEPPE.Similarity(First["Name"].ToString(), SMMB.GraphicAdapter, SESPT.Jaccard), false, false, 0, '0', SECNT.None)) >= 75)
                     {
                         return "Amd";
                     }
@@ -85,7 +87,7 @@ namespace Sucrose.Backgroundog.Extension
 
                 if (Intel != null && Intel.Count > 0)
                 {
-                    if (Intel[0] is JObject First && First["Name"] != null && Convert.ToInt32(SHN.Numeral(SSEPPE.Similarity(First["Name"].ToString(), SMMM.GraphicAdapter, SESPT.Jaccard), false, false, 0, '0', SECNT.None)) >= 75)
+                    if (Intel[0] is JObject First && First["Name"] != null && Convert.ToInt32(SHN.Numeral(SSEPPE.Similarity(First["Name"].ToString(), SMMB.GraphicAdapter, SESPT.Jaccard), false, false, 0, '0', SECNT.None)) >= 75)
                     {
                         return "Intel";
                     }
@@ -93,7 +95,7 @@ namespace Sucrose.Backgroundog.Extension
 
                 if (Nvidia != null && Nvidia.Count > 0)
                 {
-                    if (Nvidia[0] is JObject First && First["Name"] != null && Convert.ToInt32(SHN.Numeral(SSEPPE.Similarity(First["Name"].ToString(), SMMM.GraphicAdapter, SESPT.Jaccard), false, false, 0, '0', SECNT.None)) >= 75)
+                    if (Nvidia[0] is JObject First && First["Name"] != null && Convert.ToInt32(SHN.Numeral(SSEPPE.Similarity(First["Name"].ToString(), SMMB.GraphicAdapter, SESPT.Jaccard), false, false, 0, '0', SECNT.None)) >= 75)
                     {
                         return "Nvidia";
                     }

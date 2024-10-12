@@ -9,6 +9,8 @@ using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.CefSharp.View
 {
@@ -57,7 +59,7 @@ namespace Sucrose.Shared.Engine.CefSharp.View
 
                 SSECSHG.SetStretch(SSEHD.GetStretch());
 
-                if (SMMM.PausePerformance)
+                if (SMMB.PausePerformance)
                 {
                     SSECSHG.Pause();
 

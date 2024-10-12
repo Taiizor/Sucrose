@@ -8,6 +8,8 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVEG = Sucrose.Shared.Engine.WebView.Event.Gif;
 using SSEWVHG = Sucrose.Shared.Engine.WebView.Helper.Gif;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.WebView.View
 {
@@ -50,7 +52,7 @@ namespace Sucrose.Shared.Engine.WebView.View
 
                 SSEWVHG.SetStretch(SSEHD.GetStretch());
 
-                if (SMMM.PausePerformance)
+                if (SMMB.PausePerformance)
                 {
                     SSEWVHG.Pause();
 

@@ -10,6 +10,8 @@ using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SWUD = Skylark.Wing.Utility.Desktop;
 using SMML = Sucrose.Manager.Manage.Library;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Live.Helper
 {
@@ -17,7 +19,7 @@ namespace Sucrose.Shared.Live.Helper
     {
         public static void Start()
         {
-            if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
+            if ((!SMMB.ClosePerformance && !SMMB.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
             {
                 string InfoPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMR.SucroseInfo);
 
@@ -29,7 +31,7 @@ namespace Sucrose.Shared.Live.Helper
                     {
                         SWUD.RefreshDesktop();
 
-                        if (SMMM.PerformanceCounter)
+                        if (SMMB.PerformanceCounter)
                         {
                             SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
                         }

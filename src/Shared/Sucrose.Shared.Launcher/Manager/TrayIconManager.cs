@@ -31,6 +31,10 @@ using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SMMU = Sucrose.Manager.Manage.Update;
+using SMMCU = Sucrose.Memory.Manage.Constant.Update;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Launcher.Manager
 {
@@ -60,7 +64,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
             SSLCRG.Command();
 
-            if (SMMM.AutoUpdate)
+            if (SMMU.AutoUpdate)
             {
                 SSLCU.Command(false);
             }
@@ -96,7 +100,7 @@ namespace Sucrose.Shared.Launcher.Manager
                 ToolStripItem Customize = new ToolStripMenuItem();
                 ToolStripItem Wallpaper = new ToolStripMenuItem();
 
-                if (SMMM.PausePerformance && SSSHP.Work(SSSMI.Backgroundog))
+                if (SMMB.PausePerformance && SSSHP.Work(SSSMI.Backgroundog))
                 {
                     Wallpaper = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallCloseText")} ({SRER.GetValue("Launcher", "PausedText")})", Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallCloseIcon"))))
                     {
@@ -114,7 +118,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
                 if (SSSHC.Check(false))
                 {
-                    if (SMMM.PausePerformance && SSSHP.Work(SSSMI.Backgroundog))
+                    if (SMMB.PausePerformance && SSSHP.Work(SSSMI.Backgroundog))
                     {
                         Change = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallChangeText")} ({SRER.GetValue("Launcher", "PausedText")})", Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallChangeIcon"))))
                         {
@@ -141,7 +145,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
                         if (Info.Type == SSDEWT.Web)
                         {
-                            if (SMMM.PausePerformance && SSSHP.Work(SSSMI.Backgroundog))
+                            if (SMMB.PausePerformance && SSSHP.Work(SSSMI.Backgroundog))
                             {
                                 Customize = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallCustomizeText")} ({SRER.GetValue("Launcher", "PausedText")})", Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallCustomizeIcon"))))
                                 {
@@ -173,7 +177,7 @@ namespace Sucrose.Shared.Launcher.Manager
                     {
                         ToolStripItem Wallpaper = new ToolStripMenuItem();
 
-                        if (SMMM.ClosePerformance && SSSHP.Work(SSSMI.Backgroundog))
+                        if (SMMB.ClosePerformance && SSSHP.Work(SSSMI.Backgroundog))
                         {
                             Wallpaper = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallOpenText")} ({SRER.GetValue("Launcher", "ClosedText")})", Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "WallOpenIcon"))))
                             {
@@ -214,7 +218,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
             if (SSSHP.Work(SSSMI.Update))
             {
-                if (SMMM.UpdateState)
+                if (SMMU.UpdateState)
                 {
                     Update = new ToolStripMenuItem(SRER.GetValue("Launcher", "UpdateText", "Done"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "UpdateIcon"))))
                     {
