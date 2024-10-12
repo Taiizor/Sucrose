@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows;
 using SEIT = Skylark.Enum.InputType;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMME = Sucrose.Manager.Manage.Engine;
 using SSECSEI = Sucrose.Shared.Engine.CefSharp.Extension.Interaction;
 using SSECSHH = Sucrose.Shared.Engine.CefSharp.Helper.Handle;
 using SSECSHW = Sucrose.Shared.Engine.CefSharp.Helper.Web;
@@ -12,9 +12,6 @@ using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Shared.Engine.CefSharp.Event
 {

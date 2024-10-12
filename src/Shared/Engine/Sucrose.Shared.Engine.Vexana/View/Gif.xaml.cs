@@ -1,7 +1,7 @@
 ﻿using Microsoft.Win32;
 using System.Windows;
 using System.Windows.Media;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
@@ -11,8 +11,6 @@ using SSEVEG = Sucrose.Shared.Engine.Vexana.Event.Gif;
 using SSEVHG = Sucrose.Shared.Engine.Vexana.Helper.Gif;
 using SSEVHP = Sucrose.Shared.Engine.Vexana.Helper.Parse;
 using SSEVMI = Sucrose.Shared.Engine.Vexana.Manage.Internal;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.Vexana.View
 {

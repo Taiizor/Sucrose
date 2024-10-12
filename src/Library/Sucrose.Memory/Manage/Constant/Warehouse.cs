@@ -1,6 +1,6 @@
 ﻿namespace Sucrose.Memory.Manage.Constant
 {
-    public static class User
+    public static class Warehouse
     {
         public const string Showcase = "Showcase";
 

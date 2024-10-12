@@ -4,7 +4,9 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Controls;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMG = Sucrose.Manager.Manage.General;
+using SMMO = Sucrose.Manager.Manage.Objectionable;
+using SMMP = Sucrose.Manager.Manage.Portal;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
@@ -14,12 +16,6 @@ using SSSHC = Sucrose.Shared.Space.Helper.Clean;
 using SSSIC = Sucrose.Shared.Store.Interface.Category;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
-using SMMP = Sucrose.Manager.Manage.Portal;
-using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
-using SMMO = Sucrose.Manager.Manage.Objectionable;
-using SMMCO = Sucrose.Memory.Manage.Constant.Objectionable;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Portal.Views.Pages.Store
 {

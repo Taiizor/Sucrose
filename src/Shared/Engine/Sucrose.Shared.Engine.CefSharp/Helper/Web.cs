@@ -1,9 +1,9 @@
 ﻿using CefSharp;
-using SMC = Sucrose.Memory.Constant;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SPMI = Sucrose.Pipe.Manage.Internal;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommunicationType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
 using SSECSHM = Sucrose.Shared.Engine.CefSharp.Helper.Management;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEHC = Sucrose.Shared.Engine.Helper.Compatible;
@@ -15,8 +15,6 @@ using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
 using SWNM = Skylark.Wing.Native.Methods;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
-using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
 
 namespace Sucrose.Shared.Engine.CefSharp.Helper
 {

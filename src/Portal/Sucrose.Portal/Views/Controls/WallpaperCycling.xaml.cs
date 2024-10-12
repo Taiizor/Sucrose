@@ -1,10 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Controls;
-using SMC = Sucrose.Memory.Constant;
+using SMMC = Sucrose.Manager.Manage.Cycling;
 using SMMCC = Sucrose.Memory.Manage.Constant.Cycling;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDETCT = Sucrose.Shared.Dependency.Enum.TransitionCycleType;
 using SSDMMC = Sucrose.Shared.Dependency.Manage.Manager.Cycling;
@@ -23,7 +22,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ResetList_Click(object sender, RoutedEventArgs e)
         {
-            SMMI.CyclingSettingManager.SetSetting(SMC.DisableCycyling, new List<string>());
+            SMMI.CyclingSettingManager.SetSetting(SMMCC.DisableCycyling, new List<string>());
         }
 
         private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
@@ -33,7 +32,7 @@ namespace Sucrose.Portal.Views.Controls
 
             ToggleSwitch CyclingState = new()
             {
-                IsChecked = SMMM.Cycyling
+                IsChecked = SMMC.Cycyling
             };
 
             CyclingState.Checked += (s, e) => CyclingStateChecked(true);
@@ -49,7 +48,7 @@ namespace Sucrose.Portal.Views.Controls
                 Icon = new SymbolIcon(SymbolRegular.Timer24),
                 IconPlacement = ElementPlacement.Left,
                 ClearButtonEnabled = false,
-                Value = SMMM.CycylingTime,
+                Value = SMMC.CycylingTime,
                 MaxDecimalPlaces = 0,
                 MaxLength = 3,
                 Maximum = 999,
@@ -85,7 +84,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void CyclingStateChecked(bool State)
         {
-            SMMI.CyclingSettingManager.SetSetting(SMC.Cycyling, State);
+            SMMI.CyclingSettingManager.SetSetting(SMMCC.Cycyling, State);
         }
 
         private void TransitionTypeSelected(int Index)
@@ -102,9 +101,9 @@ namespace Sucrose.Portal.Views.Controls
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.CycylingTime)
+            if (NewValue != SMMC.CycylingTime)
             {
-                SMMI.CyclingSettingManager.SetSetting(SMC.CycylingTime, NewValue);
+                SMMI.CyclingSettingManager.SetSetting(SMMCC.CycylingTime, NewValue);
             }
         }
 

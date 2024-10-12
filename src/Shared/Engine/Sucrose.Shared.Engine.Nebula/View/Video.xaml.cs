@@ -1,7 +1,7 @@
 ﻿using Microsoft.Win32;
 using System.Windows;
 using System.Windows.Media;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
@@ -11,8 +11,6 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSENEV = Sucrose.Shared.Engine.Nebula.Event.Video;
 using SSENHV = Sucrose.Shared.Engine.Nebula.Helper.Video;
 using SSENMI = Sucrose.Shared.Engine.Nebula.Manage.Internal;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.Nebula.View
 {

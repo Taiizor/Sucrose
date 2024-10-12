@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 using System.Windows;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SSECSEW = Sucrose.Shared.Engine.CefSharp.Event.Web;
 using SSECSHCCM = Sucrose.Shared.Engine.CefSharp.Handler.CustomContextMenu;
 using SSECSHW = Sucrose.Shared.Engine.CefSharp.Helper.Web;
@@ -10,8 +10,6 @@ using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEHV = Sucrose.Shared.Engine.Helper.Volume;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.CefSharp.View
 {

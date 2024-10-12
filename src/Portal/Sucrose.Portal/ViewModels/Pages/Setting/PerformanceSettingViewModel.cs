@@ -4,10 +4,11 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SEST = Skylark.Enum.StorageType;
-using SMC = Sucrose.Memory.Constant;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMS = Sucrose.Manager.Manage.System;
 using SMR = Sucrose.Memory.Readonly;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
@@ -21,10 +22,6 @@ using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
-using SMMS = Sucrose.Manager.Manage.System;
-using SMMCS = Sucrose.Memory.Manage.Constant.System;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {

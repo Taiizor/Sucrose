@@ -6,7 +6,6 @@ using Wpf.Ui.Controls;
 using SMMCD = Sucrose.Memory.Manage.Constant.Donate;
 using SMMD = Sucrose.Manager.Manage.Donate;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;

@@ -1,9 +1,9 @@
 ﻿using System.Globalization;
 using System.Windows;
 using SHC = Skylark.Helper.Culture;
-using SMC = Sucrose.Memory.Constant;
+using SMMCU = Sucrose.Memory.Manage.Constant.Update;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SRER = Sucrose.Resources.Extension.Resources;
@@ -16,10 +16,6 @@ using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SUMI = Sucrose.Update.Manage.Internal;
 using SUVMW = Sucrose.Update.View.MainWindow;
-using SMMU = Sucrose.Manager.Manage.Update;
-using SMMCU = Sucrose.Memory.Manage.Constant.Update;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Update
 {

@@ -13,9 +13,11 @@ using Button = Wpf.Ui.Controls.Button;
 using SCHB = Skylark.Clipboard.Helper.Board;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMP = Sucrose.Manager.Manage.Portal;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SMMW = Sucrose.Manager.Manage.Warehouse;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMMP = Sucrose.Portal.Manage.Manager.Portal;
@@ -34,9 +36,6 @@ using SSSMSD = Sucrose.Shared.Space.Model.SearchData;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
-using SMMP = Sucrose.Manager.Manage.Portal;
-using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Portal.Views.Windows
 {
@@ -240,7 +239,7 @@ namespace Sucrose.Portal.Views.Windows
 
         private async void MainWindow_Closing(object sender, CancelEventArgs e)
         {
-            if (SMMM.HintTrayIcon)
+            if (SMMW.HintTrayIcon)
             {
                 e.Cancel = true;
 

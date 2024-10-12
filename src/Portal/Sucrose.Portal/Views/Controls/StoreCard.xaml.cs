@@ -9,21 +9,18 @@ using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SHG = Skylark.Helper.Generator;
 using SHV = Skylark.Helper.Versionly;
-using SMC = Sucrose.Memory.Constant;
-using SMML = Sucrose.Manager.Manage.Library;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SMMCL = Sucrose.Memory.Manage.Constant.Library;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMML = Sucrose.Manager.Manage.Library;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMMP = Sucrose.Manager.Manage.Portal;
-using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReport;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
@@ -48,8 +45,6 @@ using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Portal.Views.Controls
 {

@@ -5,9 +5,14 @@ using Application = System.Windows.Application;
 using Point = System.Drawing.Point;
 using SEDST = Skylark.Enum.DisplayScreenType;
 using SEIT = Skylark.Enum.InputType;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SMME = Sucrose.Manager.Manage.Engine;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 using SSDEIMT = Sucrose.Shared.Dependency.Enum.InputModuleType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
+using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HandleStruct;
 using SSEAEA = Sucrose.Shared.Engine.Aurora.Event.Application;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
@@ -17,11 +22,6 @@ using SWIIDM = Skylark.Wing.Interface.IDisplayManager;
 using SWNM = Skylark.Wing.Native.Methods;
 using SWUD = Skylark.Wing.Utility.Desktop;
 using Timer = System.Timers.Timer;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
-using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
-using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Shared.Engine.Aurora.Extension
 {

@@ -1,14 +1,11 @@
 ﻿using CefSharp;
 using System.Windows;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMME = Sucrose.Manager.Manage.Engine;
 using SSECSHYT = Sucrose.Shared.Engine.CefSharp.Helper.YouTube;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Shared.Engine.CefSharp.Event
 {

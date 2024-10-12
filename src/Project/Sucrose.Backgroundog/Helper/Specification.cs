@@ -16,9 +16,10 @@ using SECNT = Skylark.Enum.ClearNumericType;
 using SEMST = Skylark.Enum.ModeStorageType;
 using SEST = Skylark.Enum.StorageType;
 using SHN = Skylark.Helper.Numeric;
-using SMC = Sucrose.Memory.Constant;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SMMCS = Sucrose.Memory.Manage.Constant.System;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SPIB = Sucrose.Pipe.Interface.Backgroundog;
 using SPMI = Sucrose.Pipe.Manage.Internal;
 using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
@@ -39,10 +40,6 @@ using SWNM = Skylark.Wing.Native.Methods;
 using SWUD = Skylark.Wing.Utility.Desktop;
 using SWUP = Skylark.Wing.Utility.Power;
 using SWUS = Skylark.Wing.Utility.Screene;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
-using SMMS = Sucrose.Manager.Manage.System;
-using SMMCS = Sucrose.Memory.Manage.Constant.System;
 using SystemInformation = System.Windows.Forms.SystemInformation;
 
 namespace Sucrose.Backgroundog.Helper
@@ -73,7 +70,7 @@ namespace Sucrose.Backgroundog.Helper
                                 break;
                             }
 
-                            SMMI.SystemSettingManager.SetSetting(SMC.ProcessorInterfaces, SSSHU.GetProcessor());
+                            SMMI.SystemSettingManager.SetSetting(SMMCS.ProcessorInterfaces, SSSHU.GetProcessor());
                         }
                         catch (Exception Exception)
                         {

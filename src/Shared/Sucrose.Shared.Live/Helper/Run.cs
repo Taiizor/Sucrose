@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using SHV = Skylark.Helper.Versionly;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMML = Sucrose.Manager.Manage.Library;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
@@ -9,9 +10,6 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SWUD = Skylark.Wing.Utility.Desktop;
-using SMML = Sucrose.Manager.Manage.Library;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Live.Helper
 {

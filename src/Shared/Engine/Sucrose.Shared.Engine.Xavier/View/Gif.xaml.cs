@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
@@ -11,8 +11,6 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEXHG = Sucrose.Shared.Engine.Xavier.Helper.Gif;
 using SSEXMI = Sucrose.Shared.Engine.Xavier.Manage.Internal;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.Xavier.View
 {

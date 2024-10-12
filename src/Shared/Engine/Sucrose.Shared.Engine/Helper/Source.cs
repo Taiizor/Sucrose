@@ -2,7 +2,7 @@
 using System.Net.Http;
 using SEDST = Skylark.Enum.DisplayScreenType;
 using SEST = Skylark.Enum.ScreenType;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
@@ -11,8 +11,6 @@ using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SWHSM = Skylark.Wing.Helper.ScreenManage;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Shared.Engine.Helper
 {

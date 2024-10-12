@@ -1,14 +1,12 @@
 ﻿using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMP = Sucrose.Manager.Manage.Portal;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCLC = Sucrose.Portal.Views.Controls.LibraryCard;
-using SMML = Sucrose.Manager.Manage.Library;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SMMP = Sucrose.Manager.Manage.Portal;
-using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
 
 namespace Sucrose.Portal.Views.Pages.Library
 {

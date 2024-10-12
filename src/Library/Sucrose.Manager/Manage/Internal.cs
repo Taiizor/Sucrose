@@ -9,8 +9,6 @@ namespace Sucrose.Manager.Manage
 
         public static readonly SMSM HookSettingManager = new("Hook.json");
 
-        public static readonly SMSM UserSettingManager = new("User.json");
-
         public static readonly SMLM PortalLogManager = new("Portal-{0}.log");
 
         public static readonly SMLM UpdateLogManager = new("Update-{0}.log");
@@ -39,11 +37,11 @@ namespace Sucrose.Manager.Manage
 
         public static readonly SMLM WatchdogLogManager = new("Watchdog-{0}.log");
 
-        public static readonly SMSM LauncherSettingManager = new("Launcher.json");
-
         public static readonly SMLM CommandogLogManager = new("Commandog-{0}.log");
 
         public static readonly SMLM ReportdogLogManager = new("Reportdog-{0}.log");
+
+        public static readonly SMSM WarehouseSettingManager = new("Warehouse.json");
 
         public static readonly SMLM AuroraLiveLogManager = new("AuroraLive-{0}.log");
 

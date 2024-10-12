@@ -1,17 +1,13 @@
 ﻿using Microsoft.Web.WebView2.Core;
 using SELLT = Skylark.Enum.LevelLogType;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVHYT = Sucrose.Shared.Engine.WebView.Helper.YouTube;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Shared.Engine.WebView.Event
 {

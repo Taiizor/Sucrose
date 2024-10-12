@@ -8,21 +8,17 @@ using Application = System.Windows.Application;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SHV = Skylark.Helper.Versionly;
-using SMC = Sucrose.Memory.Constant;
 using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
-using SMMCU = Sucrose.Memory.Manage.Constant.User;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMCW = Sucrose.Memory.Manage.Constant.Warehouse;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SMML = Sucrose.Manager.Manage.Library;
-using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMW = Sucrose.Manager.Manage.Warehouse;
 using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
@@ -164,7 +160,7 @@ namespace Sucrose.Live.WebView
 
         protected void Checker()
         {
-            if (Check() || SMMM.WebViewTime > DateTime.Now)
+            if (Check() || SMMW.WebViewTime > DateTime.Now)
             {
                 Configure();
             }
@@ -172,7 +168,7 @@ namespace Sucrose.Live.WebView
             {
                 SSDEDT DialogResult;
 
-                bool Check = SMMM.WebViewContinue;
+                bool Check = SMMW.WebViewContinue;
 
                 string CloseText = SRER.GetValue("Live", "Close");
                 string ContinueText = SRER.GetValue("Live", "Continue");
@@ -206,7 +202,7 @@ namespace Sucrose.Live.WebView
                         Configure();
                         break;
                     case SSDEDT.Download:
-                        SMMI.UserSettingManager.SetSetting(SMMCU.WebViewContinue, true);
+                        SMMI.WarehouseSettingManager.SetSetting(SMMCW.WebViewContinue, true);
                         Downloader();
                         break;
                     case SSDEDT.Remember:
@@ -221,7 +217,7 @@ namespace Sucrose.Live.WebView
 
         protected void Remember()
         {
-            SMMI.UserSettingManager.SetSetting(SMMCU.WebViewTime, DateTime.Now.AddDays(1));
+            SMMI.WarehouseSettingManager.SetSetting(SMMCW.WebViewTime, DateTime.Now.AddDays(1));
 
             Configure();
         }

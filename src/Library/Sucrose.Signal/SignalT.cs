@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SSHD = Sucrose.Signal.Helper.Deleter;
 using SSHR = Sucrose.Signal.Helper.Reader;
 using SSHW = Sucrose.Signal.Helper.Writer;
 using Timer = System.Timers.Timer;
-using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 
 namespace Sucrose.Signal
 {

@@ -1,9 +1,9 @@
 ﻿using System.Drawing.Imaging;
 using System.IO;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SSEVMI = Sucrose.Shared.Engine.Vexana.Manage.Internal;
 using SSEVSG = Sucrose.Shared.Engine.Vexana.Struct.Gif;
-using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 
 namespace Sucrose.Shared.Engine.Vexana.Helper
 {

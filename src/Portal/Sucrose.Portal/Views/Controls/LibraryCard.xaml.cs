@@ -4,9 +4,13 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using Wpf.Ui.Controls;
 using SHV = Skylark.Helper.Versionly;
-using SMC = Sucrose.Memory.Constant;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMC = Sucrose.Manager.Manage.Cycling;
+using SMMCC = Sucrose.Memory.Manage.Constant.Cycling;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMP = Sucrose.Manager.Manage.Portal;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
@@ -17,8 +21,6 @@ using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
-using SMMP = Sucrose.Manager.Manage.Portal;
-using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -26,10 +28,6 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
-using SMML = Sucrose.Manager.Manage.Library;
-using SMMCL = Sucrose.Memory.Manage.Constant.Library;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -127,13 +125,13 @@ namespace Sucrose.Portal.Views.Controls
 
         private void MenuCyclingAdd_Click(object sender, RoutedEventArgs e)
         {
-            List<string> DisableCycyling = SMMM.DisableCycyling;
+            List<string> DisableCycyling = SMMC.DisableCycyling;
 
             if (DisableCycyling.Contains(Path.GetFileName(Theme)))
             {
                 DisableCycyling.Remove(Path.GetFileName(Theme));
 
-                SMMI.CyclingSettingManager.SetSetting(SMC.DisableCycyling, DisableCycyling);
+                SMMI.CyclingSettingManager.SetSetting(SMMCC.DisableCycyling, DisableCycyling);
             }
         }
 
@@ -248,13 +246,13 @@ namespace Sucrose.Portal.Views.Controls
 
         private void MenuCyclingRemove_Click(object sender, RoutedEventArgs e)
         {
-            List<string> DisableCycyling = SMMM.DisableCycyling;
+            List<string> DisableCycyling = SMMC.DisableCycyling;
 
             if (!DisableCycyling.Contains(Path.GetFileName(Theme)))
             {
                 DisableCycyling.Add(Path.GetFileName(Theme));
 
-                SMMI.CyclingSettingManager.SetSetting(SMC.DisableCycyling, DisableCycyling);
+                SMMI.CyclingSettingManager.SetSetting(SMMCC.DisableCycyling, DisableCycyling);
             }
         }
 
@@ -276,9 +274,9 @@ namespace Sucrose.Portal.Views.Controls
                 MenuCustomize.IsEnabled = true;
             }
 
-            if (SMMM.Cycyling)
+            if (SMMC.Cycyling)
             {
-                if (SMMM.DisableCycyling.Contains(Path.GetFileName(Theme)))
+                if (SMMC.DisableCycyling.Contains(Path.GetFileName(Theme)))
                 {
                     MenuCyclingAdd.Visibility = Visibility.Visible;
                     MenuCyclingRemove.Visibility = Visibility.Collapsed;

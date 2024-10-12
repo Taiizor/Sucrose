@@ -4,10 +4,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SHC = Skylark.Helper.Culture;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMU = Sucrose.Manager.Manage.Update;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
-using SMMU = Sucrose.Manager.Manage.Update;
 
 namespace Sucrose.Portal.Views.Controls
 {

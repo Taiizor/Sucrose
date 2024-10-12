@@ -2,8 +2,9 @@
 using System.IO;
 using SEIT = Skylark.Enum.InputType;
 using SELLT = Skylark.Enum.LevelLogType;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
@@ -13,11 +14,6 @@ using SSEWVHW = Sucrose.Shared.Engine.WebView.Helper.Web;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Shared.Engine.WebView.Event
 {

@@ -5,11 +5,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SEST = Skylark.Enum.StorageType;
-using SMC = Sucrose.Memory.Constant;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
 using SMMCH = Sucrose.Memory.Manage.Constant.Hook;
+using SMMCO = Sucrose.Memory.Manage.Constant.Objectionable;
+using SMMCU = Sucrose.Memory.Manage.Constant.Update;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMG = Sucrose.Manager.Manage.General;
+using SMMH = Sucrose.Manager.Manage.Hook;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMO = Sucrose.Manager.Manage.Objectionable;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMU = Sucrose.Manager.Manage.Update;
 using SMR = Sucrose.Memory.Readonly;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
@@ -25,17 +33,6 @@ using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
 using TextBox = Wpf.Ui.Controls.TextBox;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMU = Sucrose.Manager.Manage.Update;
-using SMMCU = Sucrose.Memory.Manage.Constant.Update;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
-using SMMO = Sucrose.Manager.Manage.Objectionable;
-using SMMCO = Sucrose.Memory.Manage.Constant.Objectionable;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -132,7 +129,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch DiscordState = new()
             {
-                IsChecked = SMMM.DiscordState
+                IsChecked = SMMH.DiscordState
             };
 
             DiscordState.Checked += (s, e) => DiscordStateChecked(true);
@@ -158,7 +155,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch DiscordRefresh = new()
             {
-                IsChecked = SMMM.DiscordRefresh
+                IsChecked = SMMH.DiscordRefresh
             };
 
             DiscordRefresh.Checked += (s, e) => DiscordRefreshChecked(true);
@@ -184,7 +181,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Icon = new SymbolIcon(SymbolRegular.TimePicker24),
                 IconPlacement = ElementPlacement.Left,
                 ClearButtonEnabled = false,
-                Value = SMMM.DiscordDelay,
+                Value = SMMH.DiscordDelay,
                 MaxDecimalPlaces = 0,
                 Maximum = 3600,
                 MaxLength = 4,
@@ -658,7 +655,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 SSCEUCT Type = (SSCEUCT)Index;
 
-                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateChannelType, Type);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateChannelType, Type);
             }
         }
 
@@ -728,7 +725,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.DiscordDelay)
+            if (NewValue != SMMH.DiscordDelay)
             {
                 SMMI.HookSettingManager.SetSetting(SMMCH.DiscordDelay, NewValue);
             }

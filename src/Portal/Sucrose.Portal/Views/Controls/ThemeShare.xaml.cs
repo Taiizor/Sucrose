@@ -8,7 +8,8 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using Wpf.Ui.Controls;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMG = Sucrose.Manager.Manage.General;
+using SMMO = Sucrose.Manager.Manage.Objectionable;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
@@ -28,10 +29,6 @@ using SSSIR = Sucrose.Shared.Store.Interface.Root;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 using SSZHA = Sucrose.Shared.Zip.Helper.Archive;
-using SMMO = Sucrose.Manager.Manage.Objectionable;
-using SMMCO = Sucrose.Memory.Manage.Constant.Objectionable;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Portal.Views.Controls
 {

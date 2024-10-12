@@ -1,16 +1,11 @@
-﻿using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
-using SMR = Sucrose.Memory.Readonly;
-using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
-using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SEDEST = Skylark.Enum.DuplicateScreenType;
+﻿using SEDEST = Skylark.Enum.DuplicateScreenType;
 using SEDYST = Skylark.Enum.DisplayScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SEIT = Skylark.Enum.InputType;
-using SESET = Skylark.Enum.StorageType;
 using SESNT = Skylark.Enum.ScreenType;
-using SHC = Skylark.Helper.Culture;
 using SHS = Skylark.Helper.Skymath;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMI = Sucrose.Manager.Manage.Internal;
 
 namespace Sucrose.Manager.Manage
 {

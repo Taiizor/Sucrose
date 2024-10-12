@@ -1,18 +1,14 @@
 ﻿using Microsoft.Web.WebView2.Core;
 using SEIT = Skylark.Enum.InputType;
 using SELLT = Skylark.Enum.LevelLogType;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVEI = Sucrose.Shared.Engine.WebView.Extension.Interaction;
 using SSEWVHH = Sucrose.Shared.Engine.WebView.Helper.Handle;
 using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Shared.Engine.WebView.Event
 {

@@ -4,32 +4,27 @@ using System.Windows;
 using Application = System.Windows.Application;
 using SHC = Skylark.Helper.Culture;
 using SHV = Skylark.Helper.Versionly;
-using SMC = Sucrose.Memory.Constant;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMR = Sucrose.Memory.Readonly;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
-using SMML = Sucrose.Manager.Manage.Library;
-using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMPVG = Sucrose.Shared.Engine.MpvPlayer.View.Gif;
 using SSEMPVV = Sucrose.Shared.Engine.MpvPlayer.View.Video;
 using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
-using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
-using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
-using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Live.MpvPlayer
 {

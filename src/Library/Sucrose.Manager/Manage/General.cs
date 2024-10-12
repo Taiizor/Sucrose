@@ -1,18 +1,8 @@
-﻿using SEDEST = Skylark.Enum.DuplicateScreenType;
-using SEDYST = Skylark.Enum.DisplayScreenType;
-using SEEST = Skylark.Enum.ExpandScreenType;
-using SEIT = Skylark.Enum.InputType;
-using SESET = Skylark.Enum.StorageType;
-using SESNT = Skylark.Enum.ScreenType;
-using SHC = Skylark.Helper.Culture;
+﻿using SHC = Skylark.Helper.Culture;
 using SHS = Skylark.Helper.Skymath;
-using SMC = Sucrose.Memory.Constant;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
-using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
-using SMMCH = Sucrose.Memory.Manage.Constant.Hook;
-using SMMCU = Sucrose.Memory.Manage.Constant.User;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
 
 namespace Sucrose.Manager.Manage
 {
@@ -25,6 +15,10 @@ namespace Sucrose.Manager.Manage
         public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMMCG.UserAgent, SMR.UserAgent);
 
         public static bool Statistics => SMMI.GeneralSettingManager.GetSetting(SMMCG.Statistics, true);
+
+        public static bool AppExit => SMMI.GeneralSettingManager.GetSetting(SMMCG.AppExit, false);
+
+        public static bool Visible => SMMI.GeneralSettingManager.GetSetting(SMMCG.Visible, true);
 
         public static bool Report => SMMI.GeneralSettingManager.GetSetting(SMMCG.Report, true);
     }

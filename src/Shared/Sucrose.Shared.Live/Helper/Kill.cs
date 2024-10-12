@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
+using SMMA = Sucrose.Manager.Manage.Aurora;
 using SMMCA = Sucrose.Memory.Manage.Constant.Aurora;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSSEL = Sucrose.Shared.Space.Extension.Lifecycle;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -17,9 +17,9 @@ namespace Sucrose.Shared.Live.Helper
         {
             SSSHL.Kill();
 
-            if (!string.IsNullOrEmpty(SMMM.AppProcessName))
+            if (!string.IsNullOrEmpty(SMMA.AppProcessName))
             {
-                SSSHP.Kill(SMMM.AppProcessName);
+                SSSHP.Kill(SMMA.AppProcessName);
             }
 
             SWUD.RefreshDesktop();

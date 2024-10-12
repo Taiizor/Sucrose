@@ -14,21 +14,19 @@ using MessageBox = Wpf.Ui.Controls.MessageBox;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SEOST = Skylark.Enum.OperatingSystemType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMC = Sucrose.Memory.Constant;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMP = Sucrose.Manager.Manage.Portal;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SMML = Sucrose.Manager.Manage.Library;
-using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SPMMP = Sucrose.Portal.Manage.Manager.Portal;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
@@ -49,7 +47,6 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using TextBlock = System.Windows.Controls.TextBlock;
-using SMMP = Sucrose.Manager.Manage.Portal;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -157,14 +154,14 @@ namespace Sucrose.Portal.ViewModels.Pages
             Notify.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "Notify", "Show"));
             Notify.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "Notify", "Hide"));
 
-            Notify.SelectedIndex = SMMM.Visible ? 0 : 1;
+            Notify.SelectedIndex = SMMG.Visible ? 0 : 1;
 
             NotifyIcon.HeaderFrame = Notify;
 
             CheckBox NotifyExit = new()
             {
                 Content = SRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "NotifyExit"),
-                IsChecked = SMMM.AppExit
+                IsChecked = SMMG.AppExit
             };
 
             NotifyExit.Checked += (s, e) => NotifyExitChecked(true);
@@ -499,11 +496,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void NotifySelected(int Index)
         {
-            if (Index != (SMMM.Visible ? 0 : 1))
+            if (Index != (SMMG.Visible ? 0 : 1))
             {
                 bool State = Index == 0;
 
-                SMMI.LauncherSettingManager.SetSetting(SMC.Visible, State);
+                SMMI.GeneralSettingManager.SetSetting(SMMCG.Visible, State);
 
                 if (SSSHP.Work(SMMRA.Launcher))
                 {
@@ -541,7 +538,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void NotifyExitChecked(bool State)
         {
-            SMMI.LauncherSettingManager.SetSetting(SMC.AppExit, State);
+            SMMI.GeneralSettingManager.SetSetting(SMMCG.AppExit, State);
         }
 
         private void LibraryMoveChecked(bool State)

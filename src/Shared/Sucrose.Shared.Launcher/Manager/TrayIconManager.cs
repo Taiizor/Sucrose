@@ -1,8 +1,11 @@
 ﻿using System.IO;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHV = Skylark.Helper.Versionly;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMU = Sucrose.Manager.Manage.Update;
 using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
@@ -16,8 +19,6 @@ using SSLCRG = Sucrose.Shared.Launcher.Command.Reportdog;
 using SSLCRT = Sucrose.Shared.Launcher.Command.Report;
 using SSLCS = Sucrose.Shared.Launcher.Command.Setting;
 using SSLCU = Sucrose.Shared.Launcher.Command.Update;
-using SMML = Sucrose.Manager.Manage.Library;
-using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SSLHC = Sucrose.Shared.Launcher.Helper.Calculate;
 using SSLHR = Sucrose.Shared.Launcher.Helper.Radius;
 using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
@@ -31,12 +32,6 @@ using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SMMU = Sucrose.Manager.Manage.Update;
-using SMMCU = Sucrose.Memory.Manage.Constant.Update;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Shared.Launcher.Manager
 {
@@ -58,7 +53,7 @@ namespace Sucrose.Shared.Launcher.Manager
             TrayIcon.ContextMenuStrip = ContextMenu;
             TrayIcon.MouseClick += MouseClick;
 
-            TrayIcon.Visible = SMMM.Visible;
+            TrayIcon.Visible = SMMG.Visible;
 
             ContextMenuAdjustment();
 

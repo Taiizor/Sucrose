@@ -3,10 +3,8 @@ using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SECNT = Skylark.Enum.ClearNumericType;
 using SESPT = Skylark.Enum.SimilarPasswordType;
 using SHN = Skylark.Helper.Numeric;
-using SMMM = Sucrose.Manager.Manage.Manager;
-using SSEPPE = Skylark.Standard.Extension.Password.PasswordExtension;
 using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SSEPPE = Skylark.Standard.Extension.Password.PasswordExtension;
 
 namespace Sucrose.Backgroundog.Extension
 {

@@ -6,9 +6,10 @@ using Wpf.Ui.Controls;
 using SEDEST = Skylark.Enum.DuplicateScreenType;
 using SEDYST = Skylark.Enum.DisplayScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
-using SMC = Sucrose.Memory.Constant;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMME = Sucrose.Manager.Manage.Engine;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SPVCDD = Sucrose.Portal.Views.Controls.Display.Duplicate;
 using SPVCDE = Sucrose.Portal.Views.Controls.Display.Expand;
 using SPVCDS = Sucrose.Portal.Views.Controls.Display.Screen;
@@ -20,11 +21,6 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWUS = Skylark.Wing.Utility.Screene;
 using TextBlock = System.Windows.Controls.TextBlock;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Portal.Views.Controls
 {

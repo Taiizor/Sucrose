@@ -5,10 +5,9 @@ using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SEIT = Skylark.Enum.InputType;
 using SEST = Skylark.Enum.ScreenType;
-using SMC = Sucrose.Memory.Constant;
 using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMME = Sucrose.Manager.Manage.Engine;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDEAET = Sucrose.Shared.Dependency.Enum.ApplicationEngineType;
@@ -23,8 +22,6 @@ using SSDEYTET = Sucrose.Shared.Dependency.Enum.YouTubeEngineType;
 using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
 using SWUD = Skylark.Wing.Utility.Desktop;
 using TextBlock = System.Windows.Controls.TextBlock;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {

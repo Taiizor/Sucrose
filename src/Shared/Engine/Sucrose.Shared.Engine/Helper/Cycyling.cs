@@ -1,6 +1,6 @@
-﻿using SMC = Sucrose.Memory.Constant;
+﻿using SMMC = Sucrose.Manager.Manage.Cycling;
+using SMMCC = Sucrose.Memory.Manage.Constant.Cycling;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using Timer = System.Timers.Timer;
 
@@ -16,7 +16,7 @@ namespace Sucrose.Shared.Engine.Helper
 
             Cycler.Elapsed += (s, e) =>
             {
-                SMMI.CyclingSettingManager.SetSetting(SMC.PassingCycyling, SMMM.PassingCycyling + Second);
+                SMMI.CyclingSettingManager.SetSetting(SMMCC.PassingCycyling, SMMC.PassingCycyling + Second);
 
                 if (SSSHC.Check())
                 {

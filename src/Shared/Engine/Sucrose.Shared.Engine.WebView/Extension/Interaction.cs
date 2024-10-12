@@ -3,7 +3,7 @@ using Linearstar.Windows.RawInput.Native;
 using System.Windows.Interop;
 using Point = System.Drawing.Point;
 using SEIT = Skylark.Enum.InputType;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMME = Sucrose.Manager.Manage.Engine;
 using SSDEIMT = Sucrose.Shared.Dependency.Enum.InputModuleType;
 using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
@@ -12,9 +12,6 @@ using SWHC = Skylark.Wing.Helper.Calculate;
 using SWNM = Skylark.Wing.Native.Methods;
 using SWUD = Skylark.Wing.Utility.Desktop;
 using Timer = System.Timers.Timer;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Shared.Engine.WebView.Extension
 {

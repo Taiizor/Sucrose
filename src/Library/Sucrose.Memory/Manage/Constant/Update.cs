@@ -16,6 +16,8 @@
 
         public const string UpdateServerType = "UpdateServerType";
 
+        public const string UpdateChannelType = "UpdateChannelType";
+
         public const string UpdateExtensionType = "UpdateExtensionType";
     }
 }

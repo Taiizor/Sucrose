@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
-using SMC = Sucrose.Memory.Constant;
+using SMMCA = Sucrose.Memory.Manage.Constant.Aurora;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SSEAEA = Sucrose.Shared.Engine.Aurora.Event.Application;
 using SSEAHA = Sucrose.Shared.Engine.Aurora.Helper.Application;
@@ -16,7 +16,6 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWUS = Skylark.Wing.Utility.Screene;
-using SMMCA = Sucrose.Memory.Manage.Constant.Aurora;
 
 namespace Sucrose.Shared.Engine.Aurora.View
 {

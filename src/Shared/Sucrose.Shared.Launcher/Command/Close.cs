@@ -1,6 +1,6 @@
 ﻿using SELLT = Skylark.Enum.LevelLogType;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -15,7 +15,7 @@ namespace Sucrose.Shared.Launcher.Command
         {
             SMMI.LauncherLogManager.Log(SELLT.Info, $"Application has been closed.");
 
-            if (SMMM.AppExit)
+            if (SMMG.AppExit)
             {
                 if (SSSHL.Run())
                 {

@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using System.Net.Http;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMP = Sucrose.Manager.Manage.Portal;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSHG = Skylark.Standard.Helper.GitHub;
@@ -9,8 +9,6 @@ using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
-using SMMP = Sucrose.Manager.Manage.Portal;
-using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
 
 namespace Sucrose.Shared.Store.Helper.GitHub
 {

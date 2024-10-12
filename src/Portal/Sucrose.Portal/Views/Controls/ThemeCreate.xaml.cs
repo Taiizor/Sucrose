@@ -12,6 +12,7 @@ using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SEAT = Skylark.Enum.AssemblyType;
 using SHA = Skylark.Helper.Assemblies;
 using SHG = Skylark.Helper.Generator;
+using SMML = Sucrose.Manager.Manage.Library;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
@@ -25,8 +26,6 @@ using SSSHA = Sucrose.Shared.Space.Helper.Access;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
-using SMML = Sucrose.Manager.Manage.Library;
-using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 
 namespace Sucrose.Portal.Views.Controls
 {

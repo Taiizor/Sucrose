@@ -1,8 +1,6 @@
 ﻿using System.Windows.Media;
-using SMMM = Sucrose.Manager.Manage.Manager;
-using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SMMP = Sucrose.Manager.Manage.Portal;
-using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
+using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 
 namespace Sucrose.Portal.Services
 {

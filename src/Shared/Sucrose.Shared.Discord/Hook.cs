@@ -2,8 +2,8 @@
 using DiscordRPC.Message;
 using Button = DiscordRPC.Button;
 using SMMCH = Sucrose.Memory.Manage.Constant.Hook;
+using SMMH = Sucrose.Manager.Manage.Hook;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDMI = Sucrose.Shared.Discord.Manage.Internal;
@@ -104,7 +104,7 @@ namespace Sucrose.Shared.Discord
         public void AutoRefresh()
         {
             SSDMI.RefreshTimer.Tick += new EventHandler(RefreshTimer_Tick);
-            SSDMI.RefreshTimer.Interval = new TimeSpan(0, 0, SMMM.DiscordDelay);
+            SSDMI.RefreshTimer.Interval = new TimeSpan(0, 0, SMMH.DiscordDelay);
             SSDMI.RefreshTimer.Start();
         }
 
@@ -115,7 +115,7 @@ namespace Sucrose.Shared.Discord
 
         private void RefreshTimer_Tick(object sender, EventArgs e)
         {
-            if (SMMM.DiscordRefresh)
+            if (SMMH.DiscordRefresh)
             {
                 SetPresence();
             }
@@ -123,18 +123,18 @@ namespace Sucrose.Shared.Discord
 
         private void InitializeTimer_Tick(object sender, EventArgs e)
         {
-            if (SMMM.DiscordState && SSSHP.Work(SSDMI.Name[0], SSDMI.Name[1]))
+            if (SMMH.DiscordState && SSSHP.Work(SSDMI.Name[0], SSDMI.Name[1]))
             {
                 if (!SSDMI.Client.IsInitialized)
                 {
                     SSDMI.Client.Initialize();
                 }
 
-                if (SMMM.DiscordRefresh && !SSDMI.RefreshTimer.IsEnabled)
+                if (SMMH.DiscordRefresh && !SSDMI.RefreshTimer.IsEnabled)
                 {
                     AutoRefresh();
                 }
-                else if (!SMMM.DiscordRefresh && SSDMI.RefreshTimer.IsEnabled)
+                else if (!SMMH.DiscordRefresh && SSDMI.RefreshTimer.IsEnabled)
                 {
                     SSDMI.RefreshTimer.Stop();
                 }

@@ -1,17 +1,14 @@
 ﻿using System.Globalization;
 using System.Text;
 using SHC = Skylark.Helper.Culture;
-using SMMM = Sucrose.Manager.Manage.Manager;
-using SMR = Sucrose.Memory.Readonly;
+using SMMG = Sucrose.Manager.Manage.General;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SRHA = Sucrose.Reportdog.Helper.Attempt;
 using SRMI = Sucrose.Reportdog.Manage.Internal;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
-using SMMRA = Sucrose.Memory.Manage.Readonly.App;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Reportdog
 {

@@ -3,10 +3,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
-using SMC = Sucrose.Memory.Constant;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
+using SMME = Sucrose.Manager.Manage.Engine;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMP = Sucrose.Manager.Manage.Portal;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
@@ -15,12 +18,6 @@ using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
-using SMML = Sucrose.Manager.Manage.Library;
-using SMMCL = Sucrose.Memory.Manage.Constant.Library;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMP = Sucrose.Manager.Manage.Portal;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {

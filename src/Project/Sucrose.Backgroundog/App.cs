@@ -2,15 +2,12 @@
 using System.Text;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SHC = Skylark.Helper.Culture;
-using SMMM = Sucrose.Manager.Manage.Manager;
-using SMR = Sucrose.Memory.Readonly;
-using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Backgroundog
 {

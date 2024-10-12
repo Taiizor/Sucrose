@@ -12,7 +12,6 @@ using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
 using MessageBox = Wpf.Ui.Controls.MessageBox;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMMVL = Sucrose.Memory.Manage.Valuable.Log;

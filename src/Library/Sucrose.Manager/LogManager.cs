@@ -1,9 +1,9 @@
 ﻿using SELLT = Skylark.Enum.LevelLogType;
 using SELT = Skylark.Enum.LogType;
 using SMHW = Sucrose.Manager.Helper.Writer;
-using SMR = Sucrose.Memory.Readonly;
-using SMMVL = Sucrose.Memory.Manage.Valuable.Log;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SMMVL = Sucrose.Memory.Manage.Valuable.Log;
+using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.Manager
 {

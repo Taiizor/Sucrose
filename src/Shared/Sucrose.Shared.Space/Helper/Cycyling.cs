@@ -3,9 +3,12 @@ using SECNT = Skylark.Enum.ClearNumericType;
 using SETT = Skylark.Enum.TimeType;
 using SHN = Skylark.Helper.Numeric;
 using SHV = Skylark.Helper.Versionly;
-using SMC = Sucrose.Memory.Constant;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMC = Sucrose.Manager.Manage.Cycling;
+using SMMCC = Sucrose.Memory.Manage.Constant.Cycling;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMML = Sucrose.Manager.Manage.Library;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDETCT = Sucrose.Shared.Dependency.Enum.TransitionCycleType;
@@ -14,10 +17,6 @@ using SSETTE = Skylark.Standard.Extension.Time.TimeExtension;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SMML = Sucrose.Manager.Manage.Library;
-using SMMCL = Sucrose.Memory.Manage.Constant.Library;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Space.Helper
 {
@@ -31,9 +30,9 @@ namespace Sucrose.Shared.Space.Helper
 
                 if (Themes.Any())
                 {
-                    Themes = Themes.Except(SMMM.DisableCycyling).ToList();
+                    Themes = Themes.Except(SMMC.DisableCycyling).ToList();
 
-                    if (SMMM.Cycyling && (Themes.Count > 1 || (Themes.Count == 1 && !Themes.Contains(SMML.LibrarySelected))) && (SMMM.PassingCycyling >= Converter(SMMM.CycylingTime) || !Time))
+                    if (SMMC.Cycyling && (Themes.Count > 1 || (Themes.Count == 1 && !Themes.Contains(SMML.LibrarySelected))) && (SMMC.PassingCycyling >= Converter(SMMC.CycylingTime) || !Time))
                     {
                         foreach (string Theme in Themes)
                         {
@@ -87,7 +86,7 @@ namespace Sucrose.Shared.Space.Helper
                     {
                         string LibrarySelected = SMML.LibrarySelected;
 
-                        Themes = Themes.Where(Theme => !SMMM.DisableCycyling.Contains(Theme) || Theme == LibrarySelected).ToList();
+                        Themes = Themes.Where(Theme => !SMMC.DisableCycyling.Contains(Theme) || Theme == LibrarySelected).ToList();
 
                         if (Themes.Count > 1)
                         {
@@ -166,7 +165,7 @@ namespace Sucrose.Shared.Space.Helper
 
                             if (!string.IsNullOrEmpty(Selected))
                             {
-                                SMMI.CyclingSettingManager.SetSetting(SMC.PassingCycyling, 0);
+                                SMMI.CyclingSettingManager.SetSetting(SMMCC.PassingCycyling, 0);
 
                                 SMMI.LibrarySettingManager.SetSetting(SMMCL.LibrarySelected, Selected);
 

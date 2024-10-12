@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 using System.Windows;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
@@ -9,8 +9,6 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVEU = Sucrose.Shared.Engine.WebView.Event.Url;
 using SSEWVHU = Sucrose.Shared.Engine.WebView.Helper.Url;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.WebView.View
 {

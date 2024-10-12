@@ -1,7 +1,7 @@
 ﻿using Microsoft.Win32;
 using System.Windows;
 using System.Windows.Media;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
@@ -9,8 +9,6 @@ using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMPHG = Sucrose.Shared.Engine.MpvPlayer.Helper.Gif;
 using SSEMPMI = Sucrose.Shared.Engine.MpvPlayer.Manage.Internal;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Shared.Engine.MpvPlayer.View
 {

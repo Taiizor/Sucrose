@@ -3,9 +3,11 @@ using Skylark.Standard.Extension.Storage;
 using System.Diagnostics;
 using SBEG = Sucrose.Backgroundog.Extension.Graphic;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
-using SMC = Sucrose.Memory.Constant;
+using SMMA = Sucrose.Manager.Manage.Aurora;
+using SMMB = Sucrose.Manager.Manage.Backgroundog;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
 using SSDENPT = Sucrose.Shared.Dependency.Enum.NetworkPerformanceType;
@@ -14,15 +16,10 @@ using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSSEL = Sucrose.Shared.Space.Extension.Lifecycle;
-using SMMCA = Sucrose.Memory.Manage.Constant.Aurora;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
-using SMMRA = Sucrose.Memory.Manage.Readonly.App;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
-using SMMB = Sucrose.Manager.Manage.Backgroundog;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -127,9 +124,9 @@ namespace Sucrose.Backgroundog.Helper
 
                 if (SBMI.PausePerformance == SSDEPPT.Heavy)
                 {
-                    if (!string.IsNullOrEmpty(SMMM.AppProcessName))
+                    if (!string.IsNullOrEmpty(SMMA.AppProcessName))
                     {
-                        SBMI.Apps = SSSHP.Gets(SMMM.AppProcessName);
+                        SBMI.Apps = SSSHP.Gets(SMMA.AppProcessName);
 
                         if (SBMI.Apps != null)
                         {

@@ -2,15 +2,12 @@
 using SEDYST = Skylark.Enum.DisplayScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMME = Sucrose.Manager.Manage.Engine;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SSDMI = Sucrose.Shared.Dependency.Manage.Internal;
 using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SWUD = Skylark.Wing.Utility.Desktop;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Shared.Engine.Helper
 {

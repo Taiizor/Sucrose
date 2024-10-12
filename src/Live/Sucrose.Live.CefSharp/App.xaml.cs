@@ -9,25 +9,24 @@ using System.Windows;
 using Application = System.Windows.Application;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
-using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SHV = Skylark.Helper.Versionly;
-using SMC = Sucrose.Memory.Constant;
-using SMMCU = Sucrose.Memory.Manage.Constant.User;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMCW = Sucrose.Memory.Manage.Constant.Warehouse;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMML = Sucrose.Manager.Manage.Library;
-using SMMCL = Sucrose.Memory.Manage.Constant.Library;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
-using SMMM = Sucrose.Manager.Manage.Manager;
-using SMR = Sucrose.Memory.Readonly;
-using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SMMW = Sucrose.Manager.Manage.Warehouse;
+using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DialogType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
 using SSECSVG = Sucrose.Shared.Engine.CefSharp.View.Gif;
 using SSECSVU = Sucrose.Shared.Engine.CefSharp.View.Url;
 using SSECSVV = Sucrose.Shared.Engine.CefSharp.View.Video;
@@ -49,10 +48,6 @@ using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
-using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Live.CefSharp
 {
@@ -186,7 +181,7 @@ namespace Sucrose.Live.CefSharp
 
         protected void Checker()
         {
-            if (Check() || SMMM.CefSharpTime > DateTime.Now)
+            if (Check() || SMMW.CefSharpTime > DateTime.Now)
             {
                 Configure();
             }
@@ -194,7 +189,7 @@ namespace Sucrose.Live.CefSharp
             {
                 SSDEDT DialogResult;
 
-                bool Check = SMMM.CefsharpContinue;
+                bool Check = SMMW.CefsharpContinue;
 
                 string CloseText = SRER.GetValue("Live", "Close");
                 string ContinueText = SRER.GetValue("Live", "Continue");
@@ -228,7 +223,7 @@ namespace Sucrose.Live.CefSharp
                         Configure();
                         break;
                     case SSDEDT.Download:
-                        SMMI.UserSettingManager.SetSetting(SMMCU.CefsharpContinue, true);
+                        SMMI.WarehouseSettingManager.SetSetting(SMMCW.CefsharpContinue, true);
                         Downloader();
                         break;
                     case SSDEDT.Remember:
@@ -243,7 +238,7 @@ namespace Sucrose.Live.CefSharp
 
         protected void Remember()
         {
-            SMMI.UserSettingManager.SetSetting(SMMCU.CefSharpTime, DateTime.Now.AddDays(1));
+            SMMI.WarehouseSettingManager.SetSetting(SMMCW.CefSharpTime, DateTime.Now.AddDays(1));
 
             Configure();
         }

@@ -2,10 +2,12 @@
 using System.Windows;
 using Wpf.Ui.Abstractions.Controls;
 using SHG = Skylark.Helper.Generator;
-using SMMCU = Sucrose.Memory.Manage.Constant.User;
+using SMMCW = Sucrose.Memory.Manage.Constant.Warehouse;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMML = Sucrose.Manager.Manage.Library;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SMMW = Sucrose.Manager.Manage.Warehouse;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCTI = Sucrose.Portal.Views.Controls.ThemeImport;
@@ -14,7 +16,6 @@ using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
 using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
-using SMML = Sucrose.Manager.Manage.Library;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
 using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
@@ -89,7 +90,7 @@ namespace Sucrose.Portal.Views.Pages
             {
                 bool State = false;
 
-                List<string> Showcase = SMMM.Showcase;
+                List<string> Showcase = SMMW.Showcase;
 
                 if (!Directory.Exists(SMML.LibraryLocation))
                 {
@@ -107,7 +108,7 @@ namespace Sucrose.Portal.Views.Pages
 
                 if (State)
                 {
-                    SMMI.UserSettingManager.SetSetting(SMMCU.Showcase, Showcase);
+                    SMMI.WarehouseSettingManager.SetSetting(SMMCW.Showcase, Showcase);
                 }
             }
         }

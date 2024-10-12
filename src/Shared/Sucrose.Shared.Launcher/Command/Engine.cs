@@ -1,12 +1,11 @@
 ﻿using System.IO;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMML = Sucrose.Manager.Manage.Library;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
-using SMML = Sucrose.Manager.Manage.Library;
-using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 
 namespace Sucrose.Shared.Launcher.Command
 {
@@ -24,7 +23,7 @@ namespace Sucrose.Shared.Launcher.Command
                 {
                     SSLHR.Start();
 
-                    if (!SMMM.Visible)
+                    if (!SMMG.Visible)
                     {
                         SSLCI.Command();
                     }

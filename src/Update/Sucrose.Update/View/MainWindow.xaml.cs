@@ -15,9 +15,11 @@ using SEST = Skylark.Enum.StorageType;
 using SEVT = Skylark.Enum.VersionType;
 using SHN = Skylark.Helper.Numeric;
 using SHV = Skylark.Helper.Versionly;
-using SMC = Sucrose.Memory.Constant;
+using SMMCU = Sucrose.Memory.Manage.Constant.Update;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMO = Sucrose.Manager.Manage.Objectionable;
+using SMMU = Sucrose.Manager.Manage.Update;
 using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCEUCT = Sucrose.Shared.Core.Enum.UpdateChannelType;
@@ -52,12 +54,6 @@ using SUMI = Sucrose.Update.Manage.Internal;
 using SUMMU = Sucrose.Update.Manage.Manager.Update;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWNM = Skylark.Wing.Native.Methods;
-using SMMU = Sucrose.Manager.Manage.Update;
-using SMMCU = Sucrose.Memory.Manage.Constant.Update;
-using SMMO = Sucrose.Manager.Manage.Objectionable;
-using SMMCO = Sucrose.Memory.Manage.Constant.Objectionable;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Update.View
 {

@@ -8,7 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
@@ -26,8 +26,6 @@ using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using TextBlock = Wpf.Ui.Controls.TextBlock;
 using TextBox = Wpf.Ui.Controls.TextBox;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Portal.Views.Controls
 {

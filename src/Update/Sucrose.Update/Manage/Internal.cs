@@ -1,12 +1,10 @@
 ﻿using Downloader;
 using System.IO;
 using System.Net;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using Timer = System.Timers.Timer;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Update.Manage
 {

@@ -3,8 +3,8 @@ using System.Windows;
 using Application = System.Windows.Application;
 using SELLT = Skylark.Enum.LevelLogType;
 using SHC = Skylark.Helper.Culture;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SRHR = Sucrose.Resources.Helper.Resources;
@@ -16,8 +16,6 @@ using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSSSLSS = Sucrose.Shared.Signal.Services.LauncherSignalService;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Launcher
 {

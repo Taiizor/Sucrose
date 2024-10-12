@@ -1,7 +1,8 @@
 ﻿using System.IO;
 using System.Windows;
 using Wpf.Ui.Abstractions.Controls;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMG = Sucrose.Manager.Manage.General;
+using SMMO = Sucrose.Manager.Manage.Objectionable;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;
@@ -16,10 +17,6 @@ using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSHSD = Sucrose.Shared.Store.Helper.Soferity.Download;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
-using SMMO = Sucrose.Manager.Manage.Objectionable;
-using SMMCO = Sucrose.Memory.Manage.Constant.Objectionable;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Portal.Views.Pages
 {
