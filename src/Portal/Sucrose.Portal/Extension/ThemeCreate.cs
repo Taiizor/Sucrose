@@ -1,6 +1,7 @@
 ﻿using SMR = Sucrose.Memory.Readonly;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Portal.Extension
 {
@@ -15,7 +16,7 @@ namespace Sucrose.Portal.Extension
         {
             string Result;
 
-            if (SMR.Randomise.Next(2) == 0)
+            if (SMMRG.Randomise.Next(2) == 0)
             {
                 Result = $"{GetAuthor()}@example.com";
             }

@@ -5,6 +5,7 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
 using Timer = System.Timers.Timer;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Shared.Engine.Helper
 {
@@ -20,7 +21,7 @@ namespace Sucrose.Shared.Engine.Helper
                 {
                     if (SMME.Volume > 0 && SMME.VolumeActive)
                     {
-                        foreach (Process Process in Process.GetProcesses().Where(Proc => !Proc.ProcessName.Contains(SMR.AppName) && !SSEMI.Processes.ToList().Any(Id => Id == Proc.Id) && !SSEMI.Applications.ToList().Any(App => App.Process.Id == Proc.Id)))
+                        foreach (Process Process in Process.GetProcesses().Where(Proc => !Proc.ProcessName.Contains(SMMRG.AppName) && !SSEMI.Processes.ToList().Any(Id => Id == Proc.Id) && !SSEMI.Applications.ToList().Any(App => App.Process.Id == Proc.Id)))
                         {
                             float? Volume = 0;
                             bool? Muted = true;

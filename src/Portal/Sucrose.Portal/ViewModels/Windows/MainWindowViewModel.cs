@@ -10,10 +10,11 @@ using Wpf.Ui.Controls;
 using SEOST = Skylark.Enum.OperatingSystemType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMMB = Sucrose.Manager.Manage.Backgroundog;
-using SMMCC = Sucrose.Memory.Manage.Constant.Core;
+using SMMCK = Sucrose.Memory.Manage.Constant.Kernel;
 using SMMCG = Sucrose.Memory.Manage.Constant.General;
 using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMMD = Sucrose.Manager.Manage.Donate;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMME = Sucrose.Manager.Manage.Engine;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMP = Sucrose.Manager.Manage.Portal;
@@ -139,7 +140,7 @@ namespace Sucrose.Portal.ViewModels.Windows
                 ["OperatingSystemArchitecture"] = SWHSI.GetSystemInfoArchitecture()
             };
 
-            SMMI.CoreSettingManager.SetSetting(SMMCC.Information, Information);
+            SMMI.KernelSettingManager.SetSetting(SMMCK.Information, Information);
         }
 
         private void InitializeViewModel()
@@ -166,7 +167,7 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         private string GetQuoting()
         {
-            return SRER.GetValue("Portal", $"Quoting{SMR.Randomise.Next(86)}");
+            return SRER.GetValue("Portal", $"Quoting{SMMRG.Randomise.Next(86)}");
         }
 
         private Stretch GetStretch()

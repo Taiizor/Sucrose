@@ -20,6 +20,7 @@ using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
 using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSSHA = Sucrose.Shared.Space.Helper.Access;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
@@ -84,7 +85,7 @@ namespace Sucrose.Portal.Views.Pages
 
         private void CheckShowcase()
         {
-            string ShowcasePath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.Showcase);
+            string ShowcasePath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.Showcase);
 
             if (Directory.Exists(ShowcasePath))
             {
@@ -128,7 +129,7 @@ namespace Sucrose.Portal.Views.Pages
                 {
                     foreach (string Folder in Folders)
                     {
-                        string PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                        string PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Properties);
                         string PropertiesFile = Path.Combine(PropertiesCache, $"{Path.GetFileName(Folder)}.json");
                         string InfoPath = Path.Combine(Folder, SMR.SucroseInfo);
 
@@ -302,7 +303,7 @@ namespace Sucrose.Portal.Views.Pages
 
                             do
                             {
-                                Name = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
+                                Name = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
                             } while (Directory.Exists(Path.Combine(SMML.LibraryLocation, Name)));
 
                             Result = await Task.Run(() => SSZEZ.Extract(Record, Path.Combine(SMML.LibraryLocation, Name)));

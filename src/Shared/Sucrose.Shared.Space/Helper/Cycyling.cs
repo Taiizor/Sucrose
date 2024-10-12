@@ -16,6 +16,7 @@ using SSDMMC = Sucrose.Shared.Dependency.Manage.Manager.Cycling;
 using SSETTE = Skylark.Standard.Extension.Time.TimeExtension;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
 namespace Sucrose.Shared.Space.Helper
@@ -101,7 +102,7 @@ namespace Sucrose.Shared.Space.Helper
                                     {
                                         while (Index == Themes.IndexOf(LibrarySelected))
                                         {
-                                            Index = SMR.Randomise.Next(Themes.Count);
+                                            Index = SMMRG.Randomise.Next(Themes.Count);
                                         }
 
                                         string Current = Themes[Index];

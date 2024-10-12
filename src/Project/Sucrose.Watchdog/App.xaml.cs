@@ -31,6 +31,7 @@ using SWHSI = Skylark.Wing.Helper.SystemInfo;
 using SWNM = Skylark.Wing.Native.Methods;
 using SWVDEMB = Sucrose.Watchdog.View.DarkErrorMessageBox;
 using SWVLEMB = Sucrose.Watchdog.View.LightErrorMessageBox;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Watchdog
 {
@@ -134,7 +135,7 @@ namespace Sucrose.Watchdog
 
                     SSSMDD DiagnosticsData = new(Id, SSSHUE.Generate($"{Name}-{Model}-{Manufacturer}"), Application, AppId, Name, Model, SSCHOS.GetServer(), SMMG.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), JObject.Parse(Arguments[1]), SSCHOS.GetWorkstation(), Culture.Name, SSCHA.GetText(), Manufacturer, Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
 
-                    SSSHW.Write(Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.ReportFolder, $"{Id}.json"), JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented));
+                    SSSHW.Write(Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.ReportFolder, $"{Id}.json"), JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented));
 
                     if (Application != SMMRA.Watchdog)
                     {

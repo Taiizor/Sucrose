@@ -14,6 +14,7 @@ using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
@@ -134,7 +135,7 @@ namespace Sucrose.Property
 
                         if (SPMI.Info.Type == SSDEWT.Web)
                         {
-                            SPMI.PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                            SPMI.PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Properties);
                             SPMI.PropertiesFile = Path.Combine(SPMI.PropertiesCache, $"{SPMI.LibrarySelected}.json");
                             SPMI.WatcherFile = Path.Combine(SPMI.PropertiesCache, $"*.{SPMI.LibrarySelected}.json");
 

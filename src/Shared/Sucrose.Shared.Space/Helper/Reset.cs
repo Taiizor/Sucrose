@@ -6,6 +6,7 @@ using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Shared.Space.Helper
 {
@@ -26,16 +27,16 @@ namespace Sucrose.Shared.Space.Helper
 
             await Task.Delay(TimeSpan.FromSeconds(3));
 
-            if (Directory.Exists(Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.SettingFolder)))
+            if (Directory.Exists(Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.SettingFolder)))
             {
-                foreach (string Setting in Settings(Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.SettingFolder)))
+                foreach (string Setting in Settings(Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.SettingFolder)))
                 {
                     File.Delete(Setting);
                 }
             }
             else
             {
-                Directory.CreateDirectory(Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.SettingFolder));
+                Directory.CreateDirectory(Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.SettingFolder));
             }
 
             await Task.Delay(TimeSpan.FromSeconds(1));

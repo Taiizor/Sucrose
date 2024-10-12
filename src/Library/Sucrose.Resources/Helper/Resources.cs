@@ -3,7 +3,7 @@ using System.Windows;
 using SEAT = Skylark.Enum.AssemblyType;
 using SHA = Skylark.Helper.Assemblies;
 using SHC = Skylark.Helper.Culture;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Resources.Helper
 {
@@ -15,7 +15,7 @@ namespace Sucrose.Resources.Helper
 
             if (!CheckLanguage(Lang))
             {
-                Lang = SMR.Language;
+                Lang = SMMRG.Language;
             }
 
             ResourceDictionary Resource = new()

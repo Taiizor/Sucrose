@@ -4,6 +4,7 @@ using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SSEVMI = Sucrose.Shared.Engine.Vexana.Manage.Internal;
 using SSEVSG = Sucrose.Shared.Engine.Vexana.Struct.Gif;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Shared.Engine.Vexana.Helper
 {
@@ -13,7 +14,7 @@ namespace Sucrose.Shared.Engine.Vexana.Helper
         {
             SSEVSG Result = SSEVMI.ImageResult;
 
-            string CachePath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.GifFolder);
+            string CachePath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.GifFolder);
 
             if (Directory.Exists(CachePath))
             {

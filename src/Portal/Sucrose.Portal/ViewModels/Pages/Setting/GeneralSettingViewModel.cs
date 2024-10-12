@@ -25,6 +25,7 @@ using SMML = Sucrose.Manager.Manage.Library;
 using SMMP = Sucrose.Manager.Manage.Portal;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMMP = Sucrose.Portal.Manage.Manager.Portal;
@@ -769,7 +770,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 switch (SMMG.Startup)
                 {
                     case 1:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Startup}{SMR.ValueSeparator}{SMR.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{false}");
+                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Startup}{SMR.ValueSeparator}{SMMRG.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{false}");
                         break;
                     case 2:
                         try
@@ -803,7 +804,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 switch (Index)
                 {
                     case 1:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Startup}{SMR.ValueSeparator}{SMR.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{true}");
+                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Startup}{SMR.ValueSeparator}{SMMRG.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{true}");
                         break;
                     case 2:
                         try

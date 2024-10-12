@@ -4,6 +4,7 @@ using SMHW = Sucrose.Manager.Helper.Writer;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMMVL = Sucrose.Memory.Manage.Valuable.Log;
 using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Manager
 {
@@ -17,9 +18,9 @@ namespace Sucrose.Manager
         {
             this.logType = logType;
 
-            threadId = SMR.Randomise.Next(1000, 9999);
+            threadId = SMMRG.Randomise.Next(1000, 9999);
 
-            logFilePath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.LogFolder, string.Format(logFileName, SMMVL.FileNameDate));
+            logFilePath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.LogFolder, string.Format(logFileName, SMMVL.FileNameDate));
 
             Directory.CreateDirectory(Path.GetDirectoryName(logFilePath));
         }

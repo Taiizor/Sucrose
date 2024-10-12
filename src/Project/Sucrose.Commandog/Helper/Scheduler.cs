@@ -2,6 +2,7 @@
 using System.Security.Principal;
 using SMR = Sucrose.Memory.Readonly;
 using Task = Microsoft.Win32.TaskScheduler.Task;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Commandog.Helper
 {
@@ -38,7 +39,7 @@ namespace Sucrose.Commandog.Helper
         {
             using TaskService Service = new();
 
-            TaskFolder Folder = Service.RootFolder.CreateFolder(SMR.AppName, exceptionOnExists: false);
+            TaskFolder Folder = Service.RootFolder.CreateFolder(SMMRG.AppName, exceptionOnExists: false);
 
             TaskDefinition Definition = Service.NewTask();
 
@@ -87,7 +88,7 @@ namespace Sucrose.Commandog.Helper
         {
             using TaskService Service = new();
 
-            TaskFolder Folder = Service.GetFolder(SMR.AppName);
+            TaskFolder Folder = Service.GetFolder(SMMRG.AppName);
 
             if (Folder != null)
             {
@@ -139,7 +140,7 @@ namespace Sucrose.Commandog.Helper
         {
             using TaskService Service = new();
 
-            TaskFolder Folder = Service.GetFolder(SMR.AppName);
+            TaskFolder Folder = Service.GetFolder(SMMRG.AppName);
 
             if (Folder != null)
             {
@@ -189,7 +190,7 @@ namespace Sucrose.Commandog.Helper
         {
             using TaskService Service = new();
 
-            TaskFolder Folder = Service.GetFolder(SMR.AppName);
+            TaskFolder Folder = Service.GetFolder(SMMRG.AppName);
 
             if (Folder != null)
             {

@@ -8,6 +8,7 @@ using SMHV = Sucrose.Manager.Helper.Validator;
 using SMHW = Sucrose.Manager.Helper.Writer;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Manager
 {
@@ -18,7 +19,7 @@ namespace Sucrose.Manager
 
         public SettingManager2(string settingsFileName, Formatting formatting = Formatting.Indented, TypeNameHandling typeNameHandling = TypeNameHandling.None)
         {
-            _settingsFilePath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.SettingFolder, settingsFileName);
+            _settingsFilePath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.SettingFolder, settingsFileName);
 
             Directory.CreateDirectory(Path.GetDirectoryName(_settingsFilePath));
 

@@ -2,8 +2,6 @@
 {
     public static class Readonly
     {
-        public static readonly string Language = "EN";
-
         public static readonly string Store = "Store";
 
         public static readonly string Bundle = "Bundle";
@@ -13,8 +11,6 @@
         public static readonly string LogFolder = "Log";
 
         public static readonly string Owner = "Taiizor";
-
-        public static readonly Random Randomise = new();
 
         public static readonly string Themes = "Themes";
 
@@ -29,8 +25,6 @@
         public static readonly string Library = "Library";
 
         public static readonly string SignalT = "SignalT";
-
-        public static readonly string AppName = "Sucrose";
 
         public static readonly string StoreSource = "src";
 

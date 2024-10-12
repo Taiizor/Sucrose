@@ -8,6 +8,7 @@ using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SWUD = Skylark.Wing.Utility.Desktop;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Shared.Live.Helper
 {
@@ -34,7 +35,7 @@ namespace Sucrose.Shared.Live.Helper
                 Process[] Processes = Process.GetProcesses();
 
                 Processes
-                    .Where(Process => (Process.ProcessName.Contains(SMR.WebViewProcessName) || Process.ProcessName.Contains(SMR.CefSharpProcessName)) && SSSHM.GetCommandLine(Process).Contains(SMR.AppName))
+                    .Where(Process => (Process.ProcessName.Contains(SMR.WebViewProcessName) || Process.ProcessName.Contains(SMR.CefSharpProcessName)) && SSSHM.GetCommandLine(Process).Contains(SMMRG.AppName))
                     .ToList()
                     .ForEach(Process =>
                     {

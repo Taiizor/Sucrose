@@ -54,6 +54,7 @@ using SUMI = Sucrose.Update.Manage.Internal;
 using SUMMU = Sucrose.Update.Manage.Manager.Update;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWNM = Skylark.Wing.Native.Methods;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Update.View
 {
@@ -98,7 +99,7 @@ namespace Sucrose.Update.View
 
             Back.BeginInit();
 
-            Back.UriSource = SMR.Randomise.Next(5) switch
+            Back.UriSource = SMMRG.Randomise.Next(5) switch
             {
                 0 => new Uri("pack://application:,,,/Assets/Back1.jpg", UriKind.RelativeOrAbsolute),
                 1 => new Uri("pack://application:,,,/Assets/Back2.jpg", UriKind.RelativeOrAbsolute),
@@ -407,15 +408,15 @@ namespace Sucrose.Update.View
                 {
                     foreach (SSIIA Asset in Assets)
                     {
-                        string Name = $"{SMR.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHU.GetDescription(SUMMU.UpdateExtensionType)}";
+                        string Name = $"{SMMRG.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHU.GetDescription(SUMMU.UpdateExtensionType)}";
 
                         string[] Required =
                         {
                             SSCHU.GetDescription(SUMMU.UpdateExtensionType),
                             SSCHF.GetDescription(),
                             SSCHA.GetText(),
+                            SMMRG.AppName,
                             $"{Latest}",
-                            SMR.AppName,
                             SMR.Bundle
                         };
 

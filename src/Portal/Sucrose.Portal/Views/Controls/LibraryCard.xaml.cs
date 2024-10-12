@@ -11,6 +11,7 @@ using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMP = Sucrose.Manager.Manage.Portal;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
@@ -225,7 +226,7 @@ namespace Sucrose.Portal.Views.Controls
 
                 await Task.Run(() =>
                 {
-                    string PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                    string PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Properties);
                     string PropertiesFile = Path.Combine(PropertiesCache, $"{Path.GetFileName(Theme)}.json");
 
                     if (File.Exists(PropertiesFile))

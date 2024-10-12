@@ -3,6 +3,7 @@ using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMMVL = Sucrose.Memory.Manage.Valuable.Log;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
@@ -31,8 +32,8 @@ namespace Sucrose.Shared.Launcher.Helper
 
                 string[] Sources = new[]
                 {
-                    Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.LogFolder),
-                    Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.SettingFolder)
+                    Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.LogFolder),
+                    Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.SettingFolder)
                 };
 
                 string[] Excludes = new[]

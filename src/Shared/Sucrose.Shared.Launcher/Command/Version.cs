@@ -6,6 +6,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Shared.Launcher.Command
 {
@@ -13,7 +14,7 @@ namespace Sucrose.Shared.Launcher.Command
     {
         public static void Command()
         {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Versioning}{SMR.ValueSeparator}{Path.Combine(SMMRP.LocalApplicationData, SMR.AppName)}{SMR.ValueSeparator}{SHV.Auto(SEAT.Entry)}{SMR.ValueSeparator}{false}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Versioning}{SMR.ValueSeparator}{Path.Combine(SMMRP.LocalApplicationData, SMMRG.AppName)}{SMR.ValueSeparator}{SHV.Auto(SEAT.Entry)}{SMR.ValueSeparator}{false}");
         }
     }
 }

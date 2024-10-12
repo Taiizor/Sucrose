@@ -15,6 +15,7 @@ using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSSHGHD = Sucrose.Shared.Store.Helper.GitHub.Download;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSSHSD = Sucrose.Shared.Store.Helper.Soferity.Download;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
 
@@ -49,8 +50,8 @@ namespace Sucrose.Portal.Views.Pages
         {
             if (SSSHN.GetHostEntry())
             {
-                string PatternFile = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.PatternFile);
-                string StoreFile = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
+                string PatternFile = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Store, SMR.PatternFile);
+                string StoreFile = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 
                 bool Result = SSDMMP.StoreServerType switch
                 {

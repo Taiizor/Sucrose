@@ -4,6 +4,7 @@ using System.Net;
 using SMMG = Sucrose.Manager.Manage.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using Timer = System.Timers.Timer;
 
 namespace Sucrose.Update.Manage
@@ -16,9 +17,9 @@ namespace Sucrose.Update.Manage
 
         public static DownloadService DownloadService;
 
-        public static bool Chance = SMR.Randomise.Next(2) == 0;
+        public static bool Chance = SMMRG.Randomise.Next(2) == 0;
 
-        public static string CachePath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Bundle);
+        public static string CachePath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Bundle);
 
         public static Timer Checker = new()
         {

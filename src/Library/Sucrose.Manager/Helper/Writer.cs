@@ -1,5 +1,6 @@
 ﻿using SMHC = Sucrose.Manager.Helper.Cleaner;
 using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Manager.Helper
 {
@@ -20,7 +21,7 @@ namespace Sucrose.Manager.Helper
             {
                 try
                 {
-                    await Task.Delay(SMR.Randomise.Next(5, 50));
+                    await Task.Delay(SMMRG.Randomise.Next(5, 50));
 
                     using FileStream fileStream = new(filePath, fileMode, FileAccess.Write, FileShare.None);
                     using StreamWriter writer = new(fileStream);
@@ -31,7 +32,7 @@ namespace Sucrose.Manager.Helper
                 {
                     try
                     {
-                        await Task.Delay(SMR.Randomise.Next(5, 50));
+                        await Task.Delay(SMMRG.Randomise.Next(5, 50));
 
                         using FileStream fileStream = new(filePath, fileMode, FileAccess.Write, FileShare.None);
                         using StreamWriter writer = new(fileStream);
@@ -58,7 +59,7 @@ namespace Sucrose.Manager.Helper
             {
                 try
                 {
-                    await Task.Delay(SMR.Randomise.Next(5, 50));
+                    await Task.Delay(SMMRG.Randomise.Next(5, 50));
 
                     using StreamWriter writer = File.AppendText(filePath);
 
@@ -68,7 +69,7 @@ namespace Sucrose.Manager.Helper
                 {
                     try
                     {
-                        await Task.Delay(SMR.Randomise.Next(5, 50));
+                        await Task.Delay(SMMRG.Randomise.Next(5, 50));
 
                         using StreamWriter writer = File.AppendText(filePath);
 
@@ -92,7 +93,7 @@ namespace Sucrose.Manager.Helper
             {
                 try
                 {
-                    await Task.Delay(SMR.Randomise.Next(5, 50));
+                    await Task.Delay(SMMRG.Randomise.Next(5, 50));
 
                     File.WriteAllText(filePath, SMHC.Clean(fileContent));
                 }
@@ -100,7 +101,7 @@ namespace Sucrose.Manager.Helper
                 {
                     try
                     {
-                        await Task.Delay(SMR.Randomise.Next(5, 50));
+                        await Task.Delay(SMMRG.Randomise.Next(5, 50));
 
                         File.WriteAllText(filePath, SMHC.Clean(fileContent));
                     }

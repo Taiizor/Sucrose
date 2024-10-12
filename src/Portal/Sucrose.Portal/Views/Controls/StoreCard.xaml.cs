@@ -16,6 +16,7 @@ using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMP = Sucrose.Manager.Manage.Portal;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
@@ -155,13 +156,13 @@ namespace Sucrose.Portal.Views.Controls
             {
                 do
                 {
-                    Keys = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
+                    Keys = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
                 } while (Directory.Exists(Path.Combine(SMML.LibraryLocation, Keys)));
 
                 SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
 
                 string LibraryPath = Path.Combine(SMML.LibraryLocation, Keys);
-                string TemporaryPath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
+                string TemporaryPath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
 
                 switch (SSDMMP.StoreServerType)
                 {

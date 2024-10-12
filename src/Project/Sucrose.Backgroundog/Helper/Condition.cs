@@ -19,6 +19,7 @@ using SSSEL = Sucrose.Shared.Space.Extension.Lifecycle;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Backgroundog.Helper
@@ -115,7 +116,7 @@ namespace Sucrose.Backgroundog.Helper
                                 Process[] Processes = Process.GetProcesses();
 
                                 Processes
-                                    .Where(Process => (Process.ProcessName.Contains(SMR.WebViewProcessName) || Process.ProcessName.Contains(SMR.CefSharpProcessName)) && SSSHM.GetCommandLine(Process).Contains(SMR.AppName))
+                                    .Where(Process => (Process.ProcessName.Contains(SMR.WebViewProcessName) || Process.ProcessName.Contains(SMR.CefSharpProcessName)) && SSSHM.GetCommandLine(Process).Contains(SMMRG.AppName))
                                     .ToList()
                                     .ForEach(Process =>
                                     {
