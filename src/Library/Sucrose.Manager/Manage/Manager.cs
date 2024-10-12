@@ -24,8 +24,6 @@ namespace Sucrose.Manager.Manage
 
         public static List<string> DisableCycyling => SMMI.CyclingSettingManager.GetSetting(SMC.DisableCycyling, new List<string>());
 
-        public static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.Culture, SHC.CurrentUITwoLetterISOLanguageName);
-
         public static int DiscordDelay => SHS.Clamp(SMMI.HookSettingManager.GetSettingStable(SMMCH.DiscordDelay, 60), 60, 3600);
 
         public static int CycylingTime => SHS.Clamp(SMMI.CyclingSettingManager.GetSettingStable(SMC.CycylingTime, 30), 1, 999);
@@ -38,13 +36,9 @@ namespace Sucrose.Manager.Manage
 
         public static DateTime WebViewTime => SMMI.UserSettingManager.GetSetting(SMMCU.WebViewTime, new DateTime());
 
-        public static int Startup => SHS.Clamp(SMMI.GeneralSettingManager.GetSettingStable(SMC.Startup, 0), 0, 10);
-
         public static bool CefsharpContinue => SMMI.UserSettingManager.GetSetting(SMMCU.CefsharpContinue, false);
 
         public static bool WebViewContinue => SMMI.UserSettingManager.GetSetting(SMMCU.WebViewContinue, false);
-
-        public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
 
         public static bool DiscordRefresh => SMMI.HookSettingManager.GetSetting(SMMCH.DiscordRefresh, true);
 
@@ -52,16 +46,10 @@ namespace Sucrose.Manager.Manage
 
         public static bool DiscordState => SMMI.HookSettingManager.GetSetting(SMMCH.DiscordState, true);
 
-        public static bool Statistics => SMMI.GeneralSettingManager.GetSetting(SMC.Statistics, true);
-
         public static bool Cycyling => SMMI.CyclingSettingManager.GetSetting(SMC.Cycyling, false);
 
         public static bool AppExit => SMMI.LauncherSettingManager.GetSetting(SMC.AppExit, false);
 
         public static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);
-
-        public static bool Report => SMMI.GeneralSettingManager.GetSetting(SMC.Report, true);
-
-        public static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
     }
 }

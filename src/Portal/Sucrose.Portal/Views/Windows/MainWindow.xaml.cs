@@ -36,6 +36,7 @@ using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
 using SMMP = Sucrose.Manager.Manage.Portal;
 using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Portal.Views.Windows
 {
@@ -115,7 +116,7 @@ namespace Sucrose.Portal.Views.Windows
                 RootView.Loaded += (_, _) => RootView.Navigate(typeof(SPVPLP));
             }
 
-            SXAGAB.SetClientUserAgent(SMMM.UserAgent);
+            SXAGAB.SetClientUserAgent(SMMG.UserAgent);
             SXAGAB.SetDownloadCacheExpiration(TimeSpan.FromHours(SMMP.StoreDuration));
             SXAGAB.SetDownloadCacheLocation(Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary));
         }
@@ -286,13 +287,13 @@ namespace Sucrose.Portal.Views.Windows
                 {
                     try
                     {
-                        if (SMMM.Statistics)
+                        if (SMMG.Statistics)
                         {
                             using HttpClient Client = new();
 
                             HttpResponseMessage Response = new();
 
-                            Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+                            Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
                             try
                             {

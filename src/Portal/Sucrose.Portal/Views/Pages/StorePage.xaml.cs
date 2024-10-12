@@ -16,6 +16,10 @@ using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSHSD = Sucrose.Shared.Store.Helper.Soferity.Download;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
+using SMMO = Sucrose.Manager.Manage.Objectionable;
+using SMMCO = Sucrose.Memory.Manage.Constant.Objectionable;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Portal.Views.Pages
 {
@@ -53,13 +57,13 @@ namespace Sucrose.Portal.Views.Pages
 
                 bool Result = SSDMMP.StoreServerType switch
                 {
-                    SSDESSRT.GitHub => SSSHGHD.Store(StoreFile, SMMM.UserAgent, SMMM.Key),
-                    _ => SSSHSD.Store(StoreFile, SMMM.UserAgent)
+                    SSDESSRT.GitHub => SSSHGHD.Store(StoreFile, SMMG.UserAgent, SMMO.Key),
+                    _ => SSSHSD.Store(StoreFile, SMMG.UserAgent)
                 };
 
                 if (Result)
                 {
-                    if (SSDMMP.StoreServerType == SSDESSRT.Soferity && SSSHSD.Pattern(PatternFile, SMMM.UserAgent))
+                    if (SSDMMP.StoreServerType == SSDESSRT.Soferity && SSSHSD.Pattern(PatternFile, SMMG.UserAgent))
                     {
                         Root = SSSHS.DeserializeRoot(PatternFile);
                     }

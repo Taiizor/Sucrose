@@ -426,7 +426,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                 string[] Excludes = new[]
                 {
-                    SMMI.PrivateSettingManager.SettingFile()
+                    SMMI.ObjectionableSettingManager.SettingFile()
                 };
 
                 SSZEZ.Compress(Sources, Excludes, Destination);

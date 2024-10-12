@@ -33,8 +33,6 @@ namespace Sucrose.Manager.Manage
 
         public static readonly SMSM LibrarySettingManager = new("Library.json");
 
-        public static readonly SMSM PrivateSettingManager = new("Private.json");
-
         public static readonly SMLM LauncherLogManager = new("Launcher-{0}.log");
 
         public static readonly SMLM PropertyLogManager = new("Property-{0}.log");
@@ -64,5 +62,7 @@ namespace Sucrose.Manager.Manage
         public static readonly SMSM BackgroundogSettingManager = new("Backgroundog.json");
 
         public static readonly SMLM MpvPlayerLiveLogManager = new("MpvPlayerLive-{0}.log");
+
+        public static readonly SMSM ObjectionableSettingManager = new("Objectionable.json");
     }
 }

@@ -32,6 +32,10 @@ using SMMU = Sucrose.Manager.Manage.Update;
 using SMMCU = Sucrose.Memory.Manage.Constant.Update;
 using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SMMO = Sucrose.Manager.Manage.Objectionable;
+using SMMCO = Sucrose.Memory.Manage.Constant.Objectionable;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -74,7 +78,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch ReportState = new()
             {
-                IsChecked = SMMM.Report
+                IsChecked = SMMG.Report
             };
 
             ReportState.Checked += (s, e) => ReportStateChecked(true);
@@ -96,7 +100,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch StatisticsState = new()
             {
-                IsChecked = SMMM.Statistics
+                IsChecked = SMMG.Statistics
             };
 
             StatisticsState.Checked += (s, e) => StatisticsStateChecked(true);
@@ -227,7 +231,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Icon = new SymbolIcon(SymbolRegular.PersonHeart24),
                 IconPlacement = ElementPlacement.Left,
                 ClearButtonEnabled = false,
-                Text = SMMM.UserAgent,
+                Text = SMMG.UserAgent,
                 IsReadOnly = true,
                 MaxLength = 100,
                 MinWidth = 125,
@@ -268,7 +272,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 HorizontalAlignment = HorizontalAlignment.Left,
                 IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 10, 0, 0),
-                Text = SMMM.Key,
+                Text = SMMO.Key,
                 MaxLength = 93
             };
 
@@ -633,13 +637,13 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void ReportStateChecked(bool State)
         {
-            SMMI.GeneralSettingManager.SetSetting(SMC.Report, State);
+            SMMI.GeneralSettingManager.SetSetting(SMMCG.Report, State);
 
-            if (State || SMMM.Statistics)
+            if (State || SMMG.Statistics)
             {
                 SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECT.Reportdog}{SMR.ValueSeparator}{SSSPMI.Reportdog}");
             }
-            else if (!SMMM.Statistics)
+            else if (!SMMG.Statistics)
             {
                 if (SSSHP.Work(SMMRA.Reportdog))
                 {
@@ -680,7 +684,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 TextBox.Text = SMR.UserAgent;
             }
 
-            SMMI.GeneralSettingManager.SetSetting(SMC.UserAgent, TextBox.Text);
+            SMMI.GeneralSettingManager.SetSetting(SMMCG.UserAgent, TextBox.Text);
         }
 
         private void UpdateLimitChanged(double? Value)
@@ -695,13 +699,13 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void StatisticsStateChecked(bool State)
         {
-            SMMI.GeneralSettingManager.SetSetting(SMC.Statistics, State);
+            SMMI.GeneralSettingManager.SetSetting(SMMCG.Statistics, State);
 
-            if (State || SMMM.Report)
+            if (State || SMMG.Report)
             {
                 SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECT.Reportdog}{SMR.ValueSeparator}{SSSPMI.Reportdog}");
             }
-            else if (!SMMM.Report)
+            else if (!SMMG.Report)
             {
                 if (SSSHP.Work(SMMRA.Reportdog))
                 {
@@ -734,12 +738,12 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             if (TextBox.Text.Length == 93)
             {
-                SMMI.PrivateSettingManager.SetSetting(SMC.Key, TextBox.Text);
                 SSSTMI.State = true;
+                SMMI.ObjectionableSettingManager.SetSetting(SMMCO.Key, TextBox.Text);
             }
             else
             {
-                SMMI.PrivateSettingManager.SetSetting(SMC.Key, SMR.Key);
+                SMMI.ObjectionableSettingManager.SetSetting(SMMCO.Key, SMR.Key);
                 TextBox.PlaceholderText = SRER.GetValue("Portal", "OtherSettingPage", "Key", "PersonalKey", "Valid");
             }
         }

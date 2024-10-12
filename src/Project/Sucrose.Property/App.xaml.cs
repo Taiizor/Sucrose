@@ -20,6 +20,8 @@ using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Property
 {
@@ -76,8 +78,8 @@ namespace Sucrose.Property
                 Message(Exception);
             };
 
-            ConfigHelper.Instance.SetLang(SMMM.Culture);
-            SHC.All = new CultureInfo(SMMM.Culture, true);
+            ConfigHelper.Instance.SetLang(SMMG.Culture);
+            SHC.All = new CultureInfo(SMMG.Culture, true);
         }
 
         protected void Close()
@@ -186,7 +188,7 @@ namespace Sucrose.Property
         {
             base.OnStartup(e);
 
-            SRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMG.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

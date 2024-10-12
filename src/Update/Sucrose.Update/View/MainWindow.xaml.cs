@@ -54,6 +54,10 @@ using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWNM = Skylark.Wing.Native.Methods;
 using SMMU = Sucrose.Manager.Manage.Update;
 using SMMCU = Sucrose.Memory.Manage.Constant.Update;
+using SMMO = Sucrose.Manager.Manage.Objectionable;
+using SMMCO = Sucrose.Memory.Manage.Constant.Objectionable;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Update.View
 {
@@ -257,13 +261,13 @@ namespace Sucrose.Update.View
 
                     try
                     {
-                        if (SMMM.Statistics)
+                        if (SMMG.Statistics)
                         {
                             using HttpClient Client = new();
 
                             HttpResponseMessage Response = new();
 
-                            Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+                            Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
                             try
                             {
@@ -341,8 +345,8 @@ namespace Sucrose.Update.View
 
                 Releases = SSDMMU.UpdateServerType switch
                 {
-                    SSDEUST.GitHub => SSHG.ReleasesList(SMR.Owner, SMR.Repository, SMMM.UserAgent, SMMM.Key),
-                    SSDEUST.Soferity => SUHU.ReleasesList($"{SMR.SoferityWebsite}/{SMR.SoferityUpdate}", SMMM.UserAgent),
+                    SSDEUST.GitHub => SSHG.ReleasesList(SMR.Owner, SMR.Repository, SMMG.UserAgent, SMMO.Key),
+                    SSDEUST.Soferity => SUHU.ReleasesList($"{SMR.SoferityWebsite}/{SMR.SoferityUpdate}", SMMG.UserAgent),
                     _ => new(),
                 };
 
@@ -574,7 +578,7 @@ namespace Sucrose.Update.View
 
                             using HttpClient Client = new();
 
-                            Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+                            Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
                             using HttpResponseMessage Response = await Client.GetAsync(SUMI.Source, HttpCompletionOption.ResponseHeadersRead);
 

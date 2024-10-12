@@ -51,6 +51,8 @@ using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Live.CefSharp
 {
@@ -119,7 +121,7 @@ namespace Sucrose.Live.CefSharp
                 Message(Exception);
             };
 
-            SHC.All = new CultureInfo(SMMM.Culture, true);
+            SHC.All = new CultureInfo(SMMG.Culture, true);
         }
 
         protected void Close()
@@ -271,7 +273,7 @@ namespace Sucrose.Live.CefSharp
 
                         CefSettings Settings = new()
                         {
-                            UserAgent = SMMM.UserAgent,
+                            UserAgent = SMMG.UserAgent,
                             PersistSessionCookies = true,
                             CachePath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.CefSharp)
                         };
@@ -437,7 +439,7 @@ namespace Sucrose.Live.CefSharp
 
             HttpClient Client = new();
 
-            Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+            Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
             HttpResponseMessage Response = await Client.GetAsync(Url);
 
@@ -481,7 +483,7 @@ namespace Sucrose.Live.CefSharp
         {
             base.OnStartup(e);
 
-            SRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMG.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

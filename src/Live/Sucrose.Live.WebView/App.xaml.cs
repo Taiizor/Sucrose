@@ -20,6 +20,8 @@ using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMME = Sucrose.Manager.Manage.Engine;
 using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
@@ -117,7 +119,7 @@ namespace Sucrose.Live.WebView
                 Message(Exception);
             };
 
-            SHC.All = new CultureInfo(SMMM.Culture, true);
+            SHC.All = new CultureInfo(SMMG.Culture, true);
         }
 
         protected void Close()
@@ -245,7 +247,7 @@ namespace Sucrose.Live.WebView
 
                         CoreWebView2EnvironmentOptions Options = new()
                         {
-                            Language = SMMM.Culture
+                            Language = SMMG.Culture
                         };
 
                         SSEMI.BrowserSettings.WebView = SMME.WebArguments;
@@ -402,7 +404,7 @@ namespace Sucrose.Live.WebView
 
             HttpClient Client = new();
 
-            Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+            Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
             HttpResponseMessage Response = await Client.GetAsync(Url);
 
@@ -446,7 +448,7 @@ namespace Sucrose.Live.WebView
         {
             base.OnStartup(e);
 
-            SRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMG.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

@@ -35,6 +35,8 @@ using SMMU = Sucrose.Manager.Manage.Update;
 using SMMCU = Sucrose.Memory.Manage.Constant.Update;
 using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Shared.Launcher.Manager
 {
@@ -74,7 +76,7 @@ namespace Sucrose.Shared.Launcher.Manager
         {
             Dispose();
 
-            SRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMG.Culture);
 
             SSLHR.Corner(ContextMenu);
 

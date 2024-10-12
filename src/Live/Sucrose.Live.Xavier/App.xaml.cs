@@ -25,6 +25,8 @@ using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
 
@@ -95,7 +97,7 @@ namespace Sucrose.Live.Xavier
                 Message(Exception);
             };
 
-            SHC.All = new CultureInfo(SMMM.Culture, true);
+            SHC.All = new CultureInfo(SMMG.Culture, true);
         }
 
         protected void Close()
@@ -200,7 +202,7 @@ namespace Sucrose.Live.Xavier
         {
             base.OnStartup(e);
 
-            SRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMG.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

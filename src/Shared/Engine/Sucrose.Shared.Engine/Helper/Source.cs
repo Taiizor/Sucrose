@@ -11,6 +11,8 @@ using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SWHSM = Skylark.Wing.Helper.ScreenManage;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Shared.Engine.Helper
 {
@@ -218,7 +220,7 @@ namespace Sucrose.Shared.Engine.Helper
                         Timeout = Timeout.InfiniteTimeSpan
                     };
 
-                    Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+                    Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
                     using HttpResponseMessage Response = Client.GetAsync(Source).Result;
                     using Stream Content = Response.Content.ReadAsStreamAsync().Result;

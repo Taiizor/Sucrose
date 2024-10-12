@@ -21,6 +21,8 @@ using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SMME = Sucrose.Manager.Manage.Engine;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReport;
 using SRER = Sucrose.Resources.Extension.Resources;
@@ -124,13 +126,13 @@ namespace Sucrose.Portal.Views.Controls
         {
             try
             {
-                if (SMMM.Statistics)
+                if (SMMG.Statistics)
                 {
                     using HttpClient Client = new();
 
                     HttpResponseMessage Response = new();
 
-                    Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+                    Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
                     try
                     {

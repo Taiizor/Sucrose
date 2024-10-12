@@ -16,6 +16,8 @@ using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSSSLSS = Sucrose.Shared.Signal.Services.LauncherSignalService;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Launcher
 {
@@ -86,7 +88,7 @@ namespace Sucrose.Launcher
                 Message(Exception);
             };
 
-            SHC.All = new CultureInfo(SMMM.Culture, true);
+            SHC.All = new CultureInfo(SMMG.Culture, true);
         }
 
         protected void Close()
@@ -150,7 +152,7 @@ namespace Sucrose.Launcher
         {
             base.OnStartup(e);
 
-            SRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMG.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

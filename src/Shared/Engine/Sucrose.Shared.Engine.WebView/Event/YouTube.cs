@@ -10,6 +10,8 @@ using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SMME = Sucrose.Manager.Manage.Engine;
 using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
 using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Shared.Engine.WebView.Event
 {
@@ -43,7 +45,7 @@ namespace Sucrose.Shared.Engine.WebView.Event
         {
             SSEWVMI.WebEngine.CoreWebView2.ProcessFailed += WebEngineProcessFailed;
 
-            SSEWVMI.WebEngine.CoreWebView2.Settings.UserAgent = SMMM.UserAgent;
+            SSEWVMI.WebEngine.CoreWebView2.Settings.UserAgent = SMMG.UserAgent;
 
             string Video = SSTHV.GetYouTubeVideoId(SSEWVMI.YouTube);
             string Playlist = SSTHV.GetYouTubePlaylistId(SSEWVMI.YouTube);

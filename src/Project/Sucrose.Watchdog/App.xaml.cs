@@ -41,6 +41,8 @@ using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SWVDEMB = Sucrose.Watchdog.View.DarkErrorMessageBox;
 using SWVLEMB = Sucrose.Watchdog.View.LightErrorMessageBox;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Watchdog
 {
@@ -97,7 +99,7 @@ namespace Sucrose.Watchdog
                 Message(Exception);
             };
 
-            SHC.All = new CultureInfo(SMMM.Culture, true);
+            SHC.All = new CultureInfo(SMMG.Culture, true);
         }
 
         protected void Close()
@@ -142,7 +144,7 @@ namespace Sucrose.Watchdog
                     string Source = Arguments.Count() == 5 ? Arguments[3] : string.Empty;
                     string Message = SSSHE.GetMessage(SSSHWE.Convert(Arguments[1]), SRER.GetValue("Watchdog", "ErrorEmpty"), SMR.ExceptionSplit);
 
-                    SSSMDD DiagnosticsData = new(Id, SSSHUE.Generate($"{Name}-{Model}-{Manufacturer}"), Application, AppId, Name, Model, SSCHOS.GetServer(), SMMM.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), JObject.Parse(Arguments[1]), SSCHOS.GetWorkstation(), Culture.Name, SSCHA.GetText(), Manufacturer, Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
+                    SSSMDD DiagnosticsData = new(Id, SSSHUE.Generate($"{Name}-{Model}-{Manufacturer}"), Application, AppId, Name, Model, SSCHOS.GetServer(), SMMG.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), JObject.Parse(Arguments[1]), SSCHOS.GetWorkstation(), Culture.Name, SSCHA.GetText(), Manufacturer, Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
 
                     SSSHW.Write(Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.ReportFolder, $"{Id}.json"), JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented));
 
@@ -187,7 +189,7 @@ namespace Sucrose.Watchdog
         {
             base.OnStartup(e);
 
-            SRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMG.Culture);
 
             ShutdownMode = ShutdownMode.OnLastWindowClose;
 

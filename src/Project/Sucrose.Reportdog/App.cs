@@ -10,6 +10,8 @@ using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Reportdog
 {
@@ -22,9 +24,9 @@ namespace Sucrose.Reportdog
                 Console.InputEncoding = Encoding.UTF8;
                 Console.OutputEncoding = Encoding.UTF8;
 
-                SHC.All = new CultureInfo(SMMM.Culture, true);
+                SHC.All = new CultureInfo(SMMG.Culture, true);
 
-                if (SSSHI.Basic(SMMRM.Reportdog, SMMRA.Reportdog) && (SMMM.Report || SMMM.Statistics))
+                if (SSSHI.Basic(SMMRM.Reportdog, SMMRA.Reportdog) && (SMMG.Report || SMMG.Statistics))
                 {
                     SSSHS.Apply();
 

@@ -28,6 +28,8 @@ using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
 using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Live.Vexana
 {
@@ -96,7 +98,7 @@ namespace Sucrose.Live.Vexana
                 Message(Exception);
             };
 
-            SHC.All = new CultureInfo(SMMM.Culture, true);
+            SHC.All = new CultureInfo(SMMG.Culture, true);
         }
 
         protected void Close()
@@ -201,7 +203,7 @@ namespace Sucrose.Live.Vexana
         {
             base.OnStartup(e);
 
-            SRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMG.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

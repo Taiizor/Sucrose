@@ -28,6 +28,8 @@ using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Live.MpvPlayer
 {
@@ -96,7 +98,7 @@ namespace Sucrose.Live.MpvPlayer
                 Message(Exception);
             };
 
-            SHC.All = new CultureInfo(SMMM.Culture, true);
+            SHC.All = new CultureInfo(SMMG.Culture, true);
         }
 
         protected void Close()
@@ -205,7 +207,7 @@ namespace Sucrose.Live.MpvPlayer
         {
             base.OnStartup(e);
 
-            SRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMG.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

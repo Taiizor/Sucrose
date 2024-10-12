@@ -16,6 +16,8 @@ using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SMME = Sucrose.Manager.Manage.Engine;
 using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
 using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Shared.Engine.WebView.Event
 {
@@ -96,7 +98,7 @@ namespace Sucrose.Shared.Engine.WebView.Event
 
             SSEWVHW.StartCompatible();
 
-            SSEWVMI.WebEngine.CoreWebView2.Settings.UserAgent = SMMM.UserAgent;
+            SSEWVMI.WebEngine.CoreWebView2.Settings.UserAgent = SMMG.UserAgent;
 
             SSEWVMI.WebEngine.Source = SSEHS.GetSource(SSEWVMI.Web);
 

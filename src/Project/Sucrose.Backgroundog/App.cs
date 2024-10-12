@@ -9,6 +9,8 @@ using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Backgroundog
 {
@@ -21,7 +23,7 @@ namespace Sucrose.Backgroundog
                 Console.InputEncoding = Encoding.UTF8;
                 Console.OutputEncoding = Encoding.UTF8;
 
-                SHC.All = new CultureInfo(SMMM.Culture, true);
+                SHC.All = new CultureInfo(SMMG.Culture, true);
 
                 if (SSSHI.Basic(SMMRM.Backgroundog, SMMRA.Backgroundog))
                 {

@@ -18,6 +18,8 @@ using SUMI = Sucrose.Update.Manage.Internal;
 using SUVMW = Sucrose.Update.View.MainWindow;
 using SMMU = Sucrose.Manager.Manage.Update;
 using SMMCU = Sucrose.Memory.Manage.Constant.Update;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Update
 {
@@ -74,7 +76,7 @@ namespace Sucrose.Update
                 Message(Exception);
             };
 
-            SHC.All = new CultureInfo(SMMM.Culture, true);
+            SHC.All = new CultureInfo(SMMG.Culture, true);
         }
 
         protected void Close()
@@ -132,7 +134,7 @@ namespace Sucrose.Update
         {
             base.OnStartup(e);
 
-            SRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMG.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

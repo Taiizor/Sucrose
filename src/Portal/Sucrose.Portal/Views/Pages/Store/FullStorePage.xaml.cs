@@ -16,6 +16,10 @@ using SSSIR = Sucrose.Shared.Store.Interface.Root;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SMMP = Sucrose.Manager.Manage.Portal;
 using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
+using SMMO = Sucrose.Manager.Manage.Objectionable;
+using SMMCO = Sucrose.Memory.Manage.Constant.Objectionable;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Portal.Views.Pages.Store
 {
@@ -176,7 +180,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                                     {
                                         string Theme = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, Category.CategoryKey, SSSHC.FileName(Category.WallpaperKey));
 
-                                        SPVCSC StoreCard = new(Theme, new(Category.WallpaperKey, Category.Wallpaper), SMMM.UserAgent, SMMM.Key);
+                                        SPVCSC StoreCard = new(Theme, new(Category.WallpaperKey, Category.Wallpaper), SMMG.UserAgent, SMMO.Key);
 
                                         ThemeStore.Children.Add(StoreCard);
 
@@ -211,7 +215,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                                         {
                                             string Theme = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, Category.Key, SSSHC.FileName(Wallpaper.Key));
 
-                                            SPVCSC StoreCard = new(Theme, Wallpaper, SMMM.UserAgent, SMMM.Key);
+                                            SPVCSC StoreCard = new(Theme, Wallpaper, SMMG.UserAgent, SMMO.Key);
 
                                             ThemeStore.Children.Add(StoreCard);
 

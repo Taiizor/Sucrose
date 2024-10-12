@@ -26,6 +26,8 @@ using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using TextBlock = Wpf.Ui.Controls.TextBlock;
 using TextBox = Wpf.Ui.Controls.TextBox;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -196,7 +198,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         HttpResponseMessage Response = new();
 
-                        Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+                        Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
                         ReporterState.Text = SRER.GetValue("Portal", "ThemeReport", "Reporter", "Checking");
 

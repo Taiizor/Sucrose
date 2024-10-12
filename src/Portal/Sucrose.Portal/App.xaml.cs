@@ -19,6 +19,8 @@ using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
 using SPSWPS = Sucrose.Portal.Services.WindowsProviderService;
 using SPVMPDSVM = Sucrose.Portal.ViewModels.Pages.DonateSettingViewModel;
 using SPVMPGSVM = Sucrose.Portal.ViewModels.Pages.GeneralSettingViewModel;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
 using SPVMPOSVM = Sucrose.Portal.ViewModels.Pages.OtherSettingViewModel;
 using SPVMPPESVM = Sucrose.Portal.ViewModels.Pages.PerformanceSettingViewModel;
@@ -164,7 +166,7 @@ namespace Sucrose.Portal
                 Message(Exception);
             };
 
-            SHC.All = new CultureInfo(SMMM.Culture, true);
+            SHC.All = new CultureInfo(SMMG.Culture, true);
         }
 
         /// <summary>
@@ -236,7 +238,7 @@ namespace Sucrose.Portal
         {
             base.OnStartup(e);
 
-            SRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMG.Culture);
 
             ShutdownMode = ShutdownMode.OnLastWindowClose;
 

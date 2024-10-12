@@ -1,5 +1,7 @@
 ﻿using SMMM = Sucrose.Manager.Manage.Manager;
 using SPMI = Sucrose.Property.Manage.Internal;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Property.Helper
 {
@@ -9,7 +11,7 @@ namespace Sucrose.Property.Helper
         {
             if (SPMI.Properties.PropertyLocalization != null && SPMI.Properties.PropertyLocalization.Any())
             {
-                if (SPMI.Properties.PropertyLocalization.TryGetValue(SMMM.Culture, out Dictionary<string, string> Pairs) || SPMI.Properties.PropertyLocalization.TryGetValue(SMMM.Culture.ToLower(), out Pairs) || SPMI.Properties.PropertyLocalization.TryGetValue(SMMM.Culture.ToLowerInvariant(), out Pairs))
+                if (SPMI.Properties.PropertyLocalization.TryGetValue(SMMG.Culture, out Dictionary<string, string> Pairs) || SPMI.Properties.PropertyLocalization.TryGetValue(SMMG.Culture.ToLower(), out Pairs) || SPMI.Properties.PropertyLocalization.TryGetValue(SMMG.Culture.ToLowerInvariant(), out Pairs))
                 {
                     if (Pairs != null && Pairs.TryGetValue(Key, out string Value))
                     {

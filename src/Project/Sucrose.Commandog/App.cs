@@ -4,6 +4,8 @@ using SCHA = Sucrose.Commandog.Helper.Arguments;
 using SHC = Skylark.Helper.Culture;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Commandog
 {
@@ -16,7 +18,7 @@ namespace Sucrose.Commandog
                 Console.InputEncoding = Encoding.UTF8;
                 Console.OutputEncoding = Encoding.UTF8;
 
-                SHC.All = new CultureInfo(SMMM.Culture, true);
+                SHC.All = new CultureInfo(SMMG.Culture, true);
 
                 await SCHA.Parse(Args);
             }

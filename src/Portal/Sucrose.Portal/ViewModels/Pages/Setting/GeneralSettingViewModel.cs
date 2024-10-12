@@ -15,6 +15,8 @@ using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SEOST = Skylark.Enum.OperatingSystemType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMME = Sucrose.Manager.Manage.Engine;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
 using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 using SMC = Sucrose.Memory.Constant;
@@ -107,7 +109,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Localization.Items.Add(SRER.GetValue("Locale", Code));
             }
 
-            Localization.SelectedValue = SRER.GetValue("Locale", SMMM.Culture.ToUpperInvariant());
+            Localization.SelectedValue = SRER.GetValue("Locale", SMMG.Culture.ToUpperInvariant());
 
             ApplicationLanguage.HeaderFrame = Localization;
 
@@ -132,7 +134,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             Startup.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "Priority"));
             Startup.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "Scheduler"));
 
-            Startup.SelectedIndex = SMMM.Startup;
+            Startup.SelectedIndex = SMMG.Startup;
 
             ApplicationStartup.HeaderFrame = Startup;
 
@@ -551,10 +553,10 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             string NewCulture = SRHR.ListLanguage()[Index];
 
-            if (NewCulture != SMMM.Culture)
+            if (NewCulture != SMMG.Culture)
             {
                 SRHR.SetLanguage(NewCulture);
-                SMMI.GeneralSettingManager.SetSetting(SMC.Culture, NewCulture);
+                SMMI.GeneralSettingManager.SetSetting(SMMCG.Culture, NewCulture);
 
                 SPMI.CultureService.CultureCode = NewCulture;
             }
@@ -765,9 +767,9 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private async void StartupSelected(ComboBox Startup, int Index)
         {
-            if (Index != SMMM.Startup)
+            if (Index != SMMG.Startup)
             {
-                switch (SMMM.Startup)
+                switch (SMMG.Startup)
                 {
                     case 1:
                         SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Startup}{SMR.ValueSeparator}{SMR.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{false}");
@@ -780,7 +782,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                         catch (Exception Exception)
                         {
                             await SSWW.Watch_CatchException(Exception);
-                            Startup.SelectedIndex = SMMM.Startup;
+                            Startup.SelectedIndex = SMMG.Startup;
 
                             MessageBox Warning = new()
                             {
@@ -814,7 +816,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                         catch (Exception Exception)
                         {
                             await SSWW.Watch_CatchException(Exception);
-                            Startup.SelectedIndex = SMMM.Startup;
+                            Startup.SelectedIndex = SMMG.Startup;
 
                             MessageBox Warning = new()
                             {
@@ -835,7 +837,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                         break;
                 }
 
-                SMMI.GeneralSettingManager.SetSetting(SMC.Startup, Index);
+                SMMI.GeneralSettingManager.SetSetting(SMMCG.Startup, Index);
             }
         }
 

@@ -37,7 +37,7 @@ namespace Sucrose.Shared.Launcher.Helper
 
                 string[] Excludes = new[]
                 {
-                    SMMI.PrivateSettingManager.SettingFile()
+                    SMMI.ObjectionableSettingManager.SettingFile()
                 };
 
                 SSZEZ.Compress(Sources, Excludes, Destination);

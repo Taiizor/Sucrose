@@ -28,6 +28,10 @@ using SSSIR = Sucrose.Shared.Store.Interface.Root;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 using SSZHA = Sucrose.Shared.Zip.Helper.Archive;
+using SMMO = Sucrose.Manager.Manage.Objectionable;
+using SMMCO = Sucrose.Memory.Manage.Constant.Objectionable;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -103,8 +107,8 @@ namespace Sucrose.Portal.Views.Controls
 
                     bool Result = SSDMMP.StoreServerType switch
                     {
-                        SSDESST.GitHub => SSSHGHD.Store(StoreFile, SMMM.UserAgent, SMMM.Key),
-                        _ => SSSHSD.Store(StoreFile, SMMM.UserAgent),
+                        SSDESST.GitHub => SSSHGHD.Store(StoreFile, SMMG.UserAgent, SMMO.Key),
+                        _ => SSSHSD.Store(StoreFile, SMMG.UserAgent),
                     };
 
                     if (Result)
@@ -192,7 +196,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     HttpResponseMessage Response = new();
 
-                    Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+                    Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
                     State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Limit");
 

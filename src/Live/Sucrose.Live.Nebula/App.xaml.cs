@@ -14,6 +14,8 @@ using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSENVV = Sucrose.Shared.Engine.Nebula.View.Video;
 using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
@@ -95,7 +97,7 @@ namespace Sucrose.Live.Nebula
                 Message(Exception);
             };
 
-            SHC.All = new CultureInfo(SMMM.Culture, true);
+            SHC.All = new CultureInfo(SMMG.Culture, true);
         }
 
         protected void Close()
@@ -200,7 +202,7 @@ namespace Sucrose.Live.Nebula
         {
             base.OnStartup(e);
 
-            SRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMG.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

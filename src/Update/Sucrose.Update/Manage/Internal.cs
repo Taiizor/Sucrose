@@ -5,6 +5,8 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using Timer = System.Timers.Timer;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
+using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Update.Manage
 {
@@ -55,7 +57,7 @@ namespace Sucrose.Update.Manage
             {
                 Accept = "*/*",
                 KeepAlive = false,
-                UserAgent = SMMM.UserAgent,
+                UserAgent = SMMG.UserAgent,
                 UseDefaultCredentials = false,
                 ProtocolVersion = HttpVersion.Version11
             }
