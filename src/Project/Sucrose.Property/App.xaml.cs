@@ -112,7 +112,7 @@ namespace Sucrose.Property
 
             if (Args.Any())
             {
-                string[] Arguments = Args.First().Split(SMR.ValueSeparatorChar);
+                string[] Arguments = Args.First().Split(SMMRG.ValueSeparatorChar);
 
                 if (Arguments.Any() && Arguments.Count() == 1)
                 {

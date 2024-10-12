@@ -36,6 +36,7 @@ namespace Sucrose.Shared.Zip.Helper
                 using FileStream Stream = new(Archive, FileMode.Open, FileAccess.Read, FileShare.Read);
 
                 byte[] ArchiveHeader = new byte[4];
+
                 _ = Stream.Read(ArchiveHeader, 0, 4);
 
                 byte[] ZipHeader = new byte[] { 0x50, 0x4B, 0x03, 0x04 };
@@ -55,6 +56,7 @@ namespace Sucrose.Shared.Zip.Helper
                 using FileStream Stream = new(Archive, FileMode.Open, FileAccess.Read, FileShare.Read);
 
                 byte[] ArchiveHeader = new byte[4];
+
                 _ = Stream.Read(ArchiveHeader, 0, 4);
 
                 byte[] ZipHeader = new byte[] { 0x50, 0x4B, 0x03, 0x07 };

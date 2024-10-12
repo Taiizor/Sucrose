@@ -7,6 +7,7 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Watchdog.View
 {
@@ -41,18 +42,18 @@ namespace Sucrose.Watchdog.View
 
         private void ShowButton_Click(object sender, RoutedEventArgs e)
         {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Log}{SMR.ValueSeparator}{Path}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Log}{SMMRG.ValueSeparator}{Path}");
         }
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(Source))
             {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Wiki}{SMR.ValueSeparator}{SMMRU.GitHubSucroseWiki}");
+                SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Wiki}{SMMRG.ValueSeparator}{SMMRU.GitHubSucroseWiki}");
             }
             else
             {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Wiki}{SMR.ValueSeparator}{Source}");
+                SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Wiki}{SMMRG.ValueSeparator}{Source}");
             }
         }
 

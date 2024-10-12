@@ -10,6 +10,7 @@ using SSDMI = Sucrose.Shared.Discord.Manage.Internal;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
+using SMMRH = Sucrose.Memory.Manage.Readonly.Hook;
 
 namespace Sucrose.Shared.Discord
 {
@@ -17,7 +18,7 @@ namespace Sucrose.Shared.Discord
     {
         public Hook()
         {
-            SSDMI.Client = new DiscordRpcClient(SMR.DiscordApplication)
+            SSDMI.Client = new DiscordRpcClient(SMMRH.DiscordApplicationIdentity)
             {
                 //Logger = new DiscordRPC.Logging.ConsoleLogger()
                 //{

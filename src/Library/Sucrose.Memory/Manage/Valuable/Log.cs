@@ -6,6 +6,8 @@
 
         public static string FileTimeLine => $"{DateTime.Now:HH:mm:ss}";
 
+        public static string FileDescriptionLine => "SucroseWatchdog Thread";
+
         public static string FileNameCompress => $"sucrose_log_{DateTime.Now:yyyyMMdd_HHmmss}.zip";
     }
 }

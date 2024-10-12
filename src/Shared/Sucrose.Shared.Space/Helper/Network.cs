@@ -12,7 +12,7 @@ namespace Sucrose.Shared.Space.Helper
         {
             try
             {
-                _ = Dns.GetHostEntry(SMR.HostEntry);
+                _ = Dns.GetHostEntry("www.google.com");
 
                 return true;
             }
@@ -26,7 +26,7 @@ namespace Sucrose.Shared.Space.Helper
         {
             try
             {
-                _ = await Dns.GetHostEntryAsync(SMR.HostEntry);
+                _ = await Dns.GetHostEntryAsync("www.google.com");
 
                 return true;
             }

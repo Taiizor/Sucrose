@@ -3,12 +3,13 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 
 namespace Sucrose.Manager.Manage
 {
     public static class Library
     {
-        public static string LibraryLocation => SMMI.LibrarySettingManager.GetSetting(SMMCL.LibraryLocation, Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.Library));
+        public static string LibraryLocation => SMMI.LibrarySettingManager.GetSetting(SMMCL.LibraryLocation, Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Library));
 
         public static string LibrarySelected => SMMI.LibrarySettingManager.GetSetting(SMMCL.LibrarySelected, string.Empty);
 

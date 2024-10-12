@@ -17,6 +17,7 @@ using SWHWS = Skylark.Wing.Helper.WindowsStartup;
 using SWHWSM = Skylark.Wing.Helper.WindowsStartupMachine;
 using SWHWSP = Skylark.Wing.Helper.WindowsStartupPriority;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 
 namespace Sucrose.Commandog.Helper
@@ -29,13 +30,13 @@ namespace Sucrose.Commandog.Helper
             {
                 string Combined = string.Join(" ", Arguments);
 
-                if (Combined.StartsWith(SMR.StartCommand) && Combined.Contains(SMR.ValueSeparatorChar))
+                if (Combined.StartsWith(SMMRG.StartCommand) && Combined.Contains(SMMRG.ValueSeparatorChar))
                 {
 
 #if NET6_0_OR_GREATER
-                    string[] ArgumentParts = Combined[1..].Split(SMR.ValueSeparatorChar);
+                    string[] ArgumentParts = Combined[1..].Split(SMMRG.ValueSeparatorChar);
 #else
-                    string[] ArgumentParts = Combined.Substring(1).Split(SMR.ValueSeparatorChar);
+                    string[] ArgumentParts = Combined.Substring(1).Split(SMMRG.ValueSeparatorChar);
 #endif
 
                     if (ArgumentParts.Length >= 2)

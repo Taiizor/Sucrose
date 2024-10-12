@@ -4,6 +4,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDEET = Sucrose.Shared.Dependency.Enum.EngineType;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.Helper
@@ -29,7 +30,7 @@ namespace Sucrose.Shared.Engine.Helper
         {
             if (!SSSHP.Work(SMMRA.Backgroundog) && SMMB.PerformanceCounter)
             {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
+                SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Backgroundog}{SMMRG.ValueSeparator}{SSSMI.Backgroundog}");
             }
         }
     }

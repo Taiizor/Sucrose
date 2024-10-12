@@ -440,35 +440,35 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             SettingResetStart.IsEnabled = false;
 
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Reset}{SMR.ValueSeparator}{SSSMI.Launcher}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Reset}{SMMRG.ValueSeparator}{SSSMI.Launcher}");
         }
 
         private void LogTemporaryDeleteClick(Button LogTemporaryDelete)
         {
             LogTemporaryDelete.IsEnabled = false;
 
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Temp}{SMR.ValueSeparator}{LogTemporaryPath}{SMR.ValueSeparator}{SSSMI.Launcher}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Temp}{SMMRG.ValueSeparator}{LogTemporaryPath}{SMMRG.ValueSeparator}{SSSMI.Launcher}");
         }
 
         private void CacheTemporaryStartClick(Button CacheTemporaryStart)
         {
             CacheTemporaryStart.IsEnabled = false;
 
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Temp}{SMR.ValueSeparator}{CacheTemporaryPath}{SMR.ValueSeparator}{SSSMI.Launcher}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Temp}{SMMRG.ValueSeparator}{CacheTemporaryPath}{SMMRG.ValueSeparator}{SSSMI.Launcher}");
         }
 
         private void StoreTemporaryStartClick(Button StoreTemporaryStart)
         {
             StoreTemporaryStart.IsEnabled = false;
 
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Temp}{SMR.ValueSeparator}{StoreTemporaryPath}{SMR.ValueSeparator}{SSSMI.Launcher}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Temp}{SMMRG.ValueSeparator}{StoreTemporaryPath}{SMMRG.ValueSeparator}{SSSMI.Launcher}");
         }
 
         private void LibraryTemporaryStartClick(Button LibraryTemporaryStart)
         {
             LibraryTemporaryStart.IsEnabled = false;
 
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Temp}{SMR.ValueSeparator}{SMML.LibraryLocation}{SMR.ValueSeparator}{SSSMI.Launcher}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Temp}{SMMRG.ValueSeparator}{SMML.LibraryLocation}{SMMRG.ValueSeparator}{SSSMI.Launcher}");
         }
 
         private async void LogTemporaryCreateClick(Button LogTemporaryCreate)
@@ -518,7 +518,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                 if (SSSHA.Directory(Destination))
                 {
-                    SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Export}{SMR.ValueSeparator}{Destination}{SMR.ValueSeparator}{SSSMI.Launcher}");
+                    SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Export}{SMMRG.ValueSeparator}{Destination}{SMMRG.ValueSeparator}{SSSMI.Launcher}");
                 }
                 else
                 {
@@ -555,7 +555,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                 if (SSSHA.Directory(Destination))
                 {
-                    SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Import}{SMR.ValueSeparator}{Destination}{SMR.ValueSeparator}{SSSMI.Launcher}");
+                    SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Import}{SMMRG.ValueSeparator}{Destination}{SMMRG.ValueSeparator}{SSSMI.Launcher}");
                 }
                 else
                 {

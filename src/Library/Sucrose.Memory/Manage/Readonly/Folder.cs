@@ -16,11 +16,15 @@
 
         public static readonly string Content = "Content";
 
+        public static readonly string Library = "Library";
+
         public static readonly string Setting = "Setting";
 
         public static readonly string SignalT = "SignalT";
 
         public static readonly string CefSharp = "CefSharp";
+
+        public static readonly string Showcase = "Showcase";
 
         public static readonly string WebView2 = "WebView2";
 

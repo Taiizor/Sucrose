@@ -6,6 +6,6 @@ namespace Sucrose.Manager.Manage
 {
     public static class Objectionable
     {
-        public static string Key => SMMI.ObjectionableSettingManager.GetSetting(SMMCO.Key, SMR.Key);
+        public static string Key => SMMI.ObjectionableSettingManager.GetSetting(SMMCO.Key, string.Empty);
     }
 }

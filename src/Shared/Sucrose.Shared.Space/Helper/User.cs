@@ -4,6 +4,7 @@ using SHG = Skylark.Helper.Guidly;
 using SMR = Sucrose.Memory.Readonly;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHU = Sucrose.Shared.Space.Helper.Unique;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Shared.Space.Helper
 {
@@ -17,7 +18,7 @@ namespace Sucrose.Shared.Space.Helper
             }
             catch
             {
-                return SHG.TextToGuid(SMR.Guid);
+                return SHG.TextToGuid("00000000-0000-0000-0000-000000000000");
             }
         }
 
@@ -29,7 +30,7 @@ namespace Sucrose.Shared.Space.Helper
             }
             catch
             {
-                return SMR.Default;
+                return SMMRG.Default;
             }
         }
 
@@ -41,14 +42,14 @@ namespace Sucrose.Shared.Space.Helper
 
                 foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
                 {
-                    return SSSHM.Check(Object, "UUID", SMR.Default);
+                    return SSSHM.Check(Object, "UUID", SMMRG.Default);
                 }
 
-                return SMR.Default;
+                return SMMRG.Default;
             }
             catch
             {
-                return SMR.Default;
+                return SMMRG.Default;
             }
         }
 
@@ -79,14 +80,14 @@ namespace Sucrose.Shared.Space.Helper
 
                 foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
                 {
-                    return SSSHM.Check(Object, "Model", SMR.Default);
+                    return SSSHM.Check(Object, "Model", SMMRG.Default);
                 }
 
-                return SMR.Default;
+                return SMMRG.Default;
             }
             catch
             {
-                return SMR.Default;
+                return SMMRG.Default;
             }
         }
 
@@ -100,14 +101,14 @@ namespace Sucrose.Shared.Space.Helper
 
                 foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
                 {
-                    Names.Add(SSSHM.Check(Object, "Name", SMR.Default));
+                    Names.Add(SSSHM.Check(Object, "Name", SMMRG.Default));
                 }
 
                 return Names.ToArray();
             }
             catch
             {
-                return new[] { SMR.Default };
+                return new[] { SMMRG.Default };
             }
         }
 
@@ -121,14 +122,14 @@ namespace Sucrose.Shared.Space.Helper
 
                 foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
                 {
-                    Names.Add(SSSHM.Check(Object, "Name", SMR.Default));
+                    Names.Add(SSSHM.Check(Object, "Name", SMMRG.Default));
                 }
 
                 return Names.ToArray();
             }
             catch
             {
-                return new[] { SMR.Default };
+                return new[] { SMMRG.Default };
             }
         }
 
@@ -142,7 +143,7 @@ namespace Sucrose.Shared.Space.Helper
             }
             catch
             {
-                return SMR.Default;
+                return SMMRG.Default;
             }
         }
 
@@ -173,14 +174,14 @@ namespace Sucrose.Shared.Space.Helper
 
                 foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
                 {
-                    return SSSHM.Check(Object, "IdentifyingNumber", SMR.Default);
+                    return SSSHM.Check(Object, "IdentifyingNumber", SMMRG.Default);
                 }
 
-                return SMR.Default;
+                return SMMRG.Default;
             }
             catch
             {
-                return SMR.Default;
+                return SMMRG.Default;
             }
         }
 
@@ -194,14 +195,14 @@ namespace Sucrose.Shared.Space.Helper
 
                 foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
                 {
-                    Names.Add(SSSHM.Check(Object, "Name", SMR.Default));
+                    Names.Add(SSSHM.Check(Object, "Name", SMMRG.Default));
                 }
 
                 return Names.ToArray();
             }
             catch
             {
-                return new[] { SMR.Default };
+                return new[] { SMMRG.Default };
             }
         }
 
@@ -213,7 +214,7 @@ namespace Sucrose.Shared.Space.Helper
             }
             catch
             {
-                return SMR.Default;
+                return SMMRG.Default;
             }
         }
 
@@ -225,14 +226,14 @@ namespace Sucrose.Shared.Space.Helper
 
                 foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
                 {
-                    return SSSHM.Check(Object, "Manufacturer", SMR.Default);
+                    return SSSHM.Check(Object, "Manufacturer", SMMRG.Default);
                 }
 
-                return SMR.Default;
+                return SMMRG.Default;
             }
             catch
             {
-                return SMR.Default;
+                return SMMRG.Default;
             }
         }
 

@@ -32,6 +32,7 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using TextBox = Wpf.Ui.Controls.TextBox;
 using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 
@@ -639,7 +640,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             if (State || SMMG.Statistics)
             {
-                SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECT.Reportdog}{SMR.ValueSeparator}{SSSPMI.Reportdog}");
+                SSSHP.Run(SSSPMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Reportdog}{SMMRG.ValueSeparator}{SSSPMI.Reportdog}");
             }
             else if (!SMMG.Statistics)
             {
@@ -679,7 +680,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             if (string.IsNullOrEmpty(TextBox.Text))
             {
-                TextBox.Text = SMR.UserAgent;
+                TextBox.Text = SMMRG.UserAgent;
             }
 
             SMMI.GeneralSettingManager.SetSetting(SMMCG.UserAgent, TextBox.Text);
@@ -701,7 +702,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             if (State || SMMG.Report)
             {
-                SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECT.Reportdog}{SMR.ValueSeparator}{SSSPMI.Reportdog}");
+                SSSHP.Run(SSSPMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Reportdog}{SMMRG.ValueSeparator}{SSSPMI.Reportdog}");
             }
             else if (!SMMG.Report)
             {
@@ -741,7 +742,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
             else
             {
-                SMMI.ObjectionableSettingManager.SetSetting(SMMCO.Key, SMR.Key);
+                SMMI.ObjectionableSettingManager.SetSetting(SMMCO.Key, string.Empty);
                 TextBox.PlaceholderText = SRER.GetValue("Portal", "OtherSettingPage", "Key", "PersonalKey", "Valid");
             }
         }

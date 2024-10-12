@@ -86,7 +86,7 @@ namespace Sucrose.Portal.Views.Pages
 
         private void CheckShowcase()
         {
-            string ShowcasePath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.Showcase);
+            string ShowcasePath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Showcase);
 
             if (Directory.Exists(ShowcasePath))
             {

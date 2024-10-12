@@ -770,12 +770,12 @@ namespace Sucrose.Portal.ViewModels.Pages
                 switch (SMMG.Startup)
                 {
                     case 1:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Startup}{SMR.ValueSeparator}{SMMRG.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{false}");
+                        SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Startup}{SMMRG.ValueSeparator}{SMMRG.AppName}{SMMRG.ValueSeparator}{SSSMI.Launcher}{SMMRG.ValueSeparator}{false}");
                         break;
                     case 2:
                         try
                         {
-                            SSSHP.Runas(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.StartupP}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{false}");
+                            SSSHP.Runas(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.StartupP}{SMMRG.ValueSeparator}{SSSMI.Launcher}{SMMRG.ValueSeparator}{false}");
                         }
                         catch (Exception Exception)
                         {
@@ -795,7 +795,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                         }
                         break;
                     case 3:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Scheduler}{SMR.ValueSeparator}{SSDESCT.Delete}");
+                        SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Scheduler}{SMMRG.ValueSeparator}{SSDESCT.Delete}");
                         break;
                     default:
                         break;
@@ -804,12 +804,12 @@ namespace Sucrose.Portal.ViewModels.Pages
                 switch (Index)
                 {
                     case 1:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Startup}{SMR.ValueSeparator}{SMMRG.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{true}");
+                        SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Startup}{SMMRG.ValueSeparator}{SMMRG.AppName}{SMMRG.ValueSeparator}{SSSMI.Launcher}{SMMRG.ValueSeparator}{true}");
                         break;
                     case 2:
                         try
                         {
-                            SSSHP.Runas(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.StartupP}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{true}");
+                            SSSHP.Runas(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.StartupP}{SMMRG.ValueSeparator}{SSSMI.Launcher}{SMMRG.ValueSeparator}{true}");
                         }
                         catch (Exception Exception)
                         {
@@ -829,7 +829,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                         }
                         break;
                     case 3:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Scheduler}{SMR.ValueSeparator}{SSDESCT.Create}{SMR.ValueSeparator}{SSSMI.Launcher}");
+                        SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Scheduler}{SMMRG.ValueSeparator}{SSDESCT.Create}{SMMRG.ValueSeparator}{SSSMI.Launcher}");
                         break;
                     default:
                         break;

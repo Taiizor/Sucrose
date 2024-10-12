@@ -1,5 +1,6 @@
 ﻿using System.IO.Pipes;
 using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Pipe.Helper
 {
@@ -12,7 +13,7 @@ namespace Sucrose.Pipe.Helper
 
         public void Start(string pipeName)
         {
-            _pipeClient = new(SMR.PipeServerName, pipeName, PipeDirection.Out);
+            _pipeClient = new(SMMRG.PipeServerName, pipeName, PipeDirection.Out);
 
             _pipeClient.Connect();
         }

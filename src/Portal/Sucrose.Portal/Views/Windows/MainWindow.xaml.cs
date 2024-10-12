@@ -328,7 +328,7 @@ namespace Sucrose.Portal.Views.Windows
             {
                 Type T when T == typeof(SPVPLP) => "Library",
                 Type T when T == typeof(SPVPSP) => "Store",
-                _ => SMR.Unknown,
+                _ => SMMRG.Unknown,
             };
 
             Dispose();

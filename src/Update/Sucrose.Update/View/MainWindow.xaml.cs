@@ -14,6 +14,7 @@ using SEMST = Skylark.Enum.ModeStorageType;
 using SEST = Skylark.Enum.StorageType;
 using SEVT = Skylark.Enum.VersionType;
 using SHN = Skylark.Helper.Numeric;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SHV = Skylark.Helper.Versionly;
 using SMMCU = Sucrose.Memory.Manage.Constant.Update;
 using SMMG = Sucrose.Manager.Manage.General;
@@ -56,7 +57,6 @@ using SUMI = Sucrose.Update.Manage.Internal;
 using SUMMU = Sucrose.Update.Manage.Manager.Update;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWNM = Skylark.Wing.Native.Methods;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Update.View
 {
@@ -410,7 +410,7 @@ namespace Sucrose.Update.View
                 {
                     foreach (SSIIA Asset in Assets)
                     {
-                        string Name = $"{SMMRG.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHU.GetDescription(SUMMU.UpdateExtensionType)}";
+                        string Name = $"{SMMRG.AppName}_{SMMRG.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHU.GetDescription(SUMMU.UpdateExtensionType)}";
 
                         string[] Required =
                         {
@@ -418,8 +418,8 @@ namespace Sucrose.Update.View
                             SSCHF.GetDescription(),
                             SSCHA.GetText(),
                             SMMRG.AppName,
-                            $"{Latest}",
-                            SMR.Bundle
+                            SMMRG.Bundle,
+                            $"{Latest}"
                         };
 
                         if (Asset.Name.Contains(Name) && Required.All(Asset.Name.Contains))
@@ -779,11 +779,11 @@ namespace Sucrose.Update.View
 
                 if (SUMMU.UpdateExtensionType == SSCEUET.Compressed)
                 {
-                    SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECDT.Bundle}{SMR.ValueSeparator}{SSSHE.Change(SUMI.Source, SSCHU.GetDescription(SSCEUET.Executable))}");
+                    SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECDT.Bundle}{SMMRG.ValueSeparator}{SSSHE.Change(SUMI.Source, SSCHU.GetDescription(SSCEUET.Executable))}");
                 }
                 else
                 {
-                    SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECDT.Bundle}{SMR.ValueSeparator}{SUMI.Source}");
+                    SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECDT.Bundle}{SMMRG.ValueSeparator}{SUMI.Source}");
                 }
 
                 Reload.Content = SRER.GetValue("Update", "ReloadText", "Browser", "Opened");

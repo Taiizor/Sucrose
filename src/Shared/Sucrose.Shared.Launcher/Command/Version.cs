@@ -14,7 +14,7 @@ namespace Sucrose.Shared.Launcher.Command
     {
         public static void Command()
         {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Versioning}{SMR.ValueSeparator}{Path.Combine(SMMRP.LocalApplicationData, SMMRG.AppName)}{SMR.ValueSeparator}{SHV.Auto(SEAT.Entry)}{SMR.ValueSeparator}{false}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Versioning}{SMMRG.ValueSeparator}{Path.Combine(SMMRP.LocalApplicationData, SMMRG.AppName)}{SMMRG.ValueSeparator}{SHV.Auto(SEAT.Entry)}{SMMRG.ValueSeparator}{false}");
         }
     }
 }

@@ -47,7 +47,7 @@ namespace Sucrose.Manager
                     //
                 }
 
-                SMHW.WriteBasic(logFilePath, $"[{SMMVL.FileTimeLine}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
+                SMHW.WriteBasic(logFilePath, $"[{SMMVL.FileTimeLine}] ~ [{SMMVL.FileDescriptionLine}-{threadId}/{level}] ~ [{message}]");
             }
             finally
             {
@@ -77,7 +77,7 @@ namespace Sucrose.Manager
 
                 foreach (string message in messages)
                 {
-                    SMHW.WriteBasic(logFilePath, $"[{SMMVL.FileTimeLine}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
+                    SMHW.WriteBasic(logFilePath, $"[{SMMVL.FileTimeLine}] ~ [{SMMVL.FileDescriptionLine}-{threadId}/{level}] ~ [{message}]");
                 }
             }
             finally

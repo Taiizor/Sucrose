@@ -7,6 +7,7 @@ using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -22,27 +23,27 @@ namespace Sucrose.Portal.Views.Controls
 
         private void Report_Click(object sender, RoutedEventArgs e)
         {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Report}{SMR.ValueSeparator}{SMMRU.GitHubSucroseReport}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Report}{SMMRG.ValueSeparator}{SMMRU.GitHubSucroseReport}");
         }
 
         private void WebPage_Click(object sender, RoutedEventArgs e)
         {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Official}{SMR.ValueSeparator}{SMMRU.OfficialWebPage}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Official}{SMMRG.ValueSeparator}{SMMRU.OfficialWebPage}");
         }
 
         private void Repository_Click(object sender, RoutedEventArgs e)
         {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Repository}{SMR.ValueSeparator}{SMMRU.GitHubSucrose}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Repository}{SMMRG.ValueSeparator}{SMMRU.GitHubSucrose}");
         }
 
         private void Discussions_Click(object sender, RoutedEventArgs e)
         {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Discussions}{SMR.ValueSeparator}{SMMRU.GitHubSucroseDiscussions}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Discussions}{SMMRG.ValueSeparator}{SMMRU.GitHubSucroseDiscussions}");
         }
 
         private void Documentation_Click(object sender, RoutedEventArgs e)
         {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Wiki}{SMR.ValueSeparator}{SMMRU.GitHubSucroseWiki}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Wiki}{SMMRG.ValueSeparator}{SMMRU.GitHubSucroseWiki}");
         }
 
         private void ContentDialog_Loaded(object sender, RoutedEventArgs e)

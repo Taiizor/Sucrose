@@ -6,6 +6,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SSSHE = Sucrose.Shared.Space.Helper.Exceptioner;
 using SSSISE = Sucrose.Shared.Space.Interface.SerializableException;
 using SSSISFD = Sucrose.Shared.Space.Interface.StackFrameData;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Shared.Space.Converter
 {
@@ -36,7 +37,7 @@ namespace Sucrose.Shared.Space.Converter
                 StackTrace = ParseStackTrace(exception),
                 ClassName = exception.GetType().FullName,
                 InnerException = ConvertToSerializableException(exception.InnerException),
-                FullMessage = SSSHE.GetMessage(exception, "Unfortunately.", SMR.ExceptionSplit)
+                FullMessage = SSSHE.GetMessage(exception, "Unfortunately.", SMMRG.ExceptionSplit)
             };
         }
 

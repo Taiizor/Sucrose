@@ -121,7 +121,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             if (Directory.Exists(Theme))
             {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.PropertyA}{SMR.ValueSeparator}{SSSMI.Property}{SMR.ValueSeparator}{Path.GetFileName(Theme)}");
+                SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.PropertyA}{SMMRG.ValueSeparator}{SSSMI.Property}{SMMRG.ValueSeparator}{Path.GetFileName(Theme)}");
             }
         }
 
@@ -430,7 +430,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             if (!SSSHP.Work(SSSMI.Update))
             {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Update}{SMR.ValueSeparator}{SSSMI.Update}");
+                SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Update}{SMMRG.ValueSeparator}{SSSMI.Update}");
             }
         }
 

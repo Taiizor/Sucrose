@@ -3,6 +3,7 @@ using SHS = Skylark.Helper.Skymath;
 using SMMCG = Sucrose.Memory.Manage.Constant.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Manager.Manage
 {
@@ -12,7 +13,7 @@ namespace Sucrose.Manager.Manage
 
         public static int Startup => SHS.Clamp(SMMI.GeneralSettingManager.GetSettingStable(SMMCG.Startup, 0), 0, 10);
 
-        public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMMCG.UserAgent, SMR.UserAgent);
+        public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMMCG.UserAgent, SMMRG.UserAgent);
 
         public static bool Statistics => SMMI.GeneralSettingManager.GetSetting(SMMCG.Statistics, true);
 

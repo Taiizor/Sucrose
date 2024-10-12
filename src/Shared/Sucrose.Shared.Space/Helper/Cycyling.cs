@@ -170,7 +170,7 @@ namespace Sucrose.Shared.Space.Helper
 
                                 SMMI.LibrarySettingManager.SetSetting(SMMCL.LibrarySelected, Selected);
 
-                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Cycyling}{SMR.ValueSeparator}{SMR.Unknown}");
+                                SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Cycyling}{SMMRG.ValueSeparator}{SMMRG.Unknown}");
                             }
                         }
                     }
