@@ -18,6 +18,9 @@ using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
@@ -245,22 +248,22 @@ namespace Sucrose.Live.WebView
                             Language = SMMM.Culture
                         };
 
-                        SSEMI.BrowserSettings.WebView = SMMM.WebArguments;
+                        SSEMI.BrowserSettings.WebView = SMME.WebArguments;
 
                         if (!SSEMI.BrowserSettings.WebView.Any())
                         {
                             SSEMI.BrowserSettings.WebView = SSEMI.WebArguments;
 
-                            SMMI.EngineSettingManager.SetSetting(SMC.WebArguments, SSEMI.BrowserSettings.WebView);
+                            SMMI.EngineSettingManager.SetSetting(SMMCE.WebArguments, SSEMI.BrowserSettings.WebView);
                         }
 
                         Options.AdditionalBrowserArguments = string.Join(" ", SSEMI.BrowserSettings.WebView);
 
-                        if (SMMM.DeveloperPort > 0)
+                        if (SMME.DeveloperPort > 0)
                         {
                             if (!Options.AdditionalBrowserArguments.Contains("--remote-debugging-port"))
                             {
-                                Options.AdditionalBrowserArguments += $" --remote-debugging-port={SMMM.DeveloperPort}";
+                                Options.AdditionalBrowserArguments += $" --remote-debugging-port={SMME.DeveloperPort}";
                             }
 
                             if (!Options.AdditionalBrowserArguments.Contains("--remote-allow-origins"))

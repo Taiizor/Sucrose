@@ -20,6 +20,9 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWUS = Skylark.Wing.Utility.Screene;
 using TextBlock = System.Windows.Controls.TextBlock;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -60,16 +63,16 @@ namespace Sucrose.Portal.Views.Controls
 
             int ScreenCount = SWUS.Screens.Count();
 
-            if (SMMM.ScreenIndex > ScreenCount - 1)
+            if (SMME.ScreenIndex > ScreenCount - 1)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.ScreenIndex, ScreenCount - 1);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.ScreenIndex, ScreenCount - 1);
             }
 
             for (int Count = 0; Count < ScreenCount; Count++)
             {
                 SPVCDS Screen = new();
 
-                if (SMMM.ScreenIndex == Count)
+                if (SMME.ScreenIndex == Count)
                 {
                     Screen.Border.BorderBrush = Brushes.CornflowerBlue;
                 }
@@ -132,7 +135,7 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         Screen.Border.BorderBrush = Brushes.CornflowerBlue;
 
-                        SMMI.EngineSettingManager.SetSetting(SMC.ScreenIndex, Convert.ToInt32(Screen.Index.Text) - 1);
+                        SMMI.EngineSettingManager.SetSetting(SMMCE.ScreenIndex, Convert.ToInt32(Screen.Index.Text) - 1);
                     }
                     else
                     {
@@ -152,9 +155,9 @@ namespace Sucrose.Portal.Views.Controls
             ExpanderExpandContent.Visibility = Visibility.Collapsed;
             ExpanderDuplicateContent.Visibility = Visibility.Collapsed;
 
-            if (SMMM.DisplayScreenType != SEDYST.PerDisplay)
+            if (SMME.DisplayScreenType != SEDYST.PerDisplay)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.DisplayScreenType, SEDYST.PerDisplay);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.DisplayScreenType, SEDYST.PerDisplay);
 
                 Restart();
             }
@@ -168,9 +171,9 @@ namespace Sucrose.Portal.Views.Controls
             ExpanderExpandContent.Visibility = Visibility.Visible;
             ExpanderDuplicateContent.Visibility = Visibility.Collapsed;
 
-            if (SMMM.DisplayScreenType != SEDYST.SpanAcross)
+            if (SMME.DisplayScreenType != SEDYST.SpanAcross)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.DisplayScreenType, SEDYST.SpanAcross);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.DisplayScreenType, SEDYST.SpanAcross);
 
                 Restart();
             }
@@ -184,9 +187,9 @@ namespace Sucrose.Portal.Views.Controls
             ExpanderExpandContent.Visibility = Visibility.Collapsed;
             ExpanderDuplicateContent.Visibility = Visibility.Visible;
 
-            if (SMMM.DisplayScreenType != SEDYST.SameDuplicate)
+            if (SMME.DisplayScreenType != SEDYST.SameDuplicate)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.DisplayScreenType, SEDYST.SameDuplicate);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.DisplayScreenType, SEDYST.SameDuplicate);
 
                 Restart();
             }
@@ -194,9 +197,9 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ExpandScreenTypeChecked(SEEST Type)
         {
-            if (SMMM.ExpandScreenType != Type)
+            if (SMME.ExpandScreenType != Type)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.ExpandScreenType, Type);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.ExpandScreenType, Type);
 
                 Restart();
             }
@@ -204,9 +207,9 @@ namespace Sucrose.Portal.Views.Controls
 
         private void DuplicateScreenTypeChecked(SEDEST Type)
         {
-            if (SMMM.DuplicateScreenType != Type)
+            if (SMME.DuplicateScreenType != Type)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.DuplicateScreenType, Type);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.DuplicateScreenType, Type);
 
                 Restart();
             }
@@ -274,7 +277,7 @@ namespace Sucrose.Portal.Views.Controls
                 RadioButton Radio = new()
                 {
                     Content = SRER.GetValue("Portal", "Enum", "ExpandScreenType", $"{Type}"),
-                    IsChecked = SMMM.ExpandScreenType == Type,
+                    IsChecked = SMME.ExpandScreenType == Type,
                     GroupName = "ExpandScreenType"
                 };
 
@@ -301,7 +304,7 @@ namespace Sucrose.Portal.Views.Controls
                 RadioButton Radio = new()
                 {
                     Content = SRER.GetValue("Portal", "Enum", "DuplicateScreenType", $"{Type}"),
-                    IsChecked = SMMM.DuplicateScreenType == Type,
+                    IsChecked = SMME.DuplicateScreenType == Type,
                     GroupName = "DuplicateScreenType"
                 };
 
@@ -310,7 +313,7 @@ namespace Sucrose.Portal.Views.Controls
                 ExpanderDuplicateContent.Children.Add(Radio);
             }
 
-            switch (SMMM.DisplayScreenType)
+            switch (SMME.DisplayScreenType)
             {
                 case SEDYST.SpanAcross:
                     Expand.IsChecked = true;

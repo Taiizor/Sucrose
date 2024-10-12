@@ -5,6 +5,9 @@ using SSECSHG = Sucrose.Shared.Engine.CefSharp.Helper.Gif;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Shared.Engine.CefSharp.Event
 {
@@ -23,7 +26,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
 
         public static void CefEngineInitializedChanged(object sender, EventArgs e)
         {
-            if (SMMM.DeveloperMode)
+            if (SMME.DeveloperMode)
             {
                 SSECSMI.CefEngine.ShowDevTools();
             }

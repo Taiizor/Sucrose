@@ -8,6 +8,9 @@ using SSDMI = Sucrose.Shared.Dependency.Manage.Internal;
 using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SWUD = Skylark.Wing.Utility.Desktop;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Shared.Engine.Helper
 {
@@ -15,14 +18,14 @@ namespace Sucrose.Shared.Engine.Helper
     {
         public static bool GetLoop()
         {
-            return SMMM.Loop;
+            return SMME.Loop;
         }
 
         public static int GetVolume()
         {
-            if (SMMM.Volume > 0)
+            if (SMME.Volume > 0)
             {
-                if (SMMM.VolumeActive)
+                if (SMME.VolumeActive)
                 {
                     if (SSEMI.PauseVolume)
                     {
@@ -30,11 +33,11 @@ namespace Sucrose.Shared.Engine.Helper
                     }
                 }
 
-                if (SMMM.VolumeDesktop)
+                if (SMME.VolumeDesktop)
                 {
                     if (SWUD.IsDesktopBasic() || SWUD.IsDesktopAdvanced())
                     {
-                        return SMMM.Volume;
+                        return SMME.Volume;
                     }
                     else
                     {
@@ -43,12 +46,12 @@ namespace Sucrose.Shared.Engine.Helper
                 }
             }
 
-            return SMMM.Volume;
+            return SMME.Volume;
         }
 
         public static bool GetShuffle()
         {
-            return SMMM.Shuffle;
+            return SMME.Shuffle;
         }
 
         public static SSDEST GetStretch()
@@ -67,27 +70,27 @@ namespace Sucrose.Shared.Engine.Helper
 
         public static SEST GetScreenType()
         {
-            return SMMM.ScreenType;
+            return SMME.ScreenType;
         }
 
         public static int GetScreenIndex()
         {
-            return SMMM.ScreenIndex;
+            return SMME.ScreenIndex;
         }
 
         public static SEEST GetExpandScreenType()
         {
-            return SMMM.ExpandScreenType;
+            return SMME.ExpandScreenType;
         }
 
         public static SEDYST GetDisplayScreenType()
         {
-            return SMMM.DisplayScreenType;
+            return SMME.DisplayScreenType;
         }
 
         public static SEDEST GetDuplicateScreenType()
         {
-            return SMMM.DuplicateScreenType;
+            return SMME.DuplicateScreenType;
         }
     }
 }

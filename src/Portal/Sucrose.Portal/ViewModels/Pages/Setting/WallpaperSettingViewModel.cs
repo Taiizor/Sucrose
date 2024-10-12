@@ -23,6 +23,8 @@ using SSDEYTET = Sucrose.Shared.Dependency.Enum.YouTubeEngineType;
 using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
 using SWUD = Skylark.Wing.Utility.Desktop;
 using TextBlock = System.Windows.Controls.TextBlock;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -60,7 +62,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IsExpand = true
             };
 
-            InputMode.LeftIcon.Symbol = InputSymbol(SMMM.InputType);
+            InputMode.LeftIcon.Symbol = InputSymbol(SMME.InputType);
             InputMode.Title.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "InputMode");
             InputMode.Description.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "InputMode", "Description");
 
@@ -76,7 +78,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 });
             }
 
-            InputType.SelectedIndex = (int)SMMM.InputType;
+            InputType.SelectedIndex = (int)SMME.InputType;
 
             InputMode.HeaderFrame = InputType;
 
@@ -122,7 +124,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             CheckBox InputDesktop = new()
             {
                 Content = SRER.GetValue("Portal", "WallpaperSettingPage", "InputMode", "InputDesktop"),
-                IsChecked = SMMM.InputDesktop
+                IsChecked = SMME.InputDesktop
             };
 
             InputDesktop.Checked += (s, e) => InputDesktopChecked(true);
@@ -173,7 +175,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 });
             }
 
-            ScreenType.SelectedIndex = (int)SMMM.ScreenType;
+            ScreenType.SelectedIndex = (int)SMME.ScreenType;
 
             ScreenLayout.HeaderFrame = ScreenType;
 
@@ -219,7 +221,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch LoopState = new()
             {
-                IsChecked = SMMM.Loop
+                IsChecked = SMME.Loop
             };
 
             LoopState.Checked += (s, e) => LoopStateChecked(true);
@@ -241,7 +243,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch ShuffleState = new()
             {
-                IsChecked = SMMM.Shuffle
+                IsChecked = SMME.Shuffle
             };
 
             ShuffleState.Checked += (s, e) => ShuffleStateChecked(true);
@@ -445,7 +447,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             SEST NewScreen = (SEST)Index;
 
-            if (NewScreen != SMMM.ScreenType)
+            if (NewScreen != SMME.ScreenType)
             {
                 SMMI.EngineSettingManager.SetSetting(SMMCE.ScreenType, NewScreen);
             }
@@ -468,7 +470,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void InputDesktopChecked(bool State)
         {
-            SMMI.EngineSettingManager.SetSetting(SMC.InputDesktop, State);
+            SMMI.EngineSettingManager.SetSetting(SMMCE.InputDesktop, State);
         }
 
         private SymbolRegular InputSymbol(SEIT Type)
@@ -485,7 +487,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void ShuffleStateChecked(bool State)
         {
-            SMMI.EngineSettingManager.SetSetting(SMC.Shuffle, State);
+            SMMI.EngineSettingManager.SetSetting(SMMCE.Shuffle, State);
         }
 
         private void InputModuleTypeSelected(int Index)
@@ -542,10 +544,10 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             SEIT NewInput = (SEIT)Index;
 
-            if (NewInput != SMMM.InputType)
+            if (NewInput != SMME.InputType)
             {
                 Input.LeftIcon.Symbol = InputSymbol(NewInput);
-                SMMI.EngineSettingManager.SetSetting(SMC.InputType, NewInput);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.InputType, NewInput);
             }
         }
 

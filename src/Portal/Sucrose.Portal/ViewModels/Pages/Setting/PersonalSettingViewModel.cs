@@ -17,6 +17,9 @@ using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMCL = Sucrose.Memory.Manage.Constant.Library;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -127,7 +130,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch StoreStartState = new()
             {
-                IsChecked = SMMM.StoreStart
+                IsChecked = SMME.StoreStart
             };
 
             StoreStartState.Checked += (s, e) => StoreStartStateChecked(true);
@@ -238,7 +241,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch LibraryStartState = new()
             {
-                IsChecked = SMMM.LibraryStart
+                IsChecked = SMME.LibraryStart
             };
 
             LibraryStartState.Checked += (s, e) => LibraryStartStateChecked(true);
@@ -636,7 +639,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void StoreStartStateChecked(bool State)
         {
-            SMMI.EngineSettingManager.SetSetting(SMC.StoreStart, State);
+            SMMI.EngineSettingManager.SetSetting(SMMCE.StoreStart, State);
         }
 
         private void StoreDurationChanged(double? Value)
@@ -656,7 +659,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void LibraryStartStateChecked(bool State)
         {
-            SMMI.EngineSettingManager.SetSetting(SMC.LibraryStart, State);
+            SMMI.EngineSettingManager.SetSetting(SMMCE.LibraryStart, State);
         }
 
         private void AdaptiveMarginChanged(double? Value)

@@ -26,6 +26,9 @@ using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
 using TextBox = Wpf.Ui.Controls.TextBox;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -527,7 +530,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch DeveloperMode = new()
             {
-                IsChecked = SMMM.DeveloperMode
+                IsChecked = SMME.DeveloperMode
             };
 
             DeveloperMode.Checked += (s, e) => DeveloperModeChecked(true);
@@ -552,7 +555,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Icon = new SymbolIcon(SymbolRegular.SerialPort24),
                 IconPlacement = ElementPlacement.Left,
-                Value = SMMM.DeveloperPort,
+                Value = SMME.DeveloperPort,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
                 Maximum = 65535,
@@ -562,7 +565,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock DeveloperHint = new()
             {
-                Text = string.Format(SRER.GetValue("Portal", "OtherSettingPage", "Developer", "DeveloperHint"), SMMM.DeveloperPort),
+                Text = string.Format(SRER.GetValue("Portal", "OtherSettingPage", "Developer", "DeveloperHint"), SMME.DeveloperPort),
                 Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
@@ -659,7 +662,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void DeveloperModeChecked(bool State)
         {
-            SMMI.EngineSettingManager.SetSetting(SMC.DeveloperMode, State);
+            SMMI.EngineSettingManager.SetSetting(SMMCE.DeveloperMode, State);
         }
 
         private void DiscordRefreshChecked(bool State)
@@ -742,9 +745,9 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.DeveloperPort)
+            if (NewValue != SMME.DeveloperPort)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.DeveloperPort, NewValue);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.DeveloperPort, NewValue);
 
                 Developer.Text = string.Format(SRER.GetValue("Portal", "OtherSettingPage", "Developer", "DeveloperHint"), NewValue);
             }

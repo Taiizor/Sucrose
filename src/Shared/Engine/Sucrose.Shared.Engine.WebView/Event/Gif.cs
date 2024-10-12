@@ -6,6 +6,9 @@ using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVHG = Sucrose.Shared.Engine.WebView.Helper.Gif;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Shared.Engine.WebView.Event
 {
@@ -51,7 +54,7 @@ namespace Sucrose.Shared.Engine.WebView.Event
 
             SSEWVMI.WebEngine.CoreWebView2.DOMContentLoaded += WebEngineDOMContentLoaded;
 
-            if (SMMM.DeveloperMode)
+            if (SMME.DeveloperMode)
             {
                 SSEWVMI.WebEngine.CoreWebView2.OpenDevToolsWindow();
             }

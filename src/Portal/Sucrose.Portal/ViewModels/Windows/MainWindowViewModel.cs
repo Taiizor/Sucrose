@@ -42,6 +42,9 @@ using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMCL = Sucrose.Memory.Manage.Constant.Library;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Portal.ViewModels.Windows
 {
@@ -269,7 +272,7 @@ namespace Sucrose.Portal.ViewModels.Windows
             {
                 if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
                 {
-                    if (SMMM.LibraryStart)
+                    if (SMME.LibraryStart)
                     {
                         SMMI.LibrarySettingManager.SetSetting(SMMCL.LibrarySelected, SPMI.LibraryService.Theme);
 

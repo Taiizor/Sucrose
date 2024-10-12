@@ -5,6 +5,9 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
 using Timer = System.Timers.Timer;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Shared.Engine.Helper
 {
@@ -12,13 +15,13 @@ namespace Sucrose.Shared.Engine.Helper
     {
         public static void Start()
         {
-            Timer Volumer = new(SMMM.VolumeSensitivity * 1000);
+            Timer Volumer = new(SMME.VolumeSensitivity * 1000);
 
             Volumer.Elapsed += (s, e) =>
             {
                 try
                 {
-                    if (SMMM.Volume > 0 && SMMM.VolumeActive)
+                    if (SMME.Volume > 0 && SMME.VolumeActive)
                     {
                         foreach (Process Process in Process.GetProcesses().Where(Proc => !Proc.ProcessName.Contains(SMR.AppName) && !SSEMI.Processes.ToList().Any(Id => Id == Proc.Id) && !SSEMI.Applications.ToList().Any(App => App.Process.Id == Proc.Id)))
                         {
@@ -85,7 +88,7 @@ namespace Sucrose.Shared.Engine.Helper
                         SSEMI.PauseVolume = false;
                     }
 
-                    Volumer.Interval = SMMM.VolumeSensitivity * 1000;
+                    Volumer.Interval = SMME.VolumeSensitivity * 1000;
                 }
                 catch
                 {

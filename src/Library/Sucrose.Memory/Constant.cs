@@ -12,13 +12,9 @@
 
         public const string Themes = "Themes";
 
-        public const string Volume = "Volume";
-
         public const string AppExit = "AppExit";
 
         public const string Culture = "Culture";
-
-        public const string Shuffle = "Shuffle";
 
         public const string Visible = "Visible";
 
@@ -32,8 +28,6 @@
 
         public const string PingType = "PingType";
 
-        public const string InputType = "InputType";
-
         public const string PingValue = "PingValue";
 
         public const string UserAgent = "UserAgent";
@@ -44,15 +38,11 @@
 
         public const string Statistics = "Statistics";
 
-        public const string StoreStart = "StoreStart";
-
         public const string UpdateTime = "UpdateTime";
 
         public const string UploadType = "UploadType";
 
         public const string MemoryUsage = "MemoryUsage";
-
-        public const string ScreenIndex = "ScreenIndex";
 
         public const string UpdateState = "UpdateState";
 
@@ -60,31 +50,15 @@
 
         public const string BatteryUsage = "BatteryUsage";
 
-        public const string CefArguments = "CefArguments";
-
         public const string CycylingTime = "CycylingTime";
 
         public const string DownloadType = "DownloadType";
 
-        public const string LibraryStart = "LibraryStart";
-
         public const string StorePreview = "StorePreview";
-
-        public const string WebArguments = "WebArguments";
-
-        public const string InputDesktop = "InputDesktop";
-
-        public const string VolumeActive = "VolumeActive";
-
-        public const string DeveloperMode = "DeveloperMode";
-
-        public const string DeveloperPort = "DeveloperPort";
 
         public const string DownloadValue = "DownloadValue";
 
         public const string StoreDuration = "StoreDuration";
-
-        public const string VolumeDesktop = "VolumeDesktop";
 
         public const string AdaptiveLayout = "AdaptiveLayout";
 
@@ -106,13 +80,9 @@
 
         public const string UpdateLimitType = "UpdateLimitType";
 
-        public const string ExpandScreenType = "ExpandScreenType";
-
         public const string StorePreviewHide = "StorePreviewHide";
 
         public const string BackgroundOpacity = "BackgroundOpacity";
-
-        public const string DisplayScreenType = "DisplayScreenType";
 
         public const string GraphicInterfaces = "GraphicInterfaces";
 
@@ -122,13 +92,9 @@
 
         public const string UpdateChannelType = "UpdateChannelType";
 
-        public const string VolumeSensitivity = "VolumeSensitivity";
-
         public const string LibraryPreviewHide = "LibraryPreviewHide";
 
         public const string PerformanceCounter = "PerformanceCounter";
-
-        public const string DuplicateScreenType = "DuplicateScreenType";
 
         public const string ProcessorInterfaces = "ProcessorInterfaces";
     }

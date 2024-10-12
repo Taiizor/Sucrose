@@ -14,6 +14,9 @@ using MessageBox = Wpf.Ui.Controls.MessageBox;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SEOST = Skylark.Enum.OperatingSystemType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 using SMC = Sucrose.Memory.Constant;
 using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -313,7 +316,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IsExpand = true
             };
 
-            EngineVolume.LeftIcon.Symbol = VolumeSymbol(SMMM.Volume);
+            EngineVolume.LeftIcon.Symbol = VolumeSymbol(SMME.Volume);
             EngineVolume.Title.Text = SRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume");
             EngineVolume.Description.Text = SRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "Description");
 
@@ -324,7 +327,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IsSelectionRangeEnabled = false,
                 IsMoveToPointEnabled = true,
                 IsSnapToTickEnabled = true,
-                Value = SMMM.Volume,
+                Value = SMME.Volume,
                 TickFrequency = 1,
                 Maximum = 100,
                 Minimum = 0,
@@ -349,7 +352,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             CheckBox VolumeDesktop = new()
             {
                 Content = SRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "VolumeDesktop"),
-                IsChecked = SMMM.VolumeDesktop
+                IsChecked = SMME.VolumeDesktop
             };
 
             VolumeDesktop.Checked += (s, e) => VolumeDesktopChecked(true);
@@ -358,7 +361,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             CheckBox VolumeActive = new()
             {
                 Content = SRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "VolumeActive"),
-                IsChecked = SMMM.VolumeActive
+                IsChecked = SMME.VolumeActive
             };
 
             VolumeActive.Checked += (s, e) => VolumeActiveChecked(true);
@@ -377,7 +380,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             //    AutoToolTipPlacement = AutoToolTipPlacement.TopLeft,
             //    TickPlacement = TickPlacement.Both,
             //    IsSelectionRangeEnabled = false,
-            //    Value = SMMM.VolumeSensitivity,
+            //    Value = SMME.VolumeSensitivity,
             //    IsMoveToPointEnabled = true,
             //    IsSnapToTickEnabled = true,
             //    TickFrequency = 1,
@@ -390,7 +393,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Icon = new SymbolIcon(SymbolRegular.Timer24),
                 IconPlacement = ElementPlacement.Left,
-                Value = SMMM.VolumeSensitivity,
+                Value = SMME.VolumeSensitivity,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
                 MaxLength = 2,
@@ -558,12 +561,12 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void VolumeActiveChecked(bool State)
         {
-            SMMI.EngineSettingManager.SetSetting(SMC.VolumeActive, State);
+            SMMI.EngineSettingManager.SetSetting(SMMCE.VolumeActive, State);
         }
 
         private void VolumeDesktopChecked(bool State)
         {
-            SMMI.EngineSettingManager.SetSetting(SMC.VolumeDesktop, State);
+            SMMI.EngineSettingManager.SetSetting(SMMCE.VolumeDesktop, State);
         }
 
         private void BackdropStretchSelected(int Index)
@@ -619,9 +622,9 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.VolumeSensitivity)
+            if (NewValue != SMME.VolumeSensitivity)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.VolumeSensitivity, NewValue);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.VolumeSensitivity, NewValue);
             }
         }
 
@@ -629,7 +632,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             Volume.LeftIcon.Symbol = VolumeSymbol(Value);
 
-            SMMI.EngineSettingManager.SetSetting(SMC.Volume, Convert.ToInt32(Value));
+            SMMI.EngineSettingManager.SetSetting(SMMCE.Volume, Convert.ToInt32(Value));
         }
 
         private async void BackgroundImageClick(Button BackgroundImage)

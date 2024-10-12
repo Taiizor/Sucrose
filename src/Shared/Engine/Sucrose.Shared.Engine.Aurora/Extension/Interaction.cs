@@ -20,6 +20,8 @@ using Timer = System.Timers.Timer;
 using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
 using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Shared.Engine.Aurora.Extension
 {
@@ -36,12 +38,12 @@ namespace Sucrose.Shared.Engine.Aurora.Extension
                 switch (SSDMME.InputModuleType)
                 {
                     case SSDEIMT.RawInput:
-                        if (SMMM.InputType is SEIT.OnlyMouse or SEIT.MouseKeyboard)
+                        if (SMME.InputType is SEIT.OnlyMouse or SEIT.MouseKeyboard)
                         {
                             RawInputDevice.RegisterDevice(HidUsageAndPage.Mouse, RawInputDeviceFlags.ExInputSink, HWND);
                         }
 
-                        if (SMMM.InputType is SEIT.OnlyKeyboard or SEIT.MouseKeyboard)
+                        if (SMME.InputType is SEIT.OnlyKeyboard or SEIT.MouseKeyboard)
                         {
                             RawInputDevice.RegisterDevice(HidUsageAndPage.Keyboard, RawInputDeviceFlags.ExInputSink, HWND);
                         }
@@ -72,7 +74,7 @@ namespace Sucrose.Shared.Engine.Aurora.Extension
 
             Interactioner.Elapsed += (s, e) =>
             {
-                SSEMI.IsDesktop = !SMMM.InputDesktop || SWUD.IsDesktopBasic() || SWUD.IsDesktopAdvanced();
+                SSEMI.IsDesktop = !SMME.InputDesktop || SWUD.IsDesktopBasic() || SWUD.IsDesktopAdvanced();
             };
 
             Interactioner.AutoReset = true;
@@ -89,7 +91,7 @@ namespace Sucrose.Shared.Engine.Aurora.Extension
 
                 foreach (SSDSHS Application in SSEMI.Applications)
                 {
-                    if (display.Index == SSEMI.Applications.IndexOf(Application) + 1 || SMMM.DisplayScreenType == SEDST.SpanAcross)
+                    if (display.Index == SSEMI.Applications.IndexOf(Application) + 1 || SMME.DisplayScreenType == SEDST.SpanAcross)
                     {
                         //The low-order word specifies the x-coordinate of the cursor, the high-order word specifies the y-coordinate of the cursor.
                         //ref: https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-mousemove
@@ -121,7 +123,7 @@ namespace Sucrose.Shared.Engine.Aurora.Extension
 
                 foreach (SSDSHS Application in SSEMI.Applications)
                 {
-                    if (display.Index == SSEMI.Applications.IndexOf(Application) + 1 || SMMM.DisplayScreenType == SEDST.SpanAcross)
+                    if (display.Index == SSEMI.Applications.IndexOf(Application) + 1 || SMME.DisplayScreenType == SEDST.SpanAcross)
                     {
                         //ref:
                         //https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-keydown
@@ -161,7 +163,7 @@ namespace Sucrose.Shared.Engine.Aurora.Extension
                 {
                     RawInputData Data = RawInputData.FromHandle(lParam);
 
-                    Point Position = SWHC.MousePosition(P.X, P.Y, SMMM.DisplayScreenType);
+                    Point Position = SWHC.MousePosition(P.X, P.Y, SMME.DisplayScreenType);
 
                     switch (Data)
                     {

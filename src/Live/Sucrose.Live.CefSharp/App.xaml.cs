@@ -16,6 +16,9 @@ using SMMCU = Sucrose.Memory.Manage.Constant.User;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMCL = Sucrose.Memory.Manage.Constant.Library;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
@@ -273,13 +276,13 @@ namespace Sucrose.Live.CefSharp
                             CachePath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.CefSharp)
                         };
 
-                        SSEMI.BrowserSettings.CefSharp = SMMM.CefArguments;
+                        SSEMI.BrowserSettings.CefSharp = SMME.CefArguments;
 
                         if (!SSEMI.BrowserSettings.CefSharp.Any())
                         {
                             SSEMI.BrowserSettings.CefSharp = SSEMI.CefArguments;
 
-                            SMMI.EngineSettingManager.SetSetting(SMC.CefArguments, SSEMI.BrowserSettings.CefSharp);
+                            SMMI.EngineSettingManager.SetSetting(SMMCE.CefArguments, SSEMI.BrowserSettings.CefSharp);
                         }
 
                         foreach (KeyValuePair<string, string> Argument in SSEMI.BrowserSettings.CefSharp)
@@ -287,9 +290,9 @@ namespace Sucrose.Live.CefSharp
                             Settings.CefCommandLineArgs.Add(Argument.Key, Argument.Value);
                         }
 
-                        if (SMMM.DeveloperPort > 0)
+                        if (SMME.DeveloperPort > 0)
                         {
-                            Settings.RemoteDebuggingPort = SMMM.DeveloperPort;
+                            Settings.RemoteDebuggingPort = SMME.DeveloperPort;
 
                             if (!Settings.CefCommandLineArgs.ContainsKey("remote-allow-origins"))
                             {

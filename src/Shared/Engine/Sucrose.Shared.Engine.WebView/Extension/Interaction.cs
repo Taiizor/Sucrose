@@ -12,12 +12,15 @@ using SWHC = Skylark.Wing.Helper.Calculate;
 using SWNM = Skylark.Wing.Native.Methods;
 using SWUD = Skylark.Wing.Utility.Desktop;
 using Timer = System.Timers.Timer;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Shared.Engine.WebView.Extension
 {
     internal static class Interaction
     {
-        private static bool FirstKey = SMMM.InputType == SEIT.OnlyKeyboard;
+        private static bool FirstKey = SMME.InputType == SEIT.OnlyKeyboard;
 
         public static void Register()
         {
@@ -30,12 +33,12 @@ namespace Sucrose.Shared.Engine.WebView.Extension
                 switch (SSDMME.InputModuleType)
                 {
                     case SSDEIMT.RawInput:
-                        if (SMMM.InputType is SEIT.OnlyMouse or SEIT.MouseKeyboard)
+                        if (SMME.InputType is SEIT.OnlyMouse or SEIT.MouseKeyboard)
                         {
                             RawInputDevice.RegisterDevice(HidUsageAndPage.Mouse, RawInputDeviceFlags.ExInputSink, HWND);
                         }
 
-                        if (SMMM.InputType is SEIT.OnlyKeyboard or SEIT.MouseKeyboard)
+                        if (SMME.InputType is SEIT.OnlyKeyboard or SEIT.MouseKeyboard)
                         {
                             RawInputDevice.RegisterDevice(HidUsageAndPage.Keyboard, RawInputDeviceFlags.ExInputSink, HWND);
                         }
@@ -66,7 +69,7 @@ namespace Sucrose.Shared.Engine.WebView.Extension
 
             Interactioner.Elapsed += (s, e) =>
             {
-                SSEMI.IsDesktop = !SMMM.InputDesktop || SWUD.IsDesktopBasic() || SWUD.IsDesktopAdvanced();
+                SSEMI.IsDesktop = !SMME.InputDesktop || SWUD.IsDesktopBasic() || SWUD.IsDesktopAdvanced();
             };
 
             Interactioner.AutoReset = true;
@@ -133,7 +136,7 @@ namespace Sucrose.Shared.Engine.WebView.Extension
                                 break;
                             }
 
-                            Point Position = SWHC.MousePosition(P.X, P.Y, SMMM.DisplayScreenType);
+                            Point Position = SWHC.MousePosition(P.X, P.Y, SMME.DisplayScreenType);
 
                             switch (Mouse.Mouse.Buttons)
                             {

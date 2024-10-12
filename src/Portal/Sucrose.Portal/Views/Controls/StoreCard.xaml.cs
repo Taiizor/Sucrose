@@ -18,6 +18,8 @@ using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SMME = Sucrose.Manager.Manage.Engine;
+using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReport;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
@@ -178,7 +180,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
                     {
-                        if (SMMM.StoreStart)
+                        if (SMME.StoreStart)
                         {
                             SMMI.LibrarySettingManager.SetSetting(SMMCL.LibrarySelected, Path.GetFileName(Keys));
 
