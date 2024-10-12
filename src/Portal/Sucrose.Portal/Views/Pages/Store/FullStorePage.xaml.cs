@@ -17,6 +17,7 @@ using SSSHC = Sucrose.Shared.Space.Helper.Clean;
 using SSSIC = Sucrose.Shared.Store.Interface.Category;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 
 namespace Sucrose.Portal.Views.Pages.Store
 {
@@ -175,7 +176,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                                 {
                                     if (SMMP.StorePagination * Page > Count && SMMP.StorePagination * Page <= Count + SMMP.StorePagination)
                                     {
-                                        string Theme = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Store, Category.CategoryKey, SSSHC.FileName(Category.WallpaperKey));
+                                        string Theme = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, Category.CategoryKey, SSSHC.FileName(Category.WallpaperKey));
 
                                         SPVCSC StoreCard = new(Theme, new(Category.WallpaperKey, Category.Wallpaper), SMMG.UserAgent, SMMO.Key);
 
@@ -210,7 +211,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                                     {
                                         if (SMMP.StorePagination * Page > Count && SMMP.StorePagination * Page <= Count + SMMP.StorePagination)
                                         {
-                                            string Theme = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Store, Category.Key, SSSHC.FileName(Wallpaper.Key));
+                                            string Theme = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, Category.Key, SSSHC.FileName(Wallpaper.Key));
 
                                             SPVCSC StoreCard = new(Theme, Wallpaper, SMMG.UserAgent, SMMO.Key);
 

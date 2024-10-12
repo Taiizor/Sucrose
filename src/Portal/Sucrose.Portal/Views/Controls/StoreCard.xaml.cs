@@ -47,6 +47,7 @@ using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
 using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -137,7 +138,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         StringContent Content = new(JsonConvert.SerializeObject(StoreData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                        Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.Store}/{SSSHU.GetGuid()}", Content);
+                        Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityStore}/{SSSHU.GetGuid()}", Content);
                     }
                     catch (Exception Exception)
                     {
@@ -163,7 +164,7 @@ namespace Sucrose.Portal.Views.Controls
                 SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
 
                 string LibraryPath = Path.Combine(SMML.LibraryLocation, Keys);
-                string TemporaryPath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
+                string TemporaryPath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, SMMRF.Temporary, Keys);
 
                 switch (SSDMMP.StoreServerType)
                 {

@@ -11,7 +11,7 @@ namespace Sucrose.Memory.Manage.Readonly
 
         public static readonly string RawGitHub = "https://raw.githubusercontent.com";
 
-        public static readonly string SoferityStore = $"{Soferity}/{SMMRS.StoreRepository}";
+        public static readonly string SoferityStore = $"{Soferity}/{SMMRS.StoreDirectory}";
 
         public static readonly string GitHubStore = $"{GitHub}/{SMMRGH.Owner}/{SMMRGH.StoreRepository}";
 

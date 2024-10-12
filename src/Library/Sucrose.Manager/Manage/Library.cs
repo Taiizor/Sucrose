@@ -1,7 +1,7 @@
 ﻿using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.Manager.Manage

@@ -1,29 +1,24 @@
 ﻿using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 using SMMRGH = Sucrose.Memory.Manage.Readonly.GitHub;
+using SMMRS = Sucrose.Memory.Manage.Readonly.Soferity;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 
 namespace Sucrose.Memory
 {
     public static class Readonly
     {
-        public static readonly string Store = "Store";
-
         public static readonly string Bundle = "Bundle";
-
-        public static readonly string GifFolder = "Gif";
-
-        public static readonly string LogFolder = "Log";
 
         public static readonly string Themes = "Themes";
 
         public static readonly string Key = string.Empty;
 
-        public static readonly string Content = "Content";
-
         public static readonly string Default = "Default";
 
         public static readonly string Library = "Library";
-
-        public static readonly string SignalT = "SignalT";
 
         public static readonly string StoreSource = "src";
 
@@ -37,17 +32,9 @@ namespace Sucrose.Memory
 
         public static readonly char StartCommandChar = '✔';
 
-        public static readonly string CacheFolder = "Cache";
-
-        public static readonly string CefSharp = "CefSharp";
-
-        public static readonly string WebView2 = "WebView2";
-
         public static readonly string SoferityVersion = "v6";
 
         public static readonly string ExceptionSplit = " -> ";
-
-        public static readonly string ReportFolder = "Report";
 
         public static readonly string SoferityCheck = "Check";
 
@@ -57,15 +44,9 @@ namespace Sucrose.Memory
 
         public static readonly string SoferityTheme = "Theme";
 
-        public static readonly string Temporary = "Temporary";
-
         public static readonly char ValueSeparatorChar = '✖';
 
         public static readonly string StoreFile = "Store.json";
-
-        public static readonly string Properties = "Properties";
-
-        public static readonly string SettingFolder = "Setting";
 
         public static readonly string SoferityOnline = "Online";
 
@@ -85,23 +66,15 @@ namespace Sucrose.Memory
 
         public static readonly string SoferityFeedback = "Feedback";
 
-        public static readonly string GifContent = "GifContent.html";
-
         public static readonly string SoferityStatistic = "Statistic";
 
         public static readonly string TaskName = "Autorun for Sucrose";
 
         public static readonly string SucroseInfo = "SucroseInfo.json";
 
-        public static readonly string ImageContent = "ImageContent.html";
-
-        public static readonly string VideoContent = "VideoContent.html";
-
         public static readonly string StartCommand = $"{StartCommandChar}";
 
         public static readonly string WebViewProcessName = "msedgewebview2";
-
-        public static readonly string YouTubeContent = "YouTubeContent.html";
 
         public static readonly string ValueSeparator = $"{ValueSeparatorChar}";
 

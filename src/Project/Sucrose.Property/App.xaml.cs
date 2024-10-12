@@ -23,6 +23,7 @@ using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMMCG = Sucrose.Memory.Manage.Constant.General;
 using SMMG = Sucrose.Manager.Manage.General;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 
 namespace Sucrose.Property
 {
@@ -135,7 +136,7 @@ namespace Sucrose.Property
 
                         if (SPMI.Info.Type == SSDEWT.Web)
                         {
-                            SPMI.PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Properties);
+                            SPMI.PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Properties);
                             SPMI.PropertiesFile = Path.Combine(SPMI.PropertiesCache, $"{SPMI.LibrarySelected}.json");
                             SPMI.WatcherFile = Path.Combine(SPMI.PropertiesCache, $"*.{SPMI.LibrarySelected}.json");
 

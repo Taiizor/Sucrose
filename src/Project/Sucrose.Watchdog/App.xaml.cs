@@ -22,6 +22,7 @@ using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 using SSSHE = Sucrose.Shared.Space.Helper.Exceptioner;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHUE = Sucrose.Shared.Space.Helper.Unique;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 using SSSHUR = Sucrose.Shared.Space.Helper.User;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSSHWE = Sucrose.Shared.Space.Helper.WatchException;
@@ -135,7 +136,7 @@ namespace Sucrose.Watchdog
 
                     SSSMDD DiagnosticsData = new(Id, SSSHUE.Generate($"{Name}-{Model}-{Manufacturer}"), Application, AppId, Name, Model, SSCHOS.GetServer(), SMMG.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), JObject.Parse(Arguments[1]), SSCHOS.GetWorkstation(), Culture.Name, SSCHA.GetText(), Manufacturer, Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
 
-                    SSSHW.Write(Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.ReportFolder, $"{Id}.json"), JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented));
+                    SSSHW.Write(Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Report, $"{Id}.json"), JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented));
 
                     if (Application != SMMRA.Watchdog)
                     {

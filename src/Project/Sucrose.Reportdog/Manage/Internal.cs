@@ -4,6 +4,7 @@ using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using Timer = System.Threading.Timer;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 
 namespace Sucrose.Reportdog.Manage
 {
@@ -21,6 +22,6 @@ namespace Sucrose.Reportdog.Manage
 
         public static FileSystemWatcher Watcher = null;
 
-        public static readonly string Source = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.ReportFolder);
+        public static readonly string Source = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Report);
     }
 }

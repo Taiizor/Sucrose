@@ -1,5 +1,4 @@
 ﻿using SMHC = Sucrose.Manager.Helper.Cleaner;
-using SMR = Sucrose.Memory.Readonly;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Manager.Helper

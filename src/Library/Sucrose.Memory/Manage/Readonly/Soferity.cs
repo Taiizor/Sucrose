@@ -2,6 +2,8 @@
 {
     public static class Soferity
     {
-        public static readonly string StoreRepository = "Store";
+        public static readonly string StoreDirectory = "Store";
+
+        public static readonly string ReleaseDirectory = "Release";
     }
 }

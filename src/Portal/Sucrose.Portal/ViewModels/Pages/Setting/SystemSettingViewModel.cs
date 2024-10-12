@@ -26,18 +26,19 @@ using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 using TextBlock = System.Windows.Controls.TextBlock;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
     public partial class SystemSettingViewModel : ViewModel, IDisposable
     {
-        private string StoreTemporaryPath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Store);
+        private string StoreTemporaryPath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store);
 
-        private string SettingTemporaryPath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.SettingFolder);
+        private string SettingTemporaryPath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Setting);
 
-        private string CacheTemporaryPath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder);
+        private string CacheTemporaryPath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache);
 
-        private string LogTemporaryPath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.LogFolder);
+        private string LogTemporaryPath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Log);
 
         private DispatcherTimer InitializeTimer = new();
 

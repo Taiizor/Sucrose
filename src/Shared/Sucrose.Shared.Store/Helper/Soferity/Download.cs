@@ -11,7 +11,7 @@ using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
-using SMMRGH = Sucrose.Memory.Manage.Readonly.GitHub;
+using SMMRS = Sucrose.Memory.Manage.Readonly.Soferity;
 
 namespace Sucrose.Shared.Store.Helper.Soferity
 {
@@ -266,7 +266,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
         private static async Task<int> GetTotalFileCount(string Source, string Agent, bool Sub)
         {
-            List<SSSIC> Contents = ContentsList(SMMRGH.StoreRepository, Source, Agent);
+            List<SSSIC> Contents = ContentsList(SMMRS.StoreDirectory, Source, Agent);
 
             int Count = 0;
 
@@ -291,7 +291,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
         private static async Task<bool> DownloadFilesRecursively(string Source, string Output, string Agent, string Keys, bool Sub)
         {
-            List<SSSIC> Contents = ContentsList(SMMRGH.StoreRepository, Source, Agent);
+            List<SSSIC> Contents = ContentsList(SMMRS.StoreDirectory, Source, Agent);
 
             foreach (SSSIC Content in Contents)
             {
@@ -344,7 +344,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
             if (!string.IsNullOrEmpty(Path))
             {
-                string Replace = $"{SMR.Store}/";
+                string Replace = $"{SMMRS.StoreDirectory}/";
 
 #if NET48_OR_GREATER
                 Path = Path.StartsWith(Replace) ? Path.Substring(Replace.Length) : Path;

@@ -3,6 +3,7 @@ using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
 using SMMRGU = Sucrose.Memory.Manage.Readonly.Url;
+using Newtonsoft.Json.Linq;
 
 namespace Sucrose.Shared.Store.Helper
 {
@@ -29,6 +30,8 @@ namespace Sucrose.Shared.Store.Helper
             try
             {
                 JsonConvert.DeserializeObject<SSSIR>(Json(Store));
+
+                JToken.Parse(Store);
 
                 return true;
             }

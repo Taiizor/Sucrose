@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 
 namespace Sucrose.Shared.Theme.Helper
@@ -55,6 +56,8 @@ namespace Sucrose.Shared.Theme.Helper
             try
             {
                 JsonConvert.DeserializeObject<Compatible>(Json, Converter.Settings);
+                
+                JToken.Parse(Json);
 
                 return true;
             }

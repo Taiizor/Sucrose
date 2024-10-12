@@ -11,7 +11,9 @@ using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SWHSM = Skylark.Wing.Helper.ScreenManage;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 
 namespace Sucrose.Shared.Engine.Helper
 {
@@ -171,22 +173,22 @@ namespace Sucrose.Shared.Engine.Helper
 
         public static string GetGifContentPath()
         {
-            return Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Content, SMR.GifContent);
+            return Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Content, SMMRC.Gif);
         }
 
         public static string GetImageContentPath()
         {
-            return Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Content, SMR.ImageContent);
+            return Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Content, SMMRC.Image);
         }
 
         public static string GetVideoContentPath()
         {
-            return Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Content, SMR.VideoContent);
+            return Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Content, SMMRC.Video);
         }
 
         public static string GetYouTubeContentPath()
         {
-            return Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Content, SMR.YouTubeContent);
+            return Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Content, SMMRC.YouTube);
         }
 
         public static Uri GetSource(Uri Source)
@@ -198,7 +200,7 @@ namespace Sucrose.Shared.Engine.Helper
         {
             if (SSTHV.IsUrl(Source))
             {
-                string CachePath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Content);
+                string CachePath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Content);
 
                 if (!Directory.Exists(CachePath))
                 {

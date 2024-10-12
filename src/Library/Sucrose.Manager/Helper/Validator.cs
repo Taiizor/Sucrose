@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Sucrose.Manager.Helper
 {
@@ -8,6 +9,8 @@ namespace Sucrose.Manager.Helper
         {
             try
             {
+                JsonConvert.DeserializeObject(Content);
+
                 JToken.Parse(Content);
 
                 return true;

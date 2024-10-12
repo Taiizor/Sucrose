@@ -1,10 +1,12 @@
 ﻿using SELLT = Skylark.Enum.LevelLogType;
 using SELT = Skylark.Enum.LogType;
 using SMHW = Sucrose.Manager.Helper.Writer;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMMVL = Sucrose.Memory.Manage.Valuable.Log;
 using SMR = Sucrose.Memory.Readonly;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 
 namespace Sucrose.Manager
 {
@@ -20,7 +22,7 @@ namespace Sucrose.Manager
 
             threadId = SMMRG.Randomise.Next(1000, 9999);
 
-            logFilePath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.LogFolder, string.Format(logFileName, SMMVL.FileNameDate));
+            logFilePath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Log, string.Format(logFileName, SMMVL.FileNameDate));
 
             Directory.CreateDirectory(Path.GetDirectoryName(logFilePath));
         }

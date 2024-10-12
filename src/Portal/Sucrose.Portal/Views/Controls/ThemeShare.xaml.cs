@@ -15,6 +15,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
@@ -102,7 +103,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     await Task.Delay(500);
 
-                    string StoreFile = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
+                    string StoreFile = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, SMR.StoreFile);
 
                     bool Result = SSDMMP.StoreServerType switch
                     {

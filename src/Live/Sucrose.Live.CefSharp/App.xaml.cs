@@ -16,6 +16,8 @@ using SMMCW = Sucrose.Memory.Manage.Constant.Warehouse;
 using SMME = Sucrose.Manager.Manage.Engine;
 using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
@@ -271,7 +273,7 @@ namespace Sucrose.Live.CefSharp
                         {
                             UserAgent = SMMG.UserAgent,
                             PersistSessionCookies = true,
-                            CachePath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.CefSharp)
+                            CachePath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.CefSharp)
                         };
 
                         SSEMI.BrowserSettings.CefSharp = SMME.CefArguments;
@@ -330,7 +332,7 @@ namespace Sucrose.Live.CefSharp
 
                             if (File.Exists(SSEMI.PropertiesPath))
                             {
-                                SSEMI.PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMR.CacheFolder, SMR.Properties);
+                                SSEMI.PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Properties);
                                 SSEMI.PropertiesFile = Path.Combine(SSEMI.PropertiesCache, $"{SSEMI.LibrarySelected}.json");
                                 SSEMI.WatcherFile = Path.Combine(SSEMI.PropertiesCache, $"*.{SSEMI.LibrarySelected}.json");
 

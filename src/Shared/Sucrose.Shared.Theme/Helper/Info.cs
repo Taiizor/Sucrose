@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 
@@ -63,6 +64,8 @@ namespace Sucrose.Shared.Theme.Helper
             try
             {
                 JsonConvert.DeserializeObject<Info>(Json, Converter.Settings);
+
+                JToken.Parse(Json);
 
                 return true;
             }
