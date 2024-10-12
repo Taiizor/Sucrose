@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
-using SMC = Sucrose.Memory.Constant;
+using SMMCD = Sucrose.Memory.Manage.Constant.Donate;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SPMI = Sucrose.Portal.Manage.Internal;
@@ -154,7 +154,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 bool State = Index == 0;
                 Visibility Visible = State ? Visibility.Visible : Visibility.Collapsed;
 
-                SMMI.DonateSettingManager.SetSetting(SMC.DonateVisible, State);
+                SMMI.DonateSettingManager.SetSetting(SMMCD.DonateVisible, State);
 
                 SPMI.DonateService.DonateVisibility = Visible;
             }
@@ -162,7 +162,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void AdvertisingStateChecked(bool State)
         {
-            SMMI.DonateSettingManager.SetSetting(SMC.AdvertisingState, State);
+            SMMI.DonateSettingManager.SetSetting(SMMCD.AdvertisingState, State);
         }
 
         private void AdvertisingDelayChanged(double? Value)
@@ -171,7 +171,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             if (NewValue != SMMM.AdvertisingDelay)
             {
-                SMMI.DonateSettingManager.SetSetting(SMC.AdvertisingDelay, NewValue);
+                SMMI.DonateSettingManager.SetSetting(SMMCD.AdvertisingDelay, NewValue);
             }
         }
 

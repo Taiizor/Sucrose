@@ -23,6 +23,8 @@ using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
 
 namespace Sucrose.Live.Xavier
 {
@@ -139,10 +141,10 @@ namespace Sucrose.Live.Xavier
 
                         SMMI.BackgroundogSettingManager.SetSetting(new KeyValuePair<string, bool>[]
                         {
-                            new(SMC.PipeRequired, false),
-                            new(SMC.AudioRequired, false),
-                            new(SMC.SignalRequired, false),
-                            new(SMC.PausePerformance, false)
+                            new(SMMCB.PipeRequired, false),
+                            new(SMMCB.AudioRequired, false),
+                            new(SMMCB.SignalRequired, false),
+                            new(SMMCB.PausePerformance, false)
                         });
 
                         if (SSTHV.IsUrl(Source) || File.Exists(Source))

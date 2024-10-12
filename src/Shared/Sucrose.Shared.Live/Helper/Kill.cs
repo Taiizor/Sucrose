@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using SMC = Sucrose.Memory.Constant;
+using SMMCA = Sucrose.Memory.Manage.Constant.Aurora;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
@@ -8,7 +8,6 @@ using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SWUD = Skylark.Wing.Utility.Desktop;
-using SMMCA = Sucrose.Memory.Manage.Constant.Aurora;
 
 namespace Sucrose.Shared.Live.Helper
 {

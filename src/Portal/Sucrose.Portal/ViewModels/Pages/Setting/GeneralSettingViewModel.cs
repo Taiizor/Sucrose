@@ -15,6 +15,7 @@ using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SEOST = Skylark.Enum.OperatingSystemType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
+using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
@@ -28,7 +29,8 @@ using SRHR = Sucrose.Resources.Helper.Resources;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDESCT = Sucrose.Shared.Dependency.Enum.SchedulerCommandType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
+using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSIL = Sucrose.Signal.Interface.Launcher;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
@@ -253,7 +255,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 });
             }
 
-            BackdropStretch.SelectedIndex = (int)SSDMM.BackgroundStretch;
+            BackdropStretch.SelectedIndex = (int)SSDMMP.BackgroundStretch;
 
             TextBlock BackdropOpacityText = new()
             {
@@ -516,7 +518,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 ApplicationTheme Theme = ApplicationTheme.Dark;
                 WindowBackdropType Type = (WindowBackdropType)Index;
 
-                if (SSDMM.ThemeType == SEWTT.Light)
+                if (SSDMMG.ThemeType == SEWTT.Light)
                 {
                     Theme = ApplicationTheme.Light;
                 }
@@ -566,9 +568,9 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             Stretch NewStretch = (Stretch)Index;
 
-            if (NewStretch != SSDMM.BackgroundStretch)
+            if (NewStretch != SSDMMP.BackgroundStretch)
             {
-                SMMI.PortalSettingManager.SetSetting(SMC.BackgroundStretch, NewStretch);
+                SMMI.PortalSettingManager.SetSetting(SMMCP.BackgroundStretch, NewStretch);
 
                 SPMI.BackdropService.BackdropStretch = NewStretch;
             }

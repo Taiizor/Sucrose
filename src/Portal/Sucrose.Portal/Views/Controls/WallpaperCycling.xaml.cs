@@ -2,11 +2,12 @@
 using System.Windows.Controls;
 using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
+using SMMCC = Sucrose.Memory.Manage.Constant.Cycling;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDETCT = Sucrose.Shared.Dependency.Enum.TransitionCycleType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMC = Sucrose.Shared.Dependency.Manage.Manager.Cycling;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -74,7 +75,7 @@ namespace Sucrose.Portal.Views.Controls
                 });
             }
 
-            TransitionType.SelectedIndex = (int)SSDMM.TransitionCycleType;
+            TransitionType.SelectedIndex = (int)SSDMMC.TransitionCycleType;
 
             Transition.HeaderFrame = TransitionType;
 
@@ -91,9 +92,9 @@ namespace Sucrose.Portal.Views.Controls
         {
             SSDETCT NewType = (SSDETCT)Index;
 
-            if (NewType != SSDMM.TransitionCycleType)
+            if (NewType != SSDMMC.TransitionCycleType)
             {
-                SMMI.CyclingSettingManager.SetSetting(SMC.TransitionCycleType, NewType);
+                SMMI.CyclingSettingManager.SetSetting(SMMCC.TransitionCycleType, NewType);
             }
         }
 

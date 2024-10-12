@@ -18,7 +18,7 @@ using SPCTB = Sucrose.Property.Controls.TextBox;
 using SPMI = Sucrose.Property.Manage.Internal;
 using SPMM = Sucrose.Property.Manage.Manager;
 using SRER = Sucrose.Resources.Extension.Resources;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -61,7 +61,7 @@ namespace Sucrose.Property.View
             }
             else
             {
-                if (SSDMM.ThemeType == SEWTT.Dark)
+                if (SSDMMG.ThemeType == SEWTT.Dark)
                 {
                     ApplicationThemeManager.Apply(ApplicationTheme.Dark);
                 }

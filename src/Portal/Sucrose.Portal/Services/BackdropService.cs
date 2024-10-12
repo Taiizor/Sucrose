@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 
 namespace Sucrose.Portal.Services
 {
@@ -8,7 +8,7 @@ namespace Sucrose.Portal.Services
     {
         private string _BackdropImage = SMMM.BackgroundImage;
         private int _BackdropOpacity = SMMM.BackgroundOpacity;
-        private Stretch _BackdropStretch = SSDMM.BackgroundStretch;
+        private Stretch _BackdropStretch = SSDMMP.BackgroundStretch;
 
         public event EventHandler BackdropImageChanged;
         public event EventHandler BackdropStretchChanged;

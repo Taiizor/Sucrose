@@ -1,8 +1,8 @@
-﻿using SMC = Sucrose.Memory.Constant;
+﻿using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SPMI = Sucrose.Pipe.Manage.Internal;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommunicationType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
 using SSEHC = Sucrose.Shared.Engine.Helper.Compatible;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
@@ -57,12 +57,12 @@ namespace Sucrose.Shared.Engine.WebView.Helper
         {
             if (SSEMI.Compatible.State)
             {
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.AudioRequired, !string.IsNullOrEmpty(SSEMI.Compatible.SystemAudio));
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.AudioRequired, !string.IsNullOrEmpty(SSEMI.Compatible.SystemAudio));
 
-                switch (SSDMM.CommunicationType)
+                switch (SSDMMB.CommunicationType)
                 {
                     case SSDECT.Pipe:
-                        SMMI.BackgroundogSettingManager.SetSetting(SMC.PipeRequired, true);
+                        SMMI.BackgroundogSettingManager.SetSetting(SMMCB.PipeRequired, true);
 
                         _ = Task.Run(() =>
                         {
@@ -93,7 +93,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
                         });
                         break;
                     case SSDECT.Signal:
-                        SMMI.BackgroundogSettingManager.SetSetting(SMC.SignalRequired, true);
+                        SMMI.BackgroundogSettingManager.SetSetting(SMMCB.SignalRequired, true);
 
                         SSMI.BackgroundogManager.StartChannel(async (s, e) =>
                         {

@@ -23,7 +23,7 @@ using SPIB = Sucrose.Pipe.Interface.Backgroundog;
 using SPMI = Sucrose.Pipe.Manage.Internal;
 using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
 using SSEPPE = Skylark.Standard.Extension.Ping.PingExtension;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
@@ -476,7 +476,7 @@ namespace Sucrose.Backgroundog.Helper
                     });
                 }
 
-                if (SBMI.FullscreenManagement && (SSDMM.FullscreenPerformance != SSDEPT.Resume || SBMI.CategoryPerformance == SSDECPT.Fullscreen))
+                if (SBMI.FullscreenManagement && (SSDMMB.FullscreenPerformance != SSDEPT.Resume || SBMI.CategoryPerformance == SSDECPT.Fullscreen))
                 {
                     SBMI.FullscreenManagement = false;
 
@@ -518,7 +518,7 @@ namespace Sucrose.Backgroundog.Helper
                     });
                 }
 
-                if (SBMI.VirtualityManagement && (SSDMM.VirtualPerformance != SSDEPT.Resume || SBMI.CategoryPerformance == SSDECPT.Virtual))
+                if (SBMI.VirtualityManagement && (SSDMMB.VirtualPerformance != SSDEPT.Resume || SBMI.CategoryPerformance == SSDECPT.Virtual))
                 {
                     SBMI.VirtualityManagement = false;
 
@@ -540,7 +540,7 @@ namespace Sucrose.Backgroundog.Helper
                     });
                 }
 
-                if (SBMI.FocusManagement && (SSDMM.FocusPerformance != SSDEPT.Resume || SSDMM.FullscreenPerformance != SSDEPT.Resume || SBMI.CategoryPerformance == SSDECPT.Focus || SBMI.CategoryPerformance == SSDECPT.Fullscreen))
+                if (SBMI.FocusManagement && (SSDMMB.FocusPerformance != SSDEPT.Resume || SSDMMB.FullscreenPerformance != SSDEPT.Resume || SBMI.CategoryPerformance == SSDECPT.Focus || SBMI.CategoryPerformance == SSDECPT.Fullscreen))
                 {
                     SBMI.FocusManagement = false;
 
@@ -562,7 +562,7 @@ namespace Sucrose.Backgroundog.Helper
                     });
                 }
 
-                if (SBMI.RemoteManagement && (SSDMM.RemotePerformance != SSDEPT.Resume || SBMI.CategoryPerformance == SSDECPT.Remote))
+                if (SBMI.RemoteManagement && (SSDMMB.RemotePerformance != SSDEPT.Resume || SBMI.CategoryPerformance == SSDECPT.Remote))
                 {
                     SBMI.RemoteManagement = false;
 

@@ -10,7 +10,7 @@ using SPVPSFSP = Sucrose.Portal.Views.Pages.Store.FullStorePage;
 using SPVPSUSP = Sucrose.Portal.Views.Pages.Store.UnknownStorePage;
 using SSDESSET = Sucrose.Shared.Dependency.Enum.StoreStageType;
 using SSDESSRT = Sucrose.Shared.Dependency.Enum.StoreServerType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSSHGHD = Sucrose.Shared.Store.Helper.GitHub.Download;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
@@ -51,7 +51,7 @@ namespace Sucrose.Portal.Views.Pages
                 string PatternFile = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.PatternFile);
                 string StoreFile = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 
-                bool Result = SSDMM.StoreServerType switch
+                bool Result = SSDMMP.StoreServerType switch
                 {
                     SSDESSRT.GitHub => SSSHGHD.Store(StoreFile, SMMM.UserAgent, SMMM.Key),
                     _ => SSSHSD.Store(StoreFile, SMMM.UserAgent)
@@ -59,7 +59,7 @@ namespace Sucrose.Portal.Views.Pages
 
                 if (Result)
                 {
-                    if (SSDMM.StoreServerType == SSDESSRT.Soferity && SSSHSD.Pattern(PatternFile, SMMM.UserAgent))
+                    if (SSDMMP.StoreServerType == SSDESSRT.Soferity && SSSHSD.Pattern(PatternFile, SMMM.UserAgent))
                     {
                         Root = SSSHS.DeserializeRoot(PatternFile);
                     }

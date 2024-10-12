@@ -21,7 +21,7 @@ using SRER = Sucrose.Resources.Extension.Resources;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
@@ -158,7 +158,7 @@ namespace Sucrose.Portal.Views.Controls
                 string LibraryPath = Path.Combine(SMMM.LibraryLocation, Keys);
                 string TemporaryPath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
 
-                switch (SSDMM.StoreServerType)
+                switch (SSDMMP.StoreServerType)
                 {
                     case SSDESST.GitHub:
                         await SSSHGHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Guid, Keys, Key);
@@ -234,7 +234,7 @@ namespace Sucrose.Portal.Views.Controls
             {
                 SPMI.StoreDownloader[Theme] = false;
 
-                SPMI.StoreDownloader[Theme] = SSDMM.StoreServerType switch
+                SPMI.StoreDownloader[Theme] = SSDMMP.StoreServerType switch
                 {
                     SSDESST.GitHub => SSSHGHD.Cache(Wallpaper, Theme, Agent, Key),
                     _ => SSSHSD.Cache(Wallpaper, Theme, Agent),
@@ -365,7 +365,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             if (Info != null && SMMM.StorePreview)
             {
-                string GifPath = $"{SSSHS.Source(SSDMM.StoreServerType)}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Live}";
+                string GifPath = $"{SSSHS.Source(SSDMMP.StoreServerType)}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Live}";
 
                 SXAGAB.SetSourceUri(Imaginer, new(GifPath));
                 SXAGAB.AddLoadedHandler(Imaginer, Imaginer_MediaOpened);

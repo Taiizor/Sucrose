@@ -24,7 +24,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enum\StretchType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\ArchitectureType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\WallpaperType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Manage\Manager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manage\Manager\General.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manage\Manager\Update.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manage\Manager\Cycling.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manage\Manager\Engine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manage\Manager\Backgroundog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manage\Manager\Portal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Struct\Handle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Struct\Host.cs" />
   </ItemGroup>

@@ -5,7 +5,7 @@ using Point = System.Drawing.Point;
 using SEIT = Skylark.Enum.InputType;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSDEIMT = Sucrose.Shared.Dependency.Enum.InputModuleType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SWHC = Skylark.Wing.Helper.Calculate;
@@ -27,7 +27,7 @@ namespace Sucrose.Shared.Engine.WebView.Extension
 
                 IntPtr HWND = SSEMI.WindowHandle;
 
-                switch (SSDMM.InputModuleType)
+                switch (SSDMME.InputModuleType)
                 {
                     case SSDEIMT.RawInput:
                         if (SMMM.InputType is SEIT.OnlyMouse or SEIT.MouseKeyboard)

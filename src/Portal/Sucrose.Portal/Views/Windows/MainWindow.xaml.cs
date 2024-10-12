@@ -12,7 +12,7 @@ using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 using SCHB = Skylark.Clipboard.Helper.Board;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SMC = Sucrose.Memory.Constant;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
@@ -28,7 +28,7 @@ using SPVPSP = Sucrose.Portal.Views.Pages.StorePage;
 using SPVPSSSP = Sucrose.Portal.Views.Pages.Setting.SystemSettingPage;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSMSD = Sucrose.Shared.Space.Model.SearchData;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
@@ -59,20 +59,20 @@ namespace Sucrose.Portal.Views.Windows
             {
                 if (SWHWT.GetTheme() == SEWTT.Dark)
                 {
+                    SMMI.GeneralSettingManager.SetSetting(SMMCG.ThemeType, SEWTT.Dark);
                     ApplicationThemeManager.Apply(ApplicationTheme.Dark);
                     Light.Visibility = Visibility.Collapsed;
-                    SMMI.GeneralSettingManager.SetSetting(SMC.ThemeType, SEWTT.Dark);
                 }
                 else
                 {
+                    SMMI.GeneralSettingManager.SetSetting(SMMCG.ThemeType, SEWTT.Light);
                     ApplicationThemeManager.Apply(ApplicationTheme.Light);
                     Dark.Visibility = Visibility.Collapsed;
-                    SMMI.GeneralSettingManager.SetSetting(SMC.ThemeType, SEWTT.Light);
                 }
             }
             else
             {
-                if (SSDMM.ThemeType == SEWTT.Dark)
+                if (SSDMMG.ThemeType == SEWTT.Dark)
                 {
                     ApplicationThemeManager.Apply(ApplicationTheme.Dark);
                     Light.Visibility = Visibility.Collapsed;

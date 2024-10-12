@@ -2,6 +2,7 @@
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -29,8 +30,8 @@ namespace Sucrose.Backgroundog.Helper
 
             SMMI.BackgroundogSettingManager.SetSetting(new KeyValuePair<string, bool>[]
             {
-                new(SMC.ClosePerformance, false),
-                new(SMC.PausePerformance, false)
+                new(SMMCB.ClosePerformance, false),
+                new(SMMCB.PausePerformance, false)
             });
 
             await Task.CompletedTask;

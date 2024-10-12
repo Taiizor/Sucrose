@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
+using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
@@ -11,7 +12,7 @@ using SRER = Sucrose.Resources.Extension.Resources;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
 using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
 
@@ -65,7 +66,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 });
             }
 
-            StoreType.SelectedIndex = (int)SSDMM.StoreServerType;
+            StoreType.SelectedIndex = (int)SSDMMP.StoreServerType;
 
             Server.HeaderFrame = StoreType;
 
@@ -481,7 +482,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 });
             }
 
-            SortMode.SelectedIndex = (int)SSDMM.LibrarySortMode;
+            SortMode.SelectedIndex = (int)SSDMMP.LibrarySortMode;
 
             TextBlock SortKindText = new()
             {
@@ -504,7 +505,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 });
             }
 
-            SortKind.SelectedIndex = (int)SSDMM.LibrarySortKind;
+            SortKind.SelectedIndex = (int)SSDMMP.LibrarySortKind;
 
             SortContent.Children.Add(SortModeText);
             SortContent.Children.Add(SortMode);
@@ -578,9 +579,9 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             SSDESKT NewKind = (SSDESKT)Index;
 
-            if (NewKind != SSDMM.LibrarySortKind)
+            if (NewKind != SSDMMP.LibrarySortKind)
             {
-                SMMI.PortalSettingManager.SetSetting(SMC.LibrarySortKind, NewKind);
+                SMMI.PortalSettingManager.SetSetting(SMMCP.LibrarySortKind, NewKind);
             }
         }
 
@@ -588,9 +589,9 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             SSDESMT NewMode = (SSDESMT)Index;
 
-            if (NewMode != SSDMM.LibrarySortMode)
+            if (NewMode != SSDMMP.LibrarySortMode)
             {
-                SMMI.PortalSettingManager.SetSetting(SMC.LibrarySortMode, NewMode);
+                SMMI.PortalSettingManager.SetSetting(SMMCP.LibrarySortMode, NewMode);
             }
         }
 
@@ -598,10 +599,11 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             SSDESST NewStore = (SSDESST)Index;
 
-            if (NewStore != SSDMM.StoreServerType)
+            if (NewStore != SSDMMP.StoreServerType)
             {
                 SSSMI.State = true;
-                SMMI.PortalSettingManager.SetSetting(SMC.StoreServerType, NewStore);
+
+                SMMI.PortalSettingManager.SetSetting(SMMCP.StoreServerType, NewStore);
             }
         }
 

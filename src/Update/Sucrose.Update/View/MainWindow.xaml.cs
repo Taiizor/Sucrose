@@ -26,12 +26,12 @@ using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHU = Sucrose.Shared.Core.Helper.Update;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
-using SSCMM = Sucrose.Shared.Core.Manage.Manager;
+using SSCMMU = Sucrose.Shared.Core.Manage.Manager.Update;
 using SSDECDT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDECYT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDEUMT = Sucrose.Shared.Dependency.Enum.UpdateModuleType;
 using SSDEUST = Sucrose.Shared.Dependency.Enum.UpdateServerType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMU = Sucrose.Shared.Dependency.Manage.Manager.Update;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIA = Skylark.Standard.Interface.IAssets;
@@ -49,7 +49,7 @@ using SSSZHZ = Sucrose.Shared.SevenZip.Helper.Zip;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SUHU = Sucrose.Update.Helper.Update;
 using SUMI = Sucrose.Update.Manage.Internal;
-using SUMM = Sucrose.Update.Manage.Manager;
+using SUMMU = Sucrose.Update.Manage.Manager.Update;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWNM = Skylark.Wing.Native.Methods;
 
@@ -193,9 +193,9 @@ namespace Sucrose.Update.View
             {
                 Message.Text = SRER.GetValue("Update", "MessageText", "Temporary");
 
-                if (Directory.Exists(SUMM.CachePath))
+                if (Directory.Exists(SUMI.CachePath))
                 {
-                    string[] Files = Directory.GetFiles(SUMM.CachePath);
+                    string[] Files = Directory.GetFiles(SUMI.CachePath);
 
                     foreach (string Record in Files)
                     {
@@ -204,7 +204,7 @@ namespace Sucrose.Update.View
                 }
                 else
                 {
-                    Directory.CreateDirectory(SUMM.CachePath);
+                    Directory.CreateDirectory(SUMI.CachePath);
                 }
 
                 return true;
@@ -307,7 +307,7 @@ namespace Sucrose.Update.View
 
                 Release = Releases.FirstOrDefault();
 
-                if (SSCMM.UpdateChannelType == SSCEUCT.Release)
+                if (SSCMMU.UpdateChannelType == SSCEUCT.Release)
                 {
                     Release = Releases.FirstOrDefault(Releasing => !Releasing.PreRelease);
                 }
@@ -337,7 +337,7 @@ namespace Sucrose.Update.View
             {
                 Message.Text = SRER.GetValue("Update", "MessageText", "Listing");
 
-                Releases = SSDMM.UpdateServerType switch
+                Releases = SSDMMU.UpdateServerType switch
                 {
                     SSDEUST.GitHub => SSHG.ReleasesList(SMR.Owner, SMR.Repository, SMMM.UserAgent, SMMM.Key),
                     SSDEUST.Soferity => SUHU.ReleasesList($"{SMR.SoferityWebsite}/{SMR.SoferityUpdate}", SMMM.UserAgent),
@@ -405,11 +405,11 @@ namespace Sucrose.Update.View
                 {
                     foreach (SSIIA Asset in Assets)
                     {
-                        string Name = $"{SMR.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHU.GetDescription(SUMI.UpdateExtensionType)}";
+                        string Name = $"{SMR.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHU.GetDescription(SUMMU.UpdateExtensionType)}";
 
                         string[] Required =
                         {
-                            SSCHU.GetDescription(SUMI.UpdateExtensionType),
+                            SSCHU.GetDescription(SUMMU.UpdateExtensionType),
                             SSCHF.GetDescription(),
                             SSCHA.GetText(),
                             $"{Latest}",
@@ -421,7 +421,7 @@ namespace Sucrose.Update.View
                         {
                             SUMI.Source = Asset.BrowserDownloadUrl;
 
-                            Bundle = Path.Combine(SUMM.CachePath, Path.GetFileName(SUMI.Source));
+                            Bundle = Path.Combine(SUMI.CachePath, Path.GetFileName(SUMI.Source));
 
                             if (File.Exists(Bundle))
                             {
@@ -512,7 +512,7 @@ namespace Sucrose.Update.View
                 {
                     if (await Task.Run(() => SSSZHZ.CheckArchive(Bundle)))
                     {
-                        SSDECYT Result = await Task.Run(() => SSSZEZ.Extract(Bundle, SUMM.CachePath));
+                        SSDECYT Result = await Task.Run(() => SSSZEZ.Extract(Bundle, SUMI.CachePath));
 
                         if (Result == SSDECYT.Pass)
                         {
@@ -564,7 +564,7 @@ namespace Sucrose.Update.View
 
                 CheckProgress();
 
-                switch (SUMI.UpdateModuleType)
+                switch (SUMMU.UpdateModuleType)
                 {
                     case SSDEUMT.Native:
                         {
@@ -772,7 +772,7 @@ namespace Sucrose.Update.View
 
                 await Task.Delay(MinDelay);
 
-                if (SUMI.UpdateExtensionType == SSCEUET.Compressed)
+                if (SUMMU.UpdateExtensionType == SSCEUET.Compressed)
                 {
                     SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECDT.Bundle}{SMR.ValueSeparator}{SSSHE.Change(SUMI.Source, SSCHU.GetDescription(SSCEUET.Executable))}");
                 }
@@ -914,7 +914,7 @@ namespace Sucrose.Update.View
 
                 await Task.Delay(MinDelay);
 
-                switch (SUMI.UpdateExtensionType)
+                switch (SUMMU.UpdateExtensionType)
                 {
                     case SSCEUET.Compressed:
                         await StepExtracting();
@@ -975,7 +975,7 @@ namespace Sucrose.Update.View
 
                     await Task.Delay(MinDelay);
 
-                    switch (SUMI.UpdateExtensionType)
+                    switch (SUMMU.UpdateExtensionType)
                     {
                         case SSCEUET.Compressed:
                             await StepExtracting();

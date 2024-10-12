@@ -15,6 +15,8 @@ using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
 using SWNM = Skylark.Wing.Native.Methods;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
 
 namespace Sucrose.Shared.Engine.CefSharp.Helper
 {
@@ -74,12 +76,12 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
         {
             if (SSEMI.Compatible.State)
             {
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.AudioRequired, !string.IsNullOrEmpty(SSEMI.Compatible.SystemAudio));
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.AudioRequired, !string.IsNullOrEmpty(SSEMI.Compatible.SystemAudio));
 
-                switch (SSDMM.CommunicationType)
+                switch (SSDMMB.CommunicationType)
                 {
                     case SSDECT.Pipe:
-                        SMMI.BackgroundogSettingManager.SetSetting(SMC.PipeRequired, true);
+                        SMMI.BackgroundogSettingManager.SetSetting(SMMCB.PipeRequired, true);
 
                         _ = Task.Run(() =>
                         {
@@ -110,7 +112,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
                         });
                         break;
                     case SSDECT.Signal:
-                        SMMI.BackgroundogSettingManager.SetSetting(SMC.SignalRequired, true);
+                        SMMI.BackgroundogSettingManager.SetSetting(SMMCB.SignalRequired, true);
 
                         SSMI.BackgroundogManager.StartChannel(async (s, e) =>
                         {

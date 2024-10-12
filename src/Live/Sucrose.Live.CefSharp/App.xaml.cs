@@ -44,6 +44,8 @@ using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
 
 namespace Sucrose.Live.CefSharp
 {
@@ -197,7 +199,7 @@ namespace Sucrose.Live.CefSharp
 
                 string DialogTitle = string.Format(SRER.GetValue("Live", "Title"), "CefSharp");
 
-                switch (SSDMM.ThemeType)
+                switch (SSDMMG.ThemeType)
                 {
                     case SEWTT.Dark:
                         SSEVDMB DarkMessageBox = new(DialogTitle, DialogMessage, DialogInfo, RememberText, DownloadText, ContinueText, CloseText, Check);
@@ -311,10 +313,10 @@ namespace Sucrose.Live.CefSharp
 
                         SMMI.BackgroundogSettingManager.SetSetting(new KeyValuePair<string, bool>[]
                         {
-                            new(SMC.PipeRequired, false),
-                            new(SMC.AudioRequired, false),
-                            new(SMC.SignalRequired, false),
-                            new(SMC.PausePerformance, false)
+                            new(SMMCB.PipeRequired, false),
+                            new(SMMCB.AudioRequired, false),
+                            new(SMMCB.SignalRequired, false),
+                            new(SMMCB.PausePerformance, false)
                         });
 
                         if (SSTHV.IsUrl(Source) || File.Exists(Source))

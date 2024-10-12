@@ -18,6 +18,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helper\OperatingSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Architecture.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Framework.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Manage\Manager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manage\Manager\Update.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Manage\Manager\" />
   </ItemGroup>
 </Project>

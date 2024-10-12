@@ -28,6 +28,15 @@ using SSSMDD = Sucrose.Shared.Space.Model.DiagnosticsData;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHSI = Skylark.Wing.Helper.SystemInfo;
 using SWNM = Skylark.Wing.Native.Methods;
+using SMMCU = Sucrose.Memory.Manage.Constant.Update;
+using SMMCC = Sucrose.Memory.Manage.Constant.Cycling;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SSDMMU = Sucrose.Shared.Dependency.Manage.Manager.Update;
+using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
+using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
+using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
+using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
+using SSDMMC = Sucrose.Shared.Dependency.Manage.Manager.Cycling;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SWVDEMB = Sucrose.Watchdog.View.DarkErrorMessageBox;
@@ -142,7 +151,7 @@ namespace Sucrose.Watchdog
                         SSSHP.Kill(Application);
                     }
 
-                    switch (SSDMM.ThemeType)
+                    switch (SSDMMG.ThemeType)
                     {
                         case SEWTT.Dark:
                             SWVDEMB DarkMessageBox = new(Message, Log, Source, Text);

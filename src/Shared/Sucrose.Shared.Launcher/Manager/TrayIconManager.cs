@@ -7,7 +7,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
 using SSLCC = Sucrose.Shared.Launcher.Command.Close;
 using SSLCE = Sucrose.Shared.Launcher.Command.Engine;
 using SSLCF = Sucrose.Shared.Launcher.Command.Feedback;
@@ -72,7 +72,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
             SSLHR.Corner(ContextMenu);
 
-            if (SSDMM.ThemeType == SEWTT.Dark)
+            if (SSDMMG.ThemeType == SEWTT.Dark)
             {
                 ContextMenu.Renderer = new SSLRDR();
             }
@@ -86,7 +86,7 @@ namespace Sucrose.Shared.Launcher.Manager
                 Enabled = !SSSHP.Work(SSSMI.Portal)
             });
 
-            SSLSSS Separator1 = new(SSDMM.ThemeType);
+            SSLSSS Separator1 = new(SSDMMG.ThemeType);
 
             if (SSSHL.Run())
             {
@@ -190,7 +190,7 @@ namespace Sucrose.Shared.Launcher.Manager
                 }
             }
 
-            SSLSSS Separator2 = new(SSDMM.ThemeType);
+            SSLSSS Separator2 = new(SSDMMG.ThemeType);
             ContextMenu.Items.Add(Separator2.Strip);
 
             ContextMenu.Items.Add(new ToolStripMenuItem(SRER.GetValue("Launcher", "SettingText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "SettingIcon"))), CommandSetting)
@@ -234,7 +234,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
             ContextMenu.Items.Add(Update);
 
-            SSLSSS Separator3 = new(SSDMM.ThemeType);
+            SSLSSS Separator3 = new(SSDMMG.ThemeType);
             ContextMenu.Items.Add(Separator3.Strip);
 
             ContextMenu.Items.Add(SRER.GetValue("Launcher", "ExitText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "ExitIcon"))), CommandClose);

@@ -2,6 +2,6 @@
 {
     public static class Cycling
     {
-
+        public const string TransitionCycleType = "TransitionCycleType";
     }
 }

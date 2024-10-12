@@ -10,6 +10,8 @@ using Wpf.Ui.Controls;
 using SEOST = Skylark.Enum.OperatingSystemType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
+using SMMCC = Sucrose.Memory.Manage.Constant.Core;
+using SMMCG = Sucrose.Memory.Manage.Constant.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
@@ -27,7 +29,9 @@ using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHM = Sucrose.Shared.Core.Helper.Memory;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMI = Sucrose.Shared.Dependency.Manage.Internal;
+using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
+using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -36,7 +40,6 @@ using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWHSI = Skylark.Wing.Helper.SystemInfo;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
-using SMMCC = Sucrose.Memory.Manage.Constant.Core;
 
 namespace Sucrose.Portal.ViewModels.Windows
 {
@@ -48,7 +51,7 @@ namespace Sucrose.Portal.ViewModels.Windows
         private readonly IContentDialogService _ContentDialogService;
 
         [ObservableProperty]
-        private Stretch _Stretch = SSDMM.DefaultBackgroundStretch;
+        private Stretch _Stretch = SSDMI.DefaultBackgroundStretch;
 
         private readonly DispatcherTimer Timer = new();
 
@@ -165,7 +168,7 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         private Stretch GetStretch()
         {
-            Stretch Type = SSDMM.BackgroundStretch;
+            Stretch Type = SSDMMP.BackgroundStretch;
 
             if ((int)Type < Enum.GetValues(typeof(Stretch)).Length)
             {
@@ -173,7 +176,7 @@ namespace Sucrose.Portal.ViewModels.Windows
             }
             else
             {
-                return SSDMM.DefaultBackgroundStretch;
+                return SSDMI.DefaultBackgroundStretch;
             }
         }
 
@@ -221,14 +224,14 @@ namespace Sucrose.Portal.ViewModels.Windows
         [RelayCommand]
         private void OnChangeTheme()
         {
-            if (SSDMM.ThemeType == SEWTT.Dark)
+            if (SSDMMG.ThemeType == SEWTT.Dark)
             {
-                SMMI.GeneralSettingManager.SetSetting(SMC.ThemeType, SEWTT.Light);
+                SMMI.GeneralSettingManager.SetSetting(SMMCG.ThemeType, SEWTT.Light);
                 WUAT.Apply(WUAAT.Light, GetWindowBackdropType(), true);
             }
             else
             {
-                SMMI.GeneralSettingManager.SetSetting(SMC.ThemeType, SEWTT.Dark);
+                SMMI.GeneralSettingManager.SetSetting(SMMCG.ThemeType, SEWTT.Dark);
                 WUAT.Apply(WUAAT.Dark, GetWindowBackdropType(), true);
             }
         }

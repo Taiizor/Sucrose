@@ -4,7 +4,8 @@ using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMI = Sucrose.Shared.Dependency.Manage.Internal;
+using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SWUD = Skylark.Wing.Utility.Desktop;
 
@@ -52,7 +53,7 @@ namespace Sucrose.Shared.Engine.Helper
 
         public static SSDEST GetStretch()
         {
-            SSDEST Stretch = SSDMM.StretchType;
+            SSDEST Stretch = SSDMME.StretchType;
 
             if ((int)Stretch < Enum.GetValues(typeof(SSDEST)).Length)
             {
@@ -60,7 +61,7 @@ namespace Sucrose.Shared.Engine.Helper
             }
             else
             {
-                return SSDMM.DefaultStretchType;
+                return SSDMI.DefaultStretchType;
             }
         }
 

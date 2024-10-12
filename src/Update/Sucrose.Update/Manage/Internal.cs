@@ -1,11 +1,9 @@
 ﻿using Downloader;
+using System.IO;
 using System.Net;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
-using SSCEUET = Sucrose.Shared.Core.Enum.UpdateExtensionType;
-using SSDEUMT = Sucrose.Shared.Dependency.Enum.UpdateModuleType;
 using Timer = System.Timers.Timer;
 
 namespace Sucrose.Update.Manage
@@ -20,9 +18,7 @@ namespace Sucrose.Update.Manage
 
         public static bool Chance = SMR.Randomise.Next(2) == 0;
 
-        public static readonly SSDEUMT UpdateModuleType = SMMI.UpdateSettingManager.GetSetting(SMC.UpdateModuleType, SSDEUMT.Downloader);
-
-        public static readonly SSCEUET UpdateExtensionType = SMMI.UpdateSettingManager.GetSetting(SMC.UpdateExtensionType, SSCEUET.Executable);
+        public static string CachePath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Bundle);
 
         public static Timer Checker = new()
         {

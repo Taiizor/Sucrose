@@ -1,10 +1,9 @@
 ﻿using System.Windows.Input;
 using Wpf.Ui.Controls;
-using SMC = Sucrose.Memory.Constant;
+using SMMCU = Sucrose.Memory.Manage.Constant.User;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
-using SMMCU = Sucrose.Memory.Manage.Constant.User;
 
 namespace Sucrose.Portal.Views.Controls
 {

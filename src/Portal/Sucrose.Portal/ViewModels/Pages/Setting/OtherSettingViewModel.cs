@@ -6,6 +6,8 @@ using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SEST = Skylark.Enum.StorageType;
 using SMC = Sucrose.Memory.Constant;
+using SMMCH = Sucrose.Memory.Manage.Constant.Hook;
+using SMMCU = Sucrose.Memory.Manage.Constant.Update;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
@@ -14,17 +16,16 @@ using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCEUCT = Sucrose.Shared.Core.Enum.UpdateChannelType;
 using SSCEUET = Sucrose.Shared.Core.Enum.UpdateExtensionType;
-using SSCMM = Sucrose.Shared.Core.Manage.Manager;
+using SSCMMU = Sucrose.Shared.Core.Manage.Manager.Update;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDEUMT = Sucrose.Shared.Dependency.Enum.UpdateModuleType;
 using SSDEUST = Sucrose.Shared.Dependency.Enum.UpdateServerType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMU = Sucrose.Shared.Dependency.Manage.Manager.Update;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
 using TextBox = Wpf.Ui.Controls.TextBox;
-using SMMCH = Sucrose.Memory.Manage.Constant.Hook;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -305,7 +306,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 });
             }
 
-            ServerType.SelectedIndex = (int)SSDMM.UpdateServerType;
+            ServerType.SelectedIndex = (int)SSDMMU.UpdateServerType;
 
             Server.HeaderFrame = ServerType;
 
@@ -343,7 +344,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 ModuleType.Items.Add(SRER.GetValue("Portal", "Enum", "UpdateModuleType", $"{Type}"));
             }
 
-            ModuleType.SelectedIndex = (int)SSDMM.UpdateModuleType;
+            ModuleType.SelectedIndex = (int)SSDMMU.UpdateModuleType;
 
             Module.HeaderFrame = ModuleType;
 
@@ -368,7 +369,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 ChannelType.Items.Add(SRER.GetValue("Portal", "Enum", "UpdateChannelType", $"{Type}"));
             }
 
-            ChannelType.SelectedIndex = (int)SSCMM.UpdateChannelType;
+            ChannelType.SelectedIndex = (int)SSCMMU.UpdateChannelType;
 
             Channel.HeaderFrame = ChannelType;
 
@@ -393,7 +394,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 UpdateType.Items.Add(SRER.GetValue("Portal", "Enum", "UpdateExtensionType", $"{Type}"));
             }
 
-            UpdateType.SelectedIndex = (int)SSCMM.UpdateExtensionType;
+            UpdateType.SelectedIndex = (int)SSCMMU.UpdateExtensionType;
 
             Update.HeaderFrame = UpdateType;
 
@@ -596,31 +597,31 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void ModuleTypeSelected(int Index)
         {
-            if (Index != (int)SSDMM.UpdateModuleType)
+            if (Index != (int)SSDMMU.UpdateModuleType)
             {
                 SSDEUMT Type = (SSDEUMT)Index;
 
-                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateModuleType, Type);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateModuleType, Type);
             }
         }
 
         private void ServerTypeSelected(int Index)
         {
-            if (Index != (int)SSDMM.UpdateServerType)
+            if (Index != (int)SSDMMU.UpdateServerType)
             {
                 SSDEUST Type = (SSDEUST)Index;
 
-                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateServerType, Type);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateServerType, Type);
             }
         }
 
         private void UpdateTypeSelected(int Index)
         {
-            if (Index != (int)SSCMM.UpdateExtensionType)
+            if (Index != (int)SSCMMU.UpdateExtensionType)
             {
                 SSCEUET Type = (SSCEUET)Index;
 
-                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateExtensionType, Type);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateExtensionType, Type);
             }
         }
 
@@ -643,7 +644,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void ChannelTypeSelected(int Index)
         {
-            if (Index != (int)SSCMM.UpdateChannelType)
+            if (Index != (int)SSCMMU.UpdateChannelType)
             {
                 SSCEUCT Type = (SSCEUCT)Index;
 
@@ -682,7 +683,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             if (NewValue != SMMM.UpdateLimitValue)
             {
-                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateLimitValue, NewValue);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateLimitValue, NewValue);
             }
         }
 

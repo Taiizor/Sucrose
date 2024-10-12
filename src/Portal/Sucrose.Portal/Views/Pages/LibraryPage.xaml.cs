@@ -2,7 +2,7 @@
 using System.Windows;
 using Wpf.Ui.Abstractions.Controls;
 using SHG = Skylark.Helper.Generator;
-using SMC = Sucrose.Memory.Constant;
+using SMMCU = Sucrose.Memory.Manage.Constant.User;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
@@ -11,13 +11,12 @@ using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCTI = Sucrose.Portal.Views.Controls.ThemeImport;
 using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
 using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
-using SMMCU = Sucrose.Memory.Manage.Constant.User;
 using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSSHA = Sucrose.Shared.Space.Helper.Access;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
@@ -188,15 +187,15 @@ namespace Sucrose.Portal.Views.Pages
 
                             Searches.Add(Theme, string.Join(" ", SearchText.Select(Word => Word.ToLowerInvariant()).Distinct()));
 
-                            if (SSDMM.LibrarySortMode == SSDESMT.Name)
+                            if (SSDMMP.LibrarySortMode == SSDESMT.Name)
                             {
                                 SortThemes.Add(Theme, Info.Title);
                             }
-                            else if (SSDMM.LibrarySortMode == SSDESMT.Creation)
+                            else if (SSDMMP.LibrarySortMode == SSDESMT.Creation)
                             {
                                 SortThemes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMMM.LibraryLocation, Theme)));
                             }
-                            else if (SSDMM.LibrarySortMode == SSDESMT.Modification)
+                            else if (SSDMMP.LibrarySortMode == SSDESMT.Modification)
                             {
                                 SortThemes.Add(Theme, File.GetLastWriteTime(InfoPath));
                             }
@@ -205,7 +204,7 @@ namespace Sucrose.Portal.Views.Pages
 
                     if (SortThemes != null && SortThemes.Any())
                     {
-                        if (SSDMM.LibrarySortKind == SSDESKT.Ascending)
+                        if (SSDMMP.LibrarySortKind == SSDESKT.Ascending)
                         {
                             SortThemes = SortThemes.OrderBy(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
                         }

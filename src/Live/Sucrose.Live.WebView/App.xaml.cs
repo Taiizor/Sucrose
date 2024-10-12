@@ -9,19 +9,20 @@ using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SMMCU = Sucrose.Memory.Manage.Constant.User;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
-using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DialogType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
-using SMMCU = Sucrose.Memory.Manage.Constant.User;
+using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
 using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
-using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
-using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
@@ -176,7 +177,7 @@ namespace Sucrose.Live.WebView
 
                 string DialogTitle = string.Format(SRER.GetValue("Live", "Title"), "WebView");
 
-                switch (SSDMM.ThemeType)
+                switch (SSDMMG.ThemeType)
                 {
                     case SEWTT.Dark:
                         SSEVDMB DarkMessageBox = new(DialogTitle, DialogMessage, DialogInfo, RememberText, DownloadText, ContinueText, CloseText, Check);
@@ -284,10 +285,10 @@ namespace Sucrose.Live.WebView
 
                         SMMI.BackgroundogSettingManager.SetSetting(new KeyValuePair<string, bool>[]
                         {
-                            new(SMC.PipeRequired, false),
-                            new(SMC.AudioRequired, false),
-                            new(SMC.SignalRequired, false),
-                            new(SMC.PausePerformance, false)
+                            new(SMMCB.PipeRequired, false),
+                            new(SMMCB.AudioRequired, false),
+                            new(SMMCB.SignalRequired, false),
+                            new(SMMCB.PausePerformance, false)
                         });
 
                         if (SSTHV.IsUrl(Source) || File.Exists(Source))

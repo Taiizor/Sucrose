@@ -17,6 +17,9 @@ using SWIIDM = Skylark.Wing.Interface.IDisplayManager;
 using SWNM = Skylark.Wing.Native.Methods;
 using SWUD = Skylark.Wing.Utility.Desktop;
 using Timer = System.Timers.Timer;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
+using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
 
 namespace Sucrose.Shared.Engine.Aurora.Extension
 {
@@ -30,7 +33,7 @@ namespace Sucrose.Shared.Engine.Aurora.Extension
 
                 IntPtr HWND = SSEMI.WindowHandle;
 
-                switch (SSDMM.InputModuleType)
+                switch (SSDMME.InputModuleType)
                 {
                     case SSDEIMT.RawInput:
                         if (SMMM.InputType is SEIT.OnlyMouse or SEIT.MouseKeyboard)

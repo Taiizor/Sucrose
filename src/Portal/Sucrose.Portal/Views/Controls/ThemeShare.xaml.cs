@@ -16,7 +16,7 @@ using SPMI = Sucrose.Portal.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSSEPS = Sucrose.Shared.Space.Extension.ProgressStream;
 using SSSHC = Sucrose.Shared.Space.Helper.Clean;
 using SSSHGHD = Sucrose.Shared.Store.Helper.GitHub.Download;
@@ -101,7 +101,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     string StoreFile = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 
-                    bool Result = SSDMM.StoreServerType switch
+                    bool Result = SSDMMP.StoreServerType switch
                     {
                         SSDESST.GitHub => SSSHGHD.Store(StoreFile, SMMM.UserAgent, SMMM.Key),
                         _ => SSSHSD.Store(StoreFile, SMMM.UserAgent),

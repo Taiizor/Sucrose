@@ -11,7 +11,7 @@ using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
 using SSDENPT = Sucrose.Shared.Dependency.Enum.NetworkPerformanceType;
 using SSDEPPT = Sucrose.Shared.Dependency.Enum.PausePerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSEL = Sucrose.Shared.Space.Extension.Lifecycle;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -21,6 +21,7 @@ using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMMCA = Sucrose.Memory.Manage.Constant.Aurora;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -95,12 +96,12 @@ namespace Sucrose.Backgroundog.Helper
         {
             if (SBMI.Performance == SSDEPT.Close)
             {
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.ClosePerformance, false);
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.ClosePerformance, false);
                 SSLHR.Start();
             }
             else
             {
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.PausePerformance, false);
+                SMMI.BackgroundogSettingManager.SetSetting(SMMCB.PausePerformance, false);
                 SBMI.Live = SSSHL.Get();
 
                 if (SBMI.Live != null && !SBMI.Live.HasExited)
@@ -170,7 +171,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (SMMM.CpuUsage <= 0 || SBMI.CpuData.Now < SMMM.CpuUsage || SSDMM.CpuPerformance == SSDEPT.Resume)
+                while (SMMM.CpuUsage <= 0 || SBMI.CpuData.Now < SMMM.CpuUsage || SSDMMB.CpuPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {
@@ -200,7 +201,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (SMMM.GpuUsage <= 0 || SBEG.Condition() || SSDMM.GpuPerformance == SSDEPT.Resume)
+                while (SMMM.GpuUsage <= 0 || SBEG.Condition() || SSDMMB.GpuPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {
@@ -230,7 +231,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (SBMI.FocusDesktop || SSDMM.FocusPerformance == SSDEPT.Resume)
+                while (SBMI.FocusDesktop || SSDMMB.FocusPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {
@@ -260,7 +261,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (!SBMI.BatteryData.SavingMode || SBMI.BatteryData.SaverStatus == "Off" || SSDMM.SaverPerformance == SSDEPT.Resume)
+                while (!SBMI.BatteryData.SavingMode || SBMI.BatteryData.SaverStatus == "Off" || SSDMMB.SaverPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {
@@ -290,7 +291,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (SMMM.MemoryUsage <= 0 || SBMI.MemoryData.MemoryLoad < SMMM.MemoryUsage || SSDMM.MemoryPerformance == SSDEPT.Resume)
+                while (SMMM.MemoryUsage <= 0 || SBMI.MemoryData.MemoryLoad < SMMM.MemoryUsage || SSDMMB.MemoryPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {
@@ -323,7 +324,7 @@ namespace Sucrose.Backgroundog.Helper
 
                 if (SBMI.NetworkPerformance == SSDENPT.Ping)
                 {
-                    while (SMMM.PingValue <= 0 || SBMI.NetworkData.Ping < SMMM.PingValue || SSDMM.NetworkPerformance == SSDEPT.Resume)
+                    while (SMMM.PingValue <= 0 || SBMI.NetworkData.Ping < SMMM.PingValue || SSDMMB.NetworkPerformance == SSDEPT.Resume)
                     {
                         if (Count >= MaxCount)
                         {
@@ -345,7 +346,7 @@ namespace Sucrose.Backgroundog.Helper
                 }
                 else if (SBMI.NetworkPerformance == SSDENPT.Upload)
                 {
-                    while (SMMM.UploadValue <= 0 || SBMI.NetworkData.Upload < StorageExtension.Convert(SMMM.UploadValue, SMMM.UploadType, StorageType.Byte, ModeStorageType.Palila) || SSDMM.NetworkPerformance == SSDEPT.Resume)
+                    while (SMMM.UploadValue <= 0 || SBMI.NetworkData.Upload < StorageExtension.Convert(SMMM.UploadValue, SMMM.UploadType, StorageType.Byte, ModeStorageType.Palila) || SSDMMB.NetworkPerformance == SSDEPT.Resume)
                     {
                         if (Count >= MaxCount)
                         {
@@ -367,7 +368,7 @@ namespace Sucrose.Backgroundog.Helper
                 }
                 else if (SBMI.NetworkPerformance == SSDENPT.Download)
                 {
-                    while (SMMM.DownloadValue <= 0 || SBMI.NetworkData.Download < StorageExtension.Convert(SMMM.DownloadValue, SMMM.DownloadType, StorageType.Byte, ModeStorageType.Palila) || SSDMM.NetworkPerformance == SSDEPT.Resume)
+                    while (SMMM.DownloadValue <= 0 || SBMI.NetworkData.Download < StorageExtension.Convert(SMMM.DownloadValue, SMMM.DownloadType, StorageType.Byte, ModeStorageType.Palila) || SSDMMB.NetworkPerformance == SSDEPT.Resume)
                     {
                         if (Count >= MaxCount)
                         {
@@ -399,7 +400,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (!SBMI.RemoteDesktop || SSDMM.RemotePerformance == SSDEPT.Resume)
+                while (!SBMI.RemoteDesktop || SSDMMB.RemotePerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {
@@ -429,7 +430,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (SMMM.BatteryUsage <= 0 || SBMI.BatteryData.PowerLineStatus == PowerLineStatus.Online || SBMI.BatteryData.ACPowerStatus == "Online" || SBMI.BatteryData.ChargeLevel > SMMM.BatteryUsage || SSDMM.BatteryPerformance == SSDEPT.Resume)
+                while (SMMM.BatteryUsage <= 0 || SBMI.BatteryData.PowerLineStatus == PowerLineStatus.Online || SBMI.BatteryData.ACPowerStatus == "Online" || SBMI.BatteryData.ChargeLevel > SMMM.BatteryUsage || SSDMMB.BatteryPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {
@@ -459,7 +460,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (!SBMI.Virtuality || SSDMM.VirtualPerformance == SSDEPT.Resume)
+                while (!SBMI.Virtuality || SSDMMB.VirtualPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {
@@ -489,7 +490,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (!SBMI.Fullscreen || SSDMM.FullscreenPerformance == SSDEPT.Resume)
+                while (!SBMI.Fullscreen || SSDMMB.FullscreenPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {

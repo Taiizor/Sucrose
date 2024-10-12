@@ -4,7 +4,7 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
@@ -35,23 +35,23 @@ namespace Sucrose.Shared.Live.Helper
 
                         switch (Info.Type)
                         {
-                            case SSDEWT.Web:
-                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.WebEngine]}");
+                            case SSDEWT.Gif:
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMME.GifEngine]}");
                                 break;
                             case SSDEWT.Url:
-                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.UrlEngine]}");
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMME.UrlEngine]}");
                                 break;
-                            case SSDEWT.Gif:
-                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.GifEngine]}");
+                            case SSDEWT.Web:
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMME.WebEngine]}");
                                 break;
                             case SSDEWT.Video:
-                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.VideoEngine]}");
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMME.VideoEngine]}");
                                 break;
                             case SSDEWT.YouTube:
-                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.YouTubeEngine]}");
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMME.YouTubeEngine]}");
                                 break;
                             case SSDEWT.Application:
-                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.ApplicationEngine]}");
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMME.ApplicationEngine]}");
                                 break;
                             default:
                                 break;

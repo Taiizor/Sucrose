@@ -23,6 +23,7 @@ using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 
 namespace Sucrose.Live.Aurora
 {
@@ -142,10 +143,10 @@ namespace Sucrose.Live.Aurora
 
                             SMMI.BackgroundogSettingManager.SetSetting(new KeyValuePair<string, bool>[]
                             {
-                                new(SMC.PipeRequired, false),
-                                new(SMC.AudioRequired, false),
-                                new(SMC.SignalRequired, false),
-                                new(SMC.PausePerformance, false)
+                                new(SMMCB.PipeRequired, false),
+                                new(SMMCB.AudioRequired, false),
+                                new(SMMCB.SignalRequired, false),
+                                new(SMMCB.PausePerformance, false)
                             });
 
                             if (File.Exists(Source))
