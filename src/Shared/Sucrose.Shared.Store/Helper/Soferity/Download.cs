@@ -10,6 +10,8 @@ using SSSIC = Sucrose.Shared.Store.Interface.Contents;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
+using SMMRGH = Sucrose.Memory.Manage.Readonly.GitHub;
 
 namespace Sucrose.Shared.Store.Helper.Soferity
 {
@@ -102,7 +104,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
             try
             {
-                using HttpResponseMessage Response = SSSMI.Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityPattern}").Result;
+                using HttpResponseMessage Response = SSSMI.Client.GetAsync($"{SMMRU.Soferity}/{SMR.SoferityPattern}").Result;
 
                 Response.EnsureSuccessStatusCode();
 
@@ -189,8 +191,8 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
                 try
                 {
-                    using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMR.SoferityRawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}")).Result;
-                    using HttpResponseMessage ResponseCover = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMR.SoferityRawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}")).Result;
+                    using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMMRU.SoferityStore}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}")).Result;
+                    using HttpResponseMessage ResponseCover = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMMRU.SoferityStore}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}")).Result;
 
                     ResponseInfo.EnsureSuccessStatusCode();
                     ResponseCover.EnsureSuccessStatusCode();
@@ -264,7 +266,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
         private static async Task<int> GetTotalFileCount(string Source, string Agent, bool Sub)
         {
-            List<SSSIC> Contents = ContentsList(SMR.StoreRepository, Source, Agent);
+            List<SSSIC> Contents = ContentsList(SMMRGH.StoreRepository, Source, Agent);
 
             int Count = 0;
 
@@ -289,7 +291,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
         private static async Task<bool> DownloadFilesRecursively(string Source, string Output, string Agent, string Keys, bool Sub)
         {
-            List<SSSIC> Contents = ContentsList(SMR.StoreRepository, Source, Agent);
+            List<SSSIC> Contents = ContentsList(SMMRGH.StoreRepository, Source, Agent);
 
             foreach (SSSIC Content in Contents)
             {
@@ -338,7 +340,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
         {
             InitializeClient(Agent);
 
-            string BaseUri = $"{SMR.SoferityWebsite}/{SMR.SoferityFile}/{Repository}";
+            string BaseUri = $"{SMMRU.Soferity}/{SMR.SoferityFile}/{Repository}";
 
             if (!string.IsNullOrEmpty(Path))
             {

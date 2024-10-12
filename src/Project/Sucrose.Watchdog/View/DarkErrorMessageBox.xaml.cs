@@ -6,6 +6,7 @@ using SSSHD = Sucrose.Shared.Space.Helper.Dark;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 
 namespace Sucrose.Watchdog.View
 {
@@ -47,7 +48,7 @@ namespace Sucrose.Watchdog.View
         {
             if (string.IsNullOrEmpty(Source))
             {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Wiki}{SMR.ValueSeparator}{SMR.WikiWebsite}");
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Wiki}{SMR.ValueSeparator}{SMMRU.GitHubSucroseWiki}");
             }
             else
             {

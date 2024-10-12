@@ -46,6 +46,7 @@ using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -136,7 +137,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         StringContent Content = new(JsonConvert.SerializeObject(StoreData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                        Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.Store}/{SSSHU.GetGuid()}", Content);
+                        Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.Store}/{SSSHU.GetGuid()}", Content);
                     }
                     catch (Exception Exception)
                     {

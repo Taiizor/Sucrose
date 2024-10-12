@@ -26,6 +26,7 @@ using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using TextBlock = Wpf.Ui.Controls.TextBlock;
 using TextBox = Wpf.Ui.Controls.TextBox;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -157,7 +158,7 @@ namespace Sucrose.Portal.Views.Controls
                     string Title = Wallpaper.Key.Replace(" ", "%20");
                     string Location = $"{Wallpaper.Value.Source.Replace(" ", "%20").Split('/').LastOrDefault()}/{Title}";
 
-                    SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECT.Report}{SMR.ValueSeparator}{SMR.StoreReportWebsite}&title={Title}&app-version={SSCHV.GetText()}&wallpaper-location={Location}&wallpaper-version={Info.Version}&wallpaper-app-version={Info.AppVersion}&report-reason={(ReportMode.SelectedItem as ComboBoxItem).Tag}&report-description={Description}");
+                    SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECT.Report}{SMR.ValueSeparator}{SMMRU.GitHubStoreReportWallpaper}&title={Title}&app-version={SSCHV.GetText()}&wallpaper-location={Location}&wallpaper-version={Info.Version}&wallpaper-app-version={Info.AppVersion}&report-reason={(ReportMode.SelectedItem as ComboBoxItem).Tag}&report-description={Description}");
                 }
             };
 
@@ -204,7 +205,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         try
                         {
-                            Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityCheck}/{SSSHU.GetGuid()}");
+                            Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityCheck}/{SSSHU.GetGuid()}");
                         }
                         catch
                         {
@@ -225,7 +226,7 @@ namespace Sucrose.Portal.Views.Controls
 
                                 StringContent Content = new(JsonConvert.SerializeObject(ReportData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                                Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityTheme}/{SSSHU.GetGuid()}", Content);
+                                Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityTheme}/{SSSHU.GetGuid()}", Content);
                             }
                             catch
                             {

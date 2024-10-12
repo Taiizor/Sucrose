@@ -3,6 +3,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
+using SMMRGU = Sucrose.Memory.Manage.Readonly.Url;
 
 namespace Sucrose.Shared.Store.Helper
 {
@@ -12,8 +13,8 @@ namespace Sucrose.Shared.Store.Helper
         {
             return Store switch
             {
-                SSDESST.GitHub => SMR.GitHubRawWebsite,
-                _ => SMR.SoferityRawWebsite,
+                SSDESST.GitHub => SMMRGU.RawGitHubStoreBranch,
+                _ => SMR.SoferityStore,
             };
         }
 

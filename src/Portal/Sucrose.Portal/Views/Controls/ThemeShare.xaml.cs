@@ -29,6 +29,7 @@ using SSSIR = Sucrose.Shared.Store.Interface.Root;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 using SSZHA = Sucrose.Shared.Zip.Helper.Archive;
 
 namespace Sucrose.Portal.Views.Controls
@@ -202,7 +203,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     try
                     {
-                        Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityUpload}/{SMR.SoferityCheck}/{SSSHU.GetGuid()}");
+                        Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityUpload}/{SMR.SoferityCheck}/{SSSHU.GetGuid()}");
                     }
                     catch
                     {
@@ -269,7 +270,7 @@ namespace Sucrose.Portal.Views.Controls
 
                                     try
                                     {
-                                        Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityUpload}/{SMR.SoferityTheme}/{SSSHU.GetGuid()}/{(Category.SelectedItem as ComboBoxItem).Tag}", Content);
+                                        Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityUpload}/{SMR.SoferityTheme}/{SSSHU.GetGuid()}/{(Category.SelectedItem as ComboBoxItem).Tag}", Content);
                                     }
                                     catch
                                     {

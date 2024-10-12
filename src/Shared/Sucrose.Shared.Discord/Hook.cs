@@ -9,6 +9,7 @@ using SRER = Sucrose.Resources.Extension.Resources;
 using SSDMI = Sucrose.Shared.Discord.Manage.Internal;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 
 namespace Sucrose.Shared.Discord
 {
@@ -77,12 +78,12 @@ namespace Sucrose.Shared.Discord
                         new()
                         {
                             Label = SRER.GetValue("Discord", "BrowseButton"),
-                            Url = SMR.BrowseWebsite
+                            Url = SMMRU.GitHubSucrose
                         },
                         new()
                         {
                             Label = SRER.GetValue("Discord", "DownloadButton"),
-                            Url = SMR.DownloadStore //SMR.DownloadWebsite
+                            Url = SMMRU.MicrosoftStoreSucrose //SMMRU.GitHubSucroseRelease
                         }
                     },
                     //Party = new Party()

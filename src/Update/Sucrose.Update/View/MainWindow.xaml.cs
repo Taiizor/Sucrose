@@ -18,9 +18,11 @@ using SHV = Skylark.Helper.Versionly;
 using SMMCU = Sucrose.Memory.Manage.Constant.Update;
 using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMRGH = Sucrose.Memory.Manage.Readonly.GitHub;
 using SMMO = Sucrose.Manager.Manage.Objectionable;
 using SMMU = Sucrose.Manager.Manage.Update;
 using SMR = Sucrose.Memory.Readonly;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCEUCT = Sucrose.Shared.Core.Enum.UpdateChannelType;
 using SSCEUET = Sucrose.Shared.Core.Enum.UpdateExtensionType;
@@ -272,7 +274,7 @@ namespace Sucrose.Update.View
 
                                 StringContent Content = new(JsonConvert.SerializeObject(UpdateData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                                Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityUpdate}/{SSSHU.GetGuid()}", Content);
+                                Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityUpdate}/{SSSHU.GetGuid()}", Content);
                             }
                             catch (Exception Exception)
                             {
@@ -342,8 +344,8 @@ namespace Sucrose.Update.View
 
                 Releases = SSDMMU.UpdateServerType switch
                 {
-                    SSDEUST.GitHub => SSHG.ReleasesList(SMR.Owner, SMR.Repository, SMMG.UserAgent, SMMO.Key),
-                    SSDEUST.Soferity => SUHU.ReleasesList($"{SMR.SoferityWebsite}/{SMR.SoferityUpdate}", SMMG.UserAgent),
+                    SSDEUST.GitHub => SSHG.ReleasesList(SMMRGH.Owner, SMMRGH.SucroseRepository, SMMG.UserAgent, SMMO.Key),
+                    SSDEUST.Soferity => SUHU.ReleasesList($"{SMMRU.Soferity}/{SMR.SoferityUpdate}", SMMG.UserAgent),
                     _ => new(),
                 };
 

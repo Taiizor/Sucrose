@@ -33,6 +33,7 @@ using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
 using TextBox = Wpf.Ui.Controls.TextBox;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -256,9 +257,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Content = SRER.GetValue("Portal", "OtherSettingPage", "Key", "HintKey"),
                 Foreground = SRER.GetResource<Brush>("AccentTextFillColorPrimaryBrush"),
+                NavigateUri = SMMRU.YouTubePersonalAccessToken,
                 Appearance = ControlAppearance.Transparent,
                 BorderBrush = Brushes.Transparent,
-                NavigateUri = SMR.KeyYouTube,
                 Cursor = Cursors.Hand
             };
 

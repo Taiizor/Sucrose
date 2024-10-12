@@ -4,6 +4,7 @@ using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSLHC = Sucrose.Shared.Launcher.Helper.Create;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 
 namespace Sucrose.Shared.Launcher.View
 {
@@ -28,7 +29,7 @@ namespace Sucrose.Shared.Launcher.View
 
         private void ReportButton_Click(object sender, RoutedEventArgs e)
         {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Report}{SMR.ValueSeparator}{SMR.ReportWebsite}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Report}{SMR.ValueSeparator}{SMMRU.GitHubSucroseReport}");
         }
     }
 }

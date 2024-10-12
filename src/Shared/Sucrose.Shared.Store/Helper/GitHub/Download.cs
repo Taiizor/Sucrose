@@ -9,6 +9,8 @@ using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
+using SMMRGH = Sucrose.Memory.Manage.Readonly.GitHub;
 
 namespace Sucrose.Shared.Store.Helper.GitHub
 {
@@ -44,7 +46,7 @@ namespace Sucrose.Shared.Store.Helper.GitHub
 
             try
             {
-                List<SSIIC> Contents = SSHG.ContentsList(SMR.Owner, SMR.StoreRepository, SMR.StoreSource, SMR.Branch, Agent, Key);
+                List<SSIIC> Contents = SSHG.ContentsList(SMMRGH.Owner, SMMRGH.StoreRepository, SMR.StoreSource, SMMRGH.Branch, Agent, Key);
 
                 foreach (SSIIC Content in Contents)
                 {
@@ -141,8 +143,8 @@ namespace Sucrose.Shared.Store.Helper.GitHub
 
                 try
                 {
-                    using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMR.GitHubRawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}")).Result;
-                    using HttpResponseMessage ResponseCover = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMR.GitHubRawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}")).Result;
+                    using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMMRU.RawGitHubStoreBranch}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}")).Result;
+                    using HttpResponseMessage ResponseCover = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMMRU.RawGitHubStoreBranch}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}")).Result;
 
                     ResponseInfo.EnsureSuccessStatusCode();
                     ResponseCover.EnsureSuccessStatusCode();
@@ -221,7 +223,7 @@ namespace Sucrose.Shared.Store.Helper.GitHub
 
         private static async Task<int> GetTotalFileCount(string Source, string Agent, string Key, bool Sub)
         {
-            List<SSIIC> Contents = SSHG.ContentsList(SMR.Owner, SMR.StoreRepository, Source, SMR.Branch, Agent, Key);
+            List<SSIIC> Contents = SSHG.ContentsList(SMMRGH.Owner, SMMRGH.StoreRepository, Source, SMMRGH.Branch, Agent, Key);
 
             int Count = 0;
 
@@ -246,7 +248,7 @@ namespace Sucrose.Shared.Store.Helper.GitHub
 
         private static async Task<bool> DownloadFilesRecursively(string Source, string Output, string Agent, string Keys, string Key, bool Sub)
         {
-            List<SSIIC> Contents = SSHG.ContentsList(SMR.Owner, SMR.StoreRepository, Source, SMR.Branch, Agent, Key);
+            List<SSIIC> Contents = SSHG.ContentsList(SMMRGH.Owner, SMMRGH.StoreRepository, Source, SMMRGH.Branch, Agent, Key);
 
             foreach (SSIIC Content in Contents)
             {

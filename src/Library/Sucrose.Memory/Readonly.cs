@@ -1,4 +1,7 @@
-﻿namespace Sucrose.Memory
+﻿using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
+using SMMRGH = Sucrose.Memory.Manage.Readonly.GitHub;
+
+namespace Sucrose.Memory
 {
     public static class Readonly
     {
@@ -10,11 +13,7 @@
 
         public static readonly string LogFolder = "Log";
 
-        public static readonly string Owner = "Taiizor";
-
         public static readonly string Themes = "Themes";
-
-        public static readonly string Branch = "develop";
 
         public static readonly string Key = string.Empty;
 
@@ -43,8 +42,6 @@
         public static readonly string CefSharp = "CefSharp";
 
         public static readonly string WebView2 = "WebView2";
-
-        public static readonly string Repository = "Sucrose";
 
         public static readonly string SoferityVersion = "v6";
 
@@ -79,8 +76,6 @@
         public static readonly string SoferityUpdate = "Update";
 
         public static readonly string SoferityUpload = "Upload";
-
-        public static readonly string StoreRepository = "Store";
 
         public static readonly string SoferityPattern = "Pattern";
 
@@ -122,36 +117,8 @@
 
         public static readonly string Guid = "00000000-0000-0000-0000-000000000000";
 
-        public static readonly string SoferityWebsite = "https://sucrose.soferity.com";
-
         public static readonly string CefSharpProcessName = "CefSharp.BrowserSubprocess";
 
-        public static readonly string BrowseWebsite = $"https://github.com/{Owner}/{Repository}";
-
         public static readonly string UserAgent = "Sucrose/1.8 (Wallpaper Engine) SucroseWebKit";
-
-        public static readonly string KeyYouTube = "https://www.youtube.com/watch?v=kRyML8axJxA";
-
-        public static readonly string SoferityRawWebsite = $"{SoferityWebsite}/{StoreRepository}";
-
-        public static readonly string OfficialWebsite = $"https://github.com/{Owner}/{Repository}";
-
-        public static readonly string WikiWebsite = $"https://github.com/{Owner}/{Repository}/wiki";
-
-        public static readonly string StoreWebsite = $"https://github.com/{Owner}/{StoreRepository}";
-
-        public static readonly string RepositoryWebsite = $"https://github.com/{Owner}/{Repository}";
-
-        public static readonly string DiscussionsWebsite = $"https://github.com/{Owner}/{Repository}/discussions";
-
-        public static readonly string ReportWebsite = $"https://github.com/{Owner}/{Repository}/issues/new/choose";
-
-        public static readonly string DownloadWebsite = $"https://github.com/{Owner}/{Repository}/releases/latest";
-
-        public static readonly string DownloadStore = "https://apps.microsoft.com/detail/XP8JGPBHTJGLCQ?launch=true&mode=full";
-
-        public static readonly string GitHubRawWebsite = $"https://raw.githubusercontent.com/{Owner}/{StoreRepository}/{Branch}";
-
-        public static readonly string StoreReportWebsite = $"https://github.com/{Owner}/{StoreRepository}/issues/new?assignees=&labels=wallpaper&projects=&template=wallpaper_report.yaml";
     }
 }

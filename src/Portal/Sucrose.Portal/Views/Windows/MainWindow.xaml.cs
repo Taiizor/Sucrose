@@ -18,6 +18,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMP = Sucrose.Manager.Manage.Portal;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 using SMMW = Sucrose.Manager.Manage.Warehouse;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
@@ -301,7 +302,7 @@ namespace Sucrose.Portal.Views.Windows
 
                                 StringContent Content = new(JsonConvert.SerializeObject(SearchData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                                Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferitySearch}/{SSSHU.GetGuid()}", Content);
+                                Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferitySearch}/{SSSHU.GetGuid()}", Content);
                             }
                             catch (Exception Exception)
                             {
