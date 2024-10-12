@@ -16,6 +16,8 @@ using SSLCRG = Sucrose.Shared.Launcher.Command.Reportdog;
 using SSLCRT = Sucrose.Shared.Launcher.Command.Report;
 using SSLCS = Sucrose.Shared.Launcher.Command.Setting;
 using SSLCU = Sucrose.Shared.Launcher.Command.Update;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SSLHC = Sucrose.Shared.Launcher.Helper.Calculate;
 using SSLHR = Sucrose.Shared.Launcher.Helper.Radius;
 using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
@@ -127,11 +129,11 @@ namespace Sucrose.Shared.Launcher.Manager
                     ContextMenu.Items.Add(Change);
                 }
 
-                string PropertiesPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseProperties);
+                string PropertiesPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMR.SucroseProperties);
 
                 if (File.Exists(PropertiesPath))
                 {
-                    string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
+                    string InfoPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMR.SucroseInfo);
 
                     if (File.Exists(InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
                     {
@@ -161,7 +163,7 @@ namespace Sucrose.Shared.Launcher.Manager
             }
             else if (SMMI.LibrarySettingManager.CheckFile())
             {
-                string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
+                string InfoPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMR.SucroseInfo);
 
                 if (File.Exists(InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
                 {

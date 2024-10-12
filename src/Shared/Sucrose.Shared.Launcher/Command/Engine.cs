@@ -5,6 +5,8 @@ using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 
 namespace Sucrose.Shared.Launcher.Command
 {
@@ -16,9 +18,9 @@ namespace Sucrose.Shared.Launcher.Command
             {
                 SSLHK.Stop();
             }
-            else if (!SSSHL.Run() && SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SMMM.LibrarySelected))
+            else if (!SSSHL.Run() && SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SMML.LibrarySelected))
             {
-                if (Directory.Exists(Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected)))
+                if (Directory.Exists(Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected)))
                 {
                     SSLHR.Start();
 

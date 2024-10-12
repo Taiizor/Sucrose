@@ -15,6 +15,8 @@ using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -179,7 +181,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch ConfirmState = new()
             {
-                IsChecked = SMMM.LibraryConfirm
+                IsChecked = SMML.LibraryConfirm
             };
 
             ConfirmState.Checked += (s, e) => ConfirmStateChecked(true);
@@ -201,7 +203,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch DeleteState = new()
             {
-                IsChecked = SMMM.LibraryDelete
+                IsChecked = SMML.LibraryDelete
             };
 
             DeleteState.Checked += (s, e) => DeleteStateChecked(true);
@@ -614,12 +616,12 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void DeleteStateChecked(bool State)
         {
-            SMMI.LibrarySettingManager.SetSetting(SMC.LibraryDelete, State);
+            SMMI.LibrarySettingManager.SetSetting(SMMCL.LibraryDelete, State);
         }
 
         private void ConfirmStateChecked(bool State)
         {
-            SMMI.LibrarySettingManager.SetSetting(SMC.LibraryConfirm, State);
+            SMMI.LibrarySettingManager.SetSetting(SMMCL.LibraryConfirm, State);
         }
 
         private void StorePreviewChecked(bool State)

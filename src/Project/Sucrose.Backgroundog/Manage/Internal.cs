@@ -124,6 +124,8 @@ namespace Sucrose.Backgroundog.Manage
 
         public static string[] NetworkInterfaces = Array.Empty<string>();
 
+        public static bool Windows11_OrGreater = Environment.OSVersion.Version.Build >= 22000;
+
         public static SBSDCS CpuData = new()
         {
             Min = 0f,

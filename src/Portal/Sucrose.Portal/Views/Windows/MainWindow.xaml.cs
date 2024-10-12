@@ -18,7 +18,7 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SPMM = Sucrose.Portal.Manage.Manager;
+using SPMMP = Sucrose.Portal.Manage.Manager.Portal;
 using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
 using SPVCTI = Sucrose.Portal.Views.Controls.TrayIcon;
 using SPVMWMWVM = Sucrose.Portal.ViewModels.Windows.MainWindowViewModel;
@@ -55,7 +55,7 @@ namespace Sucrose.Portal.Views.Windows
 
             InitializeComponent();
 
-            if (SPMM.BackdropType == WindowBackdropType.Auto)
+            if (SPMMP.BackdropType == WindowBackdropType.Auto)
             {
                 if (SWHWT.GetTheme() == SEWTT.Dark)
                 {

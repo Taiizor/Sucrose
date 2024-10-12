@@ -10,6 +10,8 @@ using Wpf.Ui.Controls;
 using SHG = Skylark.Helper.Generator;
 using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
@@ -151,11 +153,11 @@ namespace Sucrose.Portal.Views.Controls
                 do
                 {
                     Keys = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
-                } while (Directory.Exists(Path.Combine(SMMM.LibraryLocation, Keys)));
+                } while (Directory.Exists(Path.Combine(SMML.LibraryLocation, Keys)));
 
                 SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
 
-                string LibraryPath = Path.Combine(SMMM.LibraryLocation, Keys);
+                string LibraryPath = Path.Combine(SMML.LibraryLocation, Keys);
                 string TemporaryPath = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
 
                 switch (SSDMMP.StoreServerType)
@@ -178,7 +180,7 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         if (SMMM.StoreStart)
                         {
-                            SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Keys));
+                            SMMI.LibrarySettingManager.SetSetting(SMMCL.LibrarySelected, Path.GetFileName(Keys));
 
                             if (SSSHL.Run())
                             {

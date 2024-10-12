@@ -14,6 +14,8 @@ using SSETTE = Skylark.Standard.Extension.Time.TimeExtension;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 
 namespace Sucrose.Shared.Space.Helper
 {
@@ -21,19 +23,19 @@ namespace Sucrose.Shared.Space.Helper
     {
         public static bool Check(bool Time = true)
         {
-            if (Directory.Exists(SMMM.LibraryLocation))
+            if (Directory.Exists(SMML.LibraryLocation))
             {
-                List<string> Themes = Directory.GetDirectories(SMMM.LibraryLocation).Select(Path.GetFileName).ToList();
+                List<string> Themes = Directory.GetDirectories(SMML.LibraryLocation).Select(Path.GetFileName).ToList();
 
                 if (Themes.Any())
                 {
                     Themes = Themes.Except(SMMM.DisableCycyling).ToList();
 
-                    if (SMMM.Cycyling && (Themes.Count > 1 || (Themes.Count == 1 && !Themes.Contains(SMMM.LibrarySelected))) && (SMMM.PassingCycyling >= Converter(SMMM.CycylingTime) || !Time))
+                    if (SMMM.Cycyling && (Themes.Count > 1 || (Themes.Count == 1 && !Themes.Contains(SMML.LibrarySelected))) && (SMMM.PassingCycyling >= Converter(SMMM.CycylingTime) || !Time))
                     {
                         foreach (string Theme in Themes)
                         {
-                            string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
+                            string ThemePath = Path.Combine(SMML.LibraryLocation, Theme);
                             string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
 
                             if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
@@ -44,7 +46,7 @@ namespace Sucrose.Shared.Space.Helper
 
                                     if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
                                     {
-                                        if (Theme != SMMM.LibrarySelected)
+                                        if (Theme != SMML.LibrarySelected)
                                         {
                                             return true;
                                         }
@@ -75,13 +77,13 @@ namespace Sucrose.Shared.Space.Helper
         {
             if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
             {
-                if (Directory.Exists(SMMM.LibraryLocation))
+                if (Directory.Exists(SMML.LibraryLocation))
                 {
-                    List<string> Themes = Directory.GetDirectories(SMMM.LibraryLocation).Select(Path.GetFileName).ToList();
+                    List<string> Themes = Directory.GetDirectories(SMML.LibraryLocation).Select(Path.GetFileName).ToList();
 
                     if (Themes.Any())
                     {
-                        string LibrarySelected = SMMM.LibrarySelected;
+                        string LibrarySelected = SMML.LibrarySelected;
 
                         Themes = Themes.Where(Theme => !SMMM.DisableCycyling.Contains(Theme) || Theme == LibrarySelected).ToList();
 
@@ -103,7 +105,7 @@ namespace Sucrose.Shared.Space.Helper
 
                                         string Current = Themes[Index];
 
-                                        string ThemePath = Path.Combine(SMMM.LibraryLocation, Current);
+                                        string ThemePath = Path.Combine(SMML.LibraryLocation, Current);
                                         string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
 
                                         if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
@@ -137,7 +139,7 @@ namespace Sucrose.Shared.Space.Helper
 
                                     foreach (string Theme in Themes.Skip(Index))
                                     {
-                                        string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
+                                        string ThemePath = Path.Combine(SMML.LibraryLocation, Theme);
                                         string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
 
                                         if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
@@ -164,7 +166,7 @@ namespace Sucrose.Shared.Space.Helper
                             {
                                 SMMI.CyclingSettingManager.SetSetting(SMC.PassingCycyling, 0);
 
-                                SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Selected);
+                                SMMI.LibrarySettingManager.SetSetting(SMMCL.LibrarySelected, Selected);
 
                                 SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Cycyling}{SMR.ValueSeparator}{SMR.Unknown}");
                             }

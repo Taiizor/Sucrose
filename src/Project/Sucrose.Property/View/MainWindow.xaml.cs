@@ -16,7 +16,7 @@ using SPCPB = Sucrose.Property.Controls.PasswordBox;
 using SPCS = Sucrose.Property.Controls.Slider;
 using SPCTB = Sucrose.Property.Controls.TextBox;
 using SPMI = Sucrose.Property.Manage.Internal;
-using SPMM = Sucrose.Property.Manage.Manager;
+using SPMMP = Sucrose.Property.Manage.Manager.Portal;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
@@ -36,6 +36,7 @@ using SSTMSM = Sucrose.Shared.Theme.Model.SliderModel;
 using SSTMTBM = Sucrose.Shared.Theme.Model.TextBoxModel;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWHWTR = Skylark.Wing.Helper.WindowsTaskbar;
+using SMML = Sucrose.Manager.Manage.Library;
 
 namespace Sucrose.Property.View
 {
@@ -48,7 +49,7 @@ namespace Sucrose.Property.View
         {
             InitializeComponent();
 
-            if (SPMM.BackdropType == WindowBackdropType.Auto)
+            if (SPMMP.BackdropType == WindowBackdropType.Auto)
             {
                 if (SWHWT.GetTheme() == SEWTT.Dark)
                 {
@@ -140,13 +141,13 @@ namespace Sucrose.Property.View
 
         private static WindowBackdropType GetWindowBackdropType()
         {
-            if (WindowBackdrop.IsSupported(SPMM.BackdropType))
+            if (WindowBackdrop.IsSupported(SPMMP.BackdropType))
             {
-                return SPMM.BackdropType;
+                return SPMMP.BackdropType;
             }
             else
             {
-                return SPMM.DefaultBackdropType;
+                return SPMI.DefaultBackdropType;
             }
         }
 
@@ -158,7 +159,7 @@ namespace Sucrose.Property.View
                 Refresh.IsEnabled = false;
                 Delete.IsEnabled = false;
 
-                SPMI.EngineLive = SMMM.LibrarySelected == SPMI.LibrarySelected && SSSHL.Run();
+                SPMI.EngineLive = SMML.LibrarySelected == SPMI.LibrarySelected && SSSHL.Run();
 
                 if (SPMI.EngineLive)
                 {
@@ -244,7 +245,7 @@ namespace Sucrose.Property.View
 
                 File.Copy(SPMI.PropertiesPath, SPMI.PropertiesFile, true);
 
-                if (SMMM.LibrarySelected == SPMI.LibrarySelected && SSSHL.Run())
+                if (SMML.LibrarySelected == SPMI.LibrarySelected && SSSHL.Run())
                 {
                     await Task.Delay(250);
 

@@ -11,6 +11,8 @@ using SMR = Sucrose.Memory.Readonly;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSENVV = Sucrose.Shared.Engine.Nebula.View.Video;
@@ -119,8 +121,8 @@ namespace Sucrose.Live.Nebula
 
         protected void Configure()
         {
-            SSEMI.LibraryLocation = SMMM.LibraryLocation;
-            SSEMI.LibrarySelected = SMMM.LibrarySelected;
+            SSEMI.LibraryLocation = SMML.LibraryLocation;
+            SSEMI.LibrarySelected = SMML.LibrarySelected;
 
             if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SSEMI.LibrarySelected))
             {

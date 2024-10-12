@@ -2,6 +2,8 @@
 {
     public static class Portal
     {
+        public const string BackdropType = "BackdropType";
+
         public const string LibrarySortKind = "LibrarySortKind";
 
         public const string LibrarySortMode = "LibrarySortMode";

@@ -45,6 +45,8 @@ namespace Sucrose.Portal.Manage
 
         public static readonly SymbolRegular DefaultIcon = SymbolRegular.Wallpaper24;
 
+        public static WindowBackdropType DefaultBackdropType = WindowBackdropType.None;
+
         public static readonly Dictionary<string, SymbolRegular> CategoryIcons = new()
         {
             { "Brands", SymbolRegular.Tag24 },

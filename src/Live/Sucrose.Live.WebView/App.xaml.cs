@@ -13,6 +13,8 @@ using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
 using SMMCU = Sucrose.Memory.Manage.Constant.User;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
@@ -221,8 +223,8 @@ namespace Sucrose.Live.WebView
 
         protected void Configure()
         {
-            SSEMI.LibraryLocation = SMMM.LibraryLocation;
-            SSEMI.LibrarySelected = SMMM.LibrarySelected;
+            SSEMI.LibraryLocation = SMML.LibraryLocation;
+            SSEMI.LibrarySelected = SMML.LibrarySelected;
 
             if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SSEMI.LibrarySelected))
             {

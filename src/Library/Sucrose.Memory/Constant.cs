@@ -50,8 +50,6 @@
 
         public const string UploadType = "UploadType";
 
-        public const string LibraryMove = "LibraryMove";
-
         public const string MemoryUsage = "MemoryUsage";
 
         public const string ScreenIndex = "ScreenIndex";
@@ -59,8 +57,6 @@
         public const string UpdateState = "UpdateState";
 
         public const string UploadValue = "UploadValue";
-
-        public const string BackdropType = "BackdropType";
 
         public const string BatteryUsage = "BatteryUsage";
 
@@ -86,8 +82,6 @@
 
         public const string DownloadValue = "DownloadValue";
 
-        public const string LibraryDelete = "LibraryDelete";
-
         public const string StoreDuration = "StoreDuration";
 
         public const string VolumeDesktop = "VolumeDesktop";
@@ -100,17 +94,11 @@
 
         public const string LibraryPreview = "LibraryPreview";
 
-        public const string LibraryConfirm = "LibraryConfirm";
-
         public const string NetworkAdapter = "NetworkAdapter";
 
         public const string BackgroundImage = "BackgroundImage";
 
         public const string DisableCycyling = "DisableCycyling";
-
-        public const string LibraryLocation = "LibraryLocation";
-
-        public const string LibrarySelected = "LibrarySelected";
 
         public const string PassingCycyling = "PassingCycyling";
 

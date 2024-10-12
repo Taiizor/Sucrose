@@ -5,6 +5,7 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCLC = Sucrose.Portal.Views.Controls.LibraryCard;
+using SMML = Sucrose.Manager.Manage.Library;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
 namespace Sucrose.Portal.Views.Pages.Library
@@ -46,11 +47,11 @@ namespace Sucrose.Portal.Views.Pages.Library
 
             if (Search.Any())
             {
-                foreach (KeyValuePair<string, string> Pair in Searches.Where(Theme => Directory.Exists(Path.Combine(SMMM.LibraryLocation, Theme.Key))).ToDictionary(Theme => Theme.Key, Theme => Theme.Value).ToArray().Select(Pair => new { Pair.Key, Pair.Value, MatchCount = CountMatchingWords(Pair.Value, Search) }).Where(Pair => Pair.MatchCount > 0).OrderByDescending(Pair => Pair.MatchCount).ToDictionary(Pair => Pair.Key, Pair => Pair.Value))
+                foreach (KeyValuePair<string, string> Pair in Searches.Where(Theme => Directory.Exists(Path.Combine(SMML.LibraryLocation, Theme.Key))).ToDictionary(Theme => Theme.Key, Theme => Theme.Value).ToArray().Select(Pair => new { Pair.Key, Pair.Value, MatchCount = CountMatchingWords(Pair.Value, Search) }).Where(Pair => Pair.MatchCount > 0).OrderByDescending(Pair => Pair.MatchCount).ToDictionary(Pair => Pair.Key, Pair => Pair.Value))
                 {
                     if (SMMM.LibraryPagination * Page > Count && SMMM.LibraryPagination * Page <= Count + SMMM.LibraryPagination)
                     {
-                        string ThemePath = Path.Combine(SMMM.LibraryLocation, Pair.Key);
+                        string ThemePath = Path.Combine(SMML.LibraryLocation, Pair.Key);
 
                         SSTHI Info = SSTHI.ReadJson(Path.Combine(ThemePath, SMR.SucroseInfo));
 
@@ -70,11 +71,11 @@ namespace Sucrose.Portal.Views.Pages.Library
             }
             else
             {
-                foreach (string Theme in Themes.Where(Theme => Directory.Exists(Path.Combine(SMMM.LibraryLocation, Theme))).ToList())
+                foreach (string Theme in Themes.Where(Theme => Directory.Exists(Path.Combine(SMML.LibraryLocation, Theme))).ToList())
                 {
                     if (SMMM.LibraryPagination * Page > Count && SMMM.LibraryPagination * Page <= Count + SMMM.LibraryPagination)
                     {
-                        string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
+                        string ThemePath = Path.Combine(SMML.LibraryLocation, Theme);
 
                         SPVCLC LibraryCard = new(ThemePath, SSTHI.ReadJson(Path.Combine(ThemePath, SMR.SucroseInfo)));
 

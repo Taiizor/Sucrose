@@ -13,6 +13,8 @@ using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SSEXVG = Sucrose.Shared.Engine.Xavier.View.Gif;
 using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
@@ -119,8 +121,8 @@ namespace Sucrose.Live.Xavier
 
         protected void Configure()
         {
-            SSEMI.LibraryLocation = SMMM.LibraryLocation;
-            SSEMI.LibrarySelected = SMMM.LibrarySelected;
+            SSEMI.LibraryLocation = SMML.LibraryLocation;
+            SSEMI.LibrarySelected = SMML.LibrarySelected;
 
             if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SSEMI.LibrarySelected))
             {

@@ -12,6 +12,8 @@ using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMPVG = Sucrose.Shared.Engine.MpvPlayer.View.Gif;
 using SSEMPVV = Sucrose.Shared.Engine.MpvPlayer.View.Video;
@@ -120,8 +122,8 @@ namespace Sucrose.Live.MpvPlayer
 
         protected void Configure()
         {
-            SSEMI.LibraryLocation = SMMM.LibraryLocation;
-            SSEMI.LibrarySelected = SMMM.LibrarySelected;
+            SSEMI.LibraryLocation = SMML.LibraryLocation;
+            SSEMI.LibrarySelected = SMML.LibrarySelected;
 
             if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SSEMI.LibrarySelected))
             {

@@ -24,8 +24,6 @@ namespace Sucrose.Manager.Manage
     {
         public static IList<char> Chars => Enumerable.Range('A', 'Z' - 'A' + 1).Concat(Enumerable.Range('a', 'z' - 'a' + 1)).Concat(Enumerable.Range('0', '9' - '0' + 1)).Select(C => (char)C).ToList();
 
-        public static string LibraryLocation => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.Library));
-
         public static Dictionary<string, string> CefArguments => SMMI.EngineSettingManager.GetSetting(SMC.CefArguments, new Dictionary<string, string>());
 
         public static int UpdateLimitValue => SHS.Clamp(SMMI.UpdateSettingManager.GetSettingStable(SMMCUE.UpdateLimitValue, 500), 0, 99999999);
@@ -94,8 +92,6 @@ namespace Sucrose.Manager.Manage
 
         public static SESET UpdateLimitType => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateLimitType, SESET.Megabyte);
 
-        public static string LibrarySelected => SMMI.LibrarySettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
-
         public static SESET DownloadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.DownloadType, SESET.Megabyte);
 
         public static string BackgroundImage => SMMI.PortalSettingManager.GetSetting(SMC.BackgroundImage, string.Empty);
@@ -142,11 +138,7 @@ namespace Sucrose.Manager.Manage
 
         public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
 
-        public static bool LibraryConfirm => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryConfirm, true);
-
         public static bool LibraryPreview => SMMI.PortalSettingManager.GetSetting(SMC.LibraryPreview, false);
-
-        public static bool LibraryDelete => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryDelete, false);
 
         public static bool DonateVisible => SMMI.DonateSettingManager.GetSetting(SMMCD.DonateVisible, true);
 
@@ -171,8 +163,6 @@ namespace Sucrose.Manager.Manage
         public static bool DiscordState => SMMI.HookSettingManager.GetSetting(SMMCH.DiscordState, true);
 
         public static bool UpdateState => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateState, false);
-
-        public static bool LibraryMove => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryMove, true);
 
         public static bool Statistics => SMMI.GeneralSettingManager.GetSetting(SMC.Statistics, true);
 

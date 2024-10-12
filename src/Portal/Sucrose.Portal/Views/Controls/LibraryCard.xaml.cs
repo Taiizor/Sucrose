@@ -24,6 +24,8 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -51,9 +53,9 @@ namespace Sucrose.Portal.Views.Controls
             {
                 if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
                 {
-                    if (SMMM.LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
+                    if (SMML.LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
                     {
-                        SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Theme));
+                        SMMI.LibrarySettingManager.SetSetting(SMMCL.LibrarySelected, Path.GetFileName(Theme));
 
                         if (SSSHL.Run())
                         {
@@ -188,7 +190,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
-            bool Confirm = SMMM.LibraryConfirm;
+            bool Confirm = SMML.LibraryConfirm;
 
             ContentDialogResult Result = ContentDialogResult.None;
 
@@ -291,7 +293,7 @@ namespace Sucrose.Portal.Views.Controls
 
             if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
             {
-                if (SMMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
+                if (SMML.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
                 {
                     MenuUse.IsEnabled = false;
                     MenuDelete.IsEnabled = false;
@@ -371,7 +373,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void LibraryCard_MouseEnter(object sender, MouseEventArgs e)
         {
-            if ((SMMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run()) || Info.AppVersion.CompareTo(SHV.Entry()) > 0)
+            if ((SMML.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run()) || Info.AppVersion.CompareTo(SHV.Entry()) > 0)
             {
                 Cursor = Cursors.Arrow;
             }

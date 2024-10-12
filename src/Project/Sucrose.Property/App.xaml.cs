@@ -15,6 +15,7 @@ using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
+using SMML = Sucrose.Manager.Manage.Library;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
@@ -102,8 +103,8 @@ namespace Sucrose.Property
 
         protected void Configure(string[] Args)
         {
-            SPMI.LibraryLocation = SMMM.LibraryLocation;
-            SPMI.LibrarySelected = SMMM.LibrarySelected;
+            SPMI.LibraryLocation = SMML.LibraryLocation;
+            SPMI.LibrarySelected = SMML.LibrarySelected;
 
             if (Args.Any())
             {

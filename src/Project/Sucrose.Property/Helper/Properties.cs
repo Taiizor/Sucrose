@@ -3,6 +3,7 @@ using SPMI = Sucrose.Property.Manage.Internal;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTMCM = Sucrose.Shared.Theme.Model.ControlModel;
+using SMML = Sucrose.Manager.Manage.Library;
 
 namespace Sucrose.Property.Helper
 {
@@ -10,7 +11,7 @@ namespace Sucrose.Property.Helper
     {
         public static void Change(string Key, SSTMCM Data)
         {
-            if (SMMM.LibrarySelected == SPMI.LibrarySelected && SSSHL.Run())
+            if (SMML.LibrarySelected == SPMI.LibrarySelected && SSSHL.Run())
             {
                 SSTHP.WriteJson(SPMI.WatcherFile.Replace("*", $"{Guid.NewGuid()}"), new()
                 {

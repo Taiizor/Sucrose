@@ -1,6 +1,6 @@
 ﻿using System.Drawing.Imaging;
 using System.IO;
-using SBMM = Sucrose.Backgroundog.Manage.Manager;
+using SBMI = Sucrose.Backgroundog.Manage.Internal;
 
 namespace Sucrose.Backgroundog.Extension
 {
@@ -13,7 +13,7 @@ namespace Sucrose.Backgroundog.Extension
             MemoryStream.Seek(0, SeekOrigin.Begin);
             Stream.CopyTo(MemoryStream);
 
-            if (!SBMM.Windows11_OrGreater)
+            if (!SBMI.Windows11_OrGreater)
             {
                 using Bitmap Image = new(MemoryStream);
 

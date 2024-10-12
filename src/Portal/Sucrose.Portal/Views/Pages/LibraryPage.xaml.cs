@@ -14,6 +14,7 @@ using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
 using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
+using SMML = Sucrose.Manager.Manage.Library;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
 using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
@@ -90,14 +91,14 @@ namespace Sucrose.Portal.Views.Pages
 
                 List<string> Showcase = SMMM.Showcase;
 
-                if (!Directory.Exists(SMMM.LibraryLocation))
+                if (!Directory.Exists(SMML.LibraryLocation))
                 {
-                    Directory.CreateDirectory(SMMM.LibraryLocation);
+                    Directory.CreateDirectory(SMML.LibraryLocation);
                 }
 
                 foreach (string Directory in Directory.GetDirectories(ShowcasePath, "*", SearchOption.TopDirectoryOnly).Where(Directory => !Showcase.Contains(Path.GetFileName(Directory))))
                 {
-                    SSSHC.Folder(Directory, Path.Combine(SMMM.LibraryLocation, Path.GetFileName(Directory)), false);
+                    SSSHC.Folder(Directory, Path.Combine(SMML.LibraryLocation, Path.GetFileName(Directory)), false);
 
                     Showcase.Add(Path.GetFileName(Directory));
 
@@ -118,9 +119,9 @@ namespace Sucrose.Portal.Views.Pages
                 Searches.Clear();
             }
 
-            if (Directory.Exists(SMMM.LibraryLocation))
+            if (Directory.Exists(SMML.LibraryLocation))
             {
-                string[] Folders = Directory.GetDirectories(SMMM.LibraryLocation);
+                string[] Folders = Directory.GetDirectories(SMML.LibraryLocation);
 
                 if (Folders != null && Folders.Any())
                 {
@@ -156,7 +157,7 @@ namespace Sucrose.Portal.Views.Pages
                             }
                         }
 
-                        if (SMMM.LibraryDelete && SSSHA.Directory(Folder))
+                        if (SMML.LibraryDelete && SSSHA.Directory(Folder))
                         {
                             Directory.Delete(Folder, true);
 
@@ -174,7 +175,7 @@ namespace Sucrose.Portal.Views.Pages
 
                     foreach (string Theme in Themes.ToList())
                     {
-                        string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
+                        string ThemePath = Path.Combine(SMML.LibraryLocation, Theme);
                         string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
 
                         if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
@@ -193,7 +194,7 @@ namespace Sucrose.Portal.Views.Pages
                             }
                             else if (SSDMMP.LibrarySortMode == SSDESMT.Creation)
                             {
-                                SortThemes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMMM.LibraryLocation, Theme)));
+                                SortThemes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMML.LibraryLocation, Theme)));
                             }
                             else if (SSDMMP.LibrarySortMode == SSDESMT.Modification)
                             {
@@ -225,7 +226,7 @@ namespace Sucrose.Portal.Views.Pages
                     Themes.Clear();
                 }
 
-                Directory.CreateDirectory(SMMM.LibraryLocation);
+                Directory.CreateDirectory(SMML.LibraryLocation);
             }
         }
 
@@ -291,9 +292,9 @@ namespace Sucrose.Portal.Views.Pages
 
                         if (Result == SSDECT.Pass)
                         {
-                            if (!Directory.Exists(SMMM.LibraryLocation))
+                            if (!Directory.Exists(SMML.LibraryLocation))
                             {
-                                Directory.CreateDirectory(SMMM.LibraryLocation);
+                                Directory.CreateDirectory(SMML.LibraryLocation);
                             }
 
                             string Name;
@@ -301,9 +302,9 @@ namespace Sucrose.Portal.Views.Pages
                             do
                             {
                                 Name = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
-                            } while (Directory.Exists(Path.Combine(SMMM.LibraryLocation, Name)));
+                            } while (Directory.Exists(Path.Combine(SMML.LibraryLocation, Name)));
 
-                            Result = await Task.Run(() => SSZEZ.Extract(Record, Path.Combine(SMMM.LibraryLocation, Name)));
+                            Result = await Task.Run(() => SSZEZ.Extract(Record, Path.Combine(SMML.LibraryLocation, Name)));
 
                             if (Result == SSDECT.Pass)
                             {

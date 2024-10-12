@@ -17,7 +17,7 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SPMM = Sucrose.Portal.Manage.Manager;
+using SPMMP = Sucrose.Portal.Manage.Manager.Portal;
 using SPVCDP = Sucrose.Portal.Views.Controls.DisplayPreferences;
 using SPVCOA = Sucrose.Portal.Views.Controls.OtherAbout;
 using SPVCOH = Sucrose.Portal.Views.Controls.OtherHelp;
@@ -40,6 +40,8 @@ using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWHSI = Skylark.Wing.Helper.SystemInfo;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 
 namespace Sucrose.Portal.ViewModels.Windows
 {
@@ -211,13 +213,13 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         private static WindowBackdropType GetWindowBackdropType()
         {
-            if (WindowBackdrop.IsSupported(SPMM.BackdropType))
+            if (WindowBackdrop.IsSupported(SPMMP.BackdropType))
             {
-                return SPMM.BackdropType;
+                return SPMMP.BackdropType;
             }
             else
             {
-                return SPMM.DefaultBackdropType;
+                return SPMI.DefaultBackdropType;
             }
         }
 
@@ -269,7 +271,7 @@ namespace Sucrose.Portal.ViewModels.Windows
                 {
                     if (SMMM.LibraryStart)
                     {
-                        SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, SPMI.LibraryService.Theme);
+                        SMMI.LibrarySettingManager.SetSetting(SMMCL.LibrarySelected, SPMI.LibraryService.Theme);
 
                         if (SSSHL.Run())
                         {

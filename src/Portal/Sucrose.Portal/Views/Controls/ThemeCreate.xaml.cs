@@ -25,6 +25,8 @@ using SSSHA = Sucrose.Shared.Space.Helper.Access;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -594,9 +596,9 @@ namespace Sucrose.Portal.Views.Controls
         {
             if (Button == ContentDialogButton.Primary)
             {
-                if (!Directory.Exists(SMMM.LibraryLocation))
+                if (!Directory.Exists(SMML.LibraryLocation))
                 {
-                    Directory.CreateDirectory(SMMM.LibraryLocation);
+                    Directory.CreateDirectory(SMML.LibraryLocation);
                 }
 
                 if (GifCard.Visibility == Visibility.Visible)
@@ -677,7 +679,7 @@ namespace Sucrose.Portal.Views.Controls
                         do
                         {
                             SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
-                            Theme = Path.Combine(SMMM.LibraryLocation, SPMI.LibraryService.Theme);
+                            Theme = Path.Combine(SMML.LibraryLocation, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
                         Directory.CreateDirectory(Theme);
@@ -823,7 +825,7 @@ namespace Sucrose.Portal.Views.Controls
                         do
                         {
                             SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
-                            Theme = Path.Combine(SMMM.LibraryLocation, SPMI.LibraryService.Theme);
+                            Theme = Path.Combine(SMML.LibraryLocation, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
                         Directory.CreateDirectory(Theme);
@@ -946,7 +948,7 @@ namespace Sucrose.Portal.Views.Controls
                         do
                         {
                             SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
-                            Theme = Path.Combine(SMMM.LibraryLocation, SPMI.LibraryService.Theme);
+                            Theme = Path.Combine(SMML.LibraryLocation, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
                         Directory.CreateDirectory(Theme);
@@ -1073,7 +1075,7 @@ namespace Sucrose.Portal.Views.Controls
                         do
                         {
                             SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
-                            Theme = Path.Combine(SMMM.LibraryLocation, SPMI.LibraryService.Theme);
+                            Theme = Path.Combine(SMML.LibraryLocation, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
                         Directory.CreateDirectory(Theme);
@@ -1219,7 +1221,7 @@ namespace Sucrose.Portal.Views.Controls
                         do
                         {
                             SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
-                            Theme = Path.Combine(SMMM.LibraryLocation, SPMI.LibraryService.Theme);
+                            Theme = Path.Combine(SMML.LibraryLocation, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
                         Directory.CreateDirectory(Theme);
@@ -1360,7 +1362,7 @@ namespace Sucrose.Portal.Views.Controls
                         do
                         {
                             SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
-                            Theme = Path.Combine(SMMM.LibraryLocation, SPMI.LibraryService.Theme);
+                            Theme = Path.Combine(SMML.LibraryLocation, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
                         Directory.CreateDirectory(Theme);

@@ -16,6 +16,8 @@ using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
@@ -118,8 +120,8 @@ namespace Sucrose.Live.Aurora
 
         protected void Configure()
         {
-            SSEMI.LibraryLocation = SMMM.LibraryLocation;
-            SSEMI.LibrarySelected = SMMM.LibrarySelected;
+            SSEMI.LibraryLocation = SMML.LibraryLocation;
+            SSEMI.LibrarySelected = SMML.LibrarySelected;
 
             if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SSEMI.LibrarySelected))
             {

@@ -7,6 +7,8 @@ using SEST = Skylark.Enum.StorageType;
 using SHC = Skylark.Helper.Culture;
 using SHN = Skylark.Helper.Numeric;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
@@ -76,7 +78,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             if (Button == ContentDialogButton.Primary)
             {
-                if (SMMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
+                if (SMML.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
                 {
                     return;
                 }

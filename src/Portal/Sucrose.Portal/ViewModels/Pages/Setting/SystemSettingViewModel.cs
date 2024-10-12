@@ -13,6 +13,7 @@ using MessageBox = Wpf.Ui.Controls.MessageBox;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMML = Sucrose.Manager.Manage.Library;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMMVL = Sucrose.Memory.Manage.Valuable.Log;
 using SMR = Sucrose.Memory.Readonly;
@@ -466,7 +467,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             LibraryTemporaryStart.IsEnabled = false;
 
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Temp}{SMR.ValueSeparator}{SMMM.LibraryLocation}{SMR.ValueSeparator}{SSSMI.Launcher}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Temp}{SMR.ValueSeparator}{SMML.LibraryLocation}{SMR.ValueSeparator}{SSSMI.Launcher}");
         }
 
         private async void LogTemporaryCreateClick(Button LogTemporaryCreate)
@@ -494,7 +495,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                 StoreTemporaryHint.Text = string.Format(SRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary", "Hint"), StoreTemporarySize);
 
-                string LibraryTemporarySize = await SSSHT.Size(SMMM.LibraryLocation);
+                string LibraryTemporarySize = await SSSHT.Size(SMML.LibraryLocation);
 
                 LibraryTemporaryHint.Text = string.Format(SRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary", "Hint"), LibraryTemporarySize);
             }

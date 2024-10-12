@@ -10,7 +10,7 @@ using MediaColor = System.Windows.Media.Color;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SPHL = Sucrose.Property.Helper.Localization;
 using SPHP = Sucrose.Property.Helper.Properties;
-using SPMM = Sucrose.Property.Manage.Manager;
+using SPMMP = Sucrose.Property.Manage.Manager.Portal;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
 using SSECCE = Skylark.Standard.Extension.Color.ColorExtension;
@@ -18,6 +18,7 @@ using SSTMCPM = Sucrose.Shared.Theme.Model.ColorPickerModel;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
+using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
 
 namespace Sucrose.Property.Controls
 {
@@ -36,7 +37,7 @@ namespace Sucrose.Property.Controls
 
             InitializeData(Key, Data);
 
-            if (SPMM.BackdropType == WindowBackdropType.Auto)
+            if (SPMMP.BackdropType == WindowBackdropType.Auto)
             {
                 if (SWHWT.GetTheme() == SEWTT.Dark)
                 {

@@ -1,4 +1,5 @@
-﻿using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+﻿using Wpf.Ui.Controls;
+using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 
 namespace Sucrose.Property.Manage
@@ -26,5 +27,7 @@ namespace Sucrose.Property.Manage
         public static bool EngineLive = false;
 
         public static SSTHP Properties = new();
+
+        public static WindowBackdropType DefaultBackdropType = WindowBackdropType.None;
     }
 }
