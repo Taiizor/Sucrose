@@ -1,16 +1,16 @@
 # Política de Privacidad
 
-Última actualización: 25 de julio de 2023
+Última actualización: 12 de octubre de 2024
 
 ¡Bienvenido! Gracias por elegir utilizar la aplicación Sucrose (en adelante, la "App"). Priorizamos la privacidad de nuestros usuarios, y esta Política de Privacidad se crea para proporcionar información sobre la información personal recopilada, utilizada y protegida por la App. Por favor, lea esta política detenidamente y al continuar utilizando la App, acepta cumplir con los términos y prácticas descritos aquí.
 
 ## 1. Información Recopilada
 
-La App puede recopilar cierta información personal para proporcionar diferentes temas y mejorar la experiencia del usuario. La información recopilada puede incluir:
+La App puede recopilar cierta información personal para proporcionar diferentes fondos de pantalla y mejorar la experiencia del usuario. La información recopilada puede incluir:
 
 ### 1.1. Información Proporcionada por el Usuario
 
-- Temas y contenido creados por usted
+- Fondos de pantalla y contenido creados por usted
 
 ### 1.2. Otomatik Olarak Toplanan Bilgiler
 
@@ -22,7 +22,7 @@ La App puede recopilar cierta información personal para proporcionar diferentes
 La información recopilada puede utilizarse para los siguientes propósitos:
 
 - Proporcionar y mejorar la funcionalidad de la App
-- Personalizar y compartir temas
+- Personalizar y compartir fondos de pantalla
 - Resolver problemas y brindar soporte al cliente
 - Mejorar la experiencia del usuario
 - Personalizar contenido y publicidad

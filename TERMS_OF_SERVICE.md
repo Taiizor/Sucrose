@@ -6,15 +6,15 @@
 
 1.2. We recommend that you carefully read and understand these Terms before using the Application. By using the Application, you are deemed to have fully and unconditionally accepted these Terms.
 
-## 2. Creation and Sharing of Themes
+## 2. Creation and Sharing of Wallpapers
 
-2.1. The Application allows you to create various themes that can contain content of different types, including Gif, Url, Web, Video, YouTube, and Application.
+2.1. The Application allows you to create various wallpapers that can contain content of different types, including Gif, Url, Web, Video, YouTube, and Application.
 
-2.2. Users can create their own themes and share them with their friends or make them publicly available in the Application's gallery (store).
+2.2. Users can create their own wallpapers and share them with their friends or make them publicly available in the Application's store.
 
 ## 3. Content and Responsibility
 
-3.1. Users are solely responsible for the content of the themes they create and use. The Application is not responsible for user-generated content.
+3.1. Users are solely responsible for the content of the wallpapers they create and use. The Application is not responsible for user-generated content.
 
 3.2. Users must ensure that the content is legal and respectful of the rights of third parties, including copyright, trademarks, and other intellectual property rights.
 
@@ -41,7 +41,7 @@
 
 7.1. The Application and its content are subject to all intellectual property rights owned by the Application.
 
-7.2. While users retain ownership of the themes they create within the Application, all content in the services provided by the Application is the intellectual property of the Application.
+7.2. While users retain ownership of the wallpapers they create within the Application, all content in the services provided by the Application is the intellectual property of the Application.
 
 ## 8. Communication
 

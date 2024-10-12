@@ -6,15 +6,15 @@
 
 1.2. Uygulama'yı kullanmaya başlamadan önce bu Hizmet Şartları'nı dikkatlice okumanızı ve anlamanızı öneririz. Uygulama'yı kullanarak, bu Hizmet Şartları'nı tamamen ve kesin olarak kabul etmiş sayılırsınız.
 
-## 2. Temaların Oluşturulması ve Paylaşılması
+## 2. Duvar Kağıtlarının Oluşturulması ve Paylaşılması
 
-2.1. Uygulama, çeşitli temaların oluşturulmasına olanak sağlar. Temalar Gif, Url, Web, Video, YouTube ve Application olmak üzere farklı türlerde içerikler barındırabilir.
+2.1. Uygulama, çeşitli duvar kağıtlarının oluşturulmasına olanak sağlar. Duvar kağıtları Gif, Url, Web, Video, YouTube ve Application olmak üzere farklı türlerde içerikler barındırabilir.
 
-2.2. Kullanıcılar, kendi temalarını oluşturabilir ve bu temaları arkadaşlarıyla paylaşabilir veya Uygulama'nın galerisinde (mağazasında) herkese açık bir şekilde paylaşabilirler.
+2.2. Kullanıcılar, kendi duvar kağıtlarını oluşturabilir ve bu duvar kağıtlarını arkadaşlarıyla paylaşabilir veya Uygulama'nın mağazasında herkese açık bir şekilde paylaşabilirler.
 
 ## 3. İçerik ve Sorumluluk
 
-3.1. Kullanıcılar, kendi oluşturdukları temaların içeriğinden ve kullanımından tamamen sorumludur. Uygulama, kullanıcılar tarafından oluşturulan temaların içeriğinden sorumlu değildir.
+3.1. Kullanıcılar, kendi oluşturdukları duvar kağıtlarının içeriğinden ve kullanımından tamamen sorumludur. Uygulama, kullanıcılar tarafından oluşturulan duvar kağıtlarının içeriğinden sorumlu değildir.
 
 3.2. Kullanıcılar, içeriğin yasalara uygun ve üçüncü tarafların haklarına saygılı olduğundan emin olmalıdır. Telif hakkı, ticari marka ve diğer fikri mülkiyet haklarına saygı gösterilmelidir.
 
@@ -41,7 +41,7 @@
 
 7.1. Uygulama ve içeriği, Uygulama'nın sahip olduğu tüm fikri mülkiyet haklarına tabidir.
 
-7.2. Kullanıcılar, Uygulama'da oluşturdukları temaların sahipliğini korurken, Uygulama tarafından sunulan hizmetlerdeki tüm içeriğin fikri mülkiyet hakları Uygulama'ya aittir.
+7.2. Kullanıcılar, Uygulama'da oluşturdukları duvar kağıtlarının sahipliğini korurken, Uygulama tarafından sunulan hizmetlerdeki tüm içeriğin fikri mülkiyet hakları Uygulama'ya aittir.
 
 ## 8. İletişim
 

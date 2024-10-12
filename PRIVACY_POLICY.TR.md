@@ -1,16 +1,16 @@
 # Gizlilik Politikası
 
-Son güncelleme tarihi: 25 Temmuz 2023
+Son güncelleme tarihi: 12 Ekim 2024
 
 Hoş geldiniz! Sucrose adlı uygulamayı (bundan sonra "Uygulama" olarak anılacaktır) kullanmayı tercih ettiğiniz için teşekkür ederiz. Uygulama, kullanıcılarının gizliliğini korumayı önemser ve bu Gizlilik Politikası, uygulama tarafından toplanan, kullanılan ve korunan kişisel bilgileriniz hakkında size bilgi vermek amacıyla oluşturulmuştur. Lütfen bu politikayı dikkatlice okuyunuz ve Uygulama'yı kullanmaya devam etmekle, burada belirtilen koşullara ve uygulamalara uymayı kabul etmiş olursunuz.
 
 ## 1. Toplanan Bilgiler
 
-Uygulama, çeşitli temaların sunulması ve kullanıcı deneyiminin iyileştirilmesi amacıyla belirli kişisel bilgilerinizi toplayabilir. Toplanan bilgiler şunları içerebilir:
+Uygulama, çeşitli duvar kağıtlarının sunulması ve kullanıcı deneyiminin iyileştirilmesi amacıyla belirli kişisel bilgilerinizi toplayabilir. Toplanan bilgiler şunları içerebilir:
 
 ### 1.1. Kullanıcı Sağlanan Bilgiler
 
-- Oluşturduğunuz temalar ve içerikler
+- Oluşturduğunuz duvar kağıtları ve içerikler
 
 ### 1.2. Otomatik Olarak Toplanan Bilgiler
 
@@ -22,7 +22,7 @@ Uygulama, çeşitli temaların sunulması ve kullanıcı deneyiminin iyileştiri
 Toplanan bilgiler, aşağıdaki amaçlar için kullanılabilir:
 
 - Uygulamanın sunulması ve geliştirilmesi
-- Temaların özelleştirilmesi ve paylaşılması
+- Duvar kağıtlarının özelleştirilmesi ve paylaşılması
 - Sorun giderme ve müşteri desteği sağlama
 - Kullanıcı deneyiminin iyileştirilmesi
 - İçerik ve reklamların kişiselleştirilmesi
