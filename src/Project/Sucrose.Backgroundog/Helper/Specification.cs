@@ -41,6 +41,8 @@ using SWUP = Skylark.Wing.Utility.Power;
 using SWUS = Skylark.Wing.Utility.Screene;
 using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SMMS = Sucrose.Manager.Manage.System;
+using SMMCS = Sucrose.Memory.Manage.Constant.System;
 using SystemInformation = System.Windows.Forms.SystemInformation;
 
 namespace Sucrose.Backgroundog.Helper
@@ -324,7 +326,7 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             SBMI.GraphicInterfaces = SSSHU.GetGraphic();
 
-                            SMMI.SystemSettingManager.SetSetting(SMC.GraphicInterfaces, SBMI.GraphicInterfaces);
+                            SMMI.SystemSettingManager.SetSetting(SMMCS.GraphicInterfaces, SBMI.GraphicInterfaces);
 
                             if (SBMI.GraphicInterfaces.Any() && (string.IsNullOrEmpty(SMMB.GraphicAdapter) || !SBMI.GraphicInterfaces.Contains(SMMB.GraphicAdapter)))
                             {
@@ -372,7 +374,7 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             SBMI.NetworkInterfaces = SSSHN.InstanceNetworkInterfaces();
 
-                            SMMI.SystemSettingManager.SetSetting(SMC.NetworkInterfaces, SBMI.NetworkInterfaces);
+                            SMMI.SystemSettingManager.SetSetting(SMMCS.NetworkInterfaces, SBMI.NetworkInterfaces);
 
                             if (SBMI.NetworkInterfaces.Any() && (string.IsNullOrEmpty(SMMB.NetworkAdapter) || !SBMI.NetworkInterfaces.Contains(SMMB.NetworkAdapter)))
                             {

@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SMMCD = Sucrose.Memory.Manage.Constant.Donate;
+using SMMD = Sucrose.Manager.Manage.Donate;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SPMI = Sucrose.Portal.Manage.Internal;
@@ -57,7 +58,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             DonateVisible.Items.Add(SRER.GetValue("Portal", "DonateSettingPage", "DonateMenu", "DonateVisible", "Show"));
             DonateVisible.Items.Add(SRER.GetValue("Portal", "DonateSettingPage", "DonateMenu", "DonateVisible", "Hide"));
 
-            DonateVisible.SelectedIndex = SMMM.DonateVisible ? 0 : 1;
+            DonateVisible.SelectedIndex = SMMD.DonateVisible ? 0 : 1;
 
             DonateMenu.HeaderFrame = DonateVisible;
 
@@ -85,7 +86,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch AdvertisingState = new()
             {
-                IsChecked = SMMM.AdvertisingState
+                IsChecked = SMMD.AdvertisingState
             };
 
             AdvertisingState.Checked += (s, e) => AdvertisingStateChecked(true);
@@ -113,7 +114,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Icon = new SymbolIcon(SymbolRegular.Timer20),
                 IconPlacement = ElementPlacement.Left,
-                Value = SMMM.AdvertisingDelay,
+                Value = SMMD.AdvertisingDelay,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
                 MaxLength = 3,
@@ -149,7 +150,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void DonateVisibleSelected(int Index)
         {
-            if (Index != (SMMM.DonateVisible ? 0 : 1))
+            if (Index != (SMMD.DonateVisible ? 0 : 1))
             {
                 bool State = Index == 0;
                 Visibility Visible = State ? Visibility.Visible : Visibility.Collapsed;
@@ -169,7 +170,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.AdvertisingDelay)
+            if (NewValue != SMMD.AdvertisingDelay)
             {
                 SMMI.DonateSettingManager.SetSetting(SMMCD.AdvertisingDelay, NewValue);
             }

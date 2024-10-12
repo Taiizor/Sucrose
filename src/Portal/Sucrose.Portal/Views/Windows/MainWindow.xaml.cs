@@ -34,6 +34,8 @@ using SSSMSD = Sucrose.Shared.Space.Model.SearchData;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
+using SMMP = Sucrose.Manager.Manage.Portal;
+using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
 
 namespace Sucrose.Portal.Views.Windows
 {
@@ -114,7 +116,7 @@ namespace Sucrose.Portal.Views.Windows
             }
 
             SXAGAB.SetClientUserAgent(SMMM.UserAgent);
-            SXAGAB.SetDownloadCacheExpiration(TimeSpan.FromHours(SMMM.StoreDuration));
+            SXAGAB.SetDownloadCacheExpiration(TimeSpan.FromHours(SMMP.StoreDuration));
             SXAGAB.SetDownloadCacheLocation(Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary));
         }
 

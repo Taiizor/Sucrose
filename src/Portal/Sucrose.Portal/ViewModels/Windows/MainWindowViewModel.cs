@@ -21,7 +21,11 @@ using SPMMP = Sucrose.Portal.Manage.Manager.Portal;
 using SPVCDP = Sucrose.Portal.Views.Controls.DisplayPreferences;
 using SPVCOA = Sucrose.Portal.Views.Controls.OtherAbout;
 using SPVCOH = Sucrose.Portal.Views.Controls.OtherHelp;
+using SMMCD = Sucrose.Memory.Manage.Constant.Donate;
+using SMMD = Sucrose.Manager.Manage.Donate;
 using SPVCTC = Sucrose.Portal.Views.Controls.ThemeCreate;
+using SMMP = Sucrose.Manager.Manage.Portal;
+using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
 using SPVCWC = Sucrose.Portal.Views.Controls.WallpaperCycling;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SMMB = Sucrose.Manager.Manage.Backgroundog;
@@ -165,7 +169,7 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         private double GetOpacity()
         {
-            return SMMM.BackgroundOpacity / 100d;
+            return SMMP.BackgroundOpacity / 100d;
         }
 
         private string GetQuoting()
@@ -189,14 +193,14 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         private Visibility GetDonater()
         {
-            return SMMM.DonateVisible ? Visibility.Visible : Visibility.Collapsed;
+            return SMMD.DonateVisible ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private string GetBackgrounder()
         {
-            if (File.Exists(SMMM.BackgroundImage))
+            if (File.Exists(SMMP.BackgroundImage))
             {
-                return SMMM.BackgroundImage;
+                return SMMP.BackgroundImage;
             }
             else
             {
@@ -206,9 +210,9 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         private BitmapImage GetBackgrounder2()
         {
-            if (File.Exists(SMMM.BackgroundImage))
+            if (File.Exists(SMMP.BackgroundImage))
             {
-                return Loader.LoadOptimal(SMMM.BackgroundImage, false);
+                return Loader.LoadOptimal(SMMP.BackgroundImage, false);
             }
             else
             {

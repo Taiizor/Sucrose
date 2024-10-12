@@ -7,6 +7,8 @@ using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCLC = Sucrose.Portal.Views.Controls.LibraryCard;
 using SMML = Sucrose.Manager.Manage.Library;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SMMP = Sucrose.Manager.Manage.Portal;
+using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
 
 namespace Sucrose.Portal.Views.Pages.Library
 {
@@ -49,7 +51,7 @@ namespace Sucrose.Portal.Views.Pages.Library
             {
                 foreach (KeyValuePair<string, string> Pair in Searches.Where(Theme => Directory.Exists(Path.Combine(SMML.LibraryLocation, Theme.Key))).ToDictionary(Theme => Theme.Key, Theme => Theme.Value).ToArray().Select(Pair => new { Pair.Key, Pair.Value, MatchCount = CountMatchingWords(Pair.Value, Search) }).Where(Pair => Pair.MatchCount > 0).OrderByDescending(Pair => Pair.MatchCount).ToDictionary(Pair => Pair.Key, Pair => Pair.Value))
                 {
-                    if (SMMM.LibraryPagination * Page > Count && SMMM.LibraryPagination * Page <= Count + SMMM.LibraryPagination)
+                    if (SMMP.LibraryPagination * Page > Count && SMMP.LibraryPagination * Page <= Count + SMMP.LibraryPagination)
                     {
                         string ThemePath = Path.Combine(SMML.LibraryLocation, Pair.Key);
 
@@ -73,7 +75,7 @@ namespace Sucrose.Portal.Views.Pages.Library
             {
                 foreach (string Theme in Themes.Where(Theme => Directory.Exists(Path.Combine(SMML.LibraryLocation, Theme))).ToList())
                 {
-                    if (SMMM.LibraryPagination * Page > Count && SMMM.LibraryPagination * Page <= Count + SMMM.LibraryPagination)
+                    if (SMMP.LibraryPagination * Page > Count && SMMP.LibraryPagination * Page <= Count + SMMP.LibraryPagination)
                     {
                         string ThemePath = Path.Combine(SMML.LibraryLocation, Theme);
 
@@ -97,7 +99,7 @@ namespace Sucrose.Portal.Views.Pages.Library
                 Empty.Visibility = Visibility.Visible;
             }
 
-            ThemePagination.MaxPage = (int)Math.Ceiling((double)Count / SMMM.LibraryPagination);
+            ThemePagination.MaxPage = (int)Math.Ceiling((double)Count / SMMP.LibraryPagination);
         }
 
         private static int CountMatchingWords(string Text, string[] Pattern)
@@ -107,8 +109,8 @@ namespace Sucrose.Portal.Views.Pages.Library
 
         private async void FullLibraryPage_Loaded(object sender, RoutedEventArgs e)
         {
-            ThemeLibrary.ItemMargin = new Thickness(SMMM.AdaptiveMargin);
-            ThemeLibrary.MaxItemsPerRow = SMMM.AdaptiveLayout;
+            ThemeLibrary.ItemMargin = new Thickness(SMMP.AdaptiveMargin);
+            ThemeLibrary.MaxItemsPerRow = SMMP.AdaptiveLayout;
 
             await AddThemes(SPMI.SearchService.SearchList, ThemePagination.SelectPage);
         }

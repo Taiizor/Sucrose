@@ -14,6 +14,8 @@ using SSSHC = Sucrose.Shared.Space.Helper.Clean;
 using SSSIC = Sucrose.Shared.Store.Interface.Category;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
+using SMMP = Sucrose.Manager.Manage.Portal;
+using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
 
 namespace Sucrose.Portal.Views.Pages.Store
 {
@@ -55,7 +57,7 @@ namespace Sucrose.Portal.Views.Pages.Store
             {
                 foreach (KeyValuePair<string, SSSIC> Category in Root.Categories)
                 {
-                    if (Category.Value.Wallpapers.Any() && (SMMM.Adult || Category.Value.Wallpapers.Count(Wallpaper => Wallpaper.Value.Adult) != Category.Value.Wallpapers.Count()))
+                    if (Category.Value.Wallpapers.Any() && (SMMP.Adult || Category.Value.Wallpapers.Count(Wallpaper => Wallpaper.Value.Adult) != Category.Value.Wallpapers.Count()))
                     {
                         SymbolRegular Symbol = SPMI.DefaultIcon;
 
@@ -166,11 +168,11 @@ namespace Sucrose.Portal.Views.Pages.Store
                     {
                         if (string.IsNullOrEmpty(SPMI.CategoryService.CategoryTag) || Category.CategoryKey == SPMI.CategoryService.CategoryTag)
                         {
-                            if (!Category.Wallpaper.Adult || (Category.Wallpaper.Adult && SMMM.Adult))
+                            if (!Category.Wallpaper.Adult || (Category.Wallpaper.Adult && SMMP.Adult))
                             {
                                 if (ThemePagination.SelectPage == Page && SPMI.CategoryService.CategoryTag == Tag && SPMI.SearchService.SearchList.Any() && SPMI.SearchService.SearchText == Text)
                                 {
-                                    if (SMMM.StorePagination * Page > Count && SMMM.StorePagination * Page <= Count + SMMM.StorePagination)
+                                    if (SMMP.StorePagination * Page > Count && SMMP.StorePagination * Page <= Count + SMMP.StorePagination)
                                     {
                                         string Theme = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, Category.CategoryKey, SSSHC.FileName(Category.WallpaperKey));
 
@@ -201,11 +203,11 @@ namespace Sucrose.Portal.Views.Pages.Store
                         {
                             foreach (KeyValuePair<string, SSSIW> Wallpaper in Category.Value.Wallpapers)
                             {
-                                if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && SMMM.Adult))
+                                if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && SMMP.Adult))
                                 {
                                     if (ThemePagination.SelectPage == Page && SPMI.CategoryService.CategoryTag == Tag && !SPMI.SearchService.SearchList.Any())
                                     {
-                                        if (SMMM.StorePagination * Page > Count && SMMM.StorePagination * Page <= Count + SMMM.StorePagination)
+                                        if (SMMP.StorePagination * Page > Count && SMMP.StorePagination * Page <= Count + SMMP.StorePagination)
                                         {
                                             string Theme = Path.Combine(SMMRP.ApplicationData, SMR.AppName, SMR.CacheFolder, SMR.Store, Category.Key, SSSHC.FileName(Wallpaper.Key));
 
@@ -235,7 +237,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                     Empty.Visibility = Visibility.Visible;
                 }
 
-                ThemePagination.MaxPage = (int)Math.Ceiling((double)Count / SMMM.StorePagination);
+                ThemePagination.MaxPage = (int)Math.Ceiling((double)Count / SMMP.StorePagination);
             });
         }
 
@@ -248,8 +250,8 @@ namespace Sucrose.Portal.Views.Pages.Store
         {
             Dispose();
 
-            ThemeStore.ItemMargin = new Thickness(SMMM.AdaptiveMargin);
-            ThemeStore.MaxItemsPerRow = SMMM.AdaptiveLayout;
+            ThemeStore.ItemMargin = new Thickness(SMMP.AdaptiveMargin);
+            ThemeStore.MaxItemsPerRow = SMMP.AdaptiveLayout;
 
             await AddThemes(SPMI.SearchService.SearchList, SPMI.SearchService.SearchText, ThemePagination.SelectPage, SPMI.CategoryService.CategoryTag);
         }

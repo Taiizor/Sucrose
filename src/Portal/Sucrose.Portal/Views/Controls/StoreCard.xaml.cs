@@ -15,6 +15,8 @@ using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SMMP = Sucrose.Manager.Manage.Portal;
+using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
@@ -369,7 +371,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void StoreCard_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (Info != null && SMMM.StorePreview)
+            if (Info != null && SMMP.StorePreview)
             {
                 string GifPath = $"{SSSHS.Source(SSDMMP.StoreServerType)}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Live}";
 
@@ -380,7 +382,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void StoreCard_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (Info != null && SMMM.StorePreview)
+            if (Info != null && SMMP.StorePreview)
             {
                 Imaginer.Source = null;
                 SXAGAB.SetSourceUri(Imaginer, null);
@@ -388,7 +390,7 @@ namespace Sucrose.Portal.Views.Controls
                 Imagine.Visibility = Visibility.Visible;
                 Imaginer.Visibility = Visibility.Hidden;
 
-                if (SMMM.StorePreviewHide)
+                if (SMMP.StorePreviewHide)
                 {
                     Preview.Visibility = Visibility.Visible;
                 }
@@ -402,7 +404,7 @@ namespace Sucrose.Portal.Views.Controls
             Imaginer.Visibility = Visibility.Visible;
             Imagine.Visibility = Visibility.Hidden;
 
-            if (SMMM.StorePreviewHide)
+            if (SMMP.StorePreviewHide)
             {
                 Preview.Visibility = Visibility.Hidden;
             }

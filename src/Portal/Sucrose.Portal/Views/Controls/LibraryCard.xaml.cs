@@ -17,6 +17,8 @@ using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SMMP = Sucrose.Manager.Manage.Portal;
+using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -346,7 +348,7 @@ namespace Sucrose.Portal.Views.Controls
             Imaginer.Visibility = Visibility.Visible;
             Imagine.Visibility = Visibility.Hidden;
 
-            if (SMMM.LibraryPreviewHide)
+            if (SMMP.LibraryPreviewHide)
             {
                 Preview.Visibility = Visibility.Hidden;
             }
@@ -356,7 +358,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void LibraryCard_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (SMMM.LibraryPreview)
+            if (SMMP.LibraryPreview)
             {
                 Imaginer.Source = null;
                 SXAGAB.SetSourceUri(Imaginer, null);
@@ -364,7 +366,7 @@ namespace Sucrose.Portal.Views.Controls
                 Imagine.Visibility = Visibility.Visible;
                 Imaginer.Visibility = Visibility.Hidden;
 
-                if (SMMM.LibraryPreviewHide)
+                if (SMMP.LibraryPreviewHide)
                 {
                     Preview.Visibility = Visibility.Visible;
                 }
@@ -384,7 +386,7 @@ namespace Sucrose.Portal.Views.Controls
                 Cursor = Cursors.Hand;
             }
 
-            if (SMMM.LibraryPreview)
+            if (SMMP.LibraryPreview)
             {
                 string GifPath = Path.Combine(Theme, Info.Preview);
 

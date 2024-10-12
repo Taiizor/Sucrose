@@ -20,6 +20,7 @@ using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMME = Sucrose.Manager.Manage.Engine;
 using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
 using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
+using SMMP = Sucrose.Manager.Manage.Portal;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -105,7 +106,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Icon = new SymbolIcon(SymbolRegular.Clock24),
                 IconPlacement = ElementPlacement.Left,
                 ClearButtonEnabled = false,
-                Value = SMMM.StoreDuration,
+                Value = SMMP.StoreDuration,
                 MaxDecimalPlaces = 0,
                 MaxLength = 2,
                 Maximum = 24,
@@ -152,7 +153,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch AdultState = new()
             {
-                IsChecked = SMMM.Adult
+                IsChecked = SMMP.Adult
             };
 
             AdultState.Checked += (s, e) => AdultStateChecked(true);
@@ -288,7 +289,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch StorePreview = new()
             {
-                IsChecked = SMMM.StorePreview
+                IsChecked = SMMP.StorePreview
             };
 
             StorePreview.Checked += (s, e) => StorePreviewChecked(true);
@@ -305,7 +306,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch StorePreviewHide = new()
             {
-                IsChecked = SMMM.StorePreviewHide
+                IsChecked = SMMP.StorePreviewHide
             };
 
             StorePreviewHide.Checked += (s, e) => StorePreviewHideChecked(true);
@@ -328,7 +329,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch LibraryPreview = new()
             {
-                IsChecked = SMMM.LibraryPreview
+                IsChecked = SMMP.LibraryPreview
             };
 
             LibraryPreview.Checked += (s, e) => LibraryPreviewChecked(true);
@@ -345,7 +346,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch LibraryPreviewHide = new()
             {
-                IsChecked = SMMM.LibraryPreviewHide
+                IsChecked = SMMP.LibraryPreviewHide
             };
 
             LibraryPreviewHide.Checked += (s, e) => LibraryPreviewHideChecked(true);
@@ -397,7 +398,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Icon = new SymbolIcon(SymbolRegular.DocumentMargins24),
                 IconPlacement = ElementPlacement.Left,
-                Value = SMMM.AdaptiveMargin,
+                Value = SMMP.AdaptiveMargin,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
                 MaxLength = 2,
@@ -426,7 +427,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Icon = new SymbolIcon(SymbolRegular.NumberRow24),
                 IconPlacement = ElementPlacement.Left,
-                Value = SMMM.AdaptiveLayout,
+                Value = SMMP.AdaptiveLayout,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
                 MaxLength = 3,
@@ -535,7 +536,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Icon = new SymbolIcon(SymbolRegular.TextWordCount24),
                 IconPlacement = ElementPlacement.Left,
-                Value = SMMM.StorePagination,
+                Value = SMMP.StorePagination,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
                 MaxLength = 3,
@@ -563,7 +564,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Icon = new SymbolIcon(SymbolRegular.TextWordCount24),
                 IconPlacement = ElementPlacement.Left,
-                Value = SMMM.LibraryPagination,
+                Value = SMMP.LibraryPagination,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
                 MaxLength = 3,
@@ -614,7 +615,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void AdultStateChecked(bool State)
         {
-            SMMI.PortalSettingManager.SetSetting(SMC.Adult, State);
+            SMMI.PortalSettingManager.SetSetting(SMMCP.Adult, State);
         }
 
         private void DeleteStateChecked(bool State)
@@ -629,12 +630,12 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void StorePreviewChecked(bool State)
         {
-            SMMI.PortalSettingManager.SetSetting(SMC.StorePreview, State);
+            SMMI.PortalSettingManager.SetSetting(SMMCP.StorePreview, State);
         }
 
         private void LibraryPreviewChecked(bool State)
         {
-            SMMI.PortalSettingManager.SetSetting(SMC.LibraryPreview, State);
+            SMMI.PortalSettingManager.SetSetting(SMMCP.LibraryPreview, State);
         }
 
         private void StoreStartStateChecked(bool State)
@@ -646,15 +647,15 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.StoreDuration)
+            if (NewValue != SMMP.StoreDuration)
             {
-                SMMI.PortalSettingManager.SetSetting(SMC.StoreDuration, NewValue);
+                SMMI.PortalSettingManager.SetSetting(SMMCP.StoreDuration, NewValue);
             }
         }
 
         private void StorePreviewHideChecked(bool State)
         {
-            SMMI.PortalSettingManager.SetSetting(SMC.StorePreviewHide, State);
+            SMMI.PortalSettingManager.SetSetting(SMMCP.StorePreviewHide, State);
         }
 
         private void LibraryStartStateChecked(bool State)
@@ -666,9 +667,9 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.AdaptiveMargin)
+            if (NewValue != SMMP.AdaptiveMargin)
             {
-                SMMI.PortalSettingManager.SetSetting(SMC.AdaptiveMargin, NewValue);
+                SMMI.PortalSettingManager.SetSetting(SMMCP.AdaptiveMargin, NewValue);
             }
         }
 
@@ -676,24 +677,24 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.AdaptiveLayout)
+            if (NewValue != SMMP.AdaptiveLayout)
             {
-                SMMI.PortalSettingManager.SetSetting(SMC.AdaptiveLayout, NewValue);
+                SMMI.PortalSettingManager.SetSetting(SMMCP.AdaptiveLayout, NewValue);
             }
         }
 
         private void LibraryPreviewHideChecked(bool State)
         {
-            SMMI.PortalSettingManager.SetSetting(SMC.LibraryPreviewHide, State);
+            SMMI.PortalSettingManager.SetSetting(SMMCP.LibraryPreviewHide, State);
         }
 
         private void StorePaginationChanged(double? Value)
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.StorePagination)
+            if (NewValue != SMMP.StorePagination)
             {
-                SMMI.PortalSettingManager.SetSetting(SMC.StorePagination, NewValue);
+                SMMI.PortalSettingManager.SetSetting(SMMCP.StorePagination, NewValue);
             }
         }
 
@@ -701,9 +702,9 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.LibraryPagination)
+            if (NewValue != SMMP.LibraryPagination)
             {
-                SMMI.PortalSettingManager.SetSetting(SMC.LibraryPagination, NewValue);
+                SMMI.PortalSettingManager.SetSetting(SMMCP.LibraryPagination, NewValue);
             }
         }
 

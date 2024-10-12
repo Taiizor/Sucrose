@@ -23,6 +23,8 @@ using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
 using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SMMCB = Sucrose.Memory.Manage.Constant.Backgroundog;
+using SMMS = Sucrose.Manager.Manage.System;
+using SMMCS = Sucrose.Memory.Manage.Constant.System;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -253,11 +255,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             DynamicScrollViewer.SetVerticalScrollBarVisibility(GpuAdapter, ScrollBarVisibility.Auto);
 
-            if (SMMM.GraphicInterfaces.Any())
+            if (SMMS.GraphicInterfaces.Any())
             {
                 GpuAdapter.SelectionChanged += (s, e) => GpuAdapterSelected($"{GpuAdapter.SelectedValue}");
 
-                foreach (string Interface in SMMM.GraphicInterfaces)
+                foreach (string Interface in SMMS.GraphicInterfaces)
                 {
                     GpuAdapter.Items.Add(Interface);
                 }
@@ -429,11 +431,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             DynamicScrollViewer.SetVerticalScrollBarVisibility(NetworkAdapter, ScrollBarVisibility.Auto);
 
-            if (SMMM.NetworkInterfaces.Any())
+            if (SMMS.NetworkInterfaces.Any())
             {
                 NetworkAdapter.SelectionChanged += (s, e) => NetworkAdapterSelected($"{NetworkAdapter.SelectedValue}");
 
-                foreach (string Interface in SMMM.NetworkInterfaces)
+                foreach (string Interface in SMMS.NetworkInterfaces)
                 {
                     NetworkAdapter.Items.Add(Interface);
                 }

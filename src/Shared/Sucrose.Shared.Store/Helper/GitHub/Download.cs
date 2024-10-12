@@ -9,6 +9,8 @@ using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
+using SMMP = Sucrose.Manager.Manage.Portal;
+using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
 
 namespace Sucrose.Shared.Store.Helper.GitHub
 {
@@ -25,7 +27,7 @@ namespace Sucrose.Shared.Store.Helper.GitHub
 
                     TimeSpan ElapsedDuration = CurrentTime - ModificationTime;
 
-                    if (ElapsedDuration >= TimeSpan.FromHours(SMMM.StoreDuration) || !SSSHS.CheckRoot(Store))
+                    if (ElapsedDuration >= TimeSpan.FromHours(SMMP.StoreDuration) || !SSSHS.CheckRoot(Store))
                     {
                         File.Delete(Store);
                     }
@@ -95,7 +97,7 @@ namespace Sucrose.Shared.Store.Helper.GitHub
 
                     TimeSpan ElapsedDuration = CurrentTime - ModificationTime;
 
-                    if (ElapsedDuration >= TimeSpan.FromHours(SMMM.StoreDuration))
+                    if (ElapsedDuration >= TimeSpan.FromHours(SMMP.StoreDuration))
                     {
                         File.Delete(Info);
                         File.Delete(Cover);

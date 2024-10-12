@@ -47,6 +47,7 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using TextBlock = System.Windows.Controls.TextBlock;
+using SMMP = Sucrose.Manager.Manage.Portal;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -206,7 +207,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Button BackgroundImage = new()
             {
-                Content = string.IsNullOrEmpty(SMMM.BackgroundImage) ? SRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Select") : SMMM.BackgroundImage,
+                Content = string.IsNullOrEmpty(SMMP.BackgroundImage) ? SRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Select") : SMMP.BackgroundImage,
                 Cursor = Cursors.Hand,
                 MaxWidth = 700,
                 MinWidth = 350
@@ -275,7 +276,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Icon = new SymbolIcon(SymbolRegular.PositionBackward24),
                 IconPlacement = ElementPlacement.Left,
-                Value = SMMM.BackgroundOpacity,
+                Value = SMMP.BackgroundOpacity,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
                 MaxLength = 3,
@@ -605,9 +606,9 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMM.BackgroundOpacity)
+            if (NewValue != SMMP.BackgroundOpacity)
             {
-                SMMI.PortalSettingManager.SetSetting(SMC.BackgroundOpacity, NewValue);
+                SMMI.PortalSettingManager.SetSetting(SMMCP.BackgroundOpacity, NewValue);
 
                 SPMI.BackdropService.BackdropOpacity = NewValue;
             }
@@ -639,7 +640,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             BackgroundImage.IsEnabled = false;
 
-            string Startup = string.IsNullOrEmpty(SMMM.BackgroundImage) ? SMMRP.Desktop : Path.GetDirectoryName(SMMM.BackgroundImage);
+            string Startup = string.IsNullOrEmpty(SMMP.BackgroundImage) ? SMMRP.Desktop : Path.GetDirectoryName(SMMP.BackgroundImage);
 
             OpenFileDialog FileDialog = new()
             {
@@ -655,13 +656,13 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 string Destination = FileDialog.FileName;
 
-                if (Destination != SMMM.BackgroundImage)
+                if (Destination != SMMP.BackgroundImage)
                 {
                     if (SSSHA.File(Destination))
                     {
                         BackgroundImage.Content = Destination;
 
-                        SMMI.PortalSettingManager.SetSetting(SMC.BackgroundImage, Destination);
+                        SMMI.PortalSettingManager.SetSetting(SMMCP.BackgroundImage, Destination);
 
                         SPMI.BackdropService.BackdropImage = Destination;
                     }
@@ -671,7 +672,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                         await Task.Delay(3000);
 
-                        BackgroundImage.Content = string.IsNullOrEmpty(SMMM.BackgroundImage) ? SRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Select") : SMMM.BackgroundImage;
+                        BackgroundImage.Content = string.IsNullOrEmpty(SMMP.BackgroundImage) ? SRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Select") : SMMP.BackgroundImage;
                     }
                 }
             }
@@ -857,7 +858,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             BackgroundImage.Content = SRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Select");
 
-            SMMI.PortalSettingManager.SetSetting(SMC.BackgroundImage, string.Empty);
+            SMMI.PortalSettingManager.SetSetting(SMMCP.BackgroundImage, string.Empty);
 
             SPMI.BackdropService.BackdropImage = string.Empty;
         }
