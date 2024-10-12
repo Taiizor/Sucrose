@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SMR = Sucrose.Memory.Readonly;
 using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
@@ -14,7 +13,7 @@ namespace Sucrose.Shared.Store.Helper
             return Store switch
             {
                 SSDESST.GitHub => SMMRGU.RawGitHubStoreBranch,
-                _ => SMR.SoferityStore,
+                _ => SMMRGU.SoferityStore,
             };
         }
 

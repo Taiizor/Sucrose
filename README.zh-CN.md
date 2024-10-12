@@ -11,7 +11,7 @@
 
 <div align="center">
   <span>
-    <b>Sucrose</b> 是一个多功能的壁纸引擎，可以在你的桌面上呈现各种互动主题。它提供了明亮和暗黑主题选项，你可以选择符合个人偏好的外观。你可以简单地或详细地创建自己的壁纸，它支持多屏幕和所有屏幕分辨率，确保在各种显示配置下获得无缝体验。
+    <b>Sucrose</b> 是一个多功能的壁纸引擎，可以在桌面上呈现各种互动壁纸。它提供了明亮和黑暗主题选项，您可以根据个人喜好选择外观。您可以简单或详细地创建自己的壁纸，支持多屏幕和所有屏幕分辨率，确保在不同显示配置中实现无缝体验。
   </span>
   <br>
   <br>
@@ -21,7 +21,7 @@
   <br>
   <br>
   <span>
-	<b>Sucrose</b> 允许你创建自己的自定义主题并与朋友或 <b>Sucrose 社区</b> 分享。你可以直接从 <b>Sucrose 商店</b> 探索和下载用户提供的主题。
+	<b>Sucrose</b> 允许您创建自己的自定义壁纸，并与朋友或 <b>Sucrose 社区</b> 分享。您还可以直接从 <b>Sucrose 商店</b> 探索并下载其他用户提供的壁纸。
   </span>
   <br>
   <br>
@@ -98,7 +98,7 @@
   <h4>壁纸种类</h4>
   <table align="center" style="margin:auto">
     <tr>
-      <th>主题类型</th>
+      <th>壁纸类型</th>
       <th>示例</th>
       <th>互动</th>
       <th>分辨率</th>
@@ -108,7 +108,7 @@
       <td>Gif</td>
       <td>
         <img src=".screenshots/Gif.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Colorful/Asus ROG-1">Asus ROG</a> 主题
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Colorful/Asus ROG-1">Asus ROG</a> 壁纸
       </td>
       <td>否</td>
       <td>可变</td>
@@ -118,7 +118,7 @@
       <td>Url</td>
       <td>
         <img src=".screenshots/Url.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Dynamic/The 25th Hour-1">The 25th Hour</a> 主题
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Dynamic/The 25th Hour-1">The 25th Hour</a> 壁纸
       </td>
       <td>是</td>
       <td>固定</td>
@@ -128,7 +128,7 @@
       <td>Web</td>
       <td>
         <img src=".screenshots/Web.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Animals/Cat vs Ball of Wool-1">Cat vs Ball of Wool</a> 主题
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Animals/Cat vs Ball of Wool-1">Cat vs Ball of Wool</a> 壁纸
       </td>
       <td>是</td>
       <td>固定</td>
@@ -138,7 +138,7 @@
       <td>Video</td>
       <td>
         <img src=".screenshots/Video.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Vehicles/Batmobile Pursuit-1">Batmobile Pursuit</a> 主题
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Vehicles/Batmobile Pursuit-1">Batmobile Pursuit</a> 壁纸
       </td>
       <td>否</td>
       <td>可变</td>
@@ -148,7 +148,7 @@
       <td>YouTube</td>
       <td>
 	    <img src=".screenshots/YouTube.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Space/Floating in Space-1">Floating in Space</a> 主题
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Space/Floating in Space-1">Floating in Space</a> 壁纸
       </td>
       <td>否</td>
       <td>固定</td>
@@ -158,7 +158,7 @@
       <td>Application</td>
       <td>
         <img src=".screenshots/Application.gif" width="256" height="144" />
-        <br><a href="https://github.com/BayatGames/RedRunner">Red Runner</a> 主题
+        <br><a href="https://github.com/BayatGames/RedRunner">Red Runner</a> 壁纸
       </td>
       <td>是</td>
       <td>固定</td>
@@ -183,9 +183,9 @@
   </div>
 
   <div>
-    <h4>创建和分享主题</h4>
-    <p>● 创建自己的自定义主题，并与朋友或 Sucrose 社区分享。</p>
-    <p>● 探索用户提交的主题画廊，并直接从 Sucrose 商店下载。</p>
+    <h4>创建并分享壁纸</h4>
+    <p>● 创建你自己的自定义壁纸，并与朋友或 Sucrose 社区分享。</p>
+    <p>● 探索用户提交的壁纸商店，并直接从 Sucrose 商店下载它们。</p>
   </div>
 
   <div>

@@ -11,7 +11,7 @@
 
 <div align="center">
   <span>
-    <b>Sucrose</b> is a versatile wallpaper engine that brings a wide range of interactive themes to life on your desktop. With light and dark theme options, you can choose the appearance that suits your personal preferences. You can create your own wallpapers simply or in detail, and it supports multiple screens and all screen resolutions for a seamless experience across various display configurations.
+    <b>Sucrose</b> is a versatile wallpaper engine that brings a wide range of interactive wallpapers to life on your desktop. With light and dark theme options, you can choose the appearance that suits your personal preferences. You can create your own wallpapers simply or in detail, and it supports multiple screens and all screen resolutions for a seamless experience across various display configurations.
   </span>
   <br>
   <br>
@@ -21,7 +21,7 @@
   <br>
   <br>
   <span>
-    <b>Sucrose</b> allows you to create your own custom themes and share them with friends or the <b>Sucrose Community</b>. You can explore and download themes offered by users directly from the <b>Sucrose Store</b>.
+    <b>Sucrose</b> allows you to create your own custom wallpapers and share them with friends or the <b>Sucrose Community</b>. You can explore and download wallpapers offered by users directly from the <b>Sucrose Store</b>.
   </span>
   <br>
   <br>
@@ -98,7 +98,7 @@
   <h4>Wallpaper Varieties</h4>
   <table align="center" style="margin:auto">
     <tr>
-      <th>Theme Type</th>
+      <th>Wallpaper Type</th>
       <th>Example</th>
       <th>Interactive</th>
       <th>Resolution</th>
@@ -108,7 +108,7 @@
       <td>Gif</td>
       <td>
         <img src=".screenshots/Gif.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Colorful/Asus ROG-1">Asus ROG</a> Theme
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Colorful/Asus ROG-1">Asus ROG</a> Wallpaper
       </td>
       <td>No</td>
       <td>Variable</td>
@@ -118,7 +118,7 @@
       <td>Url</td>
       <td>
         <img src=".screenshots/Url.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Dynamic/The 25th Hour-1">The 25th Hour</a> Theme
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Dynamic/The 25th Hour-1">The 25th Hour</a> Wallpaper
       </td>
       <td>Yes</td>
       <td>Fixed</td>
@@ -128,7 +128,7 @@
       <td>Web</td>
       <td>
         <img src=".screenshots/Web.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Animals/Cat vs Ball of Wool-1">Cat vs Ball of Wool</a> Theme
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Animals/Cat vs Ball of Wool-1">Cat vs Ball of Wool</a> Wallpaper
       </td>
       <td>Yes</td>
       <td>Fixed</td>
@@ -138,7 +138,7 @@
       <td>Video</td>
       <td>
         <img src=".screenshots/Video.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Vehicles/Batmobile Pursuit-1">Batmobile Pursuit</a> Theme
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Vehicles/Batmobile Pursuit-1">Batmobile Pursuit</a> Wallpaper
       </td>
       <td>No</td>
       <td>Variable</td>
@@ -148,7 +148,7 @@
       <td>YouTube</td>
       <td>
 	    <img src=".screenshots/YouTube.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Space/Floating in Space-1">Floating in Space</a> Theme
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Space/Floating in Space-1">Floating in Space</a> Wallpaper
       </td>
       <td>No</td>
       <td>Fixed</td>
@@ -158,7 +158,7 @@
       <td>Application</td>
       <td>
         <img src=".screenshots/Application.gif" width="256" height="144" />
-        <br><a href="https://github.com/BayatGames/RedRunner">Red Runner</a> Theme
+        <br><a href="https://github.com/BayatGames/RedRunner">Red Runner</a> Wallpaper
       </td>
       <td>Yes</td>
       <td>Fixed</td>
@@ -183,9 +183,9 @@
   </div>
 
   <div>
-    <h4>Create and Share Themes</h4>
-    <p>● Create your own custom themes and share them with friends or the Sucrose community.</p>
-    <p>● Explore a gallery of user-submitted themes and download them directly from the Sucrose store.</p>
+    <h4>Create and Share Wallpapers</h4>
+    <p>● Create your own custom wallpapers and share them with friends or the Sucrose community.</p>
+    <p>● Explore a store of user-submitted wallpapers and download them directly from the Sucrose store.</p>
   </div>
 
   <div>
