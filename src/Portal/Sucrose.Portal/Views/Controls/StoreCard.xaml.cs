@@ -16,10 +16,13 @@ using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMP = Sucrose.Manager.Manage.Portal;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRS = Sucrose.Memory.Manage.Readonly.Soferity;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReport;
@@ -46,8 +49,6 @@ using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
-using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
-using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -138,7 +139,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         StringContent Content = new(JsonConvert.SerializeObject(StoreData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                        Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityStore}/{SSSHU.GetGuid()}", Content);
+                        Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityStore}/{SSSHU.GetGuid()}", Content);
                     }
                     catch (Exception Exception)
                     {
@@ -234,7 +235,7 @@ namespace Sucrose.Portal.Views.Controls
                     await Task.Delay(100);
                 }
 
-                Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
+                Info = SSTHI.ReadJson(Path.Combine(Theme, SMMRC.SucroseInfo));
 
                 return true;
             }
@@ -255,7 +256,7 @@ namespace Sucrose.Portal.Views.Controls
                         await Task.Delay(100);
                     }
 
-                    Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
+                    Info = SSTHI.ReadJson(Path.Combine(Theme, SMMRC.SucroseInfo));
 
                     return true;
                 }

@@ -9,7 +9,9 @@ using System.Windows.Media;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 using SMMG = Sucrose.Manager.Manage.General;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRS = Sucrose.Memory.Manage.Readonly.Soferity;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
@@ -26,8 +28,6 @@ using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using TextBlock = Wpf.Ui.Controls.TextBlock;
 using TextBox = Wpf.Ui.Controls.TextBox;
-using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -206,7 +206,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         try
                         {
-                            Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityCheck}/{SSSHU.GetGuid()}");
+                            Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityCheck}/{SSSHU.GetGuid()}");
                         }
                         catch
                         {
@@ -227,7 +227,7 @@ namespace Sucrose.Portal.Views.Controls
 
                                 StringContent Content = new(JsonConvert.SerializeObject(ReportData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                                Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityTheme}/{SSSHU.GetGuid()}", Content);
+                                Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityTheme}/{SSSHU.GetGuid()}", Content);
                             }
                             catch
                             {

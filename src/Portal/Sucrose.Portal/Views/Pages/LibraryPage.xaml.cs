@@ -6,14 +6,15 @@ using SMMCW = Sucrose.Memory.Manage.Constant.Warehouse;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMMW = Sucrose.Manager.Manage.Warehouse;
-using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCTI = Sucrose.Portal.Views.Controls.ThemeImport;
 using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
 using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
-using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
@@ -21,7 +22,6 @@ using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
 using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSSHA = Sucrose.Shared.Space.Helper.Access;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
@@ -132,7 +132,7 @@ namespace Sucrose.Portal.Views.Pages
                     {
                         string PropertiesCache = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Properties);
                         string PropertiesFile = Path.Combine(PropertiesCache, $"{Path.GetFileName(Folder)}.json");
-                        string InfoPath = Path.Combine(Folder, SMR.SucroseInfo);
+                        string InfoPath = Path.Combine(Folder, SMMRC.SucroseInfo);
 
                         if (File.Exists(InfoPath))
                         {
@@ -179,7 +179,7 @@ namespace Sucrose.Portal.Views.Pages
                     foreach (string Theme in Themes.ToList())
                     {
                         string ThemePath = Path.Combine(SMML.LibraryLocation, Theme);
-                        string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
+                        string InfoPath = Path.Combine(ThemePath, SMMRC.SucroseInfo);
 
                         if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
                         {

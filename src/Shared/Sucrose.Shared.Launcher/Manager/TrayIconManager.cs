@@ -5,8 +5,8 @@ using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMML = Sucrose.Manager.Manage.Library;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 using SMMU = Sucrose.Manager.Manage.Update;
-using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
@@ -130,11 +130,11 @@ namespace Sucrose.Shared.Launcher.Manager
                     ContextMenu.Items.Add(Change);
                 }
 
-                string PropertiesPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMR.SucroseProperties);
+                string PropertiesPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMMRC.SucroseProperties);
 
                 if (File.Exists(PropertiesPath))
                 {
-                    string InfoPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMR.SucroseInfo);
+                    string InfoPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMMRC.SucroseInfo);
 
                     if (File.Exists(InfoPath) && SSTHI.ReadCheck(InfoPath))
                     {
@@ -164,7 +164,7 @@ namespace Sucrose.Shared.Launcher.Manager
             }
             else if (SMMI.LibrarySettingManager.CheckFile())
             {
-                string InfoPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMR.SucroseInfo);
+                string InfoPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMMRC.SucroseInfo);
 
                 if (File.Exists(InfoPath) && SSTHI.ReadCheck(InfoPath))
                 {

@@ -2,14 +2,13 @@
 using SMMA = Sucrose.Manager.Manage.Aurora;
 using SMMCA = Sucrose.Memory.Manage.Constant.Aurora;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Process;
 using SSSEL = Sucrose.Shared.Space.Extension.Lifecycle;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SWUD = Skylark.Wing.Utility.Desktop;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
-using SMMRP = Sucrose.Memory.Manage.Readonly.Process;
 
 namespace Sucrose.Shared.Live.Helper
 {

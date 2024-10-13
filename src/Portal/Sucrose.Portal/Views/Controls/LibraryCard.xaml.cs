@@ -11,9 +11,10 @@ using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMP = Sucrose.Manager.Manage.Portal;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
-using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPVCTD = Sucrose.Portal.Views.Controls.ThemeDelete;
 using SPVCTE = Sucrose.Portal.Views.Controls.ThemeEdit;
@@ -25,7 +26,6 @@ using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
-using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
@@ -151,7 +151,7 @@ namespace Sucrose.Portal.Views.Controls
 
                 if (Result == ContentDialogResult.Primary)
                 {
-                    Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
+                    Info = SSTHI.ReadJson(Path.Combine(Theme, SMMRC.SucroseInfo));
 
                     UpdateInfo();
                 }
@@ -269,7 +269,7 @@ namespace Sucrose.Portal.Views.Controls
             MenuDelete.Header = SRER.GetValue("Portal", "LibraryCard", "MenuDelete");
             MenuCustomize.Header = SRER.GetValue("Portal", "LibraryCard", "MenuCustomize");
 
-            string PropertiesPath = Path.Combine(Theme, SMR.SucroseProperties);
+            string PropertiesPath = Path.Combine(Theme, SMMRC.SucroseProperties);
 
             if (Info.Type == SSDEWT.Web && File.Exists(PropertiesPath))
             {

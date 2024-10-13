@@ -11,8 +11,9 @@ using SMMG = Sucrose.Manager.Manage.General;
 using SMMH = Sucrose.Manager.Manage.Hook;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMP = Sucrose.Manager.Manage.Portal;
+using SMMRS = Sucrose.Memory.Manage.Readonly.Soferity;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 using SMMU = Sucrose.Manager.Manage.Update;
-using SMR = Sucrose.Memory.Readonly;
 using SRMI = Sucrose.Reportdog.Manage.Internal;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
@@ -33,7 +34,6 @@ using SSSMDD = Sucrose.Shared.Space.Model.DiagnosticsData;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHSI = Skylark.Wing.Helper.SystemInfo;
 using SWNM = Skylark.Wing.Native.Methods;
-using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -92,7 +92,7 @@ namespace Sucrose.Backgroundog.Helper
 
                     try
                     {
-                        Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityOnline}/{SSSHU.GetGuid()}/{SRMI.InitializeTime / 1000}");
+                        Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityOnline}/{SSSHU.GetGuid()}/{SRMI.InitializeTime / 1000}");
                     }
                     catch (Exception Exception)
                     {
@@ -128,7 +128,7 @@ namespace Sucrose.Backgroundog.Helper
 
                             StringContent Content = new(JsonConvert.SerializeObject(AnalyticsData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                            Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityStatistic}/{SSSHU.GetGuid()}", Content);
+                            Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityStatistic}/{SSSHU.GetGuid()}", Content);
                         }
                         catch (Exception Exception)
                         {
@@ -186,7 +186,7 @@ namespace Sucrose.Backgroundog.Helper
 
                             StringContent Content = new(JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                            Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityError}/{SSSHU.GetGuid()}", Content);
+                            Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityError}/{SSSHU.GetGuid()}", Content);
                         }
                         catch (Exception Exception)
                         {

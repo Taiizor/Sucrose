@@ -16,19 +16,18 @@ using SMMCW = Sucrose.Memory.Manage.Constant.Warehouse;
 using SMME = Sucrose.Manager.Manage.Engine;
 using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
-using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMMW = Sucrose.Manager.Manage.Warehouse;
-using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DialogType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
 using SSECSVG = Sucrose.Shared.Engine.CefSharp.View.Gif;
 using SSECSVU = Sucrose.Shared.Engine.CefSharp.View.Url;
@@ -253,9 +252,9 @@ namespace Sucrose.Live.CefSharp
 
             if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SSEMI.LibrarySelected))
             {
-                SSEMI.InfoPath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMR.SucroseInfo);
-                SSEMI.CompatiblePath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMR.SucroseCompatible);
-                SSEMI.PropertiesPath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMR.SucroseProperties);
+                SSEMI.InfoPath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMMRC.SucroseInfo);
+                SSEMI.CompatiblePath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMMRC.SucroseCompatible);
+                SSEMI.PropertiesPath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMMRC.SucroseProperties);
 
                 if (File.Exists(SSEMI.InfoPath) && SSTHI.ReadCheck(SSEMI.InfoPath))
                 {

@@ -1,7 +1,9 @@
 ﻿using System.IO;
 using System.Net.Http;
 using SMMP = Sucrose.Manager.Manage.Portal;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
+using SMMRGH = Sucrose.Memory.Manage.Readonly.GitHub;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIC = Skylark.Standard.Interface.IContents;
@@ -9,8 +11,6 @@ using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
-using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
-using SMMRGH = Sucrose.Memory.Manage.Readonly.GitHub;
 
 namespace Sucrose.Shared.Store.Helper.GitHub
 {
@@ -46,11 +46,11 @@ namespace Sucrose.Shared.Store.Helper.GitHub
 
             try
             {
-                List<SSIIC> Contents = SSHG.ContentsList(SMMRGH.Owner, SMMRGH.StoreRepository, SMR.StoreSource, SMMRGH.Branch, Agent, Key);
+                List<SSIIC> Contents = SSHG.ContentsList(SMMRGH.Owner, SMMRGH.StoreRepository, SMMRGH.StoreSource, SMMRGH.Branch, Agent, Key);
 
                 foreach (SSIIC Content in Contents)
                 {
-                    if (Content.Name == SMR.StoreFile)
+                    if (Content.Name == SMMRC.StoreFile)
                     {
                         using HttpResponseMessage Response = SSSMI.Client.GetAsync(Content.DownloadUrl).Result;
 
@@ -85,7 +85,7 @@ namespace Sucrose.Shared.Store.Helper.GitHub
 
         public static bool Cache(KeyValuePair<string, SSSIW> Wallpaper, string Theme, string Agent, string Key)
         {
-            string Info = Path.Combine(Theme, SMR.SucroseInfo);
+            string Info = Path.Combine(Theme, SMMRC.SucroseInfo);
             string Cover = Path.Combine(Theme, Wallpaper.Value.Cover);
 
             if (Directory.Exists(Theme))
@@ -143,7 +143,7 @@ namespace Sucrose.Shared.Store.Helper.GitHub
 
                 try
                 {
-                    using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMMRU.RawGitHubStoreBranch}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}")).Result;
+                    using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMMRU.RawGitHubStoreBranch}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMMRC.SucroseInfo}")).Result;
                     using HttpResponseMessage ResponseCover = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMMRU.RawGitHubStoreBranch}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}")).Result;
 
                     ResponseInfo.EnsureSuccessStatusCode();

@@ -2,13 +2,13 @@
 using SHV = Skylark.Helper.Versionly;
 using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SMML = Sucrose.Manager.Manage.Library;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SWUD = Skylark.Wing.Utility.Desktop;
 
@@ -20,7 +20,7 @@ namespace Sucrose.Shared.Live.Helper
         {
             if ((!SMMB.ClosePerformance && !SMMB.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
             {
-                string InfoPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMR.SucroseInfo);
+                string InfoPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMMRC.SucroseInfo);
 
                 if (File.Exists(InfoPath) && SSTHI.ReadCheck(InfoPath))
                 {

@@ -16,6 +16,8 @@
 
         public static readonly string Branch = "develop";
 
+        public static readonly string StoreSource = "src";
+
         public static readonly string Releases = "releases";
 
         public static readonly string StoreRepository = "Store";

@@ -2,7 +2,9 @@
 using System.IO;
 using System.Net.Http;
 using SMMP = Sucrose.Manager.Manage.Portal;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
+using SMMRS = Sucrose.Memory.Manage.Readonly.Soferity;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
@@ -10,8 +12,6 @@ using SSSIC = Sucrose.Shared.Store.Interface.Contents;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
-using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
-using SMMRS = Sucrose.Memory.Manage.Readonly.Soferity;
 
 namespace Sucrose.Shared.Store.Helper.Soferity
 {
@@ -47,7 +47,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
             try
             {
-                using HttpResponseMessage Response = SSSMI.Client.GetAsync($"{SSSHS.Source(SSDESST.Soferity)}/{SMR.StoreSource}/{SMR.StoreFile}").Result;
+                using HttpResponseMessage Response = SSSMI.Client.GetAsync($"{SSSHS.Source(SSDESST.Soferity)}/{SMMRS.StoreSource}/{SMMRC.StoreFile}").Result;
 
                 Response.EnsureSuccessStatusCode();
 
@@ -104,7 +104,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
             try
             {
-                using HttpResponseMessage Response = SSSMI.Client.GetAsync($"{SMMRU.Soferity}/{SMR.SoferityPattern}").Result;
+                using HttpResponseMessage Response = SSSMI.Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.SoferityPattern}").Result;
 
                 Response.EnsureSuccessStatusCode();
 
@@ -133,7 +133,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
         public static bool Cache(KeyValuePair<string, SSSIW> Wallpaper, string Theme, string Agent)
         {
-            string Info = Path.Combine(Theme, SMR.SucroseInfo);
+            string Info = Path.Combine(Theme, SMMRC.SucroseInfo);
             string Cover = Path.Combine(Theme, Wallpaper.Value.Cover);
 
             if (Directory.Exists(Theme))
@@ -191,7 +191,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
                 try
                 {
-                    using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMMRU.SoferityStore}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}")).Result;
+                    using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMMRU.SoferityStore}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMMRC.SucroseInfo}")).Result;
                     using HttpResponseMessage ResponseCover = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMMRU.SoferityStore}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}")).Result;
 
                     ResponseInfo.EnsureSuccessStatusCode();
@@ -340,7 +340,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
         {
             InitializeClient(Agent);
 
-            string BaseUri = $"{SMMRU.Soferity}/{SMR.SoferityFile}/{Repository}";
+            string BaseUri = $"{SMMRU.Soferity}/{SMMRS.SoferityFile}/{Repository}";
 
             if (!string.IsNullOrEmpty(Path))
             {

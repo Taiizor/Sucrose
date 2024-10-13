@@ -1,14 +1,12 @@
 ﻿using System.IO;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
-using SMR = Sucrose.Memory.Readonly;
 using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
-using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
-using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 
 namespace Sucrose.Shared.Space.Helper
 {

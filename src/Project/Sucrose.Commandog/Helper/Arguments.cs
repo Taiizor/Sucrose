@@ -1,7 +1,8 @@
 ﻿using SCHM = Sucrose.Commandog.Helper.Miscellaneous;
 using SCHP = Sucrose.Commandog.Helper.Parse;
 using SCHS = Sucrose.Commandog.Helper.Scheduler;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDESCT = Sucrose.Shared.Dependency.Enum.SchedulerCommandType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
@@ -16,9 +17,6 @@ using SSSHT = Sucrose.Shared.Space.Helper.Temporary;
 using SWHWS = Skylark.Wing.Helper.WindowsStartup;
 using SWHWSM = Skylark.Wing.Helper.WindowsStartupMachine;
 using SWHWSP = Skylark.Wing.Helper.WindowsStartupPriority;
-using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
-using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 
 namespace Sucrose.Commandog.Helper
 {

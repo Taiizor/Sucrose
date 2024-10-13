@@ -1,11 +1,9 @@
 ﻿using SEIT = Skylark.Enum.InputType;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMME = Sucrose.Manager.Manage.Engine;
 using SSEAEI = Sucrose.Shared.Engine.Aurora.Extension.Interaction;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SWNM = Skylark.Wing.Native.Methods;
-using SMME = Sucrose.Manager.Manage.Engine;
-using SMMMCE = Sucrose.Memory.Manage.Constant.Engine;
 
 namespace Sucrose.Shared.Engine.Aurora.Event
 {

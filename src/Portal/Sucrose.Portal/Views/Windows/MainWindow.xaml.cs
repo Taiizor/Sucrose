@@ -15,12 +15,13 @@ using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMMCG = Sucrose.Memory.Manage.Constant.General;
 using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMP = Sucrose.Manager.Manage.Portal;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SMMRS = Sucrose.Memory.Manage.Readonly.Soferity;
 using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 using SMMW = Sucrose.Manager.Manage.Warehouse;
-using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMMP = Sucrose.Portal.Manage.Manager.Portal;
 using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
@@ -38,7 +39,6 @@ using SSSMSD = Sucrose.Shared.Space.Model.SearchData;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
-using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 
 namespace Sucrose.Portal.Views.Windows
 {
@@ -303,7 +303,7 @@ namespace Sucrose.Portal.Views.Windows
 
                                 StringContent Content = new(JsonConvert.SerializeObject(SearchData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                                Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferitySearch}/{SSSHU.GetGuid()}", Content);
+                                Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferitySearch}/{SSSHU.GetGuid()}", Content);
                             }
                             catch (Exception Exception)
                             {

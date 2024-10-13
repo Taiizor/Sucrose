@@ -9,8 +9,9 @@ using SHC = Skylark.Helper.Culture;
 using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
-using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
@@ -22,7 +23,6 @@ using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 using SSSHE = Sucrose.Shared.Space.Helper.Exceptioner;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHUE = Sucrose.Shared.Space.Helper.Unique;
-using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 using SSSHUR = Sucrose.Shared.Space.Helper.User;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSSHWE = Sucrose.Shared.Space.Helper.WatchException;
@@ -32,7 +32,6 @@ using SWHSI = Skylark.Wing.Helper.SystemInfo;
 using SWNM = Skylark.Wing.Native.Methods;
 using SWVDEMB = Sucrose.Watchdog.View.DarkErrorMessageBox;
 using SWVLEMB = Sucrose.Watchdog.View.LightErrorMessageBox;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Watchdog
 {

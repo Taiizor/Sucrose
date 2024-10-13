@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using SEDST = Skylark.Enum.DisplayScreenType;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HandleStruct;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
@@ -13,7 +13,6 @@ using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWHWO = Skylark.Wing.Helper.WindowOperations;
 using SWNM = Skylark.Wing.Native.Methods;
 using SWUS = Skylark.Wing.Utility.Screene;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Shared.Engine.Event
 {

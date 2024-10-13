@@ -6,11 +6,9 @@ using SMCIPAC = Sucrose.Manager.Converter.IPAddressConverter;
 using SMHR = Sucrose.Manager.Helper.Reader;
 using SMHV = Sucrose.Manager.Helper.Validator;
 using SMHW = Sucrose.Manager.Helper.Writer;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
-using SMR = Sucrose.Memory.Readonly;
-using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
-using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 
 namespace Sucrose.Manager
 {

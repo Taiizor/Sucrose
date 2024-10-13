@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SMMRGU = Sucrose.Memory.Manage.Readonly.Url;
 using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 using SSSIS = Sucrose.Shared.Store.Interface.Store;
-using SMMRGU = Sucrose.Memory.Manage.Readonly.Url;
 
 namespace Sucrose.Shared.Store.Helper
 {

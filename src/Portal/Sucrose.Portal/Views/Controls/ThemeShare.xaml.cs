@@ -10,12 +10,15 @@ using Wpf.Ui.Controls;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 using SMMG = Sucrose.Manager.Manage.General;
 using SMMO = Sucrose.Manager.Manage.Objectionable;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRS = Sucrose.Memory.Manage.Readonly.Soferity;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
-using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
@@ -29,8 +32,6 @@ using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSIS = Sucrose.Shared.Store.Interface.Store;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
-using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 using SSZHA = Sucrose.Shared.Zip.Helper.Archive;
 
 namespace Sucrose.Portal.Views.Controls
@@ -103,7 +104,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     await Task.Delay(500);
 
-                    string StoreFile = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, SMR.StoreFile);
+                    string StoreFile = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, SMMRC.StoreFile);
 
                     bool Result = SSDMMP.StoreServerType switch
                     {
@@ -204,7 +205,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     try
                     {
-                        Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityUpload}/{SMR.SoferityCheck}/{SSSHU.GetGuid()}");
+                        Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityUpload}/{SMMRS.SoferityCheck}/{SSSHU.GetGuid()}");
                     }
                     catch
                     {
@@ -271,7 +272,7 @@ namespace Sucrose.Portal.Views.Controls
 
                                     try
                                     {
-                                        Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMR.SoferityVersion}/{SMR.SoferityUpload}/{SMR.SoferityTheme}/{SSSHU.GetGuid()}/{(Category.SelectedItem as ComboBoxItem).Tag}", Content);
+                                        Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityUpload}/{SMMRS.SoferityTheme}/{SSSHU.GetGuid()}/{(Category.SelectedItem as ComboBoxItem).Tag}", Content);
                                     }
                                     catch
                                     {

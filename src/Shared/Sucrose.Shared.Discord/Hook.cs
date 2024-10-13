@@ -4,13 +4,12 @@ using Button = DiscordRPC.Button;
 using SMMCH = Sucrose.Memory.Manage.Constant.Hook;
 using SMMH = Sucrose.Manager.Manage.Hook;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRH = Sucrose.Memory.Manage.Readonly.Hook;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDMI = Sucrose.Shared.Discord.Manage.Internal;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
-using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
-using SMMRH = Sucrose.Memory.Manage.Readonly.Hook;
 
 namespace Sucrose.Shared.Discord
 {

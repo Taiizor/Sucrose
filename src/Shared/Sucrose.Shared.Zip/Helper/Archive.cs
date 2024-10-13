@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using SHV = Skylark.Helper.Versionly;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSSHA = Sucrose.Shared.Space.Helper.Access;
@@ -49,12 +49,12 @@ namespace Sucrose.Shared.Zip.Helper
                     return SSDECT.Folder;
                 }
 
-                if (!SSZHZ.CheckFile(Archive, SMR.SucroseInfo))
+                if (!SSZHZ.CheckFile(Archive, SMMRC.SucroseInfo))
                 {
                     return SSDECT.InfoFile;
                 }
 
-                string Salt = SSZHZ.ReadFile(Archive, SMR.SucroseInfo);
+                string Salt = SSZHZ.ReadFile(Archive, SMMRC.SucroseInfo);
 
                 if (string.IsNullOrEmpty(Salt))
                 {
@@ -183,9 +183,9 @@ namespace Sucrose.Shared.Zip.Helper
                     }
                 }
 
-                if (SSZHZ.CheckFile(Archive, SMR.SucroseProperties))
+                if (SSZHZ.CheckFile(Archive, SMMRC.SucroseProperties))
                 {
-                    Salt = SSZHZ.ReadFile(Archive, SMR.SucroseProperties);
+                    Salt = SSZHZ.ReadFile(Archive, SMMRC.SucroseProperties);
 
                     if (string.IsNullOrEmpty(Salt))
                     {
@@ -217,9 +217,9 @@ namespace Sucrose.Shared.Zip.Helper
                     }
                 }
 
-                if (SSZHZ.CheckFile(Archive, SMR.SucroseCompatible))
+                if (SSZHZ.CheckFile(Archive, SMMRC.SucroseCompatible))
                 {
-                    Salt = SSZHZ.ReadFile(Archive, SMR.SucroseCompatible);
+                    Salt = SSZHZ.ReadFile(Archive, SMMRC.SucroseCompatible);
 
                     if (string.IsNullOrEmpty(Salt))
                     {

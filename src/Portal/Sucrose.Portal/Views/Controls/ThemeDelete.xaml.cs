@@ -7,7 +7,7 @@ using SEST = Skylark.Enum.StorageType;
 using SHC = Skylark.Helper.Culture;
 using SHN = Skylark.Helper.Numeric;
 using SMML = Sucrose.Manager.Manage.Library;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
@@ -60,7 +60,7 @@ namespace Sucrose.Portal.Views.Controls
 
             ThemeCreateDate.Text = CreationTime.ToString(SHC.CurrentUI);
 
-            DateTime ModificationTime = Directory.GetLastWriteTime(Path.Combine(Theme, SMR.SucroseInfo));
+            DateTime ModificationTime = Directory.GetLastWriteTime(Path.Combine(Theme, SMMRC.SucroseInfo));
 
             ThemeModifyDate.Text = ModificationTime.ToString(SHC.CurrentUI);
 

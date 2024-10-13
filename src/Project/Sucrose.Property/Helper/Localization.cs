@@ -1,7 +1,5 @@
-﻿using SMMM = Sucrose.Manager.Manage.Manager;
+﻿using SMMG = Sucrose.Manager.Manage.General;
 using SPMI = Sucrose.Property.Manage.Internal;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
 
 namespace Sucrose.Property.Helper
 {

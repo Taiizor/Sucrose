@@ -9,8 +9,8 @@ using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
-using SMR = Sucrose.Memory.Readonly;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
@@ -123,7 +123,7 @@ namespace Sucrose.Live.Vexana
 
             if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SSEMI.LibrarySelected))
             {
-                SSEMI.InfoPath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMR.SucroseInfo);
+                SSEMI.InfoPath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMMRC.SucroseInfo);
 
                 if (File.Exists(SSEMI.InfoPath) && SSTHI.ReadCheck(SSEMI.InfoPath))
                 {

@@ -1,11 +1,10 @@
 ﻿using System.Diagnostics;
 using SMME = Sucrose.Manager.Manage.Engine;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
 using Timer = System.Timers.Timer;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Shared.Engine.Helper
 {

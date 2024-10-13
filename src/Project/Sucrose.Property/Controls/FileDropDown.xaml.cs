@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using MessageBox = Wpf.Ui.Controls.MessageBox;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SPHL = Sucrose.Property.Helper.Localization;
 using SPHP = Sucrose.Property.Helper.Properties;
 using SPMI = Sucrose.Property.Manage.Internal;
@@ -10,7 +10,6 @@ using SSSHA = Sucrose.Shared.Space.Helper.Access;
 using SSTMFDDM = Sucrose.Shared.Theme.Model.FileDropDownModel;
 using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
-using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 
 namespace Sucrose.Property.Controls
 {

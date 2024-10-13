@@ -1,9 +1,8 @@
 ﻿using System.Diagnostics;
-using SMR = Sucrose.Memory.Readonly;
-using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
-using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Process;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SSSHM = Sucrose.Shared.Space.Helper.Management;
 
 namespace Sucrose.Shared.Engine.WebView.Helper
 {

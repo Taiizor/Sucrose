@@ -3,8 +3,10 @@ using System.Windows;
 using Wpf.Ui.Abstractions.Controls;
 using SMMG = Sucrose.Manager.Manage.General;
 using SMMO = Sucrose.Manager.Manage.Objectionable;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
-using SMR = Sucrose.Memory.Readonly;
 using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;
 using SPVPSBSP = Sucrose.Portal.Views.Pages.Store.BrokenStorePage;
 using SPVPSFSP = Sucrose.Portal.Views.Pages.Store.FullStorePage;
@@ -13,10 +15,8 @@ using SSDESSET = Sucrose.Shared.Dependency.Enum.StoreStageType;
 using SSDESSRT = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSSHGHD = Sucrose.Shared.Store.Helper.GitHub.Download;
-using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSSHSD = Sucrose.Shared.Store.Helper.Soferity.Download;
 using SSSIS = Sucrose.Shared.Store.Interface.Store;
 
@@ -51,8 +51,8 @@ namespace Sucrose.Portal.Views.Pages
         {
             if (SSSHN.GetHostEntry())
             {
-                string PatternFile = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, SMR.PatternFile);
-                string StoreFile = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, SMR.StoreFile);
+                string PatternFile = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, SMMRC.PatternFile);
+                string StoreFile = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, SMMRC.StoreFile);
 
                 bool Result = SSDMMP.StoreServerType switch
                 {

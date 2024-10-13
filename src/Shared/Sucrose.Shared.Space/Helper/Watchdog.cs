@@ -1,11 +1,10 @@
 ﻿using System.IO;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHWE = Sucrose.Shared.Space.Helper.WatchException;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 
 namespace Sucrose.Shared.Space.Helper

@@ -1,9 +1,8 @@
 ﻿using Microsoft.Win32.TaskScheduler;
 using System.Security.Principal;
-using SMR = Sucrose.Memory.Readonly;
-using Task = Microsoft.Win32.TaskScheduler.Task;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRS = Sucrose.Memory.Manage.Readonly.Scheduler;
+using Task = Microsoft.Win32.TaskScheduler.Task;
 
 namespace Sucrose.Commandog.Helper
 {

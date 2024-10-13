@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMP = Sucrose.Manager.Manage.Portal;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCLC = Sucrose.Portal.Views.Controls.LibraryCard;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
@@ -53,7 +53,7 @@ namespace Sucrose.Portal.Views.Pages.Library
                     {
                         string ThemePath = Path.Combine(SMML.LibraryLocation, Pair.Key);
 
-                        SSTHI Info = SSTHI.ReadJson(Path.Combine(ThemePath, SMR.SucroseInfo));
+                        SSTHI Info = SSTHI.ReadJson(Path.Combine(ThemePath, SMMRC.SucroseInfo));
 
                         SPVCLC LibraryCard = new(ThemePath, Info);
 
@@ -77,7 +77,7 @@ namespace Sucrose.Portal.Views.Pages.Library
                     {
                         string ThemePath = Path.Combine(SMML.LibraryLocation, Theme);
 
-                        SPVCLC LibraryCard = new(ThemePath, SSTHI.ReadJson(Path.Combine(ThemePath, SMR.SucroseInfo)));
+                        SPVCLC LibraryCard = new(ThemePath, SSTHI.ReadJson(Path.Combine(ThemePath, SMMRC.SucroseInfo)));
 
                         LibraryCard.IsVisibleChanged += (s, e) => ThemeCard_IsVisibleChanged(s, e, Theme);
 

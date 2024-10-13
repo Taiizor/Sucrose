@@ -2,11 +2,10 @@
 using System.Collections;
 using System.Diagnostics;
 using System.Reflection;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSSHE = Sucrose.Shared.Space.Helper.Exceptioner;
 using SSSISE = Sucrose.Shared.Space.Interface.SerializableException;
 using SSSISFD = Sucrose.Shared.Space.Interface.StackFrameData;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Shared.Space.Converter
 {

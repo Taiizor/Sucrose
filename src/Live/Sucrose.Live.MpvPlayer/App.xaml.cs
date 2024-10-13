@@ -9,8 +9,8 @@ using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMML = Sucrose.Manager.Manage.Library;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
-using SMR = Sucrose.Memory.Readonly;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
@@ -124,7 +124,7 @@ namespace Sucrose.Live.MpvPlayer
 
             if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SSEMI.LibrarySelected))
             {
-                string InfoPath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMR.SucroseInfo);
+                string InfoPath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMMRC.SucroseInfo);
 
                 if (File.Exists(InfoPath) && SSTHI.ReadCheck(InfoPath))
                 {

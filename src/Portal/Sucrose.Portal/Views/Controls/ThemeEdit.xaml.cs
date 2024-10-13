@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 using Wpf.Ui.Controls;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
@@ -145,7 +145,7 @@ namespace Sucrose.Portal.Views.Controls
                     Info.Description = ThemeDescription.Text;
                     Info.Version = SSSHV.Increment(Info.Version);
 
-                    SSTHI.Write(Path.Combine(Theme, SMR.SucroseInfo), Info);
+                    SSTHI.Write(Path.Combine(Theme, SMMRC.SucroseInfo), Info);
                 }
             }
 

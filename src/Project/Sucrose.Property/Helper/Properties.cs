@@ -1,9 +1,8 @@
-﻿using SMMM = Sucrose.Manager.Manage.Manager;
+﻿using SMML = Sucrose.Manager.Manage.Library;
 using SPMI = Sucrose.Property.Manage.Internal;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTMCM = Sucrose.Shared.Theme.Model.ControlModel;
-using SMML = Sucrose.Manager.Manage.Library;
 
 namespace Sucrose.Property.Helper
 {

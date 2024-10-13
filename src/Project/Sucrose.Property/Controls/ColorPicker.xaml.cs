@@ -18,7 +18,6 @@ using SSTMCPM = Sucrose.Shared.Theme.Model.ColorPickerModel;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
-using SMMCP = Sucrose.Memory.Manage.Constant.Portal;
 
 namespace Sucrose.Property.Controls
 {

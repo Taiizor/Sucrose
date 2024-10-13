@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Net;
 using System.Net.NetworkInformation;
-using SMR = Sucrose.Memory.Readonly;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
 
 namespace Sucrose.Shared.Space.Helper

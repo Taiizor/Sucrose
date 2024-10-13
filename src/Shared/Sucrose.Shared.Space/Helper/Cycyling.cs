@@ -9,14 +9,14 @@ using SMMCC = Sucrose.Memory.Manage.Constant.Cycling;
 using SMMCL = Sucrose.Memory.Manage.Constant.Library;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMML = Sucrose.Manager.Manage.Library;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDETCT = Sucrose.Shared.Dependency.Enum.TransitionCycleType;
 using SSDMMC = Sucrose.Shared.Dependency.Manage.Manager.Cycling;
 using SSETTE = Skylark.Standard.Extension.Time.TimeExtension;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
 namespace Sucrose.Shared.Space.Helper
@@ -38,7 +38,7 @@ namespace Sucrose.Shared.Space.Helper
                         foreach (string Theme in Themes)
                         {
                             string ThemePath = Path.Combine(SMML.LibraryLocation, Theme);
-                            string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
+                            string InfoPath = Path.Combine(ThemePath, SMMRC.SucroseInfo);
 
                             if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
                             {
@@ -108,7 +108,7 @@ namespace Sucrose.Shared.Space.Helper
                                         string Current = Themes[Index];
 
                                         string ThemePath = Path.Combine(SMML.LibraryLocation, Current);
-                                        string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
+                                        string InfoPath = Path.Combine(ThemePath, SMMRC.SucroseInfo);
 
                                         if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
                                         {
@@ -142,7 +142,7 @@ namespace Sucrose.Shared.Space.Helper
                                     foreach (string Theme in Themes.Skip(Index))
                                     {
                                         string ThemePath = Path.Combine(SMML.LibraryLocation, Theme);
-                                        string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
+                                        string InfoPath = Path.Combine(ThemePath, SMMRC.SucroseInfo);
 
                                         if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
                                         {

@@ -17,8 +17,9 @@ using SMMH = Sucrose.Manager.Manage.Hook;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMO = Sucrose.Manager.Manage.Objectionable;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 using SMMU = Sucrose.Manager.Manage.Update;
-using SMR = Sucrose.Memory.Readonly;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCEUCT = Sucrose.Shared.Core.Enum.UpdateChannelType;
@@ -32,9 +33,7 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using TextBox = Wpf.Ui.Controls.TextBox;
-using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {

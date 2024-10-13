@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
-using SMR = Sucrose.Memory.Readonly;
-using SRMI = Sucrose.Reportdog.Manage.Internal;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SRMI = Sucrose.Reportdog.Manage.Internal;
 
 namespace Sucrose.Reportdog.Helper
 {

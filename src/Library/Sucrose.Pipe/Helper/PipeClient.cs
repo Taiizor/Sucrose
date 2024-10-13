@@ -1,5 +1,4 @@
 ﻿using System.IO.Pipes;
-using SMR = Sucrose.Memory.Readonly;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Pipe.Helper

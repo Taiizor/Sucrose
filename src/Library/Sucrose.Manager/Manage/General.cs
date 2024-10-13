@@ -2,7 +2,6 @@
 using SHS = Skylark.Helper.Skymath;
 using SMMCG = Sucrose.Memory.Manage.Constant.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMR = Sucrose.Memory.Readonly;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Manager.Manage

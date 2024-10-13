@@ -1,6 +1,5 @@
 ﻿using SMMCO = Sucrose.Memory.Manage.Constant.Objectionable;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.Manager.Manage
 {

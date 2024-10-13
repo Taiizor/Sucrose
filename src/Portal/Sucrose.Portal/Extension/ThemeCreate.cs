@@ -1,7 +1,6 @@
-﻿using SMR = Sucrose.Memory.Readonly;
+﻿using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Portal.Extension
 {

@@ -2,11 +2,10 @@
 using System.IO;
 using System.Net;
 using SMMG = Sucrose.Manager.Manage.General;
-using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
-using SMR = Sucrose.Memory.Readonly;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
-using Timer = System.Timers.Timer;
 using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using Timer = System.Timers.Timer;
 
 namespace Sucrose.Update.Manage
 {

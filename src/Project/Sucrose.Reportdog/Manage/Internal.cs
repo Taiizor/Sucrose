@@ -1,10 +1,9 @@
 ﻿using System.IO;
 using SBHI = Sucrose.Backgroundog.Helper.Initialize;
-using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
-using SMR = Sucrose.Memory.Readonly;
-using Timer = System.Threading.Timer;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using Timer = System.Threading.Timer;
 
 namespace Sucrose.Reportdog.Manage
 {

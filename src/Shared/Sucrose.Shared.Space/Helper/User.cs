@@ -1,10 +1,9 @@
 ﻿using System.Management;
 using System.Security.Principal;
 using SHG = Skylark.Helper.Guidly;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHU = Sucrose.Shared.Space.Helper.Unique;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Shared.Space.Helper
 {

@@ -2,10 +2,8 @@
 using System.Text;
 using SCHA = Sucrose.Commandog.Helper.Arguments;
 using SHC = Skylark.Helper.Culture;
-using SMMM = Sucrose.Manager.Manage.Manager;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
 using SMMG = Sucrose.Manager.Manage.General;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Commandog
 {

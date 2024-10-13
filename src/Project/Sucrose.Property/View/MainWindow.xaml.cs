@@ -4,7 +4,7 @@ using System.Windows.Input;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SMMM = Sucrose.Manager.Manage.Manager;
+using SMML = Sucrose.Manager.Manage.Library;
 using SPCB = Sucrose.Property.Controls.Button;
 using SPCCB = Sucrose.Property.Controls.CheckBox;
 using SPCCP = Sucrose.Property.Controls.ColorPicker;
@@ -36,7 +36,6 @@ using SSTMSM = Sucrose.Shared.Theme.Model.SliderModel;
 using SSTMTBM = Sucrose.Shared.Theme.Model.TextBoxModel;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWHWTR = Skylark.Wing.Helper.WindowsTaskbar;
-using SMML = Sucrose.Manager.Manage.Library;
 
 namespace Sucrose.Property.View
 {

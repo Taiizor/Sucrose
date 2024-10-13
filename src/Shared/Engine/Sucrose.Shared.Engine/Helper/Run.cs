@@ -1,10 +1,9 @@
 ﻿using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
-using SMR = Sucrose.Memory.Readonly;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDEET = Sucrose.Shared.Dependency.Enum.EngineType;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.Helper

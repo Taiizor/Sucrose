@@ -4,9 +4,15 @@ using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
 using SHC = Skylark.Helper.Culture;
+using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
-using SMR = Sucrose.Memory.Readonly;
+using SMML = Sucrose.Manager.Manage.Library;
+using SMMRA = Sucrose.Memory.Manage.Readonly.App;
+using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SPMI = Sucrose.Property.Manage.Internal;
 using SPVMW = Sucrose.Property.View.MainWindow;
 using SRHR = Sucrose.Resources.Helper.Resources;
@@ -14,16 +20,8 @@ using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
-using SMML = Sucrose.Manager.Manage.Library;
-using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
-using SMMRA = Sucrose.Memory.Manage.Readonly.App;
-using SMMCG = Sucrose.Memory.Manage.Constant.General;
-using SMMG = Sucrose.Manager.Manage.General;
-using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 
 namespace Sucrose.Property
 {
@@ -124,11 +122,11 @@ namespace Sucrose.Property
             {
                 SPMI.Path = Path.Combine(SPMI.LibraryLocation, SPMI.LibrarySelected);
 
-                SPMI.PropertiesPath = Path.Combine(SPMI.Path, SMR.SucroseProperties);
+                SPMI.PropertiesPath = Path.Combine(SPMI.Path, SMMRC.SucroseProperties);
 
                 if (File.Exists(SPMI.PropertiesPath))
                 {
-                    SPMI.InfoPath = Path.Combine(SPMI.Path, SMR.SucroseInfo);
+                    SPMI.InfoPath = Path.Combine(SPMI.Path, SMMRC.SucroseInfo);
 
                     if (File.Exists(SPMI.InfoPath))
                     {

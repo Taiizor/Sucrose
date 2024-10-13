@@ -1,5 +1,4 @@
-﻿using Sucrose.Shared.Store.Interface;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,17 +6,16 @@ using Wpf.Ui.Controls;
 using SMMG = Sucrose.Manager.Manage.General;
 using SMMO = Sucrose.Manager.Manage.Objectionable;
 using SMMP = Sucrose.Manager.Manage.Portal;
-using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
-using SMR = Sucrose.Memory.Readonly;
-using SPMI = Sucrose.Portal.Manage.Internal;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCSC = Sucrose.Portal.Views.Controls.StoreCard;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSSHC = Sucrose.Shared.Space.Helper.Clean;
 using SSSIC = Sucrose.Shared.Store.Interface.Category;
 using SSSIS = Sucrose.Shared.Store.Interface.Store;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
-using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 
 namespace Sucrose.Portal.Views.Pages.Store
 {
@@ -166,19 +164,19 @@ namespace Sucrose.Portal.Views.Pages.Store
 
                 if (Search.Any())
                 {
-                    foreach ((string CategoryKey, string WallpaperKey, SSSIW Wallpaper) Category in GetSortedWallpapers(Store, Search))
+                    foreach ((string CategoryKey, string WallpaperKey, SSSIW Wallpaper) in GetSortedWallpapers(Store, Search))
                     {
-                        if (string.IsNullOrEmpty(SPMI.CategoryService.CategoryTag) || Category.CategoryKey == SPMI.CategoryService.CategoryTag)
+                        if (string.IsNullOrEmpty(SPMI.CategoryService.CategoryTag) || CategoryKey == SPMI.CategoryService.CategoryTag)
                         {
-                            if (!Category.Wallpaper.Adult || (Category.Wallpaper.Adult && SMMP.Adult))
+                            if (!Wallpaper.Adult || (Wallpaper.Adult && SMMP.Adult))
                             {
                                 if (ThemePagination.SelectPage == Page && SPMI.CategoryService.CategoryTag == Tag && SPMI.SearchService.SearchList.Any() && SPMI.SearchService.SearchText == Text)
                                 {
                                     if (SMMP.StorePagination * Page > Count && SMMP.StorePagination * Page <= Count + SMMP.StorePagination)
                                     {
-                                        string Theme = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, Category.CategoryKey, SSSHC.FileName(Category.WallpaperKey));
+                                        string Theme = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, CategoryKey, SSSHC.FileName(WallpaperKey));
 
-                                        SPVCSC StoreCard = new(Theme, new(Category.WallpaperKey, Category.Wallpaper), SMMG.UserAgent, SMMO.Key);
+                                        SPVCSC StoreCard = new(Theme, new(WallpaperKey, Wallpaper), SMMG.UserAgent, SMMO.Key);
 
                                         ThemeStore.Children.Add(StoreCard);
 
