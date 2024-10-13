@@ -18,7 +18,7 @@ namespace Sucrose.Shared.Engine.Helper
             {
                 try
                 {
-                    if (SMME.Volume > 0 && SMME.VolumeActive)
+                    if (SMME.WallpaperVolume > 0 && SMME.VolumeActive)
                     {
                         foreach (Process Process in Process.GetProcesses().Where(Proc => !Proc.ProcessName.Contains(SMMRG.AppName) && !SSEMI.Processes.ToList().Any(Id => Id == Proc.Id) && !SSEMI.Applications.ToList().Any(App => App.Process.Id == Proc.Id)))
                         {

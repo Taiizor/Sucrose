@@ -185,7 +185,7 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         private Visibility GetDonater()
         {
-            return SMMD.DonateVisible ? Visibility.Visible : Visibility.Collapsed;
+            return SMMD.MenuVisible ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private string GetBackgrounder()

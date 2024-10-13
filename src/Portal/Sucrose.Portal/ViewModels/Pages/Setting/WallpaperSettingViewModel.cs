@@ -218,7 +218,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch LoopState = new()
             {
-                IsChecked = SMME.Loop
+                IsChecked = SMME.WallpaperLoop
             };
 
             LoopState.Checked += (s, e) => LoopStateChecked(true);
@@ -240,7 +240,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch ShuffleState = new()
             {
-                IsChecked = SMME.Shuffle
+                IsChecked = SMME.WallpaperShuffle
             };
 
             ShuffleState.Checked += (s, e) => ShuffleStateChecked(true);
@@ -278,7 +278,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 GifEngine.Items.Add(new ComboBoxItem()
                 {
-                    IsSelected = Type == (SSDEGET)SSDMME.GifEngine,
+                    IsSelected = Type == (SSDEGET)SSDMME.Gif,
                     Content = $"{Type}"
                 });
             }
@@ -305,7 +305,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 VideoEngine.Items.Add(new ComboBoxItem()
                 {
-                    IsSelected = Type == (SSDEVET)SSDMME.VideoEngine,
+                    IsSelected = Type == (SSDEVET)SSDMME.Video,
                     Content = $"{Type}"
                 });
             }
@@ -342,7 +342,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 UrlEngine.Items.Add(new ComboBoxItem()
                 {
-                    IsSelected = Type == (SSDEUET)SSDMME.UrlEngine,
+                    IsSelected = Type == (SSDEUET)SSDMME.Url,
                     Content = $"{Type}"
                 });
             }
@@ -369,7 +369,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 WebEngine.Items.Add(new ComboBoxItem()
                 {
-                    IsSelected = Type == (SSDEWET)SSDMME.WebEngine,
+                    IsSelected = Type == (SSDEWET)SSDMME.Web,
                     Content = $"{Type}"
                 });
             }
@@ -396,7 +396,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 YouTubeEngine.Items.Add(new ComboBoxItem()
                 {
-                    IsSelected = Type == (SSDEYTET)SSDMME.YouTubeEngine,
+                    IsSelected = Type == (SSDEYTET)SSDMME.YouTube,
                     Content = $"{Type}"
                 });
             }
@@ -423,7 +423,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 ApplicationEngine.Items.Add(new ComboBoxItem()
                 {
-                    IsSelected = Type == (SSDEAET)SSDMME.ApplicationEngine,
+                    IsSelected = Type == (SSDEAET)SSDMME.Application,
                     Content = $"{Type}"
                 });
             }
@@ -437,7 +437,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void LoopStateChecked(bool State)
         {
-            SMMI.EngineSettingManager.SetSetting(SMMCE.Loop, State);
+            SMMI.EngineSettingManager.SetSetting(SMMCE.WallpaperLoop, State);
         }
 
         private void ScreenTypeSelected(int Index)
@@ -484,7 +484,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void ShuffleStateChecked(bool State)
         {
-            SMMI.EngineSettingManager.SetSetting(SMMCE.Shuffle, State);
+            SMMI.EngineSettingManager.SetSetting(SMMCE.WallpaperShuffle, State);
         }
 
         private void InputModuleTypeSelected(int Index)
@@ -499,41 +499,41 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void GifEngineSelected(ComboBoxItem Item)
         {
-            if (Enum.TryParse($"{Item.Content}", out SSDEGET Type) && (SSDEET)Type != SSDMME.GifEngine)
+            if (Enum.TryParse($"{Item.Content}", out SSDEGET Type) && (SSDEET)Type != SSDMME.Gif)
             {
-                SMMI.EngineSettingManager.SetSetting(SMMCE.GifEngine, (SSDEET)Type);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.Gif, (SSDEET)Type);
             }
         }
 
         private void UrlEngineSelected(ComboBoxItem Item)
         {
-            if (Enum.TryParse($"{Item.Content}", out SSDEUET Type) && (SSDEET)Type != SSDMME.UrlEngine)
+            if (Enum.TryParse($"{Item.Content}", out SSDEUET Type) && (SSDEET)Type != SSDMME.Url)
             {
-                SMMI.EngineSettingManager.SetSetting(SMMCE.UrlEngine, (SSDEET)Type);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.Url, (SSDEET)Type);
             }
         }
 
         private void WebEngineSelected(ComboBoxItem Item)
         {
-            if (Enum.TryParse($"{Item.Content}", out SSDEWET Type) && (SSDEET)Type != SSDMME.WebEngine)
+            if (Enum.TryParse($"{Item.Content}", out SSDEWET Type) && (SSDEET)Type != SSDMME.Web)
             {
-                SMMI.EngineSettingManager.SetSetting(SMMCE.WebEngine, (SSDEET)Type);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.Web, (SSDEET)Type);
             }
         }
 
         private void VideoEngineSelected(ComboBoxItem Item)
         {
-            if (Enum.TryParse($"{Item.Content}", out SSDEVET Type) && (SSDEET)Type != SSDMME.VideoEngine)
+            if (Enum.TryParse($"{Item.Content}", out SSDEVET Type) && (SSDEET)Type != SSDMME.Video)
             {
-                SMMI.EngineSettingManager.SetSetting(SMMCE.VideoEngine, (SSDEET)Type);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.Video, (SSDEET)Type);
             }
         }
 
         private void YouTubeEngineSelected(ComboBoxItem Item)
         {
-            if (Enum.TryParse($"{Item.Content}", out SSDEYTET Type) && (SSDEET)Type != SSDMME.YouTubeEngine)
+            if (Enum.TryParse($"{Item.Content}", out SSDEYTET Type) && (SSDEET)Type != SSDMME.YouTube)
             {
-                SMMI.EngineSettingManager.SetSetting(SMMCE.YouTubeEngine, (SSDEET)Type);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.YouTube, (SSDEET)Type);
             }
         }
 
@@ -550,9 +550,9 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void ApplicationEngineSelected(ComboBoxItem Item)
         {
-            if (Enum.TryParse($"{Item.Content}", out SSDEAET Type) && (SSDEET)Type != SSDMME.ApplicationEngine)
+            if (Enum.TryParse($"{Item.Content}", out SSDEAET Type) && (SSDEET)Type != SSDMME.Application)
             {
-                SMMI.EngineSettingManager.SetSetting(SMMCE.ApplicationEngine, (SSDEET)Type);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.Application, (SSDEET)Type);
             }
         }
 

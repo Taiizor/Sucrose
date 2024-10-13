@@ -2,29 +2,27 @@
 {
     public static class Engine
     {
-        public const string Loop = "Loop";
+        public const string Gif = "Gif";
 
-        public const string Volume = "Volume";
+        public const string Url = "Url";
 
-        public const string Shuffle = "Shuffle";
+        public const string Web = "Web";
 
-        public const string GifEngine = "GifEngine";
+        public const string Video = "Video";
+
+        public const string YouTube = "YouTube";
 
         public const string InputType = "InputType";
-
-        public const string UrlEngine = "UrlEngine";
-
-        public const string WebEngine = "WebEngine";
 
         public const string ScreenType = "ScreenType";
 
         public const string StoreStart = "StoreStart";
 
+        public const string Application = "Application";
+
         public const string ScreenIndex = "ScreenIndex";
 
         public const string StretchType = "StretchType";
-
-        public const string VideoEngine = "VideoEngine";
 
         public const string CefArguments = "CefArguments";
 
@@ -42,13 +40,15 @@
 
         public const string VolumeDesktop = "VolumeDesktop";
 
-        public const string YouTubeEngine = "YouTubeEngine";
+        public const string WallpaperLoop = "WallpaperLoop";
 
         public const string InputModuleType = "InputModuleType";
 
+        public const string WallpaperVolume = "WallpaperVolume";
+
         public const string ExpandScreenType = "ExpandScreenType";
 
-        public const string ApplicationEngine = "ApplicationEngine";
+        public const string WallpaperShuffle = "WallpaperShuffle";
 
         public const string DisplayScreenType = "DisplayScreenType";
 

@@ -6,12 +6,12 @@ namespace Sucrose.Manager.Manage
 {
     public static class Cycling
     {
-        public static int PassingCycyling => SHS.Clamp(SMMI.CyclingSettingManager.GetSettingStable(SMMCC.PassingCycyling, 0), 0, 99999);
+        public static int TransitionTime => SHS.Clamp(SMMI.CyclingSettingManager.GetSettingStable(SMMCC.TransitionTime, 30), 1, 999);
 
-        public static List<string> DisableCycyling => SMMI.CyclingSettingManager.GetSetting(SMMCC.DisableCycyling, new List<string>());
+        public static int PassingTime => SHS.Clamp(SMMI.CyclingSettingManager.GetSettingStable(SMMCC.PassingTime, 0), 0, 99999);
 
-        public static int CycylingTime => SHS.Clamp(SMMI.CyclingSettingManager.GetSettingStable(SMMCC.CycylingTime, 30), 1, 999);
+        public static List<string> Exclusion => SMMI.CyclingSettingManager.GetSetting(SMMCC.Exclusion, new List<string>());
 
-        public static bool Cycyling => SMMI.CyclingSettingManager.GetSetting(SMMCC.Cycyling, false);
+        public static bool Active => SMMI.CyclingSettingManager.GetSetting(SMMCC.Active, false);
     }
 }

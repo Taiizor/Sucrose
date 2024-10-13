@@ -22,7 +22,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ResetList_Click(object sender, RoutedEventArgs e)
         {
-            SMMI.CyclingSettingManager.SetSetting(SMMCC.DisableCycyling, new List<string>());
+            SMMI.CyclingSettingManager.SetSetting(SMMCC.Exclusion, new List<string>());
         }
 
         private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
@@ -32,7 +32,7 @@ namespace Sucrose.Portal.Views.Controls
 
             ToggleSwitch CyclingState = new()
             {
-                IsChecked = SMMC.Cycyling
+                IsChecked = SMMC.Active
             };
 
             CyclingState.Checked += (s, e) => CyclingStateChecked(true);
@@ -48,7 +48,7 @@ namespace Sucrose.Portal.Views.Controls
                 Icon = new SymbolIcon(SymbolRegular.Timer24),
                 IconPlacement = ElementPlacement.Left,
                 ClearButtonEnabled = false,
-                Value = SMMC.CycylingTime,
+                Value = SMMC.TransitionTime,
                 MaxDecimalPlaces = 0,
                 MaxLength = 3,
                 Maximum = 999,
@@ -74,7 +74,7 @@ namespace Sucrose.Portal.Views.Controls
                 });
             }
 
-            TransitionType.SelectedIndex = (int)SSDMMC.TransitionCycleType;
+            TransitionType.SelectedIndex = (int)SSDMMC.TransitionType;
 
             Transition.HeaderFrame = TransitionType;
 
@@ -84,16 +84,16 @@ namespace Sucrose.Portal.Views.Controls
 
         private void CyclingStateChecked(bool State)
         {
-            SMMI.CyclingSettingManager.SetSetting(SMMCC.Cycyling, State);
+            SMMI.CyclingSettingManager.SetSetting(SMMCC.Active, State);
         }
 
         private void TransitionTypeSelected(int Index)
         {
             SSDETCT NewType = (SSDETCT)Index;
 
-            if (NewType != SSDMMC.TransitionCycleType)
+            if (NewType != SSDMMC.TransitionType)
             {
-                SMMI.CyclingSettingManager.SetSetting(SMMCC.TransitionCycleType, NewType);
+                SMMI.CyclingSettingManager.SetSetting(SMMCC.TransitionType, NewType);
             }
         }
 
@@ -101,9 +101,9 @@ namespace Sucrose.Portal.Views.Controls
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMC.CycylingTime)
+            if (NewValue != SMMC.TransitionTime)
             {
-                SMMI.CyclingSettingManager.SetSetting(SMMCC.CycylingTime, NewValue);
+                SMMI.CyclingSettingManager.SetSetting(SMMCC.TransitionTime, NewValue);
             }
         }
 

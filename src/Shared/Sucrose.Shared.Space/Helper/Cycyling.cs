@@ -31,9 +31,9 @@ namespace Sucrose.Shared.Space.Helper
 
                 if (Themes.Any())
                 {
-                    Themes = Themes.Except(SMMC.DisableCycyling).ToList();
+                    Themes = Themes.Except(SMMC.Exclusion).ToList();
 
-                    if (SMMC.Cycyling && (Themes.Count > 1 || (Themes.Count == 1 && !Themes.Contains(SMML.Selected))) && (SMMC.PassingCycyling >= Converter(SMMC.CycylingTime) || !Time))
+                    if (SMMC.Active && (Themes.Count > 1 || (Themes.Count == 1 && !Themes.Contains(SMML.Selected))) && (SMMC.PassingTime >= Converter(SMMC.TransitionTime) || !Time))
                     {
                         foreach (string Theme in Themes)
                         {
@@ -87,7 +87,7 @@ namespace Sucrose.Shared.Space.Helper
                     {
                         string LibrarySelected = SMML.Selected;
 
-                        Themes = Themes.Where(Theme => !SMMC.DisableCycyling.Contains(Theme) || Theme == LibrarySelected).ToList();
+                        Themes = Themes.Where(Theme => !SMMC.Exclusion.Contains(Theme) || Theme == LibrarySelected).ToList();
 
                         if (Themes.Count > 1)
                         {
@@ -95,7 +95,7 @@ namespace Sucrose.Shared.Space.Helper
 
                             int Index = Themes.IndexOf(LibrarySelected);
 
-                            switch (SSDMMC.TransitionCycleType)
+                            switch (SSDMMC.TransitionType)
                             {
                                 case SSDETCT.Random:
                                     while (string.IsNullOrEmpty(Selected))
@@ -166,7 +166,7 @@ namespace Sucrose.Shared.Space.Helper
 
                             if (!string.IsNullOrEmpty(Selected))
                             {
-                                SMMI.CyclingSettingManager.SetSetting(SMMCC.PassingCycyling, 0);
+                                SMMI.CyclingSettingManager.SetSetting(SMMCC.PassingTime, 0);
 
                                 SMMI.LibrarySettingManager.SetSetting(SMMCL.Selected, Selected);
 

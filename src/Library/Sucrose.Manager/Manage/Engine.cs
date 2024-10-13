@@ -15,6 +15,8 @@ namespace Sucrose.Manager.Manage
 
         public static int VolumeSensitivity => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMMCE.VolumeSensitivity, 5), 1, 10);
 
+        public static int WallpaperVolume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMMCE.WallpaperVolume, 100), 0, 100);
+
         public static SEDEST DuplicateScreenType => SMMI.EngineSettingManager.GetSetting(SMMCE.DuplicateScreenType, SEDEST.Default);
 
         public static SEDYST DisplayScreenType => SMMI.EngineSettingManager.GetSetting(SMMCE.DisplayScreenType, SEDYST.PerDisplay);
@@ -27,15 +29,17 @@ namespace Sucrose.Manager.Manage
 
         public static SEEST ExpandScreenType => SMMI.EngineSettingManager.GetSetting(SMMCE.ExpandScreenType, SEEST.Default);
 
-        public static int Volume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMMCE.Volume, 100), 0, 100);
-
         public static SESNT ScreenType => SMMI.EngineSettingManager.GetSetting(SMMCE.ScreenType, SESNT.DisplayBound);
+
+        public static bool WallpaperShuffle => SMMI.EngineSettingManager.GetSetting(SMMCE.WallpaperShuffle, true);
 
         public static SEIT InputType => SMMI.EngineSettingManager.GetSetting(SMMCE.InputType, SEIT.MouseKeyboard);
 
         public static bool VolumeDesktop => SMMI.EngineSettingManager.GetSetting(SMMCE.VolumeDesktop, false);
 
         public static bool DeveloperMode => SMMI.EngineSettingManager.GetSetting(SMMCE.DeveloperMode, false);
+
+        public static bool WallpaperLoop => SMMI.EngineSettingManager.GetSetting(SMMCE.WallpaperLoop, true);
 
         public static bool VolumeActive => SMMI.EngineSettingManager.GetSetting(SMMCE.VolumeActive, false);
 
@@ -44,9 +48,5 @@ namespace Sucrose.Manager.Manage
         public static bool LibraryStart => SMMI.EngineSettingManager.GetSetting(SMMCE.LibraryStart, true);
 
         public static bool StoreStart => SMMI.EngineSettingManager.GetSetting(SMMCE.StoreStart, true);
-
-        public static bool Shuffle => SMMI.EngineSettingManager.GetSetting(SMMCE.Shuffle, true);
-
-        public static bool Loop => SMMI.EngineSettingManager.GetSetting(SMMCE.Loop, true);
     }
 }

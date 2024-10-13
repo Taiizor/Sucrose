@@ -2,7 +2,7 @@
 {
     public static class Donate
     {
-        public const string DonateVisible = "DonateVisible";
+        public const string MenuVisible = "MenuVisible";
 
         public const string AdvertisingDelay = "AdvertisingDelay";
 

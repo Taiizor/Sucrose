@@ -15,12 +15,12 @@ namespace Sucrose.Shared.Engine.Helper
     {
         public static bool GetLoop()
         {
-            return SMME.Loop;
+            return SMME.WallpaperLoop;
         }
 
         public static int GetVolume()
         {
-            if (SMME.Volume > 0)
+            if (SMME.WallpaperVolume > 0)
             {
                 if (SMME.VolumeActive)
                 {
@@ -34,7 +34,7 @@ namespace Sucrose.Shared.Engine.Helper
                 {
                     if (SWUD.IsDesktopBasic() || SWUD.IsDesktopAdvanced())
                     {
-                        return SMME.Volume;
+                        return SMME.WallpaperVolume;
                     }
                     else
                     {
@@ -43,12 +43,12 @@ namespace Sucrose.Shared.Engine.Helper
                 }
             }
 
-            return SMME.Volume;
+            return SMME.WallpaperVolume;
         }
 
         public static bool GetShuffle()
         {
-            return SMME.Shuffle;
+            return SMME.WallpaperShuffle;
         }
 
         public static SSDEST GetStretch()

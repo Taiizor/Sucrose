@@ -2,14 +2,14 @@
 {
     public static class Cycling
     {
-        public const string Cycyling = "Cycyling";
+        public const string Active = "Active";
 
-        public const string CycylingTime = "CycylingTime";
+        public const string Exclusion = "Exclusion";
 
-        public const string DisableCycyling = "DisableCycyling";
+        public const string PassingTime = "PassingTime";
 
-        public const string PassingCycyling = "PassingCycyling";
+        public const string TransitionTime = "TransitionTime";
 
-        public const string TransitionCycleType = "TransitionCycleType";
+        public const string TransitionType = "TransitionType";
     }
 }

@@ -127,13 +127,13 @@ namespace Sucrose.Portal.Views.Controls
 
         private void MenuCyclingAdd_Click(object sender, RoutedEventArgs e)
         {
-            List<string> DisableCycyling = SMMC.DisableCycyling;
+            List<string> Exclusion = SMMC.Exclusion;
 
-            if (DisableCycyling.Contains(Path.GetFileName(Theme)))
+            if (Exclusion.Contains(Path.GetFileName(Theme)))
             {
-                DisableCycyling.Remove(Path.GetFileName(Theme));
+                Exclusion.Remove(Path.GetFileName(Theme));
 
-                SMMI.CyclingSettingManager.SetSetting(SMMCC.DisableCycyling, DisableCycyling);
+                SMMI.CyclingSettingManager.SetSetting(SMMCC.Exclusion, Exclusion);
             }
         }
 
@@ -248,13 +248,13 @@ namespace Sucrose.Portal.Views.Controls
 
         private void MenuCyclingRemove_Click(object sender, RoutedEventArgs e)
         {
-            List<string> DisableCycyling = SMMC.DisableCycyling;
+            List<string> Exclusion = SMMC.Exclusion;
 
-            if (!DisableCycyling.Contains(Path.GetFileName(Theme)))
+            if (!Exclusion.Contains(Path.GetFileName(Theme)))
             {
-                DisableCycyling.Add(Path.GetFileName(Theme));
+                Exclusion.Add(Path.GetFileName(Theme));
 
-                SMMI.CyclingSettingManager.SetSetting(SMMCC.DisableCycyling, DisableCycyling);
+                SMMI.CyclingSettingManager.SetSetting(SMMCC.Exclusion, Exclusion);
             }
         }
 
@@ -276,9 +276,9 @@ namespace Sucrose.Portal.Views.Controls
                 MenuCustomize.IsEnabled = true;
             }
 
-            if (SMMC.Cycyling)
+            if (SMMC.Active)
             {
-                if (SMMC.DisableCycyling.Contains(Path.GetFileName(Theme)))
+                if (SMMC.Exclusion.Contains(Path.GetFileName(Theme)))
                 {
                     MenuCyclingAdd.Visibility = Visibility.Visible;
                     MenuCyclingRemove.Visibility = Visibility.Collapsed;

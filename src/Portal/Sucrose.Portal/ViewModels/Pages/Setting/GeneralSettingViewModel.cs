@@ -316,7 +316,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IsExpand = true
             };
 
-            EngineVolume.LeftIcon.Symbol = VolumeSymbol(SMME.Volume);
+            EngineVolume.LeftIcon.Symbol = VolumeSymbol(SMME.WallpaperVolume);
             EngineVolume.Title.Text = SRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume");
             EngineVolume.Description.Text = SRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "Description");
 
@@ -325,9 +325,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 AutoToolTipPlacement = AutoToolTipPlacement.TopLeft,
                 TickPlacement = TickPlacement.Both,
                 IsSelectionRangeEnabled = false,
+                Value = SMME.WallpaperVolume,
                 IsMoveToPointEnabled = true,
                 IsSnapToTickEnabled = true,
-                Value = SMME.Volume,
                 TickFrequency = 1,
                 Maximum = 100,
                 Minimum = 0,
@@ -632,7 +632,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             Volume.LeftIcon.Symbol = VolumeSymbol(Value);
 
-            SMMI.EngineSettingManager.SetSetting(SMMCE.Volume, Convert.ToInt32(Value));
+            SMMI.EngineSettingManager.SetSetting(SMMCE.WallpaperVolume, Convert.ToInt32(Value));
         }
 
         private async void BackgroundImageClick(Button BackgroundImage)

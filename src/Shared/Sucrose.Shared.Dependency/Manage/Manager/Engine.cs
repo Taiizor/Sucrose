@@ -9,20 +9,20 @@ namespace Sucrose.Shared.Dependency.Manage.Manager
 {
     internal static class Engine
     {
-        public static SSDEET ApplicationEngine => SMMI.EngineSettingManager.GetSetting(SMMCE.ApplicationEngine, (SSDEET)SSSMI.ApplicationEngine);
-
-        public static SSDEET YouTubeEngine => SMMI.EngineSettingManager.GetSetting(SMMCE.YouTubeEngine, (SSDEET)SSSMI.YouTubeEngine);
-
-        public static SSDEET VideoEngine => SMMI.EngineSettingManager.GetSetting(SMMCE.VideoEngine, (SSDEET)SSSMI.VideoEngine);
+        public static SSDEET Application => SMMI.EngineSettingManager.GetSetting(SMMCE.Application, (SSDEET)SSSMI.ApplicationEngine);
 
         public static SSDEIMT InputModuleType => SMMI.EngineSettingManager.GetSetting(SMMCE.InputModuleType, SSDEIMT.RawInput);
 
-        public static SSDEET WebEngine => SMMI.EngineSettingManager.GetSetting(SMMCE.WebEngine, (SSDEET)SSSMI.WebEngine);
+        public static SSDEET YouTube => SMMI.EngineSettingManager.GetSetting(SMMCE.YouTube, (SSDEET)SSSMI.YouTubeEngine);
 
-        public static SSDEET UrlEngine => SMMI.EngineSettingManager.GetSetting(SMMCE.UrlEngine, (SSDEET)SSSMI.UrlEngine);
-
-        public static SSDEET GifEngine => SMMI.EngineSettingManager.GetSetting(SMMCE.GifEngine, (SSDEET)SSSMI.GifEngine);
+        public static SSDEET Video => SMMI.EngineSettingManager.GetSetting(SMMCE.Video, (SSDEET)SSSMI.VideoEngine);
 
         public static SSDEST StretchType => SMMI.EngineSettingManager.GetSetting(SMMCE.StretchType, SSDEST.Fill);
+
+        public static SSDEET Web => SMMI.EngineSettingManager.GetSetting(SMMCE.Web, (SSDEET)SSSMI.WebEngine);
+
+        public static SSDEET Url => SMMI.EngineSettingManager.GetSetting(SMMCE.Url, (SSDEET)SSSMI.UrlEngine);
+
+        public static SSDEET Gif => SMMI.EngineSettingManager.GetSetting(SMMCE.Gif, (SSDEET)SSSMI.GifEngine);
     }
 }

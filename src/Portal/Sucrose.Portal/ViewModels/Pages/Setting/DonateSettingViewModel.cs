@@ -57,7 +57,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             DonateVisible.Items.Add(SRER.GetValue("Portal", "DonateSettingPage", "DonateMenu", "DonateVisible", "Show"));
             DonateVisible.Items.Add(SRER.GetValue("Portal", "DonateSettingPage", "DonateMenu", "DonateVisible", "Hide"));
 
-            DonateVisible.SelectedIndex = SMMD.DonateVisible ? 0 : 1;
+            DonateVisible.SelectedIndex = SMMD.MenuVisible ? 0 : 1;
 
             DonateMenu.HeaderFrame = DonateVisible;
 
@@ -149,12 +149,12 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void DonateVisibleSelected(int Index)
         {
-            if (Index != (SMMD.DonateVisible ? 0 : 1))
+            if (Index != (SMMD.MenuVisible ? 0 : 1))
             {
                 bool State = Index == 0;
                 Visibility Visible = State ? Visibility.Visible : Visibility.Collapsed;
 
-                SMMI.DonateSettingManager.SetSetting(SMMCD.DonateVisible, State);
+                SMMI.DonateSettingManager.SetSetting(SMMCD.MenuVisible, State);
 
                 SPMI.DonateService.DonateVisibility = Visible;
             }

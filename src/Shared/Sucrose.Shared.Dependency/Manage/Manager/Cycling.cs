@@ -6,6 +6,6 @@ namespace Sucrose.Shared.Dependency.Manage.Manager
 {
     internal static class Cycling
     {
-        public static SSDETCT TransitionCycleType => SMMI.CyclingSettingManager.GetSetting(SMMCC.TransitionCycleType, SSDETCT.Random);
+        public static SSDETCT TransitionType => SMMI.CyclingSettingManager.GetSetting(SMMCC.TransitionType, SSDETCT.Random);
     }
 }

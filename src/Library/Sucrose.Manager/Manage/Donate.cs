@@ -10,6 +10,6 @@ namespace Sucrose.Manager.Manage
 
         public static bool AdvertisingState => SMMI.DonateSettingManager.GetSetting(SMMCD.AdvertisingState, true);
 
-        public static bool DonateVisible => SMMI.DonateSettingManager.GetSetting(SMMCD.DonateVisible, true);
+        public static bool MenuVisible => SMMI.DonateSettingManager.GetSetting(SMMCD.MenuVisible, true);
     }
 }
