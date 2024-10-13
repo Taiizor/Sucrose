@@ -61,7 +61,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
             SSLCRG.Command();
 
-            if (SMMU.AutoUpdate)
+            if (SMMU.Auto)
             {
                 SSLCU.Command(false);
             }
@@ -215,7 +215,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
             if (SSSHP.Work(SSSMI.Update))
             {
-                if (SMMU.UpdateState)
+                if (SMMU.State)
                 {
                     Update = new ToolStripMenuItem(SRER.GetValue("Launcher", "UpdateText", "Done"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "UpdateIcon"))))
                     {

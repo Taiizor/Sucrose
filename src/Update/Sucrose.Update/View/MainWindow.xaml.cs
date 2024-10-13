@@ -256,7 +256,7 @@ namespace Sucrose.Update.View
                 {
                     SSSHS.Apply();
 
-                    SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateTime, DateTime.Now);
+                    SMMI.UpdateSettingManager.SetSetting(SMMCU.Time, DateTime.Now);
 
                     try
                     {
@@ -312,7 +312,7 @@ namespace Sucrose.Update.View
 
                 Release = Releases.FirstOrDefault();
 
-                if (SSCMMU.UpdateChannelType == SSCEUCT.Release)
+                if (SSCMMU.ChannelType == SSCEUCT.Release)
                 {
                     Release = Releases.FirstOrDefault(Releasing => !Releasing.PreRelease);
                 }
@@ -342,7 +342,7 @@ namespace Sucrose.Update.View
             {
                 Message.Text = SRER.GetValue("Update", "MessageText", "Listing");
 
-                Releases = SSDMMU.UpdateServerType switch
+                Releases = SSDMMU.ServerType switch
                 {
                     SSDEUST.GitHub => SSHG.ReleasesList(SMMRGH.Owner, SMMRGH.SucroseRepository, SMMG.UserAgent, SMMO.Key),
                     SSDEUST.Soferity => SUHU.ReleasesList($"{SMMRU.Soferity}/{SMMRS.SoferityUpdate}", SMMG.UserAgent),
@@ -410,11 +410,11 @@ namespace Sucrose.Update.View
                 {
                     foreach (SSIIA Asset in Assets)
                     {
-                        string Name = $"{SMMRG.AppName}_{SMMRG.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHU.GetDescription(SUMMU.UpdateExtensionType)}";
+                        string Name = $"{SMMRG.AppName}_{SMMRG.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHU.GetDescription(SUMMU.ExtensionType)}";
 
                         string[] Required =
                         {
-                            SSCHU.GetDescription(SUMMU.UpdateExtensionType),
+                            SSCHU.GetDescription(SUMMU.ExtensionType),
                             SSCHF.GetDescription(),
                             SSCHA.GetText(),
                             SMMRG.AppName,
@@ -569,7 +569,7 @@ namespace Sucrose.Update.View
 
                 CheckProgress();
 
-                switch (SUMMU.UpdateModuleType)
+                switch (SUMMU.ModuleType)
                 {
                     case SSDEUMT.Native:
                         {
@@ -689,9 +689,9 @@ namespace Sucrose.Update.View
         {
             try
             {
-                if (SMMU.UpdateLimitValue > 0)
+                if (SMMU.LimitValue > 0)
                 {
-                    double UpdateLimit = SSESSE.Convert(SMMU.UpdateLimitValue, SMMU.UpdateLimitType, SEST.Byte, SEMST.Palila);
+                    double UpdateLimit = SSESSE.Convert(SMMU.LimitValue, SMMU.LimitType, SEST.Byte, SEMST.Palila);
 
                     long Limit = Convert.ToInt64(SHN.Numeral(UpdateLimit, false, false, 0, '0', SECNT.None));
 
@@ -777,7 +777,7 @@ namespace Sucrose.Update.View
 
                 await Task.Delay(MinDelay);
 
-                if (SUMMU.UpdateExtensionType == SSCEUET.Compressed)
+                if (SUMMU.ExtensionType == SSCEUET.Compressed)
                 {
                     SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECDT.Bundle}{SMMRG.ValueSeparator}{SSSHE.Change(SUMI.Source, SSCHU.GetDescription(SSCEUET.Executable))}");
                 }
@@ -872,7 +872,7 @@ namespace Sucrose.Update.View
 
                 TaskBarProgress.SetValue(this, TaskBarProgressState.Normal, 0);
 
-                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateState, true);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.State, true);
             });
         }
 
@@ -901,7 +901,7 @@ namespace Sucrose.Update.View
 
                 TaskBarProgress.SetValue(this, TaskBarProgressState.Normal, 0);
 
-                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateState, true);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.State, true);
             });
         }
 
@@ -919,7 +919,7 @@ namespace Sucrose.Update.View
 
                 await Task.Delay(MinDelay);
 
-                switch (SUMMU.UpdateExtensionType)
+                switch (SUMMU.ExtensionType)
                 {
                     case SSCEUET.Compressed:
                         await StepExtracting();
@@ -980,7 +980,7 @@ namespace Sucrose.Update.View
 
                     await Task.Delay(MinDelay);
 
-                    switch (SUMMU.UpdateExtensionType)
+                    switch (SUMMU.ExtensionType)
                     {
                         case SSCEUET.Compressed:
                             await StepExtracting();

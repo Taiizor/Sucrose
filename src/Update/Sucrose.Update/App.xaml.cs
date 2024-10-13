@@ -77,7 +77,7 @@ namespace Sucrose.Update
 
         protected void Close()
         {
-            SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateState, false);
+            SMMI.UpdateSettingManager.SetSetting(SMMCU.State, false);
 
             Environment.Exit(0);
             Current.Shutdown();
@@ -136,7 +136,7 @@ namespace Sucrose.Update
 
             if (SSSHI.Basic(SMMRM.Update, SMMRA.Update))
             {
-                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateState, false);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.State, false);
 
                 Configure(e.Args.Any());
             }

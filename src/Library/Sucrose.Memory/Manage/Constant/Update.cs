@@ -2,22 +2,22 @@
 {
     public static class Update
     {
-        public const string AutoUpdate = "AutoUpdate";
+        public const string Auto = "Auto";
 
-        public const string UpdateTime = "UpdateTime";
+        public const string Time = "Time";
 
-        public const string UpdateState = "UpdateState";
+        public const string State = "State";
 
-        public const string UpdateLimitType = "UpdateLimitType";
+        public const string LimitType = "LimitType";
 
-        public const string UpdateLimitValue = "UpdateLimitValue";
+        public const string LimitValue = "LimitValue";
 
-        public const string UpdateModuleType = "UpdateModuleType";
+        public const string ModuleType = "ModuleType";
 
-        public const string UpdateServerType = "UpdateServerType";
+        public const string ServerType = "ServerType";
 
-        public const string UpdateChannelType = "UpdateChannelType";
+        public const string ChannelType = "ChannelType";
 
-        public const string UpdateExtensionType = "UpdateExtensionType";
+        public const string ExtensionType = "ExtensionType";
     }
 }

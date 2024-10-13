@@ -7,8 +7,8 @@ namespace Sucrose.Shared.Core.Manage.Manager
 {
     internal static class Update
     {
-        public static SSCEUET UpdateExtensionType => SMMI.UpdateSettingManager.GetSetting(SMMCU.UpdateExtensionType, SSCEUET.Executable);
+        public static SSCEUET ExtensionType => SMMI.UpdateSettingManager.GetSetting(SMMCU.ExtensionType, SSCEUET.Executable);
 
-        public static SSCEUCT UpdateChannelType => SMMI.UpdateSettingManager.GetSetting(SMMCU.UpdateChannelType, SSCEUCT.Release);
+        public static SSCEUCT ChannelType => SMMI.UpdateSettingManager.GetSetting(SMMCU.ChannelType, SSCEUCT.Release);
     }
 }

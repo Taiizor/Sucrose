@@ -7,8 +7,8 @@ namespace Sucrose.Shared.Dependency.Manage.Manager
 {
     internal static class Update
     {
-        public static SSDEUMT UpdateModuleType => SMMI.UpdateSettingManager.GetSetting(SMMCU.UpdateModuleType, SSDEUMT.Downloader);
+        public static SSDEUMT ModuleType => SMMI.UpdateSettingManager.GetSetting(SMMCU.ModuleType, SSDEUMT.Downloader);
 
-        public static SSDEUST UpdateServerType => SMMI.UpdateSettingManager.GetSetting(SMMCU.UpdateServerType, SSDEUST.Soferity);
+        public static SSDEUST ServerType => SMMI.UpdateSettingManager.GetSetting(SMMCU.ServerType, SSDEUST.Soferity);
     }
 }

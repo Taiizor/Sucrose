@@ -314,7 +314,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 });
             }
 
-            ServerType.SelectedIndex = (int)SSDMMU.UpdateServerType;
+            ServerType.SelectedIndex = (int)SSDMMU.ServerType;
 
             Server.HeaderFrame = ServerType;
 
@@ -352,7 +352,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 ModuleType.Items.Add(SRER.GetValue("Portal", "Enum", "UpdateModuleType", $"{Type}"));
             }
 
-            ModuleType.SelectedIndex = (int)SSDMMU.UpdateModuleType;
+            ModuleType.SelectedIndex = (int)SSDMMU.ModuleType;
 
             Module.HeaderFrame = ModuleType;
 
@@ -377,7 +377,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 ChannelType.Items.Add(SRER.GetValue("Portal", "Enum", "UpdateChannelType", $"{Type}"));
             }
 
-            ChannelType.SelectedIndex = (int)SSCMMU.UpdateChannelType;
+            ChannelType.SelectedIndex = (int)SSCMMU.ChannelType;
 
             Channel.HeaderFrame = ChannelType;
 
@@ -402,7 +402,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 UpdateType.Items.Add(SRER.GetValue("Portal", "Enum", "UpdateExtensionType", $"{Type}"));
             }
 
-            UpdateType.SelectedIndex = (int)SSCMMU.UpdateExtensionType;
+            UpdateType.SelectedIndex = (int)SSCMMU.ExtensionType;
 
             Update.HeaderFrame = UpdateType;
 
@@ -425,8 +425,8 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Icon = new SymbolIcon(SymbolRegular.ArrowBetweenDown24),
                 IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
-                Value = SMMU.UpdateLimitValue,
                 ClearButtonEnabled = false,
+                Value = SMMU.LimitValue,
                 MaxDecimalPlaces = 0,
                 Maximum = 99999999,
                 MaxLength = 8,
@@ -486,7 +486,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch AutoState = new()
             {
-                IsChecked = SMMU.AutoUpdate
+                IsChecked = SMMU.Auto
             };
 
             AutoState.Checked += (s, e) => AutoStateChecked(true);
@@ -600,36 +600,36 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void AutoStateChecked(bool State)
         {
-            SMMI.UpdateSettingManager.SetSetting(SMMCU.AutoUpdate, State);
+            SMMI.UpdateSettingManager.SetSetting(SMMCU.Auto, State);
         }
 
         private void ModuleTypeSelected(int Index)
         {
-            if (Index != (int)SSDMMU.UpdateModuleType)
+            if (Index != (int)SSDMMU.ModuleType)
             {
                 SSDEUMT Type = (SSDEUMT)Index;
 
-                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateModuleType, Type);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.ModuleType, Type);
             }
         }
 
         private void ServerTypeSelected(int Index)
         {
-            if (Index != (int)SSDMMU.UpdateServerType)
+            if (Index != (int)SSDMMU.ServerType)
             {
                 SSDEUST Type = (SSDEUST)Index;
 
-                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateServerType, Type);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.ServerType, Type);
             }
         }
 
         private void UpdateTypeSelected(int Index)
         {
-            if (Index != (int)SSCMMU.UpdateExtensionType)
+            if (Index != (int)SSCMMU.ExtensionType)
             {
                 SSCEUET Type = (SSCEUET)Index;
 
-                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateExtensionType, Type);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.ExtensionType, Type);
             }
         }
 
@@ -652,11 +652,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void ChannelTypeSelected(int Index)
         {
-            if (Index != (int)SSCMMU.UpdateChannelType)
+            if (Index != (int)SSCMMU.ChannelType)
             {
                 SSCEUCT Type = (SSCEUCT)Index;
 
-                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateChannelType, Type);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.ChannelType, Type);
             }
         }
 
@@ -689,9 +689,9 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMU.UpdateLimitValue)
+            if (NewValue != SMMU.LimitValue)
             {
-                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateLimitValue, NewValue);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.LimitValue, NewValue);
             }
         }
 
@@ -714,11 +714,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void UpdateLimitTypeSelected(int Index)
         {
-            if (Index != (int)SMMU.UpdateLimitType)
+            if (Index != (int)SMMU.LimitType)
             {
                 SEST Type = (SEST)Index;
 
-                SMMI.UpdateSettingManager.SetSetting(SMMCU.UpdateLimitType, Type);
+                SMMI.UpdateSettingManager.SetSetting(SMMCU.LimitType, Type);
             }
         }
 

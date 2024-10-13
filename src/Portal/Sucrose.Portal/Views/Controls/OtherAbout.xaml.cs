@@ -25,7 +25,7 @@ namespace Sucrose.Portal.Views.Controls
             string Version = SSCHV.GetText();
 
             Update.TitleText = string.Format(SRER.GetValue("Portal", "OtherAbout", "Update"), Version);
-            Update.DescriptionText = string.Format(SRER.GetValue("Portal", "OtherAbout", "Update", "Description"), SMMU.UpdateTime.ToString(SHC.CurrentUI));
+            Update.DescriptionText = string.Format(SRER.GetValue("Portal", "OtherAbout", "Update", "Description"), SMMU.Time.ToString(SHC.CurrentUI));
 
             HyperlinkButton Navigate = new()
             {
