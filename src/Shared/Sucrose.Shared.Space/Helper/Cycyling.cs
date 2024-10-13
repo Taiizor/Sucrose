@@ -16,6 +16,7 @@ using SSDETCT = Sucrose.Shared.Dependency.Enum.TransitionCycleType;
 using SSDMMC = Sucrose.Shared.Dependency.Manage.Manager.Cycling;
 using SSETTE = Skylark.Standard.Extension.Time.TimeExtension;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSHS = Sucrose.Shared.Space.Helper.Sort;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
@@ -85,6 +86,8 @@ namespace Sucrose.Shared.Space.Helper
 
                     if (Themes.Any())
                     {
+                        Themes = SSSHS.Theme(Themes);
+
                         string LibrarySelected = SMML.Selected;
 
                         Themes = Themes.Where(Theme => !SMMC.Exclusion.Contains(Theme) || Theme == LibrarySelected).ToList();

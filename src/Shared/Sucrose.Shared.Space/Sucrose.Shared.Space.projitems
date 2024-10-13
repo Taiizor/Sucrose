@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Cycyling.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Copy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Filing.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Sort.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Unique.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Instance.cs" />

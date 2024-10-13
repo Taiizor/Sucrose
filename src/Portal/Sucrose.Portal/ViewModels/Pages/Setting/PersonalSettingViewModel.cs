@@ -454,7 +454,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IsExpand = true
             };
 
-            Sort.LeftIcon.Symbol = SymbolRegular.ArrowSort24;
+            Sort.LeftIcon.Symbol = SortSymbol(SSDMMP.LibrarySortKind);
             Sort.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Sort");
             Sort.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Sort", "Description");
 
@@ -498,7 +498,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ComboBox SortKind = new();
 
-            SortKind.SelectionChanged += (s, e) => SortKindSelected(SortKind.SelectedIndex);
+            SortKind.SelectionChanged += (s, e) => SortKindSelected(Sort, SortKind.SelectedIndex);
 
             foreach (SSDESKT Type in Enum.GetValues(typeof(SSDESKT)))
             {
@@ -578,16 +578,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             _isInitialized = true;
         }
 
-        private void SortKindSelected(int Index)
-        {
-            SSDESKT NewKind = (SSDESKT)Index;
-
-            if (NewKind != SSDMMP.LibrarySortKind)
-            {
-                SMMI.PortalSettingManager.SetSetting(SMMCP.LibrarySortKind, NewKind);
-            }
-        }
-
         private void SortModeSelected(int Index)
         {
             SSDESMT NewMode = (SSDESMT)Index;
@@ -633,6 +623,16 @@ namespace Sucrose.Portal.ViewModels.Pages
         private void LibraryPreviewChecked(bool State)
         {
             SMMI.PortalSettingManager.SetSetting(SMMCP.LibraryPreview, State);
+        }
+
+        private SymbolRegular SortSymbol(SSDESKT Type)
+        {
+            return Type switch
+            {
+                SSDESKT.Ascending => SymbolRegular.TextSortAscending24,
+                SSDESKT.Descending => SymbolRegular.TextSortDescending24,
+                _ => SymbolRegular.ArrowSortDownLines24,
+            };
         }
 
         private void StoreStartStateChecked(bool State)
@@ -702,6 +702,18 @@ namespace Sucrose.Portal.ViewModels.Pages
             if (NewValue != SMMP.LibraryPagination)
             {
                 SMMI.PortalSettingManager.SetSetting(SMMCP.LibraryPagination, NewValue);
+            }
+        }
+
+        private void SortKindSelected(SPVCEC Sort, int Index)
+        {
+            SSDESKT NewKind = (SSDESKT)Index;
+
+            if (NewKind != SSDMMP.LibrarySortKind)
+            {
+                Sort.LeftIcon.Symbol = SortSymbol(NewKind);
+
+                SMMI.PortalSettingManager.SetSetting(SMMCP.LibrarySortKind, NewKind);
             }
         }
 

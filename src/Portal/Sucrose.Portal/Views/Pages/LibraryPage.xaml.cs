@@ -18,11 +18,9 @@ using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
 using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
-using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
-using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
-using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSSHA = Sucrose.Shared.Space.Helper.Access;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
+using SSSHS = Sucrose.Shared.Space.Helper.Sort;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
@@ -174,52 +172,7 @@ namespace Sucrose.Portal.Views.Pages
 
                 if (Themes != null && Themes.Any())
                 {
-                    Dictionary<string, object> SortThemes = new();
-
-                    foreach (string Theme in Themes.ToList())
-                    {
-                        string ThemePath = Path.Combine(SMML.Location, Theme);
-                        string InfoPath = Path.Combine(ThemePath, SMMRC.SucroseInfo);
-
-                        if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
-                        {
-                            SSTHI Info = SSTHI.ReadJson(InfoPath);
-
-                            IEnumerable<string> SearchText = Info.Title.Split(' ')
-                                .Concat(Info.Description.Split(' '))
-                                .Concat(Info.Tags?.SelectMany(Tag => Tag.Split(' ')) ?? Array.Empty<string>());
-
-                            Searches.Add(Theme, string.Join(" ", SearchText.Select(Word => Word.ToLowerInvariant()).Distinct()));
-
-                            if (SSDMMP.LibrarySortMode == SSDESMT.Name)
-                            {
-                                SortThemes.Add(Theme, Info.Title);
-                            }
-                            else if (SSDMMP.LibrarySortMode == SSDESMT.Creation)
-                            {
-                                SortThemes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMML.Location, Theme)));
-                            }
-                            else if (SSDMMP.LibrarySortMode == SSDESMT.Modification)
-                            {
-                                SortThemes.Add(Theme, File.GetLastWriteTime(InfoPath));
-                            }
-                        }
-                    }
-
-                    if (SortThemes != null && SortThemes.Any())
-                    {
-                        if (SSDMMP.LibrarySortKind == SSDESKT.Ascending)
-                        {
-                            SortThemes = SortThemes.OrderBy(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
-                        }
-                        else
-                        {
-                            SortThemes = SortThemes.OrderByDescending(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
-                        }
-
-                        Themes.Clear();
-                        Themes.AddRange(SortThemes.Select(Theme => Theme.Key));
-                    }
+                    (Themes, Searches) = SSSHS.Theme(Themes, Searches);
                 }
             }
             else
