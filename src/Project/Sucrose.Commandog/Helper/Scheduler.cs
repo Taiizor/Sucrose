@@ -3,6 +3,7 @@ using System.Security.Principal;
 using SMR = Sucrose.Memory.Readonly;
 using Task = Microsoft.Win32.TaskScheduler.Task;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRS = Sucrose.Memory.Manage.Readonly.Scheduler;
 
 namespace Sucrose.Commandog.Helper
 {
@@ -14,7 +15,7 @@ namespace Sucrose.Commandog.Helper
 
             TaskDefinition Definition = Service.NewTask();
 
-            Definition.RegistrationInfo.Description = SMR.TaskDescription;
+            Definition.RegistrationInfo.Description = SMMRS.TaskDescription;
 
             Definition.Actions.Add(new ExecAction(Application));
 
@@ -32,7 +33,7 @@ namespace Sucrose.Commandog.Helper
 
             Settings.ExecutionTimeLimit = TimeSpan.Zero;
 
-            Service.RootFolder.RegisterTaskDefinition(SMR.TaskName, Definition);
+            Service.RootFolder.RegisterTaskDefinition(SMMRS.TaskName, Definition);
         }
 
         public static void CreateTask(string Application)
@@ -43,7 +44,7 @@ namespace Sucrose.Commandog.Helper
 
             TaskDefinition Definition = Service.NewTask();
 
-            Definition.RegistrationInfo.Description = SMR.TaskDescription;
+            Definition.RegistrationInfo.Description = SMMRS.TaskDescription;
 
             Definition.Actions.Add(new ExecAction(Application));
 
@@ -61,14 +62,14 @@ namespace Sucrose.Commandog.Helper
 
             Settings.ExecutionTimeLimit = TimeSpan.Zero;
 
-            Folder.RegisterTaskDefinition(SMR.TaskName, Definition);
+            Folder.RegisterTaskDefinition(SMMRS.TaskName, Definition);
         }
 
         public static bool Enable()
         {
             using TaskService Service = new();
 
-            Task Task = Service.GetTask(SMR.TaskName);
+            Task Task = Service.GetTask(SMMRS.TaskName);
 
             if (Task != null)
             {
@@ -98,7 +99,7 @@ namespace Sucrose.Commandog.Helper
 
                 foreach (Task Task in Collection)
                 {
-                    if (Task.Name.Equals(SMR.TaskName, StringComparison.OrdinalIgnoreCase))
+                    if (Task.Name.Equals(SMMRS.TaskName, StringComparison.OrdinalIgnoreCase))
                     {
                         Task.Enabled = true;
                         Task.Definition.Settings.Enabled = true;
@@ -120,7 +121,7 @@ namespace Sucrose.Commandog.Helper
         {
             using TaskService Service = new();
 
-            Task Task = Service.GetTask(SMR.TaskName);
+            Task Task = Service.GetTask(SMMRS.TaskName);
 
             if (Task != null)
             {
@@ -150,7 +151,7 @@ namespace Sucrose.Commandog.Helper
 
                 foreach (Task Task in Collection)
                 {
-                    if (Task.Name.Equals(SMR.TaskName, StringComparison.OrdinalIgnoreCase))
+                    if (Task.Name.Equals(SMMRS.TaskName, StringComparison.OrdinalIgnoreCase))
                     {
                         Task.Enabled = false;
                         Task.Definition.Settings.Enabled = false;
@@ -172,11 +173,11 @@ namespace Sucrose.Commandog.Helper
         {
             using TaskService Service = new();
 
-            Task Task = Service.GetTask(SMR.TaskName);
+            Task Task = Service.GetTask(SMMRS.TaskName);
 
             if (Task != null)
             {
-                Service.RootFolder.DeleteTask(SMR.TaskName);
+                Service.RootFolder.DeleteTask(SMMRS.TaskName);
 
                 return true;
             }
@@ -200,9 +201,9 @@ namespace Sucrose.Commandog.Helper
 
                 foreach (Task Task in Collection)
                 {
-                    if (Task.Name.Equals(SMR.TaskName, StringComparison.OrdinalIgnoreCase))
+                    if (Task.Name.Equals(SMMRS.TaskName, StringComparison.OrdinalIgnoreCase))
                     {
-                        Folder.DeleteTask(SMR.TaskName);
+                        Folder.DeleteTask(SMMRS.TaskName);
 
                         Result = true;
                     }

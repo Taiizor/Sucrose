@@ -24,13 +24,6 @@ namespace Sucrose.Memory
 
 
 
-        public static readonly string TaskName = "Autorun for Sucrose";
-
-        public static readonly string TaskDescription = "Sucrose Wallpaper Engine";
-
-
-
-
         public static readonly string StoreSource = "src";
 
 
