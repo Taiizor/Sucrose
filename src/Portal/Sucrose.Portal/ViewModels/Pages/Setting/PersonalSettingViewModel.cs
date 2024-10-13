@@ -150,7 +150,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch AdultState = new()
             {
-                IsChecked = SMMP.Adult
+                IsChecked = SMMP.StoreAdult
             };
 
             AdultState.Checked += (s, e) => AdultStateChecked(true);
@@ -612,7 +612,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void AdultStateChecked(bool State)
         {
-            SMMI.PortalSettingManager.SetSetting(SMMCP.Adult, State);
+            SMMI.PortalSettingManager.SetSetting(SMMCP.StoreAdult, State);
         }
 
         private void DeleteStateChecked(bool State)

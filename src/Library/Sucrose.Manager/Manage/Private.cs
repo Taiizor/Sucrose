@@ -5,6 +5,6 @@ namespace Sucrose.Manager.Manage
 {
     public static class Objectionable
     {
-        public static string Key => SMMI.ObjectionableSettingManager.GetSetting(SMMCO.Key, string.Empty);
+        public static string PersonalAccessToken => SMMI.ObjectionableSettingManager.GetSetting(SMMCO.PersonalAccessToken, string.Empty);
     }
 }

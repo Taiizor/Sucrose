@@ -2,7 +2,7 @@
 {
     public static class Portal
     {
-        public const string Adult = "Adult";
+        public const string StoreAdult = "StoreAdult";
 
         public const string BackdropType = "BackdropType";
 

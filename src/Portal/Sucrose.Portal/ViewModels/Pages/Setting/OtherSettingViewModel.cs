@@ -270,7 +270,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 HorizontalAlignment = HorizontalAlignment.Left,
                 IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 10, 0, 0),
-                Text = SMMO.Key,
+                Text = SMMO.PersonalAccessToken,
                 MaxLength = 93
             };
 
@@ -737,11 +737,11 @@ namespace Sucrose.Portal.ViewModels.Pages
             if (TextBox.Text.Length == 93)
             {
                 SSSTMI.State = true;
-                SMMI.ObjectionableSettingManager.SetSetting(SMMCO.Key, TextBox.Text);
+                SMMI.ObjectionableSettingManager.SetSetting(SMMCO.PersonalAccessToken, TextBox.Text);
             }
             else
             {
-                SMMI.ObjectionableSettingManager.SetSetting(SMMCO.Key, string.Empty);
+                SMMI.ObjectionableSettingManager.SetSetting(SMMCO.PersonalAccessToken, string.Empty);
                 TextBox.PlaceholderText = SRER.GetValue("Portal", "OtherSettingPage", "Key", "PersonalKey", "Valid");
             }
         }

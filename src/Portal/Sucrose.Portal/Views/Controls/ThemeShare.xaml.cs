@@ -108,7 +108,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     bool Result = SSDMMP.StoreServerType switch
                     {
-                        SSDESST.GitHub => SSSHGHD.Store(StoreFile, SMMG.UserAgent, SMMO.Key),
+                        SSDESST.GitHub => SSSHGHD.Store(StoreFile, SMMG.UserAgent, SMMO.PersonalAccessToken),
                         _ => SSSHSD.Store(StoreFile, SMMG.UserAgent),
                     };
 

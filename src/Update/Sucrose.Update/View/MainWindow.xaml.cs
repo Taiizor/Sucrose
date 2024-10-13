@@ -344,7 +344,7 @@ namespace Sucrose.Update.View
 
                 Releases = SSDMMU.ServerType switch
                 {
-                    SSDEUST.GitHub => SSHG.ReleasesList(SMMRGH.Owner, SMMRGH.SucroseRepository, SMMG.UserAgent, SMMO.Key),
+                    SSDEUST.GitHub => SSHG.ReleasesList(SMMRGH.Owner, SMMRGH.SucroseRepository, SMMG.UserAgent, SMMO.PersonalAccessToken),
                     SSDEUST.Soferity => SUHU.ReleasesList($"{SMMRU.Soferity}/{SMMRS.SoferityUpdate}", SMMG.UserAgent),
                     _ => new(),
                 };

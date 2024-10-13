@@ -2,7 +2,6 @@
 {
     public static class System
     {
-
         public const string GraphicInterfaces = "GraphicInterfaces";
 
         public const string NetworkInterfaces = "NetworkInterfaces";

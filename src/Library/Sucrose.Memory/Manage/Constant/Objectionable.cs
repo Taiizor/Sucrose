@@ -2,6 +2,6 @@
 {
     public static class Objectionable
     {
-        public const string Key = "Key";
+        public const string PersonalAccessToken = "PersonalAccessToken";
     }
 }

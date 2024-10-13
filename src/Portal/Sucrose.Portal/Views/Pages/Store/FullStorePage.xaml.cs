@@ -57,7 +57,7 @@ namespace Sucrose.Portal.Views.Pages.Store
             {
                 foreach (KeyValuePair<string, SSSIC> Category in Store.Categories)
                 {
-                    if (Category.Value.Wallpapers.Any() && (SMMP.Adult || Category.Value.Wallpapers.Count(Wallpaper => Wallpaper.Value.Adult) != Category.Value.Wallpapers.Count()))
+                    if (Category.Value.Wallpapers.Any() && (SMMP.StoreAdult || Category.Value.Wallpapers.Count(Wallpaper => Wallpaper.Value.Adult) != Category.Value.Wallpapers.Count()))
                     {
                         SymbolRegular Symbol = SPMI.DefaultIcon;
 
@@ -168,7 +168,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                     {
                         if (string.IsNullOrEmpty(SPMI.CategoryService.CategoryTag) || CategoryKey == SPMI.CategoryService.CategoryTag)
                         {
-                            if (!Wallpaper.Adult || (Wallpaper.Adult && SMMP.Adult))
+                            if (!Wallpaper.Adult || (Wallpaper.Adult && SMMP.StoreAdult))
                             {
                                 if (ThemePagination.SelectPage == Page && SPMI.CategoryService.CategoryTag == Tag && SPMI.SearchService.SearchList.Any() && SPMI.SearchService.SearchText == Text)
                                 {
@@ -176,7 +176,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                                     {
                                         string Theme = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, CategoryKey, SSSHC.FileName(WallpaperKey));
 
-                                        SPVCSC StoreCard = new(Theme, new(WallpaperKey, Wallpaper), SMMG.UserAgent, SMMO.Key);
+                                        SPVCSC StoreCard = new(Theme, new(WallpaperKey, Wallpaper), SMMG.UserAgent, SMMO.PersonalAccessToken);
 
                                         ThemeStore.Children.Add(StoreCard);
 
@@ -203,7 +203,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                         {
                             foreach (KeyValuePair<string, SSSIW> Wallpaper in Category.Value.Wallpapers)
                             {
-                                if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && SMMP.Adult))
+                                if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && SMMP.StoreAdult))
                                 {
                                     if (ThemePagination.SelectPage == Page && SPMI.CategoryService.CategoryTag == Tag && !SPMI.SearchService.SearchList.Any())
                                     {
@@ -211,7 +211,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                                         {
                                             string Theme = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, Category.Key, SSSHC.FileName(Wallpaper.Key));
 
-                                            SPVCSC StoreCard = new(Theme, Wallpaper, SMMG.UserAgent, SMMO.Key);
+                                            SPVCSC StoreCard = new(Theme, Wallpaper, SMMG.UserAgent, SMMO.PersonalAccessToken);
 
                                             ThemeStore.Children.Add(StoreCard);
 

@@ -28,6 +28,6 @@ namespace Sucrose.Manager.Manage
 
         public static bool StorePreview => SMMI.PortalSettingManager.GetSetting(SMMCP.StorePreview, false);
 
-        public static bool Adult => SMMI.PortalSettingManager.GetSetting(SMMCP.Adult, true);
+        public static bool StoreAdult => SMMI.PortalSettingManager.GetSetting(SMMCP.StoreAdult, true);
     }
 }
