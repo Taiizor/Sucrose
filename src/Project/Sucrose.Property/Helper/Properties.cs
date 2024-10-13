@@ -10,7 +10,7 @@ namespace Sucrose.Property.Helper
     {
         public static void Change(string Key, SSTMCM Data)
         {
-            if (SMML.LibrarySelected == SPMI.LibrarySelected && SSSHL.Run())
+            if (SMML.Selected == SPMI.LibrarySelected && SSSHL.Run())
             {
                 SSTHP.Write(SPMI.WatcherFile.Replace("*", $"{Guid.NewGuid()}"), new()
                 {

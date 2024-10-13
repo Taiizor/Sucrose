@@ -160,11 +160,11 @@ namespace Sucrose.Portal.Views.Controls
                 do
                 {
                     Keys = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
-                } while (Directory.Exists(Path.Combine(SMML.LibraryLocation, Keys)));
+                } while (Directory.Exists(Path.Combine(SMML.Location, Keys)));
 
                 SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
 
-                string LibraryPath = Path.Combine(SMML.LibraryLocation, Keys);
+                string LibraryPath = Path.Combine(SMML.Location, Keys);
                 string TemporaryPath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, SMMRF.Temporary, Keys);
 
                 switch (SSDMMP.StoreServerType)
@@ -187,7 +187,7 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         if (SMME.StoreStart)
                         {
-                            SMMI.LibrarySettingManager.SetSetting(SMMCL.LibrarySelected, Path.GetFileName(Keys));
+                            SMMI.LibrarySettingManager.SetSetting(SMMCL.Selected, Path.GetFileName(Keys));
 
                             if (SSSHL.Run())
                             {

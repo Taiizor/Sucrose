@@ -17,9 +17,9 @@ namespace Sucrose.Shared.Launcher.Command
             {
                 SSLHK.Stop();
             }
-            else if (!SSSHL.Run() && SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SMML.LibrarySelected))
+            else if (!SSSHL.Run() && SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SMML.Selected))
             {
-                if (Directory.Exists(Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected)))
+                if (Directory.Exists(Path.Combine(SMML.Location, SMML.Selected)))
                 {
                     SSLHR.Start();
 

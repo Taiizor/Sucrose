@@ -105,8 +105,8 @@ namespace Sucrose.Property
 
         protected void Configure(string[] Args)
         {
-            SPMI.LibraryLocation = SMML.LibraryLocation;
-            SPMI.LibrarySelected = SMML.LibrarySelected;
+            SPMI.LibraryLocation = SMML.Location;
+            SPMI.LibrarySelected = SMML.Selected;
 
             if (Args.Any())
             {

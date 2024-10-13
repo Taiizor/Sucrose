@@ -182,7 +182,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch ConfirmState = new()
             {
-                IsChecked = SMML.LibraryConfirm
+                IsChecked = SMML.DeleteConfirm
             };
 
             ConfirmState.Checked += (s, e) => ConfirmStateChecked(true);
@@ -204,7 +204,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch DeleteState = new()
             {
-                IsChecked = SMML.LibraryDelete
+                IsChecked = SMML.DeleteCorrupt
             };
 
             DeleteState.Checked += (s, e) => DeleteStateChecked(true);
@@ -617,12 +617,12 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void DeleteStateChecked(bool State)
         {
-            SMMI.LibrarySettingManager.SetSetting(SMMCL.LibraryDelete, State);
+            SMMI.LibrarySettingManager.SetSetting(SMMCL.DeleteCorrupt, State);
         }
 
         private void ConfirmStateChecked(bool State)
         {
-            SMMI.LibrarySettingManager.SetSetting(SMMCL.LibraryConfirm, State);
+            SMMI.LibrarySettingManager.SetSetting(SMMCL.DeleteConfirm, State);
         }
 
         private void StorePreviewChecked(bool State)

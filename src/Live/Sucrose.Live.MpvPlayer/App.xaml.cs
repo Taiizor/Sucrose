@@ -119,8 +119,8 @@ namespace Sucrose.Live.MpvPlayer
 
         protected void Configure()
         {
-            SSEMI.LibraryLocation = SMML.LibraryLocation;
-            SSEMI.LibrarySelected = SMML.LibrarySelected;
+            SSEMI.LibraryLocation = SMML.Location;
+            SSEMI.LibrarySelected = SMML.Selected;
 
             if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SSEMI.LibrarySelected))
             {

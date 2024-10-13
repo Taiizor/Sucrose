@@ -158,7 +158,7 @@ namespace Sucrose.Property.View
                 Refresh.IsEnabled = false;
                 Delete.IsEnabled = false;
 
-                SPMI.EngineLive = SMML.LibrarySelected == SPMI.LibrarySelected && SSSHL.Run();
+                SPMI.EngineLive = SMML.Selected == SPMI.LibrarySelected && SSSHL.Run();
 
                 if (SPMI.EngineLive)
                 {
@@ -244,7 +244,7 @@ namespace Sucrose.Property.View
 
                 File.Copy(SPMI.PropertiesPath, SPMI.PropertiesFile, true);
 
-                if (SMML.LibrarySelected == SPMI.LibrarySelected && SSSHL.Run())
+                if (SMML.Selected == SPMI.LibrarySelected && SSSHL.Run())
                 {
                     await Task.Delay(250);
 

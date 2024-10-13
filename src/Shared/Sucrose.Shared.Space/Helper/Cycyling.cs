@@ -25,19 +25,19 @@ namespace Sucrose.Shared.Space.Helper
     {
         public static bool Check(bool Time = true)
         {
-            if (Directory.Exists(SMML.LibraryLocation))
+            if (Directory.Exists(SMML.Location))
             {
-                List<string> Themes = Directory.GetDirectories(SMML.LibraryLocation).Select(Path.GetFileName).ToList();
+                List<string> Themes = Directory.GetDirectories(SMML.Location).Select(Path.GetFileName).ToList();
 
                 if (Themes.Any())
                 {
                     Themes = Themes.Except(SMMC.DisableCycyling).ToList();
 
-                    if (SMMC.Cycyling && (Themes.Count > 1 || (Themes.Count == 1 && !Themes.Contains(SMML.LibrarySelected))) && (SMMC.PassingCycyling >= Converter(SMMC.CycylingTime) || !Time))
+                    if (SMMC.Cycyling && (Themes.Count > 1 || (Themes.Count == 1 && !Themes.Contains(SMML.Selected))) && (SMMC.PassingCycyling >= Converter(SMMC.CycylingTime) || !Time))
                     {
                         foreach (string Theme in Themes)
                         {
-                            string ThemePath = Path.Combine(SMML.LibraryLocation, Theme);
+                            string ThemePath = Path.Combine(SMML.Location, Theme);
                             string InfoPath = Path.Combine(ThemePath, SMMRC.SucroseInfo);
 
                             if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
@@ -48,7 +48,7 @@ namespace Sucrose.Shared.Space.Helper
 
                                     if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
                                     {
-                                        if (Theme != SMML.LibrarySelected)
+                                        if (Theme != SMML.Selected)
                                         {
                                             return true;
                                         }
@@ -79,13 +79,13 @@ namespace Sucrose.Shared.Space.Helper
         {
             if ((!SMMB.ClosePerformance && !SMMB.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
             {
-                if (Directory.Exists(SMML.LibraryLocation))
+                if (Directory.Exists(SMML.Location))
                 {
-                    List<string> Themes = Directory.GetDirectories(SMML.LibraryLocation).Select(Path.GetFileName).ToList();
+                    List<string> Themes = Directory.GetDirectories(SMML.Location).Select(Path.GetFileName).ToList();
 
                     if (Themes.Any())
                     {
-                        string LibrarySelected = SMML.LibrarySelected;
+                        string LibrarySelected = SMML.Selected;
 
                         Themes = Themes.Where(Theme => !SMMC.DisableCycyling.Contains(Theme) || Theme == LibrarySelected).ToList();
 
@@ -107,7 +107,7 @@ namespace Sucrose.Shared.Space.Helper
 
                                         string Current = Themes[Index];
 
-                                        string ThemePath = Path.Combine(SMML.LibraryLocation, Current);
+                                        string ThemePath = Path.Combine(SMML.Location, Current);
                                         string InfoPath = Path.Combine(ThemePath, SMMRC.SucroseInfo);
 
                                         if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
@@ -141,7 +141,7 @@ namespace Sucrose.Shared.Space.Helper
 
                                     foreach (string Theme in Themes.Skip(Index))
                                     {
-                                        string ThemePath = Path.Combine(SMML.LibraryLocation, Theme);
+                                        string ThemePath = Path.Combine(SMML.Location, Theme);
                                         string InfoPath = Path.Combine(ThemePath, SMMRC.SucroseInfo);
 
                                         if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
@@ -168,7 +168,7 @@ namespace Sucrose.Shared.Space.Helper
                             {
                                 SMMI.CyclingSettingManager.SetSetting(SMMCC.PassingCycyling, 0);
 
-                                SMMI.LibrarySettingManager.SetSetting(SMMCL.LibrarySelected, Selected);
+                                SMMI.LibrarySettingManager.SetSetting(SMMCL.Selected, Selected);
 
                                 SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Cycyling}{SMMRG.ValueSeparator}{SMMRG.Unknown}");
                             }

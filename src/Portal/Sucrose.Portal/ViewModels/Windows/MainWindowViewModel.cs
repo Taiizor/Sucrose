@@ -272,7 +272,7 @@ namespace Sucrose.Portal.ViewModels.Windows
                 {
                     if (SMME.LibraryStart)
                     {
-                        SMMI.LibrarySettingManager.SetSetting(SMMCL.LibrarySelected, SPMI.LibraryService.Theme);
+                        SMMI.LibrarySettingManager.SetSetting(SMMCL.Selected, SPMI.LibraryService.Theme);
 
                         if (SSSHL.Run())
                         {

@@ -130,11 +130,11 @@ namespace Sucrose.Shared.Launcher.Manager
                     ContextMenu.Items.Add(Change);
                 }
 
-                string PropertiesPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMMRC.SucroseProperties);
+                string PropertiesPath = Path.Combine(SMML.Location, SMML.Selected, SMMRC.SucroseProperties);
 
                 if (File.Exists(PropertiesPath))
                 {
-                    string InfoPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMMRC.SucroseInfo);
+                    string InfoPath = Path.Combine(SMML.Location, SMML.Selected, SMMRC.SucroseInfo);
 
                     if (File.Exists(InfoPath) && SSTHI.ReadCheck(InfoPath))
                     {
@@ -164,7 +164,7 @@ namespace Sucrose.Shared.Launcher.Manager
             }
             else if (SMMI.LibrarySettingManager.CheckFile())
             {
-                string InfoPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMMRC.SucroseInfo);
+                string InfoPath = Path.Combine(SMML.Location, SMML.Selected, SMMRC.SucroseInfo);
 
                 if (File.Exists(InfoPath) && SSTHI.ReadCheck(InfoPath))
                 {

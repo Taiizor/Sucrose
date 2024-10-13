@@ -8,14 +8,14 @@ namespace Sucrose.Manager.Manage
 {
     public static class Library
     {
-        public static string LibraryLocation => SMMI.LibrarySettingManager.GetSetting(SMMCL.LibraryLocation, Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Library));
+        public static string Location => SMMI.LibrarySettingManager.GetSetting(SMMCL.Location, Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Library));
 
-        public static string LibrarySelected => SMMI.LibrarySettingManager.GetSetting(SMMCL.LibrarySelected, string.Empty);
+        public static bool DeleteCorrupt => SMMI.LibrarySettingManager.GetSetting(SMMCL.DeleteCorrupt, false);
 
-        public static bool LibraryConfirm => SMMI.LibrarySettingManager.GetSetting(SMMCL.LibraryConfirm, true);
+        public static string Selected => SMMI.LibrarySettingManager.GetSetting(SMMCL.Selected, string.Empty);
 
-        public static bool LibraryDelete => SMMI.LibrarySettingManager.GetSetting(SMMCL.LibraryDelete, false);
+        public static bool DeleteConfirm => SMMI.LibrarySettingManager.GetSetting(SMMCL.DeleteConfirm, true);
 
-        public static bool LibraryMove => SMMI.LibrarySettingManager.GetSetting(SMMCL.LibraryMove, true);
+        public static bool Move => SMMI.LibrarySettingManager.GetSetting(SMMCL.Move, true);
     }
 }

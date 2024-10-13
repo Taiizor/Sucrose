@@ -467,7 +467,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             LibraryTemporaryStart.IsEnabled = false;
 
-            SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Temp}{SMMRG.ValueSeparator}{SMML.LibraryLocation}{SMMRG.ValueSeparator}{SSSMI.Launcher}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Temp}{SMMRG.ValueSeparator}{SMML.Location}{SMMRG.ValueSeparator}{SSSMI.Launcher}");
         }
 
         private async void LogTemporaryCreateClick(Button LogTemporaryCreate)
@@ -495,7 +495,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                 StoreTemporaryHint.Text = string.Format(SRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary", "Hint"), StoreTemporarySize);
 
-                string LibraryTemporarySize = await SSSHT.Size(SMML.LibraryLocation);
+                string LibraryTemporarySize = await SSSHT.Size(SMML.Location);
 
                 LibraryTemporaryHint.Text = string.Format(SRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary", "Hint"), LibraryTemporarySize);
             }

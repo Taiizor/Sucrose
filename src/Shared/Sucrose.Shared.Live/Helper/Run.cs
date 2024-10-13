@@ -20,7 +20,7 @@ namespace Sucrose.Shared.Live.Helper
         {
             if ((!SMMB.ClosePerformance && !SMMB.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
             {
-                string InfoPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMMRC.SucroseInfo);
+                string InfoPath = Path.Combine(SMML.Location, SMML.Selected, SMMRC.SucroseInfo);
 
                 if (File.Exists(InfoPath) && SSTHI.ReadCheck(InfoPath))
                 {

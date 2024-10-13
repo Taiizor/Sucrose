@@ -444,7 +444,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Button LibraryLocation = new()
             {
-                Content = SMML.LibraryLocation,
+                Content = SMML.Location,
                 Cursor = Cursors.Hand,
                 MaxWidth = 700,
                 MinWidth = 350
@@ -475,7 +475,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Content = SRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryMove"),
                 Margin = new Thickness(0, 10, 0, 0),
-                IsChecked = SMML.LibraryMove
+                IsChecked = SMML.Move
             };
 
             LibraryMove.Checked += (s, e) => LibraryMoveChecked(true);
@@ -543,7 +543,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void LibraryMoveChecked(bool State)
         {
-            SMMI.LibrarySettingManager.SetSetting(SMMCL.LibraryMove, State);
+            SMMI.LibrarySettingManager.SetSetting(SMMCL.Move, State);
         }
 
         private void LocalizationSelected(int Index)
@@ -687,22 +687,22 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 ShowNewFolderButton = true,
 
-                SelectedPath = SMML.LibraryLocation
+                SelectedPath = SMML.Location
             };
 
             if (BrowserDialog.ShowDialog() == DialogResult.OK && !string.IsNullOrEmpty(BrowserDialog.SelectedPath))
             {
                 string Destination = BrowserDialog.SelectedPath;
 
-                if (Destination != SMML.LibraryLocation)
+                if (Destination != SMML.Location)
                 {
                     if (SSSHA.Directory(Destination))
                     {
-                        if (!SMML.LibraryMove || (!Directory.GetFiles(Destination).Any() && !Directory.GetDirectories(Destination).Any()))
+                        if (!SMML.Move || (!Directory.GetFiles(Destination).Any() && !Directory.GetDirectories(Destination).Any()))
                         {
                             LibraryLocation.Content = SRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryLocation", "Move");
 
-                            if (SMML.LibraryMove)
+                            if (SMML.Move)
                             {
                                 if (SSSHL.Run())
                                 {
@@ -710,21 +710,21 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                                     await Task.Delay(500);
 
-                                    await Task.Run(() => SSSHC.Folder(SMML.LibraryLocation, Destination));
+                                    await Task.Run(() => SSSHC.Folder(SMML.Location, Destination));
 
                                     await Task.Delay(500);
 
-                                    SMMI.LibrarySettingManager.SetSetting(SMMCL.LibraryLocation, Destination);
+                                    SMMI.LibrarySettingManager.SetSetting(SMMCL.Location, Destination);
 
                                     SSLHR.Start();
                                 }
                                 else
                                 {
-                                    await Task.Run(() => SSSHC.Folder(SMML.LibraryLocation, Destination));
+                                    await Task.Run(() => SSSHC.Folder(SMML.Location, Destination));
 
                                     await Task.Delay(500);
 
-                                    SMMI.LibrarySettingManager.SetSetting(SMMCL.LibraryLocation, Destination);
+                                    SMMI.LibrarySettingManager.SetSetting(SMMCL.Location, Destination);
                                 }
                             }
                             else
@@ -734,7 +734,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                                     SSLHK.Stop();
                                 }
 
-                                SMMI.LibrarySettingManager.SetSetting(SMMCL.LibraryLocation, Destination);
+                                SMMI.LibrarySettingManager.SetSetting(SMMCL.Location, Destination);
                             }
 
                             LibraryLocation.Content = Destination;
@@ -745,7 +745,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                             await Task.Delay(3000);
 
-                            LibraryLocation.Content = SMML.LibraryLocation;
+                            LibraryLocation.Content = SMML.Location;
                         }
                     }
                     else
@@ -754,7 +754,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                         await Task.Delay(3000);
 
-                        LibraryLocation.Content = SMML.LibraryLocation;
+                        LibraryLocation.Content = SMML.Location;
                     }
                 }
             }

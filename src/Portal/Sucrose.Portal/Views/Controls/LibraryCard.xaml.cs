@@ -57,9 +57,9 @@ namespace Sucrose.Portal.Views.Controls
             {
                 if ((!SMMB.ClosePerformance && !SMMB.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
                 {
-                    if (SMML.LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
+                    if (SMML.Selected != Path.GetFileName(Theme) || !SSSHL.Run())
                     {
-                        SMMI.LibrarySettingManager.SetSetting(SMMCL.LibrarySelected, Path.GetFileName(Theme));
+                        SMMI.LibrarySettingManager.SetSetting(SMMCL.Selected, Path.GetFileName(Theme));
 
                         if (SSSHL.Run())
                         {
@@ -194,7 +194,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
-            bool Confirm = SMML.LibraryConfirm;
+            bool Confirm = SMML.DeleteConfirm;
 
             ContentDialogResult Result = ContentDialogResult.None;
 
@@ -297,7 +297,7 @@ namespace Sucrose.Portal.Views.Controls
 
             if ((!SMMB.ClosePerformance && !SMMB.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
             {
-                if (SMML.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
+                if (SMML.Selected == Path.GetFileName(Theme) && SSSHL.Run())
                 {
                     MenuUse.IsEnabled = false;
                     MenuDelete.IsEnabled = false;
@@ -377,7 +377,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void LibraryCard_MouseEnter(object sender, MouseEventArgs e)
         {
-            if ((SMML.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run()) || Info.AppVersion.CompareTo(SHV.Entry()) > 0)
+            if ((SMML.Selected == Path.GetFileName(Theme) && SSSHL.Run()) || Info.AppVersion.CompareTo(SHV.Entry()) > 0)
             {
                 Cursor = Cursors.Arrow;
             }

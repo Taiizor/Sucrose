@@ -76,7 +76,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             if (Button == ContentDialogButton.Primary)
             {
-                if (SMML.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
+                if (SMML.Selected == Path.GetFileName(Theme) && SSSHL.Run())
                 {
                     return;
                 }

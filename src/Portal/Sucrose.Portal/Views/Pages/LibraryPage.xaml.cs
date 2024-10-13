@@ -94,14 +94,14 @@ namespace Sucrose.Portal.Views.Pages
 
                 List<string> Showcase = SMMW.Showcase;
 
-                if (!Directory.Exists(SMML.LibraryLocation))
+                if (!Directory.Exists(SMML.Location))
                 {
-                    Directory.CreateDirectory(SMML.LibraryLocation);
+                    Directory.CreateDirectory(SMML.Location);
                 }
 
                 foreach (string Directory in Directory.GetDirectories(ShowcasePath, "*", SearchOption.TopDirectoryOnly).Where(Directory => !Showcase.Contains(Path.GetFileName(Directory))))
                 {
-                    SSSHC.Folder(Directory, Path.Combine(SMML.LibraryLocation, Path.GetFileName(Directory)), false);
+                    SSSHC.Folder(Directory, Path.Combine(SMML.Location, Path.GetFileName(Directory)), false);
 
                     Showcase.Add(Path.GetFileName(Directory));
 
@@ -122,9 +122,9 @@ namespace Sucrose.Portal.Views.Pages
                 Searches.Clear();
             }
 
-            if (Directory.Exists(SMML.LibraryLocation))
+            if (Directory.Exists(SMML.Location))
             {
-                string[] Folders = Directory.GetDirectories(SMML.LibraryLocation);
+                string[] Folders = Directory.GetDirectories(SMML.Location);
 
                 if (Folders != null && Folders.Any())
                 {
@@ -160,7 +160,7 @@ namespace Sucrose.Portal.Views.Pages
                             }
                         }
 
-                        if (SMML.LibraryDelete && SSSHA.Directory(Folder))
+                        if (SMML.DeleteCorrupt && SSSHA.Directory(Folder))
                         {
                             Directory.Delete(Folder, true);
 
@@ -178,7 +178,7 @@ namespace Sucrose.Portal.Views.Pages
 
                     foreach (string Theme in Themes.ToList())
                     {
-                        string ThemePath = Path.Combine(SMML.LibraryLocation, Theme);
+                        string ThemePath = Path.Combine(SMML.Location, Theme);
                         string InfoPath = Path.Combine(ThemePath, SMMRC.SucroseInfo);
 
                         if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
@@ -197,7 +197,7 @@ namespace Sucrose.Portal.Views.Pages
                             }
                             else if (SSDMMP.LibrarySortMode == SSDESMT.Creation)
                             {
-                                SortThemes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMML.LibraryLocation, Theme)));
+                                SortThemes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMML.Location, Theme)));
                             }
                             else if (SSDMMP.LibrarySortMode == SSDESMT.Modification)
                             {
@@ -229,7 +229,7 @@ namespace Sucrose.Portal.Views.Pages
                     Themes.Clear();
                 }
 
-                Directory.CreateDirectory(SMML.LibraryLocation);
+                Directory.CreateDirectory(SMML.Location);
             }
         }
 
@@ -295,9 +295,9 @@ namespace Sucrose.Portal.Views.Pages
 
                         if (Result == SSDECT.Pass)
                         {
-                            if (!Directory.Exists(SMML.LibraryLocation))
+                            if (!Directory.Exists(SMML.Location))
                             {
-                                Directory.CreateDirectory(SMML.LibraryLocation);
+                                Directory.CreateDirectory(SMML.Location);
                             }
 
                             string Name;
@@ -305,9 +305,9 @@ namespace Sucrose.Portal.Views.Pages
                             do
                             {
                                 Name = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
-                            } while (Directory.Exists(Path.Combine(SMML.LibraryLocation, Name)));
+                            } while (Directory.Exists(Path.Combine(SMML.Location, Name)));
 
-                            Result = await Task.Run(() => SSZEZ.Extract(Record, Path.Combine(SMML.LibraryLocation, Name)));
+                            Result = await Task.Run(() => SSZEZ.Extract(Record, Path.Combine(SMML.Location, Name)));
 
                             if (Result == SSDECT.Pass)
                             {

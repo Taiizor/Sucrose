@@ -2,14 +2,14 @@
 {
     public static class Library
     {
-        public const string LibraryMove = "LibraryMove";
+        public const string Move = "Move";
 
-        public const string LibraryDelete = "LibraryDelete";
+        public const string Location = "Location";
 
-        public const string LibraryConfirm = "LibraryConfirm";
+        public const string Selected = "Selected";
 
-        public const string LibraryLocation = "LibraryLocation";
+        public const string DeleteConfirm = "DeleteConfirm";
 
-        public const string LibrarySelected = "LibrarySelected";
+        public const string DeleteCorrupt = "DeleteCorrupt";
     }
 }

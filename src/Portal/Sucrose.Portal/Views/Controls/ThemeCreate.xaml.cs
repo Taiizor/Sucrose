@@ -596,9 +596,9 @@ namespace Sucrose.Portal.Views.Controls
         {
             if (Button == ContentDialogButton.Primary)
             {
-                if (!Directory.Exists(SMML.LibraryLocation))
+                if (!Directory.Exists(SMML.Location))
                 {
-                    Directory.CreateDirectory(SMML.LibraryLocation);
+                    Directory.CreateDirectory(SMML.Location);
                 }
 
                 if (GifCard.Visibility == Visibility.Visible)
@@ -679,7 +679,7 @@ namespace Sucrose.Portal.Views.Controls
                         do
                         {
                             SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
-                            Theme = Path.Combine(SMML.LibraryLocation, SPMI.LibraryService.Theme);
+                            Theme = Path.Combine(SMML.Location, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
                         Directory.CreateDirectory(Theme);
@@ -825,7 +825,7 @@ namespace Sucrose.Portal.Views.Controls
                         do
                         {
                             SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
-                            Theme = Path.Combine(SMML.LibraryLocation, SPMI.LibraryService.Theme);
+                            Theme = Path.Combine(SMML.Location, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
                         Directory.CreateDirectory(Theme);
@@ -948,7 +948,7 @@ namespace Sucrose.Portal.Views.Controls
                         do
                         {
                             SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
-                            Theme = Path.Combine(SMML.LibraryLocation, SPMI.LibraryService.Theme);
+                            Theme = Path.Combine(SMML.Location, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
                         Directory.CreateDirectory(Theme);
@@ -1075,7 +1075,7 @@ namespace Sucrose.Portal.Views.Controls
                         do
                         {
                             SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
-                            Theme = Path.Combine(SMML.LibraryLocation, SPMI.LibraryService.Theme);
+                            Theme = Path.Combine(SMML.Location, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
                         Directory.CreateDirectory(Theme);
@@ -1221,7 +1221,7 @@ namespace Sucrose.Portal.Views.Controls
                         do
                         {
                             SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
-                            Theme = Path.Combine(SMML.LibraryLocation, SPMI.LibraryService.Theme);
+                            Theme = Path.Combine(SMML.Location, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
                         Directory.CreateDirectory(Theme);
@@ -1362,7 +1362,7 @@ namespace Sucrose.Portal.Views.Controls
                         do
                         {
                             SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
-                            Theme = Path.Combine(SMML.LibraryLocation, SPMI.LibraryService.Theme);
+                            Theme = Path.Combine(SMML.Location, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
                         Directory.CreateDirectory(Theme);
