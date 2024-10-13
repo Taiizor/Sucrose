@@ -23,7 +23,7 @@ namespace Sucrose.Shared.Launcher.Command
                 {
                     SSLHR.Start();
 
-                    if (!SMMG.Visible)
+                    if (!SMMG.TrayIconVisible)
                     {
                         SSLCI.Command();
                     }

@@ -23,7 +23,7 @@ namespace Sucrose.Reportdog
 
                 SHC.All = new CultureInfo(SMMG.Culture, true);
 
-                if (SSSHI.Basic(SMMRM.Reportdog, SMMRA.Reportdog) && (SMMG.Report || SMMG.Statistics))
+                if (SSSHI.Basic(SMMRM.Reportdog, SMMRA.Reportdog) && (SMMG.CrashData || SMMG.TelemetryData))
                 {
                     SSSHS.Apply();
 

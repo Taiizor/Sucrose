@@ -6,10 +6,10 @@ namespace Sucrose.Manager.Manage
 {
     public static class Hook
     {
-        public static int DiscordDelay => SHS.Clamp(SMMI.HookSettingManager.GetSettingStable(SMMCH.DiscordDelay, 60), 60, 3600);
+        public static int DiscordRefreshDelay => SHS.Clamp(SMMI.HookSettingManager.GetSettingStable(SMMCH.DiscordRefreshDelay, 60), 60, 3600);
 
-        public static bool DiscordRefresh => SMMI.HookSettingManager.GetSetting(SMMCH.DiscordRefresh, true);
+        public static bool DiscordRefreshConnect => SMMI.HookSettingManager.GetSetting(SMMCH.DiscordRefreshConnect, true);
 
-        public static bool DiscordState => SMMI.HookSettingManager.GetSetting(SMMCH.DiscordState, true);
+        public static bool DiscordConnect => SMMI.HookSettingManager.GetSetting(SMMCH.DiscordConnect, true);
     }
 }

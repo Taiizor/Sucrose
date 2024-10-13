@@ -2,10 +2,10 @@
 {
     public static class Hook
     {
-        public const string DiscordDelay = "DiscordDelay";
+        public const string DiscordConnect = "DiscordConnect";
 
-        public const string DiscordState = "DiscordState";
+        public const string DiscordRefreshDelay = "DiscordRefreshDelay";
 
-        public const string DiscordRefresh = "DiscordRefresh";
+        public const string DiscordRefreshConnect = "DiscordRefreshConnect";
     }
 }

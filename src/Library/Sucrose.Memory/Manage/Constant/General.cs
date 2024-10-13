@@ -2,20 +2,20 @@
 {
     public static class General
     {
-        public const string Report = "Report";
-
         public const string AppExit = "AppExit";
 
         public const string Culture = "Culture";
 
-        public const string Startup = "Startup";
-
-        public const string Visible = "Visible";
+        public const string CrashData = "CrashData";
 
         public const string ThemeType = "ThemeType";
 
         public const string UserAgent = "UserAgent";
 
-        public const string Statistics = "Statistics";
+        public const string RunStartup = "RunStartup";
+
+        public const string TelemetryData = "TelemetryData";
+
+        public const string TrayIconVisible = "TrayIconVisible";
     }
 }

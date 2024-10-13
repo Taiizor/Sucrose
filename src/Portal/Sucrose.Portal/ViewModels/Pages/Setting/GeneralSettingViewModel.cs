@@ -131,7 +131,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             Startup.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "Priority"));
             Startup.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "Scheduler"));
 
-            Startup.SelectedIndex = SMMG.Startup;
+            Startup.SelectedIndex = SMMG.RunStartup;
 
             ApplicationStartup.HeaderFrame = Startup;
 
@@ -154,7 +154,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             Notify.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "Notify", "Show"));
             Notify.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "Notify", "Hide"));
 
-            Notify.SelectedIndex = SMMG.Visible ? 0 : 1;
+            Notify.SelectedIndex = SMMG.TrayIconVisible ? 0 : 1;
 
             NotifyIcon.HeaderFrame = Notify;
 
@@ -496,11 +496,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void NotifySelected(int Index)
         {
-            if (Index != (SMMG.Visible ? 0 : 1))
+            if (Index != (SMMG.TrayIconVisible ? 0 : 1))
             {
                 bool State = Index == 0;
 
-                SMMI.GeneralSettingManager.SetSetting(SMMCG.Visible, State);
+                SMMI.GeneralSettingManager.SetSetting(SMMCG.TrayIconVisible, State);
 
                 if (SSSHP.Work(SMMRA.Launcher))
                 {
@@ -764,9 +764,9 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private async void StartupSelected(ComboBox Startup, int Index)
         {
-            if (Index != SMMG.Startup)
+            if (Index != SMMG.RunStartup)
             {
-                switch (SMMG.Startup)
+                switch (SMMG.RunStartup)
                 {
                     case 1:
                         SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Startup}{SMMRG.ValueSeparator}{SMMRG.AppName}{SMMRG.ValueSeparator}{SSSMI.Launcher}{SMMRG.ValueSeparator}{false}");
@@ -779,7 +779,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                         catch (Exception Exception)
                         {
                             await SSWW.Watch_CatchException(Exception);
-                            Startup.SelectedIndex = SMMG.Startup;
+                            Startup.SelectedIndex = SMMG.RunStartup;
 
                             MessageBox Warning = new()
                             {
@@ -813,7 +813,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                         catch (Exception Exception)
                         {
                             await SSWW.Watch_CatchException(Exception);
-                            Startup.SelectedIndex = SMMG.Startup;
+                            Startup.SelectedIndex = SMMG.RunStartup;
 
                             MessageBox Warning = new()
                             {
@@ -834,7 +834,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                         break;
                 }
 
-                SMMI.GeneralSettingManager.SetSetting(SMMCG.Startup, Index);
+                SMMI.GeneralSettingManager.SetSetting(SMMCG.RunStartup, Index);
             }
         }
 

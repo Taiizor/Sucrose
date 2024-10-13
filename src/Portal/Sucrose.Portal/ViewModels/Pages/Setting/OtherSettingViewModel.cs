@@ -76,7 +76,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch ReportState = new()
             {
-                IsChecked = SMMG.Report
+                IsChecked = SMMG.CrashData
             };
 
             ReportState.Checked += (s, e) => ReportStateChecked(true);
@@ -98,7 +98,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch StatisticsState = new()
             {
-                IsChecked = SMMG.Statistics
+                IsChecked = SMMG.TelemetryData
             };
 
             StatisticsState.Checked += (s, e) => StatisticsStateChecked(true);
@@ -130,7 +130,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch DiscordState = new()
             {
-                IsChecked = SMMH.DiscordState
+                IsChecked = SMMH.DiscordConnect
             };
 
             DiscordState.Checked += (s, e) => DiscordStateChecked(true);
@@ -156,7 +156,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch DiscordRefresh = new()
             {
-                IsChecked = SMMH.DiscordRefresh
+                IsChecked = SMMH.DiscordRefreshConnect
             };
 
             DiscordRefresh.Checked += (s, e) => DiscordRefreshChecked(true);
@@ -181,8 +181,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Icon = new SymbolIcon(SymbolRegular.TimePicker24),
                 IconPlacement = ElementPlacement.Left,
+                Value = SMMH.DiscordRefreshDelay,
                 ClearButtonEnabled = false,
-                Value = SMMH.DiscordDelay,
                 MaxDecimalPlaces = 0,
                 Maximum = 3600,
                 MaxLength = 4,
@@ -635,13 +635,13 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void ReportStateChecked(bool State)
         {
-            SMMI.GeneralSettingManager.SetSetting(SMMCG.Report, State);
+            SMMI.GeneralSettingManager.SetSetting(SMMCG.CrashData, State);
 
-            if (State || SMMG.Statistics)
+            if (State || SMMG.TelemetryData)
             {
                 SSSHP.Run(SSSPMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Reportdog}{SMMRG.ValueSeparator}{SSSPMI.Reportdog}");
             }
-            else if (!SMMG.Statistics)
+            else if (!SMMG.TelemetryData)
             {
                 if (SSSHP.Work(SMMRA.Reportdog))
                 {
@@ -662,7 +662,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void DiscordStateChecked(bool State)
         {
-            SMMI.HookSettingManager.SetSetting(SMMCH.DiscordState, State);
+            SMMI.HookSettingManager.SetSetting(SMMCH.DiscordConnect, State);
         }
 
         private void DeveloperModeChecked(bool State)
@@ -672,7 +672,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void DiscordRefreshChecked(bool State)
         {
-            SMMI.HookSettingManager.SetSetting(SMMCH.DiscordRefresh, State);
+            SMMI.HookSettingManager.SetSetting(SMMCH.DiscordRefreshConnect, State);
         }
 
         private void UserAgentChanged(TextBox TextBox)
@@ -697,13 +697,13 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void StatisticsStateChecked(bool State)
         {
-            SMMI.GeneralSettingManager.SetSetting(SMMCG.Statistics, State);
+            SMMI.GeneralSettingManager.SetSetting(SMMCG.TelemetryData, State);
 
-            if (State || SMMG.Report)
+            if (State || SMMG.CrashData)
             {
                 SSSHP.Run(SSSPMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Reportdog}{SMMRG.ValueSeparator}{SSSPMI.Reportdog}");
             }
-            else if (!SMMG.Report)
+            else if (!SMMG.CrashData)
             {
                 if (SSSHP.Work(SMMRA.Reportdog))
                 {
@@ -726,9 +726,9 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMMH.DiscordDelay)
+            if (NewValue != SMMH.DiscordRefreshDelay)
             {
-                SMMI.HookSettingManager.SetSetting(SMMCH.DiscordDelay, NewValue);
+                SMMI.HookSettingManager.SetSetting(SMMCH.DiscordRefreshDelay, NewValue);
             }
         }
 

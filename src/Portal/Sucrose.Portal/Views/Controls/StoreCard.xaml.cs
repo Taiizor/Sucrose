@@ -125,7 +125,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             try
             {
-                if (SMMG.Statistics)
+                if (SMMG.TelemetryData)
                 {
                     using HttpClient Client = new();
 

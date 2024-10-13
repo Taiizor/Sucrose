@@ -51,12 +51,12 @@ namespace Sucrose.Shared.Discord
 
         public void Enable()
         {
-            SMMI.HookSettingManager.SetSetting(SMMCH.DiscordState, true);
+            SMMI.HookSettingManager.SetSetting(SMMCH.DiscordConnect, true);
         }
 
         public void Disable()
         {
-            SMMI.HookSettingManager.SetSetting(SMMCH.DiscordState, false);
+            SMMI.HookSettingManager.SetSetting(SMMCH.DiscordConnect, false);
         }
 
         public void SetPresence()
@@ -105,8 +105,8 @@ namespace Sucrose.Shared.Discord
 
         public void AutoRefresh()
         {
+            SSDMI.RefreshTimer.Interval = new TimeSpan(0, 0, SMMH.DiscordRefreshDelay);
             SSDMI.RefreshTimer.Tick += new EventHandler(RefreshTimer_Tick);
-            SSDMI.RefreshTimer.Interval = new TimeSpan(0, 0, SMMH.DiscordDelay);
             SSDMI.RefreshTimer.Start();
         }
 
@@ -117,7 +117,7 @@ namespace Sucrose.Shared.Discord
 
         private void RefreshTimer_Tick(object sender, EventArgs e)
         {
-            if (SMMH.DiscordRefresh)
+            if (SMMH.DiscordRefreshConnect)
             {
                 SetPresence();
             }
@@ -125,18 +125,18 @@ namespace Sucrose.Shared.Discord
 
         private void InitializeTimer_Tick(object sender, EventArgs e)
         {
-            if (SMMH.DiscordState && SSSHP.Work(SSDMI.Name[0], SSDMI.Name[1]))
+            if (SMMH.DiscordConnect && SSSHP.Work(SSDMI.Name[0], SSDMI.Name[1]))
             {
                 if (!SSDMI.Client.IsInitialized)
                 {
                     SSDMI.Client.Initialize();
                 }
 
-                if (SMMH.DiscordRefresh && !SSDMI.RefreshTimer.IsEnabled)
+                if (SMMH.DiscordRefreshConnect && !SSDMI.RefreshTimer.IsEnabled)
                 {
                     AutoRefresh();
                 }
-                else if (!SMMH.DiscordRefresh && SSDMI.RefreshTimer.IsEnabled)
+                else if (!SMMH.DiscordRefreshConnect && SSDMI.RefreshTimer.IsEnabled)
                 {
                     SSDMI.RefreshTimer.Stop();
                 }

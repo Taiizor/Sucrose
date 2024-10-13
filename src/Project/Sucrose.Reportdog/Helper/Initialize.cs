@@ -82,7 +82,7 @@ namespace Sucrose.Backgroundog.Helper
         {
             try
             {
-                if (SMMG.Statistics && SSSHN.GetHostEntry())
+                if (SMMG.TelemetryData && SSSHN.GetHostEntry())
                 {
                     using HttpClient Client = new();
 
@@ -110,7 +110,7 @@ namespace Sucrose.Backgroundog.Helper
         {
             try
             {
-                if (SMMG.Statistics)
+                if (SMMG.TelemetryData)
                 {
                     if (SSSHN.GetHostEntry())
                     {
@@ -124,7 +124,7 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             CultureInfo Culture = new(SWNM.GetUserDefaultUILanguage());
 
-                            SSSMAD AnalyticsData = new(SMMG.AppExit, $"{SSDMME.GifEngine}", SMME.Loop, $"{SSDMME.UrlEngine}", $"{SSDMME.WebEngine}", SMMP.StoreAdult, SSSHU.GetName(), SMME.Volume, $"{SMME.InputType}", SSSHU.GetModel(), SMMG.Report, SSCHOS.GetServer(), $"{SSDMMP.StoreServerType}", $"{SSDMMG.ThemeType}", $"{SSDMME.VideoEngine}", SMMG.Startup, SMMH.DiscordState, $"{SMME.ScreenType}", SMME.Shuffle, $"{SSCMMU.ExtensionType}", SMMG.Visible, $"{SSCMMU.ChannelType}", SMMG.Culture.ToUpperInvariant(), SMMC.Cycyling, string.Join(",", SSSHU.GetGraphic()), SMML.Location, string.Join(",", SSSHU.GetNetwork()), $"{SSDMME.StretchType}", SSCHV.GetText(), $"{SSDMME.YouTubeEngine}", SMMU.Auto, SSCHF.GetName(), string.Join(",", SSSHU.GetProcessor()), SMMG.Statistics, SMME.StoreStart, SMMD.AdvertisingState, SSSHU.GetIdentifier(), SMML.Move, SSCHM.GetTotalMemory(), SSCHOS.GetWorkstation(), SMMC.CycylingTime, $"{SSDMME.ApplicationEngine}", Culture.Name, SSSHU.GetIdentifying(), SMME.InputDesktop, $"{SSDMME.InputModuleType}", SMME.LibraryStart, SMMP.StorePreview, SMME.VolumeActive, SMME.DeveloperPort, SSSHU.GetNumberOfCores(), SMMP.StoreDuration, SSCHA.GetText(), SMME.DeveloperMode, SMMD.DonateVisible, SMML.DeleteCorrupt, SSSHU.GetManufacturer(), SMME.VolumeDesktop, $"{SSDMMB.CommunicationType}", $"{SMME.DisplayScreenType}", SMML.DeleteConfirm, SMMP.LibraryPreview, SMMP.StorePagination, $"{SSDMMB.CpuPerformance}", Culture.NativeName, $"{SSDMMB.GpuPerformance}", SMMB.GraphicAdapter, SMMB.NetworkAdapter, $"{SSDMMC.TransitionCycleType}", SMMD.AdvertisingDelay, SMMP.BackgroundImage, SSCHOS.GetText(), SMMP.BackgroundOpacity, SMMP.LibraryPagination, $"{SSDMMB.FocusPerformance}", $"{SSDMMB.PausePerformanceType}", $"{SSDMMB.SaverPerformance}", SSCHOS.GetNumberOfProcessors(), $"{SSDMMP.BackgroundStretch}", $"{SSDMMB.MemoryPerformance}", SMMB.PerformanceCounter, $"{SSDMMB.RemotePerformance}", $"{SSDMMB.BatteryPerformance}", $"{SSDMMB.NetworkPerformance}", $"{SSDMMB.VirtualPerformance}", SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), $"{SSDMMB.FullscreenPerformance}", SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
+                            SSSMAD AnalyticsData = new(SMMG.AppExit, $"{SSDMME.GifEngine}", SMME.Loop, $"{SSDMME.UrlEngine}", $"{SSDMME.WebEngine}", SMMP.StoreAdult, SSSHU.GetName(), SMME.Volume, $"{SMME.InputType}", SSSHU.GetModel(), SMMG.CrashData, SSCHOS.GetServer(), $"{SSDMMP.StoreServerType}", $"{SSDMMG.ThemeType}", $"{SSDMME.VideoEngine}", SMMG.RunStartup, SMMH.DiscordConnect, $"{SMME.ScreenType}", SMME.Shuffle, $"{SSCMMU.ExtensionType}", SMMG.TrayIconVisible, $"{SSCMMU.ChannelType}", SMMG.Culture.ToUpperInvariant(), SMMC.Cycyling, string.Join(",", SSSHU.GetGraphic()), SMML.Location, string.Join(",", SSSHU.GetNetwork()), $"{SSDMME.StretchType}", SSCHV.GetText(), $"{SSDMME.YouTubeEngine}", SMMU.Auto, SSCHF.GetName(), string.Join(",", SSSHU.GetProcessor()), SMMG.TelemetryData, SMME.StoreStart, SMMD.AdvertisingState, SSSHU.GetIdentifier(), SMML.Move, SSCHM.GetTotalMemory(), SSCHOS.GetWorkstation(), SMMC.CycylingTime, $"{SSDMME.ApplicationEngine}", Culture.Name, SSSHU.GetIdentifying(), SMME.InputDesktop, $"{SSDMME.InputModuleType}", SMME.LibraryStart, SMMP.StorePreview, SMME.VolumeActive, SMME.DeveloperPort, SSSHU.GetNumberOfCores(), SMMP.StoreDuration, SSCHA.GetText(), SMME.DeveloperMode, SMMD.DonateVisible, SMML.DeleteCorrupt, SSSHU.GetManufacturer(), SMME.VolumeDesktop, $"{SSDMMB.CommunicationType}", $"{SMME.DisplayScreenType}", SMML.DeleteConfirm, SMMP.LibraryPreview, SMMP.StorePagination, $"{SSDMMB.CpuPerformance}", Culture.NativeName, $"{SSDMMB.GpuPerformance}", SMMB.GraphicAdapter, SMMB.NetworkAdapter, $"{SSDMMC.TransitionCycleType}", SMMD.AdvertisingDelay, SMMP.BackgroundImage, SSCHOS.GetText(), SMMP.BackgroundOpacity, SMMP.LibraryPagination, $"{SSDMMB.FocusPerformance}", $"{SSDMMB.PausePerformanceType}", $"{SSDMMB.SaverPerformance}", SSCHOS.GetNumberOfProcessors(), $"{SSDMMP.BackgroundStretch}", $"{SSDMMB.MemoryPerformance}", SMMB.PerformanceCounter, $"{SSDMMB.RemotePerformance}", $"{SSDMMB.BatteryPerformance}", $"{SSDMMB.NetworkPerformance}", $"{SSDMMB.VirtualPerformance}", SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), $"{SSDMMB.FullscreenPerformance}", SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
 
                             StringContent Content = new(JsonConvert.SerializeObject(AnalyticsData, Formatting.Indented), Encoding.UTF8, "application/json");
 
@@ -168,7 +168,7 @@ namespace Sucrose.Backgroundog.Helper
         {
             try
             {
-                if (SMMG.Report && SSSHN.GetHostEntry())
+                if (SMMG.CrashData && SSSHN.GetHostEntry())
                 {
                     await Task.Delay(50);
 

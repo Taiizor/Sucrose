@@ -260,7 +260,7 @@ namespace Sucrose.Update.View
 
                     try
                     {
-                        if (SMMG.Statistics)
+                        if (SMMG.TelemetryData)
                         {
                             using HttpClient Client = new();
 
