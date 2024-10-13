@@ -126,7 +126,7 @@ namespace Sucrose.Live.MpvPlayer
             {
                 string InfoPath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMR.SucroseInfo);
 
-                if (File.Exists(InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
+                if (File.Exists(InfoPath) && SSTHI.ReadCheck(InfoPath))
                 {
                     SSEMI.Info = SSTHI.ReadJson(InfoPath);
 

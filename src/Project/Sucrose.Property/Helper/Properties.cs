@@ -13,7 +13,7 @@ namespace Sucrose.Property.Helper
         {
             if (SMML.LibrarySelected == SPMI.LibrarySelected && SSSHL.Run())
             {
-                SSTHP.WriteJson(SPMI.WatcherFile.Replace("*", $"{Guid.NewGuid()}"), new()
+                SSTHP.Write(SPMI.WatcherFile.Replace("*", $"{Guid.NewGuid()}"), new()
                 {
                     PropertyListener = SPMI.Properties.PropertyListener,
                     PropertyList = new()
@@ -25,7 +25,7 @@ namespace Sucrose.Property.Helper
 
             SPMI.Properties.PropertyList[Key] = Data;
 
-            SSTHP.WriteJson(SPMI.PropertiesFile, SPMI.Properties);
+            SSTHP.Write(SPMI.PropertiesFile, SPMI.Properties);
         }
     }
 }

@@ -136,9 +136,9 @@ namespace Sucrose.Portal.Views.Pages
 
                         if (File.Exists(InfoPath))
                         {
-                            string InfoContent = SSTHI.ReadInfo(InfoPath);
+                            string InfoContent = SSTHI.Read(InfoPath);
 
-                            if (InfoContent != null && SSTHI.CheckJson(InfoContent))
+                            if (InfoContent != null && SSTHI.FromCheck(InfoContent))
                             {
                                 SSTHI Info = SSTHI.FromJson(InfoContent);
 

@@ -747,7 +747,7 @@ namespace Sucrose.Portal.Views.Controls
                             Description = GifDescription.Text
                         };
 
-                        SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
+                        SSTHI.Write(Path.Combine(Theme, SMR.SucroseInfo), Info);
                     }
                 }
                 else if (UrlCard.Visibility == Visibility.Visible)
@@ -869,7 +869,7 @@ namespace Sucrose.Portal.Views.Controls
                             Description = UrlDescription.Text
                         };
 
-                        SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
+                        SSTHI.Write(Path.Combine(Theme, SMR.SucroseInfo), Info);
                     }
                 }
                 else if (WebCard.Visibility == Visibility.Visible)
@@ -994,7 +994,7 @@ namespace Sucrose.Portal.Views.Controls
                             Source = Path.GetFileName($"{WebSource.Content}")
                         };
 
-                        SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
+                        SSTHI.Write(Path.Combine(Theme, SMR.SucroseInfo), Info);
                     }
                 }
                 else if (VideoCard.Visibility == Visibility.Visible)
@@ -1143,7 +1143,7 @@ namespace Sucrose.Portal.Views.Controls
                             Description = VideoDescription.Text
                         };
 
-                        SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
+                        SSTHI.Write(Path.Combine(Theme, SMR.SucroseInfo), Info);
                     }
                 }
                 else if (YouTubeCard.Visibility == Visibility.Visible)
@@ -1265,7 +1265,7 @@ namespace Sucrose.Portal.Views.Controls
                             Description = YouTubeDescription.Text
                         };
 
-                        SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
+                        SSTHI.Write(Path.Combine(Theme, SMR.SucroseInfo), Info);
                     }
                 }
                 else if (ApplicationCard.Visibility == Visibility.Visible)
@@ -1408,7 +1408,7 @@ namespace Sucrose.Portal.Views.Controls
                             Source = Path.GetFileName($"{ApplicationSource.Content}")
                         };
 
-                        SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
+                        SSTHI.Write(Path.Combine(Theme, SMR.SucroseInfo), Info);
                     }
                 }
             }

@@ -22,13 +22,38 @@ namespace Sucrose.Shared.Theme.Helper
 
     internal partial class Properties
     {
-        public static bool CheckJson(string Json)
+        public static string Read(string Path)
+        {
+            string Content = SSSHF.Read(Path);
+
+            return string.IsNullOrWhiteSpace(Content) ? string.Empty : Content;
+        }
+
+        public static bool FromCheck(string Json)
         {
             try
             {
                 JsonConvert.DeserializeObject<Properties>(Json, Converter.Settings);
 
                 JToken.Parse(Json);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static bool ReadCheck(string Path)
+        {
+            try
+            {
+                string Content = Read(Path);
+
+                JsonConvert.DeserializeObject<Properties>(Content, Converter.Settings);
+
+                JToken.Parse(Content);
 
                 return true;
             }
@@ -45,19 +70,12 @@ namespace Sucrose.Shared.Theme.Helper
 
         public static Properties ReadJson(string Path)
         {
-            return JsonConvert.DeserializeObject<Properties>(ReadProperties(Path), Converter.Settings);
+            return JsonConvert.DeserializeObject<Properties>(Read(Path), Converter.Settings);
         }
 
-        public static string ReadProperties(string Path)
+        public static void Write(string Path, Properties Json)
         {
-            string Content = SSSHF.Read(Path);
-
-            return string.IsNullOrWhiteSpace(Content) ? string.Empty : Content;
-        }
-
-        public static void WriteJson(string Path, Properties Properties)
-        {
-            SSSHF.Write(Path, JsonConvert.SerializeObject(Properties, Converter.Settings));
+            SSSHF.Write(Path, JsonConvert.SerializeObject(Json, Converter.Settings));
         }
     }
 }

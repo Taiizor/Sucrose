@@ -125,7 +125,7 @@ namespace Sucrose.Live.Aurora
             {
                 SSEMI.InfoPath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMR.SucroseInfo);
 
-                if (File.Exists(SSEMI.InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(SSEMI.InfoPath)))
+                if (File.Exists(SSEMI.InfoPath) && SSTHI.ReadCheck(SSEMI.InfoPath))
                 {
                     SSEMI.Info = SSTHI.ReadJson(SSEMI.InfoPath);
 

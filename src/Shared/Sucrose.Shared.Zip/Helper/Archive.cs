@@ -61,7 +61,7 @@ namespace Sucrose.Shared.Zip.Helper
                     return SSDECT.EmptyInfo;
                 }
 
-                bool Json = SSTHI.CheckJson(Salt);
+                bool Json = SSTHI.FromCheck(Salt);
 
                 if (!Json)
                 {
@@ -192,7 +192,7 @@ namespace Sucrose.Shared.Zip.Helper
                         return SSDECT.EmptyProperties;
                     }
 
-                    Json = SSTHP.CheckJson(Salt);
+                    Json = SSTHP.FromCheck(Salt);
 
                     if (!Json)
                     {
@@ -226,7 +226,7 @@ namespace Sucrose.Shared.Zip.Helper
                         return SSDECT.EmptyCompatible;
                     }
 
-                    Json = SSTHC.CheckJson(Salt);
+                    Json = SSTHC.FromCheck(Salt);
 
                     if (!Json)
                     {

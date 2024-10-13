@@ -9,13 +9,15 @@
     <Import_RootNamespace>Sucrose.Shared.Store</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Converter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\GitHub\Download.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Serialize.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Soferity\Download.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Store.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interface\Contents.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interface\Data.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interface\Category.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Interface\Root.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interface\Store.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interface\Wallpaper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
   </ItemGroup>

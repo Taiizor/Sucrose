@@ -26,7 +26,7 @@ using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSHSD = Sucrose.Shared.Store.Helper.Soferity.Download;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
-using SSSIR = Sucrose.Shared.Store.Interface.Root;
+using SSSIS = Sucrose.Shared.Store.Interface.Store;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
@@ -115,11 +115,11 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         Image.Source = LoadImage("Basket");
 
-                        SSSIR Root = SSSHS.DeserializeRoot(StoreFile);
+                        SSSIS Store = SSSHS.ReadJson(StoreFile);
 
                         List<ComboBoxItem> Categories = new();
 
-                        foreach (string Key in Root.Categories.Keys)
+                        foreach (string Key in Store.Categories.Keys)
                         {
                             Categories.Add(new ComboBoxItem()
                             {

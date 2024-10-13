@@ -18,7 +18,7 @@ using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSSHSD = Sucrose.Shared.Store.Helper.Soferity.Download;
-using SSSIR = Sucrose.Shared.Store.Interface.Root;
+using SSSIS = Sucrose.Shared.Store.Interface.Store;
 
 namespace Sucrose.Portal.Views.Pages
 {
@@ -37,7 +37,7 @@ namespace Sucrose.Portal.Views.Pages
 
         public SPVMPSVM ViewModel { get; }
 
-        private SSSIR Root { get; set; }
+        private SSSIS Store { get; set; }
 
         public StorePage(SPVMPSVM ViewModel)
         {
@@ -64,11 +64,11 @@ namespace Sucrose.Portal.Views.Pages
                 {
                     if (SSDMMP.StoreServerType == SSDESSRT.Soferity && SSSHSD.Pattern(PatternFile, SMMG.UserAgent))
                     {
-                        Root = SSSHS.DeserializeRoot(PatternFile);
+                        Store = SSSHS.ReadJson(PatternFile);
                     }
                     else
                     {
-                        Root = SSSHS.DeserializeRoot(StoreFile);
+                        Store = SSSHS.ReadJson(StoreFile);
                     }
 
                     StoreStage = SSDESSET.Full;
@@ -88,7 +88,7 @@ namespace Sucrose.Portal.Views.Pages
         {
             if (StoreStage == SSDESSET.Full)
             {
-                FullStorePage = new(Root);
+                FullStorePage = new(Store);
 
                 FrameStore.Content = FullStorePage;
             }

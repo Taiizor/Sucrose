@@ -1,13 +1,13 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SSDESST = Sucrose.Shared.Dependency.Enum.StoreServerType;
 using SSSHF = Sucrose.Shared.Space.Helper.Filing;
-using SSSIR = Sucrose.Shared.Store.Interface.Root;
+using SSSIS = Sucrose.Shared.Store.Interface.Store;
 using SMMRGU = Sucrose.Memory.Manage.Readonly.Url;
-using Newtonsoft.Json.Linq;
 
 namespace Sucrose.Shared.Store.Helper
 {
-    internal static class Store
+    internal partial class Store
     {
         public static string Source(SSDESST Store)
         {
@@ -17,21 +17,29 @@ namespace Sucrose.Shared.Store.Helper
                 _ => SMMRGU.SoferityStore,
             };
         }
+    }
 
-        public static string Json(string Store)
+    internal partial class Store
+    {
+        public static string Read(string Path)
         {
-            string Content = SSSHF.Read(Store);
+            string Content = SSSHF.Read(Path);
 
             return string.IsNullOrWhiteSpace(Content) ? string.Empty : Content;
         }
 
-        public static bool CheckRoot(string Store)
+        public static SSSIS FromJson(string Json)
+        {
+            return JsonConvert.DeserializeObject<SSSIS>(Json, Converter.Settings);
+        }
+
+        public static bool FromCheck(string Json)
         {
             try
             {
-                JsonConvert.DeserializeObject<SSSIR>(Json(Store));
+                JsonConvert.DeserializeObject<SSSIS>(Json, Converter.Settings);
 
-                JToken.Parse(Store);
+                JToken.Parse(Json);
 
                 return true;
             }
@@ -41,9 +49,32 @@ namespace Sucrose.Shared.Store.Helper
             }
         }
 
-        public static SSSIR DeserializeRoot(string Store)
+        public static bool ReadCheck(string Path)
         {
-            return JsonConvert.DeserializeObject<SSSIR>(Json(Store));
+            try
+            {
+                string Content = Read(Path);
+
+                JsonConvert.DeserializeObject<SSSIS>(Content, Converter.Settings);
+
+                JToken.Parse(Content);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static SSSIS ReadJson(string Path)
+        {
+            return JsonConvert.DeserializeObject<SSSIS>(Read(Path), Converter.Settings);
+        }
+
+        public static void Write(string Path, SSSIS Json)
+        {
+            SSSHF.Write(Path, JsonConvert.SerializeObject(Json, Converter.Settings));
         }
     }
 }

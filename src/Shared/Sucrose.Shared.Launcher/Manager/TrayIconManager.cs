@@ -136,7 +136,7 @@ namespace Sucrose.Shared.Launcher.Manager
                 {
                     string InfoPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMR.SucroseInfo);
 
-                    if (File.Exists(InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
+                    if (File.Exists(InfoPath) && SSTHI.ReadCheck(InfoPath))
                     {
                         SSTHI Info = SSTHI.ReadJson(InfoPath);
 
@@ -166,7 +166,7 @@ namespace Sucrose.Shared.Launcher.Manager
             {
                 string InfoPath = Path.Combine(SMML.LibraryLocation, SMML.LibrarySelected, SMR.SucroseInfo);
 
-                if (File.Exists(InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
+                if (File.Exists(InfoPath) && SSTHI.ReadCheck(InfoPath))
                 {
                     SSTHI Info = SSTHI.ReadJson(InfoPath);
 

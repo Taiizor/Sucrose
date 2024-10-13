@@ -15,7 +15,7 @@ using SPVCSC = Sucrose.Portal.Views.Controls.StoreCard;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSSHC = Sucrose.Shared.Space.Helper.Clean;
 using SSSIC = Sucrose.Shared.Store.Interface.Category;
-using SSSIR = Sucrose.Shared.Store.Interface.Root;
+using SSSIS = Sucrose.Shared.Store.Interface.Store;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 
@@ -28,13 +28,13 @@ namespace Sucrose.Portal.Views.Pages.Store
     {
         public static ICollection<NavigationViewItem> MenuItems { get; set; }
 
-        private SSSIR Root = new();
+        private SSSIS Store = new();
 
         private bool Searching;
 
-        internal FullStorePage(SSSIR Root)
+        internal FullStorePage(SSSIS Store)
         {
-            this.Root = Root;
+            this.Store = Store;
             DataContext = this;
 
             ToolTip SymbolTip = new()
@@ -55,9 +55,9 @@ namespace Sucrose.Portal.Views.Pages.Store
 
             Categories.Add(AllMenu);
 
-            if (Root != null && Root.Categories != null && Root.Categories.Any())
+            if (Store != null && Store.Categories != null && Store.Categories.Any())
             {
-                foreach (KeyValuePair<string, SSSIC> Category in Root.Categories)
+                foreach (KeyValuePair<string, SSSIC> Category in Store.Categories)
                 {
                     if (Category.Value.Wallpapers.Any() && (SMMP.Adult || Category.Value.Wallpapers.Count(Wallpaper => Wallpaper.Value.Adult) != Category.Value.Wallpapers.Count()))
                     {
@@ -166,7 +166,7 @@ namespace Sucrose.Portal.Views.Pages.Store
 
                 if (Search.Any())
                 {
-                    foreach ((string CategoryKey, string WallpaperKey, SSSIW Wallpaper) Category in GetSortedWallpapers(Root, Search))
+                    foreach ((string CategoryKey, string WallpaperKey, SSSIW Wallpaper) Category in GetSortedWallpapers(Store, Search))
                     {
                         if (string.IsNullOrEmpty(SPMI.CategoryService.CategoryTag) || Category.CategoryKey == SPMI.CategoryService.CategoryTag)
                         {
@@ -199,7 +199,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                 }
                 else
                 {
-                    foreach (KeyValuePair<string, SSSIC> Category in Root.Categories)
+                    foreach (KeyValuePair<string, SSSIC> Category in Store.Categories)
                     {
                         if (string.IsNullOrEmpty(SPMI.CategoryService.CategoryTag) || Category.Key == SPMI.CategoryService.CategoryTag)
                         {
@@ -291,9 +291,9 @@ namespace Sucrose.Portal.Views.Pages.Store
             await AddThemes(SPMI.SearchService.SearchList, SPMI.SearchService.SearchText, ThemePagination.SelectPage, SPMI.CategoryService.CategoryTag);
         }
 
-        private static List<(string CategoryKey, string WallpaperKey, SSSIW Wallpaper)> GetSortedWallpapers(SSSIR Root, string[] Words)
+        private static List<(string CategoryKey, string WallpaperKey, SSSIW Wallpaper)> GetSortedWallpapers(SSSIS Store, string[] Words)
         {
-            return Root.Categories.SelectMany(Category => Category.Value.Wallpapers
+            return Store.Categories.SelectMany(Category => Category.Value.Wallpapers
                 .Select(Wallpaper => new
                 {
                     CategoryKey = Category.Key,

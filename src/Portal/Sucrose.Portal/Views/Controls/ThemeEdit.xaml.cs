@@ -145,7 +145,7 @@ namespace Sucrose.Portal.Views.Controls
                     Info.Description = ThemeDescription.Text;
                     Info.Version = SSSHV.Increment(Info.Version);
 
-                    SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
+                    SSTHI.Write(Path.Combine(Theme, SMR.SucroseInfo), Info);
                 }
             }
 

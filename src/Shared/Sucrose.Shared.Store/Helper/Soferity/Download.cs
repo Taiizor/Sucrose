@@ -28,7 +28,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
                     TimeSpan ElapsedDuration = CurrentTime - ModificationTime;
 
-                    if (ElapsedDuration >= TimeSpan.FromHours(SMMP.StoreDuration) || !SSSHS.CheckRoot(Store))
+                    if (ElapsedDuration >= TimeSpan.FromHours(SMMP.StoreDuration) || !SSSHS.ReadCheck(Store))
                     {
                         File.Delete(Store);
                     }
@@ -63,7 +63,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
                     Stream.Dispose();
                     FStream.Dispose();
 
-                    return SSSHS.CheckRoot(Store);
+                    return SSSHS.ReadCheck(Store);
                 }
             }
             catch
@@ -85,7 +85,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
                     TimeSpan ElapsedDuration = CurrentTime - ModificationTime;
 
-                    if (ElapsedDuration >= TimeSpan.FromHours(SMMP.StoreDuration) || !SSSHS.CheckRoot(Pattern))
+                    if (ElapsedDuration >= TimeSpan.FromHours(SMMP.StoreDuration) || !SSSHS.ReadCheck(Pattern))
                     {
                         File.Delete(Pattern);
                     }
@@ -120,7 +120,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
                     Stream.Dispose();
                     FStream.Dispose();
 
-                    return SSSHS.CheckRoot(Pattern);
+                    return SSSHS.ReadCheck(Pattern);
                 }
             }
             catch

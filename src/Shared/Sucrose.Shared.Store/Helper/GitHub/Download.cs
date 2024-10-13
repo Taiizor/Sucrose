@@ -27,7 +27,7 @@ namespace Sucrose.Shared.Store.Helper.GitHub
 
                     TimeSpan ElapsedDuration = CurrentTime - ModificationTime;
 
-                    if (ElapsedDuration >= TimeSpan.FromHours(SMMP.StoreDuration) || !SSSHS.CheckRoot(Store))
+                    if (ElapsedDuration >= TimeSpan.FromHours(SMMP.StoreDuration) || !SSSHS.ReadCheck(Store))
                     {
                         File.Delete(Store);
                     }
@@ -68,7 +68,7 @@ namespace Sucrose.Shared.Store.Helper.GitHub
                             Stream.Dispose();
                             FStream.Dispose();
 
-                            return SSSHS.CheckRoot(Store);
+                            return SSSHS.ReadCheck(Store);
                         }
 
                         break;

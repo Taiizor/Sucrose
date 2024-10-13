@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Sucrose.Shared.Theme.Helper
+namespace Sucrose.Shared.Theme.Converter
 {
     internal class VersionConverter : JsonConverter<Version>
     {

@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Converters;
 using System.Globalization;
 using SSTCMC = Sucrose.Shared.Theme.Converter.ModelConverter;
+using SSTCVC = Sucrose.Shared.Theme.Converter.VersionConverter;
 
 namespace Sucrose.Shared.Theme.Helper
 {
@@ -15,7 +16,7 @@ namespace Sucrose.Shared.Theme.Helper
             Converters =
             {
                 new SSTCMC(),
-                new VersionConverter(),
+                new SSTCVC(),
                 new IsoDateTimeConverter
                 {
                     DateTimeStyles = DateTimeStyles.AssumeUniversal

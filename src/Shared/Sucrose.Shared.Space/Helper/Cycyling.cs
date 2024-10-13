@@ -42,7 +42,7 @@ namespace Sucrose.Shared.Space.Helper
 
                             if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
                             {
-                                if (SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
+                                if (SSTHI.ReadCheck(InfoPath))
                                 {
                                     SSTHI Info = SSTHI.ReadJson(InfoPath);
 
@@ -112,7 +112,7 @@ namespace Sucrose.Shared.Space.Helper
 
                                         if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
                                         {
-                                            if (SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
+                                            if (SSTHI.ReadCheck(InfoPath))
                                             {
                                                 SSTHI Info = SSTHI.ReadJson(InfoPath);
 
@@ -146,7 +146,7 @@ namespace Sucrose.Shared.Space.Helper
 
                                         if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
                                         {
-                                            if (SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
+                                            if (SSTHI.ReadCheck(InfoPath))
                                             {
                                                 SSTHI Info = SSTHI.ReadJson(InfoPath);
 

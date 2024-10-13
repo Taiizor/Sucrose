@@ -49,6 +49,13 @@ namespace Sucrose.Shared.Theme.Helper
 
     internal partial class Info
     {
+        public static string Read(string Path)
+        {
+            string Content = SSSHF.Read(Path);
+
+            return string.IsNullOrWhiteSpace(Content) ? string.Empty : Content;
+        }
+
         public static Info FromJson(string Json)
         {
             return JsonConvert.DeserializeObject<Info>(Json, Converter.Settings);
@@ -56,10 +63,10 @@ namespace Sucrose.Shared.Theme.Helper
 
         public static Info ReadJson(string Path)
         {
-            return JsonConvert.DeserializeObject<Info>(ReadInfo(Path), Converter.Settings);
+            return JsonConvert.DeserializeObject<Info>(Read(Path), Converter.Settings);
         }
 
-        public static bool CheckJson(string Json)
+        public static bool FromCheck(string Json)
         {
             try
             {
@@ -75,16 +82,27 @@ namespace Sucrose.Shared.Theme.Helper
             }
         }
 
-        public static string ReadInfo(string Path)
+        public static bool ReadCheck(string Path)
         {
-            string Content = SSSHF.Read(Path);
+            try
+            {
+                string Content = Read(Path);
 
-            return string.IsNullOrWhiteSpace(Content) ? string.Empty : Content;
+                JsonConvert.DeserializeObject<Info>(Content, Converter.Settings);
+
+                JToken.Parse(Content);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public static void WriteJson(string Path, Info Info)
+        public static void Write(string Path, Info Json)
         {
-            SSSHF.Write(Path, JsonConvert.SerializeObject(Info, Converter.Settings));
+            SSSHF.Write(Path, JsonConvert.SerializeObject(Json, Converter.Settings));
         }
     }
 }

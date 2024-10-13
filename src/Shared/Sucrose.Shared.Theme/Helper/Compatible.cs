@@ -51,13 +51,38 @@ namespace Sucrose.Shared.Theme.Helper
 
     internal partial class Compatible
     {
-        public static bool CheckJson(string Json)
+        public static string Read(string Path)
+        {
+            string Content = SSSHF.Read(Path);
+
+            return string.IsNullOrWhiteSpace(Content) ? string.Empty : Content;
+        }
+
+        public static bool FromCheck(string Json)
         {
             try
             {
                 JsonConvert.DeserializeObject<Compatible>(Json, Converter.Settings);
-                
+
                 JToken.Parse(Json);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static bool ReadCheck(string Path)
+        {
+            try
+            {
+                string Content = Read(Path);
+
+                JsonConvert.DeserializeObject<Compatible>(Content, Converter.Settings);
+
+                JToken.Parse(Content);
 
                 return true;
             }
@@ -74,19 +99,12 @@ namespace Sucrose.Shared.Theme.Helper
 
         public static Compatible ReadJson(string Path)
         {
-            return JsonConvert.DeserializeObject<Compatible>(ReadCompatible(Path), Converter.Settings);
+            return JsonConvert.DeserializeObject<Compatible>(Read(Path), Converter.Settings);
         }
 
-        public static string ReadCompatible(string Path)
+        public static void Write(string Path, Compatible Json)
         {
-            string Content = SSSHF.Read(Path);
-
-            return string.IsNullOrWhiteSpace(Content) ? string.Empty : Content;
-        }
-
-        public static void WriteJson(string Path, Compatible Compatible)
-        {
-            SSSHF.Write(Path, JsonConvert.SerializeObject(Compatible, Converter.Settings));
+            SSSHF.Write(Path, JsonConvert.SerializeObject(Json, Converter.Settings));
         }
     }
 }
