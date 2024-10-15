@@ -293,8 +293,6 @@ namespace Sucrose.Portal.Views.Windows
                         {
                             using HttpClient Client = new();
 
-                            HttpResponseMessage Response = new();
-
                             Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
                             try
@@ -303,7 +301,9 @@ namespace Sucrose.Portal.Views.Windows
 
                                 StringContent Content = new(JsonConvert.SerializeObject(SearchData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                                Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferitySearch}/{SSSHU.GetGuid()}", Content);
+                                HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferitySearch}/{SSSHU.GetGuid()}", Content);
+
+                                Response.EnsureSuccessStatusCode();
                             }
                             catch (Exception Exception)
                             {

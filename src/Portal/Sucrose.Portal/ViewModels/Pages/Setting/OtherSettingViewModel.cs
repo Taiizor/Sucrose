@@ -76,7 +76,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch ReportState = new()
             {
-                IsChecked = SMMG.CrashData
+                IsChecked = SMMG.ExceptionData
             };
 
             ReportState.Checked += (s, e) => ReportStateChecked(true);
@@ -635,7 +635,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void ReportStateChecked(bool State)
         {
-            SMMI.GeneralSettingManager.SetSetting(SMMCG.CrashData, State);
+            SMMI.GeneralSettingManager.SetSetting(SMMCG.ExceptionData, State);
 
             if (State || SMMG.TelemetryData)
             {
@@ -699,11 +699,11 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             SMMI.GeneralSettingManager.SetSetting(SMMCG.TelemetryData, State);
 
-            if (State || SMMG.CrashData)
+            if (State || SMMG.ExceptionData)
             {
                 SSSHP.Run(SSSPMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Reportdog}{SMMRG.ValueSeparator}{SSSPMI.Reportdog}");
             }
-            else if (!SMMG.CrashData)
+            else if (!SMMG.ExceptionData)
             {
                 if (SSSHP.Work(SMMRA.Reportdog))
                 {

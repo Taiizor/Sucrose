@@ -48,7 +48,7 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
-using SSSMUD = Sucrose.Shared.Space.Model.UpdateData;
+using SSSMUTD = Sucrose.Shared.Space.Model.UpdateTelemetryData;
 using SSSZEZ = Sucrose.Shared.SevenZip.Extension.Zip;
 using SSSZHZ = Sucrose.Shared.SevenZip.Helper.Zip;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
@@ -264,17 +264,21 @@ namespace Sucrose.Update.View
                         {
                             using HttpClient Client = new();
 
-                            HttpResponseMessage Response = new();
-
                             Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
                             try
                             {
-                                SSSMUD UpdateData = new(Silent, SSCHV.GetText());
+                                SSSMUTD UpdateData = new()
+                                {
+                                    SilentMode = Silent,
+                                    AppVersion = SSCHV.GetText()
+                                };
 
-                                StringContent Content = new(JsonConvert.SerializeObject(UpdateData, Formatting.Indented), Encoding.UTF8, "application/json");
+                                StringContent Content = new(JsonConvert.SerializeObject(UpdateData, Formatting.Indented), SMMRS.Encoding, "application/json");
 
-                                Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityUpdate}/{SSSHU.GetGuid()}", Content);
+                                HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Telemetry}/{SMMRS.Update}/{SSSHU.GetGuid()}", Content);
+
+                                Response.EnsureSuccessStatusCode();
                             }
                             catch (Exception Exception)
                             {
@@ -345,7 +349,7 @@ namespace Sucrose.Update.View
                 Releases = SSDMMU.ServerType switch
                 {
                     SSDEUST.GitHub => SSHG.ReleasesList(SMMRGH.Owner, SMMRGH.SucroseRepository, SMMG.UserAgent, SMMO.PersonalAccessToken),
-                    SSDEUST.Soferity => SUHU.ReleasesList($"{SMMRU.Soferity}/{SMMRS.SoferityUpdate}", SMMG.UserAgent),
+                    SSDEUST.Soferity => SUHU.ReleasesList($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Kernel}/{SMMRS.Release}", SMMG.UserAgent),
                     _ => new(),
                 };
 

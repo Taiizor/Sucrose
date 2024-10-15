@@ -39,6 +39,8 @@ namespace Sucrose.Update.Helper
 
             Cache[Key] = new CachedData(Response.IsSuccessStatusCode, Result, DateTime.Now);
 
+            Response.EnsureSuccessStatusCode();
+
             if (Response.IsSuccessStatusCode)
             {
                 return Result;

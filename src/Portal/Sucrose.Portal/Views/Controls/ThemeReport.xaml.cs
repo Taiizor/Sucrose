@@ -196,7 +196,10 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         using HttpClient Client = new();
 
-                        HttpResponseMessage Response = new();
+                        HttpResponseMessage Response = new()
+                        {
+                            StatusCode = System.Net.HttpStatusCode.BadGateway
+                        };
 
                         Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
@@ -207,6 +210,8 @@ namespace Sucrose.Portal.Views.Controls
                         try
                         {
                             Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityCheck}/{SSSHU.GetGuid()}");
+
+                            Response.EnsureSuccessStatusCode();
                         }
                         catch
                         {
@@ -228,6 +233,8 @@ namespace Sucrose.Portal.Views.Controls
                                 StringContent Content = new(JsonConvert.SerializeObject(ReportData, Formatting.Indented), Encoding.UTF8, "application/json");
 
                                 Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityTheme}/{SSSHU.GetGuid()}", Content);
+
+                                Response.EnsureSuccessStatusCode();
                             }
                             catch
                             {

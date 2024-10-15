@@ -86,13 +86,13 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     using HttpClient Client = new();
 
-                    HttpResponseMessage Response = new();
-
                     Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
                     try
                     {
-                        Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityOnline}/{SSSHU.GetGuid()}/{SRMI.InitializeTime / 1000}");
+                        HttpResponseMessage Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityOnline}/{SSSHU.GetGuid()}/{SRMI.InitializeTime / 1000}");
+
+                        Response.EnsureSuccessStatusCode();
                     }
                     catch (Exception Exception)
                     {
@@ -116,31 +116,31 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         using HttpClient Client = new();
 
-                        HttpResponseMessage Response = new();
-
                         Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
                         try
                         {
                             CultureInfo Culture = new(SWNM.GetUserDefaultUILanguage());
 
-                            SSSMAD AnalyticsData = new(SMMG.AppExit, $"{SSDMME.Gif}", SMME.WallpaperLoop, $"{SSDMME.Url}", $"{SSDMME.Web}", SMMP.StoreAdult, SSSHU.GetName(), SMME.WallpaperVolume, $"{SMME.InputType}", SSSHU.GetModel(), SMMG.CrashData, SSCHOS.GetServer(), $"{SSDMMP.StoreServerType}", $"{SSDMMG.ThemeType}", $"{SSDMME.Video}", SMMG.RunStartup, SMMH.DiscordConnect, $"{SMME.ScreenType}", SMME.WallpaperShuffle, $"{SSCMMU.ExtensionType}", SMMG.TrayIconVisible, $"{SSCMMU.ChannelType}", SMMG.Culture.ToUpperInvariant(), SMMC.Active, string.Join(",", SSSHU.GetGraphic()), SMML.Location, string.Join(",", SSSHU.GetNetwork()), $"{SSDMME.StretchType}", SSCHV.GetText(), $"{SSDMME.YouTube}", SMMU.Auto, SSCHF.GetName(), string.Join(",", SSSHU.GetProcessor()), SMMG.TelemetryData, SMME.StoreStart, SMMD.AdvertisingState, SSSHU.GetIdentifier(), SMML.Move, SSCHM.GetTotalMemory(), SSCHOS.GetWorkstation(), SMMC.TransitionTime, $"{SSDMME.Application}", Culture.Name, SSSHU.GetIdentifying(), SMME.InputDesktop, $"{SSDMME.InputModuleType}", SMME.LibraryStart, SMMP.StorePreview, SMME.VolumeActive, SMME.DeveloperPort, SSSHU.GetNumberOfCores(), SMMP.StoreDuration, SSCHA.GetText(), SMME.DeveloperMode, SMMD.MenuVisible, SMML.DeleteCorrupt, SSSHU.GetManufacturer(), SMME.VolumeDesktop, $"{SSDMMB.CommunicationType}", $"{SMME.DisplayScreenType}", SMML.DeleteConfirm, SMMP.LibraryPreview, SMMP.StorePagination, $"{SSDMMB.CpuPerformance}", Culture.NativeName, $"{SSDMMB.GpuPerformance}", SMMB.GraphicAdapter, SMMB.NetworkAdapter, $"{SSDMMC.TransitionType}", SMMD.AdvertisingDelay, SMMP.BackgroundImage, SSCHOS.GetText(), SMMP.BackgroundOpacity, SMMP.LibraryPagination, $"{SSDMMB.FocusPerformance}", $"{SSDMMB.PausePerformanceType}", $"{SSDMMB.SaverPerformance}", SSCHOS.GetNumberOfProcessors(), $"{SSDMMP.BackgroundStretch}", $"{SSDMMB.MemoryPerformance}", SMMB.PerformanceCounter, $"{SSDMMB.RemotePerformance}", $"{SSDMMB.BatteryPerformance}", $"{SSDMMB.NetworkPerformance}", $"{SSDMMB.VirtualPerformance}", SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), $"{SSDMMB.FullscreenPerformance}", SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
+                            SSSMAD AnalyticsData = new(SMMG.AppExit, $"{SSDMME.Gif}", SMME.WallpaperLoop, $"{SSDMME.Url}", $"{SSDMME.Web}", SMMP.StoreAdult, SSSHU.GetName(), SMME.WallpaperVolume, $"{SMME.InputType}", SSSHU.GetModel(), SMMG.ExceptionData, SSCHOS.GetServer(), $"{SSDMMP.StoreServerType}", $"{SSDMMG.ThemeType}", $"{SSDMME.Video}", SMMG.RunStartup, SMMH.DiscordConnect, $"{SMME.ScreenType}", SMME.WallpaperShuffle, $"{SSCMMU.ExtensionType}", SMMG.TrayIconVisible, $"{SSCMMU.ChannelType}", SMMG.Culture.ToUpperInvariant(), SMMC.Active, string.Join(",", SSSHU.GetGraphic()), SMML.Location, string.Join(",", SSSHU.GetNetwork()), $"{SSDMME.StretchType}", SSCHV.GetText(), $"{SSDMME.YouTube}", SMMU.Auto, SSCHF.GetName(), string.Join(",", SSSHU.GetProcessor()), SMMG.TelemetryData, SMME.StoreStart, SMMD.AdvertisingState, SSSHU.GetIdentifier(), SMML.Move, SSCHM.GetTotalMemory(), SSCHOS.GetWorkstation(), SMMC.TransitionTime, $"{SSDMME.Application}", Culture.Name, SSSHU.GetIdentifying(), SMME.InputDesktop, $"{SSDMME.InputModuleType}", SMME.LibraryStart, SMMP.StorePreview, SMME.VolumeActive, SMME.DeveloperPort, SSSHU.GetNumberOfCores(), SMMP.StoreDuration, SSCHA.GetText(), SMME.DeveloperMode, SMMD.MenuVisible, SMML.DeleteCorrupt, SSSHU.GetManufacturer(), SMME.VolumeDesktop, $"{SSDMMB.CommunicationType}", $"{SMME.DisplayScreenType}", SMML.DeleteConfirm, SMMP.LibraryPreview, SMMP.StorePagination, $"{SSDMMB.CpuPerformance}", Culture.NativeName, $"{SSDMMB.GpuPerformance}", SMMB.GraphicAdapter, SMMB.NetworkAdapter, $"{SSDMMC.TransitionType}", SMMD.AdvertisingDelay, SMMP.BackgroundImage, SSCHOS.GetText(), SMMP.BackgroundOpacity, SMMP.LibraryPagination, $"{SSDMMB.FocusPerformance}", $"{SSDMMB.PausePerformanceType}", $"{SSDMMB.SaverPerformance}", SSCHOS.GetNumberOfProcessors(), $"{SSDMMP.BackgroundStretch}", $"{SSDMMB.MemoryPerformance}", SMMB.PerformanceCounter, $"{SSDMMB.RemotePerformance}", $"{SSDMMB.BatteryPerformance}", $"{SSDMMB.NetworkPerformance}", $"{SSDMMB.VirtualPerformance}", SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), $"{SSDMMB.FullscreenPerformance}", SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
 
                             StringContent Content = new(JsonConvert.SerializeObject(AnalyticsData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                            Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityStatistic}/{SSSHU.GetGuid()}", Content);
+                            HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityStatistic}/{SSSHU.GetGuid()}", Content);
+
+                            Response.EnsureSuccessStatusCode();
+
+                            if (!Response.IsSuccessStatusCode)
+                            {
+                                await Task.Delay(3000);
+
+                                await PostStatistic();
+                            }
                         }
                         catch (Exception Exception)
                         {
                             await SSWW.Watch_CatchException(Exception);
 
-                            await Task.Delay(3000);
-
-                            await PostStatistic();
-                        }
-
-                        if (!Response.IsSuccessStatusCode)
-                        {
                             await Task.Delay(3000);
 
                             await PostStatistic();
@@ -168,15 +168,13 @@ namespace Sucrose.Backgroundog.Helper
         {
             try
             {
-                if (SMMG.CrashData && SSSHN.GetHostEntry())
+                if (SMMG.ExceptionData && SSSHN.GetHostEntry())
                 {
                     await Task.Delay(50);
 
                     if (File.Exists(Path))
                     {
                         using HttpClient Client = new();
-
-                        HttpResponseMessage Response = new();
 
                         Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
@@ -186,18 +184,20 @@ namespace Sucrose.Backgroundog.Helper
 
                             StringContent Content = new(JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                            Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityError}/{SSSHU.GetGuid()}", Content);
+                            HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityError}/{SSSHU.GetGuid()}", Content);
+
+                            Response.EnsureSuccessStatusCode();
+
+                            if (Response.IsSuccessStatusCode)
+                            {
+                                await Task.Delay(50);
+
+                                File.Delete(Path);
+                            }
                         }
                         catch (Exception Exception)
                         {
                             await SSWW.Watch_CatchException(Exception);
-                        }
-
-                        if (Response.IsSuccessStatusCode)
-                        {
-                            await Task.Delay(50);
-
-                            File.Delete(Path);
                         }
                     }
                 }

@@ -5,11 +5,11 @@ using SHG = Skylark.Helper.Generator;
 using SMMCW = Sucrose.Memory.Manage.Constant.Warehouse;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMML = Sucrose.Manager.Manage.Library;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SMMVA = Sucrose.Memory.Manage.Valuable.App;
 using SMMW = Sucrose.Manager.Manage.Warehouse;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCTI = Sucrose.Portal.Views.Controls.ThemeImport;
@@ -257,7 +257,7 @@ namespace Sucrose.Portal.Views.Pages
 
                             do
                             {
-                                Name = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
+                                Name = SHG.GenerateString(SMMVA.Chars, 25, SMMRG.Randomise);
                             } while (Directory.Exists(Path.Combine(SMML.Location, Name)));
 
                             Result = await Task.Run(() => SSZEZ.Extract(Record, Path.Combine(SMML.Location, Name)));

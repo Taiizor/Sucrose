@@ -6,13 +6,13 @@
 
         public const string Culture = "Culture";
 
-        public const string CrashData = "CrashData";
-
         public const string ThemeType = "ThemeType";
 
         public const string UserAgent = "UserAgent";
 
         public const string RunStartup = "RunStartup";
+
+        public const string ExceptionData = "ExceptionData";
 
         public const string TelemetryData = "TelemetryData";
 

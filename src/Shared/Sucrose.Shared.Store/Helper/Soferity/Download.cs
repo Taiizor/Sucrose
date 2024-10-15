@@ -359,6 +359,8 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
             string Result = Response.Content.ReadAsStringAsync().Result;
 
+            Response.EnsureSuccessStatusCode();
+
             if (Response.IsSuccessStatusCode)
             {
                 return Result;

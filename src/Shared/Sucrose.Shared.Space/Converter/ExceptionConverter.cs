@@ -18,26 +18,11 @@ namespace Sucrose.Shared.Space.Converter
             serializer.Serialize(writer, serializableException);
         }
 
-        private SSSISE ConvertToSerializableException(Exception exception)
+        public override Exception ReadJson(JsonReader reader, Type objectType, Exception existingValue, bool hasExistingValue, JsonSerializer serializer)
         {
-            if (exception == null)
-            {
-                return null;
-            }
+            SSSISE serializableException = serializer.Deserialize<SSSISE>(reader);
 
-            return new SSSISE
-            {
-                Data = exception.Data,
-                Source = exception.Source,
-                Message = exception.Message,
-                HResult = exception.HResult,
-                HelpURL = exception.HelpLink,
-                RawStackTrace = exception.StackTrace,
-                StackTrace = ParseStackTrace(exception),
-                ClassName = exception.GetType().FullName,
-                InnerException = ConvertToSerializableException(exception.InnerException),
-                FullMessage = SSSHE.GetMessage(exception, "Unfortunately.", SMMRG.ExceptionSplit)
-            };
+            return ConvertToException(serializableException);
         }
 
         private List<SSSISFD> ParseStackTrace(Exception exception)
@@ -70,13 +55,6 @@ namespace Sucrose.Shared.Space.Converter
             return frameList;
         }
 
-        public override Exception ReadJson(JsonReader reader, Type objectType, Exception existingValue, bool hasExistingValue, JsonSerializer serializer)
-        {
-            SSSISE serializableException = serializer.Deserialize<SSSISE>(reader);
-
-            return ConvertToException(serializableException);
-        }
-
         private Exception ConvertToException(SSSISE serializableException)
         {
             if (serializableException == null)
@@ -84,37 +62,77 @@ namespace Sucrose.Shared.Space.Converter
                 return null;
             }
 
-            Type exceptionType = Type.GetType(serializableException.ClassName);
+            Type exceptionType = Type.GetType(serializableException.ClassName) ?? typeof(Exception);
 
-            if (exceptionType == null)
+            Exception exception = TryCreateInstance(exceptionType, serializableException.Message) ?? TryCreateInstanceWithReflection(exceptionType, serializableException.Message);
+
+            if (exception == null)
             {
-                exceptionType = typeof(Exception);
-            }
-
-            Exception exception = null;
-
-            try
-            {
-                exception = (Exception)Activator.CreateInstance(exceptionType, serializableException.Message);
-            }
-            catch
-            {
-                exception = (Exception)Activator.CreateInstance(exceptionType);
-
-                FieldInfo messageField = typeof(Exception).GetField("_message", BindingFlags.NonPublic | BindingFlags.Instance);
-
-                messageField?.SetValue(exception, serializableException.Message);
+                exception = TryCreateInstanceWithConstructor(exceptionType, serializableException.Message);
             }
 
             exception.HelpLink = serializableException.HelpURL;
 
+            SetExceptionData(exception, serializableException);
+
+            if (serializableException.InnerException != null)
+            {
+                Exception innerException = ConvertToException(serializableException.InnerException);
+
+                SetField(exception, "_innerException", innerException);
+            }
+
+            return exception;
+        }
+
+        private SSSISE ConvertToSerializableException(Exception exception)
+        {
+            if (exception == null)
+            {
+                return null;
+            }
+
+            return new SSSISE
+            {
+                Data = exception.Data,
+                Source = exception.Source,
+                Message = exception.Message,
+                HResult = exception.HResult,
+                HelpURL = exception.HelpLink,
+                RawStackTrace = exception.StackTrace,
+                StackTrace = ParseStackTrace(exception),
+                ClassName = exception.GetType().FullName,
+                InnerException = ConvertToSerializableException(exception.InnerException),
+                FullMessage = SSSHE.GetMessage(exception, "Unfortunately.", SMMRG.ExceptionSplit)
+            };
+        }
+
+        private Exception TryCreateInstance(Type exceptionType, string message)
+        {
+            try
+            {
+                return (Exception)Activator.CreateInstance(exceptionType, message);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private void SetField(Exception exception, string fieldName, object value)
+        {
+            FieldInfo field = typeof(Exception).GetField(fieldName, BindingFlags.NonPublic | BindingFlags.Instance);
+
+            field?.SetValue(exception, value);
+        }
+
+        private void SetExceptionData(Exception exception, SSSISE serializableException)
+        {
             if (serializableException.Data != null && serializableException.Data.Count > 0)
             {
                 if (exception.Data == null)
                 {
-                    FieldInfo dataField = typeof(Exception).GetField("_data", BindingFlags.NonPublic | BindingFlags.Instance);
-
-                    dataField?.SetValue(exception, new Dictionary<object, object>());
+                    SetField(exception, "_data", new Dictionary<object, object>());
                 }
 
                 foreach (DictionaryEntry entry in serializableException.Data)
@@ -136,17 +154,36 @@ namespace Sucrose.Shared.Space.Converter
                     }
                 }
             }
+        }
 
-            if (serializableException.InnerException != null)
+        private Exception TryCreateInstanceWithReflection(Type exceptionType, string message)
+        {
+            try
             {
-                Exception innerException = ConvertToException(serializableException.InnerException);
+                Exception exception = (Exception)Activator.CreateInstance(exceptionType);
 
-                FieldInfo field = typeof(Exception).GetField("_innerException", BindingFlags.NonPublic | BindingFlags.Instance);
+                SetField(exception, "_message", message);
 
-                field?.SetValue(exception, innerException);
+                return exception;
             }
+            catch
+            {
+                return null;
+            }
+        }
 
-            return exception;
+        private Exception TryCreateInstanceWithConstructor(Type exceptionType, string message)
+        {
+            try
+            {
+                ConstructorInfo constructor = exceptionType.GetConstructor(new[] { typeof(string), typeof(Exception) });
+
+                return (Exception)constructor?.Invoke(new object[] { message, null }) ?? (Exception)Activator.CreateInstance(exceptionType, message) ?? (Exception)Activator.CreateInstance(exceptionType);
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

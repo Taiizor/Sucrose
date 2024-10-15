@@ -13,10 +13,10 @@ using SEAT = Skylark.Enum.AssemblyType;
 using SHA = Skylark.Helper.Assemblies;
 using SHG = Skylark.Helper.Generator;
 using SMML = Sucrose.Manager.Manage.Library;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SMMVA = Sucrose.Memory.Manage.Valuable.App;
 using SPETC = Sucrose.Portal.Extension.ThemeCreate;
 using SPETL = Sucrose.Portal.Extension.ThumbnailLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
@@ -678,7 +678,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         do
                         {
-                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
+                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMVA.Chars, 25, SMMRG.Randomise);
                             Theme = Path.Combine(SMML.Location, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
@@ -824,7 +824,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         do
                         {
-                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
+                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMVA.Chars, 25, SMMRG.Randomise);
                             Theme = Path.Combine(SMML.Location, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
@@ -947,7 +947,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         do
                         {
-                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
+                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMVA.Chars, 25, SMMRG.Randomise);
                             Theme = Path.Combine(SMML.Location, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
@@ -1074,7 +1074,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         do
                         {
-                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
+                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMVA.Chars, 25, SMMRG.Randomise);
                             Theme = Path.Combine(SMML.Location, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
@@ -1220,7 +1220,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         do
                         {
-                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
+                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMVA.Chars, 25, SMMRG.Randomise);
                             Theme = Path.Combine(SMML.Location, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 
@@ -1361,7 +1361,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         do
                         {
-                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
+                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMVA.Chars, 25, SMMRG.Randomise);
                             Theme = Path.Combine(SMML.Location, SPMI.LibraryService.Theme);
                         } while (Directory.Exists(Theme));
 

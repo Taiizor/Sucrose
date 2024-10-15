@@ -195,7 +195,10 @@ namespace Sucrose.Portal.Views.Controls
 
                     using HttpClient Client = new();
 
-                    HttpResponseMessage Response = new();
+                    HttpResponseMessage Response = new()
+                    {
+                        StatusCode = System.Net.HttpStatusCode.BadGateway
+                    };
 
                     Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
@@ -206,6 +209,8 @@ namespace Sucrose.Portal.Views.Controls
                     try
                     {
                         Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityUpload}/{SMMRS.SoferityCheck}/{SSSHU.GetGuid()}");
+
+                        Response.EnsureSuccessStatusCode();
                     }
                     catch
                     {
@@ -273,6 +278,8 @@ namespace Sucrose.Portal.Views.Controls
                                     try
                                     {
                                         Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityUpload}/{SMMRS.SoferityTheme}/{SSSHU.GetGuid()}/{(Category.SelectedItem as ComboBoxItem).Tag}", Content);
+
+                                        Response.EnsureSuccessStatusCode();
                                     }
                                     catch
                                     {

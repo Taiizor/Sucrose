@@ -15,7 +15,6 @@ using SMME = Sucrose.Manager.Manage.Engine;
 using SMMG = Sucrose.Manager.Manage.General;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMML = Sucrose.Manager.Manage.Library;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMP = Sucrose.Manager.Manage.Portal;
 using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
 using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
@@ -23,6 +22,7 @@ using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SMMRS = Sucrose.Memory.Manage.Readonly.Soferity;
 using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
+using SMMVA = Sucrose.Memory.Manage.Valuable.App;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReport;
@@ -129,8 +129,6 @@ namespace Sucrose.Portal.Views.Controls
                 {
                     using HttpClient Client = new();
 
-                    HttpResponseMessage Response = new();
-
                     Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
                     try
@@ -139,7 +137,9 @@ namespace Sucrose.Portal.Views.Controls
 
                         StringContent Content = new(JsonConvert.SerializeObject(StoreData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                        Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityStore}/{SSSHU.GetGuid()}", Content);
+                        HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityStore}/{SSSHU.GetGuid()}", Content);
+
+                        Response.EnsureSuccessStatusCode();
                     }
                     catch (Exception Exception)
                     {
@@ -159,7 +159,7 @@ namespace Sucrose.Portal.Views.Controls
             {
                 do
                 {
-                    Keys = SHG.GenerateString(SMMM.Chars, 25, SMMRG.Randomise);
+                    Keys = SHG.GenerateString(SMMVA.Chars, 25, SMMRG.Randomise);
                 } while (Directory.Exists(Path.Combine(SMML.Location, Keys)));
 
                 SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);

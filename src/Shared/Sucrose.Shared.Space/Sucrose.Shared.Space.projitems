@@ -50,7 +50,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\FeedbackData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\SearchData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Model\UpdateData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\UpdateTelemetryData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\StoreData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ReportData.cs" />
   </ItemGroup>

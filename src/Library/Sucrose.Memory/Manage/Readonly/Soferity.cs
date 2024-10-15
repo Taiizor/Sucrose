@@ -1,10 +1,24 @@
-﻿namespace Sucrose.Memory.Manage.Readonly
+﻿using System.Text;
+
+namespace Sucrose.Memory.Manage.Readonly
 {
     public static class Soferity
     {
+        public static readonly string Version = "v6";
+
+        public static readonly string Kernel = "Kernel";
+
+        public static readonly string Update = "Update";
+
+        public static readonly string Release = "Release";
+
         public static readonly string StoreSource = "src";
 
+        public static readonly string Telemetry = "Telemetry";
+
         public static readonly string StoreDirectory = "Store";
+
+        public static readonly Encoding Encoding = Encoding.UTF8;
 
         public static readonly string ReleaseDirectory = "Release";
 
@@ -28,8 +42,6 @@
         public static readonly string SoferityReport = "Report";
 
         public static readonly string SoferitySearch = "Search";
-
-        public static readonly string SoferityUpdate = "Update";
 
         public static readonly string SoferityUpload = "Upload";
 

@@ -18,7 +18,7 @@ namespace Sucrose.Manager.Manage
 
         public static bool TelemetryData => SMMI.GeneralSettingManager.GetSetting(SMMCG.TelemetryData, true);
 
-        public static bool CrashData => SMMI.GeneralSettingManager.GetSetting(SMMCG.CrashData, true);
+        public static bool ExceptionData => SMMI.GeneralSettingManager.GetSetting(SMMCG.ExceptionData, true);
 
         public static bool AppExit => SMMI.GeneralSettingManager.GetSetting(SMMCG.AppExit, false);
     }
