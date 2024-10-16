@@ -24,21 +24,35 @@ using SSCMMU = Sucrose.Shared.Core.Manage.Manager.Update;
 using SSDMMB = Sucrose.Shared.Dependency.Manage.Manager.Backgroundog;
 using SSDMMC = Sucrose.Shared.Dependency.Manage.Manager.Cycling;
 using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
+using SSSMOTD = Sucrose.Shared.Space.Model.OnlineTelemetryData;
 using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
 using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSSMAD = Sucrose.Shared.Space.Model.AnalyticsData;
-using SSSMDD = Sucrose.Shared.Space.Model.DiagnosticsData;
+using SSSMTED = Sucrose.Shared.Space.Model.ThrowExceptionData;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHSI = Skylark.Wing.Helper.SystemInfo;
 using SWNM = Skylark.Wing.Native.Methods;
 
-namespace Sucrose.Backgroundog.Helper
+namespace Sucrose.Reportdog.Helper
 {
     internal class Initialize : IDisposable
     {
+        public async void Stop()
+        {
+            if (SRMI.Watcher != null)
+            {
+                SRMI.Watcher.EnableRaisingEvents = false;
+                SRMI.InitializeTimer.Dispose();
+                SRMI.Watcher.Dispose();
+                SRMI.Watcher = null;
+            }
+
+            await Task.CompletedTask;
+        }
+
         public async void Start()
         {
             if (SRMI.Watcher == null)
@@ -53,7 +67,7 @@ namespace Sucrose.Backgroundog.Helper
 
                     foreach (string Record in Files)
                     {
-                        await PostError(Record);
+                        await SendException(Record);
                     }
                 }
 
@@ -66,7 +80,7 @@ namespace Sucrose.Backgroundog.Helper
 
                 SRMI.Watcher.Created += async (s, e) =>
                 {
-                    await PostError(e.FullPath);
+                    await SendException(e.FullPath);
                 };
 
                 TimerCallback Callback = InitializeTimer_Callback;
@@ -74,11 +88,11 @@ namespace Sucrose.Backgroundog.Helper
 
                 SRMI.Watcher.EnableRaisingEvents = true;
 
-                await PostStatistic();
+                await SendStatistic();
             }
         }
 
-        private static async Task GetOnline()
+        private static async Task SendOnline()
         {
             try
             {
@@ -90,7 +104,15 @@ namespace Sucrose.Backgroundog.Helper
 
                     try
                     {
-                        HttpResponseMessage Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityOnline}/{SSSHU.GetGuid()}/{SRMI.InitializeTime / 1000}");
+                        SSSMOTD OnlineData = new()
+                        {
+                            AppVersion = SSCHV.GetText(),
+                            Time = SRMI.InitializeTime / 1000
+                        };
+
+                        StringContent Content = new(JsonConvert.SerializeObject(OnlineData, Formatting.Indented), SMMRS.Encoding, "application/json");
+
+                        HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Telemetry}/{SMMRS.Online}/{SSSHU.GetGuid()}", Content);
 
                         Response.EnsureSuccessStatusCode();
                     }
@@ -106,7 +128,7 @@ namespace Sucrose.Backgroundog.Helper
             }
         }
 
-        private static async Task PostStatistic()
+        private static async Task SendStatistic()
         {
             try
             {
@@ -134,7 +156,7 @@ namespace Sucrose.Backgroundog.Helper
                             {
                                 await Task.Delay(3000);
 
-                                await PostStatistic();
+                                await SendStatistic();
                             }
                         }
                         catch (Exception Exception)
@@ -143,14 +165,14 @@ namespace Sucrose.Backgroundog.Helper
 
                             await Task.Delay(3000);
 
-                            await PostStatistic();
+                            await SendStatistic();
                         }
                     }
                     else
                     {
                         await Task.Delay(3000);
 
-                        await PostStatistic();
+                        await SendStatistic();
                     }
                 }
             }
@@ -160,11 +182,11 @@ namespace Sucrose.Backgroundog.Helper
 
                 await Task.Delay(3000);
 
-                await PostStatistic();
+                await SendStatistic();
             }
         }
 
-        private static async Task PostError(string Path)
+        private static async Task SendException(string Path)
         {
             try
             {
@@ -180,11 +202,11 @@ namespace Sucrose.Backgroundog.Helper
 
                         try
                         {
-                            SSSMDD DiagnosticsData = JsonConvert.DeserializeObject<SSSMDD>(SSSHW.Read(Path));
+                            SSSMTED ThrowData = JsonConvert.DeserializeObject<SSSMTED>(SSSHW.Read(Path));
 
-                            StringContent Content = new(JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented), Encoding.UTF8, "application/json");
+                            StringContent Content = new(JsonConvert.SerializeObject(ThrowData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                            HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityError}/{SSSHU.GetGuid()}", Content);
+                            HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Exception}/{SMMRS.Throw}/{SSSHU.GetGuid()}", Content);
 
                             Response.EnsureSuccessStatusCode();
 
@@ -210,18 +232,7 @@ namespace Sucrose.Backgroundog.Helper
 
         private async void InitializeTimer_Callback(object State)
         {
-            await GetOnline();
-        }
-
-        public void Stop()
-        {
-            if (SRMI.Watcher != null)
-            {
-                SRMI.Watcher.EnableRaisingEvents = false;
-                SRMI.InitializeTimer.Dispose();
-                SRMI.Watcher.Dispose();
-                SRMI.Watcher = null;
-            }
+            await SendOnline();
         }
 
         public void Dispose()

@@ -43,13 +43,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Live.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Processor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Temporary.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Model\DiagnosticsData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ThrowExceptionData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\AnalyticsData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interface\SerializableException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interface\StackFrameData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\FeedbackData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\SearchData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\OnlineTelemetryData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\UpdateTelemetryData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\StoreData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ReportData.cs" />

@@ -26,7 +26,7 @@ using SSSHUE = Sucrose.Shared.Space.Helper.Unique;
 using SSSHUR = Sucrose.Shared.Space.Helper.User;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSSHWE = Sucrose.Shared.Space.Helper.WatchException;
-using SSSMDD = Sucrose.Shared.Space.Model.DiagnosticsData;
+using SSSMTED = Sucrose.Shared.Space.Model.ThrowExceptionData;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHSI = Skylark.Wing.Helper.SystemInfo;
 using SWNM = Skylark.Wing.Native.Methods;
@@ -123,7 +123,7 @@ namespace Sucrose.Watchdog
                 {
                     Guid Id = Guid.NewGuid();
                     string Log = Arguments[2];
-                    string Name = SSSHUR.GetName();
+                    string User = SSSHUR.GetName();
                     string Model = SSSHUR.GetModel();
                     string Application = Arguments[0];
                     Guid AppId = SSSHUE.Generate(Application);
@@ -133,9 +133,32 @@ namespace Sucrose.Watchdog
                     string Source = Arguments.Count() == 5 ? Arguments[3] : string.Empty;
                     string Message = SSSHE.GetMessage(SSSHWE.Convert(Arguments[1]), SRER.GetValue("Watchdog", "ErrorEmpty"), SMMRG.ExceptionSplit);
 
-                    SSSMDD DiagnosticsData = new(Id, SSSHUE.Generate($"{Name}-{Model}-{Manufacturer}"), Application, AppId, Name, Model, SSCHOS.GetServer(), SMMG.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), JObject.Parse(Arguments[1]), SSCHOS.GetWorkstation(), Culture.Name, SSCHA.GetText(), Manufacturer, Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
+                    SSSMTED ThrowData = new()
+                    {
+                        Id = Id,
+                        AppId = AppId,
+                        UserName = User,
+                        DeviceModel = Model,
+                        AppName = Application,
+                        CultureName = Culture.Name,
+                        AppVersion = SSCHV.GetText(),
+                        IsServer = SSCHOS.GetServer(),
+                        AppFramework = SSCHF.GetName(),
+                        ManufacturerBrand = Manufacturer,
+                        AppArchitecture = SSCHA.GetText(),
+                        OperatingSystem = SSCHOS.GetText(),
+                        CultureDisplay = Culture.NativeName,
+                        Exception = JObject.Parse(Arguments[1]),
+                        IsWorkstation = SSCHOS.GetWorkstation(),
+                        OperatingSystemBuild = SSCHV.GetOSText(),
+                        CultureCode = SMMG.Culture.ToUpperInvariant(),
+                        Sid = SSSHUE.Generate($"{User}-{Model}-{Manufacturer}"),
+                        ProcessArchitecture = SSCHOS.GetProcessArchitectureText(),
+                        ProcessorArchitecture = SSCHOS.GetProcessorArchitecture(),
+                        OperatingSystemArchitecture = SWHSI.GetSystemInfoArchitecture(),
+                    };
 
-                    SSSHW.Write(Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Report, $"{Id}.json"), JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented));
+                    SSSHW.Write(Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Report, $"{Id}.json"), JsonConvert.SerializeObject(ThrowData, Formatting.Indented));
 
                     if (Application != SMMRA.Watchdog)
                     {

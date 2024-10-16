@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SSSCEC = Sucrose.Shared.Space.Converter.ExceptionConverter;
-using SSSMDD = Sucrose.Shared.Space.Model.DiagnosticsData;
+using SSSMTED = Sucrose.Shared.Space.Model.ThrowExceptionData;
 
 namespace Sucrose.Shared.Space.Helper
 {
@@ -19,7 +19,7 @@ namespace Sucrose.Shared.Space.Helper
             });
         }
 
-        public static string Convert(SSSMDD Data, Formatting Formatting = Formatting.Indented)
+        public static string Convert(SSSMTED Data, Formatting Formatting = Formatting.Indented)
         {
             return JsonConvert.SerializeObject(Data, new JsonSerializerSettings
             {

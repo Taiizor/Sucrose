@@ -6,13 +6,19 @@ namespace Sucrose.Memory.Manage.Readonly
     {
         public static readonly string Version = "v6";
 
+        public static readonly string Throw = "Throw";
+
         public static readonly string Kernel = "Kernel";
+
+        public static readonly string Online = "Online";
 
         public static readonly string Update = "Update";
 
         public static readonly string Release = "Release";
 
         public static readonly string StoreSource = "src";
+
+        public static readonly string Exception = "Exception";
 
         public static readonly string Telemetry = "Telemetry";
 
@@ -36,8 +42,6 @@ namespace Sucrose.Memory.Manage.Readonly
         public static readonly string SoferityStore = "Store";
 
         public static readonly string SoferityTheme = "Theme";
-
-        public static readonly string SoferityOnline = "Online";
 
         public static readonly string SoferityReport = "Report";
 

@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using SBHI = Sucrose.Backgroundog.Helper.Initialize;
+using SRHI = Sucrose.Reportdog.Helper.Initialize;
 using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
@@ -13,7 +13,7 @@ namespace Sucrose.Reportdog.Manage
 
         public static int AppTime = 1000;
 
-        public static SBHI Initialize = new();
+        public static SRHI Initialize = new();
 
         public static int InitializeTime = 5000;
 
