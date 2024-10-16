@@ -118,7 +118,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            ApplicationStartup.LeftIcon.Symbol = SymbolRegular.Play24;
+            ApplicationStartup.LeftIcon.Symbol = SymbolRegular.PlayMultiple16;
             ApplicationStartup.Title.Text = SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup");
             ApplicationStartup.Description.Text = SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Description");
 
@@ -154,7 +154,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             Notify.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "Notify", "Show"));
             Notify.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "Notify", "Hide"));
 
-            Notify.SelectedIndex = SMMG.TrayIconVisible ? 0 : 1;
+            Notify.SelectedIndex = SMMG.AppVisible ? 0 : 1;
 
             NotifyIcon.HeaderFrame = Notify;
 
@@ -496,11 +496,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void NotifySelected(int Index)
         {
-            if (Index != (SMMG.TrayIconVisible ? 0 : 1))
+            if (Index != (SMMG.AppVisible ? 0 : 1))
             {
                 bool State = Index == 0;
 
-                SMMI.GeneralSettingManager.SetSetting(SMMCG.TrayIconVisible, State);
+                SMMI.GeneralSettingManager.SetSetting(SMMCG.AppVisible, State);
 
                 if (SSSHP.Work(SMMRA.Launcher))
                 {

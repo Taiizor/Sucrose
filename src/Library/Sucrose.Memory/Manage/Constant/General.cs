@@ -10,12 +10,12 @@
 
         public const string UserAgent = "UserAgent";
 
+        public const string AppVisible = "AppVisible";
+
         public const string RunStartup = "RunStartup";
 
         public const string ExceptionData = "ExceptionData";
 
         public const string TelemetryData = "TelemetryData";
-
-        public const string TrayIconVisible = "TrayIconVisible";
     }
 }

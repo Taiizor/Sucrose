@@ -8,7 +8,7 @@ namespace Sucrose.Manager.Manage
     {
         public static int AdvertisingDelay => SHS.Clamp(SMMI.DonateSettingManager.GetSettingStable(SMMCD.AdvertisingDelay, 30), 30, 720);
 
-        public static bool AdvertisingState => SMMI.DonateSettingManager.GetSetting(SMMCD.AdvertisingState, true);
+        public static bool AdvertisingActive => SMMI.DonateSettingManager.GetSetting(SMMCD.AdvertisingActive, true);
 
         public static bool MenuVisible => SMMI.DonateSettingManager.GetSetting(SMMCD.MenuVisible, true);
     }

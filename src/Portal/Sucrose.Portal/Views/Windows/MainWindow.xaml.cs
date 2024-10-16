@@ -299,7 +299,7 @@ namespace Sucrose.Portal.Views.Windows
                             {
                                 SSSMSD SearchData = new(ActivePage, SSCHV.GetText(), SearchBox.Text.Trim());
 
-                                StringContent Content = new(JsonConvert.SerializeObject(SearchData, Formatting.Indented), Encoding.UTF8, "application/json");
+                                StringContent Content = new(JsonConvert.SerializeObject(SearchData, Formatting.Indented), SMMRS.Encoding, "application/json");
 
                                 HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferitySearch}/{SSSHU.GetGuid()}", Content);
 

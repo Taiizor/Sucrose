@@ -50,8 +50,8 @@ namespace Sucrose.Shared.Launcher.Manager
             TrayIcon.Text = SRER.GetValue("Launcher", "TrayText");
 
             TrayIcon.MouseDoubleClick += MouseDoubleClick;
-            TrayIcon.Visible = SMMG.TrayIconVisible;
             TrayIcon.ContextMenuStrip = ContextMenu;
+            TrayIcon.Visible = SMMG.AppVisible;
             TrayIcon.MouseClick += MouseClick;
 
             ContextMenuAdjustment();

@@ -6,6 +6,6 @@
 
         public const string AdvertisingDelay = "AdvertisingDelay";
 
-        public const string AdvertisingState = "AdvertisingState";
+        public const string AdvertisingActive = "AdvertisingActive";
     }
 }

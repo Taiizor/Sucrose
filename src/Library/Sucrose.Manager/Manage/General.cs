@@ -14,11 +14,11 @@ namespace Sucrose.Manager.Manage
 
         public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMMCG.UserAgent, SMMRG.UserAgent);
 
-        public static bool TrayIconVisible => SMMI.GeneralSettingManager.GetSetting(SMMCG.TrayIconVisible, true);
-
         public static bool TelemetryData => SMMI.GeneralSettingManager.GetSetting(SMMCG.TelemetryData, true);
 
         public static bool ExceptionData => SMMI.GeneralSettingManager.GetSetting(SMMCG.ExceptionData, true);
+
+        public static bool AppVisible => SMMI.GeneralSettingManager.GetSetting(SMMCG.AppVisible, true);
 
         public static bool AppExit => SMMI.GeneralSettingManager.GetSetting(SMMCG.AppExit, false);
     }

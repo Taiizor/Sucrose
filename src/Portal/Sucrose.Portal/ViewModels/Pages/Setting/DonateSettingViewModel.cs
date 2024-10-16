@@ -85,7 +85,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch AdvertisingState = new()
             {
-                IsChecked = SMMD.AdvertisingState
+                IsChecked = SMMD.AdvertisingActive
             };
 
             AdvertisingState.Checked += (s, e) => AdvertisingStateChecked(true);
@@ -162,7 +162,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void AdvertisingStateChecked(bool State)
         {
-            SMMI.DonateSettingManager.SetSetting(SMMCD.AdvertisingState, State);
+            SMMI.DonateSettingManager.SetSetting(SMMCD.AdvertisingActive, State);
         }
 
         private void AdvertisingDelayChanged(double? Value)

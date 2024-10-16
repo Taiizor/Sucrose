@@ -18,6 +18,8 @@ namespace Sucrose.Memory.Manage.Readonly
 
         public static readonly string StoreSource = "src";
 
+        public static readonly string Analytic = "Analytic";
+
         public static readonly string Exception = "Exception";
 
         public static readonly string Telemetry = "Telemetry";
@@ -52,7 +54,5 @@ namespace Sucrose.Memory.Manage.Readonly
         public static readonly string SoferityPattern = "Pattern";
 
         public static readonly string SoferityFeedback = "Feedback";
-
-        public static readonly string SoferityStatistic = "Statistic";
     }
 }

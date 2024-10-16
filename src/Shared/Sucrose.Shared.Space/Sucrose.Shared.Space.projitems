@@ -44,7 +44,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Processor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Temporary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ThrowExceptionData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Model\AnalyticsData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\AnalyticTemeletryData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interface\SerializableException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interface\StackFrameData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
