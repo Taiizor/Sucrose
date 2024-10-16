@@ -274,7 +274,7 @@ namespace Sucrose.Update.View
                                     AppVersion = SSCHV.GetText()
                                 };
 
-                                StringContent Content = new(JsonConvert.SerializeObject(UpdateData, Formatting.Indented), SMMRS.Encoding, "application/json");
+                                StringContent Content = new(JsonConvert.SerializeObject(UpdateData, Formatting.Indented), SMMRS.Encoding, SMMRS.ApplicationJson);
 
                                 HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Telemetry}/{SMMRS.Update}/{SSSHU.GetGuid()}", Content);
 

@@ -135,7 +135,7 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         SSSMSD StoreData = new(SSCHV.GetText(), Wallpaper.Key, $"{Info.Version}", $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}", $"{Info.AppVersion}");
 
-                        StringContent Content = new(JsonConvert.SerializeObject(StoreData, Formatting.Indented), SMMRS.Encoding, "application/json");
+                        StringContent Content = new(JsonConvert.SerializeObject(StoreData, Formatting.Indented), SMMRS.Encoding, SMMRS.ApplicationJson);
 
                         HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityStore}/{SSSHU.GetGuid()}", Content);
 

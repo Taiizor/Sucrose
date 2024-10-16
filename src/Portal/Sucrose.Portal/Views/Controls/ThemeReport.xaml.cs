@@ -230,7 +230,7 @@ namespace Sucrose.Portal.Views.Controls
                             {
                                 SSSMRD ReportData = new(SSCHV.GetText(), ReportContact.Text, Wallpaper.Key, $"{(ReportMode.SelectedItem as ComboBoxItem).Tag}", $"{Info.Version}", $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}", ReportDescription.Text, $"{Info.AppVersion}");
 
-                                StringContent Content = new(JsonConvert.SerializeObject(ReportData, Formatting.Indented), SMMRS.Encoding, "application/json");
+                                StringContent Content = new(JsonConvert.SerializeObject(ReportData, Formatting.Indented), SMMRS.Encoding, SMMRS.ApplicationJson);
 
                                 Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityTheme}/{SSSHU.GetGuid()}", Content);
 

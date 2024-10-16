@@ -268,7 +268,8 @@ namespace Sucrose.Portal.Views.Controls
                                     using FileStream FileStream = new(TempFile, FileMode.Open, FileAccess.Read);
                                     using StreamContent FileContent = new(new SSSEPS(FileStream, TempSize, ReportProgress));
 
-                                    FileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/zip");
+                                    FileContent.Headers.ContentType = MediaTypeHeaderValue.Parse(SMMRS.ApplicationZip);
+
                                     Content.Add(FileContent, "file", Path.GetFileName(TempFile));
 
                                     State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload", "Start");

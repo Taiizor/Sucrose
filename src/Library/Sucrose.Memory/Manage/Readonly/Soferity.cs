@@ -30,6 +30,10 @@ namespace Sucrose.Memory.Manage.Readonly
 
         public static readonly string ReleaseDirectory = "Release";
 
+        public static readonly string ApplicationZip = "application/zip";
+
+        public static readonly string ApplicationJson = "application/json";
+
 
 
 

@@ -108,7 +108,7 @@ namespace Sucrose.Reportdog.Helper
                         Time = SRMI.InitializeTime / 1000
                     };
 
-                    StringContent Content = new(JsonConvert.SerializeObject(OnlineData, Formatting.Indented), SMMRS.Encoding, "application/json");
+                    StringContent Content = new(JsonConvert.SerializeObject(OnlineData, Formatting.Indented), SMMRS.Encoding, SMMRS.ApplicationJson);
 
                     HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Telemetry}/{SMMRS.Online}/{SSSHU.GetGuid()}", Content);
 
@@ -232,7 +232,7 @@ namespace Sucrose.Reportdog.Helper
                             OperatingSystemArchitecture = SWHSI.GetSystemInfoArchitecture()
                         };
 
-                        StringContent Content = new(JsonConvert.SerializeObject(AnalyticData, Formatting.Indented), SMMRS.Encoding, "application/json");
+                        StringContent Content = new(JsonConvert.SerializeObject(AnalyticData, Formatting.Indented), SMMRS.Encoding, SMMRS.ApplicationJson);
 
                         HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Telemetry}/{SMMRS.Analytic}/{SSSHU.GetGuid()}", Content);
 
@@ -279,7 +279,7 @@ namespace Sucrose.Reportdog.Helper
 
                         SSSMTED ThrowData = JsonConvert.DeserializeObject<SSSMTED>(SSSHW.Read(Path));
 
-                        StringContent Content = new(JsonConvert.SerializeObject(ThrowData, Formatting.Indented), SMMRS.Encoding, "application/json");
+                        StringContent Content = new(JsonConvert.SerializeObject(ThrowData, Formatting.Indented), SMMRS.Encoding, SMMRS.ApplicationJson);
 
                         HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Exception}/{SMMRS.Throw}/{SSSHU.GetGuid()}", Content);
 

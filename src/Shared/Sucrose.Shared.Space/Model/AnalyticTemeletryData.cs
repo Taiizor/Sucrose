@@ -16,17 +16,17 @@ namespace Sucrose.Shared.Space.Model
         [JsonProperty("AppVisible", Required = Required.Always)]
         public bool AppVisible { get; set; }
 
-        [JsonProperty("UpdateAuto", Required = Required.Always)]
-        public bool UpdateAuto { get; set; }
-
-        [JsonProperty("UserName", Required = Required.Always)]
-        public string UserName { get; set; }
-
         [JsonProperty("StoreAdult", Required = Required.Always)]
         public bool StoreAdult { get; set; }
 
         [JsonProperty("StoreStart", Required = Required.Always)]
         public bool StoreStart { get; set; }
+
+        [JsonProperty("UpdateAuto", Required = Required.Always)]
+        public bool UpdateAuto { get; set; }
+
+        [JsonProperty("UserName", Required = Required.Always)]
+        public string UserName { get; set; }
 
         [JsonProperty("EngineGif", Required = Required.Always)]
         public string EngineGif { get; set; }
@@ -106,11 +106,11 @@ namespace Sucrose.Shared.Space.Model
         [JsonProperty("DiscordConnect", Required = Required.Always)]
         public bool DiscordConnect { get; set; }
 
-        [JsonProperty("StorePagination", Required = Required.Always)]
-        public int StorePagination { get; set; }
-
         [JsonProperty("LibraryPreview", Required = Required.Always)]
         public bool LibraryPreview { get; set; }
+
+        [JsonProperty("StorePagination", Required = Required.Always)]
+        public int StorePagination { get; set; }
 
         [JsonProperty("WallpaperVolume", Required = Required.Always)]
         public int WallpaperVolume { get; set; }
@@ -189,6 +189,7 @@ namespace Sucrose.Shared.Space.Model
 
         [JsonProperty("EngineScreenType", Required = Required.Always)]
         public string EngineScreenType { get; set; }
+		
         [JsonProperty("FocusPerformance", Required = Required.Always)]
         public string FocusPerformance { get; set; }
 
