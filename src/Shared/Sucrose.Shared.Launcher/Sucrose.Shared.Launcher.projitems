@@ -9,7 +9,7 @@
     <Import_RootNamespace>Sucrose.Shared.Launcher</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Command\Feedback.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Command\RequestFeedback.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Reportdog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Setting.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Property.cs" />

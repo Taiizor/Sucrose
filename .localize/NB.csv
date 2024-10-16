@@ -120,7 +120,7 @@ Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.SaveDialogFilter,ZIP-Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*
 Launcher\Launcher.NB.xaml,Launcher.SaveDialogTitle,Lagre Loggfil
 Launcher\Launcher.NB.xaml,,
-Launcher\Launcher.NB.xaml,Launcher.FeedbackText,Forespørsler og Tilbakemeldinger
+Launcher\Launcher.NB.xaml,Launcher.RequestFeedbackText,Forespørsler og Tilbakemeldinger
 Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.SettingText,Innstillinger
 Launcher\Launcher.NB.xaml,,

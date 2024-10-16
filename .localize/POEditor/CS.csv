@@ -120,7 +120,7 @@ PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the t
 Launcher.SaveDialogFilter,ZIP Soubory (*.zip)|*.zip|Všechny Soubory (*.*)|*.*,,Launcher\Launcher.CS.xaml,
 Launcher.SaveDialogTitle,Uložit Záznam Souboru,,Launcher\Launcher.CS.xaml,
 PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
-Launcher.FeedbackText,Požadavky a Zpětná Vazba,,Launcher\Launcher.CS.xaml,
+Launcher.RequestFeedbackText,Požadavky a Zpětná Vazba,,Launcher\Launcher.CS.xaml,
 PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
 Launcher.SettingText,Nastavení,,Launcher\Launcher.CS.xaml,
 PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.

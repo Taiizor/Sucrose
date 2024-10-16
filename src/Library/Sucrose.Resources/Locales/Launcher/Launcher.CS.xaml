@@ -19,7 +19,7 @@
     <system:String x:Key="Launcher.SaveDialogFilter">ZIP Soubory (*.zip)|*.zip|Všechny Soubory (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Uložit Záznam Souboru</system:String>
 
-    <system:String x:Key="Launcher.FeedbackText">Požadavky a Zpětná Vazba</system:String>
+    <system:String x:Key="Launcher.RequestFeedbackText">Požadavky a Zpětná Vazba</system:String>
 
     <system:String x:Key="Launcher.SettingText">Nastavení</system:String>
 

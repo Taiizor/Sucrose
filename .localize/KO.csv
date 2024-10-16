@@ -120,7 +120,7 @@ Launcher\Launcher.KO.xaml,,
 Launcher\Launcher.KO.xaml,Launcher.SaveDialogFilter,ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*
 Launcher\Launcher.KO.xaml,Launcher.SaveDialogTitle,로그 파일 저장
 Launcher\Launcher.KO.xaml,,
-Launcher\Launcher.KO.xaml,Launcher.FeedbackText,요청 및 피드백
+Launcher\Launcher.KO.xaml,Launcher.RequestFeedbackText,요청 및 피드백
 Launcher\Launcher.KO.xaml,,
 Launcher\Launcher.KO.xaml,Launcher.SettingText,설정
 Launcher\Launcher.KO.xaml,,

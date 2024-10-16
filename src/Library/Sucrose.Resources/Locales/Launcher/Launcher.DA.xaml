@@ -19,7 +19,7 @@
     <system:String x:Key="Launcher.SaveDialogFilter">ZIP-Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Gem Logfil</system:String>
 
-    <system:String x:Key="Launcher.FeedbackText">Anmodninger og Feedback</system:String>
+    <system:String x:Key="Launcher.RequestFeedbackText">Anmodninger og Feedback</system:String>
 
     <system:String x:Key="Launcher.SettingText">Indstillinger</system:String>
 

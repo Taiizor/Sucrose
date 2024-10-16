@@ -19,7 +19,7 @@
     <system:String x:Key="Launcher.SaveDialogFilter">ZIP-Dateien (*.zip)|*.zip|Alle Dateien (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Protokolldatei Speichern</system:String>
 
-    <system:String x:Key="Launcher.FeedbackText">Anfragen und Rückmeldungen</system:String>
+    <system:String x:Key="Launcher.RequestFeedbackText">Anfragen und Rückmeldungen</system:String>
 
     <system:String x:Key="Launcher.SettingText">Einstellungen</system:String>
 

@@ -120,7 +120,7 @@ Launcher\Launcher.HI.xaml,,
 Launcher\Launcher.HI.xaml,Launcher.SaveDialogFilter,ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*
 Launcher\Launcher.HI.xaml,Launcher.SaveDialogTitle,लॉग फ़ाइल सहेजें
 Launcher\Launcher.HI.xaml,,
-Launcher\Launcher.HI.xaml,Launcher.FeedbackText,अनुरोध और प्रतिक्रिया
+Launcher\Launcher.HI.xaml,Launcher.RequestFeedbackText,अनुरोध और प्रतिक्रिया
 Launcher\Launcher.HI.xaml,,
 Launcher\Launcher.HI.xaml,Launcher.SettingText,सेटिंग्स
 Launcher\Launcher.HI.xaml,,

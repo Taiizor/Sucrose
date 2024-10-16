@@ -19,7 +19,7 @@
     <system:String x:Key="Launcher.SaveDialogFilter">ZIP-Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Lagre Loggfil</system:String>
 
-    <system:String x:Key="Launcher.FeedbackText">Forespørsler og Tilbakemeldinger</system:String>
+    <system:String x:Key="Launcher.RequestFeedbackText">Forespørsler og Tilbakemeldinger</system:String>
 
     <system:String x:Key="Launcher.SettingText">Innstillinger</system:String>
 

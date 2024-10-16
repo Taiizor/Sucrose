@@ -19,7 +19,7 @@
     <system:String x:Key="Launcher.SaveDialogFilter">Файлы ZIP (*.zip)|*.zip|Все файлы (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Сохранить Файл Журнала</system:String>
 
-    <system:String x:Key="Launcher.FeedbackText">Запросы и Отзывы</system:String>
+    <system:String x:Key="Launcher.RequestFeedbackText">Запросы и Отзывы</system:String>
 
     <system:String x:Key="Launcher.SettingText">Настройки</system:String>
 

@@ -120,7 +120,7 @@ PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.UK.xaml,Please don't touch the t
 Launcher.SaveDialogFilter,Файли ZIP (*.zip)|*.zip|Всі Файли (*.*)|*.*,,Launcher\Launcher.UK.xaml,
 Launcher.SaveDialogTitle,Зберегти Файл Журналу,,Launcher\Launcher.UK.xaml,
 PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.UK.xaml,Please don't touch the translation in this line.
-Launcher.FeedbackText,Запити та Відгуки,,Launcher\Launcher.UK.xaml,
+Launcher.RequestFeedbackText,Запити та Відгуки,,Launcher\Launcher.UK.xaml,
 PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.UK.xaml,Please don't touch the translation in this line.
 Launcher.SettingText,Налаштування,,Launcher\Launcher.UK.xaml,
 PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.UK.xaml,Please don't touch the translation in this line.

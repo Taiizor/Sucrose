@@ -120,7 +120,7 @@ PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.PL.xaml,Please don't touch the t
 Launcher.SaveDialogFilter,Pliki ZIP (*.zip)|*.zip|Wszystkie Pliki (*.*)|*.*,,Launcher\Launcher.PL.xaml,
 Launcher.SaveDialogTitle,Zapisz Plik Dziennika,,Launcher\Launcher.PL.xaml,
 PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.PL.xaml,Please don't touch the translation in this line.
-Launcher.FeedbackText,Prośby i Opinie,,Launcher\Launcher.PL.xaml,
+Launcher.RequestFeedbackText,Prośby i Opinie,,Launcher\Launcher.PL.xaml,
 PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.PL.xaml,Please don't touch the translation in this line.
 Launcher.SettingText,Ustawienia,,Launcher\Launcher.PL.xaml,
 PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.PL.xaml,Please don't touch the translation in this line.

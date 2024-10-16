@@ -120,7 +120,7 @@ Launcher\Launcher.MS.xaml,,
 Launcher\Launcher.MS.xaml,Launcher.SaveDialogFilter,Fail ZIP (*.zip)|*.zip|Semua Fail (*.*)|*.*
 Launcher\Launcher.MS.xaml,Launcher.SaveDialogTitle,Simpan Fail Log
 Launcher\Launcher.MS.xaml,,
-Launcher\Launcher.MS.xaml,Launcher.FeedbackText,Permintaan dan Maklum Balas
+Launcher\Launcher.MS.xaml,Launcher.RequestFeedbackText,Permintaan dan Maklum Balas
 Launcher\Launcher.MS.xaml,,
 Launcher\Launcher.MS.xaml,Launcher.SettingText,Tetapan
 Launcher\Launcher.MS.xaml,,

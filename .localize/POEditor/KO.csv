@@ -120,7 +120,7 @@ PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.KO.xaml,Please don't touch the t
 Launcher.SaveDialogFilter,ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*,,Launcher\Launcher.KO.xaml,
 Launcher.SaveDialogTitle,로그 파일 저장,,Launcher\Launcher.KO.xaml,
 PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.KO.xaml,Please don't touch the translation in this line.
-Launcher.FeedbackText,요청 및 피드백,,Launcher\Launcher.KO.xaml,
+Launcher.RequestFeedbackText,요청 및 피드백,,Launcher\Launcher.KO.xaml,
 PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.KO.xaml,Please don't touch the translation in this line.
 Launcher.SettingText,설정,,Launcher\Launcher.KO.xaml,
 PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.KO.xaml,Please don't touch the translation in this line.

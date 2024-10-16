@@ -120,7 +120,7 @@ PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the t
 Launcher.SaveDialogFilter,Fișiere ZIP (*.zip)|*.zip|Toate fișierele (*.*)|*.*,,Launcher\Launcher.RO.xaml,
 Launcher.SaveDialogTitle,Salvare Fișier Jurnal,,Launcher\Launcher.RO.xaml,
 PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.
-Launcher.FeedbackText,Cerințe și Feedback,,Launcher\Launcher.RO.xaml,
+Launcher.RequestFeedbackText,Cerințe și Feedback,,Launcher\Launcher.RO.xaml,
 PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.
 Launcher.SettingText,Setări,,Launcher\Launcher.RO.xaml,
 PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.RO.xaml,Please don't touch the translation in this line.

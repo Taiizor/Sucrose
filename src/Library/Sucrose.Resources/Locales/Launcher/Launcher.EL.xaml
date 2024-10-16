@@ -19,7 +19,7 @@
     <system:String x:Key="Launcher.SaveDialogFilter">Αρχεία ZIP (*.zip)|*.zip|Όλα τα Αρχεία (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Αποθήκευση Aρχείου Καταγραφής</system:String>
 
-    <system:String x:Key="Launcher.FeedbackText">Αιτήματα Και Σχόλια</system:String>
+    <system:String x:Key="Launcher.RequestFeedbackText">Αιτήματα Και Σχόλια</system:String>
 
     <system:String x:Key="Launcher.SettingText">Ρυθμίσεις</system:String>
 

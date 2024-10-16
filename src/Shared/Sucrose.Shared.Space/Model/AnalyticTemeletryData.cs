@@ -169,7 +169,7 @@ namespace Sucrose.Shared.Space.Model
         [JsonProperty("LibraryLocation", Required = Required.Always)]
         public string LibraryLocation { get; set; }
 
-        [JsonProperty("NetworkAdapter", Required = Required.Always)]
+        [JsonProperty("NetworkAdapters", Required = Required.Always)]
         public string NetworkAdapters { get; set; }
 
         [JsonProperty("NumberOfProcessors", Required = Required.Always)]

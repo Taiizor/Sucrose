@@ -120,7 +120,7 @@ Launcher\Launcher.EL.xaml,,
 Launcher\Launcher.EL.xaml,Launcher.SaveDialogFilter,Αρχεία ZIP (*.zip)|*.zip|Όλα τα Αρχεία (*.*)|*.*
 Launcher\Launcher.EL.xaml,Launcher.SaveDialogTitle,Αποθήκευση Aρχείου Καταγραφής
 Launcher\Launcher.EL.xaml,,
-Launcher\Launcher.EL.xaml,Launcher.FeedbackText,Αιτήματα Και Σχόλια
+Launcher\Launcher.EL.xaml,Launcher.RequestFeedbackText,Αιτήματα Και Σχόλια
 Launcher\Launcher.EL.xaml,,
 Launcher\Launcher.EL.xaml,Launcher.SettingText,Ρυθμίσεις
 Launcher\Launcher.EL.xaml,,

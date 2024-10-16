@@ -120,7 +120,7 @@ PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the t
 Launcher.SaveDialogFilter,ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*,,Launcher\Launcher.HI.xaml,
 Launcher.SaveDialogTitle,लॉग फ़ाइल सहेजें,,Launcher\Launcher.HI.xaml,
 PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
-Launcher.FeedbackText,अनुरोध और प्रतिक्रिया,,Launcher\Launcher.HI.xaml,
+Launcher.RequestFeedbackText,अनुरोध और प्रतिक्रिया,,Launcher\Launcher.HI.xaml,
 PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
 Launcher.SettingText,सेटिंग्स,,Launcher\Launcher.HI.xaml,
 PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.

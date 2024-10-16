@@ -120,7 +120,7 @@ PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.TR.xaml,Please don't touch the t
 Launcher.SaveDialogFilter,ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*,,Launcher\Launcher.TR.xaml,
 Launcher.SaveDialogTitle,Günlük Dosyasını Kaydet,,Launcher\Launcher.TR.xaml,
 PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.TR.xaml,Please don't touch the translation in this line.
-Launcher.FeedbackText,İstek ve Geri Bildirim,,Launcher\Launcher.TR.xaml,
+Launcher.RequestFeedbackText,İstek ve Geri Bildirim,,Launcher\Launcher.TR.xaml,
 PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.TR.xaml,Please don't touch the translation in this line.
 Launcher.SettingText,Ayarlar,,Launcher\Launcher.TR.xaml,
 PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.TR.xaml,Please don't touch the translation in this line.

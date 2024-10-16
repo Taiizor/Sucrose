@@ -120,7 +120,7 @@ Launcher\Launcher.CS.xaml,,
 Launcher\Launcher.CS.xaml,Launcher.SaveDialogFilter,ZIP Soubory (*.zip)|*.zip|Všechny Soubory (*.*)|*.*
 Launcher\Launcher.CS.xaml,Launcher.SaveDialogTitle,Uložit Záznam Souboru
 Launcher\Launcher.CS.xaml,,
-Launcher\Launcher.CS.xaml,Launcher.FeedbackText,Požadavky a Zpětná Vazba
+Launcher\Launcher.CS.xaml,Launcher.RequestFeedbackText,Požadavky a Zpětná Vazba
 Launcher\Launcher.CS.xaml,,
 Launcher\Launcher.CS.xaml,Launcher.SettingText,Nastavení
 Launcher\Launcher.CS.xaml,,

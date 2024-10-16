@@ -19,7 +19,7 @@
     <system:String x:Key="Launcher.SaveDialogFilter">ZIP-Bestanden (*.zip)|*.zip|Alle Bestanden (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Logbestand Opslaan</system:String>
 
-    <system:String x:Key="Launcher.FeedbackText">Verzoeken en Feedback</system:String>
+    <system:String x:Key="Launcher.RequestFeedbackText">Verzoeken en Feedback</system:String>
 
     <system:String x:Key="Launcher.SettingText">Instellingen</system:String>
 

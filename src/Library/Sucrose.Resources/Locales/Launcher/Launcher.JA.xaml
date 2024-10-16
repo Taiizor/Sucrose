@@ -19,7 +19,7 @@
     <system:String x:Key="Launcher.SaveDialogFilter">ZIPファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">ログファイルを保存</system:String>
 
-    <system:String x:Key="Launcher.FeedbackText">リクエストとフィードバック</system:String>
+    <system:String x:Key="Launcher.RequestFeedbackText">リクエストとフィードバック</system:String>
 
     <system:String x:Key="Launcher.SettingText">設定</system:String>
 

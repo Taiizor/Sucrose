@@ -120,7 +120,7 @@ Launcher\Launcher.PL.xaml,,
 Launcher\Launcher.PL.xaml,Launcher.SaveDialogFilter,Pliki ZIP (*.zip)|*.zip|Wszystkie Pliki (*.*)|*.*
 Launcher\Launcher.PL.xaml,Launcher.SaveDialogTitle,Zapisz Plik Dziennika
 Launcher\Launcher.PL.xaml,,
-Launcher\Launcher.PL.xaml,Launcher.FeedbackText,Prośby i Opinie
+Launcher\Launcher.PL.xaml,Launcher.RequestFeedbackText,Prośby i Opinie
 Launcher\Launcher.PL.xaml,,
 Launcher\Launcher.PL.xaml,Launcher.SettingText,Ustawienia
 Launcher\Launcher.PL.xaml,,

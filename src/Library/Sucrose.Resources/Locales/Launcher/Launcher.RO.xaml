@@ -19,7 +19,7 @@
     <system:String x:Key="Launcher.SaveDialogFilter">Fișiere ZIP (*.zip)|*.zip|Toate fișierele (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Salvare Fișier Jurnal</system:String>
 
-    <system:String x:Key="Launcher.FeedbackText">Cerințe și Feedback</system:String>
+    <system:String x:Key="Launcher.RequestFeedbackText">Cerințe și Feedback</system:String>
 
     <system:String x:Key="Launcher.SettingText">Setări</system:String>
 

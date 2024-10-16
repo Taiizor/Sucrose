@@ -120,7 +120,7 @@ Launcher\Launcher.ZH.xaml,,
 Launcher\Launcher.ZH.xaml,Launcher.SaveDialogFilter,ZIP文件 (*.zip)|*.zip|所有文件 (*.*)|*.*
 Launcher\Launcher.ZH.xaml,Launcher.SaveDialogTitle,保存日志文件
 Launcher\Launcher.ZH.xaml,,
-Launcher\Launcher.ZH.xaml,Launcher.FeedbackText,请求与反馈
+Launcher\Launcher.ZH.xaml,Launcher.RequestFeedbackText,请求与反馈
 Launcher\Launcher.ZH.xaml,,
 Launcher\Launcher.ZH.xaml,Launcher.SettingText,设置
 Launcher\Launcher.ZH.xaml,,

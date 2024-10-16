@@ -120,7 +120,7 @@ PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the t
 Launcher.SaveDialogFilter,ZIP-Bestanden (*.zip)|*.zip|Alle Bestanden (*.*)|*.*,,Launcher\Launcher.NL.xaml,
 Launcher.SaveDialogTitle,Logbestand Opslaan,,Launcher\Launcher.NL.xaml,
 PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.
-Launcher.FeedbackText,Verzoeken en Feedback,,Launcher\Launcher.NL.xaml,
+Launcher.RequestFeedbackText,Verzoeken en Feedback,,Launcher\Launcher.NL.xaml,
 PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.
 Launcher.SettingText,Instellingen,,Launcher\Launcher.NL.xaml,
 PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.NL.xaml,Please don't touch the translation in this line.

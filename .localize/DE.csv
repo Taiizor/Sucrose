@@ -120,7 +120,7 @@ Launcher\Launcher.DE.xaml,,
 Launcher\Launcher.DE.xaml,Launcher.SaveDialogFilter,ZIP-Dateien (*.zip)|*.zip|Alle Dateien (*.*)|*.*
 Launcher\Launcher.DE.xaml,Launcher.SaveDialogTitle,Protokolldatei Speichern
 Launcher\Launcher.DE.xaml,,
-Launcher\Launcher.DE.xaml,Launcher.FeedbackText,Anfragen und Rückmeldungen
+Launcher\Launcher.DE.xaml,Launcher.RequestFeedbackText,Anfragen und Rückmeldungen
 Launcher\Launcher.DE.xaml,,
 Launcher\Launcher.DE.xaml,Launcher.SettingText,Einstellungen
 Launcher\Launcher.DE.xaml,,

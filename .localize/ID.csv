@@ -120,7 +120,7 @@ Launcher\Launcher.ID.xaml,,
 Launcher\Launcher.ID.xaml,Launcher.SaveDialogFilter,File ZIP (*.zip)|*.zip|Semua File (*.*)|*.*
 Launcher\Launcher.ID.xaml,Launcher.SaveDialogTitle,Simpan File Log
 Launcher\Launcher.ID.xaml,,
-Launcher\Launcher.ID.xaml,Launcher.FeedbackText,Permintaan dan Umpan Balik
+Launcher\Launcher.ID.xaml,Launcher.RequestFeedbackText,Permintaan dan Umpan Balik
 Launcher\Launcher.ID.xaml,,
 Launcher\Launcher.ID.xaml,Launcher.SettingText,Pengaturan
 Launcher\Launcher.ID.xaml,,

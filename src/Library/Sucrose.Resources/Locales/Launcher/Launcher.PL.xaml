@@ -19,7 +19,7 @@
     <system:String x:Key="Launcher.SaveDialogFilter">Pliki ZIP (*.zip)|*.zip|Wszystkie Pliki (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Zapisz Plik Dziennika</system:String>
 
-    <system:String x:Key="Launcher.FeedbackText">Prośby i Opinie</system:String>
+    <system:String x:Key="Launcher.RequestFeedbackText">Prośby i Opinie</system:String>
 
     <system:String x:Key="Launcher.SettingText">Ustawienia</system:String>
 

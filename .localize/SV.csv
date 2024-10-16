@@ -120,7 +120,7 @@ Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.SaveDialogFilter,ZIP-Filer (*.zip)|*.zip|Alla Filer (*.*)|*.*
 Launcher\Launcher.SV.xaml,Launcher.SaveDialogTitle,Spara Loggfil
 Launcher\Launcher.SV.xaml,,
-Launcher\Launcher.SV.xaml,Launcher.FeedbackText,Förfrågningar och Feedback
+Launcher\Launcher.SV.xaml,Launcher.RequestFeedbackText,Förfrågningar och Feedback
 Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.SettingText,Inställningar
 Launcher\Launcher.SV.xaml,,

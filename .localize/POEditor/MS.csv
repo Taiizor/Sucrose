@@ -120,7 +120,7 @@ PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the t
 Launcher.SaveDialogFilter,Fail ZIP (*.zip)|*.zip|Semua Fail (*.*)|*.*,,Launcher\Launcher.MS.xaml,
 Launcher.SaveDialogTitle,Simpan Fail Log,,Launcher\Launcher.MS.xaml,
 PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
-Launcher.FeedbackText,Permintaan dan Maklum Balas,,Launcher\Launcher.MS.xaml,
+Launcher.RequestFeedbackText,Permintaan dan Maklum Balas,,Launcher\Launcher.MS.xaml,
 PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
 Launcher.SettingText,Tetapan,,Launcher\Launcher.MS.xaml,
 PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.

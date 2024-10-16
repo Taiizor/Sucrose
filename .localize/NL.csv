@@ -120,7 +120,7 @@ Launcher\Launcher.NL.xaml,,
 Launcher\Launcher.NL.xaml,Launcher.SaveDialogFilter,ZIP-Bestanden (*.zip)|*.zip|Alle Bestanden (*.*)|*.*
 Launcher\Launcher.NL.xaml,Launcher.SaveDialogTitle,Logbestand Opslaan
 Launcher\Launcher.NL.xaml,,
-Launcher\Launcher.NL.xaml,Launcher.FeedbackText,Verzoeken en Feedback
+Launcher\Launcher.NL.xaml,Launcher.RequestFeedbackText,Verzoeken en Feedback
 Launcher\Launcher.NL.xaml,,
 Launcher\Launcher.NL.xaml,Launcher.SettingText,Instellingen
 Launcher\Launcher.NL.xaml,,

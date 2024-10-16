@@ -19,7 +19,7 @@
     <system:String x:Key="Launcher.SaveDialogFilter">Fichiers ZIP (*.zip)|*.zip|Tous les Fichiers (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Enregistrer le Fichier Journal</system:String>
 
-    <system:String x:Key="Launcher.FeedbackText">Demandes et Commentaires</system:String>
+    <system:String x:Key="Launcher.RequestFeedbackText">Demandes et Commentaires</system:String>
 
     <system:String x:Key="Launcher.SettingText">Paramètres</system:String>
 

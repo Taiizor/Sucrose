@@ -120,7 +120,7 @@ Launcher\Launcher.DA.xaml,,
 Launcher\Launcher.DA.xaml,Launcher.SaveDialogFilter,ZIP-Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*
 Launcher\Launcher.DA.xaml,Launcher.SaveDialogTitle,Gem Logfil
 Launcher\Launcher.DA.xaml,,
-Launcher\Launcher.DA.xaml,Launcher.FeedbackText,Anmodninger og Feedback
+Launcher\Launcher.DA.xaml,Launcher.RequestFeedbackText,Anmodninger og Feedback
 Launcher\Launcher.DA.xaml,,
 Launcher\Launcher.DA.xaml,Launcher.SettingText,Indstillinger
 Launcher\Launcher.DA.xaml,,

@@ -19,7 +19,7 @@
     <system:String x:Key="Launcher.SaveDialogFilter">ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Günlük Dosyasını Kaydet</system:String>
 
-    <system:String x:Key="Launcher.FeedbackText">İstek ve Geri Bildirim</system:String>
+    <system:String x:Key="Launcher.RequestFeedbackText">İstek ve Geri Bildirim</system:String>
 
     <system:String x:Key="Launcher.SettingText">Ayarlar</system:String>
 

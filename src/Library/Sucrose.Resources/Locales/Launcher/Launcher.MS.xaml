@@ -19,7 +19,7 @@
     <system:String x:Key="Launcher.SaveDialogFilter">Fail ZIP (*.zip)|*.zip|Semua Fail (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Simpan Fail Log</system:String>
 
-    <system:String x:Key="Launcher.FeedbackText">Permintaan dan Maklum Balas</system:String>
+    <system:String x:Key="Launcher.RequestFeedbackText">Permintaan dan Maklum Balas</system:String>
 
     <system:String x:Key="Launcher.SettingText">Tetapan</system:String>
 

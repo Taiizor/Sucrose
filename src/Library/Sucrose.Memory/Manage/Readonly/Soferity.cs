@@ -20,6 +20,10 @@ namespace Sucrose.Memory.Manage.Readonly
 
         public static readonly string Analytic = "Analytic";
 
+        public static readonly string Feedback = "Feedback";
+
+        public static readonly string Optional = "Optional";
+
         public static readonly string Exception = "Exception";
 
         public static readonly string Telemetry = "Telemetry";
@@ -56,7 +60,5 @@ namespace Sucrose.Memory.Manage.Readonly
         public static readonly string SoferityUpload = "Upload";
 
         public static readonly string SoferityPattern = "Pattern";
-
-        public static readonly string SoferityFeedback = "Feedback";
     }
 }

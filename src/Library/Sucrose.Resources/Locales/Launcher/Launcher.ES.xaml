@@ -19,7 +19,7 @@
     <system:String x:Key="Launcher.SaveDialogFilter">Archivos ZIP (*.zip)|*.zip|Todos los Archivos (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Guardar Archivo de Registro</system:String>
 
-    <system:String x:Key="Launcher.FeedbackText">Solicitudes y Comentarios</system:String>
+    <system:String x:Key="Launcher.RequestFeedbackText">Solicitudes y Comentarios</system:String>
 
     <system:String x:Key="Launcher.SettingText">Configuración</system:String>
 
