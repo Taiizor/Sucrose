@@ -4,6 +4,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Threading;
 using SHC = Skylark.Helper.Culture;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
 
@@ -16,15 +17,15 @@ namespace Sucrose.Undo
     {
         private static string Message => SRER.GetValue("Undo", "QuestionMessage") + Environment.NewLine + Environment.NewLine + SRER.GetValue("Undo", "QuestionDescription");
 
-        private static string UninstallPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Application);
-
-        private static string UninstallDataPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Application);
-
-        private static string StartMenu => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", Shortcut);
-
-        private static string Desktop => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), Shortcut);
+        private static string UninstallPath => Path.Combine(SMMRP.LocalApplicationData, Application);
 
         private static string RegistryName => @"Software\Microsoft\Windows\CurrentVersion\Uninstall";
+
+        private static string UninstallDataPath => Path.Combine(SMMRP.ApplicationData, Application);
+
+        private static string StartMenu => Path.Combine(SMMRP.StartMenu, "Programs", Shortcut);
+
+        private static string Desktop => Path.Combine(SMMRP.Desktop, Shortcut);
 
         private static string Title => SRER.GetValue("Undo", "QuestionTitle");
 

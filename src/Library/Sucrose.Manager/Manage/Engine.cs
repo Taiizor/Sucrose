@@ -13,7 +13,7 @@ namespace Sucrose.Manager.Manage
     {
         public static Dictionary<string, string> CefArguments => SMMI.EngineSettingManager.GetSetting(SMMCE.CefArguments, new Dictionary<string, string>());
 
-        public static int VolumeSensitivity => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMMCE.VolumeSensitivity, 5), 1, 10);
+        public static int VolumeSilentSensitivity => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMMCE.VolumeSilentSensitivity, 5), 1, 10);
 
         public static int WallpaperVolume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMMCE.WallpaperVolume, 100), 0, 100);
 
@@ -41,7 +41,7 @@ namespace Sucrose.Manager.Manage
 
         public static bool WallpaperLoop => SMMI.EngineSettingManager.GetSetting(SMMCE.WallpaperLoop, true);
 
-        public static bool VolumeActive => SMMI.EngineSettingManager.GetSetting(SMMCE.VolumeActive, false);
+        public static bool VolumeSilent => SMMI.EngineSettingManager.GetSetting(SMMCE.VolumeSilent, false);
 
         public static bool InputDesktop => SMMI.EngineSettingManager.GetSetting(SMMCE.InputDesktop, false);
 

@@ -12,13 +12,13 @@ namespace Sucrose.Shared.Engine.Helper
     {
         public static void Start()
         {
-            Timer Volumer = new(SMME.VolumeSensitivity * 1000);
+            Timer Volumer = new(SMME.VolumeSilentSensitivity * 1000);
 
             Volumer.Elapsed += (s, e) =>
             {
                 try
                 {
-                    if (SMME.WallpaperVolume > 0 && SMME.VolumeActive)
+                    if (SMME.WallpaperVolume > 0 && SMME.VolumeSilent)
                     {
                         foreach (Process Process in Process.GetProcesses().Where(Proc => !Proc.ProcessName.Contains(SMMRG.AppName) && !SSEMI.Processes.ToList().Any(Id => Id == Proc.Id) && !SSEMI.Applications.ToList().Any(App => App.Process.Id == Proc.Id)))
                         {
@@ -85,7 +85,7 @@ namespace Sucrose.Shared.Engine.Helper
                         SSEMI.PauseVolume = false;
                     }
 
-                    Volumer.Interval = SMME.VolumeSensitivity * 1000;
+                    Volumer.Interval = SMME.VolumeSilentSensitivity * 1000;
                 }
                 catch
                 {

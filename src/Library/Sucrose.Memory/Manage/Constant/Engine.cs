@@ -30,7 +30,7 @@
 
         public const string LibraryStart = "LibraryStart";
 
-        public const string VolumeActive = "VolumeActive";
+        public const string VolumeSilent = "VolumeSilent";
 
         public const string WebArguments = "WebArguments";
 
@@ -52,8 +52,8 @@
 
         public const string DisplayScreenType = "DisplayScreenType";
 
-        public const string VolumeSensitivity = "VolumeSensitivity";
-
         public const string DuplicateScreenType = "DuplicateScreenType";
+
+        public const string VolumeSilentSensitivity = "VolumeSilentSensitivity";
     }
 }

@@ -22,7 +22,7 @@ namespace Sucrose.Shared.Engine.Helper
         {
             if (SMME.WallpaperVolume > 0)
             {
-                if (SMME.VolumeActive)
+                if (SMME.VolumeSilent)
                 {
                     if (SSEMI.PauseVolume)
                     {

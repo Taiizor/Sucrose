@@ -4,6 +4,8 @@
     {
         public static readonly string Desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
+        public static readonly string StartMenu = Environment.GetFolderPath(Environment.SpecialFolder.StartMenu);
+
         public static readonly string MyDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
         public static readonly string ApplicationData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);

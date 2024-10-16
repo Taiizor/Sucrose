@@ -361,7 +361,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             CheckBox VolumeActive = new()
             {
                 Content = SRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "VolumeActive"),
-                IsChecked = SMME.VolumeActive
+                IsChecked = SMME.VolumeSilent
             };
 
             VolumeActive.Checked += (s, e) => VolumeActiveChecked(true);
@@ -393,7 +393,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Icon = new SymbolIcon(SymbolRegular.Timer24),
                 IconPlacement = ElementPlacement.Left,
-                Value = SMME.VolumeSensitivity,
+                Value = SMME.VolumeSilentSensitivity,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
                 MaxLength = 2,
@@ -561,7 +561,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void VolumeActiveChecked(bool State)
         {
-            SMMI.EngineSettingManager.SetSetting(SMMCE.VolumeActive, State);
+            SMMI.EngineSettingManager.SetSetting(SMMCE.VolumeSilent, State);
         }
 
         private void VolumeDesktopChecked(bool State)
@@ -615,16 +615,16 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         //private void VolumeSensitivityChanged(double Value)
         //{
-        //    SMMI.EngineSettingManager.SetSetting(SMC.VolumeSensitivity, Convert.ToInt32(Value));
+        //    SMMI.EngineSettingManager.SetSetting(SMMCE.VolumeSilentSensitivity, Convert.ToInt32(Value));
         //}
 
         private void VolumeSensitivity2Changed(double? Value)
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SMME.VolumeSensitivity)
+            if (NewValue != SMME.VolumeSilentSensitivity)
             {
-                SMMI.EngineSettingManager.SetSetting(SMMCE.VolumeSensitivity, NewValue);
+                SMMI.EngineSettingManager.SetSetting(SMMCE.VolumeSilentSensitivity, NewValue);
             }
         }
 
