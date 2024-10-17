@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">ログファイルを作成</system:String>
 
+    <system:String x:Key="Launcher.CloseText">アプリケーションを閉じる</system:String>
+
     <system:String x:Key="Launcher.ExitText">終了</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">問題を報告</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">ログファイルを保存</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">リクエストとフィードバック</system:String>
+    <system:String x:Key="Launcher.FeedbackText">フィードバックを送信</system:String>
 
     <system:String x:Key="Launcher.SettingText">設定</system:String>
 

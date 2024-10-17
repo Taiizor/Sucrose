@@ -107,6 +107,8 @@ Launcher\Launcher.UK.xaml,Launcher.WallCustomizeText,Налаштувати Шп
 Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.CreateLogText,Створити Файл Журналу
 Launcher\Launcher.UK.xaml,,
+Launcher\Launcher.UK.xaml,Launcher.CloseText,Закрити Програми
+Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.ExitText,Вийти
 Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.OpenReportText,Повідомити Про Проблему
@@ -121,6 +123,7 @@ Launcher\Launcher.UK.xaml,Launcher.SaveDialogFilter,Файли ZIP (*.zip)|*.zip
 Launcher\Launcher.UK.xaml,Launcher.SaveDialogTitle,Зберегти Файл Журналу
 Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.RequestFeedbackText,Запити та Відгуки
+Launcher\Launcher.UK.xaml,Launcher.FeedbackText,Надіслати Відгук
 Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.SettingText,Налаштування
 Launcher\Launcher.UK.xaml,,

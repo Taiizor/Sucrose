@@ -10,6 +10,9 @@ namespace Sucrose.Shared.Space.Model
         [JsonProperty("AppVersion", Required = Required.Always)]
         public string AppVersion { get; set; }
 
+        [JsonProperty("ContactEmail", Required = Required.Always)]
+        public string ContactEmail { get; set; }
+
         [JsonProperty("WrittenMessage", Required = Required.Always)]
         public string WrittenMessage { get; set; }
 

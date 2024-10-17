@@ -107,6 +107,8 @@ Launcher\Launcher.SV.xaml,Launcher.WallCustomizeText,Anpassa Bakgrund
 Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.CreateLogText,Skapa Loggfil
 Launcher\Launcher.SV.xaml,,
+Launcher\Launcher.SV.xaml,Launcher.CloseText,Stäng Applikationer
+Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.ExitText,Avsluta
 Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.OpenReportText,Rapportera ett Problem
@@ -121,6 +123,7 @@ Launcher\Launcher.SV.xaml,Launcher.SaveDialogFilter,ZIP-Filer (*.zip)|*.zip|Alla
 Launcher\Launcher.SV.xaml,Launcher.SaveDialogTitle,Spara Loggfil
 Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.RequestFeedbackText,Förfrågningar och Feedback
+Launcher\Launcher.SV.xaml,Launcher.FeedbackText,Skicka Feedback
 Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.SettingText,Inställningar
 Launcher\Launcher.SV.xaml,,

@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Launcher.ExitIcon">Assets/Exit.ico</system:String>
+    <system:String x:Key="Launcher.FeedbackIcon">Assets/Sent.ico</system:String>
     <system:String x:Key="Launcher.TrayIcon">Assets/TrayIcon.ico</system:String>
     <system:String x:Key="Launcher.UpdateIcon">Assets/Reload.ico</system:String>
     <system:String x:Key="Launcher.ReportIcon">Assets/TestTube.ico</system:String>
@@ -11,6 +12,5 @@
     <system:String x:Key="Launcher.WallCloseIcon">Assets/LightOff.ico</system:String>
     <system:String x:Key="Launcher.SettingIcon">Assets/Engineering.ico</system:String>
     <system:String x:Key="Launcher.OpenIcon">Assets/DashboardLayout.ico</system:String>
-    <system:String x:Key="Launcher.RequestFeedbackIcon">Assets/Sent.ico</system:String>
     <system:String x:Key="Launcher.WallCustomizeIcon">Assets/ColorPalette.ico</system:String>
 </ResourceDictionary>

@@ -107,6 +107,8 @@ Launcher\Launcher.EL.xaml,Launcher.WallCustomizeText,Προσαρμογή Ταπ
 Launcher\Launcher.EL.xaml,,
 Launcher\Launcher.EL.xaml,Launcher.CreateLogText,Δημιουργία Αρχείου Καταγραφής
 Launcher\Launcher.EL.xaml,,
+Launcher\Launcher.EL.xaml,Launcher.CloseText,Κλείσιμο Εφαρμογών
+Launcher\Launcher.EL.xaml,,
 Launcher\Launcher.EL.xaml,Launcher.ExitText,Έξοδος
 Launcher\Launcher.EL.xaml,,
 Launcher\Launcher.EL.xaml,Launcher.OpenReportText,Αναφορά Προβλήματος
@@ -121,6 +123,7 @@ Launcher\Launcher.EL.xaml,Launcher.SaveDialogFilter,Αρχεία ZIP (*.zip)|*.z
 Launcher\Launcher.EL.xaml,Launcher.SaveDialogTitle,Αποθήκευση Aρχείου Καταγραφής
 Launcher\Launcher.EL.xaml,,
 Launcher\Launcher.EL.xaml,Launcher.RequestFeedbackText,Αιτήματα Και Σχόλια
+Launcher\Launcher.EL.xaml,Launcher.FeedbackText,Αποστολή Σχολίων
 Launcher\Launcher.EL.xaml,,
 Launcher\Launcher.EL.xaml,Launcher.SettingText,Ρυθμίσεις
 Launcher\Launcher.EL.xaml,,

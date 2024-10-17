@@ -107,6 +107,8 @@ Launcher\Launcher.ZH.xaml,Launcher.WallCustomizeText,自定义壁纸
 Launcher\Launcher.ZH.xaml,,
 Launcher\Launcher.ZH.xaml,Launcher.CreateLogText,创建日志文件
 Launcher\Launcher.ZH.xaml,,
+Launcher\Launcher.ZH.xaml,Launcher.CloseText,关闭应用程序
+Launcher\Launcher.ZH.xaml,,
 Launcher\Launcher.ZH.xaml,Launcher.ExitText,退出
 Launcher\Launcher.ZH.xaml,,
 Launcher\Launcher.ZH.xaml,Launcher.OpenReportText,报告问题
@@ -121,6 +123,7 @@ Launcher\Launcher.ZH.xaml,Launcher.SaveDialogFilter,ZIP文件 (*.zip)|*.zip|所�
 Launcher\Launcher.ZH.xaml,Launcher.SaveDialogTitle,保存日志文件
 Launcher\Launcher.ZH.xaml,,
 Launcher\Launcher.ZH.xaml,Launcher.RequestFeedbackText,请求与反馈
+Launcher\Launcher.ZH.xaml,Launcher.FeedbackText,发送反馈
 Launcher\Launcher.ZH.xaml,,
 Launcher\Launcher.ZH.xaml,Launcher.SettingText,设置
 Launcher\Launcher.ZH.xaml,,

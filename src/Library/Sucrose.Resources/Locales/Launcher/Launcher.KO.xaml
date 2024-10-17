@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">로그 파일 만들기</system:String>
 
+    <system:String x:Key="Launcher.CloseText">응용 프로그램 닫기</system:String>
+
     <system:String x:Key="Launcher.ExitText">종료</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">문제 신고</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">로그 파일 저장</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">요청 및 피드백</system:String>
+    <system:String x:Key="Launcher.FeedbackText">피드백 보내기</system:String>
 
     <system:String x:Key="Launcher.SettingText">설정</system:String>
 

@@ -107,6 +107,8 @@ Launcher\Launcher.NB.xaml,Launcher.WallCustomizeText,Tilpass Bakgrunn
 Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.CreateLogText,Opprett Loggfil
 Launcher\Launcher.NB.xaml,,
+Launcher\Launcher.NB.xaml,Launcher.CloseText,Lukk Applikasjoner
+Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.ExitText,Avslutt
 Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.OpenReportText,Rapporter et Problem
@@ -121,6 +123,7 @@ Launcher\Launcher.NB.xaml,Launcher.SaveDialogFilter,ZIP-Filer (*.zip)|*.zip|Alle
 Launcher\Launcher.NB.xaml,Launcher.SaveDialogTitle,Lagre Loggfil
 Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.RequestFeedbackText,Forespørsler og Tilbakemeldinger
+Launcher\Launcher.NB.xaml,Launcher.FeedbackText,Send Tilbakemelding
 Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.SettingText,Innstillinger
 Launcher\Launcher.NB.xaml,,

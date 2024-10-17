@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">Создать Файл Журнала</system:String>
 
+    <system:String x:Key="Launcher.CloseText">Закрыть Приложения</system:String>
+
     <system:String x:Key="Launcher.ExitText">Выход</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">Сообщить о Проблеме</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">Сохранить Файл Журнала</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">Запросы и Отзывы</system:String>
+    <system:String x:Key="Launcher.FeedbackText">Отправить Отзыв</system:String>
 
     <system:String x:Key="Launcher.SettingText">Настройки</system:String>
 

@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">Δημιουργία Αρχείου Καταγραφής</system:String>
 
+    <system:String x:Key="Launcher.CloseText">Κλείσιμο Εφαρμογών</system:String>
+
     <system:String x:Key="Launcher.ExitText">Έξοδος</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">Αναφορά Προβλήματος</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">Αποθήκευση Aρχείου Καταγραφής</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">Αιτήματα Και Σχόλια</system:String>
+    <system:String x:Key="Launcher.FeedbackText">Αποστολή Σχολίων</system:String>
 
     <system:String x:Key="Launcher.SettingText">Ρυθμίσεις</system:String>
 

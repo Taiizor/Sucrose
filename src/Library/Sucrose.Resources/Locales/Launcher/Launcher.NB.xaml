@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">Opprett Loggfil</system:String>
 
+    <system:String x:Key="Launcher.CloseText">Lukk Applikasjoner</system:String>
+
     <system:String x:Key="Launcher.ExitText">Avslutt</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">Rapporter et Problem</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">Lagre Loggfil</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">Forespørsler og Tilbakemeldinger</system:String>
+    <system:String x:Key="Launcher.FeedbackText">Send Tilbakemelding</system:String>
 
     <system:String x:Key="Launcher.SettingText">Innstillinger</system:String>
 

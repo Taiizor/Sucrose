@@ -107,6 +107,8 @@ Launcher\Launcher.FR.xaml,Launcher.WallCustomizeText,Personnaliser le Fond d'Éc
 Launcher\Launcher.FR.xaml,,
 Launcher\Launcher.FR.xaml,Launcher.CreateLogText,Créer un Fichier Journal
 Launcher\Launcher.FR.xaml,,
+Launcher\Launcher.FR.xaml,Launcher.CloseText,Fermer les Applications
+Launcher\Launcher.FR.xaml,,
 Launcher\Launcher.FR.xaml,Launcher.ExitText,Quitter
 Launcher\Launcher.FR.xaml,,
 Launcher\Launcher.FR.xaml,Launcher.OpenReportText,Signaler un Problème
@@ -121,6 +123,7 @@ Launcher\Launcher.FR.xaml,Launcher.SaveDialogFilter,Fichiers ZIP (*.zip)|*.zip|T
 Launcher\Launcher.FR.xaml,Launcher.SaveDialogTitle,Enregistrer le Fichier Journal
 Launcher\Launcher.FR.xaml,,
 Launcher\Launcher.FR.xaml,Launcher.RequestFeedbackText,Demandes et Commentaires
+Launcher\Launcher.FR.xaml,Launcher.FeedbackText,Envoyer des Commentaires
 Launcher\Launcher.FR.xaml,,
 Launcher\Launcher.FR.xaml,Launcher.SettingText,Paramètres
 Launcher\Launcher.FR.xaml,,

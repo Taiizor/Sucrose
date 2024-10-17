@@ -107,6 +107,8 @@ Launcher\Launcher.EN.xaml,Launcher.WallCustomizeText,Customize Wallpaper
 Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.CreateLogText,Create Log File
 Launcher\Launcher.EN.xaml,,
+Launcher\Launcher.EN.xaml,Launcher.CloseText,Close Applications
+Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.ExitText,Exit
 Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.OpenReportText,Report an Issue
@@ -121,6 +123,7 @@ Launcher\Launcher.EN.xaml,Launcher.SaveDialogFilter,ZIP Files (*.zip)|*.zip|All 
 Launcher\Launcher.EN.xaml,Launcher.SaveDialogTitle,Save Log File
 Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.RequestFeedbackText,Requests and Feedback
+Launcher\Launcher.EN.xaml,Launcher.FeedbackText,Send Feedback
 Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.SettingText,Settings
 Launcher\Launcher.EN.xaml,,

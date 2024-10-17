@@ -107,6 +107,8 @@ Launcher\Launcher.RU.xaml,Launcher.WallCustomizeText,Настройка Обое
 Launcher\Launcher.RU.xaml,,
 Launcher\Launcher.RU.xaml,Launcher.CreateLogText,Создать Файл Журнала
 Launcher\Launcher.RU.xaml,,
+Launcher\Launcher.RU.xaml,Launcher.CloseText,Закрыть Приложения
+Launcher\Launcher.RU.xaml,,
 Launcher\Launcher.RU.xaml,Launcher.ExitText,Выход
 Launcher\Launcher.RU.xaml,,
 Launcher\Launcher.RU.xaml,Launcher.OpenReportText,Сообщить о Проблеме
@@ -121,6 +123,7 @@ Launcher\Launcher.RU.xaml,Launcher.SaveDialogFilter,Файлы ZIP (*.zip)|*.zip
 Launcher\Launcher.RU.xaml,Launcher.SaveDialogTitle,Сохранить Файл Журнала
 Launcher\Launcher.RU.xaml,,
 Launcher\Launcher.RU.xaml,Launcher.RequestFeedbackText,Запросы и Отзывы
+Launcher\Launcher.RU.xaml,Launcher.FeedbackText,Отправить Отзыв
 Launcher\Launcher.RU.xaml,,
 Launcher\Launcher.RU.xaml,Launcher.SettingText,Настройки
 Launcher\Launcher.RU.xaml,,

@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">Logbestand Maken</system:String>
 
+    <system:String x:Key="Launcher.CloseText">Sluit Applicaties</system:String>
+
     <system:String x:Key="Launcher.ExitText">Afsluiten</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">Probleem Melden</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">Logbestand Opslaan</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">Verzoeken en Feedback</system:String>
+    <system:String x:Key="Launcher.FeedbackText">Feedback Versturen</system:String>
 
     <system:String x:Key="Launcher.SettingText">Instellingen</system:String>
 

@@ -107,6 +107,8 @@ Launcher\Launcher.ID.xaml,Launcher.WallCustomizeText,Kustomisasi Wallpaper
 Launcher\Launcher.ID.xaml,,
 Launcher\Launcher.ID.xaml,Launcher.CreateLogText,Buat File Log
 Launcher\Launcher.ID.xaml,,
+Launcher\Launcher.ID.xaml,Launcher.CloseText,Tutup Aplikasi
+Launcher\Launcher.ID.xaml,,
 Launcher\Launcher.ID.xaml,Launcher.ExitText,Keluar
 Launcher\Launcher.ID.xaml,,
 Launcher\Launcher.ID.xaml,Launcher.OpenReportText,Laporkan Masalah
@@ -121,6 +123,7 @@ Launcher\Launcher.ID.xaml,Launcher.SaveDialogFilter,File ZIP (*.zip)|*.zip|Semua
 Launcher\Launcher.ID.xaml,Launcher.SaveDialogTitle,Simpan File Log
 Launcher\Launcher.ID.xaml,,
 Launcher\Launcher.ID.xaml,Launcher.RequestFeedbackText,Permintaan dan Umpan Balik
+Launcher\Launcher.ID.xaml,Launcher.FeedbackText,Kirim Umpan Balik
 Launcher\Launcher.ID.xaml,,
 Launcher\Launcher.ID.xaml,Launcher.SettingText,Pengaturan
 Launcher\Launcher.ID.xaml,,

@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">Utwórz Plik Dziennika</system:String>
 
+    <system:String x:Key="Launcher.CloseText">Zamknij Aplikacje</system:String>
+
     <system:String x:Key="Launcher.ExitText">Wyjdź</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">Zgłoś Problem</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">Zapisz Plik Dziennika</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">Prośby i Opinie</system:String>
+    <system:String x:Key="Launcher.FeedbackText">Prześlij Opinię</system:String>
 
     <system:String x:Key="Launcher.SettingText">Ustawienia</system:String>
 

@@ -107,6 +107,8 @@ Launcher\Launcher.NL.xaml,Launcher.WallCustomizeText,Achtergrond Aanpassen
 Launcher\Launcher.NL.xaml,,
 Launcher\Launcher.NL.xaml,Launcher.CreateLogText,Logbestand Maken
 Launcher\Launcher.NL.xaml,,
+Launcher\Launcher.NL.xaml,Launcher.CloseText,Sluit Applicaties
+Launcher\Launcher.NL.xaml,,
 Launcher\Launcher.NL.xaml,Launcher.ExitText,Afsluiten
 Launcher\Launcher.NL.xaml,,
 Launcher\Launcher.NL.xaml,Launcher.OpenReportText,Probleem Melden
@@ -121,6 +123,7 @@ Launcher\Launcher.NL.xaml,Launcher.SaveDialogFilter,ZIP-Bestanden (*.zip)|*.zip|
 Launcher\Launcher.NL.xaml,Launcher.SaveDialogTitle,Logbestand Opslaan
 Launcher\Launcher.NL.xaml,,
 Launcher\Launcher.NL.xaml,Launcher.RequestFeedbackText,Verzoeken en Feedback
+Launcher\Launcher.NL.xaml,Launcher.FeedbackText,Feedback Versturen
 Launcher\Launcher.NL.xaml,,
 Launcher\Launcher.NL.xaml,Launcher.SettingText,Instellingen
 Launcher\Launcher.NL.xaml,,

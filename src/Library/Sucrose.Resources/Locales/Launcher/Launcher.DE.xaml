@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">Protokolldatei Erstellen</system:String>
 
+    <system:String x:Key="Launcher.CloseText">Anwendungen Schließen</system:String>
+
     <system:String x:Key="Launcher.ExitText">Beenden</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">Problem Melden</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">Protokolldatei Speichern</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">Anfragen und Rückmeldungen</system:String>
+    <system:String x:Key="Launcher.FeedbackText">Rückmeldungen Senden</system:String>
 
     <system:String x:Key="Launcher.SettingText">Einstellungen</system:String>
 

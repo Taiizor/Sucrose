@@ -107,124 +107,127 @@ Launcher.WallCustomizeText,Προσαρμογή Ταπετσαρίας,,Launcher
 PASS⦙3,PASS⦙3,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
 Launcher.CreateLogText,Δημιουργία Αρχείου Καταγραφής,,Launcher\Launcher.EL.xaml,
 PASS⦙4,PASS⦙4,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
-Launcher.ExitText,Έξοδος,,Launcher\Launcher.EL.xaml,
+Launcher.CloseText,Κλείσιμο Εφαρμογών,,Launcher\Launcher.EL.xaml,
 PASS⦙5,PASS⦙5,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
-Launcher.OpenReportText,Αναφορά Προβλήματος,,Launcher\Launcher.EL.xaml,
+Launcher.ExitText,Έξοδος,,Launcher\Launcher.EL.xaml,
 PASS⦙6,PASS⦙6,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
-Launcher.OpenText,Άνοιγμα Tου Sucrose,,Launcher\Launcher.EL.xaml,
+Launcher.OpenReportText,Αναφορά Προβλήματος,,Launcher\Launcher.EL.xaml,
 PASS⦙7,PASS⦙7,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
-Launcher.ReportText,Αναφορά Προβλήματος,,Launcher\Launcher.EL.xaml,
+Launcher.OpenText,Άνοιγμα Tου Sucrose,,Launcher\Launcher.EL.xaml,
 PASS⦙8,PASS⦙8,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
-Launcher.ReportWindowTitle,Διάγνωση Sucrose,,Launcher\Launcher.EL.xaml,
+Launcher.ReportText,Αναφορά Προβλήματος,,Launcher\Launcher.EL.xaml,
 PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
+Launcher.ReportWindowTitle,Διάγνωση Sucrose,,Launcher\Launcher.EL.xaml,
+PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
 Launcher.SaveDialogFilter,Αρχεία ZIP (*.zip)|*.zip|Όλα τα Αρχεία (*.*)|*.*,,Launcher\Launcher.EL.xaml,
 Launcher.SaveDialogTitle,Αποθήκευση Aρχείου Καταγραφής,,Launcher\Launcher.EL.xaml,
-PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
-Launcher.RequestFeedbackText,Αιτήματα Και Σχόλια,,Launcher\Launcher.EL.xaml,
 PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
-Launcher.SettingText,Ρυθμίσεις,,Launcher\Launcher.EL.xaml,
+Launcher.RequestFeedbackText,Αιτήματα Και Σχόλια,,Launcher\Launcher.EL.xaml,
+Launcher.FeedbackText,Αποστολή Σχολίων,,Launcher\Launcher.EL.xaml,
 PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
-Launcher.TrayText,Sucrose Wallpaper Engine,,Launcher\Launcher.EL.xaml,
+Launcher.SettingText,Ρυθμίσεις,,Launcher\Launcher.EL.xaml,
 PASS⦙13,PASS⦙13,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
+Launcher.TrayText,Sucrose Wallpaper Engine,,Launcher\Launcher.EL.xaml,
+PASS⦙14,PASS⦙14,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
 Launcher.WallChangeText,Αλλαγή Ταπετσαρίας,,Launcher\Launcher.EL.xaml,
 Launcher.WallCloseText,Κλείσιμο Ταπετσαρίας,,Launcher\Launcher.EL.xaml,
 Launcher.WallOpenText,Άνοιγμα Ταπετσαρίας,,Launcher\Launcher.EL.xaml,
 Launcher.WallStartText,Εκκίνηση Ταπετσαρίας,,Launcher\Launcher.EL.xaml,
 Launcher.WallStopText,Διακοπή Ταπετσαρίας,,Launcher\Launcher.EL.xaml,
-PASS⦙14,PASS⦙14,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
+PASS⦙15,PASS⦙15,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
 Launcher.ClosedText,Κλειστό,,Launcher\Launcher.EL.xaml,
 Launcher.PausedText,Σε Παύση,,Launcher\Launcher.EL.xaml,
-PASS⦙15,PASS⦙15,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
-Launcher.UpdateText,Έλεγχος Για Ενημερώσεις,,Launcher\Launcher.EL.xaml,
 PASS⦙16,PASS⦙16,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
+Launcher.UpdateText,Έλεγχος Για Ενημερώσεις,,Launcher\Launcher.EL.xaml,
+PASS⦙17,PASS⦙17,Don't Touch,Launcher\Launcher.EL.xaml,Please don't touch the translation in this line.
 Launcher.UpdateText.Done,Προετοιμασία Ενημέρωσης,,Launcher\Launcher.EL.xaml,
 Launcher.UpdateText.Check,Έλεγχος Για Ενημερώσεις,,Launcher\Launcher.EL.xaml,
 Launcher.UpdateText.Progress,Πρόοδος Ενημέρωσης {0},,Launcher\Launcher.EL.xaml,
 Live.Title,{0} Ειδοποίηση,,Live\Live.EL.xaml,
-PASS⦙17,PASS⦙17,Don't Touch,Live\Live.EL.xaml,Please don't touch the translation in this line.
+PASS⦙18,PASS⦙18,Don't Touch,Live\Live.EL.xaml,Please don't touch the translation in this line.
 Live.Close,Κλείσιμο,,Live\Live.EL.xaml,
 Live.Continue,Συνέχεια,,Live\Live.EL.xaml,
 Live.Download,Λήψη,,Live\Live.EL.xaml,
 Live.Remember,Θυμάμαι,,Live\Live.EL.xaml,
-PASS⦙18,PASS⦙18,Don't Touch,Live\Live.EL.xaml,Please don't touch the translation in this line.
+PASS⦙19,PASS⦙19,Don't Touch,Live\Live.EL.xaml,Please don't touch the translation in this line.
 Live.Info.WebView,Απαίτηση WebView,,Live\Live.EL.xaml,
 Live.Info.CefSharp,Απαίτηση CefSharp,,Live\Live.EL.xaml,
-PASS⦙19,PASS⦙19,Don't Touch,Live\Live.EL.xaml,Please don't touch the translation in this line.
+PASS⦙20,PASS⦙20,Don't Touch,Live\Live.EL.xaml,Please don't touch the translation in this line.
 Live.Message.WebView,"Το WebView2 Runtime δεν είναι εγκατεστημένο. Το WebView2 Runtime είναι ένα στοιχείο που επιτρέπει τη χρήση σύγχρονων τεχνολογιών ιστού στις εφαρμογές. Επομένως, το WebView2 Runtime είναι απαραίτητο για την επιλογή της επιλεγμένης ταπετσαρίας.",,Live\Live.EL.xaml,
 Live.Message.CefSharp,"Το VC++ Redistributable δεν είναι εγκατεστημένο. Το VC++ Redistributable παρέχει ορισμένα στοιχεία συστήματος που είναι απαραίτητα για τη σωστή λειτουργία του CefSharp. Το CefSharp είναι ένα πλαίσιο που επιτρέπει τη χρήση σύγχρονων τεχνολογιών ιστού στις εφαρμογές. Επομένως, το VC++ Redistributable είναι απαραίτητο για την επιλογή της επιλεγμένης ταπετσαρίας.",,Live\Live.EL.xaml,
 Base64⦙1,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5FTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\Portal.EL.xaml,Please don't touch the translation in this line.
 Property.WindowTitle,Sucrose Property,,Property\Property.EL.xaml,
-PASS⦙20,PASS⦙20,Don't Touch,Property\Property.EL.xaml,Please don't touch the translation in this line.
+PASS⦙21,PASS⦙21,Don't Touch,Property\Property.EL.xaml,Please don't touch the translation in this line.
 Property.DeleteTip,Διαγραφή αντιγράφου,,Property\Property.EL.xaml,
 Property.RefreshTip,Ανανέωση διεπαφής,,Property\Property.EL.xaml,
 Property.RestoreTip,Επαναφορά προεπιλογής,,Property\Property.EL.xaml,
-PASS⦙21,PASS⦙21,Don't Touch,Property\Property.EL.xaml,Please don't touch the translation in this line.
-Property.Type.NotSupport,Ο τύπος ελέγχου '{0}' δεν υποστηρίζεται.,,Property\Property.EL.xaml,
 PASS⦙22,PASS⦙22,Don't Touch,Property\Property.EL.xaml,Please don't touch the translation in this line.
+Property.Type.NotSupport,Ο τύπος ελέγχου '{0}' δεν υποστηρίζεται.,,Property\Property.EL.xaml,
+PASS⦙23,PASS⦙23,Don't Touch,Property\Property.EL.xaml,Please don't touch the translation in this line.
 Property.ColorPicker.Color,Χρώμα,,Property\Property.EL.xaml,
 Property.ColorPicker.Cancel,Ακύρωση,,Property\Property.EL.xaml,
 Property.ColorPicker.Confirm,Επιβεβαίωση,,Property\Property.EL.xaml,
 Property.ColorPicker.EyeDropper,Πιπέτα,,Property\Property.EL.xaml,
 Property.ColorPicker.Popup.Title,Sucrose Property Color Picker,,Property\Property.EL.xaml,
-PASS⦙23,PASS⦙23,Don't Touch,Property\Property.EL.xaml,Please don't touch the translation in this line.
+PASS⦙24,PASS⦙24,Don't Touch,Property\Property.EL.xaml,Please don't touch the translation in this line.
 Property.FileDropDown.Tip,Επιλογή αρχείου,,Property\Property.EL.xaml,
 Property.FileDropDown.Filter,Όλα τα αρχεία (*.*)|*.*,,Property\Property.EL.xaml,
-PASS⦙24,PASS⦙24,Don't Touch,Property\Property.EL.xaml,Please don't touch the translation in this line.
+PASS⦙25,PASS⦙25,Don't Touch,Property\Property.EL.xaml,Please don't touch the translation in this line.
 Property.FileDropDown.Access.Close,Κατάλαβα,,Property\Property.EL.xaml,
 Property.FileDropDown.Access.Title,Προειδοποίηση Πρόσβασης,,Property\Property.EL.xaml,
 Property.FileDropDown.Access.Message,Δεν έχετε δικαίωμα πρόσβασης στο επιλεγμένο αρχείο.,,Property\Property.EL.xaml,
 Undo.QuestionTitle,Sucrose Undo,,Undo\Undo.EL.xaml,
-PASS⦙25,PASS⦙25,Don't Touch,Undo\Undo.EL.xaml,Please don't touch the translation in this line.
+PASS⦙26,PASS⦙26,Don't Touch,Undo\Undo.EL.xaml,Please don't touch the translation in this line.
 Undo.QuestionMessage,Θέλετε πραγματικά να απεγκαταστήσετε το Sucrose Wallpaper Engine;,,Undo\Undo.EL.xaml,
 Undo.QuestionDescription,"Επιλέξτε Ναι για να αφαιρέσετε όλες τις ρυθμίσεις, Όχι για να διατηρήσετε τις ρυθμίσεις και να αφαιρέσετε μόνο και Ακύρωση για να ακυρώσετε την αφαίρεση.",,Undo\Undo.EL.xaml,
 Update.WindowTitle,Sucrose Update,,Update\Update.EL.xaml,
-PASS⦙26,PASS⦙26,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
-Update.HelpText,Λύστε το Πρόβλημα,,Update\Update.EL.xaml,
 PASS⦙27,PASS⦙27,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
-Update.ReloadText,ΔΟΚΙΜΑΣΤΕ ΞΑΝΑ,,Update\Update.EL.xaml,
+Update.HelpText,Λύστε το Πρόβλημα,,Update\Update.EL.xaml,
 PASS⦙28,PASS⦙28,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
-Update.ReloadText.Check.Again,ΕΛΕΓΧΟΣ ΞΑΝΑ,,Update\Update.EL.xaml,
+Update.ReloadText,ΔΟΚΙΜΑΣΤΕ ΞΑΝΑ,,Update\Update.EL.xaml,
 PASS⦙29,PASS⦙29,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
+Update.ReloadText.Check.Again,ΕΛΕΓΧΟΣ ΞΑΝΑ,,Update\Update.EL.xaml,
+PASS⦙30,PASS⦙30,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
 Update.ReloadText.Browser.Opened,ΑΝΟΙΞΕ ΣΤΟΝ ΠΕΡΙΗΓΗΤΗ,,Update\Update.EL.xaml,
 Update.ReloadText.Browser.Opening,ΑΝΟΙΓΕΤΑΙ ΣΤΟΝ ΠΕΡΙΗΓΗΤΗ,,Update\Update.EL.xaml,
-PASS⦙30,PASS⦙30,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
-Update.MessageText.Preparing,ΠΡΟΕΤΟΙΜΑΖΟΝΤΑΣ ΤΙΣ ΑΠΑΡΑΙΤΗΤΕΣ ΠΡΟΕΤΟΙΜΑΣΙΕΣ,,Update\Update.EL.xaml,
 PASS⦙31,PASS⦙31,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
+Update.MessageText.Preparing,ΠΡΟΕΤΟΙΜΑΖΟΝΤΑΣ ΤΙΣ ΑΠΑΡΑΙΤΗΤΕΣ ΠΡΟΕΤΟΙΜΑΣΙΕΣ,,Update\Update.EL.xaml,
+PASS⦙32,PASS⦙32,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
 Update.MessageText.Temporary,ΕΛΕΓΧΟΣ ΠΡΟΣΩΡΙΝΩΝ ΤΟΠΟΘΕΣΙΩΝ,,Update\Update.EL.xaml,
 Update.MessageText.Temporary.Error,ΤΑ ΠΡΟΣΩΡΙΝΑ ΤΟΠΟΘΕΤΗΣΕΙΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΕΛΕΓΧΘΟΥΝ,,Update\Update.EL.xaml,
-PASS⦙32,PASS⦙32,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
+PASS⦙33,PASS⦙33,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
 Update.MessageText.Connection,ΕΛΕΓΧΟΣ ΣΥΝΔΕΣΗΣ ΣΤΟ ΔΙΑΔΙΚΤΥΟ,,Update\Update.EL.xaml,
 Update.MessageText.Connection.None,ΧΩΡΙΣ ΣΥΝΔΕΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ,,Update\Update.EL.xaml,
 Update.MessageText.Connection.Error,Η ΣΥΝΔΕΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΕΛΕΓΧΘΕΙ,,Update\Update.EL.xaml,
-PASS⦙33,PASS⦙33,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
+PASS⦙34,PASS⦙34,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
 Update.MessageText.Listing,ΠΑΡΑΛΑΜΒΑΝΟΝΤΑΣ ΤΙΣ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ,,Update\Update.EL.xaml,
 Update.MessageText.Listing.Empty,ΟΙ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ ΕΙΝΑΙ ΚΕΝΕΣ,,Update\Update.EL.xaml,
 Update.MessageText.Listing.Error,ΟΙ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΛΗΦΘΟΥΝ,,Update\Update.EL.xaml,
-PASS⦙34,PASS⦙34,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
+PASS⦙35,PASS⦙35,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
 Update.MessageText.Filtering,ΟΙ ΛΙΣΤΕΣ ΕΙΝΑΙ ΣΕ ΦΑΣΗ ΦΙΛΤΡΑΡΙΣΜΑΤΟΣ,,Update\Update.EL.xaml,
 Update.MessageText.Filtering.Not,ΟΙ ΛΙΣΤΕΣ ΔΕΝ ΜΠΟΡΟΥΝ ΝΑ ΦΙΛΤΡΑΡΙΣΤΟΥΝ,,Update\Update.EL.xaml,
 Update.MessageText.Filtering.Error,ΟΙ ΛΙΣΤΕΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΦΙΛΤΡΑΡΙΣΤΟΥΝ,,Update\Update.EL.xaml,
-PASS⦙35,PASS⦙35,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
+PASS⦙36,PASS⦙36,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
 Update.MessageText.Comparing,ΣΥΓΚΡΙΣΗ ΛΙΣΤΩΝ,,Update\Update.EL.xaml,
 Update.MessageText.Comparing.Update,Η ΕΦΑΡΜΟΓΗ ΕΙΝΑΙ ΗΔΗ ΕΝΗΜΕΡΩΜΕΝΗ,,Update\Update.EL.xaml,
 Update.MessageText.Comparing.Error,ΑΠΕΤΥΧΕ Η ΣΥΓΚΡΙΣΗ ΛΙΣΤΩΝ,,Update\Update.EL.xaml,
-PASS⦙36,PASS⦙36,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
+PASS⦙37,PASS⦙37,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
 Update.MessageText.Searching,ΑΝΑΖΗΤΗΣΗ ΓΙΑ ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ,,Update\Update.EL.xaml,
 Update.MessageText.Searching.Not,ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΒΡΕΘΗΚΑΝ,,Update\Update.EL.xaml,
 Update.MessageText.Searching.Error,ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΑΝΑΖΗΤΗΘΟΥΝ,,Update\Update.EL.xaml,
 Update.MessageText.Searching.Condition,ΔΕΝ ΒΡΕΘΗΚΑΝ ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ,,Update\Update.EL.xaml,
-PASS⦙37,PASS⦙37,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
+PASS⦙38,PASS⦙38,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
 Update.MessageText.Downloading,ΚΑΤΕΒΑΖΟΝΤΑΣ ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ,,Update\Update.EL.xaml,
 Update.MessageText.Downloading.Error,ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΚΑΤΕΒΑΣΤΟΥΝ,,Update\Update.EL.xaml,
 Update.MessageText.Downloading.Complete.Cancel,Η ΛΗΨΗ ΤΟΥ ΑΠΑΡΑΙΤΗΤΟΥ ΑΡΧΕΙΟΥ ΑΚΥΡΩΘΗΚΕ,,Update\Update.EL.xaml,
 Update.MessageText.Downloading.Complete.Error,ΥΠΗΡΞΕ ΣΦΑΛΜΑ ΚΑΤΑ ΤΗ ΛΗΨΗ ΤΟΥ ΑΠΑΡΑΙΤΗΤΟΥ ΑΡΧΕΙΟΥ,,Update\Update.EL.xaml,
-PASS⦙38,PASS⦙38,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
+PASS⦙39,PASS⦙39,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
 Update.MessageText.Running,ΠΡΟΕΤΟΙΜΑΣΙΑ ΤΟΥ ΛΗΦΘΕΝΤΟΣ ΑΡΧΕΙΟΥ,,Update\Update.EL.xaml,
 Update.MessageText.Running.Executing,ΕΚΤΕΛΕΣΗ ΤΟΥ ΛΗΦΘΕΝΤΟΣ ΑΡΧΕΙΟΥ,,Update\Update.EL.xaml,
 Update.MessageText.Running.Executed,ΤΟ ΛΗΦΘΕΝ ΑΡΧΕΙΟ ΕΚΤΕΛΕΣΤΗΚΕ,,Update\Update.EL.xaml,
 Update.MessageText.Running.Not,ΤΟ ΛΗΦΘΕΝ ΑΡΧΕΙΟ ΔΕΝ ΕΙΝΑΙ ΧΡΗΣΙΜΟ,,Update\Update.EL.xaml,
 Update.MessageText.Running.Error,ΑΠΕΤΥΧΕ Η ΠΡΟΕΤΟΙΜΑΣΙΑ ΤΟΥ ΛΗΦΘΕΝΤΟΣ ΑΡΧΕΙΟΥ,,Update\Update.EL.xaml,
-PASS⦙39,PASS⦙39,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
+PASS⦙40,PASS⦙40,Don't Touch,Update\Update.EL.xaml,Please don't touch the translation in this line.
 Update.MessageText.Extracting,ΑΠΟΣΥΜΠΙΕΣΗ ΤΟΥ ΚΑΤΕΒΑΣΜΕΝΟΥ ΑΡΧΕΙΟΥ,,Update\Update.EL.xaml,
 Update.MessageText.Extracting.Executing,ΤΟ ΑΠΟΣΥΜΠΙΕΣΜΕΝΟ ΑΡΧΕΙΟ ΕΚΤΕΛΕΙΤΑΙ,,Update\Update.EL.xaml,
 Update.MessageText.Extracting.Executed,ΤΟ ΑΠΟΣΥΜΠΙΕΣΜΕΝΟ ΑΡΧΕΙΟ ΕΧΕΙ ΕΚΤΕΛΕΣΤΕΙ,,Update\Update.EL.xaml,
@@ -262,7 +265,7 @@ Portal.Area.Extensions,Επεκτάσεις,,Portal\Area\Portal.Area.EL.xaml,
 Portal.Area.SystemResources,Συστημικοί Πόροι,,Portal\Area\Portal.Area.EL.xaml,
 Portal.Area.AppearanceBehavior,Εμφάνιση &amp; Συμπεριφορά,,Portal\Area\Portal.Area.EL.xaml,
 Portal.Category.All,Όλα,,Portal\Category\Portal.Category.EL.xaml,
-PASS⦙40,PASS⦙40,Don't Touch,Portal\Category\Portal.Category.EL.xaml,Please don't touch the translation in this line.
+PASS⦙41,PASS⦙41,Don't Touch,Portal\Category\Portal.Category.EL.xaml,Please don't touch the translation in this line.
 Portal.Category.Abstract,Αφηρημένα,,Portal\Category\Portal.Category.EL.xaml,
 Portal.Category.Ambience,Περιβάλλον,,Portal\Category\Portal.Category.EL.xaml,
 Portal.Category.Animals,Ζώα,,Portal\Category\Portal.Category.EL.xaml,
@@ -331,22 +334,22 @@ Portal.Enum.Stretch.Fill,Γέμισμα,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.Stretch.None,Καμία,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.Stretch.Uniform,Ομοιόμορφη,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.Stretch.UniformToFill,Ομοιόμορφο Γέμισμα,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙41,PASS⦙41,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.SortModeType.None,Καμία,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.SortModeType.Name,Όνομα,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.SortModeType.Creation,Δημιουργία,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.SortModeType.Modification,Τροποποίηση,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.InputType.Close,Κλειστό,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.InputType.OnlyMouse,Μόνο Ποντίκι,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.InputType.OnlyKeyboard,Μόνο Πληκτρολόγιο,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.InputType.MouseKeyboard,Ποντίκι &amp; Πληκτρολόγιο,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.StretchType.Fill,Γέμισμα,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.StretchType.None,Καμία,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.StretchType.Uniform,Ομοιόμορφη,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.StretchType.UniformToFill,Ομοιόμορφο Γέμισμα,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.ReportThemeType.Spam,Σπαμ,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.ReportThemeType.Other,Άλλο,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.ReportThemeType.Nudity,Γύμνια,,Portal\Enum\Portal.Enum.EL.xaml,
@@ -355,56 +358,56 @@ Portal.Enum.ReportThemeType.Violence,Βία,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.ReportThemeType.Malicious,Κακόβουλο,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.ReportThemeType.CopyrightViolation,Παραβίαση Πνευματικών Δικαιωμάτων,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.ReportThemeType.MisleadingInformation,Παραπλανητικές Πληροφορίες,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.CommunicationType.Pipe,Pipe,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.CommunicationType.Signal,Signal,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.PerformanceType.Close,Κλείσιμο,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.PerformanceType.Pause,Παύση,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.PerformanceType.Resume,Συνέχιση,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.WindowBackdropType.Mica,Μίκα,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.WindowBackdropType.None,Καμία,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.WindowBackdropType.Auto,Αυτόματο,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.WindowBackdropType.Tabbed,Καρτελέτα,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.WindowBackdropType.Acrylic,Ακρυλικό,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.InputModuleType.Native,Native,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.InputModuleType.RawInput,RawInput,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.StoreServerType.GitHub,GitHub,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.StoreServerType.Soferity,Soferity,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateModuleType.Native,Native,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.UpdateModuleType.Downloader,Downloader,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateServerType.GitHub,GitHub,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.UpdateServerType.Soferity,Soferity,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.PausePerformanceType.Heavy,Βαρύ,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.PausePerformanceType.Light,Ελαφρύ,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.SortKindType.Ascending,Αύξουσα [Α-Z],,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.SortKindType.Descending,Φθίνουσα [Z-Α],,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.ExpandScreenType.Default,Προεπιλογή,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.ExpandScreenType.Advanced,Προχωρημένο,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.TransitionCycleType.Random,Τυχαίο,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.TransitionCycleType.Sequential,Σειριακό,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙57,PASS⦙57,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.ScreenType.WorkingArea,Χώρος Εργασίας,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.ScreenType.DisplayBound,Όρια Οθόνης,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙57,PASS⦙57,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙58,PASS⦙58,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateChannelType.Release,Προεπιλεγμένο,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.UpdateChannelType.PreRelease,Προ-Κυκλοφορία,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙58,PASS⦙58,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙59,PASS⦙59,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.DuplicateScreenType.Default,Προεπιλογή,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.DuplicateScreenType.Advanced,Προχωρημένο,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙59,PASS⦙59,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙60,PASS⦙60,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateExtensionType.Compressed,Συμπιεσμένο,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.UpdateExtensionType.Executable,Εκτελέσιμο,,Portal\Enum\Portal.Enum.EL.xaml,
-PASS⦙60,PASS⦙60,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
+PASS⦙61,PASS⦙61,Don't Touch,Portal\Enum\Portal.Enum.EL.xaml,Please don't touch the translation in this line.
 Portal.Enum.CompatibilityType.Pass,Επιτυχημένο,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.CompatibilityType.Tags,'Tags' περιλαμβάνει πολλές τιμές,,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.CompatibilityType.Type,Το θέμα δημιουργήθηκε για έναν τύπο που η εφαρμογή δεν υποστηρίζει,,Portal\Enum\Portal.Enum.EL.xaml,
@@ -454,25 +457,25 @@ Portal.Enum.CompatibilityType.InvalidProperties,Το αρχείο 'SucroseProper
 Portal.Enum.CompatibilityType.PropertyLocalization,Μη έγκυρη τιμή 'PropertyLocalization',,Portal\Enum\Portal.Enum.EL.xaml,
 Portal.Enum.CompatibilityType.UnforeseenConsequences,Απρόβλεπτες συνέπειες,,Portal\Enum\Portal.Enum.EL.xaml,
 Base64⦙3,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5FTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.EL.xaml,Please don't touch the translation in this line.
-PASS⦙61,PASS⦙61,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.EL.xaml,Please don't touch the translation in this line.
-Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.EL.xaml,
 PASS⦙62,PASS⦙62,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.EL.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.EL.xaml,
+PASS⦙63,PASS⦙63,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.EL.xaml,Please don't touch the translation in this line.
 Portal.LibraryPage.Import.Successful,Το θέμα '{0}' προστέθηκε με επιτυχία στη βιβλιοθήκη.,,Portal\LibraryPage\Portal.LibraryPage.EL.xaml,
 Portal.LibraryPage.Import.Unsuccessful,Το θέμα '{0}' δεν μπόρεσε να προστεθεί στη βιβλιοθήκη. Αιτία: '{1}'.,,Portal\LibraryPage\Portal.LibraryPage.EL.xaml,
 Portal.MainWindow.Title,Sucrose Wallpaper Engine,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
-PASS⦙63,PASS⦙63,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
+PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuHelp,Βοήθεια,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Portal.MainWindow.MenuAbout,Σχετικά,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
-PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
+PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuHelpTip,Προβολή Βοήθειας,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Portal.MainWindow.MenuAboutTip,Προβολή Πληροφοριών Σχετικά,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
-PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
+PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLibrary,Βιβλιοθήκη,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Portal.MainWindow.MenuStore,Κατάστημα,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
-PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
+PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLibraryTip,Βιβλιοθήκη Θεμάτων,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Portal.MainWindow.MenuStoreTip,Κατάστημα Θεμάτων,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
-PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
+PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuGeneral,Γενικές,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Portal.MainWindow.MenuPersonal,Προσωπικές,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Portal.MainWindow.MenuPerformance,Απόδοση,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
@@ -480,7 +483,7 @@ Portal.MainWindow.MenuWallpaper,Ταπετσαρία,,Portal\MainWindow\Portal.M
 Portal.MainWindow.MenuSystem,Σύστημα,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Portal.MainWindow.MenuDonate,Δωρεά,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Portal.MainWindow.MenuOther,Άλλες,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
-PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
+PASS⦙69,PASS⦙69,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuBackTip,Πίσω,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Portal.MainWindow.MenuGeneralTip,Γενικές Ρυθμίσεις,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Portal.MainWindow.MenuPersonalTip,Προσωπικές Ρυθμίσεις,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
@@ -489,16 +492,16 @@ Portal.MainWindow.MenuWallpaperTip,Ρυθμίσεις Ταπετσαρίας,,Po
 Portal.MainWindow.MenuSystemTip,Ρυθμίσεις Συστήματος,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Portal.MainWindow.MenuDonateTip,Ρυθμίσεις Δωρεάς,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Portal.MainWindow.MenuOtherTip,Άλλες Ρυθμίσεις,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
-PASS⦙69,PASS⦙69,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.MenuSettingTip,Ρυθμίσεις,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 PASS⦙70,PASS⦙70,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.SearchBoxHint,Αναζήτηση Ταπετσαρίας,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
+Portal.MainWindow.MenuSettingTip,Ρυθμίσεις,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 PASS⦙71,PASS⦙71,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.SearchBoxTip,Αντιμετωπίζετε δυσκολία στην εύρεση αυτού που χρειάζεστε;,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
+Portal.MainWindow.SearchBoxHint,Αναζήτηση Ταπετσαρίας,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 PASS⦙72,PASS⦙72,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxTip,Αντιμετωπίζετε δυσκολία στην εύρεση αυτού που χρειάζεστε;,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
+PASS⦙73,PASS⦙73,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLightTip,Φωτεινό Θέμα,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Portal.MainWindow.MenuDarkTip,Σκοτεινό Θέμα,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
-PASS⦙73,PASS⦙73,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
+PASS⦙74,PASS⦙74,Don't Touch,Portal\MainWindow\Portal.MainWindow.EL.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuCreateWallpaperTip,Δημιουργία Ταπετσαρίας,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Portal.MainWindow.MenuWallpaperCyclingTip,Αλλαγή Ταπετσαρίας,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Portal.MainWindow.MenuDisplayPreferencesTip,Προτιμήσεις Οθόνης,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
@@ -506,36 +509,36 @@ Portal.MainWindow.MenuDonateOptionsTip,Επιλογές Δωρεάς,,Portal\Mai
 Portal.MainWindow.MenuOtherOptionsTip,Άλλες Επιλογές,,Portal\MainWindow\Portal.MainWindow.EL.xaml,
 Base64⦙4,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuRUwueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\SettingPage\Portal.SettingPage.EL.xaml,Please don't touch the translation in this line.
 Base64⦙5,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLkVMLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==,Don't Touch,Portal\StorePage\Portal.StorePage.EL.xaml,Please don't touch the translation in this line.
-PASS⦙74,PASS⦙74,Don't Touch,Portal\StorePage\Portal.StorePage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙75,PASS⦙75,Don't Touch,Portal\StorePage\Portal.StorePage.EL.xaml,Please don't touch the translation in this line.
 Portal.StorePage.Title,StorePage,,Portal\StorePage\Portal.StorePage.EL.xaml,
 Portal.DisplayPreferences.Title,Προτιμήσεις Οθόνης,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,
 Portal.DisplayPreferences.Close,Κλείσιμο,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,
-PASS⦙75,PASS⦙75,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Please don't touch the translation in this line.
+PASS⦙76,PASS⦙76,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Please don't touch the translation in this line.
 Portal.DisplayPreferences.Expander,Κατάσταση Τοποθέτησης,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,
 Portal.DisplayPreferences.Expander.Description,Πώς οι ταπετσαρίες εφαρμόζονται στις ενεργές οθόνες.,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,
-PASS⦙76,PASS⦙76,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Screen,Μόνο στην επιλεγμένη οθόνη,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,
 PASS⦙77,PASS⦙77,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand,Επέκταση ανάμεσα στις οθόνες,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,
+Portal.DisplayPreferences.Screen,Μόνο στην επιλεγμένη οθόνη,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,
 PASS⦙78,PASS⦙78,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand.Monitor,Όλες οι οθόνες,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,
+Portal.DisplayPreferences.Expand,Επέκταση ανάμεσα στις οθόνες,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,
 PASS⦙79,PASS⦙79,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand.Hint,Επιλέξτε τη λειτουργία επέκτασης ανάμεσα στις οθόνες,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,
+Portal.DisplayPreferences.Expand.Monitor,Όλες οι οθόνες,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,
 PASS⦙80,PASS⦙80,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Duplicate,Αντιγραφή της ίδιας ταπετσαρίας,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,
+Portal.DisplayPreferences.Expand.Hint,Επιλέξτε τη λειτουργία επέκτασης ανάμεσα στις οθόνες,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,
 PASS⦙81,PASS⦙81,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate,Αντιγραφή της ίδιας ταπετσαρίας,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,
+PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Please don't touch the translation in this line.
 Portal.DisplayPreferences.Duplicate.Hint,Επιλέξτε τη λειτουργία αντιγραφής της ίδιας ταπετσαρίας,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,
 Portal.ExpanderCard.TitleText,Τίτλος,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.EL.xaml,
 Portal.ExpanderCard.DescriptionText,Περιγραφή,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.EL.xaml,
-PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.EL.xaml,Please don't touch the translation in this line.
+PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.EL.xaml,Please don't touch the translation in this line.
 Portal.ExpanderCard.ExpandUpTip,Σύμπτυξη,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.EL.xaml,
 Portal.ExpanderCard.ExpandDownTip,Επέκταση,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.EL.xaml,
 Portal.LibraryCard.TitleText,Τίτλος,,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,
 Portal.LibraryCard.DescriptionText,Περιγραφή,,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,
-PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Please don't touch the translation in this line.
+PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.MoreTip,Περισσότερα,,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,
 Portal.LibraryCard.VersionTip,"Για να χρησιμοποιήσετε αυτό το θέμα, ενημερώστε το Sucrose",,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,
-PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Please don't touch the translation in this line.
+PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.MenuReview,Κριτική,,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,
 Portal.LibraryCard.MenuUse,Χρησιμοποίησε,,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,
 Portal.LibraryCard.MenuPreview,Προεπισκόπηση,,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,
@@ -546,83 +549,83 @@ Portal.LibraryCard.MenuFind,Εύρεση,,Portal\Controls\LibraryCard\Portal.Lib
 Portal.LibraryCard.MenuShare,Κοινοποίηση,,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,
 Portal.LibraryCard.MenuDelete,Διαγραφή,,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,
 Portal.LibraryCard.MenuEdit,Επεξεργασία,,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,
-PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Please don't touch the translation in this line.
+PASS⦙86,PASS⦙86,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.Closed,Κλειστό,,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,
 Portal.LibraryCard.Paused,Σε παύση,,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,
-PASS⦙86,PASS⦙86,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Please don't touch the translation in this line.
-Portal.LibraryCard.Selected,Επιλέγεται,,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,
 PASS⦙87,PASS⦙87,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Selected,Επιλέγεται,,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,
+PASS⦙88,PASS⦙88,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.Incompatible,Μη Συμβατό,,Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,
 Portal.OtherAbout.Title,Σχετικά,,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
 Portal.OtherAbout.Close,Κλείσιμο,,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
-PASS⦙88,PASS⦙88,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.About,"Γειά σας, το όνομά μου είναι Bayram Emekli, γνωστός και ως Taiizor. Είμαι ο δημιουργός της εφαρμογής Sucrose Wallpaper Engine, η οποία είναι δωρεάν και ανοικτού κώδικα. Σας ευχαριστώ που χρησιμοποιείτε την εφαρμογή που ανέπτυξα.",,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
 PASS⦙89,PASS⦙89,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.About,"Γειά σας, το όνομά μου είναι Bayram Emekli, γνωστός και ως Taiizor. Είμαι ο δημιουργός της εφαρμογής Sucrose Wallpaper Engine, η οποία είναι δωρεάν και ανοικτού κώδικα. Σας ευχαριστώ που χρησιμοποιείτε την εφαρμογή που ανέπτυξα.",,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
+PASS⦙90,PASS⦙90,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherAbout.Update,Έκδοση: v{0},,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
 Portal.OtherAbout.Update.Description,Τελευταίος έλεγχος: {0},,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
-PASS⦙90,PASS⦙90,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Update.Notes,Σημειώσεις ενημέρωσης,,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
 PASS⦙91,PASS⦙91,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Partners,Συνεργάτες μας,,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
+Portal.OtherAbout.Update.Notes,Σημειώσεις ενημέρωσης,,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
 PASS⦙92,PASS⦙92,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Contributors,Συνεισφέροντες,,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
+Portal.OtherAbout.Partners,Συνεργάτες μας,,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
 PASS⦙93,PASS⦙93,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.TermsOfService,Όροι Υπηρεσίας,,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
+Portal.OtherAbout.Contributors,Συνεισφέροντες,,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
 PASS⦙94,PASS⦙94,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.PrivacyPolicy,Πολιτική Απορρήτου,,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
+Portal.OtherAbout.TermsOfService,Όροι Υπηρεσίας,,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
 PASS⦙95,PASS⦙95,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.PrivacyPolicy,Πολιτική Απορρήτου,,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
+PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherAbout.CodeOfConduct,Κώδικας Συμπεριφοράς των Συντελεστών,,Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,
 Portal.OtherHelp.Title,Βοήθεια,,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,
 Portal.OtherHelp.Close,Κλείσιμο,,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,
-PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Please don't touch the translation in this line.
+PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.WebPage,Ιστοσελίδα,,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,
 Portal.OtherHelp.WebPage.Description,Επίσημη ιστοσελίδα του Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,
-PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Please don't touch the translation in this line.
+PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Documentation,Τεκμηρίωση,,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,
 Portal.OtherHelp.Documentation.Description,Επίσημη σελίδα τεκμηρίωσης του Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,
-PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Please don't touch the translation in this line.
+PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Repository,Κώδικας Πηγής,,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,
 Portal.OtherHelp.Repository.Description,Επίσημη σελίδα του κώδικα πηγής του Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,
-PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Please don't touch the translation in this line.
+PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Discussions,Συζητήσεις,,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,
 Portal.OtherHelp.Discussions.Description,Επίσημη σελίδα συζητήσεων του Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,
-PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Please don't touch the translation in this line.
+PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Report,Αναφορά Σφαλμάτων,,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,
 Portal.OtherHelp.Report.Description,Επίσημη σελίδα αναφοράς σφαλμάτων του Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,
 Portal.Pagination.PageJump,Αλμα,,Portal\Controls\Pagination\Portal.Pagination.EL.xaml,
 Portal.StoreCard.TitleText,Τίτλος,,Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,
 Portal.StoreCard.DescriptionText,Περιγραφή,,Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,
-PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Please don't touch the translation in this line.
-Portal.StoreCard.VersionTip,"Για να χρησιμοποιήσετε αυτό το θέμα, ενημερώστε το Sucrose",,Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,
 PASS⦙102,PASS⦙102,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.VersionTip,"Για να χρησιμοποιήσετε αυτό το θέμα, ενημερώστε το Sucrose",,Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,
+PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Please don't touch the translation in this line.
 Portal.StoreCard.MenuUpdating,Έλεγχος Για Ενημερώσεις,,Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,
 Portal.StoreCard.MenuUpdate,Έλεγχος Ενημερώσεων,,Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,
 Portal.StoreCard.MenuInstall,Εγκατάσταση,,Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,
 Portal.StoreCard.MenuReport,Αναφορά,,Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,
-PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Please don't touch the translation in this line.
+PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Please don't touch the translation in this line.
 Portal.StoreCard.Incompatible,Μη Συμβατό,,Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,
 Portal.ThemeCreate.Title,Δημιουργία Θέματος,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.Create,Δημιουργία,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.Close,Κλείσιμο,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Gif,Θέμα Gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.Gif.Description,Δημιουργήστε το δικό σας θέμα τύπου Gif.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Url,Θέμα Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.Url.Description,Δημιουργήστε το δικό σας θέμα τύπου Url.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Web,Θέμα Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.Web.Description,Δημιουργήστε το δικό σας θέμα τύπου Web.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Video,Θέμα Video,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.Video.Description,Δημιουργήστε το δικό σας θέμα τύπου Video.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.YouTube,Θέμα YouTube,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.YouTube.Description,Δημιουργήστε το δικό σας θέμα τύπου YouTube.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Application,Θέμα Application,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.Application.Description,Δημιουργήστε το δικό σας θέμα τύπου Application.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeUrl,Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.ThemeWeb,Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.ThemeApplication,Εφαρμογή,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
@@ -634,7 +637,7 @@ Portal.ThemeCreate.ThemeAuthor,Συγγραφέας,,Portal\Controls\ThemeCreate
 Portal.ThemeCreate.ThemeContact,Επικοινωνία,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.ThemeTags,Ετικέτες,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.ThemeArguments,Ορίσματα,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeUrl.Hint,Παρακαλούμε εισάγετε μια έγκυρη διεύθυνση Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.ThemeWeb.Hint,Επιλέξτε μια ιστοσελίδα,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.ThemeApplication.Hint,Επιλέξτε ένα αρχείο εφαρμογής,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
@@ -646,41 +649,41 @@ Portal.ThemeCreate.ThemeAuthor.Hint,Παρακαλούμε εισάγετε έν
 Portal.ThemeCreate.ThemeContact.Hint,Παρακαλούμε εισάγετε μια έγκυρη διεύθυνση επικοινωνίας,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.ThemeTags.Hint,Παρακαλούμε εισάγετε έγκυρες ετικέτες θέματος,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.ThemeArguments.Hint,Παρακαλούμε εισάγετε έγκυρες παραμέτρους εφαρμογής,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
-Portal.ThemeCreate.DragDrop.Delete,Αναίρεση,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 PASS⦙113,PASS⦙113,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Delete,Αναίρεση,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
+PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Gif.Title,Επιλέξτε Αρχείο Gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.DragDrop.Gif.Filter,Αρχεία Gif (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Video.Title,Επιλέξτε Αρχείο Βίντεο,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.DragDrop.Video.Filter,Αρχεία Βίντεο (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Gif,Σύρετε και αποθέστε το αρχείο GIF εδώ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.DragDrop.Video,Σύρετε και αποθέστε το αρχείο video εδώ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeThumbnail.Title,Επιλογή Εξωφύλλου,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.ThemeThumbnail.Filter,Αρχεία Εικόνας (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemePreview.Title,Επιλογή Αρχείου Προεπισκόπησης,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.ThemePreview.Filter,Αρχεία GIF (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.WebSource.Title,Επιλέξτε Ιστοσελίδα,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.WebSource.Filter,Ιστοσελίδες (*.html)|*.html,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ApplicationSource.Title,Επιλέξτε Αρχείο εφαρμογής,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.ApplicationSource.Filter,Αρχεία Εφαρμογών (*.exe)|*.exe,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Copy.Close,Κατάλαβα,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.Copy.Title,Σημαντική Προειδοποίηση,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.Copy.Message,Το επιλεγμένο αρχείο θα συμπεριληφθεί στο θέμα μαζί με όλα τα υπόλοιπα αρχεία και φακέλους στον συγκεκριμένο κατάλογο.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
-PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
+PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Access.Close,Κατάλαβα,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.Access.Title,Προειδοποίηση Πρόσβασης,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeCreate.Access.Message,Δεν έχετε δικαίωμα πρόσβασης στο επιλεγμένο αρχείο.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,
 Portal.ThemeDelete.Title,Διαγραφή Θέματος,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,
 Portal.ThemeDelete.Delete,Διαγραφή,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,
 Portal.ThemeDelete.Close,Κλείσιμο,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,
-PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Please don't touch the translation in this line.
+PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeDelete.ThemeTitle,Τίτλος,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,
 Portal.ThemeDelete.ThemeDescription,Περιγραφή,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,
 Portal.ThemeDelete.ThemeType,Τύπος,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,
@@ -700,14 +703,14 @@ Portal.ThemeDelete.ThemeModifyDate,Άγνωστο,,Portal\Controls\ThemeDelete\P
 Portal.ThemeEdit.Title,Επεξεργασία Θέματος,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,
 Portal.ThemeEdit.Close,Κλείσιμο,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,
 Portal.ThemeEdit.Save,Αποθήκευση,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,
-PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Please don't touch the translation in this line.
+PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeEdit.ThemeTitle,Τίτλος,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,
 Portal.ThemeEdit.ThemeDescription,Περιγραφή,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,
 Portal.ThemeEdit.ThemeAuthor,Συγγραφέας,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,
 Portal.ThemeEdit.ThemeContact,Επικοινωνία,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,
 Portal.ThemeEdit.ThemeTags,Ετικέτες,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,
 Portal.ThemeEdit.ThemeArguments,Ορίσματα,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,
-PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Please don't touch the translation in this line.
+PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeEdit.ThemeTitle.Hint,Παρακαλώ εισάγετε έναν έγκυρο τίτλο,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,
 Portal.ThemeEdit.ThemeDescription.Hint,Παρακαλώ εισάγετε μια έγκυρη περιγραφή,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,
 Portal.ThemeEdit.ThemeAuthor.Hint,Παρακαλώ εισάγετε έναν έγκυρο όνομα συγγραφέα,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,
@@ -716,41 +719,41 @@ Portal.ThemeEdit.ThemeTags.Hint,Παρακαλώ εισάγετε έγκυρες
 Portal.ThemeEdit.ThemeArguments.Hint,Παρακαλώ εισάγετε έγκυρες παραμέτρους εφαρμογής,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,
 Portal.ThemeImport.Title,Εισαγωγή Θέματος,,Portal\Controls\ThemeImport\Portal.ThemeImport.EL.xaml,
 Portal.ThemeImport.Close,Κλείσιμο,,Portal\Controls\ThemeImport\Portal.ThemeImport.EL.xaml,
-PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.EL.xaml,Please don't touch the translation in this line.
+PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeImport.Info,Πληροφορίες Θέματος,,Portal\Controls\ThemeImport\Portal.ThemeImport.EL.xaml,
 Portal.ThemeImport.Type,Περιγραφές Αιτίας,,Portal\Controls\ThemeImport\Portal.ThemeImport.EL.xaml,
 Portal.ThemeReport.Title,Αναφορά Θέματος,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
 Portal.ThemeReport.Close,Κλείσιμο,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
-PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,Please don't touch the translation in this line.
+PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.ThemeTitle,Τίτλος,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
 Portal.ThemeReport.ThemeDescription,Περιγραφή,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
-PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,Please don't touch the translation in this line.
+PASS⦙128,PASS⦙128,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter,Αναφορά,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
 Portal.ThemeReport.Reporter.Description,Καθορίστε τους λόγους για την αναφορά του θέματος.,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
-PASS⦙128,PASS⦙128,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Contact.Placeholder,Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
 PASS⦙129,PASS⦙129,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Contact.Placeholder,Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
+PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Description.Text,Πρόσθετες σημειώσεις:,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
 Portal.ThemeReport.Reporter.Description.Placeholder,Παρακαλώ περιγράψτε λεπτομερώς τον λόγο της αναφοράς.,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
-PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Preparing,Οι προετοιμασίες για την αναφορά θα ξεκινήσουν σύντομα..,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
 PASS⦙131,PASS⦙131,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Preparing,Οι προετοιμασίες για την αναφορά θα ξεκινήσουν σύντομα..,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
+PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Checking,Εκτελούνται οι απαραίτητοι έλεγχοι για την αναφορά..,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
 Portal.ThemeReport.Reporter.Checking.Error,Παρουσιάστηκε άγνωστο σφάλμα κατά την εκτέλεση των απαραίτητων ελέγχων για την αναφορά.,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
 Portal.ThemeReport.Reporter.Checking.Status,"Δεν ήταν δυνατή η δημιουργία κατάλληλων συνθηκών για την αναφορά αυτή τη στιγμή, δοκιμάστε ξανά αργότερα..",,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
-PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,Please don't touch the translation in this line.
+PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Sending,Αποστολή πληροφοριών για την αναφορά..,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
 Portal.ThemeReport.Reporter.Sending.Error,Παρουσιάστηκε σφάλμα κατά την αποστολή της αναφοράς.,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
 Portal.ThemeReport.Reporter.Sending.Errored,Παρουσιάστηκε απρόσμενο σφάλμα κατά την αποστολή της αναφοράς: {0}.,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
 Portal.ThemeReport.Reporter.Sending.Succeded,"Η αναφορά στάλθηκε με επιτυχία, ευχαριστούμε.",,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
-PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Network,Απαιτείται σύνδεση στο διαδίκτυο για να αναφέρετε.,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
 PASS⦙134,PASS⦙134,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Network,Απαιτείται σύνδεση στο διαδίκτυο για να αναφέρετε.,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
+PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Report,Αναφορά,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
 Portal.ThemeReport.Reporter.GitHub,Αναφορά από GitHub,,Portal\Controls\ThemeReport\Portal.ThemeReport.EL.xaml,
 Portal.ThemeReview.Title,Κριτική Θέματος,,Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,
 Portal.ThemeReview.Close,Κλείσιμο,,Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,
-PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Please don't touch the translation in this line.
+PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeReview.ThemeTitle,Τίτλος,,Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,
 Portal.ThemeReview.ThemeDescription,Περιγραφή,,Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,
 Portal.ThemeReview.ThemeType,Τύπος,,Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,
@@ -770,408 +773,408 @@ Portal.ThemeReview.ThemeModifyDate,Άγνωστο,,Portal\Controls\ThemeReview\P
 Portal.ThemeReview.ThemeContact,Διεύθυνση Επικοινωνίας του Θέματος,,Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,
 Portal.ThemeShare.Title,Κοινοποίηση Θέματος,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 Portal.ThemeShare.Close,Κλείσιμο,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
-PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
+PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemeTitle,Τίτλος,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 Portal.ThemeShare.ThemeDescription,Περιγραφή,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
-PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
+PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemeExport,Εξαγωγή,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 Portal.ThemeShare.ThemePublish,Δημοσίευση στο Κατάστημα,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 Portal.ThemeShare.ThemeCopy,Αντιγραφή συνδέσμου,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
-PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
+PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Publish,Δημοσίευση,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 Portal.ThemeShare.ThemePublish.Preparing,Οι προετοιμασίες για τη δημοσίευση θα ξεκινήσουν σύντομα..,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
-PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Limit,Ελέγχεται το ημερήσιο όριο ανεβάσματος θεμάτων σας..,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 PASS⦙140,PASS⦙140,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit,Ελέγχεται το ημερήσιο όριο ανεβάσματος θεμάτων σας..,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
+PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Έχετε φτάσει το ημερήσιο όριο ανεβάσματος θεμάτων, παρακαλώ δοκιμάστε αργότερα.",,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 Portal.ThemeShare.ThemePublish.Limit.Error,Παρουσιάστηκε άγνωστο σφάλμα κατά τον έλεγχο του ημερήσιου ορίου ανεβάσματος θεμάτων σας.,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
-PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
+PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Compress,Το θέμα συμπιέζεται πριν από το ανέβασμα..,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 Portal.ThemeShare.ThemePublish.Compress.Error,Παρουσιάστηκε σφάλμα κατά τη συμπίεση του θέματος.,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
-PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Size,Ελέγχεται το μέγεθος του συμπιεσμένου θέματος..,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 PASS⦙143,PASS⦙143,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Size.Exceeded,Το συμπιεσμένο θέμα δεν μπορεί να ανέβει επειδή υπερβαίνει τα {0} MB.,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
+Portal.ThemeShare.ThemePublish.Size,Ελέγχεται το μέγεθος του συμπιεσμένου θέματος..,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 PASS⦙144,PASS⦙144,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size.Exceeded,Το συμπιεσμένο θέμα δεν μπορεί να ανέβει επειδή υπερβαίνει τα {0} MB.,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
+PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Check,Ελέγχεται η ακεραιότητα του συμπιεσμένου θέματος πριν από τη μεταφόρτωση..,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 Portal.ThemeShare.ThemePublish.Check.Error,Παρουσιάστηκε σφάλμα κατά τον έλεγχο της ακεραιότητας του συμπιεσμένου θέματος.,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
-PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Upload,Το συμπιεσμένο θέμα προετοιμάζεται για ανέβασμα..,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 PASS⦙146,PASS⦙146,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload,Το συμπιεσμένο θέμα προετοιμάζεται για ανέβασμα..,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
+PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Upload.Start,Το συμπιεσμένο θέμα ανεβαίνει..,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Error,Παρουσιάστηκε άγνωστο σφάλμα κατά το ανέβασμα του συμπιεσμένου θέματος.,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Errored,Παρουσιάστηκε απρόσμενο σφάλμα κατά το ανέβασμα του συμπιεσμένου θέματος: {0}.,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Succeded,Το συμπιεσμένο θέμα ανέβηκε με επιτυχία και θα δημοσιευτεί στο κατάστημα μετά την επαλήθευση.,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
-PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
+PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.SaveDialogFilter,Αρχεία ZIP (*.zip)|*.zip|Όλα τα αρχεία (*.*)|*.*,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 Portal.ThemeShare.SaveDialogTitle,Αποθήκευση αρχείου θέματος,,Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,
 Portal.TrayIcon.Title,Γραμμή Συστήματος,,Portal\Controls\TrayIcon\Portal.TrayIcon.EL.xaml,
 Portal.TrayIcon.Close,Κλείσιμο,,Portal\Controls\TrayIcon\Portal.TrayIcon.EL.xaml,
-PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.EL.xaml,Please don't touch the translation in this line.
+PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.EL.xaml,Please don't touch the translation in this line.
 Portal.TrayIcon.Message,"Το Sucrose ελαχιστοποιήθηκε στη γραμμή συστήματος. Για να συνεχίσετε, κάντε δεξί κλικ στο εικονίδιο του Sucrose.",,Portal\Controls\TrayIcon\Portal.TrayIcon.EL.xaml,
 Portal.WallpaperCycling.Title,Κύκλος Ταπετσαριών,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
 Portal.WallpaperCycling.Close,Κλείσιμο,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
-PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Please don't touch the translation in this line.
+PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Cycling,Αυτόματος Κύκλος Ταπετσαριών,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
 Portal.WallpaperCycling.Cycling.Description,Εάν η ταπετσαρία αλλάζει αυτόματα ή όχι.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
-PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Please don't touch the translation in this line.
+PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,Χρονικό διάστημα,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
 Portal.WallpaperCycling.Time.Description,Το χρονικό διάστημα μετά το οποίο αλλάζει η ταπετσαρία.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
-PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Please don't touch the translation in this line.
+PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,Λειτουργία Μετάβασης,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
 Portal.WallpaperCycling.Transition.Description,Ορίζει τη λειτουργία μετάβασης μεταξύ ταπετσαριών.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
-PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Please don't touch the translation in this line.
+PASS⦙153,PASS⦙153,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List,Λίστα Κύκλου,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
 Portal.WallpaperCycling.List.Description,Επαναφέρει τη λίστα κύκλου στις προεπιλεγμένες τιμές.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
-PASS⦙153,PASS⦙153,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Please don't touch the translation in this line.
+PASS⦙154,PASS⦙154,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List.Reset,Επαναφορά,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
 Portal.EmptyLibraryPage.Title,EmptyLibraryPage,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EL.xaml,
-PASS⦙154,PASS⦙154,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙155,PASS⦙155,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EL.xaml,Please don't touch the translation in this line.
 Portal.EmptyLibraryPage.TitleText,Η βιβλιοθήκη σας έχει καλυφθεί από αραχνοσημάδια,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EL.xaml,
 Portal.EmptyLibraryPage.DescriptionText,"Αντί για ταπετσαρίες, ένα υπέροχο έργο τέχνης από αραχνοσημάδια διακοσμεί τη βιβλιοθήκη σας",,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EL.xaml,
 Portal.FullLibraryPage.Title,FullLibraryPage,,Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.EL.xaml,
 Portal.SearchLibraryPage.Title,SearchLibraryPage,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.EL.xaml,
-PASS⦙155,PASS⦙155,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙156,PASS⦙156,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.EL.xaml,Please don't touch the translation in this line.
 Portal.SearchLibraryPage.TitleText,Η βιβλιοθήκη σας έχει μαγευτεί από αραχνοσημάδια,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.EL.xaml,
 Portal.SearchLibraryPage.DescriptionText,"Λόγω της λεπτομέρειας στην επιλογή των ταπετσαριών, δεν υπάρχει πλέον χώρος για άλλα ταπετσαρίες",,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.EL.xaml,
 Portal.DonateSettingPage.Title,DonateSettingPage,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,
-PASS⦙156,PASS⦙156,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu,Μενού Δωρεάς,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,
 Portal.DonateSettingPage.DonateMenu.Description,Ορατότητα του μενού δωρεάς στη διεπαφή.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,
-PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Εμφάνιση,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Απόκρυψη,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,
-PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising,Διαφημίσεις Υποστήριξης,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,
 Portal.DonateSettingPage.Advertising.Description,Συνεισφέρετε στην ανάπτυξη της εφαρμογής παρακολουθώντας διαφημίσεις.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,
-PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising.AdvertisingDelay,Διάρκεια Διαφημίσεων (λεπτά):,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,
 Portal.DonateSettingPage.Advertising.AdvertisingHint,Συμβουλή: Οι διαφημίσεις θα εμφανίζονται με τον ελάχιστο ενοχλητικό τρόπο.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,
 Portal.GeneralSettingPage.Title,GeneralSettingPage,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
-PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationLanguage,Γλώσσα Εφαρμογής,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.ApplicationLanguage.Description,Επιλέξτε τη γλώσσα στην οποία θέλετε να προβάλετε την εφαρμογή.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
-PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup,Εκκίνηση με την έναρξη του συστήματος,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Description,"Για να αναπαράγετε τα ταπετσαρίες σας, η εφαρμογή Sucrose πρέπει να εκκινεί στο παρασκήνιο.",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
-PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Καθόλου,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Κανονική,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Υψηλή Προτεραιότητα,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Χρονοδιάγραμμα,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
-PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Κατάλαβα,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Προειδοποίηση Δικαιωμάτων Διαχειριστή,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,"Για να αλλάξετε την κατάσταση εκκίνησης, πρέπει να έχετε δικαιώματα διαχειριστή.",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
-PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon,Εικονίδιο ενημερώσεων,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Description,Ορατότητα του εικονιδίου ενημερώσεων στη γραμμή εργασιών του συστήματος. Το Sucrose θα συνεχίσει να λειτουργεί στο παρασκήνιο.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
-PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Ορατό,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Αόρατο,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
-PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.NotifyIcon.NotifyExit,"Όταν κλείνετε το εικονίδιο ενημερώσεων, να κλείνονται και όλες οι εφαρμογές του Sucrose",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.NotifyExit,"Όταν κλείνετε το εικονίδιο ενημερώσεων, να κλείνονται και όλες οι εφαρμογές του Sucrose",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
+PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop,Φόντο παραθύρου,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.Description,Χρησιμοποιείται για την προσαρμογή του φόντου του παραθύρου της εφαρμογής.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
-PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Επιλέξτε εικόνα φόντου,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Επιλέξτε μια εικόνα φόντου,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Αρχεία εικόνας (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,Δυστυχώς δεν έχετε δικαίωμα πρόσβασης στο επιλεγμένο αρχείο εικόνας,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
-PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Επέκταση του φόντου:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Διαφάνεια του φόντου (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Επέκταση του φόντου:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Διαφάνεια του φόντου (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
+PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume,Ένταση Ήχου,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.EngineVolume.Description,Η ένταση ήχου που ισχύει για όλα τα ταπετσαρίες.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
-PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Αναπαραγωγή ήχου μόνο όταν εστιάζετε στην επιφάνεια εργασίας,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeActive,Αναπαραγωγή ήχου μόνο όταν όλες οι εφαρμογές είναι σιωπηλές,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Ευαισθησία (Δευτερόλεπτα):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
-PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary,Τοποθεσία βιβλιοθήκης,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.Description,Η τοποθεσία όπου θα αποθηκεύονται τα θέματα που προσθέτετε στη βιβλιοθήκη σας.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
-PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,Δυστυχώς δεν έχετε πρόσβαση στη νέα τοποθεσία,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Παρακαλώ επιλέξτε έναν κενό φάκελο,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Παρακαλώ περιμένετε λίγο κατά τη μετακίνηση της τοποθεσίας,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
-PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Μετακίνηση της υφιστάμενης βιβλιοθήκης σας σε νέα τοποθεσία,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,
 Portal.OtherSettingPage.Title,OtherSettingPage,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
-PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.ReportData,Αυτόματη Αναφορά Σφαλμάτων,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 Portal.OtherSettingPage.ReportData.Description,Η Sucrose αναλαμβάνει δράση για γρήγορη αναφορά όταν συναντά ένα σφάλμα.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
-PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.StatisticsData,Κοινοποίηση Στατιστικών Χρήσης,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 Portal.OtherSettingPage.StatisticsData.Description,Η Sucrose επιτρέπει τη συλλογή των στατιστικών χρήσης σας για να συμβάλει στην ανάπτυξη της εφαρμογής.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
-PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook,Discord,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 Portal.OtherSettingPage.DiscordHook.Description,Το Sucrose διαχειρίζεται την επικοινωνία με το Discord.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
-PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Ανανέωση σύνδεσης:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 Portal.OtherSettingPage.DiscordHook.DiscordDelay,Διάστημα Ανανέωσης (δευτερόλεπτα):,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
-PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Agent,Πράκτορας Διαδικτύου,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 Portal.OtherSettingPage.Agent.Description,Το αναγνωριστικό πράκτορα σας για καταστάσεις που απαιτούν σύνδεση στο διαδίκτυο.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
-PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key,Προσωπικό Κλειδί Πρόσβασης,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 Portal.OtherSettingPage.Key.Description,Απαιτείται για ασφαλή λήψη ενημερώσεων από το κατάστημα και την εφαρμογή.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
-PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Key.HintKey,"Αν δεν γνωρίζετε πώς να λάβετε ένα προσωπικό κλειδί πρόσβασης, κάντε κλικ εδώ.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.HintKey,"Αν δεν γνωρίζετε πώς να λάβετε ένα προσωπικό κλειδί πρόσβασης, κάντε κλικ εδώ.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
+PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key.PersonalKey,Παρακαλώ εισάγετε ένα προσωπικό κλειδί πρόσβασης,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 Portal.OtherSettingPage.Key.PersonalKey.Valid,Παρακαλώ εισάγετε ένα έγκυρο προσωπικό κλειδί πρόσβασης,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
-PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Server,Διακομιστής Ενημερώσεων,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 Portal.OtherSettingPage.Server.Description,Ο διακομιστής μέσω του οποίου θα πραγματοποιούνται οι ενημερώσεις.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
-PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Server.ServerHint,"Σημείωση: Εάν επιλεγεί ο διακομιστής {0}, πρέπει να εισαγάγετε έναν {2} για να αποφύγετε τα όρια αιτήσεων. Διαφορετικά, μπορεί να αντιμετωπίσετε προβλήματα με τις ενημερώσεις. Εάν επιλεγεί ο {1}, θα έχετε μια πιο ομαλή εμπειρία ενημέρωσης.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server.ServerHint,"Σημείωση: Εάν επιλεγεί ο διακομιστής {0}, πρέπει να εισαγάγετε έναν {2} για να αποφύγετε τα όρια αιτήσεων. Διαφορετικά, μπορεί να αντιμετωπίσετε προβλήματα με τις ενημερώσεις. Εάν επιλεγεί ο {1}, θα έχετε μια πιο ομαλή εμπειρία ενημέρωσης.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
+PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Module,Μονάδα Ενημέρωσης,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 Portal.OtherSettingPage.Module.Description,Ποια μονάδα θα χρησιμοποιηθεί για την ενημέρωση.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
-PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Channel,Κανάλι Ενημερώσεων,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 Portal.OtherSettingPage.Channel.Description,Ποιο κανάλι θα χρησιμοποιηθεί για τις ενημερώσεις.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
-PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update,Μέθοδος Ενημέρωσης,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 Portal.OtherSettingPage.Update.Description,Πώς θα γίνει η διαδικασία ενημέρωσης.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
-PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Update.Limit,Όριο Εύρους Ζώνης για Λήψη:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update.Limit,Όριο Εύρους Ζώνης για Λήψη:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
+PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Auto,Αυτόματη Ενημέρωση,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 Portal.OtherSettingPage.Auto.Description,Εάν ο έλεγχος της ενημέρωσης θα γίνεται αυτόματα.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
-PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer,Εργαλεία Προγραμματιστή,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 Portal.OtherSettingPage.Developer.Description,Διαχείριση εργαλείων προγραμματιστή για τον κινητήρα WebView και CefSharp.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
-PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperMode,Προεπιλεγμένα Εργαλεία Προγραμματιστή:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperPort,Θύρα Αποσφαλμάτωσης:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
+Portal.OtherSettingPage.Developer.DeveloperMode,Προεπιλεγμένα Εργαλεία Προγραμματιστή:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,Θύρα Αποσφαλμάτωσης:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
+PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer.DeveloperHint,"Υπόδειξη: Τα προεπιλεγμένα εργαλεία προγραμματιστή ενδέχεται να μη λειτουργούν σωστά σε υποστηριζόμενα θέματα. Η θύρα αποσφαλμάτωσης τείνει να λειτουργεί καλύτερα. Όταν είστε έτοιμοι, μπορείτε να χρησιμοποιήσετε τη διεύθυνση 'http://localhost:{0}' ή 'chrome://inspect' για τον περιηγητή Chrome, 'opera://inspect' για τον περιηγητή Opera, 'edge://inspect' για τον περιηγητή Edge.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
-PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter,Μετρητές Απόδοσης,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Counter.Description,Εάν οι μετρητές απόδοσης θα λειτουργούν στο παρασκήνιο.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
-PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Counter.CounterHint,Σημείωση: Ορισμένα θέματα τύπου Web ενδέχεται να μην λειτουργούν σωστά και καμία από τις παρακάτω ρυθμίσεις απόδοσης δεν θα ισχύσει.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter.CounterHint,Σημείωση: Ορισμένα θέματα τύπου Web ενδέχεται να μην λειτουργούν σωστά και καμία από τις παρακάτω ρυθμίσεις απόδοσης δεν θα ισχύσει.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
+PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Pause,Κανόνας Παύσης,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Pause.Description,Καθορίζει τον κανόνα για την παύση του ταπετσαρίας βάσει των ρυθμίσεών σας για την απόδοση.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
-PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Communication,Τύπος Επικοινωνίας,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Communication.Description,Καθορίζει τη μέθοδο αποστολής μηνυμάτων σε θέματα τύπου Web.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
-PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu,Χρήση Επεξεργαστή,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Cpu.Description,Πώς θα επηρεάσει η ρύθμιση της χρήσης του επεξεργαστή το ταπετσαρία.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
-PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Cpu.CpuUsage,Χρήση Επεξεργαστή (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu.CpuUsage,Χρήση Επεξεργαστή (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
+PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu,Χρήση GPU,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Gpu.Description,Τι συμβαίνει με το φόντο με βάση τις ρυθμίσεις χρήσης GPU σας.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
-PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Η λίστα των μονάδων επεξεργασίας γραφικών δεν έχει δημιουργηθεί ακόμα,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
-PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Gpu.GpuUsage,Χρήση GPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuUsage,Χρήση GPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
+PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory,Χρήση Μνήμης,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Memory.Description,Πώς θα επηρεάσει η ρύθμιση της χρήσης μνήμης το ταπετσαρία.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
-PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Memory.MemoryUsage,Χρήση Μνήμης (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory.MemoryUsage,Χρήση Μνήμης (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
+PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network,Χρήση Δικτύου,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Network.Description,Πώς θα επηρεάσει η ρύθμιση της χρήσης δικτύου το ταπετσαρία.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
-PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network.NetworkAdapter,Δικτυακός Προσαρμογέας:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Η λίστα των δικτυακών προσαρμογέων δεν έχει δημιουργηθεί ακόμα,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
-PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkUpload,Μέγεθος Αποστολής:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkDownload,Μέγεθος Λήψης:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
+Portal.PerformanceSettingPage.Network.NetworkUpload,Μέγεθος Αποστολής:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkPing,Ping Χρόνος (MS):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
+Portal.PerformanceSettingPage.Network.NetworkDownload,Μέγεθος Λήψης:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Ping Χρόνος (MS):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
+PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery,Κατάσταση Μπαταρίας,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Battery.Description,Πώς θα επηρεάσει η ρύθμιση της κατάστασης της μπαταρίας το ταπετσαρία όταν είναι ενεργοποιημένη.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
-PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Battery.BatteryUsage,Κατάσταση Μπαταρίας (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery.BatteryUsage,Κατάσταση Μπαταρίας (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
+PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Saver,Λειτουργία Εξοικονόμησης Μπαταρίας,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Saver.Description,Πώς θα επηρεάσει η ρύθμιση της λειτουργίας εξοικονόμησης μπαταρίας το ταπετσαρία όταν είναι ενεργοποιημένη.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
-PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Virtual,Εικονικές Μηχανές,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Virtual.Description,Πώς θα επηρεάσει η ρύθμιση των εικονικών μηχανών το ταπετσαρία όταν είναι ενεργοποιημένη.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
-PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Remote,Απομακρυσμένη Γραφική Διεπαφή,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Remote.Description,Πώς θα επηρεάσει η ρύθμιση της απομακρυσμένης γραφικής διεπαφής το ταπετσαρία όταν είναι ενεργοποιημένη.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
-PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Fullscreen,Λειτουργία Πλήρης Οθόνης,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Fullscreen.Description,Πώς θα επηρεάσει η ρύθμιση της λειτουργίας πλήρης οθόνης το ταπετσαρία όταν είναι ενεργοποιημένη.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
-PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Focus,Λειτουργία Εστίασης,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PerformanceSettingPage.Focus.Description,Πώς θα επηρεάσει η ρύθμιση της λειτουργίας εστίασης το ταπετσαρία όταν υπάρχει εστίαση σε κάποια άλλη εφαρμογή.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
-PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server,Διακομιστής Καταστήματος,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 Portal.PersonalSettingPage.Server.Description,Καθορίζει ποιός διακομιστής θα χρησιμοποιηθεί για την εμφάνιση των θεμάτων που αναφέρονται στο κατάστημα.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
-PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Server.ServerHint,"Σημείωση: Εάν επιλεγεί το {0} ως διακομιστής, είναι απαραίτητο να εισαγάγετε ένα {2} για να αποφευχθούν τα όρια αιτήσεων. Διαφορετικά, ενδέχεται να αντιμετωπίσετε προβλήματα πρόσβασης σε θέματα στο κατάστημα. Εάν επιλεγεί το {1}, θα έχετε μια πιο ομαλή εμπειρία στο κατάστημα.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server.ServerHint,"Σημείωση: Εάν επιλεγεί το {0} ως διακομιστής, είναι απαραίτητο να εισαγάγετε ένα {2} για να αποφευχθούν τα όρια αιτήσεων. Διαφορετικά, ενδέχεται να αντιμετωπίσετε προβλήματα πρόσβασης σε θέματα στο κατάστημα. Εάν επιλεγεί το {1}, θα έχετε μια πιο ομαλή εμπειρία στο κατάστημα.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
+PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Duration,Ανανέωση Καταστήματος,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 Portal.PersonalSettingPage.Duration.Description,Πόσο συχνά θα γίνεται η ανανέωση των θεμάτων που εμφανίζονται στο κατάστημα.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
-PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.StoreStart,Αυτόματη Εκκίνηση,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 Portal.PersonalSettingPage.StoreStart.Description,Θα ορίζεται αυτόματα το θέμα που λαμβάνετε από το κατάστημα ως ταπετσαρία.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
-PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adult,Άκατάλληλο Περιεχόμενο,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 Portal.PersonalSettingPage.Adult.Description,Θα εμφανίζονται ή όχι περιεχόμενα που έχουν χαρακτηριστεί ως μη ασφαλή (NSFW) στο κατάστημα.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
-PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Confirm,Επιβεβαίωση Διαγραφής,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 Portal.PersonalSettingPage.Confirm.Description,Θα ζητείται επιβεβαίωση πριν διαγράψετε θέματα από την βιβλιοθήκη σας.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
-PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete,Διαγραφή Κακόβουλων Θεμάτων,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 Portal.PersonalSettingPage.Delete.Description,Θα γίνεται αυτόματη διαγραφή των κακόβουλων ή ελλιπών θεμάτων από τη βιβλιοθήκη σας.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
-PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Delete.DeleteHint,"Σημείωση: Χρησιμοποιείτε με προσοχή, καθώς μπορεί να οδηγήσει σε απώλεια δεδομένων.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete.DeleteHint,"Σημείωση: Χρησιμοποιείτε με προσοχή, καθώς μπορεί να οδηγήσει σε απώλεια δεδομένων.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
+PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.LibraryStart,Αυτόματη Εκκίνηση,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 Portal.PersonalSettingPage.LibraryStart.Description,Το θέμα που δημιουργήσατε θα ορίζεται αυτόματα ως ταπετσαρία.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
-PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview,Προεπισκόπηση Θεμάτων,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 Portal.PersonalSettingPage.Preview.Description,Θα εμφανίζεται προεπισκόπηση όταν το ποντίκι βρίσκεται πάνω από ένα θέμα.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
-PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.StorePreview,Προεπισκόπηση Καταστήματος:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 Portal.PersonalSettingPage.Preview.StorePreviewHide,Απόκρυψη Λεπτομερειών:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
-PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.LibraryPreview,Προεπισκόπηση Βιβλιοθήκης:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Απόκρυψη Λεπτομερειών:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
-PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adaptive,Προσαρμοστική Διάταξη,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 Portal.PersonalSettingPage.Adaptive.Description,Προσαρμόστε τη διάταξη ή τις αποστάσεις των θεμάτων που εμφανίζονται.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
-PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Απόσταση Γραμμών (Εικόνα):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Διάταξη Σειράς (Τεμάχια):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Απόσταση Γραμμών (Εικόνα):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Διάταξη Σειράς (Τεμάχια):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
+PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Sort,Ταξινόμηση Βιβλιοθήκης,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 Portal.PersonalSettingPage.Sort.Description,Καθορίστε πώς θα ταξινομούνται τα θέματα στη βιβλιοθήκη σας και σε ποιο μορφότυπο.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
-PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortMode,Τρόπος Ταξινόμησης:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortKind,Είδος Ταξινόμησης:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
+Portal.PersonalSettingPage.Sort.SortMode,Τρόπος Ταξινόμησης:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,Είδος Ταξινόμησης:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
+PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Store,Σελιδοποίηση Καταστήματος,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 Portal.PersonalSettingPage.Store.Description,Καθορίστε πόσα θέματα θα υπάρχουν σε κάθε σελίδα του καταστήματος.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
-PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Library,Σελιδοποίηση Βιβλιοθήκης,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 Portal.PersonalSettingPage.Library.Description,Καθορίστε πόσα θέματα θα υπάρχουν σε κάθε σελίδα της βιβλιοθήκης σας.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,
 Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
-PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LogTemporary,Αρχεία Καταγραφής,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 Portal.SystemSettingPage.LogTemporary.Description,Διαχείριση όλων των αρχείων καταγραφής που δημιουργεί η εφαρμογή.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
-PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Create,Δημιουργία,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Delete,Εκκαθάριση,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
+Portal.SystemSettingPage.LogTemporary.Create,Δημιουργία,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Hint,Σημείωση: Το συνολικό μέγεθος των αρχείων καταγραφής είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
+Portal.SystemSettingPage.LogTemporary.Delete,Εκκαθάριση,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,Σημείωση: Το συνολικό μέγεθος των αρχείων καταγραφής είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
+PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.CacheTemporary,Εκκαθάριση Προσωρινής Μνήμης,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 Portal.SystemSettingPage.CacheTemporary.Description,Καθαρίστε όλα τα αρχεία προσωρινής μνήμης που δημιουργεί η εφαρμογή.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
-PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Start,Έναρξη Εκκαθάρισης,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Hint,Σημείωση: Το συνολικό μέγεθος των αρχείων προσωρινής μνήμης είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
+Portal.SystemSettingPage.CacheTemporary.Start,Έναρξη Εκκαθάρισης,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,Σημείωση: Το συνολικό μέγεθος των αρχείων προσωρινής μνήμης είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
+PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.StoreTemporary,Εκκαθάριση Καταστήματος,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 Portal.SystemSettingPage.StoreTemporary.Description,Καθαρίστε όλα τα αρχεία καταστήματος που δημιουργεί η εφαρμογή.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
-PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Start,Έναρξη Εκκαθάρισης,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Hint,Σημείωση: Το συνολικό μέγεθος των αρχείων καταστήματος είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
+Portal.SystemSettingPage.StoreTemporary.Start,Έναρξη Εκκαθάρισης,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,Σημείωση: Το συνολικό μέγεθος των αρχείων καταστήματος είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
+PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LibraryTemporary,Εκκαθάριση Βιβλιοθήκης,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 Portal.SystemSettingPage.LibraryTemporary.Description,Καθαρίστε όλα τα αρχεία θεμάτων που υπάρχουν στη βιβλιοθήκη σας ή που δημιουργεί η εφαρμογή.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
-PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Start,Έναρξη Εκκαθάρισης,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Hint,Σημείωση: Το συνολικό μέγεθος των αρχείων θεμάτων στη βιβλιοθήκη σας είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
+Portal.SystemSettingPage.LibraryTemporary.Start,Έναρξη Εκκαθάρισης,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,Σημείωση: Το συνολικό μέγεθος των αρχείων θεμάτων στη βιβλιοθήκη σας είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
+PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingBackup,Αρχεία Ρυθμίσεων,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 Portal.SystemSettingPage.SettingBackup.Description,Διαχείριση όλων των αρχείων ρυθμίσεων που δημιουργεί η εφαρμογή.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
-PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Export,Εξαγωγή,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Import,Εισαγωγή,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
+Portal.SystemSettingPage.SettingBackup.Export,Εξαγωγή,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Hint,Σημείωση: Όλες οι εφαρμογές θα κλείσουν όταν ξεκινήσετε την επιλεγμένη εργασία.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
+Portal.SystemSettingPage.SettingBackup.Import,Εισαγωγή,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,Σημείωση: Όλες οι εφαρμογές θα κλείσουν όταν ξεκινήσετε την επιλεγμένη εργασία.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
+PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingReset,Επαναφορά Ρυθμίσεων,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 Portal.SystemSettingPage.SettingReset.Description,Επαναφέρετε όλες τις ρυθμίσεις που δημιουργεί η εφαρμογή στην προεπιλεγμένη κατάσταση.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
-PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Start,Έναρξη Επαναφοράς,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Hint,Σημείωση: Όλες οι εφαρμογές θα κλείσουν όταν ξεκινήσετε την επαναφορά των ρυθμίσεων.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
+Portal.SystemSettingPage.SettingReset.Start,Έναρξη Επαναφοράς,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,Σημείωση: Όλες οι εφαρμογές θα κλείσουν όταν ξεκινήσετε την επαναφορά των ρυθμίσεων.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
+PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Log.SaveDialogTitle,Αποθήκευση Αρχείου Καταγραφής,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 Portal.SystemSettingPage.Log.SaveDialogFilter,Αρχεία ZIP (*.zip)|*.zip|Όλοι οι Τύποι Αρχείων (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
-PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Access.Close,Κατάλαβα,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 Portal.SystemSettingPage.Access.Title,Προειδοποίηση Πρόσβασης,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 Portal.SystemSettingPage.Access.Message,Δεν έχετε άδεια πρόσβασης στην επιλεγμένη τοποθεσία.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.InputMode,Μέθοδος Αλληλεπίδρασης,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.InputMode.Description,Καθορίζει τις μεθόδους με τις οποίες μπορεί να γίνει αλληλεπίδραση με τις υποστηριζόμενες ταπετσαρίες.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputModule,Ενότητα Αλληλεπίδρασης:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputDesktop,Επεξεργασία αλληλεπίδρασης μόνο όταν ο επιφάνεια εργασίας είναι εστιασμένη,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
+Portal.WallpaperSettingPage.InputMode.InputModule,Ενότητα Αλληλεπίδρασης:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.DesktopIcon,Απόκρυψη για να αποφευχθεί η ακούσια επιλογή εικονιδίων επιφάνειας εργασίας,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
+Portal.WallpaperSettingPage.InputMode.InputDesktop,Επεξεργασία αλληλεπίδρασης μόνο όταν ο επιφάνεια εργασίας είναι εστιασμένη,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,Απόκρυψη για να αποφευχθεί η ακούσια επιλογή εικονιδίων επιφάνειας εργασίας,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
+PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ScreenLayout,Διάταξη Οθόνης,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.ScreenLayout.Description,Αλλάζει τη διάταξη των ταπετσαριών στην οθόνη σας.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.StretchMode,Λειτουργία Επέκτασης,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.StretchMode.Description,Αλλάζει τον τρόπο με τον οποίο επεκτείνονται τα υποστηριζόμενα ταπετσαρίες.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.LoopMode,Λειτουργία Επανάληψης,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.LoopMode.Description,Αλλάζει τη λειτουργία επανάληψης για τις υποστηριζόμενες ταπετσαρίες.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ShuffleMode,Λειτουργία Ανακάτεμα,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Αλλάζει τη λειτουργία ανακάτεμα για τις υποστηριζόμενες ταπετσαρίες.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Πρόσθετο Gif,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,Επιλέξτε το πρόσθετο που θα αναπαράγει τα ταπετσαρίες τύπου Gif που υπάρχουν στη βιβλιοθήκη σας.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Πρόσθετο Video,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,Επιλέξτε το πρόσθετο που θα αναπαράγει τα ταπετσαρίες τύπου Video που υπάρχουν στη βιβλιοθήκη σας.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Μηχανή Url,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου Url που υπάρχουν στη βιβλιοθήκη σας.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙272,PASS⦙272,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Μηχανή Web,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου Web που υπάρχουν στη βιβλιοθήκη σας.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙272,PASS⦙272,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙273,PASS⦙273,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,Μηχανή YouTube,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου YouTube που υπάρχουν στη βιβλιοθήκη σας.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙273,PASS⦙273,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙274,PASS⦙274,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Μηχανή Application,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου Application που υπάρχουν στη βιβλιοθήκη σας.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EL.xaml,
-PASS⦙274,PASS⦙274,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙275,PASS⦙275,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EL.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,Ένα Στιγμιότυπο Όπου το Διαδίκτυο Έχει Σβήσει,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EL.xaml,
 Portal.BrokenStorePage.DescriptionText,"Σαν έναν ουρανό χωρίς αστέρια, εδώ δεν υπάρχει φωτεινότητα στο διαδίκτυο",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EL.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.EL.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EL.xaml,
-PASS⦙275,PASS⦙275,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙276,PASS⦙276,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EL.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Η απάντηση στα ψάξιμά σας μπορεί να κρύβεται στον ουρανό,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EL.xaml,
 Portal.SearchStorePage.DescriptionText,"Αν τα αποτελέσματα δεν είναι όπως τα περιμένατε, ο ουρανός μπορεί να σας προσφέρει μια νέα εμπειρία",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EL.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EL.xaml,
-PASS⦙276,PASS⦙276,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙277,PASS⦙277,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EL.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,Ανακαλύψτε τον Μυστηριώδη Κατάσταση στο Κατάστημα,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EL.xaml,
 Portal.UnknownStorePage.DescriptionText,Κυνηγήστε το άγνωστο και ξεκινήστε ένα ταξίδι για να ανακαλύψετε το μυστηριώδες γεγονός που συνέβη στο κατάστημα,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EL.xaml,

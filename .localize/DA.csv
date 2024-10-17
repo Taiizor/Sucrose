@@ -107,6 +107,8 @@ Launcher\Launcher.DA.xaml,Launcher.WallCustomizeText,Tilpas Tapet
 Launcher\Launcher.DA.xaml,,
 Launcher\Launcher.DA.xaml,Launcher.CreateLogText,Opret Logfil
 Launcher\Launcher.DA.xaml,,
+Launcher\Launcher.DA.xaml,Launcher.CloseText,Luk Applikationer
+Launcher\Launcher.DA.xaml,,
 Launcher\Launcher.DA.xaml,Launcher.ExitText,Afslut
 Launcher\Launcher.DA.xaml,,
 Launcher\Launcher.DA.xaml,Launcher.OpenReportText,Rapporter et Problem
@@ -121,6 +123,7 @@ Launcher\Launcher.DA.xaml,Launcher.SaveDialogFilter,ZIP-Filer (*.zip)|*.zip|Alle
 Launcher\Launcher.DA.xaml,Launcher.SaveDialogTitle,Gem Logfil
 Launcher\Launcher.DA.xaml,,
 Launcher\Launcher.DA.xaml,Launcher.RequestFeedbackText,Anmodninger og Feedback
+Launcher\Launcher.DA.xaml,Launcher.FeedbackText,Send Feedback
 Launcher\Launcher.DA.xaml,,
 Launcher\Launcher.DA.xaml,Launcher.SettingText,Indstillinger
 Launcher\Launcher.DA.xaml,,

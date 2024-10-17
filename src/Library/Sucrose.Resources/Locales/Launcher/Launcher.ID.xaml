@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">Buat File Log</system:String>
 
+    <system:String x:Key="Launcher.CloseText">Tutup Aplikasi</system:String>
+
     <system:String x:Key="Launcher.ExitText">Keluar</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">Laporkan Masalah</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">Simpan File Log</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">Permintaan dan Umpan Balik</system:String>
+    <system:String x:Key="Launcher.FeedbackText">Kirim Umpan Balik</system:String>
 
     <system:String x:Key="Launcher.SettingText">Pengaturan</system:String>
 

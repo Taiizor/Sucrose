@@ -107,6 +107,8 @@ Launcher\Launcher.HI.xaml,Launcher.WallCustomizeText,वॉलपेपर क�
 Launcher\Launcher.HI.xaml,,
 Launcher\Launcher.HI.xaml,Launcher.CreateLogText,लॉग फ़ाइल बनाएँ
 Launcher\Launcher.HI.xaml,,
+Launcher\Launcher.HI.xaml,Launcher.CloseText,ऐप्लिकेशन बंद करें
+Launcher\Launcher.HI.xaml,,
 Launcher\Launcher.HI.xaml,Launcher.ExitText,निकास
 Launcher\Launcher.HI.xaml,,
 Launcher\Launcher.HI.xaml,Launcher.OpenReportText,समस्या की रिपोर्ट करें
@@ -121,6 +123,7 @@ Launcher\Launcher.HI.xaml,Launcher.SaveDialogFilter,ZIP फ़ाइलें (*
 Launcher\Launcher.HI.xaml,Launcher.SaveDialogTitle,लॉग फ़ाइल सहेजें
 Launcher\Launcher.HI.xaml,,
 Launcher\Launcher.HI.xaml,Launcher.RequestFeedbackText,अनुरोध और प्रतिक्रिया
+Launcher\Launcher.HI.xaml,Launcher.FeedbackText,प्रतिक्रिया भेजें
 Launcher\Launcher.HI.xaml,,
 Launcher\Launcher.HI.xaml,Launcher.SettingText,सेटिंग्स
 Launcher\Launcher.HI.xaml,,

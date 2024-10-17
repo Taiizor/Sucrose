@@ -107,6 +107,8 @@ Launcher\Launcher.PL.xaml,Launcher.WallCustomizeText,Dostosuj Tapetę
 Launcher\Launcher.PL.xaml,,
 Launcher\Launcher.PL.xaml,Launcher.CreateLogText,Utwórz Plik Dziennika
 Launcher\Launcher.PL.xaml,,
+Launcher\Launcher.PL.xaml,Launcher.CloseText,Zamknij Aplikacje
+Launcher\Launcher.PL.xaml,,
 Launcher\Launcher.PL.xaml,Launcher.ExitText,Wyjdź
 Launcher\Launcher.PL.xaml,,
 Launcher\Launcher.PL.xaml,Launcher.OpenReportText,Zgłoś Problem
@@ -121,6 +123,7 @@ Launcher\Launcher.PL.xaml,Launcher.SaveDialogFilter,Pliki ZIP (*.zip)|*.zip|Wszy
 Launcher\Launcher.PL.xaml,Launcher.SaveDialogTitle,Zapisz Plik Dziennika
 Launcher\Launcher.PL.xaml,,
 Launcher\Launcher.PL.xaml,Launcher.RequestFeedbackText,Prośby i Opinie
+Launcher\Launcher.PL.xaml,Launcher.FeedbackText,Prześlij Opinię
 Launcher\Launcher.PL.xaml,,
 Launcher\Launcher.PL.xaml,Launcher.SettingText,Ustawienia
 Launcher\Launcher.PL.xaml,,

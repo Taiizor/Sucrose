@@ -107,6 +107,8 @@ Launcher\Launcher.JA.xaml,Launcher.WallCustomizeText,壁紙をカスタマイズ
 Launcher\Launcher.JA.xaml,,
 Launcher\Launcher.JA.xaml,Launcher.CreateLogText,ログファイルを作成
 Launcher\Launcher.JA.xaml,,
+Launcher\Launcher.JA.xaml,Launcher.CloseText,アプリケーションを閉じる
+Launcher\Launcher.JA.xaml,,
 Launcher\Launcher.JA.xaml,Launcher.ExitText,終了
 Launcher\Launcher.JA.xaml,,
 Launcher\Launcher.JA.xaml,Launcher.OpenReportText,問題を報告
@@ -121,6 +123,7 @@ Launcher\Launcher.JA.xaml,Launcher.SaveDialogFilter,ZIPファイル (*.zip)|*.zi
 Launcher\Launcher.JA.xaml,Launcher.SaveDialogTitle,ログファイルを保存
 Launcher\Launcher.JA.xaml,,
 Launcher\Launcher.JA.xaml,Launcher.RequestFeedbackText,リクエストとフィードバック
+Launcher\Launcher.JA.xaml,Launcher.FeedbackText,フィードバックを送信
 Launcher\Launcher.JA.xaml,,
 Launcher\Launcher.JA.xaml,Launcher.SettingText,設定
 Launcher\Launcher.JA.xaml,,

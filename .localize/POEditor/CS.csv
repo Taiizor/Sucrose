@@ -107,124 +107,127 @@ Launcher.WallCustomizeText,Přizpůsobit Tapetu,,Launcher\Launcher.CS.xaml,
 PASS⦙3,PASS⦙3,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
 Launcher.CreateLogText,Vytvořit Záznam Souboru,,Launcher\Launcher.CS.xaml,
 PASS⦙4,PASS⦙4,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
-Launcher.ExitText,Ukončit,,Launcher\Launcher.CS.xaml,
+Launcher.CloseText,Zavřít Aplikace,,Launcher\Launcher.CS.xaml,
 PASS⦙5,PASS⦙5,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
-Launcher.OpenReportText,Nahlásit Problém,,Launcher\Launcher.CS.xaml,
+Launcher.ExitText,Ukončit,,Launcher\Launcher.CS.xaml,
 PASS⦙6,PASS⦙6,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
-Launcher.OpenText,Otevřít Sucrose,,Launcher\Launcher.CS.xaml,
+Launcher.OpenReportText,Nahlásit Problém,,Launcher\Launcher.CS.xaml,
 PASS⦙7,PASS⦙7,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
-Launcher.ReportText,Nahlásit Problém,,Launcher\Launcher.CS.xaml,
+Launcher.OpenText,Otevřít Sucrose,,Launcher\Launcher.CS.xaml,
 PASS⦙8,PASS⦙8,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
-Launcher.ReportWindowTitle,Diagnostika Sucrose,,Launcher\Launcher.CS.xaml,
+Launcher.ReportText,Nahlásit Problém,,Launcher\Launcher.CS.xaml,
 PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
+Launcher.ReportWindowTitle,Diagnostika Sucrose,,Launcher\Launcher.CS.xaml,
+PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
 Launcher.SaveDialogFilter,ZIP Soubory (*.zip)|*.zip|Všechny Soubory (*.*)|*.*,,Launcher\Launcher.CS.xaml,
 Launcher.SaveDialogTitle,Uložit Záznam Souboru,,Launcher\Launcher.CS.xaml,
-PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
-Launcher.RequestFeedbackText,Požadavky a Zpětná Vazba,,Launcher\Launcher.CS.xaml,
 PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
-Launcher.SettingText,Nastavení,,Launcher\Launcher.CS.xaml,
+Launcher.RequestFeedbackText,Požadavky a Zpětná Vazba,,Launcher\Launcher.CS.xaml,
+Launcher.FeedbackText,Odeslat Zpětnou Vazbu,,Launcher\Launcher.CS.xaml,
 PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
-Launcher.TrayText,Sucrose Wallpaper Engine,,Launcher\Launcher.CS.xaml,
+Launcher.SettingText,Nastavení,,Launcher\Launcher.CS.xaml,
 PASS⦙13,PASS⦙13,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
+Launcher.TrayText,Sucrose Wallpaper Engine,,Launcher\Launcher.CS.xaml,
+PASS⦙14,PASS⦙14,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
 Launcher.WallChangeText,Změnit Tapetu,,Launcher\Launcher.CS.xaml,
 Launcher.WallCloseText,Zavřít Tapetu,,Launcher\Launcher.CS.xaml,
 Launcher.WallOpenText,Otevřít Tapetu,,Launcher\Launcher.CS.xaml,
 Launcher.WallStartText,Spustit Tapetu,,Launcher\Launcher.CS.xaml,
 Launcher.WallStopText,Zastavit Tapetu,,Launcher\Launcher.CS.xaml,
-PASS⦙14,PASS⦙14,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
+PASS⦙15,PASS⦙15,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
 Launcher.ClosedText,Zavřeno,,Launcher\Launcher.CS.xaml,
 Launcher.PausedText,Pozastaveno,,Launcher\Launcher.CS.xaml,
-PASS⦙15,PASS⦙15,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
-Launcher.UpdateText,Kontrolovat Aktualizace,,Launcher\Launcher.CS.xaml,
 PASS⦙16,PASS⦙16,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
+Launcher.UpdateText,Kontrolovat Aktualizace,,Launcher\Launcher.CS.xaml,
+PASS⦙17,PASS⦙17,Don't Touch,Launcher\Launcher.CS.xaml,Please don't touch the translation in this line.
 Launcher.UpdateText.Done,Příprava Aktualizace,,Launcher\Launcher.CS.xaml,
 Launcher.UpdateText.Check,Kontrola Aktualizací,,Launcher\Launcher.CS.xaml,
 Launcher.UpdateText.Progress,Průběh Aktualizace {0},,Launcher\Launcher.CS.xaml,
 Live.Title,{0} Upozornění,,Live\Live.CS.xaml,
-PASS⦙17,PASS⦙17,Don't Touch,Live\Live.CS.xaml,Please don't touch the translation in this line.
+PASS⦙18,PASS⦙18,Don't Touch,Live\Live.CS.xaml,Please don't touch the translation in this line.
 Live.Close,Zavřít,,Live\Live.CS.xaml,
 Live.Continue,Pokračovat,,Live\Live.CS.xaml,
 Live.Download,Stáhnout,,Live\Live.CS.xaml,
 Live.Remember,Pamatovat Si,,Live\Live.CS.xaml,
-PASS⦙18,PASS⦙18,Don't Touch,Live\Live.CS.xaml,Please don't touch the translation in this line.
+PASS⦙19,PASS⦙19,Don't Touch,Live\Live.CS.xaml,Please don't touch the translation in this line.
 Live.Info.WebView,Požadavek WebView,,Live\Live.CS.xaml,
 Live.Info.CefSharp,Požadavek CefSharp,,Live\Live.CS.xaml,
-PASS⦙19,PASS⦙19,Don't Touch,Live\Live.CS.xaml,Please don't touch the translation in this line.
+PASS⦙20,PASS⦙20,Don't Touch,Live\Live.CS.xaml,Please don't touch the translation in this line.
 Live.Message.WebView,"WebView2 Runtime není nainstalován. WebView2 Runtime je komponenta, která umožňuje využití moderních webových technologií v aplikacích. Proto je WebView2 Runtime nutný k nastavení vybrané tapety.",,Live\Live.CS.xaml,
 Live.Message.CefSharp,"VC++ Redistributable není nainstalován. VC++ Redistributable poskytuje některé systémové komponenty nezbytné pro správné fungování CefSharp. CefSharp je framework, který umožňuje použití moderních webových technologií v aplikacích. Proto je VC++ Redistributable nutný k nastavení vybrané tapety.",,Live\Live.CS.xaml,
 Base64⦙1,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5DUy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\Portal.CS.xaml,Please don't touch the translation in this line.
 Property.WindowTitle,Sucrose Property,,Property\Property.CS.xaml,
-PASS⦙20,PASS⦙20,Don't Touch,Property\Property.CS.xaml,Please don't touch the translation in this line.
+PASS⦙21,PASS⦙21,Don't Touch,Property\Property.CS.xaml,Please don't touch the translation in this line.
 Property.DeleteTip,Smazat kopii,,Property\Property.CS.xaml,
 Property.RefreshTip,Obnovit rozhraní,,Property\Property.CS.xaml,
 Property.RestoreTip,Obnovit výchozí,,Property\Property.CS.xaml,
-PASS⦙21,PASS⦙21,Don't Touch,Property\Property.CS.xaml,Please don't touch the translation in this line.
-Property.Type.NotSupport,Typ ovládacího prvku '{0}' není podporován.,,Property\Property.CS.xaml,
 PASS⦙22,PASS⦙22,Don't Touch,Property\Property.CS.xaml,Please don't touch the translation in this line.
+Property.Type.NotSupport,Typ ovládacího prvku '{0}' není podporován.,,Property\Property.CS.xaml,
+PASS⦙23,PASS⦙23,Don't Touch,Property\Property.CS.xaml,Please don't touch the translation in this line.
 Property.ColorPicker.Color,Barva,,Property\Property.CS.xaml,
 Property.ColorPicker.Cancel,Storno,,Property\Property.CS.xaml,
 Property.ColorPicker.Confirm,Potvrdit,,Property\Property.CS.xaml,
 Property.ColorPicker.EyeDropper,Pipeta,,Property\Property.CS.xaml,
 Property.ColorPicker.Popup.Title,Sucrose Property Color Picker,,Property\Property.CS.xaml,
-PASS⦙23,PASS⦙23,Don't Touch,Property\Property.CS.xaml,Please don't touch the translation in this line.
+PASS⦙24,PASS⦙24,Don't Touch,Property\Property.CS.xaml,Please don't touch the translation in this line.
 Property.FileDropDown.Tip,Vyberte soubor,,Property\Property.CS.xaml,
 Property.FileDropDown.Filter,Všechny soubory (*.*)|*.*,,Property\Property.CS.xaml,
-PASS⦙24,PASS⦙24,Don't Touch,Property\Property.CS.xaml,Please don't touch the translation in this line.
+PASS⦙25,PASS⦙25,Don't Touch,Property\Property.CS.xaml,Please don't touch the translation in this line.
 Property.FileDropDown.Access.Close,Rozumím,,Property\Property.CS.xaml,
 Property.FileDropDown.Access.Title,Upozornění na přístup,,Property\Property.CS.xaml,
 Property.FileDropDown.Access.Message,Nemáte oprávnění k přístupu k vybranému souboru.,,Property\Property.CS.xaml,
 Undo.QuestionTitle,Sucrose Undo,,Undo\Undo.CS.xaml,
-PASS⦙25,PASS⦙25,Don't Touch,Undo\Undo.CS.xaml,Please don't touch the translation in this line.
+PASS⦙26,PASS⦙26,Don't Touch,Undo\Undo.CS.xaml,Please don't touch the translation in this line.
 Undo.QuestionMessage,Skutečně chcete odinstalovat program Sucrose Wallpaper Engine?,,Undo\Undo.CS.xaml,
 Undo.QuestionDescription,"Chcete-li odebrat všechny nastavení, vyberte Ano, chcete-li zachovat nastavení a odebrat pouze, vyberte Ne a chcete-li zrušit odebrání, vyberte Storno.",,Undo\Undo.CS.xaml,
 Update.WindowTitle,Sucrose Update,,Update\Update.CS.xaml,
-PASS⦙26,PASS⦙26,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
-Update.HelpText,Vyřešit Problém,,Update\Update.CS.xaml,
 PASS⦙27,PASS⦙27,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
-Update.ReloadText,ZKUSIT ZNOVU,,Update\Update.CS.xaml,
+Update.HelpText,Vyřešit Problém,,Update\Update.CS.xaml,
 PASS⦙28,PASS⦙28,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
-Update.ReloadText.Check.Again,ZKONTROLOVAT ZNOVU,,Update\Update.CS.xaml,
+Update.ReloadText,ZKUSIT ZNOVU,,Update\Update.CS.xaml,
 PASS⦙29,PASS⦙29,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
+Update.ReloadText.Check.Again,ZKONTROLOVAT ZNOVU,,Update\Update.CS.xaml,
+PASS⦙30,PASS⦙30,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
 Update.ReloadText.Browser.Opened,OTEVŘENO V PROHLÍŽEČI,,Update\Update.CS.xaml,
 Update.ReloadText.Browser.Opening,OTEVÍRÁ SE V PROHLÍŽEČI,,Update\Update.CS.xaml,
-PASS⦙30,PASS⦙30,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
-Update.MessageText.Preparing,PŘÍPRAVA NEZBYTNÝCH PŘÍPRAV,,Update\Update.CS.xaml,
 PASS⦙31,PASS⦙31,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
+Update.MessageText.Preparing,PŘÍPRAVA NEZBYTNÝCH PŘÍPRAV,,Update\Update.CS.xaml,
+PASS⦙32,PASS⦙32,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Temporary,KONTROLA DOČASNÝCH UMÍSTĚNÍ,,Update\Update.CS.xaml,
 Update.MessageText.Temporary.Error,DOČASNÁ UMÍSTĚNÍ NELZE ZKONTROLOVAT,,Update\Update.CS.xaml,
-PASS⦙32,PASS⦙32,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
+PASS⦙33,PASS⦙33,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Connection,KONTROLA INTERNETOVÉHO PŘIPOJENÍ,,Update\Update.CS.xaml,
 Update.MessageText.Connection.None,ŽÁDNÉ INTERNETOVÉ PŘIPOJENÍ,,Update\Update.CS.xaml,
 Update.MessageText.Connection.Error,INTERNETOVÉ PŘIPOJENÍ NELZE ZKONTROLOVAT,,Update\Update.CS.xaml,
-PASS⦙33,PASS⦙33,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
+PASS⦙34,PASS⦙34,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Listing,ZÍSKÁVÁNÍ POŽADOVANÝCH SEZNAMŮ,,Update\Update.CS.xaml,
 Update.MessageText.Listing.Empty,POŽADOVANÉ SEZNAMY JSOU PRÁZDNÉ,,Update\Update.CS.xaml,
 Update.MessageText.Listing.Error,POŽADOVANÉ SEZNAMY NELZE PŘIJMOUT,,Update\Update.CS.xaml,
-PASS⦙34,PASS⦙34,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
+PASS⦙35,PASS⦙35,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Filtering,SEZNAMY SE FILTRUJÍ,,Update\Update.CS.xaml,
 Update.MessageText.Filtering.Not,SEZNAMY NELZE FILTROVAT,,Update\Update.CS.xaml,
 Update.MessageText.Filtering.Error,SEZNAMY NELZE FILTROVAT,,Update\Update.CS.xaml,
-PASS⦙35,PASS⦙35,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
+PASS⦙36,PASS⦙36,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Comparing,POROVNÁVÁNÍ SEZNAMŮ,,Update\Update.CS.xaml,
 Update.MessageText.Comparing.Update,APLIKACE JE JIŽ AKTUÁLNÍ,,Update\Update.CS.xaml,
 Update.MessageText.Comparing.Error,NEPODAŘILO SE POROVNAT SEZNAMY,,Update\Update.CS.xaml,
-PASS⦙36,PASS⦙36,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
+PASS⦙37,PASS⦙37,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Searching,HLEDÁNÍ POŽADOVANÝCH SOUBORŮ,,Update\Update.CS.xaml,
 Update.MessageText.Searching.Not,POŽADOVANÉ SOUBORY NEBYLY NALEZENY,,Update\Update.CS.xaml,
 Update.MessageText.Searching.Error,POŽADOVANÉ SOUBORY NELZE HLEDAT,,Update\Update.CS.xaml,
 Update.MessageText.Searching.Condition,POŽADOVANÉ SOUBORY NENALEZENY,,Update\Update.CS.xaml,
-PASS⦙37,PASS⦙37,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
+PASS⦙38,PASS⦙38,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Downloading,STAHUJÍ SE POŽADOVANÉ SOUBORY,,Update\Update.CS.xaml,
 Update.MessageText.Downloading.Error,POŽADOVANÉ SOUBORY NELZE STÁHNOUT,,Update\Update.CS.xaml,
 Update.MessageText.Downloading.Complete.Cancel,STAHOVÁNÍ POŽADOVANÉHO SOUBORU BYLO ZRUŠENO,,Update\Update.CS.xaml,
 Update.MessageText.Downloading.Complete.Error,BĚHEM STAHOVÁNÍ POŽADOVANÉHO SOUBORU DOŠLO K CHYBĚ,,Update\Update.CS.xaml,
-PASS⦙38,PASS⦙38,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
+PASS⦙39,PASS⦙39,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Running,PŘÍPRAVA STAŽENÉHO SOUBORU,,Update\Update.CS.xaml,
 Update.MessageText.Running.Executing,SPUŠTĚNÍ STAŽENÉHO SOUBORU,,Update\Update.CS.xaml,
 Update.MessageText.Running.Executed,STAŽENÝ SOUBOR SPUŠTĚN,,Update\Update.CS.xaml,
 Update.MessageText.Running.Not,STAŽENÝ SOUBOR NELZE POUŽÍT,,Update\Update.CS.xaml,
 Update.MessageText.Running.Error,PŘÍPRAVA STAŽENÉHO SOUBORU SELHALA,,Update\Update.CS.xaml,
-PASS⦙39,PASS⦙39,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
+PASS⦙40,PASS⦙40,Don't Touch,Update\Update.CS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Extracting,ROZBALOVÁNÍ STÁHNUTÉHO SOUBORU,,Update\Update.CS.xaml,
 Update.MessageText.Extracting.Executing,PROVÁDÍ SE ROZBALOVANÝ SOUBOR,,Update\Update.CS.xaml,
 Update.MessageText.Extracting.Executed,ROZBALOVANÝ SOUBOR BYL PROVEDEN,,Update\Update.CS.xaml,
@@ -262,7 +265,7 @@ Portal.Area.Extensions,Rozšíření,,Portal\Area\Portal.Area.CS.xaml,
 Portal.Area.SystemResources,Systémové Prostředky,,Portal\Area\Portal.Area.CS.xaml,
 Portal.Area.AppearanceBehavior,Vzhled a Chování,,Portal\Area\Portal.Area.CS.xaml,
 Portal.Category.All,Všechny,,Portal\Category\Portal.Category.CS.xaml,
-PASS⦙40,PASS⦙40,Don't Touch,Portal\Category\Portal.Category.CS.xaml,Please don't touch the translation in this line.
+PASS⦙41,PASS⦙41,Don't Touch,Portal\Category\Portal.Category.CS.xaml,Please don't touch the translation in this line.
 Portal.Category.Abstract,Abstraktní,,Portal\Category\Portal.Category.CS.xaml,
 Portal.Category.Ambience,Atmosféra,,Portal\Category\Portal.Category.CS.xaml,
 Portal.Category.Animals,Zvířata,,Portal\Category\Portal.Category.CS.xaml,
@@ -331,22 +334,22 @@ Portal.Enum.Stretch.Fill,Vyplnit,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.Stretch.None,Žádný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.Stretch.Uniform,Rovnoměrný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.Stretch.UniformToFill,Rovnoměrně vyplnit,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙41,PASS⦙41,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.SortModeType.None,Žádný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.SortModeType.Name,Název,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.SortModeType.Creation,Vytvoření,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.SortModeType.Modification,Úprava,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.InputType.Close,Zavřeno,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.InputType.OnlyMouse,Pouze Myš,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.InputType.OnlyKeyboard,Pouze Klávesnice,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.InputType.MouseKeyboard,Myš a Klávesnice,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.StretchType.Fill,Vyplnit,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.StretchType.None,Žádný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.StretchType.Uniform,Rovnoměrný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.StretchType.UniformToFill,Rovnoměrně vyplnit,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.ReportThemeType.Spam,Spam,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.ReportThemeType.Other,Jiný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.ReportThemeType.Nudity,Nahota,,Portal\Enum\Portal.Enum.CS.xaml,
@@ -355,56 +358,56 @@ Portal.Enum.ReportThemeType.Violence,Násilí,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.ReportThemeType.Malicious,Zlovolný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.ReportThemeType.CopyrightViolation,Porušení Autorských Práv,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.ReportThemeType.MisleadingInformation,Zavádějící Informace,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.CommunicationType.Pipe,Pipe,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.CommunicationType.Signal,Signal,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.PerformanceType.Close,Zavřít,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.PerformanceType.Pause,Pozastavit,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.PerformanceType.Resume,Pokračovat,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.WindowBackdropType.Mica,Mika,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.WindowBackdropType.None,Žádný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.WindowBackdropType.Auto,Automatický,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.WindowBackdropType.Tabbed,Kartáčovaný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.WindowBackdropType.Acrylic,Akrilový,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.InputModuleType.Native,Native,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.InputModuleType.RawInput,RawInput,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.StoreServerType.GitHub,GitHub,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.StoreServerType.Soferity,Soferity,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateModuleType.Native,Native,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.UpdateModuleType.Downloader,Downloader,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateServerType.GitHub,GitHub,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.UpdateServerType.Soferity,Soferity,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.PausePerformanceType.Heavy,Těžký,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.PausePerformanceType.Light,Lehký,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.SortKindType.Ascending,Vzestupně [A-Z],,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.SortKindType.Descending,Sestupně [Z-A],,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.ExpandScreenType.Default,Výchozí,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.ExpandScreenType.Advanced,Pokročilý,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.TransitionCycleType.Random,Náhodné,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.TransitionCycleType.Sequential,Postupné,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙57,PASS⦙57,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.ScreenType.WorkingArea,Pracovní plocha,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.ScreenType.DisplayBound,Ohraničení obrazovky,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙57,PASS⦙57,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙58,PASS⦙58,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateChannelType.Release,Výchozí,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.UpdateChannelType.PreRelease,Předběžná verze,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙58,PASS⦙58,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙59,PASS⦙59,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.DuplicateScreenType.Default,Výchozí,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.DuplicateScreenType.Advanced,Pokročilý,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙59,PASS⦙59,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙60,PASS⦙60,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateExtensionType.Compressed,Kompresovaný,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.UpdateExtensionType.Executable,Spustitelný,,Portal\Enum\Portal.Enum.CS.xaml,
-PASS⦙60,PASS⦙60,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
+PASS⦙61,PASS⦙61,Don't Touch,Portal\Enum\Portal.Enum.CS.xaml,Please don't touch the translation in this line.
 Portal.Enum.CompatibilityType.Pass,Úspěšný výsledek,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.CompatibilityType.Tags,Tagy obsahují příliš mnoho hodnot,,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.CompatibilityType.Type,"Téma vytvořeno pro typ, který aplikace nepodporuje",,Portal\Enum\Portal.Enum.CS.xaml,
@@ -454,25 +457,25 @@ Portal.Enum.CompatibilityType.InvalidProperties,Soubor 'SucroseProperties.json' 
 Portal.Enum.CompatibilityType.PropertyLocalization,Neplatná hodnota 'PropertyLocalization',,Portal\Enum\Portal.Enum.CS.xaml,
 Portal.Enum.CompatibilityType.UnforeseenConsequences,Nepředvídatelné následky,,Portal\Enum\Portal.Enum.CS.xaml,
 Base64⦙3,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5DUy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.CS.xaml,Please don't touch the translation in this line.
-PASS⦙61,PASS⦙61,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.CS.xaml,Please don't touch the translation in this line.
-Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.CS.xaml,
 PASS⦙62,PASS⦙62,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.CS.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.CS.xaml,
+PASS⦙63,PASS⦙63,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.CS.xaml,Please don't touch the translation in this line.
 Portal.LibraryPage.Import.Successful,Téma '{0}' bylo úspěšně přidáno do knihovny.,,Portal\LibraryPage\Portal.LibraryPage.CS.xaml,
 Portal.LibraryPage.Import.Unsuccessful,Téma '{0}' se nepodařilo přidat do knihovny. Důvod: '{1}'.,,Portal\LibraryPage\Portal.LibraryPage.CS.xaml,
 Portal.MainWindow.Title,Sucrose Wallpaper Engine,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
-PASS⦙63,PASS⦙63,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
+PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuHelp,Pomoc,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Portal.MainWindow.MenuAbout,O programu,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
-PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
+PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuHelpTip,Zobrazit nápovědu,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Portal.MainWindow.MenuAboutTip,Zobrazit informace o programu,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
-PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
+PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLibrary,Knihovna,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Portal.MainWindow.MenuStore,Obchod,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
-PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
+PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLibraryTip,Témata v knihovně,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Portal.MainWindow.MenuStoreTip,Obchod s tématy,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
-PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
+PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuGeneral,Obecné,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Portal.MainWindow.MenuPersonal,Osobní,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Portal.MainWindow.MenuPerformance,Výkon,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
@@ -480,7 +483,7 @@ Portal.MainWindow.MenuWallpaper,Tapeta,,Portal\MainWindow\Portal.MainWindow.CS.x
 Portal.MainWindow.MenuSystem,Systém,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Portal.MainWindow.MenuDonate,Přispět,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Portal.MainWindow.MenuOther,Ostatní,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
-PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
+PASS⦙69,PASS⦙69,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuBackTip,Zpět,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Portal.MainWindow.MenuGeneralTip,Nastavení obecných parametrů,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Portal.MainWindow.MenuPersonalTip,Nastavení osobních preferencí,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
@@ -489,16 +492,16 @@ Portal.MainWindow.MenuWallpaperTip,Nastavení tapety,,Portal\MainWindow\Portal.M
 Portal.MainWindow.MenuSystemTip,Nastavení systému,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Portal.MainWindow.MenuDonateTip,Nastavení příspěvků,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Portal.MainWindow.MenuOtherTip,Ostatní nastavení,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
-PASS⦙69,PASS⦙69,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.MenuSettingTip,Nastavení,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 PASS⦙70,PASS⦙70,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.SearchBoxHint,Hledat tapetu,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
+Portal.MainWindow.MenuSettingTip,Nastavení,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 PASS⦙71,PASS⦙71,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.SearchBoxTip,"Máte potíže najít to, co hledáte?",,Portal\MainWindow\Portal.MainWindow.CS.xaml,
+Portal.MainWindow.SearchBoxHint,Hledat tapetu,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 PASS⦙72,PASS⦙72,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxTip,"Máte potíže najít to, co hledáte?",,Portal\MainWindow\Portal.MainWindow.CS.xaml,
+PASS⦙73,PASS⦙73,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLightTip,Světlý režim,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Portal.MainWindow.MenuDarkTip,Tmavý režim,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
-PASS⦙73,PASS⦙73,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
+PASS⦙74,PASS⦙74,Don't Touch,Portal\MainWindow\Portal.MainWindow.CS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuCreateWallpaperTip,Vytvořit tapetu,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Portal.MainWindow.MenuWallpaperCyclingTip,Cyklování tapet,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Portal.MainWindow.MenuDisplayPreferencesTip,Nastavení zobrazení,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
@@ -506,36 +509,36 @@ Portal.MainWindow.MenuDonateOptionsTip,Možnosti příspěvků,,Portal\MainWindo
 Portal.MainWindow.MenuOtherOptionsTip,Další možnosti,,Portal\MainWindow\Portal.MainWindow.CS.xaml,
 Base64⦙4,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuQ1MueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\SettingPage\Portal.SettingPage.CS.xaml,Please don't touch the translation in this line.
 Base64⦙5,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLkNTLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==,Don't Touch,Portal\StorePage\Portal.StorePage.CS.xaml,Please don't touch the translation in this line.
-PASS⦙74,PASS⦙74,Don't Touch,Portal\StorePage\Portal.StorePage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙75,PASS⦙75,Don't Touch,Portal\StorePage\Portal.StorePage.CS.xaml,Please don't touch the translation in this line.
 Portal.StorePage.Title,StorePage,,Portal\StorePage\Portal.StorePage.CS.xaml,
 Portal.DisplayPreferences.Title,Nastavení zobrazení,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,
 Portal.DisplayPreferences.Close,Zavřít,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,
-PASS⦙75,PASS⦙75,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Please don't touch the translation in this line.
+PASS⦙76,PASS⦙76,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Please don't touch the translation in this line.
 Portal.DisplayPreferences.Expander,Režim roztažení,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,
 Portal.DisplayPreferences.Expander.Description,"Způsob, jakým jsou tapety aplikovány na aktivní obrazovky.",,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,
-PASS⦙76,PASS⦙76,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Screen,Pouze vybraný monitor,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,
 PASS⦙77,PASS⦙77,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand,Roztáhnout mezi monitory,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,
+Portal.DisplayPreferences.Screen,Pouze vybraný monitor,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,
 PASS⦙78,PASS⦙78,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand.Monitor,Všechny monitory,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,
+Portal.DisplayPreferences.Expand,Roztáhnout mezi monitory,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,
 PASS⦙79,PASS⦙79,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand.Hint,Vyberte režim roztažení mezi monitory,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,
+Portal.DisplayPreferences.Expand.Monitor,Všechny monitory,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,
 PASS⦙80,PASS⦙80,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Duplicate,Duplikovat stejný tapetový obraz na všech monitorech,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,
+Portal.DisplayPreferences.Expand.Hint,Vyberte režim roztažení mezi monitory,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,
 PASS⦙81,PASS⦙81,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate,Duplikovat stejný tapetový obraz na všech monitorech,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,
+PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Please don't touch the translation in this line.
 Portal.DisplayPreferences.Duplicate.Hint,Vyberte režim duplikace stejného tapetu na všech monitorech,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,
 Portal.ExpanderCard.TitleText,Nadpis,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.CS.xaml,
 Portal.ExpanderCard.DescriptionText,Popis,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.CS.xaml,
-PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.CS.xaml,Please don't touch the translation in this line.
+PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.CS.xaml,Please don't touch the translation in this line.
 Portal.ExpanderCard.ExpandUpTip,Sbalit,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.CS.xaml,
 Portal.ExpanderCard.ExpandDownTip,Rozbalit,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.CS.xaml,
 Portal.LibraryCard.TitleText,Název,,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,
 Portal.LibraryCard.DescriptionText,Popis,,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,
-PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Please don't touch the translation in this line.
+PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.MoreTip,Více,,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,
 Portal.LibraryCard.VersionTip,"Aktualizujte Sucrose, aby bylo možné tuto šablonu použít",,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,
-PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Please don't touch the translation in this line.
+PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.MenuReview,Hodnocení,,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,
 Portal.LibraryCard.MenuUse,Použít,,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,
 Portal.LibraryCard.MenuPreview,Náhled,,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,
@@ -546,83 +549,83 @@ Portal.LibraryCard.MenuFind,Najít,,Portal\Controls\LibraryCard\Portal.LibraryCa
 Portal.LibraryCard.MenuShare,Sdílet,,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,
 Portal.LibraryCard.MenuDelete,Smazat,,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,
 Portal.LibraryCard.MenuEdit,Upravit,,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,
-PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Please don't touch the translation in this line.
+PASS⦙86,PASS⦙86,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.Closed,Zavřeno,,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,
 Portal.LibraryCard.Paused,Pozastaveno,,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,
-PASS⦙86,PASS⦙86,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Please don't touch the translation in this line.
-Portal.LibraryCard.Selected,Vybráno,,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,
 PASS⦙87,PASS⦙87,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Selected,Vybráno,,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,
+PASS⦙88,PASS⦙88,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.Incompatible,Nekompatibilní,,Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,
 Portal.OtherAbout.Title,O aplikaci,,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
 Portal.OtherAbout.Close,Zavřít,,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
-PASS⦙88,PASS⦙88,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.About,"Ahoj, jsem Bayram Emekli, známý také pod uživatelským jménem Taiizor. Jsem vývojářem aplikace Sucrose Wallpaper Engine, která je zdarma a open source. Děkuji, že používáte mou vyvinutou aplikaci.",,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
 PASS⦙89,PASS⦙89,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.About,"Ahoj, jsem Bayram Emekli, známý také pod uživatelským jménem Taiizor. Jsem vývojářem aplikace Sucrose Wallpaper Engine, která je zdarma a open source. Děkuji, že používáte mou vyvinutou aplikaci.",,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
+PASS⦙90,PASS⦙90,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherAbout.Update,Verze: v{0},,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
 Portal.OtherAbout.Update.Description,Poslední kontrola: {0},,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
-PASS⦙90,PASS⦙90,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Update.Notes,Poznámky k aktualizaci,,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
 PASS⦙91,PASS⦙91,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Partners,Partneři,,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
+Portal.OtherAbout.Update.Notes,Poznámky k aktualizaci,,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
 PASS⦙92,PASS⦙92,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Contributors,Přispěvatelé,,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
+Portal.OtherAbout.Partners,Partneři,,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
 PASS⦙93,PASS⦙93,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.TermsOfService,Podmínky služby,,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
+Portal.OtherAbout.Contributors,Přispěvatelé,,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
 PASS⦙94,PASS⦙94,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.PrivacyPolicy,Zásady ochrany osobních údajů,,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
+Portal.OtherAbout.TermsOfService,Podmínky služby,,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
 PASS⦙95,PASS⦙95,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.PrivacyPolicy,Zásady ochrany osobních údajů,,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
+PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherAbout.CodeOfConduct,Kodeks chování pro přispěvatele,,Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,
 Portal.OtherHelp.Title,Nápověda,,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,
 Portal.OtherHelp.Close,Zavřít,,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,
-PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Please don't touch the translation in this line.
+PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.WebPage,Webová stránka,,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,
 Portal.OtherHelp.WebPage.Description,Oficiální webová stránka Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,
-PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Please don't touch the translation in this line.
+PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Documentation,Dokumentace,,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,
 Portal.OtherHelp.Documentation.Description,Oficiální dokumentace Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,
-PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Please don't touch the translation in this line.
+PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Repository,Zdrojový kód,,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,
 Portal.OtherHelp.Repository.Description,Oficiální stránka se zdrojovým kódem Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,
-PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Please don't touch the translation in this line.
+PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Discussions,Diskuze,,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,
 Portal.OtherHelp.Discussions.Description,Oficiální stránka pro diskuze ohledně Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,
-PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Please don't touch the translation in this line.
+PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Report,Nahlásit chybu,,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,
 Portal.OtherHelp.Report.Description,Oficiální stránka pro hlášení chyb v Sucrose Wallpaper Engine,,Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,
 Portal.Pagination.PageJump,Přeskočit,,Portal\Controls\Pagination\Portal.Pagination.CS.xaml,
 Portal.StoreCard.TitleText,Název,,Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,
 Portal.StoreCard.DescriptionText,Popis,,Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,
-PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,Please don't touch the translation in this line.
-Portal.StoreCard.VersionTip,Pro použití této šablony aktualizujte Sucrose,,Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,
 PASS⦙102,PASS⦙102,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.VersionTip,Pro použití této šablony aktualizujte Sucrose,,Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,
+PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,Please don't touch the translation in this line.
 Portal.StoreCard.MenuUpdating,Kontrola Aktualizací,,Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,
 Portal.StoreCard.MenuUpdate,Kontrolovat Aktualizace,,Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,
 Portal.StoreCard.MenuInstall,Instalovat,,Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,
 Portal.StoreCard.MenuReport,Nahlásit,,Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,
-PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,Please don't touch the translation in this line.
+PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,Please don't touch the translation in this line.
 Portal.StoreCard.Incompatible,Nekompatibilní,,Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,
 Portal.ThemeCreate.Title,Vytvoření šablony,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.Create,Vytvořit,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.Close,Zavřít,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Gif,Gif Šablona,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.Gif.Description,Vytvořte svou vlastní šablonu typu Gif.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Url,Url Šablona,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.Url.Description,Vytvořte svou vlastní šablonu typu Url.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Web,Web Šablona,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.Web.Description,Vytvořte svou vlastní šablonu typu Web.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Video,Video Šablona,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.Video.Description,Vytvořte svou vlastní šablonu typu Video.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.YouTube,YouTube Šablona,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.YouTube.Description,Vytvořte svou vlastní šablonu typu YouTube.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Application,Application Šablona,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.Application.Description,Vytvořte svou vlastní šablonu typu Application.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeUrl,Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.ThemeWeb,Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.ThemeApplication,Aplikace,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
@@ -634,7 +637,7 @@ Portal.ThemeCreate.ThemeAuthor,Autor,,Portal\Controls\ThemeCreate\Portal.ThemeCr
 Portal.ThemeCreate.ThemeContact,Kontakt,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.ThemeTags,Štítky,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.ThemeArguments,Argumenty,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeUrl.Hint,Zadejte platnou Url adresu,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.ThemeWeb.Hint,Vyberte webovou stránku,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.ThemeApplication.Hint,Vyberte soubor aplikace,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
@@ -646,41 +649,41 @@ Portal.ThemeCreate.ThemeAuthor.Hint,Zadejte platné jméno autora,,Portal\Contro
 Portal.ThemeCreate.ThemeContact.Hint,Zadejte platný kontakt,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.ThemeTags.Hint,Zadejte platné štítky pro šablonu,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.ThemeArguments.Hint,Zadejte platné argumenty aplikace,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
-Portal.ThemeCreate.DragDrop.Delete,Odstranit,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 PASS⦙113,PASS⦙113,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Delete,Odstranit,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
+PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Gif.Title,Vyberte soubor Gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.DragDrop.Gif.Filter,Soubory Gif (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Video.Title,Vyberte soubor Videa,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.DragDrop.Video.Filter,Soubory Videa (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Gif,Přetáhněte sem svůj Gif soubor,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.DragDrop.Video,Přetáhněte sem svůj Video soubor,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeThumbnail.Title,Vybrat náhled,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.ThemeThumbnail.Filter,Obrázky (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemePreview.Title,Vybrat náhledový soubor,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.ThemePreview.Filter,Gif soubory (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.WebSource.Title,Vyberte Webovou Stránku,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.WebSource.Filter,Webové Stránky (*.html)|*.html,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ApplicationSource.Title,Vyberte Soubor Aplikace,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.ApplicationSource.Filter,Soubory Aplikací (*.exe)|*.exe,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Copy.Close,Rozumím,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.Copy.Title,Důležité Upozornění,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.Copy.Message,Vybraný soubor bude zahrnut do motivu spolu se všemi ostatními soubory a složkami v daném adresáři.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
-PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
+PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Access.Close,Rozumím,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.Access.Title,Upozornění na přístup,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeCreate.Access.Message,Nemáte oprávnění k přístupu k vybranému souboru.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,
 Portal.ThemeDelete.Title,Smazání tématu,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,
 Portal.ThemeDelete.Delete,Smazat,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,
 Portal.ThemeDelete.Close,Zavřít,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,
-PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Please don't touch the translation in this line.
+PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeDelete.ThemeTitle,Název,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,
 Portal.ThemeDelete.ThemeDescription,Popis,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,
 Portal.ThemeDelete.ThemeType,Typ,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,
@@ -700,14 +703,14 @@ Portal.ThemeDelete.ThemeModifyDate,Neznámo,,Portal\Controls\ThemeDelete\Portal.
 Portal.ThemeEdit.Title,Úprava šablony,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,
 Portal.ThemeEdit.Close,Zavřít,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,
 Portal.ThemeEdit.Save,Uložit,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,
-PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Please don't touch the translation in this line.
+PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeEdit.ThemeTitle,Název,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,
 Portal.ThemeEdit.ThemeDescription,Popis,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,
 Portal.ThemeEdit.ThemeAuthor,Autor,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,
 Portal.ThemeEdit.ThemeContact,Kontakt,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,
 Portal.ThemeEdit.ThemeTags,Štítky,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,
 Portal.ThemeEdit.ThemeArguments,Argumenty,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,
-PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Please don't touch the translation in this line.
+PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeEdit.ThemeTitle.Hint,"Prosím, zadejte platný název",,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,
 Portal.ThemeEdit.ThemeDescription.Hint,"Prosím, zadejte platný popis",,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,
 Portal.ThemeEdit.ThemeAuthor.Hint,"Prosím, zadejte platné jméno autora",,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,
@@ -716,41 +719,41 @@ Portal.ThemeEdit.ThemeTags.Hint,"Prosím, zadejte platné štítky pro šablonu"
 Portal.ThemeEdit.ThemeArguments.Hint,"Prosím, zadejte platné argumenty aplikace",,Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,
 Portal.ThemeImport.Title,Import šablony,,Portal\Controls\ThemeImport\Portal.ThemeImport.CS.xaml,
 Portal.ThemeImport.Close,Zavřít,,Portal\Controls\ThemeImport\Portal.ThemeImport.CS.xaml,
-PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.CS.xaml,Please don't touch the translation in this line.
+PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeImport.Info,Informace o šabloně,,Portal\Controls\ThemeImport\Portal.ThemeImport.CS.xaml,
 Portal.ThemeImport.Type,Typy důvodu,,Portal\Controls\ThemeImport\Portal.ThemeImport.CS.xaml,
 Portal.ThemeReport.Title,Hlášení Tématu,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
 Portal.ThemeReport.Close,Zavřít,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
-PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Please don't touch the translation in this line.
+PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.ThemeTitle,Název,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
 Portal.ThemeReport.ThemeDescription,Popis,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
-PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Please don't touch the translation in this line.
+PASS⦙128,PASS⦙128,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter,Hlášení,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
 Portal.ThemeReport.Reporter.Description,Uveďte důvody pro hlášení tématu.,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
-PASS⦙128,PASS⦙128,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Contact.Placeholder,"Prosím, napište platnou e-mailovou adresu",,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
 PASS⦙129,PASS⦙129,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Contact.Placeholder,"Prosím, napište platnou e-mailovou adresu",,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
+PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Description.Text,Další poznámky:,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
 Portal.ThemeReport.Reporter.Description.Placeholder,Podrobně popište důvod hlášení.,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
-PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Preparing,Přípravy na hlášení budou brzy zahájeny..,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
 PASS⦙131,PASS⦙131,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Preparing,Přípravy na hlášení budou brzy zahájeny..,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
+PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Checking,Provádějí se potřebné kontroly pro hlášení..,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
 Portal.ThemeReport.Reporter.Checking.Error,Při provádění potřebných kontrol pro hlášení došlo k neznámé chybě.,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
 Portal.ThemeReport.Reporter.Checking.Status,"V tuto chvíli nelze vytvořit vhodné podmínky pro hlášení, zkuste to prosím později..",,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
-PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Please don't touch the translation in this line.
+PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Sending,Odesílání informací pro hlášení..,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
 Portal.ThemeReport.Reporter.Sending.Error,Při odesílání hlášení došlo k chybě.,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
 Portal.ThemeReport.Reporter.Sending.Errored,Při odesílání hlášení došlo k neočekávané chybě: {0}.,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
 Portal.ThemeReport.Reporter.Sending.Succeded,"Hlášení bylo úspěšně odesláno, děkujeme.",,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
-PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Network,Pro hlášení je vyžadováno internetové připojení.,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
 PASS⦙134,PASS⦙134,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Network,Pro hlášení je vyžadováno internetové připojení.,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
+PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Report,Hlášení,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
 Portal.ThemeReport.Reporter.GitHub,Hlášení z GitHub,,Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,
 Portal.ThemeReview.Title,Hodnocení šablony,,Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,
 Portal.ThemeReview.Close,Zavřít,,Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,
-PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Please don't touch the translation in this line.
+PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeReview.ThemeTitle,Název,,Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,
 Portal.ThemeReview.ThemeDescription,Popis,,Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,
 Portal.ThemeReview.ThemeType,Typ,,Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,
@@ -770,408 +773,408 @@ Portal.ThemeReview.ThemeModifyDate,Neznámo,,Portal\Controls\ThemeReview\Portal.
 Portal.ThemeReview.ThemeContact,Kontaktní údaj pro šablonu,,Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,
 Portal.ThemeShare.Title,Sdílení Šablony,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 Portal.ThemeShare.Close,Zavřít,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
-PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
+PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemeTitle,Název,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 Portal.ThemeShare.ThemeDescription,Popis,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
-PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
+PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemeExport,Exportovat,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 Portal.ThemeShare.ThemePublish,Publikovat v Obchodě,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 Portal.ThemeShare.ThemeCopy,Kopírovat Odkaz,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
-PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
+PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Publish,Publikovat,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 Portal.ThemeShare.ThemePublish.Preparing,Přípravy na publikaci začnou brzy..,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
-PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Limit,Kontroluje se váš denní limit pro nahrávání témat..,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 PASS⦙140,PASS⦙140,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit,Kontroluje se váš denní limit pro nahrávání témat..,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
+PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Dosáhli jste svého denního limitu pro nahrávání témat, zkuste to prosím později.",,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 Portal.ThemeShare.ThemePublish.Limit.Error,Při kontrole vašeho denního limitu pro nahrávání témat došlo k neznámé chybě.,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
-PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
+PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Compress,Téma se komprimuje před nahráním..,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 Portal.ThemeShare.ThemePublish.Compress.Error,Při komprimaci tématu došlo k chybě.,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
-PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Size,Kontroluje se velikost komprimovaného tématu..,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 PASS⦙143,PASS⦙143,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Size.Exceeded,"Komprimované téma nelze nahrát, protože přesahuje {0} MB.",,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
+Portal.ThemeShare.ThemePublish.Size,Kontroluje se velikost komprimovaného tématu..,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 PASS⦙144,PASS⦙144,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size.Exceeded,"Komprimované téma nelze nahrát, protože přesahuje {0} MB.",,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
+PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Check,Před nahráním je kontrolována integrita komprimovaného motivu..,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 Portal.ThemeShare.ThemePublish.Check.Error,Při kontrole integrity komprimovaného motivu došlo k chybě.,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
-PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Upload,Komprimované téma se připravuje k nahrání..,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 PASS⦙146,PASS⦙146,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload,Komprimované téma se připravuje k nahrání..,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
+PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Upload.Start,Komprimované téma se nahrává..,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Error,Při nahrávání komprimovaného tématu došlo k neznámé chybě.,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Errored,Při nahrávání komprimovaného tématu došlo k neočekávané chybě: {0}.,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Succeded,Komprimované téma bylo úspěšně nahráno a po ověření bude publikováno v obchodě.,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
-PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
+PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.SaveDialogFilter,ZIP soubory (*.zip)|*.zip|Všechny soubory (*.*)|*.*,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 Portal.ThemeShare.SaveDialogTitle,Uložit soubor se šablonou,,Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,
 Portal.TrayIcon.Title,Systémová Lišta,,Portal\Controls\TrayIcon\Portal.TrayIcon.CS.xaml,
 Portal.TrayIcon.Close,Zavřít,,Portal\Controls\TrayIcon\Portal.TrayIcon.CS.xaml,
-PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.CS.xaml,Please don't touch the translation in this line.
+PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.CS.xaml,Please don't touch the translation in this line.
 Portal.TrayIcon.Message,Sucrose byla minimalizována do systémové lišty. Pokračujte kliknutím pravým tlačítkem myši na ikonu Sucrose.,,Portal\Controls\TrayIcon\Portal.TrayIcon.CS.xaml,
 Portal.WallpaperCycling.Title,Cyklování Pozadí,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
 Portal.WallpaperCycling.Close,Zavřít,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
-PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,Please don't touch the translation in this line.
+PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Cycling,Automatické Cyklování Pozadí,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
 Portal.WallpaperCycling.Cycling.Description,Zda se tapeta mění automaticky nebo ne.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
-PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,Please don't touch the translation in this line.
+PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,Časový Interval,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
 Portal.WallpaperCycling.Time.Description,"Časový interval, po kterém se tapeta změní.",,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
-PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,Please don't touch the translation in this line.
+PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,Režim Přechodu,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
 Portal.WallpaperCycling.Transition.Description,Nastavuje režim přechodu mezi tapetami.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
-PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,Please don't touch the translation in this line.
+PASS⦙153,PASS⦙153,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List,Seznam Cyklu,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
 Portal.WallpaperCycling.List.Description,Obnoví seznam cyklu na výchozí hodnoty.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
-PASS⦙153,PASS⦙153,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,Please don't touch the translation in this line.
+PASS⦙154,PASS⦙154,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List.Reset,Obnovit,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
 Portal.EmptyLibraryPage.Title,EmptyLibraryPage,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.CS.xaml,
-PASS⦙154,PASS⦙154,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙155,PASS⦙155,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.CS.xaml,Please don't touch the translation in this line.
 Portal.EmptyLibraryPage.TitleText,Vaše knihovna byla vytvořena pavučinami,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.CS.xaml,
 Portal.EmptyLibraryPage.DescriptionText,Místo tapet se v knihovně objevil nádherný umělecký kousek pavučin.,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.CS.xaml,
 Portal.FullLibraryPage.Title,FullLibraryPage,,Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.CS.xaml,
 Portal.SearchLibraryPage.Title,SearchLibraryPage,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.CS.xaml,
-PASS⦙155,PASS⦙155,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙156,PASS⦙156,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.CS.xaml,Please don't touch the translation in this line.
 Portal.SearchLibraryPage.TitleText,Vaše knihovna je zakletá pavoučí sítí,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.CS.xaml,
 Portal.SearchLibraryPage.DescriptionText,Vaše jemné vkusy ve výběru tapet zanechaly knihovnu bez prostoru.,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.CS.xaml,
 Portal.DonateSettingPage.Title,DonateSettingPage,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,
-PASS⦙156,PASS⦙156,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu,Nastavení Dárcovského Menu,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,
 Portal.DonateSettingPage.DonateMenu.Description,Viditelnost dárcovského menu v rozhraní.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,
-PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Zobrazit,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Skrýt,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,
-PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising,Podpora Reklamami,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,
 Portal.DonateSettingPage.Advertising.Description,"Přispějte k rozvoji aplikace tím, že budete sledovat reklamy.",,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,
-PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising.AdvertisingDelay,Doba zpoždění reklam (minuty):,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,
 Portal.DonateSettingPage.Advertising.AdvertisingHint,"Tip: Reklamy budou zobrazovány tak, aby vás co nejméně rušily.",,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,
 Portal.GeneralSettingPage.Title,GeneralSettingPage,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
-PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationLanguage,Jazyk Aplikace,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.ApplicationLanguage.Description,"Vyberte jazyk, ve kterém chcete zobrazit aplikaci.",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
-PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup,Spouštění Aplikace,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Description,"Sucrose musí běžet na pozadí, aby mohl hrát tapety na ploše.",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
-PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Žádné,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Normální,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Priorita,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Plánovač,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
-PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Rozumím,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Varování Administrátora,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Pro změnu stavu spuštění při startu musíte mít administrátorská práva.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
-PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon,Ikona V Oznámení,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Description,Viditelnost ikony v systémovém oznamovacím prostoru. Sucrose bude nadále běžet v pozadí.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
-PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Zobrazit,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Skrýt,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
-PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Při uzavření ikony v oznámení zavřít všechny instance Sucrose,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Při uzavření ikony v oznámení zavřít všechny instance Sucrose,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
+PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop,Pozadí Okna,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.Description,Používá se k přizpůsobení pozadí okna aplikace.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
-PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Vybrat Obrázek Pozadí,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Vyberte obrázek pozadí,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Obrázky (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,Bohužel nemáte oprávnění k přístupu k vybranému souboru obrázku,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
-PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Roztáhnout Pozadí:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Průhlednost Pozadí (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Roztáhnout Pozadí:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Průhlednost Pozadí (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
+PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume,Hlasitost Zvuku,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.EngineVolume.Description,Hlasitost zvuku pro všechny tapety na ploše.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
-PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Přehrávat zvuk pouze při zaměření na plochu,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeActive,"Přehrávat zvuk pouze, když jsou všechny aplikace potichu",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Citlivost (Sekundy):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
-PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary,Místo Knihovny,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.Description,"Umístění, kde budou uloženy témata přidané do vaší knihovny.",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
-PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,Bohužel nemáte přístup k nové poloze,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,"Vyberte prázdný adresář, prosím",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"Počkejte prosím, dokud se adresář přesune",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
-PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Přesunout vaši stávající knihovnu na nové místo,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,
 Portal.OtherSettingPage.Title,OtherSettingPage,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
-PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.ReportData,Automatické Hlášení Chyb,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 Portal.OtherSettingPage.ReportData.Description,"Sucrose přijme opatření k rychlému hlášení, když narazí na chybu.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
-PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.StatisticsData,Sdílet Statistiky Použití,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 Portal.OtherSettingPage.StatisticsData.Description,Sucrose umožňuje sbírání statistik vašeho používání k přispění k rozvoji aplikace.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
-PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook,Discord,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 Portal.OtherSettingPage.DiscordHook.Description,Sucrose umožňuje komunikaci s Discordem.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
-PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Obnovit spojení:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 Portal.OtherSettingPage.DiscordHook.DiscordDelay,Doba obnovení (v sekundách):,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
-PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Agent,Internetová Zástupkyně,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 Portal.OtherSettingPage.Agent.Description,"Váš identifikátor zástupce v situacích, kdy je vyžadováno připojení k internetu.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
-PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key,Osobní Přístupový Klíč,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 Portal.OtherSettingPage.Key.Description,Nutné pro bezproblémové použití obchodu a aktualizací aplikace.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
-PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Key.HintKey,"Pokud nevíte, jak získat osobní přístupový klíč, klikněte sem.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.HintKey,"Pokud nevíte, jak získat osobní přístupový klíč, klikněte sem.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
+PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key.PersonalKey,Prosím zadejte osobní přístupový klíč,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 Portal.OtherSettingPage.Key.PersonalKey.Valid,Prosím zadejte platný osobní přístupový klíč,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
-PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Server,Aktualizační Server,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 Portal.OtherSettingPage.Server.Description,"Server, přes který budou prováděny aktualizace.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
-PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Server.ServerHint,"Poznámka: Pokud je jako server vybrán {0}, je nutné zadat {2}, abyste se vyhnuli omezením požadavků. Jinak můžete mít problémy s aktualizací. Pokud je vybrán {1}, zažijete hladší aktualizační proces.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server.ServerHint,"Poznámka: Pokud je jako server vybrán {0}, je nutné zadat {2}, abyste se vyhnuli omezením požadavků. Jinak můžete mít problémy s aktualizací. Pokud je vybrán {1}, zažijete hladší aktualizační proces.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
+PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Module,Modul Aktualizace,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 Portal.OtherSettingPage.Module.Description,Který modul bude použit pro aktualizaci.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
-PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Channel,Kanál Aktualizace,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 Portal.OtherSettingPage.Channel.Description,"Kanál, kterým se provádí aktualizace.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
-PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update,Metoda Aktualizace,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 Portal.OtherSettingPage.Update.Description,"Způsob, jakým se provádí aktualizace.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
-PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Update.Limit,Limit Šířky Pásma Stahování:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update.Limit,Limit Šířky Pásma Stahování:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
+PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Auto,Automatická Aktualizace,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 Portal.OtherSettingPage.Auto.Description,Zda má být aktualizace automaticky kontrolována.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
-PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer,Vývojářské Nástroje,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 Portal.OtherSettingPage.Developer.Description,Spravujte vývojářské nástroje pro motory WebView a CefSharp.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
-PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperMode,Výchozí Vývojářské Nástroje:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperPort,Ladicí Port:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
+Portal.OtherSettingPage.Developer.DeveloperMode,Výchozí Vývojářské Nástroje:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,Ladicí Port:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
+PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer.DeveloperHint,"Nápověda: Výchozí vývojářské nástroje nemusí správně fungovat v podporovaných tématech. Ladicí port obvykle funguje lépe. Až budete připraveni, můžete použít adresu 'http://localhost:{0}' nebo 'chrome://inspect' pro prohlížeč Chrome, 'opera://inspect' pro prohlížeč Opera, 'edge://inspect' pro prohlížeč Edge.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
-PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter,Výkonové Čítačky,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Counter.Description,"Určuje, zda budou všechny výkonové čítačky pracovat na pozadí.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
-PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Counter.CounterHint,Poznámka: Některá témata typu Web nemusí fungovat správně a žádné z následujících nastavení výkonu nebude fungovat.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter.CounterHint,Poznámka: Některá témata typu Web nemusí fungovat správně a žádné z následujících nastavení výkonu nebude fungovat.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
+PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Pause,Pravidlo Pozastavení,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Pause.Description,Určuje pravidlo pro pozastavení tapety na základě vašich nastavení výkonu.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
-PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Communication,Typ Komunikace,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Communication.Description,Určuje způsob odesílání zpráv tématům typu Web.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
-PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu,Využití CPU,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Cpu.Description,"Určuje, jaký bude výsledek duhovky v závislosti na nastavení využití CPU.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
-PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Cpu.CpuUsage,Využití CPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu.CpuUsage,Využití CPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
+PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu,Využití GPU,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Gpu.Description,"Určuje, jaký bude výsledek duhovky v závislosti na nastavení využití GPU.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
-PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Seznam grafických procesorů zatím nebyl dosud vytvořen,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
-PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Gpu.GpuUsage,Využití GPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuUsage,Využití GPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
+PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory,Využití Paměti,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Memory.Description,"Určuje, jaký bude výsledek duhovky v závislosti na nastavení využití paměti.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
-PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Memory.MemoryUsage,Využití Paměti (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory.MemoryUsage,Využití Paměti (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
+PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network,Využití Sítě,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Network.Description,"Určuje, jaký bude výsledek duhovky v závislosti na nastavení využití sítě.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
-PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network.NetworkAdapter,Síťový Adaptér:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Seznam síťových adaptérů nebyl dosud vytvořen,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
-PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkUpload,Velikost Nahrávání:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkDownload,Velikost Stahování:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
+Portal.PerformanceSettingPage.Network.NetworkUpload,Velikost Nahrávání:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkPing,Ping (ms):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
+Portal.PerformanceSettingPage.Network.NetworkDownload,Velikost Stahování:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Ping (ms):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
+PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery,Baterie,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Battery.Description,"Určuje, jaký bude výsledek duhovky při použití na baterii v notebooku.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
-PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Battery.BatteryUsage,Stav Baterie (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery.BatteryUsage,Stav Baterie (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
+PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Saver,Úsporný Režim,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Saver.Description,"Určuje, jaký bude výsledek duhovky v energeticky úsporném režimu notebooku.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
-PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Virtual,Virtualizace,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Virtual.Description,"Určuje, jaký bude výsledek duhovky při použití virtualizačních aplikací.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
-PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Remote,Vzdálená Plocha,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Remote.Description,"Určuje, jaký bude výsledek duhovky při použití aplikací pro vzdálenou plochu.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
-PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Fullscreen,Režim Celé Obrazovky,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Fullscreen.Description,"Určuje, jaký bude výsledek duhovky v režimu celé obrazovky, když běží jakákoli jiná aplikace.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
-PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Focus,Režim Fókusu,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PerformanceSettingPage.Focus.Description,"Určuje, jaký bude výsledek duhovky, když je aktivní jiná aplikace.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
-PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server,Server Obchodu,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 Portal.PersonalSettingPage.Server.Description,"Určuje, který server bude použit k zobrazení témat uvedených v obchodě.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
-PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Server.ServerHint,"Poznámka: Pokud je jako server vybrán {0}, je nutné zadat {2}, abyste se vyhnuli limitům žádostí. Jinak můžete mít problémy s přístupem k tématům v obchodě. Pokud je vybráno {1}, budete mít plynulejší zkušenost s obchodem.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server.ServerHint,"Poznámka: Pokud je jako server vybrán {0}, je nutné zadat {2}, abyste se vyhnuli limitům žádostí. Jinak můžete mít problémy s přístupem k tématům v obchodě. Pokud je vybráno {1}, budete mít plynulejší zkušenost s obchodem.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
+PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Duration,Obchodní Aktualizace,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 Portal.PersonalSettingPage.Duration.Description,"Určuje, jak často budou seznamy témat v obchodě aktualizovány.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
-PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.StoreStart,Automatický Start,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 Portal.PersonalSettingPage.StoreStart.Description,"Určuje, zda se stažené téma z obchodu automaticky nastaví jako tapeta.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
-PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adult,Nestandardní Obsah,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 Portal.PersonalSettingPage.Adult.Description,"Určuje, zda se má zobrazovat obsah označený jako NSFW v obchodě.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
-PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Confirm,Potvrzení Smazání,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 Portal.PersonalSettingPage.Confirm.Description,"Určuje, zda se má zobrazit potvrzení při mazání témat z knihovny.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
-PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete,Chybná Témata,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 Portal.PersonalSettingPage.Delete.Description,"Určuje, zda se mají chybná nebo neúplná témata automaticky mazat z knihovny.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
-PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Delete.DeleteHint,"Poznámka: Buďte opatrní, mazání může vést k ztrátě dat.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete.DeleteHint,"Poznámka: Buďte opatrní, mazání může vést k ztrátě dat.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
+PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.LibraryStart,Automatický Start,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 Portal.PersonalSettingPage.LibraryStart.Description,"Určuje, zda se vytvořené téma automaticky nastaví jako tapeta.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
-PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview,Náhled Tématu,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 Portal.PersonalSettingPage.Preview.Description,"Určuje, zda se mají témata zobrazovat jako náhled po najetí myší.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
-PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.StorePreview,Náhled Obchodu:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 Portal.PersonalSettingPage.Preview.StorePreviewHide,Skrýt Detaily:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
-PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.LibraryPreview,Náhled Knižnice:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Skrýt Detaily:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
-PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adaptive,Přizpůsobivé Rozložení,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 Portal.PersonalSettingPage.Adaptive.Description,Upravte rozložení nebo vzdálenost mezi zobrazenými tématy.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
-PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Mezera (Pixely):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Pořadí Rozložení (Počet):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Mezera (Pixely):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Pořadí Rozložení (Počet):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
+PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Sort,Řazení Knihovny,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 Portal.PersonalSettingPage.Sort.Description,"Určete, jak budou témata ve vaší knihovně seřazena a v jakém formátu.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
-PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortMode,Režim Řazení:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortKind,Typ Řazení:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
+Portal.PersonalSettingPage.Sort.SortMode,Režim Řazení:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,Typ Řazení:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
+PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Store,Stránkování Obchodu,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 Portal.PersonalSettingPage.Store.Description,"Nastavuje, kolik témat bude na každé stránce obchodu.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
-PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Library,Stránkování Knihovny,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 Portal.PersonalSettingPage.Library.Description,"Nastavuje, kolik témat bude na každé stránce vaší knihovny.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,
 Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
-PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LogTemporary,Soubory záznamu,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 Portal.SystemSettingPage.LogTemporary.Description,Spravujte všechny soubory záznamu vytvořené aplikací.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
-PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Create,Vytvořit,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Delete,Vymazat,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
+Portal.SystemSettingPage.LogTemporary.Create,Vytvořit,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Hint,Poznámka: Celková velikost souborů záznamu je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
+Portal.SystemSettingPage.LogTemporary.Delete,Vymazat,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,Poznámka: Celková velikost souborů záznamu je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
+PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.CacheTemporary,Vyprázdnit cache,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 Portal.SystemSettingPage.CacheTemporary.Description,Vyčistěte všechny dočasné soubory cache vytvořené aplikací.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
-PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Start,Začít čištění,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Hint,Poznámka: Celková velikost dočasných souborů cache je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
+Portal.SystemSettingPage.CacheTemporary.Start,Začít čištění,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,Poznámka: Celková velikost dočasných souborů cache je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
+PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.StoreTemporary,Vyprázdnit obchod,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 Portal.SystemSettingPage.StoreTemporary.Description,Vyčistěte všechny soubory obchodu vytvořené aplikací.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
-PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Start,Začít čištění,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Hint,Poznámka: Celková velikost souborů obchodu je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
+Portal.SystemSettingPage.StoreTemporary.Start,Začít čištění,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,Poznámka: Celková velikost souborů obchodu je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
+PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LibraryTemporary,Vyprázdnit knihovnu,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 Portal.SystemSettingPage.LibraryTemporary.Description,"Vyčistěte všechny soubory témat v knihovně nebo ty, které jste vytvořili.",,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
-PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Start,Začít čištění,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Hint,Poznámka: Celková velikost témat v knihovně je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
+Portal.SystemSettingPage.LibraryTemporary.Start,Začít čištění,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,Poznámka: Celková velikost témat v knihovně je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
+PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingBackup,Zálohování nastavení,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 Portal.SystemSettingPage.SettingBackup.Description,Spravujte všechny soubory nastavení vytvořené aplikací.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
-PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Export,Exportovat,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Import,Importovat,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
+Portal.SystemSettingPage.SettingBackup.Export,Exportovat,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Hint,Poznámka: Při zahájení vybrané akce budou uzavřeny všechny aplikace.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
+Portal.SystemSettingPage.SettingBackup.Import,Importovat,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,Poznámka: Při zahájení vybrané akce budou uzavřeny všechny aplikace.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
+PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingReset,Obnovení nastavení,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 Portal.SystemSettingPage.SettingReset.Description,Obnovte všechny soubory nastavení vytvořené aplikací na výchozí hodnoty.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
-PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Start,Začít obnovu,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Hint,Poznámka: Při zahájení obnovy budou uzavřeny všechny aplikace.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
+Portal.SystemSettingPage.SettingReset.Start,Začít obnovu,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,Poznámka: Při zahájení obnovy budou uzavřeny všechny aplikace.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
+PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Log.SaveDialogTitle,Uložit soubor záznamu,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP soubory (*.zip)|*.zip|Všechny soubory (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
-PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Access.Close,Rozumím,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 Portal.SystemSettingPage.Access.Title,Upozornění na Přístup,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 Portal.SystemSettingPage.Access.Message,Nemáte oprávnění k přístupu na vybranou lokaci.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.InputMode,Metoda Interakce,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.InputMode.Description,"Určuje metody, pomocí kterých může interakce probíhat se podporovanými tapetami.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputModule,Interakční Modul:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputDesktop,Zpracovat interakci pouze při zaměření na pracovní plochu,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
+Portal.WallpaperSettingPage.InputMode.InputModule,Interakční Modul:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.DesktopIcon,"Skrýt, aby se zabránilo náhodnému výběru ikon pracovní plochy",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
+Portal.WallpaperSettingPage.InputMode.InputDesktop,Zpracovat interakci pouze při zaměření na pracovní plochu,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,"Skrýt, aby se zabránilo náhodnému výběru ikon pracovní plochy",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
+PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ScreenLayout,Rozmístění na obrazovce,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.ScreenLayout.Description,Změní umístění vašich tapet na obrazovce.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.StretchMode,Režim protažení,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.StretchMode.Description,Změní režim měřítka na podporovaných tapetách.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.LoopMode,Režim smyčky,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.LoopMode.Description,Změní režim smyčky na podporovaných tapetách.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ShuffleMode,Režim zamíchání,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Změní režim zamíchání na podporovaných tapetách.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Přehrávač Gif,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,"Vyberte doplněk, který bude přehrávat témata ve formátu Gif uložená ve vaší knihovně.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Přehrávač Video,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,"Vyberte doplněk, který bude přehrávat témata ve formátu Video uložená ve vaší knihovně.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Url Engine,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,"Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu Url.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙272,PASS⦙272,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Web Engine,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,"Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu Web.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙272,PASS⦙272,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙273,PASS⦙273,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,YouTube Engine,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,"Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu YouTube.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙273,PASS⦙273,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙274,PASS⦙274,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Application Engine,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,"Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu Application.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.CS.xaml,
-PASS⦙274,PASS⦙274,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙275,PASS⦙275,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.CS.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,"Okamžik, kdy zhasly internetové světla",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.CS.xaml,
 Portal.BrokenStorePage.DescriptionText,"Jako hvězdná obloha bez hvězd, zde nenajdete zář internetu.",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.CS.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.CS.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.CS.xaml,
-PASS⦙275,PASS⦙275,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙276,PASS⦙276,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.CS.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Odpovědi na vaše hledání mohou být ukryty na obloze,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.CS.xaml,
 Portal.SearchStorePage.DescriptionText,"Pokud výsledky nepřicházejí tak, jak jste čekali, obloha vám může nabídnout nový zážitek.",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.CS.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.CS.xaml,
-PASS⦙276,PASS⦙276,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙277,PASS⦙277,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.CS.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,"Objevte Tajemství, Které Se V Obchodě Událo",,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.CS.xaml,
 Portal.UnknownStorePage.DescriptionText,"Vydejte se na cestu k odhalení tajemství, které se stalo v obchodě, a sledujte neznámý příběh.",,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.CS.xaml,

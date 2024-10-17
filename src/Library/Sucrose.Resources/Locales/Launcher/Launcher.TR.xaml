@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">Günlük Dosyası Oluştur</system:String>
 
+    <system:String x:Key="Launcher.CloseText">Uygulamaları Kapat</system:String>
+
     <system:String x:Key="Launcher.ExitText">Çıkış</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">Bir Sorun Bildir</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">Günlük Dosyasını Kaydet</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">İstek ve Geri Bildirim</system:String>
+    <system:String x:Key="Launcher.FeedbackText">Geri Bildirim Gönder</system:String>
 
     <system:String x:Key="Launcher.SettingText">Ayarlar</system:String>
 

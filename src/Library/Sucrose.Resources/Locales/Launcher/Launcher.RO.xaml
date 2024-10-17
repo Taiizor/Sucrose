@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">Creare Fișier Jurnal</system:String>
 
+    <system:String x:Key="Launcher.CloseText">Închide Aplicații</system:String>
+
     <system:String x:Key="Launcher.ExitText">Ieșire</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">Raportați o Problemă</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">Salvare Fișier Jurnal</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">Cerințe și Feedback</system:String>
+    <system:String x:Key="Launcher.FeedbackText">Trimiteți Feedback</system:String>
 
     <system:String x:Key="Launcher.SettingText">Setări</system:String>
 

@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">创建日志文件</system:String>
 
+    <system:String x:Key="Launcher.CloseText">关闭应用程序</system:String>
+
     <system:String x:Key="Launcher.ExitText">退出</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">报告问题</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">保存日志文件</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">请求与反馈</system:String>
+    <system:String x:Key="Launcher.FeedbackText">发送反馈</system:String>
 
     <system:String x:Key="Launcher.SettingText">设置</system:String>
 

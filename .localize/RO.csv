@@ -107,6 +107,8 @@ Launcher\Launcher.RO.xaml,Launcher.WallCustomizeText,Personalizare Tapet
 Launcher\Launcher.RO.xaml,,
 Launcher\Launcher.RO.xaml,Launcher.CreateLogText,Creare Fișier Jurnal
 Launcher\Launcher.RO.xaml,,
+Launcher\Launcher.RO.xaml,Launcher.CloseText,Închide Aplicații
+Launcher\Launcher.RO.xaml,,
 Launcher\Launcher.RO.xaml,Launcher.ExitText,Ieșire
 Launcher\Launcher.RO.xaml,,
 Launcher\Launcher.RO.xaml,Launcher.OpenReportText,Raportați o Problemă
@@ -121,6 +123,7 @@ Launcher\Launcher.RO.xaml,Launcher.SaveDialogFilter,Fișiere ZIP (*.zip)|*.zip|T
 Launcher\Launcher.RO.xaml,Launcher.SaveDialogTitle,Salvare Fișier Jurnal
 Launcher\Launcher.RO.xaml,,
 Launcher\Launcher.RO.xaml,Launcher.RequestFeedbackText,Cerințe și Feedback
+Launcher\Launcher.RO.xaml,Launcher.FeedbackText,Trimiteți Feedback
 Launcher\Launcher.RO.xaml,,
 Launcher\Launcher.RO.xaml,Launcher.SettingText,Setări
 Launcher\Launcher.RO.xaml,,

@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">Créer un Fichier Journal</system:String>
 
+    <system:String x:Key="Launcher.CloseText">Fermer les Applications</system:String>
+
     <system:String x:Key="Launcher.ExitText">Quitter</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">Signaler un Problème</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">Enregistrer le Fichier Journal</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">Demandes et Commentaires</system:String>
+    <system:String x:Key="Launcher.FeedbackText">Envoyer des Commentaires</system:String>
 
     <system:String x:Key="Launcher.SettingText">Paramètres</system:String>
 

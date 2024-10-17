@@ -107,124 +107,127 @@ Launcher.WallCustomizeText,वॉलपेपर को अनुकूलित
 PASS⦙3,PASS⦙3,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
 Launcher.CreateLogText,लॉग फ़ाइल बनाएँ,,Launcher\Launcher.HI.xaml,
 PASS⦙4,PASS⦙4,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
-Launcher.ExitText,निकास,,Launcher\Launcher.HI.xaml,
+Launcher.CloseText,ऐप्लिकेशन बंद करें,,Launcher\Launcher.HI.xaml,
 PASS⦙5,PASS⦙5,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
-Launcher.OpenReportText,समस्या की रिपोर्ट करें,,Launcher\Launcher.HI.xaml,
+Launcher.ExitText,निकास,,Launcher\Launcher.HI.xaml,
 PASS⦙6,PASS⦙6,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
-Launcher.OpenText,Sucrose खोलें,,Launcher\Launcher.HI.xaml,
+Launcher.OpenReportText,समस्या की रिपोर्ट करें,,Launcher\Launcher.HI.xaml,
 PASS⦙7,PASS⦙7,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
-Launcher.ReportText,समस्या की रिपोर्ट करें,,Launcher\Launcher.HI.xaml,
+Launcher.OpenText,Sucrose खोलें,,Launcher\Launcher.HI.xaml,
 PASS⦙8,PASS⦙8,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
-Launcher.ReportWindowTitle,Sucrose निदान,,Launcher\Launcher.HI.xaml,
+Launcher.ReportText,समस्या की रिपोर्ट करें,,Launcher\Launcher.HI.xaml,
 PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
+Launcher.ReportWindowTitle,Sucrose निदान,,Launcher\Launcher.HI.xaml,
+PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
 Launcher.SaveDialogFilter,ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*,,Launcher\Launcher.HI.xaml,
 Launcher.SaveDialogTitle,लॉग फ़ाइल सहेजें,,Launcher\Launcher.HI.xaml,
-PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
-Launcher.RequestFeedbackText,अनुरोध और प्रतिक्रिया,,Launcher\Launcher.HI.xaml,
 PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
-Launcher.SettingText,सेटिंग्स,,Launcher\Launcher.HI.xaml,
+Launcher.RequestFeedbackText,अनुरोध और प्रतिक्रिया,,Launcher\Launcher.HI.xaml,
+Launcher.FeedbackText,प्रतिक्रिया भेजें,,Launcher\Launcher.HI.xaml,
 PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
-Launcher.TrayText,Sucrose Wallpaper Engine,,Launcher\Launcher.HI.xaml,
+Launcher.SettingText,सेटिंग्स,,Launcher\Launcher.HI.xaml,
 PASS⦙13,PASS⦙13,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
+Launcher.TrayText,Sucrose Wallpaper Engine,,Launcher\Launcher.HI.xaml,
+PASS⦙14,PASS⦙14,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
 Launcher.WallChangeText,वॉलपेपर बदलें,,Launcher\Launcher.HI.xaml,
 Launcher.WallCloseText,वॉलपेपर बंद करें,,Launcher\Launcher.HI.xaml,
 Launcher.WallOpenText,वॉलपेपर खोलें,,Launcher\Launcher.HI.xaml,
 Launcher.WallStartText,वॉलपेपर शुरू करें,,Launcher\Launcher.HI.xaml,
 Launcher.WallStopText,वॉलपेपर रोकें,,Launcher\Launcher.HI.xaml,
-PASS⦙14,PASS⦙14,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
+PASS⦙15,PASS⦙15,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
 Launcher.ClosedText,बंद,,Launcher\Launcher.HI.xaml,
 Launcher.PausedText,रुका हुआ,,Launcher\Launcher.HI.xaml,
-PASS⦙15,PASS⦙15,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
-Launcher.UpdateText,अपडेट देखें,,Launcher\Launcher.HI.xaml,
 PASS⦙16,PASS⦙16,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
+Launcher.UpdateText,अपडेट देखें,,Launcher\Launcher.HI.xaml,
+PASS⦙17,PASS⦙17,Don't Touch,Launcher\Launcher.HI.xaml,Please don't touch the translation in this line.
 Launcher.UpdateText.Done,अपडेट तैयार हो रहा है,,Launcher\Launcher.HI.xaml,
 Launcher.UpdateText.Check,अपडेट देख रहे हैं,,Launcher\Launcher.HI.xaml,
 Launcher.UpdateText.Progress,अपडेट प्रगति {0},,Launcher\Launcher.HI.xaml,
 Live.Title,{0} सूचना,,Live\Live.HI.xaml,
-PASS⦙17,PASS⦙17,Don't Touch,Live\Live.HI.xaml,Please don't touch the translation in this line.
+PASS⦙18,PASS⦙18,Don't Touch,Live\Live.HI.xaml,Please don't touch the translation in this line.
 Live.Close,बंद करें,,Live\Live.HI.xaml,
 Live.Continue,जारी रखें,,Live\Live.HI.xaml,
 Live.Download,डाउनलोड करें,,Live\Live.HI.xaml,
 Live.Remember,याद रखें,,Live\Live.HI.xaml,
-PASS⦙18,PASS⦙18,Don't Touch,Live\Live.HI.xaml,Please don't touch the translation in this line.
+PASS⦙19,PASS⦙19,Don't Touch,Live\Live.HI.xaml,Please don't touch the translation in this line.
 Live.Info.WebView,WebView आवश्यकताएँ,,Live\Live.HI.xaml,
 Live.Info.CefSharp,CefSharp आवश्यकताएँ,,Live\Live.HI.xaml,
-PASS⦙19,PASS⦙19,Don't Touch,Live\Live.HI.xaml,Please don't touch the translation in this line.
+PASS⦙20,PASS⦙20,Don't Touch,Live\Live.HI.xaml,Please don't touch the translation in this line.
 Live.Message.WebView,"WebView2 रनटाइम इंस्टॉल नहीं है। WebView2 रनटाइम एक घटक है जो अनुप्रयोगों में आधुनिक वेब तकनीकों के उपयोग को सक्षम बनाता है। इसलिए, चयनित वॉलपेपर सेट करने के लिए WebView2 रनटाइम की आवश्यकता होती है।",,Live\Live.HI.xaml,
 Live.Message.CefSharp,"VC++ Redistributable इंस्टॉल नहीं है। VC++ Redistributable कुछ सिस्टम घटकों को प्रदान करता है जो CefSharp के सही ढंग से काम करने के लिए आवश्यक हैं। CefSharp एक फ्रेमवर्क है जो अनुप्रयोगों में आधुनिक वेब तकनीकों के उपयोग को सक्षम बनाता है। इसलिए, चयनित वॉलपेपर सेट करने के लिए VC++ Redistributable की आवश्यकता होती है।",,Live\Live.HI.xaml,
 Base64⦙1,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5ISS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\Portal.HI.xaml,Please don't touch the translation in this line.
 Property.WindowTitle,Sucrose Property,,Property\Property.HI.xaml,
-PASS⦙20,PASS⦙20,Don't Touch,Property\Property.HI.xaml,Please don't touch the translation in this line.
+PASS⦙21,PASS⦙21,Don't Touch,Property\Property.HI.xaml,Please don't touch the translation in this line.
 Property.DeleteTip,कॉपी हटाएं,,Property\Property.HI.xaml,
 Property.RefreshTip,इंटरफेस को रिफ़्रेश करें,,Property\Property.HI.xaml,
 Property.RestoreTip,डिफ़ॉल्ट को बहाल करें,,Property\Property.HI.xaml,
-PASS⦙21,PASS⦙21,Don't Touch,Property\Property.HI.xaml,Please don't touch the translation in this line.
-Property.Type.NotSupport,नियंत्रण प्रकार '{0}' समर्थित नहीं है।,,Property\Property.HI.xaml,
 PASS⦙22,PASS⦙22,Don't Touch,Property\Property.HI.xaml,Please don't touch the translation in this line.
+Property.Type.NotSupport,नियंत्रण प्रकार '{0}' समर्थित नहीं है।,,Property\Property.HI.xaml,
+PASS⦙23,PASS⦙23,Don't Touch,Property\Property.HI.xaml,Please don't touch the translation in this line.
 Property.ColorPicker.Color,रंग,,Property\Property.HI.xaml,
 Property.ColorPicker.Cancel,रद्द करें,,Property\Property.HI.xaml,
 Property.ColorPicker.Confirm,पुष्टि करें,,Property\Property.HI.xaml,
 Property.ColorPicker.EyeDropper,नेत्र-स्रोत,,Property\Property.HI.xaml,
 Property.ColorPicker.Popup.Title,Sucrose Property Color Picker,,Property\Property.HI.xaml,
-PASS⦙23,PASS⦙23,Don't Touch,Property\Property.HI.xaml,Please don't touch the translation in this line.
+PASS⦙24,PASS⦙24,Don't Touch,Property\Property.HI.xaml,Please don't touch the translation in this line.
 Property.FileDropDown.Tip,एक फ़ाइल का चयन करें,,Property\Property.HI.xaml,
 Property.FileDropDown.Filter,सभी फ़ाइलें (*.*)|*.*,,Property\Property.HI.xaml,
-PASS⦙24,PASS⦙24,Don't Touch,Property\Property.HI.xaml,Please don't touch the translation in this line.
+PASS⦙25,PASS⦙25,Don't Touch,Property\Property.HI.xaml,Please don't touch the translation in this line.
 Property.FileDropDown.Access.Close,समझ गया,,Property\Property.HI.xaml,
 Property.FileDropDown.Access.Title,प्रवेश चेतावनी,,Property\Property.HI.xaml,
 Property.FileDropDown.Access.Message,आपको चयनित फ़ाइल तक पहुंचने की अनुमति नहीं है।,,Property\Property.HI.xaml,
 Undo.QuestionTitle,Sucrose Undo,,Undo\Undo.HI.xaml,
-PASS⦙25,PASS⦙25,Don't Touch,Undo\Undo.HI.xaml,Please don't touch the translation in this line.
+PASS⦙26,PASS⦙26,Don't Touch,Undo\Undo.HI.xaml,Please don't touch the translation in this line.
 Undo.QuestionMessage,क्या आप वास्तव में Sucrose Wallpaper Engine को अनइंस्टॉल करना चाहते हैं?,,Undo\Undo.HI.xaml,
 Undo.QuestionDescription,"सभी सेटिंग्स के साथ हटाने के लिए, हां चुनें; सेटिंग्स को बनाए रखने और केवल हटाने के लिए, नहीं चुनें; और हटाने की प्रक्रिया को रद्द करने के लिए, रद्द करें चुनें।",,Undo\Undo.HI.xaml,
 Update.WindowTitle,Sucrose Update,,Update\Update.HI.xaml,
-PASS⦙26,PASS⦙26,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
-Update.HelpText,समस्या को हल करें,,Update\Update.HI.xaml,
 PASS⦙27,PASS⦙27,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
-Update.ReloadText,पुनः प्रयास करें,,Update\Update.HI.xaml,
+Update.HelpText,समस्या को हल करें,,Update\Update.HI.xaml,
 PASS⦙28,PASS⦙28,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
-Update.ReloadText.Check.Again,फिर से जाँचें,,Update\Update.HI.xaml,
+Update.ReloadText,पुनः प्रयास करें,,Update\Update.HI.xaml,
 PASS⦙29,PASS⦙29,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
+Update.ReloadText.Check.Again,फिर से जाँचें,,Update\Update.HI.xaml,
+PASS⦙30,PASS⦙30,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
 Update.ReloadText.Browser.Opened,ब्राउज़र में खोला गया,,Update\Update.HI.xaml,
 Update.ReloadText.Browser.Opening,ब्राउज़र में खुल रहा है,,Update\Update.HI.xaml,
-PASS⦙30,PASS⦙30,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
-Update.MessageText.Preparing,आवश्यक तैयारियों को तैयार कर रहे हैं,,Update\Update.HI.xaml,
 PASS⦙31,PASS⦙31,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
+Update.MessageText.Preparing,आवश्यक तैयारियों को तैयार कर रहे हैं,,Update\Update.HI.xaml,
+PASS⦙32,PASS⦙32,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
 Update.MessageText.Temporary,तात्कालिक स्थानों की जाँच कर रहे हैं,,Update\Update.HI.xaml,
 Update.MessageText.Temporary.Error,तात्कालिक स्थानों की जाँच नहीं की जा सकी,,Update\Update.HI.xaml,
-PASS⦙32,PASS⦙32,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
+PASS⦙33,PASS⦙33,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
 Update.MessageText.Connection,इंटरनेट कनेक्शन की जाँच कर रहे हैं,,Update\Update.HI.xaml,
 Update.MessageText.Connection.None,कोई इंटरनेट कनेक्शन नहीं,,Update\Update.HI.xaml,
 Update.MessageText.Connection.Error,इंटरनेट कनेक्शन की जाँच नहीं की जा सकी,,Update\Update.HI.xaml,
-PASS⦙33,PASS⦙33,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
+PASS⦙34,PASS⦙34,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
 Update.MessageText.Listing,आवश्यक सूचियों को प्राप्त कर रहे हैं,,Update\Update.HI.xaml,
 Update.MessageText.Listing.Empty,आवश्यक सूचियाँ खाली हैं,,Update\Update.HI.xaml,
 Update.MessageText.Listing.Error,आवश्यक सूचियाँ प्राप्त नहीं की जा सकीं,,Update\Update.HI.xaml,
-PASS⦙34,PASS⦙34,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
+PASS⦙35,PASS⦙35,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
 Update.MessageText.Filtering,सूचियों को फ़िल्टर कर रहे हैं,,Update\Update.HI.xaml,
 Update.MessageText.Filtering.Not,सूचियाँ फ़िल्टर नहीं की जा सकीं,,Update\Update.HI.xaml,
 Update.MessageText.Filtering.Error,सूचियों को फ़िल्टर नहीं किया जा सका,,Update\Update.HI.xaml,
-PASS⦙35,PASS⦙35,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
+PASS⦙36,PASS⦙36,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
 Update.MessageText.Comparing,सूचियों की तुलना की जा रही है,,Update\Update.HI.xaml,
 Update.MessageText.Comparing.Update,एप्लिकेशन पहले से ही अद्यतित है,,Update\Update.HI.xaml,
 Update.MessageText.Comparing.Error,सूचियों की तुलना करने में विफल,,Update\Update.HI.xaml,
-PASS⦙36,PASS⦙36,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
+PASS⦙37,PASS⦙37,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
 Update.MessageText.Searching,आवश्यक फ़ाइलें खोज रहे हैं,,Update\Update.HI.xaml,
 Update.MessageText.Searching.Not,आवश्यक फ़ाइलें नहीं मिलीं,,Update\Update.HI.xaml,
 Update.MessageText.Searching.Error,आवश्यक फ़ाइलें खोजी नहीं जा सकीं,,Update\Update.HI.xaml,
 Update.MessageText.Searching.Condition,आवश्यक फ़ाइलें नहीं मिलीं,,Update\Update.HI.xaml,
-PASS⦙37,PASS⦙37,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
+PASS⦙38,PASS⦙38,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
 Update.MessageText.Downloading,आवश्यक फ़ाइलें डाउनलोड कर रहे हैं,,Update\Update.HI.xaml,
 Update.MessageText.Downloading.Error,आवश्यक फ़ाइलें डाउनलोड नहीं की जा सकीं,,Update\Update.HI.xaml,
 Update.MessageText.Downloading.Complete.Cancel,आवश्यक फ़ाइल का डाउनलोड रद्द किया गया था,,Update\Update.HI.xaml,
 Update.MessageText.Downloading.Complete.Error,आवश्यक फ़ाइल के डाउनलोड के दौरान एक त्रुटि हुई,,Update\Update.HI.xaml,
-PASS⦙38,PASS⦙38,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
+PASS⦙39,PASS⦙39,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
 Update.MessageText.Running,डाउनलोड की गई फ़ाइल की तैयारी,,Update\Update.HI.xaml,
 Update.MessageText.Running.Executing,डाउनलोड की गई फ़ाइल को निष्पादित किया जा रहा है,,Update\Update.HI.xaml,
 Update.MessageText.Running.Executed,डाउनलोड की गई फ़ाइल निष्पादित हुई,,Update\Update.HI.xaml,
 Update.MessageText.Running.Not,डाउनलोड की गई फ़ाइल उपयोगी नहीं,,Update\Update.HI.xaml,
 Update.MessageText.Running.Error,डाउनलोड की गई फ़ाइल की तैयारी विफल,,Update\Update.HI.xaml,
-PASS⦙39,PASS⦙39,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
+PASS⦙40,PASS⦙40,Don't Touch,Update\Update.HI.xaml,Please don't touch the translation in this line.
 Update.MessageText.Extracting,डाउनलोड किए गए फ़ाइल को निकाल रहे हैं,,Update\Update.HI.xaml,
 Update.MessageText.Extracting.Executing,निकाला गया फ़ाइल कार्यान्वित हो रही है,,Update\Update.HI.xaml,
 Update.MessageText.Extracting.Executed,निकाला गया फ़ाइल कार्यान्वित किया गया है,,Update\Update.HI.xaml,
@@ -262,7 +265,7 @@ Portal.Area.Extensions,एक्सटेंशन्स,,Portal\Area\Portal.Are
 Portal.Area.SystemResources,सिस्टम संसाधन,,Portal\Area\Portal.Area.HI.xaml,
 Portal.Area.AppearanceBehavior,दिखावट और व्यवहार,,Portal\Area\Portal.Area.HI.xaml,
 Portal.Category.All,सभी,,Portal\Category\Portal.Category.HI.xaml,
-PASS⦙40,PASS⦙40,Don't Touch,Portal\Category\Portal.Category.HI.xaml,Please don't touch the translation in this line.
+PASS⦙41,PASS⦙41,Don't Touch,Portal\Category\Portal.Category.HI.xaml,Please don't touch the translation in this line.
 Portal.Category.Abstract,अल्परूप,,Portal\Category\Portal.Category.HI.xaml,
 Portal.Category.Ambience,आवाज,,Portal\Category\Portal.Category.HI.xaml,
 Portal.Category.Animals,पशु,,Portal\Category\Portal.Category.HI.xaml,
@@ -331,22 +334,22 @@ Portal.Enum.Stretch.Fill,भरना,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.Stretch.None,कोई नहीं,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.Stretch.Uniform,समानानुपातिक,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.Stretch.UniformToFill,समानानुपातिक भरना,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙41,PASS⦙41,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.SortModeType.None,कोई नहीं,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.SortModeType.Name,नाम,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.SortModeType.Creation,सृजन,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.SortModeType.Modification,संशोधन,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.InputType.Close,बंद,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.InputType.OnlyMouse,केवल माउस,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.InputType.OnlyKeyboard,केवल कीबोर्ड,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.InputType.MouseKeyboard,माउस और कीबोर्ड,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.StretchType.Fill,भरना,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.StretchType.None,कोई नहीं,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.StretchType.Uniform,समानानुपातिक,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.StretchType.UniformToFill,समानानुपातिक भरना,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.ReportThemeType.Spam,स्पैम,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.ReportThemeType.Other,अन्य,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.ReportThemeType.Nudity,नग्नता,,Portal\Enum\Portal.Enum.HI.xaml,
@@ -355,56 +358,56 @@ Portal.Enum.ReportThemeType.Violence,हिंसा,,Portal\Enum\Portal.Enum.HI
 Portal.Enum.ReportThemeType.Malicious,दुर्भावनापूर्ण,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.ReportThemeType.CopyrightViolation,कॉपीराइट उल्लंघन,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.ReportThemeType.MisleadingInformation,भ्रामक जानकारी,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.CommunicationType.Pipe,Pipe,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.CommunicationType.Signal,Signal,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.PerformanceType.Close,बंद करें,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.PerformanceType.Pause,रोकें,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.PerformanceType.Resume,जारी रखें,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.WindowBackdropType.Mica,माइका,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.WindowBackdropType.None,कोई नहीं,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.WindowBackdropType.Auto,स्वचालित,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.WindowBackdropType.Tabbed,टैब किया गया,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.WindowBackdropType.Acrylic,ऐक्रिलिक,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.InputModuleType.Native,Native,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.InputModuleType.RawInput,RawInput,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.StoreServerType.GitHub,GitHub,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.StoreServerType.Soferity,Soferity,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateModuleType.Native,Native,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.UpdateModuleType.Downloader,Downloader,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateServerType.GitHub,GitHub,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.UpdateServerType.Soferity,Soferity,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.PausePerformanceType.Heavy,भारी,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.PausePerformanceType.Light,हल्का,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.SortKindType.Ascending,आरोही [A-Z],,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.SortKindType.Descending,अवरोही [Z-A],,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.ExpandScreenType.Default,डिफ़ॉल्ट,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.ExpandScreenType.Advanced,उन्नत,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.TransitionCycleType.Random,यादृच्छिक,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.TransitionCycleType.Sequential,क्रमिक,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙57,PASS⦙57,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.ScreenType.WorkingArea,काम क्षेत्र,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.ScreenType.DisplayBound,प्रदर्शन सीमा,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙57,PASS⦙57,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙58,PASS⦙58,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateChannelType.Release,डिफ़ॉल्ट,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.UpdateChannelType.PreRelease,डेवलपर,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙58,PASS⦙58,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙59,PASS⦙59,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.DuplicateScreenType.Default,डिफ़ॉल्ट,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.DuplicateScreenType.Advanced,उन्नत,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙59,PASS⦙59,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙60,PASS⦙60,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateExtensionType.Compressed,संकुचित,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.UpdateExtensionType.Executable,क्रियान्वित,,Portal\Enum\Portal.Enum.HI.xaml,
-PASS⦙60,PASS⦙60,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
+PASS⦙61,PASS⦙61,Don't Touch,Portal\Enum\Portal.Enum.HI.xaml,Please don't touch the translation in this line.
 Portal.Enum.CompatibilityType.Pass,सफल परिणाम,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.CompatibilityType.Tags,'Tags' में बहुत सारे मूल्य हैं,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.CompatibilityType.Type,"थीम, ऐसे एक प्रकार के आवश्यकता नहीं है, जो ऐप्लिकेशन से संगत नहीं है",,Portal\Enum\Portal.Enum.HI.xaml,
@@ -454,25 +457,25 @@ Portal.Enum.CompatibilityType.InvalidProperties,'SucroseProperties.json' फ़�
 Portal.Enum.CompatibilityType.PropertyLocalization,अमान्य 'PropertyLocalization' मूल्य,,Portal\Enum\Portal.Enum.HI.xaml,
 Portal.Enum.CompatibilityType.UnforeseenConsequences,अप्रत्याशित परिणाम,,Portal\Enum\Portal.Enum.HI.xaml,
 Base64⦙3,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5ISS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.HI.xaml,Please don't touch the translation in this line.
-PASS⦙61,PASS⦙61,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.HI.xaml,Please don't touch the translation in this line.
-Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.HI.xaml,
 PASS⦙62,PASS⦙62,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.HI.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.HI.xaml,
+PASS⦙63,PASS⦙63,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.HI.xaml,Please don't touch the translation in this line.
 Portal.LibraryPage.Import.Successful,'{0}' थीम सफलतापूर्वक पुस्तकालय में जोड़ दी गई।,,Portal\LibraryPage\Portal.LibraryPage.HI.xaml,
 Portal.LibraryPage.Import.Unsuccessful,'{0}' थीम पुस्तकालय में जोड़ा नहीं जा सका। कारण: '{1}'।,,Portal\LibraryPage\Portal.LibraryPage.HI.xaml,
 Portal.MainWindow.Title,Sucrose Wallpaper Engine,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
-PASS⦙63,PASS⦙63,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
+PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuHelp,सहायता,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Portal.MainWindow.MenuAbout,बारे में,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
-PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
+PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuHelpTip,सहायता देखें,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Portal.MainWindow.MenuAboutTip,बारे में देखें,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
-PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
+PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLibrary,पुस्तकालय,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Portal.MainWindow.MenuStore,स्टोर,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
-PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
+PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLibraryTip,थीम पुस्तकालय,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Portal.MainWindow.MenuStoreTip,थीम स्टोर,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
-PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
+PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuGeneral,सामान्य,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Portal.MainWindow.MenuPersonal,व्यक्तिगत,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Portal.MainWindow.MenuPerformance,प्रदर्शन,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
@@ -480,7 +483,7 @@ Portal.MainWindow.MenuWallpaper,वॉलपेपर,,Portal\MainWindow\Portal.
 Portal.MainWindow.MenuSystem,सिस्टम,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Portal.MainWindow.MenuDonate,दान करें,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Portal.MainWindow.MenuOther,अन्य,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
-PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
+PASS⦙69,PASS⦙69,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuBackTip,पीछे जाएं,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Portal.MainWindow.MenuGeneralTip,सामान्य सेटिंग्स,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Portal.MainWindow.MenuPersonalTip,व्यक्तिगत सेटिंग्स,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
@@ -489,16 +492,16 @@ Portal.MainWindow.MenuWallpaperTip,वॉलपेपर सेटिंग्�
 Portal.MainWindow.MenuSystemTip,सिस्टम सेटिंग्स,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Portal.MainWindow.MenuDonateTip,दान सेटिंग्स,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Portal.MainWindow.MenuOtherTip,अन्य सेटिंग्स,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
-PASS⦙69,PASS⦙69,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.MenuSettingTip,सेटिंग्स,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 PASS⦙70,PASS⦙70,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.SearchBoxHint,एक वॉलपेपर खोजें,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
+Portal.MainWindow.MenuSettingTip,सेटिंग्स,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 PASS⦙71,PASS⦙71,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.SearchBoxTip,क्या आपको जो चाहिए ढूंढ़ने में कठिनाई हो रही है?,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
+Portal.MainWindow.SearchBoxHint,एक वॉलपेपर खोजें,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 PASS⦙72,PASS⦙72,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxTip,क्या आपको जो चाहिए ढूंढ़ने में कठिनाई हो रही है?,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
+PASS⦙73,PASS⦙73,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLightTip,प्रकाशमान थीम,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Portal.MainWindow.MenuDarkTip,डार्क थीम,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
-PASS⦙73,PASS⦙73,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
+PASS⦙74,PASS⦙74,Don't Touch,Portal\MainWindow\Portal.MainWindow.HI.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuCreateWallpaperTip,वॉलपेपर बनाएं,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Portal.MainWindow.MenuWallpaperCyclingTip,वॉलपेपर साइक्लिंग,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Portal.MainWindow.MenuDisplayPreferencesTip,प्रदर्शन पसंद,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
@@ -506,36 +509,36 @@ Portal.MainWindow.MenuDonateOptionsTip,दान विकल्प,,Portal\Main
 Portal.MainWindow.MenuOtherOptionsTip,अन्य विकल्प,,Portal\MainWindow\Portal.MainWindow.HI.xaml,
 Base64⦙4,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuSEkueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\SettingPage\Portal.SettingPage.HI.xaml,Please don't touch the translation in this line.
 Base64⦙5,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLkhJLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==,Don't Touch,Portal\StorePage\Portal.StorePage.HI.xaml,Please don't touch the translation in this line.
-PASS⦙74,PASS⦙74,Don't Touch,Portal\StorePage\Portal.StorePage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙75,PASS⦙75,Don't Touch,Portal\StorePage\Portal.StorePage.HI.xaml,Please don't touch the translation in this line.
 Portal.StorePage.Title,StorePage,,Portal\StorePage\Portal.StorePage.HI.xaml,
 Portal.DisplayPreferences.Title,डिस्प्ले प्राथमिकताएँ,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,
 Portal.DisplayPreferences.Close,बंद करें,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,
-PASS⦙75,PASS⦙75,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Please don't touch the translation in this line.
+PASS⦙76,PASS⦙76,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Please don't touch the translation in this line.
 Portal.DisplayPreferences.Expander,स्थानन मोड,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,
 Portal.DisplayPreferences.Expander.Description,वॉलपेपर को सक्रिय स्क्रीन्स पर कैसे लागू करें।,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,
-PASS⦙76,PASS⦙76,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Screen,केवल चयनित स्क्रीन,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,
 PASS⦙77,PASS⦙77,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand,स्क्रीन्स को फैलाएं,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,
+Portal.DisplayPreferences.Screen,केवल चयनित स्क्रीन,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,
 PASS⦙78,PASS⦙78,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand.Monitor,सभी मॉनिटर,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,
+Portal.DisplayPreferences.Expand,स्क्रीन्स को फैलाएं,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,
 PASS⦙79,PASS⦙79,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand.Hint,स्क्रीन्स को फैलाने का मोड चुनें,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,
+Portal.DisplayPreferences.Expand.Monitor,सभी मॉनिटर,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,
 PASS⦙80,PASS⦙80,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Duplicate,समान वॉलपेपर की प्रतिलिपि बनाएं,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,
+Portal.DisplayPreferences.Expand.Hint,स्क्रीन्स को फैलाने का मोड चुनें,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,
 PASS⦙81,PASS⦙81,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate,समान वॉलपेपर की प्रतिलिपि बनाएं,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,
+PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Please don't touch the translation in this line.
 Portal.DisplayPreferences.Duplicate.Hint,समान वॉलपेपर की प्रतिलिपि बनाने का मोड चुनें,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,
 Portal.ExpanderCard.TitleText,शीर्षक,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.HI.xaml,
 Portal.ExpanderCard.DescriptionText,विवरण,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.HI.xaml,
-PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.HI.xaml,Please don't touch the translation in this line.
+PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.HI.xaml,Please don't touch the translation in this line.
 Portal.ExpanderCard.ExpandUpTip,सुकना,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.HI.xaml,
 Portal.ExpanderCard.ExpandDownTip,फैलाना,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.HI.xaml,
 Portal.LibraryCard.TitleText,शीर्षक,,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,
 Portal.LibraryCard.DescriptionText,विवरण,,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,
-PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Please don't touch the translation in this line.
+PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.MoreTip,अधिक,,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,
 Portal.LibraryCard.VersionTip,Sucrose का नवीनीकरण करने के लिए इस थीम का उपयोग करें,,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,
-PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Please don't touch the translation in this line.
+PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.MenuReview,समीक्षा,,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,
 Portal.LibraryCard.MenuUse,उपयोग करें,,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,
 Portal.LibraryCard.MenuPreview,पूर्वावलोकन,,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,
@@ -546,83 +549,83 @@ Portal.LibraryCard.MenuFind,खोजें,,Portal\Controls\LibraryCard\Portal.
 Portal.LibraryCard.MenuShare,साझा करें,,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,
 Portal.LibraryCard.MenuDelete,मिटाएं,,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,
 Portal.LibraryCard.MenuEdit,संपादित करें,,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,
-PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Please don't touch the translation in this line.
+PASS⦙86,PASS⦙86,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.Closed,बंद,,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,
 Portal.LibraryCard.Paused,रुका हुआ,,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,
-PASS⦙86,PASS⦙86,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Please don't touch the translation in this line.
-Portal.LibraryCard.Selected,चयनित,,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,
 PASS⦙87,PASS⦙87,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Selected,चयनित,,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,
+PASS⦙88,PASS⦙88,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.Incompatible,असंगत,,Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,
 Portal.OtherAbout.Title,हमारे बारे में,,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
 Portal.OtherAbout.Close,बंद करें,,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
-PASS⦙88,PASS⦙88,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.About,"नमस्ते, मेरा नाम Bayram Emekli है, जिन्हें Taiizor उपयोगकर्ता नाम से भी जाना जाता है। मैं Sucrose Wallpaper Engine ऐप के मुफ्त और ओपन सोर्स संस्करण के डेवलपर हूँ। मेरे डेवलप किए गए ऐप का उपयोग करने के लिए आपका धन्यवाद।",,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
 PASS⦙89,PASS⦙89,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.About,"नमस्ते, मेरा नाम Bayram Emekli है, जिन्हें Taiizor उपयोगकर्ता नाम से भी जाना जाता है। मैं Sucrose Wallpaper Engine ऐप के मुफ्त और ओपन सोर्स संस्करण के डेवलपर हूँ। मेरे डेवलप किए गए ऐप का उपयोग करने के लिए आपका धन्यवाद।",,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
+PASS⦙90,PASS⦙90,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherAbout.Update,संस्करण: v{0},,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
 Portal.OtherAbout.Update.Description,आखिरी जांच: {0},,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
-PASS⦙90,PASS⦙90,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Update.Notes,नोट्स अपडेट करें,,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
 PASS⦙91,PASS⦙91,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Partners,साझेदार,,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
+Portal.OtherAbout.Update.Notes,नोट्स अपडेट करें,,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
 PASS⦙92,PASS⦙92,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Contributors,सहयोगी,,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
+Portal.OtherAbout.Partners,साझेदार,,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
 PASS⦙93,PASS⦙93,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.TermsOfService,सेवा विशेषज्ञों की शर्तें,,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
+Portal.OtherAbout.Contributors,सहयोगी,,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
 PASS⦙94,PASS⦙94,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.PrivacyPolicy,गोपनीयता नीति,,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
+Portal.OtherAbout.TermsOfService,सेवा विशेषज्ञों की शर्तें,,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
 PASS⦙95,PASS⦙95,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.PrivacyPolicy,गोपनीयता नीति,,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
+PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherAbout.CodeOfConduct,सहयोगी समुदाय संरचना समझौता,,Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,
 Portal.OtherHelp.Title,सहायता,,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,
 Portal.OtherHelp.Close,बंद करें,,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,
-PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Please don't touch the translation in this line.
+PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.WebPage,वेब पेज,,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,
 Portal.OtherHelp.WebPage.Description,Sucrose Wallpaper Engine की आधिकारिक वेब पेज,,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,
-PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Please don't touch the translation in this line.
+PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Documentation,दस्तावेज़ीकरण,,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,
 Portal.OtherHelp.Documentation.Description,Sucrose Wallpaper Engine की आधिकारिक दस्तावेज़ीकरण पेज,,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,
-PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Please don't touch the translation in this line.
+PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Repository,स्रोत कोड,,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,
 Portal.OtherHelp.Repository.Description,Sucrose Wallpaper Engine की आधिकारिक स्रोत कोड पेज,,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,
-PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Please don't touch the translation in this line.
+PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Discussions,चर्चाएँ,,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,
 Portal.OtherHelp.Discussions.Description,Sucrose Wallpaper Engine की आधिकारिक चर्चाएँ पेज,,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,
-PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Please don't touch the translation in this line.
+PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Report,समस्या रिपोर्ट करें,,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,
 Portal.OtherHelp.Report.Description,Sucrose Wallpaper Engine की आधिकारिक समस्या रिपोर्ट पेज,,Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,
 Portal.Pagination.PageJump,छलाना,,Portal\Controls\Pagination\Portal.Pagination.HI.xaml,
 Portal.StoreCard.TitleText,शीर्षक,,Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,
 Portal.StoreCard.DescriptionText,विवरण,,Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,
-PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,Please don't touch the translation in this line.
-Portal.StoreCard.VersionTip,Sucrose का अपडेट करके इस थीम का उपयोग करने के लिए,,Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,
 PASS⦙102,PASS⦙102,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.VersionTip,Sucrose का अपडेट करके इस थीम का उपयोग करने के लिए,,Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,
+PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,Please don't touch the translation in this line.
 Portal.StoreCard.MenuUpdating,अपडेट की जाँच हो रही है,,Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,
 Portal.StoreCard.MenuUpdate,अपडेट देखें,,Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,
 Portal.StoreCard.MenuInstall,इंस्टॉल करें,,Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,
 Portal.StoreCard.MenuReport,रिपोर्ट करें,,Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,
-PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,Please don't touch the translation in this line.
+PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,Please don't touch the translation in this line.
 Portal.StoreCard.Incompatible,असंगत,,Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,
 Portal.ThemeCreate.Title,थीम बनाएं,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.Create,बनाएं,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.Close,बंद करें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Gif,Gif थीम,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.Gif.Description,Gif प्रकार की अपनी खुद की थीम बनाएं।,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Url,Url थीम,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.Url.Description,Url प्रकार की अपनी खुद की थीम बनाएं।,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Web,Web थीम,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.Web.Description,Web प्रकार की अपनी खुद की थीम बनाएं।,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Video,Video थीम,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.Video.Description,Video प्रकार की अपनी खुद की थीम बनाएं।,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.YouTube,YouTube थीम,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.YouTube.Description,YouTube प्रकार की अपनी खुद की थीम बनाएं।,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Application,Application थीम,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.Application.Description,Application प्रकार की अपनी खुद की थीम बनाएं।,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeUrl,Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.ThemeWeb,Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.ThemeApplication,एप्लिकेशन,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
@@ -634,7 +637,7 @@ Portal.ThemeCreate.ThemeAuthor,लेखक,,Portal\Controls\ThemeCreate\Portal.
 Portal.ThemeCreate.ThemeContact,संपर्क करें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.ThemeTags,टैग्स,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.ThemeArguments,आर्ग्यूमेंट्स,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeUrl.Hint,कृपया एक मान्य Url पता लिखें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.ThemeWeb.Hint,एक Web पृष्ठ चुनें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.ThemeApplication.Hint,एक एप्लिकेशन फ़ाइल चुनें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
@@ -646,41 +649,41 @@ Portal.ThemeCreate.ThemeAuthor.Hint,कृपया एक मान्य ल�
 Portal.ThemeCreate.ThemeContact.Hint,कृपया एक मान्य संपर्क पता लिखें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.ThemeTags.Hint,कृपया मान्य थीम टैग्स लिखें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.ThemeArguments.Hint,कृपया मान्य ऐप्लिकेशन आर्ग्यूमेंट्स लिखें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
-Portal.ThemeCreate.DragDrop.Delete,पूर्व वस्तुओं को हटाएँ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 PASS⦙113,PASS⦙113,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Delete,पूर्व वस्तुओं को हटाएँ,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
+PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Gif.Title,Gif फ़ाइल चुनें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.DragDrop.Gif.Filter,Gif फ़ाइलें (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Video.Title,वीडियो फ़ाइल चुनें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.DragDrop.Video.Filter,वीडियो फ़ाइलें (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Gif,अपनी Gif फ़ाइल यहां खींचें और छोड़ें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.DragDrop.Video,अपनी वीडियो फ़ाइल यहां खींचें और छोड़ें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeThumbnail.Title,थंबनेल चित्र चुनें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.ThemeThumbnail.Filter,छवि फ़ाइलें (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemePreview.Title,पूर्वावलोकन फ़ाइल चुनें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.ThemePreview.Filter,Gif फ़ाइलें (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.WebSource.Title,वेब पृष्ठ चुनें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.WebSource.Filter,वेब पृष्ठ (*.html)|*.html,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ApplicationSource.Title,एप्लिकेशन फ़ाइल चुनें,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.ApplicationSource.Filter,एप्लिकेशन फ़ाइलें (*.exe)|*.exe,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Copy.Close,समझ गया,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.Copy.Title,महत्वपूर्ण सूचना,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.Copy.Message,चयनित फ़ाइल को उस निर्देशिका में अन्य सभी फ़ाइलों और फ़ोल्डरों के साथ थीम में शामिल किया जाएगा।,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
-PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
+PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Access.Close,समझ गया,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.Access.Title,प्रवेश चेतावनी,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeCreate.Access.Message,आपको चयनित फ़ाइल तक पहुंचने की अनुमति नहीं है।,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,
 Portal.ThemeDelete.Title,थीम हटाना,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,
 Portal.ThemeDelete.Delete,हटाएं,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,
 Portal.ThemeDelete.Close,बंद करें,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,
-PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Please don't touch the translation in this line.
+PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeDelete.ThemeTitle,शीर्षक,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,
 Portal.ThemeDelete.ThemeDescription,विवरण,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,
 Portal.ThemeDelete.ThemeType,प्रकार,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,
@@ -700,14 +703,14 @@ Portal.ThemeDelete.ThemeModifyDate,अज्ञात,,Portal\Controls\ThemeDele
 Portal.ThemeEdit.Title,थीम संपादन,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,
 Portal.ThemeEdit.Close,बंद करें,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,
 Portal.ThemeEdit.Save,सहेजें,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,
-PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Please don't touch the translation in this line.
+PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeEdit.ThemeTitle,शीर्षक,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,
 Portal.ThemeEdit.ThemeDescription,विवरण,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,
 Portal.ThemeEdit.ThemeAuthor,लेखक,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,
 Portal.ThemeEdit.ThemeContact,संपर्क करें,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,
 Portal.ThemeEdit.ThemeTags,टैग,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,
 Portal.ThemeEdit.ThemeArguments,आर्ग्यूमेंट,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,
-PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Please don't touch the translation in this line.
+PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeEdit.ThemeTitle.Hint,कृपया एक मान्य शीर्षक लिखें,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,
 Portal.ThemeEdit.ThemeDescription.Hint,कृपया एक मान्य विवरण लिखें,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,
 Portal.ThemeEdit.ThemeAuthor.Hint,कृपया एक मान्य लेखक नाम लिखें,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,
@@ -716,41 +719,41 @@ Portal.ThemeEdit.ThemeTags.Hint,कृपया मान्य थीम टै
 Portal.ThemeEdit.ThemeArguments.Hint,कृपया मान्य एप्लिकेशन आर्ग्यूमेंट्स लिखें,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,
 Portal.ThemeImport.Title,थीम आयात,,Portal\Controls\ThemeImport\Portal.ThemeImport.HI.xaml,
 Portal.ThemeImport.Close,बंद करें,,Portal\Controls\ThemeImport\Portal.ThemeImport.HI.xaml,
-PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.HI.xaml,Please don't touch the translation in this line.
+PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeImport.Info,थीम जानकारी,,Portal\Controls\ThemeImport\Portal.ThemeImport.HI.xaml,
 Portal.ThemeImport.Type,कारण विवरण,,Portal\Controls\ThemeImport\Portal.ThemeImport.HI.xaml,
 Portal.ThemeReport.Title,थीम रिपोर्टिंग,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
 Portal.ThemeReport.Close,बंद करें,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
-PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Please don't touch the translation in this line.
+PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.ThemeTitle,शीर्षक,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
 Portal.ThemeReport.ThemeDescription,विवरण,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
-PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Please don't touch the translation in this line.
+PASS⦙128,PASS⦙128,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter,रिपोर्ट,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
 Portal.ThemeReport.Reporter.Description,कृपया थीम की रिपोर्टिंग के कारणों को निर्दिष्ट करें।,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
-PASS⦙128,PASS⦙128,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Contact.Placeholder,कृपया एक मान्य ईमेल पता दर्ज करें,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
 PASS⦙129,PASS⦙129,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Contact.Placeholder,कृपया एक मान्य ईमेल पता दर्ज करें,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
+PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Description.Text,अतिरिक्त नोट्स:,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
 Portal.ThemeReport.Reporter.Description.Placeholder,कृपया रिपोर्ट का कारण विस्तार से बताएं।,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
-PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Preparing,रिपोर्टिंग के लिए तैयारी जल्द ही शुरू होगी..,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
 PASS⦙131,PASS⦙131,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Preparing,रिपोर्टिंग के लिए तैयारी जल्द ही शुरू होगी..,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
+PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Checking,रिपोर्टिंग के लिए आवश्यक जांच की जा रही है..,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
 Portal.ThemeReport.Reporter.Checking.Error,रिपोर्टिंग के लिए आवश्यक जांच करते समय एक अज्ञात त्रुटि हुई।,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
 Portal.ThemeReport.Reporter.Checking.Status,"इस समय रिपोर्टिंग के लिए उपयुक्त शर्तें बनाई नहीं जा सकीं, कृपया बाद में पुनः प्रयास करें..",,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
-PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Please don't touch the translation in this line.
+PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Sending,रिपोर्टिंग के लिए जानकारी भेजी जा रही है..,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
 Portal.ThemeReport.Reporter.Sending.Error,रिपोर्ट भेजते समय एक त्रुटि हुई।,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
 Portal.ThemeReport.Reporter.Sending.Errored,रिपोर्ट भेजते समय एक अप्रत्याशित त्रुटि हुई: {0}।,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
 Portal.ThemeReport.Reporter.Sending.Succeded,"रिपोर्ट सफलतापूर्वक भेजी गई, धन्यवाद।",,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
-PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Network,रिपोर्टिंग के लिए इंटरनेट कनेक्शन आवश्यक है।,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
 PASS⦙134,PASS⦙134,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Network,रिपोर्टिंग के लिए इंटरनेट कनेक्शन आवश्यक है।,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
+PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Report,रिपोर्ट,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
 Portal.ThemeReport.Reporter.GitHub,GitHub से रिपोर्ट करें,,Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,
 Portal.ThemeReview.Title,थीम समीक्षा,,Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,
 Portal.ThemeReview.Close,बंद करें,,Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,
-PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Please don't touch the translation in this line.
+PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeReview.ThemeTitle,शीर्षक,,Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,
 Portal.ThemeReview.ThemeDescription,विवरण,,Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,
 Portal.ThemeReview.ThemeType,प्रकार,,Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,
@@ -770,408 +773,408 @@ Portal.ThemeReview.ThemeModifyDate,अज्ञात,,Portal\Controls\ThemeRevi
 Portal.ThemeReview.ThemeContact,थीम संपर्क पता,,Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,
 Portal.ThemeShare.Title,थीम साझा करें,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 Portal.ThemeShare.Close,बंद करें,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
-PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
+PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemeTitle,शीर्षक,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 Portal.ThemeShare.ThemeDescription,विवरण,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
-PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
+PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemeExport,निर्यात करें,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 Portal.ThemeShare.ThemePublish,स्टोर में प्रकाशित करें,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 Portal.ThemeShare.ThemeCopy,लिंक कॉपी करें,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
-PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
+PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Publish,प्रकाशित करें,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 Portal.ThemeShare.ThemePublish.Preparing,प्रकाशन के लिए तैयारी जल्द ही शुरू होगी..,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
-PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Limit,आपकी दैनिक थीम अपलोड सीमा की जांच की जा रही है..,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 PASS⦙140,PASS⦙140,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit,आपकी दैनिक थीम अपलोड सीमा की जांच की जा रही है..,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
+PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Limit.Exceeded,"आपने अपनी दैनिक थीम अपलोड सीमा को पूरा कर लिया है, कृपया बाद में पुनः प्रयास करें।",,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 Portal.ThemeShare.ThemePublish.Limit.Error,आपकी दैनिक थीम अपलोड सीमा की जांच करते समय अज्ञात त्रुटि हुई।,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
-PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
+PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Compress,अपलोड करने से पहले थीम को संकुचित किया जा रहा है..,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 Portal.ThemeShare.ThemePublish.Compress.Error,थीम को संकुचित करते समय एक त्रुटि हुई।,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
-PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Size,संकुचित थीम का आकार जांचा जा रहा है..,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 PASS⦙143,PASS⦙143,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Size.Exceeded,संकुचित थीम को अपलोड नहीं किया जा सकता क्योंकि यह {0} MB से अधिक है।,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
+Portal.ThemeShare.ThemePublish.Size,संकुचित थीम का आकार जांचा जा रहा है..,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 PASS⦙144,PASS⦙144,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size.Exceeded,संकुचित थीम को अपलोड नहीं किया जा सकता क्योंकि यह {0} MB से अधिक है।,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
+PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Check,अपलोड करने से पहले संपीड़ित थीम की अखंडता की जाँच की जा रही है..,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 Portal.ThemeShare.ThemePublish.Check.Error,संपीड़ित थीम की अखंडता की जाँच करते समय एक त्रुटि हुई।,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
-PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Upload,संकुचित थीम को अपलोड के लिए तैयार किया जा रहा है..,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 PASS⦙146,PASS⦙146,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload,संकुचित थीम को अपलोड के लिए तैयार किया जा रहा है..,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
+PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Upload.Start,संकुचित थीम अपलोड की जा रही है..,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Error,संकुचित थीम अपलोड करते समय अज्ञात त्रुटि हुई।,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Errored,संकुचित थीम अपलोड करते समय अप्रत्याशित त्रुटि हुई: {0}।,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Succeded,संकुचित थीम को सफलतापूर्वक अपलोड कर दिया गया है और सत्यापन के बाद स्टोर में प्रकाशित किया जाएगा।,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
-PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
+PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.SaveDialogFilter,ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 Portal.ThemeShare.SaveDialogTitle,थीम फ़ाइल सहेजें,,Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,
 Portal.TrayIcon.Title,सिस्टम ट्रे,,Portal\Controls\TrayIcon\Portal.TrayIcon.HI.xaml,
 Portal.TrayIcon.Close,बंद करें,,Portal\Controls\TrayIcon\Portal.TrayIcon.HI.xaml,
-PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.HI.xaml,Please don't touch the translation in this line.
+PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.HI.xaml,Please don't touch the translation in this line.
 Portal.TrayIcon.Message,Sucrose को सिस्टम ट्रे में न्यूनतम किया गया है। कृपया जारी रखने के लिए Sucrose आइकन पर राइट-क्लिक करें।,,Portal\Controls\TrayIcon\Portal.TrayIcon.HI.xaml,
 Portal.WallpaperCycling.Title,वॉलपेपर साइकिलिंग,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
 Portal.WallpaperCycling.Close,बंद करें,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
-PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Please don't touch the translation in this line.
+PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Cycling,स्वचालित वॉलपेपर साइकिलिंग,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
 Portal.WallpaperCycling.Cycling.Description,क्या वॉलपेपर स्वचालित रूप से बदलता है या नहीं।,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
-PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Please don't touch the translation in this line.
+PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,समय अंतराल,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
 Portal.WallpaperCycling.Time.Description,वॉलपेपर परिवर्तन के बाद समय अंतराल।,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
-PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Please don't touch the translation in this line.
+PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,संचार मोड,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
 Portal.WallpaperCycling.Transition.Description,वॉलपेपर के बीच संचार मोड सेट करता है।,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
-PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Please don't touch the translation in this line.
+PASS⦙153,PASS⦙153,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List,साइकिल सूची,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
 Portal.WallpaperCycling.List.Description,साइकिल सूची को डिफ़ॉल्ट मान में रीसेट करता है।,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
-PASS⦙153,PASS⦙153,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Please don't touch the translation in this line.
+PASS⦙154,PASS⦙154,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List.Reset,रीसेट,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
 Portal.EmptyLibraryPage.Title,EmptyLibraryPage,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.HI.xaml,
-PASS⦙154,PASS⦙154,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙155,PASS⦙155,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.HI.xaml,Please don't touch the translation in this line.
 Portal.EmptyLibraryPage.TitleText,आपकी पुस्तकालय को मकड़ी जाल से बुना गया है,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.HI.xaml,
 Portal.EmptyLibraryPage.DescriptionText,"वॉलपेपरों की जगह पर एक शानदार कला का नतीजा है, जिसे मकड़ी जाल से बनाया गया है",,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.HI.xaml,
 Portal.FullLibraryPage.Title,FullLibraryPage,,Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.HI.xaml,
 Portal.SearchLibraryPage.Title,SearchLibraryPage,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.HI.xaml,
-PASS⦙155,PASS⦙155,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙156,PASS⦙156,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.HI.xaml,Please don't touch the translation in this line.
 Portal.SearchLibraryPage.TitleText,आपकी पुस्तकालय में जाली जादू चल रहा है,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.HI.xaml,
 Portal.SearchLibraryPage.DescriptionText,आपके वॉलपेपर चयन की बात के कारण वॉलपेपरों को स्थान नहीं मिल रहा है,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.HI.xaml,
 Portal.DonateSettingPage.Title,DonateSettingPage,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,
-PASS⦙156,PASS⦙156,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu,दान मेनू,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,
 Portal.DonateSettingPage.DonateMenu.Description,उपयोगकर्ता इंटरफ़ेस में दान मेनू की दिखाई देने की स्थिति।,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,
-PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,दिखाई देता है,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,छुपा हुआ,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,
-PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising,विज्ञापन सहायता,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,
 Portal.DonateSettingPage.Advertising.Description,ऐप के विकास में सहायक बनने के लिए विज्ञापन देखकर सहायता करें।,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,
-PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising.AdvertisingDelay,विज्ञापन की देरी (मिनट):,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,
 Portal.DonateSettingPage.Advertising.AdvertisingHint,सुझाव: विज्ञापन आपको कम से कम असुविधा देने के रूप में दिखाए जाएंगे।,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,
 Portal.GeneralSettingPage.Title,GeneralSettingPage,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
-PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationLanguage,ऐप्लिकेशन भाषा,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.ApplicationLanguage.Description,उस भाषा को चुनें जिसमें आप ऐप्लिकेशन को देखना चाहते हैं।,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
-PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup,ऐप्लिकेशन स्टार्टअप,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Description,"वॉलपेपर को प्ले करने के लिए, Sucrose को प्रारंभ में बैकग्राउंड में चलाना होगा।",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
-PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Startup.None,कोई नहीं,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,सामान्य,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,प्राथमिकता,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,समय सूचीकरण,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
-PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,समझ गया,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,प्रशासनिक अधिकार चेतावनी,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,स्टार्टअप स्थिति बदलने के लिए आपको प्रशासनिक अधिकार की आवश्यकता है।,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
-PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon,सूचना चिन्ह,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Description,सिस्टम ट्रे दर्शानी. Sucrose गुप्त रूप से जारी रहेगा।,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
-PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon.Notify.Show,दिखाएं,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,छुपाएं,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
-PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.NotifyIcon.NotifyExit,सिस्टम ट्रे बंद किया जब Sucrose अनुप्रयोग बंद किया जाए,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.NotifyExit,सिस्टम ट्रे बंद किया जब Sucrose अनुप्रयोग बंद किया जाए,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
+PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop,विंडो बैकग्राउंड,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.Description,अनुप्रयोग के विंडो बैकग्राउंड को व्यक्तिगत करने के लिए उपयोग किया जाता है।,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
-PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,बैकग्राउंड चित्र का चयन करें,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,किसी बैकग्राउंड चित्र का चयन करें,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,चित्र फ़ाइलें (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,"क्षमा करें, आपके पास चयनित छवि फ़ाइल तक पहुँचने की अनुमति नहीं है",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
-PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,बैकग्राउंड मोड:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,बैकग्राउंड पारदर्शिता (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,बैकग्राउंड मोड:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,बैकग्राउंड पारदर्शिता (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
+PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume,आवाज स्तर,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.EngineVolume.Description,सभी वॉलपेपर्स के लिए लागू होने वाले आवाज स्तर।,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
-PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,आवाज केवल डेस्कटॉप पर फोकस होने पर प्ले करें,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeActive,ध्वनि को केवल तब बजाएं जब सभी एप्लिकेशन्स म्यूट हों,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,संवेदनशीलता (सेकंड):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
-PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary,लाइब्रेरी स्थान,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.Description,आपके द्वारपेच में जोड़े गए थीमों को संग्रहित करने के लिए स्थल का चयन करें।,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
-PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,"दुर्भाग्य से, आपको नई स्थान तक पहुंच नहीं है",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,कृपया खाली फ़ोल्डर का चयन करें,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"कृपया कुछ समय इंतजार करें, स्थान बदलते समय",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
-PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,वर्तमान लाइब्रेरी को नई स्थान पर ले जाएं,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,
 Portal.OtherSettingPage.Title,OtherSettingPage,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
-PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.ReportData,स्वचालित त्रुटि रिपोर्टिंग,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 Portal.OtherSettingPage.ReportData.Description,"जब कोई त्रुटि होती है, तो Sucrose त्वरितता से इसे रिपोर्ट करने के लिए कार्रवाई करती है।",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
-PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.StatisticsData,उपयोग सांख्यिकी साझा करें,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 Portal.OtherSettingPage.StatisticsData.Description,Sucrose आपके उपयोग सांख्यिकियों को संग्रहीत करने की सुविधा प्रदान करती है ताकि अनुप्रयोग के विकास में योगदान दिया जा सके।,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
-PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook,Discord,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 Portal.OtherSettingPage.DiscordHook.Description,"Sucrose, Discord के साथ संचालन संवाद सुनिश्चित करता है।",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
-PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook.DiscordRefresh,कनेक्शन रिफ्रेश:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 Portal.OtherSettingPage.DiscordHook.DiscordDelay,रिफ्रेश अवधि (सेकंड):,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
-PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Agent,इंटरनेट प्रतिष्ठा,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 Portal.OtherSettingPage.Agent.Description,इंटरनेट कनेक्शन की आवश्यकता होने पर आपकी प्रतिष्ठा.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
-PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key,व्यक्तिगत पहुंच टोकन,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 Portal.OtherSettingPage.Key.Description,स्टोर और ऐप्डेट को सही तरीके से उपयोग करने के लिए आवश्यक।,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
-PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Key.HintKey,अगर आपको व्यक्तिगत पहुँच कुंजी प्राप्त करने का तरीका नहीं पता है तो यहाँ क्लिक करें।,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.HintKey,अगर आपको व्यक्तिगत पहुँच कुंजी प्राप्त करने का तरीका नहीं पता है तो यहाँ क्लिक करें।,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
+PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key.PersonalKey,कृपया एक व्यक्तिगत पहुँच कुंजी दर्ज करें,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 Portal.OtherSettingPage.Key.PersonalKey.Valid,कृपया एक मान्य व्यक्तिगत पहुँच कुंजी दर्ज करें,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
-PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Server,अपडेट सर्वर,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 Portal.OtherSettingPage.Server.Description,सर्वर जिसके माध्यम से अपडेट किए जाएंगे।,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
-PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Server.ServerHint,"नोट: यदि {0} को सर्वर के रूप में चुना गया है, तो आपको अनुरोध सीमाओं से बचने के लिए एक {2} दर्ज करना होगा। अन्यथा, आपको अपडेट में समस्याओं का सामना करना पड़ सकता है। यदि {1} चुना गया है, तो आपको एक सुचारू अपडेट अनुभव प्राप्त होगा।",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server.ServerHint,"नोट: यदि {0} को सर्वर के रूप में चुना गया है, तो आपको अनुरोध सीमाओं से बचने के लिए एक {2} दर्ज करना होगा। अन्यथा, आपको अपडेट में समस्याओं का सामना करना पड़ सकता है। यदि {1} चुना गया है, तो आपको एक सुचारू अपडेट अनुभव प्राप्त होगा।",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
+PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Module,अद्यतन मॉड्यूल,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 Portal.OtherSettingPage.Module.Description,अद्यतन प्रक्रिया के लिए किस मॉड्यूल का उपयोग किया जाएगा।,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
-PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Channel,अपडेट चैनल,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 Portal.OtherSettingPage.Channel.Description,अपडेट प्रक्रिया किस चैनल के माध्यम से की जाएगी या नहीं।,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
-PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update,अपडेट विधि,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 Portal.OtherSettingPage.Update.Description,अपडेट प्रक्रिया किस विधि से की जाएगी या नहीं।,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
-PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Update.Limit,डाउनलोड बैंडविड्थ सीमा:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update.Limit,डाउनलोड बैंडविड्थ सीमा:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
+PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Auto,स्वचालित अद्यतन,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 Portal.OtherSettingPage.Auto.Description,क्या अद्यतन प्रक्रिया स्वचालित रूप से जांची जाएगी।,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
-PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer,डेवलपर टूल,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 Portal.OtherSettingPage.Developer.Description,WebView और CefSharp इंजन के लिए डेवलपर टूल्स का प्रबंधन करें।,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
-PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperMode,डिफ़ॉल्ट डेवलपर टूल्स:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperPort,डीबगिंग पोर्ट:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
+Portal.OtherSettingPage.Developer.DeveloperMode,डिफ़ॉल्ट डेवलपर टूल्स:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,डीबगिंग पोर्ट:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
+PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer.DeveloperHint,"संकेत: समर्थित थीमों में डिफ़ॉल्ट डेवलपर टूल्स सही तरह से काम नहीं कर सकते हैं। डीबगिंग पोर्ट काम करने के लिए अधिक प्रवृत्त होता है। जब आप तैयार हों, तो आप 'http://localhost:{0}' पता या Chrome ब्राउज़र के लिए 'chrome://inspect', Opera ब्राउज़र के लिए 'opera://inspect', Edge ब्राउज़र के लिए 'edge://inspect' का उपयोग कर सकते हैं।",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
-PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter,प्रदर्शन गणनाओं,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Counter.Description,सभी प्रदर्शन गणनाओं का पृष्ठांतरण करना चाहिए या नहीं।,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
-PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Counter.CounterHint,नोट: कुछ Web थीम्स सही तरीके से काम नहीं कर सकती हैं और निम्नलिखित प्रदर्शन सेटिंग्स का कोई भी काम नहीं कर सकता है।,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter.CounterHint,नोट: कुछ Web थीम्स सही तरीके से काम नहीं कर सकती हैं और निम्नलिखित प्रदर्शन सेटिंग्स का कोई भी काम नहीं कर सकता है।,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
+PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Pause,रोकथाम नियम,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Pause.Description,आपकी प्रदर्शन सेटिंग्स के आधार पर वॉलपेपर को रोकने के नियम को निर्धारित करता है।,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
-PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Communication,संचार प्रकार,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Communication.Description,Web प्रकार के थीम्स को संदेश भेजने का तरीका निर्धारित करता है।,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
-PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu,सीपीयू उपयोग,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Cpu.Description,सीपीयू उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
-PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Cpu.CpuUsage,सीपीयू उपयोग (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu.CpuUsage,सीपीयू उपयोग (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
+PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu,GPU उपयोग,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Gpu.Description,आपकी GPU उपयोग सेटिंग्स के आधार पर वॉलपेपर के साथ क्या होता है।,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
-PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,ग्राफिक प्रोसेसिंग यूनिट्स की सूची अभी तक बनाई नहीं गई है,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
-PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU उपयोग (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU उपयोग (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
+PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory,मेमोरी उपयोग,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Memory.Description,मेमोरी उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
-PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Memory.MemoryUsage,मेमोरी उपयोग (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory.MemoryUsage,मेमोरी उपयोग (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
+PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network,नेटवर्क उपयोग,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Network.Description,नेटवर्क उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
-PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network.NetworkAdapter,नेटवर्क एडाप्टर:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,नेटवर्क एडाप्टर्स की सूची अभी तक बनाई नहीं गई है,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
-PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkUpload,अपलोड साइज:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkDownload,डाउनलोड साइज:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
+Portal.PerformanceSettingPage.Network.NetworkUpload,अपलोड साइज:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkPing,पिंग मान (मिलिसेकंड):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
+Portal.PerformanceSettingPage.Network.NetworkDownload,डाउनलोड साइज:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,पिंग मान (मिलिसेकंड):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
+PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery,बैटरी पावर,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Battery.Description,लैपटॉप बैटरी पॉवर पर काम करते समय वॉलपेपर पर क्या होने वाला है।,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
-PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Battery.BatteryUsage,बैटरी स्थिति (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery.BatteryUsage,बैटरी स्थिति (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
+PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Saver,बैटरी बचाने वाला,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Saver.Description,लैपटॉप बैटरी बचाने के मोड पर काम करते समय वॉलपेपर पर क्या होने वाला है।,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
-PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Virtual,वर्चुअलाइजेशन,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Virtual.Description,वर्चुअलाइजेशन एप्लिकेशन चलते समय वॉलपेपर पर क्या होने वाला है।,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
-PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Remote,दूरस्थ डेस्कटॉप,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Remote.Description,दूरस्थ डेस्कटॉप एप्लिकेशन चलते समय वॉलपेपर पर क्या होने वाला है।,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
-PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Fullscreen,पूर्णस्क्रीन मोड,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Fullscreen.Description,किसी भी ऐप्लिकेशन को पूर्णस्क्रीन मोड में चलते समय वॉलपेपर पर क्या होने वाला है।,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
-PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Focus,फोकस मोड,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PerformanceSettingPage.Focus.Description,किसी अन्य एप्लिकेशन पर ध्यान केंद्रित करते समय वॉलपेपर पर क्या होने वाला है।,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
-PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server,स्टोर सर्वर,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 Portal.PersonalSettingPage.Server.Description,यह निर्दिष्ट करता है कि किस सर्वर का उपयोग स्टोर में सूचीबद्ध थीम्स को दिखाने के लिए किया जाएगा।,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
-PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Server.ServerHint,"नोट: यदि {0} को सर्वर के रूप में चयनित किया गया है, तो अनुरोध सीमाओं से बचने के लिए एक {2} दर्ज करना आवश्यक है। अन्यथा, स्टोर में थीम्स तक पहुँचने में आपको समस्याएँ आ सकती हैं। यदि {1} चयनित है, तो आपको स्टोर अनुभव में एक स्मूदर अनुभव होगा।",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server.ServerHint,"नोट: यदि {0} को सर्वर के रूप में चयनित किया गया है, तो अनुरोध सीमाओं से बचने के लिए एक {2} दर्ज करना आवश्यक है। अन्यथा, स्टोर में थीम्स तक पहुँचने में आपको समस्याएँ आ सकती हैं। यदि {1} चयनित है, तो आपको स्टोर अनुभव में एक स्मूदर अनुभव होगा।",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
+PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Duration,स्टोर रीन्यूअल,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 Portal.PersonalSettingPage.Duration.Description,स्टोर पर दिखाए जाने वाले थीमों को कितनी समय के लिए नवीनीकरण किया जाएगा।,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
-PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.StoreStart,स्वचालित प्रारंभ,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 Portal.PersonalSettingPage.StoreStart.Description,स्टोर से डाउनलोड किए गए थीम को स्वचालित वॉलपेपर के रूप में सेट किया जाएगा या नहीं।,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
-PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adult,असुरक्षित सामग्री,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 Portal.PersonalSettingPage.Adult.Description,स्टोर में सुरक्षित नहीं (NSFW) माना गया सामग्री को दिखाने या न दिखाने की सेटिंग।,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
-PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Confirm,हटाने की पुष्टि,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 Portal.PersonalSettingPage.Confirm.Description,थीमों को हटाते समय पुष्टि की आवश्यकता है या नहीं।,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
-PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete,दोषित थीम,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 Portal.PersonalSettingPage.Delete.Description,पुस्तकालय में दोषित या अधूरी थीमों को स्वचालित रूप से हटाया जाएगा या नहीं।,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
-PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Delete.DeleteHint,नोट: सावधानी से काम करें। अन्यथा डेटा हानि हो सकती है,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete.DeleteHint,नोट: सावधानी से काम करें। अन्यथा डेटा हानि हो सकती है,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
+PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.LibraryStart,स्वचालित प्रारंभ,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 Portal.PersonalSettingPage.LibraryStart.Description,बनाए गए थीम को स्वचालित वॉलपेपर के रूप में सेट किया जाएगा या नहीं।,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
-PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview,थीम पूर्वावलोकन,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 Portal.PersonalSettingPage.Preview.Description,दिखाए जाने वाले थीम पर होने पर पूर्वावलोकन किया जाएगा या नहीं।,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
-PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.StorePreview,स्टोर पूर्वावलोकन:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 Portal.PersonalSettingPage.Preview.StorePreviewHide,विवरण छिपाएं:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
-PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.LibraryPreview,लाइब्रेरी पूर्वावलोकन:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 Portal.PersonalSettingPage.Preview.LibraryPreviewHide,विवरण छिपाएं:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
-PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adaptive,सामग्री अनुरूप अद्यतन,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 Portal.PersonalSettingPage.Adaptive.Description,दिखाए जाने वाले थीम का अद्यतन अंदाज या दूरी करें।,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
-PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,रिक्त स्थान (पिक्सेल):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,लेआउट क्रम (संख्या):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,रिक्त स्थान (पिक्सेल):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,लेआउट क्रम (संख्या):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
+PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Sort,पुस्तकालय क्रमबद्ध करें,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 Portal.PersonalSettingPage.Sort.Description,"अपनी पुस्तकालय में विषयों को किस प्रकार और किस प्रारूप में क्रमबद्ध किया जाएगा, उसे निर्धारित करें।",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
-PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortMode,क्रमबद्ध करने का मोड:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortKind,क्रमबद्ध करने का प्रकार:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
+Portal.PersonalSettingPage.Sort.SortMode,क्रमबद्ध करने का मोड:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,क्रमबद्ध करने का प्रकार:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
+PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Store,स्टोर पेजिनेशन,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 Portal.PersonalSettingPage.Store.Description,"हर स्टोर पेज के लिए कितने थीम होंगे, यह निर्धारित करें।",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
-PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Library,लाइब्रेरी पेजिनेशन,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 Portal.PersonalSettingPage.Library.Description,"आपकी लाइब्रेरी के हर पेज के लिए कितने थीम होंगे, यह निर्धारित करें।",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,
 Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
-PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LogTemporary,लॉग फ़ाइलें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 Portal.SystemSettingPage.LogTemporary.Description,ऐप के द्वारा बनाई गई सभी लॉग फ़ाइलों का प्रबंधन करें।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
-PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Create,बनाएँ,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Delete,साफ करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
+Portal.SystemSettingPage.LogTemporary.Create,बनाएँ,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Hint,नोट: लॉग फ़ाइलों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। केवल सफाई शुरू होने पर सभी ऐप्स बंद होंगे।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
+Portal.SystemSettingPage.LogTemporary.Delete,साफ करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,नोट: लॉग फ़ाइलों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। केवल सफाई शुरू होने पर सभी ऐप्स बंद होंगे।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
+PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.CacheTemporary,कैश साफ करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 Portal.SystemSettingPage.CacheTemporary.Description,ऐप द्वारा बनाई गई सभी कैश फ़ाइलों को साफ करें।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
-PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Start,सफाई शुरू करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Hint,नोट: कैश फ़ाइलों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। सफाई शुरू होने पर सभी ऐप्स बंद होंगे।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
+Portal.SystemSettingPage.CacheTemporary.Start,सफाई शुरू करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,नोट: कैश फ़ाइलों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। सफाई शुरू होने पर सभी ऐप्स बंद होंगे।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
+PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.StoreTemporary,स्टोर साफ करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 Portal.SystemSettingPage.StoreTemporary.Description,ऐप द्वारा बनाई गई सभी स्टोर फ़ाइलों को साफ करें।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
-PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Start,सफाई शुरू करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Hint,नोट: स्टोर फ़ाइलों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। सफाई शुरू होने पर सभी ऐप्स बंद होंगे।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
+Portal.SystemSettingPage.StoreTemporary.Start,सफाई शुरू करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,नोट: स्टोर फ़ाइलों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। सफाई शुरू होने पर सभी ऐप्स बंद होंगे।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
+PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LibraryTemporary,लाइब्रेरी साफ करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 Portal.SystemSettingPage.LibraryTemporary.Description,आपकी लाइब्रेरी में मौजूद या बनाई गई सभी थीम फ़ाइलों को साफ करें।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
-PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Start,सफाई शुरू करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Hint,नोट: आपकी लाइब्रेरी में थीमों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। सफाई शुरू होने पर सभी ऐप्स बंद होंगे।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
+Portal.SystemSettingPage.LibraryTemporary.Start,सफाई शुरू करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,नोट: आपकी लाइब्रेरी में थीमों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। सफाई शुरू होने पर सभी ऐप्स बंद होंगे।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
+PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingBackup,सेटिंग फ़ाइलें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 Portal.SystemSettingPage.SettingBackup.Description,ऐप द्वारा बनाई गई सभी सेटिंग फ़ाइलों का प्रबंधन करें।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
-PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Export,बैकअप करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Import,पुनर्स्थापित करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
+Portal.SystemSettingPage.SettingBackup.Export,बैकअप करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Hint,नोट: चयनित क्रिया शुरू होने पर सभी ऐप्स बंद होंगे।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
+Portal.SystemSettingPage.SettingBackup.Import,पुनर्स्थापित करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,नोट: चयनित क्रिया शुरू होने पर सभी ऐप्स बंद होंगे।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
+PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingReset,सेटिंग रीसेट करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 Portal.SystemSettingPage.SettingReset.Description,ऐप द्वारा बनाई गई सभी सेटिंग फ़ाइलों को रीसेट करें।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
-PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Start,रीसेट शुरू करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Hint,नोट: रीसेट क्रिया शुरू होने पर सभी ऐप्स बंद होंगे।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
+Portal.SystemSettingPage.SettingReset.Start,रीसेट शुरू करें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,नोट: रीसेट क्रिया शुरू होने पर सभी ऐप्स बंद होंगे।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
+PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Log.SaveDialogTitle,लॉग फ़ाइल सहेजें,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
-PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Access.Close,समझ गया,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 Portal.SystemSettingPage.Access.Title,प्रवेश चेतावनी,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 Portal.SystemSettingPage.Access.Message,आपके पास चयनित स्थान तक पहुंचने की अनुमति नहीं है।,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.InputMode,अंतराक्रिया विधि,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.InputMode.Description,समर्थित वॉलपेपर के साथ अंतराक्रिया हो सकने के तरीकों का निर्धारण करता है।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputModule,इंटरएक्शन मॉड्यूल:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputDesktop,केवल जब डेस्कटॉप पर ध्यान केंद्रित हो तो अंतराक्रिया को प्रक्रियित करें,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
+Portal.WallpaperSettingPage.InputMode.InputModule,इंटरएक्शन मॉड्यूल:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.DesktopIcon,अनजाने में डेस्कटॉप आइकन का चयन न करने के लिए छिपाएं,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
+Portal.WallpaperSettingPage.InputMode.InputDesktop,केवल जब डेस्कटॉप पर ध्यान केंद्रित हो तो अंतराक्रिया को प्रक्रियित करें,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,अनजाने में डेस्कटॉप आइकन का चयन न करने के लिए छिपाएं,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
+PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ScreenLayout,स्क्रीन लेआउट,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.ScreenLayout.Description,अपने वॉलपेपर की स्क्रीन लेआउट को बदलता है।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.StretchMode,स्ट्रेच मोड,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.StretchMode.Description,समर्थित वॉलपेपरों की स्केलिंग मोड को बदलता है।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.LoopMode,लूप मोड,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.LoopMode.Description,समर्थित वॉलपेपरों की लूप मोड को बदलता है।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ShuffleMode,शफल मोड,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,समर्थित वॉलपेपरों की शफल मोड को बदलता है।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Gif प्लेयर,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,आपकी लाइब्रेरी में मौजूद Gif प्रकार के थीमों को चलाने के लिए प्लगइन का चयन करें।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Video प्लेयर,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,आपकी लाइब्रेरी में मौजूद Video प्रकार के थीमों को चलाने के लिए प्लगइन का चयन करें।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Url प्लेयर,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,आपकी लाइब्रेरी में मौजूद Url प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙272,PASS⦙272,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Web मोटर,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,आपकी लाइब्रेरी में मौजूद Web प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙272,PASS⦙272,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙273,PASS⦙273,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,YouTube मोटर,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,आपकी लाइब्रेरी में मौजूद YouTube प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙273,PASS⦙273,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙274,PASS⦙274,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Application मोटर,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,आपकी लाइब्रेरी में मौजूद Application प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HI.xaml,
-PASS⦙274,PASS⦙274,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙275,PASS⦙275,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HI.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,जब इंटरनेट बंद होता है,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HI.xaml,
 Portal.BrokenStorePage.DescriptionText,"एक तारे की तरह तारों की कमी है, यहां इंटरनेट की चमक नहीं है",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HI.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.HI.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HI.xaml,
-PASS⦙275,PASS⦙275,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙276,PASS⦙276,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HI.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,आपके खोज के जवाब आकाश में छिपे हो सकते हैं,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HI.xaml,
 Portal.SearchStorePage.DescriptionText,"अगर परिणाम आपकी उम्मीदों के मुताबिक नहीं हैं, तो आकाश आपको एक नई अनुभव प्रदान कर सकता है",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HI.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HI.xaml,
-PASS⦙276,PASS⦙276,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙277,PASS⦙277,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HI.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,अज्ञात स्टोर पेज में छिपे रहस्य को खोजें,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HI.xaml,
 Portal.UnknownStorePage.DescriptionText,अज्ञात का पीछा करें और स्टोर पर हो रहे रहस्यमय स्थिति का पता लगाने के लिए एक यात्रा पर निकलें,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HI.xaml,

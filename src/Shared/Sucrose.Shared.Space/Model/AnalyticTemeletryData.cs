@@ -189,7 +189,7 @@ namespace Sucrose.Shared.Space.Model
 
         [JsonProperty("EngineScreenType", Required = Required.Always)]
         public string EngineScreenType { get; set; }
-		
+
         [JsonProperty("FocusPerformance", Required = Required.Always)]
         public string FocusPerformance { get; set; }
 

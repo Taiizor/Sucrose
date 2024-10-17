@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">Crear Archivo de Registro</system:String>
 
+    <system:String x:Key="Launcher.CloseText">Cerrar Aplicaciones</system:String>
+
     <system:String x:Key="Launcher.ExitText">Salir</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">Informar de un Problema</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">Guardar Archivo de Registro</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">Solicitudes y Comentarios</system:String>
+    <system:String x:Key="Launcher.FeedbackText">Enviar Comentarios</system:String>
 
     <system:String x:Key="Launcher.SettingText">Configuración</system:String>
 

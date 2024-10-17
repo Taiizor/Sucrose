@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">Skapa Loggfil</system:String>
 
+    <system:String x:Key="Launcher.CloseText">Stäng Applikationer</system:String>
+
     <system:String x:Key="Launcher.ExitText">Avsluta</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">Rapportera ett Problem</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">Spara Loggfil</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">Förfrågningar och Feedback</system:String>
+    <system:String x:Key="Launcher.FeedbackText">Skicka Feedback</system:String>
 
     <system:String x:Key="Launcher.SettingText">Inställningar</system:String>
 

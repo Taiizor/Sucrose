@@ -107,6 +107,8 @@ Launcher\Launcher.TR.xaml,Launcher.WallCustomizeText,Duvar Kağıdını Özelle�
 Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.CreateLogText,Günlük Dosyası Oluştur
 Launcher\Launcher.TR.xaml,,
+Launcher\Launcher.TR.xaml,Launcher.CloseText,Uygulamaları Kapat
+Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.ExitText,Çıkış
 Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.OpenReportText,Bir Sorun Bildir
@@ -121,6 +123,7 @@ Launcher\Launcher.TR.xaml,Launcher.SaveDialogFilter,ZIP Dosyaları (*.zip)|*.zip
 Launcher\Launcher.TR.xaml,Launcher.SaveDialogTitle,Günlük Dosyasını Kaydet
 Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.RequestFeedbackText,İstek ve Geri Bildirim
+Launcher\Launcher.TR.xaml,Launcher.FeedbackText,Geri Bildirim Gönder
 Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.SettingText,Ayarlar
 Launcher\Launcher.TR.xaml,,

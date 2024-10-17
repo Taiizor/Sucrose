@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">Opret Logfil</system:String>
 
+    <system:String x:Key="Launcher.CloseText">Luk Applikationer</system:String>
+
     <system:String x:Key="Launcher.ExitText">Afslut</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">Rapporter et Problem</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">Gem Logfil</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">Anmodninger og Feedback</system:String>
+    <system:String x:Key="Launcher.FeedbackText">Send Feedback</system:String>
 
     <system:String x:Key="Launcher.SettingText">Indstillinger</system:String>
 

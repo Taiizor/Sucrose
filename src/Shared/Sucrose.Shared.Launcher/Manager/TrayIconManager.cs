@@ -13,7 +13,7 @@ using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
 using SSLCC = Sucrose.Shared.Launcher.Command.Close;
 using SSLCE = Sucrose.Shared.Launcher.Command.Engine;
-using SSLCRF = Sucrose.Shared.Launcher.Command.RequestFeedback;
+using SSLCF = Sucrose.Shared.Launcher.Command.Feedback;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLCRG = Sucrose.Shared.Launcher.Command.Reportdog;
 using SSLCRT = Sucrose.Shared.Launcher.Command.Report;
@@ -205,9 +205,9 @@ namespace Sucrose.Shared.Launcher.Manager
                 Enabled = SSLMI.ReportBox
             });
 
-            ContextMenu.Items.Add(new ToolStripMenuItem(SRER.GetValue("Launcher", "RequestFeedbackText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "RequestFeedbackIcon"))), CommandRequestFeedback)
+            ContextMenu.Items.Add(new ToolStripMenuItem(SRER.GetValue("Launcher", "FeedbackText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "FeedbackIcon"))), CommandFeedback)
             {
-                Enabled = SSLMI.RequestFeedbackBox
+                Enabled = SSLMI.FeedbackBox
             });
 
             ToolStripItem Update = new ToolStripMenuItem();
@@ -239,7 +239,7 @@ namespace Sucrose.Shared.Launcher.Manager
             SSLSSS Separator3 = new(SSDMMG.ThemeType);
             ContextMenu.Items.Add(Separator3.Strip);
 
-            ContextMenu.Items.Add(SRER.GetValue("Launcher", "ExitText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "ExitIcon"))), CommandClose);
+            ContextMenu.Items.Add(SRER.GetValue("Launcher", SMMG.AppExit ? "CloseText" : "ExitText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "ExitIcon"))), CommandClose);
         }
 
         public bool Release()
@@ -283,11 +283,6 @@ namespace Sucrose.Shared.Launcher.Manager
             }
         }
 
-        private void CommandRequestFeedback(object sender, EventArgs e)
-        {
-            SSLCRF.Command();
-        }
-
         private void MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -304,6 +299,11 @@ namespace Sucrose.Shared.Launcher.Manager
         private void CommandProperty(object sender, EventArgs e)
         {
             SSLPE.Command();
+        }
+
+        private void CommandFeedback(object sender, EventArgs e)
+        {
+            SSLCF.Command();
         }
 
         private void CommandSetting(object sender, EventArgs e)

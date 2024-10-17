@@ -107,124 +107,127 @@ Launcher.WallCustomizeText,Sesuaikan Wallpaper,,Launcher\Launcher.MS.xaml,
 PASS⦙3,PASS⦙3,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
 Launcher.CreateLogText,Cipta Fail Log,,Launcher\Launcher.MS.xaml,
 PASS⦙4,PASS⦙4,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
-Launcher.ExitText,Keluar,,Launcher\Launcher.MS.xaml,
+Launcher.CloseText,Tutup Aplikasi,,Launcher\Launcher.MS.xaml,
 PASS⦙5,PASS⦙5,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
-Launcher.OpenReportText,Laporkan Masalah,,Launcher\Launcher.MS.xaml,
+Launcher.ExitText,Keluar,,Launcher\Launcher.MS.xaml,
 PASS⦙6,PASS⦙6,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
-Launcher.OpenText,Buka Sucrose,,Launcher\Launcher.MS.xaml,
+Launcher.OpenReportText,Laporkan Masalah,,Launcher\Launcher.MS.xaml,
 PASS⦙7,PASS⦙7,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
-Launcher.ReportText,Laporkan Masalah,,Launcher\Launcher.MS.xaml,
+Launcher.OpenText,Buka Sucrose,,Launcher\Launcher.MS.xaml,
 PASS⦙8,PASS⦙8,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
-Launcher.ReportWindowTitle,Diagnostik Sucrose,,Launcher\Launcher.MS.xaml,
+Launcher.ReportText,Laporkan Masalah,,Launcher\Launcher.MS.xaml,
 PASS⦙9,PASS⦙9,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
+Launcher.ReportWindowTitle,Diagnostik Sucrose,,Launcher\Launcher.MS.xaml,
+PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
 Launcher.SaveDialogFilter,Fail ZIP (*.zip)|*.zip|Semua Fail (*.*)|*.*,,Launcher\Launcher.MS.xaml,
 Launcher.SaveDialogTitle,Simpan Fail Log,,Launcher\Launcher.MS.xaml,
-PASS⦙10,PASS⦙10,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
-Launcher.RequestFeedbackText,Permintaan dan Maklum Balas,,Launcher\Launcher.MS.xaml,
 PASS⦙11,PASS⦙11,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
-Launcher.SettingText,Tetapan,,Launcher\Launcher.MS.xaml,
+Launcher.RequestFeedbackText,Permintaan dan Maklum Balas,,Launcher\Launcher.MS.xaml,
+Launcher.FeedbackText,Hantar Maklum Balas,,Launcher\Launcher.MS.xaml,
 PASS⦙12,PASS⦙12,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
-Launcher.TrayText,Sucrose Wallpaper Engine,,Launcher\Launcher.MS.xaml,
+Launcher.SettingText,Tetapan,,Launcher\Launcher.MS.xaml,
 PASS⦙13,PASS⦙13,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
+Launcher.TrayText,Sucrose Wallpaper Engine,,Launcher\Launcher.MS.xaml,
+PASS⦙14,PASS⦙14,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
 Launcher.WallChangeText,Tukar Wallpaper,,Launcher\Launcher.MS.xaml,
 Launcher.WallCloseText,Tutup Wallpaper,,Launcher\Launcher.MS.xaml,
 Launcher.WallOpenText,Buka Wallpaper,,Launcher\Launcher.MS.xaml,
 Launcher.WallStartText,Mulakan Wallpaper,,Launcher\Launcher.MS.xaml,
 Launcher.WallStopText,Hentikan Wallpaper,,Launcher\Launcher.MS.xaml,
-PASS⦙14,PASS⦙14,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
+PASS⦙15,PASS⦙15,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
 Launcher.ClosedText,Ditutup,,Launcher\Launcher.MS.xaml,
 Launcher.PausedText,Dijeda,,Launcher\Launcher.MS.xaml,
-PASS⦙15,PASS⦙15,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
-Launcher.UpdateText,Semak Kemas Kini,,Launcher\Launcher.MS.xaml,
 PASS⦙16,PASS⦙16,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
+Launcher.UpdateText,Semak Kemas Kini,,Launcher\Launcher.MS.xaml,
+PASS⦙17,PASS⦙17,Don't Touch,Launcher\Launcher.MS.xaml,Please don't touch the translation in this line.
 Launcher.UpdateText.Done,Sedang Menyediakan Kemas Kini,,Launcher\Launcher.MS.xaml,
 Launcher.UpdateText.Check,Memeriksa Kemas Kini,,Launcher\Launcher.MS.xaml,
 Launcher.UpdateText.Progress,Kemajuan Kemas Kini {0},,Launcher\Launcher.MS.xaml,
 Live.Title,{0} Pemberitahuan,,Live\Live.MS.xaml,
-PASS⦙17,PASS⦙17,Don't Touch,Live\Live.MS.xaml,Please don't touch the translation in this line.
+PASS⦙18,PASS⦙18,Don't Touch,Live\Live.MS.xaml,Please don't touch the translation in this line.
 Live.Close,Tutup,,Live\Live.MS.xaml,
 Live.Continue,Teruskan,,Live\Live.MS.xaml,
 Live.Download,Muat Turun,,Live\Live.MS.xaml,
 Live.Remember,Ingat,,Live\Live.MS.xaml,
-PASS⦙18,PASS⦙18,Don't Touch,Live\Live.MS.xaml,Please don't touch the translation in this line.
+PASS⦙19,PASS⦙19,Don't Touch,Live\Live.MS.xaml,Please don't touch the translation in this line.
 Live.Info.WebView,Keperluan WebView,,Live\Live.MS.xaml,
 Live.Info.CefSharp,Keperluan CefSharp,,Live\Live.MS.xaml,
-PASS⦙19,PASS⦙19,Don't Touch,Live\Live.MS.xaml,Please don't touch the translation in this line.
+PASS⦙20,PASS⦙20,Don't Touch,Live\Live.MS.xaml,Please don't touch the translation in this line.
 Live.Message.WebView,"Runtime WebView2 tidak dipasang. Runtime WebView2 adalah komponen yang membolehkan penggunaan teknologi web moden dalam aplikasi. Oleh itu, Runtime WebView2 diperlukan untuk menetapkan wallpaper yang dipilih.",,Live\Live.MS.xaml,
 Live.Message.CefSharp,"VC++ Redistributable tidak dipasang. VC++ Redistributable menyediakan beberapa komponen sistem yang diperlukan untuk CefSharp berfungsi dengan betul. CefSharp adalah rangka kerja yang membolehkan penggunaan teknologi web moden dalam aplikasi. Oleh itu, VC++ Redistributable diperlukan untuk menetapkan wallpaper yang dipilih.",,Live\Live.MS.xaml,
 Base64⦙1,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5NUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5NUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5Lk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuTVMueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93Lk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuTVMueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5NUy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\Portal.MS.xaml,Please don't touch the translation in this line.
 Property.WindowTitle,Sucrose Property,,Property\Property.MS.xaml,
-PASS⦙20,PASS⦙20,Don't Touch,Property\Property.MS.xaml,Please don't touch the translation in this line.
+PASS⦙21,PASS⦙21,Don't Touch,Property\Property.MS.xaml,Please don't touch the translation in this line.
 Property.DeleteTip,Padam Salinan,,Property\Property.MS.xaml,
 Property.RefreshTip,Segar Antara Muka,,Property\Property.MS.xaml,
 Property.RestoreTip,Pulihkan Lalai,,Property\Property.MS.xaml,
-PASS⦙21,PASS⦙21,Don't Touch,Property\Property.MS.xaml,Please don't touch the translation in this line.
-Property.Type.NotSupport,Jenis Kawalan '{0}' tidak disokong.,,Property\Property.MS.xaml,
 PASS⦙22,PASS⦙22,Don't Touch,Property\Property.MS.xaml,Please don't touch the translation in this line.
+Property.Type.NotSupport,Jenis Kawalan '{0}' tidak disokong.,,Property\Property.MS.xaml,
+PASS⦙23,PASS⦙23,Don't Touch,Property\Property.MS.xaml,Please don't touch the translation in this line.
 Property.ColorPicker.Color,Warna,,Property\Property.MS.xaml,
 Property.ColorPicker.Cancel,Batal,,Property\Property.MS.xaml,
 Property.ColorPicker.Confirm,Sahkan,,Property\Property.MS.xaml,
 Property.ColorPicker.EyeDropper,Dropper Mata,,Property\Property.MS.xaml,
 Property.ColorPicker.Popup.Title,Sucrose Property Color Picker,,Property\Property.MS.xaml,
-PASS⦙23,PASS⦙23,Don't Touch,Property\Property.MS.xaml,Please don't touch the translation in this line.
+PASS⦙24,PASS⦙24,Don't Touch,Property\Property.MS.xaml,Please don't touch the translation in this line.
 Property.FileDropDown.Tip,Pilih sebuah fail,,Property\Property.MS.xaml,
 Property.FileDropDown.Filter,Semua Fail (*.*)|*.*,,Property\Property.MS.xaml,
-PASS⦙24,PASS⦙24,Don't Touch,Property\Property.MS.xaml,Please don't touch the translation in this line.
+PASS⦙25,PASS⦙25,Don't Touch,Property\Property.MS.xaml,Please don't touch the translation in this line.
 Property.FileDropDown.Access.Close,Faham,,Property\Property.MS.xaml,
 Property.FileDropDown.Access.Title,Amaran Akses,,Property\Property.MS.xaml,
 Property.FileDropDown.Access.Message,Anda tidak mempunyai kebenaran untuk mengakses fail yang dipilih.,,Property\Property.MS.xaml,
 Undo.QuestionTitle,Sucrose Undo,,Undo\Undo.MS.xaml,
-PASS⦙25,PASS⦙25,Don't Touch,Undo\Undo.MS.xaml,Please don't touch the translation in this line.
+PASS⦙26,PASS⦙26,Don't Touch,Undo\Undo.MS.xaml,Please don't touch the translation in this line.
 Undo.QuestionMessage,Adakah anda benar-benar ingin membuang Sucrose Wallpaper Engine?,,Undo\Undo.MS.xaml,
 Undo.QuestionDescription,"Untuk menghapus dengan semua tetapan, pilih Ya; untuk mengekalkan tetapan dan hanya menghapuskan, pilih Tidak; dan untuk membatalkan proses penghapusan, pilih Batal.",,Undo\Undo.MS.xaml,
 Update.WindowTitle,Sucrose Update,,Update\Update.MS.xaml,
-PASS⦙26,PASS⦙26,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
-Update.HelpText,Selesaikan Masalah,,Update\Update.MS.xaml,
 PASS⦙27,PASS⦙27,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
-Update.ReloadText,COBA LAGI,,Update\Update.MS.xaml,
+Update.HelpText,Selesaikan Masalah,,Update\Update.MS.xaml,
 PASS⦙28,PASS⦙28,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
-Update.ReloadText.Check.Again,PERIKSA SEKALI LAGI,,Update\Update.MS.xaml,
+Update.ReloadText,COBA LAGI,,Update\Update.MS.xaml,
 PASS⦙29,PASS⦙29,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
+Update.ReloadText.Check.Again,PERIKSA SEKALI LAGI,,Update\Update.MS.xaml,
+PASS⦙30,PASS⦙30,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
 Update.ReloadText.Browser.Opened,DIBUKA DALAM PELAYAR,,Update\Update.MS.xaml,
 Update.ReloadText.Browser.Opening,SEDANG DIBUKA DALAM PELAYAR,,Update\Update.MS.xaml,
-PASS⦙30,PASS⦙30,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
-Update.MessageText.Preparing,SEDANG MENYEDIAKAN SEDIAAN PERLU,,Update\Update.MS.xaml,
 PASS⦙31,PASS⦙31,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
+Update.MessageText.Preparing,SEDANG MENYEDIAKAN SEDIAAN PERLU,,Update\Update.MS.xaml,
+PASS⦙32,PASS⦙32,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Temporary,MEMERIKSA LOKASI SEMENTARA,,Update\Update.MS.xaml,
 Update.MessageText.Temporary.Error,LOKASI SEMENTARA TIDAK DAPAT DIPERIKSA,,Update\Update.MS.xaml,
-PASS⦙32,PASS⦙32,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
+PASS⦙33,PASS⦙33,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Connection,MEMERIKSA SAMBUNGAN INTERNET,,Update\Update.MS.xaml,
 Update.MessageText.Connection.None,TIADA SAMBUNGAN INTERNET,,Update\Update.MS.xaml,
 Update.MessageText.Connection.Error,SAMBUNGAN INTERNET TIDAK DAPAT DIPERIKSA,,Update\Update.MS.xaml,
-PASS⦙33,PASS⦙33,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
+PASS⦙34,PASS⦙34,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Listing,MENDAPAT SENARAI-SNRAI DIPERLUKAN,,Update\Update.MS.xaml,
 Update.MessageText.Listing.Empty,SENARAI-SNRAI DIPERLUKAN KOSONG,,Update\Update.MS.xaml,
 Update.MessageText.Listing.Error,SENARAI-SNRAI DIPERLUKAN TIDAK DAPAT DITERIMA,,Update\Update.MS.xaml,
-PASS⦙34,PASS⦙34,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
+PASS⦙35,PASS⦙35,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Filtering,SENARAI SEDANG DIFILTER,,Update\Update.MS.xaml,
 Update.MessageText.Filtering.Not,SENARAI TIDAK DAPAT DIFILTER,,Update\Update.MS.xaml,
 Update.MessageText.Filtering.Error,SENARAI TIDAK DAPAT DIFILTER,,Update\Update.MS.xaml,
-PASS⦙35,PASS⦙35,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
+PASS⦙36,PASS⦙36,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Comparing,MEMBANDINGKAN SENARAI,,Update\Update.MS.xaml,
 Update.MessageText.Comparing.Update,APLIKASI SUDAH TERKINI,,Update\Update.MS.xaml,
 Update.MessageText.Comparing.Error,GAGAL UNTUK MEMBANDINGKAN SENARAI,,Update\Update.MS.xaml,
-PASS⦙36,PASS⦙36,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
+PASS⦙37,PASS⦙37,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Searching,MENCARI FAIL-FALI DIPERLUKAN,,Update\Update.MS.xaml,
 Update.MessageText.Searching.Not,FAIL-FALI DIPERLUKAN TIDAK DIjumpai,,Update\Update.MS.xaml,
 Update.MessageText.Searching.Error,FAIL-FALI DIPERLUKAN TIDAK DAPAT DICARI,,Update\Update.MS.xaml,
 Update.MessageText.Searching.Condition,FAIL YANG DIPERLUKAN TIDAK DITEMUI,,Update\Update.MS.xaml,
-PASS⦙37,PASS⦙37,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
+PASS⦙38,PASS⦙38,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Downloading,MENDOWNLOAD FAIL-FALI DIPERLUKAN,,Update\Update.MS.xaml,
 Update.MessageText.Downloading.Error,FAIL-FALI DIPERLUKAN TIDAK DAPAT DIDOWNLOAD,,Update\Update.MS.xaml,
 Update.MessageText.Downloading.Complete.Cancel,PENDOWNLOADAN FAIL YANG DIPERLUKAN TELAH DIBATALKAN,,Update\Update.MS.xaml,
 Update.MessageText.Downloading.Complete.Error,TERDAPAT RALAT SEMASA MENDOWNLOAD FAIL YANG DIPERLUKAN,,Update\Update.MS.xaml,
-PASS⦙38,PASS⦙38,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
+PASS⦙39,PASS⦙39,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Running,SEDANG MENYEDIAKAN FAIL YANG DIMUAT TURUN,,Update\Update.MS.xaml,
 Update.MessageText.Running.Executing,MELAKSANAKAN FAIL YANG DIMUAT TURUN,,Update\Update.MS.xaml,
 Update.MessageText.Running.Executed,FAIL YANG DIMUAT TURUN TELAH DILAKSANAKAN,,Update\Update.MS.xaml,
 Update.MessageText.Running.Not,FAIL YANG DIMUAT TURUN TIDAK BOLEH DIGUNAKAN,,Update\Update.MS.xaml,
 Update.MessageText.Running.Error,GAGAL UNTUK MENYEDIAKAN FAIL YANG DIMUAT TURUN,,Update\Update.MS.xaml,
-PASS⦙39,PASS⦙39,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
+PASS⦙40,PASS⦙40,Don't Touch,Update\Update.MS.xaml,Please don't touch the translation in this line.
 Update.MessageText.Extracting,MENGEKSTRAK FAIL YANG DIDOWNLOAD,,Update\Update.MS.xaml,
 Update.MessageText.Extracting.Executing,FAIL YANG DIEKSTRAK SEDANG DIJALANKAN,,Update\Update.MS.xaml,
 Update.MessageText.Extracting.Executed,FAIL YANG DIEKSTRAK TELAH DIJALANKAN,,Update\Update.MS.xaml,
@@ -262,7 +265,7 @@ Portal.Area.Extensions,Sambungan,,Portal\Area\Portal.Area.MS.xaml,
 Portal.Area.SystemResources,Sumber Sistem,,Portal\Area\Portal.Area.MS.xaml,
 Portal.Area.AppearanceBehavior,Penampilan &amp; Tingkah Laku,,Portal\Area\Portal.Area.MS.xaml,
 Portal.Category.All,Semua,,Portal\Category\Portal.Category.MS.xaml,
-PASS⦙40,PASS⦙40,Don't Touch,Portal\Category\Portal.Category.MS.xaml,Please don't touch the translation in this line.
+PASS⦙41,PASS⦙41,Don't Touch,Portal\Category\Portal.Category.MS.xaml,Please don't touch the translation in this line.
 Portal.Category.Abstract,Abstrak,,Portal\Category\Portal.Category.MS.xaml,
 Portal.Category.Ambience,Persekitaran,,Portal\Category\Portal.Category.MS.xaml,
 Portal.Category.Animals,Haiwan,,Portal\Category\Portal.Category.MS.xaml,
@@ -331,22 +334,22 @@ Portal.Enum.Stretch.Fill,Isi,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.Stretch.None,Tiada,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.Stretch.Uniform,Seragam,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.Stretch.UniformToFill,Seragam Untuk Isi,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙41,PASS⦙41,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.SortModeType.None,Tiada,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.SortModeType.Name,Nama,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.SortModeType.Creation,Penciptaan,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.SortModeType.Modification,Pengubahan,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙42,PASS⦙42,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.InputType.Close,Ditutup,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.InputType.OnlyMouse,Hanya Tetikus,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.InputType.OnlyKeyboard,Hanya Papan Kekunci,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.InputType.MouseKeyboard,Tetikus &amp; Papan Kekunci,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙43,PASS⦙43,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.StretchType.Fill,Isi,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.StretchType.None,Tiada,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.StretchType.Uniform,Seragam,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.StretchType.UniformToFill,Seragam Untuk Isi,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙44,PASS⦙44,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.ReportThemeType.Spam,Spam,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.ReportThemeType.Other,Lain-Lain,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.ReportThemeType.Nudity,Ketelanjangan,,Portal\Enum\Portal.Enum.MS.xaml,
@@ -355,56 +358,56 @@ Portal.Enum.ReportThemeType.Violence,Keganasan,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.ReportThemeType.Malicious,Berbahaya,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.ReportThemeType.CopyrightViolation,Pelanggaran Hak Cipta,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.ReportThemeType.MisleadingInformation,Maklumat Mengelirukan,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙45,PASS⦙45,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.CommunicationType.Pipe,Pipe,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.CommunicationType.Signal,Signal,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙46,PASS⦙46,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.PerformanceType.Close,Tutup,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.PerformanceType.Pause,Berhenti,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.PerformanceType.Resume,Sambung,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙47,PASS⦙47,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.WindowBackdropType.Mica,Mika,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.WindowBackdropType.None,Tiada,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.WindowBackdropType.Auto,Auto,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.WindowBackdropType.Tabbed,Bersegi,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.WindowBackdropType.Acrylic,Akrilik,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙48,PASS⦙48,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.InputModuleType.Native,Native,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.InputModuleType.RawInput,RawInput,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙49,PASS⦙49,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.StoreServerType.GitHub,GitHub,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.StoreServerType.Soferity,Soferity,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙50,PASS⦙50,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateModuleType.Native,Native,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.UpdateModuleType.Downloader,Downloader,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙51,PASS⦙51,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateServerType.GitHub,GitHub,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.UpdateServerType.Soferity,Soferity,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙52,PASS⦙52,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.PausePerformanceType.Heavy,Berat,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.PausePerformanceType.Light,Ringan,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙53,PASS⦙53,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.SortKindType.Ascending,Menaik [A-Z],,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.SortKindType.Descending,Menurun [Z-A],,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙54,PASS⦙54,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.ExpandScreenType.Default,Lalai,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.ExpandScreenType.Advanced,Pertingkat,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙55,PASS⦙55,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.TransitionCycleType.Random,Rawak,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.TransitionCycleType.Sequential,Berturut-turut,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙56,PASS⦙56,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙57,PASS⦙57,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.ScreenType.WorkingArea,Kawasan Kerja,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.ScreenType.DisplayBound,Had Pameran,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙57,PASS⦙57,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙58,PASS⦙58,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateChannelType.Release,Lalai,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.UpdateChannelType.PreRelease,Pengembang,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙58,PASS⦙58,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙59,PASS⦙59,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.DuplicateScreenType.Default,Lalai,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.DuplicateScreenType.Advanced,Pertingkat,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙59,PASS⦙59,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙60,PASS⦙60,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.UpdateExtensionType.Compressed,Mampatan,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.UpdateExtensionType.Executable,Eksekutif,,Portal\Enum\Portal.Enum.MS.xaml,
-PASS⦙60,PASS⦙60,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
+PASS⦙61,PASS⦙61,Don't Touch,Portal\Enum\Portal.Enum.MS.xaml,Please don't touch the translation in this line.
 Portal.Enum.CompatibilityType.Pass,Berjaya,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.CompatibilityType.Tags,'Tags' terlalu banyak nilai,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.CompatibilityType.Type,Temanya dibuat untuk jenis yang tidak disokong oleh aplikasi,,Portal\Enum\Portal.Enum.MS.xaml,
@@ -454,25 +457,25 @@ Portal.Enum.CompatibilityType.InvalidProperties,Fail 'SucroseProperties.json' ti
 Portal.Enum.CompatibilityType.PropertyLocalization,Nilai 'PropertyLocalization' tidak sah,,Portal\Enum\Portal.Enum.MS.xaml,
 Portal.Enum.CompatibilityType.UnforeseenConsequences,Kesan Tak Dijangka,,Portal\Enum\Portal.Enum.MS.xaml,
 Base64⦙3,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuTVMueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuTVMueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5NUy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.MS.xaml,Please don't touch the translation in this line.
-PASS⦙61,PASS⦙61,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.MS.xaml,Please don't touch the translation in this line.
-Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.MS.xaml,
 PASS⦙62,PASS⦙62,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.MS.xaml,Please don't touch the translation in this line.
+Portal.LibraryPage.Title,LibraryPage,,Portal\LibraryPage\Portal.LibraryPage.MS.xaml,
+PASS⦙63,PASS⦙63,Don't Touch,Portal\LibraryPage\Portal.LibraryPage.MS.xaml,Please don't touch the translation in this line.
 Portal.LibraryPage.Import.Successful,Tema '{0}' berjaya ditambahkan ke pustaka.,,Portal\LibraryPage\Portal.LibraryPage.MS.xaml,
 Portal.LibraryPage.Import.Unsuccessful,Tema '{0}' gagal ditambahkan ke pustaka. Sebab: '{1}'.,,Portal\LibraryPage\Portal.LibraryPage.MS.xaml,
 Portal.MainWindow.Title,Sucrose Wallpaper Engine,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
-PASS⦙63,PASS⦙63,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
+PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuHelp,Bantuan,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Portal.MainWindow.MenuAbout,Tentang,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
-PASS⦙64,PASS⦙64,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
+PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuHelpTip,Lihat Bantuan,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Portal.MainWindow.MenuAboutTip,Lihat Tentang,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
-PASS⦙65,PASS⦙65,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
+PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLibrary,Pustaka,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Portal.MainWindow.MenuStore,Kedai,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
-PASS⦙66,PASS⦙66,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
+PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLibraryTip,Pustaka Tema,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Portal.MainWindow.MenuStoreTip,Kedai Tema,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
-PASS⦙67,PASS⦙67,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
+PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuGeneral,Umum,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Portal.MainWindow.MenuPersonal,Peribadi,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Portal.MainWindow.MenuPerformance,Prestasi,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
@@ -480,7 +483,7 @@ Portal.MainWindow.MenuWallpaper,Kertas Dinding,,Portal\MainWindow\Portal.MainWin
 Portal.MainWindow.MenuSystem,Sistem,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Portal.MainWindow.MenuDonate,Sumbangan,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Portal.MainWindow.MenuOther,Lain-lain,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
-PASS⦙68,PASS⦙68,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
+PASS⦙69,PASS⦙69,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuBackTip,Kembali,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Portal.MainWindow.MenuGeneralTip,Tetapan Umum,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Portal.MainWindow.MenuPersonalTip,Tetapan Peribadi,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
@@ -489,16 +492,16 @@ Portal.MainWindow.MenuWallpaperTip,Tetapan Kertas Dinding,,Portal\MainWindow\Por
 Portal.MainWindow.MenuSystemTip,Tetapan Sistem,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Portal.MainWindow.MenuDonateTip,Tetapan Sumbangan,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Portal.MainWindow.MenuOtherTip,Tetapan Lain-lain,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
-PASS⦙69,PASS⦙69,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.MenuSettingTip,Tetapan,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 PASS⦙70,PASS⦙70,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.SearchBoxHint,Cari Kertas Dinding,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
+Portal.MainWindow.MenuSettingTip,Tetapan,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 PASS⦙71,PASS⦙71,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
-Portal.MainWindow.SearchBoxTip,Sukar mencari apa yang anda perlukan?,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
+Portal.MainWindow.SearchBoxHint,Cari Kertas Dinding,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 PASS⦙72,PASS⦙72,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
+Portal.MainWindow.SearchBoxTip,Sukar mencari apa yang anda perlukan?,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
+PASS⦙73,PASS⦙73,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuLightTip,Tema Terang,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Portal.MainWindow.MenuDarkTip,Tema Gelap,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
-PASS⦙73,PASS⦙73,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
+PASS⦙74,PASS⦙74,Don't Touch,Portal\MainWindow\Portal.MainWindow.MS.xaml,Please don't touch the translation in this line.
 Portal.MainWindow.MenuCreateWallpaperTip,Buat Kertas Dinding,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Portal.MainWindow.MenuWallpaperCyclingTip,Kitaran Kertas Dinding,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Portal.MainWindow.MenuDisplayPreferencesTip,Pilihan Paparan,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
@@ -506,36 +509,36 @@ Portal.MainWindow.MenuDonateOptionsTip,Pilihan Sumbangan,,Portal\MainWindow\Port
 Portal.MainWindow.MenuOtherOptionsTip,Pilihan Lain-lain,,Portal\MainWindow\Portal.MainWindow.MS.xaml,
 Base64⦙4,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5NUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuTVMueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuTVMueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuTVMueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+,Don't Touch,Portal\SettingPage\Portal.SettingPage.MS.xaml,Please don't touch the translation in this line.
 Base64⦙5,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5NUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuTVMueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLk1TLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==,Don't Touch,Portal\StorePage\Portal.StorePage.MS.xaml,Please don't touch the translation in this line.
-PASS⦙74,PASS⦙74,Don't Touch,Portal\StorePage\Portal.StorePage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙75,PASS⦙75,Don't Touch,Portal\StorePage\Portal.StorePage.MS.xaml,Please don't touch the translation in this line.
 Portal.StorePage.Title,StorePage,,Portal\StorePage\Portal.StorePage.MS.xaml,
 Portal.DisplayPreferences.Title,Keutamaan Paparan,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,
 Portal.DisplayPreferences.Close,Tutup,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,
-PASS⦙75,PASS⦙75,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,Please don't touch the translation in this line.
+PASS⦙76,PASS⦙76,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,Please don't touch the translation in this line.
 Portal.DisplayPreferences.Expander,Mod Penempatan,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,
 Portal.DisplayPreferences.Expander.Description,Bagaimana wallpaper dikenakan pada skrin aktif.,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,
-PASS⦙76,PASS⦙76,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Screen,Hanya skrin yang dipilih,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,
 PASS⦙77,PASS⦙77,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand,Rentangkan di antara skrin,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,
+Portal.DisplayPreferences.Screen,Hanya skrin yang dipilih,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,
 PASS⦙78,PASS⦙78,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand.Monitor,Semua Monitor,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,
+Portal.DisplayPreferences.Expand,Rentangkan di antara skrin,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,
 PASS⦙79,PASS⦙79,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Expand.Hint,Pilih mod rentangan di antara skrin,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,
+Portal.DisplayPreferences.Expand.Monitor,Semua Monitor,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,
 PASS⦙80,PASS⦙80,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,Please don't touch the translation in this line.
-Portal.DisplayPreferences.Duplicate,Duplikasi wallpaper yang sama,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,
+Portal.DisplayPreferences.Expand.Hint,Pilih mod rentangan di antara skrin,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,
 PASS⦙81,PASS⦙81,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,Please don't touch the translation in this line.
+Portal.DisplayPreferences.Duplicate,Duplikasi wallpaper yang sama,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,
+PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,Please don't touch the translation in this line.
 Portal.DisplayPreferences.Duplicate.Hint,Pilih mod duplikasi wallpaper yang sama,,Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.MS.xaml,
 Portal.ExpanderCard.TitleText,Tajuk,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.MS.xaml,
 Portal.ExpanderCard.DescriptionText,Penerangan,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.MS.xaml,
-PASS⦙82,PASS⦙82,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.MS.xaml,Please don't touch the translation in this line.
+PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\ExpanderCard\Portal.ExpanderCard.MS.xaml,Please don't touch the translation in this line.
 Portal.ExpanderCard.ExpandUpTip,Susut,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.MS.xaml,
 Portal.ExpanderCard.ExpandDownTip,Kembangkan,,Portal\Controls\ExpanderCard\Portal.ExpanderCard.MS.xaml,
 Portal.LibraryCard.TitleText,Tajuk,,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,
 Portal.LibraryCard.DescriptionText,Penerangan,,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,
-PASS⦙83,PASS⦙83,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Please don't touch the translation in this line.
+PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.MoreTip,Lebih,,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,
 Portal.LibraryCard.VersionTip,"Untuk menggunakan tema ini, kemas kini Sucrose",,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,
-PASS⦙84,PASS⦙84,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Please don't touch the translation in this line.
+PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.MenuReview,Semak,,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,
 Portal.LibraryCard.MenuUse,Guna,,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,
 Portal.LibraryCard.MenuPreview,Pratonton,,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,
@@ -546,83 +549,83 @@ Portal.LibraryCard.MenuFind,Cari,,Portal\Controls\LibraryCard\Portal.LibraryCard
 Portal.LibraryCard.MenuShare,Kongsi,,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,
 Portal.LibraryCard.MenuDelete,Padam,,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,
 Portal.LibraryCard.MenuEdit,Sunting,,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,
-PASS⦙85,PASS⦙85,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Please don't touch the translation in this line.
+PASS⦙86,PASS⦙86,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.Closed,Ditutup,,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,
 Portal.LibraryCard.Paused,Dijeda,,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,
-PASS⦙86,PASS⦙86,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Please don't touch the translation in this line.
-Portal.LibraryCard.Selected,Dipilih,,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,
 PASS⦙87,PASS⦙87,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Please don't touch the translation in this line.
+Portal.LibraryCard.Selected,Dipilih,,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,
+PASS⦙88,PASS⦙88,Don't Touch,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Please don't touch the translation in this line.
 Portal.LibraryCard.Incompatible,Tidak Serasi,,Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,
 Portal.OtherAbout.Title,Tentang,,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
 Portal.OtherAbout.Close,Tutup,,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
-PASS⦙88,PASS⦙88,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.About,"Hai, nama saya Bayram Emekli, juga dikenali sebagai Taiizor. Saya adalah pembangun Sucrose Wallpaper Engine, sebuah aplikasi sumber terbuka dan percuma. Terima kasih kerana menggunakan aplikasi yang saya bangunkan.",,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
 PASS⦙89,PASS⦙89,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.About,"Hai, nama saya Bayram Emekli, juga dikenali sebagai Taiizor. Saya adalah pembangun Sucrose Wallpaper Engine, sebuah aplikasi sumber terbuka dan percuma. Terima kasih kerana menggunakan aplikasi yang saya bangunkan.",,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
+PASS⦙90,PASS⦙90,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherAbout.Update,Versi: v{0},,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
 Portal.OtherAbout.Update.Description,Semak Terakhir: {0},,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
-PASS⦙90,PASS⦙90,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Update.Notes,Catatan Kemas Kini,,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
 PASS⦙91,PASS⦙91,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Partners,Rakan Kongsi,,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
+Portal.OtherAbout.Update.Notes,Catatan Kemas Kini,,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
 PASS⦙92,PASS⦙92,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.Contributors,Penyumbang,,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
+Portal.OtherAbout.Partners,Rakan Kongsi,,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
 PASS⦙93,PASS⦙93,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.TermsOfService,Syarat Perkhidmatan,,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
+Portal.OtherAbout.Contributors,Penyumbang,,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
 PASS⦙94,PASS⦙94,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,Please don't touch the translation in this line.
-Portal.OtherAbout.PrivacyPolicy,Dasar Privasi,,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
+Portal.OtherAbout.TermsOfService,Syarat Perkhidmatan,,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
 PASS⦙95,PASS⦙95,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,Please don't touch the translation in this line.
+Portal.OtherAbout.PrivacyPolicy,Dasar Privasi,,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
+PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherAbout.CodeOfConduct,Kod Tingkah Laku Penyumbang,,Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,
 Portal.OtherHelp.Title,Bantuan,,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,
 Portal.OtherHelp.Close,Tutup,,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,
-PASS⦙96,PASS⦙96,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,Please don't touch the translation in this line.
+PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.WebPage,Laman Web,,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,
 Portal.OtherHelp.WebPage.Description,Sucrose Wallpaper Engine rasmi laman web,,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,
-PASS⦙97,PASS⦙97,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,Please don't touch the translation in this line.
+PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Documentation,Dokumentasi,,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,
 Portal.OtherHelp.Documentation.Description,Sucrose Wallpaper Engine rasmi laman dokumentasi,,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,
-PASS⦙98,PASS⦙98,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,Please don't touch the translation in this line.
+PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Repository,Kod Sumber,,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,
 Portal.OtherHelp.Repository.Description,Sucrose Wallpaper Engine rasmi laman kod sumber,,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,
-PASS⦙99,PASS⦙99,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,Please don't touch the translation in this line.
+PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Discussions,Perbincangan,,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,
 Portal.OtherHelp.Discussions.Description,Sucrose Wallpaper Engine rasmi laman perbincangan,,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,
-PASS⦙100,PASS⦙100,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,Please don't touch the translation in this line.
+PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherHelp.Report,Laporkan Masalah,,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,
 Portal.OtherHelp.Report.Description,Sucrose Wallpaper Engine rasmi laman laporkan masalah,,Portal\Controls\OtherHelp\Portal.OtherHelp.MS.xaml,
 Portal.Pagination.PageJump,Langkau,,Portal\Controls\Pagination\Portal.Pagination.MS.xaml,
 Portal.StoreCard.TitleText,Tajuk,,Portal\Controls\StoreCard\Portal.StoreCard.MS.xaml,
 Portal.StoreCard.DescriptionText,Penerangan,,Portal\Controls\StoreCard\Portal.StoreCard.MS.xaml,
-PASS⦙101,PASS⦙101,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.MS.xaml,Please don't touch the translation in this line.
-Portal.StoreCard.VersionTip,"Untuk menggunakan tema ini, kemas kini Sucrose",,Portal\Controls\StoreCard\Portal.StoreCard.MS.xaml,
 PASS⦙102,PASS⦙102,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.MS.xaml,Please don't touch the translation in this line.
+Portal.StoreCard.VersionTip,"Untuk menggunakan tema ini, kemas kini Sucrose",,Portal\Controls\StoreCard\Portal.StoreCard.MS.xaml,
+PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.MS.xaml,Please don't touch the translation in this line.
 Portal.StoreCard.MenuUpdating,Sedang Memeriksa Kemas Kini,,Portal\Controls\StoreCard\Portal.StoreCard.MS.xaml,
 Portal.StoreCard.MenuUpdate,Semak Kemas Kini,,Portal\Controls\StoreCard\Portal.StoreCard.MS.xaml,
 Portal.StoreCard.MenuInstall,Pasang,,Portal\Controls\StoreCard\Portal.StoreCard.MS.xaml,
 Portal.StoreCard.MenuReport,Laporkan,,Portal\Controls\StoreCard\Portal.StoreCard.MS.xaml,
-PASS⦙103,PASS⦙103,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.MS.xaml,Please don't touch the translation in this line.
+PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\StoreCard\Portal.StoreCard.MS.xaml,Please don't touch the translation in this line.
 Portal.StoreCard.Incompatible,Tidak Serasi,,Portal\Controls\StoreCard\Portal.StoreCard.MS.xaml,
 Portal.ThemeCreate.Title,Ciptaan Tema,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.Create,Cipta,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.Close,Tutup,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙104,PASS⦙104,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Gif,Tema Gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.Gif.Description,Sendiri cipta tema jenis Gif anda.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙105,PASS⦙105,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Url,Tema Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.Url.Description,Sendiri cipta tema jenis Url anda.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙106,PASS⦙106,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Web,Tema Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.Web.Description,Sendiri cipta tema jenis Web anda.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙107,PASS⦙107,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Video,Tema Video,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.Video.Description,Sendiri cipta tema jenis Video anda.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙108,PASS⦙108,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.YouTube,Tema YouTube,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.YouTube.Description,Sendiri cipta tema jenis YouTube anda.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙109,PASS⦙109,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Application,Tema Application,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.Application.Description,Sendiri cipta tema jenis Application anda.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙110,PASS⦙110,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeUrl,Url,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.ThemeWeb,Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.ThemeApplication,Aplikasi,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
@@ -634,7 +637,7 @@ Portal.ThemeCreate.ThemeAuthor,Pengarang,,Portal\Controls\ThemeCreate\Portal.The
 Portal.ThemeCreate.ThemeContact,Hubungi,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.ThemeTags,Teg,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.ThemeArguments,Argumen,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙111,PASS⦙111,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeUrl.Hint,Sila masukkan url yang sah,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.ThemeWeb.Hint,Pilih laman web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.ThemeApplication.Hint,Pilih fail aplikasi,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
@@ -646,41 +649,41 @@ Portal.ThemeCreate.ThemeAuthor.Hint,Sila masukkan nama pengarang yang sah,,Porta
 Portal.ThemeCreate.ThemeContact.Hint,Sila masukkan alamat hubungi yang sah,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.ThemeTags.Hint,Sila masukkan teg tema yang sah,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.ThemeArguments.Hint,Sila masukkan argumen aplikasi yang sah,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙112,PASS⦙112,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
-Portal.ThemeCreate.DragDrop.Delete,Batal,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 PASS⦙113,PASS⦙113,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+Portal.ThemeCreate.DragDrop.Delete,Batal,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
+PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Gif.Title,Pilih Fail Gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.DragDrop.Gif.Filter,Fail Gif (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙114,PASS⦙114,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Video.Title,Pilih Fail Video,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.DragDrop.Video.Filter,Fail Video (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙115,PASS⦙115,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.DragDrop.Gif,Seret dan lepaskan fail Gif anda di sini,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.DragDrop.Video,Seret dan lepaskan fail Video anda di sini,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙116,PASS⦙116,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemeThumbnail.Title,Pilih Gambar Thumbnail,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.ThemeThumbnail.Filter,Fail Gambar (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙117,PASS⦙117,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ThemePreview.Title,Pilih Fail Pratonton,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.ThemePreview.Filter,Fail Gif (*.gif)|*.gif,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙118,PASS⦙118,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.WebSource.Title,Pilih Laman Web,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.WebSource.Filter,Laman Web (*.html)|*.html,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙119,PASS⦙119,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.ApplicationSource.Title,Pilih Fail Aplikasi,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.ApplicationSource.Filter,Fail Aplikasi (*.exe)|*.exe,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙120,PASS⦙120,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Copy.Close,Faham,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.Copy.Title,Notis Penting,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.Copy.Message,Fail yang dipilih akan dimasukkan ke dalam tema bersama dengan semua fail dan folder lain dalam direktori.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
-PASS⦙121,PASS⦙121,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
+PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeCreate.Access.Close,Faham,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.Access.Title,Amaran Akses,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeCreate.Access.Message,Anda tidak mempunyai kebenaran untuk mengakses fail yang dipilih.,,Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,
 Portal.ThemeDelete.Title,Padam Tema,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.MS.xaml,
 Portal.ThemeDelete.Delete,Padam,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.MS.xaml,
 Portal.ThemeDelete.Close,Tutup,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.MS.xaml,
-PASS⦙122,PASS⦙122,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.MS.xaml,Please don't touch the translation in this line.
+PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeDelete\Portal.ThemeDelete.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeDelete.ThemeTitle,Tajuk,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.MS.xaml,
 Portal.ThemeDelete.ThemeDescription,Penerangan,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.MS.xaml,
 Portal.ThemeDelete.ThemeType,Jenis,,Portal\Controls\ThemeDelete\Portal.ThemeDelete.MS.xaml,
@@ -700,14 +703,14 @@ Portal.ThemeDelete.ThemeModifyDate,Tidak Diketahui,,Portal\Controls\ThemeDelete\
 Portal.ThemeEdit.Title,Penyuntingan Tema,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,
 Portal.ThemeEdit.Close,Tutup,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,
 Portal.ThemeEdit.Save,Simpan,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,
-PASS⦙123,PASS⦙123,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,Please don't touch the translation in this line.
+PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeEdit.ThemeTitle,Tajuk,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,
 Portal.ThemeEdit.ThemeDescription,Penerangan,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,
 Portal.ThemeEdit.ThemeAuthor,Pengarang,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,
 Portal.ThemeEdit.ThemeContact,Hubungi,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,
 Portal.ThemeEdit.ThemeTags,Teg,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,
 Portal.ThemeEdit.ThemeArguments,Argumen,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,
-PASS⦙124,PASS⦙124,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,Please don't touch the translation in this line.
+PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeEdit.ThemeTitle.Hint,Sila tulis tajuk yang sah,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,
 Portal.ThemeEdit.ThemeDescription.Hint,Sila tulis penerangan yang sah,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,
 Portal.ThemeEdit.ThemeAuthor.Hint,Sila tulis nama pengarang yang sah,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,
@@ -716,41 +719,41 @@ Portal.ThemeEdit.ThemeTags.Hint,Sila tulis teg tema yang sah,,Portal\Controls\Th
 Portal.ThemeEdit.ThemeArguments.Hint,Sila tulis argumen aplikasi yang sah,,Portal\Controls\ThemeEdit\Portal.ThemeEdit.MS.xaml,
 Portal.ThemeImport.Title,Import Tema,,Portal\Controls\ThemeImport\Portal.ThemeImport.MS.xaml,
 Portal.ThemeImport.Close,Tutup,,Portal\Controls\ThemeImport\Portal.ThemeImport.MS.xaml,
-PASS⦙125,PASS⦙125,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.MS.xaml,Please don't touch the translation in this line.
+PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeImport\Portal.ThemeImport.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeImport.Info,Maklumat Tema,,Portal\Controls\ThemeImport\Portal.ThemeImport.MS.xaml,
 Portal.ThemeImport.Type,Jenis,,Portal\Controls\ThemeImport\Portal.ThemeImport.MS.xaml,
 Portal.ThemeReport.Title,Pelaporan Tema,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
 Portal.ThemeReport.Close,Tutup,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
-PASS⦙126,PASS⦙126,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,Please don't touch the translation in this line.
+PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.ThemeTitle,Tajuk,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
 Portal.ThemeReport.ThemeDescription,Penerangan,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
-PASS⦙127,PASS⦙127,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,Please don't touch the translation in this line.
+PASS⦙128,PASS⦙128,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter,Laporan,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
 Portal.ThemeReport.Reporter.Description,Nyatakan sebab anda melaporkan tema tersebut.,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
-PASS⦙128,PASS⦙128,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Contact.Placeholder,Sila masukkan alamat emel yang sah,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
 PASS⦙129,PASS⦙129,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Contact.Placeholder,Sila masukkan alamat emel yang sah,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
+PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Description.Text,Nota tambahan:,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
 Portal.ThemeReport.Reporter.Description.Placeholder,Sila terangkan sebab laporan dengan terperinci.,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
-PASS⦙130,PASS⦙130,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Preparing,Persiapan untuk pelaporan akan bermula tidak lama lagi..,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
 PASS⦙131,PASS⦙131,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Preparing,Persiapan untuk pelaporan akan bermula tidak lama lagi..,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
+PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Checking,Pemeriksaan yang diperlukan sedang dijalankan untuk pelaporan..,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
 Portal.ThemeReport.Reporter.Checking.Error,Berlaku ralat yang tidak diketahui semasa pemeriksaan yang diperlukan dijalankan untuk pelaporan.,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
 Portal.ThemeReport.Reporter.Checking.Status,"Keadaan yang sesuai untuk pelaporan tidak dapat dicipta buat masa ini, sila cuba lagi kemudian..",,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
-PASS⦙132,PASS⦙132,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,Please don't touch the translation in this line.
+PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Sending,Menghantar maklumat untuk pelaporan..,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
 Portal.ThemeReport.Reporter.Sending.Error,Berlaku ralat semasa menghantar laporan.,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
 Portal.ThemeReport.Reporter.Sending.Errored,Berlaku ralat yang tidak dijangka semasa menghantar laporan: {0}.,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
 Portal.ThemeReport.Reporter.Sending.Succeded,"Laporan berjaya dihantar, terima kasih.",,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
-PASS⦙133,PASS⦙133,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,Please don't touch the translation in this line.
-Portal.ThemeReport.Reporter.Network,Sambungan Internet diperlukan untuk melaporkan.,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
 PASS⦙134,PASS⦙134,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,Please don't touch the translation in this line.
+Portal.ThemeReport.Reporter.Network,Sambungan Internet diperlukan untuk melaporkan.,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
+PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeReport.Reporter.Report,Laporan,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
 Portal.ThemeReport.Reporter.GitHub,Laporan dari GitHub,,Portal\Controls\ThemeReport\Portal.ThemeReport.MS.xaml,
 Portal.ThemeReview.Title,Penilaian Tema,,Portal\Controls\ThemeReview\Portal.ThemeReview.MS.xaml,
 Portal.ThemeReview.Close,Tutup,,Portal\Controls\ThemeReview\Portal.ThemeReview.MS.xaml,
-PASS⦙135,PASS⦙135,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.MS.xaml,Please don't touch the translation in this line.
+PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeReview\Portal.ThemeReview.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeReview.ThemeTitle,Tajuk,,Portal\Controls\ThemeReview\Portal.ThemeReview.MS.xaml,
 Portal.ThemeReview.ThemeDescription,Penerangan,,Portal\Controls\ThemeReview\Portal.ThemeReview.MS.xaml,
 Portal.ThemeReview.ThemeType,Jenis,,Portal\Controls\ThemeReview\Portal.ThemeReview.MS.xaml,
@@ -770,408 +773,408 @@ Portal.ThemeReview.ThemeModifyDate,Tidak diketahui,,Portal\Controls\ThemeReview\
 Portal.ThemeReview.ThemeContact,Alamat Tema,,Portal\Controls\ThemeReview\Portal.ThemeReview.MS.xaml,
 Portal.ThemeShare.Title,Kongsi Tema,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 Portal.ThemeShare.Close,Tutup,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
-PASS⦙136,PASS⦙136,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
+PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemeTitle,Tajuk,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 Portal.ThemeShare.ThemeDescription,Penerangan,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
-PASS⦙137,PASS⦙137,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
+PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemeExport,Eksport Tema,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 Portal.ThemeShare.ThemePublish,Terbitkan di Kedai,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 Portal.ThemeShare.ThemeCopy,Salin Pautan,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
-PASS⦙138,PASS⦙138,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
+PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Publish,Terbitkan,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 Portal.ThemeShare.ThemePublish.Preparing,Persiapan untuk penerbitan akan bermula tidak lama lagi..,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
-PASS⦙139,PASS⦙139,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Limit,Had muat naik tema harian anda sedang diperiksa..,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 PASS⦙140,PASS⦙140,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Limit,Had muat naik tema harian anda sedang diperiksa..,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
+PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Anda telah mencapai had muat naik tema harian anda, sila cuba lagi kemudian.",,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 Portal.ThemeShare.ThemePublish.Limit.Error,Ralat tidak diketahui berlaku semasa memeriksa had muat naik tema harian anda.,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
-PASS⦙141,PASS⦙141,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
+PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Compress,Tema sedang dimampatkan sebelum dimuat naik..,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 Portal.ThemeShare.ThemePublish.Compress.Error,Ralat berlaku semasa memampatkan tema.,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
-PASS⦙142,PASS⦙142,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Size,Saiz tema yang dimampatkan sedang diperiksa..,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 PASS⦙143,PASS⦙143,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Size.Exceeded,Tema yang dimampatkan tidak dapat dimuat naik kerana melebihi {0} MB.,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
+Portal.ThemeShare.ThemePublish.Size,Saiz tema yang dimampatkan sedang diperiksa..,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 PASS⦙144,PASS⦙144,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Size.Exceeded,Tema yang dimampatkan tidak dapat dimuat naik kerana melebihi {0} MB.,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
+PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Check,Integriti tema yang dimampatkan sedang diperiksa sebelum dimuat naik..,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 Portal.ThemeShare.ThemePublish.Check.Error,Ralat berlaku semasa memeriksa integriti tema yang dimampatkan.,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
-PASS⦙145,PASS⦙145,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
-Portal.ThemeShare.ThemePublish.Upload,Tema yang dimampatkan sedang disediakan untuk dimuat naik..,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 PASS⦙146,PASS⦙146,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Upload,Tema yang dimampatkan sedang disediakan untuk dimuat naik..,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
+PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.ThemePublish.Upload.Start,Tema yang dimampatkan sedang dimuat naik..,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Error,Ralat tidak diketahui berlaku semasa memuat naik tema yang dimampatkan.,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Errored,Ralat tidak dijangka berlaku semasa memuat naik tema yang dimampatkan: {0}.,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 Portal.ThemeShare.ThemePublish.Upload.Succeded,Tema yang dimampatkan berjaya dimuat naik dan akan diterbitkan di stor selepas pengesahan.,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
-PASS⦙147,PASS⦙147,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
+PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.SaveDialogFilter,Fail ZIP (*.zip)|*.zip|Semua Fail (*.*)|*.*,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 Portal.ThemeShare.SaveDialogTitle,Simpan Fail Tema,,Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,
 Portal.TrayIcon.Title,Dulang Sistem,,Portal\Controls\TrayIcon\Portal.TrayIcon.MS.xaml,
 Portal.TrayIcon.Close,Tutup,,Portal\Controls\TrayIcon\Portal.TrayIcon.MS.xaml,
-PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.MS.xaml,Please don't touch the translation in this line.
+PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.MS.xaml,Please don't touch the translation in this line.
 Portal.TrayIcon.Message,Sucrose telah diminimumkan ke dulang sistem. Sila klik kanan ikon Sucrose untuk meneruskan.,,Portal\Controls\TrayIcon\Portal.TrayIcon.MS.xaml,
 Portal.WallpaperCycling.Title,Pemutaran Wallpaper,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
 Portal.WallpaperCycling.Close,Tutup,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
-PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,Please don't touch the translation in this line.
+PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Cycling,Pemutaran Wallpaper Automatik,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
 Portal.WallpaperCycling.Cycling.Description,Sama ada wallpaper berubah secara automatik atau tidak.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
-PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,Please don't touch the translation in this line.
+PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,Sela Masa,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
 Portal.WallpaperCycling.Time.Description,Sela masa selepas wallpaper berubah.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
-PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,Please don't touch the translation in this line.
+PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,Mod Transisi,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
 Portal.WallpaperCycling.Transition.Description,Mengatur mod transisi antara wallpaper.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
-PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,Please don't touch the translation in this line.
+PASS⦙153,PASS⦙153,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List,Senarai Kitar,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
 Portal.WallpaperCycling.List.Description,Menetapkan semula senarai kitar ke nilai lalai.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
-PASS⦙153,PASS⦙153,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,Please don't touch the translation in this line.
+PASS⦙154,PASS⦙154,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List.Reset,Set semula,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
 Portal.EmptyLibraryPage.Title,EmptyLibraryPage,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.MS.xaml,
-PASS⦙154,PASS⦙154,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙155,PASS⦙155,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.MS.xaml,Please don't touch the translation in this line.
 Portal.EmptyLibraryPage.TitleText,Pustaka Anda Telajang Dilabur Labah-Labah,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.MS.xaml,
 Portal.EmptyLibraryPage.DescriptionText,Wallpaper telah digantikan dengan sebuah karya seni yang indah dihiasi labah-labah.,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.MS.xaml,
 Portal.FullLibraryPage.Title,FullLibraryPage,,Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.MS.xaml,
 Portal.SearchLibraryPage.Title,SearchLibraryPage,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.MS.xaml,
-PASS⦙155,PASS⦙155,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙156,PASS⦙156,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.MS.xaml,Please don't touch the translation in this line.
 Portal.SearchLibraryPage.TitleText,Pustaka Anda Telajang Dilabur Labah-Labah,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.MS.xaml,
 Portal.SearchLibraryPage.DescriptionText,Pilihan kertas dinding yang cermat telah mengisi ruang yang ada di antara dinding Anda.,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.MS.xaml,
 Portal.DonateSettingPage.Title,DonateSettingPage,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,
-PASS⦙156,PASS⦙156,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu,Menu Sumbangan,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,
 Portal.DonateSettingPage.DonateMenu.Description,Menu sumbangan pada antara muka yang boleh dilihat.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,
-PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Tunjukkan,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Sembunyikan,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,
-PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising,Sokongan Beriklan,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,
 Portal.DonateSettingPage.Advertising.Description,Bantu membangunkan aplikasi dengan menonton iklan.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,
-PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising.AdvertisingDelay,Jangka Waktu Iklan (Minit):,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,
 Portal.DonateSettingPage.Advertising.AdvertisingHint,Tip: Iklan akan ditunjukkan pada tahap gangguan minimum.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.MS.xaml,
 Portal.GeneralSettingPage.Title,GeneralSettingPage,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
-PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationLanguage,Bahasa Aplikasi,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.ApplicationLanguage.Description,Pilih bahasa yang ingin Anda lihat aplikasinya.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
-PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup,Mulai Aplikasi,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Description,"Untuk memainkan wallpaper, Sucrose perlu berjalan di latar belakang pada permulaan.",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
-PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Tidak Ada,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Normal,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioritas,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Penjadwal,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
-PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Faham,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Amaran Hak Pentadbir,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Anda memerlukan hak pentadbir untuk menukar status permulaan.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
-PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon,Ikon Notifikasi,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Description,Tray sistem yang terlihat. Sucrose akan terus berjalan secara tersembunyi.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
-PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Tampilkan,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Sembunyikan,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
-PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.NotifyIcon.NotifyExit,"Tutup tray sistem, tutup semua aplikasi Sucrose",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.NotifyExit,"Tutup tray sistem, tutup semua aplikasi Sucrose",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
+PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop,Latar Belakang Jendela,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.Description,Menggunakan untuk menyesuaikan latar belakang jendela aplikasi.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
-PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Pilih Gambar Latar Belakang,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Pilih gambar latar belakang,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,File Gambar (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,"Maaf, anda tidak mempunyai kebenaran untuk mengakses fail imej yang dipilih",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
-PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Peregangan Latar Belakang:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Keburaman Latar Belakang (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Peregangan Latar Belakang:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Keburaman Latar Belakang (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
+PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume,Tingkat Volume,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.EngineVolume.Description,Tingkat volume yang berlaku untuk semua wallpaper.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
-PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Mainkan suara hanya ketika fokus di desktop,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeActive,Mainkan bunyi hanya apabila semua aplikasi dibisukan,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Kependaman (Saat):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
-PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary,Lokasi Perpustakaan,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.Description,Lokasi penyimpanan tema yang ditambahkan ke perpustakaan.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
-PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,"Malangnya, anda tidak mempunyai akses ke lokasi baharu",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Harap pilih folder kosong,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Harap tunggu sebentar saat lokasi dipindahkan,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
-PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Pindahkan perpustakaan Anda ke lokasi baru,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,
 Portal.OtherSettingPage.Title,OtherSettingPage,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
-PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.ReportData,Pelaporan Ralat Automatik,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 Portal.OtherSettingPage.ReportData.Description,Sucrose mengambil tindakan untuk melaporkannya dengan cepat apabila berlaku ralat.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
-PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.StatisticsData,Kongsi Statistik Penggunaan,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 Portal.OtherSettingPage.StatisticsData.Description,Sucrose membolehkan pengumpulan statistik penggunaan anda untuk menyumbang kepada pembangunan aplikasi.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
-PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook,Discord,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 Portal.OtherSettingPage.DiscordHook.Description,Sucrose membolehkan komunikasi antara Discord.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
-PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Muat Semula Sambungan:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 Portal.OtherSettingPage.DiscordHook.DiscordDelay,Tempoh Muat Semula (Saiz):,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
-PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Agent,Wakil Internet,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 Portal.OtherSettingPage.Agent.Description,Identiti wakil anda dalam situasi yang memerlukan sambungan internet.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
-PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key,Token Akses Peribadi,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 Portal.OtherSettingPage.Key.Description,Diperlukan untuk menggunakan kedai dan pembaharuan aplikasi dengan lancar.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
-PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Key.HintKey,Klik di sini jika anda tidak tahu cara mendapatkan token akses peribadi anda.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.HintKey,Klik di sini jika anda tidak tahu cara mendapatkan token akses peribadi anda.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
+PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key.PersonalKey,Sila masukkan token akses peribadi,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 Portal.OtherSettingPage.Key.PersonalKey.Valid,Sila masukkan token akses peribadi yang sah,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
-PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Server,Pelayan Kemas Kini,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 Portal.OtherSettingPage.Server.Description,Pelayan di mana kemas kini akan dilakukan.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
-PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Server.ServerHint,"Nota: Jika {0} dipilih sebagai pelayan, anda perlu memasukkan {2} untuk mengelakkan had permintaan. Jika tidak, anda mungkin mengalami masalah dengan kemas kini. Jika {1} dipilih, anda akan mengalami kemas kini yang lebih lancar.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server.ServerHint,"Nota: Jika {0} dipilih sebagai pelayan, anda perlu memasukkan {2} untuk mengelakkan had permintaan. Jika tidak, anda mungkin mengalami masalah dengan kemas kini. Jika {1} dipilih, anda akan mengalami kemas kini yang lebih lancar.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
+PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Module,Modul Kemas Kini,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 Portal.OtherSettingPage.Module.Description,Modul mana yang akan digunakan untuk proses kemas kini.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
-PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Channel,Saluran Pembaharuan,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 Portal.OtherSettingPage.Channel.Description,Saluran yang digunakan untuk proses pembaharuan.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
-PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update,Kaedah Pembaharuan,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 Portal.OtherSettingPage.Update.Description,Kaedah untuk proses pembaharuan.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
-PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Update.Limit,Had Lebar Jalur Muat Turun:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update.Limit,Had Lebar Jalur Muat Turun:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
+PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Auto,Kemas Kini Automatik,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 Portal.OtherSettingPage.Auto.Description,Sama ada proses kemas kini akan diperiksa secara automatik.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
-PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer,Alat Pembangun,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 Portal.OtherSettingPage.Developer.Description,Urus alat pembangun untuk enjin WebView dan CefSharp.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
-PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperMode,Alat Pembangun Lalai:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperPort,Port Debugging:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
+Portal.OtherSettingPage.Developer.DeveloperMode,Alat Pembangun Lalai:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,Port Debugging:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
+PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer.DeveloperHint,"Petua: Alat pembangun lalai mungkin tidak berfungsi dengan baik di dalam tema yang disokong. Port debugging cenderung berfungsi dengan lebih baik. Apabila anda sudah bersedia, anda boleh menggunakan alamat 'http://localhost:{0}' atau 'chrome://inspect' untuk pelayar Chrome, 'opera://inspect' untuk pelayar Opera, 'edge://inspect' untuk pelayar Edge.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
-PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter,Pengiraan Prestasi,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Counter.Description,Adakah semua pengiraan prestasi berfungsi di latar belakang.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
-PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Counter.CounterHint,"Nota: Sesetengah tema jenis Web mungkin tidak berfungsi dengan baik, dan tiada pengaturan prestasi di bawah akan berfungsi.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter.CounterHint,"Nota: Sesetengah tema jenis Web mungkin tidak berfungsi dengan baik, dan tiada pengaturan prestasi di bawah akan berfungsi.",,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
+PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Pause,Peraturan Jeda,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Pause.Description,Menentukan peraturan untuk menghentikan latar belakang berdasarkan tetapan prestasi anda.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
-PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Communication,Jenis Komunikasi,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Communication.Description,Menentukan kaedah penghantaran mesej kepada tema-tema jenis Web.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
-PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu,Penggunaan CPU,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Cpu.Description,Apa yang akan berlaku pada dinding semasa tetapan penggunaan CPU anda.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
-PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Cpu.CpuUsage,Penggunaan CPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu.CpuUsage,Penggunaan CPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
+PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu,Penggunaan GPU,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Gpu.Description,Apa yang berlaku pada latar belakang berdasarkan tetapan penggunaan GPU anda.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
-PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Senarai unit pemproses grafik belum dibuat,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
-PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Gpu.GpuUsage,Penggunaan GPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuUsage,Penggunaan GPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
+PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory,Penggunaan Memori,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Memory.Description,Apa yang akan berlaku pada dinding semasa tetapan penggunaan memori anda.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
-PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Memory.MemoryUsage,Penggunaan Memori (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory.MemoryUsage,Penggunaan Memori (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
+PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network,Penggunaan Rangkaian,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Network.Description,Apa yang akan berlaku pada dinding semasa tetapan penggunaan rangkaian anda.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
-PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network.NetworkAdapter,Pemalar Rangkaian:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Senarai pemalar rangkaian belum dibina,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
-PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkUpload,Saiz Muat Naik:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkDownload,Saiz Muat Turun:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
+Portal.PerformanceSettingPage.Network.NetworkUpload,Saiz Muat Naik:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkPing,Nilai Ping (MS):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
+Portal.PerformanceSettingPage.Network.NetworkDownload,Saiz Muat Turun:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Nilai Ping (MS):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
+PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery,Kegunaan Bateri,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Battery.Description,Apa yang akan berlaku pada dinding semasa menggunakan bateri komputer riba.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
-PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Battery.BatteryUsage,Status Bateri (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery.BatteryUsage,Status Bateri (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
+PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Saver,Penjimatan Bateri,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Saver.Description,Apa yang akan berlaku pada dinding semasa dalam mod penjimatan bateri komputer riba.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
-PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Virtual,Penyambungan,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Virtual.Description,Apa yang akan berlaku pada dinding semasa aplikasi penyambungan berjalan.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
-PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Remote,Desktop Jarak Jauh,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Remote.Description,Apa yang akan berlaku pada dinding semasa aplikasi desktop jarak jauh berjalan.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
-PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Fullscreen,Mod Pantas Layar Penuh,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Fullscreen.Description,Apa yang akan berlaku pada dinding semasa aplikasi berjalan dalam mod layar penuh.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
-PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Focus,Mod Fokus,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PerformanceSettingPage.Focus.Description,Apa yang akan berlaku pada dinding semasa aplikasi lain berada dalam fokus.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
-PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server,Pelayan Kedai,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 Portal.PersonalSettingPage.Server.Description,Menentukan pelayan yang akan digunakan untuk memaparkan tema yang disenaraikan dalam kedai.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
-PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Server.ServerHint,"Nota: Jika {0} dipilih sebagai pelayan, perlu memasukkan {2} untuk mengelakkan had permintaan. Jika tidak, anda mungkin mengalami masalah mengakses tema dalam kedai. Jika {1} dipilih, anda akan mempunyai pengalaman kedai yang lebih lancar.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server.ServerHint,"Nota: Jika {0} dipilih sebagai pelayan, perlu memasukkan {2} untuk mengelakkan had permintaan. Jika tidak, anda mungkin mengalami masalah mengakses tema dalam kedai. Jika {1} dipilih, anda akan mempunyai pengalaman kedai yang lebih lancar.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
+PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Duration,Penyegaran Kedai,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 Portal.PersonalSettingPage.Duration.Description,Berapa lama tema yang disenaraikan di kedai akan disegarkan semula.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
-PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.StoreStart,Pengaktifan Automatik Kedai,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 Portal.PersonalSettingPage.StoreStart.Description,Adakah tema yang dimuat turun dari kedai akan ditetapkan sebagai latar belakang secara automatik.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
-PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adult,Kandungan Dewasa,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 Portal.PersonalSettingPage.Adult.Description,Adakah kandungan yang ditandakan sebagai tidak selamat (NSFW) akan dipaparkan di kedai.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
-PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Confirm,Pengesahan Pemadaman,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 Portal.PersonalSettingPage.Confirm.Description,Adakah pengesahan akan diminta ketika memadam tema dari perpustakaan.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
-PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete,Tema Rosak,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 Portal.PersonalSettingPage.Delete.Description,Adakah tema yang rosak atau tidak lengkap dalam perpustakaan akan dipadam secara automatik.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
-PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Delete.DeleteHint,Nota: Perlu berhati-hati. Ini boleh menyebabkan kehilangan data.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete.DeleteHint,Nota: Perlu berhati-hati. Ini boleh menyebabkan kehilangan data.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
+PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.LibraryStart,Pengaktifan Automatik Perpustakaan,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 Portal.PersonalSettingPage.LibraryStart.Description,Adakah tema yang dihasilkan akan ditetapkan sebagai latar belakang secara automatik.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
-PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview,Pratonton Tema,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 Portal.PersonalSettingPage.Preview.Description,Adakah tema yang ditunjukkan akan pratonton apabila digerakkan tetikus di atasnya.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
-PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.StorePreview,Pratonton Kedai:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 Portal.PersonalSettingPage.Preview.StorePreviewHide,Sembunyikan Butiran:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
-PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.LibraryPreview,Pratonton Perpustakaan:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Sembunyikan Butiran:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
-PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adaptive,Larasan Adaptif,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 Portal.PersonalSettingPage.Adaptive.Description,Penyesuaian susunan atau jarak tema yang dipaparkan.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
-PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Jarak Margin (Piksel):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Susunan (Unit):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Jarak Margin (Piksel):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Susunan (Unit):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
+PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Sort,Susun Atur Perpustakaan,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 Portal.PersonalSettingPage.Sort.Description,Tentukan bagaimana tema-tema dalam perpustakaan anda akan diatur dan dalam format apa.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
-PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortMode,Mod Susun Atur:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortKind,Jenis Susun Atur:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
+Portal.PersonalSettingPage.Sort.SortMode,Mod Susun Atur:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,Jenis Susun Atur:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
+PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Store,Penyelarasan Kedai,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 Portal.PersonalSettingPage.Store.Description,Tentukan berapa banyak tema yang akan ada untuk setiap halaman di kedai.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
-PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Library,Penyelarasan Perpustakaan,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 Portal.PersonalSettingPage.Library.Description,Tentukan berapa banyak tema yang akan ada untuk setiap halaman di perpustakaan anda.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.MS.xaml,
 Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
-PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LogTemporary,Fail Harian,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 Portal.SystemSettingPage.LogTemporary.Description,Urusan semua fail harian yang dibuat oleh aplikasi.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
-PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Create,Cipta,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Delete,Padam,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
+Portal.SystemSettingPage.LogTemporary.Create,Cipta,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Hint,Nota: Ruang yang diduduki oleh semua fail harian ialah {0}. Semua aplikasi akan ditutup apabila pembersihan bermula.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
+Portal.SystemSettingPage.LogTemporary.Delete,Padam,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,Nota: Ruang yang diduduki oleh semua fail harian ialah {0}. Semua aplikasi akan ditutup apabila pembersihan bermula.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
+PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.CacheTemporary,Pembersihan Cache,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 Portal.SystemSettingPage.CacheTemporary.Description,Bersihkan semua fail cache yang dibuat oleh aplikasi.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
-PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Start,Mulakan Pembersihan,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Hint,Nota: Ruang yang diduduki oleh semua fail cache ialah {0}. Semua aplikasi akan ditutup apabila pembersihan bermula.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
+Portal.SystemSettingPage.CacheTemporary.Start,Mulakan Pembersihan,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,Nota: Ruang yang diduduki oleh semua fail cache ialah {0}. Semua aplikasi akan ditutup apabila pembersihan bermula.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
+PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.StoreTemporary,Pembersihan Kedai,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 Portal.SystemSettingPage.StoreTemporary.Description,Bersihkan semua fail kedai yang dibuat oleh aplikasi.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
-PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Start,Mulakan Pembersihan,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Hint,Nota: Ruang yang diduduki oleh semua fail kedai ialah {0}. Semua aplikasi akan ditutup apabila pembersihan bermula.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
+Portal.SystemSettingPage.StoreTemporary.Start,Mulakan Pembersihan,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,Nota: Ruang yang diduduki oleh semua fail kedai ialah {0}. Semua aplikasi akan ditutup apabila pembersihan bermula.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
+PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LibraryTemporary,Pembersihan Perpustakaan,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 Portal.SystemSettingPage.LibraryTemporary.Description,Bersihkan semua fail tema yang terdapat atau dicipta dalam perpustakaan anda.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
-PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Start,Mulakan Pembersihan,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Hint,Nota: Ruang yang diduduki oleh semua fail tema dalam perpustakaan anda ialah {0}. Semua aplikasi akan ditutup apabila pembersihan bermula.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
+Portal.SystemSettingPage.LibraryTemporary.Start,Mulakan Pembersihan,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,Nota: Ruang yang diduduki oleh semua fail tema dalam perpustakaan anda ialah {0}. Semua aplikasi akan ditutup apabila pembersihan bermula.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
+PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingBackup,Fail Tetapan,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 Portal.SystemSettingPage.SettingBackup.Description,Urusan semua fail tetapan yang dibuat oleh aplikasi.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
-PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Export,Eksport,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Import,Import,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
+Portal.SystemSettingPage.SettingBackup.Export,Eksport,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Hint,Nota: Semua aplikasi akan ditutup apabila operasi yang dipilih bermula.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
+Portal.SystemSettingPage.SettingBackup.Import,Import,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,Nota: Semua aplikasi akan ditutup apabila operasi yang dipilih bermula.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
+PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingReset,Set Semula Tetapan,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 Portal.SystemSettingPage.SettingReset.Description,Set semula semua fail tetapan yang dibuat oleh aplikasi.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
-PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Start,Mulakan Set Semula,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Hint,Nota: Semua aplikasi akan ditutup apabila operasi set semula bermula.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
+Portal.SystemSettingPage.SettingReset.Start,Mulakan Set Semula,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,Nota: Semua aplikasi akan ditutup apabila operasi set semula bermula.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
+PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Log.SaveDialogTitle,Simpan Fail Harian,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 Portal.SystemSettingPage.Log.SaveDialogFilter,Fail ZIP (*.zip)|*.zip|Semua Fail (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
-PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Access.Close,Faham,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 Portal.SystemSettingPage.Access.Title,Amaran Akses,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 Portal.SystemSettingPage.Access.Message,Anda tidak mempunyai kebenaran untuk mengakses lokasi yang dipilih.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.InputMode,Kaedah Interaksi,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.InputMode.Description,Menentukan kaedah melalui mana interaksi boleh berlaku dengan wallpaper yang disokong.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputModule,Modul Interaksi:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputDesktop,Proses interaksi hanya apabila desktop difokuskan,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
+Portal.WallpaperSettingPage.InputMode.InputModule,Modul Interaksi:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.DesktopIcon,Sembunyi untuk mengelakkan pemilihan ikon desktop secara tidak sengaja,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
+Portal.WallpaperSettingPage.InputMode.InputDesktop,Proses interaksi hanya apabila desktop difokuskan,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,Sembunyi untuk mengelakkan pemilihan ikon desktop secara tidak sengaja,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
+PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ScreenLayout,Susunan Skrin,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.ScreenLayout.Description,Susunan skrin untuk ubah susunan wallpaper anda.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.StretchMode,Mod Sediaan,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.StretchMode.Description,Susunan skrin untuk ubah susunan wallpaper anda.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.LoopMode,Mod Pengulangan,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.LoopMode.Description,Mod pengulangan yang akan diubah untuk wallpaper yang disokong.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ShuffleMode,Mod Kacau,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Mod kacau yang akan diubah untuk wallpaper yang disokong.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Pemain Gif,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,Pilih pemain yang akan memainkan tema jenis Gif dalam perpustakaan anda.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Pemain Video,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,Pilih pemain yang akan memainkan tema jenis Video dalam perpustakaan anda.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Pemain Urll,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,Pilih enjin yang akan menjalankan tema jenis Url dalam perpustakaan anda.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙272,PASS⦙272,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Pemain Web,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,Pilih enjin yang akan menjalankan tema jenis Web dalam perpustakaan anda.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙272,PASS⦙272,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙273,PASS⦙273,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,Pemain YouTube,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,Pilih enjin yang akan menjalankan tema jenis YouTube dalam perpustakaan anda.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙273,PASS⦙273,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙274,PASS⦙274,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Pemain Application,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,Pilih enjin yang akan menjalankan tema jenis Application dalam perpustakaan anda.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.MS.xaml,
-PASS⦙274,PASS⦙274,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙275,PASS⦙275,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.MS.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,Momen Di Mana Cahaya Internet Padam,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.MS.xaml,
 Portal.BrokenStorePage.DescriptionText,"Seperti langit yang tanpa bintang, di sini tiada sinar internet",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.MS.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.MS.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.MS.xaml,
-PASS⦙275,PASS⦙275,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙276,PASS⦙276,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.MS.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Jawapan Anda Mungkin Tersembunyi Di Langit,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.MS.xaml,
 Portal.SearchStorePage.DescriptionText,"Jika hasil carian tidak seperti yang dijangkakan, langit mungkin memberikan anda pengalaman baru",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.MS.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.MS.xaml,
-PASS⦙276,PASS⦙276,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙277,PASS⦙277,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.MS.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,Terokai Keadaan Misteri di Dalam Kedai,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.MS.xaml,
 Portal.UnknownStorePage.DescriptionText,Terokai misteri yang muncul di kedai dan mula perjalanan untuk menerangi keadaan yang tidak diketahui,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.MS.xaml,

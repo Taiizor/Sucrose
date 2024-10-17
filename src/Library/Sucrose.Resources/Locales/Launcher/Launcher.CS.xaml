@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">Vytvořit Záznam Souboru</system:String>
 
+    <system:String x:Key="Launcher.CloseText">Zavřít Aplikace</system:String>
+
     <system:String x:Key="Launcher.ExitText">Ukončit</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">Nahlásit Problém</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">Uložit Záznam Souboru</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">Požadavky a Zpětná Vazba</system:String>
+    <system:String x:Key="Launcher.FeedbackText">Odeslat Zpětnou Vazbu</system:String>
 
     <system:String x:Key="Launcher.SettingText">Nastavení</system:String>
 

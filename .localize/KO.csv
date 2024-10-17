@@ -107,6 +107,8 @@ Launcher\Launcher.KO.xaml,Launcher.WallCustomizeText,배경화면 사용자 정�
 Launcher\Launcher.KO.xaml,,
 Launcher\Launcher.KO.xaml,Launcher.CreateLogText,로그 파일 만들기
 Launcher\Launcher.KO.xaml,,
+Launcher\Launcher.KO.xaml,Launcher.CloseText,응용 프로그램 닫기
+Launcher\Launcher.KO.xaml,,
 Launcher\Launcher.KO.xaml,Launcher.ExitText,종료
 Launcher\Launcher.KO.xaml,,
 Launcher\Launcher.KO.xaml,Launcher.OpenReportText,문제 신고
@@ -121,6 +123,7 @@ Launcher\Launcher.KO.xaml,Launcher.SaveDialogFilter,ZIP 파일 (*.zip)|*.zip|모
 Launcher\Launcher.KO.xaml,Launcher.SaveDialogTitle,로그 파일 저장
 Launcher\Launcher.KO.xaml,,
 Launcher\Launcher.KO.xaml,Launcher.RequestFeedbackText,요청 및 피드백
+Launcher\Launcher.KO.xaml,Launcher.FeedbackText,피드백 보내기
 Launcher\Launcher.KO.xaml,,
 Launcher\Launcher.KO.xaml,Launcher.SettingText,설정
 Launcher\Launcher.KO.xaml,,

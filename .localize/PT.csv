@@ -107,6 +107,8 @@ Launcher\Launcher.PT.xaml,Launcher.WallCustomizeText,Personalizar Papel de Pared
 Launcher\Launcher.PT.xaml,,
 Launcher\Launcher.PT.xaml,Launcher.CreateLogText,Criar Arquivo de Log
 Launcher\Launcher.PT.xaml,,
+Launcher\Launcher.PT.xaml,Launcher.CloseText,Fechar Aplicações
+Launcher\Launcher.PT.xaml,,
 Launcher\Launcher.PT.xaml,Launcher.ExitText,Sair
 Launcher\Launcher.PT.xaml,,
 Launcher\Launcher.PT.xaml,Launcher.OpenReportText,Reportar um Problema
@@ -121,6 +123,7 @@ Launcher\Launcher.PT.xaml,Launcher.SaveDialogFilter,Arquivos ZIP (*.zip)|*.zip|T
 Launcher\Launcher.PT.xaml,Launcher.SaveDialogTitle,Salvar Arquivo de Log
 Launcher\Launcher.PT.xaml,,
 Launcher\Launcher.PT.xaml,Launcher.RequestFeedbackText,Solicitações e Feedback
+Launcher\Launcher.PT.xaml,Launcher.FeedbackText,Enviar Feedback
 Launcher\Launcher.PT.xaml,,
 Launcher\Launcher.PT.xaml,Launcher.SettingText,Configurações
 Launcher\Launcher.PT.xaml,,

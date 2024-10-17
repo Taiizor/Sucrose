@@ -6,6 +6,8 @@
 
     <system:String x:Key="Launcher.CreateLogText">लॉग फ़ाइल बनाएँ</system:String>
 
+    <system:String x:Key="Launcher.CloseText">ऐप्लिकेशन बंद करें</system:String>
+
     <system:String x:Key="Launcher.ExitText">निकास</system:String>
 
     <system:String x:Key="Launcher.OpenReportText">समस्या की रिपोर्ट करें</system:String>
@@ -20,6 +22,7 @@
     <system:String x:Key="Launcher.SaveDialogTitle">लॉग फ़ाइल सहेजें</system:String>
 
     <system:String x:Key="Launcher.RequestFeedbackText">अनुरोध और प्रतिक्रिया</system:String>
+    <system:String x:Key="Launcher.FeedbackText">प्रतिक्रिया भेजें</system:String>
 
     <system:String x:Key="Launcher.SettingText">सेटिंग्स</system:String>
 
