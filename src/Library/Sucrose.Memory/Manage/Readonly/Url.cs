@@ -27,6 +27,8 @@ namespace Sucrose.Memory.Manage.Readonly
 
         public static readonly string RawGitHubStoreBranch = $"{RawGitHub}/{SMMRGH.Owner}/{SMMRGH.StoreRepository}/{SMMRGH.Branch}";
 
+        public static readonly string GitHubSucroseRelease = $"{GitHub}/{SMMRGH.Owner}/{SMMRGH.SucroseRepository}/{SMMRGH.Releases}";
+
         public static readonly string MicrosoftStoreSucrose = "https://apps.microsoft.com/detail/XP8JGPBHTJGLCQ?launch=true&mode=full";
 
         public static readonly string GitHubStoreDiscussions = $"{GitHub}/{SMMRGH.Owner}/{SMMRGH.StoreRepository}/{SMMRGH.Discussions}";
@@ -35,7 +37,9 @@ namespace Sucrose.Memory.Manage.Readonly
 
         public static readonly string GitHubSucroseDiscussions = $"{GitHub}/{SMMRGH.Owner}/{SMMRGH.SucroseRepository}/{SMMRGH.Discussions}";
 
-        public static readonly string GitHubSucroseRelease = $"{GitHub}/{SMMRGH.Owner}/{SMMRGH.SucroseRepository}/{SMMRGH.Releases}/{SMMRGH.Latest}";
+        public static readonly string GitHubSucroseReleaseTag = $"{GitHub}/{SMMRGH.Owner}/{SMMRGH.SucroseRepository}/{SMMRGH.Releases}/{SMMRGH.Tag}";
+
+        public static readonly string GitHubSucroseReleaseLatest = $"{GitHub}/{SMMRGH.Owner}/{SMMRGH.SucroseRepository}/{SMMRGH.Releases}/{SMMRGH.Latest}";
 
         public static readonly string GitHubStoreReport = $"{GitHub}/{SMMRGH.Owner}/{SMMRGH.StoreRepository}/{SMMRGH.Issues}/{SMMRGH.New}/{SMMRGH.Choose}";
 

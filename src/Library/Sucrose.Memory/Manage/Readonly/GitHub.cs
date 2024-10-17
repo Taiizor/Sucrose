@@ -4,6 +4,8 @@
     {
         public static readonly string New = "new";
 
+        public static readonly string Tag = "tag";
+
         public static readonly string Wiki = "wiki";
 
         public static readonly string Choose = "choose";

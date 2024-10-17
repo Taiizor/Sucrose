@@ -77,7 +77,7 @@
         <PackageReference Include="Skylark.Wing" Version="3.1.6.7" />
         <PackageReference Include="Skylark.Standard" Version="3.1.6.7" />
         <PackageReference Include="MathNet.Numerics" Version="6.0.0-beta1" />
-        <PackageReference Include="LibreHardwareMonitorLib" Version="0.9.4-pre350" />
+        <PackageReference Include="LibreHardwareMonitorLib" Version="0.9.4-pre351" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">

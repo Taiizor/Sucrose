@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
+using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
 using SHC = Skylark.Helper.Culture;
 using SMMU = Sucrose.Manager.Manage.Update;
 using SRER = Sucrose.Resources.Extension.Resources;
@@ -29,7 +30,7 @@ namespace Sucrose.Portal.Views.Controls
 
             HyperlinkButton Navigate = new()
             {
-                NavigateUri = string.Format("https://github.com/Taiizor/Sucrose/releases/tag/v{0}", Version),
+                NavigateUri = string.Format("{0}/v{1}", SMMRU.GitHubSucroseReleaseTag, Version),
                 Foreground = SRER.GetResource<Brush>("AccentTextFillColorPrimaryBrush"),
                 Content = SRER.GetValue("Portal", "OtherAbout", "Update", "Notes"),
                 Icon = new SymbolIcon(SymbolRegular.Notepad24),
