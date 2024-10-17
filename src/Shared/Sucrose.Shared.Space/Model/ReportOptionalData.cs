@@ -2,7 +2,7 @@
 
 namespace Sucrose.Shared.Space.Model
 {
-    internal class ReportTelemetryData
+    internal class ReportOptionalData
     {
         [JsonProperty("AppVersion", Required = Required.Always)]
         public string AppVersion { get; set; }

@@ -208,7 +208,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     try
                     {
-                        Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityUpload}/{SMMRS.SoferityCheck}/{SSSHU.GetGuid()}");
+                        Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Optional}/{SMMRS.Upload}/{SMMRS.Check}/{SSSHU.GetGuid()}");
 
                         Response.EnsureSuccessStatusCode();
                     }
@@ -278,7 +278,7 @@ namespace Sucrose.Portal.Views.Controls
 
                                     try
                                     {
-                                        Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityUpload}/{SMMRS.SoferityTheme}/{SSSHU.GetGuid()}/{(Category.SelectedItem as ComboBoxItem).Tag}", Content);
+                                        Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Optional}/{SMMRS.Upload}/{SMMRS.Theme}/{SSSHU.GetGuid()}/{(Category.SelectedItem as ComboBoxItem).Tag}", Content);
 
                                         Response.EnsureSuccessStatusCode();
                                     }

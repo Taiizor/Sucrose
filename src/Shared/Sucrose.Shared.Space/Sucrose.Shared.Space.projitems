@@ -53,6 +53,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\OnlineTelemetryData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\UpdateTelemetryData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\DownloadTelemetryData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Model\ReportTelemetryData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ReportOptionalData.cs" />
   </ItemGroup>
 </Project>

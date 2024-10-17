@@ -4,9 +4,13 @@ namespace Sucrose.Memory.Manage.Readonly
 {
     public static class Soferity
     {
+        public static readonly string File = "File";
+
         public static readonly string Version = "v6";
 
         public static readonly string Check = "Check";
+
+        public static readonly string Theme = "Theme";
 
         public static readonly string Throw = "Throw";
 
@@ -19,6 +23,10 @@ namespace Sucrose.Memory.Manage.Readonly
         public static readonly string Search = "Search";
 
         public static readonly string Update = "Update";
+
+        public static readonly string Upload = "Upload";
+
+        public static readonly string Pattern = "Pattern";
 
         public static readonly string Release = "Release";
 
@@ -45,20 +53,5 @@ namespace Sucrose.Memory.Manage.Readonly
         public static readonly string ApplicationZip = "application/zip";
 
         public static readonly string ApplicationJson = "application/json";
-
-
-
-
-        public static readonly string SoferityFile = "File";
-
-        public static readonly string SoferityVersion = "v6";
-
-        public static readonly string SoferityCheck = "Check";
-
-        public static readonly string SoferityTheme = "Theme";
-
-        public static readonly string SoferityUpload = "Upload";
-
-        public static readonly string SoferityPattern = "Pattern";
     }
 }

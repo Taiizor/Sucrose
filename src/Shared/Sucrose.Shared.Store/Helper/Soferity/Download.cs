@@ -104,7 +104,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
             try
             {
-                using HttpResponseMessage Response = SSSMI.Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.SoferityPattern}").Result;
+                using HttpResponseMessage Response = SSSMI.Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Kernel}/{SMMRS.Pattern}").Result;
 
                 Response.EnsureSuccessStatusCode();
 
@@ -340,7 +340,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
         {
             InitializeClient(Agent);
 
-            string BaseUri = $"{SMMRU.Soferity}/{SMMRS.SoferityFile}/{Repository}";
+            string BaseUri = $"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Kernel}/{SMMRS.File}/{Repository}";
 
             if (!string.IsNullOrEmpty(Path))
             {
