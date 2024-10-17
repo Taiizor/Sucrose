@@ -44,7 +44,7 @@ using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
-using SSSMSD = Sucrose.Shared.Space.Model.StoreData;
+using SSSMDTD = Sucrose.Shared.Space.Model.DownloadTelemetryData;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
@@ -93,7 +93,7 @@ namespace Sucrose.Portal.Views.Controls
                         DownloadRing.Visibility = Visibility.Visible;
                         DownloadSymbol.Visibility = Visibility.Collapsed;
 
-                        await Task.Run(StoreReport);
+                        await Task.Run(SendDownload);
 
                         await Task.Run(DownloadTheme);
                     }
@@ -121,7 +121,7 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
-        private async void StoreReport()
+        private async void SendDownload()
         {
             try
             {
@@ -131,20 +131,20 @@ namespace Sucrose.Portal.Views.Controls
 
                     Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
-                    try
+                    SSSMDTD DownloadData = new()
                     {
-                        SSSMSD StoreData = new(SSCHV.GetText(), Wallpaper.Key, $"{Info.Version}", $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}", $"{Info.AppVersion}");
+                        AppVersion = SSCHV.GetText(),
+                        WallpaperTitle = Wallpaper.Key,
+                        WallpaperVersion = $"{Info.Version}",
+                        WallpaperAppVersion = $"{Info.AppVersion}",
+                        WallpaperLocation = $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}"
+                    };
 
-                        StringContent Content = new(JsonConvert.SerializeObject(StoreData, Formatting.Indented), SMMRS.Encoding, SMMRS.ApplicationJson);
+                    StringContent Content = new(JsonConvert.SerializeObject(DownloadData, Formatting.Indented), SMMRS.Encoding, SMMRS.ApplicationJson);
 
-                        HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityStore}/{SSSHU.GetGuid()}", Content);
+                    HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Telemetry}/{SMMRS.Download}/{SSSHU.GetGuid()}", Content);
 
-                        Response.EnsureSuccessStatusCode();
-                    }
-                    catch (Exception Exception)
-                    {
-                        await SSWW.Watch_CatchException(Exception);
-                    }
+                    Response.EnsureSuccessStatusCode();
                 }
             }
             catch (Exception Exception)

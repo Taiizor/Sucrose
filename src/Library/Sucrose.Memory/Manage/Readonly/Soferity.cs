@@ -22,6 +22,8 @@ namespace Sucrose.Memory.Manage.Readonly
 
         public static readonly string Analytic = "Analytic";
 
+        public static readonly string Download = "Download";
+
         public static readonly string Feedback = "Feedback";
 
         public static readonly string Optional = "Optional";
@@ -50,8 +52,6 @@ namespace Sucrose.Memory.Manage.Readonly
         public static readonly string SoferityCheck = "Check";
 
         public static readonly string SoferityError = "Error";
-
-        public static readonly string SoferityStore = "Store";
 
         public static readonly string SoferityTheme = "Theme";
 
