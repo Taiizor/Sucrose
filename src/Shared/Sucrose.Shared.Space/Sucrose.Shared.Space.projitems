@@ -49,7 +49,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interface\StackFrameData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\FeedbackOptionalData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Model\SearchData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\SearchTelemetryData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\OnlineTelemetryData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\UpdateTelemetryData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\StoreData.cs" />

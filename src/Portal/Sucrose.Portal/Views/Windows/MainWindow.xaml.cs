@@ -35,7 +35,7 @@ using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandType;
 using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
-using SSSMSD = Sucrose.Shared.Space.Model.SearchData;
+using SSSMSTD = Sucrose.Shared.Space.Model.SearchTelemetryData;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
@@ -295,20 +295,18 @@ namespace Sucrose.Portal.Views.Windows
 
                             Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
-                            try
+                            SSSMSTD SearchData = new()
                             {
-                                SSSMSD SearchData = new(ActivePage, SSCHV.GetText(), SearchBox.Text.Trim());
+                                ActivePage = ActivePage,
+                                AppVersion = SSCHV.GetText(),
+                                QueryText = SearchBox.Text.Trim()
+                            };
 
-                                StringContent Content = new(JsonConvert.SerializeObject(SearchData, Formatting.Indented), SMMRS.Encoding, SMMRS.ApplicationJson);
+                            StringContent Content = new(JsonConvert.SerializeObject(SearchData, Formatting.Indented), SMMRS.Encoding, SMMRS.ApplicationJson);
 
-                                HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferitySearch}/{SSSHU.GetGuid()}", Content);
+                            HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Telemetry}/{SMMRS.Search}/{SSSHU.GetGuid()}", Content);
 
-                                Response.EnsureSuccessStatusCode();
-                            }
-                            catch (Exception Exception)
-                            {
-                                await SSWW.Watch_CatchException(Exception);
-                            }
+                            Response.EnsureSuccessStatusCode();
                         }
                     }
                     catch (Exception Exception)

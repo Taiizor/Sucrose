@@ -12,6 +12,8 @@ namespace Sucrose.Memory.Manage.Readonly
 
         public static readonly string Online = "Online";
 
+        public static readonly string Search = "Search";
+
         public static readonly string Update = "Update";
 
         public static readonly string Release = "Release";
@@ -54,8 +56,6 @@ namespace Sucrose.Memory.Manage.Readonly
         public static readonly string SoferityTheme = "Theme";
 
         public static readonly string SoferityReport = "Report";
-
-        public static readonly string SoferitySearch = "Search";
 
         public static readonly string SoferityUpload = "Upload";
 

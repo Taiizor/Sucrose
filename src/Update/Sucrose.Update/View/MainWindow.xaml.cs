@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Net.Http;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
@@ -266,24 +265,17 @@ namespace Sucrose.Update.View
 
                             Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
 
-                            try
+                            SSSMUTD UpdateData = new()
                             {
-                                SSSMUTD UpdateData = new()
-                                {
-                                    SilentMode = Silent,
-                                    AppVersion = SSCHV.GetText()
-                                };
+                                SilentMode = Silent,
+                                AppVersion = SSCHV.GetText()
+                            };
 
-                                StringContent Content = new(JsonConvert.SerializeObject(UpdateData, Formatting.Indented), SMMRS.Encoding, SMMRS.ApplicationJson);
+                            StringContent Content = new(JsonConvert.SerializeObject(UpdateData, Formatting.Indented), SMMRS.Encoding, SMMRS.ApplicationJson);
 
-                                HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Telemetry}/{SMMRS.Update}/{SSSHU.GetGuid()}", Content);
+                            HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Telemetry}/{SMMRS.Update}/{SSSHU.GetGuid()}", Content);
 
-                                Response.EnsureSuccessStatusCode();
-                            }
-                            catch (Exception Exception)
-                            {
-                                await SSWW.Watch_CatchException(Exception);
-                            }
+                            Response.EnsureSuccessStatusCode();
                         }
                     }
                     catch (Exception Exception)
