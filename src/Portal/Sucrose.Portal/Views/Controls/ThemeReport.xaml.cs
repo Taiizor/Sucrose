@@ -22,7 +22,7 @@ using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
-using SSSMRD = Sucrose.Shared.Space.Model.ReportData;
+using SSSMRTD = Sucrose.Shared.Space.Model.ReportTelemetryData;
 using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
@@ -209,7 +209,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         try
                         {
-                            Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityCheck}/{SSSHU.GetGuid()}");
+                            Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Telemetry}/{SMMRS.Report}/{SMMRS.Check}/{SSSHU.GetGuid()}");
 
                             Response.EnsureSuccessStatusCode();
                         }
@@ -224,15 +224,28 @@ namespace Sucrose.Portal.Views.Controls
 
                             await Task.Delay(1000);
 
-                            Response = new();
+                            Response = new()
+                            {
+                                StatusCode = System.Net.HttpStatusCode.BadGateway
+                            };
 
                             try
                             {
-                                SSSMRD ReportData = new(SSCHV.GetText(), ReportContact.Text, Wallpaper.Key, $"{(ReportMode.SelectedItem as ComboBoxItem).Tag}", $"{Info.Version}", $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}", ReportDescription.Text, $"{Info.AppVersion}");
+                                SSSMRTD ReportData = new()
+                                {
+                                    AppVersion = SSCHV.GetText(),
+                                    WallpaperTitle = Wallpaper.Key,
+                                    ContactEmail = ReportContact.Text,
+                                    WallpaperVersion = $"{Info.Version}",
+                                    WallpaperAppVersion = $"{Info.AppVersion}",
+                                    DescriptionMessage = ReportDescription.Text,
+                                    RelatedCategory = $"{(ReportMode.SelectedItem as ComboBoxItem).Tag}",
+                                    WallpaperLocation = $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}"
+                                };
 
                                 StringContent Content = new(JsonConvert.SerializeObject(ReportData, Formatting.Indented), SMMRS.Encoding, SMMRS.ApplicationJson);
 
-                                Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.SoferityVersion}/{SMMRS.SoferityReport}/{SMMRS.SoferityTheme}/{SSSHU.GetGuid()}", Content);
+                                Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Telemetry}/{SMMRS.Report}/{SSSHU.GetGuid()}", Content);
 
                                 Response.EnsureSuccessStatusCode();
                             }
