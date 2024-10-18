@@ -39,4 +39,8 @@
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Lagre Temafilen</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">Forstått</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">Publiseringsadvarsel</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">Det valgte temaet er allerede lastet ned fra butikken.</system:String>
 </ResourceDictionary>

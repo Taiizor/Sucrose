@@ -808,6 +808,10 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.SaveDialogFilter,Fișiere ZIP (*.zip)|*.zip|Toate fișierele (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.SaveDialogTitle,Salvează Fișier Temă
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Already.Close,Am Înțeles
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Already.Title,Avertisment de Publicare
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Already.Message,Tema selectată a fost deja descărcată din magazin.
 Portal\Controls\TrayIcon\Portal.TrayIcon.RO.xaml,Portal.TrayIcon.Title,Bara de Sistem
 Portal\Controls\TrayIcon\Portal.TrayIcon.RO.xaml,Portal.TrayIcon.Close,Închide
 Portal\Controls\TrayIcon\Portal.TrayIcon.RO.xaml,,

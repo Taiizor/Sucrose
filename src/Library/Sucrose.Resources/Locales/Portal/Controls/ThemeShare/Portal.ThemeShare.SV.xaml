@@ -37,6 +37,10 @@
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Errored">Ett oväntat fel inträffade vid uppladdning av det komprimerade temat: {0}.</system:String>
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Succeded">Det komprimerade temat laddades upp framgångsrikt och kommer att publiceras i butiken efter verifiering.</system:String>
 
-    <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP-filer (*.zip)|*.zip|Alla filer (*.*)|*.*</system:String>
+    <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP-Filer (*.zip)|*.zip|Alla Filer (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Spara Temafil</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">Förstått</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">Publiceringsvarning</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">Det valda temat är redan nedladdat från butiken.</system:String>
 </ResourceDictionary>

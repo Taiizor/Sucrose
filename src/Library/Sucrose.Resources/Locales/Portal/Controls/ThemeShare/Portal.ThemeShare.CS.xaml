@@ -39,4 +39,8 @@
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP soubory (*.zip)|*.zip|Všechny soubory (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Uložit soubor se šablonou</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">Rozumím</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">Upozornění na Publikování</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">Vybrané téma je již nainstalováno z obchodu.</system:String>
 </ResourceDictionary>

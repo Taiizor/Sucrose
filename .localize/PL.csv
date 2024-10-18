@@ -808,6 +808,10 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.SaveDialogFilter,Pliki ZIP (*.zip)|*.zip|Wszystkie Pliki (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.SaveDialogTitle,Zapisz Plik Motywu
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Already.Close,Zrozumiałem
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Already.Title,Ostrzeżenie o Publikacji
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Already.Message,Wybrany motyw został już pobrany ze sklepu.
 Portal\Controls\TrayIcon\Portal.TrayIcon.PL.xaml,Portal.TrayIcon.Title,Zasobnik Systemowy
 Portal\Controls\TrayIcon\Portal.TrayIcon.PL.xaml,Portal.TrayIcon.Close,Zamknij
 Portal\Controls\TrayIcon\Portal.TrayIcon.PL.xaml,,

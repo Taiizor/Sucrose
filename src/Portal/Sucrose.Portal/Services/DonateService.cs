@@ -4,22 +4,20 @@ namespace Sucrose.Portal.Services
 {
     internal class DonateService : IDisposable
     {
-        private Visibility _DonateVisibility = Visibility.Hidden;
-
         public event EventHandler DonateVisibilityChanged;
 
         public Visibility DonateVisibility
         {
-            get => _DonateVisibility;
+            get;
             set
             {
-                if (_DonateVisibility != value)
+                if (field != value)
                 {
-                    _DonateVisibility = value;
+                    field = value;
                     DonateVisibilityChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
-        }
+        } = Visibility.Hidden;
 
         public void Dispose()
         {

@@ -6,52 +6,48 @@ namespace Sucrose.Portal.Services
 {
     internal class BackdropService : IDisposable
     {
-        private string _BackdropImage = SMMP.BackgroundImage;
-        private int _BackdropOpacity = SMMP.BackgroundOpacity;
-        private Stretch _BackdropStretch = SSDMMP.BackgroundStretch;
-
         public event EventHandler BackdropImageChanged;
         public event EventHandler BackdropStretchChanged;
         public event EventHandler BackdropOpacityChanged;
 
         public string BackdropImage
         {
-            get => _BackdropImage;
+            get;
             set
             {
-                if (_BackdropImage != value)
+                if (field != value)
                 {
-                    _BackdropImage = value;
+                    field = value;
                     BackdropImageChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
-        }
+        } = SMMP.BackgroundImage;
 
         public Stretch BackdropStretch
         {
-            get => _BackdropStretch;
+            get;
             set
             {
-                if (_BackdropStretch != value)
+                if (field != value)
                 {
-                    _BackdropStretch = value;
+                    field = value;
                     BackdropStretchChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
-        }
+        } = SSDMMP.BackgroundStretch;
 
         public int BackdropOpacity
         {
-            get => _BackdropOpacity;
+            get;
             set
             {
-                if (_BackdropOpacity != value)
+                if (field != value)
                 {
-                    _BackdropOpacity = value;
+                    field = value;
                     BackdropOpacityChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
-        }
+        } = SMMP.BackgroundOpacity;
 
         public void Dispose()
         {

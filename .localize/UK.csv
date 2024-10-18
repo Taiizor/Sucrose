@@ -806,8 +806,12 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Сталася несподівана помилка під час завантаження стисненої теми: {0}.
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Стиснену тему успішно завантажено і після перевірки вона буде опублікована в магазині.
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
-Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Файли (*.zip)|*.zip|Всі файли (*.*)|*.*
-Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.SaveDialogTitle,Зберегти файл теми
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Файли (*.zip)|*.zip|Всі Файли (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.SaveDialogTitle,Зберегти Файл Tеми
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Already.Close,Зрозуміло
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Already.Title,Попередження про Публікацію
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Already.Message,Вибрана тема вже завантажена з магазину.
 Portal\Controls\TrayIcon\Portal.TrayIcon.UK.xaml,Portal.TrayIcon.Title,Системний Tрей
 Portal\Controls\TrayIcon\Portal.TrayIcon.UK.xaml,Portal.TrayIcon.Close,Закрити
 Portal\Controls\TrayIcon\Portal.TrayIcon.UK.xaml,,

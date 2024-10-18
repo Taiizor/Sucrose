@@ -808,373 +808,377 @@ Portal.ThemeShare.ThemePublish.Upload.Succeded,"Sıkıştırılan tema başarıy
 PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.SaveDialogFilter,ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*,,Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,
 Portal.ThemeShare.SaveDialogTitle,Tema Dosyasını Kaydet,,Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,
+PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Already.Close,Anladım,,Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,
+Portal.ThemeShare.ThemePublish.Already.Title,Yayınlama Uyarısı,,Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,
+Portal.ThemeShare.ThemePublish.Already.Message,Seçtiğiniz tema zaten hâli hazırda mağazadan yüklenmiş.,,Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,
 Portal.TrayIcon.Title,Sistem Tepsisi,,Portal\Controls\TrayIcon\Portal.TrayIcon.TR.xaml,
 Portal.TrayIcon.Close,Kapat,,Portal\Controls\TrayIcon\Portal.TrayIcon.TR.xaml,
-PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.TR.xaml,Please don't touch the translation in this line.
+PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.TR.xaml,Please don't touch the translation in this line.
 Portal.TrayIcon.Message,"Sucrose, sistem tepsisine küçültüldü. Devam etmek için lütfen Sucrose simgesine sağ tıklayın.",,Portal\Controls\TrayIcon\Portal.TrayIcon.TR.xaml,
 Portal.WallpaperCycling.Title,Duvar Kağıdı Döngüsü,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
 Portal.WallpaperCycling.Close,Kapat,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
-PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,Please don't touch the translation in this line.
+PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Cycling,Otomatik Duvar Kağıdı Döngüsü,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
 Portal.WallpaperCycling.Cycling.Description,Duvar kağıdının otomatik olarak değişip değişmeyeceği.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
-PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,Please don't touch the translation in this line.
+PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,Zaman Aralığı,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
 Portal.WallpaperCycling.Time.Description,Belirlenen dakika sonrasında duvar kağıdı değişir.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
-PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,Please don't touch the translation in this line.
+PASS⦙153,PASS⦙153,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,Geçiş Modu,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
 Portal.WallpaperCycling.Transition.Description,Duvar kağıtları arasındaki geçiş modunu ayarlar.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
-PASS⦙153,PASS⦙153,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,Please don't touch the translation in this line.
+PASS⦙154,PASS⦙154,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List,Döngü Listesi,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
 Portal.WallpaperCycling.List.Description,Döngü listesini varsayılana sıfırlar.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
-PASS⦙154,PASS⦙154,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,Please don't touch the translation in this line.
+PASS⦙155,PASS⦙155,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List.Reset,Sıfırla,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
 Portal.EmptyLibraryPage.Title,EmptyLibraryPage,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.TR.xaml,
-PASS⦙155,PASS⦙155,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙156,PASS⦙156,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.TR.xaml,Please don't touch the translation in this line.
 Portal.EmptyLibraryPage.TitleText,Kütüphaneniz Örümcek Ağları Tarafından Örülmüş,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.TR.xaml,
 Portal.EmptyLibraryPage.DescriptionText,Duvar kağıtlarının yerine örümcek ağlarıyla muhteşem bir sanat eseri ortaya çıkmış,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.TR.xaml,
 Portal.FullLibraryPage.Title,FullLibraryPage,,Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.TR.xaml,
 Portal.SearchLibraryPage.Title,SearchLibraryPage,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.TR.xaml,
-PASS⦙156,PASS⦙156,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙157,PASS⦙157,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.TR.xaml,Please don't touch the translation in this line.
 Portal.SearchLibraryPage.TitleText,Kütüphaneniz Örümcek Ağlarıyla Büyülenmiş,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.TR.xaml,
 Portal.SearchLibraryPage.DescriptionText,Duvar kağıdı seçimindeki inceliğiniz yüzünden duvar kağıtlarına yer kalmadı,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.TR.xaml,
 Portal.DonateSettingPage.Title,DonateSettingPage,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,
-PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu,Bağış Menüsü,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,
 Portal.DonateSettingPage.DonateMenu.Description,Arayüzdeki bağış menüsünün görünürlüğü.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,
-PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Görünür,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Görünmez,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,
-PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising,Reklamlı Destek,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,
 Portal.DonateSettingPage.Advertising.Description,Reklam izleyerek uygulamanın geliştirilmesine katkıda bulunun.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,
-PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising.AdvertisingDelay,Reklam Süresi (Dakika):,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,
 Portal.DonateSettingPage.Advertising.AdvertisingHint,İpucu: Reklamlar size en az seviyede rahatsızlık verecek şekilde gösterilecek.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,
 Portal.GeneralSettingPage.Title,GeneralSettingPage,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
-PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationLanguage,Uygulama Dili,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.ApplicationLanguage.Description,Uygulamayı görüntülemek istediğiniz dili seçin.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
-PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup,Başlangıçta Çalıştır,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Description,Duvar kağıdını oynatabilmek için başlangıçta Sucrose'nin arka planda çalışması gerekmekte.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
-PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Hiçbiri,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Normal,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Öncelikli,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Zamanlayıcı,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
-PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Anladım,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Yönetici Hakları Uyarısı,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Başlangıçta çalıştır durumunu değiştirmeniz için yönetici haklarına sahip olmanız gerekmekte.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
-PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon,Bildirim Alanı Simgesi,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Description,Sistem tepsisi görünürlüğü. Sucrose gizli bir şekilde çalışmaya devam edecek.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
-PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Görünür,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Görünmez,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
-PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Sistem tepsisi kapatıldığında tüm Sucrose uygulamaları da kapatılsın,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Sistem tepsisi kapatıldığında tüm Sucrose uygulamaları da kapatılsın,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
+PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop,Pencere Arka Planı,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.Description,Uygulama penceresinin arka planını özelleştirmek için kullanılır.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
-PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Arkaplan Resmi Seç,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Bir arkaplan resmi seçin,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Resim Dosyaları (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,Maalesef seçtiğiniz resim dosyasına erişim yetkiniz bulunmuyor,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
-PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Arkaplan Boyutlandırma:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Arkaplan Opaklığı (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Arkaplan Boyutlandırma:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Arkaplan Opaklığı (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
+PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume,Ses Seviyesi,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.EngineVolume.Description,Tüm duvar kağıtları için geçerli olan ses seviyesi.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
-PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Sesi yalnızca masaüstü odaklandığında oynat,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeActive,Sesi yalnızca tüm uygulamalar sessizken oynat,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Hassasiyet (Saniye):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
-PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary,Kütüphane Konumu,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.Description,Kütüphanenize eklediğiniz temaların saklanacağı konum.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
-PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,Maalesef yeni konuma erişiminiz bulunmuyor,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Lütfen boş bir klasör seçin,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Konum değiştirilirken lütfen biraz bekleyin,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
-PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Mevcut kütüphanenizi yeni konuma taşı,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,
 Portal.OtherSettingPage.Title,OtherSettingPage,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
-PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.ReportData,Otomatik Hata Raporlama,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 Portal.OtherSettingPage.ReportData.Description,"Sucrose, bir hatayla karşılaştığında bunu hızlıca bildirmek için harekete geçer.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
-PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.StatisticsData,Kullanım İstatistiklerini Paylaş,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 Portal.OtherSettingPage.StatisticsData.Description,"Sucrose, kullanım istatistiklerinizi toplayarak uygulamanın gelişmesine olanak sağlar.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
-PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook,Discord,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 Portal.OtherSettingPage.DiscordHook.Description,"Sucrose, Discord ile arasındaki haberleşmeyi sağlar.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
-PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Bağlantı Yenileme:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 Portal.OtherSettingPage.DiscordHook.DiscordDelay,Yenileme Süresi (Saniye):,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
-PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Agent,İnternet Temsilcisi,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 Portal.OtherSettingPage.Agent.Description,İnternet bağlantısı gerektiren durumlardaki temsilci kimliğiniz.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
-PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key,Kişisel Erişim Belirteci,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 Portal.OtherSettingPage.Key.Description,Mağazayı ve uygulama güncellemeyi sorunsuz bir şekilde kullanmak için gerekli.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
-PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Key.HintKey,Kişisel erişim belirtecini nasıl elde edeceğinizi bilmiyorsanız buraya tıklayın.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.HintKey,Kişisel erişim belirtecini nasıl elde edeceğinizi bilmiyorsanız buraya tıklayın.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key.PersonalKey,Lütfen bir kişisel erişim belirteci girin,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 Portal.OtherSettingPage.Key.PersonalKey.Valid,Lütfen geçerli bir kişisel erişim belirteci girin,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
-PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Server,Güncelleme Sunucusu,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 Portal.OtherSettingPage.Server.Description,Güncelleme işlemlerinin hangi sunucu üzerinden yapılacağı.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
-PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Server.ServerHint,Not: Sunucu olarak {0} seçilmişse istek limitlerine takılmamak için bir {2} girilmesi gerekiyor. Aksi taktirde güncelleme işlemlerinde sorun yaşayabilirsiniz. Eğer ki {1} seçilmişse görece daha sorunsuz bir güncelleme deneyimi yaşarsınız.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server.ServerHint,Not: Sunucu olarak {0} seçilmişse istek limitlerine takılmamak için bir {2} girilmesi gerekiyor. Aksi taktirde güncelleme işlemlerinde sorun yaşayabilirsiniz. Eğer ki {1} seçilmişse görece daha sorunsuz bir güncelleme deneyimi yaşarsınız.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Module,Güncelleme Modülü,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 Portal.OtherSettingPage.Module.Description,Güncelleme işleminin hangi modül üzerinden yapılacağı.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
-PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Channel,Güncelleme Kanalı,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 Portal.OtherSettingPage.Channel.Description,Güncelleme işleminin hangi kanal üzerinden yapılıp yapılmayacağı.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
-PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update,Güncelleme Yöntemi,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 Portal.OtherSettingPage.Update.Description,Güncelleme işleminin hangi yöntemle yapılıp yapılmayacağı.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
-PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Update.Limit,İndirme Bant Genişliği Sınırı:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update.Limit,İndirme Bant Genişliği Sınırı:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Auto,Otomatik Güncelleme,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 Portal.OtherSettingPage.Auto.Description,Güncelleme işleminin otomatik olarak denetlenip denetlenmeyeceği.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
-PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer,Geliştirici Araçları,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 Portal.OtherSettingPage.Developer.Description,WebView ve CefSharp motoru için geliştirici araçlarını yönetin.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
-PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperMode,Varsayılan Geliştirici Araçları:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperPort,Hata Ayıklama Bağlantı Noktası:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
+Portal.OtherSettingPage.Developer.DeveloperMode,Varsayılan Geliştirici Araçları:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,Hata Ayıklama Bağlantı Noktası:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer.DeveloperHint,"İpucu: Varsayılan geliştirici araçları etkileşim desteklenen temalarda düzgün çalışmamaktadır. Hata ayıklama bağlantı noktası ise daha düzgün çalışmaktadır. Hazır olduğunuzda 'http://localhost:{0}' adresini veya Chrome tarayıcısı için 'chrome://inspect', Opera tarayıcısı için 'opera://inspect', Edge tarayıcısı için 'edge://inspect' adresini kullanabilirsiniz.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
-PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter,Performans Sayaçları,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Counter.Description,Tüm performans sayaçlarının arkaplanda çalışıp çalışmayacağı.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
-PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Counter.CounterHint,Not: Bazı Web türündeki temalar düzgün çalışmayabilir ve aşağıdaki performans ayarlarının hiç birisi çalışmayacaktır.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter.CounterHint,Not: Bazı Web türündeki temalar düzgün çalışmayabilir ve aşağıdaki performans ayarlarının hiç birisi çalışmayacaktır.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Pause,Durdurma Kuralı,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Pause.Description,Performans ayarlarınıza bağlı olarak duvar kağıdını durdurma kuralını belirler.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
-PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Communication,İletişim Türü,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Communication.Description,Web türündeki temalara iletilecek olan mesajların yollanma türünü belirler.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
-PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu,İşlemci Kullanımı,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Cpu.Description,İşlemci kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
-PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Cpu.CpuUsage,İşlemci Kullanımı (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu.CpuUsage,İşlemci Kullanımı (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu,Ekran Kartı Kullanımı,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Gpu.Description,Ekran kartı kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
-PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuAdapter,Ekran Kartı:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Ekran kartları listesi henüz oluşturulmadı,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
-PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Gpu.GpuUsage,Ekran Kartı Kullanımı (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuUsage,Ekran Kartı Kullanımı (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
+PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory,Bellek Kullanımı,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Memory.Description,Bellek kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
-PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Memory.MemoryUsage,Bellek Kullanımı (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory.MemoryUsage,Bellek Kullanımı (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network,Ağ Kullanımı,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Network.Description,Ağ kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
-PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network.NetworkAdapter,Ağ Adaptörü:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Ağ adaptörleri listesi henüz oluşturulmadı,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
-PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkUpload,Yükleme Boyutu:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkDownload,İndirme Boyutu:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
+Portal.PerformanceSettingPage.Network.NetworkUpload,Yükleme Boyutu:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkPing,Ping Değeri (MS):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
+Portal.PerformanceSettingPage.Network.NetworkDownload,İndirme Boyutu:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Ping Değeri (MS):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
+PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery,Pil Gücü,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Battery.Description,Dizüstü bilgisayar pil gücünde çalışırken duvar kağıdına ne olacağı.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
-PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Battery.BatteryUsage,Pil Durumu (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery.BatteryUsage,Pil Durumu (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Saver,Pil Tasarrufu,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Saver.Description,Dizüstü bilgisayar pil tasarrufu modundayken duvar kağıdına ne olacağı.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
-PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Virtual,Sanallaştırma,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Virtual.Description,Sanallaştırma uygulamaları çalışırken duvar kağıdına ne olacağı.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
-PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Remote,Uzak Masaüstü,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Remote.Description,Uzak masaüstü uygulamaları çalışırken duvar kağıdına ne olacağı.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
-PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Fullscreen,Tam Ekran Modu,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Fullscreen.Description,Tam ekranda her hangi bir uygulama çalışırken duvar kağıdına ne olacağı.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
-PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Focus,Odaklanma Modu,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PerformanceSettingPage.Focus.Description,Odağınızda her hangi başka bir uygulama varken duvar kağıdına ne olacağı.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,
 Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
-PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server,Mağaza Sunucusu,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 Portal.PersonalSettingPage.Server.Description,Mağazada listelenen temaların hangi sunucu üzerinden görüntüleneceği.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
-PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Server.ServerHint,Not: Sunucu olarak {0} seçilmişse istek limitlerine takılmamak için bir {2} girilmesi gerekiyor. Aksi taktirde mağazadaki temalara erişirken sorun yaşayabilirsiniz. Eğer ki {1} seçilmişse görece daha sorunsuz bir mağaza deneyimi yaşarsınız.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server.ServerHint,Not: Sunucu olarak {0} seçilmişse istek limitlerine takılmamak için bir {2} girilmesi gerekiyor. Aksi taktirde mağazadaki temalara erişirken sorun yaşayabilirsiniz. Eğer ki {1} seçilmişse görece daha sorunsuz bir mağaza deneyimi yaşarsınız.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Duration,Mağaza Yenileme,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 Portal.PersonalSettingPage.Duration.Description,Mağazada listelenen temaların ne kadar süreyle yenilenip yenilenmeyeceği.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
-PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.StoreStart,Otomatik Başlatma,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 Portal.PersonalSettingPage.StoreStart.Description,Mağazadan indirilen temanın otomatik duvar kağıdı olarak ayarlanıp ayarlanmayacağı.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
-PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adult,Güvenli Olmayan İçerikler,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 Portal.PersonalSettingPage.Adult.Description,Mağazada güvenli değil (NSFW) olarak işaretlenmiş içeriklerin gösterilip gösterilmeyeceği.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
-PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Confirm,Silme Onayı,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 Portal.PersonalSettingPage.Confirm.Description,Kütüphanedeki temaları silerken onay isteyip istemeyeceği.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
-PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete,Bozuk Temalar,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 Portal.PersonalSettingPage.Delete.Description,Kütüphanedeki bozuk ya da eksik temaların otomatik silinip silinmeyeceği.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
-PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Delete.DeleteHint,Not: Dikkatli olunması gerekir. Aksi taktirde veri kayıplarına yol açabilir,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete.DeleteHint,Not: Dikkatli olunması gerekir. Aksi taktirde veri kayıplarına yol açabilir,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
+PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.LibraryStart,Otomatik Başlatma,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 Portal.PersonalSettingPage.LibraryStart.Description,Oluşturulan temanın otomatik duvar kağıdı olarak ayarlanıp ayarlanmayacağı.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
-PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview,Tema Önizleme,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 Portal.PersonalSettingPage.Preview.Description,Görüntülenen temaların üzerine gelince önizlenip önizlenmeyeceği.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
-PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.StorePreview,Mağaza Önizlemesi:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 Portal.PersonalSettingPage.Preview.StorePreviewHide,Detayların Gizlenmesi:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
-PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.LibraryPreview,Kütüphane Önizlemesi:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Detayların Gizlenmesi:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
-PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adaptive,Uyarlanabilir Düzen,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 Portal.PersonalSettingPage.Adaptive.Description,Görüntülenen temaların düzenini veya mesafesini özelleştirin.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
-PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Boşluk Mesafesi (Piksel):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Düzen Sırası (Adet):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Boşluk Mesafesi (Piksel):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Düzen Sırası (Adet):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
+PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Sort,Kütüphane Sıralama,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 Portal.PersonalSettingPage.Sort.Description,Kütüphanenizdeki temaların hangi biçimde ve nasıl sıralanacağını belirleyin.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
-PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortMode,Sıralama Modu:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortKind,Sıralama Türü:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
+Portal.PersonalSettingPage.Sort.SortMode,Sıralama Modu:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,Sıralama Türü:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Store,Mağaza Sayfalama,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 Portal.PersonalSettingPage.Store.Description,Mağazadaki her bir sayfa için kaç tane tema olacağını belirleyin.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
-PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Library,Kütüphane Sayfalama,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 Portal.PersonalSettingPage.Library.Description,Kütüphanenizdeki her bir sayfa için kaç tane tema olacağını belirleyin.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,
 Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
-PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LogTemporary,Günlük Dosyaları,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 Portal.SystemSettingPage.LogTemporary.Description,Uygulamanın oluşturmuş olduğu tüm günlük dosyalarını yönetme.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
-PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Create,Oluştur,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Delete,Temizle,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
+Portal.SystemSettingPage.LogTemporary.Create,Oluştur,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Hint,Not: Günlük dosyalarının kapladığı toplam alan {0}. Sadece temizliğe başlandığında tüm uygulamalar kapanacaktır.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
+Portal.SystemSettingPage.LogTemporary.Delete,Temizle,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,Not: Günlük dosyalarının kapladığı toplam alan {0}. Sadece temizliğe başlandığında tüm uygulamalar kapanacaktır.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
+PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.CacheTemporary,Önbellek Temizleme,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 Portal.SystemSettingPage.CacheTemporary.Description,Uygulamanın oluşturmuş olduğu tüm önbellek dosyalarını temizleme.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
-PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Start,Temizliğe Başla,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Hint,Not: Önbellek dosyalarının kapladığı toplam alan {0}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
+Portal.SystemSettingPage.CacheTemporary.Start,Temizliğe Başla,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,Not: Önbellek dosyalarının kapladığı toplam alan {0}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
+PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.StoreTemporary,Mağaza Temizleme,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 Portal.SystemSettingPage.StoreTemporary.Description,Uygulamanın oluşturmuş olduğu tüm mağaza dosyalarını temizleme.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
-PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Start,Temizliğe Başla,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Hint,Not: Mağaza dosyalarının kapladığı toplam alan {0}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
+Portal.SystemSettingPage.StoreTemporary.Start,Temizliğe Başla,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,Not: Mağaza dosyalarının kapladığı toplam alan {0}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
+PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LibraryTemporary,Kütüphane Temizleme,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 Portal.SystemSettingPage.LibraryTemporary.Description,Kütüphanenizde bulunan veya oluşturmuş olduğunuz tüm tema dosyalarını temizleme.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
-PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Start,Temizliğe Başla,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Hint,Not: Kütüphanenizdeki temaların kapladığı toplam alan {0}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
+Portal.SystemSettingPage.LibraryTemporary.Start,Temizliğe Başla,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,Not: Kütüphanenizdeki temaların kapladığı toplam alan {0}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
+PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingBackup,Ayar Dosyaları,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 Portal.SystemSettingPage.SettingBackup.Description,Uygulamanın oluşturmuş olduğu tüm ayar dosyalarını yönetme.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
-PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Export,Yedekle,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Import,Geri Yükle,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
+Portal.SystemSettingPage.SettingBackup.Export,Yedekle,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Hint,Not: Seçtiğiniz işlem başladığında tüm uygulamalar kapanacaktır.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
+Portal.SystemSettingPage.SettingBackup.Import,Geri Yükle,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,Not: Seçtiğiniz işlem başladığında tüm uygulamalar kapanacaktır.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
+PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingReset,Ayar Sıfırlama,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 Portal.SystemSettingPage.SettingReset.Description,Uygulamanın oluşturmuş olduğu tüm ayar dosyalarını sıfırlama.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
-PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Start,Sıfırlamaya Başla,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Hint,Not: Sıfırlama işlemi başladığında tüm uygulamalar kapanacaktır.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
+Portal.SystemSettingPage.SettingReset.Start,Sıfırlamaya Başla,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,Not: Sıfırlama işlemi başladığında tüm uygulamalar kapanacaktır.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Log.SaveDialogTitle,Günlük Dosyasını Kaydet,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
-PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Access.Close,Anladım,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 Portal.SystemSettingPage.Access.Title,Erişim Uyarısı,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 Portal.SystemSettingPage.Access.Message,Seçtiğiniz konuma erişim yetkiniz bulunmamakta.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.InputMode,Etkileşim Yöntemi,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.InputMode.Description,Desteklenen duvar kağıtlarında etkileşime girilebilecek yöntemleri belirler.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputModule,Etkileşim Modülü:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputDesktop,Etkileşimi yalnızca masaüstü odaklandığında işleme al,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
+Portal.WallpaperSettingPage.InputMode.InputModule,Etkileşim Modülü:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.DesktopIcon,Masaüstü simgelerini yanlışlıkla seçmemek adına gizle,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
+Portal.WallpaperSettingPage.InputMode.InputDesktop,Etkileşimi yalnızca masaüstü odaklandığında işleme al,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,Masaüstü simgelerini yanlışlıkla seçmemek adına gizle,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ScreenLayout,Ekran Yerleşimi,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.ScreenLayout.Description,Duvar kağıtlarınızın ekrandaki yerleşimini değiştirir.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.StretchMode,Sığdırma Metodu,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.StretchMode.Description,Desteklenen duvar kağıtlarında ölçeklendirmeyi değiştirir.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.LoopMode,Yineleme Durumu,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.LoopMode.Description,Desteklenen duvar kağıtlarında yineleme durumunu değiştirir.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ShuffleMode,Karıştırma Durumu,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Desteklenen duvar kağıtlarında karıştırma durumunu değiştirir.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Gif Eklentisi,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,Kütüphanenizde bulunan Gif türündeki temaları oynatacak olan eklentiyi seçin.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Video Eklentisi,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,Kütüphanenizde bulunan Video türündeki temaları oynatacak olan eklentiyi seçin.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙272,PASS⦙272,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Url Motoru,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,Kütüphanenizde bulunan Url türündeki temaları çalıştıracak olan motoru seçin.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙272,PASS⦙272,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙273,PASS⦙273,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Web Motoru,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,Kütüphanenizde bulunan Web türündeki temaları çalıştıracak olan motoru seçin.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙273,PASS⦙273,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙274,PASS⦙274,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,YouTube Motoru,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,Kütüphanenizde bulunan YouTube türündeki temaları çalıştıracak olan motoru seçin.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙274,PASS⦙274,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙275,PASS⦙275,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Application Motoru,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,Kütüphanenizde bulunan Application türündeki temaları çalıştıracak olan motoru seçin.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.TR.xaml,
-PASS⦙275,PASS⦙275,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙276,PASS⦙276,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.TR.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,İnternet Işıklarının Sönük Kaldığı Bir An,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.TR.xaml,
 Portal.BrokenStorePage.DescriptionText,"Yıldızsız bir gökyüzü gibi, burada da internetin parıltısı yok",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.TR.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.TR.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.TR.xaml,
-PASS⦙276,PASS⦙276,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙277,PASS⦙277,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.TR.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Aradıklarınızın Yanıtı Gökyüzünde Saklı Olabilir,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.TR.xaml,
 Portal.SearchStorePage.DescriptionText,"Sonuçlar beklediğiniz gibi gelmiyorsa, gökyüzü size yeni bir deneyim sunabilir",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.TR.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.TR.xaml,
-PASS⦙277,PASS⦙277,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙278,PASS⦙278,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.TR.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,Mağazada Ortaya Çıkan Gizemli Durumu Keşfedin,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.TR.xaml,
 Portal.UnknownStorePage.DescriptionText,Bilinmeyenin peşine düşün ve mağazada meydana gelen gizemli durumu aydınlatma yolculuğuna çıkın,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.TR.xaml,

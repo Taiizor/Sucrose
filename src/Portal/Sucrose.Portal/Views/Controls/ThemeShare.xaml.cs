@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using Wpf.Ui.Controls;
+using MessageBox = Wpf.Ui.Controls.MessageBox;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 using SMMG = Sucrose.Manager.Manage.General;
 using SMMO = Sucrose.Manager.Manage.Objectionable;
@@ -96,48 +97,74 @@ namespace Sucrose.Portal.Views.Controls
         {
             Publish.IsEnabled = false;
 
-            if (PublishGrid.Visibility == Visibility.Collapsed)
+            if (File.Exists(Path.Combine(Theme, SMMRC.SucroseStore)))
             {
-                if (await SSSHN.GetHostEntryAsync())
+                Image.Source = LoadImage("ShoppingBasket");
+
+                MessageBox Warning = new()
                 {
-                    Image.Source = LoadImage("Loading");
+                    Title = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Already", "Title"),
+                    Content = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Already", "Message"),
+                    CloseButtonText = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Already", "Close")
+                };
 
-                    await Task.Delay(500);
+                await Warning.ShowDialogAsync();
 
-                    string StoreFile = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, SMMRC.StoreFile);
-
-                    bool Result = SSDMMP.StoreServerType switch
+                Image.Source = LoadImage("Basket");
+            }
+            else
+            {
+                if (PublishGrid.Visibility == Visibility.Collapsed)
+                {
+                    if (await SSSHN.GetHostEntryAsync())
                     {
-                        SSDESST.GitHub => SSSHGHD.Store(StoreFile, SMMG.UserAgent, SMMO.PersonalAccessToken),
-                        _ => SSSHSD.Store(StoreFile, SMMG.UserAgent),
-                    };
+                        Image.Source = LoadImage("Loading");
 
-                    if (Result)
-                    {
-                        Image.Source = LoadImage("Basket");
+                        await Task.Delay(500);
 
-                        SSSIS Store = SSSHS.ReadJson(StoreFile);
+                        string StoreFile = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Store, SMMRC.StoreFile);
 
-                        List<ComboBoxItem> Categories = new();
-
-                        foreach (string Key in Store.Categories.Keys)
+                        bool Result = SSDMMP.StoreServerType switch
                         {
-                            Categories.Add(new ComboBoxItem()
+                            SSDESST.GitHub => SSSHGHD.Store(StoreFile, SMMG.UserAgent, SMMO.PersonalAccessToken),
+                            _ => SSSHSD.Store(StoreFile, SMMG.UserAgent),
+                        };
+
+                        if (Result)
+                        {
+                            Image.Source = LoadImage("Basket");
+
+                            SSSIS Store = SSSHS.ReadJson(StoreFile);
+
+                            List<ComboBoxItem> Categories = new();
+
+                            foreach (string Key in Store.Categories.Keys)
                             {
-                                Content = SRER.GetValue("Portal", "Category", Key.Replace(" ", "")),
-                                Tag = Key
-                            });
+                                Categories.Add(new ComboBoxItem()
+                                {
+                                    Content = SRER.GetValue("Portal", "Category", Key.Replace(" ", "")),
+                                    Tag = Key
+                                });
+                            }
+
+                            Category.ItemsSource = Categories.OrderBy(Item => Item.Content);
+
+                            Category.SelectedIndex = 0;
+
+                            PublishGrid.Visibility = Visibility.Visible;
                         }
+                        else
+                        {
+                            Image.Source = LoadImage("Poison");
 
-                        Category.ItemsSource = Categories.OrderBy(Item => Item.Content);
+                            await Task.Delay(3000);
 
-                        Category.SelectedIndex = 0;
-
-                        PublishGrid.Visibility = Visibility.Visible;
+                            Image.Source = LoadImage("Basket");
+                        }
                     }
                     else
                     {
-                        Image.Source = LoadImage("Poison");
+                        Image.Source = LoadImage("Wi-FiOff");
 
                         await Task.Delay(3000);
 
@@ -146,20 +173,12 @@ namespace Sucrose.Portal.Views.Controls
                 }
                 else
                 {
-                    Image.Source = LoadImage("Wi-FiOff");
+                    State.Visibility = Visibility.Collapsed;
+                    Progress.Visibility = Visibility.Collapsed;
+                    PublishGrid.Visibility = Visibility.Collapsed;
 
-                    await Task.Delay(3000);
-
-                    Image.Source = LoadImage("Basket");
+                    State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Preparing");
                 }
-            }
-            else
-            {
-                State.Visibility = Visibility.Collapsed;
-                Progress.Visibility = Visibility.Collapsed;
-                PublishGrid.Visibility = Visibility.Collapsed;
-
-                State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Preparing");
             }
 
             Publish.IsEnabled = true;

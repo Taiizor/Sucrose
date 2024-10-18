@@ -39,4 +39,8 @@
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">Pliki ZIP (*.zip)|*.zip|Wszystkie Pliki (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Zapisz Plik Motywu</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">Zrozumiałem</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">Ostrzeżenie o Publikacji</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">Wybrany motyw został już pobrany ze sklepu.</system:String>
 </ResourceDictionary>

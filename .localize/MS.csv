@@ -808,6 +808,10 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.SaveDialogFilter,Fail ZIP (*.zip)|*.zip|Semua Fail (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.SaveDialogTitle,Simpan Fail Tema
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Already.Close,Faham
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Already.Title,Amaran Penerbitan
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Already.Message,Tema yang dipilih sudah dimuat turun dari kedai.
 Portal\Controls\TrayIcon\Portal.TrayIcon.MS.xaml,Portal.TrayIcon.Title,Dulang Sistem
 Portal\Controls\TrayIcon\Portal.TrayIcon.MS.xaml,Portal.TrayIcon.Close,Tutup
 Portal\Controls\TrayIcon\Portal.TrayIcon.MS.xaml,,

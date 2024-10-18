@@ -808,6 +808,10 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.SaveDialogTitle,Gem Tema Fil
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Already.Close,Forstået
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Already.Title,Udgivelsesadvarsel
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Already.Message,Det valgte tema er allerede downloadet fra butikken.
 Portal\Controls\TrayIcon\Portal.TrayIcon.DA.xaml,Portal.TrayIcon.Title,Systembakke
 Portal\Controls\TrayIcon\Portal.TrayIcon.DA.xaml,Portal.TrayIcon.Close,Luk
 Portal\Controls\TrayIcon\Portal.TrayIcon.DA.xaml,,

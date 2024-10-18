@@ -39,4 +39,8 @@
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">File ZIP (*.zip)|*.zip|Tutti i file (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Salva File Tema</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">Capito</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">Avviso di Pubblicazione</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">Il tema selezionato è già stato scaricato dal negozio.</system:String>
 </ResourceDictionary>

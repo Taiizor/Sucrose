@@ -39,4 +39,8 @@
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">थीम फ़ाइल सहेजें</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">समझ गया</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">प्रकाशन चेतावनी</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">चयनित थीम पहले से ही स्टोर से डाउनलोड की जा चुकी है।</system:String>
 </ResourceDictionary>

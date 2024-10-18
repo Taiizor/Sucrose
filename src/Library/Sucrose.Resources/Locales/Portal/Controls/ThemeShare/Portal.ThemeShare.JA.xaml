@@ -39,4 +39,8 @@
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">テーマファイルを保存</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">了解しました</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">公開警告</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">選択したテーマはすでにストアからダウンロードされています。</system:String>
 </ResourceDictionary>

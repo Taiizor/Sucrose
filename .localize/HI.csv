@@ -808,6 +808,10 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.SaveDialogTitle,थीम फ़ाइल सहेजें
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Already.Close,समझ गया
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Already.Title,प्रकाशन चेतावनी
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Already.Message,चयनित थीम पहले से ही स्टोर से डाउनलोड की जा चुकी है।
 Portal\Controls\TrayIcon\Portal.TrayIcon.HI.xaml,Portal.TrayIcon.Title,सिस्टम ट्रे
 Portal\Controls\TrayIcon\Portal.TrayIcon.HI.xaml,Portal.TrayIcon.Close,बंद करें
 Portal\Controls\TrayIcon\Portal.TrayIcon.HI.xaml,,

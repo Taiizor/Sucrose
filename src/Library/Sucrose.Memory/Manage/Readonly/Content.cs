@@ -16,6 +16,8 @@
 
         public static readonly string SucroseInfo = "SucroseInfo.json";
 
+        public static readonly string SucroseStore = "SucroseStore.json";
+
         public static readonly string SucroseCompatible = "SucroseCompatible.json";
 
         public static readonly string SucroseProperties = "SucroseProperties.json";

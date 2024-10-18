@@ -808,6 +808,10 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.SaveDialogTitle,Thema Opslaan als Bestand
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Already.Close,Begrepen
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Already.Title,Publicatiewaarschuwing
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Already.Message,Het geselecteerde thema is al gedownload uit de winkel.
 Portal\Controls\TrayIcon\Portal.TrayIcon.NL.xaml,Portal.TrayIcon.Title,Systeemvak
 Portal\Controls\TrayIcon\Portal.TrayIcon.NL.xaml,Portal.TrayIcon.Close,Sluiten
 Portal\Controls\TrayIcon\Portal.TrayIcon.NL.xaml,,

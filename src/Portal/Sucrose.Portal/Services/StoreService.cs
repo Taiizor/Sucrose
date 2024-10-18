@@ -5,35 +5,33 @@ namespace Sucrose.Portal.Services
 {
     internal class StoreService
     {
-        private ObservableDictionary<string, SSSID> _Info = new();
-
         public event PropertyChangedEventHandler InfoChanged
         {
-            add => _Info.PropertyChanged += value;
-            remove => _Info.PropertyChanged -= value;
+            add => Info.PropertyChanged += value;
+            remove => Info.PropertyChanged -= value;
         }
 
         public ObservableDictionary<string, SSSID> Info
         {
-            get => _Info;
+            get;
             set
             {
-                if (_Info != value)
+                if (field != value)
                 {
-                    _Info = value;
-                    _Info.OnDictionaryChanged();
+                    field = value;
+                    field.OnDictionaryChanged();
                 }
             }
-        }
+        } = new();
 
         public void ProgressPercentage(string Key, double ProgressPercentage)
         {
             if (Info.ContainsKey(Key))
             {
-                if (_Info[Key].ProgressPercentage != ProgressPercentage)
+                if (Info[Key].ProgressPercentage != ProgressPercentage)
                 {
-                    _Info[Key].ProgressPercentage = ProgressPercentage;
-                    _Info.OnPropertyChanged(Key);
+                    Info[Key].ProgressPercentage = ProgressPercentage;
+                    Info.OnPropertyChanged(Key);
                 }
             }
         }
@@ -42,10 +40,10 @@ namespace Sucrose.Portal.Services
         {
             if (Info.ContainsKey(Key))
             {
-                if (_Info[Key].DownloadedFileCount != DownloadedFileCount)
+                if (Info[Key].DownloadedFileCount != DownloadedFileCount)
                 {
-                    _Info[Key].DownloadedFileCount = DownloadedFileCount;
-                    _Info.OnPropertyChanged(Key);
+                    Info[Key].DownloadedFileCount = DownloadedFileCount;
+                    Info.OnPropertyChanged(Key);
                 }
             }
         }
@@ -54,10 +52,10 @@ namespace Sucrose.Portal.Services
         {
             if (Info.ContainsKey(Key))
             {
-                if (_Info[Key].TotalFileCount != TotalFileCount)
+                if (Info[Key].TotalFileCount != TotalFileCount)
                 {
-                    _Info[Key].TotalFileCount = TotalFileCount;
-                    _Info.OnPropertyChanged(Key);
+                    Info[Key].TotalFileCount = TotalFileCount;
+                    Info.OnPropertyChanged(Key);
                 }
             }
         }
@@ -66,10 +64,10 @@ namespace Sucrose.Portal.Services
         {
             if (Info.ContainsKey(Key))
             {
-                if (_Info[Key].Percentage != Percentage)
+                if (Info[Key].Percentage != Percentage)
                 {
-                    _Info[Key].Percentage = Percentage;
-                    _Info.OnPropertyChanged(Key);
+                    Info[Key].Percentage = Percentage;
+                    Info.OnPropertyChanged(Key);
                 }
             }
         }
@@ -78,10 +76,10 @@ namespace Sucrose.Portal.Services
         {
             if (Info.ContainsKey(Key))
             {
-                if (_Info[Key].State != State)
+                if (Info[Key].State != State)
                 {
-                    _Info[Key].State = State;
-                    _Info.OnPropertyChanged(Key);
+                    Info[Key].State = State;
+                    Info.OnPropertyChanged(Key);
                 }
             }
         }
@@ -90,10 +88,10 @@ namespace Sucrose.Portal.Services
         {
             if (Info.ContainsKey(Key))
             {
-                if (_Info[Key].Guid != Guid)
+                if (Info[Key].Guid != Guid)
                 {
-                    _Info[Key].Guid = Guid;
-                    _Info.OnPropertyChanged(Key);
+                    Info[Key].Guid = Guid;
+                    Info.OnPropertyChanged(Key);
                 }
             }
         }

@@ -808,6 +808,10 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.SaveDialogTitle,테마 파일 저장
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Already.Close,알겠습니다
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Already.Title,게시 경고
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Already.Message,선택한 테마는 이미 스토어에서 다운로드되었습니다.
 Portal\Controls\TrayIcon\Portal.TrayIcon.KO.xaml,Portal.TrayIcon.Title,시스템 트레이
 Portal\Controls\TrayIcon\Portal.TrayIcon.KO.xaml,Portal.TrayIcon.Close,닫기
 Portal\Controls\TrayIcon\Portal.TrayIcon.KO.xaml,,

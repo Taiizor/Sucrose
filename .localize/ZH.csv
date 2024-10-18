@@ -808,6 +808,10 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP 文件 (*.zip)|*.zip|所有文件 (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.SaveDialogTitle,保存主题文件
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Already.Close,明白了
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Already.Title,发布警告
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Already.Message,所选主题已从商店安装。
 Portal\Controls\TrayIcon\Portal.TrayIcon.ZH.xaml,Portal.TrayIcon.Title,系统托盘
 Portal\Controls\TrayIcon\Portal.TrayIcon.ZH.xaml,Portal.TrayIcon.Close,关闭
 Portal\Controls\TrayIcon\Portal.TrayIcon.ZH.xaml,,

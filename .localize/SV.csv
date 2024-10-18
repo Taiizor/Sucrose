@@ -806,8 +806,12 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Ett oväntat fel inträffade vid uppladdning av det komprimerade temat: {0}.
 Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Det komprimerade temat laddades upp framgångsrikt och kommer att publiceras i butiken efter verifiering.
 Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
-Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alla filer (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP-Filer (*.zip)|*.zip|Alla Filer (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.SaveDialogTitle,Spara Temafil
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Already.Close,Förstått
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Already.Title,Publiceringsvarning
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Already.Message,Det valda temat är redan nedladdat från butiken.
 Portal\Controls\TrayIcon\Portal.TrayIcon.SV.xaml,Portal.TrayIcon.Title,Systemfältet
 Portal\Controls\TrayIcon\Portal.TrayIcon.SV.xaml,Portal.TrayIcon.Close,Stäng
 Portal\Controls\TrayIcon\Portal.TrayIcon.SV.xaml,,

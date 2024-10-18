@@ -808,6 +808,10 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Files (*.zip)|*.zip|All Files (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.SaveDialogTitle,Simpan Berkas Tema
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Already.Close,Mengerti
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Already.Title,Peringatan Publikasi
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Already.Message,Tema yang dipilih sudah diunduh dari toko.
 Portal\Controls\TrayIcon\Portal.TrayIcon.ID.xaml,Portal.TrayIcon.Title,Tray Sistem
 Portal\Controls\TrayIcon\Portal.TrayIcon.ID.xaml,Portal.TrayIcon.Close,Tutup
 Portal\Controls\TrayIcon\Portal.TrayIcon.ID.xaml,,

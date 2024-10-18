@@ -39,4 +39,8 @@
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Gem Tema Fil</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">Forstået</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">Udgivelsesadvarsel</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">Det valgte tema er allerede downloadet fra butikken.</system:String>
 </ResourceDictionary>

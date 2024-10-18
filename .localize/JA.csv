@@ -808,6 +808,10 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.SaveDialogTitle,テーマファイルを保存
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Already.Close,了解しました
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Already.Title,公開警告
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Already.Message,選択したテーマはすでにストアからダウンロードされています。
 Portal\Controls\TrayIcon\Portal.TrayIcon.JA.xaml,Portal.TrayIcon.Title,システムトレイ
 Portal\Controls\TrayIcon\Portal.TrayIcon.JA.xaml,Portal.TrayIcon.Close,閉じる
 Portal\Controls\TrayIcon\Portal.TrayIcon.JA.xaml,,

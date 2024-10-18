@@ -808,373 +808,377 @@ Portal.ThemeShare.ThemePublish.Upload.Succeded,压缩主题已成功上传，验
 PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.SaveDialogFilter,ZIP 文件 (*.zip)|*.zip|所有文件 (*.*)|*.*,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
 Portal.ThemeShare.SaveDialogTitle,保存主题文件,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Already.Close,明白了,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+Portal.ThemeShare.ThemePublish.Already.Title,发布警告,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
+Portal.ThemeShare.ThemePublish.Already.Message,所选主题已从商店安装。,,Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,
 Portal.TrayIcon.Title,系统托盘,,Portal\Controls\TrayIcon\Portal.TrayIcon.ZH.xaml,
 Portal.TrayIcon.Close,关闭,,Portal\Controls\TrayIcon\Portal.TrayIcon.ZH.xaml,
-PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.ZH.xaml,Please don't touch the translation in this line.
 Portal.TrayIcon.Message,Sucrose已最小化到系统托盘。请右键单击Sucrose图标以继续。,,Portal\Controls\TrayIcon\Portal.TrayIcon.ZH.xaml,
 Portal.WallpaperCycling.Title,壁纸循环,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
 Portal.WallpaperCycling.Close,关闭,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
-PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Cycling,自动壁纸循环,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
 Portal.WallpaperCycling.Cycling.Description,壁纸是否自动更换。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
-PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,时间间隔,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
 Portal.WallpaperCycling.Time.Description,壁纸更换后的时间间隔。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
-PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙153,PASS⦙153,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,过渡模式,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
 Portal.WallpaperCycling.Transition.Description,设置壁纸之间的过渡模式。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
-PASS⦙153,PASS⦙153,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙154,PASS⦙154,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List,循环列表,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
 Portal.WallpaperCycling.List.Description,将循环列表重置为默认值。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
-PASS⦙154,PASS⦙154,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙155,PASS⦙155,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List.Reset,重置,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
 Portal.EmptyLibraryPage.Title,EmptyLibraryPage,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.ZH.xaml,
-PASS⦙155,PASS⦙155,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙156,PASS⦙156,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.EmptyLibraryPage.TitleText,你的图库被蜘蛛网覆盖了,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.ZH.xaml,
 Portal.EmptyLibraryPage.DescriptionText,壁纸已经被美丽的蜘蛛网替代了,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.ZH.xaml,
 Portal.FullLibraryPage.Title,FullLibraryPage,,Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.ZH.xaml,
 Portal.SearchLibraryPage.Title,SearchLibraryPage,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.ZH.xaml,
-PASS⦙156,PASS⦙156,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙157,PASS⦙157,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.SearchLibraryPage.TitleText,你的图库被蜘蛛网所吞噬,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.ZH.xaml,
 Portal.SearchLibraryPage.DescriptionText,由于您的壁纸选择太多，没有空间容纳更多壁纸了,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.ZH.xaml,
 Portal.DonateSettingPage.Title,DonateSettingPage,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
-PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu,捐赠菜单,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
 Portal.DonateSettingPage.DonateMenu.Description,界面上捐赠菜单的可见性。,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
-PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,显示,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,隐藏,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
-PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising,广告支持,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
 Portal.DonateSettingPage.Advertising.Description,通过观看广告来支持应用程序的开发。,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
-PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising.AdvertisingDelay,广告间隔（分钟）：,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
 Portal.DonateSettingPage.Advertising.AdvertisingHint,提示：广告将以尽量减少打扰您的方式显示。,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.Title,GeneralSettingPage,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
-PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationLanguage,应用程序语言,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.ApplicationLanguage.Description,选择您想要查看应用程序的语言。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
-PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup,应用程序启动,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Description,为了播放壁纸，Sucrose需要在启动时在后台运行。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
-PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Startup.None,无,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,普通,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,优先,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,计划任务,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
-PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,明白,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,管理员权限警告,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,您需要管理员权限才能更改启动状态。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
-PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon,通知图标,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Description,系统托盘的可见性。Sucrose将继续以隐藏的方式运行。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
-PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon.Notify.Show,显示,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,隐藏,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
-PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.NotifyIcon.NotifyExit,关闭系统托盘时关闭所有 Sucrose 应用程序,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.NotifyExit,关闭系统托盘时关闭所有 Sucrose 应用程序,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop,窗口背景,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.Description,用于自定义应用程序窗口背景。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
-PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,选择背景图像,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,选择一个背景图像,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,图像文件 (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,抱歉，您没有权限访问所选图片文件,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
-PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,背景缩放：,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,背景不透明度 (%)：,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,背景缩放：,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,背景不透明度 (%)：,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
+PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume,音量,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.EngineVolume.Description,适用于所有壁纸的音量设置。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
-PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,仅在桌面聚焦时播放声音,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeActive,只有所有应用程序静音时才播放声音,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,灵敏度（秒：,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
-PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary,个人库位置,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.Description,存储您添加到库中的主题的位置。,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
-PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,抱歉，您无权访问新位置,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,请选择一个空文件夹,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,请稍等，正在移动位置,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
-PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,将您的现有库移动到新位置,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,
 Portal.OtherSettingPage.Title,OtherSettingPage,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
-PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.ReportData,自动错误报告,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 Portal.OtherSettingPage.ReportData.Description,当遇到错误时，Sucrose 会迅速采取行动进行报告。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
-PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.StatisticsData,分享使用统计信息,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 Portal.OtherSettingPage.StatisticsData.Description,Sucrose 使您能够收集您的使用统计信息，以促进应用程序的发展。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
-PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook,Discord钩子,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 Portal.OtherSettingPage.DiscordHook.Description,Sucrose与Discord之间的通信。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
-PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook.DiscordRefresh,刷新连接:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 Portal.OtherSettingPage.DiscordHook.DiscordDelay,刷新间隔 (秒):,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
-PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Agent,网络代理,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 Portal.OtherSettingPage.Agent.Description,您在需要互联网连接的情况下使用的代理标识。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
-PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key,个人访问令牌,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 Portal.OtherSettingPage.Key.Description,用于无缝使用商店和应用程序更新所需的密钥。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
-PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Key.HintKey,如果您不知道如何获取个人访问令牌，请单击此处。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.HintKey,如果您不知道如何获取个人访问令牌，请单击此处。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key.PersonalKey,请输入个人访问令牌,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 Portal.OtherSettingPage.Key.PersonalKey.Valid,请输入有效的个人访问令牌,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
-PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Server,更新服务器,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 Portal.OtherSettingPage.Server.Description,通过哪个服务器执行更新。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
-PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Server.ServerHint,注意：如果选择了{0}作为服务器，则需要输入{2}以避免请求限制。否则，您可能会遇到更新问题。如果选择了{1}，您将获得更顺畅的更新体验。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server.ServerHint,注意：如果选择了{0}作为服务器，则需要输入{2}以避免请求限制。否则，您可能会遇到更新问题。如果选择了{1}，您将获得更顺畅的更新体验。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Module,更新模块,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 Portal.OtherSettingPage.Module.Description,用于更新的模块。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
-PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Channel,更新渠道,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 Portal.OtherSettingPage.Channel.Description,更新操作将使用哪个渠道进行。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
-PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update,更新方法,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 Portal.OtherSettingPage.Update.Description,更新操作将使用哪种方法进行。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
-PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Update.Limit,下载带宽限制:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update.Limit,下载带宽限制:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Auto,自动更新,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 Portal.OtherSettingPage.Auto.Description,是否将自动检查更新过程。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
-PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer,开发工具,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 Portal.OtherSettingPage.Developer.Description,管理 WebView 和 CefSharp 引擎的开发者工具。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
-PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperMode,默认开发者工具：,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperPort,调试端口：,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+Portal.OtherSettingPage.Developer.DeveloperMode,默认开发者工具：,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,调试端口：,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer.DeveloperHint,提示：默认的开发者工具在支持的主题中可能无法正常工作。调试端口通常效果更好。当您准备好时，您可以使用 'http://localhost:{0}' 地址或 'chrome://inspect' 查看 Chrome 浏览器，'opera://inspect' 查看 Opera 浏览器，'edge://inspect' 查看 Edge 浏览器。,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
-PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter,性能计数器,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Counter.Description,所有性能计数器是否在后台运行。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
-PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Counter.CounterHint,注意：某些Web类型的主题可能无法正常工作，下面的性能设置将不起作用。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter.CounterHint,注意：某些Web类型的主题可能无法正常工作，下面的性能设置将不起作用。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Pause,暂停规则,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Pause.Description,根据您的性能设置确定暂停壁纸的规则。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
-PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Communication,通信类型,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Communication.Description,确定将消息发送到 Web 类型主题的方法。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
-PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu,CPU使用率,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Cpu.Description,根据您的CPU使用设置，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
-PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU使用率 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU使用率 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu,GPU 使用率,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Gpu.Description,根据您的 GPU 使用设置，壁纸会发生什么。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
-PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,图形处理单元列表尚未创建,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
-PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU 使用率 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU 使用率 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory,内存使用,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Memory.Description,根据您的内存使用设置，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
-PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Memory.MemoryUsage,内存使用率 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory.MemoryUsage,内存使用率 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network,网络使用,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Network.Description,根据您的网络使用设置，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
-PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network.NetworkAdapter,网络适配器:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,尚未创建网络适配器列表,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
-PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkUpload,上传速度:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkDownload,下载速度:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Network.NetworkUpload,上传速度:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkPing,Ping时间 (毫秒):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+Portal.PerformanceSettingPage.Network.NetworkDownload,下载速度:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Ping时间 (毫秒):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery,电池电量,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Battery.Description,当笔记本电脑在电池电量状态下运行时，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
-PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Battery.BatteryUsage,电池电量 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery.BatteryUsage,电池电量 (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Saver,电池节能模式,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Saver.Description,当笔记本电脑在电池节能模式下运行时，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
-PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Virtual,虚拟化,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Virtual.Description,当虚拟化应用程序运行时，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
-PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Remote,远程桌面,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Remote.Description,当远程桌面应用程序运行时，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
-PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Fullscreen,全屏模式,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Fullscreen.Description,当任何应用程序在全屏模式下运行时，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
-PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Focus,焦点模式,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PerformanceSettingPage.Focus.Description,当您的焦点在其他任何应用程序上时，将影响壁纸。,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ZH.xaml,
 Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
-PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server,商店服务器,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 Portal.PersonalSettingPage.Server.Description,指定用于显示商店中列出的主题的服务器。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
-PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Server.ServerHint,注意：如果选择 {0} 作为服务器，则必须输入 {2} 以避免请求限制。否则，您可能会在访问商店主题时遇到问题。如果选择 {1}，您将拥有更流畅的商店体验。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server.ServerHint,注意：如果选择 {0} 作为服务器，则必须输入 {2} 以避免请求限制。否则，您可能会在访问商店主题时遇到问题。如果选择 {1}，您将拥有更流畅的商店体验。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Duration,商店刷新,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 Portal.PersonalSettingPage.Duration.Description,商店列表中的主题刷新频率。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
-PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.StoreStart,自动启动,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 Portal.PersonalSettingPage.StoreStart.Description,下载的主题是否自动设置为壁纸。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
-PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adult,不安全内容,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 Portal.PersonalSettingPage.Adult.Description,是否显示在商店中标记为不安全 (NSFW) 的内容。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
-PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Confirm,删除确认,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 Portal.PersonalSettingPage.Confirm.Description,在删除库中的主题时是否要求确认。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
-PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete,删除损坏主题,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 Portal.PersonalSettingPage.Delete.Description,是否自动删除库中的损坏或缺失的主题。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
-PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Delete.DeleteHint,注意：请谨慎操作，否则可能会导致数据丢失。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete.DeleteHint,注意：请谨慎操作，否则可能会导致数据丢失。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.LibraryStart,自动启动,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 Portal.PersonalSettingPage.LibraryStart.Description,创建的主题是否自动设置为壁纸。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
-PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview,主题预览,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 Portal.PersonalSettingPage.Preview.Description,鼠标悬停在主题上时是否显示预览。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
-PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.StorePreview,商店预览:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 Portal.PersonalSettingPage.Preview.StorePreviewHide,隐藏详细信息:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
-PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.LibraryPreview,库预览:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 Portal.PersonalSettingPage.Preview.LibraryPreviewHide,隐藏详细信息:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
-PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adaptive,自适应布局,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 Portal.PersonalSettingPage.Adaptive.Description,自定义主题的布局或间距。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
-PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,间距距离 (像素):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,布局顺序 (数量):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,间距距离 (像素):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,布局顺序 (数量):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Sort,库排序,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 Portal.PersonalSettingPage.Sort.Description,确定您的库中主题的排序方式和格式。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
-PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortMode,排序模式：,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortKind,排序类型：,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+Portal.PersonalSettingPage.Sort.SortMode,排序模式：,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,排序类型：,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Store,商店分页,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 Portal.PersonalSettingPage.Store.Description,为商店中的每个页面设置主题数量。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
-PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Library,库分页,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 Portal.PersonalSettingPage.Library.Description,为库中的每个页面设置主题数量。,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,
 Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
-PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LogTemporary,日志文件,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 Portal.SystemSettingPage.LogTemporary.Description,管理应用程序创建的所有日志文件。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
-PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Create,创建,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Delete,清除,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.LogTemporary.Create,创建,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Hint,注意：所有日志文件的总大小为 {0}。开始清除时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.LogTemporary.Delete,清除,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,注意：所有日志文件的总大小为 {0}。开始清除时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.CacheTemporary,清除缓存,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 Portal.SystemSettingPage.CacheTemporary.Description,清除应用程序创建的所有缓存文件。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
-PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Start,开始清理,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Hint,注意：所有缓存文件的总大小为 {0}。开始清除时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.CacheTemporary.Start,开始清理,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,注意：所有缓存文件的总大小为 {0}。开始清除时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.StoreTemporary,清除商店,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 Portal.SystemSettingPage.StoreTemporary.Description,清除应用程序创建的所有商店文件。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
-PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Start,开始清理,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Hint,注意：所有商店文件的总大小为 {0}。开始清除时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.StoreTemporary.Start,开始清理,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,注意：所有商店文件的总大小为 {0}。开始清除时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LibraryTemporary,清除库,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 Portal.SystemSettingPage.LibraryTemporary.Description,清除库中的所有主题文件，包括您创建或添加的主题。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
-PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Start,开始清理,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Hint,注意：所有库中的主题总大小为 {0}。开始清除时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.LibraryTemporary.Start,开始清理,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,注意：所有库中的主题总大小为 {0}。开始清除时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingBackup,设置文件,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 Portal.SystemSettingPage.SettingBackup.Description,管理应用程序创建的所有设置文件。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
-PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Export,备份,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Import,还原,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.SettingBackup.Export,备份,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Hint,注意：选择的操作开始时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.SettingBackup.Import,还原,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,注意：选择的操作开始时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingReset,重置设置,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 Portal.SystemSettingPage.SettingReset.Description,重置应用程序创建的所有设置文件。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
-PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Start,开始重置,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Hint,注意：开始重置时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+Portal.SystemSettingPage.SettingReset.Start,开始重置,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,注意：开始重置时，所有应用程序都将关闭。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Log.SaveDialogTitle,保存日志文件,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP 文件 (*.zip)|*.zip|所有文件 (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
-PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Access.Close,明白了,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 Portal.SystemSettingPage.Access.Title,访问警告,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 Portal.SystemSettingPage.Access.Message,您无权访问所选位置。,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.InputMode,交互方法,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.InputMode.Description,确定与支持的壁纸进行交互的方法。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputModule,交互模块：,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputDesktop,只有在桌面聚焦时处理交互,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+Portal.WallpaperSettingPage.InputMode.InputModule,交互模块：,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.DesktopIcon,隐藏以避免意外选择桌面图标,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+Portal.WallpaperSettingPage.InputMode.InputDesktop,只有在桌面聚焦时处理交互,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,隐藏以避免意外选择桌面图标,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ScreenLayout,屏幕布局,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.ScreenLayout.Description,更改壁纸在屏幕上的布局。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.StretchMode,拉伸模式,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.StretchMode.Description,更改支持的壁纸的缩放方式。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.LoopMode,循环模式,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.LoopMode.Description,更改支持的壁纸的循环方式。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ShuffleMode,随机播放模式,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,更改支持的壁纸的随机播放方式。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Gif播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,选择要播放库中的Gif主题的插件。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Video播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,选择要播放库中的Video主题的插件。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙272,PASS⦙272,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Url播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,选择要运行库中的Url主题的引擎。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙272,PASS⦙272,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙273,PASS⦙273,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Web播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,选择要运行库中的Web主题的引擎。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙273,PASS⦙273,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙274,PASS⦙274,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,YouTube播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,选择要运行库中的YouTube主题的引擎。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙274,PASS⦙274,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙275,PASS⦙275,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Application播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,选择要运行库中的Application主题的引擎。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ZH.xaml,
-PASS⦙275,PASS⦙275,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙276,PASS⦙276,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ZH.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,互联网之光熄灭的一刻,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ZH.xaml,
 Portal.BrokenStorePage.DescriptionText,就像没有星星的夜空一样，这里没有互联网的闪烁,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ZH.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.ZH.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ZH.xaml,
-PASS⦙276,PASS⦙276,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙277,PASS⦙277,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ZH.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,你寻找的答案可能隐藏在天空中,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ZH.xaml,
 Portal.SearchStorePage.DescriptionText,如果结果不如预期，天空可能为您提供新的体验,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ZH.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ZH.xaml,
-PASS⦙277,PASS⦙277,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙278,PASS⦙278,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ZH.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,探索商店中的神秘情况,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ZH.xaml,
 Portal.UnknownStorePage.DescriptionText,追寻未知之事，开始揭开商店中发生的神秘事件之旅,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ZH.xaml,

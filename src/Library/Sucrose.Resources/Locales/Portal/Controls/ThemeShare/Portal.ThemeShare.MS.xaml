@@ -39,4 +39,8 @@
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">Fail ZIP (*.zip)|*.zip|Semua Fail (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Simpan Fail Tema</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">Faham</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">Amaran Penerbitan</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">Tema yang dipilih sudah dimuat turun dari kedai.</system:String>
 </ResourceDictionary>

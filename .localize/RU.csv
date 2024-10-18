@@ -806,8 +806,12 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Произошла неожиданная ошибка при загрузке сжатой темы: {0}.
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Сжатая тема успешно загружена и будет опубликована в магазине после проверки.
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
-Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Файлы (*.zip)|*.zip|Все файлы (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Файлы (*.zip)|*.zip|Все Файлы (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.SaveDialogTitle,Сохранить файл темы
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Already.Close,Понял
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Already.Title,Предупреждение о Публикации
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Already.Message,Выбранная тема уже загружена из магазина.
 Portal\Controls\TrayIcon\Portal.TrayIcon.RU.xaml,Portal.TrayIcon.Title,Системный Трей
 Portal\Controls\TrayIcon\Portal.TrayIcon.RU.xaml,Portal.TrayIcon.Close,Закрыть
 Portal\Controls\TrayIcon\Portal.TrayIcon.RU.xaml,,

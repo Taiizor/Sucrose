@@ -808,6 +808,10 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP soubory (*.zip)|*.zip|Všechny soubory (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.SaveDialogTitle,Uložit soubor se šablonou
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Already.Close,Rozumím
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Already.Title,Upozornění na Publikování
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Already.Message,Vybrané téma je již nainstalováno z obchodu.
 Portal\Controls\TrayIcon\Portal.TrayIcon.CS.xaml,Portal.TrayIcon.Title,Systémová Lišta
 Portal\Controls\TrayIcon\Portal.TrayIcon.CS.xaml,Portal.TrayIcon.Close,Zavřít
 Portal\Controls\TrayIcon\Portal.TrayIcon.CS.xaml,,

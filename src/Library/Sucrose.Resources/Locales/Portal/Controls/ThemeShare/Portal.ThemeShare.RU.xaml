@@ -37,6 +37,10 @@
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Errored">Произошла неожиданная ошибка при загрузке сжатой темы: {0}.</system:String>
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Succeded">Сжатая тема успешно загружена и будет опубликована в магазине после проверки.</system:String>
 
-    <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP Файлы (*.zip)|*.zip|Все файлы (*.*)|*.*</system:String>
+    <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP Файлы (*.zip)|*.zip|Все Файлы (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Сохранить файл темы</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">Понял</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">Предупреждение о Публикации</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">Выбранная тема уже загружена из магазина.</system:String>
 </ResourceDictionary>

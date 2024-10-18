@@ -2,38 +2,35 @@
 {
     internal class CategoryService : IDisposable
     {
-        private string _CategoryTag = string.Empty;
-        private string _BeforeCategoryTag = string.Empty;
-
         public event EventHandler CategoryTagChanged;
         public event EventHandler BeforeCategoryTagChanged;
 
         public string CategoryTag
         {
-            get => _CategoryTag;
+            get;
             set
             {
-                if (_CategoryTag != value)
+                if (field != value)
                 {
-                    BeforeCategoryTag = _CategoryTag;
-                    _CategoryTag = value;
+                    BeforeCategoryTag = field;
+                    field = value;
                     CategoryTagChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
-        }
+        } = string.Empty;
 
         public string BeforeCategoryTag
         {
-            get => _BeforeCategoryTag;
+            get;
             set
             {
-                if (_BeforeCategoryTag != value)
+                if (field != value)
                 {
-                    _BeforeCategoryTag = value;
+                    field = value;
                     BeforeCategoryTagChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
-        }
+        } = string.Empty;
 
         public void Dispose()
         {

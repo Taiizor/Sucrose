@@ -2,38 +2,35 @@
 {
     internal class CultureService : IDisposable
     {
-        private string _CultureCode = string.Empty;
-        private string _BeforeCultureCode = string.Empty;
-
         public event EventHandler CultureCodeChanged;
         public event EventHandler BeforeCultureCodeChanged;
 
         public string CultureCode
         {
-            get => _CultureCode;
+            get;
             set
             {
-                if (_CultureCode != value)
+                if (field != value)
                 {
-                    BeforeCultureCode = _CultureCode;
-                    _CultureCode = value;
+                    BeforeCultureCode = field;
+                    field = value;
                     CultureCodeChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
-        }
+        } = string.Empty;
 
         public string BeforeCultureCode
         {
-            get => _BeforeCultureCode;
+            get;
             set
             {
-                if (_BeforeCultureCode != value)
+                if (field != value)
                 {
-                    _BeforeCultureCode = value;
+                    field = value;
                     BeforeCultureCodeChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
-        }
+        } = string.Empty;
 
         public void Dispose()
         {

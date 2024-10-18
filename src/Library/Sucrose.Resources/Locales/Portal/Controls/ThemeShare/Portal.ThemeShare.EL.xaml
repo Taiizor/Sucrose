@@ -39,4 +39,8 @@
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">Αρχεία ZIP (*.zip)|*.zip|Όλα τα αρχεία (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Αποθήκευση αρχείου θέματος</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">Κατάλαβα</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">Προειδοποίηση Δημοσίευσης</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">Το επιλεγμένο θέμα έχει ήδη ληφθεί από το κατάστημα.</system:String>
 </ResourceDictionary>

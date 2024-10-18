@@ -808,6 +808,10 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.SaveDialogTitle,Tema Dosyasını Kaydet
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Already.Close,Anladım
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Already.Title,Yayınlama Uyarısı
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Already.Message,Seçtiğiniz tema zaten hâli hazırda mağazadan yüklenmiş.
 Portal\Controls\TrayIcon\Portal.TrayIcon.TR.xaml,Portal.TrayIcon.Title,Sistem Tepsisi
 Portal\Controls\TrayIcon\Portal.TrayIcon.TR.xaml,Portal.TrayIcon.Close,Kapat
 Portal\Controls\TrayIcon\Portal.TrayIcon.TR.xaml,,

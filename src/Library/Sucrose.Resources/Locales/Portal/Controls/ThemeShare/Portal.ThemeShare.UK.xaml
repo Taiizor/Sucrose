@@ -37,6 +37,10 @@
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Errored">Сталася несподівана помилка під час завантаження стисненої теми: {0}.</system:String>
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Succeded">Стиснену тему успішно завантажено і після перевірки вона буде опублікована в магазині.</system:String>
 
-    <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP Файли (*.zip)|*.zip|Всі файли (*.*)|*.*</system:String>
-    <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Зберегти файл теми</system:String>
+    <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP Файли (*.zip)|*.zip|Всі Файли (*.*)|*.*</system:String>
+    <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Зберегти Файл Tеми</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">Зрозуміло</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">Попередження про Публікацію</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">Вибрана тема вже завантажена з магазину.</system:String>
 </ResourceDictionary>

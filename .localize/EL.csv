@@ -808,6 +808,10 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.SaveDialogFilter,Αρχεία ZIP (*.zip)|*.zip|Όλα τα αρχεία (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.SaveDialogTitle,Αποθήκευση αρχείου θέματος
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Already.Close,Κατάλαβα
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Already.Title,Προειδοποίηση Δημοσίευσης
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Already.Message,Το επιλεγμένο θέμα έχει ήδη ληφθεί από το κατάστημα.
 Portal\Controls\TrayIcon\Portal.TrayIcon.EL.xaml,Portal.TrayIcon.Title,Γραμμή Συστήματος
 Portal\Controls\TrayIcon\Portal.TrayIcon.EL.xaml,Portal.TrayIcon.Close,Κλείσιμο
 Portal\Controls\TrayIcon\Portal.TrayIcon.EL.xaml,,

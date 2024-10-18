@@ -808,373 +808,377 @@ Portal.ThemeShare.ThemePublish.Upload.Succeded,O tema compactado foi carregado c
 PASS⦙148,PASS⦙148,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Please don't touch the translation in this line.
 Portal.ThemeShare.SaveDialogFilter,Arquivos ZIP (*.zip)|*.zip|Todos os Arquivos (*.*)|*.*,,Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,
 Portal.ThemeShare.SaveDialogTitle,Salvar Arquivo de Tema,,Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,
+PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Please don't touch the translation in this line.
+Portal.ThemeShare.ThemePublish.Already.Close,Entendido,,Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,
+Portal.ThemeShare.ThemePublish.Already.Title,Aviso de Publicação,,Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,
+Portal.ThemeShare.ThemePublish.Already.Message,O tema selecionado já foi baixado da loja.,,Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,
 Portal.TrayIcon.Title,Bandeja do Sistema,,Portal\Controls\TrayIcon\Portal.TrayIcon.PT.xaml,
 Portal.TrayIcon.Close,Fechar,,Portal\Controls\TrayIcon\Portal.TrayIcon.PT.xaml,
-PASS⦙149,PASS⦙149,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.PT.xaml,Please don't touch the translation in this line.
+PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\TrayIcon\Portal.TrayIcon.PT.xaml,Please don't touch the translation in this line.
 Portal.TrayIcon.Message,O Sucrose foi minimizado para a bandeja do sistema. Clique com o botão direito do mouse no ícone do Sucrose para continuar.,,Portal\Controls\TrayIcon\Portal.TrayIcon.PT.xaml,
 Portal.WallpaperCycling.Title,Ciclagem de Papel de Parede,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
 Portal.WallpaperCycling.Close,Fechar,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
-PASS⦙150,PASS⦙150,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,Please don't touch the translation in this line.
+PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Cycling,Ciclagem Automática de Papel de Parede,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
 Portal.WallpaperCycling.Cycling.Description,Se o papel de parede muda automaticamente ou não.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
-PASS⦙151,PASS⦙151,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,Please don't touch the translation in this line.
+PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,Intervalo de Tempo,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
 Portal.WallpaperCycling.Time.Description,O intervalo de tempo após o qual o papel de parede muda.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
-PASS⦙152,PASS⦙152,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,Please don't touch the translation in this line.
+PASS⦙153,PASS⦙153,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,Modo de Transição,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
 Portal.WallpaperCycling.Transition.Description,Define o modo de transição entre papéis de parede.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
-PASS⦙153,PASS⦙153,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,Please don't touch the translation in this line.
+PASS⦙154,PASS⦙154,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List,Lista de Ciclos,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
 Portal.WallpaperCycling.List.Description,Redefine a lista de ciclos para o padrão.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
-PASS⦙154,PASS⦙154,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,Please don't touch the translation in this line.
+PASS⦙155,PASS⦙155,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.List.Reset,Redefinir,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
 Portal.EmptyLibraryPage.Title,EmptyLibraryPage,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.PT.xaml,
-PASS⦙155,PASS⦙155,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙156,PASS⦙156,Don't Touch,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.PT.xaml,Please don't touch the translation in this line.
 Portal.EmptyLibraryPage.TitleText,Sua biblioteca foi tecida por teias de aranha,,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.PT.xaml,
 Portal.EmptyLibraryPage.DescriptionText,"Em vez de papéis de parede, você tem uma obra de arte maravilhosa feita de teias de aranha",,Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.PT.xaml,
 Portal.FullLibraryPage.Title,FullLibraryPage,,Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.PT.xaml,
 Portal.SearchLibraryPage.Title,SearchLibraryPage,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.PT.xaml,
-PASS⦙156,PASS⦙156,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙157,PASS⦙157,Don't Touch,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.PT.xaml,Please don't touch the translation in this line.
 Portal.SearchLibraryPage.TitleText,Sua biblioteca foi enfeitiçada por teias de aranha,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.PT.xaml,
 Portal.SearchLibraryPage.DescriptionText,Sua escolha refinada de papéis de parede deixou pouco espaço para mais,,Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.PT.xaml,
 Portal.DonateSettingPage.Title,DonateSettingPage,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,
-PASS⦙157,PASS⦙157,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu,Menu de Doação,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,
 Portal.DonateSettingPage.DonateMenu.Description,Visibilidade do menu de doação na interface.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,
-PASS⦙158,PASS⦙158,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Visível,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,
 Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Invisível,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,
-PASS⦙159,PASS⦙159,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising,Suporte com Anúncios,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,
 Portal.DonateSettingPage.Advertising.Description,Contribua para o desenvolvimento do aplicativo assistindo a anúncios.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,
-PASS⦙160,PASS⦙160,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.DonateSettingPage.Advertising.AdvertisingDelay,Tempo de Anúncios (Minutos):,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,
 Portal.DonateSettingPage.Advertising.AdvertisingHint,Dica: Os anúncios serão exibidos para você com o mínimo de interrupção possível.,,Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.PT.xaml,
 Portal.GeneralSettingPage.Title,GeneralSettingPage,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
-PASS⦙161,PASS⦙161,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationLanguage,Idioma do Aplicativo,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.ApplicationLanguage.Description,Selecione o idioma em que deseja visualizar o aplicativo.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
-PASS⦙162,PASS⦙162,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup,Iniciar na Inicialização,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Description,Sucrose precisa ser executado em segundo plano para reproduzir os papéis de parede na inicialização.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
-PASS⦙163,PASS⦙163,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Nenhum,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Normal,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioridade,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Agendador,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
-PASS⦙164,PASS⦙164,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Entendi,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Aviso de Direitos de Administrador,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Você precisa de direitos de administrador para alterar o status de inicialização.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
-PASS⦙165,PASS⦙165,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon,Ícone de Notificação,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Description,Visibilidade do ícone na bandeja do sistema. Sucrose continuará funcionando em segundo plano de forma discreta.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
-PASS⦙166,PASS⦙166,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Visível,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Invisível,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
-PASS⦙167,PASS⦙167,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Fechar o ícone na bandeja do sistema também fecha todos os aplicativos Sucrose,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 PASS⦙168,PASS⦙168,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Fechar o ícone na bandeja do sistema também fecha todos os aplicativos Sucrose,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
+PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop,Fundo da Janela,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.Description,Usado para personalizar o plano de fundo da janela do aplicativo.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
-PASS⦙169,PASS⦙169,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Selecionar Imagem de Fundo,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Selecione uma imagem de fundo,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Arquivos de Imagem (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,"Infelizmente, você não tem permissão para acessar o arquivo de imagem selecionado",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
-PASS⦙170,PASS⦙170,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Esticar Fundo:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 PASS⦙171,PASS⦙171,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Opacidade do Fundo (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
+Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Esticar Fundo:,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 PASS⦙172,PASS⦙172,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Opacidade do Fundo (%):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
+PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume,Volume do Motor,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.EngineVolume.Description,Volume aplicável a todos os papéis de parede.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
-PASS⦙173,PASS⦙173,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Reproduzir som somente quando o foco está na área de trabalho,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeActive,Reproduzir som apenas quando todas as aplicações estiverem silenciadas,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Sensibilidade (Segundos):,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
-PASS⦙174,PASS⦙174,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary,Local da Biblioteca,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.Description,Local onde os temas adicionados à sua biblioteca serão armazenados.,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
-PASS⦙175,PASS⦙175,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,"Infelizmente, você não tem acesso ao novo local",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,"Por favor, selecione uma pasta vazia",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"Por favor, aguarde enquanto a localização está sendo movida",,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
-PASS⦙176,PASS⦙176,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Mover sua biblioteca existente para um novo local,,Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,
 Portal.OtherSettingPage.Title,OtherSettingPage,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
-PASS⦙177,PASS⦙177,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.ReportData,Relatório Automático de Erros,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 Portal.OtherSettingPage.ReportData.Description,A Sucrose toma medidas para relatá-lo rapidamente ao encontrar um erro.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
-PASS⦙178,PASS⦙178,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.StatisticsData,Compartilhar Estatísticas de Uso,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 Portal.OtherSettingPage.StatisticsData.Description,A Sucrose permite a coleta de suas estatísticas de uso para contribuir para o desenvolvimento do aplicativo.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
-PASS⦙179,PASS⦙179,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook,Discord,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 Portal.OtherSettingPage.DiscordHook.Description,Sucrose permite a comunicação com o Discord.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
-PASS⦙180,PASS⦙180,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Atualização de Conexão:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 Portal.OtherSettingPage.DiscordHook.DiscordDelay,Tempo de Atualização (segundos):,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
-PASS⦙181,PASS⦙181,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Agent,Agente de Internet,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 Portal.OtherSettingPage.Agent.Description,Identidade do agente em situações que requerem conexão com a internet.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
-PASS⦙182,PASS⦙182,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key,Chave de Acesso Pessoal,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 Portal.OtherSettingPage.Key.Description,Necessária para usar a loja e atualizar o aplicativo sem problemas.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
-PASS⦙183,PASS⦙183,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Key.HintKey,Clique aqui se não souber como obter a chave de acesso pessoal.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 PASS⦙184,PASS⦙184,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Key.HintKey,Clique aqui se não souber como obter a chave de acesso pessoal.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
+PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Key.PersonalKey,"Por favor, insira uma chave de acesso pessoal",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 Portal.OtherSettingPage.Key.PersonalKey.Valid,"Por favor, insira uma chave de acesso pessoal válida",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
-PASS⦙185,PASS⦙185,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Server,Servidor de Atualizações,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 Portal.OtherSettingPage.Server.Description,O servidor através do qual as atualizações serão realizadas.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
-PASS⦙186,PASS⦙186,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Server.ServerHint,"Nota: Se {0} for selecionado como servidor, você precisará inserir um {2} para evitar limites de solicitação. Caso contrário, você poderá enfrentar problemas com as atualizações. Se {1} for selecionado, você terá uma experiência de atualização mais suave.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 PASS⦙187,PASS⦙187,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Server.ServerHint,"Nota: Se {0} for selecionado como servidor, você precisará inserir um {2} para evitar limites de solicitação. Caso contrário, você poderá enfrentar problemas com as atualizações. Se {1} for selecionado, você terá uma experiência de atualização mais suave.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
+PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Module,Módulo de Atualização,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 Portal.OtherSettingPage.Module.Description,Qual módulo será utilizado para o processo de atualização.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
-PASS⦙188,PASS⦙188,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Channel,Canal de Atualização,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 Portal.OtherSettingPage.Channel.Description,Onde as atualizações serão feitas.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
-PASS⦙189,PASS⦙189,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Update,Método de Atualização,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 Portal.OtherSettingPage.Update.Description,Como as atualizações serão feitas.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
-PASS⦙190,PASS⦙190,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Update.Limit,Limite de largura de banda de download:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 PASS⦙191,PASS⦙191,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Update.Limit,Limite de largura de banda de download:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
+PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Auto,Atualização Automática,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 Portal.OtherSettingPage.Auto.Description,Se o processo de atualização será verificado automaticamente.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
-PASS⦙192,PASS⦙192,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer,Ferramentas de Desenvolvedor,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 Portal.OtherSettingPage.Developer.Description,Gerencie ferramentas de desenvolvedor para o motor WebView e CefSharp.,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
-PASS⦙193,PASS⦙193,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperMode,Ferramentas de Desenvolvedor Padrão:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 PASS⦙194,PASS⦙194,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.OtherSettingPage.Developer.DeveloperPort,Porta de Depuração:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
+Portal.OtherSettingPage.Developer.DeveloperMode,Ferramentas de Desenvolvedor Padrão:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 PASS⦙195,PASS⦙195,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.OtherSettingPage.Developer.DeveloperPort,Porta de Depuração:,,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
+PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.OtherSettingPage.Developer.DeveloperHint,"Dica: As ferramentas de desenvolvedor padrão podem não funcionar corretamente nos temas suportados. A porta de depuração tende a funcionar melhor. Quando estiver pronto, você pode usar o endereço 'http://localhost:{0}' ou 'chrome://inspect' para o navegador Chrome, 'opera://inspect' para o navegador Opera, 'edge://inspect' para o navegador Edge.",,Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Title,PerformanceSettingPage,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
-PASS⦙196,PASS⦙196,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Counter,Contadores de Desempenho,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Counter.Description,Se os contadores de desempenho devem ou não funcionar em segundo plano.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
-PASS⦙197,PASS⦙197,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Counter.CounterHint,Nota: Alguns temas do tipo Web podem não funcionar corretamente e nenhuma das configurações de desempenho abaixo terá efeito.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 PASS⦙198,PASS⦙198,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Counter.CounterHint,Nota: Alguns temas do tipo Web podem não funcionar corretamente e nenhuma das configurações de desempenho abaixo terá efeito.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
+PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Pause,Regra de Pausa,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Pause.Description,Determina a regra para pausar o papel de parede com base nas suas configurações de desempenho.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
-PASS⦙199,PASS⦙199,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Communication,Tipo de Comunicação,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Communication.Description,Determina o método de envio de mensagens para temas do tipo Web.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
-PASS⦙200,PASS⦙200,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Cpu,Uso da CPU,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Cpu.Description,O que acontecerá com o papel de parede com base nas configurações de uso da CPU.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
-PASS⦙201,PASS⦙201,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Cpu.CpuUsage,Uso da CPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 PASS⦙202,PASS⦙202,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Cpu.CpuUsage,Uso da CPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
+PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu,Uso de GPU,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Gpu.Description,O que acontece com o papel de parede com base nas configurações de uso de GPU.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
-PASS⦙203,PASS⦙203,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,A lista de unidades de processamento gráfico ainda não foi criada,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
-PASS⦙204,PASS⦙204,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Gpu.GpuUsage,Uso de GPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 PASS⦙205,PASS⦙205,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Gpu.GpuUsage,Uso de GPU (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
+PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Memory,Uso de Memória,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Memory.Description,O que acontecerá com o papel de parede com base nas configurações de uso de memória.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
-PASS⦙206,PASS⦙206,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Memory.MemoryUsage,Uso de Memória (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 PASS⦙207,PASS⦙207,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Memory.MemoryUsage,Uso de Memória (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
+PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network,Uso de Rede,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Network.Description,O que acontecerá com o papel de parede com base nas configurações de uso de rede.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
-PASS⦙208,PASS⦙208,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Network.NetworkAdapter,Adaptador de Rede:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,A lista de adaptadores de rede ainda não foi criada,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
-PASS⦙209,PASS⦙209,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkUpload,Tamanho de Upload:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 PASS⦙210,PASS⦙210,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkDownload,Tamanho de Download:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
+Portal.PerformanceSettingPage.Network.NetworkUpload,Tamanho de Upload:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 PASS⦙211,PASS⦙211,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Network.NetworkPing,Valor de Ping (ms):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
+Portal.PerformanceSettingPage.Network.NetworkDownload,Tamanho de Download:,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 PASS⦙212,PASS⦙212,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Network.NetworkPing,Valor de Ping (ms):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
+PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Battery,Bateria,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Battery.Description,O que acontecerá com o papel de parede quando estiver usando a energia da bateria do laptop.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
-PASS⦙213,PASS⦙213,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.PerformanceSettingPage.Battery.BatteryUsage,Estado da Bateria (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 PASS⦙214,PASS⦙214,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.PerformanceSettingPage.Battery.BatteryUsage,Estado da Bateria (%):,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
+PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Saver,Modo Economia de Bateria,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Saver.Description,O que acontecerá com o papel de parede quando o laptop estiver no modo de economia de bateria.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
-PASS⦙215,PASS⦙215,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Virtual,Virtualização,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Virtual.Description,O que acontecerá com o papel de parede enquanto aplicativos de virtualização estiverem em execução.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
-PASS⦙216,PASS⦙216,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Remote,Desktop Remoto,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Remote.Description,O que acontecerá com o papel de parede enquanto aplicativos de desktop remoto estiverem em execução.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
-PASS⦙217,PASS⦙217,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Fullscreen,Modo de Tela Cheia,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Fullscreen.Description,O que acontecerá com o papel de parede enquanto qualquer aplicativo estiver em execução em tela cheia.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
-PASS⦙218,PASS⦙218,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PerformanceSettingPage.Focus,Modo de Foco,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PerformanceSettingPage.Focus.Description,O que acontecerá com o papel de parede quando houver outro aplicativo em foco.,,Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal.PersonalSettingPage.Title,PersonalSettingPage,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
-PASS⦙219,PASS⦙219,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Server,Servidor da Loja,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 Portal.PersonalSettingPage.Server.Description,Especifica qual servidor será usado para exibir os temas listados na loja.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
-PASS⦙220,PASS⦙220,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Server.ServerHint,"Nota: Se {0} for selecionado como o servidor, é necessário inserir um {2} para evitar limites de solicitação. Caso contrário, você pode ter problemas ao acessar temas na loja. Se {1} for selecionado, você terá uma experiência mais suave na loja.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 PASS⦙221,PASS⦙221,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Server.ServerHint,"Nota: Se {0} for selecionado como o servidor, é necessário inserir um {2} para evitar limites de solicitação. Caso contrário, você pode ter problemas ao acessar temas na loja. Se {1} for selecionado, você terá uma experiência mais suave na loja.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
+PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Duration,Atualização da Loja,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 Portal.PersonalSettingPage.Duration.Description,Quanto tempo os temas listados na loja serão atualizados.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
-PASS⦙222,PASS⦙222,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.StoreStart,Início Automático,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 Portal.PersonalSettingPage.StoreStart.Description,Se os temas baixados da loja serão definidos automaticamente como papel de parede.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
-PASS⦙223,PASS⦙223,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adult,Conteúdo Inapropriado,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 Portal.PersonalSettingPage.Adult.Description,Se o conteúdo marcado como não seguro (NSFW) na loja será exibido.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
-PASS⦙224,PASS⦙224,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Confirm,Confirmação de Exclusão,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 Portal.PersonalSettingPage.Confirm.Description,Se será solicitada confirmação ao excluir temas da biblioteca.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
-PASS⦙225,PASS⦙225,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Delete,Temas Corrompidos,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 Portal.PersonalSettingPage.Delete.Description,Se temas corrompidos ou ausentes na biblioteca serão excluídos automaticamente.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
-PASS⦙226,PASS⦙226,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Delete.DeleteHint,"Nota: Tenha cuidado, pois isso pode resultar na perda de dados.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 PASS⦙227,PASS⦙227,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Delete.DeleteHint,"Nota: Tenha cuidado, pois isso pode resultar na perda de dados.",,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
+PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.LibraryStart,Início Automático,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 Portal.PersonalSettingPage.LibraryStart.Description,Se os temas criados serão definidos automaticamente como papel de parede.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
-PASS⦙228,PASS⦙228,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview,Pré-visualização de Tema,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 Portal.PersonalSettingPage.Preview.Description,Se os temas serão pré-visualizados ao passar o mouse sobre eles.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
-PASS⦙229,PASS⦙229,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.StorePreview,Pré-visualização da Loja:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 Portal.PersonalSettingPage.Preview.StorePreviewHide,Ocultar Detalhes:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
-PASS⦙230,PASS⦙230,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Preview.LibraryPreview,Pré-visualização da Biblioteca:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Ocultar Detalhes:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
-PASS⦙231,PASS⦙231,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Adaptive,Layout Adaptável,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 Portal.PersonalSettingPage.Adaptive.Description,Personalize o layout ou espaçamento dos temas exibidos.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
-PASS⦙232,PASS⦙232,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Espaçamento (Pixels):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 PASS⦙233,PASS⦙233,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Ordem do Layout (Quantidade):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
+Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Espaçamento (Pixels):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 PASS⦙234,PASS⦙234,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Ordem do Layout (Quantidade):,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
+PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Sort,Ordenar Biblioteca,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 Portal.PersonalSettingPage.Sort.Description,Especifique como os temas na sua biblioteca serão ordenados e em qual formato.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
-PASS⦙235,PASS⦙235,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortMode,Modo de Ordenação:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 PASS⦙236,PASS⦙236,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.PersonalSettingPage.Sort.SortKind,Tipo de Ordenação:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
+Portal.PersonalSettingPage.Sort.SortMode,Modo de Ordenação:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 PASS⦙237,PASS⦙237,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.PersonalSettingPage.Sort.SortKind,Tipo de Ordenação:,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
+PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Store,Paginação da Loja,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 Portal.PersonalSettingPage.Store.Description,Defina quantos temas haverá em cada página da loja.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
-PASS⦙238,PASS⦙238,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.PersonalSettingPage.Library,Paginação da Biblioteca,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 Portal.PersonalSettingPage.Library.Description,Defina quantos temas haverá em cada página da sua biblioteca.,,Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.PT.xaml,
 Portal.SystemSettingPage.Title,SystemSettingPage,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
-PASS⦙239,PASS⦙239,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LogTemporary,Arquivos de Registro,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 Portal.SystemSettingPage.LogTemporary.Description,Gerenciar todos os arquivos de registro criados pelo aplicativo.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
-PASS⦙240,PASS⦙240,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Create,Criar,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 PASS⦙241,PASS⦙241,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Delete,Limpar,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
+Portal.SystemSettingPage.LogTemporary.Create,Criar,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 PASS⦙242,PASS⦙242,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LogTemporary.Hint,Nota: O espaço total ocupado pelos arquivos de registro é {0}. Todos os aplicativos serão fechados quando a limpeza começar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
+Portal.SystemSettingPage.LogTemporary.Delete,Limpar,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 PASS⦙243,PASS⦙243,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LogTemporary.Hint,Nota: O espaço total ocupado pelos arquivos de registro é {0}. Todos os aplicativos serão fechados quando a limpeza começar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
+PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.CacheTemporary,Limpeza de Cache,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 Portal.SystemSettingPage.CacheTemporary.Description,Limpar todos os arquivos de cache criados pelo aplicativo.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
-PASS⦙244,PASS⦙244,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Start,Iniciar Limpeza,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 PASS⦙245,PASS⦙245,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.CacheTemporary.Hint,Nota: O espaço total ocupado pelo cache é {0}. Todos os aplicativos serão fechados quando a limpeza começar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
+Portal.SystemSettingPage.CacheTemporary.Start,Iniciar Limpeza,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 PASS⦙246,PASS⦙246,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.CacheTemporary.Hint,Nota: O espaço total ocupado pelo cache é {0}. Todos os aplicativos serão fechados quando a limpeza começar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
+PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.StoreTemporary,Limpeza da Loja,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 Portal.SystemSettingPage.StoreTemporary.Description,Limpar todos os arquivos de loja criados pelo aplicativo.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
-PASS⦙247,PASS⦙247,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Start,Iniciar Limpeza,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 PASS⦙248,PASS⦙248,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.StoreTemporary.Hint,Nota: O espaço total ocupado pelos arquivos de loja é {0}. Todos os aplicativos serão fechados quando a limpeza começar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
+Portal.SystemSettingPage.StoreTemporary.Start,Iniciar Limpeza,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 PASS⦙249,PASS⦙249,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.StoreTemporary.Hint,Nota: O espaço total ocupado pelos arquivos de loja é {0}. Todos os aplicativos serão fechados quando a limpeza começar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
+PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.LibraryTemporary,Limpeza da Biblioteca,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 Portal.SystemSettingPage.LibraryTemporary.Description,Limpar todos os arquivos de tema encontrados ou criados em sua biblioteca.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
-PASS⦙250,PASS⦙250,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Start,Iniciar Limpeza,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 PASS⦙251,PASS⦙251,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.LibraryTemporary.Hint,Nota: O espaço total ocupado pelos temas em sua biblioteca é {0}. Todos os aplicativos serão fechados quando a limpeza começar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
+Portal.SystemSettingPage.LibraryTemporary.Start,Iniciar Limpeza,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 PASS⦙252,PASS⦙252,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.LibraryTemporary.Hint,Nota: O espaço total ocupado pelos temas em sua biblioteca é {0}. Todos os aplicativos serão fechados quando a limpeza começar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
+PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingBackup,Arquivos de Configuração,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 Portal.SystemSettingPage.SettingBackup.Description,Gerenciar todos os arquivos de configuração criados pelo aplicativo.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
-PASS⦙253,PASS⦙253,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Export,Exportar,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 PASS⦙254,PASS⦙254,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Import,Importar,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
+Portal.SystemSettingPage.SettingBackup.Export,Exportar,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 PASS⦙255,PASS⦙255,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingBackup.Hint,Nota: Todos os aplicativos serão fechados quando a operação selecionada começar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
+Portal.SystemSettingPage.SettingBackup.Import,Importar,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 PASS⦙256,PASS⦙256,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingBackup.Hint,Nota: Todos os aplicativos serão fechados quando a operação selecionada começar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
+PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.SettingReset,Redefinir Configurações,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 Portal.SystemSettingPage.SettingReset.Description,Redefinir todas as configurações criadas pelo aplicativo.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
-PASS⦙257,PASS⦙257,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Start,Iniciar Redefinição,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 PASS⦙258,PASS⦙258,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.SystemSettingPage.SettingReset.Hint,Nota: Todos os aplicativos serão fechados quando a redefinição começar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
+Portal.SystemSettingPage.SettingReset.Start,Iniciar Redefinição,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 PASS⦙259,PASS⦙259,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.SystemSettingPage.SettingReset.Hint,Nota: Todos os aplicativos serão fechados quando a redefinição começar.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
+PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Log.SaveDialogTitle,Salvar Arquivo de Registro,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 Portal.SystemSettingPage.Log.SaveDialogFilter,Arquivos ZIP (*.zip)|*.zip|Todos os Arquivos (*.*)|*.*,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
-PASS⦙260,PASS⦙260,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.SystemSettingPage.Access.Close,Entendido,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 Portal.SystemSettingPage.Access.Title,Aviso de Acesso,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 Portal.SystemSettingPage.Access.Message,Você não tem permissão para acessar o local selecionado.,,Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.Title,WallpaperSettingPage,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙261,PASS⦙261,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.InputMode,Método de Interação,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.InputMode.Description,Determina os métodos pelos quais a interação pode ocorrer com os papéis de parede suportados.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙262,PASS⦙262,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputModule,Módulo de Interação:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 PASS⦙263,PASS⦙263,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.InputDesktop,Processar interação apenas quando o ambiente de trabalho estiver focado,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
+Portal.WallpaperSettingPage.InputMode.InputModule,Módulo de Interação:,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 PASS⦙264,PASS⦙264,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
-Portal.WallpaperSettingPage.InputMode.DesktopIcon,Ocultar para evitar a seleção acidental de ícones de área de trabalho,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
+Portal.WallpaperSettingPage.InputMode.InputDesktop,Processar interação apenas quando o ambiente de trabalho estiver focado,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 PASS⦙265,PASS⦙265,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.InputMode.DesktopIcon,Ocultar para evitar a seleção acidental de ícones de área de trabalho,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
+PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ScreenLayout,Layout da Tela,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.ScreenLayout.Description,Altera o layout dos seus papéis de parede na tela.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙266,PASS⦙266,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.StretchMode,Modo de Esticamento,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.StretchMode.Description,Altera o método de esticamento em papéis de parede suportados.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙267,PASS⦙267,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.LoopMode,Modo de Repetição,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.LoopMode.Description,Altera o modo de repetição em papéis de parede suportados.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙268,PASS⦙268,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ShuffleMode,Modo de Embaralhamento,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Altera o modo de embaralhamento em papéis de parede suportados.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙269,PASS⦙269,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Reprodutor de Gif,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,Selecione o plug-in que reproduzirá temas do tipo Gif em sua biblioteca.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙270,PASS⦙270,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Reprodutor de Vídeo,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,Selecione o plug-in que reproduzirá temas do tipo Vídeo em sua biblioteca.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙271,PASS⦙271,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙272,PASS⦙272,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Motor de Url,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,Selecione o motor que executará temas do tipo Url em sua biblioteca.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙272,PASS⦙272,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙273,PASS⦙273,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Motor da Web,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,Selecione o motor que executará temas do tipo web em sua biblioteca.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙273,PASS⦙273,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙274,PASS⦙274,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,Motor do YouTube,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,Selecione o motor que executará temas do tipo YouTube em sua biblioteca.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙274,PASS⦙274,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙275,PASS⦙275,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Motor de Application,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,Selecione o motor que executará temas do tipo Application em sua biblioteca.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.PT.xaml,
-PASS⦙275,PASS⦙275,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙276,PASS⦙276,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.PT.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,Um Momento em que as Luzes da Internet se Apagaram,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.PT.xaml,
 Portal.BrokenStorePage.DescriptionText,"Como um céu sem estrelas, aqui também falta o brilho da internet",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.PT.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.PT.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PT.xaml,
-PASS⦙276,PASS⦙276,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙277,PASS⦙277,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PT.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Respostas para o que Procura Podem Estar no Céu,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PT.xaml,
 Portal.SearchStorePage.DescriptionText,"Se os resultados não forem como esperado, o céu pode oferecer uma nova experiência",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PT.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.PT.xaml,
-PASS⦙277,PASS⦙277,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙278,PASS⦙278,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.PT.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,Descubra o Mistério que Surgiu na Loja,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.PT.xaml,
 Portal.UnknownStorePage.DescriptionText,Siga o desconhecido e embarque numa jornada para elucidar o mistério que ocorreu na loja,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.PT.xaml,

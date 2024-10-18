@@ -39,4 +39,8 @@
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">Fișiere ZIP (*.zip)|*.zip|Toate fișierele (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Salvează Fișier Temă</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">Am Înțeles</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">Avertisment de Publicare</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">Tema selectată a fost deja descărcată din magazin.</system:String>
 </ResourceDictionary>

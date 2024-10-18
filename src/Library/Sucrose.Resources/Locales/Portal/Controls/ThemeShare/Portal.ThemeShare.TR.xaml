@@ -39,4 +39,8 @@
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Tema Dosyasını Kaydet</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">Anladım</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">Yayınlama Uyarısı</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">Seçtiğiniz tema zaten hâli hazırda mağazadan yüklenmiş.</system:String>
 </ResourceDictionary>

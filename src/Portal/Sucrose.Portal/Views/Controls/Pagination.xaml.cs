@@ -21,70 +21,62 @@ namespace Sucrose.Portal.Views.Controls
 
         public event EventHandler SelectPageChanged;
 
-        private bool _EnabledJump = true;
-
         public bool EnabledJump
         {
-            get => _EnabledJump;
+            get;
             set
             {
-                _EnabledJump = value;
+                field = value;
                 UpdatePagination();
             }
-        }
-
-        private int _MaxPage = 1;
+        } = true;
 
         public int MaxPage
         {
-            get => _MaxPage;
+            get;
             set
             {
                 if (value >= MinPage)
                 {
-                    _MaxPage = value;
+                    field = value;
                 }
                 else
                 {
-                    _MaxPage = MinPage;
+                    field = MinPage;
                 }
                 UpdatePagination();
             }
-        }
-
-        private int _MinPage = 1;
+        } = 1;
 
         public int MinPage
         {
-            get => _MinPage;
+            get;
             set
             {
                 if (value <= MaxPage)
                 {
-                    _MinPage = value;
+                    field = value;
                 }
                 else
                 {
-                    _MinPage = MaxPage;
+                    field = MaxPage;
                 }
                 UpdatePagination();
             }
-        }
-
-        private int _SelectPage = 1;
+        } = 1;
 
         public int SelectPage
         {
-            get => _SelectPage;
+            get;
             set
             {
-                if (_SelectPage != value)
+                if (field != value)
                 {
-                    _SelectPage = value;
+                    field = value;
                     SelectPageChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
-        }
+        } = 1;
 
         private void Number_Click(object sender, RoutedEventArgs e)
         {

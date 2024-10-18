@@ -808,6 +808,10 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePubl
 Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.SaveDialogFilter,Arquivos ZIP (*.zip)|*.zip|Todos os Arquivos (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.SaveDialogTitle,Salvar Arquivo de Tema
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Already.Close,Entendido
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Already.Title,Aviso de Publicação
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Already.Message,O tema selecionado já foi baixado da loja.
 Portal\Controls\TrayIcon\Portal.TrayIcon.PT.xaml,Portal.TrayIcon.Title,Bandeja do Sistema
 Portal\Controls\TrayIcon\Portal.TrayIcon.PT.xaml,Portal.TrayIcon.Close,Fechar
 Portal\Controls\TrayIcon\Portal.TrayIcon.PT.xaml,,

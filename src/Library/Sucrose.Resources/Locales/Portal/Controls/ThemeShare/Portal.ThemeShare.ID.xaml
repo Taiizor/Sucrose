@@ -39,4 +39,8 @@
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP Files (*.zip)|*.zip|All Files (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Simpan Berkas Tema</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">Mengerti</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">Peringatan Publikasi</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">Tema yang dipilih sudah diunduh dari toko.</system:String>
 </ResourceDictionary>

@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
 using System.Net.Http;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -34,6 +33,7 @@ using SSDMMP = Sucrose.Shared.Dependency.Manage.Manager.Portal;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
+using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 using SSSHGHD = Sucrose.Shared.Store.Helper.GitHub.Download;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
@@ -43,8 +43,8 @@ using SSSHSD = Sucrose.Shared.Store.Helper.Soferity.Download;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
-using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSMDTD = Sucrose.Shared.Space.Model.DownloadTelemetryData;
+using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
@@ -66,6 +66,7 @@ namespace Sucrose.Portal.Views.Controls
         private readonly string Key;
         private SSTHI Info;
         private bool State;
+        private bool Error;
 
         internal StoreCard(string Theme, KeyValuePair<string, SSSIW> Wallpaper, string Agent, string Key)
         {
@@ -87,6 +88,7 @@ namespace Sucrose.Portal.Views.Controls
                     if (SSSHN.GetHostEntry())
                     {
                         State = true;
+                        Error = false;
 
                         DownloadSymbol.Symbol = SymbolRegular.Empty;
 
@@ -183,6 +185,8 @@ namespace Sucrose.Portal.Views.Controls
                 {
                     SSSHC.Folder(TemporaryPath, LibraryPath);
 
+                    SSSHF.Write(Path.Combine(LibraryPath, SMMRC.SucroseStore), string.Empty);
+
                     if ((!SMMB.ClosePerformance && !SMMB.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
                     {
                         if (SMME.StoreStart)
@@ -201,6 +205,8 @@ namespace Sucrose.Portal.Views.Controls
             }
             catch (Exception Exception)
             {
+                Error = true;
+
                 await SSWW.Watch_CatchException(Exception);
 
                 await Application.Current.Dispatcher.InvokeAsync(async () =>
@@ -209,6 +215,8 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         SSSTMI.StoreService.Info.Remove(Keys);
                     }
+
+                    State = false;
 
                     Download.ToolTip = null;
 
@@ -290,17 +298,20 @@ namespace Sucrose.Portal.Views.Controls
 
                             await Task.Delay(1500);
 
-                            Download.ToolTip = null;
-                            DownloadRing.Visibility = Visibility.Collapsed;
-                            DownloadSymbol.Visibility = Visibility.Visible;
+                            if (!Error)
+                            {
+                                Download.ToolTip = null;
+                                DownloadRing.Visibility = Visibility.Collapsed;
+                                DownloadSymbol.Visibility = Visibility.Visible;
 
-                            DownloadSymbol.Foreground = SRER.GetResource<Brush>("SystemFillColorSuccessBrush");
-                            DownloadSymbol.Symbol = SymbolRegular.CloudCheckmark24;
+                                DownloadSymbol.Foreground = SRER.GetResource<Brush>("SystemFillColorSuccessBrush");
+                                DownloadSymbol.Symbol = SymbolRegular.CloudCheckmark24;
 
-                            await Task.Delay(3000);
+                                await Task.Delay(3000);
 
-                            DownloadSymbol.Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush");
-                            DownloadSymbol.Symbol = SymbolRegular.CloudArrowDown24;
+                                DownloadSymbol.Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush");
+                                DownloadSymbol.Symbol = SymbolRegular.CloudArrowDown24;
+                            }
                         }
                     }
                 });

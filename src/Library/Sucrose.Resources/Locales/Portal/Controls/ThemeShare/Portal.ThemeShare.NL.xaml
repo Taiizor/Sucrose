@@ -39,4 +39,8 @@
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Thema Opslaan als Bestand</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">Begrepen</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">Publicatiewaarschuwing</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">Het geselecteerde thema is al gedownload uit de winkel.</system:String>
 </ResourceDictionary>

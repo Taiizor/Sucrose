@@ -39,4 +39,8 @@
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP Files (*.zip)|*.zip|All Files (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Save Theme File</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Close">Got It</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Title">Publishing Warning</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Already.Message">The selected theme is already installed from the store.</system:String>
 </ResourceDictionary>
