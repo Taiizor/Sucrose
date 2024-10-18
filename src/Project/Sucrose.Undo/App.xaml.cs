@@ -7,6 +7,7 @@ using SHC = Skylark.Helper.Culture;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
+using SWUD = Skylark.Wing.Utility.Desktop;
 
 namespace Sucrose.Undo
 {
@@ -112,12 +113,12 @@ namespace Sucrose.Undo
         private static void TerminateProcess(string Name)
         {
 #if NET48_OR_GREATER
-            IEnumerable<Process> TerminateProcesses = Process.GetProcesses().Where(Proc => Proc.ProcessName.Contains(Name) && Proc.Id != Process.GetCurrentProcess().Id);
+            IEnumerable<Process> Processes = Process.GetProcesses().Where(Proc => Proc.ProcessName.Contains(Name) && Proc.Id != Process.GetCurrentProcess().Id);
 #else
-            IEnumerable<Process> TerminateProcesses = Process.GetProcesses().Where(Proc => Proc.ProcessName.Contains(Name) && Proc.Id != Environment.ProcessId);
+            IEnumerable<Process> Processes = Process.GetProcesses().Where(Proc => Proc.ProcessName.Contains(Name) && Proc.Id != Environment.ProcessId);
 #endif
 
-            foreach (Process Process in TerminateProcesses)
+            foreach (Process Process in Processes)
             {
                 try
                 {
@@ -158,6 +159,10 @@ namespace Sucrose.Undo
                 await Task.Delay(Delay);
 
                 TerminateProcess(Application);
+
+                await Task.Delay(Delay);
+
+                SWUD.RefreshDesktop();
 
                 await Task.Delay(Delay);
 

@@ -656,6 +656,8 @@ namespace Sucrose.Update.View
 
         private async Task Reloader()
         {
+            Silent = false;
+
             HasBundle = false;
 
             Bundle = string.Empty;

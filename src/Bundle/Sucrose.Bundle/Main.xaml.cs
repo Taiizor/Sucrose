@@ -20,6 +20,7 @@ using SWHSB = Skylark.Wing.Helper.ShortcutBasic;
 using SWHSD = Skylark.Wing.Helper.ShortcutDefault;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWNM = Skylark.Wing.Native.Methods;
+using SWUD = Skylark.Wing.Utility.Desktop;
 
 #if NET6_0_OR_GREATER
 using SWHSR = Skylark.Wing.Helper.ShortcutRuntime;
@@ -32,31 +33,39 @@ namespace Sucrose.Bundle
     /// </summary>
     public partial class Main : Window
     {
-        private static string Description => "Sucrose Wallpaper Engine is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.";
+        private static string Description => "Sucrose Wallpaper Engine is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive wallpapers.";
 
-        private static string PackagePath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Package Cache", Application);
+        private static string LocalApplicationData => Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
-        private static string InstallPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Application);
+        private static string ApplicationData => Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-        private static string StartMenu => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", Shortcut);
+        private static string PackagePath => Path.Combine(LocalApplicationData, "Package Cache", Application);
 
-        private static string Desktop => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), Shortcut);
-
-        private static string AppDataPath => Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        private static string StartMenu => Environment.GetFolderPath(Environment.SpecialFolder.StartMenu);
 
         private static string Uninstall => Path.Combine(PackagePath, "Sucrose.Undo", "Sucrose.Undo.exe");
 
+        private static string Desktop => Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+        private static string StartMenuProgramsShortcut => Path.Combine(StartMenuPrograms, Shortcut);
+
         private static string RegistryName => @"Software\Microsoft\Windows\CurrentVersion\Uninstall";
+
+        private static string ShowcasePath => Path.Combine(ApplicationData, Application, Showcase);
 
         private static string PackagesFilePath => Path.Combine(PackagesPath, $"{Application}.7z");
 
-        private static string ShowcasePath => Path.Combine(AppDataPath, Application, Showcase);
+        private static string InstallPath => Path.Combine(LocalApplicationData, Application);
 
         private static string Launcher => Path.Combine(InstallPath, Department, Executable);
 
         private static string SevenZipPath => Path.Combine(Path.GetTempPath(), SevenZip);
 
         private static string PackagesPath => Path.Combine(Path.GetTempPath(), Packages);
+
+        private static string StartMenuPrograms => Path.Combine(StartMenu, "Programs");
+
+        private static string DesktopShortcut => Path.Combine(Desktop, Shortcut);
 
         private static string Url => "https://github.com/Taiizor/Sucrose";
 
@@ -104,7 +113,7 @@ namespace Sucrose.Bundle
             InitializeComponent();
         }
 
-        private void WindowCorner()
+        private async Task WindowCorner()
         {
             try
             {
@@ -115,8 +124,122 @@ namespace Sucrose.Bundle
 
                     SWNM.DwmSetWindowAttribute(SWHWI.Handle(this), Attribute, ref Preference, (uint)Marshal.SizeOf(typeof(uint)));
                 }
+
+                await Task.CompletedTask;
             }
             catch { }
+        }
+
+        private static async Task ExtractAll()
+        {
+            try
+            {
+                await ExtractArchive();
+            }
+            catch
+            {
+                try
+                {
+                    await ExtractPackages();
+                }
+                catch
+                {
+                    await ExtractArchive(Path.Combine(Packages, $"{Application}.7z"), InstallPath);
+                }
+            }
+
+            await Task.Delay(MinDelay);
+
+            if (File.Exists(Launcher))
+            {
+                if (Directory.Exists(Path.GetDirectoryName(DesktopShortcut)))
+                {
+                    bool CreateDesktopShortcut = true;
+
+#if NET6_0_OR_GREATER
+                    try
+                    {
+                        SWHSR.Create(Path.GetDirectoryName(DesktopShortcut), Shortcut, Text, null, Launcher, null, Path.GetDirectoryName(Launcher), null, SWNM.WindowStyle.Normal);
+
+                        CreateDesktopShortcut = false;
+                    }
+                    catch { }
+#endif
+
+                    if (CreateDesktopShortcut)
+                    {
+                        try
+                        {
+                            SWHSB.Create(DesktopShortcut, Launcher, Path.GetDirectoryName(Launcher), null, null, SWNM.ShortcutWindowStyles.WshNormalFocus, Text, 0);
+                        }
+                        catch
+                        {
+                            SWHSD.Create(DesktopShortcut, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
+                        }
+                    }
+                }
+
+                if (Directory.Exists(Path.GetDirectoryName(StartMenuProgramsShortcut)))
+                {
+                    bool CreateStartMenuShortcut = true;
+
+#if NET6_0_OR_GREATER
+                    try
+                    {
+                        SWHSR.Create(Path.GetDirectoryName(StartMenuProgramsShortcut), Shortcut, Text, null, Launcher, null, Path.GetDirectoryName(Launcher), null, SWNM.WindowStyle.Normal);
+
+                        CreateStartMenuShortcut = false;
+                    }
+                    catch { }
+#endif
+
+                    if (CreateStartMenuShortcut)
+                    {
+                        try
+                        {
+                            SWHSB.Create(StartMenuProgramsShortcut, Launcher, Path.GetDirectoryName(Launcher), null, null, SWNM.ShortcutWindowStyles.WshNormalFocus, Text, 0);
+                        }
+                        catch
+                        {
+                            SWHSD.Create(StartMenuProgramsShortcut, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
+                        }
+                    }
+                }
+            }
+        }
+
+        private static async Task SetUninstall()
+        {
+#if NET48_OR_GREATER
+            FileInfo File = new(Process.GetCurrentProcess().MainModule.FileName);
+#else
+            FileInfo File = new(Environment.ProcessPath);
+#endif
+
+            string Size = SHN.Numeral(SSESSE.Convert(File.Length, SEST.Byte, SEST.Kilobyte, SEMST.Palila), false, false, 0, '0', SECNT.None);
+
+            RegistryKey HomeKey = Registry.CurrentUser.OpenSubKey(RegistryName, true) ?? Registry.CurrentUser.CreateSubKey(RegistryName, true);
+
+            RegistryKey AppKey = HomeKey.CreateSubKey(Application);
+
+            AppKey.SetValue("NoModify", 1, RegistryValueKind.DWord);
+            AppKey.SetValue("NoRepair", 1, RegistryValueKind.DWord);
+            AppKey.SetValue("Contact", Contact, RegistryValueKind.String);
+            AppKey.SetValue("DisplayName", Text, RegistryValueKind.String);
+            AppKey.SetValue("URLInfoAbout", Url, RegistryValueKind.String);
+            AppKey.SetValue("EstimatedSize", Size, RegistryValueKind.DWord);
+            AppKey.SetValue("URLUpdateInfo", Url, RegistryValueKind.String);
+            AppKey.SetValue("Publisher", Publisher, RegistryValueKind.String);
+            AppKey.SetValue("Comments", Description, RegistryValueKind.String);
+            AppKey.SetValue("DisplayIcon", Launcher, RegistryValueKind.String);
+            AppKey.SetValue("BundleVersion", Version, RegistryValueKind.String);
+            AppKey.SetValue("DisplayVersion", Version, RegistryValueKind.String);
+            AppKey.SetValue("PublisherName", Publisher, RegistryValueKind.String);
+            AppKey.SetValue("UninstallString", Uninstall, RegistryValueKind.String);
+            AppKey.SetValue("InstallLocation", InstallPath, RegistryValueKind.String);
+            AppKey.SetValue("QuietUninstallString", QuietUninstall, RegistryValueKind.String);
+
+            await Task.CompletedTask;
         }
 
         private static async Task ExtractArchive()
@@ -154,6 +277,17 @@ namespace Sucrose.Bundle
             await Completion.Task;
         }
 
+        private static async Task RefreshDesktop()
+        {
+            try
+            {
+                SWUD.RefreshDesktop();
+
+                await Task.CompletedTask;
+            }
+            catch { }
+        }
+
         private static async Task ExtractPackages()
         {
             await Task.Factory.StartNew(() =>
@@ -181,15 +315,15 @@ namespace Sucrose.Bundle
             });
         }
 
-        private static void TerminateProcess(string Name)
+        private static async Task TerminateProcess(string Name)
         {
 #if NET48_OR_GREATER
-            IEnumerable<Process> TerminateProcesses = Process.GetProcesses().Where(Proc => Proc.ProcessName.Contains(Name) && Proc.Id != Process.GetCurrentProcess().Id);
+            IEnumerable<Process> Processes = Process.GetProcesses().Where(Proc => Proc.ProcessName.Contains(Name) && Proc.Id != Process.GetCurrentProcess().Id);
 #else
-            IEnumerable<Process> TerminateProcesses = Process.GetProcesses().Where(Proc => Proc.ProcessName.Contains(Name) && Proc.Id != Environment.ProcessId);
+            IEnumerable<Process> Processes = Process.GetProcesses().Where(Proc => Proc.ProcessName.Contains(Name) && Proc.Id != Environment.ProcessId);
 #endif
 
-            foreach (Process Process in TerminateProcesses)
+            foreach (Process Process in Processes)
             {
                 try
                 {
@@ -197,6 +331,8 @@ namespace Sucrose.Bundle
                 }
                 catch { }
             }
+
+            await Task.CompletedTask;
         }
 
         private static async Task ControlDirectory(string Location)
@@ -336,38 +472,6 @@ namespace Sucrose.Bundle
             }
         }
 
-        private static void SetUninstall()
-        {
-#if NET48_OR_GREATER
-            FileInfo File = new(Process.GetCurrentProcess().MainModule.FileName);
-#else
-            FileInfo File = new(Environment.ProcessPath);
-#endif
-
-            string Size = SHN.Numeral(SSESSE.Convert(File.Length, SEST.Byte, SEST.Kilobyte, SEMST.Palila), false, false, 0, '0', SECNT.None);
-
-            RegistryKey HomeKey = Registry.CurrentUser.OpenSubKey(RegistryName, true) ?? Registry.CurrentUser.CreateSubKey(RegistryName, true);
-
-            RegistryKey AppKey = HomeKey.CreateSubKey(Application);
-
-            AppKey.SetValue("NoModify", 1, RegistryValueKind.DWord);
-            AppKey.SetValue("NoRepair", 1, RegistryValueKind.DWord);
-            AppKey.SetValue("Contact", Contact, RegistryValueKind.String);
-            AppKey.SetValue("DisplayName", Text, RegistryValueKind.String);
-            AppKey.SetValue("URLInfoAbout", Url, RegistryValueKind.String);
-            AppKey.SetValue("EstimatedSize", Size, RegistryValueKind.DWord);
-            AppKey.SetValue("URLUpdateInfo", Url, RegistryValueKind.String);
-            AppKey.SetValue("Publisher", Publisher, RegistryValueKind.String);
-            AppKey.SetValue("Comments", Description, RegistryValueKind.String);
-            AppKey.SetValue("DisplayIcon", Launcher, RegistryValueKind.String);
-            AppKey.SetValue("BundleVersion", Version, RegistryValueKind.String);
-            AppKey.SetValue("DisplayVersion", Version, RegistryValueKind.String);
-            AppKey.SetValue("PublisherName", Publisher, RegistryValueKind.String);
-            AppKey.SetValue("UninstallString", Uninstall, RegistryValueKind.String);
-            AppKey.SetValue("InstallLocation", InstallPath, RegistryValueKind.String);
-            AppKey.SetValue("QuietUninstallString", QuietUninstall, RegistryValueKind.String);
-        }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -380,15 +484,19 @@ namespace Sucrose.Bundle
 
         private async void Window_ContentRendered(object sender, EventArgs e)
         {
-            WindowCorner();
+            await WindowCorner();
 
             await Task.Delay(MinDelay);
 
-            TerminateProcess(Application);
+            await TerminateProcess(Application);
 
             await Task.Delay(MinDelay);
 
-            TerminateProcess(Application);
+            await TerminateProcess(Application);
+
+            await Task.Delay(MinDelay);
+
+            await RefreshDesktop();
 
             await Task.Delay(MaxDelay);
 
@@ -416,84 +524,11 @@ namespace Sucrose.Bundle
 
             await Task.Delay(MinDelay);
 
-            try
-            {
-                await ExtractArchive();
-            }
-            catch
-            {
-                try
-                {
-                    await ExtractPackages();
-                }
-                catch
-                {
-                    await ExtractArchive(Path.Combine(Packages, $"{Application}.7z"), InstallPath);
-                }
-            }
+            await ExtractAll();
 
             await Task.Delay(MinDelay);
 
-            if (File.Exists(Launcher))
-            {
-                if (Directory.Exists(Path.GetDirectoryName(Desktop)))
-                {
-                    bool DesktopShortcut = true;
-
-#if NET6_0_OR_GREATER
-                    try
-                    {
-                        SWHSR.Create(Path.GetDirectoryName(Desktop), Shortcut, Text, null, Launcher, null, Path.GetDirectoryName(Launcher), null, SWNM.WindowStyle.Normal);
-
-                        DesktopShortcut = false;
-                    }
-                    catch { }
-#endif
-
-                    if (DesktopShortcut)
-                    {
-                        try
-                        {
-                            SWHSB.Create(Desktop, Launcher, Path.GetDirectoryName(Launcher), null, null, SWNM.ShortcutWindowStyles.WshNormalFocus, Text, 0);
-                        }
-                        catch
-                        {
-                            SWHSD.Create(Desktop, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
-                        }
-                    }
-                }
-
-                if (Directory.Exists(Path.GetDirectoryName(StartMenu)))
-                {
-                    bool StartMenuShortcut = true;
-
-#if NET6_0_OR_GREATER
-                    try
-                    {
-                        SWHSR.Create(Path.GetDirectoryName(StartMenu), Shortcut, Text, null, Launcher, null, Path.GetDirectoryName(Launcher), null, SWNM.WindowStyle.Normal);
-
-                        StartMenuShortcut = false;
-                    }
-                    catch { }
-#endif
-
-                    if (StartMenuShortcut)
-                    {
-                        try
-                        {
-                            SWHSB.Create(StartMenu, Launcher, Path.GetDirectoryName(Launcher), null, null, SWNM.ShortcutWindowStyles.WshNormalFocus, Text, 0);
-                        }
-                        catch
-                        {
-                            SWHSD.Create(StartMenu, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
-                        }
-                    }
-                }
-            }
-
-            await Task.Delay(MinDelay);
-
-            SetUninstall();
+            await SetUninstall();
 
             await Task.Delay(MinDelay);
 
