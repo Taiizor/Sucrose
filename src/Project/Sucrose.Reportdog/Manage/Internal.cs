@@ -15,11 +15,15 @@ namespace Sucrose.Reportdog.Manage
 
         public static SRHI Initialize = new();
 
-        public static int InitializeTime = 5000;
+        public static Timer OnlineTimer = null;
 
-        public static Timer InitializeTimer = null;
+        public static Timer AnalyticTimer = null;
 
         public static FileSystemWatcher Watcher = null;
+
+        public static TimeSpan AnalyticTime = TimeSpan.FromMinutes(10);
+
+        public static TimeSpan OnlineTime = TimeSpan.FromSeconds(SMMRG.Randomise.Next(120, 150));
 
         public static readonly string Source = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Cache, SMMRF.Report);
     }

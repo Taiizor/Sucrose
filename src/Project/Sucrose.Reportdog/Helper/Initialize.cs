@@ -45,8 +45,9 @@ namespace Sucrose.Reportdog.Helper
             if (SRMI.Watcher != null)
             {
                 SRMI.Watcher.EnableRaisingEvents = false;
-                SRMI.InitializeTimer.Dispose();
-                SRMI.Watcher.Dispose();
+                SRMI.AnalyticTimer?.Dispose();
+                SRMI.OnlineTimer?.Dispose();
+                SRMI.Watcher?.Dispose();
                 SRMI.Watcher = null;
             }
 
@@ -68,6 +69,8 @@ namespace Sucrose.Reportdog.Helper
                     foreach (string Record in Files)
                     {
                         await SendThrow(Record);
+
+                        await Task.Delay(1000);
                     }
                 }
 
@@ -83,41 +86,17 @@ namespace Sucrose.Reportdog.Helper
                     await SendThrow(e.FullPath);
                 };
 
-                TimerCallback Callback = InitializeTimer_Callback;
-                SRMI.InitializeTimer = new(Callback, null, 0, SRMI.InitializeTime);
+                TimerCallback CallbackAnalytic = AnalyticTimer_Callback;
+                SRMI.AnalyticTimer = new(CallbackAnalytic, null, SRMI.AnalyticTime, SRMI.AnalyticTime);
+
+                TimerCallback CallbackOnline = OnlineTimer_Callback;
+                SRMI.OnlineTimer = new(CallbackOnline, null, SRMI.OnlineTime, SRMI.OnlineTime);
 
                 SRMI.Watcher.EnableRaisingEvents = true;
 
+                await SendOnline(true);
+
                 await SendAnalytic();
-            }
-        }
-
-        private static async Task SendOnline()
-        {
-            try
-            {
-                if (SMMG.TelemetryData && SSSHN.GetHostEntry())
-                {
-                    using HttpClient Client = new();
-
-                    Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
-
-                    SSSMOTD OnlineData = new()
-                    {
-                        AppVersion = SSCHV.GetText(),
-                        Time = SRMI.InitializeTime / 1000
-                    };
-
-                    StringContent Content = new(JsonConvert.SerializeObject(OnlineData, Formatting.Indented), SMMRS.Encoding, SMMRS.ApplicationJson);
-
-                    HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Telemetry}/{SMMRS.Online}/{SSSHU.GetGuid()}", Content);
-
-                    Response.EnsureSuccessStatusCode();
-                }
-            }
-            catch (Exception Exception)
-            {
-                await SSWW.Watch_CatchException(Exception);
             }
         }
 
@@ -238,28 +217,47 @@ namespace Sucrose.Reportdog.Helper
 
                         Response.EnsureSuccessStatusCode();
 
-                        if (!Response.IsSuccessStatusCode)
+                        if (Response.IsSuccessStatusCode)
                         {
-                            await Task.Delay(3000);
+                            SRMI.AnalyticTimer.Change(Timeout.Infinite, Timeout.Infinite);
 
-                            await SendAnalytic();
+                            SRMI.AnalyticTimer.Dispose();
                         }
-                    }
-                    else
-                    {
-                        await Task.Delay(3000);
-
-                        await SendAnalytic();
                     }
                 }
             }
             catch (Exception Exception)
             {
                 await SSWW.Watch_CatchException(Exception);
+            }
+        }
 
-                await Task.Delay(3000);
+        private static async Task SendOnline(bool First)
+        {
+            try
+            {
+                if (SMMG.TelemetryData && SSSHN.GetHostEntry())
+                {
+                    using HttpClient Client = new();
 
-                await SendAnalytic();
+                    Client.DefaultRequestHeaders.Add("User-Agent", SMMG.UserAgent);
+
+                    SSSMOTD OnlineData = new()
+                    {
+                        AppVersion = SSCHV.GetText(),
+                        Time = First ? 1 : Convert.ToInt32(SRMI.OnlineTime.TotalSeconds)
+                    };
+
+                    StringContent Content = new(JsonConvert.SerializeObject(OnlineData, Formatting.Indented), SMMRS.Encoding, SMMRS.ApplicationJson);
+
+                    HttpResponseMessage Response = await Client.PostAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Telemetry}/{SMMRS.Online}/{SSSHU.GetGuid()}", Content);
+
+                    Response.EnsureSuccessStatusCode();
+                }
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
             }
         }
 
@@ -300,9 +298,14 @@ namespace Sucrose.Reportdog.Helper
             }
         }
 
-        private async void InitializeTimer_Callback(object State)
+        private async void OnlineTimer_Callback(object State)
         {
-            await SendOnline();
+            await SendOnline(false);
+        }
+
+        private async void AnalyticTimer_Callback(object State)
+        {
+            await SendAnalytic();
         }
 
         public void Dispose()
