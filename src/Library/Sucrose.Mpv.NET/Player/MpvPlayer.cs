@@ -82,10 +82,10 @@ namespace Sucrose.Mpv.NET.Player
                     API.RequestLogMessages(value);
                 }
 
-                logLevel = value;
+                field = value;
             }
-            get => logLevel;
-        }
+            get;
+        } = MpvLogLevel.None;
 
         /// <summary>
         /// The desired video quality to retrieve when loading streams from video sites.
@@ -468,9 +468,6 @@ namespace Sucrose.Mpv.NET.Player
         private readonly IntPtr hwnd;
 
         private EventHandler<MpvPlayerPositionChangedEventArgs> positionChanged;
-
-        private MpvLogLevel logLevel = MpvLogLevel.None;
-
         private YouTubeDlVideoQuality ytdlVideoQuality;
         private bool isYouTubeDlEnabled = false;
 

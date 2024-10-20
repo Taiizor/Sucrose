@@ -10,7 +10,7 @@ namespace Sucrose.Mpv.NET.API
 
         public IntPtr MpvHandle
         {
-            get => mpvHandle;
+            get;
             private set
             {
                 if (value == IntPtr.Zero)
@@ -18,23 +18,20 @@ namespace Sucrose.Mpv.NET.API
                     throw new ArgumentException("Mpv handle is invalid.");
                 }
 
-                mpvHandle = value;
+                field = value;
             }
         }
 
         public IMpvFunctions Functions
         {
-            get => functions;
+            get;
             set
             {
                 Guard.AgainstNull(value);
 
-                functions = value;
+                field = value;
             }
         }
-
-        private IntPtr mpvHandle;
-        private IMpvFunctions functions;
 
         private Task eventLoopTask;
 
@@ -73,7 +70,7 @@ namespace Sucrose.Mpv.NET.API
 
             // Wake up WaitEvent in the event loop thread
             // so we can stop it.
-            Functions.Wakeup(mpvHandle);
+            Functions.Wakeup(MpvHandle);
 
             eventLoopTask.Wait();
         }
@@ -82,7 +79,7 @@ namespace Sucrose.Mpv.NET.API
         {
             while (IsRunning)
             {
-                IntPtr eventPtr = Functions.WaitEvent(mpvHandle, Timeout.Infinite);
+                IntPtr eventPtr = Functions.WaitEvent(MpvHandle, Timeout.Infinite);
                 if (eventPtr != IntPtr.Zero)
                 {
                     MpvEvent @event = MpvMarshal.PtrToStructure<MpvEvent>(eventPtr);

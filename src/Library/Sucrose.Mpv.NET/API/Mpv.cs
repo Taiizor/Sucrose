@@ -7,12 +7,12 @@ namespace Sucrose.Mpv.NET.API
     {
         public IMpvFunctions Functions
         {
-            get => functions;
+            get;
             set
             {
                 Guard.AgainstNull(value);
 
-                functions = value;
+                field = value;
             }
         }
 
@@ -46,7 +46,6 @@ namespace Sucrose.Mpv.NET.API
             }
         }
 
-        private IMpvFunctions functions;
         private IMpvEventLoop eventLoop;
         private IntPtr handle;
 
@@ -462,7 +461,7 @@ namespace Sucrose.Mpv.NET.API
             MpvError error = Functions.ObserveProperty(Handle, replyUserData, name, format);
             if (error != MpvError.Success)
             {
-                throw MpvAPIException.FromError(error, functions);
+                throw MpvAPIException.FromError(error, Functions);
             }
         }
 
@@ -474,7 +473,7 @@ namespace Sucrose.Mpv.NET.API
             if (result < 1)
             {
                 MpvError error = (MpvError)result;
-                throw MpvAPIException.FromError(error, functions);
+                throw MpvAPIException.FromError(error, Functions);
             }
 
             return result;
