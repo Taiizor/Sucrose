@@ -203,6 +203,8 @@ namespace Sucrose.Portal.Views.Controls
             {
                 await Application.Current.Dispatcher.InvokeAsync(async () =>
                 {
+                    bool LimitError = false;
+
                     Publish.IsEnabled = false;
                     Category.IsEnabled = false;
                     Publisher.IsEnabled = false;
@@ -227,13 +229,15 @@ namespace Sucrose.Portal.Views.Controls
 
                     try
                     {
-                        Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Optional}/{SMMRS.Upload}/{SMMRS.Check}/{SSSHU.GetGuid()}");
+                        Response = await Client.GetAsync($"{SMMRU.Soferity}/{SMMRS.Version}/{SMMRS.Optional}/{SMMRS.Upload}/{SMMRS.Theme}/{SMMRS.Check}/{SSSHU.GetGuid()}");
 
                         Response.EnsureSuccessStatusCode();
                     }
                     catch
                     {
                         State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Limit", "Error");
+
+                        LimitError = true;
                     }
 
                     if (Response.IsSuccessStatusCode)
@@ -259,6 +263,7 @@ namespace Sucrose.Portal.Views.Controls
                             FileInfo TempInfo = new(TempFile);
 
                             long TempSize = TempInfo.Length;
+
                             int LimitSize = 90;
 
                             if (TempSize > LimitSize * 1024 * 1024)
@@ -318,7 +323,7 @@ namespace Sucrose.Portal.Views.Controls
                             }
                         }
                     }
-                    else
+                    else if (!LimitError)
                     {
                         State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Limit", "Exceeded");
                     }
