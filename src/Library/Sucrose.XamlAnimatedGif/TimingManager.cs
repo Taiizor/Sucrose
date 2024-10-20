@@ -7,7 +7,6 @@ namespace Sucrose.XamlAnimatedGif
         private readonly List<TimeSpan> _timeSpans = new();
         private int _current;
         private int _count;
-        private bool _isComplete;
         private TimeSpan _elapsed;
 
         public TimingManager(RepeatBehavior repeatBehavior)
@@ -86,10 +85,10 @@ namespace Sucrose.XamlAnimatedGif
 
         public bool IsComplete
         {
-            get => _isComplete;
+            get;
             private set
             {
-                _isComplete = value;
+                field = value;
                 if (value)
                 {
                     OnCompleted();

@@ -12,8 +12,8 @@
             {
                 if (field != value)
                 {
-                    BeforeCategoryTag = field;
                     field = value;
+                    BeforeCategoryTag = field;
                     CategoryTagChanged?.Invoke(this, EventArgs.Empty);
                 }
             }

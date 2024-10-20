@@ -163,7 +163,6 @@ namespace Sucrose.XamlAnimatedGif
             }
         }
 
-        private int _frameIndex;
         private async Task RunAsync(CancellationToken cancellationToken)
         {
             if (_loadFramesDataTask != null)
@@ -241,10 +240,10 @@ namespace Sucrose.XamlAnimatedGif
 
         public int CurrentFrameIndex
         {
-            get => _frameIndex;
+            get;
             private set
             {
-                _frameIndex = value;
+                field = value;
                 OnCurrentFrameChanged();
             }
         }

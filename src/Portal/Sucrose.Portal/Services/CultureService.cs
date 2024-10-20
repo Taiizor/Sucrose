@@ -12,8 +12,8 @@
             {
                 if (field != value)
                 {
-                    BeforeCultureCode = field;
                     field = value;
+                    BeforeCultureCode = field;
                     CultureCodeChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
