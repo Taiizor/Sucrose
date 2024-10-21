@@ -3,7 +3,7 @@
   <metadata>
     <owners>Taiizor</owners>
     <authors>Taiizor</authors>
-    <version>24.10.1.0</version>
+    <version>24.10.21.0</version>
     <id>SucroseWallpaperEngine</id>
     <title>Sucrose Wallpaper Engine</title>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -70,46 +70,44 @@ _Take a moment, preview GIF clips may take some time to load._
     </description>
     <releaseNotes>
       <![CDATA[
-# What's changed in Sucrose v24.10.1.0
+# What's changed in Sucrose v24.10.21.0
 
-## Store:
- * Cute category has been added.
- * More than 50 new wallpaper have been added.
- * The selected GPU preference for Simple System and Simple System 3D has been implemented.
-
-## UI/UX:
- * The system tray icons have been revised.
- * The update messages have been revised.
- * The background images have been revised for the update.
- * "Progress State" support has been added for the taskbar during the update process.
- * The issue of buttons appearing dark in the light theme for message windows has been resolved.
- * The issue of the scrollbar appearing light in the dark theme for message windows has been resolved.
+## Announcements:
+ * As a result of code optimizations and adjustments, settings are being reset for users who were previously using the application.
 
 ## Enhancements:
  * Some bugs have been fixed.
  * The update issues have been fixed.
- * The library wallpaper listing issues have been fixed.
- * The issue of updates lasting indefinitely has been resolved.
+ * Server support added for the update.
+ * Module support added for the update.
+ * ARM64 support has been added for MpvPlayer.
+ * Code optimizations and refactoring have been implemented.
+ * The installation and removal experiences have been improved.
+ * "FirstChance" errors are no longer reflected in the error logs.
  * The error that occurred during exception serialization has been fixed.
- * Crash issue details for the WebView engine will now also be logged in the log file.
- * The issue of incorrect GPU preference mapping in performance settings has been fixed.
- * If an error occurs during the update, the "Try Again" button will now redirect to the browser, and the download will start automatically.
- * The error that occurred while calculating where some applications would be positioned according to the taskbar location has been fixed.
+ * Corrupted configuration files are now reset instead of causing an error.
+ * Misloads for incorrect architectures in MpvPlayer are now reported with more descriptive error messages.
 
 ## Translations:
  * Translations and improvements have been made.
 
 ## Updates:
  * Updated Skylark library.
- * Updated Skylark.Wing library.
+ * Updated MpvPlayer library.
  * Updated Costura.Fody library.
+ * Updated Skylark.Wing library.
  * Updated Skylark.Standard library.
- * Updated CommunityToolkit.Mvvm library.
- * Updated LibreHardwareMonitorLib library.
+ * Updated Skylark.Clipboard library.
  * Updated Microsoft.Web.WebView2 library.
+ * Updated LibreHardwareMonitorLib library.
  * Updated Microsoft.Extensions.Hosting library.
 
-## Full Changelog: https://github.com/Taiizor/Sucrose/compare/v24.9.11.0...v24.10.1.0
+## Store:
+ * Love category has been added.
+ * More than 75 new wallpaper have been added.
+ * Wallpapers downloaded from the Store are no longer being uploaded for publication in the Store.
+
+## Full Changelog: https://github.com/Taiizor/Sucrose/compare/v24.10.1.0...v24.10.21.0
       ]]>
     </releaseNotes>
     <dependencies>
