@@ -1,0 +1,17 @@
+{
+  "AppVersion": "24.10.21.0",
+  "Version": "1.0.0.1",
+  "Title": "Sliding Clock Black & White",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "The Sliding Clock wallpaper offers a minimalist design for tracking time. Choose between black or white styles, with numbers that slide smoothly, adding a modern, artistic touch to your workspace. It’s both functional and visually soothing.",
+  "Author": "h0tzera",
+  "License": null,
+  "Contact": "https://steamcommunity.com/profiles/76561198385231741",
+  "Type": 2,
+  "Source": "Clock.html",
+  "Tags": [
+    "Abstract"
+  ],
+  "Arguments": null
+}

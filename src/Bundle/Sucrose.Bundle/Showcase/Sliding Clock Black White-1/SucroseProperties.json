@@ -1,0 +1,19 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "themeMode": {
+      "type": "dropdown",
+      "value": 0,
+      "text": "Theme Mode",
+      "items": [
+        "Dark",
+        "Light"
+      ]
+    },
+    "themeChange": {
+      "type": "checkbox",
+      "value": false,
+      "text": "Theme Change"
+    }
+  }
+}
