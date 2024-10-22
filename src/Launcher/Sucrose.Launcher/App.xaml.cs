@@ -8,14 +8,14 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SRHR = Sucrose.Resources.Helper.Resources;
-using SSDH = Sucrose.Shared.Discord.Hook;
+using SSDEH = Sucrose.Shared.Discord.Extension.Hook;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
 using SSMI = Sucrose.Signal.Manage.Internal;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSSSLSS = Sucrose.Shared.Signal.Services.LauncherSignalService;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 
 namespace Sucrose.Launcher
 {
@@ -24,9 +24,9 @@ namespace Sucrose.Launcher
     /// </summary>
     public partial class App : Application
     {
-        private static bool HasError { get; set; } = true;
+        private static SSDEH Discord { get; set; } = new();
 
-        private static SSDH Discord { get; set; } = new();
+        private static bool HasError { get; set; } = true;
 
         public App()
         {
@@ -36,7 +36,7 @@ namespace Sucrose.Launcher
             {
                 Exception Exception = e.Exception;
 
-                await SSWW.Watch_ThreadException(Exception);
+                await SSWEW.Watch_ThreadException(Exception);
 
                 //Close();
                 Message(Exception);
@@ -46,7 +46,7 @@ namespace Sucrose.Launcher
             {
                 Exception Exception = e.Exception;
 
-                await SSWW.Watch_FirstChanceException(Exception);
+                await SSWEW.Watch_FirstChanceException(Exception);
 
                 //Close();
                 //Message(Exception);
@@ -56,7 +56,7 @@ namespace Sucrose.Launcher
             {
                 Exception Exception = (Exception)e.ExceptionObject;
 
-                await SSWW.Watch_GlobalUnhandledException(Exception);
+                await SSWEW.Watch_GlobalUnhandledException(Exception);
 
                 //Close();
                 Message(Exception);
@@ -66,7 +66,7 @@ namespace Sucrose.Launcher
             {
                 Exception Exception = e.Exception;
 
-                await SSWW.Watch_UnobservedTaskException(Exception);
+                await SSWEW.Watch_UnobservedTaskException(Exception);
 
                 e.SetObserved();
 
@@ -78,7 +78,7 @@ namespace Sucrose.Launcher
             {
                 Exception Exception = e.Exception;
 
-                await SSWW.Watch_DispatcherUnhandledException(Exception);
+                await SSWEW.Watch_DispatcherUnhandledException(Exception);
 
                 e.Handled = true;
 

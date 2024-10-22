@@ -20,7 +20,7 @@ using SSSEL = Sucrose.Shared.Space.Extension.Lifecycle;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -126,7 +126,7 @@ namespace Sucrose.Backgroundog.Helper
                             }
                             catch (Exception Exception)
                             {
-                                await SSWW.Watch_CatchException(Exception);
+                                await SSWEW.Watch_CatchException(Exception);
                             }
                         }
                     }
@@ -153,7 +153,7 @@ namespace Sucrose.Backgroundog.Helper
                                     }
                                     catch (Exception Exception)
                                     {
-                                        await SSWW.Watch_CatchException(Exception);
+                                        await SSWEW.Watch_CatchException(Exception);
                                     }
                                 }
                             }

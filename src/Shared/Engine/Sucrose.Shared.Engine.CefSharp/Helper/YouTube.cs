@@ -3,7 +3,7 @@ using SSECSHE = Sucrose.Shared.Engine.CefSharp.Helper.Evaluate;
 using SSECSHM = Sucrose.Shared.Engine.CefSharp.Helper.Management;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 
 namespace Sucrose.Shared.Engine.CefSharp.Helper
 {
@@ -18,7 +18,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -30,7 +30,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -42,7 +42,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -54,7 +54,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -71,7 +71,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -87,7 +87,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
 
                 return false;
             }
@@ -105,7 +105,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
 
                 return false;
             }
@@ -119,7 +119,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -140,7 +140,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -152,7 +152,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
     }

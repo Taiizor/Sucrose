@@ -1,7 +1,7 @@
 ﻿using SELLT = Skylark.Enum.LevelLogType;
 using SMMI = Sucrose.Manager.Manage.Internal;
 
-namespace Sucrose.Shared.Watchdog
+namespace Sucrose.Shared.Watchdog.Extension
 {
     internal static class Watch
     {

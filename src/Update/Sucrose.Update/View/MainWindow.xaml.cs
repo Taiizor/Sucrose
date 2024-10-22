@@ -50,7 +50,7 @@ using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSMUTD = Sucrose.Shared.Space.Model.UpdateTelemetryData;
 using SSSZEZ = Sucrose.Shared.SevenZip.Extension.Zip;
 using SSSZHZ = Sucrose.Shared.SevenZip.Helper.Zip;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 using SUHU = Sucrose.Update.Helper.Update;
 using SUMI = Sucrose.Update.Manage.Internal;
 using SUMMU = Sucrose.Update.Manage.Manager.Update;
@@ -280,7 +280,7 @@ namespace Sucrose.Update.View
                     }
                     catch (Exception Exception)
                     {
-                        await SSWW.Watch_CatchException(Exception);
+                        await SSWEW.Watch_CatchException(Exception);
                     }
 
                     return true;

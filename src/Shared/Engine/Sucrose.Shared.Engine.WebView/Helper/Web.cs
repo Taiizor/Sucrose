@@ -10,7 +10,7 @@ using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSMI = Sucrose.Signal.Manage.Internal;
 using SSPSBSS = Sucrose.Shared.Pipe.Services.BackgroundogPipeService;
 using SSSSBSS = Sucrose.Shared.Signal.Services.BackgroundogSignalService;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
 using SWNM = Skylark.Wing.Native.Methods;
@@ -83,7 +83,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
                                         }
                                         catch (Exception Exception)
                                         {
-                                            await SSWW.Watch_CatchException(Exception);
+                                            await SSWEW.Watch_CatchException(Exception);
                                         }
                                     });
                                 }
@@ -112,7 +112,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
                                     }
                                     catch (Exception Exception)
                                     {
-                                        await SSWW.Watch_CatchException(Exception);
+                                        await SSWEW.Watch_CatchException(Exception);
                                     }
                                 });
                             }

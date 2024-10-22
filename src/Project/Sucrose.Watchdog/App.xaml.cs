@@ -20,14 +20,14 @@ using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
+using SSSEWE = Sucrose.Shared.Space.Extension.WatchException;
 using SSSHE = Sucrose.Shared.Space.Helper.Exceptioner;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHUE = Sucrose.Shared.Space.Helper.Unique;
 using SSSHUR = Sucrose.Shared.Space.Helper.User;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
-using SSSHWE = Sucrose.Shared.Space.Helper.WatchException;
 using SSSMTED = Sucrose.Shared.Space.Model.ThrowExceptionData;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 using SWHSI = Skylark.Wing.Helper.SystemInfo;
 using SWNM = Skylark.Wing.Native.Methods;
 using SWVDEMB = Sucrose.Watchdog.View.DarkErrorMessageBox;
@@ -48,7 +48,7 @@ namespace Sucrose.Watchdog
             {
                 Exception Exception = e.Exception;
 
-                await SSWW.Watch_FirstChanceException(Exception);
+                await SSWEW.Watch_FirstChanceException(Exception);
 
                 //Close();
                 //Message(Exception);
@@ -58,7 +58,7 @@ namespace Sucrose.Watchdog
             {
                 Exception Exception = (Exception)e.ExceptionObject;
 
-                await SSWW.Watch_GlobalUnhandledException(Exception);
+                await SSWEW.Watch_GlobalUnhandledException(Exception);
 
                 //Close();
                 Message(Exception);
@@ -68,7 +68,7 @@ namespace Sucrose.Watchdog
             {
                 Exception Exception = e.Exception;
 
-                await SSWW.Watch_UnobservedTaskException(Exception);
+                await SSWEW.Watch_UnobservedTaskException(Exception);
 
                 e.SetObserved();
 
@@ -80,7 +80,7 @@ namespace Sucrose.Watchdog
             {
                 Exception Exception = e.Exception;
 
-                await SSWW.Watch_DispatcherUnhandledException(Exception);
+                await SSWEW.Watch_DispatcherUnhandledException(Exception);
 
                 e.Handled = true;
 
@@ -131,7 +131,7 @@ namespace Sucrose.Watchdog
                     CultureInfo Culture = new(SWNM.GetUserDefaultUILanguage());
                     string Text = Arguments.Count() == 5 ? Arguments[4] : string.Empty;
                     string Source = Arguments.Count() == 5 ? Arguments[3] : string.Empty;
-                    string Message = SSSHE.GetMessage(SSSHWE.Convert(Arguments[1]), SRER.GetValue("Watchdog", "ErrorEmpty"), SMMRG.ExceptionSplit);
+                    string Message = SSSHE.GetMessage(SSSEWE.Convert(Arguments[1]), SRER.GetValue("Watchdog", "ErrorEmpty"), SMMRG.ExceptionSplit);
 
                     SSSMTED ThrowData = new()
                     {

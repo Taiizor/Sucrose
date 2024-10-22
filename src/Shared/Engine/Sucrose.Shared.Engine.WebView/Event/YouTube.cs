@@ -1,4 +1,5 @@
 ﻿using Microsoft.Web.WebView2.Core;
+using System.Collections;
 using SELLT = Skylark.Enum.LevelLogType;
 using SMME = Sucrose.Manager.Manage.Engine;
 using SMMG = Sucrose.Manager.Manage.General;
@@ -8,6 +9,7 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVHYT = Sucrose.Shared.Engine.WebView.Helper.YouTube;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
+using SSWHD = Sucrose.Shared.Watchdog.Helper.Dataset;
 
 namespace Sucrose.Shared.Engine.WebView.Event
 {
@@ -15,6 +17,16 @@ namespace Sucrose.Shared.Engine.WebView.Event
     {
         public static void WebEngineProcessFailed(object sender, CoreWebView2ProcessFailedEventArgs e)
         {
+            SSWHD.Add("WebEngine Process Failed", new Hashtable()
+            {
+                { "Reason", e.Reason },
+                { "Exit Code", e.ExitCode },
+                { "Process Failed Kind", e.ProcessFailedKind },
+                { "Process Description", e.ProcessDescription },
+                { "Failure Source Module Path", e.FailureSourceModulePath },
+                { "Frame Infos For Failed Process", e.FrameInfosForFailedProcess }
+            });
+
             SMMI.WebViewLiveLogManager.Log(SELLT.Fatal, $"Reason: {e.Reason}");
             SMMI.WebViewLiveLogManager.Log(SELLT.Fatal, $"Exit Code: {e.ExitCode}");
             SMMI.WebViewLiveLogManager.Log(SELLT.Fatal, $"Process Failed Kind: {e.ProcessFailedKind}");

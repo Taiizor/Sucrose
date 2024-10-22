@@ -32,7 +32,7 @@ using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSSMATD = Sucrose.Shared.Space.Model.AnalyticTelemetryData;
 using SSSMOTD = Sucrose.Shared.Space.Model.OnlineTelemetryData;
 using SSSMTED = Sucrose.Shared.Space.Model.ThrowExceptionData;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 using SWHSI = Skylark.Wing.Helper.SystemInfo;
 using SWNM = Skylark.Wing.Native.Methods;
 
@@ -228,7 +228,7 @@ namespace Sucrose.Reportdog.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -257,7 +257,7 @@ namespace Sucrose.Reportdog.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -294,7 +294,7 @@ namespace Sucrose.Reportdog.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 

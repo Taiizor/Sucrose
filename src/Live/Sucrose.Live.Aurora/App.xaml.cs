@@ -23,7 +23,7 @@ using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 
 namespace Sucrose.Live.Aurora
 {
@@ -42,7 +42,7 @@ namespace Sucrose.Live.Aurora
             {
                 Exception Exception = e.Exception;
 
-                await SSWW.Watch_ThreadException(Exception);
+                await SSWEW.Watch_ThreadException(Exception);
 
                 //Close();
                 Message(Exception);
@@ -52,7 +52,7 @@ namespace Sucrose.Live.Aurora
             {
                 Exception Exception = e.Exception;
 
-                await SSWW.Watch_FirstChanceException(Exception);
+                await SSWEW.Watch_FirstChanceException(Exception);
 
                 //Close();
                 //Message(Exception);
@@ -62,7 +62,7 @@ namespace Sucrose.Live.Aurora
             {
                 Exception Exception = (Exception)e.ExceptionObject;
 
-                await SSWW.Watch_GlobalUnhandledException(Exception);
+                await SSWEW.Watch_GlobalUnhandledException(Exception);
 
                 //Close();
                 Message(Exception);
@@ -72,7 +72,7 @@ namespace Sucrose.Live.Aurora
             {
                 Exception Exception = e.Exception;
 
-                await SSWW.Watch_UnobservedTaskException(Exception);
+                await SSWEW.Watch_UnobservedTaskException(Exception);
 
                 e.SetObserved();
 
@@ -84,7 +84,7 @@ namespace Sucrose.Live.Aurora
             {
                 Exception Exception = e.Exception;
 
-                await SSWW.Watch_DispatcherUnhandledException(Exception);
+                await SSWEW.Watch_DispatcherUnhandledException(Exception);
 
                 e.Handled = true;
 

@@ -3,7 +3,7 @@ using System.Text;
 using SCHA = Sucrose.Commandog.Helper.Arguments;
 using SHC = Skylark.Helper.Culture;
 using SMMG = Sucrose.Manager.Manage.General;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 
 namespace Sucrose.Commandog
 {
@@ -22,7 +22,7 @@ namespace Sucrose.Commandog
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
             finally
             {

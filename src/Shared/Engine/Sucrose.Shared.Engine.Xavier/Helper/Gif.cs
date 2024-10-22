@@ -1,7 +1,7 @@
 ﻿using System.Windows.Media.Animation;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEXMI = Sucrose.Shared.Engine.Xavier.Manage.Internal;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
 
 namespace Sucrose.Shared.Engine.Xavier.Helper
@@ -61,7 +61,7 @@ namespace Sucrose.Shared.Engine.Xavier.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
     }

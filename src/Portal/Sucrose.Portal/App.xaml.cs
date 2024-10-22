@@ -41,7 +41,7 @@ using SRHR = Sucrose.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 
 namespace Sucrose.Portal
 {
@@ -124,7 +124,7 @@ namespace Sucrose.Portal
             {
                 Exception Exception = e.Exception;
 
-                await SSWW.Watch_FirstChanceException(Exception);
+                await SSWEW.Watch_FirstChanceException(Exception);
 
                 //Close();
                 //Message(Exception);
@@ -134,7 +134,7 @@ namespace Sucrose.Portal
             {
                 Exception Exception = (Exception)e.ExceptionObject;
 
-                await SSWW.Watch_GlobalUnhandledException(Exception);
+                await SSWEW.Watch_GlobalUnhandledException(Exception);
 
                 //Close();
                 Message(Exception);
@@ -144,7 +144,7 @@ namespace Sucrose.Portal
             {
                 Exception Exception = e.Exception;
 
-                await SSWW.Watch_UnobservedTaskException(Exception);
+                await SSWEW.Watch_UnobservedTaskException(Exception);
 
                 e.SetObserved();
 
@@ -156,7 +156,7 @@ namespace Sucrose.Portal
             {
                 Exception Exception = e.Exception;
 
-                await SSWW.Watch_DispatcherUnhandledException(Exception);
+                await SSWEW.Watch_DispatcherUnhandledException(Exception);
 
                 e.Handled = true;
 

@@ -7,7 +7,7 @@ using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMMRM = Sucrose.Memory.Manage.Readonly.Mutex;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 
 namespace Sucrose.Backgroundog
 {
@@ -40,7 +40,7 @@ namespace Sucrose.Backgroundog
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
             finally
             {

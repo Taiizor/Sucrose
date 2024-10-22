@@ -28,7 +28,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Management.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Tags.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Versionly.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helper\WatchException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\WatchException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Watchdog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Virtual.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Remote.cs" />

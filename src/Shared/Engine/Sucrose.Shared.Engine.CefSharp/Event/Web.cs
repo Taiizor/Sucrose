@@ -11,7 +11,7 @@ using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 
 namespace Sucrose.Shared.Engine.CefSharp.Event
 {
@@ -79,7 +79,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
                 }
                 catch (Exception Exception)
                 {
-                    await SSWW.Watch_CatchException(Exception);
+                    await SSWEW.Watch_CatchException(Exception);
                 }
             });
         }

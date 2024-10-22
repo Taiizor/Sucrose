@@ -34,7 +34,7 @@ using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 using SWHF = Skylark.Wing.Helper.Fullscreen;
 using SWNM = Skylark.Wing.Native.Methods;
 using SWUD = Skylark.Wing.Utility.Desktop;
@@ -75,7 +75,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.CpuManagement = true;
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -108,7 +108,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.BiosManagement = true;
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -133,7 +133,7 @@ namespace Sucrose.Backgroundog.Helper
                     }
                     catch (Exception Exception)
                     {
-                        await SSWW.Watch_CatchException(Exception);
+                        await SSWEW.Watch_CatchException(Exception);
                     }
                 });
 
@@ -195,7 +195,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.AudioManagement = true;
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -225,7 +225,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.BatteryManagement = true;
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -268,7 +268,7 @@ namespace Sucrose.Backgroundog.Helper
                                                     SBMI.NetworkData.Ping = 0;
                                                     SBMI.PingAddress = string.Empty;
                                                     SBMI.NetworkData.PingData = new();
-                                                    await SSWW.Watch_CatchException(Exception);
+                                                    await SSWEW.Watch_CatchException(Exception);
                                                 }
                                             }
                                         }
@@ -287,7 +287,7 @@ namespace Sucrose.Backgroundog.Helper
                                                 SBMI.NetworkData.Ping = 0;
                                                 SBMI.PingAddress = string.Empty;
                                                 SBMI.NetworkData.PingData = new();
-                                                await SSWW.Watch_CatchException(Exception);
+                                                await SSWEW.Watch_CatchException(Exception);
                                             }
                                         }
 
@@ -308,7 +308,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.PingManagement = true;
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -333,7 +333,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.GraphicManagement = true;
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -356,7 +356,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.GraphicManagement2 = true;
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -381,7 +381,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.NetworkManagement = true;
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -444,7 +444,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.NetworkManagement2 = true;
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -472,7 +472,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.MotherboardManagement = true;
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -514,7 +514,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.FullscreenManagement = true;
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -536,7 +536,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.VirtualityManagement = true;
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -558,7 +558,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.FocusManagement = true;
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -580,7 +580,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.RemoteManagement = true;
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -621,7 +621,7 @@ namespace Sucrose.Backgroundog.Helper
                                         }
                                         catch (Exception Exception)
                                         {
-                                            await SSWW.Watch_CatchException(Exception);
+                                            await SSWEW.Watch_CatchException(Exception);
                                         }
                                     });
                                 }
@@ -665,7 +665,7 @@ namespace Sucrose.Backgroundog.Helper
                                         }
                                         catch (Exception Exception)
                                         {
-                                            await SSWW.Watch_CatchException(Exception);
+                                            await SSWEW.Watch_CatchException(Exception);
                                         }
                                     });
                                 }
@@ -740,7 +740,7 @@ namespace Sucrose.Backgroundog.Helper
                                         }
                                         catch (Exception Exception)
                                         {
-                                            await SSWW.Watch_CatchException(Exception);
+                                            await SSWEW.Watch_CatchException(Exception);
                                         }
                                     });
                                 }
@@ -757,7 +757,7 @@ namespace Sucrose.Backgroundog.Helper
                                         }
                                         catch (Exception Exception)
                                         {
-                                            await SSWW.Watch_CatchException(Exception);
+                                            await SSWEW.Watch_CatchException(Exception);
                                         }
                                     });
                                 }
@@ -812,7 +812,7 @@ namespace Sucrose.Backgroundog.Helper
                                         }
                                         catch (Exception Exception)
                                         {
-                                            await SSWW.Watch_CatchException(Exception);
+                                            await SSWEW.Watch_CatchException(Exception);
                                         }
                                     });
                                 }
@@ -825,7 +825,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.ComputerManagement = true;
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -863,7 +863,7 @@ namespace Sucrose.Backgroundog.Helper
                     catch (Exception Exception)
                     {
                         SBMI.PipeManagement = true;
-                        await SSWW.Watch_CatchException(Exception);
+                        await SSWEW.Watch_CatchException(Exception);
                     }
                 });
 
@@ -894,7 +894,7 @@ namespace Sucrose.Backgroundog.Helper
                     catch (Exception Exception)
                     {
                         SBMI.SignalManagement = true;
-                        await SSWW.Watch_CatchException(Exception);
+                        await SSWEW.Watch_CatchException(Exception);
                     }
                 });
 

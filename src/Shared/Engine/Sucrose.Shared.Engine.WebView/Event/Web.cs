@@ -1,4 +1,5 @@
 ﻿using Microsoft.Web.WebView2.Core;
+using System.Collections;
 using System.IO;
 using SEIT = Skylark.Enum.InputType;
 using SELLT = Skylark.Enum.LevelLogType;
@@ -13,7 +14,8 @@ using SSEWVHH = Sucrose.Shared.Engine.WebView.Helper.Handle;
 using SSEWVHW = Sucrose.Shared.Engine.WebView.Helper.Web;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
+using SSWHD = Sucrose.Shared.Watchdog.Helper.Dataset;
 
 namespace Sucrose.Shared.Engine.WebView.Event
 {
@@ -34,13 +36,23 @@ namespace Sucrose.Shared.Engine.WebView.Event
                 }
                 catch (Exception Exception)
                 {
-                    await SSWW.Watch_CatchException(Exception);
+                    await SSWEW.Watch_CatchException(Exception);
                 }
             });
         }
 
         public static void WebEngineProcessFailed(object sender, CoreWebView2ProcessFailedEventArgs e)
         {
+            SSWHD.Add("WebEngine Process Failed", new Hashtable()
+            {
+                { "Reason", e.Reason },
+                { "Exit Code", e.ExitCode },
+                { "Process Failed Kind", e.ProcessFailedKind },
+                { "Process Description", e.ProcessDescription },
+                { "Failure Source Module Path", e.FailureSourceModulePath },
+                { "Frame Infos For Failed Process", e.FrameInfosForFailedProcess }
+            });
+
             SMMI.WebViewLiveLogManager.Log(SELLT.Fatal, $"Reason: {e.Reason}");
             SMMI.WebViewLiveLogManager.Log(SELLT.Fatal, $"Exit Code: {e.ExitCode}");
             SMMI.WebViewLiveLogManager.Log(SELLT.Fatal, $"Process Failed Kind: {e.ProcessFailedKind}");

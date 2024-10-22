@@ -7,7 +7,7 @@ using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 using SWE = Skylark.Wing.Engine;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWHWO = Skylark.Wing.Helper.WindowOperations;
@@ -33,7 +33,7 @@ namespace Sucrose.Shared.Engine.Event
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
 
                 SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.RestartLive}{SMMRG.ValueSeparator}{SMMRG.Unknown}");
             }
@@ -55,7 +55,7 @@ namespace Sucrose.Shared.Engine.Event
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
 
                 SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.RestartLive}{SMMRG.ValueSeparator}{SMMRG.Unknown}");
             }
@@ -82,7 +82,7 @@ namespace Sucrose.Shared.Engine.Event
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
 
                 SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.RestartLive}{SMMRG.ValueSeparator}{SMMRG.Unknown}");
             }
@@ -107,7 +107,7 @@ namespace Sucrose.Shared.Engine.Event
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
 
                 SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.RestartLive}{SMMRG.ValueSeparator}{SMMRG.Unknown}");
             }
@@ -135,7 +135,7 @@ namespace Sucrose.Shared.Engine.Event
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
 
                 SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.RestartLive}{SMMRG.ValueSeparator}{SMMRG.Unknown}");
             }
@@ -167,7 +167,7 @@ namespace Sucrose.Shared.Engine.Event
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
 
                 SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.RestartLive}{SMMRG.ValueSeparator}{SMMRG.Unknown}");
             }
@@ -194,7 +194,7 @@ namespace Sucrose.Shared.Engine.Event
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
 
                 SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.RestartLive}{SMMRG.ValueSeparator}{SMMRG.Unknown}");
             }
@@ -228,7 +228,7 @@ namespace Sucrose.Shared.Engine.Event
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
 
                 SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.RestartLive}{SMMRG.ValueSeparator}{SMMRG.Unknown}");
             }

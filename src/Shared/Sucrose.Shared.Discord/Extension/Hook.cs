@@ -11,7 +11,7 @@ using SRER = Sucrose.Resources.Extension.Resources;
 using SSDMI = Sucrose.Shared.Discord.Manage.Internal;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 
-namespace Sucrose.Shared.Discord
+namespace Sucrose.Shared.Discord.Extension
 {
     internal class Hook : IDisposable
     {
@@ -125,7 +125,7 @@ namespace Sucrose.Shared.Discord
 
         private void InitializeTimer_Tick(object sender, EventArgs e)
         {
-            if (SMMH.DiscordConnect && SSSHP.Work(SSDMI.Name[0], SSDMI.Name[1]))
+            if (SMMH.DiscordConnect && SSSHP.Work(SSDMI.ApplicationNames[0], SSDMI.ApplicationNames[1]))
             {
                 if (!SSDMI.Client.IsInitialized)
                 {

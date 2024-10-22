@@ -92,7 +92,7 @@ namespace Sucrose.Mpv.NET.Player
         /// </summary>
         public YouTubeDlVideoQuality YouTubeDlVideoQuality
         {
-            get => ytdlVideoQuality;
+            get;
             set
             {
                 string formatString = YouTubeDlHelperQuality.GetFormatStringForVideoQuality(value);
@@ -102,7 +102,7 @@ namespace Sucrose.Mpv.NET.Player
                     API.SetPropertyString("ytdl-format", formatString);
                 }
 
-                ytdlVideoQuality = value;
+                field = value;
             }
         }
 
@@ -468,7 +468,6 @@ namespace Sucrose.Mpv.NET.Player
         private readonly IntPtr hwnd;
 
         private EventHandler<MpvPlayerPositionChangedEventArgs> positionChanged;
-        private YouTubeDlVideoQuality ytdlVideoQuality;
         private bool isYouTubeDlEnabled = false;
 
         // External seeking is when SeekAsync is called.

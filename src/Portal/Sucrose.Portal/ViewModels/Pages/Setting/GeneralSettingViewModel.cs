@@ -45,7 +45,7 @@ using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
@@ -778,7 +778,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                         }
                         catch (Exception Exception)
                         {
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                             Startup.SelectedIndex = SMMG.RunStartup;
 
                             MessageBox Warning = new()
@@ -812,7 +812,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                         }
                         catch (Exception Exception)
                         {
-                            await SSWW.Watch_CatchException(Exception);
+                            await SSWEW.Watch_CatchException(Exception);
                             Startup.SelectedIndex = SMMG.RunStartup;
 
                             MessageBox Warning = new()

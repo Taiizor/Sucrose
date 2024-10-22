@@ -23,6 +23,7 @@ using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSSHS = Sucrose.Shared.Space.Helper.Sort;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 using SSZHA = Sucrose.Shared.Zip.Helper.Archive;
 
@@ -82,7 +83,7 @@ namespace Sucrose.Portal.Views.Pages
             SPMI.LibraryService.CreatedWallpaper += LibraryService_CreatedWallpaper;
         }
 
-        private void CheckShowcase()
+        private async void CheckShowcase()
         {
             string ShowcasePath = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Showcase);
 
@@ -99,11 +100,18 @@ namespace Sucrose.Portal.Views.Pages
 
                 foreach (string Directory in Directory.GetDirectories(ShowcasePath, "*", SearchOption.TopDirectoryOnly).Where(Directory => !Showcase.Contains(Path.GetFileName(Directory))))
                 {
-                    SSSHC.Folder(Directory, Path.Combine(SMML.Location, Path.GetFileName(Directory)), false);
+                    try
+                    {
+                        SSSHC.Folder(Directory, Path.Combine(SMML.Location, Path.GetFileName(Directory)), false);
 
-                    Showcase.Add(Path.GetFileName(Directory));
+                        Showcase.Add(Path.GetFileName(Directory));
 
-                    State = true;
+                        State = true;
+                    }
+                    catch (Exception Exception)
+                    {
+                        await SSWEW.Watch_CatchException(Exception);
+                    }
                 }
 
                 if (State)

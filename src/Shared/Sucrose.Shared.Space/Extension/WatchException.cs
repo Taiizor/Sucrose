@@ -2,7 +2,7 @@
 using SSSCEC = Sucrose.Shared.Space.Converter.ExceptionConverter;
 using SSSMTED = Sucrose.Shared.Space.Model.ThrowExceptionData;
 
-namespace Sucrose.Shared.Space.Helper
+namespace Sucrose.Shared.Space.Extension
 {
     internal static class WatchException
     {

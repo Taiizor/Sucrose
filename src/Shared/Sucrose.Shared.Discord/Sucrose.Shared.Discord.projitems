@@ -9,7 +9,10 @@
     <Import_RootNamespace>Sucrose.Shared.Discord</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Hook.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\Hook.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Extension\" />
   </ItemGroup>
 </Project>

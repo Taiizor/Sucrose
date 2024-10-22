@@ -35,7 +35,7 @@ using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandType;
 using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSMSTD = Sucrose.Shared.Space.Model.SearchTelemetryData;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
 
@@ -310,7 +310,7 @@ namespace Sucrose.Portal.Views.Windows
                     }
                     catch (Exception Exception)
                     {
-                        await SSWW.Watch_CatchException(Exception);
+                        await SSWEW.Watch_CatchException(Exception);
                     }
                 }
 

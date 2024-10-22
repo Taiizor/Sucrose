@@ -1,7 +1,7 @@
 ﻿using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 
 namespace Sucrose.Shared.Engine.WebView.Helper
 {
@@ -16,7 +16,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -28,7 +28,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -40,7 +40,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -52,7 +52,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -69,7 +69,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -85,7 +85,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
 
                 return false;
             }
@@ -103,7 +103,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
 
                 return false;
             }
@@ -117,7 +117,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -138,7 +138,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -150,7 +150,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
     }

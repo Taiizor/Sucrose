@@ -9,9 +9,11 @@
     <Import_RootNamespace>Sucrose.Shared.Watchdog</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Watch.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Dataset.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\Watch.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Catch\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Extension\" />
   </ItemGroup>
 </Project>

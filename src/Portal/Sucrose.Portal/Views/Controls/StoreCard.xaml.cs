@@ -47,7 +47,7 @@ using SSSMDTD = Sucrose.Shared.Space.Model.DownloadTelemetryData;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
 
 namespace Sucrose.Portal.Views.Controls
@@ -151,7 +151,7 @@ namespace Sucrose.Portal.Views.Controls
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
             }
         }
 
@@ -207,7 +207,7 @@ namespace Sucrose.Portal.Views.Controls
             {
                 Error = true;
 
-                await SSWW.Watch_CatchException(Exception);
+                await SSWEW.Watch_CatchException(Exception);
 
                 await Application.Current.Dispatcher.InvokeAsync(async () =>
                 {
