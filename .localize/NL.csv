@@ -427,12 +427,14 @@ Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Arguments,'Argumen
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Extension,Het relevante bestand heeft geen '.zip' extensie
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Thumbnail,Bestand 'Thumbnail' niet gevonden
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.SystemCpu,Ongeldige 'SystemCpu' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.ThemeType,Ongeldige 'ThemeType' waarde
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.EmptyInfo,Bestand 'SucroseInfo.json' is leeg
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.AppVersion,Thema is gemaakt voor een hogere versie van de toepassing
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.InvalidUrl,'Source' bevat een ongeldige waarde
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.SystemBios,Ongeldige 'SystemBios' waarde
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.SystemDate,Ongeldige 'SystemDate' waarde
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.SystemAudio,Ongeldige 'SystemAudio' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.SystemTheme,Ongeldige 'SystemTheme' waarde
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Description,'Description' is leeg of te lang
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.InvalidInfo,Bestand 'SucroseInfo.json' is ongeldig
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.TriggerTime,Ongeldige 'TriggerTime' waarde

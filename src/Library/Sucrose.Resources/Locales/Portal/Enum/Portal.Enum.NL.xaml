@@ -99,12 +99,14 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Het relevante bestand heeft geen '.zip' extensie</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Bestand 'Thumbnail' niet gevonden</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Ongeldige 'SystemCpu' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ThemeType">Ongeldige 'ThemeType' waarde</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">Bestand 'SucroseInfo.json' is leeg</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Thema is gemaakt voor een hogere versie van de toepassing</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">'Source' bevat een ongeldige waarde</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Ongeldige 'SystemBios' waarde</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Ongeldige 'SystemDate' waarde</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Ongeldige 'SystemAudio' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemTheme">Ongeldige 'SystemTheme' waarde</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Description">'Description' is leeg of te lang</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">Bestand 'SucroseInfo.json' is ongeldig</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Ongeldige 'TriggerTime' waarde</system:String>

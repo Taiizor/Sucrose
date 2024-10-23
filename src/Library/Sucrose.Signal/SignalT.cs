@@ -109,6 +109,25 @@ namespace Sucrose.Signal
             await SSHD.Delete(Source);
         }
 
+        public string FileRead(string Source, string Default, bool Delete = true)
+        {
+            try
+            {
+                string Data = SSHR.Read(Source).Result;
+
+                if (Delete)
+                {
+                    DeletionTimer(Source);
+                }
+
+                return Data;
+            }
+            catch
+            {
+                return Default;
+            }
+        }
+
         public async Task<T> FileRead<T>(string Source, T Default, bool Delete = true)
         {
             try
@@ -123,25 +142,6 @@ namespace Sucrose.Signal
                 }
 
                 return JsonConvert.DeserializeObject<T>(Data, SerializerSettings);
-            }
-            catch
-            {
-                return Default;
-            }
-        }
-
-        public string FileRead(string Source, string Default, bool Delete = true)
-        {
-            try
-            {
-                string Data = SSHR.Read(Source).Result;
-
-                if (Delete)
-                {
-                    DeletionTimer(Source);
-                }
-
-                return Data;
             }
             catch
             {

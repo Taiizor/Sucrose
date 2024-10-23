@@ -99,12 +99,14 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Den tilknyttede filen har ikke '.zip' filendelse</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">'Thumbnail' filen ble ikke funnet</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Ugyldig 'SystemCpu' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ThemeType">Ugyldig 'ThemeType' verdi</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">'SucroseInfo.json' filen er tom</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Temaet er opprettet for en høyere versjon av applikasjonen</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">'Source' inneholder en ugyldig verdi</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Ugyldig 'SystemBios' verdi</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Ugyldig 'SystemDate' verdi</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Ugyldig 'SystemAudio' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemTheme">Ugyldig 'SystemTheme' verdi</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Description">'Description' verdien er tom eller for lang</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">'SucroseInfo.json' filen er ugyldig</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Ugyldig 'TriggerTime' verdi</system:String>

@@ -99,12 +99,14 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Extension">İlgili dosya '.zip' uzantılı değil</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">'Thumbnail' dosyası bulunamadı</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Geçersiz 'SystemCpu' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ThemeType">Geçersiz 'ThemeType' değeri</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">'SucroseInfo.json' dosyası boş</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Tema, uygulamanın daha yüksek bir sürümü için oluşturulmuş</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">'Source' geçersiz bir değer içeriyor</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Geçersiz 'SystemBios' değeri</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Geçersiz 'SystemDate' değeri</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Geçersiz 'SystemAudio' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemTheme">Geçersiz 'SystemTheme' değeri</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Description">'Description' değeri boş veya çok uzun</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">'SucroseInfo.json' dosyası geçersiz</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Geçersiz 'TriggerTime' değeri</system:String>

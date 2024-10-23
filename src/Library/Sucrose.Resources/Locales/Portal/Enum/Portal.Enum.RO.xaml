@@ -99,12 +99,14 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Fișierul specificat nu are extensia '.zip'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Fișierul 'Thumbnail' nu a fost găsit</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Valoare 'SystemCpu' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ThemeType">Valoare 'ThemeType' nevalidă</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">Fișierul 'SucroseInfo.json' este gol</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Tema a fost creată pentru o versiune mai înaltă a aplicației</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">Valoarea 'Source' conține un URL nevalid</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Valoare 'SystemBios' nevalidă</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Valoare 'SystemDate' nevalidă</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Valoare 'SystemAudio' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemTheme">Valoare 'SystemTheme' nevalidă</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Description">Valoarea 'Description' este goală sau prea lungă</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">Fișierul 'SucroseInfo.json' este nevalid</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Valoare 'TriggerTime' nevalidă</system:String>

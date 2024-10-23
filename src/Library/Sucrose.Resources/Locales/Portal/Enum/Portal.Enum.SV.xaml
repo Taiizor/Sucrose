@@ -99,12 +99,14 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Den relaterade filen har inte '.zip'-tillägget</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Filen 'Thumbnail' kunde inte hittas</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Ogiltigt värde för 'SystemCpu'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ThemeType">Ogiltigt värde för 'ThemeType'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">Filen 'SucroseInfo.json' är tom</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Temat är skapat för en högre version av applikationen</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">Fältet 'Source' innehåller ogiltigt värde</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Ogiltigt värde för 'SystemBios'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Ogiltigt värde för 'SystemDate'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Ogiltigt värde för 'SystemAudio'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemTheme">Ogiltigt värde för 'SystemTheme'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Description">'Description' är tomt eller för långt</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">Filen 'SucroseInfo.json' är ogiltig</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Ogiltigt värde för 'TriggerTime'</system:String>

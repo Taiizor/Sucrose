@@ -427,12 +427,14 @@ Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Arguments,Nilai 'A
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Extension,Berkas terkait bukan berkas dengan ekstensi '.zip'
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Thumbnail,Berkas 'Thumbnail' tidak ditemukan
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.SystemCpu,Nilai 'SystemCpu' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.ThemeType,Nilai 'ThemeType' tidak valid
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.EmptyInfo,Berkas 'SucroseInfo.json' kosong
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.AppVersion,Tema dibuat untuk versi aplikasi yang lebih tinggi
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.InvalidUrl,Nilai 'Source' tidak valid
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.SystemBios,Nilai 'SystemBios' tidak valid
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.SystemDate,Nilai 'SystemDate' tidak valid
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.SystemAudio,Nilai 'SystemAudio' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.SystemTheme,Nilai 'SystemTheme' tidak valid
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Description,Nilai 'Description' kosong atau terlalu panjang
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.InvalidInfo,Berkas 'SucroseInfo.json' tidak valid
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.TriggerTime,Nilai 'TriggerTime' tidak valid

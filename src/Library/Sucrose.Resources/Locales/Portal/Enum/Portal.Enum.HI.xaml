@@ -99,12 +99,14 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Extension">संबंधित फ़ाइल '.zip' विस्तारण नहीं है</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">'Thumbnail' फ़ाइल नहीं मिल सकी</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">'SystemCpu' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ThemeType">'ThemeType' मूल्य अमान्य है</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">'SucroseInfo.json' फ़ाइल खाली है</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">थीम, ऐप के एक उच्च संस्करण के लिए बनाई गई है</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">'Source' मूल्य अमान्य है</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">'SystemBios' मूल्य अमान्य है</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">'SystemDate' मूल्य अमान्य है</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">'SystemAudio' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemTheme">'SystemTheme' मूल्य अमान्य है</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Description">'Description' मूल्य खाली है या बहुत लंबा है</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">'SucroseInfo.json' फ़ाइल अमान्य है</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">'TriggerTime' मूल्य अमान्य है</system:String>

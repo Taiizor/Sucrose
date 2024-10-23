@@ -427,12 +427,14 @@ Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Arguments,'Argumen
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Extension,Den pågældende fil har ikke '.zip' filtypen
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Thumbnail,Kunne ikke finde 'Thumbnail'-filen
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.SystemCpu,Ugyldig 'SystemCpu'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.ThemeType,Ugyldig 'ThemeType'-værdi
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.EmptyInfo,'SucroseInfo.json'-filen er tom
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.AppVersion,Temaet er oprettet til en nyere version af programmet
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.InvalidUrl,'Source' indeholder en ugyldig værdi
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.SystemBios,Ugyldig 'SystemBios'-værdi
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.SystemDate,Ugyldig 'SystemDate'-værdi
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.SystemAudio,Ugyldig 'SystemAudio'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.SystemTheme,Ugyldig 'SystemTheme'-værdi
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Description,'Description' er enten tomt eller for langt
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.InvalidInfo,'SucroseInfo.json'-filen er ugyldig
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.TriggerTime,Ugyldig 'TriggerTime'-værdi

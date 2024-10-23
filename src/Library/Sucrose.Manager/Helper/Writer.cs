@@ -1,114 +1,73 @@
 ﻿using SMHC = Sucrose.Manager.Helper.Cleaner;
-using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 
 namespace Sucrose.Manager.Helper
 {
     internal static class Writer
     {
-        public static async void Write(string filePath, string fileContent)
+        public static void Write(string filePath, string fileContent)
         {
-            FileMode fileMode = File.Exists(filePath) ? FileMode.Truncate : FileMode.CreateNew;
+            using Mutex Mutex = new(false, Path.GetFileName(filePath));
 
             try
             {
+                try
+                {
+                    Mutex.WaitOne();
+                }
+                catch { }
+
+                FileMode fileMode = File.Exists(filePath) ? FileMode.Truncate : FileMode.CreateNew;
+
                 using FileStream fileStream = new(filePath, fileMode, FileAccess.Write, FileShare.None);
                 using StreamWriter writer = new(fileStream);
 
                 writer.Write(SMHC.Clean(fileContent));
             }
-            catch
+            finally
             {
-                try
-                {
-                    await Task.Delay(SMMRG.Randomise.Next(5, 50));
-
-                    using FileStream fileStream = new(filePath, fileMode, FileAccess.Write, FileShare.None);
-                    using StreamWriter writer = new(fileStream);
-
-                    writer.Write(SMHC.Clean(fileContent));
-                }
-                catch
-                {
-                    try
-                    {
-                        await Task.Delay(SMMRG.Randomise.Next(5, 50));
-
-                        using FileStream fileStream = new(filePath, fileMode, FileAccess.Write, FileShare.None);
-                        using StreamWriter writer = new(fileStream);
-
-                        writer.Write(SMHC.Clean(fileContent));
-                    }
-                    catch
-                    {
-                        //
-                    }
-                }
+                Mutex.ReleaseMutex();
             }
         }
 
-        public static async void WriteBasic(string filePath, string fileContent)
+        public static void WriteBasic(string filePath, string fileContent)
         {
+            using Mutex Mutex = new(false, Path.GetFileName(filePath));
+
             try
             {
+                try
+                {
+                    Mutex.WaitOne();
+                }
+                catch { }
+
                 using StreamWriter writer = File.AppendText(filePath);
 
                 writer.WriteLine(SMHC.Clean(fileContent));
             }
-            catch
+            finally
             {
-                try
-                {
-                    await Task.Delay(SMMRG.Randomise.Next(5, 50));
-
-                    using StreamWriter writer = File.AppendText(filePath);
-
-                    writer.WriteLine(SMHC.Clean(fileContent));
-                }
-                catch
-                {
-                    try
-                    {
-                        await Task.Delay(SMMRG.Randomise.Next(5, 50));
-
-                        using StreamWriter writer = File.AppendText(filePath);
-
-                        writer.WriteLine(SMHC.Clean(fileContent));
-                    }
-                    catch
-                    {
-                        //
-                    }
-                }
+                Mutex.ReleaseMutex();
             }
         }
 
-        public static async void WriteStable(string filePath, string fileContent)
+        public static void WriteStable(string filePath, string fileContent)
         {
+            using Mutex Mutex = new(false, Path.GetFileName(filePath));
+
             try
-            {
-                File.WriteAllText(filePath, SMHC.Clean(fileContent));
-            }
-            catch
             {
                 try
                 {
-                    await Task.Delay(SMMRG.Randomise.Next(5, 50));
-
-                    File.WriteAllText(filePath, SMHC.Clean(fileContent));
+                    Mutex.WaitOne();
                 }
-                catch
-                {
-                    try
-                    {
-                        await Task.Delay(SMMRG.Randomise.Next(5, 50));
+                catch { }
 
-                        File.WriteAllText(filePath, SMHC.Clean(fileContent));
-                    }
-                    catch
-                    {
-                        //
-                    }
-                }
+                File.WriteAllText(filePath, SMHC.Clean(fileContent));
+            }
+            finally
+            {
+                Mutex.ReleaseMutex();
             }
         }
     }

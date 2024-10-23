@@ -8,13 +8,13 @@ using SMMVL = Sucrose.Memory.Manage.Valuable.Log;
 
 namespace Sucrose.Manager
 {
-    public class LogManager
+    public class LogManager2
     {
         private int threadId;
         private SELT logType;
         private string logFilePath;
 
-        public LogManager(string logFileName, SELT logType = SELT.All)
+        public LogManager2(string logFileName, SELT logType = SELT.All)
         {
             this.logType = logType;
 
@@ -32,11 +32,25 @@ namespace Sucrose.Manager
                 return;
             }
 
+            using Mutex Mutex = new(false, Path.GetFileName(logFilePath));
+
             try
             {
+                try
+                {
+                    Mutex.WaitOne();
+                }
+                catch
+                {
+                    //
+                }
+
                 SMHW.WriteBasic(logFilePath, $"[{SMMVL.FileTimeLine}] ~ [{SMMVL.FileDescriptionLine}-{threadId}/{level}] ~ [{message}]");
             }
-            catch { }
+            finally
+            {
+                Mutex.ReleaseMutex();
+            }
         }
 
         public void Log(SELLT level, params string[] messages)
@@ -46,14 +60,28 @@ namespace Sucrose.Manager
                 return;
             }
 
+            using Mutex Mutex = new(false, Path.GetFileName(logFilePath));
+
             try
             {
+                try
+                {
+                    Mutex.WaitOne();
+                }
+                catch
+                {
+                    //
+                }
+
                 foreach (string message in messages)
                 {
                     SMHW.WriteBasic(logFilePath, $"[{SMMVL.FileTimeLine}] ~ [{SMMVL.FileDescriptionLine}-{threadId}/{level}] ~ [{message}]");
                 }
             }
-            catch { }
+            finally
+            {
+                Mutex.ReleaseMutex();
+            }
         }
 
         public bool CheckFile()

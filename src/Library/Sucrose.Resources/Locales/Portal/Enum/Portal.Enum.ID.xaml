@@ -99,12 +99,14 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Berkas terkait bukan berkas dengan ekstensi '.zip'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Berkas 'Thumbnail' tidak ditemukan</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Nilai 'SystemCpu' tidak valid</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ThemeType">Nilai 'ThemeType' tidak valid</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">Berkas 'SucroseInfo.json' kosong</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Tema dibuat untuk versi aplikasi yang lebih tinggi</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">Nilai 'Source' tidak valid</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Nilai 'SystemBios' tidak valid</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Nilai 'SystemDate' tidak valid</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Nilai 'SystemAudio' tidak valid</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemTheme">Nilai 'SystemTheme' tidak valid</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Description">Nilai 'Description' kosong atau terlalu panjang</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">Berkas 'SucroseInfo.json' tidak valid</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Nilai 'TriggerTime' tidak valid</system:String>

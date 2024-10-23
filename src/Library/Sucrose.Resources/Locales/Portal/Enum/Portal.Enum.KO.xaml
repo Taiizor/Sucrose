@@ -99,12 +99,14 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Extension">관련 파일이 '.zip' 확장자가 아님</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">'Thumbnail' 파일을 찾을 수 없음</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">잘못된 'SystemCpu' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ThemeType">잘못된 'ThemeType' 값</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">'SucroseInfo.json' 파일이 비어 있음</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">테마가 더 높은 앱 버전용으로 만들어짐</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">'Source' 값이 잘못됨</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">잘못된 'SystemBios' 값</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">잘못된 'SystemDate' 값</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">잘못된 'SystemAudio' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemTheme">잘못된 'SystemTheme' 값</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Description">'Description' 값이 비어 있거나 너무 김</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">'SucroseInfo.json' 파일이 잘못됨</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">잘못된 'TriggerTime' 값</system:String>

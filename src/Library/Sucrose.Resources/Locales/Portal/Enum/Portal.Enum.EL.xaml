@@ -99,12 +99,14 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Το συγκεκριμένο αρχείο δεν έχει κατάληξη '.zip'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Το αρχείο 'Thumbnail' δεν βρέθηκε</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Μη έγκυρη τιμή 'SystemCpu'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ThemeType">Μη έγκυρη τιμή 'ThemeType'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">Το αρχείο 'SucroseInfo.json' είναι άδειο</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Το θέμα δημιουργήθηκε για μια υψηλότερη έκδοση της εφαρμογής</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">Η τιμή 'Source' περιλαμβάνει μη έγκυρη τιμή</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Μη έγκυρη τιμή 'SystemBios'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Μη έγκυρη τιμή 'SystemDate'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Μη έγκυρη τιμή 'SystemAudio'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemTheme">Μη έγκυρη τιμή 'SystemTheme'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Description">Η τιμή 'Description' είναι άδεια ή πολύ μεγάλη</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">Το αρχείο 'SucroseInfo.json' δεν είναι έγκυρο</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Μη έγκυρη τιμή 'TriggerTime'</system:String>

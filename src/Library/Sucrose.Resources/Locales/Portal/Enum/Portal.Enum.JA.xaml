@@ -99,12 +99,14 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Extension">関連ファイルは '.zip' 拡張子ではありません</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">'Thumbnail'ファイルが見つかりませんでした</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">'SystemCpu'値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ThemeType">'ThemeType'値が無効です</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">'SucroseInfo.json'ファイルは空です</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">テーマはより高いアプリケーションバージョンのために作成されました</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">'Source'が無効な値を含んでいます</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">'SystemBios'値が無効です</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">'SystemDate'値が無効です</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">'SystemAudio'値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemTheme">'SystemTheme'値が無効です</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Description">'Description'の値は空または非常に長いです</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">'SucroseInfo.json'ファイルが無効です</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">'TriggerTime'値が無効です</system:String>

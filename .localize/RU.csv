@@ -427,12 +427,14 @@ Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Arguments,Знач
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Extension,Соответствующий файл не имеет расширение '.zip'
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Thumbnail,Файл 'Thumbnail' не найден
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemCpu,Недопустимое значение 'SystemCpu'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.ThemeType,Недопустимое значение 'ThemeType'
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.EmptyInfo,Файл 'SucroseInfo.json' пуст
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.AppVersion,Тема создана для более высокой версии приложения
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.InvalidUrl,Значение 'Source' недействительно
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemBios,Недопустимое значение 'SystemBios'
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemDate,Недопустимое значение 'SystemDate'
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemAudio,Недопустимое значение 'SystemAudio'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemTheme,Недопустимое значение 'SystemTheme'
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Description,Значение 'Description' отсутствует или слишком длинное
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.InvalidInfo,Файл 'SucroseInfo.json' недействителен
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.TriggerTime,Недопустимое значение 'TriggerTime'

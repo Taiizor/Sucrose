@@ -427,12 +427,14 @@ Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Arguments,Η τι�
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Extension,Το συγκεκριμένο αρχείο δεν έχει κατάληξη '.zip'
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Thumbnail,Το αρχείο 'Thumbnail' δεν βρέθηκε
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.SystemCpu,Μη έγκυρη τιμή 'SystemCpu'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.ThemeType,Μη έγκυρη τιμή 'ThemeType'
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.EmptyInfo,Το αρχείο 'SucroseInfo.json' είναι άδειο
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.AppVersion,Το θέμα δημιουργήθηκε για μια υψηλότερη έκδοση της εφαρμογής
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.InvalidUrl,Η τιμή 'Source' περιλαμβάνει μη έγκυρη τιμή
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.SystemBios,Μη έγκυρη τιμή 'SystemBios'
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.SystemDate,Μη έγκυρη τιμή 'SystemDate'
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.SystemAudio,Μη έγκυρη τιμή 'SystemAudio'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.SystemTheme,Μη έγκυρη τιμή 'SystemTheme'
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Description,Η τιμή 'Description' είναι άδεια ή πολύ μεγάλη
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.InvalidInfo,Το αρχείο 'SucroseInfo.json' δεν είναι έγκυρο
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.TriggerTime,Μη έγκυρη τιμή 'TriggerTime'

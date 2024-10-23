@@ -1,5 +1,6 @@
 ﻿using SESMIEN = Sucrose.Shared.Engine.Manage.Internal.ExecuteNormal;
 using SESMIET = Sucrose.Shared.Engine.Manage.Internal.ExecuteTask;
+using SSDMMG = Sucrose.Shared.Dependency.Manage.Manager.General;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
@@ -65,6 +66,18 @@ namespace Sucrose.Shared.Engine.Helper
                         }
                     }
 
+                    if (!string.IsNullOrEmpty(SSEMI.Compatible.ThemeType))
+                    {
+                        try
+                        {
+                            Function(string.Format(SSEMI.Compatible.ThemeType, SSDMMG.ThemeType));
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWEW.Watch_CatchException(Exception);
+                        }
+                    }
+
                     if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemBios))
                     {
                         try
@@ -94,6 +107,18 @@ namespace Sucrose.Shared.Engine.Helper
                         try
                         {
                             Function(string.Format(SSEMI.Compatible.SystemAudio, SSEMI.AudioData));
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWEW.Watch_CatchException(Exception);
+                        }
+                    }
+
+                    if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemTheme))
+                    {
+                        try
+                        {
+                            Function(string.Format(SSEMI.Compatible.SystemTheme, SSDMMG.ThemeType));
                         }
                         catch (Exception Exception)
                         {

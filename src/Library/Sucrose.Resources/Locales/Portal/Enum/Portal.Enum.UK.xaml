@@ -99,12 +99,14 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Відповідний файл не має розширення '.zip'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Файл 'Thumbnail' не знайдено</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Недійсне значення 'SystemCpu'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ThemeType">Недійсне значення 'ThemeType'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">Файл 'SucroseInfo.json' порожній</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Тема призначена для вищої версії програми</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">Значення 'Source' недійсне</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Недійсне значення 'SystemBios'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Недійсне значення 'SystemDate'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Недійсне значення 'SystemAudio'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemTheme">Недійсне значення 'SystemTheme'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Description">Значення 'Description' порожнє або занадто довге</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">Файл 'SucroseInfo.json' недійсний</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Недійсне значення 'TriggerTime'</system:String>

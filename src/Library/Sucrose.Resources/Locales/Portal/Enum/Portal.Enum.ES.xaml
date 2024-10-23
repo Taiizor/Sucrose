@@ -99,12 +99,14 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Extension">El archivo relacionado no tiene extensión '.zip'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Archivo 'Thumbnail' no encontrado</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Valor 'SystemCpu' no válido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ThemeType">Valor 'ThemeType' no válido</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">El archivo 'SucroseInfo.json' está vacío</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">El tema está creado para una versión superior de la aplicación</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">'Source' contiene un valor no válido</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Valor 'SystemBios' no válido</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Valor 'SystemDate' no válido</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Valor 'SystemAudio' no válido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemTheme">Valor 'SystemTheme' no válido</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Description">El valor 'Description' está vacío o es demasiado largo</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">El archivo 'SucroseInfo.json' no es válido</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Valor 'TriggerTime' no válido</system:String>

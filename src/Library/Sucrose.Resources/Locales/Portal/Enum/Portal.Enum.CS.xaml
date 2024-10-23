@@ -99,12 +99,14 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Příslušný soubor není soubor s příponou '.zip'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Soubor 'Thumbnail' nebyl nalezen</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Neplatná hodnota 'SystemCpu'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ThemeType">Neplatná hodnota 'ThemeType'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">Soubor 'SucroseInfo.json' je prázdný</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Téma vytvořeno pro vyšší verzi aplikace</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">Hodnota 'Url' obsahuje neplatnou hodnotu</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Neplatná hodnota 'SystemBios'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Neplatná hodnota 'SystemDate'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Neplatná hodnota 'SystemAudio'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemTheme">Neplatná hodnota 'SystemTheme'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Description">Hodnota 'Description' je prázdná nebo příliš dlouhá</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">Soubor 'SucroseInfo.json' je neplatný</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Neplatná hodnota 'TriggerTime'</system:String>

@@ -15,23 +15,29 @@ namespace Sucrose.Shared.Theme.Helper
         [JsonProperty("SystemCpu", Required = Required.Default)]
         public string SystemCpu { get; set; } = string.Empty;
 
+        [JsonProperty("ThemeType", Required = Required.Default)]
+        public string ThemeType { get; set; } = string.Empty;
+
         [JsonProperty("SystemBios", Required = Required.Default)]
         public string SystemBios { get; set; } = string.Empty;
 
         [JsonProperty("SystemDate", Required = Required.Default)]
         public string SystemDate { get; set; } = string.Empty;
 
-        [JsonProperty("SystemAudio", Required = Required.Default)]
-        public string SystemAudio { get; set; } = string.Empty;
-
-        [JsonProperty("VolumeLevel", Required = Required.Default)]
-        public string VolumeLevel { get; set; } = string.Empty;
-
         [JsonProperty("ShuffleMode", Required = Required.Default)]
         public string ShuffleMode { get; set; } = string.Empty;
 
         [JsonProperty("StretchMode", Required = Required.Default)]
         public string StretchMode { get; set; } = string.Empty;
+
+        [JsonProperty("SystemAudio", Required = Required.Default)]
+        public string SystemAudio { get; set; } = string.Empty;
+
+        [JsonProperty("SystemTheme", Required = Required.Default)]
+        public string SystemTheme { get; set; } = string.Empty;
+
+        [JsonProperty("VolumeLevel", Required = Required.Default)]
+        public string VolumeLevel { get; set; } = string.Empty;
 
         [JsonProperty("SystemMemory", Required = Required.Default)]
         public string SystemMemory { get; set; } = string.Empty;

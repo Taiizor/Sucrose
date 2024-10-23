@@ -427,12 +427,14 @@ Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Arguments,Знач
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Extension,Відповідний файл не має розширення '.zip'
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Thumbnail,Файл 'Thumbnail' не знайдено
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.SystemCpu,Недійсне значення 'SystemCpu'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.ThemeType,Недійсне значення 'ThemeType'
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.EmptyInfo,Файл 'SucroseInfo.json' порожній
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.AppVersion,Тема призначена для вищої версії програми
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.InvalidUrl,Значення 'Source' недійсне
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.SystemBios,Недійсне значення 'SystemBios'
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.SystemDate,Недійсне значення 'SystemDate'
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.SystemAudio,Недійсне значення 'SystemAudio'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.SystemTheme,Недійсне значення 'SystemTheme'
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Description,Значення 'Description' порожнє або занадто довге
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.InvalidInfo,Файл 'SucroseInfo.json' недійсний
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.TriggerTime,Недійсне значення 'TriggerTime'

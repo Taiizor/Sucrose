@@ -240,9 +240,24 @@ namespace Sucrose.Shared.Zip.Helper
                         return SSDECT.LoopMode;
                     }
 
-                    if (!string.IsNullOrEmpty(Compatible.VolumeLevel) && !Compatible.VolumeLevel.Contains("{0}"))
+                    if (!string.IsNullOrEmpty(Compatible.SystemCpu) && !Compatible.SystemCpu.Contains("{0}"))
                     {
-                        return SSDECT.VolumeLevel;
+                        return SSDECT.SystemCpu;
+                    }
+
+                    if (!string.IsNullOrEmpty(Compatible.ThemeType) && !Compatible.ThemeType.Contains("{0}"))
+                    {
+                        return SSDECT.ThemeType;
+                    }
+
+                    if (!string.IsNullOrEmpty(Compatible.SystemBios) && !Compatible.SystemBios.Contains("{0}"))
+                    {
+                        return SSDECT.SystemBios;
+                    }
+
+                    if (!string.IsNullOrEmpty(Compatible.SystemDate) && !Compatible.SystemDate.Contains("{0}"))
+                    {
+                        return SSDECT.SystemDate;
                     }
 
                     if (!string.IsNullOrEmpty(Compatible.ShuffleMode) && !Compatible.ShuffleMode.Contains("{0}"))
@@ -255,24 +270,19 @@ namespace Sucrose.Shared.Zip.Helper
                         return SSDECT.StretchMode;
                     }
 
-                    if (!string.IsNullOrEmpty(Compatible.SystemCpu) && !Compatible.SystemCpu.Contains("{0}"))
-                    {
-                        return SSDECT.SystemCpu;
-                    }
-
-                    if (!string.IsNullOrEmpty(Compatible.SystemBios) && !Compatible.SystemBios.Contains("{0}"))
-                    {
-                        return SSDECT.SystemBios;
-                    }
-
                     if (!string.IsNullOrEmpty(Compatible.SystemAudio) && !Compatible.SystemAudio.Contains("{0}"))
                     {
                         return SSDECT.SystemAudio;
                     }
 
-                    if (!string.IsNullOrEmpty(Compatible.SystemDate) && !Compatible.SystemDate.Contains("{0}"))
+                    if (!string.IsNullOrEmpty(Compatible.SystemTheme) && !Compatible.SystemTheme.Contains("{0}"))
                     {
-                        return SSDECT.SystemDate;
+                        return SSDECT.SystemTheme;
+                    }
+
+                    if (!string.IsNullOrEmpty(Compatible.VolumeLevel) && !Compatible.VolumeLevel.Contains("{0}"))
+                    {
+                        return SSDECT.VolumeLevel;
                     }
 
                     if (!string.IsNullOrEmpty(Compatible.SystemMemory) && !Compatible.SystemMemory.Contains("{0}"))

@@ -427,12 +427,14 @@ Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.Arguments,Valor 'A
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.Extension,O arquivo relacionado não tem extensão '.zip'
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.Thumbnail,Arquivo 'Thumbnail' não encontrado
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.SystemCpu,Valor 'SystemCpu' inválido
+Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.ThemeType,Valor 'ThemeType' inválido
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.EmptyInfo,O arquivo 'SucroseInfo.json' está vazio
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.AppVersion,Tema criado para uma versão mais alta do aplicativo
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.InvalidUrl,Valor 'Source' inválido
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.SystemBios,Valor 'SystemBios' inválido
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.SystemDate,Valor 'SystemDate' inválido
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.SystemAudio,Valor 'SystemAudio' inválido
+Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.SystemTheme,Valor 'SystemTheme' inválido
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.Description,Valor 'Description' vazio ou muito longo
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.InvalidInfo,O arquivo 'SucroseInfo.json' é inválido
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.CompatibilityType.TriggerTime,Valor 'TriggerTime' inválido

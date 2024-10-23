@@ -99,12 +99,14 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Соответствующий файл не имеет расширение '.zip'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Файл 'Thumbnail' не найден</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Недопустимое значение 'SystemCpu'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ThemeType">Недопустимое значение 'ThemeType'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">Файл 'SucroseInfo.json' пуст</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Тема создана для более высокой версии приложения</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">Значение 'Source' недействительно</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Недопустимое значение 'SystemBios'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Недопустимое значение 'SystemDate'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Недопустимое значение 'SystemAudio'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemTheme">Недопустимое значение 'SystemTheme'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Description">Значение 'Description' отсутствует или слишком длинное</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">Файл 'SucroseInfo.json' недействителен</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Недопустимое значение 'TriggerTime'</system:String>

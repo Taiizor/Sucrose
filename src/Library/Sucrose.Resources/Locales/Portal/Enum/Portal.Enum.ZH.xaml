@@ -99,12 +99,14 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Extension">相关文件不是'.zip'扩展名</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">'Thumbnail' 文件未找到</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">无效的'SystemCpu'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ThemeType">无效的'ThemeType'值</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">'SucroseInfo.json' 文件为空</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">主题是为应用的较高版本创建的</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">'Source' 包含无效值</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">无效的'SystemBios'值</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">无效的'SystemDate'值</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">无效的'SystemAudio'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemTheme">无效的'SystemTheme'值</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Description">'Description' 值为空或太长</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">'SucroseInfo.json' 文件无效</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">无效的'TriggerTime'值</system:String>
