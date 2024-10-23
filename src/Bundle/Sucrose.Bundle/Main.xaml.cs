@@ -147,65 +147,6 @@ namespace Sucrose.Bundle
                     await ExtractArchive(Path.Combine(Packages, $"{Application}.7z"), InstallPath);
                 }
             }
-
-            await Task.Delay(MinDelay);
-
-            if (File.Exists(Launcher))
-            {
-                if (Directory.Exists(Path.GetDirectoryName(DesktopShortcut)))
-                {
-                    bool CreateDesktopShortcut = true;
-
-#if NET6_0_OR_GREATER
-                    try
-                    {
-                        SWHSR.Create(Path.GetDirectoryName(DesktopShortcut), Shortcut, Text, null, Launcher, null, Path.GetDirectoryName(Launcher), null, SWNM.WindowStyle.Normal);
-
-                        CreateDesktopShortcut = false;
-                    }
-                    catch { }
-#endif
-
-                    if (CreateDesktopShortcut)
-                    {
-                        try
-                        {
-                            SWHSB.Create(DesktopShortcut, Launcher, Path.GetDirectoryName(Launcher), null, null, SWNM.ShortcutWindowStyles.WshNormalFocus, Text, 0);
-                        }
-                        catch
-                        {
-                            SWHSD.Create(DesktopShortcut, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
-                        }
-                    }
-                }
-
-                if (Directory.Exists(Path.GetDirectoryName(StartMenuProgramsShortcut)))
-                {
-                    bool CreateStartMenuShortcut = true;
-
-#if NET6_0_OR_GREATER
-                    try
-                    {
-                        SWHSR.Create(Path.GetDirectoryName(StartMenuProgramsShortcut), Shortcut, Text, null, Launcher, null, Path.GetDirectoryName(Launcher), null, SWNM.WindowStyle.Normal);
-
-                        CreateStartMenuShortcut = false;
-                    }
-                    catch { }
-#endif
-
-                    if (CreateStartMenuShortcut)
-                    {
-                        try
-                        {
-                            SWHSB.Create(StartMenuProgramsShortcut, Launcher, Path.GetDirectoryName(Launcher), null, null, SWNM.ShortcutWindowStyles.WshNormalFocus, Text, 0);
-                        }
-                        catch
-                        {
-                            SWHSD.Create(StartMenuProgramsShortcut, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
-                        }
-                    }
-                }
-            }
         }
 
         private static async Task SetUninstall()
@@ -286,6 +227,76 @@ namespace Sucrose.Bundle
                 await Task.CompletedTask;
             }
             catch { }
+        }
+
+        private static async Task CreateShortcuts()
+        {
+            if (File.Exists(Launcher))
+            {
+                if (Directory.Exists(Path.GetDirectoryName(DesktopShortcut)))
+                {
+                    bool CreateDesktopShortcut = true;
+
+#if NET6_0_OR_GREATER
+                    try
+                    {
+                        SWHSR.Create(Path.GetDirectoryName(DesktopShortcut), Shortcut, Text, null, Launcher, null, Path.GetDirectoryName(Launcher), null, SWNM.WindowStyle.Normal);
+
+                        CreateDesktopShortcut = false;
+                    }
+                    catch { }
+#endif
+
+                    if (CreateDesktopShortcut)
+                    {
+                        try
+                        {
+                            SWHSB.Create(DesktopShortcut, Launcher, Path.GetDirectoryName(Launcher), null, null, SWNM.ShortcutWindowStyles.WshNormalFocus, Text, 0);
+                        }
+                        catch
+                        {
+                            try
+                            {
+                                SWHSD.Create(DesktopShortcut, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
+                            }
+                            catch { }
+                        }
+                    }
+                }
+
+                if (Directory.Exists(Path.GetDirectoryName(StartMenuProgramsShortcut)))
+                {
+                    bool CreateStartMenuShortcut = true;
+
+#if NET6_0_OR_GREATER
+                    try
+                    {
+                        SWHSR.Create(Path.GetDirectoryName(StartMenuProgramsShortcut), Shortcut, Text, null, Launcher, null, Path.GetDirectoryName(Launcher), null, SWNM.WindowStyle.Normal);
+
+                        CreateStartMenuShortcut = false;
+                    }
+                    catch { }
+#endif
+
+                    if (CreateStartMenuShortcut)
+                    {
+                        try
+                        {
+                            SWHSB.Create(StartMenuProgramsShortcut, Launcher, Path.GetDirectoryName(Launcher), null, null, SWNM.ShortcutWindowStyles.WshNormalFocus, Text, 0);
+                        }
+                        catch
+                        {
+                            try
+                            {
+                                SWHSD.Create(StartMenuProgramsShortcut, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
+                            }
+                            catch { }
+                        }
+                    }
+                }
+            }
+
+            await Task.CompletedTask;
         }
 
         private static async Task ExtractPackages()
@@ -525,6 +536,10 @@ namespace Sucrose.Bundle
             await Task.Delay(MinDelay);
 
             await ExtractAll();
+
+            await Task.Delay(MinDelay);
+
+            await CreateShortcuts();
 
             await Task.Delay(MinDelay);
 

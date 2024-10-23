@@ -1,0 +1,19 @@
+{
+  "AppVersion": "24.10.21.0",
+  "Version": "1.0.0.1",
+  "Title": "Sky Series",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "Drift through the tranquil 'Sky Series' where a realistic clock syncs with the sky's shifting hues from day to night. Stars twinkle as sunset clouds fade into twilight, creating a peaceful retreat on your screen.",
+  "Author": "💜爱冒险的梦💜",
+  "License": null,
+  "Contact": "https://steamcommunity.com/profiles/76561198145564152",
+  "Type": 2,
+  "Source": "Sky.html",
+  "Tags": [
+    "Landscape",
+    "Date",
+    "Time"
+  ],
+  "Arguments": null
+}

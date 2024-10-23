@@ -1,7 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
 using SBM = Sucrose.Bundle.Main;
+using SEAT = Skylark.Enum.AssemblyType;
 using SHC = Skylark.Helper.Culture;
+using SHV = Skylark.Helper.Versionly;
 
 namespace Sucrose.Bundle
 {
@@ -99,7 +101,7 @@ namespace Sucrose.Bundle
 
             if (Exception != null)
             {
-                MessageBox.Show(Exception.Message + Environment.NewLine + Environment.NewLine + Exception.StackTrace, "Error Information", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Exception.Message + Environment.NewLine + Environment.NewLine + Exception.StackTrace, $"Bundle Error Information - v{SHV.Auto(SEAT.Entry)}", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 Close(1);
             }
@@ -111,7 +113,7 @@ namespace Sucrose.Bundle
 
             if (Exception != null)
             {
-                MessageBox.Show(Exception.Message + Environment.NewLine + Environment.NewLine + Exception.StackTrace, "Error Information", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Exception.Message + Environment.NewLine + Environment.NewLine + Exception.StackTrace, $"Bundle Error Information - v{SHV.Auto(SEAT.Entry)}", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 e.Handled = true;
 

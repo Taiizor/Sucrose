@@ -73,7 +73,7 @@
 
     <ItemGroup>
         <PackageReference Include="WPF-UI" Version="4.0.0-rc.2" />
-        <PackageReference Include="Skylark.Wing" Version="3.1.6.7" />
+        <PackageReference Include="Skylark.Wing" Version="3.1.6.8" />
         <PackageReference Include="XamlFlair.WPF" Version="1.2.13" />
         <PackageReference Include="Skylark.Standard" Version="3.1.6.7" />
         <PackageReference Include="Skylark.Clipboard" Version="3.1.4.2" />
