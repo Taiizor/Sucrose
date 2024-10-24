@@ -113,7 +113,7 @@ namespace Sucrose.Signal
         {
             try
             {
-                string Data = SSHR.Read(Source).Result;
+                string Data = SSHR.Read(Source);
 
                 if (Delete)
                 {
@@ -134,7 +134,7 @@ namespace Sucrose.Signal
             {
                 await Task.Delay(SMMRG.Randomise.Next(5, 50));
 
-                string Data = SSHR.Read(Source).Result;
+                string Data = SSHR.Read(Source);
 
                 if (Delete)
                 {
