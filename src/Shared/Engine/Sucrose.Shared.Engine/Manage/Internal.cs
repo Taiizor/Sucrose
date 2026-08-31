@@ -1,4 +1,4 @@
-﻿using System.Windows.Threading;
+using System.Windows.Threading;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PropertiesType;
 using SSDSH = Sucrose.Shared.Dependency.Struct.Handle;
 using SSESB = Sucrose.Shared.Engine.Setting.Browser;
@@ -47,6 +47,10 @@ namespace Sucrose.Shared.Engine.Manage
         public static string AudioData = string.Empty;
 
         public static List<SSDSH> Applications = [];
+
+        public static List<System.Windows.Window> DuplicateWindows = [];
+
+        public static bool DuplicateWindowsCreated = false;
 
         public static string MemoryData = string.Empty;
 

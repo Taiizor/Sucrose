@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System.IO;
 using SESMIEN = Sucrose.Shared.Engine.Manage.Internal.ExecuteNormal;
 using SESMIET = Sucrose.Shared.Engine.Manage.Internal.ExecuteTask;
@@ -141,7 +141,9 @@ namespace Sucrose.Shared.Engine.Helper
 
                             try
                             {
-                                Function(string.Format(SSEMI.Properties.PropertyListener, Key, Script));
+                                string PropertyScript = string.Format(SSEMI.Properties.PropertyListener, Key, Script);
+                                Function(PropertyScript);
+                                BroadcastScript(PropertyScript);
                             }
                             catch (Exception Exception)
                             {
@@ -154,6 +156,25 @@ namespace Sucrose.Shared.Engine.Helper
             catch (Exception Exception)
             {
                 await SSWEW.Watch_CatchException(Exception);
+            }
+        }
+
+        public static void BroadcastScript(string Script)
+        {
+            if (SSEMI.DuplicateWindows.Count > 0)
+            {
+                foreach (System.Windows.Window DuplicateWindow in SSEMI.DuplicateWindows)
+                {
+                    try
+                    {
+                        if (DuplicateWindow.Content is object Element)
+                        {
+                            dynamic DynamicElement = Element;
+                            DynamicElement.ExecuteScriptAsync(Script);
+                        }
+                    }
+                    catch { }
+                }
             }
         }
     }

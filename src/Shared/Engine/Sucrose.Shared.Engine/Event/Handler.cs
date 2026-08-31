@@ -98,7 +98,41 @@ namespace Sucrose.Shared.Engine.Event
                         SWE.WallpaperWindow(Window, SSEHD.GetExpandScreenType(), SSEHD.GetScreenType());
                         break;
                     case SEDST.SameDuplicate:
-                        SWE.WallpaperWindow(Window, SSEHD.GetDuplicateScreenType(), SSEHD.GetScreenType());
+                        SWUS.Initialize();
+                        if (SWUS.Screens.Length > 0)
+                        {
+                            if (SSEMI.DuplicateWindows.Contains(Window))
+                            {
+                                int Index = SSEMI.DuplicateWindows.IndexOf(Window) + 1;
+                                if (Index < SWUS.Screens.Length)
+                                {
+                                    SWE.WallpaperWindow(Window, SWUS.Screens[Index].szDevice, SSEHD.GetScreenType());
+                                }
+                            }
+                            else
+                            {
+                                SWE.WallpaperWindow(Window, SWUS.Screens[0].szDevice, SSEHD.GetScreenType());
+
+                                if (!SSEMI.DuplicateWindowsCreated)
+                                {
+                                    SSEMI.DuplicateWindowsCreated = true;
+                                    Type WindowType = Window.GetType();
+
+                                    for (int Index = 1; Index < SWUS.Screens.Length; Index++)
+                                    {
+                                        if (Activator.CreateInstance(WindowType) is Window DuplicateWindow)
+                                        {
+                                            SSEMI.DuplicateWindows.Add(DuplicateWindow);
+                                            DuplicateWindow.Show();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            SWE.WallpaperWindow(Window, SSEHD.GetScreenDevice(), SSEHD.GetScreenType());
+                        }
                         break;
                     default:
                         SWE.WallpaperWindow(Window, SSEHD.GetScreenDevice(), SSEHD.GetScreenType());

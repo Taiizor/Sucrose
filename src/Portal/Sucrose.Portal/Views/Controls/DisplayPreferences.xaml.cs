@@ -385,8 +385,7 @@ namespace Sucrose.Portal.Views.Controls
             RadioButton Duplicate = new()
             {
                 Content = SRER.GetValue("Portal", "DisplayPreferences", "Duplicate"),
-                GroupName = "DisplayType",
-                IsEnabled = false
+                GroupName = "DisplayType"
             };
 
             Duplicate.Checked += (s, e) => DuplicateChecked();
