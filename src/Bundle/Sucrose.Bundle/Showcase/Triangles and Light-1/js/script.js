@@ -3787,6 +3787,13 @@ var LIGHT = {
 };
 
 //------------------------------
+// Keyboard Properties
+//------------------------------
+var KEYBOARD = {
+	enabled: false
+};
+
+//------------------------------
 // Render Properties
 //------------------------------
 var WEBGL = 'webgl';
@@ -3952,11 +3959,15 @@ function addLight() {
 
 // Remove lights 
 function trimLights(value) {
-	LIGHT.proxy = scene.lights[value];
-	for (l = value; l >= scene.lights.length - 1; l--) {
-		light = scene.lights[l];
-		scene.remove(light);
+	while (scene.lights.length > value) {
+		var lightToRemove = scene.lights[scene.lights.length - 1];
+		scene.remove(lightToRemove);
 	}
+	if (scene.lights.length > 0) {
+		LIGHT.proxy = scene.lights[scene.lights.length - 1];
+	}
+	LIGHT.count = scene.lights.length;
+	LIGHT.currIndex = Math.max(0, scene.lights.length - 1);
 	renderer.clear();
 }
 
@@ -4145,17 +4156,20 @@ function onMouseMove(event) {
 
 // Hide the controls completely on pressing H
 Mousetrap.bind('H', function() {
+	if (!KEYBOARD.enabled) return;
 	toggleEl('controls')
 });
 
 // Add a light on ENTER key
 Mousetrap.bind('enter', function() {
+	if (!KEYBOARD.enabled) return;
 	LIGHT.count++;
 	addLight();
 });
 
 // Pick up the light when a space is pressed
 Mousetrap.bind('space', function() {
+	if (!KEYBOARD.enabled) return;
 	LIGHT.pickedup = !LIGHT.pickedup;
 });
 
@@ -4195,18 +4209,28 @@ function SucrosePropertyListener(name, val) {
 			LIGHT.zOffset = val.value;
 			LIGHT.proxy.setPosition(LIGHT.proxy.position[0], LIGHT.proxy.position[1], val.value);
 			break;
-			/*
-      case "lightCount":
-        LIGHT.count = val.value;
-        if (scene.lights.length !== val.value) { 
-          // If the value is more then the number of lights, add lights, otherwise delete lights
-          if (val.value > scene.lights.length) {
-            addLight(); 
-          } else {
-            trimLights(val.value);
-          }
-        }
-        break;
-        */
+		case "keyboardControls":
+			var kbVal = (val && typeof val === "object" && "value" in val) ? val.value : val;
+			KEYBOARD.enabled = (kbVal === true || kbVal === "true" || kbVal === 1 || kbVal === "1");
+			if (!KEYBOARD.enabled) {
+				if (typeof scene !== "undefined" && scene.lights && scene.lights.length > 1) {
+					trimLights(1);
+				}
+				LIGHT.pickedup = true;
+			}
+			break;
+		/*
+		case "lightCount":
+			LIGHT.count = val.value;
+			if (scene.lights.length !== val.value) {
+				// If the value is more then the number of lights, add lights, otherwise delete lights
+				if (val.value > scene.lights.length) {
+					addLight();
+				} else {
+					trimLights(val.value);
+				}
+			}
+			break;
+		*/
 	}
 }
