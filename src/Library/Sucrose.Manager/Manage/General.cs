@@ -20,6 +20,6 @@ namespace Sucrose.Manager.Manage
 
         public static bool AppVisible => SMMI.GeneralSettingManager.GetSetting(SMMCG.AppVisible, true);
 
-        public static bool AppExit => SMMI.GeneralSettingManager.GetSetting(SMMCG.AppExit, false);
+        public static bool AppExit => SMMI.GeneralSettingManager.GetSetting(SMMCG.AppExit, true);
     }
 }
