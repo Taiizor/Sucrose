@@ -4,6 +4,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.Area.Log">Log</system:String>
     <system:String x:Key="Portal.Area.Data">Data</system:String>
+    <system:String x:Key="Portal.Area.Network">Network</system:String>
     <system:String x:Key="Portal.Area.Hook">Hook</system:String>
     <system:String x:Key="Portal.Area.Cache">Cache</system:String>
     <system:String x:Key="Portal.Area.Reset">Resetting</system:String>

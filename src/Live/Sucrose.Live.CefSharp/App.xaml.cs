@@ -32,6 +32,7 @@ using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DialogType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PropertiesType;
+using SSDEPROXYT = Sucrose.Shared.Dependency.Enum.ProxyType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSDHG = Sucrose.Shared.Dependency.Helper.Graphic;
 using SSDHR = Sucrose.Shared.Dependency.Helper.Runtime;
@@ -341,6 +342,27 @@ namespace Sucrose.Live.CefSharp
                             WindowlessRenderingEnabled = true,
                             LogFile = Path.Combine(SMMRP.ApplicationData, SMMRG.AppName, SMMRF.Log, string.Format("CefSharpNative-{0}-{1}.log", SMMVL.FileNameDate, Guid.NewGuid()))
                         };
+
+                        if (SMME.ProxyEnabled && !string.IsNullOrEmpty(SMME.ProxyServer) && SMME.ProxyPort > 0)
+                        {
+                            string proxyScheme = SMME.ProxyType switch
+                            {
+                                SSDEPROXYT.HTTP => "http",
+                                SSDEPROXYT.HTTPS => "https",
+                                SSDEPROXYT.SOCKS5 => "socks5",
+                                _ => "http"
+                            };
+
+                            string proxyUrl = $"{proxyScheme}://{SMME.ProxyServer}:{SMME.ProxyPort}";
+                            
+                            Settings.CefCommandLineArgs.Add("proxy-server", proxyUrl);
+
+                            if (!string.IsNullOrEmpty(SMME.ProxyUsername))
+                            {
+                                // CefSharp doesn't support proxy authentication directly via command line
+                                // Authentication would need to be handled via IRequestHandler
+                            }
+                        }
 
                         SSEMI.BrowserSettings.CefSharp = SMME.CefArguments;
 

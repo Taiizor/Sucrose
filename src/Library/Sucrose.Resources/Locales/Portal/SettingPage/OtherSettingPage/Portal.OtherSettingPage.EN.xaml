@@ -10,6 +10,16 @@
     <system:String x:Key="Portal.OtherSettingPage.StatisticsData">Share Usage Statistics</system:String>
     <system:String x:Key="Portal.OtherSettingPage.StatisticsData.Description">Sucrose enables the collection of your usage statistics to contribute to the development of the application.</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Proxy">Proxy Configuration</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Proxy.Description">Configure proxy settings to access video content through a proxy server (SOCKS5, HTTP, HTTPS).</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Proxy.ProxyType">Proxy Type:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Proxy.ProxyServer">Proxy Server:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Proxy.ProxyPort">Proxy Port:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Proxy.ProxyUsername">Username:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Proxy.ProxyPassword">Password:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Proxy.Optional">(Optional)</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
     <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose facilitates communication with Discord.</system:String>
 
