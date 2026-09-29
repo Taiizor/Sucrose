@@ -67,5 +67,17 @@ namespace Sucrose.Memory.Manage.Constant
         public const string HardwareAcceleration = "HardwareAcceleration";
 
         public const string VolumeSilentSensitivity = "VolumeSilentSensitivity";
+
+        public const string ProxyEnabled = "ProxyEnabled";
+
+        public const string ProxyType = "ProxyType";
+
+        public const string ProxyServer = "ProxyServer";
+
+        public const string ProxyPort = "ProxyPort";
+
+        public const string ProxyUsername = "ProxyUsername";
+
+        public const string ProxyPassword = "ProxyPassword";
     }
 }

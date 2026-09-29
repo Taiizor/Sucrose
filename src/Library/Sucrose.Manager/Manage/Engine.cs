@@ -6,6 +6,7 @@ using SESNT = Skylark.Enum.ScreenType;
 using SHS = Skylark.Helper.Skymath;
 using SMMCE = Sucrose.Memory.Manage.Constant.Engine;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SSDEPT = Sucrose.Shared.Dependency.Enum.ProxyType;
 
 namespace Sucrose.Manager.Manage
 {
@@ -58,5 +59,17 @@ namespace Sucrose.Manager.Manage
         public static bool StoreStart => SMMI.EngineSettingManager.GetSetting(SMMCE.StoreStart, true);
 
         public static bool StayAwake => SMMI.EngineSettingManager.GetSetting(SMMCE.StayAwake, false);
+
+        public static bool ProxyEnabled => SMMI.EngineSettingManager.GetSetting(SMMCE.ProxyEnabled, false);
+
+        public static SSDEPT ProxyType => SMMI.EngineSettingManager.GetSetting(SMMCE.ProxyType, SSDEPT.None);
+
+        public static string ProxyServer => SMMI.EngineSettingManager.GetSetting(SMMCE.ProxyServer, string.Empty);
+
+        public static int ProxyPort => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMMCE.ProxyPort, 0), 0, 65535);
+
+        public static string ProxyUsername => SMMI.EngineSettingManager.GetSetting(SMMCE.ProxyUsername, string.Empty);
+
+        public static string ProxyPassword => SMMI.EngineSettingManager.GetSetting(SMMCE.ProxyPassword, string.Empty);
     }
 }

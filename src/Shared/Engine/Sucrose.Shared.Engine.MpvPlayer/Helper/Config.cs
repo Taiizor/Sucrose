@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using SMME = Sucrose.Manager.Manage.Engine;
 using SMMRC = Sucrose.Memory.Manage.Readonly.Content;
+using SSDEPT = Sucrose.Shared.Dependency.Enum.ProxyType;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMPMI = Sucrose.Shared.Engine.MpvPlayer.Manage.Internal;
 using SSSHF = Sucrose.Shared.Space.Helper.Filing;
@@ -44,8 +45,47 @@ namespace Sucrose.Shared.Engine.MpvPlayer.Helper
                     Content = SSSHR.Replace(Content, @"^hwdec=.*$", "hwdec=no", RegexOptions.Multiline);
                 }
 
+                if (SMME.ProxyEnabled && !string.IsNullOrEmpty(SMME.ProxyServer) && SMME.ProxyPort > 0)
+                {
+                    string proxyUrl = BuildProxyUrl();
+                    
+                    if (!string.IsNullOrEmpty(proxyUrl))
+                    {
+                        Content += Environment.NewLine + Environment.NewLine;
+                        Content += "# Proxy Settings #" + Environment.NewLine;
+                        Content += $"http-proxy={proxyUrl}" + Environment.NewLine;
+                        Content += "# Proxy Settings #";
+                    }
+                }
+
                 SSSHF.WriteStream(SSEMPMI.MpvConfig, Content);
             }
+        }
+
+        private static string BuildProxyUrl()
+        {
+            if (!SMME.ProxyEnabled || string.IsNullOrEmpty(SMME.ProxyServer) || SMME.ProxyPort <= 0)
+            {
+                return string.Empty;
+            }
+
+            string protocol = SMME.ProxyType switch
+            {
+                SSDEPT.HTTP => "http",
+                SSDEPT.HTTPS => "https",
+                SSDEPT.SOCKS5 => "socks5",
+                _ => "http"
+            };
+
+            string auth = string.Empty;
+            if (!string.IsNullOrEmpty(SMME.ProxyUsername))
+            {
+                auth = string.IsNullOrEmpty(SMME.ProxyPassword) 
+                    ? $"{SMME.ProxyUsername}@" 
+                    : $"{SMME.ProxyUsername}:{SMME.ProxyPassword}@";
+            }
+
+            return $"{protocol}://{auth}{SMME.ProxyServer}:{SMME.ProxyPort}";
         }
     }
 }

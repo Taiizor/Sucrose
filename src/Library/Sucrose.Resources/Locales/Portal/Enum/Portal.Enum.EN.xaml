@@ -17,6 +17,11 @@
     <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Keyboard Only</system:String>
     <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Mouse &amp; Keyboard</system:String>
 
+    <system:String x:Key="Portal.Enum.ProxyType.None">None</system:String>
+    <system:String x:Key="Portal.Enum.ProxyType.HTTP">HTTP</system:String>
+    <system:String x:Key="Portal.Enum.ProxyType.HTTPS">HTTPS</system:String>
+    <system:String x:Key="Portal.Enum.ProxyType.SOCKS5">SOCKS5</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">Fill</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">None</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniform</system:String>
