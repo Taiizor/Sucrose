@@ -5,11 +5,11 @@
         <PackageVersion Include="Playhead" Version="1.0.4" />
         <PackageVersion Include="Skylark" Version="3.1.6.5" />
         <PackageVersion Include="CsvHelper" Version="33.1.0" />
-        <PackageVersion Include="Downloader" Version="5.9.6" />
+        <PackageVersion Include="Downloader" Version="5.9.8" />
         <PackageVersion Include="Watson.Lite" Version="6.6.0" />
         <PackageVersion Include="Costura.Fody" Version="6.2.0" />
         <PackageVersion Include="Vortice.DXGI" Version="3.8.3" />
-        <PackageVersion Include="HandyControls" Version="3.6.0" />
+        <PackageVersion Include="HandyControls" Version="3.7.0" />
         <PackageVersion Include="RawInput.Sharp" Version="0.2.0" />
         <PackageVersion Include="SharpCompress" Version="0.50.4" />
         <PackageVersion Include="Skylark.Wing" Version="3.2.1.5" />
@@ -21,12 +21,12 @@
         <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.2" />
         <PackageVersion Include="DiscordRichPresence" Version="1.6.1.70" />
         <PackageVersion Include="MathNet.Numerics" Version="6.0.0-beta2" />
-        <PackageVersion Include="Newtonsoft.Json" Version="13.0.5-beta1" />
-        <PackageVersion Include="CefSharp.Wpf.HwndHost" Version="151.3.240" />
-        <PackageVersion Include="VideoLAN.LibVLC.Windows" Version="3.0.23.1" />
+        <PackageVersion Include="Newtonsoft.Json" Version="14.0.1-beta2" />
+        <PackageVersion Include="VideoLAN.LibVLC.Windows" Version="3.0.24" />
+        <PackageVersion Include="CefSharp.Wpf.HwndHost" Version="152.0.100" />
         <PackageVersion Include="WindowsAPICodePackShell" Version="8.0.15.2" />
         <PackageVersion Include="WPF-UI.DependencyInjection" Version="4.3.0" />
-        <PackageVersion Include="Microsoft.Web.WebView2" Version="1.0.4191.47" />
-        <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.11" />
+        <PackageVersion Include="Microsoft.Web.WebView2" Version="1.0.4258.31" />
+        <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.12" />
     </ItemGroup>
 </Project>
