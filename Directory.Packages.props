@@ -3,7 +3,7 @@
         <PackageVersion Include="NAudio" Version="2.3.0" />
         <PackageVersion Include="WPF-UI" Version="4.3.0" />
         <PackageVersion Include="Playhead" Version="1.0.4" />
-        <PackageVersion Include="Skylark" Version="3.1.6.5" />
+        <PackageVersion Include="Skylark" Version="3.1.6.6" />
         <PackageVersion Include="CsvHelper" Version="33.1.0" />
         <PackageVersion Include="Downloader" Version="5.9.8" />
         <PackageVersion Include="Watson.Lite" Version="6.6.0" />
@@ -12,12 +12,12 @@
         <PackageVersion Include="HandyControls" Version="3.7.0" />
         <PackageVersion Include="RawInput.Sharp" Version="0.2.0" />
         <PackageVersion Include="SharpCompress" Version="0.50.4" />
-        <PackageVersion Include="Skylark.Wing" Version="3.2.1.5" />
+        <PackageVersion Include="Skylark.Wing" Version="3.2.1.6" />
         <PackageVersion Include="TaskScheduler" Version="2.12.2" />
         <PackageVersion Include="XamlFlair.WPF" Version="1.2.13" />
         <PackageVersion Include="LibVLCSharp.WPF" Version="3.10.1" />
-        <PackageVersion Include="Skylark.Standard" Version="3.1.8.5" />
-        <PackageVersion Include="Skylark.Clipboard" Version="3.1.5.9" />
+        <PackageVersion Include="Skylark.Standard" Version="3.1.8.6" />
+        <PackageVersion Include="Skylark.Clipboard" Version="3.1.6.1" />
         <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.2" />
         <PackageVersion Include="DiscordRichPresence" Version="1.6.1.70" />
         <PackageVersion Include="MathNet.Numerics" Version="6.0.0-beta2" />
