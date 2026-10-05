@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Ob sich das Hintergrundbild automatisch ändert oder nicht.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">Zeitintervall</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Das Zeitintervall, nach dem das Hintergrundbild wechselt.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Das Zeitintervall in Sekunden, nach dem das Hintergrundbild wechselt.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">Übergangsmodus</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Legt den Übergangsmodus zwischen Hintergrundbildern fest.</system:String>

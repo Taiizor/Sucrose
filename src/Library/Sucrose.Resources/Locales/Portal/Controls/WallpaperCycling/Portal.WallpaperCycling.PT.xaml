@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Se o papel de parede muda automaticamente ou não.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">Intervalo de Tempo</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">O intervalo de tempo após o qual o papel de parede muda.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">O intervalo de tempo em segundos após o qual o papel de parede muda.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">Modo de Transição</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Define o modo de transição entre papéis de parede.</system:String>

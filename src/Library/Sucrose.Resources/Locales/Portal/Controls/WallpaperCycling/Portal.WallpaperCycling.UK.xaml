@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Чи змінюється шпалери автоматично чи ні.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">Інтервал Часу</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Часовий інтервал, після якого змінюється шпалер.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Часовий інтервал у секундах, після якого змінюються шпалери.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">Режим Переходу</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Встановлює режим переходу між шпалерами.</system:String>

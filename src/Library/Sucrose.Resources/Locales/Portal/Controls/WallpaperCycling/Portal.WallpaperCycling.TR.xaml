@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Duvar kağıdının otomatik olarak değişip değişmeyeceği.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">Zaman Aralığı</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Belirlenen dakika sonrasında duvar kağıdı değişir.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Belirlenen saniye sonrasında duvar kağıdı değişir.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">Geçiş Modu</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Duvar kağıtları arasındaki geçiş modunu ayarlar.</system:String>

@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Εάν η ταπετσαρία αλλάζει αυτόματα ή όχι.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">Χρονικό διάστημα</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Το χρονικό διάστημα μετά το οποίο αλλάζει η ταπετσαρία.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Το χρονικό διάστημα σε δευτερόλεπτα, μετά το οποίο αλλάζει η ταπετσαρία.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">Λειτουργία Μετάβασης</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Ορίζει τη λειτουργία μετάβασης μεταξύ ταπετσαριών.</system:String>

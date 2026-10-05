@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Se lo sfondo cambia automaticamente o meno.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">Intervallo di Tempo</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">L'intervallo di tempo dopo il quale lo sfondo cambia.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">L'intervallo di tempo in secondi dopo il quale lo sfondo cambia.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">Modalità Transizione</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Imposta la modalità transizione tra gli sfondi.</system:String>

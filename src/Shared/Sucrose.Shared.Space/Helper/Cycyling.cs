@@ -1,7 +1,4 @@
-﻿using System.IO;
-using SECNT = Skylark.Enum.ClearNumericType;
-using SETT = Skylark.Enum.TimeType;
-using SHN = Skylark.Helper.Numeric;
+using System.IO;
 using SHV = Skylark.Helper.Versionly;
 using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SMMC = Sucrose.Manager.Manage.Cycling;
@@ -14,7 +11,6 @@ using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
 using SSDETCT = Sucrose.Shared.Dependency.Enum.TransitionCycleType;
 using SSDMMC = Sucrose.Shared.Dependency.Manage.Manager.Cycling;
-using SSETTE = Skylark.Standard.Extension.Time.TimeExtension;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHS = Sucrose.Shared.Space.Helper.Sort;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
@@ -34,7 +30,7 @@ namespace Sucrose.Shared.Space.Helper
                 {
                     Themes = Themes.Except(SMMC.Exclusion).ToList();
 
-                    if (SMMC.Active && (Themes.Count > 1 || (Themes.Count == 1 && !Themes.Contains(SMML.Selected))) && (SMMC.PassingTime >= Converter(SMMC.TransitionTime) || !Time))
+                    if (SMMC.Active && (Themes.Count > 1 || (Themes.Count == 1 && !Themes.Contains(SMML.Selected))) && (SMMC.PassingTime >= SMMC.TransitionTime || !Time))
                     {
                         foreach (string Theme in Themes)
                         {
@@ -179,11 +175,6 @@ namespace Sucrose.Shared.Space.Helper
                     }
                 }
             }
-        }
-
-        private static int Converter(int Time)
-        {
-            return Convert.ToInt32(SHN.Numeral(SSETTE.Convert(Time, SETT.Minute, SETT.Second), false, false, 0, '0', SECNT.None));
         }
     }
 }

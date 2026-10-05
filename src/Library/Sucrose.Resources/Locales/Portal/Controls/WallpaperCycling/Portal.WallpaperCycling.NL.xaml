@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Of de achtergrondafbeelding automatisch verandert of niet.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">Tijdsinterval</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Het tijdsinterval nadat de achtergrondafbeelding verandert.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Het tijdsinterval in seconden waarna de achtergrondafbeelding verandert.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">Overgangsmodus</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Stelt de overgangsmodus tussen achtergrondafbeeldingen in.</system:String>

@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Om bakgrundsbilden ändras automatiskt eller inte.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">Tidsintervall</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Tidsintervallet efter vilket bakgrundsbilden ändras.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Tidsintervallet i sekunder efter vilket bakgrundsbilden ändras.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">Övergångsläge</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Ställer in övergångsläget mellan bakgrundsbilder.</system:String>

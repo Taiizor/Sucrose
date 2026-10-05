@@ -50,9 +50,9 @@ namespace Sucrose.Portal.Views.Controls
                 Value = SMMC.TransitionTime,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
-                MaxLength = 3,
-                Maximum = 999,
-                Minimum = 1
+                Maximum = 99999,
+                MaxLength = 5,
+                Minimum = 10
             };
 
             TimeDuration.ValueChanged += (s, e) => TimeDurationChanged(TimeDuration.Value);

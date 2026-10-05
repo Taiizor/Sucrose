@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">האם הטפט ישתנה אוטומטית.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">טווח זמן</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">הטפט משתנה לאחר הדקה שצוינה.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">הטפט משתנה לאחר השניות שצוינו.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">מצב מעבר</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">מגדיר את מצב המעבר בין טפטים.</system:String>

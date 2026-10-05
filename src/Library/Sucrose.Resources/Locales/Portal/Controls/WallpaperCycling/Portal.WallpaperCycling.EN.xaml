@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Whether the wallpaper changes automatically or not.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">Time Interval</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">The time interval after which the wallpaper changes.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">The time interval in seconds after which the wallpaper changes.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">Transition Mode</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Sets the transition mode between wallpapers.</system:String>

@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Изменяются ли обои автоматически или нет.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">Интервал Времени</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Интервал времени, после которого меняются обои.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Интервал времени в секундах, после которого меняются обои.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">Режим Перехода</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Устанавливает режим перехода между обоями.</system:String>

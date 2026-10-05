@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">ما إذا كانت خلفية الشاشة تتغيّر تلقائيًا أم لا.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">الفاصل الزمني</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">الفاصل الزمني الذي تتغيّر بعده خلفية الشاشة.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">الفاصل الزمني بالثواني الذي تتغيّر بعده خلفية الشاشة.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">وضع الانتقال</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">يضبط وضع الانتقال بين خلفيات الشاشة.</system:String>

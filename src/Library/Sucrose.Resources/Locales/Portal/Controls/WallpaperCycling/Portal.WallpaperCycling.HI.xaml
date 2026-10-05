@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">क्या वॉलपेपर स्वचालित रूप से बदलता है या नहीं।</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">समय अंतराल</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">वॉलपेपर परिवर्तन के बाद समय अंतराल।</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">वॉलपेपर बदलने के बाद सेकंड में समय अंतराल।</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">संचार मोड</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">वॉलपेपर के बीच संचार मोड सेट करता है।</system:String>

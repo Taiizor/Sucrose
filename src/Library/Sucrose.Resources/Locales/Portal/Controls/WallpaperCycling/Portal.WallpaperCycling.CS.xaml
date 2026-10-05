@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Zda se tapeta mění automaticky nebo ne.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">Časový Interval</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Časový interval, po kterém se tapeta změní.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Časový interval v sekundách, po kterém se tapeta změní.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">Režim Přechodu</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Nastavuje režim přechodu mezi tapetami.</system:String>

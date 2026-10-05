@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Sama ada wallpaper berubah secara automatik atau tidak.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">Sela Masa</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Sela masa selepas wallpaper berubah.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Sela masa dalam saat selepas wallpaper berubah.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">Mod Transisi</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Mengatur mod transisi antara wallpaper.</system:String>

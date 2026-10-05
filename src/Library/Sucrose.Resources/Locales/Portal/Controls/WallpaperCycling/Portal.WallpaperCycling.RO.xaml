@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Dacă tapetul se schimbă automat sau nu.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">Interval de Timp</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Intervalul de timp după care se schimbă tapetul.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Intervalul de timp în secunde după care se schimbă tapetul.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">Mod Tranzitie</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Stabilește modul de tranziție între tapete.</system:String>

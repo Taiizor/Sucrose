@@ -6,7 +6,7 @@ namespace Sucrose.Manager.Manage
 {
     public static class Cycling
     {
-        public static int TransitionTime => SHS.Clamp(SMMI.CyclingSettingManager.GetSettingStable(SMMCC.TransitionTime, 30), 1, 999);
+        public static int TransitionTime => SHS.Clamp(SMMI.CyclingSettingManager.GetSettingStable(SMMCC.TransitionTime, 1800), 10, 99999);
 
         public static int PassingTime => SHS.Clamp(SMMI.CyclingSettingManager.GetSettingStable(SMMCC.PassingTime, 0), 0, 99999);
 

@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">배경화면이 자동으로 변경되는지 여부.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">시간 간격</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">배경화면이 변경되는 시간 간격.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">배경화면이 변경되는 시간 간격(초).</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">전환 모드</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">배경화면 간 전환 모드를 설정합니다.</system:String>

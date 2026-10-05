@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">壁紙が自動的に変わるかどうか。</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">時間間隔</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">壁紙が変わる時間間隔。</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">壁紙が変わるまでの時間間隔（秒）。</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">トランジションモード</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">壁紙間のトランジションモードを設定します。</system:String>

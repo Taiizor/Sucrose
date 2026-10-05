@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Czy tapeta zmienia się automatycznie, czy nie.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Time">Interwał Czasu</system:String>
-    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Interwał czasowy po którym następuje zmiana tapety.</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Interwał czasowy w sekundach, po którym następuje zmiana tapety.</system:String>
 
     <system:String x:Key="Portal.WallpaperCycling.Transition">Tryb Przejścia</system:String>
     <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Ustawia tryb przejścia między tapetami.</system:String>
