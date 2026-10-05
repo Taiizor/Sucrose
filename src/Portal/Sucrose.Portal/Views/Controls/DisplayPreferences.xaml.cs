@@ -58,6 +58,11 @@ namespace Sucrose.Portal.Views.Controls
 
             List<(int Left, int Top, int Width, int Height)> Screens = GetScreenBounds();
 
+            if (!Screens.Any())
+            {
+                return;
+            }
+
             int MinX = Screens.Min(s => s.Left);
             int MaxX = Screens.Max(s => s.Left + s.Width);
             int MinY = Screens.Min(s => s.Top);
@@ -130,6 +135,12 @@ namespace Sucrose.Portal.Views.Controls
             Contents.Children.Clear();
 
             List<(int Left, int Top, int Width, int Height)> Screens = GetScreenBounds();
+
+            if (!Screens.Any())
+            {
+                return;
+            }
+
             int ScreenCount = Screens.Count;
 
             int SelectedIndex = 0;
@@ -242,6 +253,11 @@ namespace Sucrose.Portal.Views.Controls
             Contents.Children.Clear();
 
             List<(int Left, int Top, int Width, int Height)> Screens = GetScreenBounds();
+
+            if (!Screens.Any())
+            {
+                return;
+            }
 
             int MinX = Screens.Min(s => s.Left);
             int MaxX = Screens.Max(s => s.Left + s.Width);
