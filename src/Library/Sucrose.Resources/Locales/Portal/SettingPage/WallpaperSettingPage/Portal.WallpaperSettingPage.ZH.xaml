@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">随机播放模式</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">更改支持的壁纸的随机播放方式。</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Windows幻灯片放映</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">应用动态壁纸时自动关闭Windows幻灯片放映。</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">背景图片</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">将动态壁纸更改为桌面背景图片。</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">禁用Windows幻灯片放映</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">硬件加速</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">更改支持的壁纸的硬件加速状态。</system:String>

@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Режим Перемішування</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Змінює режим перемішування для підтримуваних шпалерів.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Слайд-шоу Windows</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">Автоматично вимикає слайд-шоу Windows під час застосування живих шпалер.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">Фонове Зображення</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">Змінює живі шпалери на фонове зображення робочого столу.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Вимкнути слайд-шоу Windows</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">Апаратне Прискорення</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">Змінює статус апаратного прискорення для підтримуваних шпалер.</system:String>

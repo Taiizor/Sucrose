@@ -12,7 +12,7 @@
         <PackageVersion Include="HandyControls" Version="3.7.0" />
         <PackageVersion Include="RawInput.Sharp" Version="0.2.0" />
         <PackageVersion Include="SharpCompress" Version="0.50.4" />
-        <PackageVersion Include="Skylark.Wing" Version="3.2.1.6" />
+        <PackageVersion Include="Skylark.Wing" Version="3.2.1.7" />
         <PackageVersion Include="TaskScheduler" Version="2.12.2" />
         <PackageVersion Include="XamlFlair.WPF" Version="1.2.13" />
         <PackageVersion Include="LibVLCSharp.WPF" Version="3.10.1" />

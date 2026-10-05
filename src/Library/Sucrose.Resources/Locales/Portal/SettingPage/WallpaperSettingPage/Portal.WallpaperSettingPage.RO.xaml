@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Mod Amestecare</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Schimbă modul de amestecare pentru imagini de fundal acceptate.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Expunere de diapozitive Windows</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">Dezactivează automat expunerea de diapozitive Windows când se aplică un tapet animat.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">Imagine de Fundal</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">Schimbă tapetul animat cu o imagine de fundal pentru desktop.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Dezactivează expunerea de diapozitive Windows</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">Accelerare Hardware</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">Modifică starea de accelerare hardware pentru fundalurile acceptate.</system:String>

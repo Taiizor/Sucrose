@@ -22,6 +22,7 @@ using SSDEYTET = Sucrose.Shared.Dependency.Enum.YouTubeEngineType;
 using SSDMME = Sucrose.Shared.Dependency.Manage.Manager.Engine;
 using SSSHB = Sucrose.Shared.Space.Helper.Background;
 using SSSHP = Sucrose.Shared.Space.Helper.Power;
+using SWHBI = Skylark.Wing.Helper.BackgroundImage;
 using SWUD = Skylark.Wing.Utility.Desktop;
 using TextBlock = System.Windows.Controls.TextBlock;
 
@@ -296,10 +297,33 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(ShuffleMode);
 
-            SPVCEC BackgroundImage = new()
+            SPVCEC DisableSlideshowLive = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
                 Expandable = false
+            };
+
+            DisableSlideshowLive.LeftIcon.Symbol = SymbolRegular.SlideEraser24;
+            DisableSlideshowLive.Title.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "DisableSlideshowLive");
+            DisableSlideshowLive.Description.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "DisableSlideshowLive", "Description");
+
+            ToggleSwitch DisableSlideshowLiveState = new()
+            {
+                IsChecked = SMME.DisableSlideshowLive
+            };
+
+            DisableSlideshowLiveState.Checked += (s, e) => DisableSlideshowLiveChecked(true);
+            DisableSlideshowLiveState.Unchecked += (s, e) => DisableSlideshowLiveChecked(false);
+
+            DisableSlideshowLive.HeaderFrame = DisableSlideshowLiveState;
+
+            Contents.Add(DisableSlideshowLive);
+
+            SPVCEC BackgroundImage = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = true,
+                IsExpand = true
             };
 
             BackgroundImage.LeftIcon.Symbol = SymbolRegular.ImageCopy24;
@@ -315,6 +339,24 @@ namespace Sucrose.Portal.ViewModels.Pages
             BackgroundState.Unchecked += (s, e) => BackgroundStateChecked(false);
 
             BackgroundImage.HeaderFrame = BackgroundState;
+
+            StackPanel BackgroundContent = new()
+            {
+                Orientation = Orientation.Vertical
+            };
+
+            CheckBox DisableSlideshow = new()
+            {
+                Content = SRER.GetValue("Portal", "WallpaperSettingPage", "BackgroundImage", "DisableSlideshow"),
+                IsChecked = SMME.DisableSlideshow
+            };
+
+            DisableSlideshow.Checked += (s, e) => DisableSlideshowChecked(true);
+            DisableSlideshow.Unchecked += (s, e) => DisableSlideshowChecked(false);
+
+            BackgroundContent.Children.Add(DisableSlideshow);
+
+            BackgroundImage.FooterCard = BackgroundContent;
 
             Contents.Add(BackgroundImage);
 
@@ -618,6 +660,16 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
+        private void DisableSlideshowChecked(bool State)
+        {
+            SMMI.EngineSettingManager.SetSetting(SMMCE.DisableSlideshow, State);
+
+            if (State && SMME.BackgroundImage)
+            {
+                SSSHB.SetWallpaper();
+            }
+        }
+
         private void AccelerationStateChecked(bool State)
         {
             SMMI.EngineSettingManager.SetSetting(SMMCE.HardwareAcceleration, State);
@@ -652,6 +704,16 @@ namespace Sucrose.Portal.ViewModels.Pages
             if (Enum.TryParse($"{Item.Content}", out SSDEVET Type) && (SSDEET)Type != SSDMME.Video)
             {
                 SMMI.EngineSettingManager.SetSetting(SMMCE.Video, (SSDEET)Type);
+            }
+        }
+
+        private void DisableSlideshowLiveChecked(bool State)
+        {
+            SMMI.EngineSettingManager.SetSetting(SMMCE.DisableSlideshowLive, State);
+
+            if (State)
+            {
+                SWHBI.DisableSlideshow();
             }
         }
 

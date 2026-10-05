@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Modalità di Riproduzione Casuale</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Modifica la modalità di riproduzione casuale degli sfondi supportati.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Presentazione di Windows</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">Disattiva automaticamente la presentazione di Windows quando viene applicato uno sfondo animato.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">Immagine di Sfondo</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">Cambia lo sfondo animato in un'immagine di sfondo per il desktop.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Disattiva la presentazione di Windows</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">Accelerazione Hardware</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">Modifica lo stato di accelerazione hardware per gli sfondi supportati.</system:String>

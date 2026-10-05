@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Mode de Mélange</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Modifiez le comportement de mélange pour les fonds d'écran pris en charge.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Diaporama Windows</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">Désactive automatiquement le diaporama Windows lorsqu'un fond d'écran animé est appliqué.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">Image d'Arrière-Plan</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">Change le fond d'écran animé en une image d'arrière-plan du bureau.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Désactiver le diaporama Windows</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">Accélération Matérielle</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">Modifie l'état de l'accélération matérielle pour les fonds d'écran pris en charge.</system:String>

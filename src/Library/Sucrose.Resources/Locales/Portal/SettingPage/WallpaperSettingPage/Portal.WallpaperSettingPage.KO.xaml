@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">섞기 모드</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">지원되는 바탕 화면에서 섞기 모드를 변경합니다.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Windows 슬라이드쇼</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">라이브 배경화면이 적용되면 Windows 슬라이드쇼를 자동으로 끕니다.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">배경 이미지</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">움직이는 배경 화면을 데스크톱 배경 이미지로 변경합니다.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Windows 슬라이드쇼 비활성화</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">하드웨어 가속</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">지원되는 배경화면의 하드웨어 가속 상태를 변경합니다.</system:String>

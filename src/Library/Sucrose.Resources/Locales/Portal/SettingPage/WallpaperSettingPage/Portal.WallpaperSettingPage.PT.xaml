@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Modo de Embaralhamento</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Altera o modo de embaralhamento em papéis de parede suportados.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Apresentação do Windows</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">Desativa automaticamente a apresentação do Windows quando um papel de parede animado é aplicado.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">Imagem de Fundo</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">Altera o papel de parede animado para uma imagem de fundo da área de trabalho.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Desativar a apresentação do Windows</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">Aceleração de Hardware</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">Altera o status de aceleração de hardware para papéis de parede suportados.</system:String>

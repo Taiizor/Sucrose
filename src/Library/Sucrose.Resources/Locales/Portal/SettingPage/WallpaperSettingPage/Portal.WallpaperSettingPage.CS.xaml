@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Režim Zamíchání</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Změní režim zamíchání na podporovaných tapetách.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Prezentace Windows</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">Při použití živé tapety automaticky zakáže prezentaci Windows.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">Obrázek Pozadí</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">Změní živou tapetu na obrázek pozadí plochy.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Zakázat prezentaci Windows</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">Hardwarová Akcelerace</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">Upravuje stav hardwarové akcelerace pro podporované tapety.</system:String>

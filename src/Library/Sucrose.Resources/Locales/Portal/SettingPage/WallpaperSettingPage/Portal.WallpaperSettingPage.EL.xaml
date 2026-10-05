@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Λειτουργία Ανακάτεμα</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Αλλάζει τη λειτουργία ανακάτεμα για τις υποστηριζόμενες ταπετσαρίες.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Προβολή διαφανειών των Windows</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">Απενεργοποιεί αυτόματα την προβολή διαφανειών των Windows όταν εφαρμόζεται ζωντανή ταπετσαρία.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">Εικόνα Φόντου</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">Αλλάζει την κινούμενη ταπετσαρία σε εικόνα φόντου επιφάνειας εργασίας.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Απενεργοποίηση της προβολής διαφανειών των Windows</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">Επιτάχυνση Υλικού</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">Αλλάζει την κατάσταση επιτάχυνσης υλικού για τις υποστηριζόμενες ταπετσαρίες.</system:String>

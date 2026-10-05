@@ -83,6 +83,11 @@ namespace Sucrose.Shared.Space.Helper
                     SWHBI.SetStyleRegistry(Refresh: false);
                     SWHBI.SetTileRegistry(Refresh: false);
 
+                    if (SMME.DisableSlideshow)
+                    {
+                        SWHBI.DisableSlideshow();
+                    }
+
                     SWUD.RefreshDesktop();
                 }
             }

@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Blanding Tilstand</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Ændrer blanding tilstanden af understøttede tapeter.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Windows-diasshow</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">Deaktiverer automatisk Windows-diasshow, når der anvendes et levende tapet.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">Baggrundsbillede</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">Ændrer det levende tapet til et skrivebordsbaggrundsbillede.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Deaktiver Windows-diasshow</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">Hardwareacceleration</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">Ændrer hardwareaccelerationen for understøttede tapeter.</system:String>

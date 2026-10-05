@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">وضع الخلط</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">غيّر سلوك الخلط لخلفيات الشاشة المدعومة.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">عرض شرائح Windows</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">يُوقف عرض شرائح Windows تلقائيًا عند تطبيق خلفية حيّة.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">صورة الخلفية</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">تغيّر الخلفية الحيّة إلى صورة خلفية لسطح المكتب.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">تعطيل عرض شرائح Windows</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">تسريع الأجهزة</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">تغيّر سلوك تسريع الأجهزة لخلفيات الشاشة المدعومة.</system:String>

@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Schudmodus</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Verandert de schudinstelling voor ondersteunde achtergronden.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Windows-diavoorstelling</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">Schakelt de Windows-diavoorstelling automatisch uit wanneer een live-behang wordt toegepast.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">Achtergrondafbeelding</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">Wijzigt het live-behang in een bureaubladachtergrondafbeelding.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Windows-diavoorstelling uitschakelen</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">Hardwareversnelling</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">Wijzigt de hardwareversnellingstatus voor ondersteunde achtergronden.</system:String>

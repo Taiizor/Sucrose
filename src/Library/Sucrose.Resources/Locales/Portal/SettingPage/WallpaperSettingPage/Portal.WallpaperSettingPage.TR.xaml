@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Karıştırma Durumu</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Desteklenen duvar kağıtlarında karıştırma durumunu değiştirir.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Windows Slayt Gösterisi</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">Canlı duvar kağıdı uygulandığında Windows slayt gösterisini otomatik kapatır.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">Arkaplan Görüntüsü</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">Hareketli duvar kağıdını masaüstü arkaplan görüntüsü olarak değiştirir.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Windows slayt gösterisini devre dışı bırak</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">Donanım Hızlandırma</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">Desteklenen duvar kağıtlarında donanım hızlandırma durumunu değiştirir.</system:String>

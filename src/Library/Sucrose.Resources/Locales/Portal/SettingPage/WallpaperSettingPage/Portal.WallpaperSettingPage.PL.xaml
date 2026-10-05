@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Tryb Tasowania</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Zmień zachowanie tasowania dla obsługiwanych tapet.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Pokaz slajdów systemu Windows</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">Automatycznie wyłącza pokaz slajdów systemu Windows po zastosowaniu animowanej tapety.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">Obraz Tła</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">Zamienia tapetę animowaną na obraz tła pulpitu.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Wyłącz pokaz slajdów systemu Windows</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">Przyspieszenie Sprzętowe</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">Zmienia status przyspieszenia sprzętowego dla obsługiwanych tapet.</system:String>

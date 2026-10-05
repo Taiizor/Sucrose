@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Blandingsmodus</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Endrer blandingsmodus for støttede bakgrunnsbilder.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Windows-lysbildefremvisning</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">Deaktiverer automatisk Windows-lysbildefremvisning når en levende bakgrunn tas i bruk.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">Bakgrunnsbilde</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">Endrer levende bakgrunnsbilde til et skrivebordsbakgrunnsbilde.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Deaktiver Windows-lysbildefremvisning</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">Maskinvareakselerasjon</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">Endrer maskinvareakselerasjonsstatus for støttede bakgrunnsbilder.</system:String>

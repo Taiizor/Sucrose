@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Режим Перемешивания</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Измените режим перемешивания для поддерживаемых обоев.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Слайд-шоу Windows</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">Автоматически отключает слайд-шоу Windows при применении живых обоев.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">Фоновое Изображение</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">Заменяет живые обои на фоновое изображение рабочего стола.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Отключить слайд-шоу Windows</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">Аппаратное Yскорение</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">Изменяет статус аппаратного ускорения для поддерживаемых обоев.</system:String>

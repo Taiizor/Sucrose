@@ -52,6 +52,8 @@ namespace Sucrose.Memory.Manage.Constant
 
         public const string WallpaperVolume = "WallpaperVolume";
 
+        public const string DisableSlideshow = "DisableSlideshow";
+
         public const string ExpandScreenType = "ExpandScreenType";
 
         public const string WallpaperShuffle = "WallpaperShuffle";
@@ -63,6 +65,8 @@ namespace Sucrose.Memory.Manage.Constant
         public const string BackgroundImagePath = "BackgroundImagePath";
 
         public const string DuplicateScreenType = "DuplicateScreenType";
+
+        public const string DisableSlideshowLive = "DisableSlideshowLive";
 
         public const string HardwareAcceleration = "HardwareAcceleration";
 

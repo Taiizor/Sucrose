@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">סטטוס ערבוב</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">מחליף את מצב המיזוג בטפטים נתמכים.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">מצגת Windows</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">משבית אוטומטית את מצגת Windows כאשר מוחל טפט חי.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">תמונת רקע</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">משנה את הטפט המונפש לתמונת הרקע של שולחן העבודה.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">השבת את מצגת Windows</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">האצת חומרה</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">החלפת האצת חומרה בטפטים נתמכים.</system:String>

@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Modo de Mezcla</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Cambie el comportamiento de mezcla para fondos de pantalla compatibles.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Presentación de Windows</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">Desactiva automáticamente la presentación de Windows cuando se aplica un fondo animado.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">Imagen de Fondo</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">Cambia el fondo animado por una imagen de fondo de escritorio.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Desactivar la presentación de Windows</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">Aceleración de Hardware</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">Cambia el estado de aceleración de hardware para fondos de pantalla compatibles.</system:String>

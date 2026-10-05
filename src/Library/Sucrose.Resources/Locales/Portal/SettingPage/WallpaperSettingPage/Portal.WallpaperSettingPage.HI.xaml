@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">शफल मोड</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">समर्थित वॉलपेपरों की शफल मोड को बदलता है।</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Windows स्लाइडशो</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">लाइव वॉलपेपर लागू होने पर Windows स्लाइडशो अपने आप बंद हो जाता है।</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">पृष्ठभूमि छवि</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">लाइव वॉलपेपर को डेस्कटॉप पृष्ठभूमि छवि में बदलता है।</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Windows स्लाइडशो अक्षम करें</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">हार्डवेयर एक्सेलेरेशन</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">समर्थित वॉलपेपर के लिए हार्डवेयर एक्सेलेरेशन की स्थिति बदलता है।</system:String>

@@ -12,6 +12,7 @@ using SSSHB = Sucrose.Shared.Space.Helper.Background;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SWHBI = Skylark.Wing.Helper.BackgroundImage;
 using SWUD = Skylark.Wing.Utility.Desktop;
 
 namespace Sucrose.Shared.Live.Helper
@@ -35,6 +36,11 @@ namespace Sucrose.Shared.Live.Helper
                         if (SMME.BackgroundImage)
                         {
                             SSSHB.SetWallpaper(Path.Combine(SMML.Location, SMML.Selected, Info.Thumbnail));
+                        }
+
+                        if (SMME.DisableSlideshowLive)
+                        {
+                            SWHBI.DisableSlideshow();
                         }
 
                         if (SMMB.PerformanceCounter)

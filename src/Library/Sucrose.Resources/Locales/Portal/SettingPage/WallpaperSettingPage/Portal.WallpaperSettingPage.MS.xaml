@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Mod Kacau</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Mod kacau yang akan diubah untuk wallpaper yang disokong.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Tayangan Slaid Windows</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">Melumpuhkan tayangan slaid Windows secara automatik apabila kertas dinding hidup digunakan.</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">Imej Latar</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">Menukar kertas dinding hidup kepada imej latar desktop.</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Lumpuhkan tayangan slaid Windows</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">Pecutan Perkakasan</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">Mengubah status pecutan perkakasan untuk kertas wallpaper yang disokong.</system:String>

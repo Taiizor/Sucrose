@@ -31,8 +31,12 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">シャッフルモード</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">サポートされる壁紙のシャッフルモードを変更します。</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive">Windowsスライドショー</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.DisableSlideshowLive.Description">ライブ壁紙の適用時にWindowsスライドショーを自動的に無効にします。</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage">背景画像</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.Description">ライブ壁紙をデスクトップの背景画像に変更します。</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow">Windowsスライドショーを無効にする</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration">ハードウェアアクセラレーション</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.HardwareAcceleration.Description">サポートされている壁紙のハードウェアアクセラレーションの状態を変更します。</system:String>
