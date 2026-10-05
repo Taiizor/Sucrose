@@ -36,7 +36,7 @@ The CI pipeline suppresses these warnings: `CS0067, CS0108, CS0109, CS0114, CS01
 
 ## Framework & Tooling
 
-- **.NET 10.0-windows** target framework (`TargetFrameworks` in `Directory.Build.props`), built with the **.NET 11 preview SDK** — `global.json` pins `11.0.0` with `rollForward: latestMajor` and `allowPrerelease: true`; CI uses `dotnet-version: 11.0.x` / `dotnet-quality: preview`. The publish script installs runtime `10.0.111` by default (`-DotNetVersion`)
+- **.NET 10.0-windows** target framework (`TargetFrameworks` in `Directory.Build.props`), built with the **.NET 11 preview SDK** — `global.json` pins `11.0.0` with `rollForward: latestMajor` and `allowPrerelease: true`; CI uses `dotnet-version: 11.0.x` / `dotnet-quality: preview`. The publish script installs runtime `10.0.112` by default (`-DotNetVersion`)
 - **C# preview** language version with implicit usings enabled, nullable disabled
 - **WPF** for all UI (no WinUI/MAUI — `exp/` holds experimental Avalonia/Uno/WinUI ports that are not part of the main solution)
 - **Platforms**: x86, x64, ARM64 (conditional compilation symbols: `X86`, `X64`, `ARM64`)
