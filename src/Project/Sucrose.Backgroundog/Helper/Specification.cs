@@ -1061,10 +1061,7 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             SBMI.TransmissionManagement = false;
 
-                            if (STMI.BackgroundogManager == null)
-                            {
-                                STMI.BackgroundogManager = new(SMMRG.Loopback, SMMB.TransmissionPort);
-                            }
+                            STMI.BackgroundogManager ??= new(SMMRG.Loopback, SMMB.TransmissionPort);
 
                             JsonSerializerSettings SerializerSettings = new()
                             {
