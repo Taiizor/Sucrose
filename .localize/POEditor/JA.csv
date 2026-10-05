@@ -900,7 +900,7 @@ Portal.WallpaperCycling.Cycling,自動壁紙サイクリング,,Portal\Controls\
 Portal.WallpaperCycling.Cycling.Description,壁紙が自動的に変わるかどうか。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
 PASS⦙163,PASS⦙163,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,時間間隔,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
-Portal.WallpaperCycling.Time.Description,壁紙が変わる時間間隔。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
+Portal.WallpaperCycling.Time.Description,壁紙が変わるまでの時間間隔（秒）。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
 PASS⦙164,PASS⦙164,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,トランジションモード,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
 Portal.WallpaperCycling.Transition.Description,壁紙間のトランジションモードを設定します。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,
@@ -1253,39 +1253,43 @@ PASS⦙288,PASS⦙288,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal
 Portal.WallpaperSettingPage.ShuffleMode,シャッフルモード,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,サポートされる壁紙のシャッフルモードを変更します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
 PASS⦙289,PASS⦙289,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.DisableSlideshowLive,Windowsスライドショー,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+Portal.WallpaperSettingPage.DisableSlideshowLive.Description,ライブ壁紙の適用時にWindowsスライドショーを自動的に無効にします。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.BackgroundImage,背景画像,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
 Portal.WallpaperSettingPage.BackgroundImage.Description,ライブ壁紙をデスクトップの背景画像に変更します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
-PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow,Windowsスライドショーを無効にする,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
+PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.HardwareAcceleration,ハードウェアアクセラレーション,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
 Portal.WallpaperSettingPage.HardwareAcceleration.Description,サポートされている壁紙のハードウェアアクセラレーションの状態を変更します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
-PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Gif プレイヤー,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,ライブラリ内の Gif 形式のテーマを再生するプラグインを選択します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
-PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Video プレイヤー,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,ライブラリ内の Video 形式のテーマを再生するプラグインを選択します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
-PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Url プレーヤー,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,ライブラリ内の Url 形式のテーマを実行するエンジンを選択します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
-PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Web エンジン,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,ライブラリ内の Web 形式のテーマを実行するエンジンを選択します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
-PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,YouTube エンジン,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,ライブラリ内の YouTube 形式のテーマを実行するエンジンを選択します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
-PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
+PASS⦙297,PASS⦙297,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Application エンジン,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,ライブラリ内の Application 形式のテーマを実行するエンジンを選択します。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.JA.xaml,
-PASS⦙297,PASS⦙297,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.JA.xaml,Please don't touch the translation in this line.
+PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.JA.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,インターネットの光が消えた瞬間,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.JA.xaml,
 Portal.BrokenStorePage.DescriptionText,星のない夜空のように、ここにもインターネットの輝きはありません,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.JA.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.JA.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.JA.xaml,
-PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.JA.xaml,Please don't touch the translation in this line.
+PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.JA.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,あなたの探しているものの答えは空に隠れているかもしれません,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.JA.xaml,
 Portal.SearchStorePage.DescriptionText,結果が期待通りにならない場合、空は新しい体験を提供できるかもしれません,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.JA.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.JA.xaml,
-PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.JA.xaml,Please don't touch the translation in this line.
+PASS⦙300,PASS⦙300,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.JA.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,ストアでの謎の状況を発見,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.JA.xaml,
 Portal.UnknownStorePage.DescriptionText,未知のものを探求し、ストアで起こった謎の状況を解明する旅に出ましょう,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.JA.xaml,

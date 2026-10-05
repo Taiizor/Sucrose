@@ -900,7 +900,7 @@ Portal.WallpaperCycling.Cycling,自动壁纸循环,,Portal\Controls\WallpaperCyc
 Portal.WallpaperCycling.Cycling.Description,壁纸是否自动更换。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
 PASS⦙163,PASS⦙163,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,时间间隔,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
-Portal.WallpaperCycling.Time.Description,壁纸更换后的时间间隔。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
+Portal.WallpaperCycling.Time.Description,壁纸更换后的时间间隔（以秒为单位）。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
 PASS⦙164,PASS⦙164,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,过渡模式,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
 Portal.WallpaperCycling.Transition.Description,设置壁纸之间的过渡模式。,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,
@@ -1253,39 +1253,43 @@ PASS⦙288,PASS⦙288,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal
 Portal.WallpaperSettingPage.ShuffleMode,随机播放模式,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,更改支持的壁纸的随机播放方式。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 PASS⦙289,PASS⦙289,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.DisableSlideshowLive,Windows幻灯片放映,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+Portal.WallpaperSettingPage.DisableSlideshowLive.Description,应用动态壁纸时自动关闭Windows幻灯片放映。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.BackgroundImage,背景图片,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.BackgroundImage.Description,将动态壁纸更改为桌面背景图片。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow,禁用Windows幻灯片放映,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
+PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.HardwareAcceleration,硬件加速,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.HardwareAcceleration.Description,更改支持的壁纸的硬件加速状态。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Gif播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,选择要播放库中的Gif主题的插件。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Video播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,选择要播放库中的Video主题的插件。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Url播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,选择要运行库中的Url主题的引擎。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Web播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,选择要运行库中的Web主题的引擎。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,YouTube播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,选择要运行库中的YouTube主题的引擎。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
-PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙297,PASS⦙297,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Application播放器,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,选择要运行库中的Application主题的引擎。,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ZH.xaml,
-PASS⦙297,PASS⦙297,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ZH.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,互联网之光熄灭的一刻,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ZH.xaml,
 Portal.BrokenStorePage.DescriptionText,就像没有星星的夜空一样，这里没有互联网的闪烁,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ZH.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.ZH.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ZH.xaml,
-PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ZH.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,你寻找的答案可能隐藏在天空中,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ZH.xaml,
 Portal.SearchStorePage.DescriptionText,如果结果不如预期，天空可能为您提供新的体验,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ZH.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ZH.xaml,
-PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ZH.xaml,Please don't touch the translation in this line.
+PASS⦙300,PASS⦙300,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ZH.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,探索商店中的神秘情况,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ZH.xaml,
 Portal.UnknownStorePage.DescriptionText,追寻未知之事，开始揭开商店中发生的神秘事件之旅,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ZH.xaml,

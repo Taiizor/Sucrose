@@ -900,7 +900,7 @@ Portal.WallpaperCycling.Cycling,Automatické Cyklování Pozadí,,Portal\Control
 Portal.WallpaperCycling.Cycling.Description,Zda se tapeta mění automaticky nebo ne.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
 PASS⦙163,PASS⦙163,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,Časový Interval,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
-Portal.WallpaperCycling.Time.Description,"Časový interval, po kterém se tapeta změní.",,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
+Portal.WallpaperCycling.Time.Description,"Časový interval v sekundách, po kterém se tapeta změní.",,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
 PASS⦙164,PASS⦙164,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,Režim Přechodu,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
 Portal.WallpaperCycling.Transition.Description,Nastavuje režim přechodu mezi tapetami.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.CS.xaml,
@@ -1253,39 +1253,43 @@ PASS⦙288,PASS⦙288,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal
 Portal.WallpaperSettingPage.ShuffleMode,Režim Zamíchání,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Změní režim zamíchání na podporovaných tapetách.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 PASS⦙289,PASS⦙289,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.DisableSlideshowLive,Prezentace Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
+Portal.WallpaperSettingPage.DisableSlideshowLive.Description,Při použití živé tapety automaticky zakáže prezentaci Windows.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
+PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.BackgroundImage,Obrázek Pozadí,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.BackgroundImage.Description,Změní živou tapetu na obrázek pozadí plochy.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow,Zakázat prezentaci Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
+PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.HardwareAcceleration,Hardwarová Akcelerace,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.HardwareAcceleration.Description,Upravuje stav hardwarové akcelerace pro podporované tapety.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Přehrávač Gif,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,"Vyberte doplněk, který bude přehrávat témata ve formátu Gif uložená ve vaší knihovně.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Přehrávač Video,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,"Vyberte doplněk, který bude přehrávat témata ve formátu Video uložená ve vaší knihovně.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Url Engine,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,"Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu Url.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Web Engine,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,"Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu Web.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,YouTube Engine,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,"Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu YouTube.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
-PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙297,PASS⦙297,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Application Engine,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,"Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu Application.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.CS.xaml,
-PASS⦙297,PASS⦙297,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.CS.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,"Okamžik, kdy zhasly internetové světla",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.CS.xaml,
 Portal.BrokenStorePage.DescriptionText,"Jako hvězdná obloha bez hvězd, zde nenajdete zář internetu.",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.CS.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.CS.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.CS.xaml,
-PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.CS.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Odpovědi na vaše hledání mohou být ukryty na obloze,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.CS.xaml,
 Portal.SearchStorePage.DescriptionText,"Pokud výsledky nepřicházejí tak, jak jste čekali, obloha vám může nabídnout nový zážitek.",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.CS.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.CS.xaml,
-PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.CS.xaml,Please don't touch the translation in this line.
+PASS⦙300,PASS⦙300,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.CS.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,"Objevte Tajemství, Které Se V Obchodě Událo",,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.CS.xaml,
 Portal.UnknownStorePage.DescriptionText,"Vydejte se na cestu k odhalení tajemství, které se stalo v obchodě, a sledujte neznámý příběh.",,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.CS.xaml,

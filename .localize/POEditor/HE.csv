@@ -900,7 +900,7 @@ Portal.WallpaperCycling.Cycling,מחזור טפט אוטומטי,,Portal\Control
 Portal.WallpaperCycling.Cycling.Description,האם הטפט ישתנה אוטומטית.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HE.xaml,
 PASS⦙163,PASS⦙163,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HE.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,טווח זמן,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HE.xaml,
-Portal.WallpaperCycling.Time.Description,הטפט משתנה לאחר הדקה שצוינה.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HE.xaml,
+Portal.WallpaperCycling.Time.Description,הטפט משתנה לאחר השניות שצוינו.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HE.xaml,
 PASS⦙164,PASS⦙164,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HE.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,מצב מעבר,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HE.xaml,
 Portal.WallpaperCycling.Transition.Description,מגדיר את מצב המעבר בין טפטים.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HE.xaml,
@@ -1253,39 +1253,43 @@ PASS⦙288,PASS⦙288,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal
 Portal.WallpaperSettingPage.ShuffleMode,סטטוס ערבוב,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,מחליף את מצב המיזוג בטפטים נתמכים.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
 PASS⦙289,PASS⦙289,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.DisableSlideshowLive,מצגת Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
+Portal.WallpaperSettingPage.DisableSlideshowLive.Description,משבית אוטומטית את מצגת Windows כאשר מוחל טפט חי.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
+PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.BackgroundImage,תמונת רקע,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
 Portal.WallpaperSettingPage.BackgroundImage.Description,משנה את הטפט המונפש לתמונת הרקע של שולחן העבודה.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
-PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow,השבת את מצגת Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
+PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.HardwareAcceleration,האצת חומרה,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
 Portal.WallpaperSettingPage.HardwareAcceleration.Description,החלפת האצת חומרה בטפטים נתמכים.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
-PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
+PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,תוסף Gif,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,בחר את הפלאגין שינגן את ערכות הנושא מסוג Gif בספרייה שלך.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
-PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
+PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,תוסף Video,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,בחר את הפלאגין שינגן את ערכות הנושא של סוג Video בספרייה שלך.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
-PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
+PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,מנוע Url,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,בחר את המנוע שיפעיל את ערכות הנושא של סוג Url בספרייה שלך.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
-PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
+PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,מנוע Web,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,בחר את המנוע שיפעיל את ערכות הנושא של סוג Web בספרייה שלך.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
-PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
+PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,מנוע YouTube,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,בחר את המנוע שיפעיל את ערכות הנושא של YouTube בספרייה שלך.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
-PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
+PASS⦙297,PASS⦙297,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,מנוע Application,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,בחר את המנוע שיפעיל את ערכות הנושא של סוג Application בספרייה שלך.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HE.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HE.xaml,
-PASS⦙297,PASS⦙297,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HE.xaml,Please don't touch the translation in this line.
+PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HE.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,רגע שבו אורות האינטרנט היו עמומים,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HE.xaml,
 Portal.BrokenStorePage.DescriptionText,"כמו שמיים ללא כוכבים, אין כאן זוהר אינטרנט",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HE.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.HE.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HE.xaml,
-PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HE.xaml,Please don't touch the translation in this line.
+PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HE.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,התשובה למה שאתה מחפש עשויה להיות חבויה בשמים,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HE.xaml,
 Portal.SearchStorePage.DescriptionText,"אם התוצאות אינן מה שציפיתם, השמיים יכולים להציע לכם חוויה חדשה",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HE.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HE.xaml,
-PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HE.xaml,Please don't touch the translation in this line.
+PASS⦙300,PASS⦙300,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HE.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,גלה את המצב המסתורי שהתרחש בחנות,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HE.xaml,
 Portal.UnknownStorePage.DescriptionText,רדף אחר הלא נודע וצא למסע כדי לפענח את המצב המסתורי המתרחש בחנות.,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HE.xaml,

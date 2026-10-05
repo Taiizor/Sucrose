@@ -900,7 +900,7 @@ Portal.WallpaperCycling.Cycling,Otomatik Duvar Kağıdı Döngüsü,,Portal\Cont
 Portal.WallpaperCycling.Cycling.Description,Duvar kağıdının otomatik olarak değişip değişmeyeceği.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
 PASS⦙163,PASS⦙163,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,Zaman Aralığı,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
-Portal.WallpaperCycling.Time.Description,Belirlenen dakika sonrasında duvar kağıdı değişir.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
+Portal.WallpaperCycling.Time.Description,Belirlenen saniye sonrasında duvar kağıdı değişir.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
 PASS⦙164,PASS⦙164,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,Geçiş Modu,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
 Portal.WallpaperCycling.Transition.Description,Duvar kağıtları arasındaki geçiş modunu ayarlar.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,
@@ -1253,39 +1253,43 @@ PASS⦙288,PASS⦙288,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal
 Portal.WallpaperSettingPage.ShuffleMode,Karıştırma Durumu,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Desteklenen duvar kağıtlarında karıştırma durumunu değiştirir.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 PASS⦙289,PASS⦙289,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.DisableSlideshowLive,Windows Slayt Gösterisi,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
+Portal.WallpaperSettingPage.DisableSlideshowLive.Description,Canlı duvar kağıdı uygulandığında Windows slayt gösterisini otomatik kapatır.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
+PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.BackgroundImage,Arkaplan Görüntüsü,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.BackgroundImage.Description,Hareketli duvar kağıdını masaüstü arkaplan görüntüsü olarak değiştirir.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow,Windows slayt gösterisini devre dışı bırak,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
+PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.HardwareAcceleration,Donanım Hızlandırma,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.HardwareAcceleration.Description,Desteklenen duvar kağıtlarında donanım hızlandırma durumunu değiştirir.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Gif Eklentisi,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,Kütüphanenizde bulunan Gif türündeki temaları oynatacak olan eklentiyi seçin.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Video Eklentisi,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,Kütüphanenizde bulunan Video türündeki temaları oynatacak olan eklentiyi seçin.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Url Motoru,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,Kütüphanenizde bulunan Url türündeki temaları çalıştıracak olan motoru seçin.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Web Motoru,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,Kütüphanenizde bulunan Web türündeki temaları çalıştıracak olan motoru seçin.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,YouTube Motoru,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,Kütüphanenizde bulunan YouTube türündeki temaları çalıştıracak olan motoru seçin.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
-PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙297,PASS⦙297,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Application Motoru,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,Kütüphanenizde bulunan Application türündeki temaları çalıştıracak olan motoru seçin.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.TR.xaml,
-PASS⦙297,PASS⦙297,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.TR.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,İnternet Işıklarının Sönük Kaldığı Bir An,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.TR.xaml,
 Portal.BrokenStorePage.DescriptionText,"Yıldızsız bir gökyüzü gibi, burada da internetin parıltısı yok",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.TR.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.TR.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.TR.xaml,
-PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.TR.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Aradıklarınızın Yanıtı Gökyüzünde Saklı Olabilir,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.TR.xaml,
 Portal.SearchStorePage.DescriptionText,"Sonuçlar beklediğiniz gibi gelmiyorsa, gökyüzü size yeni bir deneyim sunabilir",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.TR.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.TR.xaml,
-PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.TR.xaml,Please don't touch the translation in this line.
+PASS⦙300,PASS⦙300,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.TR.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,Mağazada Ortaya Çıkan Gizemli Durumu Keşfedin,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.TR.xaml,
 Portal.UnknownStorePage.DescriptionText,Bilinmeyenin peşine düşün ve mağazada meydana gelen gizemli durumu aydınlatma yolculuğuna çıkın,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.TR.xaml,

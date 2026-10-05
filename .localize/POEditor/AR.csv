@@ -900,7 +900,7 @@ Portal.WallpaperCycling.Cycling,التدوير التلقائي لخلفية ا�
 Portal.WallpaperCycling.Cycling.Description,ما إذا كانت خلفية الشاشة تتغيّر تلقائيًا أم لا.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.AR.xaml,
 PASS⦙163,PASS⦙163,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.AR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,الفاصل الزمني,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.AR.xaml,
-Portal.WallpaperCycling.Time.Description,الفاصل الزمني الذي تتغيّر بعده خلفية الشاشة.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.AR.xaml,
+Portal.WallpaperCycling.Time.Description,الفاصل الزمني بالثواني الذي تتغيّر بعده خلفية الشاشة.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.AR.xaml,
 PASS⦙164,PASS⦙164,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.AR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,وضع الانتقال,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.AR.xaml,
 Portal.WallpaperCycling.Transition.Description,يضبط وضع الانتقال بين خلفيات الشاشة.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.AR.xaml,
@@ -1253,39 +1253,43 @@ PASS⦙288,PASS⦙288,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal
 Portal.WallpaperSettingPage.ShuffleMode,وضع الخلط,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,غيّر سلوك الخلط لخلفيات الشاشة المدعومة.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
 PASS⦙289,PASS⦙289,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.DisableSlideshowLive,عرض شرائح Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
+Portal.WallpaperSettingPage.DisableSlideshowLive.Description,يُوقف عرض شرائح Windows تلقائيًا عند تطبيق خلفية حيّة.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
+PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.BackgroundImage,صورة الخلفية,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
 Portal.WallpaperSettingPage.BackgroundImage.Description,تغيّر الخلفية الحيّة إلى صورة خلفية لسطح المكتب.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
-PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow,تعطيل عرض شرائح Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
+PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.HardwareAcceleration,تسريع الأجهزة,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
 Portal.WallpaperSettingPage.HardwareAcceleration.Description,تغيّر سلوك تسريع الأجهزة لخلفيات الشاشة المدعومة.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
-PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
+PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,مشغّل Gif,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,حدّد الإضافة التي ستشغّل سِمات Gif في مكتبتك.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
-PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
+PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,مشغّل Video,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,حدّد الإضافة التي ستشغّل سِمات Video في مكتبتك.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
-PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
+PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,محرّك Url,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,حدّد المحرّك الذي سيشغّل سِمات Url في مكتبتك.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
-PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
+PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,محرّك Web,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,حدّد المحرّك الذي سيشغّل سِمات Web في مكتبتك.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
-PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
+PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,محرّك YouTube,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,حدّد المحرّك الذي سيشغّل سِمات YouTube في مكتبتك.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
-PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
+PASS⦙297,PASS⦙297,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,محرّك Application,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,حدّد المحرّك الذي سيشغّل سِمات Application في مكتبتك.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.AR.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.AR.xaml,
-PASS⦙297,PASS⦙297,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.AR.xaml,Please don't touch the translation in this line.
+PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.AR.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,لحظةٌ خَفَتَت فيها أضواء الإنترنت,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.AR.xaml,
 Portal.BrokenStorePage.DescriptionText,كسماءٍ بلا نجوم، لا وميض للإنترنت هنا,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.AR.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.AR.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.AR.xaml,
-PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.AR.xaml,Please don't touch the translation in this line.
+PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.AR.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,قد تكون إجابة ما تبحث عنه مخبّأة في السماء,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.AR.xaml,
 Portal.SearchStorePage.DescriptionText,إذا لم تظهر النتائج كما تتوقّع، فقد تقدّم لك السماء تجربة جديدة,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.AR.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.AR.xaml,
-PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.AR.xaml,Please don't touch the translation in this line.
+PASS⦙300,PASS⦙300,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.AR.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,اكتشف الحالة الغامضة التي ظهرت في المتجر,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.AR.xaml,
 Portal.UnknownStorePage.DescriptionText,انطلق في رحلة لكشف المجهول وإلقاء الضوء على الحالة الغامضة التي ظهرت في المتجر,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.AR.xaml,

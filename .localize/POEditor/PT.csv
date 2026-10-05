@@ -900,7 +900,7 @@ Portal.WallpaperCycling.Cycling,Ciclagem Automática de Papel de Parede,,Portal\
 Portal.WallpaperCycling.Cycling.Description,Se o papel de parede muda automaticamente ou não.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
 PASS⦙163,PASS⦙163,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,Intervalo de Tempo,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
-Portal.WallpaperCycling.Time.Description,O intervalo de tempo após o qual o papel de parede muda.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
+Portal.WallpaperCycling.Time.Description,O intervalo de tempo em segundos após o qual o papel de parede muda.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
 PASS⦙164,PASS⦙164,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,Modo de Transição,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
 Portal.WallpaperCycling.Transition.Description,Define o modo de transição entre papéis de parede.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,
@@ -1253,39 +1253,43 @@ PASS⦙288,PASS⦙288,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal
 Portal.WallpaperSettingPage.ShuffleMode,Modo de Embaralhamento,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Altera o modo de embaralhamento em papéis de parede suportados.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 PASS⦙289,PASS⦙289,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.DisableSlideshowLive,Apresentação do Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
+Portal.WallpaperSettingPage.DisableSlideshowLive.Description,Desativa automaticamente a apresentação do Windows quando um papel de parede animado é aplicado.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
+PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.BackgroundImage,Imagem de Fundo,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.BackgroundImage.Description,Altera o papel de parede animado para uma imagem de fundo da área de trabalho.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow,Desativar a apresentação do Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
+PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.HardwareAcceleration,Aceleração de Hardware,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.HardwareAcceleration.Description,Altera o status de aceleração de hardware para papéis de parede suportados.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Reprodutor de Gif,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,Selecione o plug-in que reproduzirá temas do tipo Gif em sua biblioteca.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Reprodutor de Vídeo,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,Selecione o plug-in que reproduzirá temas do tipo Vídeo em sua biblioteca.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Motor de Url,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,Selecione o motor que executará temas do tipo Url em sua biblioteca.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Motor da Web,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,Selecione o motor que executará temas do tipo web em sua biblioteca.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,Motor do YouTube,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,Selecione o motor que executará temas do tipo YouTube em sua biblioteca.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
-PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙297,PASS⦙297,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Motor de Application,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,Selecione o motor que executará temas do tipo Application em sua biblioteca.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.PT.xaml,
-PASS⦙297,PASS⦙297,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.PT.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,Um Momento em que as Luzes da Internet se Apagaram,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.PT.xaml,
 Portal.BrokenStorePage.DescriptionText,"Como um céu sem estrelas, aqui também falta o brilho da internet",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.PT.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.PT.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PT.xaml,
-PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PT.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Respostas para o que Procura Podem Estar no Céu,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PT.xaml,
 Portal.SearchStorePage.DescriptionText,"Se os resultados não forem como esperado, o céu pode oferecer uma nova experiência",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PT.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.PT.xaml,
-PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.PT.xaml,Please don't touch the translation in this line.
+PASS⦙300,PASS⦙300,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.PT.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,Descubra o Mistério que Surgiu na Loja,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.PT.xaml,
 Portal.UnknownStorePage.DescriptionText,Siga o desconhecido e embarque numa jornada para elucidar o mistério que ocorreu na loja,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.PT.xaml,

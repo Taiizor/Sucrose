@@ -900,7 +900,7 @@ Portal.WallpaperCycling.Cycling,Automatyczne Cykliczne Tapety,,Portal\Controls\W
 Portal.WallpaperCycling.Cycling.Description,"Czy tapeta zmienia się automatycznie, czy nie.",,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PL.xaml,
 PASS⦙163,PASS⦙163,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,Interwał Czasu,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PL.xaml,
-Portal.WallpaperCycling.Time.Description,Interwał czasowy po którym następuje zmiana tapety.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PL.xaml,
+Portal.WallpaperCycling.Time.Description,"Interwał czasowy w sekundach, po którym następuje zmiana tapety.",,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PL.xaml,
 PASS⦙164,PASS⦙164,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,Tryb Przejścia,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PL.xaml,
 Portal.WallpaperCycling.Transition.Description,Ustawia tryb przejścia między tapetami.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PL.xaml,
@@ -1253,39 +1253,43 @@ PASS⦙288,PASS⦙288,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal
 Portal.WallpaperSettingPage.ShuffleMode,Tryb Tasowania,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Zmień zachowanie tasowania dla obsługiwanych tapet.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
 PASS⦙289,PASS⦙289,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.DisableSlideshowLive,Pokaz slajdów systemu Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
+Portal.WallpaperSettingPage.DisableSlideshowLive.Description,Automatycznie wyłącza pokaz slajdów systemu Windows po zastosowaniu animowanej tapety.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
+PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.BackgroundImage,Obraz Tła,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
 Portal.WallpaperSettingPage.BackgroundImage.Description,Zamienia tapetę animowaną na obraz tła pulpitu.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
-PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow,Wyłącz pokaz slajdów systemu Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
+PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.HardwareAcceleration,Przyspieszenie Sprzętowe,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
 Portal.WallpaperSettingPage.HardwareAcceleration.Description,Zmienia status przyspieszenia sprzętowego dla obsługiwanych tapet.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
-PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
+PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Odtwarzacz Gif,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,"Wybierz wtyczkę, która odtworzy tematyczne tapety Gif w twojej bibliotece.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
-PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
+PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Odtwarzacz Video,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,"Wybierz wtyczkę, która odtworzy tematyczne tapety Video w twojej bibliotece.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
-PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
+PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Silnik Url,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,"Wybierz silnik, który uruchomi tematyczne tapety Url w twojej bibliotece.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
-PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
+PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Silnik Web,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,"Wybierz silnik, który uruchomi tematyczne tapety Web w twojej bibliotece.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
-PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
+PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,Silnik YouTube,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,"Wybierz silnik, który uruchomi tematyczne tapety YouTube w twojej bibliotece.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
-PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
+PASS⦙297,PASS⦙297,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Silnik Application,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,"Wybierz silnik, który uruchomi tematyczne tapety Application w twojej bibliotece.",,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.PL.xaml,
-PASS⦙297,PASS⦙297,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.PL.xaml,Please don't touch the translation in this line.
+PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.PL.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,"Chwila, gdy światło internetu jest przygaszone",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.PL.xaml,
 Portal.BrokenStorePage.DescriptionText,"Jak niebo bez gwiazd, tutaj również brak blasku internetu",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.PL.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.PL.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PL.xaml,
-PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PL.xaml,Please don't touch the translation in this line.
+PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PL.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,"Odpowiedź na to, czego szukasz, może być ukryta na niebie",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PL.xaml,
 Portal.SearchStorePage.DescriptionText,"Jeśli wyniki nie są takie, jak oczekiwano, niebo może zaoferować Ci nowe doświadczenie",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PL.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.PL.xaml,
-PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.PL.xaml,Please don't touch the translation in this line.
+PASS⦙300,PASS⦙300,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.PL.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,"Odkryj tajemniczy stan, który pojawił się w sklepie",,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.PL.xaml,
 Portal.UnknownStorePage.DescriptionText,"Podążaj za nieznanym i wyrusz w podróż, aby oświecić tajemniczy stan, który miał miejsce w sklepie",,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.PL.xaml,

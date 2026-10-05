@@ -900,7 +900,7 @@ Portal.WallpaperCycling.Cycling,Ciclare Automată a Tapetului,,Portal\Controls\W
 Portal.WallpaperCycling.Cycling.Description,Dacă tapetul se schimbă automat sau nu.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
 PASS⦙163,PASS⦙163,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,Interval de Timp,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
-Portal.WallpaperCycling.Time.Description,Intervalul de timp după care se schimbă tapetul.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
+Portal.WallpaperCycling.Time.Description,Intervalul de timp în secunde după care se schimbă tapetul.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
 PASS⦙164,PASS⦙164,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,Mod Tranzitie,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
 Portal.WallpaperCycling.Transition.Description,Stabilește modul de tranziție între tapete.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,
@@ -1253,39 +1253,43 @@ PASS⦙288,PASS⦙288,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal
 Portal.WallpaperSettingPage.ShuffleMode,Mod Amestecare,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Schimbă modul de amestecare pentru imagini de fundal acceptate.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 PASS⦙289,PASS⦙289,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.DisableSlideshowLive,Expunere de diapozitive Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+Portal.WallpaperSettingPage.DisableSlideshowLive.Description,Dezactivează automat expunerea de diapozitive Windows când se aplică un tapet animat.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.BackgroundImage,Imagine de Fundal,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.BackgroundImage.Description,Schimbă tapetul animat cu o imagine de fundal pentru desktop.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow,Dezactivează expunerea de diapozitive Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
+PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.HardwareAcceleration,Accelerare Hardware,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.HardwareAcceleration.Description,Modifică starea de accelerare hardware pentru fundalurile acceptate.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Modul Gif,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,Alege modul care va reda temele de tip Gif din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Modul Video,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,Alege modul care va reda temele de tip Video din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Motor Url,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,Alege motorul care va reda temele de tip Url din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Motor Web,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,Alege motorul care va reda temele de tip Web din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,Motor YouTube,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,Alege motorul care va reda temele de tip YouTube din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
-PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙297,PASS⦙297,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Motor Application,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,Alege motorul care va reda temele de tip Application din biblioteca ta.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RO.xaml,
-PASS⦙297,PASS⦙297,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RO.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,Un Moment în Care Lumina Internetului se Stinge,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RO.xaml,
 Portal.BrokenStorePage.DescriptionText,"Aici, așa cum este și cerul fără stele, strălucirea internetului lipsește",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RO.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.RO.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RO.xaml,
-PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RO.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Răspunsul Căutărilor Tale Poate Fi Ascuns în Cer,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RO.xaml,
 Portal.SearchStorePage.DescriptionText,"Dacă rezultatele nu sunt ceea ce te așteptai, cerul îți poate oferi o experiență nouă",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RO.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RO.xaml,
-PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RO.xaml,Please don't touch the translation in this line.
+PASS⦙300,PASS⦙300,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RO.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,Descoperiți Misterul Apariției în Magazin,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RO.xaml,
 Portal.UnknownStorePage.DescriptionText,Pornește în căutarea necunoscutului și începe călătoria de a dezvălui misterul apariției în magazin,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RO.xaml,

@@ -900,7 +900,7 @@ Portal.WallpaperCycling.Cycling,Pemutaran Wallpaper Automatik,,Portal\Controls\W
 Portal.WallpaperCycling.Cycling.Description,Sama ada wallpaper berubah secara automatik atau tidak.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
 PASS⦙163,PASS⦙163,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,Sela Masa,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
-Portal.WallpaperCycling.Time.Description,Sela masa selepas wallpaper berubah.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
+Portal.WallpaperCycling.Time.Description,Sela masa dalam saat selepas wallpaper berubah.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
 PASS⦙164,PASS⦙164,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,Mod Transisi,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
 Portal.WallpaperCycling.Transition.Description,Mengatur mod transisi antara wallpaper.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,
@@ -1253,39 +1253,43 @@ PASS⦙288,PASS⦙288,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal
 Portal.WallpaperSettingPage.ShuffleMode,Mod Kacau,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Mod kacau yang akan diubah untuk wallpaper yang disokong.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 PASS⦙289,PASS⦙289,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.DisableSlideshowLive,Tayangan Slaid Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
+Portal.WallpaperSettingPage.DisableSlideshowLive.Description,Melumpuhkan tayangan slaid Windows secara automatik apabila kertas dinding hidup digunakan.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
+PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.BackgroundImage,Imej Latar,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.BackgroundImage.Description,Menukar kertas dinding hidup kepada imej latar desktop.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow,Lumpuhkan tayangan slaid Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
+PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.HardwareAcceleration,Pecutan Perkakasan,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.HardwareAcceleration.Description,Mengubah status pecutan perkakasan untuk kertas wallpaper yang disokong.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Pemain Gif,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,Pilih pemain yang akan memainkan tema jenis Gif dalam perpustakaan anda.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Pemain Video,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,Pilih pemain yang akan memainkan tema jenis Video dalam perpustakaan anda.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Pemain Urll,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,Pilih enjin yang akan menjalankan tema jenis Url dalam perpustakaan anda.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Pemain Web,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,Pilih enjin yang akan menjalankan tema jenis Web dalam perpustakaan anda.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,Pemain YouTube,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,Pilih enjin yang akan menjalankan tema jenis YouTube dalam perpustakaan anda.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
-PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙297,PASS⦙297,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Pemain Application,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,Pilih enjin yang akan menjalankan tema jenis Application dalam perpustakaan anda.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.MS.xaml,
-PASS⦙297,PASS⦙297,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.MS.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,Momen Di Mana Cahaya Internet Padam,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.MS.xaml,
 Portal.BrokenStorePage.DescriptionText,"Seperti langit yang tanpa bintang, di sini tiada sinar internet",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.MS.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.MS.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.MS.xaml,
-PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.MS.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Jawapan Anda Mungkin Tersembunyi Di Langit,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.MS.xaml,
 Portal.SearchStorePage.DescriptionText,"Jika hasil carian tidak seperti yang dijangkakan, langit mungkin memberikan anda pengalaman baru",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.MS.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.MS.xaml,
-PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.MS.xaml,Please don't touch the translation in this line.
+PASS⦙300,PASS⦙300,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.MS.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,Terokai Keadaan Misteri di Dalam Kedai,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.MS.xaml,
 Portal.UnknownStorePage.DescriptionText,Terokai misteri yang muncul di kedai dan mula perjalanan untuk menerangi keadaan yang tidak diketahui,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.MS.xaml,

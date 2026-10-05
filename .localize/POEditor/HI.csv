@@ -900,7 +900,7 @@ Portal.WallpaperCycling.Cycling,स्वचालित वॉलपेपर �
 Portal.WallpaperCycling.Cycling.Description,क्या वॉलपेपर स्वचालित रूप से बदलता है या नहीं।,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
 PASS⦙163,PASS⦙163,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,समय अंतराल,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
-Portal.WallpaperCycling.Time.Description,वॉलपेपर परिवर्तन के बाद समय अंतराल।,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
+Portal.WallpaperCycling.Time.Description,वॉलपेपर बदलने के बाद सेकंड में समय अंतराल।,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
 PASS⦙164,PASS⦙164,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,संचार मोड,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
 Portal.WallpaperCycling.Transition.Description,वॉलपेपर के बीच संचार मोड सेट करता है।,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,
@@ -1253,39 +1253,43 @@ PASS⦙288,PASS⦙288,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal
 Portal.WallpaperSettingPage.ShuffleMode,शफल मोड,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,समर्थित वॉलपेपरों की शफल मोड को बदलता है।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 PASS⦙289,PASS⦙289,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.DisableSlideshowLive,Windows स्लाइडशो,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
+Portal.WallpaperSettingPage.DisableSlideshowLive.Description,लाइव वॉलपेपर लागू होने पर Windows स्लाइडशो अपने आप बंद हो जाता है।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
+PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.BackgroundImage,पृष्ठभूमि छवि,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.BackgroundImage.Description,लाइव वॉलपेपर को डेस्कटॉप पृष्ठभूमि छवि में बदलता है।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow,Windows स्लाइडशो अक्षम करें,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
+PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.HardwareAcceleration,हार्डवेयर एक्सेलेरेशन,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.HardwareAcceleration.Description,समर्थित वॉलपेपर के लिए हार्डवेयर एक्सेलेरेशन की स्थिति बदलता है।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Gif प्लेयर,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,आपकी लाइब्रेरी में मौजूद Gif प्रकार के थीमों को चलाने के लिए प्लगइन का चयन करें।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Video प्लेयर,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,आपकी लाइब्रेरी में मौजूद Video प्रकार के थीमों को चलाने के लिए प्लगइन का चयन करें।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Url प्लेयर,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,आपकी लाइब्रेरी में मौजूद Url प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Web मोटर,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,आपकी लाइब्रेरी में मौजूद Web प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,YouTube मोटर,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,आपकी लाइब्रेरी में मौजूद YouTube प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
-PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙297,PASS⦙297,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Application मोटर,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,आपकी लाइब्रेरी में मौजूद Application प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HI.xaml,
-PASS⦙297,PASS⦙297,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HI.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,जब इंटरनेट बंद होता है,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HI.xaml,
 Portal.BrokenStorePage.DescriptionText,"एक तारे की तरह तारों की कमी है, यहां इंटरनेट की चमक नहीं है",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HI.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.HI.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HI.xaml,
-PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HI.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,आपके खोज के जवाब आकाश में छिपे हो सकते हैं,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HI.xaml,
 Portal.SearchStorePage.DescriptionText,"अगर परिणाम आपकी उम्मीदों के मुताबिक नहीं हैं, तो आकाश आपको एक नई अनुभव प्रदान कर सकता है",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HI.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HI.xaml,
-PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HI.xaml,Please don't touch the translation in this line.
+PASS⦙300,PASS⦙300,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HI.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,अज्ञात स्टोर पेज में छिपे रहस्य को खोजें,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HI.xaml,
 Portal.UnknownStorePage.DescriptionText,अज्ञात का पीछा करें और स्टोर पर हो रहे रहस्यमय स्थिति का पता लगाने के लिए एक यात्रा पर निकलें,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HI.xaml,

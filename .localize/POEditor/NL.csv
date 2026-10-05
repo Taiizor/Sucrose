@@ -900,7 +900,7 @@ Portal.WallpaperCycling.Cycling,Automatische Achtergrondafbeeldingcyclus,,Portal
 Portal.WallpaperCycling.Cycling.Description,Of de achtergrondafbeelding automatisch verandert of niet.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
 PASS⦙163,PASS⦙163,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,Tijdsinterval,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
-Portal.WallpaperCycling.Time.Description,Het tijdsinterval nadat de achtergrondafbeelding verandert.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
+Portal.WallpaperCycling.Time.Description,Het tijdsinterval in seconden waarna de achtergrondafbeelding verandert.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
 PASS⦙164,PASS⦙164,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,Overgangsmodus,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
 Portal.WallpaperCycling.Transition.Description,Stelt de overgangsmodus tussen achtergrondafbeeldingen in.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,
@@ -1253,39 +1253,43 @@ PASS⦙288,PASS⦙288,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal
 Portal.WallpaperSettingPage.ShuffleMode,Schudmodus,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Verandert de schudinstelling voor ondersteunde achtergronden.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 PASS⦙289,PASS⦙289,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.DisableSlideshowLive,Windows-diavoorstelling,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+Portal.WallpaperSettingPage.DisableSlideshowLive.Description,Schakelt de Windows-diavoorstelling automatisch uit wanneer een live-behang wordt toegepast.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.BackgroundImage,Achtergrondafbeelding,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.BackgroundImage.Description,Wijzigt het live-behang in een bureaubladachtergrondafbeelding.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow,Windows-diavoorstelling uitschakelen,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
+PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.HardwareAcceleration,Hardwareversnelling,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.HardwareAcceleration.Description,Wijzigt de hardwareversnellingstatus voor ondersteunde achtergronden.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Gif Speler,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,Selecteer de plug-in die Gif-thema's in uw bibliotheek zal afspelen.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Video Speler,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,Selecteer de plug-in die Video-thema's in uw bibliotheek zal afspelen.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Url Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,Selecteer de motor die Url-thema's in uw bibliotheek zal uitvoeren.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Web Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,Selecteer de motor die Web-thema's in uw bibliotheek zal uitvoeren.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,YouTube Motor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,Selecteer de motor die YouTube-thema's in uw bibliotheek zal uitvoeren.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
-PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙297,PASS⦙297,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Toepassingsmotor,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,Selecteer de motor die Toepassings-thema's in uw bibliotheek zal uitvoeren.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,
-PASS⦙297,PASS⦙297,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,Een Moment van Gedoofde Internetlichten,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,
 Portal.BrokenStorePage.DescriptionText,"Zoals een sterrenloze hemel, hier ontbreekt de glans van het internet",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.NL.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,
-PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Het Antwoord op wat je zoekt kan in de lucht verborgen zijn,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,
 Portal.SearchStorePage.DescriptionText,"Als de resultaten niet zijn wat je verwachtte, kan de lucht je een nieuwe ervaring bieden",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,
-PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,Please don't touch the translation in this line.
+PASS⦙300,PASS⦙300,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,Ontdek het mysterieuze geval in de winkel,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,
 Portal.UnknownStorePage.DescriptionText,Ga op zoek naar het onbekende en begin aan een reis om het mysterieuze geval in de winkel op te helderen,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,

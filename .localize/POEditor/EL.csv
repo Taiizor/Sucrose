@@ -900,7 +900,7 @@ Portal.WallpaperCycling.Cycling,Αυτόματος Κύκλος Ταπετσαρ
 Portal.WallpaperCycling.Cycling.Description,Εάν η ταπετσαρία αλλάζει αυτόματα ή όχι.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
 PASS⦙163,PASS⦙163,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Time,Χρονικό διάστημα,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
-Portal.WallpaperCycling.Time.Description,Το χρονικό διάστημα μετά το οποίο αλλάζει η ταπετσαρία.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
+Portal.WallpaperCycling.Time.Description,"Το χρονικό διάστημα σε δευτερόλεπτα, μετά το οποίο αλλάζει η ταπετσαρία.",,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
 PASS⦙164,PASS⦙164,Don't Touch,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperCycling.Transition,Λειτουργία Μετάβασης,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
 Portal.WallpaperCycling.Transition.Description,Ορίζει τη λειτουργία μετάβασης μεταξύ ταπετσαριών.,,Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,
@@ -1253,39 +1253,43 @@ PASS⦙288,PASS⦙288,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal
 Portal.WallpaperSettingPage.ShuffleMode,Λειτουργία Ανακάτεμα,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.ShuffleMode.Description,Αλλάζει τη λειτουργία ανακάτεμα για τις υποστηριζόμενες ταπετσαρίες.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 PASS⦙289,PASS⦙289,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.DisableSlideshowLive,Προβολή διαφανειών των Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
+Portal.WallpaperSettingPage.DisableSlideshowLive.Description,Απενεργοποιεί αυτόματα την προβολή διαφανειών των Windows όταν εφαρμόζεται ζωντανή ταπετσαρία.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
+PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.BackgroundImage,Εικόνα Φόντου,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.BackgroundImage.Description,Αλλάζει την κινούμενη ταπετσαρία σε εικόνα φόντου επιφάνειας εργασίας.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙290,PASS⦙290,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+Portal.WallpaperSettingPage.BackgroundImage.DisableSlideshow,Απενεργοποίηση της προβολής διαφανειών των Windows,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
+PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.HardwareAcceleration,Επιτάχυνση Υλικού,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.HardwareAcceleration.Description,Αλλάζει την κατάσταση επιτάχυνσης υλικού για τις υποστηριζόμενες ταπετσαρίες.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙291,PASS⦙291,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.GifPlayer,Πρόσθετο Gif,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.GifPlayer.Description,Επιλέξτε το πρόσθετο που θα αναπαράγει τα ταπετσαρίες τύπου Gif που υπάρχουν στη βιβλιοθήκη σας.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙292,PASS⦙292,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.VideoPlayer,Πρόσθετο Video,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.VideoPlayer.Description,Επιλέξτε το πρόσθετο που θα αναπαράγει τα ταπετσαρίες τύπου Video που υπάρχουν στη βιβλιοθήκη σας.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙293,PASS⦙293,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.UrlPlayer,Μηχανή Url,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.UrlPlayer.Description,Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου Url που υπάρχουν στη βιβλιοθήκη σας.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙294,PASS⦙294,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.WebPlayer,Μηχανή Web,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.WebPlayer.Description,Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου Web που υπάρχουν στη βιβλιοθήκη σας.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙295,PASS⦙295,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.YouTubePlayer,Μηχανή YouTube,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.YouTubePlayer.Description,Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου YouTube που υπάρχουν στη βιβλιοθήκη σας.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
-PASS⦙296,PASS⦙296,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙297,PASS⦙297,Don't Touch,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Please don't touch the translation in this line.
 Portal.WallpaperSettingPage.ApplicationPlayer,Μηχανή Application,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.WallpaperSettingPage.ApplicationPlayer.Description,Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου Application που υπάρχουν στη βιβλιοθήκη σας.,,Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,
 Portal.BrokenStorePage.Title,BrokenStorePage,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EL.xaml,
-PASS⦙297,PASS⦙297,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EL.xaml,Please don't touch the translation in this line.
 Portal.BrokenStorePage.TitleText,Ένα Στιγμιότυπο Όπου το Διαδίκτυο Έχει Σβήσει,,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EL.xaml,
 Portal.BrokenStorePage.DescriptionText,"Σαν έναν ουρανό χωρίς αστέρια, εδώ δεν υπάρχει φωτεινότητα στο διαδίκτυο",,Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EL.xaml,
 Portal.FullStorePage.Title,FullStorePage,,Portal\StorePage\FullStorePage\Portal.FullStorePage.EL.xaml,
 Portal.SearchStorePage.Title,SearchStorePage,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EL.xaml,
-PASS⦙298,PASS⦙298,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EL.xaml,Please don't touch the translation in this line.
 Portal.SearchStorePage.TitleText,Η απάντηση στα ψάξιμά σας μπορεί να κρύβεται στον ουρανό,,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EL.xaml,
 Portal.SearchStorePage.DescriptionText,"Αν τα αποτελέσματα δεν είναι όπως τα περιμένατε, ο ουρανός μπορεί να σας προσφέρει μια νέα εμπειρία",,Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EL.xaml,
 Portal.UnknownStorePage.Title,UnknownStorePage,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EL.xaml,
-PASS⦙299,PASS⦙299,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EL.xaml,Please don't touch the translation in this line.
+PASS⦙300,PASS⦙300,Don't Touch,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EL.xaml,Please don't touch the translation in this line.
 Portal.UnknownStorePage.TitleText,Ανακαλύψτε τον Μυστηριώδη Κατάσταση στο Κατάστημα,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EL.xaml,
 Portal.UnknownStorePage.DescriptionText,Κυνηγήστε το άγνωστο και ξεκινήστε ένα ταξίδι για να ανακαλύψετε το μυστηριώδες γεγονός που συνέβη στο κατάστημα,,Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EL.xaml,
