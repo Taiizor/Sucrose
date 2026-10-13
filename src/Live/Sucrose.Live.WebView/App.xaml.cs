@@ -29,6 +29,7 @@ using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DialogType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PropertiesType;
+using SSDEPROXYT = Sucrose.Shared.Dependency.Enum.ProxyType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSDHG = Sucrose.Shared.Dependency.Helper.Graphic;
 using SSDHR = Sucrose.Shared.Dependency.Helper.Runtime;
@@ -360,6 +361,24 @@ namespace Sucrose.Live.WebView
                             if (!Options.AdditionalBrowserArguments.Contains("--disable-gpu-vsync"))
                             {
                                 Options.AdditionalBrowserArguments += $" --disable-gpu-vsync";
+                            }
+                        }
+
+                        if (SMME.ProxyEnabled && !string.IsNullOrEmpty(SMME.ProxyServer) && SMME.ProxyPort > 0)
+                        {
+                            string proxyScheme = SMME.ProxyType switch
+                            {
+                                SSDEPROXYT.HTTP => "http",
+                                SSDEPROXYT.HTTPS => "https",
+                                SSDEPROXYT.SOCKS5 => "socks5",
+                                _ => "http"
+                            };
+
+                            string proxyUrl = $"{proxyScheme}://{SMME.ProxyServer}:{SMME.ProxyPort}";
+                            
+                            if (!Options.AdditionalBrowserArguments.Contains("--proxy-server"))
+                            {
+                                Options.AdditionalBrowserArguments += $" --proxy-server=\"{proxyUrl}\"";
                             }
                         }
 
