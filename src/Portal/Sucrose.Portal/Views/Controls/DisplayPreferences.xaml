@@ -6,9 +6,8 @@
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
     Title="{DynamicResource Portal.DisplayPreferences.Title}"
-    d:DesignHeight="7750"
+    d:DesignHeight="600"
     d:DesignWidth="775"
     CloseButtonText="{DynamicResource Portal.DisplayPreferences.Close}"
     DialogMaxWidth="775"
@@ -21,7 +20,7 @@
 
     <StackPanel
         x:Name="Panel"
-        MinWidth="400"
+        MinWidth="620"
         MinHeight="9999"
         HorizontalAlignment="Stretch"
         VerticalAlignment="Center"
@@ -29,7 +28,7 @@
         <Border
             x:Name="PreviewBorder"
             MinHeight="250"
-            Margin="0,10,0,10"
+            Margin="0,0,0,12"
             Background="{DynamicResource ControlFillColorDefaultBrush}"
             ClipToBounds="True"
             CornerRadius="8">
@@ -41,10 +40,78 @@
                 VerticalAlignment="Center" />
         </Border>
 
-        <vcontrols:ExpanderCard
-            x:Name="Expander"
-            Expandable="True"
-            IsExpand="True"
-            LeftIconSymbol="DualScreenSpan24" />
+        <ui:Card Background="{DynamicResource CardStrokeColorDefaultBrush}">
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ui:SymbolIcon
+                        Grid.Column="0"
+                        VerticalAlignment="Top"
+                        FontSize="20"
+                        Symbol="DualScreenSpan24" />
+
+                    <StackPanel
+                        Grid.Column="1"
+                        Margin="12,0,0,0"
+                        VerticalAlignment="Top">
+                        <ui:TextBlock Text="{DynamicResource Portal.DisplayPreferences.Expander}" />
+                        <ui:TextBlock
+                            Margin="0,2,0,0"
+                            FontSize="12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{DynamicResource Portal.DisplayPreferences.Expander.Description}"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+                </Grid>
+
+                <WrapPanel Margin="32,12,0,0">
+                    <RadioButton
+                        x:Name="ModeScreen"
+                        Content="{DynamicResource Portal.DisplayPreferences.Screen}"
+                        GroupName="DisplayType" />
+                    <RadioButton
+                        x:Name="ModeExpand"
+                        Margin="16,0,0,0"
+                        Content="{DynamicResource Portal.DisplayPreferences.Expand}"
+                        GroupName="DisplayType" />
+                    <RadioButton
+                        x:Name="ModeDuplicate"
+                        Margin="16,0,0,0"
+                        Content="{DynamicResource Portal.DisplayPreferences.Duplicate}"
+                        GroupName="DisplayType"
+                        IsEnabled="False" />
+                </WrapPanel>
+
+                <StackPanel
+                    x:Name="ExpandOptions"
+                    Margin="32,12,0,0"
+                    Visibility="Collapsed">
+                    <ui:TextBlock
+                        FontSize="12"
+                        FontWeight="SemiBold"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{DynamicResource Portal.DisplayPreferences.Expand.Hint}"
+                        TextWrapping="Wrap" />
+                    <WrapPanel x:Name="ExpandTypeList" Margin="0,8,0,0" />
+                </StackPanel>
+
+                <StackPanel
+                    x:Name="DuplicateOptions"
+                    Margin="32,12,0,0"
+                    Visibility="Collapsed">
+                    <ui:TextBlock
+                        FontSize="12"
+                        FontWeight="SemiBold"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{DynamicResource Portal.DisplayPreferences.Duplicate.Hint}"
+                        TextWrapping="Wrap" />
+                    <WrapPanel x:Name="DuplicateTypeList" Margin="0,8,0,0" />
+                </StackPanel>
+            </StackPanel>
+        </ui:Card>
     </StackPanel>
 </ui:ContentDialog>

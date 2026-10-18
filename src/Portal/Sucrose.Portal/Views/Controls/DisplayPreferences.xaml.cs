@@ -19,7 +19,6 @@ using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWUS = Skylark.Wing.Utility.Screene;
-using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -28,12 +27,6 @@ namespace Sucrose.Portal.Views.Controls
     /// </summary>
     public partial class DisplayPreferences : ContentDialog, IDisposable
     {
-        private StackPanel ExpanderDuplicateContent = new();
-
-        private StackPanel ExpanderExpandContent = new();
-
-        private StackPanel ExpanderCustomContent = new();
-
         public DisplayPreferences(ContentDialogHost? contentDialogHost) : base(contentDialogHost)
         {
             InitializeComponent();
@@ -73,7 +66,7 @@ namespace Sucrose.Portal.Views.Controls
 
             double CanvasW = 680;
             double CanvasH = 230;
-            double Padding = 15;
+            double Padding = 40;
 
             double ScaleX = (CanvasW - (2 * Padding)) / TotalW;
             double ScaleY = (CanvasH - (2 * Padding)) / TotalH;
@@ -170,7 +163,7 @@ namespace Sucrose.Portal.Views.Controls
 
             double CanvasW = 680;
             double CanvasH = 230;
-            double Padding = 15;
+            double Padding = 40;
 
             double ScaleX = (CanvasW - (2 * Padding)) / TotalW;
             double ScaleY = (CanvasH - (2 * Padding)) / TotalH;
@@ -220,9 +213,8 @@ namespace Sucrose.Portal.Views.Controls
         {
             await ScreenMonitor();
 
-            ExpanderCustomContent.Visibility = Visibility.Collapsed;
-            ExpanderExpandContent.Visibility = Visibility.Collapsed;
-            ExpanderDuplicateContent.Visibility = Visibility.Collapsed;
+            ExpandOptions.Visibility = Visibility.Collapsed;
+            DuplicateOptions.Visibility = Visibility.Collapsed;
 
             if (SMME.DisplayScreenType != SEDYST.PerDisplay)
             {
@@ -236,9 +228,8 @@ namespace Sucrose.Portal.Views.Controls
         {
             await ExpandMonitor();
 
-            ExpanderCustomContent.Visibility = Visibility.Visible;
-            ExpanderExpandContent.Visibility = Visibility.Visible;
-            ExpanderDuplicateContent.Visibility = Visibility.Collapsed;
+            ExpandOptions.Visibility = Visibility.Visible;
+            DuplicateOptions.Visibility = Visibility.Collapsed;
 
             if (SMME.DisplayScreenType != SEDYST.SpanAcross)
             {
@@ -269,7 +260,7 @@ namespace Sucrose.Portal.Views.Controls
 
             double CanvasW = 680;
             double CanvasH = 230;
-            double Padding = 15;
+            double Padding = 40;
 
             double ScaleX = (CanvasW - (2 * Padding)) / TotalW;
             double ScaleY = (CanvasH - (2 * Padding)) / TotalH;
@@ -312,9 +303,8 @@ namespace Sucrose.Portal.Views.Controls
         {
             await DuplicateMonitor();
 
-            ExpanderCustomContent.Visibility = Visibility.Visible;
-            ExpanderExpandContent.Visibility = Visibility.Collapsed;
-            ExpanderDuplicateContent.Visibility = Visibility.Visible;
+            ExpandOptions.Visibility = Visibility.Collapsed;
+            DuplicateOptions.Visibility = Visibility.Visible;
 
             if (SMME.DisplayScreenType != SEDYST.SameDuplicate)
             {
@@ -377,120 +367,60 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void ContentDialog_Loaded(object sender, RoutedEventArgs e)
         {
-            Expander.Title.Text = SRER.GetValue("Portal", "DisplayPreferences", "Expander");
-            Expander.Description.Text = SRER.GetValue("Portal", "DisplayPreferences", "Expander", "Description");
-
-            StackPanel ExpanderContent = new();
-
-            RadioButton Screen = new()
-            {
-                Content = SRER.GetValue("Portal", "DisplayPreferences", "Screen"),
-                GroupName = "DisplayType"
-            };
-
-            Screen.Checked += (s, e) => ScreenChecked();
-
-            RadioButton Expand = new()
-            {
-                Content = SRER.GetValue("Portal", "DisplayPreferences", "Expand"),
-                GroupName = "DisplayType"
-            };
-
-            Expand.Checked += (s, e) => ExpandChecked();
-
-            RadioButton Duplicate = new()
-            {
-                Content = SRER.GetValue("Portal", "DisplayPreferences", "Duplicate"),
-                GroupName = "DisplayType",
-                IsEnabled = false
-            };
-
-            Duplicate.Checked += (s, e) => DuplicateChecked();
-
-            ExpanderContent.Children.Add(Screen);
-            ExpanderContent.Children.Add(Expand);
-            ExpanderContent.Children.Add(Duplicate);
-
-            NavigationViewItemSeparator Separator = new()
-            {
-                Background = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
-                Margin = new Thickness(0, 10, 0, 10)
-            };
-
-            ExpanderCustomContent.Children.Add(Separator);
-
-            TextBlock ExpandHint = new()
-            {
-                Text = SRER.GetValue("Portal", "DisplayPreferences", "Expand", "Hint"),
-                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
-                HorizontalAlignment = HorizontalAlignment.Left,
-                TextWrapping = TextWrapping.WrapWithOverflow,
-                TextAlignment = TextAlignment.Left,
-                Margin = new Thickness(0, 0, 0, 10),
-                FontWeight = FontWeights.SemiBold
-            };
-
-            ExpanderExpandContent.Children.Add(ExpandHint);
+            ModeScreen.Checked += (s, e) => ScreenChecked();
+            ModeExpand.Checked += (s, e) => ExpandChecked();
+            ModeDuplicate.Checked += (s, e) => DuplicateChecked();
 
             foreach (SEEST Type in Enum.GetValues(typeof(SEEST)))
             {
                 RadioButton Radio = new()
                 {
                     Content = SRER.GetValue("Portal", "Enum", "ExpandScreenType", $"{Type}"),
-                    IsChecked = SMME.ExpandScreenType == Type,
-                    GroupName = "ExpandScreenType"
+                    GroupName = "ExpandScreenType",
+                    IsChecked = SMME.ExpandScreenType == Type
                 };
+
+                if (ExpandTypeList.Children.Count > 0)
+                {
+                    Radio.Margin = new Thickness(16, 0, 0, 0);
+                }
 
                 Radio.Checked += (s, e) => ExpandScreenTypeChecked(Type);
 
-                ExpanderExpandContent.Children.Add(Radio);
+                ExpandTypeList.Children.Add(Radio);
             }
-
-            TextBlock DuplicateHint = new()
-            {
-                Text = SRER.GetValue("Portal", "DisplayPreferences", "Duplicate", "Hint"),
-                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
-                HorizontalAlignment = HorizontalAlignment.Left,
-                TextWrapping = TextWrapping.WrapWithOverflow,
-                TextAlignment = TextAlignment.Left,
-                Margin = new Thickness(0, 0, 0, 10),
-                FontWeight = FontWeights.SemiBold
-            };
-
-            ExpanderDuplicateContent.Children.Add(DuplicateHint);
 
             foreach (SEDEST Type in Enum.GetValues(typeof(SEDEST)))
             {
                 RadioButton Radio = new()
                 {
                     Content = SRER.GetValue("Portal", "Enum", "DuplicateScreenType", $"{Type}"),
-                    IsChecked = SMME.DuplicateScreenType == Type,
-                    GroupName = "DuplicateScreenType"
+                    GroupName = "DuplicateScreenType",
+                    IsChecked = SMME.DuplicateScreenType == Type
                 };
+
+                if (DuplicateTypeList.Children.Count > 0)
+                {
+                    Radio.Margin = new Thickness(16, 0, 0, 0);
+                }
 
                 Radio.Checked += (s, e) => DuplicateScreenTypeChecked(Type);
 
-                ExpanderDuplicateContent.Children.Add(Radio);
+                DuplicateTypeList.Children.Add(Radio);
             }
 
             switch (SMME.DisplayScreenType)
             {
                 case SEDYST.SpanAcross:
-                    Expand.IsChecked = true;
+                    ModeExpand.IsChecked = true;
                     break;
                 case SEDYST.SameDuplicate:
-                    Duplicate.IsChecked = true;
+                    ModeDuplicate.IsChecked = true;
                     break;
                 default:
-                    Screen.IsChecked = true;
+                    ModeScreen.IsChecked = true;
                     break;
             }
-
-            ExpanderContent.Children.Add(ExpanderCustomContent);
-            ExpanderContent.Children.Add(ExpanderExpandContent);
-            ExpanderContent.Children.Add(ExpanderDuplicateContent);
-
-            Expander.FooterCard = ExpanderContent;
 
             await Task.Delay(10);
 
