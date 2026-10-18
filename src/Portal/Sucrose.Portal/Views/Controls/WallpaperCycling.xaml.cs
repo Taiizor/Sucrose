@@ -27,42 +27,14 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
         {
-            Cycling.TitleText = SRER.GetValue("Portal", "WallpaperCycling", "Cycling");
-            Cycling.DescriptionText = SRER.GetValue("Portal", "WallpaperCycling", "Cycling", "Description");
-
-            ToggleSwitch CyclingState = new()
-            {
-                IsChecked = SMMC.Active
-            };
+            CyclingState.IsChecked = SMMC.Active;
 
             CyclingState.Checked += (s, e) => CyclingStateChecked(true);
             CyclingState.Unchecked += (s, e) => CyclingStateChecked(false);
 
-            Cycling.HeaderFrame = CyclingState;
-
-            Time.TitleText = SRER.GetValue("Portal", "WallpaperCycling", "Time");
-            Time.DescriptionText = SRER.GetValue("Portal", "WallpaperCycling", "Time", "Description");
-
-            NumberBox TimeDuration = new()
-            {
-                Icon = new SymbolIcon(SymbolRegular.Timer24),
-                IconPlacement = ElementPlacement.Left,
-                Value = SMMC.TransitionTime,
-                ClearButtonEnabled = false,
-                MaxDecimalPlaces = 0,
-                Maximum = 99999,
-                MaxLength = 5,
-                Minimum = 10
-            };
+            TimeDuration.Value = SMMC.TransitionTime;
 
             TimeDuration.ValueChanged += (s, e) => TimeDurationChanged(TimeDuration.Value);
-
-            Time.HeaderFrame = TimeDuration;
-
-            Transition.TitleText = SRER.GetValue("Portal", "WallpaperCycling", "Transition");
-            Transition.DescriptionText = SRER.GetValue("Portal", "WallpaperCycling", "Transition", "Description");
-
-            ComboBox TransitionType = new();
 
             TransitionType.SelectionChanged += (s, e) => TransitionTypeSelected(TransitionType.SelectedIndex);
 
@@ -75,11 +47,6 @@ namespace Sucrose.Portal.Views.Controls
             }
 
             TransitionType.SelectedIndex = (int)SSDMMC.TransitionType;
-
-            Transition.HeaderFrame = TransitionType;
-
-            List.TitleText = SRER.GetValue("Portal", "WallpaperCycling", "List");
-            List.DescriptionText = SRER.GetValue("Portal", "WallpaperCycling", "List", "Description");
         }
 
         private void CyclingStateChecked(bool State)

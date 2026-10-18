@@ -6,10 +6,9 @@
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
     Title="{DynamicResource Portal.WallpaperCycling.Title}"
-    d:DesignHeight="7500"
-    d:DesignWidth="750"
+    d:DesignHeight="460"
+    d:DesignWidth="640"
     CloseButtonText="{DynamicResource Portal.WallpaperCycling.Close}"
     DialogMaxWidth="750"
     Loaded="ContentDialog_Loaded"
@@ -20,39 +19,155 @@
     </ui:ContentDialog.Resources>
 
     <StackPanel
-        MinWidth="400"
+        MinWidth="520"
         HorizontalAlignment="Stretch"
         VerticalAlignment="Center"
         Orientation="Vertical">
-        <vcontrols:ExpanderCard
-            x:Name="Cycling"
-            Margin="0,0,0,0"
-            Expandable="False"
-            LeftIconSymbol="DesktopSync24" />
+        <ui:Card Background="{DynamicResource CardStrokeColorDefaultBrush}">
+            <StackPanel>
+                <!--  Cycling  -->
+                <Grid Margin="0,0,0,14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
 
-        <vcontrols:ExpanderCard
-            x:Name="Time"
-            Margin="0,3,0,0"
-            Expandable="False"
-            LeftIconSymbol="Clock24" />
+                    <ui:SymbolIcon
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Symbol="DesktopSync24" />
 
-        <vcontrols:ExpanderCard
-            x:Name="Transition"
-            Margin="0,3,0,0"
-            Expandable="False"
-            LeftIconSymbol="ArrowShuffle24" />
+                    <StackPanel
+                        Grid.Column="1"
+                        Margin="12,0,12,0"
+                        VerticalAlignment="Center">
+                        <ui:TextBlock Text="{DynamicResource Portal.WallpaperCycling.Cycling}" />
+                        <ui:TextBlock
+                            Margin="0,2,0,0"
+                            FontSize="12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{DynamicResource Portal.WallpaperCycling.Cycling.Description}"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
 
-        <vcontrols:ExpanderCard
-            x:Name="List"
-            Margin="0,3,0,0"
-            Expandable="False"
-            LeftIconSymbol="TaskListSquareLtr24">
-            <vcontrols:ExpanderCard.HeaderFrame>
-                <ui:Button
-                    Click="ResetList_Click"
-                    Content="{DynamicResource Portal.WallpaperCycling.List.Reset}"
-                    Cursor="Hand" />
-            </vcontrols:ExpanderCard.HeaderFrame>
-        </vcontrols:ExpanderCard>
+                    <ui:ToggleSwitch
+                        x:Name="CyclingState"
+                        Grid.Column="2"
+                        VerticalAlignment="Center" />
+                </Grid>
+
+                <!--  Time  -->
+                <Grid Margin="0,0,0,14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <ui:SymbolIcon
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Symbol="Clock24" />
+
+                    <StackPanel
+                        Grid.Column="1"
+                        Margin="12,0,12,0"
+                        VerticalAlignment="Center">
+                        <ui:TextBlock Text="{DynamicResource Portal.WallpaperCycling.Time}" />
+                        <ui:TextBlock
+                            Margin="0,2,0,0"
+                            FontSize="12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{DynamicResource Portal.WallpaperCycling.Time.Description}"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+
+                    <ui:NumberBox
+                        x:Name="TimeDuration"
+                        Grid.Column="2"
+                        Width="170"
+                        VerticalAlignment="Center"
+                        ClearButtonEnabled="False"
+                        Icon="{ui:SymbolIcon Timer24}"
+                        IconPlacement="Left"
+                        MaxDecimalPlaces="0"
+                        MaxLength="5"
+                        Maximum="99999"
+                        Minimum="10" />
+                </Grid>
+
+                <!--  Transition  -->
+                <Grid Margin="0,0,0,14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <ui:SymbolIcon
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Symbol="ArrowShuffle24" />
+
+                    <StackPanel
+                        Grid.Column="1"
+                        Margin="12,0,12,0"
+                        VerticalAlignment="Center">
+                        <ui:TextBlock Text="{DynamicResource Portal.WallpaperCycling.Transition}" />
+                        <ui:TextBlock
+                            Margin="0,2,0,0"
+                            FontSize="12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{DynamicResource Portal.WallpaperCycling.Transition.Description}"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+
+                    <ComboBox
+                        x:Name="TransitionType"
+                        Grid.Column="2"
+                        Width="170"
+                        VerticalAlignment="Center" />
+                </Grid>
+
+                <!--  List  -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <ui:SymbolIcon
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Symbol="TaskListSquareLtr24" />
+
+                    <StackPanel
+                        Grid.Column="1"
+                        Margin="12,0,12,0"
+                        VerticalAlignment="Center">
+                        <ui:TextBlock Text="{DynamicResource Portal.WallpaperCycling.List}" />
+                        <ui:TextBlock
+                            Margin="0,2,0,0"
+                            FontSize="12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{DynamicResource Portal.WallpaperCycling.List.Description}"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+
+                    <ui:Button
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Click="ResetList_Click"
+                        Content="{DynamicResource Portal.WallpaperCycling.List.Reset}"
+                        Cursor="Hand" />
+                </Grid>
+            </StackPanel>
+        </ui:Card>
     </StackPanel>
 </ui:ContentDialog>
