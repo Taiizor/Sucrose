@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SPMI = Sucrose.Portal.Manage.Internal;
@@ -28,15 +29,47 @@ namespace Sucrose.Portal.Views.Controls
 
                 Messages.ForEach(Message =>
                 {
-                    ThemeImportMessage.Children.Add(new TextBlock
+                    bool Critical = Types.Any(Type => Message.Contains($"'{Type}'.") || Message.Contains($"'{Type}'।") || Message.Contains($"'{Type}'。"));
+
+                    Brush Status = SRER.GetResource<Brush>(Critical ? "SystemFillColorCriticalBrush" : "SystemFillColorSuccessBrush");
+
+                    Grid Row = new();
+
+                    if (ThemeImportMessage.Children.Count > 0)
+                    {
+                        Row.Margin = new Thickness(0, 6, 0, 0);
+                    }
+
+                    Row.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+                    Row.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+
+                    SymbolIcon Icon = new(Critical ? SymbolRegular.ErrorCircle24 : SymbolRegular.CheckmarkCircle24)
+                    {
+                        FontSize = 16,
+                        Foreground = Status,
+                        VerticalAlignment = VerticalAlignment.Top
+                    };
+
+                    Grid.SetColumn(Icon, 0);
+
+                    Row.Children.Add(Icon);
+
+                    Wpf.Ui.Controls.TextBlock Text = new()
                     {
                         Text = Message,
                         TextAlignment = TextAlignment.Left,
                         TextWrapping = TextWrapping.WrapWithOverflow,
                         VerticalAlignment = VerticalAlignment.Center,
                         HorizontalAlignment = HorizontalAlignment.Left,
-                        Foreground = Types.Any(Type => Message.Contains($"'{Type}'.") || Message.Contains($"'{Type}'।") || Message.Contains($"'{Type}'。")) ? SRER.GetResource<Brush>("SystemFillColorCriticalBrush") : SRER.GetResource<Brush>("SystemFillColorSuccessBrush")
-                    });
+                        Foreground = Status,
+                        Margin = new Thickness(8, 0, 0, 0)
+                    };
+
+                    Grid.SetColumn(Text, 1);
+
+                    Row.Children.Add(Text);
+
+                    ThemeImportMessage.Children.Add(Row);
                 });
             }
 
@@ -46,15 +79,45 @@ namespace Sucrose.Portal.Views.Controls
 
                 Types.ForEach(Type =>
                 {
-                    ThemeImportType.Children.Add(new TextBlock
+                    Brush Status = SRER.GetResource<Brush>("SystemFillColorCriticalBrush");
+
+                    Grid Row = new();
+
+                    if (ThemeImportType.Children.Count > 0)
+                    {
+                        Row.Margin = new Thickness(0, 6, 0, 0);
+                    }
+
+                    Row.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+                    Row.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+
+                    SymbolIcon Icon = new(SymbolRegular.ErrorCircle24)
+                    {
+                        FontSize = 16,
+                        Foreground = Status,
+                        VerticalAlignment = VerticalAlignment.Top
+                    };
+
+                    Grid.SetColumn(Icon, 0);
+
+                    Row.Children.Add(Icon);
+
+                    Wpf.Ui.Controls.TextBlock Text = new()
                     {
                         TextAlignment = TextAlignment.Left,
                         TextWrapping = TextWrapping.WrapWithOverflow,
                         VerticalAlignment = VerticalAlignment.Center,
                         HorizontalAlignment = HorizontalAlignment.Left,
-                        Foreground = SRER.GetResource<Brush>("SystemFillColorCriticalBrush"),
-                        Text = $"{Type}: {SRER.GetValue("Portal", "Enum", "CompatibilityType", $"{Type}")}"
-                    });
+                        Foreground = Status,
+                        Text = $"{Type}: {SRER.GetValue("Portal", "Enum", "CompatibilityType", $"{Type}")}",
+                        Margin = new Thickness(8, 0, 0, 0)
+                    };
+
+                    Grid.SetColumn(Text, 1);
+
+                    Row.Children.Add(Text);
+
+                    ThemeImportType.Children.Add(Row);
                 });
             }
 
