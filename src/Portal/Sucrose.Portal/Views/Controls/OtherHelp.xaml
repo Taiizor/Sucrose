@@ -6,13 +6,11 @@
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
     Title="{DynamicResource Portal.OtherHelp.Title}"
-    d:DesignHeight="7500"
-    d:DesignWidth="750"
+    d:DesignHeight="470"
+    d:DesignWidth="640"
     CloseButtonText="{DynamicResource Portal.OtherHelp.Close}"
-    DialogMaxWidth="750"
-    Loaded="ContentDialog_Loaded"
+    DialogMaxWidth="640"
     mc:Ignorable="d">
 
     <ui:ContentDialog.Resources>
@@ -20,138 +18,172 @@
     </ui:ContentDialog.Resources>
 
     <StackPanel
-        MinWidth="400"
+        MinWidth="440"
         HorizontalAlignment="Stretch"
-        VerticalAlignment="Center"
-        Orientation="Vertical">
-        <ui:Button
-            x:Name="WebPage"
-            Margin="0"
-            Padding="0"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            HorizontalContentAlignment="Stretch"
-            VerticalContentAlignment="Stretch"
-            Appearance="Transparent"
-            BorderBrush="Transparent"
+        VerticalAlignment="Center">
+
+        <ui:CardAction
             Click="WebPage_Click"
-            Cursor="Hand">
-            <vcontrols:ExpanderCard
-                x:Name="WebPageExpander"
-                Expandable="False"
-                IsEnabled="False"
-                LeftIconSymbol="WebAsset24">
-                <vcontrols:ExpanderCard.HeaderFrame>
-                    <ui:SymbolIcon
-                        Width="32"
-                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                        Symbol="Open24" />
-                </vcontrols:ExpanderCard.HeaderFrame>
-            </vcontrols:ExpanderCard>
-        </ui:Button>
+            Icon="{ui:SymbolIcon WebAsset24, FontSize=24}"
+            IsChevronVisible="False">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <ui:TextBlock
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{DynamicResource Portal.OtherHelp.WebPage}"
+                        TextWrapping="Wrap" />
+                    <ui:TextBlock
+                        Margin="0,2,0,0"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{DynamicResource Portal.OtherHelp.WebPage.Description}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+                <ui:SymbolIcon
+                    Grid.Column="1"
+                    Margin="12,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                    Symbol="Open24" />
+            </Grid>
+        </ui:CardAction>
 
-        <ui:Button
-            x:Name="Documentation"
-            Margin="0,3,0,0"
-            Padding="0"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            HorizontalContentAlignment="Stretch"
-            VerticalContentAlignment="Stretch"
-            Appearance="Transparent"
-            BorderBrush="Transparent"
+        <ui:CardAction
+            Margin="0,4,0,0"
             Click="Documentation_Click"
-            Cursor="Hand">
-            <vcontrols:ExpanderCard
-                x:Name="DocumentationExpander"
-                Expandable="False"
-                IsEnabled="False"
-                LeftIconSymbol="BookOpenGlobe24">
-                <vcontrols:ExpanderCard.HeaderFrame>
-                    <ui:SymbolIcon
-                        Width="32"
-                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                        Symbol="Open24" />
-                </vcontrols:ExpanderCard.HeaderFrame>
-            </vcontrols:ExpanderCard>
-        </ui:Button>
+            Icon="{ui:SymbolIcon BookOpenGlobe24, FontSize=24}"
+            IsChevronVisible="False">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <ui:TextBlock
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{DynamicResource Portal.OtherHelp.Documentation}"
+                        TextWrapping="Wrap" />
+                    <ui:TextBlock
+                        Margin="0,2,0,0"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{DynamicResource Portal.OtherHelp.Documentation.Description}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+                <ui:SymbolIcon
+                    Grid.Column="1"
+                    Margin="12,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                    Symbol="Open24" />
+            </Grid>
+        </ui:CardAction>
 
-        <ui:Button
-            x:Name="Repository"
-            Margin="0,3,0,0"
-            Padding="0"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            HorizontalContentAlignment="Stretch"
-            VerticalContentAlignment="Stretch"
-            Appearance="Transparent"
-            BorderBrush="Transparent"
+        <ui:CardAction
+            Margin="0,4,0,0"
             Click="Repository_Click"
-            Cursor="Hand">
-            <vcontrols:ExpanderCard
-                x:Name="RepositoryExpander"
-                Expandable="False"
-                IsEnabled="False"
-                LeftIconSymbol="CodeBlock24">
-                <vcontrols:ExpanderCard.HeaderFrame>
-                    <ui:SymbolIcon
-                        Width="32"
-                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                        Symbol="Open24" />
-                </vcontrols:ExpanderCard.HeaderFrame>
-            </vcontrols:ExpanderCard>
-        </ui:Button>
+            Icon="{ui:SymbolIcon CodeBlock24, FontSize=24}"
+            IsChevronVisible="False">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <ui:TextBlock
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{DynamicResource Portal.OtherHelp.Repository}"
+                        TextWrapping="Wrap" />
+                    <ui:TextBlock
+                        Margin="0,2,0,0"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{DynamicResource Portal.OtherHelp.Repository.Description}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+                <ui:SymbolIcon
+                    Grid.Column="1"
+                    Margin="12,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                    Symbol="Open24" />
+            </Grid>
+        </ui:CardAction>
 
-        <ui:Button
-            x:Name="Discussions"
-            Margin="0,3,0,0"
-            Padding="0"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            HorizontalContentAlignment="Stretch"
-            VerticalContentAlignment="Stretch"
-            Appearance="Transparent"
-            BorderBrush="Transparent"
+        <ui:CardAction
+            Margin="0,4,0,0"
             Click="Discussions_Click"
-            Cursor="Hand">
-            <vcontrols:ExpanderCard
-                x:Name="DiscussionsExpander"
-                Expandable="False"
-                IsEnabled="False"
-                LeftIconSymbol="GlobePerson24">
-                <vcontrols:ExpanderCard.HeaderFrame>
-                    <ui:SymbolIcon
-                        Width="32"
-                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                        Symbol="Open24" />
-                </vcontrols:ExpanderCard.HeaderFrame>
-            </vcontrols:ExpanderCard>
-        </ui:Button>
+            Icon="{ui:SymbolIcon GlobePerson24, FontSize=24}"
+            IsChevronVisible="False">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <ui:TextBlock
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{DynamicResource Portal.OtherHelp.Discussions}"
+                        TextWrapping="Wrap" />
+                    <ui:TextBlock
+                        Margin="0,2,0,0"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{DynamicResource Portal.OtherHelp.Discussions.Description}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+                <ui:SymbolIcon
+                    Grid.Column="1"
+                    Margin="12,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                    Symbol="Open24" />
+            </Grid>
+        </ui:CardAction>
 
-        <ui:Button
-            x:Name="Report"
-            Margin="0,3,0,0"
-            Padding="0"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            HorizontalContentAlignment="Stretch"
-            VerticalContentAlignment="Stretch"
-            Appearance="Transparent"
-            BorderBrush="Transparent"
+        <ui:CardAction
+            Margin="0,4,0,0"
             Click="Report_Click"
-            Cursor="Hand">
-            <vcontrols:ExpanderCard
-                x:Name="ReportExpander"
-                Expandable="False"
-                IsEnabled="False"
-                LeftIconSymbol="Bug24">
-                <vcontrols:ExpanderCard.HeaderFrame>
-                    <ui:SymbolIcon
-                        Width="32"
-                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                        Symbol="Open24" />
-                </vcontrols:ExpanderCard.HeaderFrame>
-            </vcontrols:ExpanderCard>
-        </ui:Button>
+            Icon="{ui:SymbolIcon Bug24, FontSize=24}"
+            IsChevronVisible="False">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <ui:TextBlock
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{DynamicResource Portal.OtherHelp.Report}"
+                        TextWrapping="Wrap" />
+                    <ui:TextBlock
+                        Margin="0,2,0,0"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{DynamicResource Portal.OtherHelp.Report.Description}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+                <ui:SymbolIcon
+                    Grid.Column="1"
+                    Margin="12,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                    Symbol="Open24" />
+            </Grid>
+        </ui:CardAction>
     </StackPanel>
 </ui:ContentDialog>
