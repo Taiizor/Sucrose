@@ -31,8 +31,8 @@
             MinHeight="250"
             Margin="0,10,0,10"
             Background="{DynamicResource ControlFillColorDefaultBrush}"
-            CornerRadius="8"
-            ClipToBounds="True">
+            ClipToBounds="True"
+            CornerRadius="8">
             <Canvas
                 x:Name="Contents"
                 Width="680"

@@ -24,7 +24,8 @@
 
         <ui:CardAction
             Click="WebPage_Click"
-            Icon="{ui:SymbolIcon WebAsset24, FontSize=24}"
+            Icon="{ui:SymbolIcon WebAsset24,
+                                 FontSize=24}"
             IsChevronVisible="False">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -57,7 +58,8 @@
         <ui:CardAction
             Margin="0,4,0,0"
             Click="Documentation_Click"
-            Icon="{ui:SymbolIcon BookOpenGlobe24, FontSize=24}"
+            Icon="{ui:SymbolIcon BookOpenGlobe24,
+                                 FontSize=24}"
             IsChevronVisible="False">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -90,7 +92,8 @@
         <ui:CardAction
             Margin="0,4,0,0"
             Click="Repository_Click"
-            Icon="{ui:SymbolIcon CodeBlock24, FontSize=24}"
+            Icon="{ui:SymbolIcon CodeBlock24,
+                                 FontSize=24}"
             IsChevronVisible="False">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -123,7 +126,8 @@
         <ui:CardAction
             Margin="0,4,0,0"
             Click="Discussions_Click"
-            Icon="{ui:SymbolIcon GlobePerson24, FontSize=24}"
+            Icon="{ui:SymbolIcon GlobePerson24,
+                                 FontSize=24}"
             IsChevronVisible="False">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -156,7 +160,8 @@
         <ui:CardAction
             Margin="0,4,0,0"
             Click="Report_Click"
-            Icon="{ui:SymbolIcon Bug24, FontSize=24}"
+            Icon="{ui:SymbolIcon Bug24,
+                                 FontSize=24}"
             IsChevronVisible="False">
             <Grid>
                 <Grid.ColumnDefinitions>

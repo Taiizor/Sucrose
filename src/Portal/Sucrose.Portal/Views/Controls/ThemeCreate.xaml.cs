@@ -1298,24 +1298,6 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void ContentDialog_Loaded(object sender, RoutedEventArgs e)
         {
-            GifExpander.TitleText = SRER.GetValue("Portal", "ThemeCreate", "Gif");
-            GifExpander.DescriptionText = SRER.GetValue("Portal", "ThemeCreate", "Gif", "Description");
-
-            UrlExpander.TitleText = SRER.GetValue("Portal", "ThemeCreate", "Url");
-            UrlExpander.DescriptionText = SRER.GetValue("Portal", "ThemeCreate", "Url", "Description");
-
-            WebExpander.TitleText = SRER.GetValue("Portal", "ThemeCreate", "Web");
-            WebExpander.DescriptionText = SRER.GetValue("Portal", "ThemeCreate", "Web", "Description");
-
-            VideoExpander.TitleText = SRER.GetValue("Portal", "ThemeCreate", "Video");
-            VideoExpander.DescriptionText = SRER.GetValue("Portal", "ThemeCreate", "Video", "Description");
-
-            YouTubeExpander.TitleText = SRER.GetValue("Portal", "ThemeCreate", "YouTube");
-            YouTubeExpander.DescriptionText = SRER.GetValue("Portal", "ThemeCreate", "YouTube", "Description");
-
-            ApplicationExpander.TitleText = SRER.GetValue("Portal", "ThemeCreate", "Application");
-            ApplicationExpander.DescriptionText = SRER.GetValue("Portal", "ThemeCreate", "Application", "Description");
-
             if (!string.IsNullOrEmpty(InitialFilePath))
             {
                 await ProcessInitialFileAsync();
