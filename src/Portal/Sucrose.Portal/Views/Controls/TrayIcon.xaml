@@ -6,10 +6,9 @@
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
     xmlns:xag="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
     Title="{DynamicResource Portal.TrayIcon.Title}"
-    d:DesignHeight="7500"
+    d:DesignHeight="500"
     d:DesignWidth="750"
     CloseButtonText="{DynamicResource Portal.TrayIcon.Close}"
     DialogMaxWidth="750"
@@ -21,30 +20,49 @@
     </ui:ContentDialog.Resources>
 
     <StackPanel
-        MinWidth="400"
+        MinWidth="440"
         HorizontalAlignment="Stretch"
-        VerticalAlignment="Center"
-        Orientation="Vertical">
-        <TextBlock
-            Margin="0,0,0,10"
-            FontSize="16"
-            FontWeight="Regular"
-            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-            Text="{DynamicResource Portal.TrayIcon.Message}"
-            TextAlignment="Center"
-            TextWrapping="WrapWithOverflow" />
+        VerticalAlignment="Center">
+        <ui:Card Background="{DynamicResource CardStrokeColorDefaultBrush}">
+            <StackPanel>
+                <Grid Margin="0,0,0,14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-        <Image
-            Height="275"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            xag:AnimationBehavior.AnimateInDesignMode="False"
-            xag:AnimationBehavior.AutoStart="True"
-            xag:AnimationBehavior.CacheFramesInMemory="False"
-            xag:AnimationBehavior.RepeatBehavior="Forever"
-            xag:AnimationBehavior.SourceUri="pack://application:,,,/Assets/Hint/TrayIcon.gif"
-            FlowDirection="LeftToRight"
-            Stretch="Fill"
-            StretchDirection="Both" />
+                    <ui:Image
+                        Grid.Column="0"
+                        Height="24"
+                        VerticalAlignment="Top"
+                        FlowDirection="LeftToRight"
+                        Source="pack://application:,,,/Assets/Icon256.png" />
+
+                    <ui:TextBlock
+                        Grid.Column="1"
+                        Margin="12,0,0,0"
+                        VerticalAlignment="Top"
+                        FontSize="14"
+                        Text="{DynamicResource Portal.TrayIcon.Message}"
+                        TextWrapping="Wrap" />
+                </Grid>
+
+                <Border
+                    Height="275"
+                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                    ClipToBounds="True"
+                    CornerRadius="8">
+                    <Image
+                        xag:AnimationBehavior.AnimateInDesignMode="False"
+                        xag:AnimationBehavior.AutoStart="True"
+                        xag:AnimationBehavior.CacheFramesInMemory="False"
+                        xag:AnimationBehavior.RepeatBehavior="Forever"
+                        xag:AnimationBehavior.SourceUri="pack://application:,,,/Assets/Hint/TrayIcon.gif"
+                        FlowDirection="LeftToRight"
+                        Stretch="Fill"
+                        StretchDirection="Both" />
+                </Border>
+            </StackPanel>
+        </ui:Card>
     </StackPanel>
 </ui:ContentDialog>
