@@ -1,6 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Input;
-using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SHC = Skylark.Helper.Culture;
 using SMMRU = Sucrose.Memory.Manage.Readonly.Url;
@@ -24,22 +22,10 @@ namespace Sucrose.Portal.Views.Controls
         {
             string Version = SSCHV.GetText();
 
-            Update.TitleText = string.Format(SRER.GetValue("Portal", "OtherAbout", "Update"), Version);
-            Update.DescriptionText = string.Format(SRER.GetValue("Portal", "OtherAbout", "Update", "Description"), SMMU.Time.ToString(SHC.CurrentUI));
+            UpdateTitle.Text = string.Format(SRER.GetValue("Portal", "OtherAbout", "Update"), Version);
+            UpdateDescription.Text = string.Format(SRER.GetValue("Portal", "OtherAbout", "Update", "Description"), SMMU.Time.ToString(SHC.CurrentUI));
 
-            HyperlinkButton Navigate = new()
-            {
-                NavigateUri = string.Format("{0}/v{1}", SMMRU.GitHubSucroseReleaseTag, Version),
-                Foreground = SRER.GetResource<Brush>("AccentTextFillColorPrimaryBrush"),
-                Content = SRER.GetValue("Portal", "OtherAbout", "Update", "Notes"),
-                Icon = new SymbolIcon(SymbolRegular.Notepad24),
-                Appearance = ControlAppearance.Transparent,
-                BorderBrush = Brushes.Transparent,
-                Cursor = Cursors.Hand,
-                FontSize = 14
-            };
-
-            Update.HeaderFrame = Navigate;
+            UpdateNotes.NavigateUri = string.Format("{0}/v{1}", SMMRU.GitHubSucroseReleaseTag, Version);
         }
 
         public void Dispose()

@@ -6,9 +6,8 @@
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
     Title="{DynamicResource Portal.OtherAbout.Title}"
-    d:DesignHeight="7500"
+    d:DesignHeight="680"
     d:DesignWidth="750"
     CloseButtonText="{DynamicResource Portal.OtherAbout.Close}"
     DialogMaxWidth="750"
@@ -20,29 +19,48 @@
     </ui:ContentDialog.Resources>
 
     <StackPanel
-        MinWidth="400"
+        MinWidth="440"
         HorizontalAlignment="Stretch"
-        VerticalAlignment="Center"
-        Orientation="Vertical">
+        VerticalAlignment="Center">
+
+        <!--  Identity  -->
         <ui:Card Background="{DynamicResource CardStrokeColorDefaultBrush}">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <WrapPanel Grid.Column="0" Margin="0,0,10,0">
+                <ui:HyperlinkButton
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    Appearance="Transparent"
+                    BorderBrush="Transparent"
+                    CornerRadius="40"
+                    Cursor="Hand"
+                    NavigateUri="https://github.com/Taiizor">
+                    <ui:Image
+                        Height="80"
+                        CornerRadius="40"
+                        FlowDirection="LeftToRight"
+                        Source="pack://application:,,,/Assets/Taiizor.jpeg" />
+                </ui:HyperlinkButton>
+
+                <StackPanel
+                    Grid.Column="1"
+                    Margin="16,0,0,0"
+                    VerticalAlignment="Center">
                     <ui:TextBlock
-                        VerticalAlignment="Center"
                         Text="{DynamicResource Portal.OtherAbout.About}"
                         TextAlignment="Left"
                         TextWrapping="WrapWithOverflow" />
 
-                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                    <StackPanel Margin="-4,12,-4,0" Orientation="Horizontal">
                         <ui:HyperlinkButton
+                            Padding="4"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
-                            CornerRadius="15"
+                            CornerRadius="20"
                             Cursor="Hand"
                             NavigateUri="mailto:taiizor@vegalya.com">
                             <ui:Image
@@ -52,9 +70,10 @@
                                 Source="pack://application:,,,/Assets/Social/Email.png" />
                         </ui:HyperlinkButton>
                         <ui:HyperlinkButton
+                            Padding="4"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
-                            CornerRadius="15"
+                            CornerRadius="20"
                             Cursor="Hand"
                             NavigateUri="https://www.youtube.com/@iTaiizor">
                             <ui:Image
@@ -64,9 +83,10 @@
                                 Source="pack://application:,,,/Assets/Social/YouTube.png" />
                         </ui:HyperlinkButton>
                         <ui:HyperlinkButton
+                            Padding="4"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
-                            CornerRadius="15"
+                            CornerRadius="20"
                             Cursor="Hand"
                             NavigateUri="https://www.facebook.com/iTaiizor">
                             <ui:Image
@@ -76,9 +96,10 @@
                                 Source="pack://application:,,,/Assets/Social/Facebook.png" />
                         </ui:HyperlinkButton>
                         <ui:HyperlinkButton
+                            Padding="4"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
-                            CornerRadius="15"
+                            CornerRadius="20"
                             Cursor="Hand"
                             NavigateUri="https://www.instagram.com/Taiizor">
                             <ui:Image
@@ -88,9 +109,10 @@
                                 Source="pack://application:,,,/Assets/Social/Instagram.png" />
                         </ui:HyperlinkButton>
                         <ui:HyperlinkButton
+                            Padding="4"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
-                            CornerRadius="15"
+                            CornerRadius="20"
                             Cursor="Hand"
                             NavigateUri="https://www.twitter.com/iTaiizor">
                             <ui:Image
@@ -100,9 +122,10 @@
                                 Source="pack://application:,,,/Assets/Social/Twitter.png" />
                         </ui:HyperlinkButton>
                         <ui:HyperlinkButton
+                            Padding="4"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
-                            CornerRadius="15"
+                            CornerRadius="20"
                             Cursor="Hand"
                             NavigateUri="https://www.reddit.com/user/iTaiizor">
                             <ui:Image
@@ -112,9 +135,10 @@
                                 Source="pack://application:,,,/Assets/Social/Reddit.png" />
                         </ui:HyperlinkButton>
                         <ui:HyperlinkButton
+                            Padding="4"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
-                            CornerRadius="15"
+                            CornerRadius="20"
                             Cursor="Hand"
                             NavigateUri="https://www.linkedin.com/in/Taiizor">
                             <ui:Image
@@ -124,132 +148,253 @@
                                 Source="pack://application:,,,/Assets/Social/LinkedIn.png" />
                         </ui:HyperlinkButton>
                     </StackPanel>
-                </WrapPanel>
+                </StackPanel>
+            </Grid>
+        </ui:Card>
+
+        <!--  Update  -->
+        <ui:CardAction
+            Margin="0,4,0,0"
+            Icon="{ui:SymbolIcon ArrowSync24,
+                                 FontSize=24}"
+            IsChevronVisible="False">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <ui:TextBlock
+                        x:Name="UpdateTitle"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        TextWrapping="Wrap" />
+                    <ui:TextBlock
+                        x:Name="UpdateDescription"
+                        Margin="0,2,0,0"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+
+                <ui:HyperlinkButton
+                    x:Name="UpdateNotes"
+                    Grid.Column="1"
+                    Margin="12,0,0,0"
+                    VerticalAlignment="Center"
+                    Appearance="Transparent"
+                    BorderBrush="Transparent"
+                    Content="{DynamicResource Portal.OtherAbout.Update.Notes}"
+                    Cursor="Hand"
+                    FontSize="14"
+                    Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
+                    Icon="{ui:SymbolIcon Notepad24,
+                                         FontSize=16}" />
+            </Grid>
+        </ui:CardAction>
+
+        <!--  Partners  -->
+        <ui:CardAction
+            Margin="0,4,0,0"
+            Icon="{ui:SymbolIcon Handshake24,
+                                 FontSize=24}"
+            IsChevronVisible="False">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <ui:TextBlock
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="SemiBold"
+                    Text="{DynamicResource Portal.OtherAbout.Partners}"
+                    TextWrapping="Wrap" />
 
                 <ui:HyperlinkButton
                     Grid.Column="1"
+                    Margin="12,0,0,0"
+                    VerticalAlignment="Center"
                     Appearance="Transparent"
                     BorderBrush="Transparent"
-                    CornerRadius="30"
+                    CornerRadius="18"
+                    Cursor="Hand"
+                    IsEnabled="False">
+                    <ui:Image
+                        Height="28"
+                        CornerRadius="14"
+                        FlowDirection="LeftToRight"
+                        Source="pack://application:,,,/Assets/Partner/Heart.png" />
+                </ui:HyperlinkButton>
+            </Grid>
+        </ui:CardAction>
+
+        <!--  Contributors  -->
+        <ui:CardAction
+            Margin="0,4,0,0"
+            Icon="{ui:SymbolIcon PeopleTeam24,
+                                 FontSize=24}"
+            IsChevronVisible="False">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <ui:TextBlock
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="SemiBold"
+                    Text="{DynamicResource Portal.OtherAbout.Contributors}"
+                    TextWrapping="Wrap" />
+
+                <ui:HyperlinkButton
+                    Grid.Column="1"
+                    Margin="12,0,0,0"
+                    VerticalAlignment="Center"
+                    Appearance="Transparent"
+                    BorderBrush="Transparent"
+                    CornerRadius="18"
                     Cursor="Hand"
                     NavigateUri="https://github.com/Taiizor">
                     <ui:Image
-                        Height="96"
-                        CornerRadius="48"
+                        Height="28"
+                        CornerRadius="14"
                         FlowDirection="LeftToRight"
-                        Source="pack://application:,,,/Assets/Taiizor.jpeg" />
+                        Source="pack://application:,,,/Assets/Avatar/Taiizor.jpeg" />
                 </ui:HyperlinkButton>
             </Grid>
+        </ui:CardAction>
+
+        <!--  Legal  -->
+        <ui:Card Margin="0,4,0,0" Background="{DynamicResource CardStrokeColorDefaultBrush}">
+            <StackPanel>
+                <ui:HyperlinkButton
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Stretch"
+                    Appearance="Transparent"
+                    BorderBrush="Transparent"
+                    CornerRadius="6"
+                    Cursor="Hand"
+                    NavigateUri="https://github.com/Taiizor/Sucrose/blob/develop/.github/TERMS_OF_SERVICE.md">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <ui:SymbolIcon
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            Symbol="DocumentText24" />
+
+                        <ui:TextBlock
+                            Grid.Column="1"
+                            Margin="12,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
+                            Text="{DynamicResource Portal.OtherAbout.TermsOfService}"
+                            TextWrapping="Wrap" />
+
+                        <ui:SymbolIcon
+                            Grid.Column="2"
+                            Margin="12,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Symbol="Open24" />
+                    </Grid>
+                </ui:HyperlinkButton>
+
+                <ui:HyperlinkButton
+                    Margin="0,4,0,0"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Stretch"
+                    Appearance="Transparent"
+                    BorderBrush="Transparent"
+                    CornerRadius="6"
+                    Cursor="Hand"
+                    NavigateUri="https://github.com/Taiizor/Sucrose/blob/develop/.github/PRIVACY_POLICY.md">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <ui:SymbolIcon
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            Symbol="Shield24" />
+
+                        <ui:TextBlock
+                            Grid.Column="1"
+                            Margin="12,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
+                            Text="{DynamicResource Portal.OtherAbout.PrivacyPolicy}"
+                            TextWrapping="Wrap" />
+
+                        <ui:SymbolIcon
+                            Grid.Column="2"
+                            Margin="12,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Symbol="Open24" />
+                    </Grid>
+                </ui:HyperlinkButton>
+
+                <ui:HyperlinkButton
+                    Margin="0,4,0,0"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Stretch"
+                    Appearance="Transparent"
+                    BorderBrush="Transparent"
+                    CornerRadius="6"
+                    Cursor="Hand"
+                    NavigateUri="https://github.com/Taiizor/Sucrose/blob/develop/.github/CODE_OF_CONDUCT.md">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <ui:SymbolIcon
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            Symbol="ClipboardTask24" />
+
+                        <ui:TextBlock
+                            Grid.Column="1"
+                            Margin="12,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
+                            Text="{DynamicResource Portal.OtherAbout.CodeOfConduct}"
+                            TextWrapping="Wrap" />
+
+                        <ui:SymbolIcon
+                            Grid.Column="2"
+                            Margin="12,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Symbol="Open24" />
+                    </Grid>
+                </ui:HyperlinkButton>
+            </StackPanel>
         </ui:Card>
-
-        <vcontrols:ExpanderCard
-            x:Name="Update"
-            Margin="0,3,0,0"
-            Expandable="False"
-            LeftIconSymbol="ArrowSync24" />
-
-        <ui:Card Margin="0,3,0,0" Background="{DynamicResource CardStrokeColorDefaultBrush}">
-            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <ui:TextBlock
-                    Grid.Row="0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Text="{DynamicResource Portal.OtherAbout.Partners}"
-                    TextAlignment="Center"
-                    TextWrapping="WrapWithOverflow" />
-
-                <WrapPanel
-                    Grid.Row="1"
-                    Margin="0,10,0,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Orientation="Horizontal">
-                    <ui:HyperlinkButton
-                        Appearance="Transparent"
-                        BorderBrush="Transparent"
-                        CornerRadius="15"
-                        Cursor="Hand"
-                        IsEnabled="False">
-                        <ui:Image
-                            Height="32"
-                            CornerRadius="16"
-                            FlowDirection="LeftToRight"
-                            Source="pack://application:,,,/Assets/Partner/Heart.png" />
-                    </ui:HyperlinkButton>
-                </WrapPanel>
-            </Grid>
-        </ui:Card>
-
-        <ui:Card Margin="0,3,0,0" Background="{DynamicResource CardStrokeColorDefaultBrush}">
-            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <ui:TextBlock
-                    Grid.Row="0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Text="{DynamicResource Portal.OtherAbout.Contributors}"
-                    TextAlignment="Center"
-                    TextWrapping="WrapWithOverflow" />
-
-                <WrapPanel
-                    Grid.Row="1"
-                    Margin="0,10,0,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Orientation="Horizontal">
-                    <ui:HyperlinkButton
-                        Appearance="Transparent"
-                        BorderBrush="Transparent"
-                        CornerRadius="15"
-                        Cursor="Hand"
-                        NavigateUri="https://github.com/Taiizor">
-                        <ui:Image
-                            Height="32"
-                            CornerRadius="16"
-                            FlowDirection="LeftToRight"
-                            Source="pack://application:,,,/Assets/Avatar/Taiizor.jpeg" />
-                    </ui:HyperlinkButton>
-                </WrapPanel>
-            </Grid>
-        </ui:Card>
-
-        <ui:HyperlinkButton
-            Margin="0,9,0,0"
-            Appearance="Transparent"
-            BorderBrush="Transparent"
-            Content="{DynamicResource Portal.OtherAbout.TermsOfService}"
-            Cursor="Hand"
-            FontSize="14"
-            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
-            NavigateUri="https://github.com/Taiizor/Sucrose/blob/develop/.github/TERMS_OF_SERVICE.md" />
-
-        <ui:HyperlinkButton
-            Margin="0,3,0,0"
-            Appearance="Transparent"
-            BorderBrush="Transparent"
-            Content="{DynamicResource Portal.OtherAbout.PrivacyPolicy}"
-            Cursor="Hand"
-            FontSize="14"
-            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
-            NavigateUri="https://github.com/Taiizor/Sucrose/blob/develop/.github/PRIVACY_POLICY.md" />
-
-        <ui:HyperlinkButton
-            Margin="0,3,0,0"
-            Appearance="Transparent"
-            BorderBrush="Transparent"
-            Content="{DynamicResource Portal.OtherAbout.CodeOfConduct}"
-            Cursor="Hand"
-            FontSize="14"
-            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
-            NavigateUri="https://github.com/Taiizor/Sucrose/blob/develop/.github/CODE_OF_CONDUCT.md" />
     </StackPanel>
 </ui:ContentDialog>
