@@ -26,6 +26,7 @@ using SSCEUCT = Sucrose.Shared.Core.Enum.UpdateChannelType;
 using SSCEUET = Sucrose.Shared.Core.Enum.UpdateExtensionType;
 using SSCMMU = Sucrose.Shared.Core.Manage.Manager.Update;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
+using SSDEPROXYT = Sucrose.Shared.Dependency.Enum.ProxyType;
 using SSDEUAT = Sucrose.Shared.Dependency.Enum.UpdateAutoType;
 using SSDEUMT = Sucrose.Shared.Dependency.Enum.UpdateModuleType;
 using SSDEUST = Sucrose.Shared.Dependency.Enum.UpdateServerType;
@@ -109,11 +110,203 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(StatisticsData);
 
+            TextBlock NetworkArea = new()
+            {
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Network"),
+                Margin = new Thickness(0, 10, 0, 0),
+                FontWeight = FontWeights.Bold
+            };
+
+            Contents.Add(NetworkArea);
+
+            SPVCEC Proxy = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                IsExpand = true
+            };
+
+            Proxy.LeftIcon.Symbol = SymbolRegular.ServerMultiple20;
+            Proxy.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "Proxy");
+            Proxy.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "Proxy", "Description");
+
+            ToggleSwitch ProxyState = new()
+            {
+                IsChecked = SMME.ProxyEnabled
+            };
+
+            ProxyState.Checked += (s, e) => ProxyStateChecked(true);
+            ProxyState.Unchecked += (s, e) => ProxyStateChecked(false);
+
+            Proxy.HeaderFrame = ProxyState;
+
+            StackPanel ProxyContent = new();
+
+            StackPanel ProxyTypeContent = new()
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            TextBlock ProxyTypeText = new()
+            {
+                Text = SRER.GetValue("Portal", "OtherSettingPage", "Proxy", "ProxyType"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            ComboBox ProxyTypeBox = new();
+
+            ProxyTypeBox.SelectionChanged += (s, e) => ProxyTypeSelected(ProxyTypeBox.SelectedIndex);
+
+            foreach (SSDEPROXYT Type in Enum.GetValues(typeof(SSDEPROXYT)))
+            {
+                if (Type != SSDEPROXYT.None)
+                {
+                    ProxyTypeBox.Items.Add(new ComboBoxItem()
+                    {
+                        Content = SRER.GetValue("Portal", "Enum", "ProxyType", $"{Type}")
+                    });
+                }
+            }
+
+            ProxyTypeBox.SelectedIndex = SMME.ProxyType != SSDEPROXYT.None ? (int)SMME.ProxyType - 1 : 0;
+
+            StackPanel ProxyServerContent = new()
+            {
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            TextBlock ProxyServerText = new()
+            {
+                Text = SRER.GetValue("Portal", "OtherSettingPage", "Proxy", "ProxyServer"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            TextBox ProxyServer = new()
+            {
+                Icon = new SymbolIcon(SymbolRegular.Server20),
+                IconPlacement = ElementPlacement.Left,
+                PlaceholderText = "proxy.example.com",
+                Text = SMME.ProxyServer,
+                MinWidth = 200
+            };
+
+            ProxyServer.TextChanged += (s, e) => ProxyServerChanged(ProxyServer.Text);
+
+            StackPanel ProxyPortContent = new()
+            {
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            TextBlock ProxyPortText = new()
+            {
+                Text = SRER.GetValue("Portal", "OtherSettingPage", "Proxy", "ProxyPort"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            NumberBox ProxyPort = new()
+            {
+                Icon = new SymbolIcon(SymbolRegular.SerialPort24),
+                IconPlacement = ElementPlacement.Left,
+                Value = SMME.ProxyPort,
+                ClearButtonEnabled = false,
+                MaxDecimalPlaces = 0,
+                Maximum = 65535,
+                MaxLength = 5,
+                Minimum = 0
+            };
+
+            ProxyPort.ValueChanged += (s, e) => ProxyPortChanged(ProxyPort.Value);
+
+            StackPanel ProxyUsernameContent = new()
+            {
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            TextBlock ProxyUsernameText = new()
+            {
+                Text = SRER.GetValue("Portal", "OtherSettingPage", "Proxy", "ProxyUsername"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            TextBox ProxyUsername = new()
+            {
+                Icon = new SymbolIcon(SymbolRegular.Person20),
+                IconPlacement = ElementPlacement.Left,
+                PlaceholderText = SRER.GetValue("Portal", "OtherSettingPage", "Proxy", "Optional"),
+                Text = SMME.ProxyUsername,
+                MinWidth = 150
+            };
+
+            ProxyUsername.TextChanged += (s, e) => ProxyUsernameChanged(ProxyUsername.Text);
+
+            StackPanel ProxyPasswordContent = new()
+            {
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            TextBlock ProxyPasswordText = new()
+            {
+                Text = SRER.GetValue("Portal", "OtherSettingPage", "Proxy", "ProxyPassword"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            PasswordBox ProxyPassword = new()
+            {
+                Password = SMME.ProxyPassword,
+                MinWidth = 150
+            };
+
+            ProxyPassword.PasswordChanged += (s, e) => ProxyPasswordChanged(ProxyPassword.Password);
+
+            ProxyTypeContent.Children.Add(ProxyTypeText);
+            ProxyTypeContent.Children.Add(ProxyTypeBox);
+
+            ProxyServerContent.Children.Add(ProxyServerText);
+            ProxyServerContent.Children.Add(ProxyServer);
+
+            ProxyPortContent.Children.Add(ProxyPortText);
+            ProxyPortContent.Children.Add(ProxyPort);
+
+            ProxyUsernameContent.Children.Add(ProxyUsernameText);
+            ProxyUsernameContent.Children.Add(ProxyUsername);
+
+            ProxyPasswordContent.Children.Add(ProxyPasswordText);
+            ProxyPasswordContent.Children.Add(ProxyPassword);
+
+            ProxyContent.Children.Add(ProxyTypeContent);
+            ProxyContent.Children.Add(ProxyServerContent);
+            ProxyContent.Children.Add(ProxyPortContent);
+            ProxyContent.Children.Add(ProxyUsernameContent);
+            ProxyContent.Children.Add(ProxyPasswordContent);
+
+            Proxy.FooterCard = ProxyContent;
+
+            Contents.Add(Proxy);
+
             TextBlock HookArea = new()
             {
                 Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Text = SRER.GetValue("Portal", "Area", "Hook"),
-                Margin = new Thickness(0, 0, 0, 0),
+                Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
 
@@ -796,6 +989,55 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SMMI.EngineSettingManager.SetSetting(SMMCE.DeveloperPort, NewValue);
 
                 Developer.Text = string.Format(SRER.GetValue("Portal", "OtherSettingPage", "Developer", "DeveloperHint"), NewValue);
+            }
+        }
+
+        private void ProxyStateChecked(bool State)
+        {
+            SMMI.EngineSettingManager.SetSetting(SMMCE.ProxyEnabled, State);
+        }
+
+        private void ProxyTypeSelected(int Index)
+        {
+            SSDEPROXYT Type = (SSDEPROXYT)(Index + 1);
+
+            if (Type != SMME.ProxyType)
+            {
+                SMMI.EngineSettingManager.SetSetting(SMMCE.ProxyType, Type);
+            }
+        }
+
+        private void ProxyServerChanged(string Text)
+        {
+            if (Text != SMME.ProxyServer)
+            {
+                SMMI.EngineSettingManager.SetSetting(SMMCE.ProxyServer, Text);
+            }
+        }
+
+        private void ProxyPortChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMME.ProxyPort)
+            {
+                SMMI.EngineSettingManager.SetSetting(SMMCE.ProxyPort, NewValue);
+            }
+        }
+
+        private void ProxyUsernameChanged(string Text)
+        {
+            if (Text != SMME.ProxyUsername)
+            {
+                SMMI.EngineSettingManager.SetSetting(SMMCE.ProxyUsername, Text);
+            }
+        }
+
+        private void ProxyPasswordChanged(string Password)
+        {
+            if (Password != SMME.ProxyPassword)
+            {
+                SMMI.EngineSettingManager.SetSetting(SMMCE.ProxyPassword, Password);
             }
         }
 
