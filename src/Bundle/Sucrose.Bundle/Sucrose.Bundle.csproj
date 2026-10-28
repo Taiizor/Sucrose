@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <UseWPF>true</UseWPF>
@@ -45,7 +45,7 @@
         <EmbeddedResource Include="SevenZip\7z-$(Platform)\**">
             <LogicalName>SevenZip\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
         </EmbeddedResource>
-        <EmbeddedResource Include="$(BaseOutputPath)\Package\Compressed\net10.0-windows\Sucrose-$(Platform).7z">
+        <EmbeddedResource Include="$(BaseOutputPath)\Package\Compressed\net11.0-windows\Sucrose-$(Platform).7z">
             <LogicalName>Packages\%(RecursiveDir)Sucrose%(Extension)</LogicalName>
         </EmbeddedResource>
     </ItemGroup>

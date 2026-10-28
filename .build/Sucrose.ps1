@@ -46,7 +46,7 @@
     If true, compresses the published package using 7zip. Default: true
 
 .PARAMETER DotNetVersion
-    Version of .NET to install. Default: 10.0.112
+    Version of .NET to install. Default: 11.0.100-rc.3
 
 .EXAMPLE
     .\Sucrose.ps1
@@ -108,7 +108,7 @@ param (
     [string]$CompressPackage = "true",
 
     [Parameter(HelpMessage = ".NET version to install")]
-    [string]$DotNetVersion = "10.0.112"
+    [string]$DotNetVersion = "11.0.100-rc.3"
 )
 
 #region Initialization
@@ -234,7 +234,7 @@ if (-not $TargetFramework) {
         $TargetFramework = $detectedFramework
     } catch {
         Write-Warning "$(Get-Date -Format 'HH:mm:ss') [WARNING] Could not auto-detect TargetFramework: $($_.Exception.Message)"
-        $TargetFramework = "net10.0-windows"
+        $TargetFramework = "net11.0-windows"
     }
 }
 Write-Host "$(Get-Date -Format 'HH:mm:ss') [CONFIG] TargetFramework: $TargetFramework" -ForegroundColor Cyan
@@ -416,10 +416,10 @@ function Configure-CefSharpSubprocess {
     $runtimeConfigPath = Join-Path $OutputPath "CefSharp.BrowserSubprocess.runtimeconfig.json"
 
     if (Test-Path $cefSharpExe) {
-        # Extract framework version from TargetFramework (e.g., net10.0 or net10.0-windows)
+        # Extract framework version from TargetFramework (e.g., net11.0 or net11.0-windows)
         $tfmValue = $TargetFramework -replace '-windows$', ''
         
-        # Extract version number (e.g., 10.0 from net10.0)
+        # Extract version number (e.g., 11.0 from net11.0)
         if ($tfmValue -match '^net(\d+)\.(\d+)$') {
             $majorVersion = [int]$matches[1]
             $minorVersion = [int]$matches[2]
@@ -427,19 +427,19 @@ function Configure-CefSharpSubprocess {
             $majorVersion = [int]$matches[1]
             $minorVersion = 0
         } else {
-            Write-StatusMessage "Could not parse TargetFramework '$TargetFramework', defaulting to net10.0" -Type "Warning"
-            $majorVersion = 10
+            Write-StatusMessage "Could not parse TargetFramework '$TargetFramework', defaulting to net11.0" -Type "Warning"
+            $majorVersion = 11
             $minorVersion = 0
         }
         
-        # Clamp to valid range: minimum net6.0, maximum net10.0
+        # Clamp to valid range: minimum net6.0, maximum net11.0
         if ($majorVersion -lt 6) {
             Write-StatusMessage "Framework version too low ($majorVersion.$minorVersion), clamping to net6.0" -Type "Warning"
             $majorVersion = 6
             $minorVersion = 0
-        } elseif ($majorVersion -gt 10) {
-            Write-StatusMessage "Framework version too high ($majorVersion.$minorVersion), clamping to net10.0" -Type "Warning"
-            $majorVersion = 10
+        } elseif ($majorVersion -gt 11) {
+            Write-StatusMessage "Framework version too high ($majorVersion.$minorVersion), clamping to net11.0" -Type "Warning"
+            $majorVersion = 11
             $minorVersion = 0
         }
         

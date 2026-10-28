@@ -14,7 +14,7 @@
         <Title>Sucrose Wallpaper Engine</Title>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <NoWarn>$(NoWarn);CS8632;WFO0003;SYSLIB0014</NoWarn>
-        <TargetFrameworks>net10.0-windows</TargetFrameworks>
+        <TargetFrameworks>net11.0-windows</TargetFrameworks>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <InformationalVersion>$(Version)</InformationalVersion>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
