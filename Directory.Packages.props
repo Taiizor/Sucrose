@@ -27,6 +27,6 @@
         <PackageVersion Include="WindowsAPICodePackShell" Version="8.0.15.2" />
         <PackageVersion Include="WPF-UI.DependencyInjection" Version="4.3.0" />
         <PackageVersion Include="Microsoft.Web.WebView2" Version="1.0.4314.35" />
-        <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.14" />
+        <PackageVersion Include="Microsoft.Extensions.Hosting" Version="11.0.0-rc.3.26522.148" />
     </ItemGroup>
 </Project>
