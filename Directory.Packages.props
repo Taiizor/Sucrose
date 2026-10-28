@@ -4,6 +4,7 @@
         <PackageVersion Include="WPF-UI" Version="4.3.0" />
         <PackageVersion Include="Playhead" Version="1.0.4" />
         <PackageVersion Include="Skylark" Version="3.1.6.6" />
+        <PackageVersion Include="CsvHelper" Version="34.0.0" />
         <PackageVersion Include="Downloader" Version="5.10.1" />
         <PackageVersion Include="Watson.Lite" Version="6.6.0" />
         <PackageVersion Include="Costura.Fody" Version="6.2.0" />
@@ -13,7 +14,6 @@
         <PackageVersion Include="Skylark.Wing" Version="3.2.1.7" />
         <PackageVersion Include="TaskScheduler" Version="2.12.2" />
         <PackageVersion Include="XamlFlair.WPF" Version="1.2.13" />
-        <PackageVersion Include="CsvHelper" Version="34.0.0-rc.2" />
         <PackageVersion Include="LibVLCSharp.WPF" Version="3.10.2" />
         <PackageVersion Include="Skylark.Standard" Version="3.1.8.6" />
         <PackageVersion Include="Skylark.Clipboard" Version="3.1.6.1" />
