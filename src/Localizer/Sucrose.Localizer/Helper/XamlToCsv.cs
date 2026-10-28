@@ -1,5 +1,4 @@
-﻿using CsvHelper;
-using System.Globalization;
+using CsvHelper;
 using System.Text.RegularExpressions;
 using System.Xml;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
@@ -104,26 +103,19 @@ namespace Sucrose.Localizer.Helper
                 string languageCode = kvp.Key;
                 string outputFileName = Path.Combine(outputDirectory, $"{languageCode}.csv");
 
-                using (StreamWriter writer = new(outputFileName))
-                using (CsvWriter csv = new(writer, CultureInfo.InvariantCulture))
+                using (CsvWriter csv = CsvWriter.ToFile(outputFileName))
                 {
                     int count = 0;
 
-                    csv.WriteField("Hash");
-                    csv.WriteField("File");
-                    csv.WriteField("Key");
-                    csv.WriteField("Value");
+                    csv.WriteHeader("Hash", "File", "Key", "Value");
 
                     foreach (string entry in kvp.Value)
                     {
-                        csv.NextRecord();
-
                         string[] parts = entry.Split('⁞');
 
-                        csv.WriteField(SSECCE.TextToSHA256($"{parts[0].Replace(languageCode, "")}.{(string.IsNullOrWhiteSpace(parts[1]) ? count++ : parts[1])}"));
-                        csv.WriteField(parts[0]);
-                        csv.WriteField(parts[1]);
-                        csv.WriteField(parts[2]);
+                        string hash = SSECCE.TextToSHA256($"{parts[0].Replace(languageCode, "")}.{(string.IsNullOrWhiteSpace(parts[1]) ? count++ : parts[1])}");
+
+                        csv.WriteRecord(hash, parts[0], parts[1], parts[2]);
                     }
                 }
 

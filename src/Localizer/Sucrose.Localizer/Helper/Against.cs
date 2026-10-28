@@ -1,5 +1,4 @@
 using CsvHelper;
-using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace Sucrose.Localizer.Helper
@@ -146,20 +145,16 @@ namespace Sucrose.Localizer.Helper
         {
             List<CsvRecord> records = [];
 
-            using StreamReader reader = new(filePath);
-            using CsvReader csv = new(reader, CultureInfo.InvariantCulture);
-
-            csv.Read();
-            csv.ReadHeader();
+            using CsvReader csv = CsvReader.FromFile(filePath);
 
             while (csv.Read())
             {
                 records.Add(new CsvRecord
                 {
-                    Hash = csv.GetField("Hash"),
-                    File = csv.GetField("File"),
-                    Key = csv.GetField("Key"),
-                    Value = csv.GetField("Value")
+                    Hash = csv.GetString("Hash"),
+                    File = csv.GetString("File"),
+                    Key = csv.GetString("Key"),
+                    Value = csv.GetString("Value")
                 });
             }
 
@@ -291,22 +286,13 @@ namespace Sucrose.Localizer.Helper
 
         private static void WriteCsvRecords(string filePath, List<CsvRecord> records)
         {
-            using StreamWriter writer = new(filePath);
-            using CsvWriter csv = new(writer, CultureInfo.InvariantCulture);
+            using CsvWriter csv = CsvWriter.ToFile(filePath);
 
-            csv.WriteField("Hash");
-            csv.WriteField("File");
-            csv.WriteField("Key");
-            csv.WriteField("Value");
-            csv.NextRecord();
+            csv.WriteHeader("Hash", "File", "Key", "Value");
 
             foreach (CsvRecord record in records)
             {
-                csv.WriteField(record.Hash);
-                csv.WriteField(record.File);
-                csv.WriteField(record.Key);
-                csv.WriteField(record.Value);
-                csv.NextRecord();
+                csv.WriteRecord(record.Hash, record.File, record.Key, record.Value);
             }
         }
 

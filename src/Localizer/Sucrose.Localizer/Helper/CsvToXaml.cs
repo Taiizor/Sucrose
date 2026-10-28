@@ -1,5 +1,4 @@
-﻿using CsvHelper;
-using System.Globalization;
+using CsvHelper;
 using System.Text;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 
@@ -29,15 +28,14 @@ namespace Sucrose.Localizer.Helper
         {
             foreach (string csvFilePath in Directory.GetFiles(csvDirectory, "*.csv"))
             {
-                using StreamReader reader = new(csvFilePath);
-                using CsvReader csv = new(reader, CultureInfo.InvariantCulture);
-                IEnumerable<dynamic> records = csv.GetRecords<dynamic>();
+                using CsvReader csv = CsvReader.FromFile(csvFilePath);
+                IEnumerable<CsvDynamicRecord> records = csv.GetRecords<CsvDynamicRecord>();
 
-                foreach (dynamic record in records)
+                foreach (CsvDynamicRecord record in records)
                 {
-                    string xamlFileName = record.File;
-                    string key = record.Key;
-                    string value = record.Value;
+                    string xamlFileName = record["File"] ?? string.Empty;
+                    string key = record["Key"] ?? string.Empty;
+                    string value = record["Value"] ?? string.Empty;
 
                     string xamlFilePath = Path.Combine(xamlDirectory, xamlFileName);
 

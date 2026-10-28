@@ -1,5 +1,4 @@
-﻿using CsvHelper;
-using System.Globalization;
+using CsvHelper;
 
 namespace Sucrose.Localizer.Helper
 {
@@ -27,9 +26,8 @@ namespace Sucrose.Localizer.Helper
                 int count2 = 0;
                 int count3 = 0;
 
-                using StreamReader reader = new(csvFilePath);
-                using CsvReader csv = new(reader, CultureInfo.InvariantCulture);
-                IEnumerable<dynamic> records = csv.GetRecords<dynamic>();
+                using CsvReader csv = CsvReader.FromFile(csvFilePath);
+                IEnumerable<CsvDynamicRecord> records = csv.GetRecords<CsvDynamicRecord>();
 
                 Dictionary<string, List<string>> localizationData = [];
 
@@ -40,11 +38,14 @@ namespace Sucrose.Localizer.Helper
                     localizationData[languageCode] = [];
                 }
 
-                foreach (dynamic record in records)
+                foreach (CsvDynamicRecord record in records)
                 {
-                    string file = record.File;
-                    string key = string.IsNullOrEmpty(record.Key) ? $"PASS⦙{count1++}" : record.Key == "Base64" ? $"Base64⦙{count2++}" : record.Key;
-                    string value = string.IsNullOrEmpty(record.Value) ? $"PASS⦙{count3++}" : record.Value;
+                    string file = record["File"] ?? string.Empty;
+                    string rawKey = record["Key"] ?? string.Empty;
+                    string rawValue = record["Value"] ?? string.Empty;
+
+                    string key = string.IsNullOrEmpty(rawKey) ? $"PASS⦙{count1++}" : rawKey == "Base64" ? $"Base64⦙{count2++}" : rawKey;
+                    string value = string.IsNullOrEmpty(rawValue) ? $"PASS⦙{count3++}" : rawValue;
 
                     if (key.Contains('⦙') || value.Contains('⦙'))
                     {
@@ -67,26 +68,14 @@ namespace Sucrose.Localizer.Helper
                 string languageCode = kvp.Key;
                 string outputFileName = Path.Combine(outputDirectory, $"{languageCode}.csv");
 
-                using (StreamWriter writer = new(outputFileName))
-                using (CsvWriter poe = new(writer, CultureInfo.InvariantCulture))
+                using (CsvWriter poe = CsvWriter.ToFile(outputFileName))
                 {
-                    poe.WriteField("Term");
-                    poe.WriteField("Translate");
-                    poe.WriteField("Context");
-                    poe.WriteField("Reference");
-                    poe.WriteField("Comment");
+                    poe.WriteHeader("Term", "Translate", "Context", "Reference", "Comment");
 
                     foreach (string entry in kvp.Value)
                     {
-                        poe.NextRecord();
-
                         string[] parts = entry.Split('⁞');
-
-                        poe.WriteField(parts[0]);
-                        poe.WriteField(parts[1]);
-                        poe.WriteField(parts[2]);
-                        poe.WriteField(parts[3]);
-                        poe.WriteField(parts[4]);
+                        poe.WriteRecord(parts[0], parts[1], parts[2], parts[3], parts[4]);
                     }
                 }
 

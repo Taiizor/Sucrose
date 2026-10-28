@@ -1,6 +1,4 @@
-﻿using CsvHelper;
-using CsvHelper.Configuration;
-using System.Globalization;
+using CsvHelper;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 
 namespace Sucrose.Localizer.Helper
@@ -26,30 +24,25 @@ namespace Sucrose.Localizer.Helper
                 return;
             }
 
-            using (StreamWriter writer = new(outputFile))
-            using (CsvWriter csvWriter = new(writer, CultureInfo.InvariantCulture))
-            using (StreamReader reader = new(sourceFile))
-            using (CsvReader csvReader = new(reader, CultureInfo.InvariantCulture))
+            using (CsvWriter csvWriter = CsvWriter.ToFile(outputFile))
+            using (CsvReader csvReader = CsvReader.FromFile(sourceFile))
             {
-                csvWriter.WriteField("File");
-                csvWriter.WriteField("Key");
-                csvWriter.WriteField("Value");
+                csvWriter.WriteHeader("File", "Key", "Value");
 
-                IEnumerable<dynamic> records = csvReader.GetRecords<dynamic>();
-
-                foreach (dynamic record in records)
+                foreach (CsvDynamicRecord record in csvReader.GetRecords<CsvDynamicRecord>())
                 {
-                    csvWriter.NextRecord();
+                    string file = record["File"] ?? string.Empty;
+                    string key = record["Key"] ?? string.Empty;
+                    string value = record["Value"] ?? string.Empty;
 
-                    csvWriter.WriteField(record.File.Replace($".{sourceLang}.", $".{outputLang}."));
-                    csvWriter.WriteField(record.Key);
+                    file = file.Replace($".{sourceLang}.", $".{outputLang}.");
 
-                    if (record.Key == "Base64")
+                    if (key == "Base64")
                     {
-                        record.Value = SSECCE.TextToBase(SSECCE.BaseToText(record.Value).Replace($".{sourceLang}.", $".{outputLang}."));
+                        value = SSECCE.TextToBase(SSECCE.BaseToText(value).Replace($".{sourceLang}.", $".{outputLang}."));
                     }
 
-                    csvWriter.WriteField(record.Value);
+                    csvWriter.WriteRecord(file, key, value);
                 }
             }
 
@@ -66,42 +59,26 @@ namespace Sucrose.Localizer.Helper
 
             List<string[]> data = [];
 
-            using (StreamReader reader = new(localeFile))
-            using (CsvReader csv = new(reader, new CsvConfiguration(CultureInfo.InvariantCulture)))
+            using (CsvReader csv = CsvReader.FromFile(localeFile))
             {
-                IEnumerable<dynamic> records = csv.GetRecords<dynamic>();
-
-                foreach (dynamic record in records)
+                foreach (CsvDynamicRecord record in csv.GetRecords<CsvDynamicRecord>())
                 {
-                    string[] fields = new string[3];
-
-                    fields[0] = record.File;
-                    fields[1] = record.Key;
-                    fields[2] = record.Value;
-
-                    data.Add(fields);
+                    data.Add([record["File"] ?? string.Empty, record["Key"] ?? string.Empty, record["Value"] ?? string.Empty]);
                 }
             }
 
-            string[] newLanguageData = new string[] { $"{fileName}.xaml", $"{fileName}.{outputLang}", $"{outputLangName} (v0.1)" };
+            string[] newLanguageData = [$"{fileName}.xaml", $"{fileName}.{outputLang}", $"{outputLangName} (v0.1)"];
 
             data.Add(newLanguageData);
 
             data = data.OrderBy(d => d[1]).ToList();
 
-            using StreamWriter writer = new(localeFile);
-            using CsvWriter csvWriter = new(writer, CultureInfo.InvariantCulture);
-            csvWriter.WriteField("File");
-            csvWriter.WriteField("Key");
-            csvWriter.WriteField("Value");
+            using CsvWriter csvWriter = CsvWriter.ToFile(localeFile);
+            csvWriter.WriteHeader("File", "Key", "Value");
 
             foreach (string[] fields in data)
             {
-                csvWriter.NextRecord();
-
-                csvWriter.WriteField(fields[0]);
-                csvWriter.WriteField(fields[1]);
-                csvWriter.WriteField(fields[2]);
+                csvWriter.WriteRecord(fields);
             }
         }
     }
