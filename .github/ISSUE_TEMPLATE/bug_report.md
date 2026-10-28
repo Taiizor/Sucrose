@@ -14,7 +14,7 @@ I ACKNOWLEDGE THE FOLLOWING BEFORE PROCEEDING:
 3. Try not to make duplicates issues, do a quick search before posting
 4. Add a title that describes the issue clearly
 5. Check the wiki to see if the question is already answered:
-https://github.com/Taiizor/Sucrose/wiki/Common-Problems
+https://github.com/Taiizor/Sucrose/wiki/Troubleshooting-Common
 --->
 
 **Bug Description**
