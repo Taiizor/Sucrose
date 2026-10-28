@@ -446,6 +446,20 @@ function Configure-CefSharpSubprocess {
         # Build tfm and version strings
         $runtimeTfm = "net$majorVersion.$minorVersion"
         $runtimeVersion = "$majorVersion.$minorVersion.0"
+
+        # Try to extract exact framework version from Sucrose.Live.CefSharp.runtimeconfig.json
+        $cefSharpAppConfigPath = Join-Path $OutputPath "Sucrose.Live.CefSharp.runtimeconfig.json"
+        if (Test-Path $cefSharpAppConfigPath) {
+            try {
+                $appConfigJson = Get-Content -Raw -Path $cefSharpAppConfigPath | ConvertFrom-Json
+                $netCoreApp = $appConfigJson.runtimeOptions.frameworks | Where-Object { $_.name -eq "Microsoft.NETCore.App" }
+                if ($null -ne $netCoreApp -and -not [string]::IsNullOrWhiteSpace($netCoreApp.version)) {
+                    $runtimeVersion = $netCoreApp.version
+                }
+            } catch {
+                Write-StatusMessage "Could not read framework version from $cefSharpAppConfigPath, using default" -Type "Warning"
+            }
+        }
         
         # Create custom runtime configuration
         $runtimeConfig = @{
