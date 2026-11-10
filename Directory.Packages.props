@@ -5,7 +5,7 @@
         <PackageVersion Include="Playhead" Version="1.0.4" />
         <PackageVersion Include="Skylark" Version="3.1.6.6" />
         <PackageVersion Include="CsvHelper" Version="34.0.0" />
-        <PackageVersion Include="Downloader" Version="5.10.1" />
+        <PackageVersion Include="Downloader" Version="7.0.1" />
         <PackageVersion Include="Watson.Lite" Version="6.6.0" />
         <PackageVersion Include="Costura.Fody" Version="6.2.0" />
         <PackageVersion Include="Vortice.DXGI" Version="3.8.3" />
@@ -23,10 +23,10 @@
         <PackageVersion Include="Newtonsoft.Json" Version="14.0.1-beta2" />
         <PackageVersion Include="SharpCompress" Version="0.51.0-beta.174" />
         <PackageVersion Include="VideoLAN.LibVLC.Windows" Version="3.0.24" />
-        <PackageVersion Include="CefSharp.Wpf.HwndHost" Version="154.0.340" />
+        <PackageVersion Include="CefSharp.Wpf.HwndHost" Version="156.0.150" />
         <PackageVersion Include="WindowsAPICodePackShell" Version="8.0.15.2" />
         <PackageVersion Include="WPF-UI.DependencyInjection" Version="4.3.0" />
-        <PackageVersion Include="Microsoft.Web.WebView2" Version="1.0.4314.35" />
-        <PackageVersion Include="Microsoft.Extensions.Hosting" Version="11.0.0-rc.3.26522.148" />
+        <PackageVersion Include="Microsoft.Extensions.Hosting" Version="11.0.0" />
+        <PackageVersion Include="Microsoft.Web.WebView2" Version="1.0.4365-prerelease" />
     </ItemGroup>
 </Project>

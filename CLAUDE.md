@@ -36,7 +36,7 @@ The CI pipeline suppresses these warnings: `CS0067, CS0108, CS0109, CS0114, CS01
 
 ## Framework & Tooling
 
-- **.NET 11.0-windows** target framework (`TargetFrameworks` in `Directory.Build.props`), built with the **.NET 11 preview SDK** — `global.json` pins `11.0.0` with `rollForward: latestMajor` and `allowPrerelease: true`; CI uses `dotnet-version: 11.0.x` / `dotnet-quality: preview`. The publish script installs runtime `11.0.100-rc.3.26522.148` by default (`-DotNetVersion`)
+- **.NET 11.0-windows** target framework (`TargetFrameworks` in `Directory.Build.props`), built with the **.NET 11 SDK** — `global.json` pins `11.0.0` with `rollForward: latestMajor` and `allowPrerelease: true`; CI uses `dotnet-version: 11.0.x` / `dotnet-quality: preview`. The publish script installs runtime `11.0.100` by default (`-DotNetVersion`)
 - **C# preview** language version with implicit usings enabled, nullable disabled
 - **WPF** for all UI (no WinUI/MAUI — `exp/` holds experimental Avalonia/Uno/WinUI ports that are not part of the main solution)
 - **Platforms**: x86, x64, ARM64 (conditional compilation symbols: `X86`, `X64`, `ARM64`)
@@ -149,7 +149,7 @@ Files in shared projects follow a consistent directory structure:
 | `Directory.Build.props` | Central build properties, version (auto-generated from date: `yy.MM.dd`), framework, platforms |
 | `Directory.Build.targets` | Runtime config (thread pool, GC, platform symbols), app manifest |
 | `Directory.Packages.props` | All NuGet package versions (centralized) |
-| `global.json` | SDK version (`11.0.0` preview, `rollForward: latestMajor`) |
+| `global.json` | SDK version (`11.0.0`, `rollForward: latestMajor`) |
 | `.editorconfig` | Code style enforcement |
 | `NuGet.Config` | Package source (nuget.org only) |
 
