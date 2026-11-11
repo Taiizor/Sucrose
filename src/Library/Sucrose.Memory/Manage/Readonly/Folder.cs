@@ -43,5 +43,7 @@
         public static readonly string Properties = "Properties";
 
         public static readonly string Requirements = "Requirements";
+
+        public static readonly string FFmpeg = "FFmpeg";
     }
 }

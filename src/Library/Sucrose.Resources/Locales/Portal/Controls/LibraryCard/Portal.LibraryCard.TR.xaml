@@ -19,6 +19,32 @@
     <system:String x:Key="Portal.LibraryCard.MenuCyclingAdd">Döngüye Ekle</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuCyclingRemove">Döngüden Çıkar</system:String>
 
+    <system:String x:Key="Portal.LibraryCard.MenuLockScreen">Kilit ekranı yap</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenClose">Kapat</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenAdminTitle">Kilit ekranı yönetici izni gerektiriyor</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenAdminMessage">Windows kilit ekranı önbelleğini korur. Önbellekteki görüntüleri bu GIF ile değiştirmek için yönetici onayı istenecek.</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenAdminApply">Devam et</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenModeTitle">Kilit ekranı Resim modunda değil</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenModeMessage">Windows Ayarları, Kişiselleştirme, Kilit ekranı bölümünden Resim seç, sonra Windows kilitleyip bir kez aç. Yoksa GIF görünmeyebilir.</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenModeContinue">Yine de devam et</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenFFmpegTitle">Videolar için FFmpeg gerekli</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenFFmpegMessage">Video temalar önce FFmpeg ile GIF'e dönüştürülür. FFmpeg paketi şimdi indirilsin mi (yaklaşık 80 MB, tek seferlik)?</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenFFmpegDownload">İndir</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenErrorTitle">Kilit ekranı ayarlanamadı</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenErrorMessage">Kilit ekranı görüntüsü hazırlanamadı: {0}</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenDoneTitle">Kilit ekranı isteği gönderildi</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenDoneMessage">Animasyonu denetlemek için Windows kilitle (Win + L). Hâlâ sabit görüntü varsa Windows Ayarları'ndan Resim modunu seçip yeniden dene.</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenAppliedMessage">GIF {0} kilit ekranı görüntüsüne yazıldı. Denetlemek için Windows kilitle (Win + L). Hâlâ sabit görüntü varsa Windows Ayarları'ndan Resim modunu seçip yeniden dene.</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenTimeoutMessage">Yardımcı zamanında sonuç döndürmedi. Win + L ile denetle; değişiklik yoksa yeniden dene.</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenFeatureTitle">Windows kilit ekranı animasyonunu engelliyor</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenFeatureMessage">Windows 11, 38943831 numaralı sistem özelliği ile kilit ekranı animasyonunu kapalı tutuyor. Şimdi kapatılsın mı? Yönetici onayı gerekir ve sonrasında yeniden başlatma şarttır. Ayrıca Ayarlar, Erişilebilirlik, Görsel efektler, Animasyon efektleri açık olmalı.</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenFeatureDisable">Kapat</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenFeatureHintTitle">Animasyon hâlâ oynamıyorsa</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenFeatureHintMessage">Ayarlar, Erişilebilirlik, Görsel efektler, Animasyon efektleri açık kalsın. Windows 11 25H2 ve sonrasında 38943831 numaralı sistem özelliği de kapalı olmalı; durumu okunamadı.</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenRebootTitle">Yeniden başlatma gerekli</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenRebootMessage">Windows özelliği değişikliğinin etkili olması için yeniden başlatma gerekir. Şimdi yeniden başlatılsın mı? Önce çalışmalarını kaydet.</system:String>
+    <system:String x:Key="Portal.LibraryCard.LockScreenRebootNow">Şimdi yeniden başlat</system:String>
+
     <system:String x:Key="Portal.LibraryCard.Closed">Kapatıldı</system:String>
     <system:String x:Key="Portal.LibraryCard.Paused">Durduruldu</system:String>
 

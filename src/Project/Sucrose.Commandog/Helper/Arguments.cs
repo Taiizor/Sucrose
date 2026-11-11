@@ -1,4 +1,5 @@
-﻿using SCHM = Sucrose.Commandog.Helper.Miscellaneous;
+﻿using SCHL = Sucrose.Commandog.Helper.Lockscreen;
+using SCHM = Sucrose.Commandog.Helper.Miscellaneous;
 using SCHP = Sucrose.Commandog.Helper.Parse;
 using SCHS = Sucrose.Commandog.Helper.Scheduler;
 using SMMRA = Sucrose.Memory.Manage.Readonly.App;
@@ -134,6 +135,15 @@ namespace Sucrose.Commandog.Helper
                                     break;
                                 case SSDECT.StartupP:
                                     SWHWSP.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<bool>(Values[1]));
+                                    break;
+                                case SSDECT.LockScreenApply:
+                                    await SCHL.Apply(SCHP.ArgumentValue<string>(Values[0]), Values.Count > 1 ? SCHP.ArgumentValue<string>(Values[1]) : null);
+                                    break;
+                                case SSDECT.LockScreenRemove:
+                                    await SCHL.Remove(Values.Count > 0 ? SCHP.ArgumentValue<string>(Values[0]) : null);
+                                    break;
+                                case SSDECT.LockScreenFeature:
+                                    await SCHL.Feature(SCHP.ArgumentValue<string>(Values[0]), Values.Count > 1 ? SCHP.ArgumentValue<string>(Values[1]) : null);
                                     break;
                                 case SSDECT.Official:
                                     SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));

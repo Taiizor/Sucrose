@@ -1,8 +1,11 @@
+using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Wpf.Ui.Controls;
+using MessageBox = Wpf.Ui.Controls.MessageBox;
 using SHV = Skylark.Helper.Versionly;
 using SMMB = Sucrose.Manager.Manage.Backgroundog;
 using SMMC = Sucrose.Manager.Manage.Cycling;
@@ -31,6 +34,8 @@ using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSHQ = Sucrose.Shared.Space.Helper.Lockscreen;
+using SSSHW = Sucrose.Shared.Space.Helper.WindowsImage;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTCLC = Sucrose.Shared.Theme.Converter.LocalizationConverter;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
@@ -131,6 +136,432 @@ namespace Sucrose.Portal.Views.Controls
             {
                 SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.PropertyA}{SMMRG.ValueSeparator}{SSSMI.Property}{SMMRG.ValueSeparator}{Path.GetFileName(Theme)}");
             }
+        }
+
+        private async void MenuLockScreen_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Directory.Exists(Theme) || Info.Type is not SSDEWT.Gif and not SSDEWT.Video)
+            {
+                return;
+            }
+
+            MenuLockScreen.IsEnabled = false;
+
+            try
+            {
+                string Source = Info.Source;
+
+                if (!Path.IsPathRooted(Source))
+                {
+                    Source = Path.Combine(Theme, Source);
+                }
+
+                if (!File.Exists(Source))
+                {
+                    await ShowLockScreenMessageAsync(
+                        SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorTitle"),
+                        string.Format(SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorMessage"), Source),
+                        null);
+                    return;
+                }
+
+                // Prerequisite: Windows must be in Picture mode with an existing image cache.
+                SSSHQ.LockScreenMode Mode = SSSHQ.TryGetLockScreenMode();
+
+                if (Mode != SSSHQ.LockScreenMode.PictureOrOther)
+                {
+                    Wpf.Ui.Controls.MessageBoxResult ModeResult = await ShowLockScreenMessageAsync(
+                        SRER.GetValue("Portal", "LibraryCard", "LockScreenModeTitle"),
+                        SRER.GetValue("Portal", "LibraryCard", "LockScreenModeMessage"),
+                        SRER.GetValue("Portal", "LibraryCard", "LockScreenModeContinue"));
+
+                    if (ModeResult != Wpf.Ui.Controls.MessageBoxResult.Primary)
+                    {
+                        return;
+                    }
+                }
+
+                try
+                {
+                    if (SSSHQ.FindCacheFolders(SSSHQ.GetCacheDirectory()).Length == 0)
+                    {
+                        await ShowLockScreenMessageAsync(
+                            SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorTitle"),
+                            SRER.GetValue("Portal", "LibraryCard", "LockScreenModeMessage"),
+                            null);
+                        return;
+                    }
+                }
+                catch (Exception Exception) when (!SSSHQ.IsAccessDenied(Exception))
+                {
+                    await SSWEW.Watch_CatchException(Exception);
+
+                    await ShowLockScreenMessageAsync(
+                        SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorTitle"),
+                        string.Format(SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorMessage"), Exception.Message),
+                        null);
+                    return;
+                }
+                catch (Exception Exception)
+                {
+                    // The cache is unreadable without elevation. Do not block here;
+                    // Commandog repairs access under elevation and reports the result.
+                    await SSWEW.Watch_CatchException(Exception);
+                }
+
+                string GifPath = Source;
+                string VideoTemporary = null;
+
+                if (Info.Type == SSDEWT.Video)
+                {
+                    GifPath = await EnsureVideoGifAsync(Source);
+
+                    if (GifPath is null)
+                    {
+                        return;
+                    }
+
+                    VideoTemporary = Path.GetDirectoryName(GifPath);
+                }
+                else if (!SSSHQ.IsGif(Source))
+                {
+                    await ShowLockScreenMessageAsync(
+                        SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorTitle"),
+                        string.Format(SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorMessage"), Source),
+                        null);
+                    return;
+                }
+
+                // With UAC off and an admin token there is no prompt, so run directly.
+                // Otherwise the replacement runs elevated through Commandog.
+                bool Elevated = SSSHQ.IsAdministrator();
+                string ResultFile = Path.Combine(SMMRP.Temp, $"SucroseLockScreen_{Guid.NewGuid():N}.txt");
+
+                if (!Elevated)
+                {
+                    Wpf.Ui.Controls.MessageBoxResult AdminResult = await ShowLockScreenMessageAsync(
+                        SRER.GetValue("Portal", "LibraryCard", "LockScreenAdminTitle"),
+                        SRER.GetValue("Portal", "LibraryCard", "LockScreenAdminMessage"),
+                        SRER.GetValue("Portal", "LibraryCard", "LockScreenAdminApply"));
+
+                    if (AdminResult != Wpf.Ui.Controls.MessageBoxResult.Primary)
+                    {
+                        CleanupLockScreenTemporary(ResultFile, VideoTemporary);
+                        return;
+                    }
+                }
+
+                try
+                {
+                    if (!File.Exists(SSSMI.Commandog))
+                    {
+                        throw new FileNotFoundException(SSSMI.Commandog);
+                    }
+
+                    string Arguments = $"{SMMRG.StartCommand}{SSDECT.LockScreenApply}{SMMRG.ValueSeparator}{GifPath}{SMMRG.ValueSeparator}{ResultFile}";
+
+                    if (Elevated)
+                    {
+                        SSSHP.Run(SSSMI.Commandog, Arguments);
+                    }
+                    else
+                    {
+                        SSSHP.Runas(SSSMI.Commandog, Arguments);
+                    }
+
+                    // The launched helper reports through the result file. Poll for
+                    // it instead of a process handle, which console targets never get.
+                    bool Reported = await WaitLockScreenResultAsync(ResultFile);
+                    bool Applied = await ShowLockScreenResultAsync(ResultFile, Reported);
+
+                    if (Applied)
+                    {
+                        await CheckWindowsImageFeatureAsync();
+                    }
+                }
+                catch (Exception Exception) when (Exception is Win32Exception or OperationCanceledException)
+                {
+                    await SSWEW.Watch_CatchException(Exception);
+
+                    await ShowLockScreenMessageAsync(
+                        SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorTitle"),
+                        string.Format(SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorMessage"), Exception.Message),
+                        null);
+                }
+                finally
+                {
+                    CleanupLockScreenTemporary(ResultFile, VideoTemporary);
+                }
+            }
+            catch (Exception Exception)
+            {
+                await SSWEW.Watch_CatchException(Exception);
+
+                await ShowLockScreenMessageAsync(
+                    SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorTitle"),
+                    string.Format(SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorMessage"), Exception.Message),
+                    null);
+            }
+            finally
+            {
+                MenuLockScreen.IsEnabled = true;
+            }
+        }
+
+        private static async Task<bool> WaitLockScreenResultAsync(string ResultFile)
+        {
+            for (int Wait = 0; Wait < 180; Wait++)
+            {
+                await Task.Delay(500);
+
+                try
+                {
+                    if (File.Exists(ResultFile))
+                    {
+                        return true;
+                    }
+                }
+                catch
+                {
+                }
+            }
+
+            return false;
+        }
+
+        private async Task<bool> ShowLockScreenResultAsync(string ResultFile, bool Reported)
+        {
+            string Title = SRER.GetValue("Portal", "LibraryCard", "LockScreenDoneTitle");
+            string Message = SRER.GetValue("Portal", "LibraryCard", "LockScreenDoneMessage");
+            bool Applied = Reported;
+
+            try
+            {
+                if (Reported && File.Exists(ResultFile))
+                {
+                    string[] Parts = File.ReadAllText(ResultFile).Split('|');
+
+                    if (Parts.Length >= 3 && Parts[0] == "OK" && int.TryParse(Parts[1], out int Succeeded))
+                    {
+                        Message = string.Format(SRER.GetValue("Portal", "LibraryCard", "LockScreenAppliedMessage"), Succeeded);
+                    }
+                    else
+                    {
+                        Applied = false;
+
+                        Title = SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorTitle");
+
+                        Message = Parts.Length >= 2 && Parts[0] == "ERR"
+                            ? string.Format(SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorMessage"), Parts[1])
+                            : SRER.GetValue("Portal", "LibraryCard", "LockScreenTimeoutMessage");
+                    }
+                }
+            }
+            catch
+            {
+            }
+
+            if (!Reported)
+            {
+                Applied = false;
+                Title = SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorTitle");
+                Message = SRER.GetValue("Portal", "LibraryCard", "LockScreenTimeoutMessage");
+            }
+
+            await ShowLockScreenMessageAsync(Title, Message, null);
+
+            return Applied;
+        }
+
+        private async Task CheckWindowsImageFeatureAsync()
+        {
+            if (!SSSHW.IsCheckRequired())
+            {
+                return;
+            }
+
+            SSSHW.FeatureState State;
+
+            try
+            {
+                State = SSSHW.Read();
+            }
+            catch (Exception Exception)
+            {
+                await SSWEW.Watch_CatchException(Exception);
+                return;
+            }
+
+            if (SSSHW.IsDisabled(State))
+            {
+                return;
+            }
+
+            if (!SSSHW.IsEnabled(State))
+            {
+                await ShowLockScreenMessageAsync(
+                    SRER.GetValue("Portal", "LibraryCard", "LockScreenFeatureHintTitle"),
+                    SRER.GetValue("Portal", "LibraryCard", "LockScreenFeatureHintMessage"),
+                    null);
+                return;
+            }
+
+            Wpf.Ui.Controls.MessageBoxResult DisableResult = await ShowLockScreenMessageAsync(
+                SRER.GetValue("Portal", "LibraryCard", "LockScreenFeatureTitle"),
+                SRER.GetValue("Portal", "LibraryCard", "LockScreenFeatureMessage"),
+                SRER.GetValue("Portal", "LibraryCard", "LockScreenFeatureDisable"));
+
+            if (DisableResult != Wpf.Ui.Controls.MessageBoxResult.Primary)
+            {
+                return;
+            }
+
+            string ResultFile = Path.Combine(SMMRP.Temp, $"SucroseLockScreen_{Guid.NewGuid():N}.txt");
+            string Arguments = $"{SMMRG.StartCommand}{SSDECT.LockScreenFeature}{SMMRG.ValueSeparator}Disable{SMMRG.ValueSeparator}{ResultFile}";
+
+            try
+            {
+                if (SSSHQ.IsAdministrator())
+                {
+                    SSSHP.Run(SSSMI.Commandog, Arguments);
+                }
+                else
+                {
+                    SSSHP.Runas(SSSMI.Commandog, Arguments);
+                }
+
+                if (!await WaitLockScreenResultAsync(ResultFile))
+                {
+                    await ShowLockScreenMessageAsync(
+                        SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorTitle"),
+                        SRER.GetValue("Portal", "LibraryCard", "LockScreenTimeoutMessage"),
+                        null);
+                    return;
+                }
+
+                string Outcome = null;
+
+                try
+                {
+                    Outcome = File.ReadAllText(ResultFile).Split('|').FirstOrDefault();
+                }
+                catch
+                {
+                }
+
+                if (Outcome != "OK")
+                {
+                    string Detail = null;
+
+                    try
+                    {
+                        string[] Parts = File.ReadAllText(ResultFile).Split('|', 2);
+                        Detail = Parts.Length > 1 ? Parts[1] : null;
+                    }
+                    catch
+                    {
+                    }
+
+                    await ShowLockScreenMessageAsync(
+                        SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorTitle"),
+                        string.Format(
+                            SRER.GetValue("Portal", "LibraryCard", "LockScreenErrorMessage"),
+                            Detail ?? SRER.GetValue("Portal", "LibraryCard", "LockScreenTimeoutMessage")),
+                        null);
+                    return;
+                }
+
+                Wpf.Ui.Controls.MessageBoxResult RebootResult = await ShowLockScreenMessageAsync(
+                    SRER.GetValue("Portal", "LibraryCard", "LockScreenRebootTitle"),
+                    SRER.GetValue("Portal", "LibraryCard", "LockScreenRebootMessage"),
+                    SRER.GetValue("Portal", "LibraryCard", "LockScreenRebootNow"));
+
+                if (RebootResult != Wpf.Ui.Controls.MessageBoxResult.Primary)
+                {
+                    return;
+                }
+
+                try
+                {
+                    Process.Start(new ProcessStartInfo("shutdown.exe", "/r /t 0") { UseShellExecute = true });
+                }
+                catch (Exception Exception)
+                {
+                    await SSWEW.Watch_CatchException(Exception);
+                }
+            }
+            catch (Exception Exception) when (Exception is Win32Exception or OperationCanceledException)
+            {
+                await SSWEW.Watch_CatchException(Exception);
+            }
+            finally
+            {
+                try
+                {
+                    File.Delete(ResultFile);
+                }
+                catch
+                {
+                }
+            }
+        }
+
+        private static void CleanupLockScreenTemporary(string ResultFile, string VideoTemporary)
+        {
+            try
+            {
+                File.Delete(ResultFile);
+            }
+            catch
+            {
+            }
+
+            try
+            {
+                if (!string.IsNullOrEmpty(VideoTemporary) && Directory.Exists(VideoTemporary))
+                {
+                    Directory.Delete(VideoTemporary, true);
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        private async Task<Wpf.Ui.Controls.MessageBoxResult> ShowLockScreenMessageAsync(string Title, string Message, string Primary)
+        {
+            MessageBox Dialog = new()
+            {
+                Title = Title,
+                Content = Message,
+                CloseButtonText = SRER.GetValue("Portal", "LibraryCard", "LockScreenClose")
+            };
+
+            if (!string.IsNullOrEmpty(Primary))
+            {
+                Dialog.PrimaryButtonText = Primary;
+            }
+
+            return await Dialog.ShowDialogAsync();
+        }
+
+        private async Task<string> EnsureVideoGifAsync(string Source)
+        {
+            // Download, probe, options and conversion all run inside the dialog.
+            // Closing it cancels whatever stage is in progress.
+            LockScreenVideo Options = new()
+            {
+                SourcePath = Source,
+                ThumbnailSource = Path.Combine(Theme, Info.Thumbnail)
+            };
+
+            await Options.ShowAsync();
+
+            string Result = Options.ResultGifPath;
+
+            Options.Dispose();
+
+            return Result;
         }
 
         private void MenuCyclingAdd_Click(object sender, RoutedEventArgs e)
@@ -282,6 +713,7 @@ namespace Sucrose.Portal.Views.Controls
             MenuUse.Header = SRER.GetValue("Portal", "LibraryCard", "MenuUse");
             MenuDelete.Header = SRER.GetValue("Portal", "LibraryCard", "MenuDelete");
             MenuCustomize.Header = SRER.GetValue("Portal", "LibraryCard", "MenuCustomize");
+            MenuLockScreen.Header = SRER.GetValue("Portal", "LibraryCard", "MenuLockScreen");
 
             string PropertiesPath = Path.Combine(Theme, SMMRC.SucroseProperties);
 
@@ -388,6 +820,15 @@ namespace Sucrose.Portal.Views.Controls
                 MenuCyclingRemove.Visibility = Visibility.Collapsed;
             }
 
+            if (Info.Type is SSDEWT.Gif or SSDEWT.Video && Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+            {
+                MenuLockScreen.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MenuLockScreen.Visibility = Visibility.Collapsed;
+            }
+
             if ((!SMMB.ClosePerformance && !SMMB.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
             {
                 if (SMML.Selected == Path.GetFileName(Theme) && SSSHL.Run())
@@ -419,6 +860,7 @@ namespace Sucrose.Portal.Views.Controls
                 MenuUse.IsEnabled = false;
                 MenuDelete.IsEnabled = false;
                 MenuCustomize.IsEnabled = false;
+                MenuLockScreen.IsEnabled = false;
 
                 if (SMMB.ClosePerformance)
                 {

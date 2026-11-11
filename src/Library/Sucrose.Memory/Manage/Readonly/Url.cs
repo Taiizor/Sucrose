@@ -26,6 +26,8 @@ namespace Sucrose.Memory.Manage.Readonly
 
         public static readonly string WebView2 = "https://go.microsoft.com/fwlink/p/?LinkId=2124703";
 
+        public static readonly string FFmpeg = "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip";
+
         public static readonly string GitHubStore = $"{GitHub}/{SMMRGH.Owner}/{SMMRGH.StoreRepository}";
 
         public static readonly string GitHubSucrose = $"{GitHub}/{SMMRGH.Owner}/{SMMRGH.SucroseRepository}";

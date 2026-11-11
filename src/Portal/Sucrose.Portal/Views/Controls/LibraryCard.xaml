@@ -52,6 +52,12 @@
                 Icon="{ui:SymbolIcon Color24}"
                 IsEnabled="False" />
             <ui:MenuItem
+                x:Name="MenuLockScreen"
+                Click="MenuLockScreen_Click"
+                Cursor="Hand"
+                Header="{DynamicResource Portal.LibraryCard.MenuLockScreen}"
+                Icon="{ui:SymbolIcon LockClosed24}" />
+            <ui:MenuItem
                 x:Name="MenuCyclingAdd"
                 Click="MenuCyclingAdd_Click"
                 Cursor="Hand"

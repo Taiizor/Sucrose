@@ -1,0 +1,230 @@
+<ui:ContentDialog
+    x:Class="Sucrose.Portal.Views.Controls.LockScreenVideo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="{DynamicResource Portal.LockScreenVideo.Title}"
+    d:DesignHeight="420"
+    d:DesignWidth="760"
+    CloseButtonText="{DynamicResource Portal.LockScreenVideo.Close}"
+    Closing="Dialog_Closing"
+    DialogMaxWidth="760"
+    Loaded="Dialog_Loaded"
+    mc:Ignorable="d">
+
+    <ui:ContentDialog.Resources>
+        <Style BasedOn="{StaticResource {x:Type ui:ContentDialog}}" TargetType="{x:Type local:LockScreenVideo}" />
+    </ui:ContentDialog.Resources>
+
+    <Grid MinWidth="660">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!--  Preview  -->
+        <StackPanel Grid.Column="0" Margin="0,0,20,0">
+            <Border
+                Height="196"
+                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                ClipToBounds="True"
+                CornerRadius="8">
+                <Grid>
+                    <ui:Image
+                        x:Name="PreviewImage"
+                        Margin="4"
+                        Stretch="Uniform"
+                        Visibility="Collapsed" />
+                    <ui:ProgressRing
+                        x:Name="PreviewRing"
+                        Width="36"
+                        Height="36"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        IsIndeterminate="True" />
+                    <ui:SymbolIcon
+                        x:Name="PreviewPlaceholder"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="32"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Symbol="Video24"
+                        Visibility="Collapsed" />
+                </Grid>
+            </Border>
+
+            <ui:TextBlock
+                x:Name="PreviewName"
+                Margin="2,10,0,0"
+                FontSize="14"
+                FontWeight="SemiBold"
+                TextTrimming="CharacterEllipsis" />
+            <ui:TextBlock
+                x:Name="PreviewMeta"
+                Margin="2,2,0,0"
+                FontSize="12"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                TextTrimming="CharacterEllipsis" />
+        </StackPanel>
+
+        <!--  Settings and progress  -->
+        <Grid Grid.Column="1">
+            <StackPanel x:Name="OptionsPanel" Visibility="Collapsed">
+                <ui:Card Background="{DynamicResource CardStrokeColorDefaultBrush}">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ui:SymbolIcon
+                                Grid.Column="0"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                Symbol="ArrowFit24" />
+                            <ui:TextBlock
+                                Grid.Column="1"
+                                Margin="12,0,12,0"
+                                VerticalAlignment="Center"
+                                Text="{DynamicResource Portal.LockScreenVideo.Resolution}" />
+                            <ComboBox
+                                x:Name="ResolutionCombo"
+                                Grid.Column="2"
+                                Width="170"
+                                VerticalAlignment="Center"
+                                SelectionChanged="Option_SelectionChanged" />
+                        </Grid>
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ui:SymbolIcon
+                                Grid.Column="0"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                Symbol="Gauge24" />
+                            <ui:TextBlock
+                                Grid.Column="1"
+                                Margin="12,0,12,0"
+                                VerticalAlignment="Center"
+                                Text="{DynamicResource Portal.LockScreenVideo.FrameRate}" />
+                            <ComboBox
+                                x:Name="FpsCombo"
+                                Grid.Column="2"
+                                Width="170"
+                                VerticalAlignment="Center"
+                                SelectionChanged="Option_SelectionChanged" />
+                        </Grid>
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ui:SymbolIcon
+                                Grid.Column="0"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                Symbol="Timer24" />
+                            <ui:TextBlock
+                                Grid.Column="1"
+                                Margin="12,0,12,0"
+                                VerticalAlignment="Center"
+                                Text="{DynamicResource Portal.LockScreenVideo.Duration}" />
+                            <ComboBox
+                                x:Name="DurationCombo"
+                                Grid.Column="2"
+                                Width="170"
+                                VerticalAlignment="Center"
+                                SelectionChanged="Option_SelectionChanged" />
+                        </Grid>
+
+                        <Border
+                            Height="1"
+                            Margin="0,4,0,12"
+                            Background="{DynamicResource DividerStrokeColorDefaultBrush}" />
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ui:SymbolIcon
+                                Grid.Column="0"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                Symbol="FastAcceleration24" />
+                            <StackPanel
+                                Grid.Column="1"
+                                Margin="12,0,12,0"
+                                VerticalAlignment="Center">
+                                <ui:TextBlock Text="{DynamicResource Portal.LockScreenVideo.Hardware}" />
+                                <ui:TextBlock
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextPlaceholderColorBrush}"
+                                    Text="{DynamicResource Portal.LockScreenVideo.HardwareDescription}"
+                                    TextWrapping="Wrap" />
+                            </StackPanel>
+                            <ui:ToggleSwitch
+                                x:Name="HardwareCheck"
+                                Grid.Column="2"
+                                VerticalAlignment="Center"
+                                Checked="Option_SelectionChanged"
+                                IsChecked="False"
+                                Unchecked="Option_SelectionChanged" />
+                        </Grid>
+                    </StackPanel>
+                </ui:Card>
+
+                <ui:InfoBar
+                    x:Name="ErrorBar"
+                    Margin="0,8,0,0"
+                    IsClosable="False"
+                    IsOpen="False"
+                    Severity="Error" />
+
+                <ui:TextBlock
+                    x:Name="Summary"
+                    Margin="2,10,0,0"
+                    FontSize="12"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                    TextWrapping="Wrap" />
+
+                <ui:Button
+                    x:Name="ConvertButton"
+                    Margin="0,12,0,0"
+                    HorizontalAlignment="Stretch"
+                    Appearance="Primary"
+                    Click="ConvertButton_Click"
+                    Content="{DynamicResource Portal.LockScreenVideo.Convert}"
+                    Cursor="Hand" />
+            </StackPanel>
+
+            <StackPanel x:Name="ProgressPanel" VerticalAlignment="Center">
+                <ui:TextBlock x:Name="StatusText" TextWrapping="Wrap" />
+                <ProgressBar
+                    x:Name="WorkProgress"
+                    Height="4"
+                    Margin="0,12,0,0"
+                    IsIndeterminate="True"
+                    Maximum="100"
+                    Minimum="0" />
+                <ui:TextBlock
+                    Margin="0,10,0,0"
+                    FontSize="12"
+                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                    Text="{DynamicResource Portal.LockScreenVideo.CancelHint}"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</ui:ContentDialog>

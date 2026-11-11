@@ -1,0 +1,36 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.LockScreenVideo.Title">Video to GIF</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.Convert">Convert</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.Close">Close</system:String>
+
+    <system:String x:Key="Portal.LockScreenVideo.Resolution">Resolution</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.FrameRate">Frame rate</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.Duration">Clip length</system:String>
+
+    <system:String x:Key="Portal.LockScreenVideo.Original">Original ({0}x{1})</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.Display">Display ({0}x{1})</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.AllFrames">All source frames ({0} fps)</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.AllFramesUnknown">All source frames</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.AllFramesShort">all frames</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.FpsTarget">{0} fps target</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.FullVideo">Entire video ({0})</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.FullVideoUnknown">Entire video</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.FullVideoShort">entire video</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.FirstSeconds">First {0} seconds</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.Hardware">Hardware acceleration</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.HardwareDescription">Experimental; falls back to CPU automatically when unsupported.</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.HardwareShort">GPU</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.Summary">Output: {0}</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.CancelHint">Closing this dialog cancels the running job.</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusDownload">Downloading FFmpeg ({0}%)…</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusExtract">Extracting FFmpeg…</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusAnalyze">Analyzing video…</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusConvert">Converting video to GIF…</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusAnalyzeHw">Analyzing video (GPU)…</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusConvertHw">Converting video to GIF (GPU)…</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusCpuFallback">GPU unavailable, continuing on CPU…</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusError">Failed: {0}</system:String>
+</ResourceDictionary>

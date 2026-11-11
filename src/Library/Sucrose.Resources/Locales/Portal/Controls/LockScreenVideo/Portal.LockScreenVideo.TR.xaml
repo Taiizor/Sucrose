@@ -1,0 +1,36 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.LockScreenVideo.Title">Videodan GIF</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.Convert">Dönüştür</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.Close">Kapat</system:String>
+
+    <system:String x:Key="Portal.LockScreenVideo.Resolution">Çözünürlük</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.FrameRate">Kare hızı</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.Duration">Klip süresi</system:String>
+
+    <system:String x:Key="Portal.LockScreenVideo.Original">Orijinal ({0}x{1})</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.Display">Ekran ({0}x{1})</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.AllFrames">Tüm kaynak kareler ({0} fps)</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.AllFramesUnknown">Tüm kaynak kareler</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.AllFramesShort">tüm kareler</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.FpsTarget">{0} fps hedef</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.FullVideo">Tüm video ({0})</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.FullVideoUnknown">Tüm video</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.FullVideoShort">tüm video</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.FirstSeconds">İlk {0} saniye</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.Hardware">Donanım hızlandırma</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.HardwareDescription">Deneysel; desteklenmediğinde otomatik olarak CPU'ya döner.</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.HardwareShort">GPU</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.Summary">Çıktı: {0}</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.CancelHint">Bu pencereyi kapatmak süren işlemi iptal eder.</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusDownload">FFmpeg indiriliyor (%{0})…</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusExtract">FFmpeg çıkarılıyor…</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusAnalyze">Video analiz ediliyor…</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusConvert">Video GIF'e dönüştürülüyor…</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusAnalyzeHw">Video analiz ediliyor (GPU)…</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusConvertHw">Video GIF'e dönüştürülüyor (GPU)…</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusCpuFallback">GPU kullanılamadı, CPU ile devam ediliyor…</system:String>
+    <system:String x:Key="Portal.LockScreenVideo.StatusError">Başarısız: {0}</system:String>
+</ResourceDictionary>

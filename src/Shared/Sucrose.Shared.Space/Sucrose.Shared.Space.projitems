@@ -47,6 +47,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Export.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Import.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Live.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Lockscreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\WindowsImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Processor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Power.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Temporary.cs" />

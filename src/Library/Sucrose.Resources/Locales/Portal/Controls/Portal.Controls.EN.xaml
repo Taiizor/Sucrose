@@ -8,6 +8,7 @@
         <ResourceDictionary Source="Pagination/Portal.Pagination.EN.xaml" />
         <ResourceDictionary Source="ThemeShare/Portal.ThemeShare.EN.xaml" />
         <ResourceDictionary Source="LibraryCard/Portal.LibraryCard.EN.xaml" />
+        <ResourceDictionary Source="LockScreenVideo/Portal.LockScreenVideo.EN.xaml" />
         <ResourceDictionary Source="ThemeDelete/Portal.ThemeDelete.EN.xaml" />
         <ResourceDictionary Source="ThemeReview/Portal.ThemeReview.EN.xaml" />
         <ResourceDictionary Source="ThemeImport/Portal.ThemeImport.EN.xaml" />
