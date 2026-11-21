@@ -5,6 +5,7 @@ using SESMIET = Sucrose.Shared.Engine.Manage.Internal.ExecuteTask;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSSHF = Sucrose.Shared.Space.Helper.Filing;
 using SSTMCM = Sucrose.Shared.Theme.Model.ControlModel;
+using SSTMFDDM = Sucrose.Shared.Theme.Model.FileDropDownModel;
 using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
 using Timer = System.Timers.Timer;
 
@@ -124,6 +125,43 @@ namespace Sucrose.Shared.Engine.Helper
             }
         }
 
+        private static string[] ListFiles(SSTMFDDM Control)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(SSEMI.LibraryLocation) || string.IsNullOrWhiteSpace(SSEMI.LibrarySelected) || string.IsNullOrWhiteSpace(Control.Folder) || string.IsNullOrWhiteSpace(Control.Filter))
+                {
+                    return null;
+                }
+
+                string Root = Path.GetFullPath(Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected)).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+                string Folder = Path.GetFullPath(Path.Combine(Root, Control.Folder)).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+
+                // Only list folders inside the wallpaper itself; a rooted or ".." folder must not expose other directories to the page
+                if (!Folder.Equals(Root, StringComparison.OrdinalIgnoreCase) && !Folder.StartsWith(Root + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase))
+                {
+                    return [];
+                }
+
+                if (!Directory.Exists(Folder))
+                {
+                    return [];
+                }
+
+                string[] Extensions = Control.Filter.Replace("*", string.Empty).Split('|', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+
+                return Directory.GetFiles(Folder, "*.*", SearchOption.TopDirectoryOnly)
+                    .Where(Record => Extensions.Any(Extension => Record.EndsWith(Extension, StringComparison.OrdinalIgnoreCase)))
+                    .Select(Path.GetFileName)
+                    .OrderBy(Record => Record, StringComparer.OrdinalIgnoreCase)
+                    .ToArray();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public static async void ExecuteNormal(SESMIEN Function)
         {
             try
@@ -136,6 +174,11 @@ namespace Sucrose.Shared.Engine.Helper
                         {
                             string Key = Pair.Key;
                             object Value = Pair.Value;
+
+                            if (Value is SSTMFDDM FileDropDown)
+                            {
+                                FileDropDown.Files = ListFiles(FileDropDown);
+                            }
 
                             string Script = JsonConvert.SerializeObject(Value, Formatting.Indented);
 

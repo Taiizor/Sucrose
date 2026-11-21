@@ -20,6 +20,9 @@ namespace Sucrose.Shared.Theme.Model
         [JsonProperty("filter", Required = Required.Always)]
         public string Filter { get; set; }
 
+        [JsonProperty("files", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public string[] Files { get; set; }
+
         public FileDropDownModel() : base("filedropdown") { }
     }
 }

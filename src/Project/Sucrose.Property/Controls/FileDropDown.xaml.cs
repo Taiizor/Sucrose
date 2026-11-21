@@ -71,7 +71,7 @@ namespace Sucrose.Property.Controls
             if (Directory.Exists(Folder))
             {
                 string[] Extensions = SPHL.Convert(Data.Filter).Replace("*", "").Split('|');
-                string[] Files = Directory.GetFiles(Folder, "*.*", SearchOption.TopDirectoryOnly).Where(Record => Extensions.Any(Extension => Record.EndsWith(Extension))).ToArray();
+                string[] Files = Directory.GetFiles(Folder, "*.*", SearchOption.TopDirectoryOnly).Where(Record => Extensions.Any(Extension => !string.IsNullOrEmpty(Extension) && Record.EndsWith(Extension, StringComparison.OrdinalIgnoreCase))).ToArray();
 
                 foreach (string File in Files)
                 {
@@ -116,12 +116,16 @@ namespace Sucrose.Property.Controls
                             string FileName = Path.GetFileName(FileDialog.FileName);
                             string Target = Path.Combine(SPMI.Path, SPHL.Convert(Data.Folder), FileName);
 
-                            if (File.Exists(Target))
+                            // A file picked from the wallpaper's own folder is already in place; deleting the target would delete the source
+                            if (!string.Equals(Path.GetFullPath(FileDialog.FileName), Path.GetFullPath(Target), StringComparison.OrdinalIgnoreCase))
                             {
-                                await Task.Run(() => SSSHF.Delete(Target));
-                            }
+                                if (File.Exists(Target))
+                                {
+                                    await Task.Run(() => SSSHF.Delete(Target));
+                                }
 
-                            await Task.Run(() => SSSHF.CopyBuffer(FileDialog.FileName, Target));
+                                await Task.Run(() => SSSHF.CopyBuffer(FileDialog.FileName, Target));
+                            }
 
                             await Task.Delay(500);
 

@@ -97,15 +97,9 @@ namespace Sucrose.Shared.Space.Helper
                             switch (SSDMMC.TransitionType)
                             {
                                 case SSDETCT.Random:
-                                    while (string.IsNullOrEmpty(Selected))
+                                    // Try the other themes in random order and take the first valid one; retrying a rejected index used to loop forever
+                                    foreach (string Current in Themes.Where(Theme => Theme != LibrarySelected).OrderBy(Theme => SMMRG.Randomise.Next()))
                                     {
-                                        while (Index == Themes.IndexOf(LibrarySelected))
-                                        {
-                                            Index = SMMRG.Randomise.Next(Themes.Count);
-                                        }
-
-                                        string Current = Themes[Index];
-
                                         string ThemePath = Path.Combine(SMML.Location, Current);
                                         string InfoPath = Path.Combine(ThemePath, SMMRC.SucroseInfo);
 
@@ -118,6 +112,8 @@ namespace Sucrose.Shared.Space.Helper
                                                 if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
                                                 {
                                                     Selected = Current;
+
+                                                    break;
                                                 }
                                             }
                                         }
@@ -138,7 +134,8 @@ namespace Sucrose.Shared.Space.Helper
                                         }
                                     }
 
-                                    foreach (string Theme in Themes.Skip(Index))
+                                    // Wrap around so a valid theme before the current one can still be picked, and never pick the current one
+                                    foreach (string Theme in Themes.Skip(Index).Concat(Themes.Take(Index)).Where(Theme => Theme != LibrarySelected))
                                     {
                                         string ThemePath = Path.Combine(SMML.Location, Theme);
                                         string InfoPath = Path.Combine(ThemePath, SMMRC.SucroseInfo);
