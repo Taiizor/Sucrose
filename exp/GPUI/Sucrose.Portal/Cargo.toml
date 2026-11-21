@@ -1,0 +1,23 @@
+[package]
+name = "sucrose-portal"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "Experimental GPUI port of the Sucrose Portal UI"
+license = "GPL-3.0-only"
+
+[dependencies]
+dirs = "6"
+gpui-kit = "0.10.0"
+jpeg-decoder = { version = "0.3", default-features = false }
+image = { version = "0.25", default-features = false, features = ["jpeg", "png", "gif", "webp"] }
+memory-stats = "1"
+serde_json = "1"
+smallvec = "1"
+ureq = "3"
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+strip = true
