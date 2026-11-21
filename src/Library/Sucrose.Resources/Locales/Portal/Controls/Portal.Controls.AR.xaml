@@ -1,4 +1,4 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="TrayIcon/Portal.TrayIcon.AR.xaml" />
         <ResourceDictionary Source="OtherHelp/Portal.OtherHelp.AR.xaml" />
@@ -16,5 +16,6 @@
         <ResourceDictionary Source="ExpanderCard/Portal.ExpanderCard.AR.xaml" />
         <ResourceDictionary Source="WallpaperCycling/Portal.WallpaperCycling.AR.xaml" />
         <ResourceDictionary Source="DisplayPreferences/Portal.DisplayPreferences.AR.xaml" />
+        <ResourceDictionary Source="ThemeLockScreen/Portal.ThemeLockScreen.AR.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

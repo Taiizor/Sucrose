@@ -1,0 +1,25 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.ThemeLockScreen.Title">Lock Screen</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.Close">Close</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.Save">Save</system:String>
+
+    <system:String x:Key="Portal.ThemeLockScreen.EnableTitle">Set as Lock Screen Wallpaper</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.EnableDesc">Plays this theme live on the Windows lock and sign-in screen (Win + L).</system:String>
+
+    <system:String x:Key="Portal.ThemeLockScreen.FitTitle">Fit Mode</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.FitDesc">Determines how the video scales to match the display.</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.Fit.Cover">Cover (Crop and Fill)</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.Fit.Fit">Fit (Letterbox to Screen)</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.Fit.Center">Center (1:1 Centered)</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.Fit.Fill">Fill (Stretch to Screen)</system:String>
+
+    <system:String x:Key="Portal.ThemeLockScreen.MuteTitle">Mute Audio</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.MuteDesc">Mutes video audio playback on the lock screen.</system:String>
+
+    <system:String x:Key="Portal.ThemeLockScreen.MatchDesktopTitle">Sync with Desktop</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.MatchDesktopDesc">Automatically update the lock screen when a Video or GIF theme is selected on the desktop.</system:String>
+</ResourceDictionary>
+

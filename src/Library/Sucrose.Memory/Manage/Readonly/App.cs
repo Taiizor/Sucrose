@@ -35,5 +35,7 @@
         public static readonly string MpvPlayerLive = "Sucrose.Live.MpvPlayer.exe";
 
         public static readonly string VlcPlayerLive = "Sucrose.Live.VlcPlayer.exe";
+
+        public static readonly string LockScreenCore = "Sucrose.LockScreen.Core.dll";
     }
 }

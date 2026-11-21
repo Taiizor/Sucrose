@@ -9,6 +9,7 @@
     <system:String x:Key="Portal.LibraryCard.VersionTip">Sucrose का नवीनीकरण करने के लिए इस थीम का उपयोग करें</system:String>
 
     <system:String x:Key="Portal.LibraryCard.MenuUse">उपयोग करें</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuLockScreen">Lock Screen</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">संपादित करें</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">खोजें</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">साझा करें</system:String>

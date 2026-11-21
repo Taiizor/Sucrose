@@ -9,6 +9,7 @@
     <system:String x:Key="Portal.LibraryCard.VersionTip">이 테마를 사용하려면 Sucrose를 업데이트하세요</system:String>
 
     <system:String x:Key="Portal.LibraryCard.MenuUse">사용</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuLockScreen">Lock Screen</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">편집</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">찾기</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">공유</system:String>

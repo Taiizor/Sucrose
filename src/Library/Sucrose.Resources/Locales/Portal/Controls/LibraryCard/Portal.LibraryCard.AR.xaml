@@ -9,6 +9,7 @@
     <system:String x:Key="Portal.LibraryCard.VersionTip">حدِّث Sucrose لاستخدام هذه السِمة</system:String>
 
     <system:String x:Key="Portal.LibraryCard.MenuUse">استخدام</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuLockScreen">Lock Screen</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">تحرير</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">بحث</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">مشاركة</system:String>

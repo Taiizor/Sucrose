@@ -9,6 +9,7 @@
     <system:String x:Key="Portal.LibraryCard.VersionTip">Bu temayı kullanabilmek için Sucrose güncelle</system:String>
 
     <system:String x:Key="Portal.LibraryCard.MenuUse">Kullan</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuLockScreen">Kilit Ekranı</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">Düzenle</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">Bul</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">Paylaş</system:String>

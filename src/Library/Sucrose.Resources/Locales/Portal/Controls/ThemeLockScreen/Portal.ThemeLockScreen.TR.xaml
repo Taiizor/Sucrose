@@ -1,0 +1,25 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.ThemeLockScreen.Title">Kilit Ekranı</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.Save">Kaydet</system:String>
+
+    <system:String x:Key="Portal.ThemeLockScreen.EnableTitle">Kilit Ekranı Duvar Kağıdı Yap</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.EnableDesc">Bu temayı Windows kilit ve oturum açma ekranında (Win + L) canlı olarak oynatır.</system:String>
+
+    <system:String x:Key="Portal.ThemeLockScreen.FitTitle">Sığdırma Modu</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.FitDesc">Videonun ekran boyutuna nasıl uyarlanacağını belirler.</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.Fit.Cover">Cover (Kırp ve Doldur)</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.Fit.Fit">Fit (Ekrana Sığdır)</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.Fit.Center">Center (Ortala)</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.Fit.Fill">Fill (Uzat ve Doldur)</system:String>
+
+    <system:String x:Key="Portal.ThemeLockScreen.MuteTitle">Sessize Al</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.MuteDesc">Kilit ekranında sesin çalınmasını engeller.</system:String>
+
+    <system:String x:Key="Portal.ThemeLockScreen.MatchDesktopTitle">Masaüstüyle Eşitle</system:String>
+    <system:String x:Key="Portal.ThemeLockScreen.MatchDesktopDesc">Masaüstünde Video veya GIF teması değiştiğinde kilit ekranını da otomatik olarak güncelle.</system:String>
+</ResourceDictionary>
+

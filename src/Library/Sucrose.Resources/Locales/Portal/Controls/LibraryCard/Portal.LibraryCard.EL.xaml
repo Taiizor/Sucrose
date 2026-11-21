@@ -9,6 +9,7 @@
     <system:String x:Key="Portal.LibraryCard.VersionTip">Για να χρησιμοποιήσετε αυτό το θέμα, ενημερώστε το Sucrose</system:String>
 
     <system:String x:Key="Portal.LibraryCard.MenuUse">Χρησιμοποίησε</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuLockScreen">Lock Screen</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">Επεξεργασία</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">Εύρεση</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">Κοινοποίηση</system:String>

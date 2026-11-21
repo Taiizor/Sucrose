@@ -1,0 +1,222 @@
+<ui:ContentDialog
+    x:Class="Sucrose.Portal.Views.Controls.ThemeLockScreen"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="{DynamicResource Portal.ThemeLockScreen.Title}"
+    d:DesignHeight="460"
+    d:DesignWidth="620"
+    CloseButtonText="{DynamicResource Portal.ThemeLockScreen.Close}"
+    DialogMaxWidth="620"
+    Loaded="ContentDialog_Loaded"
+    PrimaryButtonText="{DynamicResource Portal.ThemeLockScreen.Save}"
+    mc:Ignorable="d">
+
+    <ui:ContentDialog.Resources>
+        <Style BasedOn="{StaticResource {x:Type ui:ContentDialog}}" TargetType="{x:Type local:ThemeLockScreen}" />
+    </ui:ContentDialog.Resources>
+
+    <StackPanel
+        MinWidth="500"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Center"
+        Orientation="Vertical">
+
+        <!--  Theme Identity Card  -->
+        <ui:Card Margin="0,0,0,10" Background="{DynamicResource CardStrokeColorDefaultBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Border
+                    Grid.Column="0"
+                    Width="110"
+                    Height="70"
+                    Margin="0,0,14,0"
+                    ClipToBounds="True"
+                    CornerRadius="8">
+                    <ui:Image
+                        x:Name="ThemeThumbnail"
+                        FlowDirection="LeftToRight"
+                        Stretch="UniformToFill" />
+                </Border>
+
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <ui:TextBlock
+                        x:Name="ThemeTitle"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                        TextTrimming="CharacterEllipsis" />
+                    <ui:TextBlock
+                        x:Name="ThemeDescription"
+                        Margin="0,3,0,0"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+
+                <ui:SymbolIcon
+                    x:Name="ThemeTypeIcon"
+                    Grid.Column="2"
+                    Margin="12,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                    Symbol="Video24" />
+            </Grid>
+        </ui:Card>
+
+        <!--  Settings Card  -->
+        <ui:Card Background="{DynamicResource CardStrokeColorDefaultBrush}">
+            <StackPanel>
+                <!--  Lock Screen Wallpaper Switch  -->
+                <Grid Margin="0,0,0,14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <ui:SymbolIcon
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Symbol="LockClosed24" />
+
+                    <StackPanel
+                        Grid.Column="1"
+                        Margin="12,0,12,0"
+                        VerticalAlignment="Center">
+                        <ui:TextBlock Text="{DynamicResource Portal.ThemeLockScreen.EnableTitle}" />
+                        <ui:TextBlock
+                            Margin="0,2,0,0"
+                            FontSize="12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{DynamicResource Portal.ThemeLockScreen.EnableDesc}"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+
+                    <ui:ToggleSwitch
+                        x:Name="EnableLockScreenSwitch"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Checked="EnableLockScreenSwitch_Checked"
+                        Cursor="Hand"
+                        Unchecked="EnableLockScreenSwitch_Unchecked" />
+                </Grid>
+
+                <!--  Fit Mode (4 Modes: Cover, Fill, Fit, Center)  -->
+                <Grid x:Name="FitRow" Margin="0,0,0,14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <ui:SymbolIcon
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Symbol="ArrowExpand24" />
+
+                    <StackPanel
+                        Grid.Column="1"
+                        Margin="12,0,12,0"
+                        VerticalAlignment="Center">
+                        <ui:TextBlock Text="{DynamicResource Portal.ThemeLockScreen.FitTitle}" />
+                        <ui:TextBlock
+                            Margin="0,2,0,0"
+                            FontSize="12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{DynamicResource Portal.ThemeLockScreen.FitDesc}"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+
+                    <ComboBox
+                        x:Name="FitComboBox"
+                        Grid.Column="2"
+                        Width="170"
+                        VerticalAlignment="Center"
+                        Cursor="Hand" />
+                </Grid>
+
+                <!--  Audio Mute Switch  -->
+                <Grid x:Name="MuteRow" Margin="0,0,0,14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <ui:SymbolIcon
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Symbol="SpeakerMute24" />
+
+                    <StackPanel
+                        Grid.Column="1"
+                        Margin="12,0,12,0"
+                        VerticalAlignment="Center">
+                        <ui:TextBlock Text="{DynamicResource Portal.ThemeLockScreen.MuteTitle}" />
+                        <ui:TextBlock
+                            Margin="0,2,0,0"
+                            FontSize="12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{DynamicResource Portal.ThemeLockScreen.MuteDesc}"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+
+                    <ui:ToggleSwitch
+                        x:Name="MuteAudioSwitch"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Cursor="Hand" />
+                </Grid>
+
+                <!--  Sync with Desktop Switch  -->
+                <Grid x:Name="MatchDesktopRow">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <ui:SymbolIcon
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Symbol="DesktopSync24" />
+
+                    <StackPanel
+                        Grid.Column="1"
+                        Margin="12,0,12,0"
+                        VerticalAlignment="Center">
+                        <ui:TextBlock Text="{DynamicResource Portal.ThemeLockScreen.MatchDesktopTitle}" />
+                        <ui:TextBlock
+                            Margin="0,2,0,0"
+                            FontSize="12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{DynamicResource Portal.ThemeLockScreen.MatchDesktopDesc}"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+
+                    <ui:ToggleSwitch
+                        x:Name="MatchDesktopSwitch"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Cursor="Hand" />
+                </Grid>
+            </StackPanel>
+        </ui:Card>
+
+    </StackPanel>
+</ui:ContentDialog>

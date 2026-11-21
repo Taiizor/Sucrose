@@ -95,6 +95,13 @@
       <Platform Solution="*|x86" Project="x86" />
     </Project>
   </Folder>
+  <Folder Name="/Native/">
+    <Project Path="Native/Sucrose.LockScreen.Core/Sucrose.LockScreen.Core.vcxproj" Id="4a17b672-005d-4d32-9d9b-f4e7502b0f33">
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|x86" Project="Win32" />
+    </Project>
+  </Folder>
   <Folder Name="/Portal/">
     <Project Path="Portal/Sucrose.Portal/Sucrose.Portal.csproj">
       <Platform Solution="*|ARM64" Project="ARM64" />

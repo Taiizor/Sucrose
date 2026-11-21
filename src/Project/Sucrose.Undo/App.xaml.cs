@@ -14,6 +14,7 @@ using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDHG = Sucrose.Shared.Dependency.Helper.Graphic;
 using SSDHR = Sucrose.Shared.Dependency.Helper.Runtime;
 using SUMI = Sucrose.Undo.Manage.Internal;
+using SWML = Skylark.Wing.Manage.LockScreen;
 using SWUD = Skylark.Wing.Utility.Desktop;
 
 namespace Sucrose.Undo
@@ -105,7 +106,23 @@ namespace Sucrose.Undo
             }
         }
 
-        private static void DeleteSelf()
+        private static void CleanEmptyParentDirectory(string Location)
+        {
+            try
+            {
+                string Parent = Path.GetDirectoryName(Location);
+                if (!string.IsNullOrEmpty(Parent) &&
+                    !string.Equals(Parent, SMMRP.CommonApplicationData, StringComparison.OrdinalIgnoreCase) &&
+                    Directory.Exists(Parent) &&
+                    !Directory.EnumerateFileSystemEntries(Parent).Any())
+                {
+                    Directory.Delete(Parent);
+                }
+            }
+            catch { }
+        }
+
+        private static void DeleteSelf(bool CleanAll = false)
         {
             try
             {
@@ -115,6 +132,12 @@ namespace Sucrose.Undo
                 BatchContent.AppendLine("setlocal enabledelayedexpansion");
                 BatchContent.AppendLine($"taskkill /PID {Environment.ProcessId} /F > nul 2>&1"); /* /T /F */
                 BatchContent.AppendLine("timeout /t 3 /nobreak > nul");
+
+                if (CleanAll)
+                {
+                    BatchContent.AppendLine($@"rd /s /q ""{SUMI.UninstallDataPath}"" > nul 2>&1");
+                    BatchContent.AppendLine($@"rd /s /q ""{SUMI.LockScreenDataPath}"" > nul 2>&1");
+                }
 
                 BatchContent.AppendLine($@"rd /s /q ""{SUMI.Undo}"" > nul 2>&1");
                 BatchContent.AppendLine($@"rd /s /q ""{SUMI.Runtime}"" > nul 2>&1");
@@ -184,6 +207,14 @@ namespace Sucrose.Undo
 
                 await Task.Delay(SUMI.Delay);
 
+                try
+                {
+                    SWML.UnregisterProvider();
+                }
+                catch { }
+
+                await Task.Delay(SUMI.Delay);
+
                 DeleteDirectory(SUMI.UninstallPath);
 
                 if (Result == MessageBoxResult.Yes)
@@ -191,6 +222,12 @@ namespace Sucrose.Undo
                     await Task.Delay(SUMI.Delay);
 
                     DeleteDirectory(SUMI.UninstallDataPath);
+
+                    await Task.Delay(SUMI.Delay);
+
+                    DeleteDirectory(SUMI.LockScreenDataPath);
+
+                    CleanEmptyParentDirectory(SUMI.LockScreenDataPath);
                 }
 
                 await Task.Delay(SUMI.Delay);
@@ -212,7 +249,7 @@ namespace Sucrose.Undo
 
                 await Task.Delay(SUMI.Delay);
 
-                DeleteSelf();
+                DeleteSelf(Result == MessageBoxResult.Yes);
             }
 
             Close();

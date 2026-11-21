@@ -9,6 +9,7 @@
     <system:String x:Key="Portal.LibraryCard.VersionTip">Para usar este tema, atualize o Sucrose</system:String>
 
     <system:String x:Key="Portal.LibraryCard.MenuUse">Usar</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuLockScreen">Lock Screen</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">Editar</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">Encontrar</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">Compartilhar</system:String>

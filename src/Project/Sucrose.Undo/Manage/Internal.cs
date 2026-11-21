@@ -3,6 +3,7 @@ using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SWML = Skylark.Wing.Manage.LockScreen;
 
 namespace Sucrose.Undo.Manage
 {
@@ -15,6 +16,8 @@ namespace Sucrose.Undo.Manage
         public static string UninstallPath => Path.Combine(SMMRP.LocalApplicationData, SMMRG.AppName);
 
         public static string UninstallDataPath => Path.Combine(SMMRP.ApplicationData, SMMRG.AppName);
+
+        public static string LockScreenDataPath => Path.Combine(SMMRP.CommonApplicationData, SMMRG.AppName, SMMRF.LockScreen);
 
         public static string RegistryName => @"Software\Microsoft\Windows\CurrentVersion\Uninstall";
 

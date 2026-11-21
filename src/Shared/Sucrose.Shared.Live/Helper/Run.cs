@@ -13,6 +13,8 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SWHBI = Skylark.Wing.Helper.BackgroundImage;
+using SWML = Skylark.Wing.Manage.LockScreen;
+using SWMLC = Skylark.Wing.Model.LockScreenConfigModel;
 using SWUD = Skylark.Wing.Utility.Desktop;
 
 namespace Sucrose.Shared.Live.Helper
@@ -48,6 +50,8 @@ namespace Sucrose.Shared.Live.Helper
                             SSSHP.Run(SSSMI.Commandog, $"{SMMRG.StartCommand}{SSDECT.Backgroundog}{SMMRG.ValueSeparator}{SSSMI.Backgroundog}");
                         }
 
+                        SyncLockScreen(Info);
+
                         switch (Info.Type)
                         {
                             case SSDEWT.Gif:
@@ -74,6 +78,39 @@ namespace Sucrose.Shared.Live.Helper
                     }
                 }
             }
+        }
+
+        private static void SyncLockScreen(SSTHI Info)
+        {
+            try
+            {
+                SWMLC Config = SWML.LoadConfig();
+
+                if (Config.Enabled && Config.MatchDesktopWallpaper)
+                {
+                    string MediaPath = string.Empty;
+
+                    if (Info.Type is SSDEWT.Video or SSDEWT.Gif)
+                    {
+                        MediaPath = Path.Combine(SMML.Location, SMML.Selected, Info.Source);
+                    }
+                    else
+                    {
+                        string Preview = !string.IsNullOrEmpty(Info.Preview) ? Info.Preview : Info.Thumbnail;
+                        if (!string.IsNullOrEmpty(Preview))
+                        {
+                            MediaPath = Path.Combine(SMML.Location, SMML.Selected, Preview);
+                        }
+                    }
+
+                    if (File.Exists(MediaPath) && !string.Equals(Config.MediaPath, MediaPath, StringComparison.OrdinalIgnoreCase))
+                    {
+                        Config.MediaPath = MediaPath;
+                        SWML.SaveConfig(Config, true);
+                    }
+                }
+            }
+            catch { }
         }
     }
 }

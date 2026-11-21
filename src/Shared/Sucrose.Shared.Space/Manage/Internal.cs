@@ -5,7 +5,9 @@ using SMMRA = Sucrose.Memory.Manage.Readonly.App;
 using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
 using SMMRG = Sucrose.Memory.Manage.Readonly.General;
 using SMMRP = Sucrose.Memory.Manage.Readonly.Process;
+using SMMRPA = Sucrose.Memory.Manage.Readonly.Path;
 using SSDEAET = Sucrose.Shared.Dependency.Enum.ApplicationEngineType;
+using SSDEAT = Sucrose.Shared.Dependency.Enum.ArchitectureType;
 using SSDEET = Sucrose.Shared.Dependency.Enum.EngineType;
 using SSDEGET = Sucrose.Shared.Dependency.Enum.GifEngineType;
 using SSDEUET = Sucrose.Shared.Dependency.Enum.UrlEngineType;
@@ -63,6 +65,24 @@ namespace Sucrose.Shared.Space.Manage
         public static string Reportdog => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMMRA.Reportdog), SMMRA.Reportdog);
 
         public static string Backgroundog => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMMRA.Backgroundog), SMMRA.Backgroundog);
+
+#if X86
+        public static SSDEAT Architecture => SSDEAT.x86;
+#elif X64
+        public static SSDEAT Architecture => SSDEAT.x64;
+#elif ARM64
+        public static SSDEAT Architecture => SSDEAT.ARM64;
+#else
+        public static SSDEAT Architecture => SSDEAT.Unknown;
+#endif
+
+        public static string Native => Path.Combine(Folder, SMMRF.Native);
+
+        public static string LockScreenRoot => Path.Combine(SMMRPA.CommonApplicationData, SMMRG.AppName, SMMRF.LockScreen);
+
+        public static string LockScreenCore => File.Exists(Path.Combine(Native, SMMRA.LockScreenCore))
+            ? Path.Combine(Native, SMMRA.LockScreenCore)
+            : Path.Combine(Native, $"{Architecture}", "Release", SMMRA.LockScreenCore);
 
         public static Dictionary<SSDEET, string> EngineLive => new()
         {

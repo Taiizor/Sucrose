@@ -1,10 +1,10 @@
 <Project>
-    <PropertyGroup Condition="'$(OutputType)' != 'Library'">
+    <PropertyGroup Condition="'$(OutputType)' != 'Library' and '$(MSBuildProjectExtension)' != '.vcxproj'">
         <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
         <ApplicationManifest>App.manifest</ApplicationManifest>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(OutputType)' != 'Library'">
+    <PropertyGroup Condition="'$(OutputType)' != 'Library' and '$(MSBuildProjectExtension)' != '.vcxproj'">
         <ThreadPoolMinThreads>10</ThreadPoolMinThreads>
         <ThreadPoolMaxThreads>500</ThreadPoolMaxThreads>
         <UseWindowsThreadPool>true</UseWindowsThreadPool>
@@ -34,7 +34,7 @@
         <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-arm64</RuntimeIdentifier>
     </PropertyGroup>
 
-    <ItemGroup Condition="'$(OutputType)' != 'Library'">
+    <ItemGroup Condition="'$(OutputType)' != 'Library' and '$(MSBuildProjectExtension)' != '.vcxproj'">
         <AppConfigWithTargetPath Include="App.$(TargetFramework).config">
             <TargetPath>$(AssemblyName).exe.config</TargetPath>
         </AppConfigWithTargetPath>

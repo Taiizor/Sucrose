@@ -542,6 +542,107 @@ function Remove-UnnecessaryRuntimeFiles {
     Write-StatusMessage "Runtime cleanup completed" -Type "Success"
 }
 
+function Build-NativeBinaries {
+    <#
+    .SYNOPSIS
+        Builds native C++ projects (Sucrose.LockScreen.Core) and copies them to the package output
+    #>
+    [CmdletBinding()]
+    param()
+
+    Write-StatusMessage "Building native C++ components ($PlatformTarget - $Configuration)..." -Type "Info"
+
+    $coreProj = Join-Path $PublishBaseDir "..\src\Native\Sucrose.LockScreen.Core\Sucrose.LockScreen.Core.vcxproj"
+    if (-not (Test-Path $coreProj)) {
+        Write-StatusMessage "Native project not found: $coreProj" -Type "Warning"
+        return
+    }
+
+    $msBuildPath = $null
+    $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+    if (Test-Path $vswhere) {
+        $vsPath = & $vswhere -latest -prerelease -property installationPath
+        if ($vsPath) {
+            $candidate = Join-Path $vsPath "MSBuild\Current\Bin\MSBuild.exe"
+            if (Test-Path $candidate) {
+                $msBuildPath = $candidate
+            }
+        }
+    }
+
+    if (-not $msBuildPath) {
+        $cmd = Get-Command "MSBuild.exe" -ErrorAction SilentlyContinue
+        if ($cmd) {
+            $msBuildPath = $cmd.Source
+        }
+    }
+
+    if (-not $msBuildPath) {
+        Write-StatusMessage "MSBuild.exe not found. Skipping native compilation (using existing binaries if available)." -Type "Warning"
+        Copy-NativeBinaries
+        return
+    }
+
+    $nativePlatform = switch ($PlatformTarget) {
+        "x86"   { "Win32" }
+        "x64"   { "x64" }
+        "ARM64" { "ARM64" }
+        default { "x64" }
+    }
+
+    Write-Host "$(Get-Date -Format 'HH:mm:ss') [NATIVE] Compiling: Sucrose.LockScreen.Core ($nativePlatform - $Configuration)..." -ForegroundColor Gray
+
+    $buildArgs = @(
+        $coreProj,
+        "/p:Configuration=$Configuration",
+        "/p:Platform=$nativePlatform",
+        "/m",
+        "/v:minimal",
+        "/nologo"
+    )
+
+    & $msBuildPath @buildArgs
+    if ($LASTEXITCODE -eq 0) {
+        Write-StatusMessage "Sucrose.LockScreen.Core compiled successfully" -Type "Success"
+    } else {
+        Write-StatusMessage "Failed to compile Sucrose.LockScreen.Core (exit code: $LASTEXITCODE)" -Type "Error"
+    }
+
+    Copy-NativeBinaries
+}
+
+function Copy-NativeBinaries {
+    <#
+    .SYNOPSIS
+        Copies compiled native C++ binaries (Core DLL) to package directory
+    #>
+    [CmdletBinding()]
+    param()
+
+    Write-StatusMessage "Copying native binaries ($PlatformTarget)..." -Type "Info"
+
+    $nativeSourceDir = Join-Path $PublishBaseDir "..\src\Sucrose\Native\$PlatformTarget\$Configuration"
+    $nativeDestDir = Join-Path $PublishBaseDir "$PublishDir\$TargetFramework\$PlatformTarget\Native"
+
+    if (Test-Path $nativeSourceDir) {
+        if (-not (Test-Path $nativeDestDir)) {
+            New-Item -ItemType Directory -Path $nativeDestDir -Force | Out-Null
+        }
+
+        $filesToCopy = Get-ChildItem -Path $nativeSourceDir -Filter "Sucrose.LockScreen.Core.*" -File | Where-Object { $_.Extension -in @(".dll", ".pdb") }
+
+        foreach ($file in $filesToCopy) {
+            $destPath = Join-Path $nativeDestDir $file.Name
+            Copy-Item -Path $file.FullName -Destination $destPath -Force
+            Write-Host "$(Get-Date -Format 'HH:mm:ss') [NATIVE] Copied: $($file.Name)" -ForegroundColor Gray
+        }
+
+        Write-StatusMessage "Native binaries copied successfully" -Type "Success"
+    } else {
+        Write-StatusMessage "Native binaries directory not found: $nativeSourceDir" -Type "Warning"
+    }
+}
+
 function Compress-SucrosePackage {
     <#
     .SYNOPSIS
@@ -662,6 +763,9 @@ try {
 
     Write-Host "`n" -NoNewline
     Write-StatusMessage "All projects published successfully" -Type "Success"
+
+    # Build and copy native C++ binaries (Sucrose.LockScreen.Core)
+    Build-NativeBinaries
 
     # Install .NET runtime if requested
     if ($InstallRuntime -eq "true") {

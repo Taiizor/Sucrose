@@ -1,4 +1,9 @@
-﻿#if RELEASE
+﻿using System.IO;
+using SMMRF = Sucrose.Memory.Manage.Readonly.Folder;
+using SMMRG = Sucrose.Memory.Manage.Readonly.General;
+using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
+using SWML = Skylark.Wing.Manage.LockScreen;
+#if RELEASE
 using System.Runtime.InteropServices;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 #endif
@@ -9,6 +14,8 @@ namespace Sucrose.Shared.Dependency.Helper
     {
         public static void Configure()
         {
+            SWML.RootDirectory = Path.Combine(SMMRP.CommonApplicationData, SMMRG.AppName, SMMRF.LockScreen);
+
 #if RELEASE
             Environment.SetEnvironmentVariable("DOTNET_ROOT", SSSMI.Runtime, EnvironmentVariableTarget.Process);
             Environment.SetEnvironmentVariable("DOTNET_MULTILEVEL_LOOKUP", "0", EnvironmentVariableTarget.Process);

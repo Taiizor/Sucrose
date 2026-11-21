@@ -18,6 +18,7 @@ using SMMRP = Sucrose.Memory.Manage.Readonly.Path;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPVCTD = Sucrose.Portal.Views.Controls.ThemeDelete;
 using SPVCTE = Sucrose.Portal.Views.Controls.ThemeEdit;
+using SPVCTL = Sucrose.Portal.Views.Controls.ThemeLockScreen;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
 using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
 using SRER = Sucrose.Resources.Extension.Resources;
@@ -35,6 +36,8 @@ using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTCLC = Sucrose.Shared.Theme.Converter.LocalizationConverter;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSWEW = Sucrose.Shared.Watchdog.Extension.Watch;
+using SWML = Skylark.Wing.Manage.LockScreen;
+using SWMLC = Skylark.Wing.Model.LockScreenConfigModel;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
 
 namespace Sucrose.Portal.Views.Controls
@@ -271,6 +274,22 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
+        private async void MenuLockScreen_Click(object sender, RoutedEventArgs e)
+        {
+            if (Directory.Exists(Theme))
+            {
+                SPVCTL ThemeLockScreen = new()
+                {
+                    Info = Info,
+                    Theme = Theme
+                };
+
+                await ThemeLockScreen.ShowAsync();
+
+                ThemeLockScreen.Dispose();
+            }
+        }
+
         private void ThemeMore_Click(object sender, RoutedEventArgs e)
         {
             ContextMenu.PlacementTarget = this;
@@ -282,6 +301,24 @@ namespace Sucrose.Portal.Views.Controls
             MenuUse.Header = SRER.GetValue("Portal", "LibraryCard", "MenuUse");
             MenuDelete.Header = SRER.GetValue("Portal", "LibraryCard", "MenuDelete");
             MenuCustomize.Header = SRER.GetValue("Portal", "LibraryCard", "MenuCustomize");
+            MenuLockScreen.Header = SRER.GetValue("Portal", "LibraryCard", "MenuLockScreen");
+
+            if (Info.Type is SSDEWT.Video or SSDEWT.Gif)
+            {
+                MenuLockScreen.Visibility = Visibility.Visible;
+
+                SWMLC LockConfig = SWML.LoadConfig();
+                string themeMediaPath = Path.Combine(Theme, Info.Source);
+
+                if (LockConfig.Enabled && string.Equals(LockConfig.MediaPath, themeMediaPath, StringComparison.OrdinalIgnoreCase))
+                {
+                    MenuLockScreen.Header += $" ({SRER.GetValue("Portal", "LibraryCard", "Selected")})";
+                }
+            }
+            else
+            {
+                MenuLockScreen.Visibility = Visibility.Collapsed;
+            }
 
             string PropertiesPath = Path.Combine(Theme, SMMRC.SucroseProperties);
 
