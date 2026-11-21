@@ -148,10 +148,15 @@ namespace Sucrose.Shared.Engine.Helper
                     return [];
                 }
 
-                string[] Extensions = Control.Filter.Replace("*", string.Empty).Split('|', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+                string[] Patterns = Control.Filter.Split('|', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+
+                // A bare "*" or "*.*" pattern means every file
+                bool All = Patterns.Any(Pattern => Pattern is "*" or "*.*");
+
+                string[] Extensions = Patterns.Select(Pattern => Pattern.Replace("*", string.Empty)).Where(Extension => !string.IsNullOrEmpty(Extension)).ToArray();
 
                 return Directory.GetFiles(Folder, "*.*", SearchOption.TopDirectoryOnly)
-                    .Where(Record => Extensions.Any(Extension => Record.EndsWith(Extension, StringComparison.OrdinalIgnoreCase)))
+                    .Where(Record => All || Extensions.Any(Extension => Record.EndsWith(Extension, StringComparison.OrdinalIgnoreCase)))
                     .Select(Path.GetFileName)
                     .OrderBy(Record => Record, StringComparer.OrdinalIgnoreCase)
                     .ToArray();

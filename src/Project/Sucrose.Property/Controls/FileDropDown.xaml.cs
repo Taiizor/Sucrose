@@ -70,8 +70,13 @@ namespace Sucrose.Property.Controls
 
             if (Directory.Exists(Folder))
             {
-                string[] Extensions = SPHL.Convert(Data.Filter).Replace("*", "").Split('|');
-                string[] Files = Directory.GetFiles(Folder, "*.*", SearchOption.TopDirectoryOnly).Where(Record => Extensions.Any(Extension => !string.IsNullOrEmpty(Extension) && Record.EndsWith(Extension, StringComparison.OrdinalIgnoreCase))).ToArray();
+                string[] Patterns = SPHL.Convert(Data.Filter).Split('|');
+
+                // A bare "*" or "*.*" pattern means every file
+                bool All = Patterns.Any(Pattern => Pattern is "*" or "*.*");
+
+                string[] Extensions = Patterns.Select(Pattern => Pattern.Replace("*", "")).Where(Extension => !string.IsNullOrEmpty(Extension)).ToArray();
+                string[] Files = Directory.GetFiles(Folder, "*.*", SearchOption.TopDirectoryOnly).Where(Record => All || Extensions.Any(Extension => Record.EndsWith(Extension, StringComparison.OrdinalIgnoreCase))).ToArray();
 
                 foreach (string File in Files)
                 {
