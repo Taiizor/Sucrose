@@ -45,7 +45,7 @@ Sucrose is rewritten from scratch in Rust on `develop-rust`, Windows first, then
   3. While a fullscreen game runs it applies the configured action (Pause: pauses and resumes).
   4. CPU and RAM are measured against the C# MpvPlayer engine + Backgroundog and recorded in `docs/MEASUREMENTS.md`.
   5. On a machine with the C# app installed, Sucrose plays the theme selected there (read from the legacy `Library.json` and `General.json`, which stay unchanged), sharp at each monitor's DPI, and the tray icon's Quit stops it.
-**Plans**: 16/22 plans executed (02-16 to 02-22: gap closure from UAT)
+**Plans**: 17/22 plans executed (02-16 to 02-22: gap closure from UAT)
 Plans:
 **Wave 1**
 - [x] 02-01-PLAN.md — libmpv delivered: `cargo xtask fetch-engines` (pinned, SHA256-verified), committed bindgen bindings, D-18 loader; apps/sucrose tracked by git
@@ -94,7 +94,7 @@ Plans:
 
 **Gap closure from UAT** *(gap_closure plans, own waves 1–7; run with `/gsd-execute-phase 2 --gaps-only`)*
 - [x] 02-16-PLAN.md — gap wave 1: sent display and shell messages reach the service at once; WorkerW-aware attach and an order guard after explorer.exe restarts (G-02-2d, G-02-2a)
-- [ ] 02-17-PLAN.md — gap wave 2: GPU preference, platform part (DESK-12): GpuPreference setting, UserGpuPreferences write with the legacy merge rules, DXGI adapter list, gpu_preference capability (G-02-2b)
+- [x] 02-17-PLAN.md — gap wave 2: GPU preference, platform part (DESK-12): GpuPreference setting, UserGpuPreferences write with the legacy merge rules, DXGI adapter list, gpu_preference capability (G-02-2b)
 - [ ] 02-18-PLAN.md — gap wave 3: GPU preference wired (DESK-12): Engine.json GraphicPreference applied to sucrose.exe before the renderers start, adapter logged, docs (G-02-2b)
 - [ ] 02-19-PLAN.md — gap wave 4: renderers count once their first frame shows; master policy chosen by the maintainer and recorded in DECISIONS.md (G-02-2c)
 - [ ] 02-20-PLAN.md — gap wave 5: follower controller converges to the same frame, drift summary (G-02-2c)
@@ -197,7 +197,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
-| 2. M1 — Video wallpaper on the desktop (Windows) | 16/22 | In Progress | - |
+| 2. M1 — Video wallpaper on the desktop (Windows) | 17/22 | In Progress | - |
 | 3. M2 — Service, IPC and Portal connected | 0/TBD | Not started | - |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
