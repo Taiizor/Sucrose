@@ -969,6 +969,8 @@ struct Fleet {
     fullscreen: Option<Rule>,
     /// The renderers the fullscreen rule closed.
     rule_closed: RuleClosed,
+    /// The slots whose renderer showed its first frame and is still running: only these can be the master clock.
+    playing: HashSet<u8>,
 }
 
 /// The renderers the fullscreen rule closed (FullScreenPerformance = Close) and has to bring back (D-06). A slot is
@@ -1047,6 +1049,7 @@ impl Fleet {
             shell: ShellRestart::default(),
             fullscreen: None,
             rule_closed: RuleClosed::default(),
+            playing: HashSet::new(),
         }
     }
 
@@ -1763,6 +1766,7 @@ mod tests {
         let theme = selected.unwrap_or_else(|rejection| panic!("the real selected theme is refused: {rejection}"));
         assert!(theme.source_path.is_file());
     }
+
     fn fleet_with_a_job() -> Fleet {
         let job = Job {
             title: "test".to_owned(),
@@ -1771,6 +1775,43 @@ mod tests {
             screen: ScreenArea::default(),
         };
         Fleet::new(Some(job), SharedAssignments::default())
+    }
+
+    /// A fleet whose monitors each have a slot; `playing` names the monitors whose renderer shows its first frame.
+    fn fleet_of(monitors: &[(&str, bool)], playing: &[&str]) -> Fleet {
+        let mut fleet = fleet_with_a_job();
+        for (id, primary) in monitors {
+            fleet.monitors.push(monitor(id, *primary));
+            fleet.slots.assign(id).expect("a free slot");
+        }
+        for id in playing {
+            fleet.playing.insert(fleet.slots.slot_of(id).expect("a slot for a playing monitor"));
+        }
+        fleet
+    }
+
+    #[test]
+    fn a_renderer_that_does_not_play_yet_is_never_the_master() {
+        let fleet = fleet_of(&[("\\\\.\\DISPLAY1", false), ("\\\\.\\DISPLAY18", true)], &["\\\\.\\DISPLAY1"]);
+
+        assert_eq!(fleet.master_slot(), fleet.slots.slot_of("\\\\.\\DISPLAY1"));
+    }
+
+    #[test]
+    fn with_no_renderer_playing_there_is_no_master() {
+        let fleet = fleet_of(&[("\\\\.\\DISPLAY1", true), ("\\\\.\\DISPLAY2", false)], &[]);
+
+        assert_eq!(fleet.master_slot(), None);
+    }
+
+    #[test]
+    fn the_primary_renderer_is_master_once_it_plays() {
+        let fleet = fleet_of(
+            &[("\\\\.\\DISPLAY1", false), ("\\\\.\\DISPLAY18", true)],
+            &["\\\\.\\DISPLAY1", "\\\\.\\DISPLAY18"],
+        );
+
+        assert_eq!(fleet.master_slot(), fleet.slots.slot_of("\\\\.\\DISPLAY18"));
     }
 
     #[test]
