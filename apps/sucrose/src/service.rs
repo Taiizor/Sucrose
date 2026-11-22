@@ -1727,4 +1727,45 @@ mod tests {
         let theme = selected.unwrap_or_else(|rejection| panic!("the real selected theme is refused: {rejection}"));
         assert!(theme.source_path.is_file());
     }
+    fn fleet_with_a_job() -> Fleet {
+        let job = Job {
+            title: "test".to_owned(),
+            source: "C:/wallpaper.mp4".to_owned(),
+            settings: PlaybackSettings::default(),
+            screen: ScreenArea::default(),
+        };
+        Fleet::new(Some(job), SharedAssignments::default())
+    }
+
+    #[test]
+    fn enable_fullscreen_resume_keeps_the_rule_and_its_timer_off() {
+        let mut fleet = fleet_with_a_job();
+
+        assert!(!fleet.enable_fullscreen(FullScreenAction::Resume, PauseKind::Light));
+        assert!(fleet.fullscreen.is_none(), "a Resume rule left state behind");
+    }
+
+    #[test]
+    fn enable_fullscreen_pause_turns_the_rule_and_its_timer_on() {
+        let mut fleet = fleet_with_a_job();
+
+        assert!(fleet.enable_fullscreen(FullScreenAction::Pause, PauseKind::Light));
+        assert!(fleet.fullscreen.is_some());
+    }
+
+    #[test]
+    fn enable_fullscreen_close_turns_the_rule_and_its_timer_on_for_heavy_pause() {
+        let mut fleet = fleet_with_a_job();
+
+        assert!(fleet.enable_fullscreen(FullScreenAction::Close, PauseKind::Heavy));
+        assert!(fleet.fullscreen.is_some());
+    }
+
+    #[test]
+    fn enable_fullscreen_without_a_job_stays_off() {
+        let mut fleet = Fleet::new(None, SharedAssignments::default());
+
+        assert!(!fleet.enable_fullscreen(FullScreenAction::Pause, PauseKind::Light));
+        assert!(fleet.fullscreen.is_none());
+    }
 }

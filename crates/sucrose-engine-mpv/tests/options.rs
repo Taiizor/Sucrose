@@ -7,7 +7,7 @@
 
 use std::{
     ffi::CString,
-    path::PathBuf,
+    path::{Path, PathBuf},
     sync::Arc,
     thread::sleep,
     time::{Duration, Instant},
@@ -74,6 +74,11 @@ fn first_refusal(mpv: &Mpv, options: &[(&str, String)]) -> Option<String> {
 
 /// A player on a generated test stream without a window: `vo=null`, `ao=null`, the options of `settings`.
 fn start(settings: PlaybackSettings, seconds: u32) -> Player {
+    start_with_user_config(settings, seconds, None)
+}
+
+/// Like [start], with `user_config` as the user's mpv config (or none).
+fn start_with_user_config(settings: PlaybackSettings, seconds: u32, user_config: Option<&Path>) -> Player {
     let mut embedding: Vec<_> = embedding_options()
         .into_iter()
         .filter(|(name, _)| !matches!(*name, "vo" | "gpu-context"))
@@ -84,7 +89,7 @@ fn start(settings: PlaybackSettings, seconds: u32) -> Player {
     let options = OpenOptions {
         embedding: &embedding,
         generated: &generated,
-        user_config: None,
+        user_config,
     };
     let source = format!("av://lavfi:testsrc=duration={seconds}:size=320x240:rate=30");
     Player::open_source(load_mpv(), None, &source, &options)
@@ -198,4 +203,88 @@ fn set_volume_changes_the_volume_property() {
         .parse()
         .expect("a number");
     assert!((volume - 40.0).abs() < 1e-6, "volume is {volume}");
+}
+
+/// Writes a user config named after `name`, so that tests running in parallel never share a file.
+fn write_user_config(name: &str, text: &str) -> PathBuf {
+    let path = std::env::temp_dir().join(format!("sucrose-{name}-{}.config", std::process::id()));
+    std::fs::write(&path, text).expect("write the user config");
+    path
+}
+
+fn number_property(player: &Player, name: &str) -> f64 {
+    player
+        .get_property_string(name)
+        .unwrap_or_else(|| panic!("{name} is unavailable"))
+        .parse()
+        .expect("a number")
+}
+
+#[test]
+#[ignore = "needs cargo xtask fetch-engines"]
+fn a_user_config_cannot_turn_the_hardening_off() {
+    let config = write_user_config(
+        "hardening",
+        "load-scripts=yes\nytdl=yes\ninput-default-bindings=yes\nvolume=50\n",
+    );
+    let player = start_with_user_config(PlaybackSettings::default(), 120, Some(&config));
+
+    // volume=50 proves the user config was read; without that the "no" checks below would prove nothing.
+    let volume = number_property(&player, "volume");
+    assert!(
+        (volume - 50.0).abs() < 1e-6,
+        "the user config was not read: volume is {volume}"
+    );
+    for name in ["load-scripts", "ytdl", "input-default-bindings"] {
+        assert_eq!(
+            player.get_property_string(name).as_deref(),
+            Some("no"),
+            "the user config turned {name} on"
+        );
+    }
+    drop(player);
+    let _ = std::fs::remove_file(&config);
+}
+
+#[test]
+#[ignore = "needs cargo xtask fetch-engines"]
+fn a_user_config_volume_replaces_the_generated_one() {
+    let config = write_user_config("volume", "volume=50\n");
+    let settings = PlaybackSettings {
+        volume: 80,
+        ..PlaybackSettings::default()
+    };
+    let player = start_with_user_config(settings, 120, Some(&config));
+
+    let volume = number_property(&player, "volume");
+    assert!(
+        (volume - 50.0).abs() < 1e-6,
+        "volume is {volume}, the user config asked for 50"
+    );
+    drop(player);
+    let _ = std::fs::remove_file(&config);
+}
+
+#[test]
+#[ignore = "needs cargo xtask fetch-engines"]
+fn a_user_config_that_cannot_load_falls_back_to_the_generated_options() {
+    let missing = std::env::temp_dir().join(format!("sucrose-no-such-config-{}.config", std::process::id()));
+    assert!(!missing.exists(), "the scratch path must not exist");
+    let settings = PlaybackSettings {
+        volume: 37,
+        ..PlaybackSettings::default()
+    };
+    let player = start_with_user_config(settings, 120, Some(&missing));
+
+    // 37 is neither mpv's default nor the default settings, so it can only come from the generated options.
+    let volume = number_property(&player, "volume");
+    assert!(
+        (volume - 37.0).abs() < 1e-6,
+        "the generated volume was not applied: volume is {volume}"
+    );
+    assert_eq!(
+        player.get_property_string("load-scripts").as_deref(),
+        Some("no"),
+        "the fallback path lost the hardening"
+    );
 }
