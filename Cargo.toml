@@ -34,6 +34,8 @@ sevenz-rust2 = "0.25.0"
 sha2 = "0.11.1"
 thiserror = "2"
 toml = "1.2.2"
+# Default features off: the default one is the Linux GTK AppIndicator backend (Windows only, via sucrose-platform).
+tray-icon = { version = "0.26.1", default-features = false }
 tracing = "0.1"
 tracing-appender = "0.2"
 tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }

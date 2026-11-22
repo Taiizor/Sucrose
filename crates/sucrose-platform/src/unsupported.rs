@@ -1,7 +1,7 @@
 //! The desktop surface and event loop on OSes that have no wallpaper support yet: every call reports
 //! [`PlatformError::Unsupported`] instead of pretending.
 
-use crate::{DpiAwareness, PlatformError, RectPx};
+use crate::{DpiAwareness, Flow, LoopEvent, PlatformError, RectPx};
 
 /// A surface behind the desktop icons. Not available on this OS.
 #[derive(Debug)]
@@ -35,16 +35,33 @@ impl EventLoop {
     }
 
     /// Returns at once: there is nothing to run.
-    pub fn run(self) {}
+    pub fn run(self, _handler: impl FnMut(LoopEvent) -> Flow) {}
 }
 
-/// Stops an [`EventLoop`] from any thread.
+/// Wakes or stops an [`EventLoop`] from any thread.
 #[derive(Debug, Clone)]
 pub struct LoopProxy;
 
 impl LoopProxy {
     /// Does nothing on this OS.
+    pub fn wake(&self) {}
+
+    /// Does nothing on this OS.
     pub fn quit(&self) {}
+}
+
+/// The notification-area icon. Not available on this OS.
+#[derive(Debug)]
+pub struct Tray;
+
+impl Tray {
+    /// Always fails on this OS.
+    pub fn new(_ico: &[u8], _tooltip: &str, _proxy: LoopProxy) -> Result<Self, PlatformError> {
+        Err(PlatformError::Unsupported("tray icon"))
+    }
+
+    /// Does nothing on this OS.
+    pub fn set_tooltip(&self, _tooltip: &str) {}
 }
 
 pub(crate) fn init_dpi_awareness() -> DpiAwareness {

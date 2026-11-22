@@ -3,6 +3,7 @@
 mod display;
 mod event_loop;
 mod surface;
+mod tray;
 
 use windows::{
     Win32::{
@@ -18,6 +19,7 @@ use crate::{Capabilities, MonitorInfo, Platform, PlatformError};
 pub(crate) use display::init_dpi_awareness;
 pub use event_loop::{EventLoop, LoopProxy};
 pub use surface::DesktopSurface;
+pub use tray::Tray;
 
 pub(crate) struct Current;
 

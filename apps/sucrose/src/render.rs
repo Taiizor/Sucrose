@@ -12,7 +12,7 @@ use sucrose_ipc::{
     Connection, IpcError, connect,
     protocol::{Assignment, PROTOCOL_VERSION, ToRenderer, ToService},
 };
-use sucrose_platform::{DesktopSurface, DpiAwareness, EventLoop, RectPx};
+use sucrose_platform::{DesktopSurface, DpiAwareness, EventLoop, Flow, LoopEvent, RectPx};
 
 /// How often and how long the renderer retries while the service is still opening its endpoint.
 const CONNECT_ATTEMPTS: u32 = 20;
@@ -87,7 +87,11 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         })
         .context("cannot start the reader thread")?;
 
-    event_loop.run();
+    // The renderer has nothing to drain on a wake; it stops when the reader thread asks it to.
+    event_loop.run(|event| match event {
+        LoopEvent::Wake => Flow::Continue,
+        LoopEvent::Quit => Flow::Exit,
+    });
     // The player first: its child window lives inside the surface.
     drop(player);
     drop(surface);

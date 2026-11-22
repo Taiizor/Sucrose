@@ -2,8 +2,9 @@
 //! reported through [`Capabilities`] instead of being faked. This crate may opt out of the workspace `unsafe_code`
 //! lint with `#![allow(unsafe_code)]` once it needs FFI (D-011).
 
-// D-011: the Windows module calls Win32 APIs; each unsafe block carries a SAFETY comment.
+// D-011: the Windows module calls Win32 APIs; each unsafe block carries a SAFETY comment, which clippy enforces.
 #![allow(unsafe_code)]
+#![warn(clippy::undocumented_unsafe_blocks)]
 
 #[cfg(target_os = "linux")]
 mod os_linux;
@@ -25,10 +26,30 @@ use os_windows as imp;
 compile_error!("Sucrose supports Windows, macOS and Linux only");
 
 pub mod geometry;
+pub mod icon;
 pub mod layout;
 
 pub use geometry::{MonitorInfo, RectPx};
-pub use imp::{DesktopSurface, EventLoop, LoopProxy};
+pub use icon::truncate_tooltip;
+pub use imp::{DesktopSurface, EventLoop, LoopProxy, Tray};
+
+/// What an [`EventLoop`] tells its handler.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum LoopEvent {
+    /// Another thread called [`LoopProxy::wake`]: drain whatever it queued.
+    Wake,
+    /// Another thread (or the tray menu) called [`LoopProxy::quit`].
+    Quit,
+}
+
+/// What the handler of an [`EventLoop`] wants next.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Flow {
+    /// Keep running.
+    Continue,
+    /// Return from [`EventLoop::run`].
+    Exit,
+}
 
 /// What the current OS and session support. The UI hides or explains anything that is `false`.
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
@@ -54,6 +75,14 @@ pub enum PlatformError {
         context: &'static str,
         /// The OS error code (the HRESULT on Windows).
         code: i32,
+    },
+    /// A library that wraps the OS failed.
+    #[error("{context} failed: {message}")]
+    Failed {
+        /// What was being done.
+        context: &'static str,
+        /// What the library reported.
+        message: String,
     },
 }
 

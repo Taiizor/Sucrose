@@ -1,17 +1,18 @@
 //! Service mode: owns the endpoint (single instance, D-023), starts a renderer and listens to it.
 
 use std::{
-    collections::HashSet,
-    process::Command,
-    sync::{Arc, Mutex, PoisonError},
+    collections::{HashMap, HashSet},
+    process::{Child, Command},
+    sync::{Arc, Mutex, MutexGuard, PoisonError},
     thread,
-    time::Duration,
+    time::{Duration, Instant},
 };
 
 use anyhow::Context as _;
 use crossbeam_channel::Sender;
 use sucrose_config::legacy::LegacySettings;
 use sucrose_core::{
+    APP_LONG_NAME,
     paths::{legacy_data_dir, legacy_setting_dir},
     theme::{SelectedTheme, check_selected},
     version::app_version,
@@ -20,7 +21,7 @@ use sucrose_ipc::{
     Connection, IpcError, Listener, endpoint_name,
     protocol::{Assignment, PROTOCOL_VERSION, ToRenderer, ToService},
 };
-use sucrose_platform::{Platform, PlatformError};
+use sucrose_platform::{EventLoop, Flow, LoopEvent, LoopProxy, Platform, PlatformError, Tray};
 
 /// Where this user's service listens.
 pub struct Endpoint {
@@ -51,7 +52,58 @@ pub fn endpoint() -> anyhow::Result<Endpoint> {
     }
 }
 
-/// Runs the service until the process is stopped.
+/// What the threads of the service tell its main thread.
+#[derive(Debug)]
+enum Event {
+    /// A message from a renderer.
+    Renderer(ToService),
+    /// The shutdown worker finished closing every renderer.
+    ShutdownDone,
+}
+
+/// Sends events to the main thread and wakes its message loop, so the loop never polls.
+#[derive(Clone)]
+struct Notifier {
+    sender: Sender<Event>,
+    proxy: LoopProxy,
+}
+
+impl Notifier {
+    /// Queues `event` and wakes the loop. `false` once the main thread is gone.
+    fn send(&self, event: Event) -> bool {
+        if self.sender.send(event).is_err() {
+            return false;
+        }
+        self.proxy.wake();
+        true
+    }
+}
+
+/// The renderers this service started and the channels to them.
+#[derive(Default)]
+struct Renderers {
+    /// The pids of the processes this service started: the only ones whose Hello is accepted.
+    pids: HashSet<u32>,
+    children: Vec<(u8, Child)>,
+    /// The write side of each connected renderer, by slot.
+    connections: HashMap<u8, Connection>,
+    /// Set when shutdown begins: a renderer that connects later is told to close at once.
+    closing: bool,
+}
+
+type SharedRenderers = Arc<Mutex<Renderers>>;
+
+fn lock(renderers: &Mutex<Renderers>) -> MutexGuard<'_, Renderers> {
+    renderers.lock().unwrap_or_else(PoisonError::into_inner)
+}
+
+/// How long a renderer gets to leave after Close before it is killed.
+const SHUTDOWN_GRACE: Duration = Duration::from_secs(2);
+
+/// The tray icon the service shows (the C# Launcher's image, D-14).
+const TRAY_ICON: &[u8] = include_bytes!("../assets/TrayIcon.ico");
+
+/// Runs the service until Quit is chosen from the tray.
 pub fn run() -> anyhow::Result<()> {
     let awareness = sucrose_platform::init_dpi_awareness();
     let endpoint = endpoint()?;
@@ -76,49 +128,212 @@ pub fn run() -> anyhow::Result<()> {
     );
     let assignments: Arc<Vec<Assignment>> = Arc::new(plan_wallpapers(platform.as_ref()));
 
+    // The main thread only pumps messages and drains the channel (D-012): IPC reads and child waits run on threads
+    // of their own and wake it through the proxy.
+    let event_loop = EventLoop::new().context("cannot start the message loop")?;
     let (sender, receiver) = crossbeam_channel::unbounded();
-    let spawned = Arc::new(Mutex::new(HashSet::new()));
+    let notifier = Notifier {
+        sender,
+        proxy: event_loop.proxy(),
+    };
+    let renderers: SharedRenderers = Arc::default();
     for assignment in assignments.iter() {
-        spawn_renderer(&spawned, assignment.slot)?;
+        spawn_renderer(&renderers, assignment.slot)?;
     }
-    let accept_spawned = Arc::clone(&spawned);
+    let accept_renderers = Arc::clone(&renderers);
     let accept_assignments = Arc::clone(&assignments);
+    let accept_notifier = notifier.clone();
     thread::Builder::new()
         .name("ipc-accept".to_owned())
-        .spawn(move || accept_loop(&listener, &accept_spawned, &accept_assignments, &sender))
+        .spawn(move || accept_loop(&listener, &accept_renderers, &accept_assignments, &accept_notifier))
         .context("cannot start the accept thread")?;
 
-    // The accept thread and the reader threads hold the only senders: when they are all gone nothing can arrive.
-    for message in receiver {
-        match message {
-            ToService::Hello { pid, slot, .. } => tracing::info!(pid, slot, "renderer connected"),
+    let tray = match Tray::new(TRAY_ICON, APP_LONG_NAME, event_loop.proxy()) {
+        Ok(tray) => {
+            tracing::info!("tray icon ready");
+            Some(tray)
         }
-    }
-    tracing::warn!("the service channel closed, exiting");
+        Err(error) => {
+            tracing::error!(%error, "cannot show the tray icon, Sucrose can only be stopped from Task Manager");
+            None
+        }
+    };
+
+    let mut quitting = false;
+    event_loop.run(|event| match event {
+        LoopEvent::Wake => {
+            for event in receiver.try_iter() {
+                match event {
+                    Event::Renderer(ToService::Hello { pid, slot, .. }) => {
+                        tracing::info!(pid, slot, "renderer connected");
+                    }
+                    Event::ShutdownDone => return Flow::Exit,
+                }
+            }
+            Flow::Continue
+        }
+        LoopEvent::Quit => {
+            if !quitting {
+                quitting = true;
+                tracing::info!("Quit chosen, closing the renderers");
+                start_shutdown(&renderers, &notifier);
+            }
+            Flow::Continue
+        }
+    });
+    drop(tray);
+    tracing::info!("the service stopped");
     Ok(())
 }
 
-/// Starts `sucrose --render <slot>` and remembers its pid as a process this service started.
-fn spawn_renderer(spawned: &Mutex<HashSet<u32>>, slot: u8) -> anyhow::Result<()> {
+/// Closes every renderer on a worker thread, so the message loop (and with it the tray) stays responsive while a
+/// renderer takes its time (T-02-20).
+fn start_shutdown(renderers: &SharedRenderers, notifier: &Notifier) {
+    let renderers = Arc::clone(renderers);
+    let notifier = notifier.clone();
+    let started = thread::Builder::new().name("shutdown".to_owned()).spawn({
+        let notifier = notifier.clone();
+        move || {
+            let mut control = {
+                let mut state = lock(&renderers);
+                state.closing = true;
+                ProcessRenderers {
+                    children: std::mem::take(&mut state.children),
+                    connections: std::mem::take(&mut state.connections),
+                }
+            };
+            shutdown(&mut control, SHUTDOWN_GRACE);
+            notifier.send(Event::ShutdownDone);
+        }
+    });
+    if let Err(error) = started {
+        // Without the worker nothing can wait for the children, so leave at once: the OS ends children that hold a
+        // connection to a dead service when they notice the close.
+        tracing::error!(%error, "cannot start the shutdown thread, exiting without waiting for the renderers");
+        notifier.send(Event::ShutdownDone);
+    }
+}
+
+/// What shutdown needs from the renderers, as a trait so the order of the steps can be tested.
+trait RendererControl {
+    /// The slots of the renderers that were started.
+    fn slots(&self) -> Vec<u8>;
+    /// Asks the renderer to stop; best effort.
+    fn close(&mut self, slot: u8);
+    /// Waits up to `timeout` for the renderer to be gone; `true` if it is.
+    fn wait_exit(&mut self, slot: u8, timeout: Duration) -> bool;
+    /// Stops the renderer by force.
+    fn kill(&mut self, slot: u8);
+}
+
+/// Asks every renderer to close, gives them `grace` in total to leave, then kills only the ones still alive.
+fn shutdown(control: &mut impl RendererControl, grace: Duration) {
+    let slots = control.slots();
+    for slot in &slots {
+        control.close(*slot);
+    }
+    let deadline = Instant::now() + grace;
+    let mut survivors = Vec::new();
+    for slot in slots {
+        let remaining = deadline.saturating_duration_since(Instant::now());
+        if !control.wait_exit(slot, remaining) {
+            survivors.push(slot);
+        }
+    }
+    for slot in survivors {
+        tracing::warn!(slot, "a renderer did not leave in time, stopping it");
+        control.kill(slot);
+    }
+}
+
+/// The real renderers: only the child handles this service spawned are ever touched (D-14).
+struct ProcessRenderers {
+    children: Vec<(u8, Child)>,
+    connections: HashMap<u8, Connection>,
+}
+
+impl ProcessRenderers {
+    fn child(&mut self, slot: u8) -> Option<&mut Child> {
+        self.children
+            .iter_mut()
+            .find(|(candidate, _)| *candidate == slot)
+            .map(|(_, child)| child)
+    }
+}
+
+impl RendererControl for ProcessRenderers {
+    fn slots(&self) -> Vec<u8> {
+        self.children.iter().map(|(slot, _)| *slot).collect()
+    }
+
+    fn close(&mut self, slot: u8) {
+        match self.connections.get_mut(&slot) {
+            Some(connection) => {
+                if let Err(error) = connection.send(&ToRenderer::Close) {
+                    tracing::warn!(%error, slot, "cannot send Close to a renderer");
+                }
+            }
+            None => tracing::debug!(slot, "no connection to send Close to, the renderer is still starting"),
+        }
+    }
+
+    fn wait_exit(&mut self, slot: u8, timeout: Duration) -> bool {
+        let Some(child) = self.child(slot) else {
+            return true;
+        };
+        let deadline = Instant::now() + timeout;
+        loop {
+            match child.try_wait() {
+                Ok(Some(status)) => {
+                    tracing::info!(slot, %status, "a renderer exited");
+                    return true;
+                }
+                Ok(None) => {}
+                Err(error) => {
+                    tracing::warn!(%error, slot, "cannot wait for a renderer");
+                    return false;
+                }
+            }
+            if Instant::now() >= deadline {
+                return false;
+            }
+            thread::sleep(Duration::from_millis(25));
+        }
+    }
+
+    fn kill(&mut self, slot: u8) {
+        if let Some(child) = self.child(slot) {
+            if let Err(error) = child.kill() {
+                tracing::warn!(%error, slot, "cannot stop a renderer");
+            }
+            // Reaps the process so no handle is left behind.
+            let _ = child.wait();
+        }
+    }
+}
+
+/// Starts `sucrose --render <slot>` and remembers it as a process this service started.
+fn spawn_renderer(renderers: &Mutex<Renderers>, slot: u8) -> anyhow::Result<()> {
     let exe = std::env::current_exe().context("cannot find the path of this executable")?;
     // Held across the spawn so a fast renderer cannot say Hello before its pid is recorded.
-    let mut pids = spawned.lock().unwrap_or_else(PoisonError::into_inner);
+    let mut state = lock(renderers);
     let child = Command::new(exe)
         .arg("--render")
         .arg(slot.to_string())
         .spawn()
         .context("cannot start the renderer")?;
-    pids.insert(child.id());
+    state.pids.insert(child.id());
     tracing::info!(pid = child.id(), slot, "renderer started");
+    state.children.push((slot, child));
     Ok(())
 }
 
 /// Accepts connections and gives each one a reader thread.
 fn accept_loop(
     listener: &Listener,
-    spawned: &Arc<Mutex<HashSet<u32>>>,
+    renderers: &SharedRenderers,
     assignments: &Arc<Vec<Assignment>>,
-    sender: &Sender<ToService>,
+    notifier: &Notifier,
 ) {
     const MAX_FAILURES: u32 = 10;
     let mut failures = 0;
@@ -126,12 +341,12 @@ fn accept_loop(
         match listener.accept() {
             Ok(connection) => {
                 failures = 0;
-                let spawned = Arc::clone(spawned);
+                let renderers = Arc::clone(renderers);
                 let assignments = Arc::clone(assignments);
-                let sender = sender.clone();
+                let notifier = notifier.clone();
                 let started = thread::Builder::new()
                     .name("ipc-reader".to_owned())
-                    .spawn(move || read_connection(connection, &spawned, &assignments, &sender));
+                    .spawn(move || read_connection(connection, &renderers, &assignments, &notifier));
                 if let Err(error) = started {
                     tracing::warn!(%error, "cannot start a reader thread, dropping the connection");
                 }
@@ -149,9 +364,9 @@ fn accept_loop(
 /// Reads one connection until it ends. Whatever goes wrong here ends this connection only.
 fn read_connection(
     mut connection: Connection,
-    spawned: &Mutex<HashSet<u32>>,
+    renderers: &Mutex<Renderers>,
     assignments: &[Assignment],
-    sender: &Sender<ToService>,
+    notifier: &Notifier,
 ) {
     let first: ToService = match connection.recv() {
         Ok(message) => message,
@@ -160,9 +375,9 @@ fn read_connection(
             return;
         }
     };
-    let accepted = {
-        let pids = spawned.lock().unwrap_or_else(PoisonError::into_inner);
-        accept_hello(&pids, &first)
+    let (accepted, closing) = {
+        let state = lock(renderers);
+        (accept_hello(&state.pids, &first), state.closing)
     };
     let slot = match accepted {
         Ok(slot) => slot,
@@ -171,10 +386,11 @@ fn read_connection(
             return;
         }
     };
-    // The renderer waits for this message; without a job for its slot it has nothing to do, so it is told to stop.
+    // The renderer waits for this message; without a job for its slot, or once shutdown has begun, it has nothing
+    // to do, so it is told to stop.
     let reply = match assignments.iter().find(|assignment| assignment.slot == slot) {
-        Some(assignment) => ToRenderer::Assign(assignment.clone()),
-        None => ToRenderer::Close,
+        Some(assignment) if !closing => ToRenderer::Assign(assignment.clone()),
+        _ => ToRenderer::Close,
     };
     if let Err(error) = connection.send(&reply) {
         tracing::warn!(%error, slot, "cannot answer the Hello");
@@ -189,13 +405,14 @@ fn read_connection(
         ),
         ToRenderer::Close => tracing::warn!(slot, "no assignment for this slot, the renderer was told to close"),
     }
-    if sender.send(first).is_err() {
+    register_writer(renderers, slot, &mut connection);
+    if !notifier.send(Event::Renderer(first)) {
         return;
     }
     loop {
         match connection.recv::<ToService>() {
             Ok(message) => {
-                if sender.send(message).is_err() {
+                if !notifier.send(Event::Renderer(message)) {
                     return;
                 }
             }
@@ -208,6 +425,27 @@ fn read_connection(
                 return;
             }
         }
+    }
+}
+
+/// Remembers the write side of a renderer's connection so shutdown can send Close while this thread is blocked
+/// reading. When shutdown began in the meantime, the Close goes out right here instead.
+fn register_writer(renderers: &Mutex<Renderers>, slot: u8, connection: &mut Connection) {
+    let writer = match connection.try_clone() {
+        Ok(writer) => writer,
+        Err(error) => {
+            tracing::warn!(%error, slot, "cannot keep a write handle for a renderer");
+            return;
+        }
+    };
+    let mut state = lock(renderers);
+    if state.closing {
+        drop(state);
+        if let Err(error) = connection.send(&ToRenderer::Close) {
+            tracing::warn!(%error, slot, "cannot send Close to a renderer");
+        }
+    } else {
+        state.connections.insert(slot, writer);
     }
 }
 
@@ -362,6 +600,61 @@ mod tests {
             accept_hello(&HashSet::new(), &hello(PROTOCOL_VERSION, 100, 0)),
             Err(Refusal::UnknownPid(100))
         );
+    }
+
+    /// Records every call and says which slots are still alive after Close.
+    struct Fake {
+        slots: Vec<u8>,
+        stubborn: Vec<u8>,
+        calls: Vec<String>,
+    }
+
+    impl RendererControl for Fake {
+        fn slots(&self) -> Vec<u8> {
+            self.slots.clone()
+        }
+
+        fn close(&mut self, slot: u8) {
+            self.calls.push(format!("close {slot}"));
+        }
+
+        fn wait_exit(&mut self, slot: u8, _timeout: Duration) -> bool {
+            self.calls.push(format!("wait {slot}"));
+            !self.stubborn.contains(&slot)
+        }
+
+        fn kill(&mut self, slot: u8) {
+            self.calls.push(format!("kill {slot}"));
+        }
+    }
+
+    #[test]
+    fn shutdown_closes_all_then_waits_then_kills_only_the_survivors() {
+        let mut fake = Fake {
+            slots: vec![0, 1, 2],
+            stubborn: vec![1],
+            calls: Vec::new(),
+        };
+
+        shutdown(&mut fake, Duration::from_secs(2));
+
+        assert_eq!(
+            fake.calls,
+            ["close 0", "close 1", "close 2", "wait 0", "wait 1", "wait 2", "kill 1"]
+        );
+    }
+
+    #[test]
+    fn shutdown_with_no_renderer_does_nothing() {
+        let mut fake = Fake {
+            slots: Vec::new(),
+            stubborn: Vec::new(),
+            calls: Vec::new(),
+        };
+
+        shutdown(&mut fake, Duration::from_secs(2));
+
+        assert!(fake.calls.is_empty());
     }
 
     /// The maintainer's real C# install, read-only: the selected theme must pass the gate.

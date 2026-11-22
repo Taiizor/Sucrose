@@ -14,6 +14,7 @@ thiserror = { workspace = true }
 tracing = { workspace = true }
 
 [target.'cfg(windows)'.dependencies]
+tray-icon = { workspace = true }
 windows = { workspace = true, features = [
     "Win32_Foundation",
     "Win32_Graphics_Gdi",
@@ -22,6 +23,7 @@ windows = { workspace = true, features = [
     "Win32_System_LibraryLoader",
     "Win32_System_Threading",
     "Win32_UI_HiDpi",
+    "Win32_UI_Shell",
     "Win32_UI_WindowsAndMessaging",
 ] }
 
