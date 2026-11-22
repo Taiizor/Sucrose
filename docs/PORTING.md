@@ -8,7 +8,7 @@ How to move a capability from the C# app (`src/`, read-only) to the Rust workspa
 2. **Write down the behavior first.** Update the feature's entry in `FEATURES.md`: what it does, settings keys and defaults, file formats, edge cases, Windows APIs used. This is the spec the Rust code is checked against.
 3. **Place it.** Decide the crate (see `ARCHITECTURE.md`) and split OS-specific parts into `sucrose-platform` behind a capability.
 4. **Implement with tests.** Formats and rules get unit tests; compatibility uses fixtures copied from real files (strip personal data).
-5. **Record it.** Mark the row in `FEATURES.md`, note any behavior change or improvement, add a `DECISIONS.md` entry if a choice was made, tick `ROADMAP.md`.
+5. **Record it.** Mark the row in `FEATURES.md`, note any behavior change or improvement, add a `DECISIONS.md` entry if a choice was made, and record notable RAM/CPU numbers in `MEASUREMENTS.md`. Requirement and phase status in `.planning/` is updated by the GSD workflow.
 
 ## NuGet packages
 

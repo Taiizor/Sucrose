@@ -4,7 +4,8 @@ Documentation for the Rust rewrite of Sucrose (`develop-rust`).
 
 | File | What it is |
 |---|---|
-| `ROADMAP.md` | Milestones, checklists, measurements. Start here to know what is next. |
+| `ROADMAP.md` | Pointer: the roadmap, current state and requirements live in `.planning/` (GSD). Start at `.planning/STATE.md` to know what is next. |
+| `MEASUREMENTS.md` | RAM/CPU measurements of release builds, compared with the C# app. |
 | `ARCHITECTURE.md` | Target processes, crates, traits, data flow. |
 | `DECISIONS.md` | Decision log (Accepted / Proposed) and open questions. |
 | `FEATURES.md` | Parity checklist: every C# feature, per-OS support, status. |
