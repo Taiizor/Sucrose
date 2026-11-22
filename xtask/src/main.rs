@@ -7,6 +7,7 @@ use std::process::{Command, ExitCode};
 
 mod bindgen_mpv;
 mod fetch_engines;
+mod measure;
 
 const USAGE: &str = "usage: cargo xtask <task>
 
@@ -14,6 +15,7 @@ tasks:
   bindgen-mpv    regenerate the libmpv bindings from client.h (needs --features bindgen)
   ci             run the checks CI runs: fmt, clippy, test
   fetch-engines  download, verify and place pinned engine binaries (xtask/engines.toml)
+  measure        sample RAM, CPU and GPU of the running wallpaper processes (--side rust|csharp, --row)
 ";
 
 fn main() -> ExitCode {
@@ -22,6 +24,7 @@ fn main() -> ExitCode {
         Some("bindgen-mpv") => bindgen_mpv::run(&args[2..]),
         Some("ci") => ci(),
         Some("fetch-engines") => fetch_engines::run(&args[2..]),
+        Some("measure") => measure::run(&args[2..]),
         _ => {
             eprint!("{USAGE}");
             ExitCode::FAILURE

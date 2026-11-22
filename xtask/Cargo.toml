@@ -10,8 +10,10 @@ publish.workspace = true
 [dependencies]
 bindgen = { workspace = true, optional = true }
 serde = { workspace = true }
+serde_json = { workspace = true }
 sevenz-rust2 = { workspace = true }
 sha2 = { workspace = true }
+sysinfo = { workspace = true }
 toml = { workspace = true }
 ureq = { workspace = true }
 
