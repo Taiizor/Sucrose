@@ -94,6 +94,13 @@ pub fn correct(tick: &ClockTick, now_ns: u64, local_pos_s: f64, duration_s: Opti
     }
 }
 
+/// The follower's drift from the master in seconds (positive when ahead), as [correct] and [Follower::step] see it;
+/// for logging.
+#[must_use]
+pub fn drift_s(tick: &ClockTick, now_ns: u64, local_pos_s: f64, duration_s: Option<f64>) -> f64 {
+    signed_drift(local_pos_s, expected_position(tick, now_ns, duration_s), duration_s)
+}
+
 /// Where the master is at `now_ns`: its position when the tick was taken plus the time since, at its speed, wrapped
 /// into the file when it loops.
 fn expected_position(tick: &ClockTick, now_ns: u64, duration_s: Option<f64>) -> f64 {
@@ -669,6 +676,14 @@ mod tests {
         assert_eq!(summary.seeks, 1);
         assert!((summary.max_abs_s - 0.8).abs() < 1e-9, "{summary:?}");
         assert!((summary.mean_abs_s - 0.5).abs() < 1e-9, "{summary:?}");
+    }
+
+    #[test]
+    fn the_logged_drift_is_the_signed_distance_to_the_master() {
+        let master = tick(10.0, 5 * SECOND);
+
+        assert!((drift_s(&master, 6 * SECOND, 11.25, None) - 0.25).abs() < 1e-9);
+        assert!((drift_s(&tick(0.1, 5 * SECOND), 5 * SECOND, 29.95, Some(30.0)) + 0.15).abs() < 1e-9);
     }
 
     #[test]

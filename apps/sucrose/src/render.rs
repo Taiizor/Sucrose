@@ -19,7 +19,7 @@ use sucrose_engine_mpv::{
     config::{embedding_options, generated_options, shader_cache_options, user_config_path},
     loader::{self, LoadError},
     player::{OpenOptions, Player, PlayerError, PlayerEvent},
-    sync::{DEFAULT_FRAME_S, Follower, SyncAction},
+    sync::{Follower, SyncAction, drift_s, frame_period},
 };
 use sucrose_ipc::{
     Connection, IpcError, connect,
@@ -361,7 +361,7 @@ fn wait_for_close(
     proxy: &LoopProxy,
     sync: &SyncState,
 ) {
-    let mut follower = Follower::new();
+    let mut following = FollowState::default();
     loop {
         match connection.recv::<ToRenderer>() {
             Ok(ToRenderer::Close) => {
@@ -392,9 +392,9 @@ fn wait_for_close(
             }
             Ok(ToRenderer::SetRole(role)) => {
                 apply_role(role, player, sync);
-                follower = Follower::new();
+                following.reset();
             }
-            Ok(ToRenderer::Clock(tick)) => follow_clock(&tick, player, sync, &mut follower),
+            Ok(ToRenderer::Clock(tick)) => follow_clock(&tick, player, sync, &mut following),
             // A second assignment is not part of this plan; later plans act on it.
             Ok(ToRenderer::Assign(_)) => tracing::warn!("ignoring an unexpected second assignment"),
             Err(IpcError::Closed) => {
@@ -432,8 +432,42 @@ fn apply_role(role: Role, player: &Player, sync: &SyncState) {
     tracing::info!(?role, "role");
 }
 
-/// Corrects this follower's drift against the master's `tick`.
-fn follow_clock(tick: &ClockTick, player: &Player, sync: &SyncState, follower: &mut Follower) {
+/// How many clock ticks a follower's drift summary covers: about 30 s, as the master ticks once per second.
+const SUMMARY_TICKS: u32 = 30;
+
+/// A follower's controller with what it knows about the video it follows.
+#[derive(Debug, Default)]
+struct FollowState {
+    follower: Follower,
+    /// One frame of the video in seconds, read once the first frame is shown.
+    frame_s: Option<f64>,
+    /// Ticks followed since the last drift summary was logged.
+    ticks_since_summary: u32,
+}
+
+impl FollowState {
+    /// A new role starts the controller afresh; the video, and so its frame period, stays the same.
+    fn reset(&mut self) {
+        self.follower = Follower::new();
+        self.ticks_since_summary = 0;
+    }
+}
+
+/// One frame of the playing video in seconds: from its container frame rate, else mpv's estimate, else a default.
+fn video_frame_period(player: &Player) -> f64 {
+    let fps = ["container-fps", "estimated-vf-fps"].into_iter().find_map(|name| {
+        player
+            .get_property_string(name)
+            .and_then(|value| value.trim().parse::<f64>().ok())
+            .filter(|fps| fps.is_finite() && *fps > 0.0)
+    });
+    let period = frame_period(fps);
+    tracing::info!(?fps, frame_period_s = period, "frame period");
+    period
+}
+
+/// Corrects this follower's drift against the master's `tick` and logs its drift summary every [SUMMARY_TICKS].
+fn follow_clock(tick: &ClockTick, player: &Player, sync: &SyncState, state: &mut FollowState) {
     // A paused follower (the fullscreen rule on this monitor alone) has nothing to correct until it plays again; the
     // next reading after that realigns it.
     // Before its first frame this player has no position to compare either.
@@ -444,10 +478,19 @@ fn follow_clock(tick: &ClockTick, player: &Player, sync: &SyncState, follower: &
         return;
     };
     let duration = if sync.looping { player.duration() } else { None };
-    let action = follower.step(tick, monotonic_ns(), local, duration, DEFAULT_FRAME_S);
+    let frame_s = *state.frame_s.get_or_insert_with(|| video_frame_period(player));
+    let now_ns = monotonic_ns();
+    let action = state.follower.step(tick, now_ns, local, duration, frame_s);
     let applied = match action {
         SyncAction::None => Ok(()),
-        SyncAction::Speed(speed) => player.set_speed(speed),
+        SyncAction::Speed(speed) => {
+            tracing::debug!(
+                speed,
+                drift_s = drift_s(tick, now_ns, local, duration),
+                "follower speed"
+            );
+            player.set_speed(speed)
+        }
         SyncAction::Seek(position) => {
             tracing::info!(local, position, "drift beyond half a second, seeking");
             player.seek_exact(position)
@@ -455,6 +498,20 @@ fn follow_clock(tick: &ClockTick, player: &Player, sync: &SyncState, follower: &
     };
     if let Err(error) = applied {
         tracing::warn!(%error, ?action, "cannot correct the drift");
+    }
+    state.ticks_since_summary += 1;
+    if state.ticks_since_summary >= SUMMARY_TICKS {
+        state.ticks_since_summary = 0;
+        if let Some(summary) = state.follower.take_summary() {
+            tracing::info!(
+                ticks = summary.ticks,
+                mean_drift_frames = summary.mean_abs_s / frame_s,
+                max_drift_frames = summary.max_abs_s / frame_s,
+                speed_changes = summary.speed_changes,
+                seeks = summary.seeks,
+                "follower drift summary"
+            );
+        }
     }
 }
 
