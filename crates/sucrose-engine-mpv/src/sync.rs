@@ -60,6 +60,39 @@ fn expected_position(tick: &ClockTick, now_ns: u64) -> f64 {
     tick.position_s + elapsed_s * tick.speed
 }
 
+/// Two seconds in nanoseconds: an exact seek needs time to finish, so another one is not issued before that.
+pub const MIN_SEEK_GAP_NS: u64 = 2_000_000_000;
+
+/// A follower's memory between two readings: whether it is running at a corrected speed, so that it returns to the
+/// master's speed once it has caught up, and when it last seeked.
+#[derive(Debug, Default)]
+pub struct Follower {
+    nudged: Option<f64>,
+    last_seek_ns: Option<u64>,
+}
+
+impl Follower {
+    /// A follower at the master's speed that has not seeked yet.
+    #[must_use]
+    pub fn new() -> Self {
+        Self::default()
+    }
+
+    /// Like [correct], but only returns an action that changes something: the same speed nudge is not repeated, the
+    /// master's speed comes back once the drift is inside a frame, and a seek is not repeated within two seconds.
+    pub fn step(
+        &mut self,
+        tick: &ClockTick,
+        now_ns: u64,
+        local_pos_s: f64,
+        duration_s: Option<f64>,
+        frame_s: f64,
+    ) -> SyncAction {
+        let _ = (tick, now_ns, local_pos_s, duration_s, frame_s);
+        SyncAction::None
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -126,6 +159,94 @@ mod tests {
             panic!("expected a seek");
         };
         assert!((target - 12.0).abs() < 1e-9);
+    }
+
+    #[test]
+    fn across_the_loop_end_the_drift_is_the_circular_distance() {
+        // The master wrapped and is at 0.1 s; the follower, 0.05 s before the end of a 30 s file, has not yet: it is
+        // 0.15 s behind, not 29.85 s ahead.
+        let action = correct(&tick(0.1, 5 * SECOND), 5 * SECOND, 29.95, Some(30.0), DEFAULT_FRAME_S);
+
+        assert!((speed_of(action) - 1.02).abs() < 1e-9, "{action:?}");
+    }
+
+    #[test]
+    fn the_expected_position_wraps_modulo_the_duration() {
+        // 0.3 s after a reading at 29.9 s the master is at 0.2 s of a 30 s loop.
+        let master = tick(29.9, 5 * SECOND);
+
+        let action = correct(&master, 5 * SECOND + 300_000_000, 0.2, Some(30.0), DEFAULT_FRAME_S);
+
+        assert_eq!(action, SyncAction::None);
+    }
+
+    #[test]
+    fn a_seek_across_the_loop_end_lands_inside_the_file() {
+        let SyncAction::Seek(target) = correct(&tick(29.9, 5 * SECOND), 6 * SECOND, 10.0, Some(30.0), DEFAULT_FRAME_S)
+        else {
+            panic!("expected a seek");
+        };
+
+        assert!((target - 0.9).abs() < 1e-9, "{target}");
+    }
+
+    #[test]
+    fn a_follower_returns_to_the_masters_speed_once_it_has_caught_up() {
+        let mut follower = Follower::new();
+        let master = tick(10.0, 5 * SECOND);
+
+        let behind = follower.step(&master, 5 * SECOND, 9.8, None, DEFAULT_FRAME_S);
+        let caught_up = follower.step(&master, 5 * SECOND, 10.0, None, DEFAULT_FRAME_S);
+        let after = follower.step(&master, 5 * SECOND, 10.0, None, DEFAULT_FRAME_S);
+
+        assert!((speed_of(behind) - 1.02).abs() < 1e-9);
+        assert!((speed_of(caught_up) - 1.0).abs() < 1e-9);
+        assert_eq!(after, SyncAction::None);
+    }
+
+    #[test]
+    fn the_same_speed_nudge_is_not_sent_twice() {
+        let mut follower = Follower::new();
+        let master = tick(10.0, 5 * SECOND);
+
+        let first = follower.step(&master, 5 * SECOND, 9.8, None, DEFAULT_FRAME_S);
+        let second = follower.step(&master, 5 * SECOND, 9.85, None, DEFAULT_FRAME_S);
+
+        assert!((speed_of(first) - 1.02).abs() < 1e-9);
+        assert_eq!(second, SyncAction::None);
+    }
+
+    #[test]
+    fn a_second_seek_within_two_seconds_waits() {
+        let mut follower = Follower::new();
+        let master = tick(10.0, 5 * SECOND);
+
+        let first = follower.step(&master, 5 * SECOND, 12.0, None, DEFAULT_FRAME_S);
+        let soon = follower.step(&master, 6 * SECOND, 12.0, None, DEFAULT_FRAME_S);
+        let later = follower.step(&master, 7 * SECOND + 1, 12.0, None, DEFAULT_FRAME_S);
+
+        assert!(matches!(first, SyncAction::Seek(_)), "{first:?}");
+        assert_eq!(soon, SyncAction::None);
+        assert!(matches!(later, SyncAction::Seek(_)), "{later:?}");
+    }
+
+    #[test]
+    fn a_paused_master_leaves_a_fresh_follower_alone_and_frees_a_nudged_one() {
+        let mut fresh = Follower::new();
+        let mut nudged = Follower::new();
+        let running = tick(10.0, 5 * SECOND);
+        let paused = ClockTick {
+            paused: true,
+            ..running
+        };
+        nudged.step(&running, 5 * SECOND, 9.8, None, DEFAULT_FRAME_S);
+
+        assert_eq!(
+            fresh.step(&paused, 6 * SECOND, 3.0, None, DEFAULT_FRAME_S),
+            SyncAction::None
+        );
+        let freed = nudged.step(&paused, 6 * SECOND, 9.9, None, DEFAULT_FRAME_S);
+        assert!((speed_of(freed) - 1.0).abs() < 1e-9, "{freed:?}");
     }
 
     #[test]

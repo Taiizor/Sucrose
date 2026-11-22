@@ -799,6 +799,14 @@ fn elect_master(monitors: &[MonitorInfo]) -> Option<String> {
         .map(|monitor| monitor.id.clone())
 }
 
+/// What changes for the renderers when the master moves from `old` to `new`: the new master is told to take the audio
+/// at `volume`, and the old one, if it still has a monitor (`active`), goes back to following.
+#[cfg_attr(not(test), allow(dead_code))]
+fn role_changes(old: Option<u8>, new: Option<u8>, active: &[u8], volume: u8) -> Vec<(u8, ToRenderer)> {
+    let _ = (old, new, active, volume);
+    Vec::new()
+}
+
 /// Why the service refuses a renderer's Hello.
 #[derive(Debug, PartialEq, Eq)]
 pub enum Refusal {
@@ -1387,6 +1395,72 @@ mod tests {
             accept_hello(&HashSet::new(), &hello(PROTOCOL_VERSION, 100, 0)),
             Err(Refusal::UnknownPid(100))
         );
+    }
+
+    fn monitor(id: &str, primary: bool) -> MonitorInfo {
+        MonitorInfo {
+            id: id.to_owned(),
+            rect: RectPx::default(),
+            work: RectPx::default(),
+            dpi: 96,
+            primary,
+        }
+    }
+
+    #[test]
+    fn elect_master_takes_the_primary_monitor() {
+        let monitors = [monitor("\\\\.\\DISPLAY2", false), monitor("\\\\.\\DISPLAY1", true)];
+
+        assert_eq!(elect_master(&monitors).as_deref(), Some("\\\\.\\DISPLAY1"));
+    }
+
+    #[test]
+    fn elect_master_promotes_the_lowest_device_name_when_the_primary_is_gone() {
+        let monitors = [monitor("\\\\.\\DISPLAY3", false), monitor("\\\\.\\DISPLAY2", false)];
+
+        assert_eq!(elect_master(&monitors).as_deref(), Some("\\\\.\\DISPLAY2"));
+    }
+
+    #[test]
+    fn elect_master_of_no_monitor_is_none() {
+        assert_eq!(elect_master(&[]), None);
+    }
+
+    #[test]
+    fn a_promoted_renderer_takes_the_audio_at_the_configured_volume() {
+        let changes = role_changes(Some(0), Some(1), &[1], 40);
+
+        assert_eq!(
+            changes,
+            vec![(1, ToRenderer::SetRole(Role::Master)), (1, ToRenderer::SetVolume(40))]
+        );
+    }
+
+    #[test]
+    fn a_demoted_master_that_still_has_a_monitor_goes_back_to_following() {
+        let changes = role_changes(Some(0), Some(1), &[0, 1], 100);
+
+        assert_eq!(
+            changes,
+            vec![
+                (1, ToRenderer::SetRole(Role::Master)),
+                (1, ToRenderer::SetVolume(100)),
+                (0, ToRenderer::SetRole(Role::Follower)),
+            ]
+        );
+    }
+
+    #[test]
+    fn an_unchanged_master_or_no_master_changes_nothing() {
+        assert!(role_changes(Some(1), Some(1), &[0, 1], 100).is_empty());
+        assert!(role_changes(Some(1), None, &[0], 100).is_empty());
+    }
+
+    #[test]
+    fn only_the_masters_clock_reaches_the_other_renderers() {
+        assert_eq!(clock_targets(Some(1), 1, [0, 1, 2]), vec![0, 2]);
+        assert!(clock_targets(Some(1), 2, [0, 1, 2]).is_empty());
+        assert!(clock_targets(None, 0, [0, 1]).is_empty());
     }
 
     fn starting() -> Status {
