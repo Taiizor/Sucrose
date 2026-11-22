@@ -3,17 +3,17 @@ gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
 status: executing
-stopped_at: Completed 02-01-PLAN.md
-last_updated: "2026-11-22T13:14:57.419Z"
+stopped_at: Completed 02-02-PLAN.md
+last_updated: "2026-11-22T13:30:44.823Z"
 last_activity: 2026-11-22
 last_activity_desc: Phase 02 execution started
-state_head: 855e989dda065c20cb51886c26291efbfd6f4b8f
+state_head: 1356acae8111db2b6f90fce74dbfd64a1ca7e315
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 15
-  completed_plans: 1
-  percent: 7
+  completed_plans: 2
+  percent: 13
 ---
 
 # Project State
@@ -28,12 +28,12 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 ## Current Position
 
 Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
-Plan: 2 of 15
+Plan: 3 of 15
 Status: Ready to execute
 Last activity: 2026-11-22 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
 
-Progress: [█░░░░░░░░░] 7%
+Progress: [█░░░░░░░░░] 13%
 
 ## Performance Metrics
 
@@ -54,6 +54,7 @@ Progress: [█░░░░░░░░░] 7%
 | Plan | Duration | Tasks | Files |
 |------|----------|-------|-------|
 | Phase 02 P01 | 32 min | 3 tasks | 15 files |
+| Phase 02 P02 | 4 min | 3 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -67,6 +68,7 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-01: libmpv loader searches the exe folder, then absolute PATH entries only (D-018 narrowed against DLL planting; plan 02 records it in D-028)
 - [Phase 02]: 02-01: sys.rs bindings are generated once in the rust Docker image (clang + libclang-dev), committed, and the xtask bindgen feature keeps libclang off CI
 - [Phase 02]: 02-01: vulkan-1.dll is a normal (not delay-load) import of libmpv-2.dll; a PC without the Vulkan loader gets LoadError::LoadFailed
+- [Phase 02]: D-028: engine binaries ship inside the Sucrose package (supersedes D-005); libmpv pins stay on the upstream release for now, GPL-2.0-or-later build signed off
 
 ### Pending Todos
 
@@ -97,6 +99,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-22T13:14:57.240Z
-Stopped at: Completed 02-01-PLAN.md
+Last session: 2026-11-22T13:30:44.657Z
+Stopped at: Completed 02-02-PLAN.md
 Resume file: None
