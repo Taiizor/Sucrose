@@ -317,3 +317,38 @@ fn c_text(text: *const c_char) -> String {
     // SAFETY: mpv event strings are NUL-terminated and valid until the next mpv_wait_event call.
     unsafe { CStr::from_ptr(text) }.to_string_lossy().into_owned()
 }
+
+#[cfg(test)]
+mod tests {
+    use std::collections::HashSet;
+
+    use super::embedded_options;
+
+    fn value_of(name: &str) -> Option<String> {
+        embedded_options()
+            .into_iter()
+            .find_map(|(option, value)| (option == name).then_some(value))
+    }
+
+    #[test]
+    fn untrusted_theme_content_cannot_run_scripts_or_fetch_urls() {
+        for (name, expected) in [
+            ("load-scripts", "no"),
+            ("ytdl", "no"),
+            ("config", "no"),
+            ("input-default-bindings", "no"),
+            ("input-vo-keyboard", "no"),
+            ("osc", "no"),
+        ] {
+            assert_eq!(value_of(name).as_deref(), Some(expected), "{name} must be hardened");
+        }
+    }
+
+    #[test]
+    fn no_option_is_named_twice_and_wid_is_left_to_open() {
+        let options = embedded_options();
+        let names: HashSet<_> = options.iter().map(|(name, _)| *name).collect();
+        assert_eq!(names.len(), options.len(), "an option is listed twice");
+        assert!(!names.contains("wid"), "Player::open sets wid itself");
+    }
+}

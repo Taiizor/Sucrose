@@ -5,8 +5,8 @@ use std::{path::Path, process::ExitCode, sync::Arc, thread, time::Duration};
 
 use anyhow::{Context as _, bail};
 use sucrose_engine_mpv::{
-    loader,
-    player::{Player, embedded_options},
+    loader::{self, LoadError},
+    player::{Player, PlayerError, embedded_options},
 };
 use sucrose_ipc::{
     Connection, IpcError, connect,
@@ -67,25 +67,12 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         }
     };
 
-    // Only the renderer loads libmpv (D-17). A missing or broken engine is a normal state with a repair hint (D-20).
-    let mpv = match loader::load_default() {
-        Ok(mpv) => Arc::new(mpv),
-        Err(error) => {
-            tracing::error!(%error, hint = error.hint(), "libmpv cannot be loaded");
-            return Ok(ExitCode::from(EXIT_ENGINE_MISSING));
-        }
-    };
     // Opened here, on the thread that pumps the surface's messages: mpv hooks that thread to resize its child.
-    let player = match Player::open(
-        mpv,
-        surface.native_handle(),
-        Path::new(&assignment.source),
-        &embedded_options(),
-    ) {
+    let player = match start_engine(surface.native_handle(), Path::new(&assignment.source)) {
         Ok(player) => player,
         Err(error) => {
-            tracing::error!(%error, "cannot start the player");
-            return Ok(ExitCode::from(EXIT_START_FAILURE));
+            error.log();
+            return Ok(ExitCode::from(error.exit_code()));
         }
     };
 
@@ -106,6 +93,36 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     drop(surface);
     tracing::info!("the renderer stopped");
     Ok(ExitCode::SUCCESS)
+}
+
+/// Why the engine did not start. Every variant is a value with one log line and one exit code, never a panic (D-20).
+#[derive(Debug)]
+enum EngineError {
+    /// libmpv is missing or cannot be loaded.
+    Load(LoadError),
+    /// libmpv loaded but the player could not be created or could not start the file.
+    Player(PlayerError),
+}
+
+impl EngineError {
+    /// The exit code the service reads as the reason the renderer ended.
+    fn exit_code(&self) -> u8 {
+        EXIT_START_FAILURE
+    }
+
+    /// Logs the failure once, at error level, with the repair hint when there is one.
+    fn log(&self) {
+        match self {
+            Self::Load(error) => tracing::error!(%error, hint = error.hint(), "libmpv cannot be loaded"),
+            Self::Player(error) => tracing::error!(%error, "cannot start the player"),
+        }
+    }
+}
+
+/// Loads the bundled libmpv (only the renderer does, D-17) and starts the player embedded in the window `wid`.
+fn start_engine(wid: u64, source: &Path) -> Result<Player, EngineError> {
+    let mpv = Arc::new(loader::load_default().map_err(EngineError::Load)?);
+    Player::open(mpv, wid, source, &embedded_options()).map_err(EngineError::Player)
 }
 
 /// Waits for the service's answer to the Hello: `Some` for a job, `None` when the service asks to stop.
@@ -159,5 +176,30 @@ fn connect_with_retry(endpoint: &str) -> Result<Connection, IpcError> {
                 thread::sleep(CONNECT_PAUSE);
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn a_missing_engine_exits_with_code_2() {
+        let error = EngineError::Load(LoadError::NotFound { searched: Vec::new() });
+        assert_eq!(error.exit_code(), EXIT_ENGINE_MISSING);
+        assert_eq!(error.exit_code(), 2);
+    }
+
+    #[test]
+    fn a_player_failure_exits_with_code_4() {
+        let error = EngineError::Player(PlayerError::CreateFailed);
+        assert_eq!(error.exit_code(), EXIT_START_FAILURE);
+        assert_eq!(error.exit_code(), 4);
+    }
+
+    #[test]
+    fn logging_a_failure_does_not_panic() {
+        EngineError::Load(LoadError::NotFound { searched: Vec::new() }).log();
+        EngineError::Player(PlayerError::CreateFailed).log();
     }
 }
