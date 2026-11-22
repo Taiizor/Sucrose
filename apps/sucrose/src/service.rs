@@ -52,9 +52,10 @@ pub fn run() -> anyhow::Result<()> {
     let (sender, receiver) = crossbeam_channel::unbounded();
     let spawned = Arc::new(Mutex::new(HashSet::new()));
     spawn_renderer(&spawned, 0)?;
+    let accept_spawned = Arc::clone(&spawned);
     thread::Builder::new()
         .name("ipc-accept".to_owned())
-        .spawn(move || accept_loop(&listener, &sender))
+        .spawn(move || accept_loop(&listener, &accept_spawned, &sender))
         .context("cannot start the accept thread")?;
 
     // The accept thread and the reader threads hold the only senders: when they are all gone nothing can arrive.
@@ -83,17 +84,18 @@ fn spawn_renderer(spawned: &Mutex<HashSet<u32>>, slot: u8) -> anyhow::Result<()>
 }
 
 /// Accepts connections and gives each one a reader thread.
-fn accept_loop(listener: &Listener, sender: &Sender<ToService>) {
+fn accept_loop(listener: &Listener, spawned: &Arc<Mutex<HashSet<u32>>>, sender: &Sender<ToService>) {
     const MAX_FAILURES: u32 = 10;
     let mut failures = 0;
     while failures < MAX_FAILURES {
         match listener.accept() {
             Ok(connection) => {
                 failures = 0;
+                let spawned = Arc::clone(spawned);
                 let sender = sender.clone();
                 let started = thread::Builder::new()
                     .name("ipc-reader".to_owned())
-                    .spawn(move || read_connection(connection, &sender));
+                    .spawn(move || read_connection(connection, &spawned, &sender));
                 if let Err(error) = started {
                     tracing::warn!(%error, "cannot start a reader thread, dropping the connection");
                 }
@@ -109,7 +111,7 @@ fn accept_loop(listener: &Listener, sender: &Sender<ToService>) {
 }
 
 /// Reads one connection until it ends. Whatever goes wrong here ends this connection only.
-fn read_connection(mut connection: Connection, sender: &Sender<ToService>) {
+fn read_connection(mut connection: Connection, spawned: &Mutex<HashSet<u32>>, sender: &Sender<ToService>) {
     let first: ToService = match connection.recv() {
         Ok(message) => message,
         Err(error) => {
@@ -117,7 +119,12 @@ fn read_connection(mut connection: Connection, sender: &Sender<ToService>) {
             return;
         }
     };
-    if first_is_wrong(&first) {
+    let refusal = {
+        let pids = spawned.lock().unwrap_or_else(PoisonError::into_inner);
+        accept_hello(&pids, &first).err()
+    };
+    if let Some(refusal) = refusal {
+        tracing::warn!(%refusal, "refusing a connection");
         return;
     }
     if sender.send(first).is_err() {
@@ -163,23 +170,22 @@ impl std::fmt::Display for Refusal {
 }
 
 /// Decides whether a connection's first message is acceptable and returns the renderer's slot.
-fn accept_hello(_spawned: &HashSet<u32>, message: &ToService) -> Result<u8, Refusal> {
-    let ToService::Hello { slot, .. } = message;
-    Ok(*slot)
-}
-
-/// Logs and reports a first message the service refuses.
-fn first_is_wrong(first: &ToService) -> bool {
-    let ToService::Hello { protocol_version, .. } = first;
-    if *protocol_version == PROTOCOL_VERSION {
-        return false;
-    }
-    tracing::warn!(
+fn accept_hello(spawned: &HashSet<u32>, message: &ToService) -> Result<u8, Refusal> {
+    let ToService::Hello {
         protocol_version,
-        expected = PROTOCOL_VERSION,
-        "refusing a renderer that speaks another protocol version"
-    );
-    true
+        pid,
+        slot,
+    } = message;
+    if *protocol_version != PROTOCOL_VERSION {
+        return Err(Refusal::ProtocolVersion {
+            got: *protocol_version,
+            expected: PROTOCOL_VERSION,
+        });
+    }
+    if !spawned.contains(pid) {
+        return Err(Refusal::UnknownPid(*pid));
+    }
+    Ok(*slot)
 }
 
 /// Reads the settings of the C# install, read-only from its real folder (D-008), and logs what the service will use.
