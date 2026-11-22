@@ -1,12 +1,20 @@
 //! Renderer mode (`sucrose --render <slot>`): connects to the service, receives its assignment and keeps a surface
 //! behind the desktop icons until it is told to stop.
 
-use std::{path::Path, process::ExitCode, sync::Arc, thread, time::Duration};
+use std::{
+    path::{Path, PathBuf},
+    process::ExitCode,
+    sync::Arc,
+    thread,
+    time::Duration,
+};
 
 use anyhow::{Context as _, bail};
+use sucrose_core::paths::{cache_dir, legacy_mpv_cache_dir};
 use sucrose_engine_mpv::{
+    config::{embedding_options, generated_options, shader_cache_options, user_config_path},
     loader::{self, LoadError},
-    player::{Player, PlayerError, embedded_options},
+    player::{OpenOptions, Player, PlayerError},
 };
 use sucrose_ipc::{
     Connection, IpcError, connect,
@@ -76,8 +84,8 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     };
 
     // Opened here, on the thread that pumps the surface's messages: mpv hooks that thread to resize its child.
-    let player = match start_engine(surface.native_handle(), Path::new(&assignment.source)) {
-        Ok(player) => player,
+    let player = match start_engine(surface.native_handle(), &assignment) {
+        Ok(player) => Arc::new(player),
         Err(error) => {
             error.log();
             let (reason, hint) = error.report();
@@ -92,10 +100,14 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     // The reader thread only waits for the end of the session; the loop below must stay on this thread because the
     // surface was created here.
     let proxy = event_loop.proxy();
+    let reader_player = Arc::clone(&player);
     thread::Builder::new()
         .name("ipc-reader".to_owned())
         .spawn(move || {
-            wait_for_close(&mut connection);
+            wait_for_close(&mut connection, &reader_player);
+            // Released before the loop is told to stop, so that the main thread drops the last handle and the
+            // player ends before the surface it is embedded in.
+            drop(reader_player);
             proxy.quit();
         })
         .context("cannot start the reader thread")?;
@@ -168,10 +180,32 @@ fn report_failure(connection: &mut Connection, reason: String, hint: impl Into<S
     }
 }
 
-/// Loads the bundled libmpv (only the renderer does, D-17) and starts the player embedded in the window `wid`.
-fn start_engine(wid: u64, source: &Path) -> Result<Player, EngineError> {
+/// Loads the bundled libmpv (only the renderer does, D-17) and starts the player embedded in the window `wid`, with
+/// the options the assignment's settings lead to, or the user's own mpv config when there is one (D-10).
+fn start_engine(wid: u64, assignment: &Assignment) -> Result<Player, EngineError> {
     let mpv = Arc::new(loader::load_default().map_err(EngineError::Load)?);
-    Player::open(mpv, wid, source, &embedded_options()).map_err(EngineError::Player)
+    let shader_cache = shader_cache_dir();
+    // The shader cache is always redirected, so that a user config cannot send it into the C# app's folder.
+    let mut embedding = embedding_options();
+    embedding.extend(shader_cache_options(&shader_cache));
+    let generated = generated_options(&assignment.settings, &shader_cache);
+    // Only the path is taken from the C# app's folder; mpv reads the file and nothing is written there (D-08).
+    let user_config = legacy_mpv_cache_dir().and_then(|dir| user_config_path(&dir));
+    let options = OpenOptions {
+        embedding: &embedding,
+        generated: &generated,
+        user_config: user_config.as_deref(),
+    };
+    Player::open(mpv, wid, Path::new(&assignment.source), &options).map_err(EngineError::Player)
+}
+
+/// The folder for mpv's shader cache, inside Sucrose's own data (SUCROSE_DATA_DIR when set), created when missing.
+fn shader_cache_dir() -> PathBuf {
+    let dir = cache_dir().unwrap_or_else(std::env::temp_dir).join("mpv-shaders");
+    if let Err(error) = std::fs::create_dir_all(&dir) {
+        tracing::warn!(%error, path = %dir.display(), "cannot create the shader cache folder");
+    }
+    dir
 }
 
 /// Waits for the service's answer to the Hello: `Some` for a job, `None` when the service asks to stop.
@@ -186,17 +220,33 @@ fn wait_for_assignment(connection: &mut Connection) -> anyhow::Result<Option<Ass
             tracing::info!("the service closed the connection");
             Ok(None)
         }
+        // Controls only make sense once a wallpaper plays; before that the service has nothing to control.
+        Ok(ToRenderer::Pause(_) | ToRenderer::SetVolume(_)) => {
+            tracing::warn!("ignoring a control message that arrived before the assignment");
+            Ok(None)
+        }
         Err(error) => bail!("the service sent no valid assignment: {error}"),
     }
 }
 
-/// Blocks until the service asks the renderer to stop or the connection ends.
-fn wait_for_close(connection: &mut Connection) {
+/// Applies the service's pause and volume commands to `player` until the service asks the renderer to stop or the
+/// connection ends.
+fn wait_for_close(connection: &mut Connection, player: &Player) {
     loop {
         match connection.recv::<ToRenderer>() {
             Ok(ToRenderer::Close) => {
                 tracing::info!("the service asked this renderer to close");
                 return;
+            }
+            Ok(ToRenderer::Pause(paused)) => {
+                if let Err(error) = player.set_paused(paused) {
+                    tracing::warn!(%error, paused, "cannot change the pause state");
+                }
+            }
+            Ok(ToRenderer::SetVolume(volume)) => {
+                if let Err(error) = player.set_volume(volume) {
+                    tracing::warn!(%error, volume, "cannot change the volume");
+                }
             }
             // A second assignment is not part of this plan; later plans act on it.
             Ok(ToRenderer::Assign(_)) => tracing::warn!("ignoring an unexpected second assignment"),

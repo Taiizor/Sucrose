@@ -11,7 +11,7 @@ macro_rules! legacy_enum {
         }
     ) => {
         $(#[$meta])*
-        #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+        #[derive(Clone, Copy, Debug, PartialEq, Eq, Default, ::serde::Serialize, ::serde::Deserialize)]
         pub enum $name {
             $($(#[$vmeta])* $variant),+
         }

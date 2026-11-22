@@ -6406,6 +6406,8 @@ name = "sucrose-engine-mpv"
 version = "26.11.22+1"
 dependencies = [
  "libloading 0.9.1",
+ "sucrose-core",
+ "sucrose-ipc",
  "thiserror 2.0.21",
  "tracing",
 ]
@@ -6417,6 +6419,7 @@ dependencies = [
  "interprocess",
  "postcard",
  "serde",
+ "sucrose-core",
  "sucrose-platform",
  "thiserror 2.0.21",
  "widestring",

@@ -3,7 +3,7 @@
 //! A [Player] owns an mpv handle. It must be opened on the thread that owns the parent window and pumps its
 //! messages, because mpv hooks that thread to resize its child window (RESEARCH Pattern 2). The handle is only
 //! ever touched through the thread-safe client API, and a dedicated thread is the only caller of
-//! mpv_wait_event.
+//! mpv_wait_event. The option lists come from [crate::config].
 
 use std::ffi::{CStr, CString, c_char, c_int};
 use std::path::Path;
@@ -54,41 +54,30 @@ pub enum PlayerError {
     /// The event thread could not be started.
     #[error("cannot start the libmpv event thread: {0}")]
     Thread(#[source] std::io::Error),
+    /// A property could not be set on the running player.
+    #[error("libmpv refused to set {name} to {value}: {message}")]
+    Property {
+        /// The property name.
+        name: &'static str,
+        /// The value that was refused.
+        value: String,
+        /// mpv's description of the error.
+        message: String,
+    },
 }
 
-/// The embedding and hardening options of this slice, in the order they are set.
+/// What the player is configured with, as assembled by the caller (see [crate::config]).
 ///
-/// wid is not part of the list: [Player::open] sets it from its argument. A theme file never contributes an option
-/// name or value, so it cannot turn scripts, configs or URL fetching back on (T-02-14).
-#[must_use]
-pub fn embedded_options() -> Vec<(&'static str, String)> {
-    let mut options: Vec<(&'static str, &str)> = vec![
-        ("vo", "gpu"),
-        ("hwdec", "auto-safe"),
-        ("loop-file", "inf"),
-        // The legacy default stretch is UniformToFill.
-        ("panscan", "1.0"),
-        // Hardening for an embedded, headless instance: no user config, scripts, URL resolver, UI or input.
-        ("config", "no"),
-        ("load-scripts", "no"),
-        ("ytdl", "no"),
-        ("osc", "no"),
-        ("input-default-bindings", "no"),
-        ("input-vo-keyboard", "no"),
-        ("input-cursor", "no"),
-        ("cursor-autohide", "no"),
-        ("terminal", "no"),
-        ("idle", "yes"),
-        ("stop-screensaver", "no"),
-        ("media-controls", "no"),
-    ];
-    if cfg!(windows) {
-        options.insert(1, ("gpu-context", "d3d11"));
-    }
-    options
-        .into_iter()
-        .map(|(name, value)| (name, value.to_owned()))
-        .collect()
+/// The order is fixed by [Player::open]: the user's config file or else the generated options first, the embedding
+/// options last, so that a user config cannot turn the hardening off (T-02-14).
+#[derive(Debug, Clone, Copy)]
+pub struct OpenOptions<'a> {
+    /// The embedding and hardening options; always applied, and applied last.
+    pub embedding: &'a [(&'static str, String)],
+    /// The look, performance and audio options; used unless the user config is loaded.
+    pub generated: &'a [(&'static str, String)],
+    /// The user's own mpv config (D-10); when it is loaded, the generated options are not applied.
+    pub user_config: Option<&'a Path>,
 }
 
 /// The raw handle, sendable to the event thread.
@@ -120,7 +109,7 @@ impl Player {
     /// Creates an instance embedded in the window wid (the HWND of the surface), applies options and starts file.
     ///
     /// Call this on the thread that owns that window and pumps its messages. file must be absolute.
-    pub fn open(mpv: Arc<Mpv>, wid: u64, file: &Path, options: &[(&'static str, String)]) -> Result<Self, PlayerError> {
+    pub fn open(mpv: Arc<Mpv>, wid: u64, file: &Path, options: &OpenOptions<'_>) -> Result<Self, PlayerError> {
         let path = file
             .to_str()
             .filter(|text| file.is_absolute() && !text.contains('\0'))
@@ -128,7 +117,21 @@ impl Player {
                 path: file.display().to_string(),
             })?
             .to_owned();
+        Self::open_source(mpv, Some(wid), &path, options)
+    }
 
+    /// Like [Player::open], for a source that is not a file path (an mpv URL such as `av://lavfi:...`) and for an
+    /// instance without a window (`wid` of None, for tests with `vo=null`).
+    ///
+    /// The caller vouches for `source`: only a file the theme gate accepted (see [Player::open]) or a fixed test
+    /// source may be passed, never text taken from a theme (T-02-14).
+    #[doc(hidden)]
+    pub fn open_source(
+        mpv: Arc<Mpv>,
+        wid: Option<u64>,
+        source: &str,
+        options: &OpenOptions<'_>,
+    ) -> Result<Self, PlayerError> {
         // SAFETY: mpv_create has no preconditions; it returns NULL on failure, which is checked right here.
         let raw = unsafe { mpv.api.mpv_create() };
         if raw.is_null() {
@@ -142,12 +145,32 @@ impl Player {
             events: None,
         };
 
-        // mpv takes the low 32 bits of the HWND as a decimal number (all Windows handles fit in 32 bits).
-        #[allow(clippy::cast_possible_truncation)]
-        let wid_value = (wid as u32).to_string();
-        player.set_option("wid", &wid_value)?;
-        for (name, value) in options {
+        // The user's config first, then the generated look, then the embedding on top: see OpenOptions.
+        let mut user_config_loaded = false;
+        if let Some(config) = options.user_config {
+            match player.load_config_file(config) {
+                Ok(()) => {
+                    tracing::info!(path = %config.display(), "using the user's mpv config");
+                    user_config_loaded = true;
+                }
+                Err(message) => {
+                    tracing::warn!(path = %config.display(), %message, "the user's mpv config cannot be used, the generated options apply instead");
+                }
+            }
+        }
+        if !user_config_loaded {
+            for (name, value) in options.generated {
+                player.set_option(name, value)?;
+            }
+        }
+        for (name, value) in options.embedding {
             player.set_option(name, value)?;
+        }
+        if let Some(wid) = wid {
+            // mpv takes the low 32 bits of the HWND as a decimal number (all Windows handles fit in 32 bits).
+            #[allow(clippy::cast_possible_truncation)]
+            let wid_value = (wid as u32).to_string();
+            player.set_option("wid", &wid_value)?;
         }
 
         // SAFETY: the handle is valid and not yet initialized, which is what mpv_initialize requires.
@@ -167,8 +190,61 @@ impl Player {
         };
 
         player.start_event_thread()?;
-        player.load(&path)?;
+        player.load(source)?;
         Ok(player)
+    }
+
+    /// Pauses (true) or resumes (false) playback.
+    pub fn set_paused(&self, paused: bool) -> Result<(), PlayerError> {
+        self.set_property("pause", if paused { "yes" } else { "no" })
+    }
+
+    /// Sets the playback volume; values above 100 are treated as 100 (volume-max is 100).
+    pub fn set_volume(&self, volume: u8) -> Result<(), PlayerError> {
+        self.set_property("volume", &volume.min(100).to_string())
+    }
+
+    /// The current value of a property as mpv formats it, or None when it is unavailable.
+    #[must_use]
+    pub fn get_property_string(&self, name: &str) -> Option<String> {
+        property_string(&self.mpv, self.handle, name)
+    }
+
+    fn set_property(&self, name: &'static str, value: &str) -> Result<(), PlayerError> {
+        let refused = |message: String| PlayerError::Property {
+            name,
+            value: value.to_owned(),
+            message,
+        };
+        let (Ok(c_name), Ok(c_value)) = (CString::new(name), CString::new(value)) else {
+            return Err(refused("the name or value contains a NUL character".to_owned()));
+        };
+        // SAFETY: the handle is valid for the life of self; both strings are NUL-terminated and outlive the call,
+        // and mpv_set_property_string is part of the thread-safe client API.
+        let status = unsafe {
+            self.mpv
+                .api
+                .mpv_set_property_string(self.handle.0, c_name.as_ptr(), c_value.as_ptr())
+        };
+        if status < 0 {
+            return Err(refused(self.error_text(status)));
+        }
+        Ok(())
+    }
+
+    /// Loads the user's mpv config into this not yet initialized instance; the error is mpv's description.
+    fn load_config_file(&self, config: &Path) -> Result<(), String> {
+        let text = config
+            .to_str()
+            .ok_or_else(|| "the path is not valid UTF-8".to_owned())?;
+        let c_path = CString::new(text).map_err(|_| "the path contains a NUL character".to_owned())?;
+        // SAFETY: the handle is valid and not yet initialized (mpv_load_config_file may be called before
+        // mpv_initialize); the path is NUL-terminated and outlives the call. The file is only read.
+        let status = unsafe { self.mpv.api.mpv_load_config_file(self.handle.0, c_path.as_ptr()) };
+        if status < 0 {
+            return Err(self.error_text(status));
+        }
+        Ok(())
     }
 
     fn set_option(&self, name: &'static str, value: &str) -> Result<(), PlayerError> {
@@ -244,6 +320,21 @@ impl Drop for Player {
     }
 }
 
+/// A property as a string (freed with mpv_free), or None when mpv has no value for it.
+fn property_string(mpv: &Mpv, handle: Handle, name: &str) -> Option<String> {
+    let c_name = CString::new(name).ok()?;
+    // SAFETY: the handle is valid for the caller's lifetime; the name is NUL-terminated and outlives the call.
+    let raw = unsafe { mpv.api.mpv_get_property_string(handle.0, c_name.as_ptr()) };
+    if raw.is_null() {
+        return None;
+    }
+    // SAFETY: a non-NULL result is a NUL-terminated string owned by the caller until mpv_free.
+    let text = unsafe { CStr::from_ptr(raw) }.to_string_lossy().into_owned();
+    // SAFETY: raw came from mpv_get_property_string and is freed exactly once, here.
+    unsafe { mpv.api.mpv_free(raw.cast()) };
+    Some(text)
+}
+
 /// The text of an mpv error code.
 fn error_text(mpv: &Mpv, status: c_int) -> String {
     // SAFETY: mpv_error_string accepts any code and returns a static NUL-terminated string (client.h).
@@ -271,9 +362,13 @@ fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool) {
                 tracing::debug!("libmpv shut down");
                 return;
             }
-            sys::mpv_event_id_MPV_EVENT_FILE_LOADED | sys::mpv_event_id_MPV_EVENT_PLAYBACK_RESTART if !started => {
+            // The decoder exists once the first frame is about to show, so hwdec-current is only meaningful here.
+            sys::mpv_event_id_MPV_EVENT_PLAYBACK_RESTART if !started => {
                 started = true;
-                tracing::info!("playback started");
+                let hwdec = property_string(mpv, handle, "hwdec-current")
+                    .filter(|value| !value.is_empty())
+                    .unwrap_or_else(|| "no".to_owned());
+                tracing::info!(%hwdec, "playback started");
             }
             sys::mpv_event_id_MPV_EVENT_END_FILE => log_end_file(mpv, event),
             sys::mpv_event_id_MPV_EVENT_LOG_MESSAGE => log_message(event),
@@ -316,39 +411,4 @@ fn c_text(text: *const c_char) -> String {
     }
     // SAFETY: mpv event strings are NUL-terminated and valid until the next mpv_wait_event call.
     unsafe { CStr::from_ptr(text) }.to_string_lossy().into_owned()
-}
-
-#[cfg(test)]
-mod tests {
-    use std::collections::HashSet;
-
-    use super::embedded_options;
-
-    fn value_of(name: &str) -> Option<String> {
-        embedded_options()
-            .into_iter()
-            .find_map(|(option, value)| (option == name).then_some(value))
-    }
-
-    #[test]
-    fn untrusted_theme_content_cannot_run_scripts_or_fetch_urls() {
-        for (name, expected) in [
-            ("load-scripts", "no"),
-            ("ytdl", "no"),
-            ("config", "no"),
-            ("input-default-bindings", "no"),
-            ("input-vo-keyboard", "no"),
-            ("osc", "no"),
-        ] {
-            assert_eq!(value_of(name).as_deref(), Some(expected), "{name} must be hardened");
-        }
-    }
-
-    #[test]
-    fn no_option_is_named_twice_and_wid_is_left_to_open() {
-        let options = embedded_options();
-        let names: HashSet<_> = options.iter().map(|(name, _)| *name).collect();
-        assert_eq!(names.len(), options.len(), "an option is listed twice");
-        assert!(!names.contains("wid"), "Player::open sets wid itself");
-    }
 }

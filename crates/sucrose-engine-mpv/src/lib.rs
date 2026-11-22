@@ -6,6 +6,7 @@
 // Engine/FFI crate: allowed to opt out of the workspace `unsafe_code` lint (D-011).
 #![allow(unsafe_code)]
 
+pub mod config;
 pub mod loader;
 pub mod player;
 

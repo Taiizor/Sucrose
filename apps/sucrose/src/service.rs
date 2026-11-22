@@ -9,7 +9,7 @@ use std::{
 
 use anyhow::Context as _;
 use crossbeam_channel::Sender;
-use sucrose_config::legacy::LegacySettings;
+use sucrose_config::legacy::{EngineSettings, LegacySettings};
 use sucrose_core::{
     APP_LONG_NAME,
     paths::{legacy_data_dir, legacy_setting_dir},
@@ -18,9 +18,11 @@ use sucrose_core::{
 };
 use sucrose_ipc::{
     Connection, IpcError, Listener, endpoint_name,
-    protocol::{Assignment, PROTOCOL_VERSION, ToRenderer, ToService},
+    protocol::{Assignment, PROTOCOL_VERSION, PlaybackSettings, ToRenderer, ToService},
 };
 use sucrose_platform::{EventLoop, Flow, LoopEvent, LoopProxy, Platform, PlatformError, Tray};
+// ScreenArea is read below to choose the surface rectangle.
+use sucrose_core::settings::ScreenArea;
 
 use crate::supervisor::{Decision, Exited, RestartBudget, START_FAILED, Supervisor, classify_exit, decide};
 
@@ -512,6 +514,8 @@ fn read_connection(
             "Hello answered with an Assign"
         ),
         ToRenderer::Close => tracing::warn!(slot, "no assignment for this slot, the renderer was told to close"),
+        // The reply to a Hello is only ever an Assign or a Close.
+        ToRenderer::Pause(_) | ToRenderer::SetVolume(_) => {}
     }
     register_writer(renderers, slot, &mut connection);
     if !notifier.send(Event::Renderer(first)) {
@@ -639,7 +643,12 @@ fn plan_wallpapers(platform: &dyn Platform) -> Plan {
         app_visible = settings.general.app_visible,
         "legacy settings"
     );
-    let (assignments, status) = match plan_for(&settings.library.location, &settings.library.selected, platform) {
+    let (assignments, status) = match plan_for(
+        &settings.library.location,
+        &settings.library.selected,
+        &settings.engine,
+        platform,
+    ) {
         Ok(planned) => (vec![planned.assignment], Status::Starting { title: planned.title }),
         Err(reason) => (Vec::new(), Status::NoWallpaper { reason }),
     };
@@ -659,17 +668,27 @@ struct Planned {
 
 /// Runs the gate (D-13) on the selected theme and, when it passes, builds the job for the primary monitor. The error
 /// is one English sentence for the log and the tooltip: the gate's own reason, or why no monitor could be used.
-fn plan_for(location: &std::path::Path, selected: &str, platform: &dyn Platform) -> Result<Planned, String> {
+fn plan_for(
+    location: &std::path::Path,
+    selected: &str,
+    engine: &EngineSettings,
+    platform: &dyn Platform,
+) -> Result<Planned, String> {
     let theme = check_selected(location, selected, &app_version()).map_err(|rejection| rejection.to_string())?;
     tracing::info!(theme = %selected, kind = ?theme.info.kind, source = %theme.info.source, "selected theme");
     Ok(Planned {
-        assignment: assignment_for(&theme, platform)?,
+        assignment: assignment_for(&theme, engine, platform)?,
         title: theme.info.title.clone(),
     })
 }
 
-/// The job for the primary monitor playing a theme that passed the gate.
-fn assignment_for(theme: &SelectedTheme, platform: &dyn Platform) -> Result<Assignment, String> {
+/// The job for the primary monitor playing a theme that passed the gate: the monitor's bounds or its work area
+/// (Engine.json ScreenType) and the playback settings of Engine.json.
+fn assignment_for(
+    theme: &SelectedTheme,
+    engine: &EngineSettings,
+    platform: &dyn Platform,
+) -> Result<Assignment, String> {
     let monitors = platform.monitors();
     let monitor = monitors
         .iter()
@@ -681,17 +700,27 @@ fn assignment_for(theme: &SelectedTheme, platform: &dyn Platform) -> Result<Assi
         .to_str()
         .ok_or_else(|| "the video path is not valid UTF-8".to_owned())?
         .to_owned();
+    let area = match engine.screen {
+        ScreenArea::DisplayBound => monitor.rect,
+        ScreenArea::WorkingArea => monitor.work,
+    };
     Ok(Assignment {
         slot: 0,
         monitor: monitor.id.clone(),
-        rect: [
-            monitor.rect.left,
-            monitor.rect.top,
-            monitor.rect.right,
-            monitor.rect.bottom,
-        ],
+        rect: [area.left, area.top, area.right, area.bottom],
         source,
+        settings: playback_settings(engine),
     })
+}
+
+/// The player settings Engine.json leads to.
+fn playback_settings(engine: &EngineSettings) -> PlaybackSettings {
+    PlaybackSettings {
+        volume: engine.volume,
+        looping: engine.looping,
+        stretch: engine.stretch,
+        hardware_decoding: engine.hardware_acceleration,
+    }
 }
 
 #[cfg(test)]

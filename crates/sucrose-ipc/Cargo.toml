@@ -11,6 +11,7 @@ publish.workspace = true
 interprocess = { workspace = true }
 postcard = { workspace = true }
 serde = { workspace = true }
+sucrose-core = { workspace = true }
 thiserror = { workspace = true }
 
 [target.'cfg(windows)'.dependencies]
