@@ -6402,6 +6402,8 @@ dependencies = [
 name = "sucrose-platform"
 version = "0.1.0"
 dependencies = [
+ "serde",
+ "serde_json",
  "thiserror 2.0.21",
  "tracing",
  "windows 0.62.2",

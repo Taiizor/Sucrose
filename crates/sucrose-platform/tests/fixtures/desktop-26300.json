@@ -1,0 +1,43 @@
+{
+  "progman": {
+    "class": "Progman",
+    "ex_style": 2097280,
+    "style": 2516582400,
+    "visible": true,
+    "rect": [
+      0,
+      0,
+      1920,
+      1080
+    ],
+    "children": [
+      {
+        "class": "SHELLDLL_DefView",
+        "ex_style": 524288,
+        "style": 1442906112,
+        "visible": true,
+        "rect": [
+          0,
+          0,
+          1920,
+          1080
+        ],
+        "children": []
+      },
+      {
+        "class": "WorkerW",
+        "ex_style": 0,
+        "style": 1476395008,
+        "visible": true,
+        "rect": [
+          0,
+          0,
+          1920,
+          1080
+        ],
+        "children": []
+      }
+    ]
+  },
+  "top_level_with_defview": []
+}

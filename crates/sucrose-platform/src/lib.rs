@@ -24,6 +24,10 @@ use os_windows as imp;
 #[cfg(not(any(target_os = "windows", target_os = "macos", target_os = "linux")))]
 compile_error!("Sucrose supports Windows, macOS and Linux only");
 
+pub mod geometry;
+pub mod layout;
+
+pub use geometry::{MonitorInfo, RectPx};
 pub use imp::{DesktopSurface, EventLoop, LoopProxy};
 
 /// What the current OS and session support. The UI hides or explains anything that is `false`.
@@ -51,46 +55,6 @@ pub enum PlatformError {
         /// The OS error code (the HRESULT on Windows).
         code: i32,
     },
-}
-
-/// A rectangle in physical pixels of the virtual desktop (never scaled by DPI), edges as in the Win32 `RECT`.
-#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
-pub struct RectPx {
-    /// Left edge.
-    pub left: i32,
-    /// Top edge.
-    pub top: i32,
-    /// Right edge (exclusive).
-    pub right: i32,
-    /// Bottom edge (exclusive).
-    pub bottom: i32,
-}
-
-impl RectPx {
-    /// Width in pixels.
-    pub fn width(&self) -> i32 {
-        self.right - self.left
-    }
-
-    /// Height in pixels.
-    pub fn height(&self) -> i32 {
-        self.bottom - self.top
-    }
-}
-
-/// One display as the OS reports it.
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct MonitorInfo {
-    /// Stable device name (`\\.\DISPLAY1` on Windows).
-    pub id: String,
-    /// Full monitor rectangle in physical pixels.
-    pub rect: RectPx,
-    /// Work area (without the taskbar) in physical pixels.
-    pub work: RectPx,
-    /// Effective DPI of the monitor (96 is 100 %).
-    pub dpi: u32,
-    /// Whether this is the primary monitor.
-    pub primary: bool,
 }
 
 /// The DPI awareness a thread of this process runs with.
