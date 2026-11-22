@@ -49,6 +49,24 @@ pub enum LoopEvent {
     Timer(u32),
 }
 
+/// The window the user is working in, as the OS reports it. Only what the fullscreen rule needs; the title is never
+/// read (T-02-28).
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ForegroundWindow {
+    /// The window rectangle in physical pixels, frame included.
+    pub rect: RectPx,
+    /// The window class name (`Progman`, `Chrome_WidgetWin_1`, ...).
+    pub class_name: String,
+    /// The process that owns the window.
+    pub process_id: u32,
+    /// Whether the window is visible.
+    pub visible: bool,
+    /// Whether the window is minimized.
+    pub minimized: bool,
+    /// Whether the shell hides the window although it is "visible" (another virtual desktop, a suspended UWP app).
+    pub cloaked: bool,
+}
+
 /// What the handler of an [`EventLoop`] wants next.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Flow {
@@ -138,6 +156,11 @@ pub trait Platform: Send + Sync {
     /// The connected displays, primary first. Empty where the OS cannot enumerate them.
     fn monitors(&self) -> Vec<MonitorInfo> {
         Vec::new()
+    }
+
+    /// The window the user is working in, or `None` where the OS cannot tell or there is none.
+    fn foreground_window(&self) -> Option<ForegroundWindow> {
+        None
     }
 }
 

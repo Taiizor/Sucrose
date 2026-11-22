@@ -2,6 +2,7 @@
 
 mod display;
 mod event_loop;
+mod foreground;
 mod job;
 mod refresh;
 mod surface;
@@ -16,7 +17,7 @@ use windows::{
     core::PWSTR,
 };
 
-use crate::{Capabilities, MonitorInfo, Platform, PlatformError};
+use crate::{Capabilities, ForegroundWindow, MonitorInfo, Platform, PlatformError};
 
 pub(crate) use display::init_dpi_awareness;
 pub use event_loop::{EventLoop, LoopProxy, LoopTimers};
@@ -35,6 +36,7 @@ impl Platform for Current {
     fn capabilities(&self) -> Capabilities {
         Capabilities {
             desktop_wallpaper: true,
+            fullscreen_detection: true,
             ..Capabilities::default()
         }
     }
@@ -45,6 +47,10 @@ impl Platform for Current {
 
     fn monitors(&self) -> Vec<MonitorInfo> {
         display::monitors()
+    }
+
+    fn foreground_window(&self) -> Option<ForegroundWindow> {
+        foreground::foreground_window()
     }
 }
 

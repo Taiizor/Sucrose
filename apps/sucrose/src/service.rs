@@ -22,9 +22,10 @@ use sucrose_ipc::{
 };
 use sucrose_platform::{EventLoop, Flow, LoopEvent, LoopProxy, LoopTimers, MonitorInfo, PlatformError, RectPx, Tray};
 // ScreenArea is read below to choose the surface rectangle.
-use sucrose_core::settings::ScreenArea;
+use sucrose_core::settings::{FullScreenAction, PauseKind, ScreenArea};
 
 use crate::{
+    fullscreen::{self, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, covered_monitors},
     supervisor::{Decision, Exited, RestartBudget, START_FAILED, ShellRestart, Supervisor, classify_exit, decide_exit},
     topology::{
         Debounce, SlotMap, TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, TimerCommand, TopologyAction, diff, primary, with_area,
@@ -303,6 +304,9 @@ pub fn run() -> anyhow::Result<()> {
 
     let mut quitting = false;
     let timers = event_loop.timers();
+    if fleet.enable_fullscreen(plan.fullscreen, plan.pause) {
+        timers.set(FULLSCREEN_TIMER, FULLSCREEN_POLL_MS);
+    }
     event_loop.run(|event| match event {
         LoopEvent::Wake => {
             for event in receiver.try_iter() {
@@ -382,7 +386,7 @@ pub fn run() -> anyhow::Result<()> {
                 quitting = true;
                 tracing::info!("Quit chosen, closing the renderers");
                 // No monitor change is applied while the renderers are being closed.
-                for id in [TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE] {
+                for id in [TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, FULLSCREEN_TIMER] {
                     timers.kill(id);
                 }
                 start_shutdown(&renderers, &supervisor, &notifier);
@@ -394,6 +398,20 @@ pub fn run() -> anyhow::Result<()> {
         LoopEvent::DisplayChanged => {
             if !quitting && fleet.job.is_some() {
                 run_timers(&timers, fleet.debounce.display_changed().timers);
+            }
+            Flow::Continue
+        }
+        LoopEvent::Timer(FULLSCREEN_TIMER) => {
+            if quitting {
+                timers.kill(FULLSCREEN_TIMER);
+            } else {
+                fleet.fullscreen_tick(
+                    platform.as_ref(),
+                    &Ctx {
+                        supervisor: &supervisor,
+                        renderers: &renderers,
+                    },
+                );
             }
             Flow::Continue
         }
@@ -752,6 +770,10 @@ struct Plan {
     status: Status,
     /// General.json AppVisible: whether the tray exists at all (D-15).
     app_visible: bool,
+    /// Backgroundog.json FullScreenPerformance: what a fullscreen app in front does to the wallpaper.
+    fullscreen: FullScreenAction,
+    /// Backgroundog.json PausePerformanceType.
+    pause: PauseKind,
 }
 
 /// What every renderer plays: the same video with the same settings on each monitor (D-01).
@@ -834,6 +856,14 @@ struct Fleet {
     stopped: HashSet<u8>,
     /// The recovery after explorer.exe restarted (D-11).
     shell: ShellRestart,
+    /// The fullscreen rule; `None` when FullScreenPerformance is Resume (the legacy default) or nothing plays.
+    fullscreen: Option<FullscreenRule>,
+}
+
+/// The fullscreen rule while it is on: the action to take and the 5/3 debounce of its samples.
+struct FullscreenRule {
+    action: FullScreenAction,
+    debounce: fullscreen::Debounce,
 }
 
 impl Fleet {
@@ -847,7 +877,46 @@ impl Fleet {
             budgets: HashMap::new(),
             stopped: HashSet::new(),
             shell: ShellRestart::default(),
+            fullscreen: None,
         }
+    }
+
+    /// Switches the fullscreen rule on for `action` unless it is Resume, which disables it: then no timer and no
+    /// state exist at all (D-008). `true` when the rule is on and its timer has to run.
+    fn enable_fullscreen(&mut self, action: FullScreenAction, pause: PauseKind) -> bool {
+        if action == FullScreenAction::Resume || self.job.is_none() {
+            tracing::info!("fullscreen rule off (FullScreenPerformance = Resume)");
+            return false;
+        }
+        if pause == PauseKind::Heavy {
+            tracing::info!("PausePerformanceType Heavy is handled like Light in M1");
+        }
+        tracing::info!(?action, "fullscreen rule on");
+        self.fullscreen = Some(FullscreenRule {
+            action,
+            debounce: fullscreen::Debounce::new(fullscreen::TRIGGER_SAMPLES, fullscreen::RECOVER_SAMPLES),
+        });
+        true
+    }
+
+    /// One 1 s sample of the foreground window: after enough equal samples the renderers are paused or resumed.
+    fn fullscreen_tick(&mut self, platform: &dyn sucrose_platform::Platform, ctx: &Ctx<'_>) {
+        let Some(rule) = self.fullscreen.as_mut() else {
+            return;
+        };
+        let mut own_pids: Vec<u32> = ctx.supervisor.pids().into_iter().collect();
+        own_pids.push(std::process::id());
+        let foreground = platform.foreground_window();
+        // The whole monitor rectangles, not the work areas the surfaces may cover: a maximized window must not count.
+        let covered = covered_monitors(foreground.as_ref(), &platform.monitors(), &own_pids);
+        let Some(active) = rule.debounce.feed(!covered.is_empty()) else {
+            return;
+        };
+        let slots = lock(ctx.renderers).connections.keys().copied().collect::<Vec<_>>();
+        for slot in &slots {
+            send_to(ctx.renderers, *slot, &ToRenderer::Pause(active));
+        }
+        tracing::info!(action = ?rule.action, active, monitors = ?covered, renderers = slots.len(), "fullscreen rule changed");
     }
 
     /// Applies the monitors of a snapshot that two looks agreed on. An empty snapshot is the OS in the middle of a
@@ -987,6 +1056,8 @@ fn plan_wallpapers() -> Plan {
                 reason: "the OS reports no config folder, so the settings cannot be read".to_owned(),
             },
             app_visible: true,
+            fullscreen: FullScreenAction::default(),
+            pause: PauseKind::default(),
         };
     };
     let settings = LegacySettings::load(&setting_dir, &root);
@@ -1016,6 +1087,8 @@ fn plan_wallpapers() -> Plan {
         job,
         status,
         app_visible: settings.general.app_visible,
+        fullscreen: settings.backgroundog.fullscreen,
+        pause: settings.backgroundog.pause,
     }
 }
 

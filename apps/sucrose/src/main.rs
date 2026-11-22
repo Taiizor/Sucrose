@@ -5,6 +5,7 @@
 
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod fullscreen;
 mod render;
 mod service;
 mod supervisor;
