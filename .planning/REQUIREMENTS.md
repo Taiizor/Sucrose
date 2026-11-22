@@ -25,7 +25,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Wallpaper types
 
-- [ ] **TYPE-01**: User can set a Video theme as the desktop wallpaper (Win ✅ · mac ✅ · Linux ✅)
+- [x] **TYPE-01**: User can set a Video theme as the desktop wallpaper (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-02**: User can set a GIF theme, drawn by Sucrose's built-in renderer, which also plays APNG and WebP (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-03**: User can set a Web theme (local HTML) on a web engine: WebView2/CEF on Windows, WKWebView/CEF on macOS, WebKitGTK/CEF on Linux (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-04**: User can set a URL wallpaper; it has no properties and receives forwarded input (Win ✅ · mac ✅ · Linux ✅)
@@ -158,7 +158,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 ### Formats and contracts (D-007)
 
 - [ ] **FMT-01**: Legacy `Setting/*.json` files (14 files, `Properties` wrapper, enums by name) migrate to the new settings format on first run, `Donate.json` excluded (D-023), proven with fixtures
-- [ ] **FMT-02**: `SucroseInfo.json` is read and written compatibly, proven with fixtures from real themes
+- [x] **FMT-02**: `SucroseInfo.json` is read and written compatibly, proven with fixtures from real themes
 - [ ] **FMT-03**: `SucroseProperties.json` and `SucroseCompatible.json` are read and written compatibly, proven with fixtures
 - [ ] **FMT-04**: Theme archives are validated with the legacy rules (`formats.md` §3)
 - [ ] **FMT-05**: The store protocol and cache layout stay compatible (D-022, `formats.md` §4)
@@ -234,7 +234,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | ARCH-03 | Phase 3 | Pending |
 | ARCH-04 | Phase 3 | Pending |
 | ARCH-05 | Phase 3 | Pending |
-| TYPE-01 | Phase 2 | Pending |
+| TYPE-01 | Phase 2 | Complete |
 | TYPE-02 | Phase 4 | Pending |
 | TYPE-03 | Phase 4 | Pending |
 | TYPE-04 | Phase 4 | Pending |
@@ -328,7 +328,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | SVC-07 | Phase 5 | Pending |
 | SVC-08 | Phase 5 | Pending |
 | FMT-01 | Phase 3 | Pending |
-| FMT-02 | Phase 2 | Pending |
+| FMT-02 | Phase 2 | Complete |
 | FMT-03 | Phase 4 | Pending |
 | FMT-04 | Phase 5 | Pending |
 | FMT-05 | Phase 5 | Pending |
