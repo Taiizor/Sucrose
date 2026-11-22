@@ -8,6 +8,11 @@
 //! `PROCESS_MEMORY_COUNTERS_EX.PrivateUsage` on Windows), CPU is a percentage of the whole machine (sysinfo's
 //! percent of one core divided by the logical CPU count) and GPU is, per process and sample, the maximum over engine
 //! types like Task Manager shows it. Totals are computed per sample over the processes present, then averaged.
+//!
+//! Adapter: per measured process the GPU adapter it used is the LUID with the most engine utilization over the run
+//! (the evidence is the OS counter, never the adapter enumeration order), named through the platform adapter list.
+//! `--row` refuses a pair of results that did not run on one adapter (G-02-6). `dwm.exe` is sampled for information
+//! and never added to a total.
 
 use std::collections::{BTreeMap, BTreeSet};
 use std::fmt::Write as _;
@@ -18,6 +23,7 @@ use std::thread;
 use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
 
 use serde::{Deserialize, Serialize};
+use sucrose_platform::GpuAdapter;
 use sysinfo::{CpuRefreshKind, Pid, ProcessRefreshKind, ProcessesToUpdate, System, UpdateKind};
 
 const USAGE: &str = "usage:
@@ -39,6 +45,10 @@ const GPU_ENGINE_COUNTER: &str = r"\GPU Engine(*)\Utilization Percentage";
 const GPU_MEMORY_COUNTER: &str = r"\GPU Process Memory(*)\Dedicated Usage";
 /// Integrated GPUs report their memory here (Dedicated Usage stays 0), so it is measured too.
 const GPU_SHARED_COUNTER: &str = r"\GPU Process Memory(*)\Shared Usage";
+/// Image name of the desktop compositor, sampled for information only.
+const DWM_IMAGE: &str = "dwm.exe";
+/// Name used when a LUID is not in the platform adapter list.
+const UNKNOWN_ADAPTER: &str = "unknown adapter";
 /// C# roles that make up the "MpvPlayer + Backgroundog" subtotal (D-27).
 const CSHARP_SUBTOTAL_ROLES: [&str; 2] = ["mpv-player", "backgroundog"];
 
@@ -461,6 +471,38 @@ pub fn gpu_memory(table: &CounterTable, pids: &BTreeSet<u32>) -> BTreeMap<u32, V
     out
 }
 
+/// The LUID of the adapter the given processes used most over the run: per LUID the utilization summed over every
+/// sample, engine type and pid. `None` when the processes show no utilization at all.
+pub fn adapter_of_pids(table: &CounterTable, pids: &BTreeSet<u32>) -> Option<String> {
+    let mut totals: BTreeMap<String, f64> = BTreeMap::new();
+    for row in &table.rows {
+        for (instance, value) in table.instances.iter().zip(row) {
+            let Some(instance) = parse_gpu_instance(instance) else {
+                continue;
+            };
+            if pids.contains(&instance.pid) {
+                *totals.entry(instance.luid).or_insert(0.0) += value;
+            }
+        }
+    }
+    totals
+        .into_iter()
+        .filter(|(_, total)| *total > 0.0)
+        .max_by(|a, b| a.1.total_cmp(&b.1))
+        .map(|(luid, _)| luid)
+}
+
+/// The adapter named `luid` from the platform's adapter list, or "unknown adapter" with the LUID kept.
+pub fn adapter_ref(luid: &str, adapters: &[GpuAdapter]) -> AdapterRef {
+    AdapterRef {
+        luid: luid.to_owned(),
+        name: adapters
+            .iter()
+            .find(|a| a.luid.eq_ignore_ascii_case(luid))
+            .map_or_else(|| UNKNOWN_ADAPTER.to_owned(), |a| a.name.clone()),
+    }
+}
+
 fn run_typeperf(counter: &str, seconds: u64) -> Result<String, String> {
     let output = Command::new("typeperf")
         .arg(counter)
@@ -478,6 +520,14 @@ fn run_typeperf(counter: &str, seconds: u64) -> Result<String, String> {
 
 // ---- report ----
 
+/// A GPU adapter as recorded in a result file.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct AdapterRef {
+    /// The LUID in typeperf's text form (`0x00000000_0x0000A1B2`); it changes at every boot.
+    pub luid: String,
+    pub name: String,
+}
+
 /// One measured process in the result file.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ProcessReport {
@@ -486,6 +536,17 @@ pub struct ProcessReport {
     pub role: String,
     pub exe_profile: Option<String>,
     pub metrics: Metrics,
+    /// The adapter with the most engine utilization over the run; none for a process that used no GPU or a result
+    /// written before adapters were recorded.
+    #[serde(default)]
+    pub gpu_adapter: Option<AdapterRef>,
+}
+
+/// `dwm.exe` GPU use over the run, for information: never part of a total or subtotal.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct DwmReport {
+    pub gpu_avg_pct: f64,
+    pub gpu_adapter: Option<AdapterRef>,
 }
 
 /// A named group of the measured processes, summed per sample.
@@ -511,6 +572,9 @@ pub struct Report {
     pub processes: Vec<ProcessReport>,
     pub total: Metrics,
     pub subtotal: Option<Subtotal>,
+    /// The compositor's GPU use next to the measured processes (information only).
+    #[serde(default)]
+    pub dwm: Option<DwmReport>,
     pub warnings: Vec<String>,
 }
 
@@ -574,6 +638,7 @@ fn sample(args: &SampleArgs) -> Result<(), String> {
         return Err("no matching processes: the app exited during the warm-up".to_owned());
     }
     let pids: BTreeSet<u32> = found.iter().map(|f| f.pid).collect();
+    let dwm_pids = dwm_pids(&system);
     let pid_list: Vec<Pid> = pids.iter().map(|p| Pid::from_u32(*p)).collect();
     println!("sampling {} s: {}", args.duration, describe(&found));
 
@@ -612,6 +677,8 @@ fn sample(args: &SampleArgs) -> Result<(), String> {
 
     let mut warnings = Vec::new();
     let mut gpu_available = false;
+    let mut adapter_by_pid: BTreeMap<u32, AdapterRef> = BTreeMap::new();
+    let mut dwm = None;
     if let Some((engine, memory, shared)) = gpu_threads {
         let engine = engine.join().map_err(|_| "GPU sampler thread panicked".to_owned())?;
         let memory = memory.join().map_err(|_| "GPU sampler thread panicked".to_owned())?;
@@ -626,6 +693,13 @@ fn sample(args: &SampleArgs) -> Result<(), String> {
                 let util = gpu_utilization(&engine, &pids);
                 let mem = gpu_memory(&memory, &pids);
                 let shared_mem = gpu_memory(&shared, &pids);
+                let adapters = sucrose_platform::current().gpu_adapters();
+                for pid in &pids {
+                    if let Some(luid) = adapter_of_pids(&engine, &BTreeSet::from([*pid])) {
+                        adapter_by_pid.insert(*pid, adapter_ref(&luid, &adapters));
+                    }
+                }
+                dwm = dwm_report(&engine, &dwm_pids, &adapters);
                 for (pid, points) in &mut series {
                     for (tick, point) in points.iter_mut().enumerate() {
                         if let Some(point) = point {
@@ -671,6 +745,7 @@ fn sample(args: &SampleArgs) -> Result<(), String> {
             role: f.role.to_owned(),
             exe_profile: f.exe_profile.clone(),
             metrics: metrics(&[series[&f.pid].as_slice()]),
+            gpu_adapter: adapter_by_pid.get(&f.pid).cloned(),
         })
         .collect();
     let subtotal = (args.side == Side::Csharp).then(|| {
@@ -696,6 +771,7 @@ fn sample(args: &SampleArgs) -> Result<(), String> {
         processes,
         total: metrics(&all),
         subtotal,
+        dwm,
         warnings,
     };
     print_report(&report);
@@ -707,6 +783,33 @@ fn sample(args: &SampleArgs) -> Result<(), String> {
     write_report(&report, Path::new(&out))?;
     println!("wrote {out}");
     Ok(())
+}
+
+/// The pids of the desktop compositor.
+fn dwm_pids(system: &System) -> BTreeSet<u32> {
+    system
+        .processes()
+        .values()
+        .filter(|p| p.name().to_string_lossy().eq_ignore_ascii_case(DWM_IMAGE))
+        .map(|p| p.pid().as_u32())
+        .collect()
+}
+
+/// `dwm.exe` GPU average (summed over its processes per sample, like a group) and adapter; none without a dwm process.
+fn dwm_report(engine: &CounterTable, dwm_pids: &BTreeSet<u32>, adapters: &[GpuAdapter]) -> Option<DwmReport> {
+    if dwm_pids.is_empty() {
+        return None;
+    }
+    let util = gpu_utilization(engine, dwm_pids);
+    let ticks = util.values().map(Vec::len).max().unwrap_or(0);
+    let mut acc = Acc::default();
+    for tick in 0..ticks {
+        acc.add(util.values().filter_map(|s| s.get(tick)).sum());
+    }
+    Some(DwmReport {
+        gpu_avg_pct: acc.avg(),
+        gpu_adapter: adapter_of_pids(engine, dwm_pids).map(|luid| adapter_ref(&luid, adapters)),
+    })
 }
 
 fn describe(found: &[Found]) -> String {
@@ -734,6 +837,10 @@ fn gpu_text(value: Option<f64>, unit: &str) -> String {
     value.map_or_else(|| "n/a".to_owned(), |v| format!("{v:.1}{unit}"))
 }
 
+fn adapter_text(adapter: Option<&AdapterRef>) -> String {
+    adapter.map_or_else(|| "no adapter".to_owned(), |a| a.name.clone())
+}
+
 fn print_report(report: &Report) {
     println!(
         "\n{} side, {} s after a {} s warm-up, {} logical CPUs, build {}",
@@ -744,12 +851,12 @@ fn print_report(report: &Report) {
         report.build.as_deref().unwrap_or("unknown")
     );
     println!(
-        "{:<13} {:>7} {:>9} {:>9} {:>11} {:>8} {:>8} {:>8} {:>9} {:>10}",
+        "{:<13} {:>7} {:>9} {:>9} {:>11} {:>8} {:>8} {:>8} {:>9} {:>10}  GPU adapter",
         "role", "pid", "WS avg", "WS peak", "private avg", "CPU avg", "CPU peak", "GPU avg", "GPU mem", "GPU shared"
     );
-    let line = |label: &str, pid: &str, m: &Metrics| {
+    let line = |label: &str, pid: &str, m: &Metrics, adapter: &str| {
         println!(
-            "{label:<13} {pid:>7} {:>8.1}M {:>8.1}M {:>10.1}M {:>7.2}% {:>7.2}% {:>8} {:>9} {:>10}",
+            "{label:<13} {pid:>7} {:>8.1}M {:>8.1}M {:>10.1}M {:>7.2}% {:>7.2}% {:>8} {:>9} {:>10}  {adapter}",
             m.ws_avg_mb,
             m.ws_peak_mb,
             m.commit_avg_mb,
@@ -761,12 +868,25 @@ fn print_report(report: &Report) {
         );
     };
     for p in &report.processes {
-        line(&p.role, &p.pid.to_string(), &p.metrics);
+        line(
+            &p.role,
+            &p.pid.to_string(),
+            &p.metrics,
+            &adapter_text(p.gpu_adapter.as_ref()),
+        );
     }
-    line("total", "", &report.total);
+    line("total", "", &report.total, "");
     if let Some(sub) = &report.subtotal {
-        line("subtotal", "", &sub.metrics);
+        line("subtotal", "", &sub.metrics, "");
         println!("(subtotal = {})", sub.label);
+    }
+    match &report.dwm {
+        Some(dwm) => println!(
+            "dwm.exe GPU avg {:.1}% on {} (information only, not in the totals)",
+            dwm.gpu_avg_pct,
+            adapter_text(dwm.gpu_adapter.as_ref())
+        ),
+        None => println!("dwm.exe: not sampled"),
     }
     for warning in &report.warnings {
         println!("warning: {warning}");
@@ -828,13 +948,85 @@ pub fn format_row(csharp: &Report, rust: &Report, scenario: &str, notes: &str) -
     )
 }
 
+/// The adapters of every process of `role` in a result; Err when there is none of that role or one has no adapter.
+fn role_adapters<'a>(report: &'a Report, role: &str, who: &str) -> Result<Vec<&'a AdapterRef>, String> {
+    let of_role: Vec<&ProcessReport> = report.processes.iter().filter(|p| p.role == role).collect();
+    if of_role.is_empty() {
+        return Err(format!(
+            "the {who} result has no {role} process, so its GPU adapter is unknown; the comparison is not valid, measure again"
+        ));
+    }
+    of_role
+        .into_iter()
+        .map(|p| {
+            p.gpu_adapter.as_ref().ok_or_else(|| {
+                format!(
+                    "the {who} result has no GPU adapter for {role} pid {} (the process used no GPU or the result was written \
+                     by an older measure); the comparison is not valid, measure again",
+                    p.pid
+                )
+            })
+        })
+        .collect()
+}
+
+/// The adapter both sides ran on: the C# MpvPlayer and every Rust renderer must share one LUID. Err names both adapters
+/// when they differ and when a result has no adapter, so a cross-GPU comparison can never be recorded (G-02-6).
+pub fn same_adapter(csharp: &Report, rust: &Report) -> Result<AdapterRef, String> {
+    let c = role_adapters(csharp, "mpv-player", "C#")?;
+    let r = role_adapters(rust, "renderer", "Rust")?;
+    let first = c[0];
+    if c.iter().chain(r.iter()).all(|a| a.luid == first.luid) {
+        return Ok(first.clone());
+    }
+    let names = |list: &[&AdapterRef]| -> String {
+        let mut names: Vec<&str> = Vec::new();
+        for a in list {
+            if !names.contains(&a.name.as_str()) {
+                names.push(a.name.as_str());
+            }
+        }
+        names.join(" / ")
+    };
+    let (c_names, r_names) = (names(&c), names(&r));
+    let mut message = format!(
+        "the two sides ran on different GPUs (C#: {c_names}, Rust: {r_names}); the comparison is not valid, measure again"
+    );
+    if c_names == r_names {
+        message.push_str(
+            " (the adapter names are equal but the LUIDs differ; LUIDs change at every boot, so measure both sides in one boot session)",
+        );
+    }
+    Err(message)
+}
+
+fn dwm_text(report: &Report) -> String {
+    report
+        .dwm
+        .as_ref()
+        .map_or_else(|| "n/a".to_owned(), |d| format!("{:.1} %", d.gpu_avg_pct))
+}
+
+/// The table row for a pair of results, only when both ran on the same adapter; the adapter and the dwm.exe GPU of
+/// both sides are appended to the notes.
+pub fn checked_row(csharp: &Report, rust: &Report, scenario: &str, notes: &str) -> Result<String, String> {
+    let adapter = same_adapter(csharp, rust)?;
+    let notes = format!(
+        "{notes} GPU: {}, both sides. dwm.exe GPU: C# {}, Rust {}.",
+        adapter.name,
+        dwm_text(csharp),
+        dwm_text(rust)
+    );
+    Ok(format_row(csharp, rust, scenario, &notes))
+}
+
 fn print_row(args: &RowArgs) -> Result<(), String> {
     let csharp = read_report(&args.csharp)?;
     let rust = read_report(&args.rust)?;
     if csharp.side != "csharp" || rust.side != "rust" {
         return Err("--row takes the C# result first and the Rust result second".to_owned());
     }
-    println!("{}", format_row(&csharp, &rust, &args.scenario, &args.notes));
+    println!("{}", checked_row(&csharp, &rust, &args.scenario, &args.notes)?);
     Ok(())
 }
 
@@ -982,6 +1174,7 @@ mod tests {
                     role: (*role).to_owned(),
                     exe_profile: None,
                     metrics: m.clone(),
+                    gpu_adapter: None,
                 })
                 .collect(),
             total: m.clone(),
@@ -990,8 +1183,25 @@ mod tests {
                 roles: strings(&CSHARP_SUBTOTAL_ROLES),
                 metrics: m,
             }),
+            dwm: None,
             warnings: Vec::new(),
         }
+    }
+
+    fn adapter(luid: &str, name: &str) -> AdapterRef {
+        AdapterRef {
+            luid: luid.to_owned(),
+            name: name.to_owned(),
+        }
+    }
+
+    /// A report whose processes of the given roles all ran on `adapter`.
+    fn report_on(side: &str, roles: &[&str], on: Option<AdapterRef>) -> Report {
+        let mut r = report(side, roles, side == "csharp");
+        for p in &mut r.processes {
+            p.gpu_adapter = on.clone();
+        }
+        r
     }
 
     #[test]
@@ -1030,5 +1240,135 @@ mod tests {
         assert!(parse_args(&strings(&["--row", "c.json", "r.json", "--side", "rust"])).is_err());
         assert!(parse_args(&strings(&["--side", "go"])).is_err());
         assert!(parse_args(&strings(&["--side", "rust", "--duration", "0"])).is_err());
+    }
+
+    const TWO_ADAPTER_CSV: &str = "\"(PDH-CSV 4.0)\",\"\\\\PC\\GPU Engine(pid_10_luid_0x0_0xA_phys_0_eng_0_engtype_3D)\\Utilization Percentage\",\
+\"\\\\PC\\GPU Engine(pid_10_luid_0x0_0xB_phys_0_eng_0_engtype_3D)\\Utilization Percentage\",\
+\"\\\\PC\\GPU Engine(pid_20_luid_0x0_0xA_phys_0_eng_0_engtype_3D)\\Utilization Percentage\"\r\n\
+\"t1\",\"1\",\"4\",\"0\"\r\n\
+\"t2\",\"2\",\"5\",\"0\"\r\n";
+
+    #[test]
+    fn measure_adapter_of_pid_picks_the_busiest_luid() {
+        let table = parse_typeperf(TWO_ADAPTER_CSV).expect("valid csv");
+        let ten: BTreeSet<u32> = [10].into_iter().collect();
+        assert_eq!(adapter_of_pids(&table, &ten).as_deref(), Some("0x0_0xB"));
+        // pid 20 has an instance but never any utilization, pid 30 has no instance at all.
+        let idle: BTreeSet<u32> = [20, 30].into_iter().collect();
+        assert_eq!(adapter_of_pids(&table, &idle), None);
+        let both: BTreeSet<u32> = [10, 20].into_iter().collect();
+        assert_eq!(adapter_of_pids(&table, &both).as_deref(), Some("0x0_0xB"));
+    }
+
+    #[test]
+    fn measure_adapter_ref_names_the_luid_or_says_unknown() {
+        let list = [GpuAdapter {
+            name: "NVIDIA GeForce RTX 3050 Laptop GPU".to_owned(),
+            luid: "0x00000000_0x0000A1B2".to_owned(),
+            dedicated_video_memory_mb: 4096,
+        }];
+        assert_eq!(
+            adapter_ref("0x00000000_0x0000A1B2", &list),
+            adapter("0x00000000_0x0000A1B2", "NVIDIA GeForce RTX 3050 Laptop GPU")
+        );
+        assert_eq!(adapter_ref("0x0_0x9", &list), adapter("0x0_0x9", UNKNOWN_ADAPTER));
+    }
+
+    #[test]
+    fn measure_same_adapter_accepts_one_luid_and_refuses_the_rest() {
+        let nvidia = adapter("0x0_0xA", "NVIDIA GeForce RTX 3050 Laptop GPU");
+        let intel = adapter("0x0_0xB", "Intel(R) UHD Graphics");
+        let csharp = report_on(
+            "csharp",
+            &["launcher", "mpv-player", "backgroundog"],
+            Some(nvidia.clone()),
+        );
+        let rust = report_on("rust", &["service", "renderer", "renderer"], Some(nvidia.clone()));
+        assert_eq!(same_adapter(&csharp, &rust), Ok(nvidia.clone()));
+
+        let on_intel = report_on("rust", &["service", "renderer"], Some(intel.clone()));
+        let err = same_adapter(&csharp, &on_intel).expect_err("different GPUs");
+        assert!(err.contains("different GPUs"), "{err}");
+        assert!(err.contains("C#: NVIDIA GeForce RTX 3050 Laptop GPU"), "{err}");
+        assert!(err.contains("Rust: Intel(R) UHD Graphics"), "{err}");
+
+        // One renderer on the other adapter is enough to refuse.
+        let mut mixed = report_on("rust", &["service", "renderer", "renderer"], Some(nvidia.clone()));
+        mixed.processes[2].gpu_adapter = Some(intel);
+        assert!(same_adapter(&csharp, &mixed).is_err());
+
+        // Same name, different LUID (a reboot between the runs) is refused with a hint.
+        let rebooted = report_on("rust", &["service", "renderer"], Some(adapter("0x0_0xC", &nvidia.name)));
+        let err = same_adapter(&csharp, &rebooted).expect_err("different LUIDs");
+        assert!(err.contains("boot"), "{err}");
+    }
+
+    #[test]
+    fn measure_same_adapter_refuses_a_missing_adapter_or_process() {
+        let nvidia = adapter("0x0_0xA", "NVIDIA GeForce RTX 3050 Laptop GPU");
+        let csharp = report_on("csharp", &["mpv-player"], Some(nvidia.clone()));
+        let rust = report_on("rust", &["service", "renderer"], Some(nvidia.clone()));
+        let no_adapter = report_on("rust", &["service", "renderer"], None);
+        let err = same_adapter(&csharp, &no_adapter).expect_err("no adapter");
+        assert!(err.contains("no GPU adapter"), "{err}");
+        let old_csharp = report_on("csharp", &["mpv-player"], None);
+        assert!(same_adapter(&old_csharp, &rust).is_err());
+        let no_player = report_on("csharp", &["launcher"], Some(nvidia.clone()));
+        assert!(same_adapter(&no_player, &rust).is_err());
+        let no_renderer = report_on("rust", &["service"], Some(nvidia));
+        assert!(same_adapter(&csharp, &no_renderer).is_err());
+    }
+
+    #[test]
+    fn measure_report_without_adapter_fields_still_reads_and_is_refused() {
+        let nvidia = adapter("0x0_0xA", "NVIDIA GeForce RTX 3050 Laptop GPU");
+        let mut value =
+            serde_json::to_value(report_on("csharp", &["mpv-player"], Some(nvidia.clone()))).expect("report encodes");
+        value.as_object_mut().expect("object").remove("dwm");
+        for p in value["processes"].as_array_mut().expect("processes") {
+            p.as_object_mut().expect("process").remove("gpu_adapter");
+        }
+        let old: Report = serde_json::from_value(value).expect("an old result still reads");
+        assert!(old.dwm.is_none());
+        assert!(old.processes[0].gpu_adapter.is_none());
+        let rust = report_on("rust", &["service", "renderer"], Some(nvidia));
+        assert!(checked_row(&old, &rust, "s", "n").is_err());
+    }
+
+    #[test]
+    fn measure_row_names_the_adapter_and_both_dwm_values() {
+        let nvidia = adapter("0x0_0xA", "NVIDIA GeForce RTX 3050 Laptop GPU");
+        let mut csharp = report_on("csharp", &["mpv-player"], Some(nvidia.clone()));
+        let mut rust = report_on("rust", &["service", "renderer"], Some(nvidia.clone()));
+        csharp.dwm = Some(DwmReport {
+            gpu_avg_pct: 1.5,
+            gpu_adapter: Some(nvidia.clone()),
+        });
+        rust.dwm = Some(DwmReport {
+            gpu_avg_pct: 2.25,
+            gpu_adapter: Some(nvidia),
+        });
+        let row = checked_row(&csharp, &rust, "scenario", "note.").expect("same adapter");
+        assert!(
+            row.contains("GPU: NVIDIA GeForce RTX 3050 Laptop GPU, both sides"),
+            "{row}"
+        );
+        assert!(row.contains("dwm.exe GPU: C# 1.5 %, Rust 2.2 %"), "{row}");
+        assert!(row.ends_with(" |"));
+    }
+
+    #[test]
+    fn measure_dwm_report_averages_the_compositor_and_names_its_adapter() {
+        let table = parse_typeperf(TWO_ADAPTER_CSV).expect("valid csv");
+        let adapters = [GpuAdapter {
+            name: "Intel(R) UHD Graphics".to_owned(),
+            luid: "0x0_0xB".to_owned(),
+            dedicated_video_memory_mb: 128,
+        }];
+        let dwm_pids: BTreeSet<u32> = [10].into_iter().collect();
+        let report = dwm_report(&table, &dwm_pids, &adapters).expect("dwm present");
+        assert!((report.gpu_avg_pct - (4.0 + 5.0) / 2.0).abs() < 1e-9);
+        assert_eq!(report.gpu_adapter, Some(adapter("0x0_0xB", "Intel(R) UHD Graphics")));
+        assert!(dwm_report(&table, &BTreeSet::new(), &adapters).is_none());
     }
 }
