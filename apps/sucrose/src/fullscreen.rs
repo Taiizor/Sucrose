@@ -2,6 +2,7 @@
 //! aside. Everything here is pure: the service reads the foreground window and the monitors, feeds them in and
 //! performs what comes out, so the rule is tested without a desktop.
 
+use sucrose_core::settings::FullScreenAction;
 use sucrose_platform::{ForegroundWindow, MonitorInfo};
 
 /// The loop timer that samples the foreground window. It only exists while the rule is on (D-008).
@@ -82,6 +83,76 @@ impl Debounce {
         } else {
             None
         }
+    }
+}
+
+/// Which renderers the rule acts on. Both scopes exist; M1 uses [`ActionScope::AllMonitors`] without a switch (D-05).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ActionScope {
+    /// Every monitor's renderer, whichever monitor the fullscreen window is on (the legacy behavior).
+    AllMonitors,
+    /// Only the renderers of the monitors the fullscreen window covers.
+    AffectedMonitor,
+}
+
+/// What the service does to the renderer of one monitor.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum RuleAction {
+    /// Pause playback.
+    Pause,
+    /// Play again after a pause.
+    Resume,
+    /// Stop the renderer.
+    Close,
+    /// Start the renderer again after a Close.
+    Respawn,
+}
+
+/// What to do for `action` when the rule flips: `became_active` on the way in, otherwise on the way out. `affected`
+/// are the monitors the fullscreen window covers (on the way out: the ones the rule acted on), `all` every monitor
+/// that has a renderer. Resume is the disabled rule and plans nothing.
+pub fn plan_action(
+    action: FullScreenAction,
+    scope: ActionScope,
+    became_active: bool,
+    affected: &[String],
+    all: &[String],
+) -> Vec<(String, RuleAction)> {
+    let _ = (action, scope, became_active, affected, all);
+    Vec::new()
+}
+
+/// The fullscreen rule while it is on: the debounce of the samples and the monitors it acted on.
+#[derive(Debug, Clone)]
+pub struct Rule {
+    action: FullScreenAction,
+    scope: ActionScope,
+    debounce: Debounce,
+    acted: Vec<String>,
+}
+
+impl Rule {
+    /// A rule that is off until five samples in a row see a fullscreen window.
+    pub fn new(action: FullScreenAction, scope: ActionScope) -> Self {
+        Self {
+            action,
+            scope,
+            debounce: Debounce::new(TRIGGER_SAMPLES, RECOVER_SAMPLES),
+            acted: Vec::new(),
+        }
+    }
+
+    /// Takes one sample: `covered` are the monitors a fullscreen window covers now, `all` the monitors that have a
+    /// renderer. Returns what to do, which is empty except on a flip.
+    pub fn tick(&mut self, covered: &[String], all: &[String]) -> Vec<(String, RuleAction)> {
+        let _ = (covered, all, &mut self.debounce, &self.acted, self.scope, self.action);
+        Vec::new()
+    }
+
+    /// Whether the renderer of `monitor` has to be paused, for a renderer that connects while the rule is on.
+    pub fn pauses(&self, monitor: &str) -> bool {
+        let _ = monitor;
+        false
     }
 }
 
@@ -245,5 +316,162 @@ mod tests {
         assert_eq!(debounce.feed(false), None);
         assert_eq!(debounce.feed(false), None);
         assert_eq!(debounce.feed(false), Some(false));
+    }
+
+    fn ids(list: &[&str]) -> Vec<String> {
+        list.iter().map(|id| (*id).to_owned()).collect()
+    }
+
+    fn acts(list: &[(&str, RuleAction)]) -> Vec<(String, RuleAction)> {
+        list.iter().map(|(id, action)| ((*id).to_owned(), *action)).collect()
+    }
+
+    #[test]
+    fn pause_on_all_monitors_pauses_every_renderer_and_resumes_them() {
+        let (affected, all) = (ids(&["A"]), ids(&["A", "B"]));
+
+        assert_eq!(
+            plan_action(FullScreenAction::Pause, ActionScope::AllMonitors, true, &affected, &all),
+            acts(&[("A", RuleAction::Pause), ("B", RuleAction::Pause)])
+        );
+        assert_eq!(
+            plan_action(
+                FullScreenAction::Pause,
+                ActionScope::AllMonitors,
+                false,
+                &affected,
+                &all
+            ),
+            acts(&[("A", RuleAction::Resume), ("B", RuleAction::Resume)])
+        );
+    }
+
+    #[test]
+    fn pause_on_the_affected_monitor_touches_only_that_monitor() {
+        let (affected, all) = (ids(&["A"]), ids(&["A", "B"]));
+
+        assert_eq!(
+            plan_action(
+                FullScreenAction::Pause,
+                ActionScope::AffectedMonitor,
+                true,
+                &affected,
+                &all
+            ),
+            acts(&[("A", RuleAction::Pause)])
+        );
+        assert_eq!(
+            plan_action(
+                FullScreenAction::Pause,
+                ActionScope::AffectedMonitor,
+                false,
+                &affected,
+                &all
+            ),
+            acts(&[("A", RuleAction::Resume)])
+        );
+    }
+
+    #[test]
+    fn close_stops_the_renderers_and_recovery_starts_them_again() {
+        let (affected, all) = (ids(&["A"]), ids(&["A", "B"]));
+
+        assert_eq!(
+            plan_action(FullScreenAction::Close, ActionScope::AllMonitors, true, &affected, &all),
+            acts(&[("A", RuleAction::Close), ("B", RuleAction::Close)])
+        );
+        assert_eq!(
+            plan_action(
+                FullScreenAction::Close,
+                ActionScope::AllMonitors,
+                false,
+                &affected,
+                &all
+            ),
+            acts(&[("A", RuleAction::Respawn), ("B", RuleAction::Respawn)])
+        );
+        assert_eq!(
+            plan_action(
+                FullScreenAction::Close,
+                ActionScope::AffectedMonitor,
+                true,
+                &affected,
+                &all
+            ),
+            acts(&[("A", RuleAction::Close)])
+        );
+    }
+
+    #[test]
+    fn resume_is_the_disabled_rule_and_plans_nothing() {
+        let (affected, all) = (ids(&["A"]), ids(&["A", "B"]));
+
+        for scope in [ActionScope::AllMonitors, ActionScope::AffectedMonitor] {
+            for active in [true, false] {
+                assert!(plan_action(FullScreenAction::Resume, scope, active, &affected, &all).is_empty());
+            }
+        }
+    }
+
+    #[test]
+    fn a_rule_acts_on_the_fifth_positive_sample_and_undoes_it_on_the_third_negative_one() {
+        let mut rule = Rule::new(FullScreenAction::Pause, ActionScope::AllMonitors);
+        let (covered, all) = (ids(&["A"]), ids(&["A", "B"]));
+
+        for _ in 0..4 {
+            assert!(rule.tick(&covered, &all).is_empty());
+        }
+        assert_eq!(
+            rule.tick(&covered, &all),
+            acts(&[("A", RuleAction::Pause), ("B", RuleAction::Pause)])
+        );
+        assert!(rule.pauses("A") && rule.pauses("B"));
+        assert!(rule.tick(&covered, &all).is_empty());
+        assert!(rule.tick(&[], &all).is_empty());
+        assert!(rule.tick(&[], &all).is_empty());
+        assert_eq!(
+            rule.tick(&[], &all),
+            acts(&[("A", RuleAction::Resume), ("B", RuleAction::Resume)])
+        );
+        assert!(!rule.pauses("A"));
+    }
+
+    #[test]
+    fn a_rule_with_the_affected_scope_resumes_the_monitor_it_paused_even_if_the_window_moved() {
+        let mut rule = Rule::new(FullScreenAction::Pause, ActionScope::AffectedMonitor);
+        let all = ids(&["A", "B"]);
+        for _ in 0..TRIGGER_SAMPLES {
+            rule.tick(&ids(&["A"]), &all);
+        }
+
+        assert!(rule.pauses("A"));
+        assert!(!rule.pauses("B"));
+        // The window moved to B, then went away: the recovery still undoes what was done, on A.
+        rule.tick(&ids(&["B"]), &all);
+        rule.tick(&[], &all);
+        rule.tick(&[], &all);
+        assert_eq!(rule.tick(&[], &all), acts(&[("A", RuleAction::Resume)]));
+    }
+
+    #[test]
+    fn a_resume_rule_never_acts() {
+        let mut rule = Rule::new(FullScreenAction::Resume, ActionScope::AllMonitors);
+        let all = ids(&["A"]);
+
+        for _ in 0..10 {
+            assert!(rule.tick(&ids(&["A"]), &all).is_empty());
+        }
+        assert!(!rule.pauses("A"));
+    }
+
+    #[test]
+    fn a_close_rule_does_not_ask_for_a_pause() {
+        let mut rule = Rule::new(FullScreenAction::Close, ActionScope::AllMonitors);
+        let all = ids(&["A"]);
+        for _ in 0..TRIGGER_SAMPLES {
+            rule.tick(&ids(&["A"]), &all);
+        }
+
+        assert!(!rule.pauses("A"));
     }
 }
