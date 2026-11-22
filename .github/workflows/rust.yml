@@ -42,7 +42,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
+        os: [windows-latest, windows-11-arm, ubuntu-latest, ubuntu-24.04-arm, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v7
@@ -52,9 +52,45 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libxkbcommon-dev libxkbcommon-x11-dev libwayland-dev libx11-xcb-dev \
             libfontconfig-dev libfreetype-dev libvulkan-dev libasound2-dev libssl-dev libzstd-dev
+      - name: Install rustup if missing
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          if (Get-Command rustup -ErrorAction SilentlyContinue) {
+            Write-Host "rustup preinstalled: yes"
+          } else {
+            Write-Host "rustup preinstalled: no"
+            $triple = if ($env:RUNNER_ARCH -eq 'ARM64') { 'aarch64-pc-windows-msvc' } else { 'x86_64-pc-windows-msvc' }
+            $installer = Join-Path $env:RUNNER_TEMP 'rustup-init.exe'
+            Invoke-WebRequest -Uri "https://static.rust-lang.org/rustup/dist/$triple/rustup-init.exe" -OutFile $installer
+            & $installer -y --default-toolchain none --profile minimal
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+            Add-Content -Path $env:GITHUB_PATH -Value "$env:USERPROFILE\.cargo\bin"
+          }
+      - name: Install rustup if missing
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          if command -v rustup >/dev/null 2>&1; then
+            echo "rustup preinstalled: yes"
+          else
+            echo "rustup preinstalled: no"
+            curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain none --profile minimal
+            echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+          fi
       - uses: Swatinem/rust-cache@v2
       - run: cargo clippy --workspace --all-targets -- -D warnings
       - run: cargo test --workspace
+      - run: rustup target add i686-pc-windows-msvc
+        if: matrix.os == 'windows-latest'
+      - run: cargo clippy --workspace --all-targets --target i686-pc-windows-msvc -- -D warnings
+        if: matrix.os == 'windows-latest'
+      - run: cargo test --workspace --target i686-pc-windows-msvc
+        if: matrix.os == 'windows-latest'
+      - run: rustup target add x86_64-apple-darwin
+        if: runner.os == 'macOS'
+      - run: cargo check --workspace --target x86_64-apple-darwin
+        if: runner.os == 'macOS'
 
   deny:
     runs-on: ubuntu-latest

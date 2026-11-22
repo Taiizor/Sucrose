@@ -134,6 +134,12 @@ When you make or change a decision, add an entry here in the same change.
 - Decision: The lock screen wallpaper for Video and GIF themes is part of parity although it exists only on branch `lock-screen-native` (commit 112de37f) and was never merged into `develop`. Its behavior is recorded in `docs/legacy/lock-screen.md`.
 - Consequences: how the Rust version reaches the lock screen is decided separately before it is built; the legacy one runs a DLL inside LogonUI as SYSTEM, registered from a user-writable folder.
 
+## D-027: Target architectures
+- Status: Accepted (2026-11-22)
+- Decision: Windows x86 (i686), x64 and ARM64; macOS arm64 and x86_64, shipped as one universal binary; Linux x86_64 and aarch64.
+- Why: keep every Windows architecture the legacy app shipped (x86, x64 and ARM64; D-003) and add ARM64 Linux and both macOS architectures.
+- Consequences: CI builds and tests Windows ARM64 and Linux ARM64 natively, builds and tests the Windows x86 (i686) target on the Windows x64 runner, and checks the macOS x86_64 target (FND-02); packages are built per architecture (SVC-04, MAC-05, LNX-06); per-architecture engine availability is tracked in `FEATURES.md` → Architectures; an engine with no build for the running architecture is reported like a missing engine (D-005).
+
 ---
 
 ## Open questions
