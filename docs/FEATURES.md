@@ -161,7 +161,7 @@ Actions Close / Pause / Resume per condition; trigger after 5 consecutive 1 s po
 | Contract | Spec | Status |
 |---|---|---|
 | Legacy `Setting/*.json` (14 files, `Properties` wrapper, enums by name) are migrated to the new versioned settings format on first run (D-007) | `formats.md` §1 | ⬜ |
-| `SucroseInfo.json`, `SucroseProperties.json`, `SucroseCompatible.json` | `formats.md` §3 | ⬜ |
+| `SucroseInfo.json`, `SucroseProperties.json`, `SucroseCompatible.json` (SucroseInfo.json is read and written compatibly, proven with fixtures, FMT-02; the D-13 gate and the AppVersion rule use it; Properties and Compatible follow in Phase 4) | `formats.md` §3 | 🟨 |
 | Theme archives and validation rules | `formats.md` §3 | ⬜ |
 | Store protocol and cache layout (D-022) | `formats.md` §4 | ⬜ |
 | Data folder layout (`Setting`, `Log`, `Cache`, `Library`, `Showcase`), 25-character theme folder names | `formats.md` §2 | ⬜ |

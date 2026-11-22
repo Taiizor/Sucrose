@@ -14,7 +14,7 @@ use sucrose_config::legacy::LegacySettings;
 use sucrose_core::{
     paths::{legacy_data_dir, legacy_setting_dir},
     theme::{SelectedTheme, check_selected},
-    version::LegacyVersion,
+    version::app_version,
 };
 use sucrose_ipc::{
     Connection, IpcError, Listener, endpoint_name,
@@ -67,6 +67,7 @@ pub fn run() -> anyhow::Result<()> {
     let platform = sucrose_platform::current();
     tracing::info!(
         version = sucrose_core::VERSION,
+        app_version = %app_version(),
         os = platform.name(),
         capabilities = ?platform.capabilities(),
         endpoint = %endpoint.name,
@@ -279,17 +280,10 @@ fn plan_wallpapers(platform: &dyn Platform) -> Vec<Assignment> {
     }
 }
 
-/// The version this build compares a theme's `AppVersion` with. The date-based version replaces this with
-/// `sucrose_core::version::app_version()`.
-fn current_app_version() -> LegacyVersion {
-    LegacyVersion::parse(sucrose_core::VERSION).unwrap_or_default()
-}
-
 /// Runs the gate (D-13) on the selected theme and, when it passes, builds the job for the primary monitor. The error
 /// is one English sentence for the log: the gate's own reason, or why no monitor could be used.
 fn plan_for(location: &std::path::Path, selected: &str, platform: &dyn Platform) -> Result<Assignment, String> {
-    let theme =
-        check_selected(location, selected, &current_app_version()).map_err(|rejection| rejection.to_string())?;
+    let theme = check_selected(location, selected, &app_version()).map_err(|rejection| rejection.to_string())?;
     tracing::info!(theme = %selected, kind = ?theme.info.kind, source = %theme.info.source, "selected theme");
     assignment_for(&theme, platform)
 }
@@ -379,11 +373,7 @@ mod tests {
         };
         let settings = LegacySettings::load(&setting_dir, &root);
 
-        let selected = check_selected(
-            &settings.library.location,
-            &settings.library.selected,
-            &current_app_version(),
-        );
+        let selected = check_selected(&settings.library.location, &settings.library.selected, &app_version());
 
         let theme = selected.unwrap_or_else(|rejection| panic!("the real selected theme is refused: {rejection}"));
         assert!(theme.source_path.is_file());

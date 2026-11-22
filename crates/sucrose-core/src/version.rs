@@ -61,15 +61,35 @@ impl LegacyVersion {
         Ok(Self::new(major, minor, build, revision))
     }
 
-    /// Maps a Cargo version `major.minor.patch[+revision]` onto the four .NET components.
-    pub fn from_cargo(_text: &str) -> Result<Self, VersionError> {
-        Ok(Self::default())
+    /// Maps a Cargo version `major.minor.patch[+revision]` onto the four .NET components: build metadata is the
+    /// revision, 0 when absent (D-029). Pre-release suffixes, leading zeros and other shapes are refused.
+    pub fn from_cargo(text: &str) -> Result<Self, VersionError> {
+        let (core, revision) = match text.split_once('+') {
+            Some((core, revision)) => (core, Some(revision)),
+            None => (text, None),
+        };
+        let parts: Vec<&str> = core.split('.').collect();
+        if parts.len() != 3 {
+            return Err(VersionError::ComponentCount);
+        }
+        let mut components = [0; 4];
+        for (slot, part) in components.iter_mut().zip(parts.into_iter().chain(revision)) {
+            let plain = !part.is_empty() && part.bytes().all(|byte| byte.is_ascii_digit());
+            if !plain || (part.len() > 1 && part.starts_with('0')) {
+                return Err(VersionError::Component);
+            }
+            *slot = part.parse().map_err(|_| VersionError::Component)?;
+        }
+        let [major, minor, build, revision] = components;
+        Ok(Self::new(major, minor, build, revision))
     }
 }
 
-/// The version of this build as the C# app would write it (D-029).
+/// The version of this build as the C# app would write it (D-029): the workspace version mapped onto four components.
+/// A version that cannot be mapped is the lowest one, so every theme with a newer `AppVersion` is refused loudly rather
+/// than accepted by accident; a unit test pins that the real one maps.
 pub fn app_version() -> LegacyVersion {
-    LegacyVersion::default()
+    LegacyVersion::from_cargo(crate::VERSION).unwrap_or_default()
 }
 
 /// The original text: only the components that exist, so `parse(text)` prints back as `text`.

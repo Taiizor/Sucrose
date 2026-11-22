@@ -358,8 +358,8 @@ fn verified_source(theme_dir: &Path, source: &str) -> Result<PathBuf, &'static s
 /// Video type and a `Source` that is a regular file inside the folder. Every failure is its own
 /// [`ThemeRejection`]; nothing is started or written.
 ///
-/// `app` is the running app version for the `AppVersion` rule, which is not applied yet.
-pub fn check_selected(location: &Path, selected: &str, _app: &LegacyVersion) -> Result<SelectedTheme, ThemeRejection> {
+/// A theme whose `AppVersion` is newer than `app` is refused too (needs a newer app); the same version is accepted.
+pub fn check_selected(location: &Path, selected: &str, app: &LegacyVersion) -> Result<SelectedTheme, ThemeRejection> {
     if selected.is_empty() {
         return Err(ThemeRejection::NothingSelected);
     }
@@ -386,6 +386,13 @@ pub fn check_selected(location: &Path, selected: &str, _app: &LegacyVersion) -> 
         return Err(ThemeRejection::NotVideo {
             folder,
             found: info.kind,
+        });
+    }
+    if info.app_version > *app {
+        return Err(ThemeRejection::NeedsNewerApp {
+            folder,
+            required: info.app_version,
+            current: *app,
         });
     }
     let source_path = verified_source(&dir, &info.source).map_err(|reason| ThemeRejection::SourceInvalid {

@@ -147,6 +147,12 @@ When you make or change a decision, add an entry here in the same change.
 - Why: parity with the C# package and wallpapers that work right after install.
 - Consequences: package size grows by about 100-120 MB per architecture for libmpv; ENG-01 and ENG-06 wording changes (they no longer say engines are never bundled); Phase 5 adds license texts and the source offer; macOS and Linux packaging of engines is decided in Phases 6-7.
 
+## D-029: Version scheme continues the legacy date
+- Status: Accepted (2026-11-22)
+- Decision: the workspace version (`[workspace.package] version`) is the build date as `YY.M.D+R`, with month and day written without zero padding (Cargo semver forbids leading zeros) and the build metadata `+R` as the same-day build number, starting at 1. The first value is `26.11.22+1`. It maps one-to-one onto the four-part legacy version `YY.M.D.R` (`26.11.22.1`): `LegacyVersion::from_cargo` reads `+R` as the fourth component and uses 0 when it is absent. Same-day rebuilds that are published bump R (+2, +3); a new day resets R to 1. `26.11.22.1` is greater than the latest C# release v26.11.22.0, which the maintainer chose on 2026-11-22 over the plain date form `26.11.23` (one release per day, and today's date would have been unusable).
+- Why: the `AppVersion` <= app version check on themes, store filtering and the Phase 5 update from the C# app all compare against the legacy date version (D-012); with the M0 version 0.1.0 every theme would be refused.
+- Consequences: one-way, because published versions cannot go back down (the updater and the store filter compare against them); release tooling bumps it in Phase 5. Cargo ignores build metadata for precedence, which does not matter for `publish = false` crates. Assumption A16 was tested: `CARGO_PKG_VERSION` keeps the `+R` suffix (the `cargo_version_text_keeps_the_build_metadata` test pins it), so `sucrose_core::VERSION` and `version::app_version()` read it directly and no Cargo.toml parsing at build time is needed. A theme whose `AppVersion` is newer than `app_version()` is refused with a "needs a newer app" reason (D-13); an equal version is accepted.
+
 ---
 
 ## Open questions

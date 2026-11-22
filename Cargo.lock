@@ -6333,7 +6333,7 @@ checksum = "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292"
 
 [[package]]
 name = "sucrose"
-version = "0.1.0"
+version = "26.11.22+1"
 dependencies = [
  "anyhow",
  "crossbeam-channel",
@@ -6349,7 +6349,7 @@ dependencies = [
 
 [[package]]
 name = "sucrose-config"
-version = "0.1.0"
+version = "26.11.22+1"
 dependencies = [
  "serde_json",
  "sucrose-core",
@@ -6359,7 +6359,7 @@ dependencies = [
 
 [[package]]
 name = "sucrose-core"
-version = "0.1.0"
+version = "26.11.22+1"
 dependencies = [
  "dirs 6.0.0",
  "serde",
@@ -6369,7 +6369,7 @@ dependencies = [
 
 [[package]]
 name = "sucrose-engine-mpv"
-version = "0.1.0"
+version = "26.11.22+1"
 dependencies = [
  "libloading 0.9.1",
  "thiserror 2.0.21",
@@ -6378,7 +6378,7 @@ dependencies = [
 
 [[package]]
 name = "sucrose-ipc"
-version = "0.1.0"
+version = "26.11.22+1"
 dependencies = [
  "interprocess",
  "postcard",
@@ -6390,7 +6390,7 @@ dependencies = [
 
 [[package]]
 name = "sucrose-log"
-version = "0.1.0"
+version = "26.11.22+1"
 dependencies = [
  "sucrose-core",
  "thiserror 2.0.21",
@@ -6401,7 +6401,7 @@ dependencies = [
 
 [[package]]
 name = "sucrose-platform"
-version = "0.1.0"
+version = "26.11.22+1"
 dependencies = [
  "serde",
  "serde_json",
@@ -6412,7 +6412,7 @@ dependencies = [
 
 [[package]]
 name = "sucrose-portal"
-version = "0.1.0"
+version = "26.11.22+1"
 dependencies = [
  "anyhow",
  "gpui-kit",
@@ -8534,7 +8534,7 @@ checksum = "ec7a2a501ed189703dba8b08142f057e887dfc4b2cc4db2d343ac6376ba3e0b9"
 
 [[package]]
 name = "xtask"
-version = "0.1.0"
+version = "26.11.22+1"
 dependencies = [
  "bindgen",
  "serde",
