@@ -1,9 +1,13 @@
 //! Renderer mode (`sucrose --render <slot>`): connects to the service, receives its assignment and keeps a surface
 //! behind the desktop icons until it is told to stop.
 
-use std::{process::ExitCode, thread, time::Duration};
+use std::{path::Path, process::ExitCode, sync::Arc, thread, time::Duration};
 
 use anyhow::{Context as _, bail};
+use sucrose_engine_mpv::{
+    loader,
+    player::{Player, embedded_options},
+};
 use sucrose_ipc::{
     Connection, IpcError, connect,
     protocol::{Assignment, PROTOCOL_VERSION, ToRenderer, ToService},
@@ -16,6 +20,9 @@ const CONNECT_PAUSE: Duration = Duration::from_millis(100);
 
 /// Exit code for "the desktop surface could not be attached", reported to the service like any other start failure.
 const EXIT_START_FAILURE: u8 = 4;
+
+/// Exit code for "libmpv is missing or cannot be loaded" (D-20).
+const EXIT_ENGINE_MISSING: u8 = 2;
 
 /// Runs the renderer for `slot` until the service closes the connection or asks it to stop.
 pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
@@ -60,6 +67,28 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         }
     };
 
+    // Only the renderer loads libmpv (D-17). A missing or broken engine is a normal state with a repair hint (D-20).
+    let mpv = match loader::load_default() {
+        Ok(mpv) => Arc::new(mpv),
+        Err(error) => {
+            tracing::error!(%error, hint = error.hint(), "libmpv cannot be loaded");
+            return Ok(ExitCode::from(EXIT_ENGINE_MISSING));
+        }
+    };
+    // Opened here, on the thread that pumps the surface's messages: mpv hooks that thread to resize its child.
+    let player = match Player::open(
+        mpv,
+        surface.native_handle(),
+        Path::new(&assignment.source),
+        &embedded_options(),
+    ) {
+        Ok(player) => player,
+        Err(error) => {
+            tracing::error!(%error, "cannot start the player");
+            return Ok(ExitCode::from(EXIT_START_FAILURE));
+        }
+    };
+
     // The reader thread only waits for the end of the session; the loop below must stay on this thread because the
     // surface was created here.
     let proxy = event_loop.proxy();
@@ -72,6 +101,8 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         .context("cannot start the reader thread")?;
 
     event_loop.run();
+    // The player first: its child window lives inside the surface.
+    drop(player);
     drop(surface);
     tracing::info!("the renderer stopped");
     Ok(ExitCode::SUCCESS)
