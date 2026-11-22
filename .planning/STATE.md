@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
 status: executing
-stopped_at: Completed 02-03-PLAN.md
-last_updated: "2026-11-22T13:38:00.436Z"
+stopped_at: Completed 02-04-PLAN.md
+last_updated: "2026-11-22T13:46:45.203Z"
 last_activity: 2026-11-22
 last_activity_desc: Phase 02 execution started
-state_head: 8a6b0751f943a317fb6a7ee11657dc035ad91b74
+state_head: 631abb7b4ae0e5af153525c65b5587e778b6929e
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 15
-  completed_plans: 3
+  completed_plans: 4
   percent: 13
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 ## Current Position
 
 Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
-Plan: 4 of 15
+Plan: 5 of 15
 Status: Ready to execute
 Last activity: 2026-11-22 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
@@ -56,6 +56,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 02 P01 | 32 min | 3 tasks | 15 files |
 | Phase 02 P02 | 4 min | 3 tasks | 9 files |
 | Phase 02 P03 | 5 min | 1 tasks | 15 files |
+| Phase 02 P04 | 7 min | 2 tasks | 13 files |
 
 ## Accumulated Context
 
@@ -72,6 +73,7 @@ Recent decisions affecting current work:
 - [Phase 02]: D-028: engine binaries ship inside the Sucrose package (supersedes D-005); libmpv pins stay on the upstream release for now, GPL-2.0-or-later build signed off
 - [Phase 02]: 02-03: locked or empty legacy setting files are retried 3 times (50 ms) before defaults, since the C# writer truncates in place
 - [Phase 02]: 02-03: SucroseInfo keeps AppVersion as raw JSON and ignores unknown fields until plan 08 types and round-trips it
+- [Phase 02]: 02-04: legacy numbers outside a range are clamped (volume 250 gives 100, -5 gives 0); wrong types and unknown enum names give the legacy default; ScreenArea reads names only
 
 ### Pending Todos
 
@@ -102,6 +104,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-22T13:38:00.292Z
-Stopped at: Completed 02-03-PLAN.md
+Last session: 2026-11-22T13:46:44.981Z
+Stopped at: Completed 02-04-PLAN.md
 Resume file: None
