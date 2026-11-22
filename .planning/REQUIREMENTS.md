@@ -12,8 +12,8 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Foundation (M0)
 
-- [ ] **FND-01**: CI is green on Windows, macOS and Linux (fmt, clippy `-D warnings`, tests, cargo-deny) with stub platform implementations for macOS and Linux
-- [ ] **FND-02**: CI builds and tests Windows ARM64 and Linux ARM64 natively, builds and tests the Windows x86 (i686) target on the Windows x64 runner, and checks the macOS x86_64 target (D-027)
+- [x] **FND-01**: CI is green on Windows, macOS and Linux (fmt, clippy `-D warnings`, tests, cargo-deny) with stub platform implementations for macOS and Linux
+- [x] **FND-02**: CI builds and tests Windows ARM64 and Linux ARM64 natively, builds and tests the Windows x86 (i686) target on the Windows x64 runner, and checks the macOS x86_64 target (D-027)
 
 ### Architecture
 
@@ -227,8 +227,8 @@ Which phases cover which requirements. Filled during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FND-01 | Phase 1 | Pending |
-| FND-02 | Phase 1 | Pending |
+| FND-01 | Phase 1 | Complete |
+| FND-02 | Phase 1 | Complete |
 | ARCH-01 | Phase 3 | Pending |
 | ARCH-02 | Phase 3 | Pending |
 | ARCH-03 | Phase 3 | Pending |
@@ -362,4 +362,4 @@ Which phases cover which requirements. Filled during roadmap creation.
 
 ---
 *Requirements defined: 2026-11-22*
-*Last updated: 2026-11-22 after adding target architectures (D-027, FND-02)*
+*Last updated: 2026-11-22 after Phase 1 completion (FND-01, FND-02)*

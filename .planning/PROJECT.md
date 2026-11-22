@@ -19,10 +19,10 @@ An existing user upgrades and loses nothing (themes, store, web wallpapers and t
 - ✓ `sucrose-core` (paths) and `sucrose-platform` (trait + stubs for all three OSes) — M0
 - ✓ `apps/sucrose` (service stub) and `apps/sucrose-portal` (empty GPUI window, built from scratch) — M0
 - ✓ `cargo xtask ci` runs the CI checks locally — M0
+- ✓ CI green on Windows x86/x64/ARM64, macOS arm64 (x86_64 checked) and Linux x86_64/aarch64 (runs 44968506512, 44978158638) — Phase 1
 
 ### Active
 
-- [ ] CI green on Windows, macOS and Linux with stub platform implementations (needs a push) — M0
 - [ ] A video theme plays behind the desktop icons on every monitor on Windows (libmpv), survives explorer restarts and monitor changes, pauses for fullscreen apps; RAM/CPU measured against the C# MpvPlayer + Backgroundog — M1
 - [ ] Service with one IPC and single instance, optional modules that do not start when disabled, new versioned settings with atomic writes and automatic migration of legacy `Setting/*.json`; the Portal applies wallpapers and persists settings through the service; autostart — M2
 - [ ] Every engine and wallpaper type: WebView2 and CEF with the compatible JavaScript API, built-in GIF/APNG/WebP and OS video, libVLC; URL, YouTube, Application; system data, audio spectrum, media session, input forwarding; display modes including a different wallpaper per monitor; stretch modes; property editing; engine arguments editor; all performance rules — M3
@@ -105,4 +105,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-11-22 after initialization*
+*Last updated: 2026-11-22 after Phase 1*

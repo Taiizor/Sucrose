@@ -1,19 +1,19 @@
 ---
 gsd_state_version: "1.0"
-current_phase: 1
-current_phase_name: M0 — Foundation
-status: executing
-stopped_at: Quick task 261122-723 (D-027) committed; waiting for the push that runs the new CI targets (FND-02)
-last_updated: "2026-11-22T02:40:29.724Z"
+current_phase: 2
+current_phase_name: M1 — Video wallpaper on the desktop (Windows)
+status: planning
+stopped_at: Phase 1 complete, ready to plan Phase 2
+last_updated: "2026-11-22T03:17:32.381Z"
 last_activity: 2026-11-22
-last_activity_desc: "Completed quick task 261122-723: target architectures (D-027), FND-02 in Phase 1"
-state_head: 971149f4d3efdf5bd505fb899efafd0f3437f575
+last_activity_desc: Phase 1 complete, transitioned to Phase 2
+state_head: 2d034dfb090869db2c4ddcb019188d59245769c9
 progress:
   total_phases: 8
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 0
   completed_plans: 0
-  percent: 0
+  percent: 13
 ---
 
 # Project State
@@ -27,13 +27,13 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 
 ## Current Position
 
-Phase: 1 of 8 (M0 — Foundation)
-Plan: 0 of 0 in current phase
-Status: In progress
-Last activity: 2026-11-22 - Completed quick task 261122-723: target architectures (D-027), FND-02 in Phase 1
-Next step: the maintainer pushes `develop-rust` from Windows so the new CI targets run (FND-02); Phase 1 closes when they are green. FND-01 is met (CI run 44968506512).
+Phase: 2 of 8 (M1 — Video wallpaper on the desktop (Windows))
+Plan: Not started
+Status: Ready to plan
+Last activity: 2026-11-22 — Phase 1 complete, transitioned to Phase 2
+Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [█░░░░░░░░░] 13%
 
 ## Performance Metrics
 
@@ -46,7 +46,7 @@ Progress: [░░░░░░░░░░] 0%
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 1 | 0 | - | - |
 
 *Updated after each plan completion*
 
@@ -66,7 +66,6 @@ None yet.
 
 ### Blockers/Concerns
 
-- [Phase 1]: FND-01 met: CI run 44968506512 is green on Windows, Ubuntu and macOS. FND-02 (windows-11-arm, ubuntu-24.04-arm, i686 on windows-latest, x86_64-apple-darwin check) waits for the next push; risk: GPUI may not build for i686
 - [Phase 5]: DESK-10 (lock screen) needs a `docs/DECISIONS.md` entry on the mechanism before it is built (D-026)
 - [Phase 5]: STOR-01 and FMT-05 depend on D-022 (deferred); use the existing v8 endpoints until the API rewrite
 - [Phase 5]: Update signing key scheme still open (Ed25519 proposed, D-019)
@@ -91,5 +90,5 @@ Items acknowledged and deferred at milestone close, most recent first:
 ## Session Continuity
 
 Last session: 2026-11-22T02:03:05.677Z
-Stopped at: Quick task 261122-723 (D-027) committed; waiting for the push that runs the new CI targets (FND-02)
+Stopped at: Phase 1 complete, ready to plan Phase 2
 Resume file: None

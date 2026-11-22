@@ -10,7 +10,7 @@ Sucrose is rewritten from scratch in Rust on `develop-rust`, Windows first, then
 - Integer phases (1–8): Phase N is milestone M(N-1)
 - No decimal phases are planned
 
-- [ ] **Phase 1: M0 — Foundation** - CI is green on Windows, macOS and Linux with stub platform implementations
+- [x] **Phase 1: M0 — Foundation** - CI is green on Windows, macOS and Linux with stub platform implementations (completed 2026-11-22)
 - [ ] **Phase 2: M1 — Video wallpaper on the desktop (Windows)** - The selected video theme plays behind the desktop icons on every monitor on Windows through libmpv
 - [ ] **Phase 3: M2 — Service, IPC and Portal connected** - The Portal shows the library and applies wallpapers through a single-instance service; settings migrate and persist
 - [ ] **Phase 4: M3 — Engines and the wallpaper API** - Every wallpaper type and engine on Windows, the compatible web wallpaper API, display modes, property editing and all performance rules
@@ -32,7 +32,7 @@ Sucrose is rewritten from scratch in Rust on `develop-rust`, Windows first, then
   3. `cargo xtask ci` on the maintainer's Windows machine runs the same checks as CI and passes.
   4. CI builds and tests natively on Windows ARM64 (`windows-11-arm`) and Linux ARM64 (`ubuntu-24.04-arm`), the Windows x64 job runs clippy and the tests for `i686-pc-windows-msvc`, and the macOS job checks the `x86_64-apple-darwin` target.
 **Plans**: TBD
-**Notes**: Every other M0 item is done (PROJECT.md → Validated). The remaining step is a push so CI runs on Linux and macOS; a failure there is fixed in the stubs or the workflow, not by dropping a job.
+**Notes**: Closed 2026-11-22 without plans: every other M0 item was already done (PROJECT.md → Validated), and CI runs 44968506512 (FND-01) and 44978158638 (FND-02) are the evidence (`phases/01-m0-foundation/01-VERIFICATION.md`).
 
 ### Phase 2: M1 — Video wallpaper on the desktop (Windows)
 **Goal**: An existing user's selected video theme plays behind the desktop icons on every monitor on Windows through libmpv, survives shell and monitor changes, and pauses for fullscreen apps.
@@ -142,7 +142,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. M0 — Foundation | 0/TBD | In progress | - |
+| 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
 | 2. M1 — Video wallpaper on the desktop (Windows) | 0/TBD | Not started | - |
 | 3. M2 — Service, IPC and Portal connected | 0/TBD | Not started | - |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
