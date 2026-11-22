@@ -3,6 +3,7 @@
 //! This crate must not contain OS-specific code (see `docs/ARCHITECTURE.md`).
 
 pub mod paths;
+pub mod theme;
 
 /// Product name used for folders, log files and identifiers.
 pub const APP_NAME: &str = "Sucrose";

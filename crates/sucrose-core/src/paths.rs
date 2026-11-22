@@ -34,6 +34,24 @@ pub fn cache_dir() -> Option<PathBuf> {
     data_dir().map(|dir| dir.join("Cache"))
 }
 
+/// Data folder of the installed C# app, or `None` when the OS reports no config directory.
+///
+/// Read-only: Sucrose never writes here (D-008). Unlike [`data_dir`] it ignores `SUCROSE_DATA_DIR`, because that
+/// override only redirects what the Rust app writes; the C# install is always read from its real folder.
+pub fn legacy_data_dir() -> Option<PathBuf> {
+    dirs::config_dir().map(|dir| dir.join(APP_NAME))
+}
+
+/// Folder with the C# app's `Setting/*.json` files. Read-only, see [`legacy_data_dir`].
+pub fn legacy_setting_dir() -> Option<PathBuf> {
+    legacy_data_dir().map(|dir| dir.join("Setting"))
+}
+
+/// Folder where the C# app's mpv player keeps its cache (`Cache\MpvPlayer`). Read-only, see [`legacy_data_dir`].
+pub fn legacy_mpv_cache_dir() -> Option<PathBuf> {
+    legacy_data_dir().map(|dir| dir.join("Cache").join("MpvPlayer"))
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -46,5 +64,16 @@ mod tests {
         assert_eq!(log_dir().unwrap(), root.join("Log"));
         assert_eq!(setting_dir().unwrap(), root.join("Setting"));
         assert_eq!(cache_dir().unwrap(), root.join("Cache"));
+    }
+
+    #[test]
+    fn legacy_folders_ignore_the_data_dir_override() {
+        let Some(config) = dirs::config_dir() else {
+            return;
+        };
+        let root = config.join(APP_NAME);
+        assert_eq!(legacy_data_dir().unwrap(), root);
+        assert_eq!(legacy_setting_dir().unwrap(), root.join("Setting"));
+        assert_eq!(legacy_mpv_cache_dir().unwrap(), root.join("Cache").join("MpvPlayer"));
     }
 }

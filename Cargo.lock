@@ -6239,9 +6239,20 @@ name = "sucrose"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "sucrose-config",
  "sucrose-core",
  "sucrose-log",
  "sucrose-platform",
+ "tracing",
+]
+
+[[package]]
+name = "sucrose-config"
+version = "0.1.0"
+dependencies = [
+ "serde_json",
+ "sucrose-core",
+ "thiserror 2.0.21",
  "tracing",
 ]
 
@@ -6250,6 +6261,9 @@ name = "sucrose-core"
 version = "0.1.0"
 dependencies = [
  "dirs 6.0.0",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.21",
 ]
 
 [[package]]

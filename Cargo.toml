@@ -13,6 +13,7 @@ publish = false
 
 # Central dependency versions (like Directory.Packages.props). Members use `dep = { workspace = true }`.
 [workspace.dependencies]
+sucrose-config = { path = "crates/sucrose-config" }
 sucrose-core = { path = "crates/sucrose-core" }
 sucrose-engine-mpv = { path = "crates/sucrose-engine-mpv" }
 sucrose-log = { path = "crates/sucrose-log" }
@@ -24,6 +25,7 @@ dirs = "6"
 gpui-kit = "=0.10.0"
 libloading = "0.9.1"
 serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
 sevenz-rust2 = "0.25.0"
 sha2 = "0.11.1"
 thiserror = "2"

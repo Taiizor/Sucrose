@@ -1,0 +1,15 @@
+{
+  "AppVersion": "26.10.19.0",
+  "Version": "1.0.0.0",
+  "Title": "Sample video",
+  "Thumbnail": "thumbnail.png",
+  "Preview": "preview.gif",
+  "Description": "Fixture for the SucroseInfo reader",
+  "Author": "Fixture",
+  "License": null,
+  "Contact": "",
+  "Type": 3,
+  "Source": "video.mp4",
+  "Tags": null,
+  "Arguments": null
+}
