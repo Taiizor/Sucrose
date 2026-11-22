@@ -1,4 +1,8 @@
-//! Windows implementation. Desktop surfaces come later in M1; for now this provides the user identity.
+//! Windows implementation: user identity, monitors, DPI awareness, the message loop and the desktop surface.
+
+mod display;
+mod event_loop;
+mod surface;
 
 use windows::{
     Win32::{
@@ -9,7 +13,11 @@ use windows::{
     core::PWSTR,
 };
 
-use crate::{Capabilities, Platform, PlatformError};
+use crate::{Capabilities, MonitorInfo, Platform, PlatformError};
+
+pub(crate) use display::init_dpi_awareness;
+pub use event_loop::{EventLoop, LoopProxy};
+pub use surface::DesktopSurface;
 
 pub(crate) struct Current;
 
@@ -19,11 +27,18 @@ impl Platform for Current {
     }
 
     fn capabilities(&self) -> Capabilities {
-        Capabilities::default()
+        Capabilities {
+            desktop_wallpaper: true,
+            ..Capabilities::default()
+        }
     }
 
     fn user_key(&self) -> Result<String, PlatformError> {
         current_user_sid()
+    }
+
+    fn monitors(&self) -> Vec<MonitorInfo> {
+        display::monitors()
     }
 }
 

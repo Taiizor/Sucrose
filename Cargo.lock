@@ -6337,6 +6337,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "crossbeam-channel",
+ "serde_json",
  "sucrose-config",
  "sucrose-core",
  "sucrose-ipc",
@@ -6402,6 +6403,7 @@ name = "sucrose-platform"
 version = "0.1.0"
 dependencies = [
  "thiserror 2.0.21",
+ "tracing",
  "windows 0.62.2",
 ]
 

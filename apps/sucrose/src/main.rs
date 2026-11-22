@@ -8,9 +8,11 @@
 mod render;
 mod service;
 
+use std::process::ExitCode;
+
 use anyhow::Context as _;
 
-fn main() -> anyhow::Result<()> {
+fn main() -> anyhow::Result<ExitCode> {
     let args: Vec<String> = std::env::args().skip(1).collect();
     match args.as_slice() {
         [flag, slot] if flag == "--render" => {
@@ -22,7 +24,7 @@ fn main() -> anyhow::Result<()> {
         }
         _ => {
             let _log = sucrose_log::init("Service")?;
-            service::run()
+            service::run().map(|()| ExitCode::SUCCESS)
         }
     }
 }

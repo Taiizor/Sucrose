@@ -11,6 +11,8 @@ mod os_linux;
 mod os_macos;
 #[cfg(target_os = "windows")]
 mod os_windows;
+#[cfg(not(target_os = "windows"))]
+mod unsupported;
 
 #[cfg(target_os = "linux")]
 use os_linux as imp;
@@ -21,6 +23,8 @@ use os_windows as imp;
 
 #[cfg(not(any(target_os = "windows", target_os = "macos", target_os = "linux")))]
 compile_error!("Sucrose supports Windows, macOS and Linux only");
+
+pub use imp::{DesktopSurface, EventLoop, LoopProxy};
 
 /// What the current OS and session support. The UI hides or explains anything that is `false`.
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
@@ -49,6 +53,69 @@ pub enum PlatformError {
     },
 }
 
+/// A rectangle in physical pixels of the virtual desktop (never scaled by DPI), edges as in the Win32 `RECT`.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub struct RectPx {
+    /// Left edge.
+    pub left: i32,
+    /// Top edge.
+    pub top: i32,
+    /// Right edge (exclusive).
+    pub right: i32,
+    /// Bottom edge (exclusive).
+    pub bottom: i32,
+}
+
+impl RectPx {
+    /// Width in pixels.
+    pub fn width(&self) -> i32 {
+        self.right - self.left
+    }
+
+    /// Height in pixels.
+    pub fn height(&self) -> i32 {
+        self.bottom - self.top
+    }
+}
+
+/// One display as the OS reports it.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct MonitorInfo {
+    /// Stable device name (`\\.\DISPLAY1` on Windows).
+    pub id: String,
+    /// Full monitor rectangle in physical pixels.
+    pub rect: RectPx,
+    /// Work area (without the taskbar) in physical pixels.
+    pub work: RectPx,
+    /// Effective DPI of the monitor (96 is 100 %).
+    pub dpi: u32,
+    /// Whether this is the primary monitor.
+    pub primary: bool,
+}
+
+/// The DPI awareness a thread of this process runs with.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum DpiAwareness {
+    /// Per-Monitor-V2: coordinates are physical pixels and windows get DPI changes.
+    PerMonitorV2,
+    /// Per-Monitor (V1).
+    PerMonitor,
+    /// One DPI for the whole session.
+    System,
+    /// DPI virtualized by the OS.
+    Unaware,
+    /// The OS reported something else.
+    Unknown,
+    /// The OS has no such concept.
+    NotApplicable,
+}
+
+/// Makes this process Per-Monitor-V2 aware and reports the awareness that is in effect afterwards. Call it before
+/// any window or engine thread exists: threads inherit the process default.
+pub fn init_dpi_awareness() -> DpiAwareness {
+    imp::init_dpi_awareness()
+}
+
 /// OS integration used by the service.
 pub trait Platform: Send + Sync {
     /// Short OS name for logs, the same value as `std::env::consts::OS`.
@@ -61,6 +128,11 @@ pub trait Platform: Send + Sync {
     /// per-user service endpoint and to restrict it to that user.
     fn user_key(&self) -> Result<String, PlatformError> {
         Err(PlatformError::Unsupported("user identity"))
+    }
+
+    /// The connected displays, primary first. Empty where the OS cannot enumerate them.
+    fn monitors(&self) -> Vec<MonitorInfo> {
+        Vec::new()
     }
 }
 
