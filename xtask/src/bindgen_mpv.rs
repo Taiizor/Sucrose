@@ -90,6 +90,8 @@ fn generate(args: &[String]) -> Result<(), String> {
         .layout_tests(false)
         // Edition 2024 denies unsafe_op_in_unsafe_fn; the generated wrappers must carry their own unsafe blocks.
         .wrap_unsafe_ops(true)
+        // The C doc comments hold indented example code that rustdoc would run as Rust doctests; client.h is the reference.
+        .generate_comments(false)
         .disable_header_comment();
     for function in FUNCTIONS {
         builder = builder.allowlist_function(function);

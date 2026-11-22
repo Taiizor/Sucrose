@@ -125,35 +125,159 @@ fn describe(error: &libloading::Error) -> String {
     }
 }
 
+/// The folders that may hold libmpv, in search order: the exe folder, then each absolute `PATH` entry once.
+/// Relative and empty entries are skipped, and so is the current folder (T-02-02).
+fn folders(exe_dir: Option<&Path>, path_var: Option<&OsStr>) -> Vec<PathBuf> {
+    let from_path = path_var.into_iter().flat_map(std::env::split_paths);
+    let mut folders: Vec<PathBuf> = Vec::new();
+    for folder in exe_dir.map(Path::to_path_buf).into_iter().chain(from_path) {
+        if folder.as_os_str().is_empty() || !folder.is_absolute() {
+            continue;
+        }
+        if !folders.iter().any(|known| same_folder(known, &folder)) {
+            folders.push(folder);
+        }
+    }
+    folders
+}
+
+/// Folder equality for de-duplication: trailing separators are ignored, and so is letter case on Windows.
+fn same_folder(a: &Path, b: &Path) -> bool {
+    let key = |path: &Path| {
+        let text = path.to_string_lossy();
+        let trimmed = text.trim_end_matches(['/', '\\']);
+        if cfg!(windows) {
+            trimmed.to_lowercase()
+        } else {
+            trimmed.to_owned()
+        }
+    };
+    key(a) == key(b)
+}
+
+fn files_in(folders: &[PathBuf]) -> Vec<PathBuf> {
+    folders
+        .iter()
+        .flat_map(|folder| LIBRARY_NAMES.iter().map(move |name| folder.join(name)))
+        .collect()
+}
+
 /// Every file that may hold libmpv: each name in the exe folder, then in each absolute `PATH` folder.
-pub fn candidates(_exe_dir: &Path, _path_var: Option<&OsStr>) -> Vec<PathBuf> {
-    Vec::new()
+pub fn candidates(exe_dir: &Path, path_var: Option<&OsStr>) -> Vec<PathBuf> {
+    files_in(&folders(Some(exe_dir), path_var))
 }
 
 /// The first candidate that exists, without loading it. The service may call this; only renderers load (D-017).
-pub fn locate(_exe_dir: &Path, _path_var: Option<&OsStr>) -> Option<PathBuf> {
-    None
+pub fn locate(exe_dir: &Path, path_var: Option<&OsStr>) -> Option<PathBuf> {
+    candidates(exe_dir, path_var).into_iter().find(|file| file.is_file())
 }
 
-fn resolve(_exe_dir: Option<&Path>, _path_var: Option<&OsStr>) -> Result<PathBuf, LoadError> {
-    Err(LoadError::NotFound { searched: Vec::new() })
-}
-
-/// Loads libmpv from an absolute path and checks its client API version.
-pub fn load(path: &Path) -> Result<Mpv, LoadError> {
-    Err(LoadError::NotAbsolute {
-        path: path.to_path_buf(),
-    })
+/// Like [`locate`], but a missing library is a [`LoadError::NotFound`] that lists everything searched.
+fn resolve(exe_dir: Option<&Path>, path_var: Option<&OsStr>) -> Result<PathBuf, LoadError> {
+    let searched = files_in(&folders(exe_dir, path_var));
+    match searched.iter().find(|file| file.is_file()) {
+        Some(found) => Ok(found.clone()),
+        None => Err(LoadError::NotFound { searched }),
+    }
 }
 
 /// Finds libmpv next to the running executable or on `PATH` and loads it.
+///
+/// Only the files named in [`LIBRARY_NAMES`] are considered, and never anything inside the C# app's install (D-018).
 pub fn load_default() -> Result<Mpv, LoadError> {
     let exe_dir = std::env::current_exe()
         .ok()
         .and_then(|exe| exe.parent().map(Path::to_path_buf));
+    if exe_dir.is_none() {
+        tracing::warn!("cannot tell where sucrose.exe lives; searching PATH only for libmpv");
+    }
     let path_var = std::env::var_os("PATH");
     let path = resolve(exe_dir.as_deref(), path_var.as_deref())?;
     load(&path)
+}
+
+/// Loads libmpv from an absolute path and checks its client API version.
+pub fn load(path: &Path) -> Result<Mpv, LoadError> {
+    if !path.is_absolute() {
+        return Err(LoadError::NotAbsolute {
+            path: path.to_path_buf(),
+        });
+    }
+    let library = open(path)?;
+
+    // An older or foreign library may lack the version function; that is reported as an API mismatch.
+    type VersionFn = unsafe extern "C" fn() -> c_ulong;
+    let required = REQUIRED_MAJOR << 16;
+    // SAFETY: the name and the VersionFn signature come from the pinned client.h
+    // (`unsigned long mpv_client_api_version(void)`); the function pointer is only used while `library` is alive.
+    let reported = match unsafe { library.get::<VersionFn>(b"mpv_client_api_version\0") } {
+        // SAFETY: the function takes no arguments and has no preconditions (client.h).
+        Ok(version_fn) => version_u32(unsafe { version_fn() }),
+        Err(_) => return Err(LoadError::ApiTooOld { found: 0, required }),
+    };
+    if reported >> 16 != REQUIRED_MAJOR {
+        return Err(LoadError::ApiTooOld {
+            found: reported,
+            required,
+        });
+    }
+
+    // SAFETY: every function pointer in `sys::Mpv` is resolved by the name and signature of the pinned client.h,
+    // and the major version just checked guarantees the library keeps that ABI.
+    let api = unsafe { sys::Mpv::from_library(library) }.map_err(|source| LoadError::LoadFailed {
+        path: path.to_path_buf(),
+        source,
+    })?;
+    let client_api = (reported >> 16, reported & 0xffff);
+    tracing::info!(path = %path.display(), major = client_api.0, minor = client_api.1, "loaded libmpv");
+    Ok(Mpv {
+        api,
+        path: path.to_path_buf(),
+        client_api,
+    })
+}
+
+/// `c_ulong` is 32 bits on Windows and 64 bits elsewhere; the API version always fits in 32.
+#[allow(clippy::useless_conversion, clippy::unnecessary_cast)]
+fn version_u32(raw: c_ulong) -> u32 {
+    u32::try_from(u64::from(raw)).unwrap_or(u32::MAX)
+}
+
+#[cfg(windows)]
+fn open(path: &Path) -> Result<libloading::Library, LoadError> {
+    use libloading::os::windows::{LOAD_WITH_ALTERED_SEARCH_PATH, Library};
+
+    // SAFETY: loading a library runs its DllMain, which is the point of loading libmpv. The path is absolute and
+    // was resolved by this crate (never a bare name), and ALTERED_SEARCH_PATH makes the DLL's own dependencies
+    // resolve from its folder instead of the current directory.
+    unsafe { Library::load_with_flags(path, LOAD_WITH_ALTERED_SEARCH_PATH) }
+        .map(libloading::Library::from)
+        .map_err(|source| {
+            // ERROR_BAD_EXE_FORMAT: a 64-bit DLL in a 32-bit process or the reverse, or not a PE file at all.
+            // libloading keeps the code private; its Debug output is the bare number.
+            let bad_exe_format =
+                matches!(&source, libloading::Error::LoadLibraryExW { source: code } if format!("{code:?}") == "193");
+            if bad_exe_format {
+                LoadError::WrongArchitecture {
+                    path: path.to_path_buf(),
+                }
+            } else {
+                LoadError::LoadFailed {
+                    path: path.to_path_buf(),
+                    source,
+                }
+            }
+        })
+}
+
+#[cfg(not(windows))]
+fn open(path: &Path) -> Result<libloading::Library, LoadError> {
+    // SAFETY: loading a library runs its initializers, which is the point of loading libmpv. The path is
+    // absolute and was resolved by this crate.
+    unsafe { libloading::Library::new(path) }.map_err(|source| LoadError::LoadFailed {
+        path: path.to_path_buf(),
+        source,
+    })
 }
 
 #[cfg(test)]
@@ -250,7 +374,7 @@ mod tests {
         let (exe, a) = (scratch.folder("exe"), scratch.folder("a"));
         fs::write(a.join(LIBRARY_NAMES[0]), b"path copy").expect("write");
         assert_eq!(
-            locate(&exe, Some(&path_var(&[a.clone()]))),
+            locate(&exe, Some(&path_var(std::slice::from_ref(&a)))),
             Some(a.join(LIBRARY_NAMES[0]))
         );
     }
