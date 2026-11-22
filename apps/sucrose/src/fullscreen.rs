@@ -68,6 +68,11 @@ impl Debounce {
         }
     }
 
+    /// Whether the rule is currently on.
+    pub fn is_on(&self) -> bool {
+        self.on
+    }
+
     /// Takes one sample; returns the new state only when it flipped.
     pub fn feed(&mut self, active: bool) -> Option<bool> {
         if active == self.on {
@@ -92,6 +97,10 @@ pub enum ActionScope {
     /// Every monitor's renderer, whichever monitor the fullscreen window is on (the legacy behavior).
     AllMonitors,
     /// Only the renderers of the monitors the fullscreen window covers.
+    #[allow(
+        dead_code,
+        reason = "implemented and tested, but no switch reaches it in M1 (D-05): Phase 3 persists it"
+    )]
     AffectedMonitor,
 }
 
@@ -118,8 +127,18 @@ pub fn plan_action(
     affected: &[String],
     all: &[String],
 ) -> Vec<(String, RuleAction)> {
-    let _ = (action, scope, became_active, affected, all);
-    Vec::new()
+    let step = match (action, became_active) {
+        (FullScreenAction::Resume, _) => return Vec::new(),
+        (FullScreenAction::Pause, true) => RuleAction::Pause,
+        (FullScreenAction::Pause, false) => RuleAction::Resume,
+        (FullScreenAction::Close, true) => RuleAction::Close,
+        (FullScreenAction::Close, false) => RuleAction::Respawn,
+    };
+    let targets = match scope {
+        ActionScope::AllMonitors => all,
+        ActionScope::AffectedMonitor => affected,
+    };
+    targets.iter().map(|id| (id.clone(), step)).collect()
 }
 
 /// The fullscreen rule while it is on: the debounce of the samples and the monitors it acted on.
@@ -145,14 +164,32 @@ impl Rule {
     /// Takes one sample: `covered` are the monitors a fullscreen window covers now, `all` the monitors that have a
     /// renderer. Returns what to do, which is empty except on a flip.
     pub fn tick(&mut self, covered: &[String], all: &[String]) -> Vec<(String, RuleAction)> {
-        let _ = (covered, all, &mut self.debounce, &self.acted, self.scope, self.action);
-        Vec::new()
+        let Some(active) = self.debounce.feed(!covered.is_empty()) else {
+            return Vec::new();
+        };
+        if active {
+            let plan = plan_action(self.action, self.scope, true, covered, all);
+            self.acted = plan.iter().map(|(id, _)| id.clone()).collect();
+            plan
+        } else {
+            // Undo what was done, on the monitors it was done to, even if the window has moved since.
+            let acted = std::mem::take(&mut self.acted);
+            plan_action(self.action, self.scope, false, &acted, all)
+        }
+    }
+
+    /// Whether the renderer of `monitor` has to stay closed, for a monitor that appears while the rule is on.
+    pub fn closes(&self, monitor: &str) -> bool {
+        self.action == FullScreenAction::Close && self.acts_on(monitor)
+    }
+
+    fn acts_on(&self, monitor: &str) -> bool {
+        self.debounce.is_on() && (self.scope == ActionScope::AllMonitors || self.acted.iter().any(|id| id == monitor))
     }
 
     /// Whether the renderer of `monitor` has to be paused, for a renderer that connects while the rule is on.
     pub fn pauses(&self, monitor: &str) -> bool {
-        let _ = monitor;
-        false
+        self.action == FullScreenAction::Pause && self.acts_on(monitor)
     }
 }
 
@@ -473,5 +510,17 @@ mod tests {
         }
 
         assert!(!rule.pauses("A"));
+    }
+
+    #[test]
+    fn a_close_rule_keeps_a_monitor_that_appears_meanwhile_closed() {
+        let mut rule = Rule::new(FullScreenAction::Close, ActionScope::AllMonitors);
+        let all = ids(&["A"]);
+        assert!(!rule.closes("NEW"));
+        for _ in 0..TRIGGER_SAMPLES {
+            rule.tick(&ids(&["A"]), &all);
+        }
+
+        assert!(rule.closes("A") && rule.closes("NEW"));
     }
 }

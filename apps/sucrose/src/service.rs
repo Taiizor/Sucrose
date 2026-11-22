@@ -25,7 +25,7 @@ use sucrose_platform::{EventLoop, Flow, LoopEvent, LoopProxy, LoopTimers, Monito
 use sucrose_core::settings::{FullScreenAction, PauseKind, ScreenArea};
 
 use crate::{
-    fullscreen::{self, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, covered_monitors},
+    fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
     supervisor::{Decision, Exited, RestartBudget, START_FAILED, ShellRestart, Supervisor, classify_exit, decide_exit},
     topology::{
         Debounce, SlotMap, TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, TimerCommand, TopologyAction, diff, primary, with_area,
@@ -111,6 +111,10 @@ fn lock_assignments(assignments: &Mutex<HashMap<u8, Assignment>>) -> MutexGuard<
 fn lock(renderers: &Mutex<Renderers>) -> MutexGuard<'_, Renderers> {
     renderers.lock().unwrap_or_else(PoisonError::into_inner)
 }
+
+/// The fullscreen rule acts on every monitor, as the legacy app does (D-05). Acting on the affected monitor only is
+/// implemented too ([`ActionScope::AffectedMonitor`]) but has no switch in M1: persisting it is Phase 3, its UI PERF-01.
+const ACTION_SCOPE: ActionScope = ActionScope::AllMonitors;
 
 /// How long a renderer gets to leave after Close before it is killed.
 const SHUTDOWN_GRACE: Duration = Duration::from_secs(2);
@@ -313,6 +317,7 @@ pub fn run() -> anyhow::Result<()> {
                 match event {
                     Event::Renderer(ToService::Hello { pid, slot, .. }) => {
                         tracing::info!(pid, slot, "renderer connected");
+                        fleet.catch_up_renderer(slot, &renderers);
                     }
                     Event::Renderer(message) => {
                         if let Some(next) = status.after(&message) {
@@ -337,7 +342,16 @@ pub fn run() -> anyhow::Result<()> {
                             fleet.budgets.remove(&exited.slot);
                             fleet.stopped.remove(&exited.slot);
                             fleet.shell.forget(exited.slot);
+                            fleet.rule_closed.forget(exited.slot);
                             tracing::info!(slot = exited.slot, "the renderer of a removed monitor ended");
+                            continue;
+                        }
+                        if fleet.rule_closed.note_exit(exited.slot) {
+                            // The fullscreen rule closed this renderer: it is neither a crash nor restarted by the
+                            // supervisor, the rule starts it again when the fullscreen app is gone (D-06).
+                            fleet.stopped.insert(exited.slot);
+                            fleet.shell.forget(exited.slot);
+                            tracing::info!(slot = exited.slot, "the renderer closed for the fullscreen app ended");
                             continue;
                         }
                         let budget = fleet.budgets.entry(exited.slot).or_default();
@@ -857,13 +871,72 @@ struct Fleet {
     /// The recovery after explorer.exe restarted (D-11).
     shell: ShellRestart,
     /// The fullscreen rule; `None` when FullScreenPerformance is Resume (the legacy default) or nothing plays.
-    fullscreen: Option<FullscreenRule>,
+    fullscreen: Option<Rule>,
+    /// The renderers the fullscreen rule closed.
+    rule_closed: RuleClosed,
 }
 
-/// The fullscreen rule while it is on: the action to take and the 5/3 debounce of its samples.
-struct FullscreenRule {
-    action: FullScreenAction,
-    debounce: fullscreen::Debounce,
+/// The renderers the fullscreen rule closed (FullScreenPerformance = Close) and has to bring back (D-06). A slot is
+/// only started again once the exit event of its old renderer has been seen, so the old and the new renderer can
+/// never be confused.
+#[derive(Debug, Default)]
+struct RuleClosed {
+    /// Slots whose renderer was closed by the rule.
+    closed: HashSet<u8>,
+    /// The closed slots whose renderer has ended.
+    ended: HashSet<u8>,
+    /// The closed slots the rule wants back.
+    back: HashSet<u8>,
+}
+
+impl RuleClosed {
+    fn close(&mut self, slot: u8, already_ended: bool) {
+        self.closed.insert(slot);
+        self.back.remove(&slot);
+        if already_ended {
+            self.ended.insert(slot);
+        } else {
+            self.ended.remove(&slot);
+        }
+    }
+
+    fn is_closed(&self, slot: u8) -> bool {
+        self.closed.contains(&slot)
+    }
+
+    /// The renderer of `slot` ended; `true` when that is the exit the rule asked for.
+    fn note_exit(&mut self, slot: u8) -> bool {
+        if self.closed.contains(&slot) {
+            self.ended.insert(slot);
+            true
+        } else {
+            false
+        }
+    }
+
+    /// Whether the renderer of `slot` still has to say it ended, so a Close has to reach it.
+    fn awaiting_exit(&self, slot: u8) -> bool {
+        self.closed.contains(&slot) && !self.ended.contains(&slot)
+    }
+
+    fn want_back(&mut self, slot: u8) {
+        if self.closed.contains(&slot) {
+            self.back.insert(slot);
+        }
+    }
+
+    /// The slots that are wanted back and whose old renderer is gone.
+    fn ready(&self) -> Vec<u8> {
+        let mut ready: Vec<u8> = self.back.intersection(&self.ended).copied().collect();
+        ready.sort_unstable();
+        ready
+    }
+
+    fn forget(&mut self, slot: u8) {
+        self.closed.remove(&slot);
+        self.ended.remove(&slot);
+        self.back.remove(&slot);
+    }
 }
 
 impl Fleet {
@@ -878,6 +951,7 @@ impl Fleet {
             stopped: HashSet::new(),
             shell: ShellRestart::default(),
             fullscreen: None,
+            rule_closed: RuleClosed::default(),
         }
     }
 
@@ -892,14 +966,12 @@ impl Fleet {
             tracing::info!("PausePerformanceType Heavy is handled like Light in M1");
         }
         tracing::info!(?action, "fullscreen rule on");
-        self.fullscreen = Some(FullscreenRule {
-            action,
-            debounce: fullscreen::Debounce::new(fullscreen::TRIGGER_SAMPLES, fullscreen::RECOVER_SAMPLES),
-        });
+        self.fullscreen = Some(Rule::new(action, ACTION_SCOPE));
         true
     }
 
-    /// One 1 s sample of the foreground window: after enough equal samples the renderers are paused or resumed.
+    /// One 1 s sample of the foreground window: after enough equal samples the renderers are paused, resumed, closed
+    /// or started again.
     fn fullscreen_tick(&mut self, platform: &dyn sucrose_platform::Platform, ctx: &Ctx<'_>) {
         let Some(rule) = self.fullscreen.as_mut() else {
             return;
@@ -909,14 +981,63 @@ impl Fleet {
         let foreground = platform.foreground_window();
         // The whole monitor rectangles, not the work areas the surfaces may cover: a maximized window must not count.
         let covered = covered_monitors(foreground.as_ref(), &platform.monitors(), &own_pids);
-        let Some(active) = rule.debounce.feed(!covered.is_empty()) else {
-            return;
-        };
-        let slots = lock(ctx.renderers).connections.keys().copied().collect::<Vec<_>>();
-        for slot in &slots {
-            send_to(ctx.renderers, *slot, &ToRenderer::Pause(active));
+        let all: Vec<String> = self.monitors.iter().map(|monitor| monitor.id.clone()).collect();
+        let actions = rule.tick(&covered, &all);
+        if !actions.is_empty() {
+            tracing::info!(action = ?actions.first().map(|(_, step)| *step), monitors = ?covered, renderers = actions.len(), "fullscreen rule changed");
         }
-        tracing::info!(action = ?rule.action, active, monitors = ?covered, renderers = slots.len(), "fullscreen rule changed");
+        for (monitor, action) in actions {
+            let Some(slot) = self.slots.slot_of(&monitor) else {
+                continue;
+            };
+            match action {
+                RuleAction::Pause | RuleAction::Resume => {
+                    send_to(ctx.renderers, slot, &ToRenderer::Pause(action == RuleAction::Pause));
+                }
+                RuleAction::Close => {
+                    // A slot with nothing running has nothing to close and nothing to bring back.
+                    if ctx.supervisor.slots().contains(&slot) {
+                        self.rule_closed.close(slot, false);
+                        send_to(ctx.renderers, slot, &ToRenderer::Close);
+                    }
+                }
+                RuleAction::Respawn => self.rule_closed.want_back(slot),
+            }
+        }
+        self.respawn_closed(ctx);
+    }
+
+    /// Starts the renderers the rule closed and wants back, once their old renderer has ended. Retried on every tick
+    /// until it works.
+    fn respawn_closed(&mut self, ctx: &Ctx<'_>) {
+        for slot in self.rule_closed.ready() {
+            if self.job.is_none() || self.slots.monitor_of(slot).is_none() {
+                self.rule_closed.forget(slot);
+                continue;
+            }
+            self.budgets.remove(&slot);
+            self.stopped.remove(&slot);
+            match ctx.supervisor.spawn(slot) {
+                Ok(()) => {
+                    tracing::info!(slot, "the fullscreen app is gone, starting the renderer again");
+                    self.rule_closed.forget(slot);
+                }
+                Err(error) => {
+                    tracing::warn!(%error, slot, "cannot start the renderer after the fullscreen app, will retry")
+                }
+            }
+        }
+    }
+
+    /// A renderer said Hello: it is told what the fullscreen rule decided before it connected.
+    fn catch_up_renderer(&self, slot: u8, renderers: &SharedRenderers) {
+        if self.rule_closed.awaiting_exit(slot) {
+            send_to(renderers, slot, &ToRenderer::Close);
+        } else if let (Some(rule), Some(monitor)) = (&self.fullscreen, self.slots.monitor_of(slot))
+            && rule.pauses(monitor)
+        {
+            send_to(renderers, slot, &ToRenderer::Pause(true));
+        }
     }
 
     /// Applies the monitors of a snapshot that two looks agreed on. An empty snapshot is the OS in the middle of a
@@ -968,6 +1089,12 @@ impl Fleet {
         lock_assignments(&self.assignments).insert(slot, job.assignment(slot, monitor));
         self.budgets.remove(&slot);
         self.stopped.remove(&slot);
+        if self.fullscreen.as_ref().is_some_and(|rule| rule.closes(&monitor.id)) {
+            // A monitor that appears while a fullscreen app has the renderers closed gets its renderer with the others.
+            self.rule_closed.close(slot, true);
+            tracing::info!(slot, monitor = %monitor.id, "a fullscreen app is in front, the renderer of the new monitor waits");
+            return true;
+        }
         match ctx.supervisor.spawn(slot) {
             Ok(()) => true,
             Err(error) => {
@@ -986,6 +1113,10 @@ impl Fleet {
         let mut to_close = Vec::new();
         let mut to_start = Vec::new();
         for slot in self.slots.active_slots() {
+            // A renderer the fullscreen rule closed comes back with the rule, not with the shell.
+            if self.rule_closed.is_closed(slot) {
+                continue;
+            }
             if !running.contains(&slot) {
                 to_start.push(slot);
             // Without a connection the renderer is still starting: it attaches to the new shell by itself, or ends
@@ -1019,6 +1150,7 @@ impl Fleet {
             return;
         };
         lock_assignments(&self.assignments).remove(&slot);
+        self.rule_closed.forget(slot);
         // A renderer that has not said Hello yet has no connection: it is told to close when it does, because its
         // assignment is gone.
         let told = send_to(ctx.renderers, slot, &ToRenderer::Close);
@@ -1356,6 +1488,41 @@ mod tests {
         shutdown(&mut fake, Duration::from_secs(2));
 
         assert!(fake.calls.is_empty());
+    }
+
+    #[test]
+    fn a_closed_slot_comes_back_only_after_its_old_renderer_ended() {
+        let mut closed = RuleClosed::default();
+        closed.close(0, false);
+        closed.want_back(0);
+
+        assert!(closed.ready().is_empty());
+        assert!(closed.awaiting_exit(0));
+        assert!(closed.note_exit(0));
+        assert_eq!(closed.ready(), [0]);
+        closed.forget(0);
+        assert!(closed.ready().is_empty());
+        assert!(!closed.is_closed(0));
+    }
+
+    #[test]
+    fn an_exit_the_rule_did_not_ask_for_is_not_its_business() {
+        let mut closed = RuleClosed::default();
+
+        assert!(!closed.note_exit(3));
+        closed.want_back(3);
+        assert!(closed.ready().is_empty());
+    }
+
+    #[test]
+    fn a_slot_for_a_monitor_that_appeared_while_closed_is_ready_when_wanted_back() {
+        let mut closed = RuleClosed::default();
+        closed.close(2, true);
+
+        assert!(!closed.awaiting_exit(2));
+        assert!(closed.ready().is_empty());
+        closed.want_back(2);
+        assert_eq!(closed.ready(), [2]);
     }
 
     /// The maintainer's real C# install, read-only: the selected theme must pass the gate.

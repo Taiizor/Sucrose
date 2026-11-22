@@ -53,7 +53,8 @@ Actions Close / Pause / Resume per condition; trigger after 5 consecutive 1 s po
 | Session lock, sleep, user switch, log out | ✅ | ✅ | ⚠️ | Default Close. | ⬜ |
 | Screen saver | ✅ | ✅ | ⚠️ | Default Pause. | ⬜ |
 | Desktop not focused (Focus) | ✅ | ⚠️ | ⚠️ | | ⬜ |
-| Fullscreen app | ✅ | ✅ | ⚠️ Wayland | | ⬜ |
+| Fullscreen app | ✅ | ✅ | ⚠️ Wayland | Legacy rule: foreground covers a monitor rect, desktop-focused skip, 5 polls to trigger, 3 to recover; 1 s timer only while the action is not Resume (D-008); Heavy pause behaves like Light in M1 (engine pause; PLAY-05 replaces NtSuspendProcess). | 🟨 |
+| **New:** fullscreen action scope — affected monitor only or all monitors | ✅ | ✅ | ⚠️ | Both implemented in M1, fixed to all monitors (legacy) with no switch (D-05); persisted with the new settings in Phase 3, UI with PERF-01; a paused monitor re-aligns to the master on resume (plan 14) | 🟨 |
 | CPU, memory, GPU usage thresholds | ✅ | ✅ | ✅ | GPU per adapter; NVML/DXGI/IOKit. | ⬜ |
 | Network: ping, upload, download thresholds | ✅ | ✅ | ✅ | Fix legacy ordering bug (ping checked first even when its threshold is 0). | ⬜ |
 | Battery level, battery saver | ✅ | ✅ | ✅ | | ⬜ |
