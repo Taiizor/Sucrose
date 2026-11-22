@@ -18,7 +18,7 @@ use sucrose_core::{
 };
 use sucrose_ipc::{
     Connection, IpcError, Listener, endpoint_name,
-    protocol::{Assignment, PROTOCOL_VERSION, PlaybackSettings, ToRenderer, ToService},
+    protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
 };
 use sucrose_platform::{EventLoop, Flow, LoopEvent, LoopProxy, LoopTimers, MonitorInfo, PlatformError, RectPx, Tray};
 // ScreenArea is read below to choose the surface rectangle.
@@ -97,6 +97,9 @@ struct Renderers {
     connections: HashMap<u8, Connection>,
     /// Set when shutdown begins: a renderer that connects later is told to close at once.
     closing: bool,
+    /// The slot of the master clock (D-02); the others are followers. Kept under the same lock as the connections so
+    /// a role is never sent from a stale election.
+    master: Option<u8>,
 }
 
 type SharedRenderers = Arc<Mutex<Renderers>>;
@@ -192,7 +195,7 @@ impl Status {
                 reason: limit(reason),
                 hint: limit(hint),
             }),
-            ToService::Hello { .. } => None,
+            ToService::Hello { .. } | ToService::Clock(_) => None,
         }
     }
 }
@@ -288,6 +291,9 @@ pub fn run() -> anyhow::Result<()> {
         }
         tracing::info!(count = applied.started, monitors = ?ids, primary = ?primary_id, "renderers started");
         fleet.monitors = monitors;
+        let master = fleet.master_slot();
+        tracing::info!(?master, "master clock elected");
+        lock(&renderers).master = master;
     }
     let accept = Accept {
         renderers: Arc::clone(&renderers),
@@ -669,6 +675,9 @@ fn read_connection(
         _ => {}
     }
     register_writer(renderers, slot, &mut connection);
+    if matches!(reply, ToRenderer::Assign(_)) {
+        send_role(renderers, slot);
+    }
     // A change that came between the reply and the registration found no connection to send to: catch up.
     if let ToRenderer::Assign(sent) = &reply {
         match lock_assignments(assignments)
@@ -693,6 +702,8 @@ fn read_connection(
     }
     loop {
         match connection.recv::<ToService>() {
+            // The clock goes straight from this thread to the followers: it is frequent and changes no status.
+            Ok(ToService::Clock(tick)) => relay_clock(renderers, slot, tick),
             Ok(message) => {
                 if !notifier.send(Event::Renderer(message)) {
                     return;
@@ -729,6 +740,63 @@ fn register_writer(renderers: &Mutex<Renderers>, slot: u8, connection: &mut Conn
     } else {
         state.connections.insert(slot, writer);
     }
+}
+
+/// Tells the renderer of `slot` whether it is the master clock or a follower, through the connection kept for the
+/// service's own sends so that it cannot interleave with another message.
+fn send_role(renderers: &Mutex<Renderers>, slot: u8) {
+    let mut state = lock(renderers);
+    let role = if state.master == Some(slot) {
+        Role::Master
+    } else {
+        Role::Follower
+    };
+    if let Some(connection) = state.connections.get_mut(&slot) {
+        match connection.send(&ToRenderer::SetRole(role)) {
+            Ok(()) => tracing::info!(slot, ?role, "role sent to a renderer"),
+            Err(error) => tracing::warn!(%error, slot, "cannot send the role to a renderer"),
+        }
+    }
+}
+
+/// Which slots get a clock reading that the renderer of `from` published: every other connected renderer when
+/// `from` is the master, nobody otherwise (T-02-30).
+fn clock_targets(master: Option<u8>, from: u8, connected: impl IntoIterator<Item = u8>) -> Vec<u8> {
+    if master != Some(from) {
+        return Vec::new();
+    }
+    let mut targets: Vec<u8> = connected.into_iter().filter(|slot| *slot != from).collect();
+    targets.sort_unstable();
+    targets
+}
+
+/// Hands the master's clock reading to the followers; a reading from any other renderer is ignored.
+fn relay_clock(renderers: &Mutex<Renderers>, from: u8, tick: ClockTick) {
+    let mut state = lock(renderers);
+    if state.master != Some(from) {
+        tracing::debug!(
+            slot = from,
+            "ignoring a clock reading from a renderer that is not the master"
+        );
+        return;
+    }
+    let targets = clock_targets(state.master, from, state.connections.keys().copied());
+    for slot in targets {
+        if let Some(connection) = state.connections.get_mut(&slot)
+            && let Err(error) = connection.send(&ToRenderer::Clock(tick))
+        {
+            tracing::warn!(%error, slot, "cannot send the clock to a renderer");
+        }
+    }
+}
+
+/// The monitor whose renderer is the master clock: the primary one, else the lowest device name (D-02).
+fn elect_master(monitors: &[MonitorInfo]) -> Option<String> {
+    monitors
+        .iter()
+        .find(|monitor| monitor.primary)
+        .or_else(|| monitors.iter().min_by(|a, b| a.id.cmp(&b.id)))
+        .map(|monitor| monitor.id.clone())
 }
 
 /// Why the service refuses a renderer's Hello.
@@ -1038,6 +1106,17 @@ impl Fleet {
         {
             send_to(renderers, slot, &ToRenderer::Pause(true));
         }
+    }
+
+    /// The slot of the master clock: the renderer of the elected monitor among those that have a slot.
+    fn master_slot(&self) -> Option<u8> {
+        let candidates: Vec<MonitorInfo> = self
+            .monitors
+            .iter()
+            .filter(|monitor| self.slots.slot_of(&monitor.id).is_some())
+            .cloned()
+            .collect();
+        elect_master(&candidates).and_then(|id| self.slots.slot_of(&id))
     }
 
     /// Applies the monitors of a snapshot that two looks agreed on. An empty snapshot is the OS in the middle of a

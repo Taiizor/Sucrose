@@ -4,9 +4,13 @@
 use std::{
     path::{Path, PathBuf},
     process::ExitCode,
-    sync::{Arc, Mutex, PoisonError},
+    sync::{
+        Arc, Mutex, PoisonError,
+        atomic::{AtomicBool, AtomicU8, Ordering},
+        mpsc::{Receiver, RecvTimeoutError},
+    },
     thread,
-    time::Duration,
+    time::{Duration, Instant},
 };
 
 use anyhow::{Context as _, bail};
@@ -14,13 +18,14 @@ use sucrose_core::paths::{cache_dir, legacy_mpv_cache_dir};
 use sucrose_engine_mpv::{
     config::{embedding_options, generated_options, shader_cache_options, user_config_path},
     loader::{self, LoadError},
-    player::{OpenOptions, Player, PlayerError},
+    player::{OpenOptions, Player, PlayerError, PlayerEvent},
+    sync::{DEFAULT_FRAME_S, SyncAction, correct},
 };
 use sucrose_ipc::{
     Connection, IpcError, connect,
-    protocol::{Assignment, PROTOCOL_VERSION, ToRenderer, ToService},
+    protocol::{Assignment, ClockTick, PROTOCOL_VERSION, Role, ToRenderer, ToService},
 };
-use sucrose_platform::{DesktopSurface, DpiAwareness, EventLoop, Flow, LoopEvent, LoopProxy, RectPx};
+use sucrose_platform::{DesktopSurface, DpiAwareness, EventLoop, Flow, LoopEvent, LoopProxy, RectPx, monotonic_ns};
 
 /// How often and how long the renderer retries while the service is still opening its endpoint.
 const CONNECT_ATTEMPTS: u32 = 20;
@@ -38,6 +43,23 @@ const EXIT_ENGINE_MISSING: u8 = crate::supervisor::ENGINE_MISSING;
 /// Exit code for "the shell destroyed the desktop surface" (explorer.exe restarted): the service starts a new
 /// renderer, which does not count as a crash.
 const EXIT_SURFACE_LOST: u8 = crate::supervisor::SURFACE_LOST;
+
+/// How often the master publishes its clock when nothing happened, and how often the clock thread looks for work.
+const CLOCK_PERIOD: Duration = Duration::from_secs(1);
+const CLOCK_POLL: Duration = Duration::from_millis(100);
+
+/// What the threads of a renderer share about its part in the master/follower scheme (D-02).
+#[derive(Debug)]
+struct SyncState {
+    /// Whether this renderer is the master clock.
+    master: AtomicBool,
+    /// The volume the master plays at: the assignment's, or the service's latest SetVolume.
+    volume: AtomicU8,
+    /// Set when the clock thread should publish a reading without waiting for its period.
+    kick: AtomicBool,
+    /// Whether the video loops, so that a follower treats the loop end as a wrap and not as drift.
+    looping: bool,
+}
 
 /// The newest rectangle the service asked for, waiting for the thread that owns the surface to apply it.
 type PendingRect = Arc<Mutex<Option<RectPx>>>;
@@ -104,6 +126,13 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         tracing::warn!(%error, "cannot tell the service that the wallpaper is playing");
     }
 
+    let sync = Arc::new(SyncState {
+        master: AtomicBool::new(false),
+        volume: AtomicU8::new(assignment.settings.volume),
+        kick: AtomicBool::new(false),
+        looping: assignment.settings.looping,
+    });
+    let clock_writer = connection.try_clone();
     // The reader thread only waits for the end of the session; the loop below must stay on this thread because the
     // surface was created here.
     let proxy = event_loop.proxy();
@@ -111,16 +140,47 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     let reader_player = Arc::clone(&player);
     let reader_rect = Arc::clone(&pending_rect);
     let reader_proxy = proxy.clone();
+    let reader_sync = Arc::clone(&sync);
     thread::Builder::new()
         .name("ipc-reader".to_owned())
         .spawn(move || {
-            wait_for_close(&mut connection, &reader_player, &reader_rect, &reader_proxy);
+            wait_for_close(
+                &mut connection,
+                &reader_player,
+                &reader_rect,
+                &reader_proxy,
+                &reader_sync,
+            );
             // Released before the loop is told to stop, so that the main thread drops the last handle and the
             // player ends before the surface it is embedded in.
             drop(reader_player);
             proxy.quit();
         })
         .context("cannot start the reader thread")?;
+    // The master publishes its clock from a thread of its own. It is joined before the player is dropped, so the
+    // player still ends before the surface it is embedded in.
+    let clock_stop = Arc::new(AtomicBool::new(false));
+    let clock_thread = match clock_writer {
+        Ok(writer) => {
+            let clock_player = Arc::clone(&player);
+            let clock_sync = Arc::clone(&sync);
+            let stop = Arc::clone(&clock_stop);
+            let spawned = thread::Builder::new()
+                .name("clock".to_owned())
+                .spawn(move || publish_clock(writer, &clock_player, &clock_sync, &stop));
+            match spawned {
+                Ok(handle) => Some(handle),
+                Err(error) => {
+                    tracing::warn!(%error, "cannot start the clock thread, this renderer cannot be the master");
+                    None
+                }
+            }
+        }
+        Err(error) => {
+            tracing::warn!(%error, "cannot keep a write handle for the clock, this renderer cannot be the master");
+            None
+        }
+    };
 
     // A wake means a new rectangle: the surface is moved here because only this thread may touch it. The loop ends
     // when the reader thread asks for it, or when the shell destroys the surface (the surface posts the quit itself).
@@ -140,6 +200,12 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         LoopEvent::DisplayChanged | LoopEvent::ShellRestarted | LoopEvent::Timer(_) => Flow::Continue,
     });
     let surface_lost = surface.destroyed_externally();
+    clock_stop.store(true, Ordering::SeqCst);
+    if let Some(thread) = clock_thread
+        && thread.join().is_err()
+    {
+        tracing::warn!("the clock thread panicked");
+    }
     // The player first: its child window lives inside the surface.
     drop(player);
     drop(surface);
@@ -217,6 +283,8 @@ fn start_engine(wid: u64, assignment: &Assignment) -> Result<Player, EngineError
     // The shader cache is always redirected, so that a user config cannot send it into the C# app's folder.
     let mut embedding = embedding_options();
     embedding.extend(shader_cache_options(&shader_cache));
+    // No audio is decoded until the service names this renderer the master clock (D-02): followers never play it.
+    embedding.push(("aid", "no".to_owned()));
     let generated = generated_options(&assignment.settings, &shader_cache);
     // Only the path is taken from the C# app's folder; mpv reads the file and nothing is written there (D-08).
     let user_config = legacy_mpv_cache_dir().and_then(|dir| user_config_path(&dir));
@@ -250,7 +318,13 @@ fn wait_for_assignment(connection: &mut Connection) -> anyhow::Result<Option<Ass
             Ok(None)
         }
         // Controls only make sense once a wallpaper plays; before that the service has nothing to control.
-        Ok(ToRenderer::Pause(_) | ToRenderer::SetVolume(_) | ToRenderer::SetRect(_)) => {
+        Ok(
+            ToRenderer::Pause(_)
+            | ToRenderer::SetVolume(_)
+            | ToRenderer::SetRect(_)
+            | ToRenderer::SetRole(_)
+            | ToRenderer::Clock(_),
+        ) => {
             tracing::warn!("ignoring a control message that arrived before the assignment");
             Ok(None)
         }
@@ -260,7 +334,13 @@ fn wait_for_assignment(connection: &mut Connection) -> anyhow::Result<Option<Ass
 
 /// Applies the service's pause and volume commands to `player` until the service asks the renderer to stop or the
 /// connection ends. A new rectangle is handed to the main thread through `pending_rect` and `proxy`.
-fn wait_for_close(connection: &mut Connection, player: &Player, pending_rect: &PendingRect, proxy: &LoopProxy) {
+fn wait_for_close(
+    connection: &mut Connection,
+    player: &Player,
+    pending_rect: &PendingRect,
+    proxy: &LoopProxy,
+    sync: &SyncState,
+) {
     loop {
         match connection.recv::<ToRenderer>() {
             Ok(ToRenderer::Close) => {
@@ -273,6 +353,7 @@ fn wait_for_close(connection: &mut Connection, player: &Player, pending_rect: &P
                 }
             }
             Ok(ToRenderer::SetVolume(volume)) => {
+                sync.volume.store(volume, Ordering::SeqCst);
                 if let Err(error) = player.set_volume(volume) {
                     tracing::warn!(%error, volume, "cannot change the volume");
                 }
@@ -288,6 +369,8 @@ fn wait_for_close(connection: &mut Connection, player: &Player, pending_rect: &P
                 *pending_rect.lock().unwrap_or_else(PoisonError::into_inner) = Some(rect);
                 proxy.wake();
             }
+            Ok(ToRenderer::SetRole(role)) => apply_role(role, player, sync),
+            Ok(ToRenderer::Clock(tick)) => follow_clock(&tick, player, sync),
             // A second assignment is not part of this plan; later plans act on it.
             Ok(ToRenderer::Assign(_)) => tracing::warn!("ignoring an unexpected second assignment"),
             Err(IpcError::Closed) => {
@@ -299,6 +382,101 @@ fn wait_for_close(connection: &mut Connection, player: &Player, pending_rect: &P
                 return;
             }
         }
+    }
+}
+
+/// Takes on the role the service chose: the master plays the audio at the configured volume and publishes its clock,
+/// a follower plays none (D-02).
+fn apply_role(role: Role, player: &Player, sync: &SyncState) {
+    let master = role == Role::Master;
+    sync.master.store(master, Ordering::SeqCst);
+    if let Err(error) = player.set_audio(master) {
+        tracing::warn!(%error, ?role, "cannot switch the audio for the new role");
+    }
+    if master {
+        let volume = sync.volume.load(Ordering::SeqCst);
+        if let Err(error) = player.set_volume(volume) {
+            tracing::warn!(%error, volume, "cannot set the master's volume");
+        }
+        // Followers should not wait a whole period for the first reading of a new master.
+        sync.kick.store(true, Ordering::SeqCst);
+    }
+    tracing::info!(?role, "role");
+}
+
+/// Corrects this follower's drift against the master's `tick`.
+fn follow_clock(tick: &ClockTick, player: &Player, sync: &SyncState) {
+    // A paused follower (the fullscreen rule on this monitor alone) has nothing to correct until it plays again; the
+    // next reading after that realigns it.
+    if sync.master.load(Ordering::SeqCst) || player.is_paused() {
+        return;
+    }
+    let Some(local) = player.time_pos() else {
+        return;
+    };
+    let duration = if sync.looping { player.duration() } else { None };
+    let action = correct(tick, monotonic_ns(), local, duration, DEFAULT_FRAME_S);
+    let applied = match action {
+        SyncAction::None => Ok(()),
+        SyncAction::Speed(speed) => player.set_speed(speed),
+        SyncAction::Seek(position) => {
+            tracing::info!(local, position, "drift beyond half a second, seeking");
+            player.seek_exact(position)
+        }
+    };
+    if let Err(error) = applied {
+        tracing::warn!(%error, ?action, "cannot correct the drift");
+    }
+}
+
+/// One reading of this player's clock, or None while it has no position yet or the OS clock fails.
+fn read_tick(player: &Player) -> Option<ClockTick> {
+    let position_s = player.time_pos()?;
+    let stamp_ns = monotonic_ns();
+    (stamp_ns > 0).then(|| ClockTick {
+        position_s,
+        stamp_ns,
+        speed: player.speed(),
+        paused: player.is_paused(),
+        loop_gen: player.loop_gen(),
+    })
+}
+
+/// Publishes the master's clock about once per period, and at once after a seek, loop wrap, pause, resume or a
+/// promotion. Does nothing while this renderer is a follower. Runs until `stop` is set.
+fn publish_clock(mut connection: Connection, player: &Player, sync: &SyncState, stop: &AtomicBool) {
+    let events: Option<Receiver<PlayerEvent>> = player.take_events();
+    let mut last = Instant::now();
+    let mut sent_once = false;
+    while !stop.load(Ordering::SeqCst) {
+        let mut due = sync.kick.swap(false, Ordering::SeqCst);
+        match &events {
+            Some(events) => match events.recv_timeout(CLOCK_POLL) {
+                Ok(_) => {
+                    while events.try_recv().is_ok() {}
+                    due = true;
+                }
+                Err(RecvTimeoutError::Timeout) => {}
+                Err(RecvTimeoutError::Disconnected) => thread::sleep(CLOCK_POLL),
+            },
+            None => thread::sleep(CLOCK_POLL),
+        }
+        if !sync.master.load(Ordering::SeqCst) {
+            sent_once = false;
+            continue;
+        }
+        if !(due || !sent_once || last.elapsed() >= CLOCK_PERIOD) {
+            continue;
+        }
+        let Some(tick) = read_tick(player) else {
+            continue;
+        };
+        if let Err(error) = connection.send(&ToService::Clock(tick)) {
+            tracing::warn!(%error, "cannot publish the clock, the service is gone");
+            return;
+        }
+        sent_once = true;
+        last = Instant::now();
     }
 }
 

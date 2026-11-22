@@ -33,6 +33,15 @@ pub use geometry::{MonitorInfo, RectPx};
 pub use icon::truncate_tooltip;
 pub use imp::{DesktopSurface, EventLoop, LoopProxy, LoopTimers, RendererJob, Tray};
 
+/// A clock in nanoseconds that every process on this machine reads the same way, for comparing moments across
+/// the service and its renderers (D-02). On Windows it is QueryPerformanceCounter scaled to nanoseconds, which is
+/// monotonic and system-wide. On the OSes without an implementation yet it is the wall clock since the Unix epoch,
+/// which is **not** monotonic.
+#[must_use]
+pub fn monotonic_ns() -> u64 {
+    imp::monotonic_ns()
+}
+
 /// What an [`EventLoop`] tells its handler.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LoopEvent {

@@ -9,7 +9,7 @@ use serde::{Deserialize, Serialize};
 use sucrose_core::settings::Stretch;
 
 /// Version of this protocol, sent in [`ToService::Hello`] so the service can refuse a renderer it cannot talk to.
-pub const PROTOCOL_VERSION: u16 = 2;
+pub const PROTOCOL_VERSION: u16 = 3;
 
 /// Messages from a renderer to the service.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
@@ -33,6 +33,9 @@ pub enum ToService {
     },
     /// The wallpaper is playing.
     Playing,
+    /// The master's playback clock, about once a second and right after a seek, loop wrap, pause or resume. The
+    /// service relays it to the followers and ignores it from any renderer that is not the master (D-02).
+    Clock(ClockTick),
 }
 
 /// Messages from the service to a renderer.
@@ -49,6 +52,35 @@ pub enum ToRenderer {
     /// Move the surface onto this rectangle (left, top, right, bottom, physical pixels) without restarting playback:
     /// the monitor moved, was resized or changed its DPI.
     SetRect([i32; 4]),
+    /// Whether this renderer is the master clock (plays the audio) or a follower; sent after every [`ToRenderer::Assign`]
+    /// and whenever the election changes (D-02).
+    SetRole(Role),
+    /// The master's clock, for a follower to correct its drift against.
+    Clock(ClockTick),
+}
+
+/// What a renderer does when several monitors show the same wallpaper (D-02).
+#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Role {
+    /// The reference clock: decodes and plays the audio and publishes its position.
+    Master,
+    /// Follows the master's position and plays no audio.
+    Follower,
+}
+
+/// One reading of the master's clock.
+#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq)]
+pub struct ClockTick {
+    /// Playback position in seconds when the reading was taken.
+    pub position_s: f64,
+    /// `sucrose_platform::monotonic_ns` at that moment; every process reads the same clock.
+    pub stamp_ns: u64,
+    /// The master's playback speed, 1.0 normally.
+    pub speed: f64,
+    /// Whether the master was paused, in which case followers do not chase it.
+    pub paused: bool,
+    /// How many times the master looped or jumped back to the start so far.
+    pub loop_gen: u32,
 }
 
 /// How the player is configured, taken from the legacy Engine.json (D-09).
@@ -156,6 +188,31 @@ mod tests {
         // Appended after Close (0), Assign (1), Pause (2) and SetVolume (3).
         assert_eq!(bytes[0], 4);
         assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
+    }
+
+    #[test]
+    fn clock_and_role_messages_keep_their_wire_index_and_survive_the_wire() {
+        let tick = ClockTick {
+            position_s: 12.5,
+            stamp_ns: 987_654_321,
+            speed: 1.0,
+            paused: false,
+            loop_gen: 3,
+        };
+        let to_service = ToService::Clock(tick);
+        let role = ToRenderer::SetRole(Role::Follower);
+        let clock = ToRenderer::Clock(tick);
+
+        // Appended after Hello (0), Failed (1), Playing (2) and after SetRect (4).
+        let bytes = postcard::to_stdvec(&to_service).expect("encode");
+        assert_eq!(bytes[0], 3);
+        assert_eq!(postcard::from_bytes::<ToService>(&bytes).expect("decode"), to_service);
+        let bytes = postcard::to_stdvec(&role).expect("encode");
+        assert_eq!(bytes[0], 5);
+        assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), role);
+        let bytes = postcard::to_stdvec(&clock).expect("encode");
+        assert_eq!(bytes[0], 6);
+        assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), clock);
     }
 
     #[test]

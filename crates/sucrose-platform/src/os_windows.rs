@@ -8,11 +8,16 @@ mod refresh;
 mod surface;
 mod tray;
 
+use std::sync::OnceLock;
+
 use windows::{
     Win32::{
         Foundation::{CloseHandle, HANDLE, HLOCAL, LocalFree},
         Security::{Authorization::ConvertSidToStringSidW, GetTokenInformation, TOKEN_QUERY, TOKEN_USER, TokenUser},
-        System::Threading::{GetCurrentProcess, OpenProcessToken},
+        System::{
+            Performance::{QueryPerformanceCounter, QueryPerformanceFrequency},
+            Threading::{GetCurrentProcess, OpenProcessToken},
+        },
     },
     core::PWSTR,
 };
@@ -52,6 +57,27 @@ impl Platform for Current {
     fn foreground_window(&self) -> Option<ForegroundWindow> {
         foreground::foreground_window()
     }
+}
+
+/// QueryPerformanceCounter scaled to nanoseconds. The counter is system-wide, so the service and its renderers read
+/// comparable values (RESEARCH A4). 0 when the OS refuses, which a caller sees as "no clock".
+pub(crate) fn monotonic_ns() -> u64 {
+    static FREQUENCY: OnceLock<i64> = OnceLock::new();
+    let frequency = *FREQUENCY.get_or_init(|| {
+        let mut frequency = 0_i64;
+        // SAFETY: `frequency` is a valid out pointer for the duration of the call.
+        match unsafe { QueryPerformanceFrequency(&mut frequency) } {
+            Ok(()) => frequency,
+            Err(_) => 0,
+        }
+    });
+    let mut counter = 0_i64;
+    // SAFETY: `counter` is a valid out pointer for the duration of the call.
+    if frequency <= 0 || unsafe { QueryPerformanceCounter(&mut counter) }.is_err() || counter < 0 {
+        return 0;
+    }
+    let nanoseconds = i128::from(counter) * 1_000_000_000 / i128::from(frequency);
+    u64::try_from(nanoseconds).unwrap_or(u64::MAX)
 }
 
 fn os_error(context: &'static str, error: &windows::core::Error) -> PlatformError {
@@ -124,6 +150,17 @@ fn current_user_sid() -> Result<String, PlatformError> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn the_clock_advances_and_is_in_nanoseconds() {
+        let first = monotonic_ns();
+        std::thread::sleep(std::time::Duration::from_millis(20));
+        let second = monotonic_ns();
+
+        assert!(first > 0);
+        let elapsed = second - first;
+        assert!((15_000_000..2_000_000_000).contains(&elapsed), "{elapsed}");
+    }
 
     #[test]
     fn the_user_key_is_an_account_sid() {

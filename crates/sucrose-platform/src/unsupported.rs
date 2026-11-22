@@ -129,3 +129,11 @@ pub(crate) fn init_dpi_awareness() -> DpiAwareness {
 
 /// Nothing is painted on this OS, so there is nothing to refresh.
 pub(crate) fn refresh_desktop() {}
+
+/// The wall clock since the Unix epoch in nanoseconds: not monotonic, which is why [crate::monotonic_ns] documents it
+/// as a fallback until these OSes get a real implementation.
+pub(crate) fn monotonic_ns() -> u64 {
+    std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .map_or(0, |elapsed| u64::try_from(elapsed.as_nanos()).unwrap_or(u64::MAX))
+}

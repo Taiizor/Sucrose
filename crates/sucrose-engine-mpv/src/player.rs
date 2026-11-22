@@ -9,7 +9,9 @@ use std::ffi::{CStr, CString, c_char, c_int};
 use std::path::Path;
 use std::ptr;
 use std::sync::Arc;
-use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicU32, AtomicU64, Ordering};
+use std::sync::mpsc::{self, Receiver, Sender};
+use std::sync::{Mutex, PoisonError};
 use std::thread::{self, JoinHandle};
 
 use crate::loader::Mpv;
@@ -90,6 +92,53 @@ unsafe impl Send for Handle {}
 // SAFETY: see the Send impl; the pointer is only passed to thread-safe client API calls.
 unsafe impl Sync for Handle {}
 
+/// What the event thread tells whoever drives the player (see [Player::take_events]).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum PlayerEvent {
+    /// Playback restarted after a seek or a loop wrap, so the position jumped.
+    Discontinuity,
+    /// The player was paused (true) or resumed (false).
+    PauseChanged(bool),
+}
+
+/// What happened to the playback position between two readings.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum Jump {
+    /// Ordinary playback.
+    None,
+    /// The position went back to the start of the file: a loop wrap, or a seek to the start.
+    Wrap,
+    /// Any other jump, forward or backward.
+    Skip,
+}
+
+/// Classifies the move from the position `previous` to `now` (seconds). Playback advances by well under a second
+/// between two readings that follow a restart, so a larger move is a jump.
+fn classify_jump(previous: Option<f64>, now: f64) -> Jump {
+    let Some(previous) = previous else {
+        return Jump::None;
+    };
+    let delta = now - previous;
+    if delta.abs() <= 1.0 {
+        Jump::None
+    } else if delta < 0.0 && now < 1.0 {
+        Jump::Wrap
+    } else {
+        Jump::Skip
+    }
+}
+
+/// State the event thread keeps for the thread that drives the player.
+#[derive(Debug, Default)]
+struct Shared {
+    /// The last value of the observed `pause` property.
+    paused: AtomicBool,
+    /// How many times the position wrapped back to the start.
+    loop_gen: AtomicU32,
+    /// The last position the event thread saw, as the bits of an f64; NaN when unknown.
+    last_position: AtomicU64,
+}
+
 /// A running embedded mpv instance. Dropping it stops the event thread and destroys the instance.
 pub struct Player {
     // Declared first so it is dropped last: the library must outlive every call into it.
@@ -97,6 +146,8 @@ pub struct Player {
     handle: Handle,
     stop: Arc<AtomicBool>,
     events: Option<JoinHandle<()>>,
+    shared: Arc<Shared>,
+    receiver: Mutex<Option<Receiver<PlayerEvent>>>,
 }
 
 impl std::fmt::Debug for Player {
@@ -143,6 +194,11 @@ impl Player {
             handle: Handle(raw),
             stop: Arc::new(AtomicBool::new(false)),
             events: None,
+            shared: Arc::new(Shared {
+                last_position: AtomicU64::new(f64::NAN.to_bits()),
+                ..Shared::default()
+            }),
+            receiver: Mutex::new(None),
         };
 
         // The user's config first, then the generated look, then the embedding on top: see OpenOptions.
@@ -189,6 +245,7 @@ impl Player {
                 .mpv_request_log_messages(player.handle.0, c"warn".as_ptr())
         };
 
+        player.observe_pause();
         player.start_event_thread()?;
         player.load(source)?;
         Ok(player)
@@ -202,6 +259,102 @@ impl Player {
     /// Sets the playback volume; values above 100 are treated as 100 (volume-max is 100).
     pub fn set_volume(&self, volume: u8) -> Result<(), PlayerError> {
         self.set_property("volume", &volume.min(100).to_string())
+    }
+
+    /// Sets the playback speed (1.0 is normal); the follower's drift correction uses 0.98 and 1.02 (D-02).
+    pub fn set_speed(&self, speed: f64) -> Result<(), PlayerError> {
+        self.set_property("speed", &format!("{speed:.4}"))
+    }
+
+    /// Jumps to `position_s` seconds, exactly and not to the nearest keyframe.
+    pub fn seek_exact(&self, position_s: f64) -> Result<(), PlayerError> {
+        let target = format!("{position_s:.3}");
+        let refused = |message: String| PlayerError::Property {
+            name: "seek",
+            value: target.clone(),
+            message,
+        };
+        let Ok(c_target) = CString::new(target.as_str()) else {
+            return Err(refused("the position contains a NUL character".to_owned()));
+        };
+        let mut args: [*const c_char; 4] = [
+            c"seek".as_ptr(),
+            c_target.as_ptr(),
+            c"absolute+exact".as_ptr(),
+            ptr::null(),
+        ];
+        // SAFETY: the handle is valid; args is a NULL-terminated array of NUL-terminated strings that outlive the
+        // call, and mpv_command copies what it needs before returning.
+        let status = unsafe { self.mpv.api.mpv_command(self.handle.0, args.as_mut_ptr()) };
+        if status < 0 {
+            return Err(refused(self.error_text(status)));
+        }
+        Ok(())
+    }
+
+    /// Turns audio decoding on (`aid=auto`) or off (`aid=no`). Only the master clock plays audio (D-02).
+    pub fn set_audio(&self, on: bool) -> Result<(), PlayerError> {
+        self.set_property("aid", if on { "auto" } else { "no" })
+    }
+
+    /// The playback position in seconds, or None before the first frame.
+    #[must_use]
+    pub fn time_pos(&self) -> Option<f64> {
+        self.get_property_seconds("time-pos")
+    }
+
+    /// The length of the file in seconds, or None while it is unknown.
+    #[must_use]
+    pub fn duration(&self) -> Option<f64> {
+        self.get_property_seconds("duration").filter(|length| *length > 0.0)
+    }
+
+    /// The playback speed, 1.0 when mpv does not say.
+    #[must_use]
+    pub fn speed(&self) -> f64 {
+        self.get_property_seconds("speed")
+            .filter(|speed| *speed > 0.0)
+            .unwrap_or(1.0)
+    }
+
+    /// Whether playback is paused, as the event thread last saw it.
+    #[must_use]
+    pub fn is_paused(&self) -> bool {
+        self.shared.paused.load(Ordering::SeqCst)
+    }
+
+    /// How many times the position wrapped back to the start (a loop, or a seek to the start).
+    #[must_use]
+    pub fn loop_gen(&self) -> u32 {
+        self.shared.loop_gen.load(Ordering::SeqCst)
+    }
+
+    /// The channel of [PlayerEvent]s; there is one receiver, so only the first call gets it.
+    #[must_use]
+    pub fn take_events(&self) -> Option<Receiver<PlayerEvent>> {
+        self.receiver.lock().unwrap_or_else(PoisonError::into_inner).take()
+    }
+
+    fn get_property_seconds(&self, name: &str) -> Option<f64> {
+        self.get_property_string(name)?
+            .trim()
+            .parse::<f64>()
+            .ok()
+            .filter(|value| value.is_finite())
+    }
+
+    /// Asks mpv to report changes of `pause`. A refusal only costs the immediate clock tick on a pause.
+    fn observe_pause(&self) {
+        // SAFETY: the handle is valid and initialized; the name is a NUL-terminated literal; the userdata is only
+        // echoed back in events.
+        let status = unsafe {
+            self.mpv
+                .api
+                .mpv_observe_property(self.handle.0, 1, c"pause".as_ptr(), sys::mpv_format_MPV_FORMAT_FLAG)
+        };
+        if status < 0 {
+            tracing::warn!(error = %self.error_text(status), "cannot observe the pause property");
+        }
     }
 
     /// The current value of a property as mpv formats it, or None when it is unavailable.
@@ -294,9 +447,12 @@ impl Player {
         let mpv = Arc::clone(&self.mpv);
         let handle = self.handle;
         let stop = Arc::clone(&self.stop);
+        let shared = Arc::clone(&self.shared);
+        let (sender, receiver) = mpsc::channel();
+        *self.receiver.lock().unwrap_or_else(PoisonError::into_inner) = Some(receiver);
         let thread = thread::Builder::new()
             .name("mpv-events".to_owned())
-            .spawn(move || event_loop(&mpv, handle, &stop))
+            .spawn(move || event_loop(&mpv, handle, &stop, &shared, &sender))
             .map_err(PlayerError::Thread)?;
         self.events = Some(thread);
         Ok(())
@@ -347,7 +503,7 @@ fn error_text(mpv: &Mpv, status: c_int) -> String {
 }
 
 /// Reads events until mpv shuts down or the player is dropped; the only caller of mpv_wait_event.
-fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool) {
+fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool, shared: &Shared, events: &Sender<PlayerEvent>) {
     let mut started = false;
     while !stop.load(Ordering::SeqCst) {
         // SAFETY: the handle stays valid until this thread is joined; the returned event is only read before the
@@ -363,8 +519,18 @@ fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool) {
                 return;
             }
             // The decoder exists once the first frame is about to show, so hwdec-current is only meaningful here.
-            sys::mpv_event_id_MPV_EVENT_PLAYBACK_RESTART if !started => {
+            // A later restart follows a seek or a loop wrap: the position jumped, so the clock is due.
+            sys::mpv_event_id_MPV_EVENT_PLAYBACK_RESTART if started => {
+                note_restart(mpv, handle, shared, events);
+            }
+            sys::mpv_event_id_MPV_EVENT_PROPERTY_CHANGE => note_property(event, shared, events),
+            sys::mpv_event_id_MPV_EVENT_PLAYBACK_RESTART => {
                 started = true;
+                if let Some(position) =
+                    property_string(mpv, handle, "time-pos").and_then(|text| text.trim().parse().ok())
+                {
+                    shared.last_position.store(f64::to_bits(position), Ordering::SeqCst);
+                }
                 let hwdec = property_string(mpv, handle, "hwdec-current")
                     .filter(|value| !value.is_empty())
                     .unwrap_or_else(|| "no".to_owned());
@@ -375,6 +541,36 @@ fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool) {
             _ => {}
         }
     }
+}
+
+/// A restart after the first one: compares the position with the last one seen, counts a wrap and tells the driver.
+fn note_restart(mpv: &Mpv, handle: Handle, shared: &Shared, events: &Sender<PlayerEvent>) {
+    let Some(position) = property_string(mpv, handle, "time-pos").and_then(|text| text.trim().parse::<f64>().ok())
+    else {
+        return;
+    };
+    let previous = f64::from_bits(shared.last_position.swap(position.to_bits(), Ordering::SeqCst));
+    let previous = (!previous.is_nan()).then_some(previous);
+    if classify_jump(previous, position) == Jump::Wrap {
+        shared.loop_gen.fetch_add(1, Ordering::SeqCst);
+    }
+    // A closed channel means nobody listens (a follower, or the player is being dropped): nothing to do.
+    let _ = events.send(PlayerEvent::Discontinuity);
+}
+
+/// A change of the observed `pause` property.
+fn note_property(event: &sys::mpv_event, shared: &Shared, events: &Sender<PlayerEvent>) {
+    // SAFETY: for PROPERTY_CHANGE, data is NULL or points to an mpv_event_property valid until the next wait.
+    let Some(property) = (unsafe { event.data.cast::<sys::mpv_event_property>().as_ref() }) else {
+        return;
+    };
+    if property.format != sys::mpv_format_MPV_FORMAT_FLAG || property.data.is_null() {
+        return;
+    }
+    // SAFETY: for MPV_FORMAT_FLAG, data points to a C int that stays valid until the next mpv_wait_event.
+    let paused = unsafe { property.data.cast::<c_int>().read() } != 0;
+    shared.paused.store(paused, Ordering::SeqCst);
+    let _ = events.send(PlayerEvent::PauseChanged(paused));
 }
 
 fn log_end_file(mpv: &Mpv, event: &sys::mpv_event) {
@@ -411,4 +607,27 @@ fn c_text(text: *const c_char) -> String {
     }
     // SAFETY: mpv event strings are NUL-terminated and valid until the next mpv_wait_event call.
     unsafe { CStr::from_ptr(text) }.to_string_lossy().into_owned()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn ordinary_playback_is_no_jump() {
+        assert_eq!(classify_jump(None, 5.0), Jump::None);
+        assert_eq!(classify_jump(Some(5.0), 5.4), Jump::None);
+        assert_eq!(classify_jump(Some(5.0), 4.2), Jump::None);
+    }
+
+    #[test]
+    fn a_jump_back_to_the_start_is_a_wrap() {
+        assert_eq!(classify_jump(Some(29.8), 0.05), Jump::Wrap);
+    }
+
+    #[test]
+    fn any_other_jump_is_a_skip() {
+        assert_eq!(classify_jump(Some(5.0), 20.0), Jump::Skip);
+        assert_eq!(classify_jump(Some(20.0), 8.0), Jump::Skip);
+    }
 }
