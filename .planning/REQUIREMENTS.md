@@ -34,7 +34,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Engines
 
-- [ ] **ENG-01**: The libmpv engine ships inside the Sucrose package, is loaded at runtime, embeds into the desktop surface, and supports hardware decoding, loop, pause and volume (D-013, D-028)
+- [x] **ENG-01**: The libmpv engine ships inside the Sucrose package, is loaded at runtime, embeds into the desktop surface, and supports hardware decoding, loop, pause and volume (D-013, D-028)
 - [ ] **ENG-02**: The WebView2 engine hosts Web, URL and YouTube wallpapers with the C#-compatible JavaScript API
 - [ ] **ENG-03**: The CEF engine hosts the same wallpapers with the same JavaScript API
 - [ ] **ENG-04**: The libVLC engine plays video when libVLC is installed
@@ -240,7 +240,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | TYPE-04 | Phase 4 | Pending |
 | TYPE-05 | Phase 4 | Pending |
 | TYPE-06 | Phase 4 | Pending |
-| ENG-01 | Phase 2 | Pending |
+| ENG-01 | Phase 2 | Complete |
 | ENG-02 | Phase 4 | Pending |
 | ENG-03 | Phase 4 | Pending |
 | ENG-04 | Phase 4 | Pending |
