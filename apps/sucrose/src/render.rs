@@ -40,8 +40,10 @@ const CHECK_THE_LOG: &str = "Check the log for details.";
 /// Exit code for "libmpv is missing or cannot be loaded" (D-20).
 const EXIT_ENGINE_MISSING: u8 = crate::supervisor::ENGINE_MISSING;
 
-/// Exit code for "the shell destroyed the desktop surface" (explorer.exe restarted): the service starts a new
-/// renderer, which does not count as a crash.
+/// Exit code for "Windows destroyed the desktop surface" (a WM_DESTROY this renderer did not cause): the service
+/// starts a new renderer, which does not count as a crash. A killed explorer.exe sends no such message, and a shell
+/// restart is handled by the service, which closes and replaces every renderer on TaskbarCreated (D-11), so nothing
+/// waits for this exit.
 const EXIT_SURFACE_LOST: u8 = crate::supervisor::SURFACE_LOST;
 
 /// How often the master publishes its clock when nothing happened, and how often the clock thread looks for work.
@@ -183,7 +185,8 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     };
 
     // A wake means a new rectangle: the surface is moved here because only this thread may touch it. The loop ends
-    // when the reader thread asks for it, or when the shell destroys the surface (the surface posts the quit itself).
+    // when the reader thread asks for it, or when Windows destroys the surface (the surface posts the quit itself).
+    // A killed explorer.exe sends no such message; the service replaces the renderers on TaskbarCreated instead.
     event_loop.run(|event| match event {
         LoopEvent::Wake => {
             let rect = pending_rect.lock().unwrap_or_else(PoisonError::into_inner).take();
@@ -210,8 +213,8 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     drop(player);
     drop(surface);
     if surface_lost {
-        // Not an error: explorer.exe restarted and took the surface with it, and mpv ending with its parent window
-        // is part of that.
+        // Not an error: Windows destroyed the surface (explorer.exe killed sends no such message; the service
+        // replaces the renderers on TaskbarCreated), and mpv ending with its parent window is part of that.
         tracing::info!("the desktop surface was destroyed by the shell, the service starts a new renderer");
         return Ok(ExitCode::from(EXIT_SURFACE_LOST));
     }

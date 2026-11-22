@@ -6,7 +6,8 @@
 //! composited there. The layout is read from the window tree, never from the OS build number.
 
 use std::{
-    cell::RefCell,
+    cell::{Cell, RefCell},
+    collections::VecDeque,
     mem::size_of,
     thread,
     time::{Duration, Instant},
@@ -19,14 +20,19 @@ use windows::{
         },
         Graphics::Gdi::{BLACK_BRUSH, ClientToScreen, GetStockObject, HBRUSH},
         System::LibraryLoader::GetModuleHandleW,
-        UI::WindowsAndMessaging::{
-            CreateWindowExW, DefWindowProcW, DestroyWindow, EnumWindows, FindWindowExW, FindWindowW, GA_PARENT,
-            GA_ROOT, GW_CHILD, GW_HWNDNEXT, GWL_EXSTYLE, GWL_STYLE, GetAncestor, GetClassNameW, GetWindow,
-            GetWindowLongPtrW, GetWindowRect, IsWindowVisible, LWA_ALPHA, MA_NOACTIVATE, PostQuitMessage,
-            RegisterClassExW, SMTO_NORMAL, SWP_NOACTIVATE, SWP_NOMOVE, SWP_NOSIZE, SWP_NOZORDER, SWP_SHOWWINDOW,
-            SendMessageTimeoutW, SetLayeredWindowAttributes, SetParent, SetWindowLongPtrW, SetWindowPos,
-            WINDOW_LONG_PTR_INDEX, WM_DESTROY, WM_MOUSEACTIVATE, WNDCLASSEXW, WS_CHILD, WS_CLIPCHILDREN,
-            WS_CLIPSIBLINGS, WS_EX_LAYERED, WS_EX_NOACTIVATE, WS_EX_TOOLWINDOW, WS_POPUP, WS_VISIBLE,
+        UI::{
+            Accessibility::{HWINEVENTHOOK, SetWinEventHook, UnhookWinEvent},
+            WindowsAndMessaging::{
+                CreateWindowExW, DefWindowProcW, DestroyWindow, EVENT_OBJECT_CREATE, EVENT_OBJECT_REORDER,
+                EVENT_OBJECT_SHOW, EnumWindows, FindWindowExW, FindWindowW, GA_PARENT, GA_ROOT, GW_CHILD, GW_HWNDNEXT,
+                GWL_EXSTYLE, GWL_STYLE, GetAncestor, GetClassNameW, GetWindow, GetWindowLongPtrW, GetWindowRect,
+                GetWindowThreadProcessId, IsWindowVisible, LWA_ALPHA, MA_NOACTIVATE, OBJID_CLIENT, OBJID_WINDOW,
+                PostQuitMessage, RegisterClassExW, SMTO_NORMAL, SWP_NOACTIVATE, SWP_NOMOVE, SWP_NOSIZE, SWP_NOZORDER,
+                SWP_SHOWWINDOW, SendMessageTimeoutW, SetLayeredWindowAttributes, SetParent, SetWindowLongPtrW,
+                SetWindowPos, WINDOW_LONG_PTR_INDEX, WINEVENT_OUTOFCONTEXT, WINEVENT_SKIPOWNPROCESS, WM_DESTROY,
+                WM_MOUSEACTIVATE, WNDCLASSEXW, WS_CHILD, WS_CLIPCHILDREN, WS_CLIPSIBLINGS, WS_EX_LAYERED,
+                WS_EX_NOACTIVATE, WS_EX_TOOLWINDOW, WS_POPUP, WS_VISIBLE,
+            },
         },
     },
     core::{BOOL, PCWSTR, w},
@@ -52,11 +58,33 @@ thread_local! {
     static LOST: RefCell<Vec<isize>> = const { RefCell::new(Vec::new()) };
 }
 
+/// Restores the order guard may do per surface within [`GUARD_WINDOW`] before it gives up (T-02-36).
+const GUARD_MAX_RESTORES: usize = 10;
+/// The span over which [`GUARD_MAX_RESTORES`] is counted.
+const GUARD_WINDOW: Duration = Duration::from_secs(60);
+
+/// What the order guard of one surface needs inside its WinEvent callback.
+struct Guarded {
+    hook: HWINEVENTHOOK,
+    surface: HWND,
+    progman: HWND,
+    /// When the guard last moved the surface, oldest first, only those within [`GUARD_WINDOW`].
+    restores: VecDeque<Instant>,
+}
+
+thread_local! {
+    /// The surfaces of this thread that have an order guard. The WinEvent callback has no user data, so it finds its
+    /// surface here by the hook handle it was called for.
+    static GUARDS: RefCell<Vec<Guarded>> = const { RefCell::new(Vec::new()) };
+}
+
 /// A window behind the desktop icons of one monitor. It lives on the thread that created it, which must pump
 /// messages (see [`crate::EventLoop`]), so it is not `Send`.
 #[derive(Debug)]
 pub struct DesktopSurface {
     hwnd: HWND,
+    /// The WinEvent hook that keeps the surface above the shell's wallpaper `WorkerW` (see [`order_guard_proc`]).
+    guard: Cell<Option<HWINEVENTHOOK>>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -376,7 +404,10 @@ impl DesktopSurface {
     /// Creates the surface and attaches it behind the desktop icons, covering `rect` (physical pixels of the virtual
     /// desktop). Retries for up to ten seconds while the shell settles.
     pub fn attach(rect: RectPx) -> Result<Self, PlatformError> {
-        let surface = Self { hwnd: create_window()? };
+        let surface = Self {
+            hwnd: create_window()?,
+            guard: Cell::new(None),
+        };
         let deadline = Instant::now() + ATTACH_TIMEOUT;
         let mut delay = Duration::from_millis(100);
         loop {
@@ -421,8 +452,8 @@ impl DesktopSurface {
         })
     }
 
-    /// Whether the surface was destroyed by someone else, which is what an explorer.exe restart does to it. A
-    /// renderer whose surface is gone has to be replaced, not repaired.
+    /// Whether the surface was destroyed by someone else (Windows destroyed the window; a killed explorer.exe was
+    /// observed not to do this). A renderer whose surface is gone has to be replaced, not repaired.
     pub fn destroyed_externally(&self) -> bool {
         let handle = self.hwnd.0 as isize;
         LOST.with(|lost| lost.borrow().contains(&handle))
@@ -467,6 +498,9 @@ impl DesktopSurface {
                             "attached before the shell created its wallpaper WorkerW; the order guard keeps the surface above it"
                         );
                     }
+                    if strategy == Strategy::LayeredChild {
+                        self.install_order_guard(progman);
+                    }
                     let order = (strategy == Strategy::LayeredChild).then(|| order_text(progman));
                     tracing::info!(
                         ?layout,
@@ -484,6 +518,44 @@ impl DesktopSurface {
             }
         }
         Err(failures.join("; "))
+    }
+
+    /// Starts the order guard (see [`order_guard_proc`]) for this surface; a failure is logged and the surface
+    /// works without the guard.
+    fn install_order_guard(&self, progman: HWND) {
+        let mut process = 0_u32;
+        // SAFETY: read-only query with a valid out pointer.
+        let thread = unsafe { GetWindowThreadProcessId(progman, Some(&raw mut process)) };
+        if thread == 0 || process == 0 {
+            tracing::warn!("cannot find the process of Progman, the order guard is not installed");
+            return;
+        }
+        // SAFETY: the callback is a plain function that lives for the whole process and only touches this thread's
+        // state; out-of-context hooks run it on this thread, inside its message loop. The hook is removed in `Drop`.
+        let hook = unsafe {
+            SetWinEventHook(
+                EVENT_OBJECT_CREATE,
+                EVENT_OBJECT_REORDER,
+                None,
+                Some(order_guard_proc),
+                process,
+                0,
+                WINEVENT_OUTOFCONTEXT | WINEVENT_SKIPOWNPROCESS,
+            )
+        };
+        if hook.is_invalid() {
+            tracing::warn!("cannot install the order guard, the shell may put its wallpaper above the surface");
+            return;
+        }
+        GUARDS.with(|guards| {
+            guards.borrow_mut().push(Guarded {
+                hook,
+                surface: self.hwnd,
+                progman,
+                restores: VecDeque::new(),
+            });
+        });
+        self.guard.set(Some(hook));
     }
 
     fn attach_with(&self, strategy: Strategy, shell: &Shell, progman: HWND, target: RectPx) -> Result<RectPx, String> {
@@ -548,8 +620,139 @@ fn send_spawn_message(progman: HWND) -> bool {
     sent.0 != 0
 }
 
+/// The order guard: puts the surface back between the icons and the shell's wallpaper `WorkerW` whenever the shell
+/// creates, shows or reorders windows in Progman. It is a WinEvent hook (no polling, D-11) limited to the process
+/// that owns Progman and to five event ids, so a callback costs O(1) work and most return after two comparisons.
+///
+/// It lives as long as the surface, not only after a shell restart: explorer can recreate its `WorkerW` at any time
+/// (a wallpaper change, a slideshow step). It only ever moves its own surface; it never moves, resizes or restyles a
+/// shell window. Past [`GUARD_MAX_RESTORES`] restores in [`GUARD_WINDOW`] it removes itself, so a shell that keeps
+/// reordering cannot keep the renderer busy (T-02-36).
+unsafe extern "system" fn order_guard_proc(
+    hook: HWINEVENTHOOK,
+    event: u32,
+    hwnd: HWND,
+    id_object: i32,
+    _id_child: i32,
+    _event_thread: u32,
+    _event_time: u32,
+) {
+    if hwnd.is_invalid() {
+        return;
+    }
+    // A short borrow: the registry is not held while windows are queried or moved.
+    let Some((surface, progman)) = GUARDS.with(|guards| {
+        guards
+            .try_borrow()
+            .ok()?
+            .iter()
+            .find(|guarded| guarded.hook == hook)
+            .map(|guarded| (guarded.surface, guarded.progman))
+    }) else {
+        return;
+    };
+    let relevant = match event {
+        // Progman's children were reordered. The event names Progman itself (the object id is the window or its
+        // client area, depending on who raised it).
+        EVENT_OBJECT_REORDER => hwnd == progman && (id_object == OBJID_WINDOW.0 || id_object == OBJID_CLIENT.0),
+        EVENT_OBJECT_CREATE | EVENT_OBJECT_SHOW => {
+            id_object == OBJID_WINDOW.0 && {
+                // SAFETY: read-only query on a window handle the event gave this callback.
+                let parent = unsafe { GetAncestor(hwnd, GA_PARENT) };
+                parent == progman && class_name(hwnd) == WORKERW_CLASS
+            }
+        }
+        _ => false,
+    };
+    if relevant {
+        restore_order(hook, surface, progman);
+    }
+}
+
+/// Moves `surface` back under the icons when the order of Progman's children is wrong, within the restore budget.
+fn restore_order(hook: HWINEVENTHOOK, surface: HWND, progman: HWND) {
+    let order = layout::raised_order(&progman_order(progman, surface));
+    if !matches!(
+        order,
+        RaisedOrder::WallpaperAboveSurface | RaisedOrder::SurfaceAboveIcons
+    ) {
+        return;
+    }
+    let over_budget = GUARDS.with(|guards| {
+        let Ok(mut guards) = guards.try_borrow_mut() else {
+            return true;
+        };
+        let Some(guarded) = guards.iter_mut().find(|guarded| guarded.hook == hook) else {
+            return true;
+        };
+        let now = Instant::now();
+        while guarded
+            .restores
+            .front()
+            .is_some_and(|at| now.duration_since(*at) > GUARD_WINDOW)
+        {
+            guarded.restores.pop_front();
+        }
+        if guarded.restores.len() >= GUARD_MAX_RESTORES {
+            return true;
+        }
+        guarded.restores.push_back(now);
+        false
+    });
+    if over_budget {
+        if remove_guard(hook) {
+            tracing::warn!("the shell keeps reordering the desktop, the order guard stops");
+        }
+        return;
+    }
+    let Some(defview) = find_child(Some(progman), None, w!("SHELLDLL_DefView")) else {
+        return;
+    };
+    let before = order_text(progman);
+    // SAFETY: both handles are windows; only the z-order of this renderer's own surface changes, no move, size or
+    // activation is requested.
+    let moved = unsafe {
+        SetWindowPos(
+            surface,
+            Some(defview),
+            0,
+            0,
+            0,
+            0,
+            SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE,
+        )
+    };
+    match moved {
+        Ok(()) => tracing::info!(
+            before = %before,
+            after = %order_text(progman),
+            "the shell put its wallpaper above the surface, order restored"
+        ),
+        Err(error) => tracing::warn!(%error, before = %before, "cannot restore the surface order"),
+    }
+}
+
+/// Forgets the guard of `hook` and removes the hook; `false` when it was already removed.
+fn remove_guard(hook: HWINEVENTHOOK) -> bool {
+    let known = GUARDS.with(|guards| {
+        let mut guards = guards.borrow_mut();
+        let before = guards.len();
+        guards.retain(|guarded| guarded.hook != hook);
+        guards.len() != before
+    });
+    if known {
+        // SAFETY: the hook was installed by this thread and is removed exactly once, because the registry entry
+        // that proves it is still installed is gone now.
+        let _ = unsafe { UnhookWinEvent(hook) };
+    }
+    known
+}
+
 impl Drop for DesktopSurface {
     fn drop(&mut self) {
+        if let Some(hook) = self.guard.take() {
+            remove_guard(hook);
+        }
         let handle = self.hwnd.0 as isize;
         // A surface the shell already destroyed has no window left to destroy, and its handle value may be reused.
         if !self.destroyed_externally() {
