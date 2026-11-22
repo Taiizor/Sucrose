@@ -67,3 +67,6 @@ impl Tray {
 pub(crate) fn init_dpi_awareness() -> DpiAwareness {
     DpiAwareness::NotApplicable
 }
+
+/// Nothing is painted on this OS, so there is nothing to refresh.
+pub(crate) fn refresh_desktop() {}

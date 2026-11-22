@@ -21,6 +21,9 @@ const CONNECT_PAUSE: Duration = Duration::from_millis(100);
 /// Exit code for "the desktop surface could not be attached", reported to the service like any other start failure.
 const EXIT_START_FAILURE: u8 = 4;
 
+/// The hint for a failure that has no repair step of its own.
+const CHECK_THE_LOG: &str = "Check the log for details.";
+
 /// Exit code for "libmpv is missing or cannot be loaded" (D-20).
 const EXIT_ENGINE_MISSING: u8 = 2;
 
@@ -63,6 +66,11 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         Ok(surface) => surface,
         Err(error) => {
             tracing::error!(%error, "cannot attach the desktop surface");
+            report_failure(
+                &mut connection,
+                format!("the desktop surface could not be attached: {error}"),
+                CHECK_THE_LOG,
+            );
             return Ok(ExitCode::from(EXIT_START_FAILURE));
         }
     };
@@ -72,9 +80,14 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         Ok(player) => player,
         Err(error) => {
             error.log();
+            let (reason, hint) = error.report();
+            report_failure(&mut connection, reason, hint);
             return Ok(ExitCode::from(error.exit_code()));
         }
     };
+    if let Err(error) = connection.send(&ToService::Playing) {
+        tracing::warn!(%error, "cannot tell the service that the wallpaper is playing");
+    }
 
     // The reader thread only waits for the end of the session; the loop below must stay on this thread because the
     // surface was created here.
@@ -117,12 +130,41 @@ impl EngineError {
         }
     }
 
+    /// The reason and the repair hint the service shows the user (the tray tooltip) and logs.
+    fn report(&self) -> (String, String) {
+        match self {
+            // The full search list is in the log; the user only needs to know the file is missing.
+            Self::Load(LoadError::NotFound { .. }) => ("libmpv was not found.".to_owned(), self.hint()),
+            Self::Load(error) => (error.to_string(), self.hint()),
+            Self::Player(error) => (error.to_string(), self.hint()),
+        }
+    }
+
+    /// The repair hint: the loader's own for a library problem, else a pointer to the log.
+    fn hint(&self) -> String {
+        match self {
+            Self::Load(error) => error.hint().to_owned(),
+            Self::Player(_) => CHECK_THE_LOG.to_owned(),
+        }
+    }
+
     /// Logs the failure once, at error level, with the repair hint when there is one.
     fn log(&self) {
         match self {
             Self::Load(error) => tracing::error!(%error, hint = error.hint(), "libmpv cannot be loaded"),
             Self::Player(error) => tracing::error!(%error, "cannot start the player"),
         }
+    }
+}
+
+/// Tells the service why this renderer is about to exit. A failed send only costs the user the explanation: the
+/// renderer exits with its code either way.
+fn report_failure(connection: &mut Connection, reason: String, hint: impl Into<String>) {
+    if let Err(error) = connection.send(&ToService::Failed {
+        reason,
+        hint: hint.into(),
+    }) {
+        tracing::warn!(%error, "cannot tell the service why the wallpaper did not start");
     }
 }
 
@@ -202,6 +244,24 @@ mod tests {
         let error = EngineError::Player(PlayerError::CreateFailed);
         assert_eq!(error.exit_code(), EXIT_START_FAILURE);
         assert_eq!(error.exit_code(), 4);
+    }
+
+    #[test]
+    fn a_missing_engine_reports_its_reason_and_repair_hint() {
+        let error = EngineError::Load(LoadError::NotFound { searched: Vec::new() });
+
+        let (reason, hint) = error.report();
+
+        assert_eq!(reason, "libmpv was not found.");
+        assert!(hint.contains("fetch-engines") || hint.contains("reinstall"), "{hint}");
+    }
+
+    #[test]
+    fn a_player_failure_points_to_the_log() {
+        let (reason, hint) = EngineError::Player(PlayerError::CreateFailed).report();
+
+        assert!(!reason.is_empty());
+        assert_eq!(hint, CHECK_THE_LOG);
     }
 
     #[test]

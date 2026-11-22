@@ -22,6 +22,16 @@ pub enum ToService {
         /// Renderer slot the service chose on the command line (`sucrose --render <slot>`).
         slot: u8,
     },
+    /// The renderer could not start its wallpaper and is about to exit: what went wrong, for the log and the tray
+    /// tooltip, and how the user can repair it.
+    Failed {
+        /// One sentence saying what failed.
+        reason: String,
+        /// One sentence saying what the user can do about it.
+        hint: String,
+    },
+    /// The wallpaper is playing.
+    Playing,
 }
 
 /// Messages from the service to a renderer.
@@ -64,6 +74,38 @@ mod tests {
 
         assert_eq!(close, [0]);
         assert_eq!(assign[0], 1);
+    }
+
+    #[test]
+    fn to_service_variants_keep_their_wire_index() {
+        let hello = postcard::to_stdvec(&ToService::Hello {
+            protocol_version: 1,
+            pid: 1,
+            slot: 0,
+        })
+        .expect("encode Hello");
+        let failed = postcard::to_stdvec(&ToService::Failed {
+            reason: "r".to_owned(),
+            hint: "h".to_owned(),
+        })
+        .expect("encode Failed");
+        let playing = postcard::to_stdvec(&ToService::Playing).expect("encode Playing");
+
+        assert_eq!(hello[0], 0);
+        assert_eq!(failed[0], 1);
+        assert_eq!(playing, [2]);
+    }
+
+    #[test]
+    fn a_failure_report_survives_the_wire() {
+        let message = ToService::Failed {
+            reason: "libmpv could not be found".to_owned(),
+            hint: "reinstall".to_owned(),
+        };
+
+        let bytes = postcard::to_stdvec(&message).expect("encode");
+
+        assert_eq!(postcard::from_bytes::<ToService>(&bytes).expect("decode"), message);
     }
 
     #[test]

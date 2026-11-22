@@ -103,6 +103,84 @@ const SHUTDOWN_GRACE: Duration = Duration::from_secs(2);
 /// The tray icon the service shows (the C# Launcher's image, D-14).
 const TRAY_ICON: &[u8] = include_bytes!("../assets/TrayIcon.ico");
 
+/// The longest reason or hint taken from a renderer, so a misbehaving renderer cannot flood the log (T-02-19).
+const MAX_REPORT_CHARS: usize = 300;
+
+/// What the service tells the user about the wallpaper: one value, shown in the tray tooltip and written to the log.
+#[derive(Debug, Clone, PartialEq, Eq)]
+enum Status {
+    /// A renderer was started for this theme and has not reported playback yet.
+    Starting { title: String },
+    /// The wallpaper plays.
+    Playing { title: String },
+    /// No renderer was started: the theme is rejected (D-13) or no monitor can be used.
+    NoWallpaper { reason: String },
+    /// The renderer could not start its wallpaper, for example because libmpv is missing (D-20).
+    Failed { reason: String, hint: String },
+}
+
+impl Status {
+    /// The sentence for the log.
+    fn text(&self) -> String {
+        match self {
+            Self::Starting { .. } => APP_LONG_NAME.to_owned(),
+            Self::Playing { title } => format!("Sucrose — playing {title}"),
+            Self::NoWallpaper { reason } => format!("Sucrose — no wallpaper: {reason}"),
+            Self::Failed { reason, hint } => format!("Sucrose — no wallpaper: {reason} {hint}"),
+        }
+    }
+
+    /// The tray tooltip: the same sentence, cut to what the notification area keeps.
+    fn tooltip(&self) -> String {
+        sucrose_platform::truncate_tooltip(&self.text())
+    }
+
+    /// Whether the user has to be told that no wallpaper plays.
+    fn is_failure(&self) -> bool {
+        matches!(self, Self::NoWallpaper { .. } | Self::Failed { .. })
+    }
+
+    /// The status a renderer message leads to, or `None` when it changes nothing.
+    fn after(&self, message: &ToService) -> Option<Self> {
+        match message {
+            ToService::Playing => match self {
+                Self::Starting { title } => Some(Self::Playing { title: title.clone() }),
+                _ => None,
+            },
+            ToService::Failed { reason, hint } => Some(Self::Failed {
+                reason: limit(reason),
+                hint: limit(hint),
+            }),
+            ToService::Hello { .. } => None,
+        }
+    }
+}
+
+/// `text` cut to [`MAX_REPORT_CHARS`] characters.
+fn limit(text: &str) -> String {
+    text.chars().take(MAX_REPORT_CHARS).collect()
+}
+
+/// Creates the tray when General.json's AppVisible says so (D-15). With AppVisible false `create` is never called:
+/// no icon, no menu and none of their resources exist (D-008). A tray that cannot be created is logged and the
+/// service runs without one.
+fn start_tray<T>(app_visible: bool, create: impl FnOnce() -> Result<T, PlatformError>) -> Option<T> {
+    if !app_visible {
+        tracing::info!("tray disabled: General.json AppVisible is false");
+        return None;
+    }
+    match create() {
+        Ok(tray) => {
+            tracing::info!("tray icon ready");
+            Some(tray)
+        }
+        Err(error) => {
+            tracing::error!(%error, "cannot show the tray icon, Sucrose can only be stopped from Task Manager");
+            None
+        }
+    }
+}
+
 /// Runs the service until Quit is chosen from the tray.
 pub fn run() -> anyhow::Result<()> {
     let awareness = sucrose_platform::init_dpi_awareness();
@@ -126,7 +204,9 @@ pub fn run() -> anyhow::Result<()> {
         dpi = ?awareness,
         "service started"
     );
-    let assignments: Arc<Vec<Assignment>> = Arc::new(plan_wallpapers(platform.as_ref()));
+    let plan = plan_wallpapers(platform.as_ref());
+    let assignments: Arc<Vec<Assignment>> = Arc::new(plan.assignments);
+    let mut status = plan.status;
 
     // The main thread only pumps messages and drains the channel (D-012): IPC reads and child waits run on threads
     // of their own and wake it through the proxy.
@@ -148,16 +228,11 @@ pub fn run() -> anyhow::Result<()> {
         .spawn(move || accept_loop(&listener, &accept_renderers, &accept_assignments, &accept_notifier))
         .context("cannot start the accept thread")?;
 
-    let tray = match Tray::new(TRAY_ICON, APP_LONG_NAME, event_loop.proxy()) {
-        Ok(tray) => {
-            tracing::info!("tray icon ready");
-            Some(tray)
-        }
-        Err(error) => {
-            tracing::error!(%error, "cannot show the tray icon, Sucrose can only be stopped from Task Manager");
-            None
-        }
-    };
+    let tray_proxy = event_loop.proxy();
+    let tray = start_tray(plan.app_visible, || Tray::new(TRAY_ICON, &status.tooltip(), tray_proxy));
+    if status.is_failure() {
+        tracing::warn!(status = %status.text(), "no wallpaper, the service waits in the tray");
+    }
 
     let mut quitting = false;
     event_loop.run(|event| match event {
@@ -166,6 +241,19 @@ pub fn run() -> anyhow::Result<()> {
                 match event {
                     Event::Renderer(ToService::Hello { pid, slot, .. }) => {
                         tracing::info!(pid, slot, "renderer connected");
+                    }
+                    Event::Renderer(message) => {
+                        if let Some(next) = status.after(&message) {
+                            status = next;
+                            if status.is_failure() {
+                                tracing::warn!(status = %status.text(), "no wallpaper, the service waits in the tray");
+                            } else {
+                                tracing::info!(status = %status.text(), "wallpaper status");
+                            }
+                            if let Some(tray) = &tray {
+                                tray.set_tooltip(&status.tooltip());
+                            }
+                        }
                     }
                     Event::ShutdownDone => return Flow::Exit,
                 }
@@ -202,7 +290,12 @@ fn start_shutdown(renderers: &SharedRenderers, notifier: &Notifier) {
                     connections: std::mem::take(&mut state.connections),
                 }
             };
+            let had_renderers = !control.slots().is_empty();
             shutdown(&mut control, SHUTDOWN_GRACE);
+            if had_renderers {
+                // The renderers' surfaces are gone: make the shell paint the normal wallpaper again.
+                sucrose_platform::refresh_desktop();
+            }
             notifier.send(Event::ShutdownDone);
         }
     });
@@ -456,6 +549,8 @@ pub enum Refusal {
     ProtocolVersion { got: u16, expected: u16 },
     /// The pid is not a process this service started.
     UnknownPid(u32),
+    /// The first message of a connection is not a Hello.
+    NotHello,
 }
 
 impl std::fmt::Display for Refusal {
@@ -465,6 +560,7 @@ impl std::fmt::Display for Refusal {
                 write!(f, "the renderer speaks protocol {got}, this service speaks {expected}")
             }
             Self::UnknownPid(pid) => write!(f, "pid {pid} is not a renderer this service started"),
+            Self::NotHello => write!(f, "the first message is not a Hello"),
         }
     }
 }
@@ -475,7 +571,10 @@ fn accept_hello(spawned: &HashSet<u32>, message: &ToService) -> Result<u8, Refus
         protocol_version,
         pid,
         slot,
-    } = message;
+    } = message
+    else {
+        return Err(Refusal::NotHello);
+    };
     if *protocol_version != PROTOCOL_VERSION {
         return Err(Refusal::ProtocolVersion {
             got: *protocol_version,
@@ -488,13 +587,29 @@ fn accept_hello(spawned: &HashSet<u32>, message: &ToService) -> Result<u8, Refus
     Ok(*slot)
 }
 
+/// What the settings and the selected theme lead to.
+struct Plan {
+    /// The renderers to start: one for the primary monitor when the selected theme is a video this build can play,
+    /// none otherwise.
+    assignments: Vec<Assignment>,
+    /// What the tray says before any renderer has reported.
+    status: Status,
+    /// General.json AppVisible: whether the tray exists at all (D-15).
+    app_visible: bool,
+}
+
 /// Reads the settings of the C# install, read-only from its real folder (D-008), logs what the service will use and
-/// returns the wallpaper jobs it leads to: one renderer for the primary monitor when the selected theme is a video
-/// this build can play, none otherwise.
-fn plan_wallpapers(platform: &dyn Platform) -> Vec<Assignment> {
+/// returns what they lead to.
+fn plan_wallpapers(platform: &dyn Platform) -> Plan {
     let (Some(root), Some(setting_dir)) = (legacy_data_dir(), legacy_setting_dir()) else {
         tracing::warn!("the OS reports no config folder, so the C# install cannot be read");
-        return Vec::new();
+        return Plan {
+            assignments: Vec::new(),
+            status: Status::NoWallpaper {
+                reason: "the OS reports no config folder, so the settings cannot be read".to_owned(),
+            },
+            app_visible: true,
+        };
     };
     let settings = LegacySettings::load(&setting_dir, &root);
     // Values only: no paths and no theme names (D-08, D-09).
@@ -509,21 +624,33 @@ fn plan_wallpapers(platform: &dyn Platform) -> Vec<Assignment> {
         app_visible = settings.general.app_visible,
         "legacy settings"
     );
-    match plan_for(&settings.library.location, &settings.library.selected, platform) {
-        Ok(assignment) => vec![assignment],
-        Err(reason) => {
-            tracing::warn!(%reason, "no wallpaper started, the service keeps waiting without a renderer");
-            Vec::new()
-        }
+    let (assignments, status) = match plan_for(&settings.library.location, &settings.library.selected, platform) {
+        Ok(planned) => (vec![planned.assignment], Status::Starting { title: planned.title }),
+        Err(reason) => (Vec::new(), Status::NoWallpaper { reason }),
+    };
+    Plan {
+        assignments,
+        status,
+        app_visible: settings.general.app_visible,
     }
 }
 
+/// A theme that passed the gate and the job for it.
+struct Planned {
+    assignment: Assignment,
+    /// The theme's title, for the tooltip.
+    title: String,
+}
+
 /// Runs the gate (D-13) on the selected theme and, when it passes, builds the job for the primary monitor. The error
-/// is one English sentence for the log: the gate's own reason, or why no monitor could be used.
-fn plan_for(location: &std::path::Path, selected: &str, platform: &dyn Platform) -> Result<Assignment, String> {
+/// is one English sentence for the log and the tooltip: the gate's own reason, or why no monitor could be used.
+fn plan_for(location: &std::path::Path, selected: &str, platform: &dyn Platform) -> Result<Planned, String> {
     let theme = check_selected(location, selected, &app_version()).map_err(|rejection| rejection.to_string())?;
     tracing::info!(theme = %selected, kind = ?theme.info.kind, source = %theme.info.source, "selected theme");
-    assignment_for(&theme, platform)
+    Ok(Planned {
+        assignment: assignment_for(&theme, platform)?,
+        title: theme.info.title.clone(),
+    })
 }
 
 /// The job for the primary monitor playing a theme that passed the gate.
@@ -554,6 +681,8 @@ fn assignment_for(theme: &SelectedTheme, platform: &dyn Platform) -> Result<Assi
 
 #[cfg(test)]
 mod tests {
+    use sucrose_core::theme::ThemeRejection;
+
     use super::*;
 
     fn hello(protocol_version: u16, pid: u32, slot: u8) -> ToService {
@@ -600,6 +729,107 @@ mod tests {
             accept_hello(&HashSet::new(), &hello(PROTOCOL_VERSION, 100, 0)),
             Err(Refusal::UnknownPid(100))
         );
+    }
+
+    fn starting() -> Status {
+        Status::Starting {
+            title: "Cyber Samurai".to_owned(),
+        }
+    }
+
+    #[test]
+    fn a_starting_service_shows_the_app_name() {
+        assert_eq!(starting().tooltip(), APP_LONG_NAME);
+    }
+
+    #[test]
+    fn a_playing_report_names_the_theme_in_the_tooltip() {
+        let playing = starting().after(&ToService::Playing).expect("a status change");
+
+        assert_eq!(playing.tooltip(), "Sucrose — playing Cyber Samurai");
+    }
+
+    #[test]
+    fn a_playing_report_changes_nothing_when_no_renderer_was_expected() {
+        let rejected = Status::NoWallpaper { reason: "x".to_owned() };
+
+        assert_eq!(rejected.after(&ToService::Playing), None);
+        assert_eq!(starting().after(&hello(PROTOCOL_VERSION, 1, 0)), None);
+    }
+
+    #[test]
+    fn a_rejected_theme_shows_the_gate_reason_in_the_tooltip() {
+        let reason = ThemeRejection::NothingSelected.to_string();
+        let status = Status::NoWallpaper { reason: reason.clone() };
+
+        assert_eq!(status.tooltip(), format!("Sucrose — no wallpaper: {reason}"));
+        assert!(status.is_failure());
+    }
+
+    #[test]
+    fn a_failed_renderer_shows_its_reason_and_hint_in_the_tooltip() {
+        let failed = starting()
+            .after(&ToService::Failed {
+                reason: "libmpv could not be found.".to_owned(),
+                hint: "Reinstall Sucrose.".to_owned(),
+            })
+            .expect("a status change");
+
+        assert_eq!(
+            failed.tooltip(),
+            "Sucrose — no wallpaper: libmpv could not be found. Reinstall Sucrose."
+        );
+        assert!(failed.is_failure());
+    }
+
+    #[test]
+    fn a_long_reason_is_cut_to_127_utf16_units_in_the_tooltip() {
+        let failed = starting()
+            .after(&ToService::Failed {
+                reason: "r".repeat(300),
+                hint: "h".repeat(300),
+            })
+            .expect("a status change");
+
+        assert_eq!(failed.tooltip().encode_utf16().count(), 127);
+        // What a renderer sends is also limited before it reaches the log.
+        let Status::Failed { reason, hint } = failed else {
+            panic!("expected Failed");
+        };
+        assert_eq!(reason.chars().count(), MAX_REPORT_CHARS);
+        assert_eq!(hint.chars().count(), MAX_REPORT_CHARS);
+    }
+
+    #[test]
+    fn with_app_visible_false_no_tray_is_built() {
+        let mut built = false;
+
+        let tray = start_tray(false, || {
+            built = true;
+            Ok(())
+        });
+
+        assert!(tray.is_none());
+        assert!(!built, "the tray must not be created at all");
+    }
+
+    #[test]
+    fn with_app_visible_true_the_tray_is_built() {
+        assert_eq!(start_tray(true, || Ok(7)), Some(7));
+    }
+
+    #[test]
+    fn a_tray_that_cannot_be_created_leaves_the_service_without_one() {
+        let tray: Option<()> = start_tray(true, || Err(PlatformError::Unsupported("tray icon")));
+
+        assert!(tray.is_none());
+    }
+
+    #[test]
+    fn accept_hello_refuses_a_first_message_that_is_not_a_hello() {
+        let spawned = HashSet::from([100]);
+
+        assert_eq!(accept_hello(&spawned, &ToService::Playing), Err(Refusal::NotHello));
     }
 
     /// Records every call and says which slots are still alive after Close.

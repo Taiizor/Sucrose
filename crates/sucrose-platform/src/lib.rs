@@ -109,6 +109,11 @@ pub fn init_dpi_awareness() -> DpiAwareness {
     imp::init_dpi_awareness()
 }
 
+/// Repaints the desktop after the last wallpaper surface is gone, so no frame of the wallpaper is left behind.
+pub fn refresh_desktop() {
+    imp::refresh_desktop();
+}
+
 /// OS integration used by the service.
 pub trait Platform: Send + Sync {
     /// Short OS name for logs, the same value as `std::env::consts::OS`.

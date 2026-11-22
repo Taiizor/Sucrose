@@ -2,6 +2,7 @@
 
 mod display;
 mod event_loop;
+mod refresh;
 mod surface;
 mod tray;
 
@@ -18,6 +19,7 @@ use crate::{Capabilities, MonitorInfo, Platform, PlatformError};
 
 pub(crate) use display::init_dpi_awareness;
 pub use event_loop::{EventLoop, LoopProxy};
+pub(crate) use refresh::refresh_desktop;
 pub use surface::DesktopSurface;
 pub use tray::Tray;
 

@@ -136,7 +136,7 @@ Actions Close / Pause / Resume per condition; trigger after 5 consecutive 1 s po
 
 | Feature | Win | mac | Linux | Notes | Status |
 |---|---|---|---|---|---|
-| Tray icon and menu (open, close/reload/change/customize wallpaper, settings, report, updates, exit) | ✅ | ✅ | ⚠️ GNOME needs AppIndicator | Grayscale icon while paused. | ⬜ |
+| Tray icon and menu (open, close/reload/change/customize wallpaper, settings, report, updates, exit) | ✅ | ✅ | ⚠️ GNOME needs AppIndicator | Grayscale icon while paused. M1: Quit only (TRAY-01); AppVisible false starts no tray (D-15); full menu is TRAY-02 (Phase 5); Quit stops only the Rust service and its renderers (D-14). The tooltip says what plays or why nothing does (theme rejected by the D-13 gate, libmpv missing). With AppVisible false only Task Manager stops the service in M1. After the renderers exit, Quit re-applies the current wallpaper (SPI_SETDESKWALLPAPER, no registry write) so no frame of the video is left. | 🟨 |
 | Startup: normal, priority, scheduled task | ✅ | ✅ LaunchAgent | ✅ XDG autostart | | ⬜ |
 | Close all Sucrose apps on exit | ✅ | ✅ | ✅ | | ⬜ |
 
