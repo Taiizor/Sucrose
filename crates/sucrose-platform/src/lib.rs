@@ -6,6 +6,8 @@
 #![allow(unsafe_code)]
 #![warn(clippy::undocumented_unsafe_blocks)]
 
+use std::path::Path;
+
 #[cfg(target_os = "linux")]
 mod os_linux;
 #[cfg(target_os = "macos")]
@@ -32,6 +34,7 @@ pub mod layout;
 pub use geometry::{MonitorInfo, RectPx};
 pub use icon::truncate_tooltip;
 pub use imp::{DesktopSurface, EventLoop, LoopProxy, LoopTimers, RendererJob, Tray};
+pub use sucrose_core::settings::GpuPreference;
 
 /// A clock in nanoseconds that every process on this machine reads the same way, for comparing moments across
 /// the service and its renderers (D-02). On Windows it is QueryPerformanceCounter scaled to nanoseconds, which is
@@ -94,6 +97,17 @@ pub struct Capabilities {
     pub embed_application: bool,
     /// Fullscreen applications can be detected.
     pub fullscreen_detection: bool,
+    /// The GPU an executable's Direct3D devices use can be requested.
+    pub gpu_preference: bool,
+}
+
+/// What [`Platform::set_gpu_preference`] did.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum GpuPreferenceChange {
+    /// The OS setting was written.
+    Written,
+    /// The OS setting already had the wanted preference, so nothing was written.
+    Unchanged,
 }
 
 /// Why a platform call failed.
@@ -170,6 +184,13 @@ pub trait Platform: Send + Sync {
     /// The window the user is working in, or `None` where the OS cannot tell or there is none.
     fn foreground_window(&self) -> Option<ForegroundWindow> {
         None
+    }
+
+    /// Asks the OS to give the Direct3D devices of the executable `exe` the GPU `preference` names (the per-app
+    /// graphics setting on Windows). Other settings the OS keeps for that executable are preserved.
+    fn set_gpu_preference(&self, exe: &Path, preference: GpuPreference) -> Result<GpuPreferenceChange, PlatformError> {
+        let _ = (exe, preference);
+        Err(PlatformError::Unsupported("GPU preference"))
     }
 }
 

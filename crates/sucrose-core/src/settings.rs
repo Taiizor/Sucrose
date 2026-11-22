@@ -88,6 +88,33 @@ legacy_enum! {
     }
 }
 
+legacy_enum! {
+    /// Which GPU Windows gives Sucrose's Direct3D devices (`HighPerformanceType`, Engine.json `GraphicPreference`);
+    /// the legacy default is `HighPerformance`.
+    GpuPreference, default HighPerformance {
+        /// Let Windows decide.
+        Default,
+        /// The power saving GPU (usually the integrated one).
+        PowerSaving,
+        /// The high performance GPU (usually the discrete one).
+        #[default]
+        HighPerformance,
+    }
+}
+
+impl GpuPreference {
+    /// The number the C# app writes as `GpuPreference=<n>` in the per-app graphics settings of Windows: the enum
+    /// ordinal (Default 0, PowerSaving 1, HighPerformance 2).
+    #[must_use]
+    pub fn legacy_ordinal(self) -> u32 {
+        match self {
+            Self::Default => 0,
+            Self::PowerSaving => 1,
+            Self::HighPerformance => 2,
+        }
+    }
+}
+
 macro_rules! legacy_index {
     ($($name:ident),+) => {
         $(
@@ -102,7 +129,7 @@ macro_rules! legacy_index {
 }
 
 // ScreenArea is left out on purpose: its C# ordinals are unclear.
-legacy_index!(Stretch, FullScreenAction, PauseKind);
+legacy_index!(Stretch, FullScreenAction, PauseKind, GpuPreference);
 
 #[cfg(test)]
 mod tests {
@@ -114,6 +141,27 @@ mod tests {
         assert_eq!(ScreenArea::default(), ScreenArea::DisplayBound);
         assert_eq!(FullScreenAction::default(), FullScreenAction::Resume);
         assert_eq!(PauseKind::default(), PauseKind::Light);
+        assert_eq!(GpuPreference::default(), GpuPreference::HighPerformance);
+    }
+
+    #[test]
+    fn gpu_preference_names_indexes_and_ordinals_match_the_legacy_enum() {
+        assert_eq!(
+            GpuPreference::from_legacy_name("PowerSaving"),
+            Some(GpuPreference::PowerSaving)
+        );
+        assert_eq!(GpuPreference::from_legacy_name("powersaving"), None);
+        assert_eq!(
+            GpuPreference::from_legacy_index(2),
+            Some(GpuPreference::HighPerformance)
+        );
+        assert_eq!(GpuPreference::from_legacy_index(3), None);
+        assert_eq!(GpuPreference::Default.legacy_ordinal(), 0);
+        assert_eq!(GpuPreference::PowerSaving.legacy_ordinal(), 1);
+        assert_eq!(GpuPreference::HighPerformance.legacy_ordinal(), 2);
+        for (index, value) in GpuPreference::ALL.iter().enumerate() {
+            assert_eq!(u32::try_from(index).ok(), Some(value.legacy_ordinal()));
+        }
     }
 
     #[test]

@@ -3,12 +3,13 @@
 mod display;
 mod event_loop;
 mod foreground;
+mod gpu;
 mod job;
 mod refresh;
 mod surface;
 mod tray;
 
-use std::sync::OnceLock;
+use std::{path::Path, sync::OnceLock};
 
 use windows::{
     Win32::{
@@ -22,7 +23,7 @@ use windows::{
     core::PWSTR,
 };
 
-use crate::{Capabilities, ForegroundWindow, MonitorInfo, Platform, PlatformError};
+use crate::{Capabilities, ForegroundWindow, GpuPreference, GpuPreferenceChange, MonitorInfo, Platform, PlatformError};
 
 pub(crate) use display::init_dpi_awareness;
 pub use event_loop::{EventLoop, LoopProxy, LoopTimers};
@@ -42,6 +43,7 @@ impl Platform for Current {
         Capabilities {
             desktop_wallpaper: true,
             fullscreen_detection: true,
+            gpu_preference: true,
             ..Capabilities::default()
         }
     }
@@ -56,6 +58,10 @@ impl Platform for Current {
 
     fn foreground_window(&self) -> Option<ForegroundWindow> {
         foreground::foreground_window()
+    }
+
+    fn set_gpu_preference(&self, exe: &Path, preference: GpuPreference) -> Result<GpuPreferenceChange, PlatformError> {
+        gpu::set_gpu_preference(exe, preference)
     }
 }
 

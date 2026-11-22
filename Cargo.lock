@@ -6452,6 +6452,7 @@ version = "26.11.22+1"
 dependencies = [
  "serde",
  "serde_json",
+ "sucrose-core",
  "thiserror 2.0.21",
  "tracing",
  "tray-icon",
