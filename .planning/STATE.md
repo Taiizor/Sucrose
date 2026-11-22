@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
 status: executing
-stopped_at: Completed 02-09-PLAN.md
-last_updated: "2026-11-22T15:20:24.784Z"
+stopped_at: Completed 02-10-PLAN.md
+last_updated: "2026-11-22T15:36:35.716Z"
 last_activity: 2026-11-22
 last_activity_desc: Phase 02 execution started
-state_head: 6cf3f705f2b605263d673a70d83c5da089ff5f9a
+state_head: 186ba015fab40bf80f6a9d93c909138bf7e70780
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 15
-  completed_plans: 9
+  completed_plans: 10
   percent: 13
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 ## Current Position
 
 Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
-Plan: 10 of 15
+Plan: 11 of 15
 Status: Ready to execute
 Last activity: 2026-11-22 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
@@ -62,6 +62,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 02 P07 | 13 min | 2 tasks | 6 files |
 | Phase 02 P08 | 25 min | 3 tasks | 12 files |
 | Phase 02 P09 | 21 min | 2 tasks | 18 files |
+| Phase 02 P10 | 14 min | 2 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -87,6 +88,7 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-08: an unmappable Cargo version makes app_version() the lowest version so themes are refused loudly
 - [Phase 02]: 02-09: ToService::Playing appended next to Failed so the tooltip says playing only once the renderer plays
 - [Phase 02]: 02-09: Quit waits 2 s in total on a worker thread, then kills survivors; refresh_desktop re-applies the wallpaper after the renderers exit
+- [Phase 02]: 02-10: renderer restarts are bounded by RestartBudget (3 crashes per 60 s per monitor, 0.5/1/2 s backoff, surface-lost cap 5 per 60 s); shutdown kills survivors through the job object
 
 ### Pending Todos
 
@@ -117,6 +119,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-22T15:20:24.615Z
-Stopped at: Completed 02-09-PLAN.md
+Last session: 2026-11-22T15:36:35.488Z
+Stopped at: Completed 02-10-PLAN.md
 Resume file: None
