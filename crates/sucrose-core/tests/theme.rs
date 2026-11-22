@@ -8,10 +8,13 @@ use std::{
 use serde_json::{Value, json};
 use sucrose_core::{
     theme::{SucroseInfo, ThemeRejection, WallpaperType, check_selected, parse_info, write_info},
-    version::LegacyVersion,
+    version::{LegacyVersion, app_version},
 };
 
-const APP: LegacyVersion = LegacyVersion::new(0, 1, 0, -1);
+/// The version this build reports; every gate test runs against it.
+fn app() -> LegacyVersion {
+    app_version()
+}
 
 fn fixture_text(name: &str) -> String {
     let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures").join(name);
@@ -61,7 +64,7 @@ fn with_source(source: &str) -> SucroseInfo {
 fn rejection_for(name: &str, info: &SucroseInfo) -> ThemeRejection {
     let scratch = Scratch::new(name);
     let library = scratch.library_with(info);
-    check_selected(library, "t", &APP).expect_err("the gate must refuse this theme")
+    check_selected(library, "t", &app()).expect_err("the gate must refuse this theme")
 }
 
 #[test]
@@ -173,14 +176,14 @@ fn the_gate_accepts_a_playable_video_theme() {
     let scratch = Scratch::new("ok");
     let library = scratch.library_with(&fixture("SucroseInfo.video.json"));
 
-    let selected = check_selected(library, "t", &APP).expect("playable");
+    let selected = check_selected(library, "t", &app()).expect("playable");
 
     assert!(selected.source_path.is_absolute() && selected.source_path.ends_with("video.mp4"));
     assert_eq!(selected.dir, library.join("t"));
 
     let nested = Scratch::new("ok-nested");
     let library = nested.library_with(&with_source("sub/deep.mp4"));
-    assert!(check_selected(library, "t", &APP).is_ok());
+    assert!(check_selected(library, "t", &app()).is_ok());
 }
 
 #[test]
@@ -189,17 +192,17 @@ fn nothing_selected_and_a_missing_folder_are_their_own_reasons() {
     let library = scratch.library_with(&fixture("SucroseInfo.video.json"));
 
     assert_eq!(
-        check_selected(library, "", &APP).unwrap_err(),
+        check_selected(library, "", &app()).unwrap_err(),
         ThemeRejection::NothingSelected
     );
     assert!(matches!(
-        check_selected(library, "nope", &APP).unwrap_err(),
+        check_selected(library, "nope", &app()).unwrap_err(),
         ThemeRejection::FolderMissing { .. }
     ));
     for escape in ["..", "t/..", "t\\..", "/t", "sub/x"] {
         assert!(
             matches!(
-                check_selected(library, escape, &APP).unwrap_err(),
+                check_selected(library, escape, &app()).unwrap_err(),
                 ThemeRejection::FolderMissing { .. }
             ),
             "{escape:?} is not a folder name"
@@ -215,12 +218,12 @@ fn a_missing_or_invalid_info_file_is_unreadable() {
 
     fs::write(&info_path, "{ \"Title\": \"half").expect("truncate");
     assert!(matches!(
-        check_selected(library, "t", &APP).unwrap_err(),
+        check_selected(library, "t", &app()).unwrap_err(),
         ThemeRejection::InfoUnreadable { .. }
     ));
 
     fs::remove_file(&info_path).expect("remove");
-    let rejection = check_selected(library, "t", &APP).unwrap_err();
+    let rejection = check_selected(library, "t", &app()).unwrap_err();
     assert!(
         matches!(rejection, ThemeRejection::InfoUnreadable { .. }),
         "{rejection}"
@@ -276,7 +279,7 @@ fn an_absolute_path_to_a_real_file_is_still_refused() {
     let library = scratch.library_with(&with_source(&outside.to_string_lossy()));
 
     assert!(matches!(
-        check_selected(library, "t", &APP).unwrap_err(),
+        check_selected(library, "t", &app()).unwrap_err(),
         ThemeRejection::SourceInvalid { .. }
     ));
 }
@@ -296,4 +299,49 @@ fn rejection_texts_name_the_problem_and_the_folder_but_not_the_file() {
         "{text}"
     );
     assert!(text.ends_with('.') && !text.contains('\n'));
+}
+
+/// A library whose theme asks for `required` as its AppVersion.
+fn rejection_with_app_version(name: &str, required: LegacyVersion) -> Result<(), ThemeRejection> {
+    let scratch = Scratch::new(name);
+    let info = SucroseInfo {
+        app_version: required,
+        ..fixture("SucroseInfo.video.json")
+    };
+    let library = scratch.library_with(&info);
+    check_selected(library, "t", &app()).map(|_| ())
+}
+
+#[test]
+fn a_theme_for_exactly_this_app_version_is_accepted() {
+    assert!(rejection_with_app_version("same-version", app()).is_ok());
+}
+
+#[test]
+fn one_more_revision_needs_a_newer_app() {
+    let mut newer = app();
+    newer.revision += 1;
+
+    let rejection = rejection_with_app_version("newer-version", newer).unwrap_err();
+
+    assert_eq!(
+        rejection,
+        ThemeRejection::NeedsNewerApp {
+            folder: "t".to_owned(),
+            required: newer,
+            current: app()
+        }
+    );
+    let text = rejection.to_string();
+    assert!(text.contains("t") && text.contains(&newer.to_string()), "{text}");
+}
+
+#[test]
+fn the_maintainers_theme_passes_with_the_date_based_version() {
+    let info = fixture("SucroseInfo.video.json");
+    assert_eq!(info.app_version, LegacyVersion::new(26, 10, 19, 0));
+    let scratch = Scratch::new("maintainer");
+    let library = scratch.library_with(&info);
+
+    assert!(check_selected(library, "t", &app()).is_ok());
 }

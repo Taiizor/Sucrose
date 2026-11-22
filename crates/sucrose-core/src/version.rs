@@ -60,6 +60,16 @@ impl LegacyVersion {
         let [major, minor, build, revision] = components;
         Ok(Self::new(major, minor, build, revision))
     }
+
+    /// Maps a Cargo version `major.minor.patch[+revision]` onto the four .NET components.
+    pub fn from_cargo(_text: &str) -> Result<Self, VersionError> {
+        Ok(Self::default())
+    }
+}
+
+/// The version of this build as the C# app would write it (D-029).
+pub fn app_version() -> LegacyVersion {
+    LegacyVersion::default()
 }
 
 /// The original text: only the components that exist, so `parse(text)` prints back as `text`.
@@ -150,6 +160,49 @@ mod tests {
         ] {
             assert!(LegacyVersion::parse(text).is_err(), "{text:?} must be refused");
         }
+    }
+
+    #[test]
+    fn from_cargo_maps_build_metadata_to_the_revision() {
+        assert_eq!(
+            LegacyVersion::from_cargo("26.11.22+1"),
+            Ok(LegacyVersion::new(26, 11, 22, 1))
+        );
+        assert_eq!(
+            LegacyVersion::from_cargo("26.11.23"),
+            Ok(LegacyVersion::new(26, 11, 23, 0))
+        );
+        assert_eq!(
+            LegacyVersion::from_cargo("26.11.22+12"),
+            Ok(LegacyVersion::new(26, 11, 22, 12))
+        );
+        for text in [
+            "",
+            "26.11",
+            "26.11.22.1",
+            "26.11.22-beta",
+            "26.11.22+",
+            "26.11.22+x",
+            "26.011.22",
+            "a.b.c",
+        ] {
+            assert!(LegacyVersion::from_cargo(text).is_err(), "{text:?} must be refused");
+        }
+    }
+
+    #[test]
+    fn the_app_is_newer_than_the_last_csharp_release() {
+        assert!(app_version() > v("26.11.22.0"));
+    }
+
+    /// Assumption A16: Cargo hands build metadata through, so `CARGO_PKG_VERSION` keeps the `+1`.
+    #[test]
+    fn cargo_version_text_keeps_the_build_metadata() {
+        assert!(crate::VERSION.contains("26.11.22+1"), "VERSION is {}", crate::VERSION);
+        assert_eq!(
+            app_version(),
+            LegacyVersion::from_cargo(crate::VERSION).expect("workspace version")
+        );
     }
 
     #[test]
