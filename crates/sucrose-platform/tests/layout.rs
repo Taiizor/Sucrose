@@ -2,7 +2,7 @@
 
 use sucrose_platform::{
     RectPx,
-    layout::{DesktopLayout, ShellSnapshot, WindowNode, classify},
+    layout::{DesktopLayout, RaisedOrder, ShellSnapshot, SiblingKind, WindowNode, classify, raised_order},
 };
 
 const WS_EX_NOREDIRECTIONBITMAP: u32 = 0x0020_0000;
@@ -128,4 +128,45 @@ fn covers_means_completely_inside() {
     assert!(outer.covers(&inner));
     assert!(!outer.covers(&overhang));
     assert!(!inner.covers(&outer));
+}
+
+mod raised_order_cases {
+    use super::{RaisedOrder, SiblingKind::*, raised_order};
+
+    #[test]
+    fn raised_order_icons_surface_wallpaper_is_correct() {
+        assert_eq!(raised_order(&[Icons, Surface, Wallpaper]), RaisedOrder::Correct);
+    }
+
+    #[test]
+    fn raised_order_wallpaper_above_the_surface_is_the_uat_failure() {
+        assert_eq!(
+            raised_order(&[Icons, Wallpaper, Surface]),
+            RaisedOrder::WallpaperAboveSurface
+        );
+    }
+
+    #[test]
+    fn raised_order_surface_above_the_icons_is_rejected() {
+        assert_eq!(
+            raised_order(&[Surface, Icons, Wallpaper]),
+            RaisedOrder::SurfaceAboveIcons
+        );
+    }
+
+    #[test]
+    fn raised_order_without_a_wallpaper_yet_is_correct() {
+        assert_eq!(raised_order(&[Icons, Surface]), RaisedOrder::Correct);
+    }
+
+    #[test]
+    fn raised_order_another_renderers_surface_is_just_a_sibling() {
+        assert_eq!(raised_order(&[Icons, Other, Surface, Wallpaper]), RaisedOrder::Correct);
+    }
+
+    #[test]
+    fn raised_order_reports_a_missing_surface_or_icons() {
+        assert_eq!(raised_order(&[Icons, Wallpaper]), RaisedOrder::SurfaceMissing);
+        assert_eq!(raised_order(&[Surface, Wallpaper]), RaisedOrder::IconsMissing);
+    }
 }

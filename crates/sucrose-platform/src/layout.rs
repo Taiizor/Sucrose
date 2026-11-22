@@ -62,3 +62,41 @@ pub fn classify(snapshot: &ShellSnapshot) -> DesktopLayout {
         DesktopLayout::Unsupported
     }
 }
+
+/// The window class of the shell's wallpaper window (a child of Progman in the raised layout).
+pub const WORKERW_CLASS: &str = "WorkerW";
+
+/// What one child of Progman is, for [`raised_order`].
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum SiblingKind {
+    /// `SHELLDLL_DefView`, the desktop icons.
+    Icons,
+    /// The surface that is being checked.
+    Surface,
+    /// A `WorkerW`, the shell's own wallpaper.
+    Wallpaper,
+    /// Anything else, including the surfaces of other renderers.
+    Other,
+}
+
+/// How the surface sits among Progman's children in the raised layout.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum RaisedOrder {
+    /// Icons above the surface, the surface above every wallpaper window: the video is visible behind the icons.
+    Correct,
+    /// The surface covers the icons.
+    SurfaceAboveIcons,
+    /// A wallpaper window is above the surface and hides the video.
+    WallpaperAboveSurface,
+    /// The surface is not among Progman's children.
+    SurfaceMissing,
+    /// The icons window is not among Progman's children.
+    IconsMissing,
+}
+
+/// Checks Progman's children (topmost first) for the raised layout: the icons first, then the surface, then every
+/// wallpaper window. Other windows may sit anywhere.
+pub fn raised_order(siblings: &[SiblingKind]) -> RaisedOrder {
+    let _ = siblings;
+    RaisedOrder::Correct
+}
