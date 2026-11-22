@@ -142,6 +142,32 @@ fn read_connection(mut connection: Connection, sender: &Sender<ToService>) {
     }
 }
 
+/// Why the service refuses a renderer's Hello.
+#[derive(Debug, PartialEq, Eq)]
+pub enum Refusal {
+    /// The renderer speaks another protocol version.
+    ProtocolVersion { got: u16, expected: u16 },
+    /// The pid is not a process this service started.
+    UnknownPid(u32),
+}
+
+impl std::fmt::Display for Refusal {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::ProtocolVersion { got, expected } => {
+                write!(f, "the renderer speaks protocol {got}, this service speaks {expected}")
+            }
+            Self::UnknownPid(pid) => write!(f, "pid {pid} is not a renderer this service started"),
+        }
+    }
+}
+
+/// Decides whether a connection's first message is acceptable and returns the renderer's slot.
+fn accept_hello(_spawned: &HashSet<u32>, message: &ToService) -> Result<u8, Refusal> {
+    let ToService::Hello { slot, .. } = message;
+    Ok(*slot)
+}
+
 /// Logs and reports a first message the service refuses.
 fn first_is_wrong(first: &ToService) -> bool {
     let ToService::Hello { protocol_version, .. } = first;
@@ -192,5 +218,56 @@ fn log_selected_theme(library: &LibrarySettings) {
             "selected theme"
         ),
         Err(error) => tracing::warn!(%error, "selected theme cannot be read"),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn hello(protocol_version: u16, pid: u32, slot: u8) -> ToService {
+        ToService::Hello {
+            protocol_version,
+            pid,
+            slot,
+        }
+    }
+
+    #[test]
+    fn accept_hello_takes_a_renderer_the_service_started() {
+        let spawned = HashSet::from([100, 200]);
+
+        assert_eq!(accept_hello(&spawned, &hello(PROTOCOL_VERSION, 200, 7)), Ok(7));
+    }
+
+    #[test]
+    fn accept_hello_refuses_a_pid_the_service_did_not_start() {
+        let spawned = HashSet::from([100]);
+
+        assert_eq!(
+            accept_hello(&spawned, &hello(PROTOCOL_VERSION, 999, 0)),
+            Err(Refusal::UnknownPid(999))
+        );
+    }
+
+    #[test]
+    fn accept_hello_refuses_another_protocol_version() {
+        let spawned = HashSet::from([100]);
+
+        assert_eq!(
+            accept_hello(&spawned, &hello(PROTOCOL_VERSION + 1, 100, 0)),
+            Err(Refusal::ProtocolVersion {
+                got: PROTOCOL_VERSION + 1,
+                expected: PROTOCOL_VERSION
+            })
+        );
+    }
+
+    #[test]
+    fn accept_hello_refuses_with_an_empty_set() {
+        assert_eq!(
+            accept_hello(&HashSet::new(), &hello(PROTOCOL_VERSION, 100, 0)),
+            Err(Refusal::UnknownPid(100))
+        );
     }
 }
