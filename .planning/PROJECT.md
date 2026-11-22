@@ -46,7 +46,7 @@ An existing user upgrades and loses nothing (themes, store, web wallpapers and t
 ## Context
 
 - **Legacy reference:** the C# app in `src/` (read-only). Exact behavior, settings keys, file formats and the JavaScript API are in `docs/legacy/` (`portal.md`, `services.md`, `engines.md`, `formats.md`, `lock-screen.md`). The lock screen exists only on branch `lock-screen-native` (112de37f).
-- **Living docs:** `docs/DECISIONS.md` (decision log, append-only), `docs/FEATURES.md` (parity checklist with per-OS support), `docs/ARCHITECTURE.md` (target processes, crates, traits), `docs/PORTING.md` (porting procedure, NuGet → crate mapping), `docs/GPUI.md` (UI notes). `.planning/` holds the roadmap and phase work; `.planning/intel/` is the synthesized snapshot these were derived from.
+- **Living docs:** `docs/DECISIONS.md` (decision log, append-only), `docs/FEATURES.md` (parity checklist with per-OS support), `docs/ARCHITECTURE.md` (target processes, crates, traits), `docs/PORTING.md` (porting procedure, NuGet → crate mapping), `docs/GPUI.md` (UI notes). `.planning/` holds the requirements, roadmap and phase work; measurements are in `docs/MEASUREMENTS.md`.
 - **Process model (D-008, D-009):** `sucrose` service (always on while a wallpaper is active), `sucrose --render` (one renderer per wallpaper surface, crash-isolated), `sucrose-portal` (only while its window is open); all talk over one local-socket IPC.
 - **UI:** GPUI via `gpui-kit 0.10` (pins the Zed snapshot `gpui-pre 0.3.12`). Prototype numbers: window in ~0.3 s, ~90 MB on the settings page, ~142 MB with 30 thumbnails; the real Portal needs a bounded thumbnail cache.
 - **Environment:** the maintainer works on Windows 11 from WSL2 and PowerShell. `cargo` in WSL is the Windows toolchain; Linux builds run in Docker or CI; macOS builds run in CI and need a real Mac for manual testing.
@@ -60,7 +60,7 @@ An existing user upgrades and loses nothing (themes, store, web wallpapers and t
 - **UI**: GPUI via an exactly pinned `gpui-kit`; one design language on every OS — D-004
 - **Engines**: optional, user-installed, detected and loaded at runtime with install hints; own `bindgen` bindings loaded with `libloading` — D-005, D-013
 - **Safety**: `unsafe` only in `sucrose-platform` and engine/FFI crates, each block with a `// SAFETY:` comment — D-011
-- **Performance**: optional modules never start when disabled (D-008); user-visible changes are measured (RAM/CPU, release build) and notable numbers recorded
+- **Performance**: optional modules never start when disabled (D-008); user-visible changes are measured (RAM/CPU, release build) and notable numbers recorded in `docs/MEASUREMENTS.md`
 - **Dependencies**: port the capabilities Sucrose uses, not whole packages (D-010); licenses must pass `cargo-deny` (GPL-3.0 compatible)
 - **Security**: TLS validation on, installers and updates verified before they run, crash reports respect the opt-out — D-017, D-019
 - **Signing**: Windows signed with signtool, certificate location from environment variables; macOS unsigned until a Developer ID exists — D-025
@@ -84,7 +84,7 @@ The authoritative, append-only log is `docs/DECISIONS.md` (D-001 … D-026). The
 | Own installer, updater and uninstaller (D-019) | Full control, verified updates | — Pending |
 | GitHub integrations removed (D-020) | Soferity API only | — Pending |
 | Lock screen wallpaper in scope (D-026) | Maintainer decision; mechanism decided before it is built | — Pending |
-| Roadmap and phase work move to `.planning/` (GSD); Phase 1–8 = M0–M7, each phase title carries its M label (e.g. "Phase 2 — M1: Video wallpaper on the desktop (Windows)") | One planning system; GSD phases may commit | — Pending |
+| Roadmap and phase work move to `.planning/` (GSD); Phase 1–8 = M0–M7, each phase title carries its M label (e.g. "Phase 2: M1 — Video wallpaper on the desktop (Windows)"; GSD needs the colon after the phase number) | One planning system; GSD phases may commit | — Pending |
 
 ## Evolution
 

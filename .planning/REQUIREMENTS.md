@@ -3,7 +3,7 @@
 **Defined:** 2026-11-22
 **Core Value:** An existing user upgrades and loses nothing (themes, store, web wallpapers and their JavaScript API, settings migrated automatically) while the new app uses less memory and CPU than the C# one.
 
-Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept), `docs/ROADMAP.md` milestone items and `docs/DECISIONS.md`. Exact legacy behavior for each row is in `docs/legacy/`. The source rows define no acceptance criteria of their own; phase success criteria and the legacy references define them.
+Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept), the M0–M7 milestone items (formerly `docs/ROADMAP.md`) and `docs/DECISIONS.md`. Exact legacy behavior for each row is in `docs/legacy/`. The source rows define no acceptance criteria of their own; phase success criteria and the legacy references define them.
 
 - Categories TYPE … FMT are delivered on **Windows first** (D-002). MAC-* and LNX-* bring them to macOS and Linux as far as each OS allows.
 - Platform tags come from `docs/FEATURES.md`: ✅ full · ⚠️ limited · ❌ not possible · ? not investigated yet.
@@ -226,12 +226,138 @@ Which phases cover which requirements. Filled during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
+| FND-01 | Phase 1 | Pending |
+| ARCH-01 | Phase 3 | Pending |
+| ARCH-02 | Phase 3 | Pending |
+| ARCH-03 | Phase 3 | Pending |
+| ARCH-04 | Phase 3 | Pending |
+| ARCH-05 | Phase 3 | Pending |
+| TYPE-01 | Phase 2 | Pending |
+| TYPE-02 | Phase 4 | Pending |
+| TYPE-03 | Phase 4 | Pending |
+| TYPE-04 | Phase 4 | Pending |
+| TYPE-05 | Phase 4 | Pending |
+| TYPE-06 | Phase 4 | Pending |
+| ENG-01 | Phase 2 | Pending |
+| ENG-02 | Phase 4 | Pending |
+| ENG-03 | Phase 4 | Pending |
+| ENG-04 | Phase 4 | Pending |
+| ENG-05 | Phase 4 | Pending |
+| ENG-06 | Phase 4 | Pending |
+| ENG-07 | Phase 4 | Pending |
+| DESK-01 | Phase 2 | Pending |
+| DESK-02 | Phase 4 | Pending |
+| DESK-03 | Phase 4 | Pending |
+| DESK-04 | Phase 4 | Pending |
+| DESK-05 | Phase 4 | Pending |
+| DESK-06 | Phase 2 | Pending |
+| DESK-07 | Phase 2 | Pending |
+| DESK-08 | Phase 5 | Pending |
+| DESK-09 | Phase 5 | Pending |
+| DESK-10 | Phase 5 | Pending |
+| DESK-11 | Phase 5 | Pending |
+| DESK-12 | Phase 5 | Pending |
+| PLAY-01 | Phase 4 | Pending |
+| PLAY-02 | Phase 4 | Pending |
+| PLAY-03 | Phase 4 | Pending |
+| PLAY-04 | Phase 4 | Pending |
+| PLAY-05 | Phase 4 | Pending |
+| PERF-01 | Phase 4 | Pending |
+| PERF-02 | Phase 4 | Pending |
+| PERF-03 | Phase 4 | Pending |
+| PERF-04 | Phase 4 | Pending |
+| PERF-05 | Phase 2 | Pending |
+| PERF-06 | Phase 4 | Pending |
+| PERF-07 | Phase 4 | Pending |
+| PERF-08 | Phase 4 | Pending |
+| PERF-09 | Phase 4 | Pending |
+| WAPI-01 | Phase 4 | Pending |
+| WAPI-02 | Phase 4 | Pending |
+| WAPI-03 | Phase 4 | Pending |
+| WAPI-04 | Phase 4 | Pending |
+| WAPI-05 | Phase 4 | Pending |
+| WAPI-06 | Phase 4 | Pending |
+| WAPI-07 | Phase 4 | Pending |
+| WAPI-08 | Phase 4 | Pending |
+| WAPI-09 | Phase 4 | Pending |
+| WAPI-10 | Phase 4 | Pending |
+| PROP-01 | Phase 4 | Pending |
+| PROP-02 | Phase 4 | Pending |
+| PROP-03 | Phase 4 | Pending |
+| PROP-04 | Phase 4 | Pending |
+| PROP-05 | Phase 4 | Pending |
+| LIB-01 | Phase 3 | Pending |
+| LIB-02 | Phase 3 | Pending |
+| LIB-03 | Phase 3 | Pending |
+| LIB-04 | Phase 3 | Pending |
+| LIB-05 | Phase 5 | Pending |
+| LIB-06 | Phase 3 | Pending |
+| LIB-07 | Phase 5 | Pending |
+| LIB-08 | Phase 3 | Pending |
+| LIB-09 | Phase 3 | Pending |
+| STOR-01 | Phase 5 | Pending |
+| STOR-02 | Phase 5 | Pending |
+| STOR-03 | Phase 5 | Pending |
+| STOR-04 | Phase 5 | Pending |
+| STOR-05 | Phase 5 | Pending |
+| THEM-01 | Phase 5 | Pending |
+| THEM-02 | Phase 5 | Pending |
+| THEM-03 | Phase 5 | Pending |
+| THEM-04 | Phase 5 | Pending |
+| THEM-05 | Phase 5 | Pending |
+| UI-01 | Phase 3 | Pending |
+| UI-02 | Phase 3 | Pending |
+| UI-03 | Phase 3 | Pending |
+| UI-04 | Phase 5 | Pending |
+| UI-05 | Phase 3 | Pending |
+| UI-06 | Phase 5 | Pending |
+| UI-07 | Phase 3 | Pending |
+| TRAY-01 | Phase 2 | Pending |
+| TRAY-02 | Phase 5 | Pending |
+| TRAY-03 | Phase 3 | Pending |
+| TRAY-04 | Phase 5 | Pending |
+| TRAY-05 | Phase 3 | Pending |
+| SVC-01 | Phase 5 | Pending |
+| SVC-02 | Phase 5 | Pending |
+| SVC-03 | Phase 5 | Pending |
+| SVC-04 | Phase 5 | Pending |
+| SVC-05 | Phase 5 | Pending |
+| SVC-06 | Phase 5 | Pending |
+| SVC-07 | Phase 5 | Pending |
+| SVC-08 | Phase 5 | Pending |
+| FMT-01 | Phase 3 | Pending |
+| FMT-02 | Phase 2 | Pending |
+| FMT-03 | Phase 4 | Pending |
+| FMT-04 | Phase 5 | Pending |
+| FMT-05 | Phase 5 | Pending |
+| FMT-06 | Phase 3 | Pending |
+| FMT-07 | Phase 4 | Pending |
+| FMT-08 | Phase 2 | Pending |
+| SEC-01 | Phase 5 | Pending |
+| SEC-02 | Phase 4 | Pending |
+| MEAS-01 | Phase 2 | Pending |
+| MEAS-02 | Phase 8 | Pending |
+| MAC-01 | Phase 6 | Pending |
+| MAC-02 | Phase 6 | Pending |
+| MAC-03 | Phase 6 | Pending |
+| MAC-04 | Phase 6 | Pending |
+| MAC-05 | Phase 6 | Pending |
+| MAC-06 | Phase 6 | Pending |
+| LNX-01 | Phase 7 | Pending |
+| LNX-02 | Phase 7 | Pending |
+| LNX-03 | Phase 7 | Pending |
+| LNX-04 | Phase 7 | Pending |
+| LNX-05 | Phase 7 | Pending |
+| LNX-06 | Phase 7 | Pending |
+| LNX-07 | Phase 7 | Pending |
+| SIGN-01 | Phase 8 | Pending |
+| SIGN-02 | Phase 8 | Pending |
 
 **Coverage:**
 - v1 requirements: 126 total
-- Mapped to phases: (filled by the roadmapper)
-- Unmapped: (filled by the roadmapper)
+- Mapped to phases: 126 (Phase 1: 1 · Phase 2: 10 · Phase 3: 21 · Phase 4: 46 · Phase 5: 32 · Phase 6: 6 · Phase 7: 7 · Phase 8: 3)
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-11-22*
-*Last updated: 2026-11-22 after initial definition*
+*Last updated: 2026-11-22 after roadmap creation (traceability filled)*
