@@ -4,15 +4,20 @@
 
 use std::process::{Command, ExitCode};
 
+mod fetch_engines;
+
 const USAGE: &str = "usage: cargo xtask <task>
 
 tasks:
-  ci    run the checks CI runs: fmt, clippy, test
+  ci             run the checks CI runs: fmt, clippy, test
+  fetch-engines  download, verify and place pinned engine binaries (xtask/engines.toml)
 ";
 
 fn main() -> ExitCode {
-    match std::env::args().nth(1).as_deref() {
+    let args: Vec<String> = std::env::args().collect();
+    match args.get(1).map(String::as_str) {
         Some("ci") => ci(),
+        Some("fetch-engines") => fetch_engines::run(&args[2..]),
         _ => {
             eprint!("{USAGE}");
             ExitCode::FAILURE

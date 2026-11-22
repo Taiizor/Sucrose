@@ -20,10 +20,15 @@ sucrose-platform = { path = "crates/sucrose-platform" }
 anyhow = "1"
 dirs = "6"
 gpui-kit = "=0.10.0"
+serde = { version = "1.0.229", features = ["derive"] }
+sevenz-rust2 = "0.25.0"
+sha2 = "0.11.1"
 thiserror = "2"
+toml = "1.2.2"
 tracing = "0.1"
 tracing-appender = "0.2"
 tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+ureq = "3.5.2"
 
 [workspace.lints.rust]
 # D-011: only sucrose-platform and engine/FFI crates may opt out with #![allow(unsafe_code)].

@@ -1,0 +1,50 @@
+# Pinned engine archives for `cargo xtask fetch-engines` (D-016, D-028).
+# Every archive is verified against its sha256 before it is opened; a mismatch deletes it and fails.
+# Binaries are never committed: they are downloaded into target/engines/<arch>/ and copied next to the dev exe.
+# `url` may later point at a mirror (the upstream release disappears after a few weeks); the hash never changes.
+# When the pinned client.h changes, regenerate crates/sucrose-engine-mpv/src/sys.rs with cargo xtask bindgen-mpv.
+
+[[engine]]
+name = "libmpv"
+arch = "x86_64"
+url = "https://github.com/shinchiro/mpv-winbuild-cmake/releases/download/20261111/mpv-dev-x86_64-20261111-git-bcde6b93cc.7z"
+sha256 = "273c079b11ea5575822f972756f4c9a71149a5c10130353abeb8586738938452"
+size = 31776374
+file = "libmpv-2.dll"
+header = "include/mpv/client.h"
+upstream_repo = "shinchiro/mpv-winbuild-cmake"
+upstream_tag = "20261111"
+upstream_commit = "bcde6b93cc"
+mpv_version = "v0.42.0-38-gbcde6b93c"
+client_api = "2.6"
+license = "GPL-2.0-or-later"
+
+[[engine]]
+name = "libmpv"
+arch = "i686"
+url = "https://github.com/shinchiro/mpv-winbuild-cmake/releases/download/20261111/mpv-dev-i686-20261111-git-bcde6b93cc.7z"
+sha256 = "f648b25096e5db9ee8e6b3a82bfa9ab57ec5634ab4820cf58c9ec71b5b033d98"
+size = 29634506
+file = "libmpv-2.dll"
+header = "include/mpv/client.h"
+upstream_repo = "shinchiro/mpv-winbuild-cmake"
+upstream_tag = "20261111"
+upstream_commit = "bcde6b93cc"
+mpv_version = "v0.42.0-38-gbcde6b93c"
+client_api = "2.6"
+license = "GPL-2.0-or-later"
+
+[[engine]]
+name = "libmpv"
+arch = "aarch64"
+url = "https://github.com/shinchiro/mpv-winbuild-cmake/releases/download/20261111/mpv-dev-aarch64-20261111-git-bcde6b93cc.7z"
+sha256 = "a42c1cebf7366a957c7c321a20df414b80d4a55bbc65ded032d78b749c8d6445"
+size = 26329311
+file = "libmpv-2.dll"
+header = "include/mpv/client.h"
+upstream_repo = "shinchiro/mpv-winbuild-cmake"
+upstream_tag = "20261111"
+upstream_commit = "bcde6b93cc"
+mpv_version = "v0.42.0-38-gbcde6b93c"
+client_api = "2.6"
+license = "GPL-2.0-or-later"
