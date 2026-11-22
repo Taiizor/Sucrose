@@ -14,7 +14,7 @@ An existing user upgrades and loses nothing (themes, store, web wallpapers and t
 
 - ✓ Cargo workspace at the repo root (`crates/`, `apps/`, `xtask/`) with `[workspace.dependencies]` and `[workspace.lints]`; `src/` and `exp/` excluded (D-011) — M0
 - ✓ `rust-toolchain.toml` (1.99.0), `rustfmt.toml`, `clippy.toml`, `deny.toml` (all dependencies pass the license list) — M0
-- ✓ CI workflow `.github/workflows/rust.yml`: fmt; clippy `-D warnings` and tests on Windows, Ubuntu and macOS; cargo-deny (checks pass locally on Windows via `cargo xtask ci`; CI has not run yet) — M0
+- ✓ CI workflow `.github/workflows/rust.yml`: fmt; clippy `-D warnings` and tests on Windows, Ubuntu and macOS; cargo-deny (first CI run green on Windows, Ubuntu and macOS: run 44968506512) — M0
 - ✓ `sucrose-log`: daily rolling log files under `Log/`; `SUCROSE_DATA_DIR` and `SUCROSE_LOG` overrides — M0
 - ✓ `sucrose-core` (paths) and `sucrose-platform` (trait + stubs for all three OSes) — M0
 - ✓ `apps/sucrose` (service stub) and `apps/sucrose-portal` (empty GPUI window, built from scratch) — M0
@@ -55,7 +55,7 @@ An existing user upgrades and loses nothing (themes, store, web wallpapers and t
 ## Constraints
 
 - **Compatibility**: themes (`SucroseInfo.json`, `SucroseProperties.json`, `SucroseCompatible.json`, archives) and the web JavaScript API stay compatible; legacy settings are migrated automatically; proven with fixture tests — D-007
-- **Platforms**: Windows, macOS and Linux from the first commit, parity order Windows → macOS → Linux; OS-specific code only in `sucrose-platform` and engine crates — D-002
+- **Platforms**: Windows, macOS and Linux from the first commit, parity order Windows → macOS → Linux; OS-specific code only in `sucrose-platform` and engine crates — D-002; target architectures Windows x86, x64 and ARM64, macOS arm64 + x86_64 as one universal binary, Linux x86_64 and aarch64 — D-027
 - **Tech stack**: Rust edition 2024 on the pinned stable toolchain; `rustfmt` and `clippy -D warnings`; C/C++ only through FFI — D-001
 - **UI**: GPUI via an exactly pinned `gpui-kit`; one design language on every OS — D-004
 - **Engines**: optional, user-installed, detected and loaded at runtime with install hints; own `bindgen` bindings loaded with `libloading` — D-005, D-013
@@ -69,7 +69,7 @@ An existing user upgrades and loses nothing (themes, store, web wallpapers and t
 
 ## Key Decisions
 
-The authoritative, append-only log is `docs/DECISIONS.md` (D-001 … D-026). The ones that shape the roadmap most:
+The authoritative, append-only log is `docs/DECISIONS.md` (D-001 … D-027). The ones that shape the roadmap most:
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
@@ -84,6 +84,7 @@ The authoritative, append-only log is `docs/DECISIONS.md` (D-001 … D-026). The
 | Own installer, updater and uninstaller (D-019) | Full control, verified updates | — Pending |
 | GitHub integrations removed (D-020) | Soferity API only | — Pending |
 | Lock screen wallpaper in scope (D-026) | Maintainer decision; mechanism decided before it is built | — Pending |
+| Target architectures: Windows x86, x64 and ARM64; macOS arm64 + x86_64 as one universal binary; Linux x86_64 and aarch64 (D-027) | Keep every Windows architecture the legacy app shipped; add ARM64 Linux and both macOS architectures | — Pending |
 | Roadmap and phase work move to `.planning/` (GSD); Phase 1–8 = M0–M7, each phase title carries its M label (e.g. "Phase 2: M1 — Video wallpaper on the desktop (Windows)"; GSD needs the colon after the phase number) | One planning system; GSD phases may commit | — Pending |
 
 ## Evolution

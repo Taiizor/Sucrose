@@ -25,11 +25,12 @@ Sucrose is rewritten from scratch in Rust on `develop-rust`, Windows first, then
 **Goal**: The workspace builds, lints and tests in CI on Windows, macOS and Linux, so every later phase stays cross-platform from its first commit.
 **Mode:** mvp
 **Depends on**: Nothing (first phase)
-**Requirements**: FND-01
+**Requirements**: FND-01, FND-02
 **Success Criteria** (what must be TRUE):
   1. CI is green on all three OSes with stub platform implementations for macOS and Linux.
   2. A push to `develop-rust` runs `.github/workflows/rust.yml`, and fmt, clippy `-D warnings` and the tests pass on Windows, Ubuntu and macOS, and cargo-deny passes.
   3. `cargo xtask ci` on the maintainer's Windows machine runs the same checks as CI and passes.
+  4. CI builds and tests natively on Windows ARM64 (`windows-11-arm`) and Linux ARM64 (`ubuntu-24.04-arm`), the Windows x64 job runs clippy and the tests for `i686-pc-windows-msvc`, and the macOS job checks the `x86_64-apple-darwin` target.
 **Plans**: TBD
 **Notes**: Every other M0 item is done (PROJECT.md → Validated). The remaining step is a push so CI runs on Linux and macOS; a failure there is fixed in the stubs or the workflow, not by dropping a job.
 
@@ -150,4 +151,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | 7. M6 — Linux (X11, then Wayland compositors) | 0/TBD | Not started | - |
 | 8. M7 — Parity sign-off | 0/TBD | Not started | - |
 
-**Coverage:** 126/126 v1 requirements mapped; traceability in `.planning/REQUIREMENTS.md`.
+**Coverage:** 127/127 v1 requirements mapped; traceability in `.planning/REQUIREMENTS.md`.

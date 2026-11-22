@@ -13,6 +13,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 ### Foundation (M0)
 
 - [ ] **FND-01**: CI is green on Windows, macOS and Linux (fmt, clippy `-D warnings`, tests, cargo-deny) with stub platform implementations for macOS and Linux
+- [ ] **FND-02**: CI builds and tests Windows ARM64 and Linux ARM64 natively, builds and tests the Windows x86 (i686) target on the Windows x64 runner, and checks the macOS x86_64 target (D-027)
 
 ### Architecture
 
@@ -148,7 +149,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **SVC-01**: Wallpaper cycling with interval, random or sequential order and exclusions
 - [ ] **SVC-02**: Discord Rich Presence, also detecting Discord Canary
 - [ ] **SVC-03**: Updates with Release/PreRelease channels, auto modes and the bandwidth limit; packages are signed and verified before install; Soferity only; the legacy limit-type bug is fixed (D-019, D-020)
-- [ ] **SVC-04**: Own installer and uninstaller signed with signtool; quiet uninstall works and removes startup entries and GPU-preference registry values; an existing C# install is migrated (D-019, D-025)
+- [ ] **SVC-04**: Own installer and uninstaller signed with signtool; quiet uninstall works and removes startup entries and GPU-preference registry values; an existing C# install is migrated (D-019, D-025); packages for Windows x86, x64 and ARM64 (D-027)
 - [ ] **SVC-05**: The crash dialog and crash reports respect the opt-out before anything is written (D-017)
 - [ ] **SVC-06**: Telemetry (online, analytic, search, download, update) keeps the legacy payload structure with per-OS identity inputs and the existing opt-outs (D-018, D-024)
 - [ ] **SVC-07**: Logs and a log bundle that excludes `Objectionable.json`
@@ -181,7 +182,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **MAC-02**: Engines on macOS: WKWebView, CEF, libmpv, libVLC and the AVFoundation built-in video engine
 - [ ] **MAC-03**: System data, audio capture (ScreenCaptureKit / Core Audio taps, with permission) and the limited media session work on macOS as `docs/FEATURES.md` allows
 - [ ] **MAC-04**: Tray, LaunchAgent autostart and data under the platform config directory on macOS
-- [ ] **MAC-05**: macOS packages and updates (unsigned until an Apple Developer ID exists, D-025)
+- [ ] **MAC-05**: macOS packages and updates as one universal binary (arm64 + x86_64), unsigned until an Apple Developer ID exists (D-025, D-027)
 - [ ] **MAC-06**: Every `?` in the macOS column of `docs/FEATURES.md` (including the lock screen) is investigated and set; what macOS cannot do is reported through platform capabilities and hidden or explained in the UI
 
 ### Linux (M6)
@@ -191,7 +192,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **LNX-03**: Engines on Linux: WebKitGTK, CEF, libmpv, libVLC and the GStreamer built-in video engine
 - [ ] **LNX-04**: System data, PipeWire/PulseAudio audio capture and the MPRIS media session work on Linux
 - [ ] **LNX-05**: Tray (AppIndicator on GNOME), XDG autostart and data under the platform config directory on Linux
-- [ ] **LNX-06**: Linux packages (formats decided at M6) and updates
+- [ ] **LNX-06**: Linux packages for x86_64 and aarch64 (formats decided at M6) and updates (D-027)
 - [ ] **LNX-07**: Every `?` in the Linux column of `docs/FEATURES.md` (including the lock screen) is investigated and set; what Linux cannot do is reported through platform capabilities
 
 ### Parity sign-off (M7)
@@ -227,6 +228,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | FND-01 | Phase 1 | Pending |
+| FND-02 | Phase 1 | Pending |
 | ARCH-01 | Phase 3 | Pending |
 | ARCH-02 | Phase 3 | Pending |
 | ARCH-03 | Phase 3 | Pending |
@@ -354,10 +356,10 @@ Which phases cover which requirements. Filled during roadmap creation.
 | SIGN-02 | Phase 8 | Pending |
 
 **Coverage:**
-- v1 requirements: 126 total
-- Mapped to phases: 126 (Phase 1: 1 · Phase 2: 10 · Phase 3: 21 · Phase 4: 46 · Phase 5: 32 · Phase 6: 6 · Phase 7: 7 · Phase 8: 3)
+- v1 requirements: 127 total
+- Mapped to phases: 127 (Phase 1: 2 · Phase 2: 10 · Phase 3: 21 · Phase 4: 46 · Phase 5: 32 · Phase 6: 6 · Phase 7: 7 · Phase 8: 3)
 - Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-11-22*
-*Last updated: 2026-11-22 after roadmap creation (traceability filled)*
+*Last updated: 2026-11-22 after adding target architectures (D-027, FND-02)*
