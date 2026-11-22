@@ -2,13 +2,16 @@
 
 #![allow(clippy::print_stdout, clippy::print_stderr)]
 
+use std::path::{Path, PathBuf};
 use std::process::{Command, ExitCode};
 
+mod bindgen_mpv;
 mod fetch_engines;
 
 const USAGE: &str = "usage: cargo xtask <task>
 
 tasks:
+  bindgen-mpv    regenerate the libmpv bindings from client.h (needs --features bindgen)
   ci             run the checks CI runs: fmt, clippy, test
   fetch-engines  download, verify and place pinned engine binaries (xtask/engines.toml)
 ";
@@ -16,6 +19,7 @@ tasks:
 fn main() -> ExitCode {
     let args: Vec<String> = std::env::args().collect();
     match args.get(1).map(String::as_str) {
+        Some("bindgen-mpv") => bindgen_mpv::run(&args[2..]),
         Some("ci") => ci(),
         Some("fetch-engines") => fetch_engines::run(&args[2..]),
         _ => {
@@ -44,6 +48,18 @@ fn ci() -> ExitCode {
         }
     }
     ExitCode::SUCCESS
+}
+
+/// The workspace root, the parent of this crate.
+fn workspace_root() -> PathBuf {
+    Path::new(env!("CARGO_MANIFEST_DIR"))
+        .parent()
+        .map_or_else(|| PathBuf::from("."), Path::to_path_buf)
+}
+
+/// Cargo's target folder: `CARGO_TARGET_DIR` when set, else `<root>/target`.
+fn target_dir() -> PathBuf {
+    std::env::var_os("CARGO_TARGET_DIR").map_or_else(|| workspace_root().join("target"), PathBuf::from)
 }
 
 /// The cargo that started xtask, so the pinned toolchain is used.

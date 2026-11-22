@@ -1,0 +1,16 @@
+[package]
+name = "sucrose-engine-mpv"
+description = "libmpv engine: runtime-loaded bindings, loader and player for video wallpapers"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+libloading = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+
+[lints]
+workspace = true

@@ -97,6 +97,16 @@ pub fn parse_manifest(text: &str) -> Result<Vec<Pin>, String> {
     Ok(manifest.engine)
 }
 
+/// One line naming the pinned build of an architecture, for provenance comments in generated files.
+#[cfg(feature = "bindgen")]
+pub fn pin_summary(arch: &str) -> Result<String, String> {
+    let pins = parse_manifest(MANIFEST)?;
+    pins.iter()
+        .find(|p| p.arch == arch)
+        .map(Pin::describe)
+        .ok_or_else(|| format!("no pin for arch '{arch}'"))
+}
+
 /// Hashes the whole file and compares it with the expected lowercase hex SHA256.
 pub fn verify_sha256(path: &Path, expected: &str) -> Result<(), String> {
     let name = path
@@ -222,10 +232,7 @@ fn fetch(args: &[String]) -> Result<(), String> {
         return Err("--from needs a single --arch".to_owned());
     }
 
-    let root = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .parent()
-        .ok_or("cannot find the workspace root")?;
-    let target_dir = std::env::var_os("CARGO_TARGET_DIR").map_or_else(|| root.join("target"), PathBuf::from);
+    let target_dir = crate::target_dir();
     for pin in wanted {
         fetch_arch(pin, options.from.as_deref(), &target_dir, host)?;
     }
