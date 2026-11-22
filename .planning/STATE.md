@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
 status: executing
-stopped_at: Completed 02-18-PLAN.md
-last_updated: "2026-11-22T22:45:38.371Z"
+stopped_at: Completed 02-19-PLAN.md
+last_updated: "2026-11-22T22:58:33.640Z"
 last_activity: 2026-11-23
 last_activity_desc: Phase 02 execution started
-state_head: acce44bfabedee81ae224650478dffa2ba904e1c
+state_head: 0dce7b88886b38146b0b8f6c4520f91533ca518a
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 22
-  completed_plans: 18
+  completed_plans: 19
   percent: 13
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 ## Current Position
 
 Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
-Plan: 19 of 22
+Plan: 20 of 22
 Status: Ready to execute
 Last activity: 2026-11-23 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
@@ -71,6 +71,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 02 P16 | 15 min | 3 tasks | 7 files |
 | Phase 02 P17 | 8 min | 2 tasks | 6 files |
 | Phase 02 P18 | 6 min | 2 tasks | 8 files |
+| Phase 02 P19 | 4 min | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -107,6 +108,7 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-16: the 500 ms restart delay after TaskbarCreated stays; the attach waits up to 10 s for the wallpaper WorkerW and a WinEvent order guard keeps the surface above it
 - [Phase 02]: 02-17: default_gpu_adapter reads the adapter back from a default D3D11 device (IDXGIDevice::GetAdapter); the EnumAdapters1 order is never taken as the adapter in use
 - [Phase 02]: 02-18: Engine.json GraphicPreference is read as a legacy enum (names and 0..2); the service writes UserGpuPreferences for sucrose.exe before the first renderer, only when a wallpaper job exists
+- [Phase 02]: D-030: sticky master clock; a renderer counts only after its first frame; departs from the 02-CONTEXT primary-monitor rule
 
 ### Pending Todos
 
@@ -137,6 +139,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-22T22:45:34.584Z
-Stopped at: Completed 02-18-PLAN.md
+Last session: 2026-11-22T22:58:29.349Z
+Stopped at: Completed 02-19-PLAN.md
 Resume file: None
