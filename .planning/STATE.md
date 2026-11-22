@@ -2,17 +2,17 @@
 gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
-status: verifying
-stopped_at: Completed 02-15-PLAN.md
-last_updated: "2026-11-22T17:03:27.079Z"
-last_activity: 2026-11-22
+status: executing
+stopped_at: Completed 02-16-PLAN.md
+last_updated: "2026-11-22T22:25:24.393Z"
+last_activity: 2026-11-23
 last_activity_desc: Phase 02 execution started
-state_head: cd4bf222b69ede172763f6fb66d71285a79a8896
+state_head: ad602d4fed4fbe2a8ee05146c900f09e7dc35b11
 progress:
   total_phases: 8
   completed_phases: 1
-  total_plans: 15
-  completed_plans: 15
+  total_plans: 22
+  completed_plans: 16
   percent: 13
 ---
 
@@ -28,9 +28,9 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 ## Current Position
 
 Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
-Plan: 15 of 15
-Status: Phase complete — ready for verification
-Last activity: 2026-11-22 — Phase 02 execution started
+Plan: 17 of 22
+Status: Ready to execute
+Last activity: 2026-11-23 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
 
 Progress: [█░░░░░░░░░] 13%
@@ -68,6 +68,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 02 P13 | 5 min | 2 tasks | 8 files |
 | Phase 02 P14 | 9 min | 2 tasks | 13 files |
 | Phase 02 P15 | 40 min | 3 tasks | 8 files |
+| Phase 02 P16 | 15 min | 3 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -101,6 +102,7 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-14: ToService::Clock appended after Playing (wire index 3); position jumps come from playback-restart events, not an observed time-pos, to keep the event thread idle
 - [Phase 02]: 02-14: followers correct through Follower (nudge once, return to master speed inside a frame, seeks 2 s apart); the master restores speed 1.0 when promoted
 - [Phase 02]: 02-15: GPU memory also reads GPU Process Memory Shared Usage because Dedicated Usage is 0 on the integrated GPU; Rust renderer GPU 3D engine 93.7% vs C# MpvPlayer 16.5% flagged for Phase 2 verification
+- [Phase 02]: 02-16: the 500 ms restart delay after TaskbarCreated stays; the attach waits up to 10 s for the wallpaper WorkerW and a WinEvent order guard keeps the surface above it
 
 ### Pending Todos
 
@@ -131,6 +133,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-22T17:03:26.909Z
-Stopped at: Completed 02-15-PLAN.md
+Last session: 2026-11-22T22:25:19.967Z
+Stopped at: Completed 02-16-PLAN.md
 Resume file: None
