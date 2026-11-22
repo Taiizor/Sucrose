@@ -167,6 +167,28 @@ Actions Close / Pause / Resume per condition; trigger after 5 consecutive 1 s po
 | Data folder layout (`Setting`, `Log`, `Cache`, `Library`, `Showcase`), 25-character theme folder names | `formats.md` §2 | ⬜ |
 | Web wallpaper JavaScript API | `engines.md` §6 | ⬜ |
 
+## Architectures (D-027)
+
+Target CPU architectures. Target triples and CI coverage: `ARCHITECTURE.md` → Targets.
+
+| Target | Supported | Notes | Status |
+|---|---|---|---|
+| Windows x86 (32-bit) | ✅ | Legacy built it: `.build/Sucrose.ps1 -PlatformTarget x86` (`win-x86`); `src/` ships `libmpv-x86.dll`. | ⬜ |
+| Windows x64 | ✅ | Legacy built it: `.build/Sucrose.ps1 -PlatformTarget x64` (`win-x64`, the default); `src/` ships `libmpv-x64.dll`. | ⬜ |
+| Windows ARM64 | ✅ | Legacy built it: `.build/Sucrose.ps1 -PlatformTarget ARM64` (`win-arm64`); `src/` ships `libmpv-ARM64.dll`. | ⬜ |
+| macOS arm64 + x86_64, one universal binary | ✅ | New; the legacy app is Windows-only. | ⬜ |
+| Linux x86_64 | ✅ | New; the legacy app is Windows-only. | ⬜ |
+| Linux aarch64 | ✅ | New; the legacy app is Windows-only. | ⬜ |
+
+Optional engines per architecture. A cell says whether a build of that engine exists for that architecture; ✅ needs evidence in this repository, cited in Notes. That `.build/Sucrose.ps1` publishes the legacy engine hosts for each `win-*` runtime does not count: it does not show which architectures the engine's own binaries cover. An engine with no build for the running architecture is reported like a missing engine (D-005).
+
+| Engine | Win x86 | Win x64 | Win ARM64 | mac arm64 | mac x86_64 | Linux x86_64 | Linux aarch64 | Notes |
+|---|---|---|---|---|---|---|---|---|
+| libmpv | ✅ | ✅ | ✅ | ? | ? | ? | ? | Legacy ships `src/Live/Sucrose.Live.MpvPlayer/Requirements/libmpv-x86.dll`, `libmpv-x64.dll` and `libmpv-ARM64.dll`. |
+| libVLC | ? | ? | ? | ? | ? | ? | ? | Legacy uses one package, `VideoLAN.LibVLC.Windows` 3.0.24 (`Directory.Packages.props`); no per-architecture package in `Directory.Packages.props` or `.build/Sucrose.ps1`. |
+| CEF | ? | ? | ? | ? | ? | ? | ? | Legacy uses `CefSharp.Wpf.HwndHost` 156.0.150 (`Directory.Packages.props`); no per-architecture package in `Directory.Packages.props` or `.build/Sucrose.ps1`. |
+| WebView2 | ? | ? | ? | ❌ | ❌ | ❌ | ❌ | Windows-only. Legacy uses one package, `Microsoft.Web.WebView2` 1.0.4365-prerelease (`Directory.Packages.props`); no per-architecture package in `Directory.Packages.props` or `.build/Sucrose.ps1`. |
+
 ## Legacy problems not to carry over
 
 - **Security:** TLS certificate validation is disabled everywhere (SSL2/3 enabled); updates are not verified; the CEF local web server has no path-traversal check. Fix these (D-017, D-019). The legacy Chromium switches stay as defaults but become user-editable (D-021).

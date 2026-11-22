@@ -9,6 +9,16 @@
 - No web runtime in the core. Engines are optional and user-installed.
 - Existing themes, the store and web wallpapers keep working; settings are migrated automatically (D-007).
 
+## Targets
+
+Sucrose builds for these targets (D-027):
+
+- Windows: `i686-pc-windows-msvc`, `x86_64-pc-windows-msvc`, `aarch64-pc-windows-msvc`.
+- macOS: `aarch64-apple-darwin` and `x86_64-apple-darwin`, combined into one universal binary at packaging.
+- Linux: `x86_64-unknown-linux-gnu`, `aarch64-unknown-linux-gnu`.
+- CI (`.github/workflows/rust.yml`): clippy and the tests run natively on `windows-latest`, `windows-11-arm`, `ubuntu-latest`, `ubuntu-24.04-arm` and `macos-latest`; the `windows-latest` job also runs clippy and the tests for `i686-pc-windows-msvc`, and the `macos-latest` job runs `cargo check` for `x86_64-apple-darwin`.
+- Which optional engines have a build for each architecture: `FEATURES.md` → Architectures.
+
 ## Processes (D-008)
 
 | Process | Lifetime | Responsibilities |
