@@ -2,6 +2,11 @@
 //!
 //! The loop owns a hidden top-level window (class `SucroseServiceWindow`). It is top-level rather than message-only
 //! because `TaskbarCreated` and `WM_DISPLAYCHANGE` are only broadcast to top-level windows (later plans listen to them).
+//!
+//! `WM_DISPLAYCHANGE`, `WM_DPICHANGED`, `WM_SETTINGCHANGE` and the broadcast `TaskbarCreated` are *sent* messages:
+//! `GetMessageW` runs the window procedure for them and keeps waiting, so without another message nothing would hand
+//! the queued event to the handler. The window procedure therefore posts a private `WM_DRAIN` after queuing one, which
+//! makes `GetMessageW` return.
 
 use std::{
     cell::{Cell, RefCell},
@@ -33,6 +38,9 @@ use crate::{Flow, LoopEvent, PlatformError};
 const WM_WAKE: u32 = WM_APP;
 /// Posted by [`LoopProxy::quit`].
 const WM_QUIT_REQUEST: u32 = WM_APP + 1;
+/// Posted by the window procedure itself after it queued an event from a sent message, so `GetMessageW` returns and
+/// `run` drains `PENDING`. It carries no event.
+const WM_DRAIN: u32 = WM_APP + 2;
 
 const CLASS_NAME: PCWSTR = w!("SucroseServiceWindow");
 
@@ -47,25 +55,63 @@ thread_local! {
 }
 
 thread_local! {
+    /// Whether a `WM_DRAIN` is already posted and not yet dispatched on this thread, so a burst of sent messages
+    /// posts one, not one per message (T-02-35).
+    static DRAIN_POSTED: Cell<bool> = const { Cell::new(false) };
+}
+
+thread_local! {
     /// Events the window procedure received on this thread, waiting for `run` to hand them to the handler. A
-    /// window procedure can also run inside another modal loop (an open tray menu), so it only queues.
+    /// window procedure can also run inside another modal loop (an open tray menu), so it only queues. Display and
+    /// shell messages are sent, not posted: `GetMessageW` does not return for them, which is why `WM_DRAIN` exists.
     static PENDING: RefCell<VecDeque<LoopEvent>> = const { RefCell::new(VecDeque::new()) };
+}
+
+/// Makes `GetMessageW` return so `run` hands the queued events to the handler, unless a drain is already on its way.
+fn request_drain(hwnd: HWND) {
+    if DRAIN_POSTED.get() {
+        return;
+    }
+    DRAIN_POSTED.set(true);
+    // SAFETY: plain handle and integers; PostMessageW validates the handle. It is called from the thread that owns
+    // the window, from inside its window procedure, which is allowed.
+    match unsafe { PostMessageW(Some(hwnd), WM_DRAIN, WPARAM(0), LPARAM(0)) } {
+        Ok(()) => {
+            #[cfg(test)]
+            DRAIN_POSTS.with(|posts| posts.set(posts.get() + 1));
+        }
+        Err(error) => {
+            // The next event tries again.
+            DRAIN_POSTED.set(false);
+            tracing::debug!(%error, "cannot post the drain message to the loop window");
+        }
+    }
 }
 
 unsafe extern "system" fn loop_proc(hwnd: HWND, message: u32, wparam: WPARAM, lparam: LPARAM) -> LRESULT {
     let taskbar_created = TASKBAR_CREATED.load(Ordering::Relaxed);
+    // The second field says whether the message was sent (not posted) and so needs a drain post to be noticed.
     let event = match message {
-        WM_WAKE => Some(LoopEvent::Wake),
-        WM_QUIT_REQUEST => Some(LoopEvent::Quit),
-        WM_DISPLAYCHANGE | WM_DPICHANGED => Some(LoopEvent::DisplayChanged),
+        WM_WAKE => Some((LoopEvent::Wake, false)),
+        WM_QUIT_REQUEST => Some((LoopEvent::Quit, false)),
+        WM_DISPLAYCHANGE | WM_DPICHANGED => Some((LoopEvent::DisplayChanged, true)),
         // Only a change of the work area matters here; every other setting goes to the default procedure.
-        WM_SETTINGCHANGE if wparam.0 == SPI_SETWORKAREA.0 as usize => Some(LoopEvent::DisplayChanged),
-        WM_TIMER => Some(LoopEvent::Timer(wparam.0 as u32)),
-        _ if taskbar_created != 0 && message == taskbar_created => Some(LoopEvent::ShellRestarted),
+        WM_SETTINGCHANGE if wparam.0 == SPI_SETWORKAREA.0 as usize => Some((LoopEvent::DisplayChanged, true)),
+        WM_TIMER => Some((LoopEvent::Timer(wparam.0 as u32), false)),
+        _ if taskbar_created != 0 && message == taskbar_created => Some((LoopEvent::ShellRestarted, true)),
         _ => None,
     };
-    if let Some(event) = event {
+    if let Some((event, sent)) = event {
         PENDING.with(|pending| pending.borrow_mut().push_back(event));
+        if sent {
+            request_drain(hwnd);
+        }
+        return LRESULT(0);
+    }
+    if message == WM_DRAIN {
+        // No event of its own: `GetMessageW` returning for it is the point. `run` drains right after dispatching it,
+        // also when a modal loop (the tray menu) dispatched it, because the drain happens once that dispatch returns.
+        DRAIN_POSTED.set(false);
         return LRESULT(0);
     }
     // SAFETY: forwards the arguments the OS gave this window procedure, unchanged.
