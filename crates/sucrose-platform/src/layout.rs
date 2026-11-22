@@ -97,6 +97,17 @@ pub enum RaisedOrder {
 /// Checks Progman's children (topmost first) for the raised layout: the icons first, then the surface, then every
 /// wallpaper window. Other windows may sit anywhere.
 pub fn raised_order(siblings: &[SiblingKind]) -> RaisedOrder {
-    let _ = siblings;
+    let Some(surface) = siblings.iter().position(|kind| *kind == SiblingKind::Surface) else {
+        return RaisedOrder::SurfaceMissing;
+    };
+    let Some(icons) = siblings.iter().position(|kind| *kind == SiblingKind::Icons) else {
+        return RaisedOrder::IconsMissing;
+    };
+    if surface < icons {
+        return RaisedOrder::SurfaceAboveIcons;
+    }
+    if siblings[..surface].contains(&SiblingKind::Wallpaper) {
+        return RaisedOrder::WallpaperAboveSurface;
+    }
     RaisedOrder::Correct
 }

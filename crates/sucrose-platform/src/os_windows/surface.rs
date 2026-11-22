@@ -35,7 +35,7 @@ use windows::{
 use super::os_error;
 use crate::{
     PlatformError, RectPx,
-    layout::{self, DesktopLayout, ShellSnapshot, WindowNode},
+    layout::{self, DEFVIEW_CLASS, DesktopLayout, RaisedOrder, ShellSnapshot, SiblingKind, WORKERW_CLASS, WindowNode},
 };
 
 const CLASS_NAME: PCWSTR = w!("SucroseDesktopSurface");
@@ -304,7 +304,47 @@ fn place(surface: HWND, parent: HWND, target: RectPx) -> Result<(), String> {
     .map_err(|e| format!("SetWindowPos: {e}"))
 }
 
-fn verify(surface: HWND, expected_root: HWND, target: RectPx) -> Result<RectPx, String> {
+/// Progman's children, topmost first.
+fn progman_children(progman: HWND) -> Vec<HWND> {
+    let mut children = Vec::new();
+    // SAFETY: read-only walk over the child list of a window handle; an invalid handle ends the walk at once.
+    let mut next = unsafe { GetWindow(progman, GW_CHILD) }.ok();
+    while let Some(child) = next {
+        children.push(child);
+        // SAFETY: as above.
+        next = unsafe { GetWindow(child, GW_HWNDNEXT) }.ok();
+    }
+    children
+}
+
+/// What each child of Progman is, topmost first, for [`layout::raised_order`]; `surface` is the window being checked.
+fn progman_order(progman: HWND, surface: HWND) -> Vec<SiblingKind> {
+    progman_children(progman)
+        .into_iter()
+        .map(|child| {
+            if child == surface {
+                return SiblingKind::Surface;
+            }
+            match class_name(child).as_str() {
+                DEFVIEW_CLASS => SiblingKind::Icons,
+                WORKERW_CLASS => SiblingKind::Wallpaper,
+                _ => SiblingKind::Other,
+            }
+        })
+        .collect()
+}
+
+/// The classes of Progman's children, topmost first, joined with " > " (for example
+/// "SHELLDLL_DefView > SucroseDesktopSurface > WorkerW"), for logs and errors.
+fn order_text(progman: HWND) -> String {
+    progman_children(progman)
+        .into_iter()
+        .map(class_name)
+        .collect::<Vec<_>>()
+        .join(" > ")
+}
+
+fn verify(surface: HWND, expected_root: HWND, target: RectPx, strategy: Strategy) -> Result<RectPx, String> {
     // SAFETY: read-only queries on window handles.
     let root = unsafe { GetAncestor(surface, GA_ROOT) };
     if root != expected_root {
@@ -318,6 +358,17 @@ fn verify(surface: HWND, expected_root: HWND, target: RectPx) -> Result<RectPx, 
     if actual != target {
         return Err(format!("the surface rect is {actual:?}, expected {target:?}"));
     }
+    // Only here the surface is a sibling of the shell's own windows; in the other strategies it is a child of the
+    // WorkerW and the shell's window order does not matter.
+    if strategy == Strategy::LayeredChild {
+        let order = layout::raised_order(&progman_order(expected_root, surface));
+        if order != RaisedOrder::Correct {
+            return Err(format!(
+                "the Progman child order is {} ({order:?}), expected SHELLDLL_DefView, the surface, then every WorkerW",
+                order_text(expected_root)
+            ));
+        }
+    }
     Ok(actual)
 }
 
@@ -328,16 +379,23 @@ impl DesktopSurface {
         let surface = Self { hwnd: create_window()? };
         let deadline = Instant::now() + ATTACH_TIMEOUT;
         let mut delay = Duration::from_millis(100);
-        let mut spawn_sent = false;
         loop {
-            match surface.try_attach(rect, &mut spawn_sent) {
+            match surface.try_attach(rect, false) {
                 Ok(()) => return Ok(surface),
                 Err(reason) if Instant::now() >= deadline => {
-                    tracing::error!(%reason, "the desktop surface could not be attached");
-                    return Err(PlatformError::Os {
-                        context: "attach the desktop surface",
-                        code: 0,
-                    });
+                    // Last resort: a shell that never created its wallpaper WorkerW still gets the surface, under
+                    // the icons, and the order guard keeps it above the WorkerW if one shows up later.
+                    tracing::debug!(%reason, "attach attempt failed at the deadline, trying once without the WorkerW");
+                    return match surface.try_attach(rect, true) {
+                        Ok(()) => Ok(surface),
+                        Err(reason) => {
+                            tracing::error!(%reason, "the desktop surface could not be attached");
+                            Err(PlatformError::Os {
+                                context: "attach the desktop surface",
+                                code: 0,
+                            })
+                        }
+                    };
                 }
                 Err(reason) => tracing::debug!(%reason, "attach attempt failed, retrying"),
             }
@@ -375,12 +433,17 @@ impl DesktopSurface {
         self.hwnd.0 as usize as u64
     }
 
-    fn try_attach(&self, target: RectPx, spawn_sent: &mut bool) -> Result<(), String> {
+    /// One attach attempt. `last_resort` is only set for the attempt after the deadline: it attaches in the raised
+    /// layout even though the shell has no wallpaper `WorkerW` yet.
+    fn try_attach(&self, target: RectPx, last_resort: bool) -> Result<(), String> {
         let mut shell = Shell::capture();
         let progman = shell.progman.ok_or("Progman is not available")?;
-        if !*spawn_sent && !shell.has_wallpaper_workerw() {
-            *spawn_sent = true;
-            send_spawn_message(progman);
+        if !shell.has_wallpaper_workerw() {
+            // Sent again by every attempt that finds no WorkerW (the legacy app retries it too): after an explorer
+            // restart Progman's desktop thread can still be starting and miss the first one.
+            if !send_spawn_message(progman) {
+                return Err("Progman did not answer the WorkerW message within a second".to_owned());
+            }
             shell = Shell::capture();
         }
         let snapshot = shell.snapshot();
@@ -391,15 +454,26 @@ impl DesktopSurface {
             DesktopLayout::Classic => &[Strategy::ClassicWorkerW],
             DesktopLayout::Unsupported => return Err("the desktop window tree matches no known layout".to_owned()),
         };
+        let without_workerw = layout == DesktopLayout::Raised && shell.workerw_in_progman.is_none();
+        if without_workerw && !last_resort {
+            return Err("Progman has not created its wallpaper WorkerW yet".to_owned());
+        }
         let mut failures = Vec::new();
         for &strategy in strategies {
             match self.attach_with(strategy, &shell, progman, target) {
                 Ok(actual) => {
+                    if without_workerw {
+                        tracing::warn!(
+                            "attached before the shell created its wallpaper WorkerW; the order guard keeps the surface above it"
+                        );
+                    }
+                    let order = (strategy == Strategy::LayeredChild).then(|| order_text(progman));
                     tracing::info!(
                         ?layout,
                         ?strategy,
                         target = ?target,
                         actual = ?actual,
+                        order = order.as_deref(),
                         style = format_args!("{:#x}", window_long(self.hwnd, GWL_STYLE)),
                         ex_style = format_args!("{:#x}", window_long(self.hwnd, GWL_EXSTYLE)),
                         "surface attached"
@@ -435,7 +509,7 @@ impl DesktopSurface {
                     )
                 }
                 .map_err(|e| format!("SetWindowPos (z-order): {e}"))?;
-                return verify(self.hwnd, progman, target);
+                return verify(self.hwnd, progman, target, strategy);
             }
             Strategy::WorkerWChild => {
                 let workerw = shell.workerw_in_progman.ok_or("Progman has no WorkerW child")?;
@@ -449,11 +523,12 @@ impl DesktopSurface {
         set_layered(self.hwnd, false)?;
         reparent(self.hwnd, parent)?;
         place(self.hwnd, parent, target)?;
-        verify(self.hwnd, root, target)
+        verify(self.hwnd, root, target, strategy)
     }
 }
 
-fn send_spawn_message(progman: HWND) {
+/// Asks Progman to create its wallpaper `WorkerW`; `false` when it did not answer within a second.
+fn send_spawn_message(progman: HWND) -> bool {
     let mut result = 0_usize;
     // SAFETY: `result` is a valid out pointer. The timeout keeps a hung explorer from blocking this thread (T-02-34).
     let sent = unsafe {
@@ -470,6 +545,7 @@ fn send_spawn_message(progman: HWND) {
     if sent.0 == 0 {
         tracing::warn!("Progman did not answer the WorkerW message within a second");
     }
+    sent.0 != 0
 }
 
 impl Drop for DesktopSurface {
