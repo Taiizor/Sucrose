@@ -19,7 +19,7 @@ use sucrose_engine_mpv::{
     config::{embedding_options, generated_options, shader_cache_options, user_config_path},
     loader::{self, LoadError},
     player::{OpenOptions, Player, PlayerError, PlayerEvent},
-    sync::{DEFAULT_FRAME_S, SyncAction, correct},
+    sync::{DEFAULT_FRAME_S, Follower, SyncAction},
 };
 use sucrose_ipc::{
     Connection, IpcError, connect,
@@ -341,6 +341,7 @@ fn wait_for_close(
     proxy: &LoopProxy,
     sync: &SyncState,
 ) {
+    let mut follower = Follower::new();
     loop {
         match connection.recv::<ToRenderer>() {
             Ok(ToRenderer::Close) => {
@@ -369,8 +370,11 @@ fn wait_for_close(
                 *pending_rect.lock().unwrap_or_else(PoisonError::into_inner) = Some(rect);
                 proxy.wake();
             }
-            Ok(ToRenderer::SetRole(role)) => apply_role(role, player, sync),
-            Ok(ToRenderer::Clock(tick)) => follow_clock(&tick, player, sync),
+            Ok(ToRenderer::SetRole(role)) => {
+                apply_role(role, player, sync);
+                follower = Follower::new();
+            }
+            Ok(ToRenderer::Clock(tick)) => follow_clock(&tick, player, sync, &mut follower),
             // A second assignment is not part of this plan; later plans act on it.
             Ok(ToRenderer::Assign(_)) => tracing::warn!("ignoring an unexpected second assignment"),
             Err(IpcError::Closed) => {
@@ -394,6 +398,10 @@ fn apply_role(role: Role, player: &Player, sync: &SyncState) {
         tracing::warn!(%error, ?role, "cannot switch the audio for the new role");
     }
     if master {
+        // A promoted follower may be running at a corrected speed; the clock itself plays at normal speed.
+        if let Err(error) = player.set_speed(1.0) {
+            tracing::warn!(%error, "cannot restore the normal speed for the master");
+        }
         let volume = sync.volume.load(Ordering::SeqCst);
         if let Err(error) = player.set_volume(volume) {
             tracing::warn!(%error, volume, "cannot set the master's volume");
@@ -405,7 +413,7 @@ fn apply_role(role: Role, player: &Player, sync: &SyncState) {
 }
 
 /// Corrects this follower's drift against the master's `tick`.
-fn follow_clock(tick: &ClockTick, player: &Player, sync: &SyncState) {
+fn follow_clock(tick: &ClockTick, player: &Player, sync: &SyncState, follower: &mut Follower) {
     // A paused follower (the fullscreen rule on this monitor alone) has nothing to correct until it plays again; the
     // next reading after that realigns it.
     if sync.master.load(Ordering::SeqCst) || player.is_paused() {
@@ -415,7 +423,7 @@ fn follow_clock(tick: &ClockTick, player: &Player, sync: &SyncState) {
         return;
     };
     let duration = if sync.looping { player.duration() } else { None };
-    let action = correct(tick, monotonic_ns(), local, duration, DEFAULT_FRAME_S);
+    let action = follower.step(tick, monotonic_ns(), local, duration, DEFAULT_FRAME_S);
     let applied = match action {
         SyncAction::None => Ok(()),
         SyncAction::Speed(speed) => player.set_speed(speed),

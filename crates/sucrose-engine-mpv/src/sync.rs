@@ -31,13 +31,11 @@ pub enum SyncAction {
 /// the drift that is left alone. A paused master gives nothing to chase.
 #[must_use]
 pub fn correct(tick: &ClockTick, now_ns: u64, local_pos_s: f64, duration_s: Option<f64>, frame_s: f64) -> SyncAction {
-    // The loop end is not handled yet: a follower across a wrap looks far off and is seeked.
-    let _ = duration_s;
     if tick.paused {
         return SyncAction::None;
     }
-    let expected = expected_position(tick, now_ns);
-    let drift = local_pos_s - expected;
+    let expected = expected_position(tick, now_ns, duration_s);
+    let drift = signed_drift(local_pos_s, expected, duration_s);
     if drift.abs() <= frame_s {
         SyncAction::None
     } else if drift.abs() <= SEEK_THRESHOLD_S {
@@ -53,11 +51,33 @@ pub fn correct(tick: &ClockTick, now_ns: u64, local_pos_s: f64, duration_s: Opti
     }
 }
 
-/// Where the master is at `now_ns`: its position when the tick was taken plus the time since, at its speed.
-fn expected_position(tick: &ClockTick, now_ns: u64) -> f64 {
+/// Where the master is at `now_ns`: its position when the tick was taken plus the time since, at its speed, wrapped
+/// into the file when it loops.
+fn expected_position(tick: &ClockTick, now_ns: u64, duration_s: Option<f64>) -> f64 {
     #[allow(clippy::cast_precision_loss)]
     let elapsed_s = now_ns.saturating_sub(tick.stamp_ns) as f64 / 1e9;
-    tick.position_s + elapsed_s * tick.speed
+    let expected = tick.position_s + elapsed_s * tick.speed;
+    match duration_s.filter(|length| *length > 0.0) {
+        Some(length) => expected.rem_euclid(length),
+        None => expected,
+    }
+}
+
+/// `local - expected` in seconds; positive when the follower is ahead. In a loop the distance is the shorter way
+/// round the circle, so a follower just before the end and a master just after it are close, not a file apart.
+fn signed_drift(local_pos_s: f64, expected_s: f64, duration_s: Option<f64>) -> f64 {
+    let drift = local_pos_s - expected_s;
+    match duration_s.filter(|length| *length > 0.0) {
+        Some(length) => {
+            let wrapped = drift.rem_euclid(length);
+            if wrapped > length / 2.0 {
+                wrapped - length
+            } else {
+                wrapped
+            }
+        }
+        None => drift,
+    }
 }
 
 /// Two seconds in nanoseconds: an exact seek needs time to finish, so another one is not issued before that.
@@ -88,8 +108,32 @@ impl Follower {
         duration_s: Option<f64>,
         frame_s: f64,
     ) -> SyncAction {
-        let _ = (tick, now_ns, local_pos_s, duration_s, frame_s);
-        SyncAction::None
+        match correct(tick, now_ns, local_pos_s, duration_s, frame_s) {
+            SyncAction::None => match self.nudged.take() {
+                // Inside a frame (or the master paused): back to the master's own speed.
+                Some(_) => SyncAction::Speed(tick.speed),
+                None => SyncAction::None,
+            },
+            SyncAction::Speed(speed) => {
+                if self.nudged.is_some_and(|current| (current - speed).abs() < 1e-9) {
+                    SyncAction::None
+                } else {
+                    self.nudged = Some(speed);
+                    SyncAction::Speed(speed)
+                }
+            }
+            SyncAction::Seek(position) => {
+                let too_soon = self
+                    .last_seek_ns
+                    .is_some_and(|last| now_ns.saturating_sub(last) <= MIN_SEEK_GAP_NS);
+                if too_soon {
+                    SyncAction::None
+                } else {
+                    self.last_seek_ns = Some(now_ns);
+                    SyncAction::Seek(position)
+                }
+            }
+        }
     }
 }
 
@@ -223,7 +267,7 @@ mod tests {
 
         let first = follower.step(&master, 5 * SECOND, 12.0, None, DEFAULT_FRAME_S);
         let soon = follower.step(&master, 6 * SECOND, 12.0, None, DEFAULT_FRAME_S);
-        let later = follower.step(&master, 7 * SECOND + 1, 12.0, None, DEFAULT_FRAME_S);
+        let later = follower.step(&master, 7 * SECOND + 1, 15.0, None, DEFAULT_FRAME_S);
 
         assert!(matches!(first, SyncAction::Seek(_)), "{first:?}");
         assert_eq!(soon, SyncAction::None);

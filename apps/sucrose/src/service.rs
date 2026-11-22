@@ -291,9 +291,10 @@ pub fn run() -> anyhow::Result<()> {
         }
         tracing::info!(count = applied.started, monitors = ?ids, primary = ?primary_id, "renderers started");
         fleet.monitors = monitors;
-        let master = fleet.master_slot();
-        tracing::info!(?master, "master clock elected");
-        lock(&renderers).master = master;
+        fleet.elect(&Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        });
     }
     let accept = Accept {
         renderers: Arc::clone(&renderers),
@@ -801,10 +802,21 @@ fn elect_master(monitors: &[MonitorInfo]) -> Option<String> {
 
 /// What changes for the renderers when the master moves from `old` to `new`: the new master is told to take the audio
 /// at `volume`, and the old one, if it still has a monitor (`active`), goes back to following.
-#[cfg_attr(not(test), allow(dead_code))]
 fn role_changes(old: Option<u8>, new: Option<u8>, active: &[u8], volume: u8) -> Vec<(u8, ToRenderer)> {
-    let _ = (old, new, active, volume);
-    Vec::new()
+    let Some(new) = new else {
+        return Vec::new();
+    };
+    if old == Some(new) {
+        return Vec::new();
+    }
+    let mut changes = vec![
+        (new, ToRenderer::SetRole(Role::Master)),
+        (new, ToRenderer::SetVolume(volume)),
+    ];
+    if let Some(old) = old.filter(|slot| active.contains(slot)) {
+        changes.push((old, ToRenderer::SetRole(Role::Follower)));
+    }
+    changes
 }
 
 /// Why the service refuses a renderer's Hello.
@@ -1127,6 +1139,28 @@ impl Fleet {
         elect_master(&candidates).and_then(|id| self.slots.slot_of(&id))
     }
 
+    /// Elects the master again for the monitors as they are now. When it changed, the new master is told to take the
+    /// audio at the configured volume and the old one, if it still has a monitor, to follow (D-02). A renderer that
+    /// is still starting has no connection yet and gets its role when it says Hello.
+    fn elect(&self, ctx: &Ctx<'_>) {
+        let wanted = self.master_slot();
+        let volume = self.job.as_ref().map_or(100, |job| job.settings.volume);
+        let mut state = lock(ctx.renderers);
+        let old = state.master;
+        if old == wanted {
+            return;
+        }
+        state.master = wanted;
+        tracing::info!(?old, new = ?wanted, "master clock elected");
+        for (slot, message) in role_changes(old, wanted, &self.slots.active_slots(), volume) {
+            if let Some(connection) = state.connections.get_mut(&slot)
+                && let Err(error) = connection.send(&message)
+            {
+                tracing::warn!(%error, slot, "cannot send a role change to a renderer");
+            }
+        }
+    }
+
     /// Applies the monitors of a snapshot that two looks agreed on. An empty snapshot is the OS in the middle of a
     /// hot-plug and changes nothing: the renderers stay until a snapshot with monitors arrives.
     fn apply_snapshot(&mut self, monitors: Vec<MonitorInfo>, ctx: &Ctx<'_>) -> Applied {
@@ -1142,6 +1176,7 @@ impl Fleet {
         tracing::info!(actions = actions.len(), "applying a monitor change");
         let applied = self.apply(actions, ctx);
         self.monitors = monitors;
+        self.elect(ctx);
         applied
     }
 
