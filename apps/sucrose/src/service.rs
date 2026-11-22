@@ -816,12 +816,21 @@ fn relay_clock(renderers: &Mutex<Renderers>, from: u8, tick: ClockTick) {
     }
 }
 
-/// The monitor whose renderer is the master clock: the primary one, else the lowest device name (D-02).
-fn elect_master(monitors: &[MonitorInfo]) -> Option<String> {
-    monitors
+/// The monitor whose renderer is the master clock (D-030). `current` is the monitor of the present master and
+/// `playing` the monitors whose renderer shows its first frame. The master is sticky: the present one keeps the role
+/// while its monitor is still among `playing`, so plugging a monitor, even one that becomes the primary, never moves
+/// the clock or the audio. With no master, or when the master's monitor is gone or its renderer stopped, the primary
+/// monitor among `playing` takes over, else the lowest device name.
+fn choose_master(current: Option<&str>, playing: &[MonitorInfo]) -> Option<String> {
+    if let Some(current) = current
+        && playing.iter().any(|monitor| monitor.id == current)
+    {
+        return Some(current.to_owned());
+    }
+    playing
         .iter()
         .find(|monitor| monitor.primary)
-        .or_else(|| monitors.iter().min_by(|a, b| a.id.cmp(&b.id)))
+        .or_else(|| playing.iter().min_by(|a, b| a.id.cmp(&b.id)))
         .map(|monitor| monitor.id.clone())
 }
 
@@ -1158,9 +1167,10 @@ impl Fleet {
         }
     }
 
-    /// The slot of the master clock: the renderer of the elected monitor among those whose renderer plays. A renderer
-    /// that has not shown its first frame has no clock yet, so it is never elected.
-    fn master_slot(&self) -> Option<u8> {
+    /// The slot of the master clock: the renderer of the monitor `choose_master` picks among those whose renderer
+    /// plays, `current` being the slot of the present master. A renderer that has not shown its first frame has no
+    /// clock yet, so it is never elected.
+    fn master_slot(&self, current: Option<u8>) -> Option<u8> {
         let candidates: Vec<MonitorInfo> = self
             .monitors
             .iter()
@@ -1171,17 +1181,18 @@ impl Fleet {
             })
             .cloned()
             .collect();
-        elect_master(&candidates).and_then(|id| self.slots.slot_of(&id))
+        let current = current.and_then(|slot| self.slots.monitor_of(slot));
+        choose_master(current, &candidates).and_then(|id| self.slots.slot_of(&id))
     }
 
     /// Elects the master again for the monitors as they are now. When it changed, the new master is told to take the
     /// audio at the configured volume and the old one, if it still has a monitor, to follow (D-02). A renderer that
     /// is still starting has no connection yet and gets its role when it says Hello.
     fn elect(&self, ctx: &Ctx<'_>) {
-        let wanted = self.master_slot();
         let volume = self.job.as_ref().map_or(100, |job| job.settings.volume);
         let mut state = lock(ctx.renderers);
         let old = state.master;
+        let wanted = self.master_slot(old);
         if old == wanted {
             return;
         }
@@ -1507,22 +1518,60 @@ mod tests {
     }
 
     #[test]
-    fn elect_master_takes_the_primary_monitor() {
-        let monitors = [monitor("\\\\.\\DISPLAY2", false), monitor("\\\\.\\DISPLAY1", true)];
+    fn master_starts_on_the_primary_monitor_once_it_plays() {
+        let playing = [monitor("\\\\.\\DISPLAY2", false), monitor("\\\\.\\DISPLAY1", true)];
 
-        assert_eq!(elect_master(&monitors).as_deref(), Some("\\\\.\\DISPLAY1"));
+        assert_eq!(choose_master(None, &playing).as_deref(), Some("\\\\.\\DISPLAY1"));
     }
 
     #[test]
-    fn elect_master_promotes_the_lowest_device_name_when_the_primary_is_gone() {
-        let monitors = [monitor("\\\\.\\DISPLAY3", false), monitor("\\\\.\\DISPLAY2", false)];
+    fn the_master_moves_when_its_monitor_goes_away() {
+        let playing = [monitor("\\\\.\\DISPLAY18", true), monitor("\\\\.\\DISPLAY2", false)];
 
-        assert_eq!(elect_master(&monitors).as_deref(), Some("\\\\.\\DISPLAY2"));
+        assert_eq!(
+            choose_master(Some("\\\\.\\DISPLAY1"), &playing).as_deref(),
+            Some("\\\\.\\DISPLAY18")
+        );
     }
 
     #[test]
-    fn elect_master_of_no_monitor_is_none() {
-        assert_eq!(elect_master(&[]), None);
+    fn the_master_moves_when_its_renderer_stops_playing() {
+        let playing = [monitor("\\\\.\\DISPLAY3", false), monitor("\\\\.\\DISPLAY2", false)];
+
+        assert_eq!(
+            choose_master(Some("\\\\.\\DISPLAY1"), &playing).as_deref(),
+            Some("\\\\.\\DISPLAY2")
+        );
+    }
+
+    #[test]
+    fn with_nobody_playing_there_is_no_master() {
+        assert_eq!(choose_master(Some("\\\\.\\DISPLAY1"), &[]), None);
+        assert_eq!(choose_master(None, &[]), None);
+    }
+
+    #[test]
+    fn plugging_a_monitor_keeps_the_playing_master() {
+        let playing = [monitor("\\\\.\\DISPLAY1", false), monitor("\\\\.\\DISPLAY18", true)];
+
+        assert_eq!(
+            choose_master(Some("\\\\.\\DISPLAY1"), &playing).as_deref(),
+            Some("\\\\.\\DISPLAY1")
+        );
+    }
+
+    #[test]
+    fn a_sticky_master_survives_a_new_primary_through_the_fleet() {
+        let mut fleet = fleet_of(
+            &[("\\\\.\\DISPLAY1", true), ("\\\\.\\DISPLAY18", false)],
+            &["\\\\.\\DISPLAY1", "\\\\.\\DISPLAY18"],
+        );
+        let master = fleet.slots.slot_of("\\\\.\\DISPLAY1");
+        for monitor in &mut fleet.monitors {
+            monitor.primary = monitor.id.ends_with("DISPLAY18");
+        }
+
+        assert_eq!(fleet.master_slot(master), master);
     }
 
     #[test]
@@ -1824,14 +1873,14 @@ mod tests {
             &["\\\\.\\DISPLAY1"],
         );
 
-        assert_eq!(fleet.master_slot(), fleet.slots.slot_of("\\\\.\\DISPLAY1"));
+        assert_eq!(fleet.master_slot(None), fleet.slots.slot_of("\\\\.\\DISPLAY1"));
     }
 
     #[test]
     fn with_no_renderer_playing_there_is_no_master() {
         let fleet = fleet_of(&[("\\\\.\\DISPLAY1", true), ("\\\\.\\DISPLAY2", false)], &[]);
 
-        assert_eq!(fleet.master_slot(), None);
+        assert_eq!(fleet.master_slot(None), None);
     }
 
     #[test]
@@ -1841,7 +1890,7 @@ mod tests {
             &["\\\\.\\DISPLAY1", "\\\\.\\DISPLAY18"],
         );
 
-        assert_eq!(fleet.master_slot(), fleet.slots.slot_of("\\\\.\\DISPLAY18"));
+        assert_eq!(fleet.master_slot(None), fleet.slots.slot_of("\\\\.\\DISPLAY18"));
     }
 
     #[test]

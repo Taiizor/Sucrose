@@ -153,6 +153,13 @@ When you make or change a decision, add an entry here in the same change.
 - Why: the `AppVersion` <= app version check on themes, store filtering and the Phase 5 update from the C# app all compare against the legacy date version (D-012); with the M0 version 0.1.0 every theme would be refused.
 - Consequences: one-way, because published versions cannot go back down (the updater and the store filter compare against them); release tooling bumps it in Phase 5. Cargo ignores build metadata for precedence, which does not matter for `publish = false` crates. Assumption A16 was tested: `CARGO_PKG_VERSION` keeps the `+R` suffix (the `cargo_version_text_keeps_the_build_metadata` test pins it), so `sucrose_core::VERSION` and `version::app_version()` read it directly and no Cargo.toml parsing at build time is needed. A theme whose `AppVersion` is newer than `app_version()` is refused with a "needs a newer app" reason (D-13); an equal version is accepted.
 
+## D-030: Master clock election for multi-monitor sync
+- Status: Accepted (2026-11-23), maintainer choice at the plan 02-19 checkpoint
+- Decision: a renderer counts only once its first frame shows (it reports Playing, publishes a clock and follows a clock only from then on); the first playing renderer, primary monitor first at start, is the master clock and keeps the role while its monitor exists and it plays; when its monitor goes away or it stops playing, the primary monitor's playing renderer, else the lowest device name, takes over.
+- Why: a plug or a primary-monitor change must not restart or jump playback on the monitors that already play (UAT gap G-02-2c): the re-enabled virtual display came back as primary, its brand-new renderer was elected master and published position 0.0002 as a running clock, and the renderer that had played for 8.5 min seeked back to the start.
+- Deviation: departs from the Phase 2 context rule (02-CONTEXT, Claude's discretion: "the primary monitor, with another renderer promoted when the master's monitor goes away"): after a primary-monitor change the master stays on the renderer that already plays, which can be on a non-primary monitor, until its monitor goes away or it stops playing. The other half of the rule stays: another renderer is promoted when the master's monitor goes away.
+- Consequences: the audio is played by the master's process; it goes to the same default output device whichever renderer plays it, and the legacy app has no master clock, so no legacy behavior changes. No protocol change; the policy is the pure `choose_master` in `apps/sucrose/src/service.rs`.
+
 ---
 
 ## Open questions
