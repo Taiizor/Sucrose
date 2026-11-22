@@ -33,14 +33,14 @@ When you make or change a decision, add an entry here in the same change.
 - Context: Discord announced a Rust + GPUI desktop client on 2026-11-04. A working prototype exists in `exp/GPUI/Sucrose.Portal` (see `GPUI.md`).
 
 ## D-005: Engines are optional and installed by the user
-- Status: Accepted (2026-11-21)
+- Status: Superseded by D-028 (2026-11-22)
 - Decision: WebView2, CEF, libmpv and libVLC are never installed or bundled by Sucrose, as today. Sucrose detects them and lets the user install them.
 - Consequences: engine libraries are loaded at runtime (`libloading`), never linked at build time (D-013).
 
 ## D-006: Built-in engines
 - Status: Accepted (2026-11-22)
 - Decision: Sucrose works with no engine installed. GIF/APNG/WebP are rendered by Sucrose itself; video uses the OS media stack (Media Foundation on Windows, AVFoundation on macOS, GStreamer on Linux). These replace Nebula, Vexana and Xavier.
-- Caveat: codec support depends on the OS. Windows plays H.264 everywhere, HEVC/VP9/AV1 need Store extensions; macOS plays H.264/HEVC/ProRes but usually not WebM/VP9; Linux depends on the installed GStreamer plugins. When the built-in engine cannot play a file, Sucrose says so and suggests an optional engine (mpv).
+- Caveat: codec support depends on the OS. Windows plays H.264 everywhere, HEVC/VP9/AV1 need Store extensions; macOS plays H.264/HEVC/ProRes but usually not WebM/VP9; Linux depends on the installed GStreamer plugins. When the built-in engine cannot play a file, Sucrose says so and suggests the bundled mpv engine (D-028).
 
 ## D-007: Compatibility: keep what is good, migrate what is improved
 - Status: Accepted (2026-11-22), changed from the proposal
@@ -140,6 +140,13 @@ When you make or change a decision, add an entry here in the same change.
 - Why: keep every Windows architecture the legacy app shipped (x86, x64 and ARM64; D-003) and add ARM64 Linux and both macOS architectures.
 - Consequences: CI builds and tests Windows ARM64 and Linux ARM64 natively, builds and tests the Windows x86 (i686) target on the Windows x64 runner, and checks the macOS x86_64 target (FND-02); packages are built per architecture (SVC-04, MAC-05, LNX-06); per-architecture engine availability is tracked in `FEATURES.md` → Architectures; an engine with no build for the running architecture is reported like a missing engine (D-005).
 
+## D-028: Engine binaries ship inside the Sucrose package
+- Status: Accepted (2026-11-22); supersedes D-005
+- Decision: engine binaries (libmpv now; libVLC and CEF in Phase 4) ship inside the Sucrose package, as they did in the C# app (which bundled `libmpv-x86/x64/ARM64.dll`, `VideoLAN.LibVLC.Windows` and CefSharp's `libcef.dll`). `cargo xtask fetch-engines` downloads the versions pinned in `xtask/engines.toml`, verifies the SHA256 before extraction, places them next to the built exe for development runs and, from Phase 5, into the packages. Binaries are never fetched at runtime and never committed. The WebView2 Runtime and the VC++ Redist stay user-side prerequisites that are detected and get download hints (ENG-06). libmpv is still loaded at runtime with `libloading` through our own `bindgen` bindings (D-013); only renderer processes load it; it is searched next to `sucrose.exe`, then on absolute `PATH` entries, never in the C# install. The `PATH` step narrows D-18: only absolute `PATH` entries are searched; relative and empty entries and the current folder are skipped against DLL planting.
+- Pin: libmpv comes from shinchiro/mpv-winbuild-cmake release 20261111 (mpv v0.42.0-38-gbcde6b93c, client API 2.6, built with `gpl`), one `mpv-dev-<arch>-20261111-git-bcde6b93cc.7z` per architecture (x86_64, i686, aarch64) pinned by SHA256 and size in `xtask/engines.toml`. `libmpv-2.dll` is 99,536,384 B (x86), 121,789,952 B (x64) and 84,073,984 B (ARM64). The build is GPL-2.0-or-later (mpv `-Dgpl`, FFmpeg `--enable-gpl`); the maintainer signed off on shipping it inside the GPL-3.0-only package (2026-11-22). The archives contain no license file, so Phase 5 packaging adds the license texts and a source offer pointing at the recipe tag 20261111 and commit `bcde6b93cc`. The LGPL builds (zhongfly) have no i686 build and would drop Windows x86 (D-027), so they are not used. The pinned URLs stay on the upstream release (maintainer decision 2026-11-22: no mirror yet); upstream keeps about 30 releases, so mirroring is an open question below. `libmpv-2.dll` imports `vulkan-1.dll` as a normal (not delay-load) import (objdump: normal import table, empty Delay Import Directory), so a PC without the Vulkan loader gets `LoadError::LoadFailed`, the D-20 "cannot be loaded" path, instead of a working libmpv.
+- Why: parity with the C# package and wallpapers that work right after install.
+- Consequences: package size grows by about 100-120 MB per architecture for libmpv; ENG-01 and ENG-06 wording changes (they no longer say engines are never bundled); Phase 5 adds license texts and the source offer; macOS and Linux packaging of engines is decided in Phases 6-7.
+
 ---
 
 ## Open questions
@@ -148,3 +155,4 @@ When you make or change a decision, add an entry here in the same change.
 - Linux package formats for the installer (AppImage, deb, rpm, Flatpak): decide at M6.
 - Apple Developer ID for macOS signing and notarization: when available.
 - Lock screen mechanism (D-026): before the M4 lock screen item.
+- Mirror the pinned libmpv archives (`xtask/engines.toml`) on a Sucrose-controlled release before Phase 5 packaging, because upstream prunes old releases (D-028).
