@@ -4,7 +4,7 @@
 //! because `TaskbarCreated` and `WM_DISPLAYCHANGE` are only broadcast to top-level windows (later plans listen to them).
 
 use std::{
-    cell::RefCell,
+    cell::{Cell, RefCell},
     collections::VecDeque,
     ffi::c_void,
     marker::PhantomData,
@@ -39,6 +39,12 @@ const CLASS_NAME: PCWSTR = w!("SucroseServiceWindow");
 /// The id Windows gave the registered `TaskbarCreated` message (0 until a loop exists). The shell broadcasts it to
 /// every top-level window after explorer.exe started again.
 static TASKBAR_CREATED: AtomicU32 = AtomicU32::new(0);
+
+#[cfg(test)]
+thread_local! {
+    /// How many drain posts this thread made, so a test can see that a burst posts one.
+    static DRAIN_POSTS: Cell<u32> = const { Cell::new(0) };
+}
 
 thread_local! {
     /// Events the window procedure received on this thread, waiting for `run` to hand them to the handler. A
@@ -259,5 +265,157 @@ impl LoopProxy {
         if let Err(error) = unsafe { PostMessageW(Some(hwnd), message, WPARAM(0), LPARAM(0)) } {
             tracing::debug!(%error, "cannot post a message to the loop window");
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use std::{
+        sync::{Arc, Mutex},
+        thread,
+        time::{Duration, Instant},
+    };
+
+    use windows::Win32::UI::WindowsAndMessaging::{SMTO_NORMAL, SendMessageTimeoutW, SendMessageW, SendNotifyMessageW};
+
+    use super::*;
+
+    /// How long the sender waits so the loop is already inside GetMessageW with an empty queue.
+    const SEND_AFTER: Duration = Duration::from_millis(100);
+    /// A broken loop only ends through this quit, so a regression fails instead of hanging the run.
+    const WATCHDOG: Duration = Duration::from_secs(3);
+    /// A sent message must reach the handler well before the watchdog.
+    const LIMIT: Duration = Duration::from_millis(500);
+
+    /// Runs a loop on this thread, lets another thread call `send` with the loop window's handle after
+    /// [`SEND_AFTER`], and returns when the send started and every event the handler saw (with its arrival time) up
+    /// to the first one that satisfies `done`. Sent messages are never posted: a posted message wakes GetMessageW
+    /// and hides the bug these tests guard against.
+    fn run_after_send(
+        done: impl Fn(&LoopEvent) -> bool,
+        send: impl FnOnce(isize) + Send + 'static,
+    ) -> (Instant, Vec<(Instant, LoopEvent)>) {
+        let event_loop = EventLoop::new().expect("the loop window can be created");
+        let proxy = event_loop.proxy();
+        let hwnd = proxy.hwnd;
+        let sent_at = Arc::new(Mutex::new(None));
+        let sender_clock = Arc::clone(&sent_at);
+        let sender = thread::spawn(move || {
+            thread::sleep(SEND_AFTER);
+            *sender_clock.lock().expect("the clock is not poisoned") = Some(Instant::now());
+            send(hwnd);
+        });
+        let watchdog = thread::spawn(move || {
+            thread::sleep(WATCHDOG);
+            proxy.quit();
+        });
+        let mut seen = Vec::new();
+        event_loop.run(|event| {
+            seen.push((Instant::now(), event));
+            if done(&event) || event == LoopEvent::Quit {
+                Flow::Exit
+            } else {
+                Flow::Continue
+            }
+        });
+        sender.join().expect("the sender thread ends");
+        drop(watchdog);
+        let started = sent_at
+            .lock()
+            .expect("the clock is not poisoned")
+            .expect("the sender recorded its start");
+        (started, seen)
+    }
+
+    fn assert_arrived_at_once(expected: LoopEvent, started: Instant, seen: &[(Instant, LoopEvent)]) {
+        let (arrived, first) = seen.first().expect("the handler saw an event");
+        assert_eq!(
+            *first, expected,
+            "the first event is the sent one, not the watchdog quit"
+        );
+        let delay = arrived.duration_since(started);
+        assert!(delay < LIMIT, "the event took {delay:?} to reach the handler");
+    }
+
+    #[test]
+    fn sent_display_change_reaches_the_handler_without_a_post() {
+        let (started, seen) = run_after_send(
+            |event| *event == LoopEvent::DisplayChanged,
+            |hwnd| {
+                // SAFETY: a plain handle and integers; the call validates the handle and does not wait for the loop.
+                let _ =
+                    unsafe { SendNotifyMessageW(HWND(hwnd as *mut c_void), WM_DISPLAYCHANGE, WPARAM(0), LPARAM(0)) };
+            },
+        );
+        assert_arrived_at_once(LoopEvent::DisplayChanged, started, &seen);
+    }
+
+    #[test]
+    fn sent_work_area_change_reaches_the_handler_without_a_post() {
+        let (started, seen) = run_after_send(
+            |event| *event == LoopEvent::DisplayChanged,
+            |hwnd| {
+                // SAFETY: a plain handle and integers; the 1 s timeout keeps a broken loop from blocking this thread.
+                let _ = unsafe {
+                    SendMessageTimeoutW(
+                        HWND(hwnd as *mut c_void),
+                        WM_SETTINGCHANGE,
+                        WPARAM(SPI_SETWORKAREA.0 as usize),
+                        LPARAM(0),
+                        SMTO_NORMAL,
+                        1000,
+                        None,
+                    )
+                };
+            },
+        );
+        assert_arrived_at_once(LoopEvent::DisplayChanged, started, &seen);
+    }
+
+    #[test]
+    fn sent_taskbar_created_reaches_the_handler_without_a_post() {
+        let (started, seen) = run_after_send(
+            |event| *event == LoopEvent::ShellRestarted,
+            |hwnd| {
+                let message = TASKBAR_CREATED.load(Ordering::Relaxed);
+                // SAFETY: a plain handle and integers; the call validates the handle and does not wait for the loop.
+                let _ = unsafe { SendNotifyMessageW(HWND(hwnd as *mut c_void), message, WPARAM(0), LPARAM(0)) };
+            },
+        );
+        assert_arrived_at_once(LoopEvent::ShellRestarted, started, &seen);
+    }
+
+    #[test]
+    fn sent_burst_is_delivered_in_full_with_one_drain_post() {
+        let event_loop = EventLoop::new().expect("the loop window can be created");
+        let hwnd = event_loop.hwnd;
+        DRAIN_POSTS.with(|posts| posts.set(0));
+        for _ in 0..20 {
+            // SAFETY: the window belongs to this thread, so the message goes straight to its procedure.
+            unsafe { SendMessageW(hwnd, WM_DISPLAYCHANGE, Some(WPARAM(0)), Some(LPARAM(0))) };
+        }
+        assert_eq!(
+            DRAIN_POSTS.with(Cell::get),
+            1,
+            "a burst posts one drain, not one per message"
+        );
+        let proxy = event_loop.proxy();
+        let watchdog = thread::spawn(move || {
+            thread::sleep(WATCHDOG);
+            proxy.quit();
+        });
+        let mut changes = 0;
+        event_loop.run(|event| {
+            if event == LoopEvent::DisplayChanged {
+                changes += 1;
+            }
+            if changes == 20 || event == LoopEvent::Quit {
+                Flow::Exit
+            } else {
+                Flow::Continue
+            }
+        });
+        drop(watchdog);
+        assert_eq!(changes, 20, "every sent message becomes one event");
     }
 }
