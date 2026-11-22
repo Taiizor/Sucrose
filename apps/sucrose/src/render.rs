@@ -107,7 +107,10 @@ enum EngineError {
 impl EngineError {
     /// The exit code the service reads as the reason the renderer ended.
     fn exit_code(&self) -> u8 {
-        EXIT_START_FAILURE
+        match self {
+            Self::Load(_) => EXIT_ENGINE_MISSING,
+            Self::Player(_) => EXIT_START_FAILURE,
+        }
     }
 
     /// Logs the failure once, at error level, with the repair hint when there is one.
