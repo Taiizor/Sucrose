@@ -45,7 +45,7 @@ Sucrose is rewritten from scratch in Rust on `develop-rust`, Windows first, then
   3. While a fullscreen game runs it applies the configured action (Pause: pauses and resumes).
   4. CPU and RAM are measured against the C# MpvPlayer engine + Backgroundog and recorded in `docs/MEASUREMENTS.md`.
   5. On a machine with the C# app installed, Sucrose plays the theme selected there (read from the legacy `Library.json` and `General.json`, which stay unchanged), sharp at each monitor's DPI, and the tray icon's Quit stops it.
-**Plans**: 6/15 plans executed
+**Plans**: 7/15 plans executed
 Plans:
 **Wave 1**
 - [x] 02-01-PLAN.md — libmpv delivered: `cargo xtask fetch-engines` (pinned, SHA256-verified), committed bindgen bindings, D-18 loader; apps/sucrose tracked by git
@@ -66,7 +66,7 @@ Plans:
 - [x] 02-06-PLAN.md — tracer: the renderer surface sits behind the icons on the primary monitor (24H2-aware attach, PMv2, layout classifier)
 
 **Wave 7** *(blocked on Wave 6 completion)*
-- [ ] 02-07-PLAN.md — tracer: the selected video plays on that surface (bundled libmpv via wid, hardening, D-20 exit path)
+- [x] 02-07-PLAN.md — tracer: the selected video plays on that surface (bundled libmpv via wid, hardening, D-20 exit path)
 
 **Wave 8** *(blocked on Wave 7 completion)*
 - [ ] 02-08-PLAN.md — SucroseInfo.json round-trip, D-13 gate, date-based version scheme (maintainer decision, D-029)
@@ -188,7 +188,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
-| 2. M1 — Video wallpaper on the desktop (Windows) | 6/15 | In Progress | - |
+| 2. M1 — Video wallpaper on the desktop (Windows) | 7/15 | In Progress | - |
 | 3. M2 — Service, IPC and Portal connected | 0/TBD | Not started | - |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |

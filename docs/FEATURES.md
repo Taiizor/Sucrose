@@ -10,7 +10,7 @@ Every feature of the C# app, where it goes in the rewrite, and what each OS allo
 
 | Feature | Win | mac | Linux | Notes / improvements | Status |
 |---|---|---|---|---|---|
-| Video | ✅ | ✅ | ✅ | Engines: mpv, VLC, built-in OS video (D-006), web engines. Legacy default mpv. | ⬜ |
+| Video | ✅ | ✅ | ✅ | Engines: mpv, VLC, built-in OS video (D-006), web engines. Legacy default mpv. Rust (M1, Windows): the selected video plays looping behind the icons on the primary monitor through the bundled libmpv, embedded with `wid` in the renderer process only (D-017); hardened (`load-scripts=no`, `ytdl=no`, `config=no`, no input or OSC) so a theme cannot make mpv run scripts or fetch URLs; a missing libmpv ends the renderer with exit code 2 and a repair hint. Multi-monitor, pause, volume and Engine.json options follow in later M1 plans. | 🟨 |
 | GIF | ✅ | ✅ | ✅ | Built-in renderer replaces Vexana/Xavier; add APNG/WebP. Legacy default mpv. | ⬜ |
 | Web (local HTML) | ✅ | ✅ | ✅ | WebView2/CEF (Win), WKWebView/CEF (mac), WebKitGTK/CEF (Linux). JS API must stay compatible. | ⬜ |
 | URL | ✅ | ✅ | ✅ | Web engines; no properties, input forwarded. | ⬜ |
@@ -21,7 +21,7 @@ Every feature of the C# app, where it goes in the rewrite, and what each OS allo
 
 | Feature | Win | mac | Linux | Notes / improvements | Status |
 |---|---|---|---|---|---|
-| Surface behind the desktop icons | ✅ | ✅ | ⚠️ | Win: Progman/WorkerW incl. 24H2. Linux: X11 desktop window; Wayland layer-shell (wlroots), KDE/GNOME may need a plugin/extension. | ⬜ |
+| Surface behind the desktop icons | ✅ | ✅ | ⚠️ | Win: Progman/WorkerW incl. 24H2. Linux: X11 desktop window; Wayland layer-shell (wlroots), KDE/GNOME may need a plugin/extension. Rust (M1, Windows 10.0.26300): the Raised/LayeredChild strategy works with a libmpv video child (icons stay visible and clickable above it, no taskbar or Alt-Tab entry); after stopping the renderer the normal wallpaper came back with no leftover frame in the run with video (a black surface lingered once after a force-kill in plan 06, see the SUMMARY). Primary monitor only so far. | 🟨 |
 | Per display / span across / duplicate | ✅ | ✅ | ⚠️ | Legacy "duplicate" mirrors with a VisualBrush and is probably blank for HWND engines; implement it properly. | ⬜ |
 | **New:** a different wallpaper on each monitor | ✅ | ✅ | ⚠️ | Not in the C# app; requested by the maintainer. One renderer per monitor. | ⬜ |
 | Working area vs. display bounds | ✅ | ✅ | ⚠️ | | ⬜ |

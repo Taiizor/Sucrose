@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
 status: executing
-stopped_at: Completed 02-06-PLAN.md
-last_updated: "2026-11-22T14:30:23.840Z"
+stopped_at: Completed 02-07-PLAN.md
+last_updated: "2026-11-22T14:41:49.724Z"
 last_activity: 2026-11-22
 last_activity_desc: Phase 02 execution started
-state_head: ba1cc2044052172af8f048f900a9ae5e12e51b9e
+state_head: fd8291adb12dadde357d3ffb9a3a09d9bfa83e54
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 15
-  completed_plans: 6
+  completed_plans: 7
   percent: 13
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 ## Current Position
 
 Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
-Plan: 7 of 15
+Plan: 8 of 15
 Status: Ready to execute
 Last activity: 2026-11-22 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
@@ -59,6 +59,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 02 P04 | 7 min | 2 tasks | 13 files |
 | Phase 02 P05 | 26 min | 3 tasks | 15 files |
 | Phase 02 P06 | 5 min | 2 tasks | 20 files |
+| Phase 02 P07 | 13 min | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -79,6 +80,7 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-05: a second pipe on the same name fails with PermissionDenied on Windows (A7); bind maps it and AddrInUse to AlreadyRunning, and the owner SID is validated before it enters the SDDL text
 - [Phase 02]: Surface attach strategy B (layered child of Progman under SHELLDLL_DefView) is composited on Windows 10.0.26300.9974; layout is classified from the window tree only
 - [Phase 02]: Plan 09 must refresh the desktop after the renderer ends: a force-killed renderer left the black surface area unrepainted
+- [Phase 02]: Plan 07: Raised/LayeredChild surface composites a libmpv d3d11 video child as-is on Windows 10.0.26300; renderer exit code 2 = libmpv missing, 4 = other engine start failure
 
 ### Pending Todos
 
@@ -109,6 +111,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-22T14:30:23.585Z
-Stopped at: Completed 02-06-PLAN.md
+Last session: 2026-11-22T14:41:49.526Z
+Stopped at: Completed 02-07-PLAN.md
 Resume file: None
