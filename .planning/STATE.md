@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
 status: executing
-stopped_at: Completed 02-04-PLAN.md
-last_updated: "2026-11-22T13:46:45.203Z"
+stopped_at: Completed 02-05-PLAN.md
+last_updated: "2026-11-22T14:14:17.168Z"
 last_activity: 2026-11-22
 last_activity_desc: Phase 02 execution started
-state_head: 631abb7b4ae0e5af153525c65b5587e778b6929e
+state_head: d90d744775b0ccd53b4f9ed5b30e62f8bc389ecf
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 15
-  completed_plans: 4
+  completed_plans: 5
   percent: 13
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 ## Current Position
 
 Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
-Plan: 5 of 15
+Plan: 6 of 15
 Status: Ready to execute
 Last activity: 2026-11-22 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
@@ -57,6 +57,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 02 P02 | 4 min | 3 tasks | 9 files |
 | Phase 02 P03 | 5 min | 1 tasks | 15 files |
 | Phase 02 P04 | 7 min | 2 tasks | 13 files |
+| Phase 02 P05 | 26 min | 3 tasks | 15 files |
 
 ## Accumulated Context
 
@@ -74,6 +75,7 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-03: locked or empty legacy setting files are retried 3 times (50 ms) before defaults, since the C# writer truncates in place
 - [Phase 02]: 02-03: SucroseInfo keeps AppVersion as raw JSON and ignores unknown fields until plan 08 types and round-trips it
 - [Phase 02]: 02-04: legacy numbers outside a range are clamped (volume 250 gives 100, -5 gives 0); wrong types and unknown enum names give the legacy default; ScreenArea reads names only
+- [Phase 02]: 02-05: a second pipe on the same name fails with PermissionDenied on Windows (A7); bind maps it and AddrInUse to AlreadyRunning, and the owner SID is validated before it enters the SDDL text
 
 ### Pending Todos
 
@@ -104,6 +106,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-22T13:46:44.981Z
-Stopped at: Completed 02-04-PLAN.md
+Last session: 2026-11-22T14:14:16.996Z
+Stopped at: Completed 02-05-PLAN.md
 Resume file: None
