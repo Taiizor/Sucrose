@@ -42,10 +42,24 @@ Sucrose is rewritten from scratch in Rust on `develop-rust`, Windows first, then
 **Success Criteria** (what must be TRUE):
   1. The selected video plays behind the desktop icons on every monitor.
   2. It survives an explorer.exe restart and monitors being plugged/unplugged.
-  3. It pauses while a fullscreen game runs and resumes afterwards.
+  3. While a fullscreen game runs it applies the configured action (Pause: pauses and resumes).
   4. CPU and RAM are measured against the C# MpvPlayer engine + Backgroundog and recorded in `docs/MEASUREMENTS.md`.
   5. On a machine with the C# app installed, Sucrose plays the theme selected there (read from the legacy `Library.json` and `General.json`, which stay unchanged), sharp at each monitor's DPI, and the tray icon's Quit stops it.
-**Plans**: TBD
+**Plans**: 13 plans
+Plans:
+- [ ] 02-01-PLAN.md — libmpv delivered: `cargo xtask fetch-engines` (pinned, SHA256-verified), committed bindgen bindings, D-18 loader; apps/sucrose tracked by git
+- [ ] 02-02-PLAN.md — D-028 recorded across the docs after the maintainer decides the libmpv pin source and signs off the GPL build
+- [ ] 02-03-PLAN.md — the C# install's selected theme read read-only (`sucrose-config` legacy reader, D-09 keys, fixtures)
+- [ ] 02-04-PLAN.md — `sucrose-ipc`: single instance and the service ↔ renderer channel, per-user pipe ACL
+- [ ] 02-05-PLAN.md — tracer: the selected video plays behind the icons on the primary monitor (24H2-aware surface, libmpv via wid, PMv2)
+- [ ] 02-06-PLAN.md — SucroseInfo.json round-trip, D-13 gate, date-based version scheme (maintainer decision, D-029)
+- [ ] 02-07-PLAN.md — tray icon with Quit, failure reasons in the tooltip, AppVisible honored
+- [ ] 02-08-PLAN.md — renderer supervision: job object, bounded crash restarts (D-22)
+- [ ] 02-09-PLAN.md — Engine.json settings to mpv (volume, loop, stretch, hwdec, screen area), user mpv config, pause/volume controls
+- [ ] 02-10-PLAN.md — one renderer per monitor; hot-plug/DPI diffs; explorer.exe restart recovery via TaskbarCreated
+- [ ] 02-11-PLAN.md — fullscreen rule with the configured action (Pause/Close/Resume), both scopes
+- [ ] 02-12-PLAN.md — cross-monitor sync: master clock, follower drift correction, audio only on the master
+- [ ] 02-13-PLAN.md — `cargo xtask measure`, MEAS-01 rows vs the C# app, M1 docs close-out
 **Notes**: Criteria 1–4 are the "Done when" list of M1 from the former `docs/ROADMAP.md`. The desktop surface must handle the Windows 11 24H2 Progman/WorkerW hierarchy. libmpv is user-installed and loaded at runtime (D-005, D-013); detection with install hints for every engine is ENG-06 in Phase 4. `SucroseInfo.json` fixtures come from real themes with personal data removed. Measure in a release build.
 
 ### Phase 3: M2 — Service, IPC and Portal connected
@@ -143,7 +157,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
-| 2. M1 — Video wallpaper on the desktop (Windows) | 0/TBD | Not started | - |
+| 2. M1 — Video wallpaper on the desktop (Windows) | 0/13 | Not started | - |
 | 3. M2 — Service, IPC and Portal connected | 0/TBD | Not started | - |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
