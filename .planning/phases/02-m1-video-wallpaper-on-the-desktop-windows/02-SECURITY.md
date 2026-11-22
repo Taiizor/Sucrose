@@ -1,0 +1,128 @@
+---
+phase: "02"
+slug: "m1-video-wallpaper-on-the-desktop-windows"
+status: verified
+# threats_open = count of OPEN threats at or above workflow.security_block_on severity (the blocking gate)
+threats_open: 0
+asvs_level: 1
+created: "2026-11-22"
+---
+
+# Phase 02 — Security
+
+> Per-phase security contract: threat register, accepted risks, and audit trail.
+
+---
+
+## Trust Boundaries
+
+| Boundary | Description | Data Crossing |
+|----------|-------------|---------------|
+| GitHub release → developer machine | Archive bytes from the network are untrusted until the SHA256 matches the pin | see the 02-01 threat model |
+| PATH / current folder → renderer process | DLLs found on PATH may be planted by another program | see the 02-01 threat model |
+| Mirror or upstream release host → developer machine | Archive bytes are untrusted until the pinned SHA256 matches | see the 02-02 threat model |
+| C# app's setting files → Rust service | Files written by another program, possibly truncated or hand-edited | see the 02-03 threat model |
+| Theme folder → service | SucroseInfo.json is untrusted text; this plan only parses and logs it (plan 06 gates playback on it) | see the 02-03 threat model |
+| Maintainer's real files → committed fixtures | Copies may carry personal paths or names | see the 02-04 threat model |
+| Other local processes/users → service named pipe | Anything on the machine can try to open a named pipe | see the 02-05 threat model |
+| Renderer process → service | Messages from a separate process are untrusted bytes | see the 02-05 threat model |
+| Theme folder (possibly from the store) → service | SucroseInfo.json Source is untrusted text | see the 02-06 threat model |
+| Renderer → explorer.exe window tree | Messages to Progman and window reparenting into another process's hierarchy | see the 02-06 threat model |
+| Video file → libmpv in the renderer | Media and demuxer input is untrusted | see the 02-07 threat model |
+| Theme folder → mpv options | A theme must not be able to make mpv load scripts, configs or URLs | see the 02-07 threat model |
+| Theme folder (store download or user copy) → service | SucroseInfo.json fields are untrusted | see the 02-08 threat model |
+| Renderer → service (Failed reason text) | Text from another process ends up in the tooltip and log | see the 02-09 threat model |
+| Service ↔ child renderer processes | Children can crash or hang; the service must stay in control | see the 02-10 threat model |
+| Legacy Engine.json values → mpv options | User-editable values become engine options | see the 02-11 threat model |
+| User mpv config file → libmpv | A file in the user's profile can enable any mpv feature | see the 02-11 threat model |
+| Window messages from the shell and other processes → service window | Broadcasts (TaskbarCreated, WM_DISPLAYCHANGE) can come from any process | see the 02-12 threat model |
+| Other applications' windows → service | Foreground window data belongs to other programs | see the 02-13 threat model |
+| Renderer connections → service relay | Clock messages from any renderer connection | see the 02-14 threat model |
+| xtask → other processes' statistics | Reads data about the maintainer's running processes | see the 02-15 threat model |
+
+---
+
+## Threat Register
+
+| Threat ID | Category | Component | Severity | Disposition | Mitigation | Status |
+|-----------|----------|-----------|----------|-------------|------------|--------|
+| T-02-01 | Tampering | xtask/src/fetch_engines.rs | high | mitigate | SHA256 of the whole archive is compared with the pin in xtask/engines.toml before sevenz-rust2 opens it; mismatch deletes the file and fails; no unpinned fallback — **Evidence:** `xtask/src/fetch_engines.rs` hashes the whole archive and compares with the `engines.toml` pin before extraction; mismatch deletes the file and fails | closed |
+| T-02-02 | Elevation of Privilege | crates/sucrose-engine-mpv/src/loader.rs | high | mitigate | Load by absolute path only, exe folder first, PATH entries filtered to absolute ones, current folder never searched, LOAD_WITH_ALTERED_SEARCH_PATH; the loaded path is logged — **Evidence:** `crates/sucrose-engine-mpv/src/loader.rs`: absolute-path load, `LOAD_WITH_ALTERED_SEARCH_PATH`, relative PATH entries skipped; loaded path logged | closed |
+| T-02-03 | Tampering | xtask/src/fetch_engines.rs extraction | medium | mitigate | Only two named entries are extracted, to fixed destination paths; archive-supplied paths are never used as destinations — **Evidence:** `xtask/src/fetch_engines.rs` extracts only `libmpv-2.dll` and `client.h` to fixed destinations | closed |
+| T-02-04 | Tampering | xtask/engines.toml url change | high | mitigate | The URL may change, the sha256 and size may not (acceptance criterion diff check); a re-fetch after deleting .verified proves the new host serves byte-identical archives — **Evidence:** `git diff bf25ff2d HEAD -G "^(sha256\|size)" -- xtask/engines.toml` is empty (upstream-now kept, pins unchanged) | closed |
+| T-02-05 | Repudiation | GPL distribution of the bundled DLL | medium | mitigate | D-028 records the maintainer's sign-off, the license and the source-offer coordinates (recipe tag 20261111, commit bcde6b93cc) — **Evidence:** `docs/DECISIONS.md` D-028 records the GPL-2.0-or-later sign-off and source-offer coordinates (tag 20261111, commit bcde6b93cc) | closed |
+| T-02-06 | Tampering | crates/sucrose-config/src/legacy.rs | high | mitigate | Files are opened with std::fs::read only; no write/create API exists in the crate (acceptance criterion); tests use fixtures — **Evidence:** no `fs::write`/`File::create`/`OpenOptions`/`create_dir` in `crates/sucrose-config/src` | closed |
+| T-02-07 | Denial of Service | legacy reader on malformed or huge files | low | accept | Setting files are user-owned and small; parse errors fall back to defaults and never panic; size cap not needed at ASVS L1 — **Evidence:** accepted (AR-01) | closed |
+| T-02-08 | Information Disclosure | committed fixtures | medium | mitigate | Fixtures are sanitized copies; the fixtures_contain_no_profile_paths test fails on any user profile path — **Evidence:** `fixtures_contain_no_profile_paths` test over the committed fixtures | closed |
+| T-02-09 | Spoofing | crates/sucrose-ipc/src/lib.rs Listener::bind | high | mitigate | First-pipe-instance creation (squatting a name fails the bind and is logged), per-user name Sucrose.Service.<SID> — **Evidence:** `crates/sucrose-ipc/src/lib.rs` `Listener::bind` via interprocess 2.4.9, which sets `FILE_FLAG_FIRST_PIPE_INSTANCE`; taken name maps to `AlreadyRunning`; test `a_second_listener_on_the_same_name_is_already_running` | closed |
+| T-02-10 | Elevation of Privilege | named pipe DACL | high | mitigate | SDDL D:P(A;;GA;;;<current SID>) via SecurityDescriptor::deserialize; other users cannot open the pipe — **Evidence:** `D:P(A;;GA;;;<SID>)` security descriptor applied in `restrict_to_owner` (`crates/sucrose-ipc/src/lib.rs`); second-account denial not exercised (manual-only) | closed |
+| T-02-11 | Denial of Service | crates/sucrose-ipc/src/frame.rs | medium | mitigate | MAX_FRAME 64 KiB checked before allocation; decode errors drop only that connection — **Evidence:** `MAX_FRAME` (64 KiB) checked before allocation in `crates/sucrose-ipc/src/frame.rs`; frame-limit and garbage tests | closed |
+| T-02-12 | Spoofing | apps/sucrose/src/service.rs accept_hello | low | mitigate | Hello must carry the current PROTOCOL_VERSION and a pid the service spawned; same-user processes are inside the trust boundary (ASVS L1) — **Evidence:** `accept_hello` in `apps/sucrose/src/service.rs` checks `PROTOCOL_VERSION` and a spawned pid; `accept_hello_*` tests | closed |
+| T-02-13 | Tampering | apps/sucrose/src/service.rs Source check | high | mitigate | Only a relative path without .., ://, drive or UNC prefix that exists as a file in the theme folder is played; plan 08 adds canonicalized containment — **Evidence:** superseded by `check_selected` in `crates/sucrose-core/src/theme.rs` (plan 08) — see T-02-16 | closed |
+| T-02-34 | Denial of Service | crates/sucrose-platform/src/os_windows/surface.rs messages to explorer | medium | mitigate | Progman is only messaged with SendMessageTimeoutW (SMTO_NORMAL, 1000 ms), 0x052C is sent once and only when no wallpaper WorkerW exists, and attach retries stop after 10 s, so a hung explorer never blocks the renderer forever — **Evidence:** `crates/sucrose-platform/src/os_windows/surface.rs` uses `SendMessageTimeoutW` with `SMTO_NORMAL` 1000 ms; 0x052C sent once only when no wallpaper WorkerW exists; retries stop after 10 s | closed |
+| T-02-14 | Elevation of Privilege | crates/sucrose-engine-mpv/src/player.rs options | high | mitigate | load-scripts=no, ytdl=no, config=no, input-default-bindings=no, input-vo-keyboard=no, osc=no set before mpv_initialize; option errors are fatal — **Evidence:** `crates/sucrose-engine-mpv/src/config.rs` hardening options; `embedding_options_harden_the_instance`; user-config tests prove a user config cannot re-enable them | closed |
+| T-02-15 | Denial of Service | renderer crash on a malformed file | medium | accept | Crash is contained in the renderer process (D-008); plan 10 adds the bounded restart budget — **Evidence:** accepted (AR-02) | closed |
+| T-02-16 | Tampering | crates/sucrose-core/src/theme.rs check_selected | high | mitigate | Source must be a relative regular file whose canonical path stays inside the canonical theme folder; URL, absolute, UNC/device and .. are rejected before canonicalization (path traversal is canon; covered also by /gsd-secure-phase) — **Evidence:** `check_selected` rejects URL, absolute, UNC/device and `..` before canonicalization and requires the canonical path inside the canonical theme folder; `tests/theme.rs` gate cases | closed |
+| T-02-17 | Tampering | crates/sucrose-core/src/theme.rs write_info | medium | mitigate | Writer only writes the explicit path it gets; no caller in M1 passes a library path; tests write under temp folders — **Evidence:** `write_info` has no non-test caller outside `crates/sucrose-core/src/theme.rs`; tests write under temp folders | closed |
+| T-02-18 | Information Disclosure | ThemeRejection Display text | low | accept | Reasons name the theme folder and the problem only, never file contents; they stay in local logs and the tooltip — **Evidence:** accepted (AR-03) | closed |
+| T-02-19 | Tampering | apps/sucrose/src/service.rs tooltip | low | mitigate | Reason strings are length-limited (127 UTF-16 units) and come only from verified renderer connections (plan 05 pid check) — **Evidence:** tooltip text limited to 127 UTF-16 units; received failure text capped at 300 characters; reasons only from verified renderer connections | closed |
+| T-02-20 | Denial of Service | Quit with a hung renderer | medium | mitigate | Close, then a 2 s wait, then kill; the service never blocks its message loop on a child — **Evidence:** Quit closes, waits 2 s on a worker thread, then ends survivors through `RendererJob::terminate_all`; message loop never blocks | closed |
+| T-02-21 | Elevation of Privilege | Quit touching other processes | high | mitigate | Shutdown only addresses Child handles the service spawned; no process enumeration or name-based kill exists in the app (D-14) — **Evidence:** no process enumeration or name-based kill in `apps/` or `crates/` (only a doc comment mentions `taskkill`); shutdown addresses spawned children/job only | closed |
+| T-02-22 | Denial of Service | apps/sucrose/src/supervisor.rs restart loop | medium | mitigate | RestartBudget 3 crashes per 60 s per monitor with 0.5/1/2 s backoff; SurfaceLost capped at 5 per 60 s — **Evidence:** `RestartBudget` in `apps/sucrose/src/supervisor.rs` (3 per 60 s, 0.5/1/2 s backoff); SurfaceLost capped at 5 per 60 s; supervisor tests | closed |
+| T-02-23 | Denial of Service | orphan renderers after a service crash | medium | mitigate | Job object with JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE; verified by killing the service in Task 1 — **Evidence:** `JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE` in `crates/sucrose-platform/src/os_windows/job.rs`; verified live by killing the service (02-10 SUMMARY) | closed |
+| T-02-24 | Tampering | crates/sucrose-engine-mpv/src/config.rs | medium | mitigate | Values come only from typed enums, a clamped u8 and bools; option names come from a constant allow-list; no user text is concatenated into option strings — **Evidence:** option names from constants in `crates/sucrose-engine-mpv/src/config.rs`; values from typed enums, clamped u8 and bools | closed |
+| T-02-25 | Elevation of Privilege | uMpvPlayer.config (D-10) | low | accept | Same trust boundary as the user's own profile (the C# app loads it the same way); its use is logged; embedding options are set before it — **Evidence:** accepted (AR-04); implementation is stronger than planned: hardening options are applied after the user config | closed |
+| T-02-26 | Denial of Service | spoofed TaskbarCreated / WM_DISPLAYCHANGE floods | low | mitigate | Display events are debounced (2000 + 500 ms); shell restarts respawn at most once per monitor per event and SurfaceLost is capped at 5 per 60 s — **Evidence:** display events debounced (2000 + 500 ms); shell restarts at most 5 per 60 s; `debounce`/`shell_restart` tests | closed |
+| T-02-27 | Denial of Service | duplicate renderers per monitor | medium | mitigate | One BTreeMap keyed by device name owns slots; diff never spawns for an existing id — **Evidence:** one `BTreeMap` keyed by device name owns the slots; `Supervisor::spawn` refuses a running slot; `topology` tests | closed |
+| T-02-28 | Information Disclosure | crates/sucrose-platform/src/os_windows/foreground.rs | medium | mitigate | Only rect, class name, pid and state flags are read; window titles are never read or logged (acceptance criterion) — **Evidence:** `crates/sucrose-platform/src/os_windows/foreground.rs` reads rect, class, pid and state only; no `GetWindowText` anywhere | closed |
+| T-02-29 | Denial of Service | a window that flips fullscreen rapidly | low | mitigate | 5/3 debounce limits flips to at most one per 3–5 s — **Evidence:** 5/3 debounce in `apps/sucrose/src/fullscreen.rs`; `fullscreen` tests | closed |
+| T-02-30 | Spoofing | apps/sucrose/src/service.rs Clock relay | low | mitigate | Only Clock from the current master's verified connection is relayed; others are ignored and logged at debug — **Evidence:** `relay_clock` in `apps/sucrose/src/service.rs` ignores (debug-logs) a Clock from a non-master slot | closed |
+| T-02-31 | Denial of Service | seek storms on followers | low | mitigate | Seeks only above 0.5 s drift; speed correction below; ticks about 1 Hz — **Evidence:** `sync.rs` seeks only above 0.5 s drift, speed correction below, exact seeks at most every 2 s; ticks ~1 Hz; `sync` tests | closed |
+| T-02-32 | Information Disclosure | xtask/src/measure.rs result files | low | accept | Only image names, pids and resource numbers are written, under target/ (ignored by git); no command lines beyond the --render check are stored — **Evidence:** accepted (AR-05) | closed |
+| T-02-33 | Tampering | C# processes during measurement | medium | mitigate | The tool only reads statistics; the maintainer starts the C# app (checkpoint); no kill or signal code exists in measure.rs — **Evidence:** `xtask/src/measure.rs` only reads statistics (sysinfo, typeperf); no kill/terminate/signal code; the maintainer started the C# app | closed |
+
+*Status: open · closed · open — below high threshold (non-blocking)*
+*Severity: critical > high > medium > low — only open threats at or above workflow.security_block_on count toward threats_open*
+*Disposition: mitigate (implementation required) · accept (documented risk) · transfer (third-party)*
+
+### Summary Threat Flags
+
+| Flag | Plan | File | Disposition |
+|------|------|------|-------------|
+| local-message-surface | 02-09 | `crates/sucrose-platform/src/os_windows/event_loop.rs` | accepted (AR-06): the hidden service window accepts WM_APP / WM_APP+1 from any same-user process, which can stop the service; a same-user process can already terminate it, so no new capability |
+
+All other SUMMARY Threat Flags sections report no new surface beyond the register.
+
+---
+
+## Accepted Risks Log
+
+| Risk ID | Threat Ref | Rationale | Accepted By | Date |
+|---------|------------|-----------|-------------|------|
+| AR-01 | T-02-07 | Setting files are user-owned and small; parse errors fall back to defaults and never panic; a size cap is not needed at ASVS L1 | 02-04 plan threat model | 2026-11-22 |
+| AR-02 | T-02-15 | A crash on a malformed file is contained in the renderer process (D-008); the bounded restart budget (T-02-22) limits repeats | 02-07 plan threat model | 2026-11-22 |
+| AR-03 | T-02-18 | Rejection reasons name the theme folder and the problem only, never file contents; they stay in local logs and the tooltip | 02-08 plan threat model | 2026-11-22 |
+| AR-04 | T-02-25 | `uMpvPlayer.config` is inside the user's own trust boundary (the C# app loads it the same way); its use is logged; the hardening options are applied after it, so it cannot re-enable scripts, ytdl, config loading or input bindings (tested) | 02-11 plan threat model | 2026-11-22 |
+| AR-05 | T-02-32 | Measurement files hold only image names, pids and resource numbers, under the git-ignored `target/` | 02-15 plan threat model | 2026-11-22 |
+| AR-06 | 02-09 flag local-message-surface | Same-user processes are inside the trust boundary (ASVS L1) and can already terminate the service | 02-09 SUMMARY threat flag | 2026-11-22 |
+
+*Accepted risks do not resurface in future audit runs.*
+
+---
+
+## Security Audit Trail
+
+| Audit Date | Threats Total | Closed | Open | Run By |
+|------------|---------------|--------|------|--------|
+| 2026-11-22 | 34 | 34 | 0 | /gsd-secure-phase 02 (L1 grep-depth verification by the orchestrator; register authored at plan time, short-circuit per ASVS L1) |
+
+---
+
+## Sign-Off
+
+- [x] All threats have a disposition (mitigate / accept / transfer)
+- [x] Accepted risks documented in Accepted Risks Log
+- [x] `threats_open: 0` confirmed
+- [x] `status: verified` set in frontmatter
+
+**Approval:** verified 2026-11-22
