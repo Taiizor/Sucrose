@@ -1,9 +1,9 @@
 ---
-status: complete
+status: diagnosed
 phase: 02-m1-video-wallpaper-on-the-desktop-windows
 source: [02-VERIFICATION.md]
 started: 2026-11-22T17:34:00Z
-updated: 2026-11-22T20:25:58.818Z
+updated: 2026-11-22T20:38:28Z
 ---
 
 ## Current Test
@@ -65,8 +65,21 @@ blocked: 0
   evidence:
     - "Service.log 19:05:34Z: 'the shell restarted, replacing the renderers closing=[0, 1]'; both renderers restarted after 500ms"
     - "Renderer-0/1 19:05:35Z: 'Progman did not answer the WorkerW message within a second', then 'surface attached' anyway, but nothing was visible"
-  artifacts: []  # Filled by diagnosis
-  missing: []    # Filled by diagnosis
+  root_cause: "The Raised-layout attach in crates/sucrose-platform/src/os_windows/surface.rs proceeds when Progman does not answer the 0x052C (spawn WorkerW) message within 1 s; the surface is placed under SHELLDLL_DefView with no wallpaper WorkerW yet, verify() only checks root/visibility/rect, and nothing re-checks z-order afterwards. Explorer later processes the queued 0x052C, creates its opaque WorkerW directly under DefView, above both Sucrose surfaces, so the video plays hidden behind the static wallpaper. Trigger: the service restarts renderers 500 ms after TaskbarCreated, while explorer's desktop thread is still busy (TaskbarCreated comes from Shell_TrayWnd's thread, not the desktop's)."
+  artifacts:
+    - path: "crates/sucrose-platform/src/os_windows/surface.rs"
+      issue: "try_attach/send_spawn_message treat a 0x052C timeout as a warning and attach without the WorkerW; verify() does not check DefView > surface > WorkerW order; no z-order re-check after attach"
+    - path: "apps/sucrose/src/service.rs"
+      issue: "shell_restarted restarts renderers after a fixed 500 ms, before the desktop (Progman) is ready"
+    - path: "apps/sucrose/src/render.rs"
+      issue: "EXIT_SURFACE_LOST path assumes WM_DESTROY on explorer death, which did not happen in UAT (separate finding)"
+  missing:
+    - "Treat an unanswered 0x052C or a missing WorkerW after it as a failed attempt and retry within ATTACH_TIMEOUT (legacy retries up to 8 times with a longer timeout)"
+    - "After placing the surface, keep the WorkerW below it and make verify() check the DefView > surface > WorkerW order"
+    - "Event-driven (no polling, D-11) re-check of the order under Progman for a while after a shell restart, e.g. a WinEvent hook on child create/reorder"
+    - "Record in docs/FEATURES.md (shell restart row) that killing explorer does not send WM_DESTROY to the surfaces"
+    - "Re-run the explorer restart with SUCROSE_LOG=debug to confirm the window order"
+  debug_session: .planning/debug/explorer-restart-wallpaper-not-restored.md
 
 - gap_id: G-02-2b
   truth: "The video wallpaper plays smoothly with audio on the maintainer's hybrid-GPU laptop, as the C# MpvPlayer does"
@@ -84,8 +97,25 @@ blocked: 0
     - "Confirmed by the user at 19:38Z: with Windows Settings > Display > Graphics set to High performance for target\\release\\sucrose.exe (adds UserGpuPreferences GpuPreference=2) playback is stable; each renderer then uses ~24 % 3D + ~14 % video decode on the RTX 3050, no A/V desync warnings, ~260-320 MB per renderer"
     - "NOTE for re-verification: that user-made GpuPreference entry for sucrose.exe now exists and masks this gap; remove it before verifying a fix that is meant to set the preference itself"
     - "Open question for diagnosis: before 19:02Z playback was smooth on the same Intel GPU while the audio-playing master renderer was on the virtual display (the follower on the real 144 Hz panel kept up without drift); the slowdown started once the master moved to the real panel (first A/V desync warning 19:02:24Z)"
-  artifacts: []  # Filled by diagnosis
-  missing: []    # Filled by diagnosis
+  root_cause: "The GPU preference feature (docs/FEATURES.md 'GPU preference (high performance)', DESK-12, scheduled for Phase 5) is not ported, and nothing else selects a GPU: libmpv's d3d11 device (vo=gpu, gpu-context=d3d11, no d3d11-adapter) uses DXGI adapter 0, which is the adapter driving the primary display at process start - the Intel UHD when the internal 144 Hz panel is primary. The Intel UHD cannot render the selected 4K60 HEVC theme (3840x2160, 60 fps, ~22.7 Mbps, deband=yes) in real time: 98 % 3D, A/V desync within 1 s, audio underruns, ~0.28x playback. The C# MpvPlayer writes UserGpuPreferences GpuPreference=2 for its own exe on every start, so it always runs on the RTX 3050. The smooth period before 19:05Z is explained by which display was primary when each renderer started (the virtual display's output is on the RTX 3050), not by which monitor held the master."
+  artifacts:
+    - path: "crates/sucrose-platform/src (Windows)"
+      issue: "no UserGpuPreferences write and no capability for it"
+    - path: "crates/sucrose-config/src/legacy.rs"
+      issue: "Engine.json GraphicPreference is not read"
+    - path: "apps/sucrose/src/service.rs, apps/sucrose/src/supervisor.rs"
+      issue: "renderers are spawned from current_exe() (supervisor.rs:292) without the preference being written first"
+    - path: "crates/sucrose-engine-mpv/src/config.rs"
+      issue: "embedding_options select no adapter; libmpv takes the default DXGI adapter"
+    - path: ".planning/REQUIREMENTS.md, docs/FEATURES.md:35"
+      issue: "DESK-12 is scheduled for Phase 5 although the Phase 2 video engine depends on it"
+  missing:
+    - "Pull DESK-12 into the Phase 2 gap closure: sucrose-platform (Windows) writes HKCU\\Software\\Microsoft\\DirectX\\UserGpuPreferences value <current_exe() full path> = 'GpuPreference=<n>;' before the first renderer starts, n from Engine.json GraphicPreference (Default=0, PowerSaving=1, HighPerformance=2; default 2), preserving other key=value pairs and skipping the write when unchanged; exposed through the Platform trait and reported as a capability (unsupported on macOS/Linux)"
+    - "Log the D3D adapter the renderer actually uses"
+    - "Optional, needs a decision (not parity): pass d3d11-adapter from EnumAdapterByGpuPreference so the choice does not depend on the primary display"
+    - "Update docs/FEATURES.md, .planning/REQUIREMENTS.md (DESK-12) and the uninstall item (SVC-04)"
+    - "Before verifying: remove the user's manual GpuPreference=2 entry for target\\release\\sucrose.exe, otherwise it masks the fix"
+  debug_session: .planning/debug/renderer-runs-on-power-saving-gpu.md
 
 - gap_id: G-02-2c
   truth: "Plugging a monitor adds a renderer without restarting playback elsewhere, and every monitor shows the same frame (no visible offset)"
@@ -97,8 +127,20 @@ blocked: 0
     - "Screenshot at 22:03 local (19:03Z) shows a clearly different pose between the two monitors (several frames apart, under the 0.5 s seek threshold, so no seek was logged)"
     - "Service.log 19:02:26Z: on plug the new renderer (DISPLAY18, primary at that moment) was elected master and the existing renderer was demoted; Renderer-0 then logged 'drift beyond half a second, seeking local=5.783333 position=0.0002494', i.e. the monitor that was already playing jumped back to the start"
     - "19:02:34Z: the layout changed again and the master moved back to slot 0"
-  artifacts: []  # Filled by diagnosis
-  missing: []    # Filled by diagnosis
+  root_cause: "Master election is stateless: Fleet::elect -> master_slot -> elect_master re-runs after every applied topology change and picks the primary monitor's renderer, counting a renderer that was just spawned and has not connected or started playing. At 19:02:26Z Windows made the re-enabled virtual display primary, so the new renderer became master and the renderer that had played for 8.5 min was demoted; and because publish_clock publishes time-pos with paused=false before the first PLAYBACK_RESTART, the demoted renderer seeked from 5.78 s to 0.0002 s (the visible restart). A second layout change 8.8 s later flipped roles back. Contributing to the visible offset: the follower controller (sync.rs) has a fixed 1/30 s dead band (2 frames at 60 fps), corrects at 2 %/tick once per second and parks at the band edge instead of converging, so after a disturbance - and with the master running below real time on the overloaded Intel GPU (G-02-2b) - sub-0.5 s offsets of up to ~9 frames persist for over 30 s without any seek being logged."
+  artifacts:
+    - path: "apps/sucrose/src/service.rs"
+      issue: "elect_master (795-801), Fleet::master_slot (1132-1140), Fleet::elect (1145-1162), apply_snapshot (1166-1181): stateless primary-wins re-election that also considers unconnected/non-playing renderers"
+    - path: "apps/sucrose/src/render.rs"
+      issue: "publish_clock (455-489)/read_tick (441-451) publish a running clock before playback starts; follow_clock (416-438) logs only seeks, not drift or speed corrections"
+    - path: "crates/sucrose-engine-mpv/src/sync.rs"
+      issue: "DEFAULT_FRAME_S = 1/30 fixed, SPEED_STEP = 0.02, controller parks at the band edge; seek target ignores decode time from the keyframe"
+  missing:
+    - "Sticky master: keep the current master while its monitor exists and it is playing; apply the primary rule only at start and when the master's monitor goes away (or, if audio must follow the primary, let the new renderer join as a follower, align, then take over)"
+    - "Never elect or publish the clock of a renderer before its first PLAYBACK_RESTART"
+    - "Follower controller: derive the band from the video's real fps, converge to zero instead of parking at the band edge, correct harder or tick more often after a disturbance, and log a periodic drift summary"
+    - "Add a test that plugging a monitor keeps the playing master in place; update docs/FEATURES.md 'primary monitor's renderer as master clock' if the policy changes (02-CONTEXT D-02 is a phase decision, not an Accepted entry in docs/DECISIONS.md)"
+  debug_session: .planning/debug/monitor-plug-restarts-playback-and-frame-offset.md
 
 - gap_id: G-02-2d
   truth: "Unplugging (disabling) a monitor closes only that monitor's renderer"
@@ -110,8 +152,20 @@ blocked: 0
     - "Service.log 19:09:52Z: 'applying a monitor change actions=1' with only 'the monitor changed, moving its surface slot=0 monitor=DISPLAY1 rect=[0, 0, 1920, 1080]'; no 'the monitor is gone' for DISPLAY18"
     - "Renderer-1 (DISPLAY18) kept playing and logging seeks at 19:09:56Z, 19:10:00Z and 19:10:03Z until the user chose Quit at 19:10:05Z"
     - "Contrast: at 18:59:04Z removing the virtual display while it was the PRIMARY was handled correctly (actions=2: monitor gone + surface moved + master re-elected)"
-  artifacts: []  # Filled by diagnosis
-  missing: []    # Filled by diagnosis
+  root_cause: "crates/sucrose-platform/src/os_windows/event_loop.rs: EventLoop::run drains the PENDING queue only after GetMessageW returns, but WM_DISPLAYCHANGE, WM_DPICHANGED and WM_SETTINGCHANGE are sent messages: GetMessageW dispatches them to loop_proc internally (which queues DisplayChanged in PENDING) and does not return until a posted message arrives. Once playback runs, nothing posts to the service thread (clock ticks are handled on the reader thread without a wake, Hello/Playing are one-off, and with FullScreenPerformance=Resume no FULLSCREEN_TIMER exists), so the 19:09:15Z removal of the non-primary virtual display never started the debounce; it was drained only ~19:09:50 by an unrelated posted message, after the display had come back at 19:09:41, so no Close was produced. Primary-changing events and the Pause-mode test only looked fine because something else happened to wake the loop (the fullscreen 1 s timer in Pause mode)."
+  artifacts:
+    - path: "crates/sucrose-platform/src/os_windows/event_loop.rs"
+      issue: "run() delivers events to the handler only after GetMessageW returns; loop_proc queues DisplayChanged (and probably ShellRestarted) from sent messages and leaves them in PENDING"
+    - path: "apps/sucrose/src/service.rs"
+      issue: "contributing: read_connection dispatches clock messages without waking the loop and no timer runs under Resume, so the service has no rhythm of its own; the debounce/apply logic (419-470) itself is correct"
+    - path: "02-12 verification"
+      issue: "used PostMessage for WM_DISPLAYCHANGE/TaskbarCreated, which cannot reveal the bug"
+  missing:
+    - "Deliver every queued LoopEvent without waiting for an unrelated post: e.g. loop_proc posts a WM_WAKE to its own window after queuing, or run() drains PENDING after MsgWaitForMultipleObjectsEx/QS_SENDMESSAGE wakes"
+    - "Regression test in sucrose-platform: SendNotifyMessageW(WM_DISPLAYCHANGE) from another thread reaches the handler with no post (a probe exists in target/scratch-probe/pending-probe/)"
+    - "Verification steps must send (SendMessageTimeout/SendNotifyMessage), not post, the shell and display messages"
+    - "Check whether TaskbarCreated is affected by the same PENDING delay (risk for G-02-2a)"
+  debug_session: .planning/debug/non-primary-monitor-unplug-not-detected.md
 
 - gap_id: G-02-6
   truth: "The Rust renderer's GPU load is measured against the C# MpvPlayer on the same GPU and is not notably higher"
@@ -121,7 +175,21 @@ blocked: 0
   test: 6
   evidence:
     - "02-VERIFICATION.md recorded 93.7 % GPU 3D for the Rust renderer vs 16.5 % for the C# MpvPlayer on the same 4K HEVC video; the C# MpvPlayer exe has UserGpuPreferences GpuPreference=2 (RTX 3050) while sucrose.exe had none (Intel UHD), so that comparison was most likely across different GPUs (see G-02-2b)"
-    - "With sucrose.exe forced to the RTX 3050 (19:38Z-19:51Z): ~18-27 % 3D + ~14 % video decode per renderer on a 1080p-class wallpaper, 0 A/V desync warnings and 0 drift seeks on the release build"
+    - "With sucrose.exe forced to the RTX 3050 (19:38Z-19:51Z): ~18-27 % 3D + ~14 % video decode per renderer on the 4K60 HEVC Power Dancing wallpaper (corrected by diagnosis; not 1080p-class), 0 A/V desync warnings and 0 drift seeks on the release build"
     - "02-REVIEW.md IN-10 names deband=yes and profile=low-latency (crates/sucrose-engine-mpv/src/config.rs) as the first suspects if a gap remains"
-  artifacts: []  # Filled by diagnosis
-  missing: []    # Filled by diagnosis
+  root_cause: "The recorded 93.7 % vs 16.5 % compares two different GPUs: the Rust renderer ran on the Intel UHD (0 MB dedicated / 564 MB shared GPU memory in target/measure/rust.json) because the GPU preference is not ported (G-02-2b), while the C# MpvPlayer ran on the RTX 3050 (733 MB dedicated) thanks to its UserGpuPreferences entry; xtask/src/measure.rs reads each counter's adapter LUID and discards it, so nothing flagged the mismatch. IN-10's suspects (deband=yes, profile=low-latency) cannot explain a Rust-vs-C# difference: the C# engine's MpvPlayer.config uses the same options on effectively the same libmpv (v0.42.0-5 vs v0.42.0-38, identical built-in profiles). The rough same-GPU data shows no per-frame gap (Rust 18-27 % at 4K60 with two renderers vs C# 16.5 % at 4K30 with one). The A/V desync warnings are not a debug-build artifact: they occur on the Intel UHD with the release build (10 of 11 starts) and never on the RTX 3050."
+  artifacts:
+    - path: "xtask/src/measure.rs"
+      issue: "around 422-439 the per-process GPU value is the max over (LUID, engine type); the adapter never reaches the JSON/table and there is no same-adapter check"
+    - path: "docs/MEASUREMENTS.md"
+      issue: "the M1 row and its paragraph present a cross-GPU comparison as a Rust regression"
+    - path: "docs/FEATURES.md:35"
+      issue: "GPU preference not ported (same fix as G-02-2b)"
+    - path: "crates/sucrose-engine-mpv/src/config.rs"
+      issue: "not a cause: options match the C# engine"
+  missing:
+    - "Close together with the G-02-2b GPU preference port"
+    - "cargo xtask measure records each process adapter (LUID plus name or a dedicated-memory flag) and warns or fails when the two sides differ; optionally sample dwm.exe too (the surface is a WS_EX_LAYERED child of Progman)"
+    - "Remove the user's manual GpuPreference entry for sucrose.exe, re-measure both apps on the RTX 3050 with the same 4K30 theme as 02-15 (one monitor, 60 s warm-up, 300 s) and replace the MEASUREMENTS row, noting the old one compared two GPUs"
+    - "Keep deband=yes and profile=low-latency for parity; revisit options (or profile=fast for iGPU-only machines, Phase 4) only if the controlled run still shows Rust clearly higher"
+  debug_session: .planning/debug/renderer-gpu-load-vs-csharp.md
