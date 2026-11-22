@@ -244,3 +244,9 @@ $RECYCLE.BIN/
 
 #React.JS
 .module-cache
+
+# Claude Code personal settings
+.claude/settings.local.json
+
+# Rust build output
+/target/

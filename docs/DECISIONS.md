@@ -1,0 +1,138 @@
+# Decisions
+
+Architecture decision log for the Rust rewrite. Newest last. Every entry has a status:
+
+- **Accepted**: decided by the maintainer. Do not re-open without a new entry that supersedes it.
+- **Proposed**: recommended and being followed, but not explicitly confirmed yet. Confirm or replace it before building something that would be expensive to undo.
+- **Superseded by D-xxx**: kept for history.
+
+When you make or change a decision, add an entry here in the same change.
+
+---
+
+## D-001: Rewrite Sucrose from scratch in Rust
+- Status: Accepted (2026-11-21)
+- Decision: Leave C#/.NET entirely. The new implementation is Rust. C/C++ only through FFI where a native library has no Rust equivalent (libmpv, libVLC, CEF, WebView2 COM).
+- Why: cross-platform goal, lower memory/CPU for an always-on app, single native binaries without a runtime install.
+- Consequences: the C# app in `src/` becomes a read-only reference until feature parity (see D-016).
+
+## D-002: Windows, macOS and Linux
+- Status: Accepted (2026-11-21)
+- Decision: Ship on all three. Feature parity order: Windows, then macOS, then Linux. The architecture is cross-platform from the first commit and CI builds all three from day one.
+- Why: maintainer requirement. Windows first because the existing users and the reference implementation are there.
+- Consequences: features the OS cannot support (for example embedding another app's window on Wayland or macOS) are reported through platform capabilities and hidden or explained in the UI, never faked. See `FEATURES.md`.
+
+## D-003: Keep every feature, improve where possible
+- Status: Accepted (2026-11-21)
+- Decision: Every feature of the C# app is ported (tracked in `FEATURES.md`). Where a feature can be done better, do it better, but record the behavior change.
+
+## D-004: UI is GPUI through gpui-kit
+- Status: Accepted (2026-11-21)
+- Decision: Portal and every other window use GPUI via `gpui-kit` (Longbridge), pinned to an exact version. Sucrose gets its own design language that looks the same on every platform. Windows uses Mica/Acrylic backdrops where available.
+- Rejected: Tauri or any webview as the application core (the UI must work with no web runtime installed); Slint (maintainer did not like it); WinUI/Fluent-only look (Windows-only).
+- Context: Discord announced a Rust + GPUI desktop client on 2026-11-04. A working prototype exists in `exp/GPUI/Sucrose.Portal` (see `GPUI.md`).
+
+## D-005: Engines are optional and installed by the user
+- Status: Accepted (2026-11-21)
+- Decision: WebView2, CEF, libmpv and libVLC are never installed or bundled by Sucrose, as today. Sucrose detects them and lets the user install them.
+- Consequences: engine libraries are loaded at runtime (`libloading`), never linked at build time (D-013).
+
+## D-006: Built-in engines
+- Status: Accepted (2026-11-22)
+- Decision: Sucrose works with no engine installed. GIF/APNG/WebP are rendered by Sucrose itself; video uses the OS media stack (Media Foundation on Windows, AVFoundation on macOS, GStreamer on Linux). These replace Nebula, Vexana and Xavier.
+- Caveat: codec support depends on the OS. Windows plays H.264 everywhere, HEVC/VP9/AV1 need Store extensions; macOS plays H.264/HEVC/ProRes but usually not WebM/VP9; Linux depends on the installed GStreamer plugins. When the built-in engine cannot play a file, Sucrose says so and suggests an optional engine (mpv).
+
+## D-007: Compatibility: keep what is good, migrate what is improved
+- Status: Accepted (2026-11-22), changed from the proposal
+- Principle: keep a legacy format unless a new one is clearly better; when it is, migrate automatically.
+- Themes (`SucroseInfo.json`, `SucroseProperties.json`, `SucroseCompatible.json`, archives) and the web wallpaper JavaScript API stay compatible (the store has 3,230 themes). New fields are optional only. The legacy JS API is kept; an improved v2 API may be added next to it.
+- Settings move to a new, versioned format with atomic writes and with runtime state kept out of settings. The legacy `Setting/*.json` files are migrated automatically on first run.
+- The store protocol follows D-022.
+- Consequences: compatibility is proven with fixture tests from real files; any other break needs its own entry and a migration.
+
+## D-008: Process model: modular service
+- Status: Accepted (2026-11-22), changed from the proposal
+- Decision: `sucrose` service + one renderer process per running wallpaper (crash isolation; same binary in renderer mode) + `sucrose-portal` UI only while open. Every optional subsystem inside the service is a module that **does not start at all when the user turns it off** (no thread, no polling, no allocations): tray, performance rules and system data, audio capture, media session, Discord, crash and telemetry upload, wallpaper cycling, update checks.
+- Why: the legacy split into ~17 executables let users save resources by not running parts (tray, Reportdog, Backgroundog). Modules keep that benefit without a process per feature.
+
+## D-009: One IPC mechanism
+- Status: Accepted (2026-11-22)
+- Decision: Local sockets via `interprocess` (named pipes on Windows, Unix domain sockets elsewhere) with binary messages serialized by `serde` + `postcard`, chosen for speed. The same endpoint provides single-instance behavior.
+- Replaces: Sucrose.Pipe, Sucrose.Signal (file watcher), Sucrose.Transmission (TCP), and the Commandog command trampoline.
+
+## D-010: Port capabilities, not packages
+- Status: Accepted (2026-11-22)
+- Decision: Third-party NuGet packages are replaced by crates or disappear. Of the maintainer's own packages (Skylark family, Playhead) only the parts Sucrose uses move into Sucrose crates, rewritten for all three OSes. Mapping in `PORTING.md`.
+
+## D-011: unsafe is isolated
+- Status: Accepted (2026-11-22)
+- Decision: `unsafe_code = "deny"` workspace-wide, allowed only in `sucrose-platform` and the engine/FFI crates. Every `unsafe` block has a `// SAFETY:` comment.
+
+## D-012: Threading, errors and logging
+- Status: Accepted (2026-11-22)
+- Decision: No global async runtime in the service: the OS event loop runs on the main thread, IPC/network/decoding run on worker threads talking through `crossbeam-channel`. The UI uses GPUI's executor. Errors: `thiserror` in libraries, `anyhow` in binaries. Logging: `tracing` with daily rolling files.
+
+## D-013: Native library bindings
+- Status: Accepted (2026-11-22)
+- Decision: Generate our own bindings with `bindgen` in dynamic-loading mode and load with `libloading` (libmpv, libVLC). Use `webview2-com` for WebView2 and the `cef` crate for CEF.
+- Avoid: `vlc-rs` (last release 2018), `libmpv-sys` (2020), `single-instance` (2021), `libmpv2` (links libmpv at build time, conflicts with D-005).
+
+## D-014: Build automation is `cargo xtask`
+- Status: Accepted (2026-11-22)
+- Decision: Packaging, signing, localization conversion and other automation live in an `xtask` crate, so they run the same from PowerShell, WSL, macOS and Linux. No new PowerShell or shell scripts.
+
+## D-015: Localization is rust-i18n
+- Status: Accepted (2026-11-22)
+- Decision: `rust-i18n` (already used by gpui-kit) with YAML/JSON files. The 25 existing languages are converted from the XAML dictionaries by `xtask`. The POEditor workflow continues through YAML/JSON import/export.
+
+## D-016: The C# code is reference only
+- Status: Accepted (2026-11-22)
+- Decision: On `develop-rust`, `src/` (C#) is not modified unless the maintainer asks. It is removed only after parity is signed off (M7), and then this documentation and `CLAUDE.md` are rewritten for the finished project.
+
+## D-017: Secure by default
+- Status: Accepted (2026-11-22), narrowed by D-021
+- Decision: TLS certificate validation stays on (no SSL2/SSL3); installers and updates are verified before they run (D-019); local servers (if any) reject paths outside the theme folder; crash reports are not written when reporting is off.
+- Out of scope: browser engine switches, which stay user-controlled (D-021).
+
+## D-018: Telemetry and crash reporting keep the legacy structure
+- Status: Accepted (2026-11-22)
+- Decision: Keep the existing identity derivation and payload structure so server-side statistics continue. Define the per-OS equivalents of the Windows identity inputs (Windows: user name, model, SID; macOS: user name, hardware model, IOPlatformUUID; Linux: user name, DMI product name, `/etc/machine-id`). Opt-out settings and defaults stay as they are (D-024).
+
+## D-019: Installer, updater and uninstaller are our own Rust tools
+- Status: Accepted (2026-11-22)
+- Decision: Bundle, Update and Undo are rewritten in Rust (Velopack was considered and rejected: the maintainer prefers full control, and its packaging CLI needs the .NET SDK).
+- Requirements: per-OS packages (Windows first); update packages signed and verified (signature + hash) before anything is installed; resumable downloads with the bandwidth limit; Release/PreRelease channels; the existing silent modes; uninstall that really works quietly and removes startup entries and GPU-preference registry values (legacy bugs); migration from an existing C# installation.
+
+## D-020: GitHub integrations are removed
+- Status: Accepted (2026-11-22)
+- Decision: The GitHub store server, the GitHub update source and the personal access token (`Objectionable.json`) are dropped. Store and updates use the Soferity API only.
+- Context: the API server is currently .NET and will itself be rewritten in Rust or Go (separate project). Its GitHub-compatible release output is no longer needed.
+
+## D-021: Browser engine arguments are user-editable
+- Status: Accepted (2026-11-22)
+- Decision: Keep all legacy Chromium switches as defaults for the web engines. The UI lets the user add, remove and reset them (the legacy `CefArguments`/`WebArguments` settings existed but had no UI).
+
+## D-022: Store and update protocol
+- Status: Deferred (2026-11-22)
+- Decision: Decide together with the API rewrite. Until then the Rust client talks to the existing v8 endpoints.
+
+## D-023: Donate and advertising are removed
+- Status: Accepted (2026-11-22)
+- Decision: The hidden Donate page and its settings (`Donate.json`) are not ported or migrated.
+
+## D-024: Defaults stay as they are
+- Status: Accepted (2026-11-22)
+- Decision: Legacy defaults are kept, including `StoreAdult = true`, `TelemetryData = true` and `ExceptionData = true`.
+
+## D-025: Code signing
+- Status: Accepted (2026-11-22) for Windows; macOS pending
+- Decision: Windows binaries and installers are signed with signtool using the maintainer's existing certificate, as the C# app is today. The certificate and its password stay outside the repository; `xtask` reads their location from environment variables and never logs them. macOS has no Apple Developer ID yet, so macOS builds are unsigned until one is available.
+- Update packages additionally get a signature from our own key (D-019); the key scheme (proposed: Ed25519) is decided when the updater is built.
+
+---
+
+## Open questions
+
+- Store and update protocol: see D-022.
+- Linux package formats for the installer (AppImage, deb, rpm, Flatpak): decide at M6.
+- Apple Developer ID for macOS signing and notarization: when available.

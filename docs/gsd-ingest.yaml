@@ -1,0 +1,15 @@
+# Input for /gsd-ingest-docs (see docs/README.md). docs/legacy/ is intentionally excluded:
+# it describes the C# app and is kept as reference, not as requirements.
+docs:
+  - path: docs/DECISIONS.md
+    type: ADR
+  - path: docs/ARCHITECTURE.md
+    type: SPEC
+  - path: docs/FEATURES.md
+    type: PRD
+  - path: docs/ROADMAP.md
+    type: DOC
+  - path: docs/PORTING.md
+    type: DOC
+  - path: docs/GPUI.md
+    type: DOC

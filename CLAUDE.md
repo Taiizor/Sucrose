@@ -1,161 +1,74 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Sucrose is an open-source live wallpaper engine (GIF, URL, Web, Video, YouTube and Application wallpapers, with audio-reactive and system-status APIs for web wallpapers). The `develop-rust` branch is a **from-scratch rewrite in Rust** of the existing C# app, for Windows, macOS and Linux, keeping every existing feature and improving them where possible.
 
-## Project Overview
+## Status
 
-Sucrose is an open-source wallpaper engine for Windows. It supports GIF, URL, Web, Video, YouTube, and Application wallpaper types with audio-reactive and system-status APIs. The application is built as a multi-process architecture where separate executables handle rendering, UI, background services, and system monitoring.
+- M0 (workspace skeleton and CI) is in place; no product feature exists yet. Current milestone and its checklist: `docs/ROADMAP.md`.
+- `exp/GPUI/Sucrose.Portal` is a throwaway UI experiment (GPUI) that reads the real library, settings and store read-only. It is not the base of `apps/sucrose-portal`.
+- `src/` is the legacy C# app: a **read-only reference** for porting. `src/CLAUDE.md` (loaded when you open files there) explains its layout and the using-alias convention. Do not edit, build or reformat it unless the maintainer asks.
 
-## Build Commands
+## Read before you work
 
-```powershell
-# Restore packages
-dotnet restore src/Sucrose.slnx
+| Task | Read first |
+|---|---|
+| New crate, process, trait, IPC or data flow | `docs/ARCHITECTURE.md` |
+| Porting a feature from C# | `docs/PORTING.md` and the feature's row in `docs/FEATURES.md` (or the `port-feature` skill) |
+| Exact legacy behavior, settings keys, file formats, JS API | `docs/legacy/` |
+| UI work | `docs/GPUI.md` |
+| Choosing an approach or a dependency | `docs/DECISIONS.md` |
+| What to do next | `docs/ROADMAP.md` |
 
-# Build entire solution (x64, Release)
-dotnet build src/Sucrose.slnx -c Release -p:PlatformTarget=x64
+## Non-negotiables
 
-# Build a single project
-dotnet build src/Portal/Sucrose.Portal/Sucrose.Portal.csproj -c Release -p:PlatformTarget=x64
+1. **Parity.** Every C# feature is tracked in `docs/FEATURES.md`. Never drop or change one silently; record behavior changes there.
+2. **Compatibility (D-007).** Themes (`SucroseInfo.json`, `SucroseProperties.json`, `SucroseCompatible.json`, archives) and the web wallpaper JavaScript API stay compatible; legacy `Setting/*.json` files are migrated automatically to the new settings format. Prove it with fixture tests.
+3. **No web runtime in the core (D-004).** The UI is GPUI via `gpui-kit`. WebView2, CEF, libmpv and libVLC are optional engines the user installs; Sucrose never bundles or installs them and loads them at runtime (D-005, D-013).
+4. **Cross-platform from day one (D-002).** OS-specific code lives only in `sucrose-platform` and engine crates. Anything an OS cannot do is reported through platform capabilities, never faked. CI builds Windows, macOS and Linux.
+5. **unsafe is isolated (D-011).** Only in `sucrose-platform` and engine/FFI crates, each block with a `// SAFETY:` comment.
+6. **Low resource use is a feature.** Optional service modules must not start when the user disables them (D-008). For user-visible changes, measure RAM/CPU (release build) and record notable numbers in `docs/ROADMAP.md` → Measurements.
+7. **Decisions are written down.** Follow `docs/DECISIONS.md`. Do not reopen Accepted entries; confirm Proposed ones with the maintainer before expensive or hard-to-undo work.
 
-# Full publish pipeline (uses .build/Sucrose.ps1)
-powershell -File .build/Sucrose.ps1
-powershell -File .build/Sucrose.ps1 -Configuration Debug -PlatformTarget x86
-powershell -File .build/Sucrose.ps1 -SelfContained "true" -CompressPackage "false"
+## Workspace (see `docs/ARCHITECTURE.md`)
+
+`crates/` (exists: sucrose-core, sucrose-log, sucrose-platform; planned: -config, -ipc, -engine, -engine-*, -sysinfo, -store, -update), `apps/` (sucrose service/renderer, sucrose-portal UI; planned: sucrose-setup), `xtask/` (automation), `docs/`, `src/` (legacy, excluded from the workspace), `exp/` (experiments, excluded).
+
+## Commands
+
+From the repository root:
+
+```
+cargo build --workspace                 # add --release for measurements
+cargo test --workspace
+cargo clippy --workspace --all-targets -- -D warnings
+cargo fmt --all
+cargo xtask ci                          # the same checks as CI: fmt, clippy, test
 ```
 
-There are three solutions: `src/Sucrose.slnx` (main app), `src/Sucrose.Bundle.slnx` (`Sucrose.Bundle` installer/packager), and `src/Sucrose.Localizer.slnx` (`Sucrose.Localizer` translation tool). Note that **no CI job builds the full solution** — full builds happen only locally or via the publish script (see Git Workflow for what CI actually compiles).
+The GPUI experiment is a separate Cargo project: `cd exp/GPUI/Sucrose.Portal && cargo run --release -- --no-focus`.
 
-Build output goes to `src/Sucrose/` (defined via `BaseOutputPath` in `Directory.Build.props`); the publish script writes packages to `src/Sucrose/Package`. `EnforceCodeStyleInBuild=true`, so `.editorconfig` style violations fail the build. CI builds with `-p:UseSharedCompilation=false`.
+## Environment
 
-**There is no automated test suite** — no test projects exist in the solution, so there are no test commands to run.
+- The maintainer works on Windows 11 from both WSL2 and native PowerShell. Everything committed must work from both: no WSL-only scripts, no `/mnt/...` paths, no symlinks. Automation goes into `xtask`, not shell or PowerShell scripts.
+- In WSL, `cargo` is the Windows toolchain behind a wrapper and produces Windows binaries only. Never install a Linux Rust toolchain in WSL. Linux builds run in Docker (official `rust` image) or CI; macOS builds run in CI and need a real Mac for manual testing.
+- A first full GPUI build takes 3–4 minutes; incremental builds take seconds. Windows locks running executables: stop the app you started before rebuilding.
+- Running a GUI build opens a real window on the maintainer's desktop. For automated checks start it without focus (`--no-focus` in the prototype), capture with `PrintWindow`, never synthesize mouse or keyboard input, and close what you started.
+- When you run the apps, set `SUCROSE_DATA_DIR` to a scratch folder so the real `%APPDATA%\Sucrose` is not touched (from WSL also set `WSLENV=SUCROSE_DATA_DIR`); `SUCROSE_LOG` sets the log level.
+- The settings, library and store cache the apps read are the maintainer's real data. Treat them as read-only unless the task is about writing them; never delete user files.
 
-### Suppressed Warnings
+## Conventions
 
-The CI pipeline suppresses these warnings: `CS0067, CS0108, CS0109, CS0114, CS0169, CS0414, CS0618, CS0649, CS8632, CA1416, NU5104, NETSDK1138, SYSLIB0003`. Additionally `CS8632, WFO0003, SYSLIB0014` are suppressed in `Directory.Build.props`.
+- Rust edition 2024, stable toolchain pinned in `rust-toolchain.toml`; code must pass `rustfmt` and `clippy -D warnings`.
+- Code, comments, docs and commit messages in English.
+- Language-specific rules load from `.claude/rules/` when you open matching files (Rust, platform/FFI, UI, Cargo manifests, docs).
 
-## Framework & Tooling
+## Keeping the docs true
 
-- **.NET 11.0-windows** target framework (`TargetFrameworks` in `Directory.Build.props`), built with the **.NET 11 SDK** — `global.json` pins `11.0.0` with `rollForward: latestMajor` and `allowPrerelease: true`; CI uses `dotnet-version: 11.0.x` / `dotnet-quality: preview`. The publish script installs runtime `11.0.100` by default (`-DotNetVersion`)
-- **C# preview** language version with implicit usings enabled, nullable disabled
-- **WPF** for all UI (no WinUI/MAUI — `exp/` holds experimental Avalonia/Uno/WinUI ports that are not part of the main solution)
-- **Platforms**: x86, x64, ARM64 (conditional compilation symbols: `X86`, `X64`, `ARM64`)
-- **Centralized package management** via `Directory.Packages.props` with transitive pinning
-- **Solution format**: `.slnx` (new XML-based solution format)
+- Decision made or changed → `docs/DECISIONS.md`. Feature ported → its row in `docs/FEATURES.md`. Milestone item done → `docs/ROADMAP.md`. Structure changed → `docs/ARCHITECTURE.md`. New GPUI lesson → `docs/GPUI.md`. Do this in the same change as the code.
+- Keep this file short (under ~150 lines) and free of anything the code already shows; details belong in `docs/` or `.claude/rules/`.
+- When parity is signed off (M7), the C# code is removed and this file and `docs/` are rewritten for the finished project.
 
-## Architecture
+## Git
 
-### Repository Layout
-
-The physical `src/` folder names do **not** match the logical layer names below — map them when navigating:
-
-| Folder | Contains |
-|--------|----------|
-| `src/Launcher/` | `Sucrose.Launcher` |
-| `src/Portal/` | `Sucrose.Portal` |
-| `src/Live/` | Live rendering engines |
-| `src/Project/` | The **Services** (`Backgroundog`, `Commandog`, `Watchdog`, `Reportdog`, `Property`, `Undo`) |
-| `src/Library/` | Shared **class libraries** (`Manager`, `Memory`, `Mpv.NET`, `Pipe`, `Resources`, `Signal`, `Transmission`, `XamlAnimatedGif`) |
-| `src/Shared/` | Shared Item Projects (`.shproj`), with engine-specific ones under `src/Shared/Engine/` |
-| `src/Update/` | `Sucrose.Update` |
-| `src/Bundle/` | `Sucrose.Bundle` (installer/packager) |
-| `src/Localizer/` | `Sucrose.Localizer` (translation tool) |
-| `src/Sucrose/` | Build output (generated; `BaseOutputPath`) |
-| `exp/` | Experimental ports (Avalonia, Uno, WinUI, Services) — **not** part of the main solution |
-
-### Multi-Process Design
-
-Each component runs as a separate Windows process, communicating via named pipes (`Sucrose.Pipe`) and signals (`Sucrose.Signal`):
-
-| Layer | Projects | Purpose |
-|-------|----------|---------|
-| **Launcher** | `Sucrose.Launcher` | Entry point, instance checking, Discord Rich Presence |
-| **Portal** | `Sucrose.Portal` | Main settings/management UI (WPF-UI + MVVM + DI) |
-| **Live Engines** | `Sucrose.Live.{WebView,CefSharp,MpvPlayer,VlcPlayer,Aurora,Nebula,Vexana,Xavier}` | Wallpaper rendering backends |
-| **Services** | `Sucrose.Backgroundog` | Background wallpaper service with audio visualization |
-| | `Sucrose.Commandog` | Command-line handler |
-| | `Sucrose.Watchdog` | System monitoring |
-| | `Sucrose.Reportdog` | Error reporting |
-| | `Sucrose.Property` | Wallpaper property management |
-| | `Sucrose.Undo` | Rollback functionality |
-| **Update** | `Sucrose.Update` | Auto-update service |
-| **Libraries** | `Sucrose.Manager, .Memory, .Pipe, .Signal, .Transmission, .Resources, .Mpv.NET, .XamlAnimatedGif` | Shared libraries |
-
-### Shared Item Projects (.shproj)
-
-Code reuse is achieved through **Shared Item Projects** (not NuGet packages or class libraries). These are compiled into each consuming project:
-
-- **Core shared**: `Sucrose.Shared.{Core,Dependency,Discord,Launcher,Live,Pipe,Signal,Space,Store,Theme,Transmission,Watchdog,Zip,SevenZip}`
-- **Engine-specific shared**: `Sucrose.Shared.Engine.{Aurora,CefSharp,MpvPlayer,VlcPlayer,Nebula,Vexana,WebView,Xavier}` + base `Sucrose.Shared.Engine`
-
-Each executable project imports shared items via `<Import Project="..." Label="Shared" />` in its `.csproj`.
-
-### Preprocessor Symbols
-
-Every executable defines a project-specific symbol used in shared code for conditional compilation:
-- Apps: `LAUNCHER`, `PORTAL`, `BACKGROUNDOG`, `COMMANDOG`, `WATCHDOG`, `REPORTDOG`, `PROPERTY`, `UNDO`, `UPDATE`
-- Engines: `ENGINE` + `LIVE_WEBVIEW`, `LIVE_CEFSHARP`, `LIVE_MPVPLAYER`, `LIVE_VLCPLAYER`, `LIVE_AURORA`, `LIVE_NEBULA`, `LIVE_VEXANA`, `LIVE_XAVIER`
-- Platforms: `X86`, `X64`, `ARM64`
-
-### Portal (UI) Architecture
-
-The Portal uses **WPF-UI** framework with:
-- **MVVM** via `CommunityToolkit.Mvvm`
-- **Dependency Injection** via `Microsoft.Extensions.Hosting`
-- Pages: Library, Store, Settings (General, Personal, System, Wallpaper, Performance, Other, Donate)
-- Reflection-based service registration by namespace
-
-## Code Conventions
-
-### Namespace Alias Pattern (Critical)
-
-The codebase uses **aggressive `using` aliases** as a core convention. Every namespace import is aliased to a short acronym:
-
-```csharp
-using SMMG = Sucrose.Manager.Manage.General;
-using SMMI = Sucrose.Manager.Manage.Internal;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommandType;
-using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
-```
-
-The alias is formed from the **first letter of each namespace segment**. When writing new code, follow this pattern — never use fully qualified names or bare `using` imports for Sucrose namespaces.
-
-### Shared Project Organization
-
-Files in shared projects follow a consistent directory structure:
-- `Enum/` — Enum types
-- `Helper/` — Static helper/utility classes
-- `Manage/` — Configuration and state management
-- `Manage/Manager/` — Settings manager classes
-- `Manage/Readonly/` — Read-only constants
-- `Struct/` — Struct types
-- `Extension/` — Extension methods
-
-### Style Rules
-
-- 4-space indentation, CRLF line endings
-- Block-scoped namespaces (`namespace Foo { }`)
-- PascalCase for types/methods/properties, camelCase for fields
-- Interfaces prefixed with `I`
-- `using` directives outside namespace
-- Prefer pattern matching, switch expressions, null coalescing
-- Expression-bodied members for accessors/properties/indexers/lambdas (not for methods/constructors)
-- XML indent: 2 spaces
-
-## Key Configuration Files
-
-| File | Purpose |
-|------|---------|
-| `Directory.Build.props` | Central build properties, version (auto-generated from date: `yy.MM.dd`), framework, platforms |
-| `Directory.Build.targets` | Runtime config (thread pool, GC, platform symbols), app manifest |
-| `Directory.Packages.props` | All NuGet package versions (centralized) |
-| `global.json` | SDK version (`11.0.0`, `rollForward: latestMajor`) |
-| `.editorconfig` | Code style enforcement |
-| `NuGet.Config` | Package source (nuget.org only) |
-
-## Git Workflow
-
-- **Main branch**: `develop`
-- Version is auto-derived from build date (`yy.MM.dd.0` format)
-- CI runs CodeQL analysis on `develop` (push/PR/nightly schedule). The CodeQL job builds a matrix of only **seven `src/Library/` projects** (`Pipe, Memory, Signal, Manager, Resources, Transmission, XamlAnimatedGif`; `Mpv.NET` is excluded) with `-p:UseSharedCompilation=false` — it does **not** build the executables, engines, or full solution.
-- `congratulations.yml` posts a welcome comment on first-time issues/PRs. This is the only other workflow — there is no automated app-build or release CI.
+- `develop-rust` is the rewrite's main branch; larger work goes on branches off it.
+- Commit or push only when asked. Never commit `target/`, `.claude/settings.local.json`, certificates (`*.pfx`) or signing keys; signing reads them from environment variables (D-025).
