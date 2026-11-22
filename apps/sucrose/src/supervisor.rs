@@ -4,7 +4,7 @@
 //! (T-02-23). A waiter thread per renderer blocks until its process ends and tells the service, so nothing polls.
 
 use std::{
-    collections::HashSet,
+    collections::{HashSet, VecDeque},
     path::PathBuf,
     process::{Child, Command},
     sync::{Arc, Condvar, Mutex, MutexGuard, PoisonError},
@@ -15,44 +15,57 @@ use std::{
 use anyhow::Context as _;
 use sucrose_platform::RendererJob;
 
-/// How long a crashed renderer's slot stays empty before the new renderer starts.
-pub const RESTART_DELAY: Duration = Duration::from_millis(500);
-
-// RED stubs: the real classification and budget follow in the next commit.
-
 /// Exit code of a renderer that ended cleanly after Close.
 pub const CLEAN: u8 = 0;
-/// Exit code of a renderer whose engine is missing or cannot be loaded.
+/// Exit code of a renderer whose engine is missing or cannot be loaded (D-20).
 pub const ENGINE_MISSING: u8 = 2;
-/// Exit code of a renderer that lost its desktop surface.
+/// Exit code of a renderer that lost its desktop surface (the shell restarted or the monitors changed).
 pub const SURFACE_LOST: u8 = 3;
 /// Exit code of a renderer that could not start its wallpaper.
 pub const START_FAILED: u8 = 4;
 
+/// The window the restart budgets are counted in.
+const WINDOW: Duration = Duration::from_secs(60);
+/// Crashes one monitor may have within [`WINDOW`] and still be restarted (D-22).
+const MAX_CRASHES: usize = 3;
+/// Lost surfaces one monitor may have within [`WINDOW`] and still be restarted.
+const MAX_SURFACE_LOSSES: usize = 5;
+/// The pause before the first restart; it doubles up to [`MAX_BACKOFF`].
+const FIRST_BACKOFF: Duration = Duration::from_millis(500);
+const MAX_BACKOFF: Duration = Duration::from_secs(2);
+
 /// Why a renderer ended.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ExitClass {
-    /// Ended after Close.
+    /// Ended after Close: expected.
     Clean,
-    /// The engine is missing.
+    /// The engine is missing or cannot be loaded: a restart would fail the same way.
     EngineMissing,
     /// The wallpaper could not start.
     StartFailed,
-    /// The desktop surface was lost.
+    /// The desktop surface was lost; the renderer reports it so the service starts a fresh one.
     SurfaceLost,
     /// Crashed or was killed, with the exit code (-1 when the OS reports none).
     Crashed(i32),
 }
 
-/// Maps an exit code to the reason.
-pub fn classify_exit(_code: Option<i32>) -> ExitClass {
-    ExitClass::Clean
+/// Maps the exit code of a renderer to the reason it ended. A killed process (code 1) and an NTSTATUS crash code
+/// both count as crashes.
+pub fn classify_exit(code: Option<i32>) -> ExitClass {
+    match code {
+        Some(code) if code == i32::from(CLEAN) => ExitClass::Clean,
+        Some(code) if code == i32::from(ENGINE_MISSING) => ExitClass::EngineMissing,
+        Some(code) if code == i32::from(SURFACE_LOST) => ExitClass::SurfaceLost,
+        Some(code) if code == i32::from(START_FAILED) => ExitClass::StartFailed,
+        Some(code) => ExitClass::Crashed(code),
+        None => ExitClass::Crashed(-1),
+    }
 }
 
 /// What to do about an ended renderer.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Decision {
-    /// Leave the slot empty: the exit was expected.
+    /// Leave the slot empty: the exit was expected or a restart cannot help.
     Leave,
     /// Start it again after the pause.
     Restart(Duration),
@@ -72,34 +85,99 @@ pub enum Exhausted {
 impl Exhausted {
     /// One English sentence for the log and the tooltip.
     pub fn reason(self) -> String {
-        String::new()
+        match self {
+            Self::Crashes => format!(
+                "the renderer stopped after {MAX_CRASHES} crashes in {} s",
+                WINDOW.as_secs()
+            ),
+            Self::SurfaceLost => format!(
+                "the desktop surface was lost {MAX_SURFACE_LOSSES} times in {} s",
+                WINDOW.as_secs()
+            ),
+        }
     }
 }
 
-/// How many restarts one monitor gets.
-#[derive(Debug, Default)]
-pub struct RestartBudget;
+/// The events of one kind inside the sliding window, with the cap they may reach.
+#[derive(Debug)]
+struct Window {
+    max: usize,
+    events: VecDeque<Instant>,
+}
+
+impl Window {
+    fn new(max: usize) -> Self {
+        Self {
+            max,
+            events: VecDeque::new(),
+        }
+    }
+
+    /// Records an event at `now` and returns the pause before the restart: 0.5 s, 1 s, then 2 s. `None` when the
+    /// cap is reached; a refused event is not recorded.
+    fn allow(&mut self, now: Instant) -> Option<Duration> {
+        while let Some(oldest) = self.events.front() {
+            if now.saturating_duration_since(*oldest) >= WINDOW {
+                self.events.pop_front();
+            } else {
+                break;
+            }
+        }
+        if self.events.len() >= self.max {
+            return None;
+        }
+        self.events.push_back(now);
+        let doublings = u32::try_from(self.events.len() - 1).unwrap_or(u32::MAX).min(2);
+        Some((FIRST_BACKOFF * 2_u32.pow(doublings)).min(MAX_BACKOFF))
+    }
+}
+
+/// How many restarts one monitor gets (D-22): 3 crashes per 60 s, and a separate cap of 5 lost surfaces per 60 s so a
+/// broken shell cannot loop forever either.
+#[derive(Debug)]
+pub struct RestartBudget {
+    crashes: Window,
+    surface_losses: Window,
+}
+
+impl Default for RestartBudget {
+    fn default() -> Self {
+        Self::new()
+    }
+}
 
 impl RestartBudget {
     /// A fresh budget.
     pub fn new() -> Self {
-        Self
+        Self {
+            crashes: Window::new(MAX_CRASHES),
+            surface_losses: Window::new(MAX_SURFACE_LOSSES),
+        }
     }
 
     /// Records a crash at `now`; the pause before the restart, or `None` when the budget is spent.
-    pub fn allow(&mut self, _now: Instant) -> Option<Duration> {
-        None
+    pub fn allow(&mut self, now: Instant) -> Option<Duration> {
+        self.crashes.allow(now)
     }
 
     /// Records a lost surface at `now`; the pause before the restart, or `None` when the cap is reached.
-    pub fn allow_surface_lost(&mut self, _now: Instant) -> Option<Duration> {
-        None
+    pub fn allow_surface_lost(&mut self, now: Instant) -> Option<Duration> {
+        self.surface_losses.allow(now)
     }
 }
 
-/// Decides what to do about a renderer that ended with `class` at `now`.
-pub fn decide(_budget: &mut RestartBudget, _class: ExitClass, _now: Instant) -> Decision {
-    Decision::Leave
+/// Decides what to do about a renderer that ended with `class` at `now`. A clean exit and a missing engine never
+/// restart; a failed start counts like a crash.
+pub fn decide(budget: &mut RestartBudget, class: ExitClass, now: Instant) -> Decision {
+    match class {
+        ExitClass::Clean | ExitClass::EngineMissing => Decision::Leave,
+        ExitClass::StartFailed | ExitClass::Crashed(_) => budget
+            .allow(now)
+            .map_or(Decision::GiveUp(Exhausted::Crashes), Decision::Restart),
+        ExitClass::SurfaceLost => budget
+            .allow_surface_lost(now)
+            .map_or(Decision::GiveUp(Exhausted::SurfaceLost), Decision::Restart),
+    }
 }
 
 /// A renderer process ended.

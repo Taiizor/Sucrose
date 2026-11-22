@@ -22,7 +22,7 @@ use sucrose_ipc::{
 };
 use sucrose_platform::{EventLoop, Flow, LoopEvent, LoopProxy, Platform, PlatformError, Tray};
 
-use crate::supervisor::{Exited, RESTART_DELAY, Supervisor};
+use crate::supervisor::{Decision, Exited, RestartBudget, START_FAILED, Supervisor, classify_exit, decide};
 
 /// Where this user's service listens.
 pub struct Endpoint {
@@ -117,6 +117,8 @@ enum Status {
     NoWallpaper { reason: String },
     /// The renderer could not start its wallpaper, for example because libmpv is missing (D-20).
     Failed { reason: String, hint: String },
+    /// The restart budget of a monitor is spent (D-22): its renderer is not started again until Sucrose restarts.
+    RendererStopped { monitor: String, reason: String },
 }
 
 impl Status {
@@ -127,6 +129,7 @@ impl Status {
             Self::Playing { title } => format!("Sucrose — playing {title}"),
             Self::NoWallpaper { reason } => format!("Sucrose — no wallpaper: {reason}"),
             Self::Failed { reason, hint } => format!("Sucrose — no wallpaper: {reason} {hint}"),
+            Self::RendererStopped { monitor, reason } => format!("Sucrose — no wallpaper on {monitor}: {reason}"),
         }
     }
 
@@ -137,7 +140,18 @@ impl Status {
 
     /// Whether the user has to be told that no wallpaper plays.
     fn is_failure(&self) -> bool {
-        matches!(self, Self::NoWallpaper { .. } | Self::Failed { .. })
+        matches!(
+            self,
+            Self::NoWallpaper { .. } | Self::Failed { .. } | Self::RendererStopped { .. }
+        )
+    }
+
+    /// The status while a crashed renderer is started again: a playing wallpaper is starting once more.
+    fn restarting(&self) -> Option<Self> {
+        match self {
+            Self::Playing { title } => Some(Self::Starting { title: title.clone() }),
+            _ => None,
+        }
     }
 
     /// The status a renderer message leads to, or `None` when it changes nothing.
@@ -245,6 +259,8 @@ pub fn run() -> anyhow::Result<()> {
     }
 
     let mut quitting = false;
+    // One restart budget per monitor slot (D-22).
+    let mut budgets: HashMap<u8, RestartBudget> = HashMap::new();
     event_loop.run(|event| match event {
         LoopEvent::Wake => {
             for event in receiver.try_iter() {
@@ -267,9 +283,37 @@ pub fn run() -> anyhow::Result<()> {
                     }
                     Event::Exited(exited) => {
                         lock(&renderers).connections.remove(&exited.slot);
-                        if !quitting && exited.code != Some(0) {
-                            tracing::warn!(slot = exited.slot, code = ?exited.code, "a renderer ended unexpectedly, restarting it");
-                            supervisor.restart_after(exited.slot, RESTART_DELAY, 4);
+                        if !quitting {
+                            let budget = budgets.entry(exited.slot).or_default();
+                            let class = classify_exit(exited.code);
+                            let decision = decide(budget, class, Instant::now());
+                            tracing::info!(slot = exited.slot, ?class, ?decision, "a renderer ended");
+                            let next = match decision {
+                                Decision::Leave => None,
+                                Decision::Restart(after) => {
+                                    tracing::warn!(slot = exited.slot, ?class, ?after, "restarting the renderer");
+                                    supervisor.restart_after(exited.slot, after, i32::from(START_FAILED));
+                                    status.restarting()
+                                }
+                                Decision::GiveUp(exhausted) => {
+                                    let monitor = assignments
+                                        .iter()
+                                        .find(|assignment| assignment.slot == exited.slot)
+                                        .map_or_else(|| format!("slot {}", exited.slot), |assignment| assignment.monitor.clone());
+                                    let stopped = Status::RendererStopped {
+                                        monitor,
+                                        reason: exhausted.reason(),
+                                    };
+                                    tracing::warn!(status = %stopped.text(), "no wallpaper, the service waits in the tray");
+                                    Some(stopped)
+                                }
+                            };
+                            if let Some(next) = next {
+                                status = next;
+                                if let Some(tray) = &tray {
+                                    tray.set_tooltip(&status.tooltip());
+                                }
+                            }
                         }
                     }
                     Event::ShutdownDone => return Flow::Exit,
@@ -655,6 +699,7 @@ mod tests {
     use sucrose_core::theme::ThemeRejection;
 
     use super::*;
+    use crate::supervisor::Exhausted;
 
     fn hello(protocol_version: u16, pid: u32, slot: u8) -> ToService {
         ToService::Hello {
@@ -751,6 +796,30 @@ mod tests {
             "Sucrose — no wallpaper: libmpv could not be found. Reinstall Sucrose."
         );
         assert!(failed.is_failure());
+    }
+
+    #[test]
+    fn a_spent_restart_budget_names_the_monitor_in_the_tooltip() {
+        let stopped = Status::RendererStopped {
+            monitor: "DISPLAY1".to_owned(),
+            reason: Exhausted::Crashes.reason(),
+        };
+
+        assert_eq!(
+            stopped.tooltip(),
+            "Sucrose — no wallpaper on DISPLAY1: the renderer stopped after 3 crashes in 60 s"
+        );
+        assert!(stopped.is_failure());
+    }
+
+    #[test]
+    fn a_restarting_renderer_shows_the_app_name_until_it_plays_again() {
+        let playing = starting().after(&ToService::Playing).expect("a status change");
+
+        let restarting = playing.restarting().expect("a status change");
+
+        assert_eq!(restarting, starting());
+        assert_eq!(restarting.restarting(), None);
     }
 
     #[test]

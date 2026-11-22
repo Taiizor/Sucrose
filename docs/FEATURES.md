@@ -193,5 +193,5 @@ Optional engines per architecture. A cell says whether a build of that engine ex
 
 - **Security:** TLS certificate validation is disabled everywhere (SSL2/3 enabled); updates are not verified; the CEF local web server has no path-traversal check. Fix these (D-017, D-019). The legacy Chromium switches stay as defaults but become user-editable (D-021).
 - **Privacy:** crash reports are written even when reporting is off; fix it (D-017). The analytic payload keeps its legacy structure (D-018).
-- **Reliability:** settings writes are not atomic and a crash resets a whole file; cross-process state is shared through settings files polled by mtime; every engine error triggers a restart (possible loops); `GC.Collect()` runs every second.
+- **Reliability:** settings writes are not atomic and a crash resets a whole file; cross-process state is shared through settings files polled by mtime; every engine error triggers a restart (possible loops); `GC.Collect()` runs every second. M1: renderer restarts are bounded (3 crashes per 60 s per monitor, D-22); an engine that is missing is reported, not restarted.
 - **Bugs:** the Update limit type reads the Backgroundog download type; quiet uninstall does nothing; Aurora attaches all instances to one target; the network rule checks ping first even at threshold 0.

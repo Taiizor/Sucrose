@@ -19,13 +19,13 @@ const CONNECT_ATTEMPTS: u32 = 20;
 const CONNECT_PAUSE: Duration = Duration::from_millis(100);
 
 /// Exit code for "the desktop surface could not be attached", reported to the service like any other start failure.
-const EXIT_START_FAILURE: u8 = 4;
+const EXIT_START_FAILURE: u8 = crate::supervisor::START_FAILED;
 
 /// The hint for a failure that has no repair step of its own.
 const CHECK_THE_LOG: &str = "Check the log for details.";
 
 /// Exit code for "libmpv is missing or cannot be loaded" (D-20).
-const EXIT_ENGINE_MISSING: u8 = 2;
+const EXIT_ENGINE_MISSING: u8 = crate::supervisor::ENGINE_MISSING;
 
 /// Runs the renderer for `slot` until the service closes the connection or asks it to stop.
 pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
