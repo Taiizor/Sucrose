@@ -180,6 +180,78 @@ pub fn decide(budget: &mut RestartBudget, class: ExitClass, now: Instant) -> Dec
     }
 }
 
+/// How long after `TaskbarCreated` a lost surface is counted as part of the shell restart and not held against the
+/// renderer's budget.
+pub const SHELL_RESTART_WINDOW: Duration = Duration::from_secs(30);
+/// Shell restarts the service acts on per minute: `TaskbarCreated` is a broadcast any process can send, so a flood
+/// of them must not keep the renderers in an endless close and start loop (T-02-26).
+const MAX_SHELL_RESTARTS: usize = 5;
+
+/// The recovery after explorer.exe restarted: it took Progman and with it every renderer's surface, so recovery
+/// means new renderers, not re-parenting. Triggered only by the `TaskbarCreated` message, never by polling (D-11).
+#[derive(Debug)]
+pub struct ShellRestart {
+    /// The end of the window in which a lost surface is expected; `None` when no restart was seen yet.
+    until: Option<Instant>,
+    /// Slots that were told to close and are started again once their renderer has ended, each exactly once.
+    respawn: HashSet<u8>,
+    /// How many restarts were acted on lately.
+    recent: Window,
+}
+
+impl Default for ShellRestart {
+    fn default() -> Self {
+        Self {
+            until: None,
+            respawn: HashSet::new(),
+            recent: Window::new(MAX_SHELL_RESTARTS),
+        }
+    }
+}
+
+impl ShellRestart {
+    /// The shell restarted at `now`. `closing` are the slots whose renderer is being told to close and has to be
+    /// started again. `false` when restarts come too fast and this one is ignored.
+    pub fn begin(&mut self, now: Instant, closing: impl IntoIterator<Item = u8>) -> bool {
+        if self.recent.allow(now).is_none() {
+            return false;
+        }
+        self.until = Some(now + SHELL_RESTART_WINDOW);
+        self.respawn = closing.into_iter().collect();
+        true
+    }
+
+    /// Whether a shell restart began lately enough that a lost surface is part of it.
+    pub fn pending(&self, now: Instant) -> bool {
+        self.until.is_some_and(|until| now < until)
+    }
+
+    /// The renderer of `slot` is gone for another reason: it is not started again by the restart.
+    pub fn forget(&mut self, slot: u8) {
+        self.respawn.remove(&slot);
+    }
+}
+
+/// [`decide`] with the shell restart taken into account: a renderer that was closed for the restart is started
+/// again whatever its exit code, and a lost surface inside the restart window is not a crash and not a lost-surface
+/// strike. Both start the new renderer after the shortest pause and leave the budgets untouched.
+pub fn decide_exit(
+    budget: &mut RestartBudget,
+    shell: &mut ShellRestart,
+    class: ExitClass,
+    slot: u8,
+    now: Instant,
+) -> Decision {
+    let expected = shell.respawn.remove(&slot);
+    if class == ExitClass::EngineMissing {
+        return Decision::Leave;
+    }
+    if expected || (class == ExitClass::SurfaceLost && shell.pending(now)) {
+        return Decision::Restart(FIRST_BACKOFF);
+    }
+    decide(budget, class, now)
+}
+
 /// A renderer process ended.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Exited {
@@ -489,5 +561,124 @@ mod tests {
             Exhausted::SurfaceLost.reason(),
             "the desktop surface was lost 5 times in 60 s"
         );
+    }
+
+    fn crashes_left(budget: &mut RestartBudget, at: Instant) -> usize {
+        (0..10).take_while(|n| budget.allow(secs(at, *n)).is_some()).count()
+    }
+
+    #[test]
+    fn shell_restart_respawns_each_closed_slot_once_whatever_its_exit_code() {
+        let t0 = Instant::now();
+        let mut shell = ShellRestart::default();
+        let mut budget = RestartBudget::new();
+        assert!(shell.begin(t0, [0, 1]));
+
+        let clean = decide_exit(&mut budget, &mut shell, ExitClass::Clean, 0, secs(t0, 1));
+        let lost = decide_exit(&mut budget, &mut shell, ExitClass::SurfaceLost, 1, secs(t0, 1));
+        let again = decide_exit(&mut budget, &mut shell, ExitClass::Clean, 0, secs(t0, 2));
+
+        assert_eq!(clean, Decision::Restart(Duration::from_millis(500)));
+        assert_eq!(lost, Decision::Restart(Duration::from_millis(500)));
+        assert_eq!(again, Decision::Leave, "no second respawn for the same slot");
+    }
+
+    #[test]
+    fn shell_restart_surface_lost_inside_the_window_does_not_touch_any_budget() {
+        let t0 = Instant::now();
+        let mut shell = ShellRestart::default();
+        let mut budget = RestartBudget::new();
+        assert!(shell.begin(t0, []));
+
+        for s in 0..20 {
+            let decision = decide_exit(&mut budget, &mut shell, ExitClass::SurfaceLost, 0, secs(t0, s % 20));
+            assert_eq!(decision, Decision::Restart(Duration::from_millis(500)), "loss {s}");
+        }
+
+        assert_eq!(crashes_left(&mut budget, t0), 3, "the crash budget is whole");
+        assert!(
+            budget.allow_surface_lost(secs(t0, 21)).is_some(),
+            "so is the lost-surface cap"
+        );
+    }
+
+    #[test]
+    fn shell_restart_surface_lost_outside_the_window_uses_the_cap_of_five() {
+        let t0 = Instant::now();
+        let mut shell = ShellRestart::default();
+        let mut budget = RestartBudget::new();
+        let late = secs(t0, 100);
+        assert!(shell.begin(t0, []));
+        assert!(!shell.pending(late));
+
+        let decisions: Vec<Decision> = (0..6)
+            .map(|n| decide_exit(&mut budget, &mut shell, ExitClass::SurfaceLost, 0, secs(late, n)))
+            .collect();
+
+        assert!(decisions[..5].iter().all(|d| matches!(d, Decision::Restart(_))));
+        assert_eq!(decisions[5], Decision::GiveUp(Exhausted::SurfaceLost));
+    }
+
+    #[test]
+    fn shell_restart_window_lasts_30_seconds() {
+        let t0 = Instant::now();
+        let mut shell = ShellRestart::default();
+
+        assert!(!shell.pending(t0), "no restart seen yet");
+        assert!(shell.begin(t0, []));
+
+        assert!(shell.pending(secs(t0, 29)));
+        assert!(!shell.pending(secs(t0, 30)));
+    }
+
+    #[test]
+    fn shell_restart_never_restarts_a_missing_engine() {
+        let t0 = Instant::now();
+        let mut shell = ShellRestart::default();
+        let mut budget = RestartBudget::new();
+        assert!(shell.begin(t0, [0]));
+
+        let decision = decide_exit(&mut budget, &mut shell, ExitClass::EngineMissing, 0, secs(t0, 1));
+
+        assert_eq!(decision, Decision::Leave);
+    }
+
+    #[test]
+    fn shell_restart_a_crash_inside_the_window_still_uses_the_crash_budget() {
+        let t0 = Instant::now();
+        let mut shell = ShellRestart::default();
+        let mut budget = RestartBudget::new();
+        assert!(shell.begin(t0, []));
+
+        let decision = decide_exit(&mut budget, &mut shell, ExitClass::Crashed(-1), 0, secs(t0, 1));
+
+        assert_eq!(decision, Decision::Restart(Duration::from_millis(500)));
+        assert_eq!(crashes_left(&mut budget, secs(t0, 1)), 2);
+    }
+
+    #[test]
+    fn shell_restart_a_forgotten_slot_is_not_respawned() {
+        let t0 = Instant::now();
+        let mut shell = ShellRestart::default();
+        let mut budget = RestartBudget::new();
+        assert!(shell.begin(t0, [0]));
+
+        shell.forget(0);
+
+        assert_eq!(
+            decide_exit(&mut budget, &mut shell, ExitClass::Clean, 0, secs(t0, 60)),
+            Decision::Leave
+        );
+    }
+
+    #[test]
+    fn shell_restart_a_flood_of_broadcasts_is_limited_to_five_a_minute() {
+        let t0 = Instant::now();
+        let mut shell = ShellRestart::default();
+
+        let accepted = (0..20).filter(|n| shell.begin(secs(t0, *n), [0])).count();
+
+        assert_eq!(accepted, 5);
+        assert!(shell.begin(secs(t0, 61), [0]), "the window slides");
     }
 }

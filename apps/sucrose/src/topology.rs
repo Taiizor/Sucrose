@@ -112,6 +112,13 @@ impl SlotMap {
         self.monitors.get(id).copied()
     }
 
+    /// The slots of the monitors that are connected now, ascending.
+    pub fn active_slots(&self) -> Vec<u8> {
+        let mut slots: Vec<u8> = self.monitors.values().copied().collect();
+        slots.sort_unstable();
+        slots
+    }
+
     /// The monitor that uses `slot`, if any.
     pub fn monitor_of(&self, slot: u8) -> Option<&str> {
         self.monitors

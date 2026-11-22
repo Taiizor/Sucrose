@@ -27,7 +27,7 @@ Every feature of the C# app, where it goes in the rewrite, and what each OS allo
 | Working area vs. display bounds | ✅ | ✅ | ⚠️ | | ⬜ |
 | Stretch modes (None, Fill, Uniform, UniformToFill) | ✅ | ✅ | ✅ | Per-engine mapping in `engines.md` §3. | ⬜ |
 | Per-monitor DPI | ✅ | ✅ | ✅ | Rust (M1): renderers and service are PerMonitorV2 aware; rects in physical pixels. | 🟨 |
-| Monitor changes, shell restart recovery (CrashExplorer) | ✅ | ? | ? | | ⬜ |
+| Monitor changes, shell restart recovery (CrashExplorer) | ✅ | ? | ? | Behavior change (D-11): always on and event-driven (TaskbarCreated), no 5 s polling; legacy CrashExplorer is ignored. Monitor changes are debounced 2000 ms + 500 ms and applied as per-monitor diffs. | 🟨 |
 | Hide desktop icons toggle | ✅ | ? | ? | Not stored as a setting in legacy. | ⬜ |
 | Set OS wallpaper from thumbnail, disable slideshow | ✅ | ⚠️ | ⚠️ | | ⬜ |
 | Lock screen wallpaper (Video and GIF themes, live on the lock and sign-in screen) | ✅ | ? | ? | Only on branch `lock-screen-native` (112de37f), not in `develop` (D-026). Legacy runs a credential-provider DLL inside LogonUI; behavior and its security problems in `lock-screen.md`. | ⬜ |

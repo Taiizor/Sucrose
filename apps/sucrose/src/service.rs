@@ -25,7 +25,7 @@ use sucrose_platform::{EventLoop, Flow, LoopEvent, LoopProxy, LoopTimers, Monito
 use sucrose_core::settings::ScreenArea;
 
 use crate::{
-    supervisor::{Decision, Exited, RestartBudget, START_FAILED, Supervisor, classify_exit, decide},
+    supervisor::{Decision, Exited, RestartBudget, START_FAILED, ShellRestart, Supervisor, classify_exit, decide_exit},
     topology::{
         Debounce, SlotMap, TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, TimerCommand, TopologyAction, diff, primary, with_area,
     },
@@ -332,12 +332,13 @@ pub fn run() -> anyhow::Result<()> {
                             // The monitor was unplugged: this exit is the answer to the Close, nothing to restart.
                             fleet.budgets.remove(&exited.slot);
                             fleet.stopped.remove(&exited.slot);
+                            fleet.shell.forget(exited.slot);
                             tracing::info!(slot = exited.slot, "the renderer of a removed monitor ended");
                             continue;
                         }
                         let budget = fleet.budgets.entry(exited.slot).or_default();
                         let class = classify_exit(exited.code);
-                        let decision = decide(budget, class, Instant::now());
+                        let decision = decide_exit(budget, &mut fleet.shell, class, exited.slot, Instant::now());
                         tracing::info!(slot = exited.slot, ?class, ?decision, "a renderer ended");
                         let next = match decision {
                             Decision::Leave => {
@@ -432,8 +433,22 @@ pub fn run() -> anyhow::Result<()> {
             }
             Flow::Continue
         }
-        // The shell restarting is handled by a later step of this plan.
-        LoopEvent::ShellRestarted => Flow::Continue,
+        // explorer.exe started again: Progman and every surface in it are gone, so each monitor gets a new renderer.
+        LoopEvent::ShellRestarted => {
+            if !quitting && fleet.job.is_some() {
+                let acted = fleet.shell_restarted(&Ctx {
+                    supervisor: &supervisor,
+                    renderers: &renderers,
+                });
+                if acted && let Some(next) = status.restarting() {
+                    status = next;
+                    if let Some(tray) = &tray {
+                        tray.set_tooltip(&status.tooltip());
+                    }
+                }
+            }
+            Flow::Continue
+        }
     });
     drop(tray);
     tracing::info!("the service stopped");
@@ -817,6 +832,8 @@ struct Fleet {
     budgets: HashMap<u8, RestartBudget>,
     /// Slots whose renderer ended for good (nothing to restart): no exit event will ever come for them again.
     stopped: HashSet<u8>,
+    /// The recovery after explorer.exe restarted (D-11).
+    shell: ShellRestart,
 }
 
 impl Fleet {
@@ -829,6 +846,7 @@ impl Fleet {
             debounce: Debounce::default(),
             budgets: HashMap::new(),
             stopped: HashSet::new(),
+            shell: ShellRestart::default(),
         }
     }
 
@@ -888,6 +906,41 @@ impl Fleet {
                 false
             }
         }
+    }
+
+    /// explorer.exe started again. Renderers that still run are closed (their surface went with Progman) and each
+    /// monitor's renderer is started once more when its predecessor has ended; a monitor without a running renderer
+    /// gets a fresh one at once. `false` when restarts come too fast and this one was ignored.
+    fn shell_restarted(&mut self, ctx: &Ctx<'_>) -> bool {
+        let now = Instant::now();
+        let running = ctx.supervisor.slots();
+        let mut to_close = Vec::new();
+        let mut to_start = Vec::new();
+        for slot in self.slots.active_slots() {
+            if !running.contains(&slot) {
+                to_start.push(slot);
+            // Without a connection the renderer is still starting: it attaches to the new shell by itself, or ends
+            // with the surface-lost code inside the restart window and is replaced for free.
+            } else if lock(ctx.renderers).connections.contains_key(&slot) {
+                to_close.push(slot);
+            }
+        }
+        if !self.shell.begin(now, to_close.iter().copied()) {
+            tracing::warn!("the shell restarted again right away, not acting on it");
+            return false;
+        }
+        tracing::info!(closing = ?to_close, starting = ?to_start, "the shell restarted, replacing the renderers");
+        for slot in to_close {
+            send_to(ctx.renderers, slot, &ToRenderer::Close);
+        }
+        for slot in to_start {
+            self.budgets.remove(&slot);
+            self.stopped.remove(&slot);
+            if let Err(error) = ctx.supervisor.spawn(slot) {
+                tracing::warn!(%error, slot, "cannot start a renderer after the shell restarted");
+            }
+        }
+        true
     }
 
     /// The monitor `id` is gone: its renderer is closed and only it. The slot stays reserved until that renderer
