@@ -13,8 +13,8 @@ const CONNECT_PAUSE: Duration = Duration::from_millis(100);
 
 /// Runs the renderer for `slot` until the service closes the connection or asks it to stop.
 pub fn run(slot: u8) -> anyhow::Result<()> {
-    let endpoint = crate::service::endpoint();
-    let mut connection = connect_with_retry(&endpoint)?;
+    let endpoint = crate::service::endpoint()?;
+    let mut connection = connect_with_retry(&endpoint.name)?;
     connection.send(&ToService::Hello {
         protocol_version: PROTOCOL_VERSION,
         pid: std::process::id(),

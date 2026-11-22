@@ -2,6 +2,9 @@
 //! reported through [`Capabilities`] instead of being faked. This crate may opt out of the workspace `unsafe_code`
 //! lint with `#![allow(unsafe_code)]` once it needs FFI (D-011).
 
+// D-011: the Windows module calls Win32 APIs; each unsafe block carries a SAFETY comment.
+#![allow(unsafe_code)]
+
 #[cfg(target_os = "linux")]
 mod os_linux;
 #[cfg(target_os = "macos")]
@@ -30,6 +33,22 @@ pub struct Capabilities {
     pub fullscreen_detection: bool,
 }
 
+/// Why a platform call failed.
+#[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
+pub enum PlatformError {
+    /// This OS does not provide the feature (reported through capabilities where the UI needs to know).
+    #[error("{0} is not supported on this OS")]
+    Unsupported(&'static str),
+    /// An OS call failed.
+    #[error("{context} failed with OS error {code}")]
+    Os {
+        /// What was being done.
+        context: &'static str,
+        /// The OS error code (the HRESULT on Windows).
+        code: i32,
+    },
+}
+
 /// OS integration used by the service.
 pub trait Platform: Send + Sync {
     /// Short OS name for logs, the same value as `std::env::consts::OS`.
@@ -37,6 +56,12 @@ pub trait Platform: Send + Sync {
 
     /// Features this implementation provides.
     fn capabilities(&self) -> Capabilities;
+
+    /// A string that identifies the current user on this machine (the account SID on Windows), used to name the
+    /// per-user service endpoint and to restrict it to that user.
+    fn user_key(&self) -> Result<String, PlatformError> {
+        Err(PlatformError::Unsupported("user identity"))
+    }
 }
 
 /// The implementation for the OS this binary was built for.

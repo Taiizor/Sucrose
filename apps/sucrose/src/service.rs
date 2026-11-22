@@ -19,18 +19,41 @@ use sucrose_ipc::{
     Connection, IpcError, Listener, endpoint_name,
     protocol::{PROTOCOL_VERSION, ToService},
 };
+use sucrose_platform::PlatformError;
 
-/// The endpoint name of this user's service, shared by the service and its renderers.
-pub fn endpoint() -> String {
-    // Replaced by the account SID where the platform provides one.
-    let user = std::env::var("USERNAME").unwrap_or_else(|_| "user".to_owned());
-    endpoint_name(&user)
+/// Where this user's service listens.
+pub struct Endpoint {
+    /// The endpoint name, shared by the service and its renderers.
+    pub name: String,
+    /// The account the endpoint is restricted to, where the OS can restrict it (the SID on Windows).
+    pub owner: Option<String>,
+}
+
+/// The endpoint of the current user. The account SID names it and owns it on Windows; the user name is only the
+/// fallback where the platform has no user identity (macOS and Linux, which have no M1 wallpaper).
+pub fn endpoint() -> anyhow::Result<Endpoint> {
+    match sucrose_platform::current().user_key() {
+        Ok(key) => Ok(Endpoint {
+            name: endpoint_name(&key),
+            owner: Some(key),
+        }),
+        Err(PlatformError::Unsupported(_)) => {
+            let user = std::env::var("USERNAME")
+                .or_else(|_| std::env::var("USER"))
+                .unwrap_or_else(|_| "user".to_owned());
+            Ok(Endpoint {
+                name: endpoint_name(&user),
+                owner: None,
+            })
+        }
+        Err(error) => Err(error).context("cannot identify the current user"),
+    }
 }
 
 /// Runs the service until the process is stopped.
 pub fn run() -> anyhow::Result<()> {
-    let endpoint = endpoint();
-    let listener = match Listener::bind(&endpoint, None) {
+    let endpoint = endpoint()?;
+    let listener = match Listener::bind(&endpoint.name, endpoint.owner.as_deref()) {
         Ok(listener) => listener,
         Err(IpcError::AlreadyRunning) => {
             tracing::info!("Sucrose is already running; exiting");
@@ -44,7 +67,7 @@ pub fn run() -> anyhow::Result<()> {
         version = sucrose_core::VERSION,
         os = platform.name(),
         capabilities = ?platform.capabilities(),
-        %endpoint,
+        endpoint = %endpoint.name,
         "service started"
     );
     log_legacy_settings();

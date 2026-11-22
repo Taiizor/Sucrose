@@ -13,5 +13,11 @@ postcard = { workspace = true }
 serde = { workspace = true }
 thiserror = { workspace = true }
 
+[target.'cfg(windows)'.dependencies]
+widestring = { workspace = true }
+
+[dev-dependencies]
+sucrose-platform = { workspace = true }
+
 [lints]
 workspace = true

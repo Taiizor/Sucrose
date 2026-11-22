@@ -6381,7 +6381,9 @@ dependencies = [
  "interprocess",
  "postcard",
  "serde",
+ "sucrose-platform",
  "thiserror 2.0.21",
+ "widestring",
 ]
 
 [[package]]
@@ -6398,6 +6400,10 @@ dependencies = [
 [[package]]
 name = "sucrose-platform"
 version = "0.1.0"
+dependencies = [
+ "thiserror 2.0.21",
+ "windows 0.62.2",
+]
 
 [[package]]
 name = "sucrose-portal"

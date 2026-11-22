@@ -128,3 +128,27 @@ fn a_second_handle_can_send_while_the_first_waits_for_a_message() {
     assert_eq!(reply, ToRenderer::Close);
     assert_eq!(server.join().expect("server thread").expect("Hello"), hello());
 }
+
+#[cfg(windows)]
+#[test]
+fn a_listener_restricted_to_the_current_sid_still_serves_its_owner() {
+    let sid = sucrose_platform::current().user_key().expect("user key");
+    let name = unique_name();
+    let listener = Listener::bind(&name, Some(&sid)).expect("bind restricted to the current user");
+    let server = thread::spawn(move || listener.accept().expect("accept").recv::<ToService>());
+
+    let mut client = connect(&name).expect("the owner can connect");
+    client.send(&hello()).expect("send Hello");
+
+    assert_eq!(server.join().expect("server thread").expect("Hello"), hello());
+}
+
+#[cfg(windows)]
+#[test]
+fn an_owner_that_is_not_a_sid_is_refused() {
+    let name = unique_name();
+
+    let result = Listener::bind(&name, Some("S-1-5-21)(A;;GA;;;WD"));
+
+    assert!(matches!(result, Err(IpcError::Io(_))), "{result:?}");
+}

@@ -81,8 +81,14 @@ impl Listener {
     ///
     /// Fails with [`IpcError::AlreadyRunning`] when the endpoint already exists.
     pub fn bind(name: &str, owner_sid: Option<&str>) -> Result<Self, IpcError> {
-        let _ = owner_sid;
         let options = ListenerOptions::new().name(socket_name(name)?);
+        #[cfg(windows)]
+        let options = match owner_sid {
+            Some(sid) => restrict_to_owner(options, sid)?,
+            None => options,
+        };
+        #[cfg(not(windows))]
+        let _ = owner_sid;
         match options.create_sync() {
             Ok(inner) => Ok(Self { inner }),
             Err(error) if is_endpoint_taken(&error) => Err(IpcError::AlreadyRunning),
@@ -96,6 +102,23 @@ impl Listener {
             stream: self.inner.accept()?,
         })
     }
+}
+
+/// Limits the pipe to one account: a protected DACL with a single entry granting generic-all to that SID, so
+/// other users, groups and even elevated processes of other accounts cannot open it.
+#[cfg(windows)]
+fn restrict_to_owner<'n>(options: ListenerOptions<'n>, sid: &str) -> Result<ListenerOptions<'n>, IpcError> {
+    use interprocess::os::windows::{local_socket::ListenerOptionsExt, security_descriptor::SecurityDescriptor};
+
+    let invalid = |message: &str| IpcError::Io(io::Error::new(io::ErrorKind::InvalidInput, message.to_owned()));
+    // A SID string is only ever letters S, digits and dashes; anything else must not reach the SDDL text.
+    if sid.is_empty() || !sid.chars().all(|c| c == 'S' || c == '-' || c.is_ascii_digit()) {
+        return Err(invalid("the owner SID is not a valid SID string"));
+    }
+    let sddl = widestring::U16CString::from_str(format!("D:P(A;;GA;;;{sid})"))
+        .map_err(|_| invalid("the security descriptor text contains a NUL"))?;
+    let descriptor = SecurityDescriptor::deserialize(&sddl)?;
+    Ok(options.security_descriptor(descriptor))
 }
 
 /// Whether a bind error means "the endpoint already exists".

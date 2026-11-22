@@ -38,6 +38,9 @@ tracing = "0.1"
 tracing-appender = "0.2"
 tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
 ureq = "3.5.2"
+# Same version interprocess 2.4.9 already depends on, so no second copy is built.
+widestring = "1.2.1"
+windows = "0.62.2"
 
 [workspace.lints.rust]
 # D-011: only sucrose-platform and engine/FFI crates may opt out with #![allow(unsafe_code)].
