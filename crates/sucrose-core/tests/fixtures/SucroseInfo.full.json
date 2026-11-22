@@ -1,0 +1,29 @@
+{
+  "AppVersion": "26.10.19.0",
+  "Version": "1.2.3.4",
+  "Title": "Sample video",
+  "Thumbnail": "Thumbnail.jpg",
+  "Preview": "Preview.gif",
+  "Description": "Fixture with every optional field",
+  "Author": "Fixture",
+  "License": "MIT",
+  "Contact": "https://example.com/fixture",
+  "Type": 3,
+  "Source": "video.mp4",
+  "Tags": [
+    "nature",
+    "loop"
+  ],
+  "Arguments": "--fixture",
+  "Localization": {
+    "TR": {
+      "Title": "Ornek video",
+      "Description": "Her alani olan fixture"
+    },
+    "EN": {
+      "Title": "Sample video",
+      "Description": "Fixture with every field"
+    }
+  },
+  "FutureField": 1
+}

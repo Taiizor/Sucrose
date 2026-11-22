@@ -5,6 +5,7 @@
 pub mod paths;
 pub mod settings;
 pub mod theme;
+pub mod version;
 
 /// Product name used for folders, log files and identifiers.
 pub const APP_NAME: &str = "Sucrose";

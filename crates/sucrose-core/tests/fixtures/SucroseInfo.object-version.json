@@ -1,0 +1,29 @@
+{
+  "AppVersion": {
+    "Major": 26,
+    "Minor": 10,
+    "Build": 19,
+    "Revision": 0,
+    "MajorRevision": 0,
+    "MinorRevision": 0
+  },
+  "Version": {
+    "Major": 1,
+    "Minor": 0,
+    "Build": -1,
+    "Revision": -1,
+    "MajorRevision": -1,
+    "MinorRevision": -1
+  },
+  "Title": "Sample video",
+  "Thumbnail": "Thumbnail.jpg",
+  "Preview": "Preview.gif",
+  "Description": "Fixture with object versions and a named type",
+  "Author": "Fixture",
+  "License": null,
+  "Contact": "",
+  "Type": "Video",
+  "Source": "video.mp4",
+  "Tags": null,
+  "Arguments": null
+}

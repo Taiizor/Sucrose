@@ -1,0 +1,16 @@
+{
+  "AppVersion": "26.10.19.0",
+  "Version": "1.0.0.0",
+  "Title": "Sample video",
+  "Thumbnail": "Thumbnail.jpg",
+  "Preview": "Preview.gif",
+  "Description": "Fixture for the SucroseInfo round trip",
+  "Author": "Fixture",
+  "License": null,
+  "Contact": "contact@example.com",
+  "Type": 3,
+  "Source": "video.mp4",
+  "Tags": [],
+  "Arguments": null,
+  "Localization": null
+}

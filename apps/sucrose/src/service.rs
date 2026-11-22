@@ -2,7 +2,6 @@
 
 use std::{
     collections::HashSet,
-    path::{Path, PathBuf},
     process::Command,
     sync::{Arc, Mutex, PoisonError},
     thread,
@@ -11,10 +10,11 @@ use std::{
 
 use anyhow::Context as _;
 use crossbeam_channel::Sender;
-use sucrose_config::legacy::{LegacySettings, LibrarySettings};
+use sucrose_config::legacy::LegacySettings;
 use sucrose_core::{
     paths::{legacy_data_dir, legacy_setting_dir},
-    theme::{SucroseInfo, WallpaperType, read_info},
+    theme::{SelectedTheme, check_selected},
+    version::LegacyVersion,
 };
 use sucrose_ipc::{
     Connection, IpcError, Listener, endpoint_name,
@@ -270,31 +270,40 @@ fn plan_wallpapers(platform: &dyn Platform) -> Vec<Assignment> {
         app_visible = settings.general.app_visible,
         "legacy settings"
     );
-    match wallpaper_for(&settings.library, platform) {
+    match plan_for(&settings.library.location, &settings.library.selected, platform) {
         Ok(assignment) => vec![assignment],
         Err(reason) => {
-            tracing::warn!(%reason, "no wallpaper starts, the service keeps waiting without a renderer");
+            tracing::warn!(%reason, "no wallpaper started, the service keeps waiting without a renderer");
             Vec::new()
         }
     }
 }
 
-/// The job for the primary monitor, or the reason there is none.
-fn wallpaper_for(library: &LibrarySettings, platform: &dyn Platform) -> Result<Assignment, String> {
-    if library.selected.is_empty() {
-        return Err("no theme is selected in the C# install".to_owned());
-    }
-    let theme_dir = library.location.join(&library.selected);
-    let info = read_info(&theme_dir).map_err(|error| format!("the selected theme cannot be read: {error}"))?;
-    tracing::info!(theme = %library.selected, kind = ?info.kind, source = %info.source, "selected theme");
-    let source = video_source(&theme_dir, &info)?;
+/// The version this build compares a theme's `AppVersion` with. The date-based version replaces this with
+/// `sucrose_core::version::app_version()`.
+fn current_app_version() -> LegacyVersion {
+    LegacyVersion::parse(sucrose_core::VERSION).unwrap_or_default()
+}
+
+/// Runs the gate (D-13) on the selected theme and, when it passes, builds the job for the primary monitor. The error
+/// is one English sentence for the log: the gate's own reason, or why no monitor could be used.
+fn plan_for(location: &std::path::Path, selected: &str, platform: &dyn Platform) -> Result<Assignment, String> {
+    let theme =
+        check_selected(location, selected, &current_app_version()).map_err(|rejection| rejection.to_string())?;
+    tracing::info!(theme = %selected, kind = ?theme.info.kind, source = %theme.info.source, "selected theme");
+    assignment_for(&theme, platform)
+}
+
+/// The job for the primary monitor playing a theme that passed the gate.
+fn assignment_for(theme: &SelectedTheme, platform: &dyn Platform) -> Result<Assignment, String> {
     let monitors = platform.monitors();
     let monitor = monitors
         .iter()
         .find(|monitor| monitor.primary)
         .or_else(|| monitors.first())
         .ok_or_else(|| "the OS reports no monitor".to_owned())?;
-    let source = source
+    let source = theme
+        .source_path
         .to_str()
         .ok_or_else(|| "the video path is not valid UTF-8".to_owned())?
         .to_owned();
@@ -311,40 +320,6 @@ fn wallpaper_for(library: &LibrarySettings, platform: &dyn Platform) -> Result<A
     })
 }
 
-/// Checks that a theme's `Source` is a relative path inside its folder (T-02-13): no `..`, no address, no drive or
-/// UNC prefix. Plan 08 adds canonicalized containment.
-fn safe_relative_source(source: &str) -> Result<(), &'static str> {
-    if source.is_empty() {
-        Err("the theme has no Source")
-    } else if source.contains("://") {
-        Err("the Source is an address, not a file")
-    } else if source.starts_with(['/', '\\']) {
-        Err("the Source is an absolute or UNC path")
-    } else if source.contains(':') {
-        Err("the Source has a drive prefix")
-    } else if source.split(['/', '\\']).any(|part| part == "..") {
-        Err("the Source leaves the theme folder")
-    } else {
-        Ok(())
-    }
-}
-
-/// The absolute path of the video a Video theme plays, or why it cannot be played.
-fn video_source(theme_dir: &Path, info: &SucroseInfo) -> Result<PathBuf, String> {
-    if info.kind != WallpaperType::Video {
-        return Err(format!(
-            "the selected theme is a {:?} wallpaper, only Video plays in this build",
-            info.kind
-        ));
-    }
-    safe_relative_source(&info.source).map_err(str::to_owned)?;
-    let path = theme_dir.join(&info.source);
-    if !path.is_file() {
-        return Err("the Source file does not exist in the theme folder".to_owned());
-    }
-    std::path::absolute(&path).map_err(|error| format!("cannot make the Source path absolute: {error}"))
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -355,68 +330,6 @@ mod tests {
             pid,
             slot,
         }
-    }
-
-    fn info(kind: WallpaperType, source: &str) -> SucroseInfo {
-        SucroseInfo {
-            app_version: serde_json::Value::Null,
-            title: String::new(),
-            kind,
-            source: source.to_owned(),
-        }
-    }
-
-    /// A fresh theme folder with `clip.mp4` in it, under the target directory of the test run.
-    fn theme_folder(name: &str) -> PathBuf {
-        let dir = std::env::temp_dir().join(format!("sucrose-service-test-{}-{name}", std::process::id()));
-        std::fs::create_dir_all(dir.join("sub")).expect("create theme folder");
-        std::fs::write(dir.join("clip.mp4"), b"x").expect("write clip");
-        std::fs::write(dir.join("sub").join("deep.mp4"), b"x").expect("write deep clip");
-        dir
-    }
-
-    #[test]
-    fn video_source_takes_an_existing_relative_file() {
-        let dir = theme_folder("ok");
-
-        let path = video_source(&dir, &info(WallpaperType::Video, "clip.mp4")).expect("playable");
-        let nested = video_source(&dir, &info(WallpaperType::Video, "sub/deep.mp4")).expect("playable");
-
-        assert!(path.is_absolute() && path.ends_with("clip.mp4"));
-        assert!(nested.is_absolute());
-    }
-
-    #[test]
-    fn video_source_refuses_paths_that_leave_the_theme_folder() {
-        let dir = theme_folder("escape");
-
-        for source in [
-            "../clip.mp4",
-            "sub/../../x.mp4",
-            "sub\\..\\..\\x.mp4",
-            "/etc/passwd",
-            "\\\\server\\share\\x.mp4",
-            "C:\\x.mp4",
-            "C:x.mp4",
-            "https://example.com/x.mp4",
-            "file:///x.mp4",
-            "",
-        ] {
-            assert!(
-                video_source(&dir, &info(WallpaperType::Video, source)).is_err(),
-                "{source:?} must be refused"
-            );
-        }
-    }
-
-    #[test]
-    fn video_source_refuses_a_missing_file_and_other_types() {
-        let dir = theme_folder("other");
-
-        assert!(video_source(&dir, &info(WallpaperType::Video, "missing.mp4")).is_err());
-        assert!(video_source(&dir, &info(WallpaperType::Video, "sub")).is_err());
-        assert!(video_source(&dir, &info(WallpaperType::Gif, "clip.mp4")).is_err());
-        assert!(video_source(&dir, &info(WallpaperType::Web, "clip.mp4")).is_err());
     }
 
     #[test]
@@ -455,5 +368,24 @@ mod tests {
             accept_hello(&HashSet::new(), &hello(PROTOCOL_VERSION, 100, 0)),
             Err(Refusal::UnknownPid(100))
         );
+    }
+
+    /// The maintainer's real C# install, read-only: the selected theme must pass the gate.
+    #[test]
+    #[ignore = "reads the real C# install read-only"]
+    fn real_install_selected_theme_passes_the_gate() {
+        let (Some(root), Some(setting_dir)) = (legacy_data_dir(), legacy_setting_dir()) else {
+            panic!("the OS reports no config folder");
+        };
+        let settings = LegacySettings::load(&setting_dir, &root);
+
+        let selected = check_selected(
+            &settings.library.location,
+            &settings.library.selected,
+            &current_app_version(),
+        );
+
+        let theme = selected.unwrap_or_else(|rejection| panic!("the real selected theme is refused: {rejection}"));
+        assert!(theme.source_path.is_file());
     }
 }
