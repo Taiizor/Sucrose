@@ -10,7 +10,7 @@ Every feature of the C# app, where it goes in the rewrite, and what each OS allo
 
 | Feature | Win | mac | Linux | Notes / improvements | Status |
 |---|---|---|---|---|---|
-| Video | ✅ | ✅ | ✅ | Engines: mpv, VLC, built-in OS video (D-006), web engines. Legacy default mpv. Rust (M1, Windows): the selected video plays looping behind the icons on the primary monitor through the bundled libmpv, embedded with `wid` in the renderer process only (D-017); hardened (`load-scripts=no`, `ytdl=no`, `config=no`, no input or OSC) so a theme cannot make mpv run scripts or fetch URLs; a missing libmpv ends the renderer with exit code 2 and a repair hint. Multi-monitor, pause, volume and Engine.json options follow in later M1 plans. | 🟨 |
+| Video | ✅ | ✅ | ✅ | Engines: mpv, VLC, built-in OS video (D-006), web engines. Legacy default mpv. Rust (M1, Windows): bundled libmpv (D-028), hardware decoding, loop, volume and stretch from the legacy Engine.json; mpv options re-derived for mpv v0.42 (obsolete legacy keys dropped); the user's uMpvPlayer.config is honored read-only (D-10; unit-tested, not exercised against a real file on the maintainer's machine). Plays looping behind the icons on every monitor, one renderer each, embedded with `wid` in the renderer process only (D-017); hardened (`load-scripts=no`, `ytdl=no`, `config=no`, no input or OSC) so a theme cannot make mpv run scripts or fetch URLs; a missing libmpv ends the renderer with exit code 2 and a repair hint. Measured on a 4K HEVC theme (`MEASUREMENTS.md`): RAM and CPU at or below the C# MpvPlayer engine, but the Rust renderer keeps the GPU 3D engine near 94 % against 16.5 % for C# (open performance item). Other engines in Phase 4. | 🟨 |
 | GIF | ✅ | ✅ | ✅ | Built-in renderer replaces Vexana/Xavier; add APNG/WebP. Legacy default mpv. | ⬜ |
 | Web (local HTML) | ✅ | ✅ | ✅ | WebView2/CEF (Win), WKWebView/CEF (mac), WebKitGTK/CEF (Linux). JS API must stay compatible. | ⬜ |
 | URL | ✅ | ✅ | ✅ | Web engines; no properties, input forwarded. | ⬜ |
@@ -31,7 +31,7 @@ Every feature of the C# app, where it goes in the rewrite, and what each OS allo
 | Hide desktop icons toggle | ✅ | ? | ? | Not stored as a setting in legacy. | ⬜ |
 | Set OS wallpaper from thumbnail, disable slideshow | ✅ | ⚠️ | ⚠️ | | ⬜ |
 | Lock screen wallpaper (Video and GIF themes, live on the lock and sign-in screen) | ✅ | ? | ? | Only on branch `lock-screen-native` (112de37f), not in `develop` (D-026). Legacy runs a credential-provider DLL inside LogonUI; behavior and its security problems in `lock-screen.md`. | ⬜ |
-| Stay awake | ✅ | ✅ | ✅ | Legacy also runs elevated `powercfg`; avoid UAC if possible. | ⬜ |
+| Stay awake | ✅ | ✅ | ✅ | Legacy also runs elevated `powercfg`; avoid UAC if possible. M1 does not read StayAwake (not in the D-09 key list); mpv runs with stop-screensaver=no; the legacy mapping to stop-screensaver=always returns with the setting in Phase 3/4. | ⬜ |
 | GPU preference (high performance) | ✅ | ❌ | ❌ | Registry `UserGpuPreferences`. | ⬜ |
 
 ## Playback and sound

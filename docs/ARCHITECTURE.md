@@ -1,6 +1,6 @@
 # Architecture (target)
 
-> Status: **planned**, except the M0 skeleton: `sucrose-core` (paths, theme and settings types), `sucrose-config` (legacy settings reader), `sucrose-log`, `sucrose-platform` (trait and stubs), `sucrose-engine-mpv` (libmpv bindings and loader), `sucrose-ipc` (service and renderer messages, single instance), `apps/sucrose`, `apps/sucrose-portal` (empty window) and `xtask`. Update this file as code lands; when code and this file disagree, fix one of them in the same change.
+> Status: **planned**, except what M1 ships (Windows video wallpaper): `sucrose-core` (paths, legacy paths, theme, version, setting enums), `sucrose-log`, `sucrose-config` (legacy settings reader), `sucrose-ipc` (service and renderer messages, single instance), `sucrose-platform` (Windows desktop surface, monitors, event loop, tray, job object, foreground window; macOS and Linux stubs), `sucrose-engine-mpv` (bundled libmpv bindings, loader, player), `apps/sucrose` (service and renderer), `apps/sucrose-portal` (empty window) and `xtask` (ci, fetch-engines, bindgen-mpv, measure). Planned: `sucrose-engine` (Engine trait, with the second engine in Phase 4) and the rest. Update this file as code lands; when code and this file disagree, fix one of them in the same change.
 
 ## Goals
 
