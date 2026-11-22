@@ -5,16 +5,21 @@ use std::path::Path;
 
 use windows::{
     Win32::{
-        Foundation::{ERROR_MORE_DATA, ERROR_SUCCESS, WIN32_ERROR},
+        Foundation::{ERROR_MORE_DATA, ERROR_SUCCESS, HMODULE, LUID, WIN32_ERROR},
+        Graphics::{
+            Direct3D::D3D_DRIVER_TYPE_HARDWARE,
+            Direct3D11::{D3D11_CREATE_DEVICE_FLAG, D3D11_SDK_VERSION, D3D11CreateDevice, ID3D11Device},
+            Dxgi::{CreateDXGIFactory1, DXGI_ERROR_NOT_FOUND, IDXGIAdapter, IDXGIDevice, IDXGIFactory1},
+        },
         System::Registry::{
             HKEY, HKEY_CURRENT_USER, KEY_QUERY_VALUE, KEY_SET_VALUE, REG_OPTION_NON_VOLATILE, REG_SZ, REG_VALUE_TYPE,
             RegCloseKey, RegCreateKeyExW, RegQueryValueExW, RegSetValueExW,
         },
     },
-    core::{HRESULT, PCWSTR},
+    core::{HRESULT, Interface, PCWSTR},
 };
 
-use crate::{GpuPreferenceChange, PlatformError};
+use crate::{GpuAdapter, GpuPreferenceChange, PlatformError};
 use sucrose_core::settings::GpuPreference;
 
 /// The per-user key that holds one value per executable, named by the executable's full path.
@@ -210,11 +215,176 @@ fn write_preference(subkey: &str, value_name: &str, ordinal: u32) -> Result<GpuP
     Ok(GpuPreferenceChange::Written)
 }
 
+/// The OS enumeration order of the DXGI adapters is **not** evidence of which adapter a Direct3D device of this
+/// process gets: the per-app GPU preference may change what a default device picks without reordering this list. Use
+/// [`default_gpu_adapter`] for that.
+///
+/// Every adapter, software ones included, with its LUID in the form typeperf prints in GPU instance names. Empty when
+/// DXGI cannot be used.
+pub(crate) fn gpu_adapters() -> Vec<GpuAdapter> {
+    // SAFETY: CreateDXGIFactory1 has no preconditions; the result is checked.
+    let factory = match unsafe { CreateDXGIFactory1::<IDXGIFactory1>() } {
+        Ok(factory) => factory,
+        Err(error) => {
+            tracing::debug!(error = %error, "CreateDXGIFactory1 failed, no adapter list");
+            return Vec::new();
+        }
+    };
+    let mut adapters = Vec::new();
+    for index in 0.. {
+        // SAFETY: `factory` is a live COM interface; running past the last adapter is reported as an error.
+        let adapter = match unsafe { factory.EnumAdapters1(index) } {
+            Ok(adapter) => adapter,
+            Err(error) if error.code() == DXGI_ERROR_NOT_FOUND => break,
+            Err(error) => {
+                tracing::debug!(error = %error, index, "EnumAdapters1 failed, adapter list ends here");
+                break;
+            }
+        };
+        // SAFETY: `adapter` is a live COM interface returned by EnumAdapters1.
+        match unsafe { adapter.GetDesc1() } {
+            Ok(desc) => adapters.push(adapter_info(
+                &desc.Description,
+                desc.AdapterLuid,
+                desc.DedicatedVideoMemory,
+            )),
+            Err(error) => tracing::debug!(error = %error, index, "GetDesc1 failed, adapter skipped"),
+        }
+    }
+    adapters
+}
+
+/// The adapter a Direct3D 11 device gets when it names no adapter, read back from such a device
+/// (`IDXGIDevice::GetAdapter`), so it reflects the GPU preference the OS applied to this process. libmpv makes the same
+/// call while no `d3d11-adapter` is set (see `embedding_options` in sucrose-engine-mpv), so this is the adapter its video
+/// device uses. The cost is one short-lived device on the adapter libmpv is about to use anyway. `None` where no
+/// hardware device can be created.
+pub(crate) fn default_gpu_adapter() -> Option<GpuAdapter> {
+    let mut device: Option<ID3D11Device> = None;
+    // SAFETY: no adapter, no software module, no flags and no feature levels are valid arguments; `device` is a valid
+    // out pointer and neither the feature level nor an immediate context is requested.
+    let created = unsafe {
+        D3D11CreateDevice(
+            None::<&IDXGIAdapter>,
+            D3D_DRIVER_TYPE_HARDWARE,
+            HMODULE::default(),
+            D3D11_CREATE_DEVICE_FLAG(0),
+            None,
+            D3D11_SDK_VERSION,
+            Some(&raw mut device),
+            None,
+            None,
+        )
+    };
+    if let Err(error) = created {
+        tracing::debug!(error = %error, "D3D11CreateDevice failed, no default adapter");
+        return None;
+    }
+    let dxgi: IDXGIDevice = match device?.cast() {
+        Ok(dxgi) => dxgi,
+        Err(error) => {
+            tracing::debug!(error = %error, "the Direct3D device has no IDXGIDevice");
+            return None;
+        }
+    };
+    // SAFETY: `dxgi` is a live COM interface.
+    let adapter = match unsafe { dxgi.GetAdapter() } {
+        Ok(adapter) => adapter,
+        Err(error) => {
+            tracing::debug!(error = %error, "IDXGIDevice::GetAdapter failed");
+            return None;
+        }
+    };
+    // SAFETY: `adapter` is a live COM interface returned by GetAdapter.
+    match unsafe { adapter.GetDesc() } {
+        Ok(desc) => Some(adapter_info(
+            &desc.Description,
+            desc.AdapterLuid,
+            desc.DedicatedVideoMemory,
+        )),
+        Err(error) => {
+            tracing::debug!(error = %error, "IDXGIAdapter::GetDesc failed");
+            None
+        }
+    }
+}
+
+/// The adapter fields Sucrose reports, from a DXGI description.
+fn adapter_info(description: &[u16], luid: LUID, dedicated_video_memory: usize) -> GpuAdapter {
+    let length = description
+        .iter()
+        .position(|unit| *unit == 0)
+        .unwrap_or(description.len());
+    GpuAdapter {
+        name: String::from_utf16_lossy(&description[..length]),
+        luid: luid_text(luid.HighPart, luid.LowPart),
+        dedicated_video_memory_mb: u64::try_from(dedicated_video_memory).unwrap_or(u64::MAX) / (1024 * 1024),
+    }
+}
+
+/// A LUID as typeperf prints it in GPU instance names: `0x{HighPart:08X}_0x{LowPart:08X}`.
+fn luid_text(high: i32, low: u32) -> String {
+    format!("0x{high:08X}_0x{low:08X}")
+}
+
 #[cfg(test)]
 mod tests {
     use windows::Win32::System::Registry::RegDeleteTreeW;
 
     use super::*;
+
+    #[test]
+    fn gpu_luid_text_is_high_part_then_low_part_in_the_typeperf_form() {
+        assert_eq!(luid_text(0, 0xA1B2), "0x00000000_0x0000A1B2");
+        assert_eq!(luid_text(1, 0xDEAD_BEEF), "0x00000001_0xDEADBEEF");
+    }
+
+    fn is_luid_text(text: &str) -> bool {
+        let hex = |part: &str| part.len() == 8 && part.chars().all(|c| c.is_ascii_digit() || ('A'..='F').contains(&c));
+        text.split_once('_')
+            .and_then(|(high, low)| Some((high.strip_prefix("0x")?, low.strip_prefix("0x")?)))
+            .is_some_and(|(high, low)| hex(high) && hex(low))
+    }
+
+    #[test]
+    fn gpu_adapter_list_names_at_least_one_adapter() {
+        let adapters = gpu_adapters();
+
+        assert!(!adapters.is_empty());
+        for adapter in &adapters {
+            assert!(!adapter.name.is_empty());
+            assert!(is_luid_text(&adapter.luid), "{}", adapter.luid);
+        }
+    }
+
+    #[test]
+    fn gpu_default_adapter_is_one_of_the_listed_adapters_when_a_device_exists() {
+        // None is fine where no hardware Direct3D 11 device can be created (a runner without a GPU).
+        let Some(adapter) = default_gpu_adapter() else { return };
+
+        assert!(!adapter.name.is_empty());
+        assert!(is_luid_text(&adapter.luid), "{}", adapter.luid);
+        assert!(gpu_adapters().iter().any(|listed| listed.luid == adapter.luid));
+    }
+
+    #[test]
+    fn gpu_adapter_info_stops_the_name_at_the_first_nul_and_reports_mebibytes() {
+        let mut description = [0_u16; 128];
+        for (slot, unit) in description.iter_mut().zip("Test GPU".encode_utf16()) {
+            *slot = unit;
+        }
+        description[20] = u16::from(b'x');
+        let luid = LUID {
+            LowPart: 0xA1B2,
+            HighPart: 0,
+        };
+
+        let adapter = adapter_info(&description, luid, 4 * 1024 * 1024 * 1024);
+
+        assert_eq!(adapter.name, "Test GPU");
+        assert_eq!(adapter.luid, "0x00000000_0x0000A1B2");
+        assert_eq!(adapter.dedicated_video_memory_mb, 4096);
+    }
 
     #[test]
     fn gpu_value_is_created_for_a_missing_one() {

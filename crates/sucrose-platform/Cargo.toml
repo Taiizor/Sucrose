@@ -18,7 +18,10 @@ tracing = { workspace = true }
 tray-icon = { workspace = true }
 windows = { workspace = true, features = [
     "Win32_Foundation",
+    "Win32_Graphics_Direct3D",
+    "Win32_Graphics_Direct3D11",
     "Win32_Graphics_Dwm",
+    "Win32_Graphics_Dxgi",
     "Win32_Graphics_Gdi",
     "Win32_Security",
     "Win32_Security_Authorization",

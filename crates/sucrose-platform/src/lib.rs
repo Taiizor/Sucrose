@@ -101,6 +101,18 @@ pub struct Capabilities {
     pub gpu_preference: bool,
 }
 
+/// A GPU adapter of this machine.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct GpuAdapter {
+    /// The adapter's description (for example the GPU model).
+    pub name: String,
+    /// The adapter's LUID in the form typeperf prints in GPU instance names (`0x00000000_0x0000A1B2`: high part,
+    /// then low part), so logs and `cargo xtask measure` name an adapter the same way.
+    pub luid: String,
+    /// Dedicated video memory in MiB.
+    pub dedicated_video_memory_mb: u64,
+}
+
 /// What [`Platform::set_gpu_preference`] did.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum GpuPreferenceChange {
@@ -191,6 +203,20 @@ pub trait Platform: Send + Sync {
     fn set_gpu_preference(&self, exe: &Path, preference: GpuPreference) -> Result<GpuPreferenceChange, PlatformError> {
         let _ = (exe, preference);
         Err(PlatformError::Unsupported("GPU preference"))
+    }
+
+    /// Every GPU adapter, to name a LUID. The order is the OS's enumeration order and is not evidence of which
+    /// adapter a device of this process uses (see [`Platform::default_gpu_adapter`]). Empty where the OS has none to
+    /// report.
+    fn gpu_adapters(&self) -> Vec<GpuAdapter> {
+        Vec::new()
+    }
+
+    /// The adapter a graphics device of this process gets when it names no adapter, read back from such a device, so
+    /// it reflects the OS GPU preference. While no `d3d11-adapter` is set this is the adapter libmpv's video device
+    /// uses. `None` where it cannot be determined.
+    fn default_gpu_adapter(&self) -> Option<GpuAdapter> {
+        None
     }
 }
 

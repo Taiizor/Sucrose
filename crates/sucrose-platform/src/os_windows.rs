@@ -23,7 +23,10 @@ use windows::{
     core::PWSTR,
 };
 
-use crate::{Capabilities, ForegroundWindow, GpuPreference, GpuPreferenceChange, MonitorInfo, Platform, PlatformError};
+use crate::{
+    Capabilities, ForegroundWindow, GpuAdapter, GpuPreference, GpuPreferenceChange, MonitorInfo, Platform,
+    PlatformError,
+};
 
 pub(crate) use display::init_dpi_awareness;
 pub use event_loop::{EventLoop, LoopProxy, LoopTimers};
@@ -62,6 +65,14 @@ impl Platform for Current {
 
     fn set_gpu_preference(&self, exe: &Path, preference: GpuPreference) -> Result<GpuPreferenceChange, PlatformError> {
         gpu::set_gpu_preference(exe, preference)
+    }
+
+    fn gpu_adapters(&self) -> Vec<GpuAdapter> {
+        gpu::gpu_adapters()
+    }
+
+    fn default_gpu_adapter(&self) -> Option<GpuAdapter> {
+        gpu::default_gpu_adapter()
     }
 }
 
