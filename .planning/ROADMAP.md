@@ -47,20 +47,49 @@ Sucrose is rewritten from scratch in Rust on `develop-rust`, Windows first, then
   5. On a machine with the C# app installed, Sucrose plays the theme selected there (read from the legacy `Library.json` and `General.json`, which stay unchanged), sharp at each monitor's DPI, and the tray icon's Quit stops it.
 **Plans**: 15 plans
 Plans:
+**Wave 1**
 - [ ] 02-01-PLAN.md — libmpv delivered: `cargo xtask fetch-engines` (pinned, SHA256-verified), committed bindgen bindings, D-18 loader; apps/sucrose tracked by git
+
+**Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 02-02-PLAN.md — D-028 recorded across the docs after the maintainer decides the libmpv pin source and signs off the GPL build
+
+**Wave 3** *(blocked on Wave 2 completion)*
 - [ ] 02-03-PLAN.md — tracer: the service names the theme selected in the C# install (`sucrose-config` legacy reader core, read-only)
+
+**Wave 4** *(blocked on Wave 3 completion)*
 - [ ] 02-04-PLAN.md — all D-09 legacy settings with legacy defaults and clamps, fixtures from the real files
+
+**Wave 5** *(blocked on Wave 4 completion)*
 - [ ] 02-05-PLAN.md — `sucrose-ipc`: single instance and the service ↔ renderer channel, per-user pipe ACL
+
+**Wave 6** *(blocked on Wave 5 completion)*
 - [ ] 02-06-PLAN.md — tracer: the renderer surface sits behind the icons on the primary monitor (24H2-aware attach, PMv2, layout classifier)
+
+**Wave 7** *(blocked on Wave 6 completion)*
 - [ ] 02-07-PLAN.md — tracer: the selected video plays on that surface (bundled libmpv via wid, hardening, D-20 exit path)
+
+**Wave 8** *(blocked on Wave 7 completion)*
 - [ ] 02-08-PLAN.md — SucroseInfo.json round-trip, D-13 gate, date-based version scheme (maintainer decision, D-029)
+
+**Wave 9** *(blocked on Wave 8 completion)*
 - [ ] 02-09-PLAN.md — tray icon with Quit, failure reasons in the tooltip, AppVisible honored
+
+**Wave 10** *(blocked on Wave 9 completion)*
 - [ ] 02-10-PLAN.md — renderer supervision: job object, bounded crash restarts (D-22)
+
+**Wave 11** *(blocked on Wave 10 completion)*
 - [ ] 02-11-PLAN.md — Engine.json settings to mpv (volume, loop, stretch, hwdec, screen area), user mpv config, pause/volume controls
+
+**Wave 12** *(blocked on Wave 11 completion)*
 - [ ] 02-12-PLAN.md — one renderer per monitor; hot-plug/DPI diffs; explorer.exe restart recovery via TaskbarCreated
+
+**Wave 13** *(blocked on Wave 12 completion)*
 - [ ] 02-13-PLAN.md — fullscreen rule with the configured action (Pause/Close/Resume), both scopes
+
+**Wave 14** *(blocked on Wave 13 completion)*
 - [ ] 02-14-PLAN.md — cross-monitor sync: master clock, follower drift correction, audio only on the master
+
+**Wave 15** *(blocked on Wave 14 completion)*
 - [ ] 02-15-PLAN.md — `cargo xtask measure`, MEAS-01 rows vs the C# app, M1 docs close-out, verification scope
 **Notes**: Criteria 1–4 are the "Done when" list of M1 from the former `docs/ROADMAP.md`. The desktop surface must handle the Windows 11 24H2 Progman/WorkerW hierarchy. libmpv is user-installed and loaded at runtime (D-005, D-013); detection with install hints for every engine is ENG-06 in Phase 4. `SucroseInfo.json` fixtures come from real themes with personal data removed. Measure in a release build.
 
