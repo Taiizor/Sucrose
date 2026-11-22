@@ -19,11 +19,11 @@ use windows::{
         Graphics::Gdi::{BLACK_BRUSH, ClientToScreen, GetStockObject, HBRUSH},
         System::LibraryLoader::GetModuleHandleW,
         UI::WindowsAndMessaging::{
-            CreateWindowExW, DefWindowProcW, DestroyWindow, EnumWindows, FindWindowExW, FindWindowW, GA_ROOT,
-            GWL_EXSTYLE, GWL_STYLE, GetAncestor, GetClassNameW, GetWindowLongPtrW, GetWindowRect, IsWindowVisible,
-            LWA_ALPHA, MA_NOACTIVATE, RegisterClassExW, SMTO_NORMAL, SWP_NOACTIVATE, SWP_NOMOVE, SWP_NOSIZE,
-            SWP_NOZORDER, SWP_SHOWWINDOW, SendMessageTimeoutW, SetLayeredWindowAttributes, SetParent,
-            SetWindowLongPtrW, SetWindowPos, WINDOW_LONG_PTR_INDEX, WM_MOUSEACTIVATE, WNDCLASSEXW, WS_CHILD,
+            CreateWindowExW, DefWindowProcW, DestroyWindow, EnumWindows, FindWindowExW, FindWindowW, GA_ROOT, GW_CHILD,
+            GW_HWNDNEXT, GWL_EXSTYLE, GWL_STYLE, GetAncestor, GetClassNameW, GetWindow, GetWindowLongPtrW,
+            GetWindowRect, IsWindowVisible, LWA_ALPHA, MA_NOACTIVATE, RegisterClassExW, SMTO_NORMAL, SWP_NOACTIVATE,
+            SWP_NOMOVE, SWP_NOSIZE, SWP_NOZORDER, SWP_SHOWWINDOW, SendMessageTimeoutW, SetLayeredWindowAttributes,
+            SetParent, SetWindowLongPtrW, SetWindowPos, WINDOW_LONG_PTR_INDEX, WM_MOUSEACTIVATE, WNDCLASSEXW, WS_CHILD,
             WS_CLIPCHILDREN, WS_CLIPSIBLINGS, WS_EX_LAYERED, WS_EX_NOACTIVATE, WS_EX_TOOLWINDOW, WS_POPUP, WS_VISIBLE,
         },
     },
@@ -31,7 +31,10 @@ use windows::{
 };
 
 use super::os_error;
-use crate::{PlatformError, RectPx};
+use crate::{
+    PlatformError, RectPx,
+    layout::{self, DesktopLayout, ShellSnapshot, WindowNode},
+};
 
 const CLASS_NAME: PCWSTR = w!("SucroseDesktopSurface");
 /// How long attaching keeps retrying: explorer can create its WorkerW late, or be restarting.
@@ -47,13 +50,6 @@ pub struct DesktopSurface {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum Layout {
-    Raised,
-    Classic,
-    Unsupported,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 enum Strategy {
     /// A layered child of Progman, ordered right under `SHELLDLL_DefView`.
     LayeredChild,
@@ -66,7 +62,6 @@ enum Strategy {
 /// The shell windows one attach attempt works with.
 struct Shell {
     progman: Option<HWND>,
-    progman_ex_style: u32,
     /// `SHELLDLL_DefView` inside Progman.
     defview_in_progman: Option<HWND>,
     /// A `WorkerW` inside Progman.
@@ -78,36 +73,29 @@ struct Shell {
 impl Shell {
     fn capture() -> Self {
         let progman = find_window(w!("Progman"));
-        let (progman_ex_style, defview_in_progman, workerw_in_progman) = match progman {
+        let (defview_in_progman, workerw_in_progman) = match progman {
             Some(progman) => (
-                window_long(progman, GWL_EXSTYLE),
                 find_child(Some(progman), None, w!("SHELLDLL_DefView")),
                 find_child(Some(progman), None, w!("WorkerW")),
             ),
-            None => (0, None, None),
+            None => (None, None),
         };
         let mut holders: Vec<HWND> = Vec::new();
         // SAFETY: the callback only touches the Vec behind the pointer passed here, which outlives the synchronous call.
         let _ = unsafe { EnumWindows(Some(collect_defview_holders), LPARAM(&raw mut holders as isize)) };
         Self {
             progman,
-            progman_ex_style,
             defview_in_progman,
             workerw_in_progman,
             defview_holders: holders,
         }
     }
 
-    fn layout(&self) -> Layout {
-        const WS_EX_NOREDIRECTIONBITMAP: u32 = 0x0020_0000;
-        if self.progman.is_none() {
-            Layout::Unsupported
-        } else if self.progman_ex_style & WS_EX_NOREDIRECTIONBITMAP != 0 || self.defview_in_progman.is_some() {
-            Layout::Raised
-        } else if !self.defview_holders.is_empty() {
-            Layout::Classic
-        } else {
-            Layout::Unsupported
+    /// The window tree as plain data; the layout is decided from it by [`layout::classify`] alone.
+    fn snapshot(&self) -> ShellSnapshot {
+        ShellSnapshot {
+            progman: self.progman.map(|progman| node_of(progman, 1)),
+            top_level_with_defview: self.defview_holders.iter().map(|h| node_of(*h, 1)).collect(),
         }
     }
 
@@ -139,6 +127,30 @@ unsafe extern "system" fn surface_proc(hwnd: HWND, message: u32, wparam: WPARAM,
     }
     // SAFETY: forwards the arguments the OS gave this window procedure, unchanged.
     unsafe { DefWindowProcW(hwnd, message, wparam, lparam) }
+}
+
+/// Describes `hwnd` and, `depth` levels down, its children (topmost first).
+fn node_of(hwnd: HWND, depth: u32) -> WindowNode {
+    let mut children = Vec::new();
+    if depth > 0 {
+        // SAFETY: read-only walk over the child list of a window handle; an invalid handle ends the walk at once.
+        let mut next = unsafe { GetWindow(hwnd, GW_CHILD) }.ok();
+        while let Some(child) = next {
+            children.push(node_of(child, depth - 1));
+            // SAFETY: as above.
+            next = unsafe { GetWindow(child, GW_HWNDNEXT) }.ok();
+        }
+    }
+    let rect = window_rect(hwnd).unwrap_or_default();
+    WindowNode {
+        class: class_name(hwnd),
+        ex_style: window_long(hwnd, GWL_EXSTYLE),
+        style: window_long(hwnd, GWL_STYLE),
+        // SAFETY: read-only query.
+        visible: unsafe { IsWindowVisible(hwnd) }.as_bool(),
+        rect: [rect.left, rect.top, rect.right, rect.bottom],
+        children,
+    }
 }
 
 fn find_window(class: PCWSTR) -> Option<HWND> {
@@ -258,15 +270,16 @@ fn place(surface: HWND, parent: HWND, target: RectPx) -> Result<(), String> {
     if !unsafe { ClientToScreen(parent, &mut origin) }.as_bool() {
         return Err("ClientToScreen failed".to_owned());
     }
+    let local = target.to_parent((origin.x, origin.y));
     // SAFETY: plain window handle and integers; a null insert-after is ignored because of SWP_NOZORDER.
     unsafe {
         SetWindowPos(
             surface,
             None,
-            target.left - origin.x,
-            target.top - origin.y,
-            target.width(),
-            target.height(),
+            local.left,
+            local.top,
+            local.width(),
+            local.height(),
             SWP_NOZORDER | SWP_NOACTIVATE | SWP_SHOWWINDOW,
         )
     }
@@ -328,11 +341,13 @@ impl DesktopSurface {
             send_spawn_message(progman);
             shell = Shell::capture();
         }
-        let layout = shell.layout();
+        let snapshot = shell.snapshot();
+        tracing::debug!(snapshot = %serde_json::to_string(&snapshot).unwrap_or_default(), "shell window tree");
+        let layout = layout::classify(&snapshot);
         let strategies: &[Strategy] = match layout {
-            Layout::Raised => &[Strategy::LayeredChild, Strategy::WorkerWChild],
-            Layout::Classic => &[Strategy::ClassicWorkerW],
-            Layout::Unsupported => return Err("the desktop window tree matches no known layout".to_owned()),
+            DesktopLayout::Raised => &[Strategy::LayeredChild, Strategy::WorkerWChild],
+            DesktopLayout::Classic => &[Strategy::ClassicWorkerW],
+            DesktopLayout::Unsupported => return Err("the desktop window tree matches no known layout".to_owned()),
         };
         let mut failures = Vec::new();
         for &strategy in strategies {

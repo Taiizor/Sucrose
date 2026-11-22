@@ -43,8 +43,22 @@ pub enum DesktopLayout {
     Unsupported,
 }
 
-/// Classifies a snapshot of the shell's window tree.
+/// `WS_EX_NOREDIRECTIONBITMAP`: Progman carries it once the shell composes the desktop itself.
+const WS_EX_NOREDIRECTIONBITMAP: u32 = 0x0020_0000;
+/// The window class that holds the desktop icons.
+pub const DEFVIEW_CLASS: &str = "SHELLDLL_DefView";
+
+/// Classifies a snapshot of the shell's window tree. The raised layout is recognized by Progman's own style or by
+/// the icons living inside it; the classic one by a top-level window other than Progman holding the icons.
 pub fn classify(snapshot: &ShellSnapshot) -> DesktopLayout {
-    let _ = snapshot;
-    DesktopLayout::Unsupported
+    let Some(progman) = &snapshot.progman else {
+        return DesktopLayout::Unsupported;
+    };
+    if progman.ex_style & WS_EX_NOREDIRECTIONBITMAP != 0 || progman.children.iter().any(|c| c.class == DEFVIEW_CLASS) {
+        DesktopLayout::Raised
+    } else if !snapshot.top_level_with_defview.is_empty() {
+        DesktopLayout::Classic
+    } else {
+        DesktopLayout::Unsupported
+    }
 }

@@ -28,14 +28,18 @@ impl RectPx {
     /// This screen rectangle expressed in the client space of a parent window whose client origin sits at
     /// `parent_screen_origin` on the screen. A parent is not guaranteed to start at the virtual-desktop origin.
     pub fn to_parent(&self, parent_screen_origin: (i32, i32)) -> Self {
-        let _ = parent_screen_origin;
-        *self
+        let (origin_x, origin_y) = parent_screen_origin;
+        Self {
+            left: self.left - origin_x,
+            top: self.top - origin_y,
+            right: self.right - origin_x,
+            bottom: self.bottom - origin_y,
+        }
     }
 
     /// Whether `other` lies completely inside this rectangle.
     pub fn covers(&self, other: &Self) -> bool {
-        let _ = other;
-        false
+        self.left <= other.left && self.top <= other.top && self.right >= other.right && self.bottom >= other.bottom
     }
 }
 
