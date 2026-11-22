@@ -2,17 +2,17 @@
 gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
-status: executing
-stopped_at: Completed 02-14-PLAN.md
-last_updated: "2026-11-22T16:22:32.497Z"
+status: verifying
+stopped_at: Completed 02-15-PLAN.md
+last_updated: "2026-11-22T17:03:27.079Z"
 last_activity: 2026-11-22
 last_activity_desc: Phase 02 execution started
-state_head: ba08582da22422df672ef8c39a21e4b2afbeef5e
+state_head: cd4bf222b69ede172763f6fb66d71285a79a8896
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 15
-  completed_plans: 14
+  completed_plans: 15
   percent: 13
 ---
 
@@ -29,7 +29,7 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 
 Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
 Plan: 15 of 15
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-11-22 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
 
@@ -67,6 +67,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 02 P12 | 14 min | 3 tasks | 14 files |
 | Phase 02 P13 | 5 min | 2 tasks | 8 files |
 | Phase 02 P14 | 9 min | 2 tasks | 13 files |
+| Phase 02 P15 | 40 min | 3 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -99,6 +100,7 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-13: the fullscreen predicate compares against full monitor rectangles (not surface areas), recovery undoes the action on the monitors it was done to, and a closed slot is respawned only after its old renderer's exit event
 - [Phase 02]: 02-14: ToService::Clock appended after Playing (wire index 3); position jumps come from playback-restart events, not an observed time-pos, to keep the event thread idle
 - [Phase 02]: 02-14: followers correct through Follower (nudge once, return to master speed inside a frame, seeks 2 s apart); the master restores speed 1.0 when promoted
+- [Phase 02]: 02-15: GPU memory also reads GPU Process Memory Shared Usage because Dedicated Usage is 0 on the integrated GPU; Rust renderer GPU 3D engine 93.7% vs C# MpvPlayer 16.5% flagged for Phase 2 verification
 
 ### Pending Todos
 
@@ -129,6 +131,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-22T16:22:32.303Z
-Stopped at: Completed 02-14-PLAN.md
+Last session: 2026-11-22T17:03:26.909Z
+Stopped at: Completed 02-15-PLAN.md
 Resume file: None

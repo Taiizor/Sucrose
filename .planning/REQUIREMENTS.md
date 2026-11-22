@@ -173,7 +173,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Measurements
 
-- [ ] **MEAS-01**: RAM and CPU of the Windows video wallpaper (release build) are measured against the C# MpvPlayer engine + Backgroundog and recorded
+- [x] **MEAS-01**: RAM and CPU of the Windows video wallpaper (release build) are measured against the C# MpvPlayer engine + Backgroundog and recorded
 - [ ] **MEAS-02**: At sign-off the release build uses less RAM and CPU than the C# app in every recorded scenario, and the always-on service is close to idle cost
 
 ### macOS (M5)
@@ -337,7 +337,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | FMT-08 | Phase 2 | Complete |
 | SEC-01 | Phase 5 | Pending |
 | SEC-02 | Phase 4 | Pending |
-| MEAS-01 | Phase 2 | Pending |
+| MEAS-01 | Phase 2 | Complete |
 | MEAS-02 | Phase 8 | Pending |
 | MAC-01 | Phase 6 | Pending |
 | MAC-02 | Phase 6 | Pending |
