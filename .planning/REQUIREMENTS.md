@@ -55,7 +55,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **DESK-09**: User can set the OS wallpaper from a theme thumbnail and disable the OS slideshow (Win ✅ · mac ⚠️ · Linux ⚠️)
 - [ ] **DESK-10**: User can set a Video or GIF theme as the live lock and sign-in screen wallpaper with fit mode, mute and sync with the desktop (`lock-screen.md`; mechanism decided first, D-026) (Win ✅ · mac ? · Linux ?)
 - [ ] **DESK-11**: User can keep the computer awake while a wallpaper runs, avoiding UAC where possible (Win ✅ · mac ✅ · Linux ✅)
-- [ ] **DESK-12**: Sucrose can request the high-performance GPU (registry `UserGpuPreferences`) (Win ✅ · mac ❌ · Linux ❌)
+- [x] **DESK-12**: Sucrose can request the high-performance GPU (registry `UserGpuPreferences`) (Win ✅ · mac ❌ · Linux ❌)
 
 ### Playback and sound
 
@@ -149,7 +149,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **SVC-01**: Wallpaper cycling with interval, random or sequential order and exclusions
 - [ ] **SVC-02**: Discord Rich Presence, also detecting Discord Canary
 - [ ] **SVC-03**: Updates with Release/PreRelease channels, auto modes and the bandwidth limit; packages are signed and verified before install; Soferity only; the legacy limit-type bug is fixed (D-019, D-020)
-- [ ] **SVC-04**: Own installer and uninstaller signed with signtool; quiet uninstall works and removes startup entries and GPU-preference registry values; an existing C# install is migrated (D-019, D-025); packages for Windows x86, x64 and ARM64 (D-027)
+- [ ] **SVC-04**: Own installer and uninstaller signed with signtool; quiet uninstall works and removes startup entries and GPU-preference registry values (including the value the Rust service writes for sucrose.exe, DESK-12); an existing C# install is migrated (D-019, D-025); packages for Windows x86, x64 and ARM64 (D-027)
 - [ ] **SVC-05**: The crash dialog and crash reports respect the opt-out before anything is written (D-017)
 - [ ] **SVC-06**: Telemetry (online, analytic, search, download, update) keeps the legacy payload structure with per-OS identity inputs and the existing opt-outs (D-018, D-024)
 - [ ] **SVC-07**: Logs and a log bundle that excludes `Objectionable.json`
@@ -258,7 +258,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | DESK-09 | Phase 5 | Pending |
 | DESK-10 | Phase 5 | Pending |
 | DESK-11 | Phase 5 | Pending |
-| DESK-12 | Phase 2 | Pending |
+| DESK-12 | Phase 2 | Complete |
 | PLAY-01 | Phase 4 | Pending |
 | PLAY-02 | Phase 4 | Pending |
 | PLAY-03 | Phase 4 | Pending |

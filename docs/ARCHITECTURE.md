@@ -1,6 +1,6 @@
 # Architecture (target)
 
-> Status: **planned**, except what M1 ships (Windows video wallpaper): `sucrose-core` (paths, legacy paths, theme, version, setting enums), `sucrose-log`, `sucrose-config` (legacy settings reader), `sucrose-ipc` (service and renderer messages, single instance), `sucrose-platform` (Windows desktop surface, monitors, event loop, tray, job object, foreground window; macOS and Linux stubs), `sucrose-engine-mpv` (bundled libmpv bindings, loader, player), `apps/sucrose` (service and renderer), `apps/sucrose-portal` (empty window) and `xtask` (ci, fetch-engines, bindgen-mpv, measure). Planned: `sucrose-engine` (Engine trait, with the second engine in Phase 4) and the rest. Update this file as code lands; when code and this file disagree, fix one of them in the same change.
+> Status: **planned**, except what M1 ships (Windows video wallpaper): `sucrose-core` (paths, legacy paths, theme, version, setting enums), `sucrose-log`, `sucrose-config` (legacy settings reader), `sucrose-ipc` (service and renderer messages, single instance), `sucrose-platform` (Windows desktop surface, monitors, event loop, tray, job object, foreground window, GPU preference and adapters; macOS and Linux stubs), `sucrose-engine-mpv` (bundled libmpv bindings, loader, player), `apps/sucrose` (service and renderer), `apps/sucrose-portal` (empty window) and `xtask` (ci, fetch-engines, bindgen-mpv, measure). Planned: `sucrose-engine` (Engine trait, with the second engine in Phase 4) and the rest. Update this file as code lands; when code and this file disagree, fix one of them in the same change.
 
 ## Goals
 
@@ -88,6 +88,7 @@ Known per-OS mechanisms:
 | Audio loopback | WASAPI loopback | ScreenCaptureKit / Core Audio taps (permission) | PipeWire/PulseAudio monitor | same |
 | Media session | WinRT GlobalSystemMediaTransportControls | no public API (limited) | MPRIS (D-Bus) | MPRIS |
 | Autostart | registry Run / Task Scheduler | LaunchAgent | XDG autostart | XDG autostart |
+| GPU preference | registry UserGpuPreferences per exe | not available (capability false) | not available | not available |
 
 ## Engines
 

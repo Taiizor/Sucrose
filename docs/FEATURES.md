@@ -32,7 +32,7 @@ Every feature of the C# app, where it goes in the rewrite, and what each OS allo
 | Set OS wallpaper from thumbnail, disable slideshow | ✅ | ⚠️ | ⚠️ | | ⬜ |
 | Lock screen wallpaper (Video and GIF themes, live on the lock and sign-in screen) | ✅ | ? | ? | Only on branch `lock-screen-native` (112de37f), not in `develop` (D-026). Legacy runs a credential-provider DLL inside LogonUI; behavior and its security problems in `lock-screen.md`. | ⬜ |
 | Stay awake | ✅ | ✅ | ✅ | Legacy also runs elevated `powercfg`; avoid UAC if possible. M1 does not read StayAwake (not in the D-09 key list); mpv runs with stop-screensaver=no; the legacy mapping to stop-screensaver=always returns with the setting in Phase 3/4. | ⬜ |
-| GPU preference (high performance) | ✅ | ❌ | ❌ | Registry `UserGpuPreferences`. | ⬜ |
+| GPU preference (high performance) | ✅ | ❌ | ❌ | Registry `UserGpuPreferences`. Rust (Windows, pulled into Phase 2 by the UAT): before the first renderer starts, the service writes `GpuPreference=<n>;` for its own `sucrose.exe` (the renderers run the same exe) from legacy Engine.json `GraphicPreference` (Default 0, PowerSaving 1, HighPerformance 2; default HighPerformance), keeping the value's other pairs and skipping an unchanged value like the C# app; each renderer logs the adapter libmpv's Direct3D 11 device gets (read back from a device created the same way, with no adapter named). Capability `gpu_preference` (false on macOS and Linux). The value stays after the app ends; the uninstaller removes it (SVC-04). | ✅ |
 
 ## Playback and sound
 
