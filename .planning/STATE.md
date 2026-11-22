@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
 status: executing
-stopped_at: Completed 02-08-PLAN.md
-last_updated: "2026-11-22T14:57:13.009Z"
+stopped_at: Completed 02-09-PLAN.md
+last_updated: "2026-11-22T15:20:24.784Z"
 last_activity: 2026-11-22
 last_activity_desc: Phase 02 execution started
-state_head: 15b8430e8b7104181d4fe46a7f0dbe658885a84b
+state_head: 6cf3f705f2b605263d673a70d83c5da089ff5f9a
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 15
-  completed_plans: 8
+  completed_plans: 9
   percent: 13
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 ## Current Position
 
 Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
-Plan: 9 of 15
+Plan: 10 of 15
 Status: Ready to execute
 Last activity: 2026-11-22 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
@@ -61,6 +61,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 02 P06 | 5 min | 2 tasks | 20 files |
 | Phase 02 P07 | 13 min | 2 tasks | 6 files |
 | Phase 02 P08 | 25 min | 3 tasks | 12 files |
+| Phase 02 P09 | 21 min | 2 tasks | 18 files |
 
 ## Accumulated Context
 
@@ -84,6 +85,8 @@ Recent decisions affecting current work:
 - [Phase 02]: Plan 07: Raised/LayeredChild surface composites a libmpv d3d11 video child as-is on Windows 10.0.26300; renderer exit code 2 = libmpv missing, 4 = other engine start failure
 - [Phase 02]: 02-08: D-029 version scheme YY.M.D+R, first value 26.11.22+1 (maintainer choice); CARGO_PKG_VERSION keeps the +R suffix (A16 tested)
 - [Phase 02]: 02-08: an unmappable Cargo version makes app_version() the lowest version so themes are refused loudly
+- [Phase 02]: 02-09: ToService::Playing appended next to Failed so the tooltip says playing only once the renderer plays
+- [Phase 02]: 02-09: Quit waits 2 s in total on a worker thread, then kills survivors; refresh_desktop re-applies the wallpaper after the renderers exit
 
 ### Pending Todos
 
@@ -114,6 +117,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-22T14:57:12.830Z
-Stopped at: Completed 02-08-PLAN.md
+Last session: 2026-11-22T15:20:24.615Z
+Stopped at: Completed 02-09-PLAN.md
 Resume file: None
