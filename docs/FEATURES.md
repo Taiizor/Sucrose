@@ -21,12 +21,12 @@ Every feature of the C# app, where it goes in the rewrite, and what each OS allo
 
 | Feature | Win | mac | Linux | Notes / improvements | Status |
 |---|---|---|---|---|---|
-| Surface behind the desktop icons | ✅ | ✅ | ⚠️ | Win: Progman/WorkerW incl. 24H2. Linux: X11 desktop window; Wayland layer-shell (wlroots), KDE/GNOME may need a plugin/extension. Rust (M1, Windows 10.0.26300): the Raised/LayeredChild strategy works with a libmpv video child (icons stay visible and clickable above it, no taskbar or Alt-Tab entry); after stopping the renderer the normal wallpaper came back with no leftover frame in the run with video (a black surface lingered once after a force-kill in plan 06, see the SUMMARY). Primary monitor only so far. | 🟨 |
-| Per display / span across / duplicate | ✅ | ✅ | ⚠️ | Legacy "duplicate" mirrors with a VisualBrush and is probably blank for HWND engines; implement it properly. | ⬜ |
+| Surface behind the desktop icons | ✅ | ✅ | ⚠️ | Win: window-tree classification; raised desktop (24H2+) via a layered child of Progman ordered under SHELLDLL_DefView (strategy B, 02-07), classic Progman/WorkerW sequence otherwise. Linux: X11 desktop window; Wayland layer-shell (wlroots), KDE/GNOME may need a plugin/extension. Rust (M1, Windows 10.0.26300): the Raised/LayeredChild strategy works with a libmpv video child (icons stay visible and clickable above it, no taskbar or Alt-Tab entry); after stopping the renderer the normal wallpaper came back with no leftover frame in the run with video (a black surface lingered once after a force-kill in plan 06, see the SUMMARY). One surface per monitor (D-01). | 🟨 |
+| Per display / span across / duplicate | ✅ | ✅ | ⚠️ | Legacy "duplicate" mirrors with a VisualBrush and is probably blank for HWND engines; implement it properly. M1 (D-01): the same video on every monitor, one renderer each; legacy DisplayScreenType and ScreenDevice are not read until DESK-02 (Phase 4). | 🟨 |
 | **New:** a different wallpaper on each monitor | ✅ | ✅ | ⚠️ | Not in the C# app; requested by the maintainer. One renderer per monitor. | ⬜ |
 | Working area vs. display bounds | ✅ | ✅ | ⚠️ | | ⬜ |
 | Stretch modes (None, Fill, Uniform, UniformToFill) | ✅ | ✅ | ✅ | Per-engine mapping in `engines.md` §3. | ⬜ |
-| Per-monitor DPI | ✅ | ✅ | ✅ | | ⬜ |
+| Per-monitor DPI | ✅ | ✅ | ✅ | Rust (M1): renderers and service are PerMonitorV2 aware; rects in physical pixels. | 🟨 |
 | Monitor changes, shell restart recovery (CrashExplorer) | ✅ | ? | ? | | ⬜ |
 | Hide desktop icons toggle | ✅ | ? | ? | Not stored as a setting in legacy. | ⬜ |
 | Set OS wallpaper from thumbnail, disable slideshow | ✅ | ⚠️ | ⚠️ | | ⬜ |

@@ -20,11 +20,14 @@ use sucrose_ipc::{
     Connection, IpcError, Listener, endpoint_name,
     protocol::{Assignment, PROTOCOL_VERSION, PlaybackSettings, ToRenderer, ToService},
 };
-use sucrose_platform::{EventLoop, Flow, LoopEvent, LoopProxy, Platform, PlatformError, Tray};
+use sucrose_platform::{EventLoop, Flow, LoopEvent, LoopProxy, MonitorInfo, PlatformError, Tray};
 // ScreenArea is read below to choose the surface rectangle.
 use sucrose_core::settings::ScreenArea;
 
-use crate::supervisor::{Decision, Exited, RestartBudget, START_FAILED, Supervisor, classify_exit, decide};
+use crate::{
+    supervisor::{Decision, Exited, RestartBudget, START_FAILED, Supervisor, classify_exit, decide},
+    topology::{SlotMap, TopologyAction, diff, primary, with_area},
+};
 
 /// Where this user's service listens.
 pub struct Endpoint {
@@ -94,6 +97,13 @@ struct Renderers {
 }
 
 type SharedRenderers = Arc<Mutex<Renderers>>;
+
+/// The job of every renderer slot that has a monitor, shared with the threads that answer a renderer's Hello.
+type SharedAssignments = Arc<Mutex<HashMap<u8, Assignment>>>;
+
+fn lock_assignments(assignments: &Mutex<HashMap<u8, Assignment>>) -> MutexGuard<'_, HashMap<u8, Assignment>> {
+    assignments.lock().unwrap_or_else(PoisonError::into_inner)
+}
 
 fn lock(renderers: &Mutex<Renderers>) -> MutexGuard<'_, Renderers> {
     renderers.lock().unwrap_or_else(PoisonError::into_inner)
@@ -221,8 +231,9 @@ pub fn run() -> anyhow::Result<()> {
         dpi = ?awareness,
         "service started"
     );
-    let plan = plan_wallpapers(platform.as_ref());
-    let assignments: Arc<Vec<Assignment>> = Arc::new(plan.assignments);
+    let plan = plan_wallpapers();
+    let assignments = SharedAssignments::default();
+    let mut fleet = Fleet::new(plan.job, Arc::clone(&assignments));
     let mut status = plan.status;
 
     // The main thread only pumps messages and drains the channel (D-012): IPC reads and child waits run on threads
@@ -240,8 +251,27 @@ pub fn run() -> anyhow::Result<()> {
             notifier.send(Event::Exited(exited));
         }
     })?;
-    for assignment in assignments.iter() {
-        supervisor.spawn(assignment.slot)?;
+    // One renderer per connected monitor (D-01), each playing the same video on its own monitor's surface.
+    if let Some(screen) = fleet.job.as_ref().map(|job| job.screen) {
+        let monitors = with_area(platform.monitors(), screen);
+        let ids: Vec<&str> = monitors.iter().map(|monitor| monitor.id.as_str()).collect();
+        if monitors.is_empty() {
+            status = Status::NoWallpaper {
+                reason: "the OS reports no monitor".to_owned(),
+            };
+        }
+        let primary_id = primary(&monitors).map(|monitor| monitor.id.clone());
+        let applied = fleet.apply(
+            diff(&[], &monitors),
+            &Ctx {
+                supervisor: &supervisor,
+            },
+        );
+        if applied.started == 0 && applied.failed > 0 {
+            anyhow::bail!("cannot start a renderer for any monitor");
+        }
+        tracing::info!(count = applied.started, monitors = ?ids, primary = ?primary_id, "renderers started");
+        fleet.monitors = monitors;
     }
     let accept = Accept {
         renderers: Arc::clone(&renderers),
@@ -298,10 +328,10 @@ pub fn run() -> anyhow::Result<()> {
                                     status.restarting()
                                 }
                                 Decision::GiveUp(exhausted) => {
-                                    let monitor = assignments
-                                        .iter()
-                                        .find(|assignment| assignment.slot == exited.slot)
-                                        .map_or_else(|| format!("slot {}", exited.slot), |assignment| assignment.monitor.clone());
+                                    let monitor = fleet
+                                        .slots
+                                        .monitor_of(exited.slot)
+                                        .map_or_else(|| format!("slot {}", exited.slot), str::to_owned);
                                     let stopped = Status::RendererStopped {
                                         monitor,
                                         reason: exhausted.reason(),
@@ -331,6 +361,8 @@ pub fn run() -> anyhow::Result<()> {
             }
             Flow::Continue
         }
+        // Monitor and shell events are handled by later steps of this plan.
+        _ => Flow::Continue,
     });
     drop(tray);
     tracing::info!("the service stopped");
@@ -440,7 +472,7 @@ impl RendererControl for ProcessRenderers {
 struct Accept {
     renderers: SharedRenderers,
     supervisor: Arc<Supervisor>,
-    assignments: Arc<Vec<Assignment>>,
+    assignments: SharedAssignments,
     notifier: Notifier,
 }
 
@@ -478,7 +510,7 @@ fn read_connection(
     mut connection: Connection,
     renderers: &Mutex<Renderers>,
     supervisor: &Supervisor,
-    assignments: &[Assignment],
+    assignments: &Mutex<HashMap<u8, Assignment>>,
     notifier: &Notifier,
 ) {
     let first: ToService = match connection.recv() {
@@ -498,8 +530,9 @@ fn read_connection(
     };
     // The renderer waits for this message; without a job for its slot, or once shutdown has begun, it has nothing
     // to do, so it is told to stop.
-    let reply = match assignments.iter().find(|assignment| assignment.slot == slot) {
-        Some(assignment) if !closing => ToRenderer::Assign(assignment.clone()),
+    let assignment = lock_assignments(assignments).get(&slot).cloned();
+    let reply = match assignment {
+        Some(assignment) if !closing => ToRenderer::Assign(assignment),
         _ => ToRenderer::Close,
     };
     if let Err(error) = connection.send(&reply) {
@@ -515,7 +548,7 @@ fn read_connection(
         ),
         ToRenderer::Close => tracing::warn!(slot, "no assignment for this slot, the renderer was told to close"),
         // The reply to a Hello is only ever an Assign or a Close.
-        ToRenderer::Pause(_) | ToRenderer::SetVolume(_) => {}
+        _ => {}
     }
     register_writer(renderers, slot, &mut connection);
     if !notifier.send(Event::Renderer(first)) {
@@ -608,22 +641,119 @@ fn accept_hello(spawned: &HashSet<u32>, message: &ToService) -> Result<u8, Refus
 
 /// What the settings and the selected theme lead to.
 struct Plan {
-    /// The renderers to start: one for the primary monitor when the selected theme is a video this build can play,
-    /// none otherwise.
-    assignments: Vec<Assignment>,
+    /// What every renderer plays and how, when the selected theme is a video this build can play.
+    job: Option<Job>,
     /// What the tray says before any renderer has reported.
     status: Status,
     /// General.json AppVisible: whether the tray exists at all (D-15).
     app_visible: bool,
 }
 
+/// What every renderer plays: the same video with the same settings on each monitor (D-01).
+struct Job {
+    /// The theme's title, for the tooltip.
+    title: String,
+    /// The absolute path of the video.
+    source: String,
+    /// How it is played.
+    settings: PlaybackSettings,
+    /// Whether a surface covers its whole monitor or only the work area (Engine.json ScreenType).
+    screen: ScreenArea,
+}
+
+impl Job {
+    /// The assignment of the renderer `slot` for `monitor`, whose rectangle is already the area to cover.
+    fn assignment(&self, slot: u8, monitor: &MonitorInfo) -> Assignment {
+        let area = monitor.rect;
+        Assignment {
+            slot,
+            monitor: monitor.id.clone(),
+            rect: [area.left, area.top, area.right, area.bottom],
+            source: self.source.clone(),
+            settings: self.settings,
+        }
+    }
+}
+
+/// What the fleet needs from the rest of the service to act on a change.
+struct Ctx<'a> {
+    supervisor: &'a Arc<Supervisor>,
+}
+
+/// How many renderers an application of monitor changes started and could not start.
+#[derive(Debug, Default, PartialEq, Eq)]
+struct Applied {
+    started: usize,
+    failed: usize,
+}
+
+/// The renderers of the monitors: one slot per monitor, keyed by the monitor's device name so that the same monitors
+/// in another enumeration order change nothing, and nothing can start twice for one monitor.
+struct Fleet {
+    /// `None` when no renderer is wanted (the theme is rejected).
+    job: Option<Job>,
+    slots: SlotMap,
+    /// The monitors the renderers follow, as last applied, with the rectangle of the area they cover.
+    monitors: Vec<MonitorInfo>,
+    assignments: SharedAssignments,
+}
+
+impl Fleet {
+    fn new(job: Option<Job>, assignments: SharedAssignments) -> Self {
+        Self {
+            job,
+            slots: SlotMap::default(),
+            monitors: Vec::new(),
+            assignments,
+        }
+    }
+
+    /// Carries out `actions` (see [`diff`]).
+    fn apply(&mut self, actions: Vec<TopologyAction>, ctx: &Ctx<'_>) -> Applied {
+        let mut applied = Applied::default();
+        for action in actions {
+            match action {
+                TopologyAction::Spawn(monitor) => {
+                    if self.spawn(&monitor, ctx) {
+                        applied.started += 1;
+                    } else {
+                        applied.failed += 1;
+                    }
+                }
+                // Applied when the monitors change while the service runs.
+                TopologyAction::Close(_) | TopologyAction::SetRect(..) => {}
+            }
+        }
+        applied
+    }
+
+    /// Starts the renderer for `monitor`; `false` when it could not be started.
+    fn spawn(&mut self, monitor: &MonitorInfo, ctx: &Ctx<'_>) -> bool {
+        let Some(job) = &self.job else {
+            return false;
+        };
+        let Some(slot) = self.slots.assign(&monitor.id) else {
+            tracing::error!(monitor = %monitor.id, "no free renderer slot");
+            return false;
+        };
+        lock_assignments(&self.assignments).insert(slot, job.assignment(slot, monitor));
+        match ctx.supervisor.spawn(slot) {
+            Ok(()) => true,
+            Err(error) => {
+                tracing::error!(%error, slot, monitor = %monitor.id, "cannot start the renderer");
+                false
+            }
+        }
+    }
+}
+
 /// Reads the settings of the C# install, read-only from its real folder (D-008), logs what the service will use and
 /// returns what they lead to.
-fn plan_wallpapers(platform: &dyn Platform) -> Plan {
+fn plan_wallpapers() -> Plan {
     let (Some(root), Some(setting_dir)) = (legacy_data_dir(), legacy_setting_dir()) else {
         tracing::warn!("the OS reports no config folder, so the C# install cannot be read");
         return Plan {
-            assignments: Vec::new(),
+            job: None,
             status: Status::NoWallpaper {
                 reason: "the OS reports no config folder, so the settings cannot be read".to_owned(),
             },
@@ -631,7 +761,8 @@ fn plan_wallpapers(platform: &dyn Platform) -> Plan {
         };
     };
     let settings = LegacySettings::load(&setting_dir, &root);
-    // Values only: no paths and no theme names (D-08, D-09).
+    // Values only: no paths and no theme names (D-08, D-09). The legacy DisplayScreenType and ScreenDevice are not
+    // read: every monitor plays the same video (D-01).
     tracing::info!(
         volume = settings.engine.volume,
         looping = settings.engine.looping,
@@ -643,73 +774,42 @@ fn plan_wallpapers(platform: &dyn Platform) -> Plan {
         app_visible = settings.general.app_visible,
         "legacy settings"
     );
-    let (assignments, status) = match plan_for(
-        &settings.library.location,
-        &settings.library.selected,
-        &settings.engine,
-        platform,
-    ) {
-        Ok(planned) => (vec![planned.assignment], Status::Starting { title: planned.title }),
-        Err(reason) => (Vec::new(), Status::NoWallpaper { reason }),
+    let (job, status) = match plan_for(&settings.library.location, &settings.library.selected, &settings.engine) {
+        Ok(job) => {
+            let status = Status::Starting {
+                title: job.title.clone(),
+            };
+            (Some(job), status)
+        }
+        Err(reason) => (None, Status::NoWallpaper { reason }),
     };
     Plan {
-        assignments,
+        job,
         status,
         app_visible: settings.general.app_visible,
     }
 }
 
-/// A theme that passed the gate and the job for it.
-struct Planned {
-    assignment: Assignment,
-    /// The theme's title, for the tooltip.
-    title: String,
-}
-
-/// Runs the gate (D-13) on the selected theme and, when it passes, builds the job for the primary monitor. The error
-/// is one English sentence for the log and the tooltip: the gate's own reason, or why no monitor could be used.
-fn plan_for(
-    location: &std::path::Path,
-    selected: &str,
-    engine: &EngineSettings,
-    platform: &dyn Platform,
-) -> Result<Planned, String> {
+/// Runs the gate (D-13) on the selected theme and, when it passes, builds what every renderer plays. The error is
+/// one English sentence for the log and the tooltip: the gate's own reason.
+fn plan_for(location: &std::path::Path, selected: &str, engine: &EngineSettings) -> Result<Job, String> {
     let theme = check_selected(location, selected, &app_version()).map_err(|rejection| rejection.to_string())?;
     tracing::info!(theme = %selected, kind = ?theme.info.kind, source = %theme.info.source, "selected theme");
-    Ok(Planned {
-        assignment: assignment_for(&theme, engine, platform)?,
-        title: theme.info.title.clone(),
-    })
+    job_for(&theme, engine)
 }
 
-/// The job for the primary monitor playing a theme that passed the gate: the monitor's bounds or its work area
-/// (Engine.json ScreenType) and the playback settings of Engine.json.
-fn assignment_for(
-    theme: &SelectedTheme,
-    engine: &EngineSettings,
-    platform: &dyn Platform,
-) -> Result<Assignment, String> {
-    let monitors = platform.monitors();
-    let monitor = monitors
-        .iter()
-        .find(|monitor| monitor.primary)
-        .or_else(|| monitors.first())
-        .ok_or_else(|| "the OS reports no monitor".to_owned())?;
+/// What every renderer plays for a theme that passed the gate, with the playback settings of Engine.json.
+fn job_for(theme: &SelectedTheme, engine: &EngineSettings) -> Result<Job, String> {
     let source = theme
         .source_path
         .to_str()
         .ok_or_else(|| "the video path is not valid UTF-8".to_owned())?
         .to_owned();
-    let area = match engine.screen {
-        ScreenArea::DisplayBound => monitor.rect,
-        ScreenArea::WorkingArea => monitor.work,
-    };
-    Ok(Assignment {
-        slot: 0,
-        monitor: monitor.id.clone(),
-        rect: [area.left, area.top, area.right, area.bottom],
+    Ok(Job {
+        title: theme.info.title.clone(),
         source,
         settings: playback_settings(engine),
+        screen: engine.screen,
     })
 }
 

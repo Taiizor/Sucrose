@@ -8,6 +8,7 @@
 mod render;
 mod service;
 mod supervisor;
+mod topology;
 
 use std::process::ExitCode;
 
