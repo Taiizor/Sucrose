@@ -1,12 +1,12 @@
 # Architecture (target)
 
-> Status: **planned**, except the M0 skeleton: `sucrose-core` (paths), `sucrose-log`, `sucrose-platform` (trait and stubs), `apps/sucrose`, `apps/sucrose-portal` (empty window) and `xtask`. Update this file as code lands; when code and this file disagree, fix one of them in the same change.
+> Status: **planned**, except the M0 skeleton: `sucrose-core` (paths), `sucrose-log`, `sucrose-platform` (trait and stubs), `sucrose-engine-mpv` (libmpv bindings and loader), `apps/sucrose`, `apps/sucrose-portal` (empty window) and `xtask`. Update this file as code lands; when code and this file disagree, fix one of them in the same change.
 
 ## Goals
 
 - Every feature of the C# app, on Windows, macOS and Linux (see `FEATURES.md` for what each OS allows).
 - Lower memory and CPU than the C# app. The always-on part must be close to idle cost.
-- No web runtime in the core. Engines are optional and user-installed.
+- No web runtime in the core. Engine binaries ship inside the package (D-028).
 - Existing themes, the store and web wallpapers keep working; settings are migrated automatically (D-007).
 
 ## Targets
@@ -103,7 +103,7 @@ pub trait Engine {
 }
 ```
 
-- Engines are discovered at runtime: installed libraries are detected and loaded with `libloading`; missing engines are reported to the UI with an install hint (D-005).
+- Engine binaries (libmpv now; libVLC and CEF later) ship inside the package and are loaded at runtime with `libloading` from next to the executable (D-028, D-013); a missing or unloadable engine is reported to the UI with a repair hint. The WebView2 Runtime and VC++ Redist are user-side prerequisites detected with download hints (ENG-06).
 - All web engines expose the same JavaScript API (compatible with the C# one, see `FEATURES.md`).
 
 ## Data and paths

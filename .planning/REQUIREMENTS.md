@@ -34,13 +34,13 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Engines
 
-- [ ] **ENG-01**: The libmpv engine is loaded at runtime when installed, embeds into the desktop surface, and supports hardware decoding, loop, pause and volume (D-005, D-013)
+- [ ] **ENG-01**: The libmpv engine ships inside the Sucrose package, is loaded at runtime, embeds into the desktop surface, and supports hardware decoding, loop, pause and volume (D-013, D-028)
 - [ ] **ENG-02**: The WebView2 engine hosts Web, URL and YouTube wallpapers with the C#-compatible JavaScript API
 - [ ] **ENG-03**: The CEF engine hosts the same wallpapers with the same JavaScript API
 - [ ] **ENG-04**: The libVLC engine plays video when libVLC is installed
 - [ ] **ENG-05**: The built-in OS video engine (Media Foundation on Windows) plays video with no engine installed (D-006)
-- [ ] **ENG-06**: Sucrose detects installed engines and their prerequisites (WebView2 version, VC++ for CEF, …) and shows install hints for missing ones; it never bundles or installs them (D-005)
-- [ ] **ENG-07**: User can choose, per wallpaper type, which installed engine plays it (legacy `Engine.json` keys Gif/Url/Web/Video/YouTube/Application). If the chosen engine is not installed, Sucrose falls back to the built-in engine or another installed one and tells the user (D-005, D-006)
+- [ ] **ENG-06**: Sucrose detects the engines and prerequisites it needs (bundled engine binaries present and loadable, WebView2 Runtime version, VC++ Redist for CEF) and shows install or repair hints; the WebView2 Runtime and VC++ Redist are user-side downloads (D-028)
+- [ ] **ENG-07**: User can choose, per wallpaper type, which installed engine plays it (legacy `Engine.json` keys Gif/Url/Web/Video/YouTube/Application). If the chosen engine is not installed, Sucrose falls back to the built-in engine or another installed one and tells the user (D-006, D-028)
 
 ### Desktop and display
 
@@ -216,7 +216,7 @@ Deferred; tracked but not in the current roadmap.
 | Donate page, advertising settings, `Donate.json` migration | Removed (D-023) |
 | Commandog command trampoline as a contract | Replaced by IPC (D-008, D-009) |
 | Pipe / Signal / Transmission channels | Replaced by one IPC (D-009) |
-| Bundling or installing WebView2, CEF, libmpv, libVLC | Optional, user-installed, loaded at runtime (D-005, D-013) |
+| Bundling the WebView2 Runtime or the VC++ Redist | User-side prerequisites, detected with download hints (D-028) |
 | A web runtime in the core or the UI | GPUI via gpui-kit (D-004) |
 | Building the Portal on `exp/GPUI/Sucrose.Portal` | Throwaway experiment, not the base of `apps/sucrose-portal` |
 | Faking features an OS cannot do | Reported through platform capabilities (D-002) |

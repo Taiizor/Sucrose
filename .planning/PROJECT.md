@@ -37,7 +37,7 @@ An existing user upgrades and loses nothing (themes, store, web wallpapers and t
 - GitHub store server, GitHub update source, personal access token, theme report GitHub issue template — Soferity API only (D-020)
 - Donate page, advertising settings and `Donate.json` migration — removed (D-023)
 - Commandog trampoline and the Pipe/Signal/Transmission channels as contracts — replaced by one IPC (D-008, D-009)
-- Bundling or installing WebView2, CEF, libmpv or libVLC — optional and user-installed; Sucrose works with built-in engines alone (D-005, D-006)
+- Bundling the WebView2 Runtime or the VC++ Redist — user-side prerequisites, detected with download hints (D-028)
 - A web runtime in the core or the UI — GPUI via gpui-kit (D-004)
 - Building on `exp/GPUI/Sucrose.Portal` — throwaway experiment, not the base of `apps/sucrose-portal`
 - Faking what an OS cannot do (for example Application wallpapers on macOS or Wayland) — reported through platform capabilities (D-002)
@@ -58,7 +58,7 @@ An existing user upgrades and loses nothing (themes, store, web wallpapers and t
 - **Platforms**: Windows, macOS and Linux from the first commit, parity order Windows → macOS → Linux; OS-specific code only in `sucrose-platform` and engine crates — D-002; target architectures Windows x86, x64 and ARM64, macOS arm64 + x86_64 as one universal binary, Linux x86_64 and aarch64 — D-027
 - **Tech stack**: Rust edition 2024 on the pinned stable toolchain; `rustfmt` and `clippy -D warnings`; C/C++ only through FFI — D-001
 - **UI**: GPUI via an exactly pinned `gpui-kit`; one design language on every OS — D-004
-- **Engines**: optional, user-installed, detected and loaded at runtime with install hints; own `bindgen` bindings loaded with `libloading` — D-005, D-013
+- **Engines**: engine binaries (libmpv now; libVLC and CEF in M3) ship inside the package, pinned and hash-verified by `cargo xtask fetch-engines`, loaded at runtime with own `bindgen` bindings via `libloading`; the WebView2 Runtime and VC++ Redist stay user-installed prerequisites with download hints — D-028, D-013
 - **Safety**: `unsafe` only in `sucrose-platform` and engine/FFI crates, each block with a `// SAFETY:` comment — D-011
 - **Performance**: optional modules never start when disabled (D-008); user-visible changes are measured (RAM/CPU, release build) and notable numbers recorded in `docs/MEASUREMENTS.md`
 - **Dependencies**: port the capabilities Sucrose uses, not whole packages (D-010); licenses must pass `cargo-deny` (GPL-3.0 compatible)
@@ -77,7 +77,7 @@ The authoritative, append-only log is `docs/DECISIONS.md` (D-001 … D-027). The
 | Windows, macOS, Linux; parity order Windows → macOS → Linux (D-002) | Existing users and the reference implementation are on Windows | — Pending |
 | Keep every feature, improve where possible, record behavior changes (D-003) | Nobody loses a feature on upgrade | — Pending |
 | UI is GPUI through gpui-kit (D-004) | No web runtime in the core | — Pending |
-| Engines optional and user-installed; built-in GIF and OS video (D-005, D-006) | Sucrose works with no engine installed | — Pending |
+| Engine binaries ship in the package (D-028, supersedes D-005); built-in GIF and OS video (D-006) | Parity with the C# package, which bundled libmpv, libVLC and CEF | — Pending |
 | Keep theme/API formats, migrate settings automatically (D-007) | Existing themes, store and web wallpapers keep working | — Pending |
 | Modular service, one renderer per wallpaper, Portal only while open (D-008) | Crash isolation, near-idle cost | — Pending |
 | One IPC: local sockets with postcard (D-009) | Speed; same endpoint gives single instance | — Pending |

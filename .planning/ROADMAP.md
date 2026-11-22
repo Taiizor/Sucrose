@@ -91,7 +91,7 @@ Plans:
 
 **Wave 15** *(blocked on Wave 14 completion)*
 - [ ] 02-15-PLAN.md — `cargo xtask measure`, MEAS-01 rows vs the C# app, M1 docs close-out, verification scope
-**Notes**: Criteria 1–4 are the "Done when" list of M1 from the former `docs/ROADMAP.md`. The desktop surface must handle the Windows 11 24H2 Progman/WorkerW hierarchy. libmpv is user-installed and loaded at runtime (D-005, D-013); detection with install hints for every engine is ENG-06 in Phase 4. `SucroseInfo.json` fixtures come from real themes with personal data removed. Measure in a release build.
+**Notes**: Criteria 1–4 are the "Done when" list of M1 from the former `docs/ROADMAP.md`. The desktop surface must handle the Windows 11 24H2 Progman/WorkerW hierarchy. libmpv ships inside the Sucrose package — `cargo xtask fetch-engines` places the pinned, hash-verified build next to the exe — and is loaded at runtime (D-028, D-013); detection with hints for the WebView2 Runtime and VC++ Redist is ENG-06 in Phase 4. `SucroseInfo.json` fixtures come from real themes with personal data removed. Measure in a release build.
 
 ### Phase 3: M2 — Service, IPC and Portal connected
 **Goal**: The service and the Portal work as one app: the user picks a theme in the Portal's library, "Use" applies it through the service, settings migrate from the C# install and persist, and Sucrose can start with the OS.
@@ -121,7 +121,7 @@ Plans:
   5. Each performance condition (lock, sleep, user switch, screen saver, focus, fullscreen, CPU/memory/GPU, network, battery, remote desktop/VM) runs its configured Close, Pause or Resume with the legacy timings; pausing goes through the engine and never suspends processes; volume, loop, shuffle and the two sound rules apply to every engine.
 **Plans**: TBD
 **UI hint**: yes
-**Notes**: Engines are optional and never bundled or installed (D-005); own `bindgen` bindings loaded with `libloading` (D-013). Legacy bugs are fixed, not ported: CEF path traversal (SEC-02), ping checked first even at threshold 0 (PERF-07), Application wallpapers with fake handles or one process for all screens (TYPE-06), debugger-attach and `NtSuspendProcess` pausing (PLAY-05). Record per-engine RAM/CPU from release builds in `docs/MEASUREMENTS.md`.
+**Notes**: Engine binaries ship inside the package (D-028); own `bindgen` bindings loaded with `libloading` (D-013). Legacy bugs are fixed, not ported: CEF path traversal (SEC-02), ping checked first even at threshold 0 (PERF-07), Application wallpapers with fake handles or one process for all screens (TYPE-06), debugger-attach and `NtSuspendProcess` pausing (PLAY-05). Record per-engine RAM/CPU from release builds in `docs/MEASUREMENTS.md`.
 
 ### Phase 5: M4 — Product features
 **Goal**: A C# user can switch to the Rust app for daily use: store, theme authoring, cycling, lock screen, 25 languages, integrations and an own signed installer and updater that migrates the C# install.

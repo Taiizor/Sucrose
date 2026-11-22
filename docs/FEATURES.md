@@ -180,11 +180,11 @@ Target CPU architectures. Target triples and CI coverage: `ARCHITECTURE.md` → 
 | Linux x86_64 | ✅ | New; the legacy app is Windows-only. | ⬜ |
 | Linux aarch64 | ✅ | New; the legacy app is Windows-only. | ⬜ |
 
-Optional engines per architecture. A cell says whether a build of that engine exists for that architecture; ✅ needs evidence in this repository, cited in Notes. That `.build/Sucrose.ps1` publishes the legacy engine hosts for each `win-*` runtime does not count: it does not show which architectures the engine's own binaries cover. An engine with no build for the running architecture is reported like a missing engine (D-005).
+Optional engines per architecture. A cell says whether a build of that engine exists for that architecture; ✅ needs evidence in this repository, cited in Notes. That `.build/Sucrose.ps1` publishes the legacy engine hosts for each `win-*` runtime does not count: it does not show which architectures the engine's own binaries cover. An engine with no build for the running architecture is reported like a missing engine (D-028).
 
 | Engine | Win x86 | Win x64 | Win ARM64 | mac arm64 | mac x86_64 | Linux x86_64 | Linux aarch64 | Notes |
 |---|---|---|---|---|---|---|---|---|
-| libmpv | ✅ | ✅ | ✅ | ? | ? | ? | ? | Legacy ships `src/Live/Sucrose.Live.MpvPlayer/Requirements/libmpv-x86.dll`, `libmpv-x64.dll` and `libmpv-ARM64.dll`. |
+| libmpv | ✅ | ✅ | ✅ | ? | ? | ? | ? | Bundled (D-028): pinned shinchiro/mpv-winbuild-cmake 20261111 dev builds in `xtask/engines.toml` (mpv v0.42.0-38, client API 2.6, GPL-2.0-or-later); libmpv-2.dll 99.5 MB (x86), 121.8 MB (x64), 84.1 MB (ARM64). Legacy ships `src/Live/Sucrose.Live.MpvPlayer/Requirements/libmpv-x86.dll`, `libmpv-x64.dll` and `libmpv-ARM64.dll`. |
 | libVLC | ? | ? | ? | ? | ? | ? | ? | Legacy uses one package, `VideoLAN.LibVLC.Windows` 3.0.24 (`Directory.Packages.props`); no per-architecture package in `Directory.Packages.props` or `.build/Sucrose.ps1`. |
 | CEF | ? | ? | ? | ? | ? | ? | ? | Legacy uses `CefSharp.Wpf.HwndHost` 156.0.150 (`Directory.Packages.props`); no per-architecture package in `Directory.Packages.props` or `.build/Sucrose.ps1`. |
 | WebView2 | ? | ? | ? | ❌ | ❌ | ❌ | ❌ | Windows-only. Legacy uses one package, `Microsoft.Web.WebView2` 1.0.4365-prerelease (`Directory.Packages.props`); no per-architecture package in `Directory.Packages.props` or `.build/Sucrose.ps1`. |
