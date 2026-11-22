@@ -1,6 +1,6 @@
 # Features and parity
 
-Every feature of the C# app, where it goes in the rewrite, and what each OS allows. This is the parity checklist for M7. Exact legacy behavior (keys, defaults, timings, APIs) is in `docs/legacy/`: `portal.md`, `services.md`, `engines.md`, `formats.md`.
+Every feature of the C# app, where it goes in the rewrite, and what each OS allows. This is the parity checklist for M7. Exact legacy behavior (keys, defaults, timings, APIs) is in `docs/legacy/`: `portal.md`, `services.md`, `engines.md`, `formats.md`, `lock-screen.md`.
 
 - **Status:** ⬜ not started · 🟨 in progress · ✅ ported · ➖ dropped (needs a `DECISIONS.md` entry)
 - **Platform columns** (planned support): ✅ full · ⚠️ limited · ❌ not possible · ? not investigated yet
@@ -30,6 +30,7 @@ Every feature of the C# app, where it goes in the rewrite, and what each OS allo
 | Monitor changes, shell restart recovery (CrashExplorer) | ✅ | ? | ? | | ⬜ |
 | Hide desktop icons toggle | ✅ | ? | ? | Not stored as a setting in legacy. | ⬜ |
 | Set OS wallpaper from thumbnail, disable slideshow | ✅ | ⚠️ | ⚠️ | | ⬜ |
+| Lock screen wallpaper (Video and GIF themes, live on the lock and sign-in screen) | ✅ | ? | ? | Only on branch `lock-screen-native` (112de37f), not in `develop` (D-026). Legacy runs a credential-provider DLL inside LogonUI; behavior and its security problems in `lock-screen.md`. | ⬜ |
 | Stay awake | ✅ | ✅ | ✅ | Legacy also runs elevated `powercfg`; avoid UAC if possible. | ⬜ |
 | GPU preference (high performance) | ✅ | ❌ | ❌ | Registry `UserGpuPreferences`. | ⬜ |
 
@@ -106,7 +107,7 @@ Actions Close / Pause / Resume per condition; trigger after 5 consecutive 1 s po
 | `Store.json` / `Pattern.json`, cache TTL, offline/broken/unknown states | | ⬜ |
 | Categories, adult filter, search, pagination, previews | | ⬜ |
 | Install flow (temp download, copy, `SucroseStore.json` marker, auto-start) | | ⬜ |
-| Report a theme (API and GitHub template) | | ⬜ |
+| Report a theme (Soferity API) | GitHub issue template removed (D-020). | ⬜ |
 
 ## Themes (`portal.md` §5)
 

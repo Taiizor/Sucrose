@@ -417,7 +417,7 @@ The page exists and is registered in DI, but is **not reachable**: its nav item 
 - "Report": GET `/v8/Optional/Report/Check/{guid}`, then POST `/v8/Optional/Report/{guid}` with JSON.
 - "Report from GitHub": opens a new-issue URL on `Taiizor/Store` with the `wallpaper_report.yaml` template and query parameters.
 
-**ThemeLockScreen**: **not found.** `grep -i LockScreen` over `src/` (excluding bin/obj/output) matches nothing.
+**ThemeLockScreen**: not in `src/` on `develop`. It exists only on branch `lock-screen-native` (commit 112de37f); see `lock-screen.md`.
 
 **WallpaperCycling**
 - "Automatic Wallpaper Cycling": toggle, Cycling.json `Active` (default false).

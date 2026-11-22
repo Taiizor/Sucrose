@@ -104,8 +104,8 @@ When you make or change a decision, add an entry here in the same change.
 - Requirements: per-OS packages (Windows first); update packages signed and verified (signature + hash) before anything is installed; resumable downloads with the bandwidth limit; Release/PreRelease channels; the existing silent modes; uninstall that really works quietly and removes startup entries and GPU-preference registry values (legacy bugs); migration from an existing C# installation.
 
 ## D-020: GitHub integrations are removed
-- Status: Accepted (2026-11-22)
-- Decision: The GitHub store server, the GitHub update source and the personal access token (`Objectionable.json`) are dropped. Store and updates use the Soferity API only.
+- Status: Accepted (2026-11-22), extended the same day to the theme report template
+- Decision: The GitHub store server, the GitHub update source, the personal access token (`Objectionable.json`) and the theme report GitHub issue template ("Report from GitHub") are dropped. Store, updates and theme reports use the Soferity API only. Plain links, such as the wiki and issue links in the help menu, stay.
 - Context: the API server is currently .NET and will itself be rewritten in Rust or Go (separate project). Its GitHub-compatible release output is no longer needed.
 
 ## D-021: Browser engine arguments are user-editable
@@ -129,6 +129,11 @@ When you make or change a decision, add an entry here in the same change.
 - Decision: Windows binaries and installers are signed with signtool using the maintainer's existing certificate, as the C# app is today. The certificate and its password stay outside the repository; `xtask` reads their location from environment variables and never logs them. macOS has no Apple Developer ID yet, so macOS builds are unsigned until one is available.
 - Update packages additionally get a signature from our own key (D-019); the key scheme (proposed: Ed25519) is decided when the updater is built.
 
+## D-026: Lock screen wallpaper is in scope
+- Status: Accepted (2026-11-22)
+- Decision: The lock screen wallpaper for Video and GIF themes is part of parity although it exists only on branch `lock-screen-native` (commit 112de37f) and was never merged into `develop`. Its behavior is recorded in `docs/legacy/lock-screen.md`.
+- Consequences: how the Rust version reaches the lock screen is decided separately before it is built; the legacy one runs a DLL inside LogonUI as SYSTEM, registered from a user-writable folder.
+
 ---
 
 ## Open questions
@@ -136,3 +141,4 @@ When you make or change a decision, add an entry here in the same change.
 - Store and update protocol: see D-022.
 - Linux package formats for the installer (AppImage, deb, rpm, Flatpak): decide at M6.
 - Apple Developer ID for macOS signing and notarization: when available.
+- Lock screen mechanism (D-026): before the M4 lock screen item.

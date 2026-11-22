@@ -36,7 +36,7 @@ crates/
   sucrose-update/       # update check, download, signature + hash verification (D-019)
 apps/
   sucrose/              # service + renderer binary
-  sucrose-portal/       # GPUI UI (moved from exp/GPUI/Sucrose.Portal)
+  sucrose-portal/       # GPUI UI, built from scratch (exp/GPUI/Sucrose.Portal is not its base)
   sucrose-setup/        # installer and uninstaller (D-019)
 xtask/                  # build, package, localize, release
 docs/

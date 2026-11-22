@@ -26,4 +26,4 @@ Practical notes for the UI (`gpui-kit`). GPUI documentation is thin; read the so
 - State lives in entities; long work runs on `cx.background_executor()`, results come back with `this.update(cx, …)`.
 - Event plumbing: `cx.subscribe` / `cx.subscribe_in` for component state events (`InputEvent`, `SliderEvent`, `SelectEvent`), `cx.listener` for click handlers.
 - Stop a child's click from reaching a clickable parent card: wrap it in a div with `.on_mouse_down(MouseButton::Left, |_, _, cx| cx.stop_propagation())`.
-- gpui-kit has AccessKit roles and a layout direction (RTL) setting; neither is tested in Sucrose yet. Arabic and Hebrew are among the 22 languages, so verify RTL early.
+- gpui-kit has AccessKit roles and a layout direction (RTL) setting; neither is tested in Sucrose yet. Arabic and Hebrew are among the 25 languages, so verify RTL early.

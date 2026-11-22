@@ -51,8 +51,8 @@ Status legend: ⬜ not started · 🟨 in progress · ✅ done
 ## M4: Product features ⬜
 - [ ] Store (Soferity; protocol per D-022), downloads, cache
 - [ ] Theme create/edit/import/export/share/report/review
-- [ ] Wallpaper cycling, lock screen, display preferences
-- [ ] Localization: 22 languages converted by `xtask`
+- [ ] Wallpaper cycling, lock screen (`FEATURES.md` → Desktop and display → Lock screen wallpaper), display preferences
+- [ ] Localization: 25 languages converted by `xtask`
 - [ ] Discord Rich Presence
 - [ ] Crash reporting and telemetry with the existing opt-outs and per-OS identity (D-018)
 - [ ] Own installer, updater and uninstaller (D-019), signed with signtool via `xtask` (D-025), verified update packages, migration from the C# install
