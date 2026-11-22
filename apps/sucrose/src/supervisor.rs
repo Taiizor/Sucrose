@@ -18,6 +18,90 @@ use sucrose_platform::RendererJob;
 /// How long a crashed renderer's slot stays empty before the new renderer starts.
 pub const RESTART_DELAY: Duration = Duration::from_millis(500);
 
+// RED stubs: the real classification and budget follow in the next commit.
+
+/// Exit code of a renderer that ended cleanly after Close.
+pub const CLEAN: u8 = 0;
+/// Exit code of a renderer whose engine is missing or cannot be loaded.
+pub const ENGINE_MISSING: u8 = 2;
+/// Exit code of a renderer that lost its desktop surface.
+pub const SURFACE_LOST: u8 = 3;
+/// Exit code of a renderer that could not start its wallpaper.
+pub const START_FAILED: u8 = 4;
+
+/// Why a renderer ended.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ExitClass {
+    /// Ended after Close.
+    Clean,
+    /// The engine is missing.
+    EngineMissing,
+    /// The wallpaper could not start.
+    StartFailed,
+    /// The desktop surface was lost.
+    SurfaceLost,
+    /// Crashed or was killed, with the exit code (-1 when the OS reports none).
+    Crashed(i32),
+}
+
+/// Maps an exit code to the reason.
+pub fn classify_exit(_code: Option<i32>) -> ExitClass {
+    ExitClass::Clean
+}
+
+/// What to do about an ended renderer.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Decision {
+    /// Leave the slot empty: the exit was expected.
+    Leave,
+    /// Start it again after the pause.
+    Restart(Duration),
+    /// The budget is spent: leave the slot empty and say why.
+    GiveUp(Exhausted),
+}
+
+/// Which budget ran out.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Exhausted {
+    /// Too many crashes.
+    Crashes,
+    /// The surface was lost too often.
+    SurfaceLost,
+}
+
+impl Exhausted {
+    /// One English sentence for the log and the tooltip.
+    pub fn reason(self) -> String {
+        String::new()
+    }
+}
+
+/// How many restarts one monitor gets.
+#[derive(Debug, Default)]
+pub struct RestartBudget;
+
+impl RestartBudget {
+    /// A fresh budget.
+    pub fn new() -> Self {
+        Self
+    }
+
+    /// Records a crash at `now`; the pause before the restart, or `None` when the budget is spent.
+    pub fn allow(&mut self, _now: Instant) -> Option<Duration> {
+        None
+    }
+
+    /// Records a lost surface at `now`; the pause before the restart, or `None` when the cap is reached.
+    pub fn allow_surface_lost(&mut self, _now: Instant) -> Option<Duration> {
+        None
+    }
+}
+
+/// Decides what to do about a renderer that ended with `class` at `now`.
+pub fn decide(_budget: &mut RestartBudget, _class: ExitClass, _now: Instant) -> Decision {
+    Decision::Leave
+}
+
 /// A renderer process ended.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Exited {
@@ -195,5 +279,126 @@ impl Supervisor {
         if let Err(error) = started {
             tracing::error!(%error, slot, "cannot start the thread that restarts the renderer");
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn secs(base: Instant, s: u64) -> Instant {
+        base + Duration::from_secs(s)
+    }
+
+    #[test]
+    fn exit_codes_are_classified() {
+        assert_eq!(classify_exit(Some(0)), ExitClass::Clean);
+        assert_eq!(classify_exit(Some(2)), ExitClass::EngineMissing);
+        assert_eq!(classify_exit(Some(4)), ExitClass::StartFailed);
+        assert_eq!(classify_exit(Some(3)), ExitClass::SurfaceLost);
+        assert_eq!(classify_exit(Some(1)), ExitClass::Crashed(1));
+        assert_eq!(classify_exit(Some(-1_073_741_819)), ExitClass::Crashed(-1_073_741_819));
+        assert!(matches!(classify_exit(None), ExitClass::Crashed(_)));
+    }
+
+    #[test]
+    fn three_crashes_in_a_minute_are_restarted_with_growing_pauses_and_the_fourth_is_refused() {
+        let t0 = Instant::now();
+        let mut budget = RestartBudget::new();
+
+        assert_eq!(budget.allow(t0), Some(Duration::from_millis(500)));
+        assert_eq!(budget.allow(secs(t0, 10)), Some(Duration::from_secs(1)));
+        assert_eq!(budget.allow(secs(t0, 20)), Some(Duration::from_secs(2)));
+        assert_eq!(budget.allow(secs(t0, 30)), None);
+    }
+
+    #[test]
+    fn the_window_slides() {
+        let t0 = Instant::now();
+        let mut budget = RestartBudget::new();
+        for s in [0, 10, 20] {
+            assert!(budget.allow(secs(t0, s)).is_some());
+        }
+
+        assert!(budget.allow(secs(t0, 59)).is_none());
+        assert!(budget.allow(secs(t0, 61)).is_some(), "the first crash left the window");
+    }
+
+    #[test]
+    fn a_lost_surface_does_not_use_the_crash_budget_and_has_its_own_cap_of_five() {
+        let t0 = Instant::now();
+        let mut budget = RestartBudget::new();
+
+        for s in 0..5 {
+            assert!(budget.allow_surface_lost(secs(t0, s)).is_some(), "loss {s}");
+        }
+        assert!(budget.allow_surface_lost(secs(t0, 5)).is_none());
+        assert_eq!(budget.allow(secs(t0, 6)), Some(Duration::from_millis(500)));
+    }
+
+    #[test]
+    fn a_clean_exit_and_a_missing_engine_are_never_restarted() {
+        let t0 = Instant::now();
+        let mut budget = RestartBudget::new();
+
+        assert_eq!(decide(&mut budget, ExitClass::Clean, t0), Decision::Leave);
+        assert_eq!(decide(&mut budget, ExitClass::EngineMissing, t0), Decision::Leave);
+        assert_eq!(
+            decide(&mut budget, ExitClass::Crashed(1), t0),
+            Decision::Restart(Duration::from_millis(500)),
+            "leaving did not use the budget"
+        );
+    }
+
+    #[test]
+    fn a_failed_start_counts_like_a_crash_and_the_budget_ends_in_a_give_up() {
+        let t0 = Instant::now();
+        let mut budget = RestartBudget::new();
+
+        assert!(matches!(
+            decide(&mut budget, ExitClass::StartFailed, t0),
+            Decision::Restart(_)
+        ));
+        assert!(matches!(
+            decide(&mut budget, ExitClass::Crashed(1), secs(t0, 1)),
+            Decision::Restart(_)
+        ));
+        assert!(matches!(
+            decide(&mut budget, ExitClass::StartFailed, secs(t0, 2)),
+            Decision::Restart(_)
+        ));
+        assert_eq!(
+            decide(&mut budget, ExitClass::Crashed(-1_073_741_819), secs(t0, 3)),
+            Decision::GiveUp(Exhausted::Crashes)
+        );
+    }
+
+    #[test]
+    fn a_lost_surface_that_keeps_coming_back_ends_in_a_give_up() {
+        let t0 = Instant::now();
+        let mut budget = RestartBudget::new();
+
+        for s in 0..5 {
+            assert!(matches!(
+                decide(&mut budget, ExitClass::SurfaceLost, secs(t0, s)),
+                Decision::Restart(_)
+            ));
+        }
+        assert_eq!(
+            decide(&mut budget, ExitClass::SurfaceLost, secs(t0, 5)),
+            Decision::GiveUp(Exhausted::SurfaceLost)
+        );
+    }
+
+    #[test]
+    fn the_give_up_reasons_name_the_limits() {
+        assert_eq!(
+            Exhausted::Crashes.reason(),
+            "the renderer stopped after 3 crashes in 60 s"
+        );
+        assert_eq!(
+            Exhausted::SurfaceLost.reason(),
+            "the desktop surface was lost 5 times in 60 s"
+        );
     }
 }
