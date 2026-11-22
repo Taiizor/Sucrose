@@ -95,6 +95,8 @@ unsafe impl Sync for Handle {}
 /// What the event thread tells whoever drives the player (see [Player::take_events]).
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum PlayerEvent {
+    /// The first frame was shown: from now on the position is a real clock.
+    Started,
     /// Playback restarted after a seek or a loop wrap, so the position jumped.
     Discontinuity,
     /// The player was paused (true) or resumed (false).
@@ -137,6 +139,8 @@ struct Shared {
     loop_gen: AtomicU32,
     /// The last position the event thread saw, as the bits of an f64; NaN when unknown.
     last_position: AtomicU64,
+    /// Set at the first playback restart: the first frame was shown.
+    started: AtomicBool,
 }
 
 /// A running embedded mpv instance. Dropping it stops the event thread and destroys the instance.
@@ -321,6 +325,12 @@ impl Player {
     #[must_use]
     pub fn is_paused(&self) -> bool {
         self.shared.paused.load(Ordering::SeqCst)
+    }
+
+    /// Whether the first frame was shown. Before that the player has no clock worth publishing or following.
+    #[must_use]
+    pub fn has_started(&self) -> bool {
+        self.shared.started.load(Ordering::SeqCst)
     }
 
     /// How many times the position wrapped back to the start (a loop, or a seek to the start).
@@ -535,6 +545,9 @@ fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool, shared: &Shared, eve
                     .filter(|value| !value.is_empty())
                     .unwrap_or_else(|| "no".to_owned());
                 tracing::info!(%hwdec, "playback started");
+                // Set before the event is sent, so whoever receives Started also sees has_started.
+                shared.started.store(true, Ordering::SeqCst);
+                let _ = events.send(PlayerEvent::Started);
             }
             sys::mpv_event_id_MPV_EVENT_END_FILE => log_end_file(mpv, event),
             sys::mpv_event_id_MPV_EVENT_LOG_MESSAGE => log_message(event),

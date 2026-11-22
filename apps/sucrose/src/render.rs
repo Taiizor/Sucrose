@@ -126,17 +126,41 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
             return Ok(ExitCode::from(error.exit_code()));
         }
     };
-    if let Err(error) = connection.send(&ToService::Playing) {
-        tracing::warn!(%error, "cannot tell the service that the wallpaper is playing");
-    }
-
     let sync = Arc::new(SyncState {
         master: AtomicBool::new(false),
         volume: AtomicU8::new(assignment.settings.volume),
         kick: AtomicBool::new(false),
         looping: assignment.settings.looping,
     });
-    let clock_writer = connection.try_clone();
+    // The clock thread tells the service the wallpaper plays once the first frame is shown, and publishes the master's
+    // clock. It is started before the connection moves into the reader thread, and joined before the player is
+    // dropped, so the player still ends before the surface it is embedded in.
+    let clock_stop = Arc::new(AtomicBool::new(false));
+    let clock_thread = match connection.try_clone() {
+        Ok(writer) => {
+            let clock_player = Arc::clone(&player);
+            let clock_sync = Arc::clone(&sync);
+            let stop = Arc::clone(&clock_stop);
+            let spawned = thread::Builder::new()
+                .name("clock".to_owned())
+                .spawn(move || publish_clock(writer, &clock_player, &clock_sync, &stop));
+            match spawned {
+                Ok(handle) => Some(handle),
+                Err(error) => {
+                    tracing::warn!(%error, "cannot start the clock thread, this renderer cannot be the master");
+                    None
+                }
+            }
+        }
+        Err(error) => {
+            tracing::warn!(%error, "cannot keep a write handle for the clock, this renderer cannot be the master");
+            None
+        }
+    };
+    if clock_thread.is_none() {
+        // Nobody else will announce it: without a clock thread the wallpaper is reported as playing right away.
+        tell_playing(&mut connection);
+    }
     // The reader thread only waits for the end of the session; the loop below must stay on this thread because the
     // surface was created here.
     let proxy = event_loop.proxy();
@@ -161,31 +185,6 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
             proxy.quit();
         })
         .context("cannot start the reader thread")?;
-    // The master publishes its clock from a thread of its own. It is joined before the player is dropped, so the
-    // player still ends before the surface it is embedded in.
-    let clock_stop = Arc::new(AtomicBool::new(false));
-    let clock_thread = match clock_writer {
-        Ok(writer) => {
-            let clock_player = Arc::clone(&player);
-            let clock_sync = Arc::clone(&sync);
-            let stop = Arc::clone(&clock_stop);
-            let spawned = thread::Builder::new()
-                .name("clock".to_owned())
-                .spawn(move || publish_clock(writer, &clock_player, &clock_sync, &stop));
-            match spawned {
-                Ok(handle) => Some(handle),
-                Err(error) => {
-                    tracing::warn!(%error, "cannot start the clock thread, this renderer cannot be the master");
-                    None
-                }
-            }
-        }
-        Err(error) => {
-            tracing::warn!(%error, "cannot keep a write handle for the clock, this renderer cannot be the master");
-            None
-        }
-    };
-
     // A wake means a new rectangle: the surface is moved here because only this thread may touch it. The loop ends
     // when the reader thread asks for it, or when Windows destroys the surface (the surface posts the quit itself).
     // A killed explorer.exe sends no such message; the service replaces the renderers on TaskbarCreated instead.
@@ -437,7 +436,8 @@ fn apply_role(role: Role, player: &Player, sync: &SyncState) {
 fn follow_clock(tick: &ClockTick, player: &Player, sync: &SyncState, follower: &mut Follower) {
     // A paused follower (the fullscreen rule on this monitor alone) has nothing to correct until it plays again; the
     // next reading after that realigns it.
-    if sync.master.load(Ordering::SeqCst) || player.is_paused() {
+    // Before its first frame this player has no position to compare either.
+    if sync.master.load(Ordering::SeqCst) || player.is_paused() || !player.has_started() {
         return;
     }
     let Some(local) = player.time_pos() else {
@@ -471,12 +471,23 @@ fn read_tick(player: &Player) -> Option<ClockTick> {
     })
 }
 
-/// Publishes the master's clock about once per period, and at once after a seek, loop wrap, pause, resume or a
-/// promotion. Does nothing while this renderer is a follower. Runs until `stop` is set.
+/// Tells the service that this renderer shows its first frame. A failed send only delays the tooltip and the master
+/// election, so it is logged and nothing else.
+fn tell_playing(connection: &mut Connection) {
+    if let Err(error) = connection.send(&ToService::Playing) {
+        tracing::warn!(%error, "cannot tell the service that the wallpaper is playing");
+    }
+}
+
+/// Tells the service once that the first frame is shown (the service elects the master only among such renderers),
+/// then publishes the master's clock about once per period, and at once after a seek, loop wrap, pause, resume or a
+/// promotion. Does nothing while this renderer is a follower or has not shown its first frame. Runs until `stop`
+/// is set.
 fn publish_clock(mut connection: Connection, player: &Player, sync: &SyncState, stop: &AtomicBool) {
     let events: Option<Receiver<PlayerEvent>> = player.take_events();
     let mut last = Instant::now();
     let mut sent_once = false;
+    let mut announced = false;
     while !stop.load(Ordering::SeqCst) {
         let mut due = sync.kick.swap(false, Ordering::SeqCst);
         match &events {
@@ -489,6 +500,14 @@ fn publish_clock(mut connection: Connection, player: &Player, sync: &SyncState, 
                 Err(RecvTimeoutError::Disconnected) => thread::sleep(CLOCK_POLL),
             },
             None => thread::sleep(CLOCK_POLL),
+        }
+        // The Started event can come before this thread took the receiver, so the flag is looked at as well.
+        if !player.has_started() {
+            continue;
+        }
+        if !announced {
+            tell_playing(&mut connection);
+            announced = true;
         }
         if !sync.master.load(Ordering::SeqCst) {
             sent_once = false;

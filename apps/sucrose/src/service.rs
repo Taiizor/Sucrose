@@ -66,8 +66,8 @@ pub fn endpoint() -> anyhow::Result<Endpoint> {
 /// What the threads of the service tell its main thread.
 #[derive(Debug)]
 enum Event {
-    /// A message from a renderer.
-    Renderer(ToService),
+    /// A message from the renderer of `slot`. The slot is the one verified at its Hello, never read from the message.
+    Renderer { slot: u8, message: ToService },
     /// A renderer process ended.
     Exited(Exited),
     /// The shutdown worker finished closing every renderer.
@@ -327,11 +327,22 @@ pub fn run() -> anyhow::Result<()> {
         LoopEvent::Wake => {
             for event in receiver.try_iter() {
                 match event {
-                    Event::Renderer(ToService::Hello { pid, slot, .. }) => {
+                    Event::Renderer {
+                        slot,
+                        message: ToService::Hello { pid, .. },
+                    } => {
                         tracing::info!(pid, slot, "renderer connected");
                         fleet.catch_up_renderer(slot, &renderers);
                     }
-                    Event::Renderer(message) => {
+                    Event::Renderer { slot, message } => {
+                        if matches!(message, ToService::Playing) && fleet.playing.insert(slot) && !quitting {
+                            // Its first frame is shown: only now can it be the master clock.
+                            tracing::debug!(slot, "a renderer shows its first frame");
+                            fleet.elect(&Ctx {
+                                supervisor: &supervisor,
+                                renderers: &renderers,
+                            });
+                        }
                         if let Some(next) = status.after(&message) {
                             status = next;
                             if status.is_failure() {
@@ -346,8 +357,17 @@ pub fn run() -> anyhow::Result<()> {
                     }
                     Event::Exited(exited) => {
                         lock(&renderers).connections.remove(&exited.slot);
+                        // A renderer that ended plays no more and cannot stay the master; its replacement counts
+                        // again once it shows its first frame.
+                        let was_playing = fleet.playing.remove(&exited.slot);
                         if quitting {
                             continue;
+                        }
+                        if was_playing {
+                            fleet.elect(&Ctx {
+                                supervisor: &supervisor,
+                                renderers: &renderers,
+                            });
                         }
                         if fleet.slots.release(exited.slot) {
                             // The monitor was unplugged: this exit is the answer to the Close, nothing to restart.
@@ -703,7 +723,7 @@ fn read_connection(
             }
         }
     }
-    if !notifier.send(Event::Renderer(first)) {
+    if !notifier.send(Event::Renderer { slot, message: first }) {
         return;
     }
     loop {
@@ -711,7 +731,7 @@ fn read_connection(
             // The clock goes straight from this thread to the followers: it is frequent and changes no status.
             Ok(ToService::Clock(tick)) => relay_clock(renderers, slot, tick),
             Ok(message) => {
-                if !notifier.send(Event::Renderer(message)) {
+                if !notifier.send(Event::Renderer { slot, message }) {
                     return;
                 }
             }
@@ -1138,12 +1158,17 @@ impl Fleet {
         }
     }
 
-    /// The slot of the master clock: the renderer of the elected monitor among those that have a slot.
+    /// The slot of the master clock: the renderer of the elected monitor among those whose renderer plays. A renderer
+    /// that has not shown its first frame has no clock yet, so it is never elected.
     fn master_slot(&self) -> Option<u8> {
         let candidates: Vec<MonitorInfo> = self
             .monitors
             .iter()
-            .filter(|monitor| self.slots.slot_of(&monitor.id).is_some())
+            .filter(|monitor| {
+                self.slots
+                    .slot_of(&monitor.id)
+                    .is_some_and(|slot| self.playing.contains(&slot))
+            })
             .cloned()
             .collect();
         elect_master(&candidates).and_then(|id| self.slots.slot_of(&id))
@@ -1785,14 +1810,19 @@ mod tests {
             fleet.slots.assign(id).expect("a free slot");
         }
         for id in playing {
-            fleet.playing.insert(fleet.slots.slot_of(id).expect("a slot for a playing monitor"));
+            fleet
+                .playing
+                .insert(fleet.slots.slot_of(id).expect("a slot for a playing monitor"));
         }
         fleet
     }
 
     #[test]
     fn a_renderer_that_does_not_play_yet_is_never_the_master() {
-        let fleet = fleet_of(&[("\\\\.\\DISPLAY1", false), ("\\\\.\\DISPLAY18", true)], &["\\\\.\\DISPLAY1"]);
+        let fleet = fleet_of(
+            &[("\\\\.\\DISPLAY1", false), ("\\\\.\\DISPLAY18", true)],
+            &["\\\\.\\DISPLAY1"],
+        );
 
         assert_eq!(fleet.master_slot(), fleet.slots.slot_of("\\\\.\\DISPLAY1"));
     }
