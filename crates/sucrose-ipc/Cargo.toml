@@ -1,0 +1,17 @@
+[package]
+name = "sucrose-ipc"
+description = "Local socket channel between the Sucrose service and its renderers"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+interprocess = { workspace = true }
+postcard = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+
+[lints]
+workspace = true

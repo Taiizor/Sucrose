@@ -16,14 +16,18 @@ publish = false
 sucrose-config = { path = "crates/sucrose-config" }
 sucrose-core = { path = "crates/sucrose-core" }
 sucrose-engine-mpv = { path = "crates/sucrose-engine-mpv" }
+sucrose-ipc = { path = "crates/sucrose-ipc" }
 sucrose-log = { path = "crates/sucrose-log" }
 sucrose-platform = { path = "crates/sucrose-platform" }
 
 anyhow = "1"
 bindgen = "0.73.2"
+crossbeam-channel = "0.5.17"
 dirs = "6"
 gpui-kit = "=0.10.0"
+interprocess = "2.4.9"
 libloading = "0.9.1"
+postcard = { version = "1.2.0", features = ["use-std"] }
 serde = { version = "1.0.229", features = ["derive"] }
 serde_json = "1.0.154"
 sevenz-rust2 = "0.25.0"
