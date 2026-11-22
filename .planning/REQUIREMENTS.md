@@ -49,8 +49,8 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **DESK-03**: **New:** user can put a different wallpaper on each monitor, one renderer per monitor (Win ✅ · mac ✅ · Linux ⚠️)
 - [ ] **DESK-04**: User can choose the working area or the full display bounds (Win ✅ · mac ✅ · Linux ⚠️)
 - [ ] **DESK-05**: User can choose a stretch mode (None, Fill, Uniform, UniformToFill), mapped per engine as in `engines.md` §3 (Win ✅ · mac ✅ · Linux ✅)
-- [ ] **DESK-06**: Wallpapers are sharp on every monitor with per-monitor DPI (Win ✅ · mac ✅ · Linux ✅)
-- [ ] **DESK-07**: Wallpapers recover from monitor changes and shell restarts (legacy CrashExplorer) (Win ✅ · mac ? · Linux ?)
+- [x] **DESK-06**: Wallpapers are sharp on every monitor with per-monitor DPI (Win ✅ · mac ✅ · Linux ✅)
+- [x] **DESK-07**: Wallpapers recover from monitor changes and shell restarts (legacy CrashExplorer) (Win ✅ · mac ? · Linux ?)
 - [ ] **DESK-08**: User can toggle hiding the desktop icons (Win ✅ · mac ? · Linux ?)
 - [ ] **DESK-09**: User can set the OS wallpaper from a theme thumbnail and disable the OS slideshow (Win ✅ · mac ⚠️ · Linux ⚠️)
 - [ ] **DESK-10**: User can set a Video or GIF theme as the live lock and sign-in screen wallpaper with fit mode, mute and sync with the desktop (`lock-screen.md`; mechanism decided first, D-026) (Win ✅ · mac ? · Linux ?)
@@ -252,8 +252,8 @@ Which phases cover which requirements. Filled during roadmap creation.
 | DESK-03 | Phase 4 | Pending |
 | DESK-04 | Phase 4 | Pending |
 | DESK-05 | Phase 4 | Pending |
-| DESK-06 | Phase 2 | Pending |
-| DESK-07 | Phase 2 | Pending |
+| DESK-06 | Phase 2 | Complete |
+| DESK-07 | Phase 2 | Complete |
 | DESK-08 | Phase 5 | Pending |
 | DESK-09 | Phase 5 | Pending |
 | DESK-10 | Phase 5 | Pending |
