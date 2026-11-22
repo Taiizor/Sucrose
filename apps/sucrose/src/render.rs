@@ -4,7 +4,7 @@
 use std::{
     path::{Path, PathBuf},
     process::ExitCode,
-    sync::Arc,
+    sync::{Arc, Mutex, PoisonError},
     thread,
     time::Duration,
 };
@@ -20,7 +20,7 @@ use sucrose_ipc::{
     Connection, IpcError, connect,
     protocol::{Assignment, PROTOCOL_VERSION, ToRenderer, ToService},
 };
-use sucrose_platform::{DesktopSurface, DpiAwareness, EventLoop, Flow, LoopEvent, RectPx};
+use sucrose_platform::{DesktopSurface, DpiAwareness, EventLoop, Flow, LoopEvent, LoopProxy, RectPx};
 
 /// How often and how long the renderer retries while the service is still opening its endpoint.
 const CONNECT_ATTEMPTS: u32 = 20;
@@ -34,6 +34,13 @@ const CHECK_THE_LOG: &str = "Check the log for details.";
 
 /// Exit code for "libmpv is missing or cannot be loaded" (D-20).
 const EXIT_ENGINE_MISSING: u8 = crate::supervisor::ENGINE_MISSING;
+
+/// Exit code for "the shell destroyed the desktop surface" (explorer.exe restarted): the service starts a new
+/// renderer, which does not count as a crash.
+const EXIT_SURFACE_LOST: u8 = crate::supervisor::SURFACE_LOST;
+
+/// The newest rectangle the service asked for, waiting for the thread that owns the surface to apply it.
+type PendingRect = Arc<Mutex<Option<RectPx>>>;
 
 /// Runs the renderer for `slot` until the service closes the connection or asks it to stop.
 pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
@@ -100,11 +107,14 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     // The reader thread only waits for the end of the session; the loop below must stay on this thread because the
     // surface was created here.
     let proxy = event_loop.proxy();
+    let pending_rect = PendingRect::default();
     let reader_player = Arc::clone(&player);
+    let reader_rect = Arc::clone(&pending_rect);
+    let reader_proxy = proxy.clone();
     thread::Builder::new()
         .name("ipc-reader".to_owned())
         .spawn(move || {
-            wait_for_close(&mut connection, &reader_player);
+            wait_for_close(&mut connection, &reader_player, &reader_rect, &reader_proxy);
             // Released before the loop is told to stop, so that the main thread drops the last handle and the
             // player ends before the surface it is embedded in.
             drop(reader_player);
@@ -112,14 +122,33 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         })
         .context("cannot start the reader thread")?;
 
-    // The renderer has nothing to drain on a wake; it stops when the reader thread asks it to.
+    // A wake means a new rectangle: the surface is moved here because only this thread may touch it. The loop ends
+    // when the reader thread asks for it, or when the shell destroys the surface (the surface posts the quit itself).
     event_loop.run(|event| match event {
-        LoopEvent::Wake => Flow::Continue,
+        LoopEvent::Wake => {
+            let rect = pending_rect.lock().unwrap_or_else(PoisonError::into_inner).take();
+            if let Some(rect) = rect {
+                match surface.set_rect(rect) {
+                    Ok(()) => tracing::info!(?rect, "surface moved"),
+                    Err(error) => tracing::warn!(%error, ?rect, "cannot move the surface"),
+                }
+            }
+            Flow::Continue
+        }
         LoopEvent::Quit => Flow::Exit,
+        // The service watches the monitors and the shell; a renderer learns about both through its own surface.
+        LoopEvent::DisplayChanged | LoopEvent::ShellRestarted | LoopEvent::Timer(_) => Flow::Continue,
     });
+    let surface_lost = surface.destroyed_externally();
     // The player first: its child window lives inside the surface.
     drop(player);
     drop(surface);
+    if surface_lost {
+        // Not an error: explorer.exe restarted and took the surface with it, and mpv ending with its parent window
+        // is part of that.
+        tracing::info!("the desktop surface was destroyed by the shell, the service starts a new renderer");
+        return Ok(ExitCode::from(EXIT_SURFACE_LOST));
+    }
     tracing::info!("the renderer stopped");
     Ok(ExitCode::SUCCESS)
 }
@@ -221,7 +250,7 @@ fn wait_for_assignment(connection: &mut Connection) -> anyhow::Result<Option<Ass
             Ok(None)
         }
         // Controls only make sense once a wallpaper plays; before that the service has nothing to control.
-        Ok(ToRenderer::Pause(_) | ToRenderer::SetVolume(_)) => {
+        Ok(ToRenderer::Pause(_) | ToRenderer::SetVolume(_) | ToRenderer::SetRect(_)) => {
             tracing::warn!("ignoring a control message that arrived before the assignment");
             Ok(None)
         }
@@ -230,8 +259,8 @@ fn wait_for_assignment(connection: &mut Connection) -> anyhow::Result<Option<Ass
 }
 
 /// Applies the service's pause and volume commands to `player` until the service asks the renderer to stop or the
-/// connection ends.
-fn wait_for_close(connection: &mut Connection, player: &Player) {
+/// connection ends. A new rectangle is handed to the main thread through `pending_rect` and `proxy`.
+fn wait_for_close(connection: &mut Connection, player: &Player, pending_rect: &PendingRect, proxy: &LoopProxy) {
     loop {
         match connection.recv::<ToRenderer>() {
             Ok(ToRenderer::Close) => {
@@ -247,6 +276,17 @@ fn wait_for_close(connection: &mut Connection, player: &Player) {
                 if let Err(error) = player.set_volume(volume) {
                     tracing::warn!(%error, volume, "cannot change the volume");
                 }
+            }
+            Ok(ToRenderer::SetRect([left, top, right, bottom])) => {
+                let rect = RectPx {
+                    left,
+                    top,
+                    right,
+                    bottom,
+                };
+                // Only the newest rectangle matters, so a burst of changes collapses into one move.
+                *pending_rect.lock().unwrap_or_else(PoisonError::into_inner) = Some(rect);
+                proxy.wake();
             }
             // A second assignment is not part of this plan; later plans act on it.
             Ok(ToRenderer::Assign(_)) => tracing::warn!("ignoring an unexpected second assignment"),

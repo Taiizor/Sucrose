@@ -46,6 +46,9 @@ pub enum ToRenderer {
     Pause(bool),
     /// Set the playback volume, 0..=100.
     SetVolume(u8),
+    /// Move the surface onto this rectangle (left, top, right, bottom, physical pixels) without restarting playback:
+    /// the monitor moved, was resized or changed its DPI.
+    SetRect([i32; 4]),
 }
 
 /// How the player is configured, taken from the legacy Engine.json (D-09).
@@ -142,6 +145,17 @@ mod tests {
         // Appended after Close (0) and Assign (1).
         assert_eq!(postcard::to_stdvec(&ToRenderer::Pause(true)).expect("encode")[0], 2);
         assert_eq!(postcard::to_stdvec(&ToRenderer::SetVolume(40)).expect("encode")[0], 3);
+    }
+
+    #[test]
+    fn set_rect_keeps_its_wire_index_and_survives_the_wire() {
+        let message = ToRenderer::SetRect([-1920, 0, 0, 1080]);
+
+        let bytes = postcard::to_stdvec(&message).expect("encode");
+
+        // Appended after Close (0), Assign (1), Pause (2) and SetVolume (3).
+        assert_eq!(bytes[0], 4);
+        assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
     }
 
     #[test]

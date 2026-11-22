@@ -31,7 +31,7 @@ pub mod layout;
 
 pub use geometry::{MonitorInfo, RectPx};
 pub use icon::truncate_tooltip;
-pub use imp::{DesktopSurface, EventLoop, LoopProxy, RendererJob, Tray};
+pub use imp::{DesktopSurface, EventLoop, LoopProxy, LoopTimers, RendererJob, Tray};
 
 /// What an [`EventLoop`] tells its handler.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -40,6 +40,13 @@ pub enum LoopEvent {
     Wake,
     /// Another thread (or the tray menu) called [`LoopProxy::quit`].
     Quit,
+    /// A monitor was plugged in or removed, its resolution or DPI changed, or the work area changed. Bursts are
+    /// normal: the receiver debounces.
+    DisplayChanged,
+    /// The shell (explorer.exe) started again, so everything it owned, including the desktop surface, is gone.
+    ShellRestarted,
+    /// The timer with this id (see [`EventLoop::set_timer`]) fired.
+    Timer(u32),
 }
 
 /// What the handler of an [`EventLoop`] wants next.

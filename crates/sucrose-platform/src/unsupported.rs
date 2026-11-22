@@ -22,6 +22,16 @@ impl DesktopSurface {
     pub fn native_handle(&self) -> u64 {
         0
     }
+
+    /// Always fails on this OS.
+    pub fn set_rect(&self, _rect: RectPx) -> Result<(), PlatformError> {
+        Err(PlatformError::Unsupported("desktop surface"))
+    }
+
+    /// Never true: no surface exists on this OS.
+    pub fn destroyed_externally(&self) -> bool {
+        false
+    }
 }
 
 /// The thread's message loop. Not available on this OS.
@@ -41,6 +51,29 @@ impl EventLoop {
 
     /// Returns at once: there is nothing to run.
     pub fn run(self, _handler: impl FnMut(LoopEvent) -> Flow) {}
+
+    /// Does nothing on this OS.
+    pub fn set_timer(&self, _id: u32, _ms: u32) {}
+
+    /// Does nothing on this OS.
+    pub fn kill_timer(&self, _id: u32) {}
+
+    /// A handle for the loop's timers, which do nothing on this OS.
+    pub fn timers(&self) -> LoopTimers {
+        LoopTimers
+    }
+}
+
+/// Starts and stops the timers of an [`EventLoop`]. Not available on this OS.
+#[derive(Debug, Clone, Copy)]
+pub struct LoopTimers;
+
+impl LoopTimers {
+    /// Does nothing on this OS.
+    pub fn set(&self, _id: u32, _ms: u32) {}
+
+    /// Does nothing on this OS.
+    pub fn kill(&self, _id: u32) {}
 }
 
 /// Wakes or stops an [`EventLoop`] from any thread.

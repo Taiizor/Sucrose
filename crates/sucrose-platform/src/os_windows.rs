@@ -19,7 +19,7 @@ use windows::{
 use crate::{Capabilities, MonitorInfo, Platform, PlatformError};
 
 pub(crate) use display::init_dpi_awareness;
-pub use event_loop::{EventLoop, LoopProxy};
+pub use event_loop::{EventLoop, LoopProxy, LoopTimers};
 pub use job::RendererJob;
 pub(crate) use refresh::refresh_desktop;
 pub use surface::DesktopSurface;

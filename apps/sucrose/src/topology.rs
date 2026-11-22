@@ -130,10 +130,109 @@ impl SlotMap {
     pub fn release(&mut self, slot: u8) -> bool {
         self.draining.remove(&slot)
     }
+}
 
-    /// Whether `slot` belongs to a removed monitor whose renderer has not ended yet.
-    pub fn is_draining(&self, slot: u8) -> bool {
-        self.draining.contains(&slot)
+/// The timer that waits for a burst of display events to end.
+pub const TOPOLOGY_DEBOUNCE: u32 = 1;
+/// The timer that waits before the settle check.
+pub const TOPOLOGY_SETTLE: u32 = 2;
+/// How long the monitors have to stay quiet before they are looked at (the legacy app's debounce).
+pub const DEBOUNCE_MS: u32 = 2000;
+/// How long after the first look the second one is taken (the legacy app's settle check).
+pub const SETTLE_MS: u32 = 500;
+
+/// What the service has to do with one of its loop timers.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum TimerCommand {
+    /// Start the timer (or restart it when it already runs).
+    Arm {
+        /// The timer's id.
+        id: u32,
+        /// Milliseconds until it fires.
+        ms: u32,
+    },
+    /// Stop the timer. Window timers repeat, so each one is stopped as soon as it has done its job.
+    Kill(u32),
+}
+
+/// What a step of the [`Debounce`] asks for.
+#[derive(Debug, Default, PartialEq, Eq)]
+pub struct DebounceStep {
+    /// Timers to start or stop, in order.
+    pub timers: Vec<TimerCommand>,
+    /// The monitors to apply (a stable snapshot), once display events have stopped and two looks agree.
+    pub apply: Option<Vec<MonitorInfo>>,
+}
+
+#[derive(Debug, Default)]
+enum Phase {
+    /// No display event is pending and no timer runs.
+    #[default]
+    Idle,
+    /// Display events came in; waiting for [`DEBOUNCE_MS`] without another one.
+    Waiting,
+    /// First look taken, waiting [`SETTLE_MS`] for the second.
+    Settling(Vec<MonitorInfo>),
+}
+
+/// Turns bursts of display events into at most one application of the monitors: [`DEBOUNCE_MS`] after the last
+/// event the monitors are looked at, [`SETTLE_MS`] later they are looked at again, and only two equal looks are
+/// applied. It owns no timer: it says which timers to start and stop, so a fake sequence of events tests it.
+#[derive(Debug, Default)]
+pub struct Debounce {
+    phase: Phase,
+}
+
+impl Debounce {
+    /// A display event arrived: the debounce starts over.
+    pub fn display_changed(&mut self) -> DebounceStep {
+        let mut timers = Vec::new();
+        if matches!(self.phase, Phase::Settling(_)) {
+            timers.push(TimerCommand::Kill(TOPOLOGY_SETTLE));
+        }
+        self.phase = Phase::Waiting;
+        timers.push(TimerCommand::Arm {
+            id: TOPOLOGY_DEBOUNCE,
+            ms: DEBOUNCE_MS,
+        });
+        DebounceStep { timers, apply: None }
+    }
+
+    /// The debounce timer fired and `snapshot` is the monitors now.
+    pub fn debounce_fired(&mut self, snapshot: Vec<MonitorInfo>) -> DebounceStep {
+        let mut timers = vec![TimerCommand::Kill(TOPOLOGY_DEBOUNCE)];
+        // A stale firing (the timer was restarted after its message was queued) changes nothing.
+        if matches!(self.phase, Phase::Waiting) {
+            self.phase = Phase::Settling(snapshot);
+            timers.push(TimerCommand::Arm {
+                id: TOPOLOGY_SETTLE,
+                ms: SETTLE_MS,
+            });
+        }
+        DebounceStep { timers, apply: None }
+    }
+
+    /// The settle timer fired and `snapshot` is the monitors now: equal to the first look, it is applied; otherwise
+    /// the monitors are still changing and the debounce starts over.
+    pub fn settle_fired(&mut self, snapshot: Vec<MonitorInfo>) -> DebounceStep {
+        let mut timers = vec![TimerCommand::Kill(TOPOLOGY_SETTLE)];
+        match std::mem::take(&mut self.phase) {
+            Phase::Settling(first) if first == snapshot => {
+                return DebounceStep {
+                    timers,
+                    apply: Some(snapshot),
+                };
+            }
+            Phase::Settling(_) => {
+                self.phase = Phase::Waiting;
+                timers.push(TimerCommand::Arm {
+                    id: TOPOLOGY_DEBOUNCE,
+                    ms: DEBOUNCE_MS,
+                });
+            }
+            other => self.phase = other,
+        }
+        DebounceStep { timers, apply: None }
     }
 }
 
@@ -270,6 +369,107 @@ mod tests {
         assert_eq!(working[0].work, working[0].rect);
     }
 
+    fn arm(id: u32, ms: u32) -> TimerCommand {
+        TimerCommand::Arm { id, ms }
+    }
+
+    #[test]
+    fn debounce_a_burst_of_events_leads_to_exactly_one_application() {
+        let mut debounce = Debounce::default();
+
+        for _ in 0..5 {
+            let step = debounce.display_changed();
+            assert_eq!(step.timers, [arm(TOPOLOGY_DEBOUNCE, 2000)]);
+            assert_eq!(step.apply, None);
+        }
+        let first = debounce.debounce_fired(vec![left()]);
+        let second = debounce.settle_fired(vec![left()]);
+
+        assert_eq!(
+            first.timers,
+            [TimerCommand::Kill(TOPOLOGY_DEBOUNCE), arm(TOPOLOGY_SETTLE, 500)]
+        );
+        assert_eq!(second.apply, Some(vec![left()]));
+        assert_eq!(second.timers, [TimerCommand::Kill(TOPOLOGY_SETTLE)]);
+        // Nothing is left over: a late settle message does not apply again.
+        assert_eq!(debounce.settle_fired(vec![left()]).apply, None);
+    }
+
+    #[test]
+    fn debounce_two_looks_that_differ_restart_the_wait_without_applying() {
+        let mut debounce = Debounce::default();
+        debounce.display_changed();
+        debounce.debounce_fired(vec![left()]);
+
+        let step = debounce.settle_fired(vec![left(), right()]);
+
+        assert_eq!(step.apply, None);
+        assert_eq!(
+            step.timers,
+            [TimerCommand::Kill(TOPOLOGY_SETTLE), arm(TOPOLOGY_DEBOUNCE, 2000)]
+        );
+        // The wait ran again and the monitors stayed the same this time.
+        debounce.debounce_fired(vec![left(), right()]);
+        assert_eq!(
+            debounce.settle_fired(vec![left(), right()]).apply,
+            Some(vec![left(), right()])
+        );
+    }
+
+    #[test]
+    fn debounce_an_event_during_the_settle_wait_starts_over() {
+        let mut debounce = Debounce::default();
+        debounce.display_changed();
+        debounce.debounce_fired(vec![left()]);
+
+        let step = debounce.display_changed();
+
+        assert_eq!(
+            step.timers,
+            [TimerCommand::Kill(TOPOLOGY_SETTLE), arm(TOPOLOGY_DEBOUNCE, 2000)]
+        );
+        assert_eq!(
+            debounce.settle_fired(vec![left()]).apply,
+            None,
+            "a stale settle message does nothing"
+        );
+    }
+
+    #[test]
+    fn debounce_timers_that_fire_while_idle_only_stop_themselves() {
+        let mut debounce = Debounce::default();
+
+        let debounce_step = debounce.debounce_fired(vec![left()]);
+        let settle_step = debounce.settle_fired(vec![left()]);
+
+        assert_eq!(debounce_step.timers, [TimerCommand::Kill(TOPOLOGY_DEBOUNCE)]);
+        assert_eq!(settle_step.timers, [TimerCommand::Kill(TOPOLOGY_SETTLE)]);
+        assert_eq!(debounce_step.apply, None);
+        assert_eq!(settle_step.apply, None);
+    }
+
+    #[test]
+    fn debounce_never_leaves_a_timer_running_after_it_applied() {
+        let mut debounce = Debounce::default();
+        let mut running: BTreeSet<u32> = BTreeSet::new();
+        let mut run = |step: DebounceStep| {
+            for command in step.timers {
+                match command {
+                    TimerCommand::Arm { id, .. } => running.insert(id),
+                    TimerCommand::Kill(id) => running.remove(&id),
+                };
+            }
+            step.apply
+        };
+
+        run(debounce.display_changed());
+        run(debounce.debounce_fired(vec![left()]));
+        let applied = run(debounce.settle_fired(vec![left()]));
+
+        assert!(applied.is_some());
+        assert!(running.is_empty(), "still running: {running:?}");
+    }
+
     #[test]
     fn slots_follow_the_monitor_not_the_order() {
         let mut slots = SlotMap::default();
@@ -288,7 +488,6 @@ mod tests {
         slots.assign("B");
 
         assert_eq!(slots.retire("A"), Some(0));
-        assert!(slots.is_draining(0));
         assert_eq!(slots.assign("C"), Some(2), "slot 0 still has a renderer");
 
         assert!(slots.release(0));

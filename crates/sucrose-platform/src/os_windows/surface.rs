@@ -6,6 +6,7 @@
 //! composited there. The layout is read from the window tree, never from the OS build number.
 
 use std::{
+    cell::RefCell,
     mem::size_of,
     thread,
     time::{Duration, Instant},
@@ -19,12 +20,13 @@ use windows::{
         Graphics::Gdi::{BLACK_BRUSH, ClientToScreen, GetStockObject, HBRUSH},
         System::LibraryLoader::GetModuleHandleW,
         UI::WindowsAndMessaging::{
-            CreateWindowExW, DefWindowProcW, DestroyWindow, EnumWindows, FindWindowExW, FindWindowW, GA_ROOT, GW_CHILD,
-            GW_HWNDNEXT, GWL_EXSTYLE, GWL_STYLE, GetAncestor, GetClassNameW, GetWindow, GetWindowLongPtrW,
-            GetWindowRect, IsWindowVisible, LWA_ALPHA, MA_NOACTIVATE, RegisterClassExW, SMTO_NORMAL, SWP_NOACTIVATE,
-            SWP_NOMOVE, SWP_NOSIZE, SWP_NOZORDER, SWP_SHOWWINDOW, SendMessageTimeoutW, SetLayeredWindowAttributes,
-            SetParent, SetWindowLongPtrW, SetWindowPos, WINDOW_LONG_PTR_INDEX, WM_MOUSEACTIVATE, WNDCLASSEXW, WS_CHILD,
-            WS_CLIPCHILDREN, WS_CLIPSIBLINGS, WS_EX_LAYERED, WS_EX_NOACTIVATE, WS_EX_TOOLWINDOW, WS_POPUP, WS_VISIBLE,
+            CreateWindowExW, DefWindowProcW, DestroyWindow, EnumWindows, FindWindowExW, FindWindowW, GA_PARENT,
+            GA_ROOT, GW_CHILD, GW_HWNDNEXT, GWL_EXSTYLE, GWL_STYLE, GetAncestor, GetClassNameW, GetWindow,
+            GetWindowLongPtrW, GetWindowRect, IsWindowVisible, LWA_ALPHA, MA_NOACTIVATE, PostQuitMessage,
+            RegisterClassExW, SMTO_NORMAL, SWP_NOACTIVATE, SWP_NOMOVE, SWP_NOSIZE, SWP_NOZORDER, SWP_SHOWWINDOW,
+            SendMessageTimeoutW, SetLayeredWindowAttributes, SetParent, SetWindowLongPtrW, SetWindowPos,
+            WINDOW_LONG_PTR_INDEX, WM_DESTROY, WM_MOUSEACTIVATE, WNDCLASSEXW, WS_CHILD, WS_CLIPCHILDREN,
+            WS_CLIPSIBLINGS, WS_EX_LAYERED, WS_EX_NOACTIVATE, WS_EX_TOOLWINDOW, WS_POPUP, WS_VISIBLE,
         },
     },
     core::{BOOL, PCWSTR, w},
@@ -41,6 +43,14 @@ const CLASS_NAME: PCWSTR = w!("SucroseDesktopSurface");
 const ATTACH_TIMEOUT: Duration = Duration::from_secs(10);
 /// The undocumented Progman message that makes the shell create the wallpaper `WorkerW`.
 const SPAWN_WORKERW: u32 = 0x052C;
+
+thread_local! {
+    /// Surfaces that `Drop` is destroying on purpose, by window handle.
+    static DROPPING: RefCell<Vec<isize>> = const { RefCell::new(Vec::new()) };
+    /// Surfaces somebody else destroyed (the shell destroys its windows, and with them every child, when explorer.exe
+    /// ends), by window handle.
+    static LOST: RefCell<Vec<isize>> = const { RefCell::new(Vec::new()) };
+}
 
 /// A window behind the desktop icons of one monitor. It lives on the thread that created it, which must pump
 /// messages (see [`crate::EventLoop`]), so it is not `Send`.
@@ -124,6 +134,14 @@ unsafe extern "system" fn collect_defview_holders(hwnd: HWND, data: LPARAM) -> B
 unsafe extern "system" fn surface_proc(hwnd: HWND, message: u32, wparam: WPARAM, lparam: LPARAM) -> LRESULT {
     if message == WM_MOUSEACTIVATE {
         return LRESULT(MA_NOACTIVATE as isize);
+    }
+    if message == WM_DESTROY {
+        let handle = hwnd.0 as isize;
+        if !DROPPING.with(|dropping| dropping.borrow().contains(&handle)) {
+            LOST.with(|lost| lost.borrow_mut().push(handle));
+            // SAFETY: only asks this thread's message loop to end; there is nothing to validate.
+            unsafe { PostQuitMessage(0) };
+        }
     }
     // SAFETY: forwards the arguments the OS gave this window procedure, unchanged.
     unsafe { DefWindowProcW(hwnd, message, wparam, lparam) }
@@ -328,6 +346,30 @@ impl DesktopSurface {
         }
     }
 
+    /// Moves the surface onto `rect` (physical pixels of the virtual desktop) without recreating it, so what is
+    /// embedded in it keeps playing; the embedded window follows the surface's size by itself.
+    pub fn set_rect(&self, rect: RectPx) -> Result<(), PlatformError> {
+        // SAFETY: read-only query on a window handle owned by this thread.
+        let parent = unsafe { GetAncestor(self.hwnd, GA_PARENT) };
+        if parent.is_invalid() {
+            return Err(PlatformError::Failed {
+                context: "move the desktop surface",
+                message: "the surface has no parent window".to_owned(),
+            });
+        }
+        place(self.hwnd, parent, rect).map_err(|message| PlatformError::Failed {
+            context: "move the desktop surface",
+            message,
+        })
+    }
+
+    /// Whether the surface was destroyed by someone else, which is what an explorer.exe restart does to it. A
+    /// renderer whose surface is gone has to be replaced, not repaired.
+    pub fn destroyed_externally(&self) -> bool {
+        let handle = self.hwnd.0 as isize;
+        LOST.with(|lost| lost.borrow().contains(&handle))
+    }
+
     /// The window handle as a number, for engines that embed into it (mpv `wid`).
     pub fn native_handle(&self) -> u64 {
         self.hwnd.0 as usize as u64
@@ -432,8 +474,15 @@ fn send_spawn_message(progman: HWND) {
 
 impl Drop for DesktopSurface {
     fn drop(&mut self) {
-        // SAFETY: the window was created by this thread and is destroyed exactly once, here. A failure leaves nothing
-        // to act on at shutdown.
-        let _ = unsafe { DestroyWindow(self.hwnd) };
+        let handle = self.hwnd.0 as isize;
+        // A surface the shell already destroyed has no window left to destroy, and its handle value may be reused.
+        if !self.destroyed_externally() {
+            DROPPING.with(|dropping| dropping.borrow_mut().push(handle));
+            // SAFETY: the window was created by this thread and is destroyed exactly once, here. A failure leaves
+            // nothing to act on at shutdown.
+            let _ = unsafe { DestroyWindow(self.hwnd) };
+            DROPPING.with(|dropping| dropping.borrow_mut().retain(|h| *h != handle));
+        }
+        LOST.with(|lost| lost.borrow_mut().retain(|h| *h != handle));
     }
 }

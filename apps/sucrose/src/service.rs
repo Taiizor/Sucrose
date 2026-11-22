@@ -20,13 +20,15 @@ use sucrose_ipc::{
     Connection, IpcError, Listener, endpoint_name,
     protocol::{Assignment, PROTOCOL_VERSION, PlaybackSettings, ToRenderer, ToService},
 };
-use sucrose_platform::{EventLoop, Flow, LoopEvent, LoopProxy, MonitorInfo, PlatformError, Tray};
+use sucrose_platform::{EventLoop, Flow, LoopEvent, LoopProxy, LoopTimers, MonitorInfo, PlatformError, RectPx, Tray};
 // ScreenArea is read below to choose the surface rectangle.
 use sucrose_core::settings::ScreenArea;
 
 use crate::{
     supervisor::{Decision, Exited, RestartBudget, START_FAILED, Supervisor, classify_exit, decide},
-    topology::{SlotMap, TopologyAction, diff, primary, with_area},
+    topology::{
+        Debounce, SlotMap, TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, TimerCommand, TopologyAction, diff, primary, with_area,
+    },
 };
 
 /// Where this user's service listens.
@@ -115,6 +117,9 @@ const SHUTDOWN_GRACE: Duration = Duration::from_secs(2);
 /// The tray icon the service shows (the C# Launcher's image, D-14).
 const TRAY_ICON: &[u8] = include_bytes!("../assets/TrayIcon.ico");
 
+/// Why no wallpaper plays while the OS reports no monitor.
+const NO_MONITOR: &str = "the OS reports no monitor";
+
 /// The longest reason or hint taken from a renderer, so a misbehaving renderer cannot flood the log (T-02-19).
 const MAX_REPORT_CHARS: usize = 300;
 
@@ -148,6 +153,11 @@ impl Status {
     /// The tray tooltip: the same sentence, cut to what the notification area keeps.
     fn tooltip(&self) -> String {
         sucrose_platform::truncate_tooltip(&self.text())
+    }
+
+    /// Whether no renderer runs only because no monitor was connected.
+    fn is_waiting_for_a_monitor(&self) -> bool {
+        matches!(self, Self::NoWallpaper { reason } if reason == NO_MONITOR)
     }
 
     /// Whether the user has to be told that no wallpaper plays.
@@ -257,7 +267,7 @@ pub fn run() -> anyhow::Result<()> {
         let ids: Vec<&str> = monitors.iter().map(|monitor| monitor.id.as_str()).collect();
         if monitors.is_empty() {
             status = Status::NoWallpaper {
-                reason: "the OS reports no monitor".to_owned(),
+                reason: NO_MONITOR.to_owned(),
             };
         }
         let primary_id = primary(&monitors).map(|monitor| monitor.id.clone());
@@ -265,6 +275,7 @@ pub fn run() -> anyhow::Result<()> {
             diff(&[], &monitors),
             &Ctx {
                 supervisor: &supervisor,
+                renderers: &renderers,
             },
         );
         if applied.started == 0 && applied.failed > 0 {
@@ -291,8 +302,7 @@ pub fn run() -> anyhow::Result<()> {
     }
 
     let mut quitting = false;
-    // One restart budget per monitor slot (D-22).
-    let mut budgets: HashMap<u8, RestartBudget> = HashMap::new();
+    let timers = event_loop.timers();
     event_loop.run(|event| match event {
         LoopEvent::Wake => {
             for event in receiver.try_iter() {
@@ -315,36 +325,49 @@ pub fn run() -> anyhow::Result<()> {
                     }
                     Event::Exited(exited) => {
                         lock(&renderers).connections.remove(&exited.slot);
-                        if !quitting {
-                            let budget = budgets.entry(exited.slot).or_default();
-                            let class = classify_exit(exited.code);
-                            let decision = decide(budget, class, Instant::now());
-                            tracing::info!(slot = exited.slot, ?class, ?decision, "a renderer ended");
-                            let next = match decision {
-                                Decision::Leave => None,
-                                Decision::Restart(after) => {
-                                    tracing::warn!(slot = exited.slot, ?class, ?after, "restarting the renderer");
-                                    supervisor.restart_after(exited.slot, after, i32::from(START_FAILED));
-                                    status.restarting()
-                                }
-                                Decision::GiveUp(exhausted) => {
-                                    let monitor = fleet
-                                        .slots
-                                        .monitor_of(exited.slot)
-                                        .map_or_else(|| format!("slot {}", exited.slot), str::to_owned);
-                                    let stopped = Status::RendererStopped {
-                                        monitor,
-                                        reason: exhausted.reason(),
-                                    };
-                                    tracing::warn!(status = %stopped.text(), "no wallpaper, the service waits in the tray");
-                                    Some(stopped)
-                                }
-                            };
-                            if let Some(next) = next {
-                                status = next;
-                                if let Some(tray) = &tray {
-                                    tray.set_tooltip(&status.tooltip());
-                                }
+                        if quitting {
+                            continue;
+                        }
+                        if fleet.slots.release(exited.slot) {
+                            // The monitor was unplugged: this exit is the answer to the Close, nothing to restart.
+                            fleet.budgets.remove(&exited.slot);
+                            fleet.stopped.remove(&exited.slot);
+                            tracing::info!(slot = exited.slot, "the renderer of a removed monitor ended");
+                            continue;
+                        }
+                        let budget = fleet.budgets.entry(exited.slot).or_default();
+                        let class = classify_exit(exited.code);
+                        let decision = decide(budget, class, Instant::now());
+                        tracing::info!(slot = exited.slot, ?class, ?decision, "a renderer ended");
+                        let next = match decision {
+                            Decision::Leave => {
+                                fleet.stopped.insert(exited.slot);
+                                None
+                            }
+                            Decision::Restart(after) => {
+                                fleet.stopped.remove(&exited.slot);
+                                tracing::warn!(slot = exited.slot, ?class, ?after, "restarting the renderer");
+                                supervisor.restart_after(exited.slot, after, i32::from(START_FAILED));
+                                status.restarting()
+                            }
+                            Decision::GiveUp(exhausted) => {
+                                fleet.stopped.insert(exited.slot);
+                                let monitor = fleet
+                                    .slots
+                                    .monitor_of(exited.slot)
+                                    .map_or_else(|| format!("slot {}", exited.slot), str::to_owned);
+                                let stopped = Status::RendererStopped {
+                                    monitor,
+                                    reason: exhausted.reason(),
+                                };
+                                tracing::warn!(status = %stopped.text(), "no wallpaper, the service waits in the tray");
+                                Some(stopped)
+                            }
+                        };
+                        if let Some(next) = next {
+                            status = next;
+                            if let Some(tray) = &tray {
+                                tray.set_tooltip(&status.tooltip());
                             }
                         }
                     }
@@ -357,12 +380,60 @@ pub fn run() -> anyhow::Result<()> {
             if !quitting {
                 quitting = true;
                 tracing::info!("Quit chosen, closing the renderers");
+                // No monitor change is applied while the renderers are being closed.
+                for id in [TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE] {
+                    timers.kill(id);
+                }
                 start_shutdown(&renderers, &supervisor, &notifier);
             }
             Flow::Continue
         }
-        // Monitor and shell events are handled by later steps of this plan.
-        _ => Flow::Continue,
+        // Monitors and DPI are the service's to watch: a surface parented into the desktop no longer hears about
+        // them. The events come in bursts, so they only (re)start the debounce.
+        LoopEvent::DisplayChanged => {
+            if !quitting && fleet.job.is_some() {
+                run_timers(&timers, fleet.debounce.display_changed().timers);
+            }
+            Flow::Continue
+        }
+        LoopEvent::Timer(id) => {
+            let Some(screen) = fleet.job.as_ref().map(|job| job.screen) else {
+                timers.kill(id);
+                return Flow::Continue;
+            };
+            let step = match id {
+                TOPOLOGY_DEBOUNCE => fleet.debounce.debounce_fired(with_area(platform.monitors(), screen)),
+                TOPOLOGY_SETTLE => fleet.debounce.settle_fired(with_area(platform.monitors(), screen)),
+                other => {
+                    tracing::debug!(id = other, "an unknown timer fired, stopping it");
+                    timers.kill(other);
+                    return Flow::Continue;
+                }
+            };
+            run_timers(&timers, step.timers);
+            if let (Some(monitors), false) = (step.apply, quitting) {
+                let applied = fleet.apply_snapshot(
+                    monitors,
+                    &Ctx {
+                        supervisor: &supervisor,
+                        renderers: &renderers,
+                    },
+                );
+                if applied.started > 0 && status.is_waiting_for_a_monitor() {
+                    if let Some(job) = &fleet.job {
+                        status = Status::Starting {
+                            title: job.title.clone(),
+                        };
+                    }
+                    if let Some(tray) = &tray {
+                        tray.set_tooltip(&status.tooltip());
+                    }
+                }
+            }
+            Flow::Continue
+        }
+        // The shell restarting is handled by a later step of this plan.
+        LoopEvent::ShellRestarted => Flow::Continue,
     });
     drop(tray);
     tracing::info!("the service stopped");
@@ -551,6 +622,25 @@ fn read_connection(
         _ => {}
     }
     register_writer(renderers, slot, &mut connection);
+    // A change that came between the reply and the registration found no connection to send to: catch up.
+    if let ToRenderer::Assign(sent) = &reply {
+        match lock_assignments(assignments)
+            .get(&slot)
+            .map(|assignment| assignment.rect)
+        {
+            Some(rect) if rect != sent.rect => {
+                if let Err(error) = connection.send(&ToRenderer::SetRect(rect)) {
+                    tracing::warn!(%error, slot, "cannot send the new rectangle to a renderer");
+                }
+            }
+            Some(_) => {}
+            None => {
+                if let Err(error) = connection.send(&ToRenderer::Close) {
+                    tracing::warn!(%error, slot, "cannot send Close to a renderer");
+                }
+            }
+        }
+    }
     if !notifier.send(Event::Renderer(first)) {
         return;
     }
@@ -675,9 +765,35 @@ impl Job {
     }
 }
 
+/// Sends `message` to the renderer of `slot`. `false` when it has no connection (it is still starting) or the send
+/// failed.
+fn send_to(renderers: &Mutex<Renderers>, slot: u8, message: &ToRenderer) -> bool {
+    match lock(renderers).connections.get_mut(&slot) {
+        Some(connection) => match connection.send(message) {
+            Ok(()) => true,
+            Err(error) => {
+                tracing::warn!(%error, slot, "cannot send a message to a renderer");
+                false
+            }
+        },
+        None => false,
+    }
+}
+
+/// Starts and stops loop timers as the debounce asks.
+fn run_timers(timers: &LoopTimers, commands: Vec<TimerCommand>) {
+    for command in commands {
+        match command {
+            TimerCommand::Arm { id, ms } => timers.set(id, ms),
+            TimerCommand::Kill(id) => timers.kill(id),
+        }
+    }
+}
+
 /// What the fleet needs from the rest of the service to act on a change.
 struct Ctx<'a> {
     supervisor: &'a Arc<Supervisor>,
+    renderers: &'a SharedRenderers,
 }
 
 /// How many renderers an application of monitor changes started and could not start.
@@ -696,6 +812,11 @@ struct Fleet {
     /// The monitors the renderers follow, as last applied, with the rectangle of the area they cover.
     monitors: Vec<MonitorInfo>,
     assignments: SharedAssignments,
+    debounce: Debounce,
+    /// One restart budget per monitor slot (D-22).
+    budgets: HashMap<u8, RestartBudget>,
+    /// Slots whose renderer ended for good (nothing to restart): no exit event will ever come for them again.
+    stopped: HashSet<u8>,
 }
 
 impl Fleet {
@@ -705,7 +826,28 @@ impl Fleet {
             slots: SlotMap::default(),
             monitors: Vec::new(),
             assignments,
+            debounce: Debounce::default(),
+            budgets: HashMap::new(),
+            stopped: HashSet::new(),
         }
+    }
+
+    /// Applies the monitors of a snapshot that two looks agreed on. An empty snapshot is the OS in the middle of a
+    /// hot-plug and changes nothing: the renderers stay until a snapshot with monitors arrives.
+    fn apply_snapshot(&mut self, monitors: Vec<MonitorInfo>, ctx: &Ctx<'_>) -> Applied {
+        if monitors.is_empty() {
+            tracing::info!("the OS reports no monitor, the renderers stay as they are");
+            return Applied::default();
+        }
+        let actions = diff(&self.monitors, &monitors);
+        if actions.is_empty() {
+            tracing::debug!("the monitors did not change in a way that matters");
+            return Applied::default();
+        }
+        tracing::info!(actions = actions.len(), "applying a monitor change");
+        let applied = self.apply(actions, ctx);
+        self.monitors = monitors;
+        applied
     }
 
     /// Carries out `actions` (see [`diff`]).
@@ -720,8 +862,8 @@ impl Fleet {
                         applied.failed += 1;
                     }
                 }
-                // Applied when the monitors change while the service runs.
-                TopologyAction::Close(_) | TopologyAction::SetRect(..) => {}
+                TopologyAction::Close(id) => self.close(&id, ctx),
+                TopologyAction::SetRect(id, rect) => self.move_to(&id, rect, ctx),
             }
         }
         applied
@@ -737,6 +879,8 @@ impl Fleet {
             return false;
         };
         lock_assignments(&self.assignments).insert(slot, job.assignment(slot, monitor));
+        self.budgets.remove(&slot);
+        self.stopped.remove(&slot);
         match ctx.supervisor.spawn(slot) {
             Ok(()) => true,
             Err(error) => {
@@ -744,6 +888,38 @@ impl Fleet {
                 false
             }
         }
+    }
+
+    /// The monitor `id` is gone: its renderer is closed and only it. The slot stays reserved until that renderer
+    /// has ended, so a monitor plugged in right now cannot get a slot that is still in use.
+    fn close(&mut self, id: &str, ctx: &Ctx<'_>) {
+        let Some(slot) = self.slots.retire(id) else {
+            return;
+        };
+        lock_assignments(&self.assignments).remove(&slot);
+        // A renderer that has not said Hello yet has no connection: it is told to close when it does, because its
+        // assignment is gone.
+        let told = send_to(ctx.renderers, slot, &ToRenderer::Close);
+        tracing::info!(slot, monitor = %id, told, "the monitor is gone, closing its renderer");
+        if self.stopped.remove(&slot) && !ctx.supervisor.slots().contains(&slot) {
+            // Nothing runs and nothing will restart, so no exit event will come to free the slot.
+            self.slots.release(slot);
+            self.budgets.remove(&slot);
+        }
+    }
+
+    /// The monitor `id` moved, was resized or changed its DPI: its renderer keeps playing and moves its surface.
+    fn move_to(&mut self, id: &str, rect: RectPx, ctx: &Ctx<'_>) {
+        let Some(slot) = self.slots.slot_of(id) else {
+            return;
+        };
+        let rect = [rect.left, rect.top, rect.right, rect.bottom];
+        if let Some(assignment) = lock_assignments(&self.assignments).get_mut(&slot) {
+            // A renderer started later, or restarted, uses the new rectangle.
+            assignment.rect = rect;
+        }
+        let told = send_to(ctx.renderers, slot, &ToRenderer::SetRect(rect));
+        tracing::info!(slot, monitor = %id, ?rect, told, "the monitor changed, moving its surface");
     }
 }
 

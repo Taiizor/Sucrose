@@ -235,6 +235,10 @@ impl Supervisor {
         if state.closing {
             anyhow::bail!("the service is shutting down");
         }
+        // One renderer per slot, so a late restart can never double a monitor's renderer.
+        if state.running.contains(&slot) {
+            anyhow::bail!("slot {slot} already has a running renderer");
+        }
         let mut command = Command::new(&self.exe);
         command.arg("--render").arg(slot.to_string());
         let child = self.job.spawn(&mut command).context("cannot start the renderer")?;
@@ -340,8 +344,15 @@ impl Supervisor {
             .name(format!("renderer-restart-{slot}"))
             .spawn(move || {
                 thread::sleep(delay);
-                if this.lock().closing {
-                    return;
+                {
+                    let state = this.lock();
+                    if state.closing {
+                        return;
+                    }
+                    if state.running.contains(&slot) {
+                        tracing::info!(slot, "the slot already has a renderer, no restart needed");
+                        return;
+                    }
                 }
                 match this.spawn(slot) {
                     Ok(()) => tracing::info!(slot, "renderer restarted"),
