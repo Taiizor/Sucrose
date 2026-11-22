@@ -31,7 +31,7 @@ pub mod layout;
 
 pub use geometry::{MonitorInfo, RectPx};
 pub use icon::truncate_tooltip;
-pub use imp::{DesktopSurface, EventLoop, LoopProxy, Tray};
+pub use imp::{DesktopSurface, EventLoop, LoopProxy, RendererJob, Tray};
 
 /// What an [`EventLoop`] tells its handler.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

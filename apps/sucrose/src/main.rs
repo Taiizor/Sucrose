@@ -7,6 +7,7 @@
 
 mod render;
 mod service;
+mod supervisor;
 
 use std::process::ExitCode;
 

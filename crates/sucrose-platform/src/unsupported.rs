@@ -1,6 +1,11 @@
 //! The desktop surface and event loop on OSes that have no wallpaper support yet: every call reports
 //! [`PlatformError::Unsupported`] instead of pretending.
 
+use std::{
+    io,
+    process::{Child, Command},
+};
+
 use crate::{DpiAwareness, Flow, LoopEvent, PlatformError, RectPx};
 
 /// A surface behind the desktop icons. Not available on this OS.
@@ -62,6 +67,27 @@ impl Tray {
 
     /// Does nothing on this OS.
     pub fn set_tooltip(&self, _tooltip: &str) {}
+}
+
+/// Renderer processes started by the service. No wallpaper renderer exists on this OS yet, so this only spawns.
+#[derive(Debug)]
+pub struct RendererJob;
+
+impl RendererJob {
+    /// Always succeeds: there is nothing to create.
+    pub fn new() -> Result<Self, PlatformError> {
+        Ok(Self)
+    }
+
+    /// Starts `cmd` as a plain child process.
+    pub fn spawn(&self, cmd: &mut Command) -> io::Result<Child> {
+        cmd.spawn()
+    }
+
+    /// Does nothing: this OS has no job to end.
+    pub fn terminate_all(&self) -> Result<(), PlatformError> {
+        Ok(())
+    }
 }
 
 pub(crate) fn init_dpi_awareness() -> DpiAwareness {

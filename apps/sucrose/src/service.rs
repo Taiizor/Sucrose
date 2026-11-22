@@ -2,7 +2,6 @@
 
 use std::{
     collections::{HashMap, HashSet},
-    process::{Child, Command},
     sync::{Arc, Mutex, MutexGuard, PoisonError},
     thread,
     time::{Duration, Instant},
@@ -22,6 +21,8 @@ use sucrose_ipc::{
     protocol::{Assignment, PROTOCOL_VERSION, ToRenderer, ToService},
 };
 use sucrose_platform::{EventLoop, Flow, LoopEvent, LoopProxy, Platform, PlatformError, Tray};
+
+use crate::supervisor::{Exited, RESTART_DELAY, Supervisor};
 
 /// Where this user's service listens.
 pub struct Endpoint {
@@ -57,6 +58,8 @@ pub fn endpoint() -> anyhow::Result<Endpoint> {
 enum Event {
     /// A message from a renderer.
     Renderer(ToService),
+    /// A renderer process ended.
+    Exited(Exited),
     /// The shutdown worker finished closing every renderer.
     ShutdownDone,
 }
@@ -79,12 +82,9 @@ impl Notifier {
     }
 }
 
-/// The renderers this service started and the channels to them.
+/// The channels to the renderers this service started.
 #[derive(Default)]
 struct Renderers {
-    /// The pids of the processes this service started: the only ones whose Hello is accepted.
-    pids: HashSet<u32>,
-    children: Vec<(u8, Child)>,
     /// The write side of each connected renderer, by slot.
     connections: HashMap<u8, Connection>,
     /// Set when shutdown begins: a renderer that connects later is told to close at once.
@@ -196,6 +196,7 @@ pub fn run() -> anyhow::Result<()> {
 
     let platform = sucrose_platform::current();
     tracing::info!(
+        pid = std::process::id(),
         version = sucrose_core::VERSION,
         app_version = %app_version(),
         os = platform.name(),
@@ -217,15 +218,24 @@ pub fn run() -> anyhow::Result<()> {
         proxy: event_loop.proxy(),
     };
     let renderers: SharedRenderers = Arc::default();
+    let supervisor = Supervisor::new({
+        let notifier = notifier.clone();
+        move |exited| {
+            notifier.send(Event::Exited(exited));
+        }
+    })?;
     for assignment in assignments.iter() {
-        spawn_renderer(&renderers, assignment.slot)?;
+        supervisor.spawn(assignment.slot)?;
     }
-    let accept_renderers = Arc::clone(&renderers);
-    let accept_assignments = Arc::clone(&assignments);
-    let accept_notifier = notifier.clone();
+    let accept = Accept {
+        renderers: Arc::clone(&renderers),
+        supervisor: Arc::clone(&supervisor),
+        assignments: Arc::clone(&assignments),
+        notifier: notifier.clone(),
+    };
     thread::Builder::new()
         .name("ipc-accept".to_owned())
-        .spawn(move || accept_loop(&listener, &accept_renderers, &accept_assignments, &accept_notifier))
+        .spawn(move || accept_loop(&listener, &accept))
         .context("cannot start the accept thread")?;
 
     let tray_proxy = event_loop.proxy();
@@ -255,6 +265,13 @@ pub fn run() -> anyhow::Result<()> {
                             }
                         }
                     }
+                    Event::Exited(exited) => {
+                        lock(&renderers).connections.remove(&exited.slot);
+                        if !quitting && exited.code != Some(0) {
+                            tracing::warn!(slot = exited.slot, code = ?exited.code, "a renderer ended unexpectedly, restarting it");
+                            supervisor.restart_after(exited.slot, RESTART_DELAY, 4);
+                        }
+                    }
                     Event::ShutdownDone => return Flow::Exit,
                 }
             }
@@ -264,7 +281,7 @@ pub fn run() -> anyhow::Result<()> {
             if !quitting {
                 quitting = true;
                 tracing::info!("Quit chosen, closing the renderers");
-                start_shutdown(&renderers, &notifier);
+                start_shutdown(&renderers, &supervisor, &notifier);
             }
             Flow::Continue
         }
@@ -276,8 +293,9 @@ pub fn run() -> anyhow::Result<()> {
 
 /// Closes every renderer on a worker thread, so the message loop (and with it the tray) stays responsive while a
 /// renderer takes its time (T-02-20).
-fn start_shutdown(renderers: &SharedRenderers, notifier: &Notifier) {
+fn start_shutdown(renderers: &SharedRenderers, supervisor: &Arc<Supervisor>, notifier: &Notifier) {
     let renderers = Arc::clone(renderers);
+    let supervisor = Arc::clone(supervisor);
     let notifier = notifier.clone();
     let started = thread::Builder::new().name("shutdown".to_owned()).spawn({
         let notifier = notifier.clone();
@@ -285,8 +303,9 @@ fn start_shutdown(renderers: &SharedRenderers, notifier: &Notifier) {
             let mut control = {
                 let mut state = lock(&renderers);
                 state.closing = true;
+                supervisor.begin_shutdown();
                 ProcessRenderers {
-                    children: std::mem::take(&mut state.children),
+                    supervisor,
                     connections: std::mem::take(&mut state.connections),
                 }
             };
@@ -339,24 +358,15 @@ fn shutdown(control: &mut impl RendererControl, grace: Duration) {
     }
 }
 
-/// The real renderers: only the child handles this service spawned are ever touched (D-14).
+/// The real renderers: only the processes this service spawned are ever touched (D-14).
 struct ProcessRenderers {
-    children: Vec<(u8, Child)>,
+    supervisor: Arc<Supervisor>,
     connections: HashMap<u8, Connection>,
-}
-
-impl ProcessRenderers {
-    fn child(&mut self, slot: u8) -> Option<&mut Child> {
-        self.children
-            .iter_mut()
-            .find(|(candidate, _)| *candidate == slot)
-            .map(|(_, child)| child)
-    }
 }
 
 impl RendererControl for ProcessRenderers {
     fn slots(&self) -> Vec<u8> {
-        self.children.iter().map(|(slot, _)| *slot).collect()
+        self.supervisor.slots()
     }
 
     fn close(&mut self, slot: u8) {
@@ -371,75 +381,38 @@ impl RendererControl for ProcessRenderers {
     }
 
     fn wait_exit(&mut self, slot: u8, timeout: Duration) -> bool {
-        let Some(child) = self.child(slot) else {
-            return true;
-        };
-        let deadline = Instant::now() + timeout;
-        loop {
-            match child.try_wait() {
-                Ok(Some(status)) => {
-                    tracing::info!(slot, %status, "a renderer exited");
-                    return true;
-                }
-                Ok(None) => {}
-                Err(error) => {
-                    tracing::warn!(%error, slot, "cannot wait for a renderer");
-                    return false;
-                }
-            }
-            if Instant::now() >= deadline {
-                return false;
-            }
-            thread::sleep(Duration::from_millis(25));
-        }
+        self.supervisor.wait_exit(slot, timeout)
     }
 
-    fn kill(&mut self, slot: u8) {
-        if let Some(child) = self.child(slot) {
-            if let Err(error) = child.kill() {
-                tracing::warn!(%error, slot, "cannot stop a renderer");
-            }
-            // Reaps the process so no handle is left behind.
-            let _ = child.wait();
-        }
+    fn kill(&mut self, _slot: u8) {
+        // Only the renderers that ignored Close are left when this runs, so ending the job ends exactly those.
+        self.supervisor.kill_survivors();
     }
 }
 
-/// Starts `sucrose --render <slot>` and remembers it as a process this service started.
-fn spawn_renderer(renderers: &Mutex<Renderers>, slot: u8) -> anyhow::Result<()> {
-    let exe = std::env::current_exe().context("cannot find the path of this executable")?;
-    // Held across the spawn so a fast renderer cannot say Hello before its pid is recorded.
-    let mut state = lock(renderers);
-    let child = Command::new(exe)
-        .arg("--render")
-        .arg(slot.to_string())
-        .spawn()
-        .context("cannot start the renderer")?;
-    state.pids.insert(child.id());
-    tracing::info!(pid = child.id(), slot, "renderer started");
-    state.children.push((slot, child));
-    Ok(())
+/// What the accept thread and the reader threads need.
+struct Accept {
+    renderers: SharedRenderers,
+    supervisor: Arc<Supervisor>,
+    assignments: Arc<Vec<Assignment>>,
+    notifier: Notifier,
 }
 
 /// Accepts connections and gives each one a reader thread.
-fn accept_loop(
-    listener: &Listener,
-    renderers: &SharedRenderers,
-    assignments: &Arc<Vec<Assignment>>,
-    notifier: &Notifier,
-) {
+fn accept_loop(listener: &Listener, accept: &Accept) {
     const MAX_FAILURES: u32 = 10;
     let mut failures = 0;
     while failures < MAX_FAILURES {
         match listener.accept() {
             Ok(connection) => {
                 failures = 0;
-                let renderers = Arc::clone(renderers);
-                let assignments = Arc::clone(assignments);
-                let notifier = notifier.clone();
+                let renderers = Arc::clone(&accept.renderers);
+                let supervisor = Arc::clone(&accept.supervisor);
+                let assignments = Arc::clone(&accept.assignments);
+                let notifier = accept.notifier.clone();
                 let started = thread::Builder::new()
                     .name("ipc-reader".to_owned())
-                    .spawn(move || read_connection(connection, &renderers, &assignments, &notifier));
+                    .spawn(move || read_connection(connection, &renderers, &supervisor, &assignments, &notifier));
                 if let Err(error) = started {
                     tracing::warn!(%error, "cannot start a reader thread, dropping the connection");
                 }
@@ -458,6 +431,7 @@ fn accept_loop(
 fn read_connection(
     mut connection: Connection,
     renderers: &Mutex<Renderers>,
+    supervisor: &Supervisor,
     assignments: &[Assignment],
     notifier: &Notifier,
 ) {
@@ -468,10 +442,7 @@ fn read_connection(
             return;
         }
     };
-    let (accepted, closing) = {
-        let state = lock(renderers);
-        (accept_hello(&state.pids, &first), state.closing)
-    };
+    let (accepted, closing) = (accept_hello(&supervisor.pids(), &first), lock(renderers).closing);
     let slot = match accepted {
         Ok(slot) => slot,
         Err(refusal) => {

@@ -2,7 +2,7 @@
 
 use crate::{Capabilities, Platform};
 
-pub use crate::unsupported::{DesktopSurface, EventLoop, LoopProxy, Tray};
+pub use crate::unsupported::{DesktopSurface, EventLoop, LoopProxy, RendererJob, Tray};
 pub(crate) use crate::unsupported::{init_dpi_awareness, refresh_desktop};
 
 pub(crate) struct Current;
