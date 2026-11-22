@@ -20,9 +20,11 @@ use sucrose_ipc::{
     Connection, IpcError, Listener, endpoint_name,
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
 };
-use sucrose_platform::{EventLoop, Flow, LoopEvent, LoopProxy, LoopTimers, MonitorInfo, PlatformError, RectPx, Tray};
+use sucrose_platform::{
+    EventLoop, Flow, GpuPreferenceChange, LoopEvent, LoopProxy, LoopTimers, MonitorInfo, PlatformError, RectPx, Tray,
+};
 // ScreenArea is read below to choose the surface rectangle.
-use sucrose_core::settings::{FullScreenAction, PauseKind, ScreenArea};
+use sucrose_core::settings::{FullScreenAction, GpuPreference, PauseKind, ScreenArea};
 
 use crate::{
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
@@ -271,6 +273,9 @@ pub fn run() -> anyhow::Result<()> {
     })?;
     // One renderer per connected monitor (D-01), each playing the same video on its own monitor's surface.
     if let Some(screen) = fleet.job.as_ref().map(|job| job.screen) {
+        // Before the first renderer exists: Windows reads the per-app GPU preference when a process creates its
+        // Direct3D device, and every renderer runs this same executable.
+        apply_gpu_preference(&*platform, plan.gpu);
         let monitors = with_area(platform.monitors(), screen);
         let ids: Vec<&str> = monitors.iter().map(|monitor| monitor.id.as_str()).collect();
         if monitors.is_empty() {
@@ -876,6 +881,8 @@ struct Plan {
     fullscreen: FullScreenAction,
     /// Backgroundog.json PausePerformanceType.
     pause: PauseKind,
+    /// Engine.json GraphicPreference: the GPU Windows is asked to give the renderers (DESK-12).
+    gpu: GpuPreference,
 }
 
 /// What every renderer plays: the same video with the same settings on each monitor (D-01).
@@ -1312,6 +1319,7 @@ fn plan_wallpapers() -> Plan {
             app_visible: true,
             fullscreen: FullScreenAction::default(),
             pause: PauseKind::default(),
+            gpu: GpuPreference::default(),
         };
     };
     let settings = LegacySettings::load(&setting_dir, &root);
@@ -1323,6 +1331,7 @@ fn plan_wallpapers() -> Plan {
         stretch = ?settings.engine.stretch,
         hardware_acceleration = settings.engine.hardware_acceleration,
         screen = ?settings.engine.screen,
+        gpu_preference = ?settings.engine.gpu_preference,
         fullscreen = ?settings.backgroundog.fullscreen,
         pause = ?settings.backgroundog.pause,
         app_visible = settings.general.app_visible,
@@ -1343,6 +1352,33 @@ fn plan_wallpapers() -> Plan {
         app_visible: settings.general.app_visible,
         fullscreen: settings.backgroundog.fullscreen,
         pause: settings.backgroundog.pause,
+        gpu: settings.engine.gpu_preference,
+    }
+}
+
+/// Writes the GPU preference for this executable, which the renderers are spawned from (legacy
+/// `GraphicPreference.EnsureHighPerformance`). A failure only costs the default GPU: it is logged and never stops the
+/// service. The executable's path is not logged (T-02-40).
+fn apply_gpu_preference(platform: &dyn sucrose_platform::Platform, preference: GpuPreference) {
+    if !platform.capabilities().gpu_preference {
+        tracing::debug!("this OS has no per-app GPU preference");
+        return;
+    }
+    let exe = match std::env::current_exe() {
+        Ok(exe) => exe,
+        Err(error) => {
+            tracing::warn!(%error, "cannot set the GPU preference, the renderers use the default GPU");
+            return;
+        }
+    };
+    match platform.set_gpu_preference(&exe, preference) {
+        Ok(GpuPreferenceChange::Written) => tracing::info!(?preference, "GPU preference written for the renderers"),
+        Ok(GpuPreferenceChange::Unchanged) => {
+            tracing::info!(?preference, "GPU preference already set for the renderers");
+        }
+        Err(error) => {
+            tracing::warn!(%error, ?preference, "cannot set the GPU preference, the renderers use the default GPU");
+        }
     }
 }
 

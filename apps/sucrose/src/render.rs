@@ -114,6 +114,8 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         }
     };
 
+    log_video_adapter();
+
     // Opened here, on the thread that pumps the surface's messages: mpv hooks that thread to resize its child.
     let player = match start_engine(surface.native_handle(), &assignment) {
         Ok(player) => Arc::new(player),
@@ -275,6 +277,22 @@ fn report_failure(connection: &mut Connection, reason: String, hint: impl Into<S
         hint: hint.into(),
     }) {
         tracing::warn!(%error, "cannot tell the service why the wallpaper did not start");
+    }
+}
+
+/// Logs the GPU adapter the video device of this renderer gets. libmpv creates its Direct3D 11 device with no adapter
+/// named (config.rs sets no `d3d11-adapter`), and so does `default_gpu_adapter`, so both get the adapter Windows picks
+/// for this process from its GPU preference. The order of the adapter enumeration list says nothing about that, so
+/// no entry of it is logged as the adapter in use.
+fn log_video_adapter() {
+    match sucrose_platform::current().default_gpu_adapter() {
+        Some(adapter) => tracing::info!(
+            name = %adapter.name,
+            luid = %adapter.luid,
+            dedicated_mb = adapter.dedicated_video_memory_mb,
+            "video GPU adapter"
+        ),
+        None => tracing::debug!("the default GPU adapter is unknown on this OS"),
     }
 }
 

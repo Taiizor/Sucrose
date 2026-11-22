@@ -5,11 +5,12 @@
 use std::{
     fs,
     path::{Path, PathBuf},
+    sync::atomic::{AtomicUsize, Ordering},
     time::SystemTime,
 };
 
 use sucrose_config::legacy::{LegacyFile, LegacySettings, read};
-use sucrose_core::settings::{FullScreenAction, PauseKind, ScreenArea, Stretch};
+use sucrose_core::settings::{FullScreenAction, GpuPreference, PauseKind, ScreenArea, Stretch};
 
 const ROOT: &str = "legacy-root";
 
@@ -41,7 +42,10 @@ fn load(dir: &Path) -> LegacySettings {
 }
 
 fn engine(json: &str) -> sucrose_config::legacy::EngineSettings {
-    load(&scratch("engine-inline", &[("Engine.json", json)])).engine
+    // One folder per call: tests run in parallel and must not overwrite each other's Engine.json.
+    static CALLS: AtomicUsize = AtomicUsize::new(0);
+    let name = format!("engine-inline-{}", CALLS.fetch_add(1, Ordering::Relaxed));
+    load(&scratch(&name, &[("Engine.json", json)])).engine
 }
 
 #[test]
@@ -111,6 +115,40 @@ fn invalid_engine_values_fall_back_to_the_defaults() {
         engine.screen,
         ScreenArea::DisplayBound,
         "a number is not a name for this enum"
+    );
+}
+
+#[test]
+fn graphic_preference_defaults_to_high_performance() {
+    // The real-file fixture has no GraphicPreference key.
+    assert_eq!(load(&fixtures()).engine.gpu_preference, GpuPreference::HighPerformance);
+    assert_eq!(
+        engine(r#"{"Properties":{"GraphicPreference":"Turbo"}}"#).gpu_preference,
+        GpuPreference::HighPerformance,
+        "an unknown name is the default"
+    );
+    assert_eq!(
+        engine(r#"{"Properties":{"GraphicPreference":"3"}}"#).gpu_preference,
+        GpuPreference::HighPerformance,
+        "an ordinal past the enum is the default"
+    );
+}
+
+#[test]
+fn graphic_preference_is_read_by_name() {
+    let dir = with_fixture("engine-gpu", "Engine.gpu.json", LegacyFile::Engine);
+    assert_eq!(load(&dir).engine.gpu_preference, GpuPreference::PowerSaving);
+}
+
+#[test]
+fn graphic_preference_accepts_the_ordinal() {
+    assert_eq!(
+        engine(r#"{"Properties":{"GraphicPreference":"0"}}"#).gpu_preference,
+        GpuPreference::Default
+    );
+    assert_eq!(
+        engine(r#"{"Properties":{"GraphicPreference":1}}"#).gpu_preference,
+        GpuPreference::PowerSaving
     );
 }
 
@@ -195,6 +233,7 @@ fn a_missing_folder_gives_every_legacy_default() {
     assert_eq!(settings.engine.stretch, Stretch::UniformToFill);
     assert!(settings.engine.hardware_acceleration);
     assert_eq!(settings.engine.screen, ScreenArea::DisplayBound);
+    assert_eq!(settings.engine.gpu_preference, GpuPreference::HighPerformance);
     assert_eq!(settings.backgroundog.fullscreen, FullScreenAction::Resume);
     assert_eq!(settings.backgroundog.pause, PauseKind::Light);
 }

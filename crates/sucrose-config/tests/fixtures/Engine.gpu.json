@@ -1,0 +1,41 @@
+{
+  "Properties": {
+    "DisplayScreenType": "PerDisplay",
+    "Url": "CefSharpLive",
+    "StretchType": "UniformToFill",
+    "Gif": "MpvPlayerLive",
+    "StayAwake": true,
+    "CefArguments": {
+      "disable-extensions": "1",
+      "autoplay-policy": "no-user-gesture-required"
+    },
+    "VolumeSilentSensitivity": 10,
+    "WebArguments": [
+      "--disable-extensions",
+      "--autoplay-policy=no-user-gesture-required"
+    ],
+    "WallpaperShuffle": true,
+    "DeveloperPort": 0,
+    "CrashExplorer": true,
+    "YouTube": "CefSharpLive",
+    "LibraryStart": true,
+    "InputType": "MouseKeyboard",
+    "Web": "CefSharpLive",
+    "ScreenType": "DisplayBound",
+    "BackgroundImagePath": "C:\\Pictures\\background.jpg",
+    "HardwareAcceleration": true,
+    "DeveloperMode": true,
+    "WallpaperLoop": true,
+    "InputDesktop": true,
+    "Video": "MpvPlayerLive",
+    "VolumeSilent": false,
+    "BackgroundImage": false,
+    "StoreStart": true,
+    "WallpaperVolume": 100,
+    "VolumeDesktop": false,
+    "ScreenDevice": "\\\\.\\DISPLAY1",
+    "DisableSlideshow": false,
+    "DisableSlideshowLive": false,
+    "GraphicPreference": "PowerSaving"
+  }
+}

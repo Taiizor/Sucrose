@@ -11,7 +11,7 @@ use std::{
 };
 
 use serde_json::{Map, Value};
-use sucrose_core::settings::{FullScreenAction, PauseKind, ScreenArea, Stretch};
+use sucrose_core::settings::{FullScreenAction, GpuPreference, PauseKind, ScreenArea, Stretch};
 
 /// How often a read is attempted when the C# app is writing the file at that moment.
 const ATTEMPTS: u32 = 3;
@@ -276,6 +276,8 @@ pub struct EngineSettings {
     pub hardware_acceleration: bool,
     /// Which part of the monitor is covered (`ScreenType`).
     pub screen: ScreenArea,
+    /// Which GPU Windows is asked to give the renderers (`GraphicPreference`, default high performance, DESK-12).
+    pub gpu_preference: GpuPreference,
 }
 
 impl EngineSettings {
@@ -297,6 +299,13 @@ impl EngineSettings {
                 ScreenArea::default(),
                 ScreenArea::from_legacy_name,
                 |_| None,
+            ),
+            // Only the three enum names or ordinals 0..=2 count; anything else is the legacy default (T-02-39).
+            gpu_preference: properties.get_enum(
+                "GraphicPreference",
+                GpuPreference::default(),
+                GpuPreference::from_legacy_name,
+                GpuPreference::from_legacy_index,
             ),
         }
     }
