@@ -1,3 +1,11 @@
 {
   "Properties": {
-    "AppVisible": tru
+    "Culture": "TR",
+    "RunStartup": 3,
+    "AppExit": true,
+    "TelemetryData": true,
+    "ExceptionData": true,
+    "ThemeType": "Dark",
+    "AppVisible": true
+  }
+}

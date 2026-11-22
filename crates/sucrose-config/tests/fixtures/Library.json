@@ -1,7 +1,9 @@
 {
   "Properties": {
-    "Location": "H:\\Library",
+    "Location": "C:\\Sucrose\\Library",
     "DeleteConfirm": true,
+    "DeleteCorrupt": false,
+    "Move": true,
     "Selected": "AAAAAAAAAAAAAAAAAAAAAAAAA"
   }
 }

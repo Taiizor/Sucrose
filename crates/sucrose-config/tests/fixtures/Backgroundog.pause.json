@@ -1,0 +1,7 @@
+{
+  "Properties": {
+    "PausePerformanceType": "Heavy",
+    "FullScreenPerformance": "Pause",
+    "ProcessorPerformance": "Resume"
+  }
+}

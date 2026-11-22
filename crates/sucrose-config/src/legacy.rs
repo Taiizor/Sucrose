@@ -368,7 +368,7 @@ mod tests {
     fn reads_the_library_fixture() {
         let properties = read(&fixtures(), LegacyFile::Library);
         let library = LibrarySettings::from_properties(&properties, Path::new("root"));
-        assert_eq!(library.location, PathBuf::from("H:\\Library"));
+        assert_eq!(library.location, PathBuf::from("C:\\Sucrose\\Library"));
         assert_eq!(library.selected, "AAAAAAAAAAAAAAAAAAAAAAAAA");
     }
 
@@ -382,7 +382,40 @@ mod tests {
 
     #[test]
     fn invalid_file_gives_defaults() {
-        assert!(read(&fixtures(), LegacyFile::General).values.is_empty());
+        assert!(read(&fixtures().join("nothing"), LegacyFile::General).values.is_empty());
+        assert!(matches!(
+            parse(b"{ \"Properties\": { \"AppVisible\": tru"),
+            Err(ReadError::Json(_))
+        ));
+    }
+
+    #[test]
+    fn sharing_violations_and_empty_files_are_retried() {
+        assert!(ReadError::Io(io::Error::from_raw_os_error(32)).is_transient());
+        assert!(ReadError::Empty.is_transient());
+        assert!(!ReadError::Io(io::Error::from(io::ErrorKind::NotFound)).is_transient());
+        assert!(!ReadError::NoProperties.is_transient());
+    }
+
+    #[test]
+    fn getters_fall_back_for_wrong_types() {
+        let properties = parse(br#"{"Properties":{"A":"yes","B":"7","C":7.6,"D":[1],"E":"Fill"}}"#).unwrap();
+        assert!(properties.get_bool("A", true));
+        assert!(!properties.get_bool("A", false));
+        assert_eq!(properties.get_i64("B"), Some(7));
+        assert_eq!(properties.get_i64("C"), Some(8));
+        assert_eq!(properties.get_i64("D"), None);
+        assert_eq!(properties.get_i64("missing"), None);
+        assert_eq!(properties.get_clamped("B", 1, 0, 5), 5);
+        assert_eq!(properties.get_clamped("E", 1, 0, 5), 1);
+        assert_eq!(
+            properties.get_enum("E", Stretch::None, Stretch::from_legacy_name, |_| None),
+            Stretch::Fill
+        );
+        assert_eq!(
+            properties.get_enum("D", Stretch::None, Stretch::from_legacy_name, |_| None),
+            Stretch::None
+        );
     }
 
     #[test]

@@ -1,6 +1,6 @@
 # Architecture (target)
 
-> Status: **planned**, except the M0 skeleton: `sucrose-core` (paths), `sucrose-log`, `sucrose-platform` (trait and stubs), `sucrose-engine-mpv` (libmpv bindings and loader), `apps/sucrose`, `apps/sucrose-portal` (empty window) and `xtask`. Update this file as code lands; when code and this file disagree, fix one of them in the same change.
+> Status: **planned**, except the M0 skeleton: `sucrose-core` (paths, theme and settings types), `sucrose-config` (legacy settings reader), `sucrose-log`, `sucrose-platform` (trait and stubs), `sucrose-engine-mpv` (libmpv bindings and loader), `apps/sucrose`, `apps/sucrose-portal` (empty window) and `xtask`. Update this file as code lands; when code and this file disagree, fix one of them in the same change.
 
 ## Goals
 
