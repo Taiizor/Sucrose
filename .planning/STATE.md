@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
 status: executing
-stopped_at: Completed 02-12-PLAN.md
-last_updated: "2026-11-22T16:02:46.638Z"
+stopped_at: Completed 02-13-PLAN.md
+last_updated: "2026-11-22T16:11:34.939Z"
 last_activity: 2026-11-22
 last_activity_desc: Phase 02 execution started
-state_head: 867eb9820b28146ea4e136d1c58bf6cde8096fd1
+state_head: bc2bb3d7b72d8613deeb94d519f782245187cbb7
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 15
-  completed_plans: 12
+  completed_plans: 13
   percent: 13
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 ## Current Position
 
 Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
-Plan: 13 of 15
+Plan: 14 of 15
 Status: Ready to execute
 Last activity: 2026-11-22 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
@@ -65,6 +65,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 02 P10 | 14 min | 2 tasks | 12 files |
 | Phase 02 P11 | 8 min | 2 tasks | 11 files |
 | Phase 02 P12 | 14 min | 3 tasks | 14 files |
+| Phase 02 P13 | 5 min | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -94,6 +95,7 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-11: embedding and hardening mpv options are applied after the user's uMpvPlayer.config, and the shader cache is always redirected to Cache/mpv-shaders, so a user config cannot weaken hardening or write into the C# folder
 - [Phase 02]: 02-12: timers are changed through the LoopTimers handle (EventLoop::timers) because EventLoop::run consumes the loop; plans 13 and 14 use it inside handlers
 - [Phase 02]: 02-12: TaskbarCreated restarts are acted on at most 5 per 60 s; a lost surface inside the 30 s window is not a crash, a closed renderer is respawned once per slot
+- [Phase 02]: 02-13: the fullscreen predicate compares against full monitor rectangles (not surface areas), recovery undoes the action on the monitors it was done to, and a closed slot is respawned only after its old renderer's exit event
 
 ### Pending Todos
 
@@ -124,6 +126,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-22T16:02:46.397Z
-Stopped at: Completed 02-12-PLAN.md
+Last session: 2026-11-22T16:11:34.745Z
+Stopped at: Completed 02-13-PLAN.md
 Resume file: None

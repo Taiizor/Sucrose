@@ -71,7 +71,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **PERF-02**: Session lock, sleep, user switch and log out trigger the configured action (default Close) (Win ✅ · mac ✅ · Linux ⚠️)
 - [ ] **PERF-03**: The screen saver triggers the configured action (default Pause) (Win ✅ · mac ✅ · Linux ⚠️)
 - [ ] **PERF-04**: The desktop losing focus (Focus) triggers the configured action (Win ✅ · mac ⚠️ · Linux ⚠️)
-- [ ] **PERF-05**: A fullscreen app triggers the configured action (Win ✅ · mac ✅ · Linux ⚠️ Wayland)
+- [x] **PERF-05**: A fullscreen app triggers the configured action (Win ✅ · mac ✅ · Linux ⚠️ Wayland)
 - [ ] **PERF-06**: CPU, memory and per-adapter GPU usage thresholds trigger the configured action (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **PERF-07**: Network ping, upload and download thresholds trigger the configured action, without the legacy bug that checks ping first even at threshold 0 (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **PERF-08**: Battery level and battery saver trigger the configured action (Win ✅ · mac ✅ · Linux ✅)
@@ -268,7 +268,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | PERF-02 | Phase 4 | Pending |
 | PERF-03 | Phase 4 | Pending |
 | PERF-04 | Phase 4 | Pending |
-| PERF-05 | Phase 2 | Pending |
+| PERF-05 | Phase 2 | Complete |
 | PERF-06 | Phase 4 | Pending |
 | PERF-07 | Phase 4 | Pending |
 | PERF-08 | Phase 4 | Pending |
