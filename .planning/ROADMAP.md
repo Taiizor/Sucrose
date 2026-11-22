@@ -38,14 +38,14 @@ Sucrose is rewritten from scratch in Rust on `develop-rust`, Windows first, then
 **Goal**: An existing user's selected video theme plays behind the desktop icons on every monitor on Windows through libmpv, survives shell and monitor changes, and pauses for fullscreen apps.
 **Mode:** mvp
 **Depends on**: Phase 1
-**Requirements**: TYPE-01, ENG-01, DESK-01, DESK-06, DESK-07, PERF-05, TRAY-01, FMT-02, FMT-08, MEAS-01
+**Requirements**: TYPE-01, ENG-01, DESK-01, DESK-06, DESK-07, PERF-05, TRAY-01, FMT-02, FMT-08, MEAS-01, DESK-12
 **Success Criteria** (what must be TRUE):
   1. The selected video plays behind the desktop icons on every monitor.
   2. It survives an explorer.exe restart and monitors being plugged/unplugged.
   3. While a fullscreen game runs it applies the configured action (Pause: pauses and resumes).
   4. CPU and RAM are measured against the C# MpvPlayer engine + Backgroundog and recorded in `docs/MEASUREMENTS.md`.
   5. On a machine with the C# app installed, Sucrose plays the theme selected there (read from the legacy `Library.json` and `General.json`, which stay unchanged), sharp at each monitor's DPI, and the tray icon's Quit stops it.
-**Plans**: 15/15 plans executed
+**Plans**: 15/21 plans executed (02-16 to 02-21: gap closure from UAT)
 Plans:
 **Wave 1**
 - [x] 02-01-PLAN.md — libmpv delivered: `cargo xtask fetch-engines` (pinned, SHA256-verified), committed bindgen bindings, D-18 loader; apps/sucrose tracked by git
@@ -91,7 +91,15 @@ Plans:
 
 **Wave 15** *(blocked on Wave 14 completion)*
 - [x] 02-15-PLAN.md — `cargo xtask measure`, MEAS-01 rows vs the C# app, M1 docs close-out, verification scope
-**Notes**: Criteria 1–4 are the "Done when" list of M1 from the former `docs/ROADMAP.md`. The desktop surface must handle the Windows 11 24H2 Progman/WorkerW hierarchy. libmpv ships inside the Sucrose package — `cargo xtask fetch-engines` places the pinned, hash-verified build next to the exe — and is loaded at runtime (D-028, D-013); detection with hints for the WebView2 Runtime and VC++ Redist is ENG-06 in Phase 4. `SucroseInfo.json` fixtures come from real themes with personal data removed. Measure in a release build.
+
+**Gap closure from UAT** *(gap_closure plans, own waves 1–6; run with `/gsd-execute-phase 2 --gaps-only`)*
+- [ ] 02-16-PLAN.md — gap wave 1: sent display and shell messages reach the service at once; WorkerW-aware attach and an order guard after explorer.exe restarts (G-02-2d, G-02-2a)
+- [ ] 02-17-PLAN.md — gap wave 2: GPU preference ported (DESK-12): UserGpuPreferences for sucrose.exe before the renderers start, adapter logged (G-02-2b)
+- [ ] 02-18-PLAN.md — gap wave 3: renderers count once their first frame shows; master policy chosen by the maintainer (G-02-2c)
+- [ ] 02-19-PLAN.md — gap wave 4: follower controller converges to the same frame, drift summary (G-02-2c)
+- [ ] 02-20-PLAN.md — gap wave 5: measure records each process's GPU adapter and refuses cross-GPU rows; C# re-measured (G-02-6)
+- [ ] 02-21-PLAN.md — gap wave 6: Rust re-measured on the same GPU, MEAS-01 rows replaced, mpv options kept unless measured otherwise (G-02-6)
+**Notes**: Criteria 1–4 are the "Done when" list of M1 from the former `docs/ROADMAP.md`. The desktop surface must handle the Windows 11 24H2 Progman/WorkerW hierarchy. libmpv ships inside the Sucrose package — `cargo xtask fetch-engines` places the pinned, hash-verified build next to the exe — and is loaded at runtime (D-028, D-013); detection with hints for the WebView2 Runtime and VC++ Redist is ENG-06 in Phase 4. `SucroseInfo.json` fixtures come from real themes with personal data removed. Measure in a release build. DESK-12 (GPU preference) was pulled in from Phase 5 by the UAT decision (test 6): on hybrid-GPU laptops the video engine needs it.
 
 ### Phase 3: M2 — Service, IPC and Portal connected
 **Goal**: The service and the Portal work as one app: the user picks a theme in the Portal's library, "Use" applies it through the service, settings migrate from the C# install and persist, and Sucrose can start with the OS.
@@ -127,11 +135,11 @@ Plans:
 **Goal**: A C# user can switch to the Rust app for daily use: store, theme authoring, cycling, lock screen, 25 languages, integrations and an own signed installer and updater that migrates the C# install.
 **Mode:** mvp
 **Depends on**: Phase 4
-**Requirements**: STOR-01, STOR-02, STOR-03, STOR-04, STOR-05, THEM-01, THEM-02, THEM-03, THEM-04, THEM-05, LIB-05, LIB-07, SVC-01, SVC-02, SVC-03, SVC-04, SVC-05, SVC-06, SVC-07, SVC-08, DESK-08, DESK-09, DESK-10, DESK-11, DESK-12, UI-04, UI-06, TRAY-02, TRAY-04, FMT-04, FMT-05, SEC-01
+**Requirements**: STOR-01, STOR-02, STOR-03, STOR-04, STOR-05, THEM-01, THEM-02, THEM-03, THEM-04, THEM-05, LIB-05, LIB-07, SVC-01, SVC-02, SVC-03, SVC-04, SVC-05, SVC-06, SVC-07, SVC-08, DESK-08, DESK-09, DESK-10, DESK-11, UI-04, UI-06, TRAY-02, TRAY-04, FMT-04, FMT-05, SEC-01
 **Success Criteria** (what must be TRUE):
   1. User can browse store categories with the adult filter, search, page, preview and install store themes from the Soferity server, sees offline, broken and unknown states from the legacy-compatible cache, and can report a theme through the Soferity API.
   2. User can create themes of all six types, edit them with per-language title and description, review, delete, import a `.zip` validated with the legacy `CompatibilityType` codes, export and publish them, drop files, `.url` files, archives and URLs onto the library, and use every theme-card action.
-  3. User can cycle wallpapers on an interval in random or sequential order with exclusions, set a Video or GIF theme as the live lock and sign-in screen wallpaper, hide the desktop icons, set the OS wallpaper from the theme thumbnail, keep the computer awake and request the high-performance GPU.
+  3. User can cycle wallpapers on an interval in random or sequential order with exclusions, set a Video or GIF theme as the live lock and sign-in screen wallpaper, hide the desktop icons, set the OS wallpaper from the theme thumbnail and keep the computer awake.
   4. The Portal is available in all 25 languages with RTL for Arabic and Hebrew and a live switch, its settings pages cover every key in `portal.md` §4, the full tray menu works with a grayscale icon while paused, Discord Rich Presence shows the wallpaper, and the user can bundle logs, back up, restore or reset settings and clear caches.
   5. A signed installer installs over an existing C# install and migrates it, updates are verified before they install, every connection validates TLS, opting out of crash reports and telemetry means nothing is written or sent, the user can pick the priority or scheduled-task startup mode, and a quiet uninstall removes every startup entry and GPU-preference value.
 **Plans**: TBD
@@ -188,7 +196,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
-| 2. M1 — Video wallpaper on the desktop (Windows) | 15/15 | In Progress | - |
+| 2. M1 — Video wallpaper on the desktop (Windows) | 15/21 | In Progress | - |
 | 3. M2 — Service, IPC and Portal connected | 0/TBD | Not started | - |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |

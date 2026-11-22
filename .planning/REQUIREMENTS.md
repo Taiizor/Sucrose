@@ -258,7 +258,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | DESK-09 | Phase 5 | Pending |
 | DESK-10 | Phase 5 | Pending |
 | DESK-11 | Phase 5 | Pending |
-| DESK-12 | Phase 5 | Pending |
+| DESK-12 | Phase 2 | Pending |
 | PLAY-01 | Phase 4 | Pending |
 | PLAY-02 | Phase 4 | Pending |
 | PLAY-03 | Phase 4 | Pending |
@@ -357,7 +357,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 
 **Coverage:**
 - v1 requirements: 127 total
-- Mapped to phases: 127 (Phase 1: 2 · Phase 2: 10 · Phase 3: 21 · Phase 4: 46 · Phase 5: 32 · Phase 6: 6 · Phase 7: 7 · Phase 8: 3)
+- Mapped to phases: 127 (Phase 1: 2 · Phase 2: 11 · Phase 3: 21 · Phase 4: 46 · Phase 5: 31 · Phase 6: 6 · Phase 7: 7 · Phase 8: 3)
 - Unmapped: 0 ✓
 
 ---
