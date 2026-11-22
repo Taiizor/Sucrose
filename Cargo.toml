@@ -1,0 +1,45 @@
+[workspace]
+resolver = "3"
+members = ["crates/*", "apps/*", "xtask"]
+# The C# app (src/) and experiments (exp/, e.g. the GPUI prototype) are not part of the workspace.
+exclude = ["src", "exp"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "GPL-3.0-only"
+rust-version = "1.99"
+publish = false
+
+# Central dependency versions (like Directory.Packages.props). Members use `dep = { workspace = true }`.
+[workspace.dependencies]
+sucrose-core = { path = "crates/sucrose-core" }
+sucrose-log = { path = "crates/sucrose-log" }
+sucrose-platform = { path = "crates/sucrose-platform" }
+
+anyhow = "1"
+dirs = "6"
+gpui-kit = "=0.10.0"
+thiserror = "2"
+tracing = "0.1"
+tracing-appender = "0.2"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+
+[workspace.lints.rust]
+# D-011: only sucrose-platform and engine/FFI crates may opt out with #![allow(unsafe_code)].
+unsafe_code = "deny"
+
+[workspace.lints.clippy]
+dbg_macro = "warn"
+print_stderr = "warn"
+print_stdout = "warn"
+todo = "warn"
+unwrap_used = "warn"
+
+[profile.dev.package."*"]
+# Dependencies (GPUI, image decoding) are optimized even in dev builds; our crates stay fast to compile.
+opt-level = 3
+
+[profile.release]
+lto = "thin"
+strip = true

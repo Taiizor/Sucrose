@@ -1,0 +1,13 @@
+[package]
+name = "sucrose-platform"
+description = "OS integration for Sucrose: desktop surfaces, monitors, system state"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+
+[lints]
+workspace = true
