@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
 status: executing
-stopped_at: Completed 02-13-PLAN.md
-last_updated: "2026-11-22T16:11:34.939Z"
+stopped_at: Completed 02-14-PLAN.md
+last_updated: "2026-11-22T16:22:32.497Z"
 last_activity: 2026-11-22
 last_activity_desc: Phase 02 execution started
-state_head: bc2bb3d7b72d8613deeb94d519f782245187cbb7
+state_head: ba08582da22422df672ef8c39a21e4b2afbeef5e
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 15
-  completed_plans: 13
+  completed_plans: 14
   percent: 13
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 ## Current Position
 
 Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
-Plan: 14 of 15
+Plan: 15 of 15
 Status: Ready to execute
 Last activity: 2026-11-22 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
@@ -66,6 +66,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 02 P11 | 8 min | 2 tasks | 11 files |
 | Phase 02 P12 | 14 min | 3 tasks | 14 files |
 | Phase 02 P13 | 5 min | 2 tasks | 8 files |
+| Phase 02 P14 | 9 min | 2 tasks | 13 files |
 
 ## Accumulated Context
 
@@ -96,6 +97,8 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-12: timers are changed through the LoopTimers handle (EventLoop::timers) because EventLoop::run consumes the loop; plans 13 and 14 use it inside handlers
 - [Phase 02]: 02-12: TaskbarCreated restarts are acted on at most 5 per 60 s; a lost surface inside the 30 s window is not a crash, a closed renderer is respawned once per slot
 - [Phase 02]: 02-13: the fullscreen predicate compares against full monitor rectangles (not surface areas), recovery undoes the action on the monitors it was done to, and a closed slot is respawned only after its old renderer's exit event
+- [Phase 02]: 02-14: ToService::Clock appended after Playing (wire index 3); position jumps come from playback-restart events, not an observed time-pos, to keep the event thread idle
+- [Phase 02]: 02-14: followers correct through Follower (nudge once, return to master speed inside a frame, seeks 2 s apart); the master restores speed 1.0 when promoted
 
 ### Pending Todos
 
@@ -126,6 +129,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-22T16:11:34.745Z
-Stopped at: Completed 02-13-PLAN.md
+Last session: 2026-11-22T16:22:32.303Z
+Stopped at: Completed 02-14-PLAN.md
 Resume file: None

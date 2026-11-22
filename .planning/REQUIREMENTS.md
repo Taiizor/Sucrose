@@ -44,7 +44,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Desktop and display
 
-- [ ] **DESK-01**: The wallpaper renders on a surface behind the desktop icons; on Windows through Progman/WorkerW including the 24H2 hierarchy (Win ✅ · mac ✅ · Linux ⚠️)
+- [x] **DESK-01**: The wallpaper renders on a surface behind the desktop icons; on Windows through Progman/WorkerW including the 24H2 hierarchy (Win ✅ · mac ✅ · Linux ⚠️)
 - [ ] **DESK-02**: User can show a wallpaper per display, spanned across displays or duplicated; duplicate works for every engine (Win ✅ · mac ✅ · Linux ⚠️)
 - [ ] **DESK-03**: **New:** user can put a different wallpaper on each monitor, one renderer per monitor (Win ✅ · mac ✅ · Linux ⚠️)
 - [ ] **DESK-04**: User can choose the working area or the full display bounds (Win ✅ · mac ✅ · Linux ⚠️)
@@ -247,7 +247,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | ENG-05 | Phase 4 | Pending |
 | ENG-06 | Phase 4 | Pending |
 | ENG-07 | Phase 4 | Pending |
-| DESK-01 | Phase 2 | Pending |
+| DESK-01 | Phase 2 | Complete |
 | DESK-02 | Phase 4 | Pending |
 | DESK-03 | Phase 4 | Pending |
 | DESK-04 | Phase 4 | Pending |
