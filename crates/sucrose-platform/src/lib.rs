@@ -88,6 +88,15 @@ pub enum Flow {
     Exit,
 }
 
+/// Why [`EventLoop::run`] returned.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum LoopEnd {
+    /// The handler asked to exit, or the thread was told to quit: the normal end.
+    Quit,
+    /// The OS could not hand out messages any more: the owner must not treat this as a quit.
+    Failed,
+}
+
 /// What the current OS and session support. The UI hides or explains anything that is `false`.
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
 pub struct Capabilities {

@@ -34,7 +34,7 @@ use windows::{
 };
 
 use super::os_error;
-use crate::{Flow, LoopEvent, PlatformError};
+use crate::{Flow, LoopEnd, LoopEvent, PlatformError};
 
 /// Posted by [`LoopProxy::wake`].
 const WM_WAKE: u32 = WM_APP;
@@ -205,6 +205,16 @@ fn dispatch_waiting() -> bool {
     false
 }
 
+/// Hands the queued events to `handler`, one at a time so that it may cause more events; `false` once it asked to exit.
+fn drain_pending(handler: &mut impl FnMut(LoopEvent) -> Flow) -> bool {
+    while let Some(event) = PENDING.with(|pending| pending.borrow_mut().pop_front()) {
+        if handler(event) == Flow::Exit {
+            return false;
+        }
+    }
+    true
+}
+
 /// The thread's `GetMessageW` loop. A child window of another process (the desktop surface, an embedded player)
 /// and a tray icon only work while the thread that created them pumps messages, so this must run on that thread.
 #[derive(Debug)]
@@ -264,18 +274,24 @@ impl EventLoop {
         }
     }
 
-    /// Dispatches messages and hands [`LoopEvent`]s to `handler` until it returns [`Flow::Exit`].
-    pub fn run(self, mut handler: impl FnMut(LoopEvent) -> Flow) {
+    /// Dispatches messages and hands [`LoopEvent`]s to `handler` until it returns [`Flow::Exit`] or the thread is
+    /// told to quit ([`LoopEnd::Quit`]); [`LoopEnd::Failed`] when the OS cannot hand out messages any more.
+    pub fn run(self, mut handler: impl FnMut(LoopEvent) -> Flow) -> LoopEnd {
         let mut message = MSG::default();
         loop {
+            // Events queued while this thread dispatched messages outside the loop (see [`wait_pumping`]) are
+            // handled before it blocks, not only after the next message.
+            if !drain_pending(&mut handler) {
+                return LoopEnd::Quit;
+            }
             // SAFETY: `message` is a valid out pointer; a null window handle takes the messages of every window of
             // this thread.
             let result = unsafe { GetMessageW(&mut message, None, 0, 0) };
             match result.0 {
-                0 => return,
+                0 => return LoopEnd::Quit,
                 -1 => {
                     tracing::error!("GetMessageW failed, the message loop ends");
-                    return;
+                    return LoopEnd::Failed;
                 }
                 _ => {
                     // SAFETY: `message` was filled by GetMessageW just above.
@@ -285,11 +301,8 @@ impl EventLoop {
                     }
                 }
             }
-            // The queue is popped one event at a time so the handler may cause more events.
-            while let Some(event) = PENDING.with(|pending| pending.borrow_mut().pop_front()) {
-                if handler(event) == Flow::Exit {
-                    return;
-                }
+            if !drain_pending(&mut handler) {
+                return LoopEnd::Quit;
             }
         }
     }

@@ -25,7 +25,9 @@ use sucrose_ipc::{
     Connection, IpcError, connect,
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, Role, ToRenderer, ToService},
 };
-use sucrose_platform::{DesktopSurface, DpiAwareness, EventLoop, Flow, LoopEvent, LoopProxy, RectPx, monotonic_ns};
+use sucrose_platform::{
+    DesktopSurface, DpiAwareness, EventLoop, Flow, LoopEnd, LoopEvent, LoopProxy, RectPx, monotonic_ns,
+};
 
 /// How often and how long the renderer retries while the service is still opening its endpoint.
 const CONNECT_ATTEMPTS: u32 = 20;
@@ -36,6 +38,10 @@ const EXIT_START_FAILURE: u8 = crate::supervisor::START_FAILED;
 
 /// The hint for a failure that has no repair step of its own.
 const CHECK_THE_LOG: &str = "Check the log for details.";
+
+/// Exit code for "the message loop failed": the service counts it as a crash and starts a new renderer within the
+/// restart budget, instead of reading a vanished wallpaper as a normal stop.
+const EXIT_LOOP_FAILED: u8 = crate::supervisor::LOOP_FAILED;
 
 /// Exit code for "libmpv is missing or cannot be loaded" (D-20).
 const EXIT_ENGINE_MISSING: u8 = crate::supervisor::ENGINE_MISSING;
@@ -188,7 +194,7 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     // A wake means a new rectangle: the surface is moved here because only this thread may touch it. The loop ends
     // when the reader thread asks for it, or when Windows destroys the surface (the surface posts the quit itself).
     // A killed explorer.exe sends no such message; the service replaces the renderers on TaskbarCreated instead.
-    event_loop.run(|event| match event {
+    let loop_end = event_loop.run(|event| match event {
         LoopEvent::Wake => {
             let rect = pending_rect.lock().unwrap_or_else(PoisonError::into_inner).take();
             if let Some(rect) = rect {
@@ -213,6 +219,10 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     // The player first: its child window lives inside the surface.
     drop(player);
     drop(surface);
+    if loop_end == LoopEnd::Failed {
+        tracing::error!("the message loop failed, the renderer exits so that the service starts a new one");
+        return Ok(ExitCode::from(EXIT_LOOP_FAILED));
+    }
     if surface_lost {
         // Not an error: Windows destroyed the surface (explorer.exe killed sends no such message; the service
         // replaces the renderers on TaskbarCreated), and mpv ending with its parent window is part of that.

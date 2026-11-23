@@ -23,6 +23,8 @@ pub const ENGINE_MISSING: u8 = 2;
 pub const SURFACE_LOST: u8 = 3;
 /// Exit code of a renderer that could not start its wallpaper.
 pub const START_FAILED: u8 = 4;
+/// Exit code of a renderer whose message loop failed. [`classify_exit`] counts it as a crash, so the budget applies.
+pub const LOOP_FAILED: u8 = 5;
 
 /// The window the restart budgets are counted in.
 const WINDOW: Duration = Duration::from_secs(60);
@@ -450,6 +452,17 @@ mod tests {
 
     fn secs(base: Instant, s: u64) -> Instant {
         base + Duration::from_secs(s)
+    }
+
+    #[test]
+    fn a_failed_message_loop_is_a_crash_and_is_restarted_within_the_budget() {
+        assert_eq!(
+            classify_exit(Some(i32::from(LOOP_FAILED))),
+            ExitClass::Crashed(i32::from(LOOP_FAILED))
+        );
+        let mut budget = RestartBudget::new();
+        let decision = decide(&mut budget, classify_exit(Some(i32::from(LOOP_FAILED))), Instant::now());
+        assert!(matches!(decision, Decision::Restart(_)), "{decision:?}");
     }
 
     #[test]

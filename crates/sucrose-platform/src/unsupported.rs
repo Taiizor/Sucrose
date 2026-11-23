@@ -6,7 +6,7 @@ use std::{
     process::{Child, Command},
 };
 
-use crate::{DpiAwareness, Flow, LoopEvent, PlatformError, RectPx};
+use crate::{DpiAwareness, Flow, LoopEnd, LoopEvent, PlatformError, RectPx};
 
 /// A surface behind the desktop icons. Not available on this OS.
 #[derive(Debug)]
@@ -50,7 +50,9 @@ impl EventLoop {
     }
 
     /// Returns at once: there is nothing to run.
-    pub fn run(self, _handler: impl FnMut(LoopEvent) -> Flow) {}
+    pub fn run(self, _handler: impl FnMut(LoopEvent) -> Flow) -> LoopEnd {
+        LoopEnd::Quit
+    }
 
     /// Does nothing on this OS.
     pub fn set_timer(&self, _id: u32, _ms: u32) {}

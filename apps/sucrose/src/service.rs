@@ -21,7 +21,8 @@ use sucrose_ipc::{
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
 };
 use sucrose_platform::{
-    EventLoop, Flow, GpuPreferenceChange, LoopEvent, LoopProxy, LoopTimers, MonitorInfo, PlatformError, RectPx, Tray,
+    EventLoop, Flow, GpuPreferenceChange, LoopEnd, LoopEvent, LoopProxy, LoopTimers, MonitorInfo, PlatformError,
+    RectPx, Tray,
 };
 // ScreenArea is read below to choose the surface rectangle.
 use sucrose_core::settings::{FullScreenAction, GpuPreference, PauseKind, ScreenArea};
@@ -323,7 +324,7 @@ pub fn run() -> anyhow::Result<()> {
     if fleet.enable_fullscreen(plan.fullscreen, plan.pause) {
         timers.set(FULLSCREEN_TIMER, FULLSCREEN_POLL_MS);
     }
-    event_loop.run(|event| match event {
+    let loop_end = event_loop.run(|event| match event {
         LoopEvent::Wake => {
             for event in receiver.try_iter() {
                 match event {
@@ -522,6 +523,10 @@ pub fn run() -> anyhow::Result<()> {
         }
     });
     drop(tray);
+    if loop_end == LoopEnd::Failed {
+        // Not a Quit: the renderers die with the job object, and the failure must reach the exit code and the log.
+        anyhow::bail!("the message loop failed, the service cannot run without it");
+    }
     tracing::info!("the service stopped");
     Ok(())
 }
