@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
 status: executing
-stopped_at: Completed 02-24-PLAN.md
-last_updated: "2026-11-23T17:10:18.984Z"
+stopped_at: Completed 02-25-PLAN.md
+last_updated: "2026-11-23T17:17:53.630Z"
 last_activity: 2026-11-23
 last_activity_desc: Phase 02 execution started
-state_head: 96e7cec51df7c742115898933f210c0a0353d2ed
+state_head: b68cbd5bee76794f65c2ea5540ee1f7476aafb20
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 26
-  completed_plans: 24
+  completed_plans: 25
   percent: 13
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 ## Current Position
 
 Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
-Plan: 25 of 26
+Plan: 26 of 26
 Status: Ready to execute
 Last activity: 2026-11-23 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
@@ -77,6 +77,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 02 P22 | 12 min | 3 tasks | 2 files |
 | Phase 02 P23 | 5 min | 2 tasks | 5 files |
 | Phase 02 P24 | 7 min | 2 tasks | 2 files |
+| Phase 02 P25 | 5 min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -119,6 +120,7 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-22: mpv deband=yes and profile=low-latency kept for parity; same-GPU R = 1.02 (Rust 16.4 % vs C# 16.1 % on RTX 3050)
 - [Phase 02]: 02-23: a PartlyHidden or Hidden placement verdict never fails an attach or a move; the renderer attaches, keeps playing and logs
 - [Phase 02]: 02-24: the location watch is a second WinEvent hook filtered to the thread of the parent's root; the 02-16 order guard is unchanged
+- [Phase 02]: 02-25: replace_all re-places every surviving surface after each applied display change; diff stays for the initial start; the master election runs only when monitors changed
 
 ### Pending Todos
 
@@ -149,6 +151,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-23T17:10:11.670Z
-Stopped at: Completed 02-24-PLAN.md
+Last session: 2026-11-23T17:17:46.849Z
+Stopped at: Completed 02-25-PLAN.md
 Resume file: None
