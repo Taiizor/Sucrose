@@ -58,7 +58,7 @@ thread_local! {
     static LOST: RefCell<Vec<isize>> = const { RefCell::new(Vec::new()) };
 }
 
-/// Restores the order guard may do per surface within [`GUARD_WINDOW`] before it gives up (T-02-36).
+/// Restores the order guard may do per surface within [`GUARD_WINDOW`] before it holds back (T-02-36).
 const GUARD_MAX_RESTORES: usize = 10;
 /// The span over which [`GUARD_MAX_RESTORES`] is counted.
 const GUARD_WINDOW: Duration = Duration::from_secs(60);
@@ -70,6 +70,18 @@ struct Guarded {
     progman: HWND,
     /// When the guard last moved the surface, oldest first, only those within [`GUARD_WINDOW`].
     restores: VecDeque<Instant>,
+    /// Whether the guard is holding back because the budget is used up; set to warn once per episode.
+    throttled: bool,
+}
+
+/// What the restore budget of a guard says about the restore an event asks for.
+enum Budget {
+    /// Restore now; the restore is counted.
+    Allowed,
+    /// The budget is used up; `first` is true for the first refusal of this episode.
+    Exhausted { first: bool },
+    /// No guard can be consulted (the registry is borrowed or the guard is gone); do nothing.
+    Unavailable,
 }
 
 thread_local! {
@@ -553,6 +565,7 @@ impl DesktopSurface {
                 surface: self.hwnd,
                 progman,
                 restores: VecDeque::new(),
+                throttled: false,
             });
         });
         self.guard.set(Some(hook));
@@ -626,8 +639,9 @@ fn send_spawn_message(progman: HWND) -> bool {
 ///
 /// It lives as long as the surface, not only after a shell restart: explorer can recreate its `WorkerW` at any time
 /// (a wallpaper change, a slideshow step). It only ever moves its own surface; it never moves, resizes or restyles a
-/// shell window. Past [`GUARD_MAX_RESTORES`] restores in [`GUARD_WINDOW`] it removes itself, so a shell that keeps
-/// reordering cannot keep the renderer busy (T-02-36).
+/// shell window. Past [`GUARD_MAX_RESTORES`] restores in [`GUARD_WINDOW`] it holds back (the hook stays) until the
+/// oldest restore leaves the window, so a shell that keeps reordering cannot keep the renderer busy (T-02-36) and a
+/// burst of events cannot switch the protection off for good.
 unsafe extern "system" fn order_guard_proc(
     hook: HWINEVENTHOOK,
     event: u32,
@@ -678,12 +692,12 @@ fn restore_order(hook: HWINEVENTHOOK, surface: HWND, progman: HWND) {
     ) {
         return;
     }
-    let over_budget = GUARDS.with(|guards| {
+    let budget = GUARDS.with(|guards| {
         let Ok(mut guards) = guards.try_borrow_mut() else {
-            return true;
+            return Budget::Unavailable;
         };
         let Some(guarded) = guards.iter_mut().find(|guarded| guarded.hook == hook) else {
-            return true;
+            return Budget::Unavailable;
         };
         let now = Instant::now();
         while guarded
@@ -694,16 +708,23 @@ fn restore_order(hook: HWINEVENTHOOK, surface: HWND, progman: HWND) {
             guarded.restores.pop_front();
         }
         if guarded.restores.len() >= GUARD_MAX_RESTORES {
-            return true;
+            let first = !guarded.throttled;
+            guarded.throttled = true;
+            return Budget::Exhausted { first };
         }
+        guarded.throttled = false;
         guarded.restores.push_back(now);
-        false
+        Budget::Allowed
     });
-    if over_budget {
-        if remove_guard(hook) {
-            tracing::warn!("the shell keeps reordering the desktop, the order guard stops");
+    match budget {
+        Budget::Allowed => {}
+        Budget::Exhausted { first } => {
+            if first {
+                tracing::warn!("the shell keeps reordering the desktop, the order guard holds back for a while");
+            }
+            return;
         }
-        return;
+        Budget::Unavailable => return,
     }
     let Some(defview) = find_child(Some(progman), None, w!("SHELLDLL_DefView")) else {
         return;
