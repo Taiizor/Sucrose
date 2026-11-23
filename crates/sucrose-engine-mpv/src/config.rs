@@ -109,7 +109,8 @@ pub fn embedding_options() -> Vec<MpvOption> {
 }
 
 /// The look, performance and audio options for `settings`; the shader cache lives in `shader_cache`, a folder of
-/// Sucrose's own data (never the C# app's). Applied when the user has no mpv config of their own.
+/// Sucrose's own cache folder (`Cache\mpv-shaders`, never the C# `MpvPlayer` folder; without `SUCROSE_DATA_DIR` the data
+/// folder itself is shared with the C# app, D-007). Applied when the user has no mpv config of their own.
 #[must_use]
 pub fn generated_options(settings: &PlaybackSettings, shader_cache: &Path) -> Vec<MpvOption> {
     // The profile comes first so that every explicit option after it wins.
@@ -138,7 +139,7 @@ pub fn generated_options(settings: &PlaybackSettings, shader_cache: &Path) -> Ve
 }
 
 /// The shader cache options for the folder `shader_cache`. The renderer adds them to the embedding options too, so
-/// that a user config cannot send the cache into the C# app's folder (D-08).
+/// that a user config cannot send the cache into the C# app's `MpvPlayer` folder (D-08).
 #[must_use]
 pub fn shader_cache_options(shader_cache: &Path) -> Vec<MpvOption> {
     // mpv would fall back to its own default folder for a path it cannot be given, so the cache is off instead.

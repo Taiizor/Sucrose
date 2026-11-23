@@ -323,7 +323,7 @@ fn log_video_adapter() {
 fn start_engine(wid: u64, assignment: &Assignment) -> Result<Player, EngineError> {
     let mpv = Arc::new(loader::load_default().map_err(EngineError::Load)?);
     let shader_cache = shader_cache_dir();
-    // The shader cache is always redirected, so that a user config cannot send it into the C# app's folder.
+    // The shader cache is always redirected, so that a user config cannot send it into the C# app's MpvPlayer folder.
     let mut embedding = embedding_options();
     embedding.extend(shader_cache_options(&shader_cache));
     // No audio is decoded until the service names this renderer the master clock (D-02): followers never play it.
