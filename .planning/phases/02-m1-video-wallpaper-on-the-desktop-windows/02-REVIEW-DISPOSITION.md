@@ -3,18 +3,10 @@ phase: 02
 review: 02-REVIEW.md
 titles: json
 findings:
-  - id: WR-15
+  - id: WR-18
     severity: warning
-    disposition: fixed
-    title: "A late `Playing` or `Failed` of an already ended renderer still rewrites the status (reopens IN-16 and WR-01)"
-  - id: WR-16
-    severity: warning
-    disposition: fixed
-    title: "A refused Hello makes the renderer exit with code 0, and the monitor stays without a wallpaper (reopens WR-05)"
-  - id: WR-17
-    severity: warning
-    disposition: fixed
-    title: "A failed start loses its reason from the tooltip right after the exit (reopens IN-01, WR-11)"
+    disposition: open
+    title: "A legitimate `Failed` queued behind its own renderer's `Exited` is dropped (reopens WR-15; the reason of WR-17 can be lost)"
   - id: IN-07
     severity: info
     disposition: skipped
@@ -31,6 +23,30 @@ findings:
     severity: info
     disposition: open
     title: "A stuck or broken renderer link is only logged, and warns once per clock reading"
+  - id: IN-22
+    severity: info
+    disposition: open
+    title: "A refused Hello is still the normal outcome of the shell-restart gap and costs a crash strike (follow-up of WR-16)"
+  - id: IN-23
+    severity: info
+    disposition: open
+    title: "`stopped_reason` can name a failure that belongs to another monitor or an earlier attempt, and FEATURES.md promises it unconditionally (follow-up of WR-17)"
+  - id: IN-24
+    severity: info
+    disposition: open
+    title: "The WR-15 test re-implements the handler instead of testing it"
+  - id: WR-15
+    severity: warning
+    disposition: fixed
+    title: "A late `Playing` or `Failed` of an already ended renderer still rewrites the status (reopens IN-16 and WR-01)"
+  - id: WR-16
+    severity: warning
+    disposition: fixed
+    title: "A refused Hello makes the renderer exit with code 0, and the monitor stays without a wallpaper (reopens WR-05)"
+  - id: WR-17
+    severity: warning
+    disposition: fixed
+    title: "A failed start loses its reason from the tooltip right after the exit (reopens IN-01, WR-11)"
   - id: WR-05
     severity: warning
     disposition: fixed
@@ -151,22 +167,26 @@ findings:
     severity: info
     disposition: open
     title: "The recorded GPU regression has an obvious first suspect in the generated options"
-open: 4
-total: 37
-recorded: 2026-11-23T14:01:30.247Z
+open: 8
+total: 41
+recorded: 2026-11-23T14:09:44.783Z
 ---
 
 # Phase 02: Code Review Disposition
 
 | Finding | Severity | Disposition | Source |
 |---------|----------|-------------|--------|
-| WR-15 | warning | fixed | 02-REVIEW-FIX.md |
-| WR-16 | warning | fixed | 02-REVIEW-FIX.md |
-| WR-17 | warning | fixed | 02-REVIEW-FIX.md |
+| WR-18 | warning | open | - |
 | IN-07 | info | skipped | 02-REVIEW-FIX.md |
 | IN-19 | info | open | - |
 | IN-20 | info | open | - |
 | IN-21 | info | open | - |
+| IN-22 | info | open | - |
+| IN-23 | info | open | - |
+| IN-24 | info | open | - |
+| WR-15 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| WR-16 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| WR-17 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
 | WR-05 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
 | WR-06 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
 | WR-07 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
