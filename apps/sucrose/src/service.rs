@@ -34,7 +34,8 @@ use crate::{
         decide_exit,
     },
     topology::{
-        Debounce, SlotMap, TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, TimerCommand, TopologyAction, diff, primary, with_area,
+        Debounce, SlotMap, TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, TimerCommand, TopologyAction, diff, primary,
+        replace_all, with_area,
     },
 };
 
@@ -1508,13 +1509,13 @@ impl Fleet {
             tracing::info!("the OS reports no monitor, the renderers stay as they are");
             return Applied::default();
         }
-        let actions = diff(&self.monitors, &monitors);
-        if actions.is_empty() {
+        let changed = diff(&self.monitors, &monitors);
+        if changed.is_empty() {
             tracing::debug!("the monitors did not change in a way that matters");
             return Applied::default();
         }
-        tracing::info!(actions = actions.len(), "applying a monitor change");
-        let applied = self.apply(actions, ctx);
+        tracing::info!(actions = changed.len(), "applying a monitor change");
+        let applied = self.apply(replace_all(&self.monitors, &monitors), ctx);
         self.monitors = monitors;
         self.elect(ctx);
         applied
@@ -1624,18 +1625,24 @@ impl Fleet {
         }
     }
 
-    /// The monitor `id` moved, was resized or changed its DPI: its renderer keeps playing and moves its surface.
+    /// The surface of monitor `id` is put on `rect`, its monitor's rectangle after a display change (it may be the
+    /// same one as before): its renderer keeps playing and re-places its surface.
     fn move_to(&mut self, id: &str, rect: RectPx, ctx: &Ctx<'_>) {
         let Some(slot) = self.slots.slot_of(id) else {
             return;
         };
+        let changed = self
+            .monitors
+            .iter()
+            .find(|monitor| monitor.id == id)
+            .is_none_or(|monitor| monitor.rect != rect);
         let rect = [rect.left, rect.top, rect.right, rect.bottom];
         if let Some(assignment) = lock_assignments(&self.assignments).get_mut(&slot) {
             // A renderer started later, or restarted, uses the new rectangle.
             assignment.rect = rect;
         }
         let told = send_to(ctx.renderers, slot, &ToRenderer::SetRect(rect));
-        tracing::info!(slot, monitor = %id, ?rect, told, "the monitor changed, moving its surface");
+        tracing::info!(slot, monitor = %id, ?rect, told, changed, "re-placing its surface");
     }
 }
 
@@ -2593,6 +2600,101 @@ mod tests {
                 .insert(fleet.slots.slot_of(id).expect("a slot for a playing monitor"));
         }
         fleet
+    }
+
+    /// A monitor with an explicit rectangle (its work area is the same).
+    fn monitor_at(id: &str, primary: bool, area: [i32; 4]) -> MonitorInfo {
+        let rect = RectPx {
+            left: area[0],
+            top: area[1],
+            right: area[2],
+            bottom: area[3],
+        };
+        MonitorInfo {
+            rect,
+            work: rect,
+            ..monitor(id, primary)
+        }
+    }
+
+    /// What each renderer connection of a test fleet was sent, by slot.
+    type SentLogs = HashMap<u8, Arc<Mutex<Vec<ToRenderer>>>>;
+
+    /// A fleet whose monitors each have a slot, an assignment and a renderer connection that records what it is sent,
+    /// without any renderer process: applying snapshots of these monitors never spawns.
+    fn recording_fleet(monitors: &[MonitorInfo]) -> (Fleet, SharedRenderers, SentLogs) {
+        let mut fleet = fleet_with_a_job();
+        let renderers = SharedRenderers::default();
+        let mut logs = HashMap::new();
+        for monitor in monitors {
+            fleet.monitors.push(monitor.clone());
+            let slot = fleet.slots.assign(&monitor.id).expect("a free slot");
+            let assignment = fleet.job.as_ref().expect("a job").assignment(slot, monitor);
+            lock_assignments(&fleet.assignments).insert(slot, assignment);
+            let log = Arc::new(Mutex::new(Vec::new()));
+            let record = Arc::clone(&log);
+            let link = Link::start(format!("test-writer-{slot}"), 0, move |message| {
+                record.lock().unwrap_or_else(PoisonError::into_inner).push(message);
+                true
+            })
+            .expect("the writer thread starts");
+            lock(&renderers).connections.insert(slot, link);
+            logs.insert(slot, log);
+        }
+        (fleet, renderers, logs)
+    }
+
+    /// Everything the service sent to the renderer of `slot` so far: a Close goes through the same queue behind it and
+    /// is waited for, so nothing queued earlier can still be on its way; the Close itself is left out.
+    fn sent_to(renderers: &SharedRenderers, logs: &SentLogs, slot: u8) -> Vec<ToRenderer> {
+        assert!(send_to(renderers, slot, &ToRenderer::Close), "the sentinel is queued");
+        let log = &logs[&slot];
+        let deadline = Instant::now() + Duration::from_secs(5);
+        loop {
+            let written = log.lock().unwrap_or_else(PoisonError::into_inner).clone();
+            if written.last() == Some(&ToRenderer::Close) {
+                return written[..written.len() - 1].to_vec();
+            }
+            assert!(Instant::now() < deadline, "the messages were not written");
+            thread::sleep(Duration::from_millis(10));
+        }
+    }
+
+    #[test]
+    fn replace_all_an_origin_shift_reaches_the_unchanged_monitors_renderer() {
+        let first = "\\\\.\\DISPLAY1";
+        let second = "\\\\.\\DISPLAY9";
+        let (mut fleet, renderers, logs) = recording_fleet(&[
+            monitor_at(first, true, [0, 0, 1920, 1080]),
+            monitor_at(second, false, [1920, 0, 3840, 1080]),
+        ]);
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+
+        let applied = fleet.apply_snapshot(
+            vec![
+                monitor_at(first, true, [0, 0, 1920, 1080]),
+                monitor_at(second, false, [-1920, 0, 0, 1080]),
+            ],
+            &ctx,
+        );
+
+        assert_eq!(applied, Applied::default());
+        let slot_first = fleet.slots.slot_of(first).expect("a slot");
+        let slot_second = fleet.slots.slot_of(second).expect("a slot");
+        let unchanged = sent_to(&renderers, &logs, slot_first);
+        let moved = sent_to(&renderers, &logs, slot_second);
+        assert!(
+            unchanged.contains(&ToRenderer::SetRect([0, 0, 1920, 1080])),
+            "the unchanged monitor was not re-placed: {unchanged:?}"
+        );
+        assert!(moved.contains(&ToRenderer::SetRect([-1920, 0, 0, 1080])), "{moved:?}");
+        let assignments = lock_assignments(&fleet.assignments);
+        assert_eq!(assignments[&slot_first].rect, [0, 0, 1920, 1080]);
+        assert_eq!(assignments[&slot_second].rect, [-1920, 0, 0, 1080]);
     }
 
     #[test]

@@ -50,6 +50,21 @@ pub fn primary(monitors: &[MonitorInfo]) -> Option<&MonitorInfo> {
 /// then the spawns, each group ordered by monitor id. An empty `new` gives nothing: the OS reports no monitor for
 /// a moment while a monitor is plugged in or out, which must not stop the wallpaper.
 pub fn diff(old: &[MonitorInfo], new: &[MonitorInfo]) -> Vec<TopologyAction> {
+    actions_between(old, new, false)
+}
+
+/// What to do after a display change: the closes and spawns of [`diff`], and a SetRect with its current rectangle for
+/// every monitor that stays, changed or not. A surface's position also depends on its parent window, which explorer
+/// may move while the monitor's own rectangle stays the same (an origin-only change, a primary switch), so the
+/// surfaces of unchanged monitors have to be put back too; the legacy app re-places every engine window after each
+/// display change. Same order and id rules as [`diff`]: closes, SetRects, spawns, each in id order; a repeated id
+/// counts once; an empty `new` gives nothing.
+pub fn replace_all(old: &[MonitorInfo], new: &[MonitorInfo]) -> Vec<TopologyAction> {
+    actions_between(old, new, true)
+}
+
+/// The shared walk of [`diff`] and [`replace_all`]; `every_survivor` also moves the monitors that did not change.
+fn actions_between(old: &[MonitorInfo], new: &[MonitorInfo], every_survivor: bool) -> Vec<TopologyAction> {
     if new.is_empty() {
         return Vec::new();
     }
@@ -61,7 +76,7 @@ pub fn diff(old: &[MonitorInfo], new: &[MonitorInfo]) -> Vec<TopologyAction> {
     }
     for (id, now) in &new {
         if let Some(before) = old.get(id)
-            && (before.rect != now.rect || before.work != now.work || before.dpi != now.dpi)
+            && (every_survivor || before.rect != now.rect || before.work != now.work || before.dpi != now.dpi)
         {
             actions.push(TopologyAction::SetRect((*id).to_owned(), now.rect));
         }
@@ -272,6 +287,42 @@ mod tests {
 
     fn right() -> MonitorInfo {
         monitor("\\\\.\\DISPLAY2", rect(1920, 0, 3840, 1080), 96, false)
+    }
+
+    #[test]
+    fn replace_all_an_origin_shift_moves_the_unchanged_monitor_too() {
+        let old = [left(), monitor("\\\\.\\DISPLAY9", rect(1920, 0, 3840, 1080), 96, false)];
+        let moved = monitor("\\\\.\\DISPLAY9", rect(-1920, 0, 0, 1080), 96, false);
+        let new = [left(), moved.clone()];
+
+        assert_eq!(
+            replace_all(&old, &new),
+            [
+                TopologyAction::SetRect(left().id, left().rect),
+                TopologyAction::SetRect(moved.id.clone(), moved.rect),
+            ]
+        );
+        assert_eq!(diff(&old, &new), [TopologyAction::SetRect(moved.id, moved.rect)]);
+    }
+
+    #[test]
+    fn replace_all_a_primary_switch_moves_both_monitors() {
+        let old = [
+            monitor("\\\\.\\DISPLAY1", rect(-1920, 0, 0, 1080), 96, false),
+            monitor("\\\\.\\DISPLAY9", rect(0, 0, 1920, 1080), 96, true),
+        ];
+        let new = [
+            monitor("\\\\.\\DISPLAY1", rect(1920, 0, 3840, 1080), 96, false),
+            monitor("\\\\.\\DISPLAY9", rect(0, 0, 1920, 1080), 96, true),
+        ];
+
+        assert_eq!(
+            replace_all(&old, &new),
+            [
+                TopologyAction::SetRect("\\\\.\\DISPLAY1".to_owned(), rect(1920, 0, 3840, 1080)),
+                TopologyAction::SetRect("\\\\.\\DISPLAY9".to_owned(), rect(0, 0, 1920, 1080)),
+            ]
+        );
     }
 
     #[test]
