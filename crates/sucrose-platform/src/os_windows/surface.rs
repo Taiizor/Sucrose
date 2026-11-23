@@ -41,7 +41,7 @@ use windows::{
 use super::{event_loop::wait_pumping, os_error};
 use crate::{
     Placement, PlatformError, RectPx,
-    geometry::placement_verdict,
+    geometry::{PlacementVerdict, placement_verdict},
     layout::{self, DEFVIEW_CLASS, DesktopLayout, RaisedOrder, ShellSnapshot, SiblingKind, WORKERW_CLASS, WindowNode},
 };
 
@@ -638,11 +638,31 @@ impl DesktopSurface {
                         self.install_order_guard(progman);
                     }
                     let order = (strategy == Strategy::LayeredChild).then(|| order_text(progman));
+                    // SAFETY: read-only query on a window handle owned by this thread.
+                    let parent = unsafe { GetAncestor(self.hwnd, GA_PARENT) };
+                    // Judged, never refused: a renderer that would not attach spends its restart budget while the
+                    // shell is stale, and a surface outside the desktop window shows up once the shell moves it.
+                    let placement = read_placement(self.hwnd, parent, target);
+                    if let Ok(placement) = &placement
+                        && matches!(
+                            placement.verdict,
+                            PlacementVerdict::PartlyHidden { .. } | PlacementVerdict::Hidden
+                        )
+                    {
+                        tracing::warn!(
+                            target = ?placement.target,
+                            parent = ?placement.parent,
+                            virtual_screen = ?placement.virtual_screen,
+                            "the surface lies outside the desktop window"
+                        );
+                    }
                     tracing::info!(
                         ?layout,
                         ?strategy,
                         target = ?target,
                         actual = ?actual,
+                        parent = ?placement.as_ref().ok().map(|p| p.parent),
+                        verdict = ?placement.as_ref().ok().map(|p| p.verdict),
                         order = order.as_deref(),
                         style = format_args!("{:#x}", window_long(self.hwnd, GWL_STYLE)),
                         ex_style = format_args!("{:#x}", window_long(self.hwnd, GWL_EXSTYLE)),
@@ -1049,6 +1069,68 @@ mod tests {
         );
         assert!(budget.restores.is_empty());
         assert!(!budget.throttled, "a new episode is announced again");
+    }
+
+    #[test]
+    fn placement_check_against_a_real_parent_window() {
+        fn rect(left: i32, top: i32, right: i32, bottom: i32) -> RectPx {
+            RectPx {
+                left,
+                top,
+                right,
+                bottom,
+            }
+        }
+        // Both windows stay hidden: the parent is never shown, and a child of a hidden window shows nothing.
+        let parent = create_window().expect("the parent window");
+        let child = create_window().expect("the child window");
+        let parent_rect = rect(-200, 0, 200, 100);
+        // SAFETY: plain handle and integers; SWP_NOZORDER makes the null insert-after harmless and nothing is shown.
+        unsafe {
+            SetWindowPos(
+                parent,
+                None,
+                parent_rect.left,
+                parent_rect.top,
+                parent_rect.width(),
+                parent_rect.height(),
+                SWP_NOZORDER | SWP_NOACTIVATE,
+            )
+        }
+        .expect("move the parent");
+        reparent(child, parent).expect("reparent the child");
+
+        let cases = [
+            (rect(200, 0, 400, 100), rect(400, 0, 600, 100), PlacementVerdict::Hidden),
+            (rect(0, 0, 200, 100), rect(200, 0, 400, 100), PlacementVerdict::Shown),
+            (
+                rect(100, 0, 300, 100),
+                rect(300, 0, 500, 100),
+                PlacementVerdict::PartlyHidden {
+                    visible: rect(100, 0, 200, 100),
+                },
+            ),
+        ];
+        let mut seen = Vec::new();
+        for (target, local, verdict) in cases {
+            seen.push((place_checked(child, parent, target), local, verdict, target));
+        }
+
+        // Destroyed the way `Drop` does, so that the window procedure posts no quit to this thread.
+        for window in [child, parent] {
+            DROPPING.with(|dropping| dropping.borrow_mut().push(window.0 as isize));
+            // SAFETY: a window created above by this thread.
+            let _ = unsafe { DestroyWindow(window) };
+            DROPPING.with(|dropping| dropping.borrow_mut().retain(|&handle| handle != window.0 as isize));
+        }
+
+        for (placement, local, verdict, target) in seen {
+            let placement = placement.expect("the placement");
+            assert_eq!(placement.verdict, verdict, "verdict for {target:?}");
+            assert_eq!(placement.local, local, "local rectangle for {target:?}");
+            assert_eq!(placement.parent, parent_rect, "the parent's client area");
+            assert_eq!(placement.actual, target, "the surface lands on its target");
+        }
     }
 
     #[test]
