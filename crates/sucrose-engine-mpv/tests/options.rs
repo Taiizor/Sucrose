@@ -168,6 +168,34 @@ fn loop_file_inf_restarts_the_stream_at_its_end() {
 
 #[test]
 #[ignore = "needs cargo xtask fetch-engines"]
+fn a_file_that_cannot_be_opened_is_reported_as_a_failed_start() {
+    let mut embedding: Vec<_> = embedding_options()
+        .into_iter()
+        .filter(|(name, _)| !matches!(*name, "vo" | "gpu-context"))
+        .collect();
+    embedding.push(("vo", "null".to_owned()));
+    embedding.push(("ao", "null".to_owned()));
+    let generated = generated_options(&PlaybackSettings::default(), &shader_cache());
+    let options = OpenOptions {
+        embedding: &embedding,
+        generated: &generated,
+        user_config: None,
+    };
+    let missing = std::env::temp_dir().join(format!("sucrose-no-such-video-{}.mp4", std::process::id()));
+    assert!(!missing.exists(), "the scratch path must not exist");
+
+    let player = Player::open_source(load_mpv(), None, &missing.display().to_string(), &options)
+        .expect("loadfile is asynchronous, so opening the player succeeds");
+
+    assert!(
+        wait_until(Duration::from_secs(20), || player.start_failure().is_some()),
+        "mpv never reported that the file cannot be played"
+    );
+    assert!(!player.has_started());
+}
+
+#[test]
+#[ignore = "needs cargo xtask fetch-engines"]
 fn pause_stops_the_clock_and_resume_restarts_it() {
     let player = start(PlaybackSettings::default(), 120);
     assert!(

@@ -67,6 +67,8 @@ struct SyncState {
     kick: AtomicBool,
     /// Whether the video loops, so that a follower treats the loop end as a wrap and not as drift.
     looping: bool,
+    /// Set by the clock thread when the file could not be played: the renderer exits with the start-failure code.
+    start_failed: AtomicBool,
 }
 
 /// The newest rectangle the service asked for, waiting for the thread that owns the surface to apply it.
@@ -137,7 +139,9 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         volume: AtomicU8::new(assignment.settings.volume),
         kick: AtomicBool::new(false),
         looping: assignment.settings.looping,
+        start_failed: AtomicBool::new(false),
     });
+    let proxy = event_loop.proxy();
     // The clock thread tells the service the wallpaper plays once the first frame is shown, and publishes the master's
     // clock. It is started before the connection moves into the reader thread, and joined before the player is
     // dropped, so the player still ends before the surface it is embedded in.
@@ -147,9 +151,10 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
             let clock_player = Arc::clone(&player);
             let clock_sync = Arc::clone(&sync);
             let stop = Arc::clone(&clock_stop);
+            let clock_proxy = proxy.clone();
             let spawned = thread::Builder::new()
                 .name("clock".to_owned())
-                .spawn(move || publish_clock(writer, &clock_player, &clock_sync, &stop));
+                .spawn(move || publish_clock(writer, &clock_player, &clock_sync, &stop, &clock_proxy));
             match spawned {
                 Ok(handle) => Some(handle),
                 Err(error) => {
@@ -169,7 +174,6 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     }
     // The reader thread only waits for the end of the session; the loop below must stay on this thread because the
     // surface was created here.
-    let proxy = event_loop.proxy();
     let pending_rect = PendingRect::default();
     let reader_player = Arc::clone(&player);
     let reader_rect = Arc::clone(&pending_rect);
@@ -219,6 +223,10 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     // The player first: its child window lives inside the surface.
     drop(player);
     drop(surface);
+    if sync.start_failed.load(Ordering::SeqCst) {
+        tracing::error!("the video could not be played, the renderer exits as a failed start");
+        return Ok(ExitCode::from(EXIT_START_FAILURE));
+    }
     if loop_end == LoopEnd::Failed {
         tracing::error!("the message loop failed, the renderer exits so that the service starts a new one");
         return Ok(ExitCode::from(EXIT_LOOP_FAILED));
@@ -573,9 +581,9 @@ fn tell_playing(connection: &mut Connection) {
 
 /// Tells the service once that the first frame is shown (the service elects the master only among such renderers),
 /// then publishes the master's clock about once per period, and at once after a seek, loop wrap, pause, resume or a
-/// promotion. Does nothing while this renderer is a follower or has not shown its first frame. Runs until `stop`
-/// is set.
-fn publish_clock(mut connection: Connection, player: &Player, sync: &SyncState, stop: &AtomicBool) {
+/// promotion. Does nothing while this renderer is a follower or has not shown its first frame. When the video cannot
+/// be played it reports that, stops the message loop through `proxy` and ends. Runs until `stop` is set.
+fn publish_clock(mut connection: Connection, player: &Player, sync: &SyncState, stop: &AtomicBool, proxy: &LoopProxy) {
     let events: Option<Receiver<PlayerEvent>> = player.take_events();
     let mut last = Instant::now();
     let mut sent_once = false;
@@ -592,6 +600,19 @@ fn publish_clock(mut connection: Connection, player: &Player, sync: &SyncState, 
                 Err(RecvTimeoutError::Disconnected) => thread::sleep(CLOCK_POLL),
             },
             None => thread::sleep(CLOCK_POLL),
+        }
+        // A file that mpv cannot open or decode never shows a frame: say why and end the renderer, so that the
+        // tray does not wait for a wallpaper that will not come (the restart budget applies like any failed start).
+        if let Some(error) = player.start_failure() {
+            tracing::error!(%error, "the video cannot be played");
+            report_failure(
+                &mut connection,
+                format!("the video could not be played: {error}"),
+                CHECK_THE_LOG,
+            );
+            sync.start_failed.store(true, Ordering::SeqCst);
+            proxy.quit();
+            return;
         }
         // The Started event can come before this thread took the receiver, so the flag is looked at as well.
         if !player.has_started() {

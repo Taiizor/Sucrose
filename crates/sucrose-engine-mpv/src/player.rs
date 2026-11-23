@@ -102,6 +102,8 @@ pub enum PlayerEvent {
     Discontinuity,
     /// The player was paused (true) or resumed (false).
     PauseChanged(bool),
+    /// The file ended with an error before its first frame (see [`Player::start_failure`]).
+    StartFailed,
 }
 
 /// What happened to the playback position between two readings.
@@ -167,6 +169,8 @@ struct Shared {
     loop_gen: AtomicU32,
     /// Set at the first playback restart: the first frame was shown.
     started: AtomicBool,
+    /// mpv's description of the error that ended the file before its first frame, when that happened.
+    start_failure: Mutex<Option<String>>,
 }
 
 /// A running embedded mpv instance. Dropping it stops the event thread and destroys the instance.
@@ -354,6 +358,17 @@ impl Player {
     #[must_use]
     pub fn has_started(&self) -> bool {
         self.shared.started.load(Ordering::SeqCst)
+    }
+
+    /// Why the file could not be played, once mpv ended it with an error before the first frame (the file cannot be
+    /// opened or decoded). `loadfile` is asynchronous, so [`Player::open`] succeeding does not mean the file plays.
+    #[must_use]
+    pub fn start_failure(&self) -> Option<String> {
+        self.shared
+            .start_failure
+            .lock()
+            .unwrap_or_else(PoisonError::into_inner)
+            .clone()
     }
 
     /// How many times the position wrapped back to the start (a loop, or a seek to the start).
@@ -577,7 +592,15 @@ fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool, shared: &Shared, eve
                 shared.started.store(true, Ordering::SeqCst);
                 let _ = events.send(PlayerEvent::Started);
             }
-            sys::mpv_event_id_MPV_EVENT_END_FILE => log_end_file(mpv, event),
+            sys::mpv_event_id_MPV_EVENT_END_FILE => {
+                if let Some(message) = log_end_file(mpv, event)
+                    && !started
+                {
+                    // The file never reached its first frame: whoever drives the player has to know.
+                    *shared.start_failure.lock().unwrap_or_else(PoisonError::into_inner) = Some(message);
+                    let _ = events.send(PlayerEvent::StartFailed);
+                }
+            }
             sys::mpv_event_id_MPV_EVENT_LOG_MESSAGE => log_message(event),
             _ => {}
         }
@@ -644,15 +667,17 @@ fn note_property(event: &sys::mpv_event, shared: &Shared, events: &Sender<Player
     let _ = events.send(PlayerEvent::PauseChanged(paused));
 }
 
-fn log_end_file(mpv: &Mpv, event: &sys::mpv_event) {
+/// Logs the end of a file; the error text when it ended with an error.
+fn log_end_file(mpv: &Mpv, event: &sys::mpv_event) -> Option<String> {
     // SAFETY: for END_FILE, data is NULL or points to an mpv_event_end_file valid until the next mpv_wait_event.
-    let Some(end) = (unsafe { event.data.cast::<sys::mpv_event_end_file>().as_ref() }) else {
-        return;
-    };
+    let end = (unsafe { event.data.cast::<sys::mpv_event_end_file>().as_ref() })?;
     if end.reason == sys::mpv_end_file_reason_MPV_END_FILE_REASON_ERROR {
-        tracing::warn!(error = %error_text(mpv, end.error), "playback ended with an error");
+        let error = error_text(mpv, end.error);
+        tracing::warn!(%error, "playback ended with an error");
+        Some(error)
     } else {
         tracing::debug!(reason = end.reason, "playback ended");
+        None
     }
 }
 
