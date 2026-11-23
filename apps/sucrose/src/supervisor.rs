@@ -4,7 +4,7 @@
 //! (T-02-23). A waiter thread per renderer blocks until its process ends and tells the service, so nothing polls.
 
 use std::{
-    collections::{HashSet, VecDeque},
+    collections::{HashMap, HashSet, VecDeque},
     path::PathBuf,
     process::{Child, Command},
     sync::{Arc, Condvar, Mutex, MutexGuard, PoisonError},
@@ -266,8 +266,9 @@ type ExitSink = Arc<dyn Fn(Exited) + Send + Sync>;
 
 #[derive(Default)]
 struct State {
-    /// The pids of the processes this supervisor started and that still run: the only ones whose Hello is accepted.
-    pids: HashSet<u32>,
+    /// The processes this supervisor started and that still run, with the slot each was started for: the only ones
+    /// whose Hello is accepted, and only for that slot.
+    pids: HashMap<u32, u8>,
     /// The slots that have a running renderer.
     running: HashSet<u8>,
     /// Set when shutdown begins: nothing is started any more.
@@ -315,7 +316,7 @@ impl Supervisor {
         command.arg("--render").arg(slot.to_string());
         let child = self.job.spawn(&mut command).context("cannot start the renderer")?;
         let pid = child.id();
-        state.pids.insert(pid);
+        state.pids.insert(pid, slot);
         state.running.insert(slot);
         tracing::info!(pid, slot, "renderer spawned");
 
@@ -365,8 +366,8 @@ impl Supervisor {
         (self.sink)(Exited { slot, code });
     }
 
-    /// The pids of the renderers that run now.
-    pub fn pids(&self) -> HashSet<u32> {
+    /// The pids of the renderers that run now, each with the slot it was started for.
+    pub fn pids(&self) -> HashMap<u32, u8> {
         self.lock().pids.clone()
     }
 

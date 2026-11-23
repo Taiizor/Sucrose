@@ -1,7 +1,7 @@
 //! Service mode: owns the endpoint (single instance, D-023), starts a renderer and listens to it.
 
 use std::{
-    collections::{HashMap, HashSet},
+    collections::{HashMap, HashSet, hash_map::Entry},
     sync::{Arc, Mutex, MutexGuard, PoisonError},
     thread,
     time::{Duration, Instant},
@@ -677,7 +677,11 @@ fn read_connection(
             return;
         }
     };
-    let (accepted, closing) = (accept_hello(&supervisor.pids(), &first), lock(renderers).closing);
+    let (accepted, closing) = {
+        let state = lock(renderers);
+        let connected: HashSet<u8> = state.connections.keys().copied().collect();
+        (accept_hello(&supervisor.pids(), &connected, &first), state.closing)
+    };
     let slot = match accepted {
         Ok(slot) => slot,
         Err(refusal) => {
@@ -707,7 +711,9 @@ fn read_connection(
         // The reply to a Hello is only ever an Assign or a Close.
         _ => {}
     }
-    register_writer(renderers, slot, &mut connection);
+    if !register_writer(renderers, slot, &mut connection) {
+        return;
+    }
     if matches!(reply, ToRenderer::Assign(_)) {
         send_role(renderers, slot);
     }
@@ -755,13 +761,15 @@ fn read_connection(
 }
 
 /// Remembers the write side of a renderer's connection so shutdown can send Close while this thread is blocked
-/// reading. When shutdown began in the meantime, the Close goes out right here instead.
-fn register_writer(renderers: &Mutex<Renderers>, slot: u8, connection: &mut Connection) {
+/// reading. When shutdown began in the meantime, the Close goes out right here instead. `false` when the connection
+/// must not be served: its write handle cannot be kept, or another renderer got the slot first (a slot's connection is
+/// never replaced).
+fn register_writer(renderers: &Mutex<Renderers>, slot: u8, connection: &mut Connection) -> bool {
     let writer = match connection.try_clone() {
         Ok(writer) => writer,
         Err(error) => {
             tracing::warn!(%error, slot, "cannot keep a write handle for a renderer");
-            return;
+            return false;
         }
     };
     let mut state = lock(renderers);
@@ -770,8 +778,17 @@ fn register_writer(renderers: &Mutex<Renderers>, slot: u8, connection: &mut Conn
         if let Err(error) = connection.send(&ToRenderer::Close) {
             tracing::warn!(%error, slot, "cannot send Close to a renderer");
         }
+        true
+    } else if let Entry::Vacant(vacant) = state.connections.entry(slot) {
+        vacant.insert(writer);
+        true
     } else {
-        state.connections.insert(slot, writer);
+        drop(state);
+        tracing::warn!(
+            slot,
+            "refusing a second connection for a slot that already has a renderer"
+        );
+        false
     }
 }
 
@@ -867,6 +884,10 @@ pub enum Refusal {
     ProtocolVersion { got: u16, expected: u16 },
     /// The pid is not a process this service started.
     UnknownPid(u32),
+    /// The pid was started for another slot than the one the Hello claims.
+    WrongSlot { pid: u32, claimed: u8, started_for: u8 },
+    /// A renderer is already connected for the claimed slot.
+    AlreadyConnected(u8),
     /// The first message of a connection is not a Hello.
     NotHello,
 }
@@ -878,13 +899,24 @@ impl std::fmt::Display for Refusal {
                 write!(f, "the renderer speaks protocol {got}, this service speaks {expected}")
             }
             Self::UnknownPid(pid) => write!(f, "pid {pid} is not a renderer this service started"),
+            Self::WrongSlot {
+                pid,
+                claimed,
+                started_for,
+            } => write!(
+                f,
+                "pid {pid} claims slot {claimed} but was started for slot {started_for}"
+            ),
+            Self::AlreadyConnected(slot) => write!(f, "slot {slot} already has a connected renderer"),
             Self::NotHello => write!(f, "the first message is not a Hello"),
         }
     }
 }
 
-/// Decides whether a connection's first message is acceptable and returns the renderer's slot.
-fn accept_hello(spawned: &HashSet<u32>, message: &ToService) -> Result<u8, Refusal> {
+/// Decides whether a connection's first message is acceptable and returns the renderer's slot. The slot is the one the
+/// pid was started for, so a peer cannot claim another monitor's slot, and a slot that already has a connected renderer
+/// is never taken over by a second Hello.
+fn accept_hello(spawned: &HashMap<u32, u8>, connected: &HashSet<u8>, message: &ToService) -> Result<u8, Refusal> {
     let ToService::Hello {
         protocol_version,
         pid,
@@ -899,10 +931,20 @@ fn accept_hello(spawned: &HashSet<u32>, message: &ToService) -> Result<u8, Refus
             expected: PROTOCOL_VERSION,
         });
     }
-    if !spawned.contains(pid) {
+    let Some(started_for) = spawned.get(pid).copied() else {
         return Err(Refusal::UnknownPid(*pid));
+    };
+    if started_for != *slot {
+        return Err(Refusal::WrongSlot {
+            pid: *pid,
+            claimed: *slot,
+            started_for,
+        });
     }
-    Ok(*slot)
+    if connected.contains(slot) {
+        return Err(Refusal::AlreadyConnected(*slot));
+    }
+    Ok(started_for)
 }
 
 /// What the settings and the selected theme lead to.
@@ -1110,7 +1152,7 @@ impl Fleet {
         let Some(rule) = self.fullscreen.as_mut() else {
             return;
         };
-        let mut own_pids: Vec<u32> = ctx.supervisor.pids().into_iter().collect();
+        let mut own_pids: Vec<u32> = ctx.supervisor.pids().into_keys().collect();
         own_pids.push(std::process::id());
         let foreground = platform.foreground_window();
         // The whole monitor rectangles, not the work areas the surfaces may cover: a maximized window must not count.
@@ -1478,27 +1520,54 @@ mod tests {
 
     #[test]
     fn accept_hello_takes_a_renderer_the_service_started() {
-        let spawned = HashSet::from([100, 200]);
+        let spawned = HashMap::from([(100, 0), (200, 7)]);
 
-        assert_eq!(accept_hello(&spawned, &hello(PROTOCOL_VERSION, 200, 7)), Ok(7));
+        assert_eq!(
+            accept_hello(&spawned, &HashSet::new(), &hello(PROTOCOL_VERSION, 200, 7)),
+            Ok(7)
+        );
+    }
+
+    #[test]
+    fn accept_hello_refuses_a_slot_the_pid_was_not_started_for() {
+        let spawned = HashMap::from([(100, 0), (200, 7)]);
+
+        assert_eq!(
+            accept_hello(&spawned, &HashSet::new(), &hello(PROTOCOL_VERSION, 200, 0)),
+            Err(Refusal::WrongSlot {
+                pid: 200,
+                claimed: 0,
+                started_for: 7
+            })
+        );
+    }
+
+    #[test]
+    fn accept_hello_never_takes_over_a_slot_that_has_a_renderer() {
+        let spawned = HashMap::from([(100, 0)]);
+
+        assert_eq!(
+            accept_hello(&spawned, &HashSet::from([0]), &hello(PROTOCOL_VERSION, 100, 0)),
+            Err(Refusal::AlreadyConnected(0))
+        );
     }
 
     #[test]
     fn accept_hello_refuses_a_pid_the_service_did_not_start() {
-        let spawned = HashSet::from([100]);
+        let spawned = HashMap::from([(100, 0)]);
 
         assert_eq!(
-            accept_hello(&spawned, &hello(PROTOCOL_VERSION, 999, 0)),
+            accept_hello(&spawned, &HashSet::new(), &hello(PROTOCOL_VERSION, 999, 0)),
             Err(Refusal::UnknownPid(999))
         );
     }
 
     #[test]
     fn accept_hello_refuses_another_protocol_version() {
-        let spawned = HashSet::from([100]);
+        let spawned = HashMap::from([(100, 0)]);
 
         assert_eq!(
-            accept_hello(&spawned, &hello(PROTOCOL_VERSION + 1, 100, 0)),
+            accept_hello(&spawned, &HashSet::new(), &hello(PROTOCOL_VERSION + 1, 100, 0)),
             Err(Refusal::ProtocolVersion {
                 got: PROTOCOL_VERSION + 1,
                 expected: PROTOCOL_VERSION
@@ -1509,7 +1578,7 @@ mod tests {
     #[test]
     fn accept_hello_refuses_with_an_empty_set() {
         assert_eq!(
-            accept_hello(&HashSet::new(), &hello(PROTOCOL_VERSION, 100, 0)),
+            accept_hello(&HashMap::new(), &HashSet::new(), &hello(PROTOCOL_VERSION, 100, 0)),
             Err(Refusal::UnknownPid(100))
         );
     }
@@ -1738,9 +1807,12 @@ mod tests {
 
     #[test]
     fn accept_hello_refuses_a_first_message_that_is_not_a_hello() {
-        let spawned = HashSet::from([100]);
+        let spawned = HashMap::from([(100, 0)]);
 
-        assert_eq!(accept_hello(&spawned, &ToService::Playing), Err(Refusal::NotHello));
+        assert_eq!(
+            accept_hello(&spawned, &HashSet::new(), &ToService::Playing),
+            Err(Refusal::NotHello)
+        );
     }
 
     /// Records every call and says which slots are still alive after Close.
