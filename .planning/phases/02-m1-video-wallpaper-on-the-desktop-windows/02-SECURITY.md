@@ -39,6 +39,14 @@ created: "2026-11-22"
 | Other applications' windows → service | Foreground window data belongs to other programs | see the 02-13 threat model |
 | Renderer connections → service relay | Clock messages from any renderer connection | see the 02-14 threat model |
 | xtask → other processes' statistics | Reads data about the maintainer's running processes | see the 02-15 threat model |
+| Other processes → service and renderer windows | Any process of the session can send window messages to the hidden loop window | see the 02-16 threat model |
+| explorer.exe → renderer (WinEvent callbacks) | Window events of the shell process run code on the renderer thread | see the 02-16 threat model |
+| Sucrose → the user's registry (HKCU) | The platform writes one value of a per-user key that Windows' graphics settings own | see the 02-17 and 02-18 threat models |
+| Legacy Engine.json → service | A user-editable file decides which GPU preference is written | see the 02-18 threat model |
+| Renderer connections → service (master election) | Playing messages decide which renderer becomes the master clock | see the 02-19 threat model |
+| Service relay → follower | Clock ticks from the master drive the follower's speed and seeks | see the 02-20 threat model |
+| xtask → other processes (GPU adapters and counters) | The measure task reads process statistics and OS performance counters of the C# app, dwm.exe and Sucrose | see the 02-21 threat model |
+| Generated mpv options → libmpv in the renderer | Option changes alter what the engine does with untrusted theme video files | see the 02-22 threat model |
 
 ---
 
@@ -80,6 +88,20 @@ created: "2026-11-22"
 | T-02-31 | Denial of Service | seek storms on followers | low | mitigate | Seeks only above 0.5 s drift; speed correction below; ticks about 1 Hz — **Evidence:** `sync.rs` seeks only above 0.5 s drift, speed correction below, exact seeks at most every 2 s; ticks ~1 Hz; `sync` tests | closed |
 | T-02-32 | Information Disclosure | xtask/src/measure.rs result files | low | accept | Only image names, pids and resource numbers are written, under target/ (ignored by git); no command lines beyond the --render check are stored — **Evidence:** accepted (AR-05) | closed |
 | T-02-33 | Tampering | C# processes during measurement | medium | mitigate | The tool only reads statistics; the maintainer starts the C# app (checkpoint); no kill or signal code exists in measure.rs — **Evidence:** `xtask/src/measure.rs` only reads statistics (sysinfo, typeperf); no kill/terminate/signal code; the maintainer started the C# app | closed |
+| T-02-35 | Denial of Service | crates/sucrose-platform/src/os_windows/event_loop.rs drain post | low | mitigate | WM_DRAIN is posted at most once per pending batch (DRAIN_POSTED), so a flood of sent display messages produces a bounded number of posts; the handler work per DisplayChanged is only a debounce timer restart — **Evidence:** `crates/sucrose-platform/src/os_windows/event_loop.rs`: the thread-local `DRAIN_POSTED` is checked before `PostMessageW(WM_DRAIN)` and cleared when `WM_DRAIN` is dispatched or the post fails | closed |
+| T-02-36 | Denial of Service | crates/sucrose-platform/src/os_windows/surface.rs order guard | low | mitigate | Hook limited to the Progman owner process and events 0x8000..0x8004, O(1) filtering per callback; at most 10 restores per 60 s, then the guard unhooks with a warning — **Evidence:** `install_order_guard` calls `SetWinEventHook(EVENT_OBJECT_CREATE, EVENT_OBJECT_REORDER, …)` with Progman's process id and `WINEVENT_OUTOFCONTEXT` + `WINEVENT_SKIPOWNPROCESS`; `order_guard_proc` filters on event, object id, parent and class; `restore_order` allows `GUARD_MAX_RESTORES` = 10 per `GUARD_WINDOW` = 60 s, then `remove_guard` calls `UnhookWinEvent` and logs a warning | closed |
+| T-02-37 | Tampering | crates/sucrose-platform/src/os_windows/surface.rs order guard and verify | low | mitigate | The guard only reorders the renderer's own surface (SetWindowPos on its own window); it never moves, resizes, restyles or destroys a shell window, so a fake WorkerW from another process can at most trigger a bounded number of own-window reorders — **Evidence:** every `SetWindowPos`, `SetParent`, `SetWindowLongPtrW` and `DestroyWindow` call in `surface.rs` targets the renderer's own surface (`surface` / `self.hwnd`); shell windows are only queried (`GetAncestor`, class name, child order) or messaged with the bounded 0x052C (T-02-34); restores bounded by T-02-36 | closed |
+| T-02-38 | Tampering | crates/sucrose-platform/src/os_windows/gpu.rs registry write | medium | mitigate | Only the value named by Sucrose's own exe path is read and written, under HKCU only (no HKLM, no elevation); other pairs in that value are preserved; nothing is ever deleted; an unchanged value is not rewritten; tests use a scratch subkey that is deleted afterwards and never the real DirectX key — **Evidence:** `write_preference` opens `HKEY_CURRENT_USER\Software\Microsoft\DirectX\UserGpuPreferences` with `KEY_QUERY_VALUE` + `KEY_SET_VALUE` only, the value name comes from `current_exe()` (`apply_gpu_preference` → `value_name`); `merged_value` keeps the other pairs and returns `None` for an unchanged value (`GpuPreferenceChange::Unchanged`, no write); no HKLM in `crates/` or `apps/`; `RegDeleteTreeW` appears only in `#[cfg(test)]` on `Software\SucroseTest\…`; tests `gpu_other_pairs_are_kept`, `gpu_registry_write_keeps_the_pairs_it_did_not_own`, `gpu_registry_round_trip_on_a_scratch_key` | closed |
+| T-02-39 | Tampering | crates/sucrose-config/src/legacy.rs Engine.json GraphicPreference | low | mitigate | Only the three enum names or ordinals 0..2 are accepted; anything else falls back to the legacy default HighPerformance, so a corrupt file cannot write an arbitrary number — **Evidence:** `properties.get_enum("GraphicPreference", GpuPreference::default(), GpuPreference::from_legacy_name, GpuPreference::from_legacy_index)`; `from_legacy_index` maps only the indexes of `GpuPreference::ALL`, anything else warns and returns the default; `crates/sucrose-config/tests` cover `"Turbo"` and `"3"` → HighPerformance | closed |
+| T-02-40 | Information Disclosure | service and renderer logs (GPU preference and adapter) | low | mitigate | Logs carry the preference, the outcome and the adapter name/LUID only, never the exe path or other registry content — **Evidence:** `apply_gpu_preference` in `apps/sucrose/src/service.rs` logs `?preference` and the outcome or error only; the `gpu.rs` errors carry an API name and a status code (`PlatformError::Os`) or a fixed text; `log_video_adapter` in `apps/sucrose/src/render.rs` logs name, LUID and dedicated MB | closed |
+| T-02-41 | Spoofing | apps/sucrose/src/service.rs Event::Renderer slot | low | mitigate | The slot of a Playing or Aligned message is taken from the connection the service verified at Hello (pid it started, protocol version), never from message content, so a renderer cannot mark another slot as playing or aligned — **Evidence:** `read_connection` takes `slot` from `accept_hello(&supervisor.pids(), &first)` and tags every later message as `Event::Renderer { slot, message }`; `ToService::Playing` is a unit variant (`crates/sucrose-ipc/src/protocol.rs`); no Aligned message was built (sticky election, D-030) | closed |
+| T-02-42 | Denial of Service | apps/sucrose/src/service.rs election churn | low | mitigate | Elections run only on Playing, exit and applied topology changes (all bounded by the restart budget and the 2.5 s debounce); sticky or aligned-only handover prevents role ping-pong between two renderers — **Evidence:** `fleet.elect` runs only at start, on a slot's first `Playing` (`fleet.playing.insert(slot)`), on the exit of a playing renderer and after `apply_snapshot`; `choose_master` keeps the current master while it is still playing; test `a_sticky_master_survives_a_new_primary_through_the_fleet` | closed |
+| T-02-43 | Denial of Service | crates/sucrose-engine-mpv/src/sync.rs follower controller | low | mitigate | Speed bounded to ±5 % of the master's, changes below 0.1 % suppressed, seeks only beyond 0.5 s and at most one per 2 s, integral clamped (anti-windup), so a bad or noisy clock cannot make a follower oscillate or seek-storm — **Evidence:** `MAX_SPEED_STEP` = 0.05 (correction clamped to ±`MAX_SPEED_STEP`), `MIN_SPEED_CHANGE` = 0.001, `SEEK_THRESHOLD_S` = 0.5, `MIN_SEEK_GAP_NS` = 2 s, integration step capped by `MAX_INTEGRATION_S` and the integral grows only inside `INTEGRAL_ZONE_S` below saturation; `sync` tests | closed |
+| T-02-44 | Tampering | xtask/src/measure.rs | low | mitigate | The tool only reads process statistics and counters; it never starts, stops or changes a C# process, dwm.exe or a setting (D-07, D-14); the maintainer starts and exits the C# app — **Evidence:** `xtask/src/measure.rs` reads sysinfo statistics and `typeperf` counters (its only `Command::new`); no kill, terminate or signal code; the maintainer started and exited the C# app (02-21 and 02-22 SUMMARY) | closed |
+| T-02-45 | Information Disclosure | measurement JSON and rows (adapter names, LUIDs) | low | accept | Adapter names and LUIDs describe the maintainer's hardware only; LUIDs change every boot and carry no personal data; results stay under target/ and the committed row names only the GPU model — **Evidence:** accepted (AR-07) | closed |
+| T-02-46 | Tampering | crates/sucrose-engine-mpv/src/config.rs (conditional change) | low | mitigate | Only deband and the profile line may change; the hardening options and their order after the user's config stay untouched and are re-checked by tests/options.rs — **Evidence:** not triggered: `git log 4b768f29..HEAD -- crates/sucrose-engine-mpv/src/config.rs` is empty (02-22 kept `deband=yes` and `profile=low-latency`, R = 1.02); the hardening stays covered by T-02-14 and `crates/sucrose-engine-mpv/tests/options.rs` | closed |
+| T-02-47 | Repudiation | docs/MEASUREMENTS.md | low | mitigate | The replaced rows are named in a note ("compared two GPUs") instead of being dropped silently, so the history of the claim stays traceable — **Evidence:** the M1 reading note in `docs/MEASUREMENTS.md` says the first M1 rows (2026-11-22, plan 02-15) compared two GPUs and are replaced by the same-GPU rows | closed |
+| T-02-SC | Tampering | crates.io dependencies (plans 02-16 … 02-22) | high | mitigate | No crate is added: only features of the already pinned `windows` 0.62.2 crate and workspace crates; `cargo deny check` runs in CI — **Evidence:** `git diff cc92d08e HEAD -- Cargo.lock` adds only the workspace crates `sucrose-core` (to sucrose-platform) and `sucrose-platform` (to xtask), no new package; the new `windows` features (`Win32_UI_Accessibility`, `Win32_System_Registry`, `Win32_Graphics_Dxgi`, `Win32_Graphics_Direct3D`, `Win32_Graphics_Direct3D11`) use the root pin `windows = "0.62.2"`; the `deny` job in `.github/workflows/rust.yml` runs `EmbarkStudios/cargo-deny-action@v2` | closed |
 
 *Status: open · closed · open — below high threshold (non-blocking)*
 *Severity: critical > high > medium > low — only open threats at or above workflow.security_block_on count toward threats_open*
@@ -91,7 +113,7 @@ created: "2026-11-22"
 |------|------|------|-------------|
 | local-message-surface | 02-09 | `crates/sucrose-platform/src/os_windows/event_loop.rs` | accepted (AR-06): the hidden service window accepts WM_APP / WM_APP+1 from any same-user process, which can stop the service; a same-user process can already terminate it, so no new capability |
 
-All other SUMMARY Threat Flags sections report no new surface beyond the register.
+All other SUMMARY Threat Flags sections report no new surface beyond the register (for the gap closure plans, 02-17, 02-20, 02-21 and 02-22 say so explicitly; 02-16, 02-18 and 02-19 have no Threat Flags section).
 
 ---
 
@@ -105,6 +127,7 @@ All other SUMMARY Threat Flags sections report no new surface beyond the registe
 | AR-04 | T-02-25 | `uMpvPlayer.config` is inside the user's own trust boundary (the C# app loads it the same way); its use is logged; the hardening options are applied after it, so it cannot re-enable scripts, ytdl, config loading or input bindings (tested) | 02-11 plan threat model | 2026-11-22 |
 | AR-05 | T-02-32 | Measurement files hold only image names, pids and resource numbers, under the git-ignored `target/` | 02-15 plan threat model | 2026-11-22 |
 | AR-06 | 02-09 flag local-message-surface | Same-user processes are inside the trust boundary (ASVS L1) and can already terminate the service | 02-09 SUMMARY threat flag | 2026-11-22 |
+| AR-07 | T-02-45 | Adapter names and LUIDs describe the maintainer's hardware only; LUIDs change every boot and carry no personal data; results stay under the git-ignored `target/`; the committed row names only the GPU model (the reading note also quotes one boot-scoped LUID, which this rationale covers) | 02-21 plan threat model | 2026-11-23 |
 
 *Accepted risks do not resurface in future audit runs.*
 
@@ -115,6 +138,7 @@ All other SUMMARY Threat Flags sections report no new surface beyond the registe
 | Audit Date | Threats Total | Closed | Open | Run By |
 |------------|---------------|--------|------|--------|
 | 2026-11-22 | 34 | 34 | 0 | /gsd-secure-phase 02 (L1 grep-depth verification by the orchestrator; register authored at plan time, short-circuit per ASVS L1) |
+| 2026-11-23 | 48 | 48 | 0 | /gsd-secure-phase 02 after gap closure 02-16 … 02-22 (14 new threats: T-02-35 … T-02-47 and T-02-SC; L1 verification by the orchestrator; register authored at plan time, short-circuit per ASVS L1) |
 
 ---
 
@@ -126,3 +150,13 @@ All other SUMMARY Threat Flags sections report no new surface beyond the registe
 - [x] `status: verified` set in frontmatter
 
 **Approval:** verified 2026-11-22
+
+**Approval (gap closure):** verified 2026-11-23 (`/gsd-secure-phase 02` for plans 02-16 … 02-22: 14 threats added, 14 closed, 0 open; AR-07 added)
+
+## Security Audit 2026-11-23
+
+| Metric | Count |
+|---|---|
+| Threats found | 48 |
+| Closed | 48 |
+| Open | 0 |
