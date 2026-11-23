@@ -32,6 +32,12 @@ pub const ALLOWED_OPTIONS: &[&str] = &[
     "ytdl",
     "terminal",
     "config",
+    "scripts",
+    "input-ipc-server",
+    "input-conf",
+    "log-file",
+    "use-filedir-conf",
+    "save-position-on-quit",
     // generated_options
     "profile",
     "hwdec",
@@ -65,13 +71,23 @@ fn option(name: &'static str, value: &str) -> MpvOption {
 }
 
 /// The options every embedded instance gets, whatever the user configured: hardening for a headless instance (no
-/// user config, scripts, URL resolver, UI or input) and the embedding itself. They are applied after a user config
-/// so that it cannot turn them off (T-02-14). `wid` is not part of the list: the player sets it from its argument.
+/// user config, scripts, control socket, log file, URL resolver, UI or input) and the embedding itself. They are
+/// applied after a user config so that it cannot turn them off (T-02-14). `config=no` only stops mpv from reading
+/// more files, it does not undo a file that was loaded already, so every option of a loaded config that reaches code,
+/// a socket or a file has an explicit neutral value here (WR-06); `include` needs none, it only pulls in more
+/// options and these come after it. `wid` is not part of the list: the player sets it from its argument.
 #[must_use]
 pub fn embedding_options() -> Vec<MpvOption> {
     let mut options = vec![
         option("config", "no"),
         option("load-scripts", "no"),
+        // Explicit `script=`/`scripts=` entries of a user config load whatever load-scripts says.
+        option("scripts", ""),
+        option("input-ipc-server", ""),
+        option("input-conf", ""),
+        option("log-file", ""),
+        option("use-filedir-conf", "no"),
+        option("save-position-on-quit", "no"),
         option("ytdl", "no"),
         option("osc", "no"),
         option("input-default-bindings", "no"),
@@ -254,6 +270,12 @@ mod tests {
         let options = embedding_options();
         for (name, expected) in [
             ("load-scripts", "no"),
+            ("scripts", ""),
+            ("input-ipc-server", ""),
+            ("input-conf", ""),
+            ("log-file", ""),
+            ("use-filedir-conf", "no"),
+            ("save-position-on-quit", "no"),
             ("ytdl", "no"),
             ("config", "no"),
             ("input-default-bindings", "no"),

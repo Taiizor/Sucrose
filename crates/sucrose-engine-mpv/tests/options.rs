@@ -248,6 +248,48 @@ fn a_user_config_cannot_turn_the_hardening_off() {
 
 #[test]
 #[ignore = "needs cargo xtask fetch-engines"]
+fn a_user_config_cannot_enable_scripts_sockets_or_files() {
+    let scratch = std::env::temp_dir();
+    let log_file = scratch.join(format!("sucrose-hardening-{}.log", std::process::id()));
+    let config = write_user_config(
+        "hardening-files",
+        &format!(
+            "volume=50\nscripts={}\ninput-ipc-server=sucrose-hardening-{}\ninput-conf={}\nlog-file={}\nuse-filedir-conf=yes\nsave-position-on-quit=yes\n",
+            scratch.join("no-such-script.lua").display(),
+            std::process::id(),
+            scratch.join("no-such-input.conf").display(),
+            log_file.display(),
+        ),
+    );
+    let player = start_with_user_config(PlaybackSettings::default(), 120, Some(&config));
+
+    let volume = number_property(&player, "volume");
+    assert!(
+        (volume - 50.0).abs() < 1e-6,
+        "the user config was not read: volume is {volume}"
+    );
+    // An unset string option reads back as nothing or as an empty text; a list as an empty list.
+    for name in ["scripts", "input-ipc-server", "input-conf", "log-file"] {
+        let value = player.get_property_string(name).unwrap_or_default();
+        assert!(
+            value.is_empty() || value == "[]",
+            "the user config set {name} to {value:?}"
+        );
+    }
+    for name in ["use-filedir-conf", "save-position-on-quit"] {
+        assert_eq!(
+            player.get_property_string(name).as_deref(),
+            Some("no"),
+            "the user config turned {name} on"
+        );
+    }
+    drop(player);
+    let _ = std::fs::remove_file(&config);
+    let _ = std::fs::remove_file(&log_file);
+}
+
+#[test]
+#[ignore = "needs cargo xtask fetch-engines"]
 fn a_user_config_volume_replaces_the_generated_one() {
     let config = write_user_config("volume", "volume=50\n");
     let settings = PlaybackSettings {
