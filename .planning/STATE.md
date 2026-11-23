@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
 status: executing
-stopped_at: Completed 02-27-PLAN.md
-last_updated: "2026-11-23T18:53:22.061Z"
+stopped_at: Completed 02-28-PLAN.md
+last_updated: "2026-11-23T18:58:46.229Z"
 last_activity: 2026-11-23
 last_activity_desc: Phase 02 execution started
-state_head: 4019eb0ea3aec694b4e068974d0a8c2fbd5401c7
+state_head: d7b1c04937ced73daa959485cde43ea217c9316e
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 29
-  completed_plans: 27
+  completed_plans: 28
   percent: 13
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 ## Current Position
 
 Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
-Plan: 28 of 29
+Plan: 29 of 29
 Status: Ready to execute
 Last activity: 2026-11-23 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
@@ -80,6 +80,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 02 P25 | 5 min | 2 tasks | 3 files |
 | Phase 02 P26 | interactive spike | 3 tasks | 1 files |
 | Phase 02 P27 | 4 min | 2 tasks | 2 files |
+| Phase 02 P28 | 3 min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -125,6 +126,7 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-25: replace_all re-places every surviving surface after each applied display change; diff stays for the initial start; the master election runs only when monitors changed
 - [Phase 02]: G-02-7 after 02-26: wait for explorer and accept the gap; sign-off 'wait' (maintainer's verbatim reply); class (c) not seen, no watch fix
 - [Phase 02]: 02-27: a report of an unassigned slot (monitor removed or renderer closed by the fullscreen rule) is dropped even while the renderer is connected, through SlotState.assigned from Fleet::slot_assigned (WR-19)
+- [Phase 02]: D-031: wait for explorer after a display change, no fallback window; G-02-7 stays open as an accepted limitation
 
 ### Pending Todos
 
@@ -155,6 +157,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-23T18:53:15.514Z
-Stopped at: Completed 02-27-PLAN.md
+Last session: 2026-11-23T18:58:38.614Z
+Stopped at: Completed 02-28-PLAN.md
 Resume file: None

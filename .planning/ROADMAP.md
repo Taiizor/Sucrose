@@ -45,7 +45,7 @@ Sucrose is rewritten from scratch in Rust on `develop-rust`, Windows first, then
   3. While a fullscreen game runs it applies the configured action (Pause: pauses and resumes).
   4. CPU and RAM are measured against the C# MpvPlayer engine + Backgroundog and recorded in `docs/MEASUREMENTS.md`.
   5. On a machine with the C# app installed, Sucrose plays the theme selected there (read from the legacy `Library.json` and `General.json`, which stay unchanged), sharp at each monitor's DPI, and the tray icon's Quit stops it.
-**Plans**: 27/29 plans executed (02-16 to 02-26: gap closure from UAT; 02-27 to 02-29: gap closure from verification)
+**Plans**: 28/29 plans executed (02-16 to 02-26: gap closure from UAT; 02-27 to 02-29: gap closure from verification)
 Plans:
 **Wave 1**
 - [x] 02-01-PLAN.md — libmpv delivered: `cargo xtask fetch-engines` (pinned, SHA256-verified), committed bindgen bindings, D-18 loader; apps/sucrose tracked by git
@@ -106,7 +106,7 @@ Plans:
 - [x] 02-26-PLAN.md — gap round 2, wave 4: maintainer runs the instrumented build through UAT 7(c) and an origin-only change; decision on what a monitor shows while explorer leaves it outside its desktop window (G-02-7 stays open until the plan written after this decision)
 **Gap closure from verification** *(gap_closure plans 02-27 to 02-29 in waves 1–2; 02-29 is maintainer-run; run with `/gsd-execute-phase 2 --gaps-only`)*
 - [x] 02-27-PLAN.md — verification round, wave 1: a late report of a removed monitor's renderer or of a renderer the fullscreen rule closed no longer changes the tray status (WR-19); FEATURES Video row and service doc comments follow (IN-25, IN-28)
-- [ ] 02-28-PLAN.md — verification round, wave 2: the maintainer's 'wait' on G-02-7 recorded as an accepted limitation in docs/FEATURES.md and docs/DECISIONS.md D-031 (WR-20); G-02-7 stays open
+- [x] 02-28-PLAN.md — verification round, wave 2: the maintainer's 'wait' on G-02-7 recorded as an accepted limitation in docs/FEATURES.md and docs/DECISIONS.md D-031 (WR-20); G-02-7 stays open
 - [ ] 02-29-PLAN.md — verification round, wave 2: RAM/CPU of the final M1 build (checked placement, location watch, re-place-all) measured on a release build and recorded in docs/MEASUREMENTS.md (MEAS-01)
 **Notes**: Criteria 1–4 are the "Done when" list of M1 from the former `docs/ROADMAP.md`. The desktop surface must handle the Windows 11 24H2 Progman/WorkerW hierarchy. libmpv ships inside the Sucrose package — `cargo xtask fetch-engines` places the pinned, hash-verified build next to the exe — and is loaded at runtime (D-028, D-013); detection with hints for the WebView2 Runtime and VC++ Redist is ENG-06 in Phase 4. `SucroseInfo.json` fixtures come from real themes with personal data removed. Measure in a release build. DESK-12 (GPU preference) was pulled in from Phase 5 by the UAT decision (test 6): on hybrid-GPU laptops the video engine needs it.
 
@@ -205,7 +205,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
-| 2. M1 — Video wallpaper on the desktop (Windows) | 27/29 | In Progress | - |
+| 2. M1 — Video wallpaper on the desktop (Windows) | 28/29 | In Progress | - |
 | 3. M2 — Service, IPC and Portal connected | 0/TBD | Not started | - |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
