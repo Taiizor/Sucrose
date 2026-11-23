@@ -22,16 +22,17 @@ use windows::{
         UI::{
             Accessibility::{HWINEVENTHOOK, SetWinEventHook, UnhookWinEvent},
             WindowsAndMessaging::{
-                CreateWindowExW, DefWindowProcW, DestroyWindow, EVENT_OBJECT_CREATE, EVENT_OBJECT_REORDER,
-                EVENT_OBJECT_SHOW, EnumWindows, FindWindowExW, FindWindowW, GA_PARENT, GA_ROOT, GW_CHILD, GW_HWNDNEXT,
-                GWL_EXSTYLE, GWL_STYLE, GetAncestor, GetClassNameW, GetClientRect, GetSystemMetrics, GetWindow,
-                GetWindowLongPtrW, GetWindowRect, GetWindowThreadProcessId, IsWindowVisible, KillTimer, LWA_ALPHA,
-                MA_NOACTIVATE, OBJID_CLIENT, OBJID_WINDOW, PostQuitMessage, RegisterClassExW, SM_CXVIRTUALSCREEN,
-                SM_CYVIRTUALSCREEN, SM_XVIRTUALSCREEN, SM_YVIRTUALSCREEN, SMTO_NORMAL, SWP_NOACTIVATE, SWP_NOMOVE,
-                SWP_NOSIZE, SWP_NOZORDER, SWP_SHOWWINDOW, SendMessageTimeoutW, SetLayeredWindowAttributes, SetParent,
-                SetTimer, SetWindowLongPtrW, SetWindowPos, WINDOW_LONG_PTR_INDEX, WINEVENT_OUTOFCONTEXT,
-                WINEVENT_SKIPOWNPROCESS, WM_DESTROY, WM_MOUSEACTIVATE, WNDCLASSEXW, WS_CHILD, WS_CLIPCHILDREN,
-                WS_CLIPSIBLINGS, WS_EX_LAYERED, WS_EX_NOACTIVATE, WS_EX_TOOLWINDOW, WS_POPUP, WS_VISIBLE,
+                CreateWindowExW, DefWindowProcW, DestroyWindow, EVENT_OBJECT_CREATE, EVENT_OBJECT_LOCATIONCHANGE,
+                EVENT_OBJECT_REORDER, EVENT_OBJECT_SHOW, EnumWindows, FindWindowExW, FindWindowW, GA_PARENT, GA_ROOT,
+                GW_CHILD, GW_HWNDNEXT, GWL_EXSTYLE, GWL_STYLE, GetAncestor, GetClassNameW, GetClientRect,
+                GetSystemMetrics, GetWindow, GetWindowLongPtrW, GetWindowRect, GetWindowThreadProcessId,
+                IsWindowVisible, KillTimer, LWA_ALPHA, MA_NOACTIVATE, OBJID_CLIENT, OBJID_WINDOW, PostQuitMessage,
+                RegisterClassExW, SM_CXVIRTUALSCREEN, SM_CYVIRTUALSCREEN, SM_XVIRTUALSCREEN, SM_YVIRTUALSCREEN,
+                SMTO_NORMAL, SWP_NOACTIVATE, SWP_NOMOVE, SWP_NOSIZE, SWP_NOZORDER, SWP_SHOWWINDOW, SendMessageTimeoutW,
+                SetLayeredWindowAttributes, SetParent, SetTimer, SetWindowLongPtrW, SetWindowPos,
+                WINDOW_LONG_PTR_INDEX, WINEVENT_OUTOFCONTEXT, WINEVENT_SKIPOWNPROCESS, WM_DESTROY, WM_MOUSEACTIVATE,
+                WNDCLASSEXW, WS_CHILD, WS_CLIPCHILDREN, WS_CLIPSIBLINGS, WS_EX_LAYERED, WS_EX_NOACTIVATE,
+                WS_EX_TOOLWINDOW, WS_POPUP, WS_VISIBLE,
             },
         },
     },
@@ -133,6 +134,25 @@ enum Budget {
     Unavailable,
 }
 
+/// What the location watch of one surface needs inside its WinEvent callback.
+struct Watched {
+    hook: HWINEVENTHOOK,
+    surface: HWND,
+    /// The window the surface is a child of, right after the attach.
+    parent: HWND,
+    /// The top-level window of `parent` (Progman for the raised layout, the `WorkerW` itself for the classic one).
+    root: HWND,
+    /// Where the surface belongs on the screen, in physical pixels.
+    target: RectPx,
+    /// The parent's client area on the screen at the last placement; `None` when it could not be read.
+    parent_rect: Option<RectPx>,
+}
+
+thread_local! {
+    /// The surfaces of this thread that have a location watch, found by hook handle like [`GUARDS`].
+    static WATCHED: RefCell<Vec<Watched>> = const { RefCell::new(Vec::new()) };
+}
+
 thread_local! {
     /// The surfaces of this thread that have an order guard. The WinEvent callback has no user data, so it finds its
     /// surface here by the hook handle it was called for.
@@ -146,6 +166,9 @@ pub struct DesktopSurface {
     hwnd: HWND,
     /// The WinEvent hook that keeps the surface above the shell's wallpaper `WorkerW` (see [`order_guard_proc`]).
     guard: Cell<Option<HWINEVENTHOOK>>,
+    /// The WinEvent hook that puts the surface back on its target when explorer moves its parent window (see
+    /// [`location_watch_proc`]).
+    watch: Cell<Option<HWINEVENTHOOK>>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -532,6 +555,7 @@ impl DesktopSurface {
         let surface = Self {
             hwnd: create_window()?,
             guard: Cell::new(None),
+            watch: Cell::new(None),
         };
         let deadline = Instant::now() + ATTACH_TIMEOUT;
         let mut delay = Duration::from_millis(100);
@@ -656,6 +680,12 @@ impl DesktopSurface {
                             "the surface lies outside the desktop window"
                         );
                     }
+                    self.install_location_watch(
+                        parent,
+                        root_of(parent),
+                        target,
+                        placement.as_ref().ok().map(|p| p.parent),
+                    );
                     tracing::info!(
                         ?layout,
                         ?strategy,
@@ -712,6 +742,55 @@ impl DesktopSurface {
             });
         });
         self.guard.set(Some(hook));
+    }
+
+    /// Starts the location watch (see [`location_watch_proc`]) for this surface, once; a failure is logged and the
+    /// surface works without the watch.
+    ///
+    /// The hook is limited to the process and thread that own `root`: explorer's desktop thread owns Progman and its
+    /// `WorkerW` and moves and resizes them itself, so the location events of the taskbar, File Explorer windows and
+    /// the cursor (other threads) never wake the renderer. There is no polling (D-11). Hook delivery cannot be tested
+    /// in-process, so the maintainer run of 02-26 checks on the desktop that a parent move produces the "desktop window
+    /// moved" line.
+    fn install_location_watch(&self, parent: HWND, root: HWND, target: RectPx, parent_rect: Option<RectPx>) {
+        if self.watch.get().is_some() || parent.is_invalid() || root.is_invalid() {
+            return;
+        }
+        let mut process = 0_u32;
+        // SAFETY: read-only query with a valid out pointer.
+        let thread = unsafe { GetWindowThreadProcessId(root, Some(&raw mut process)) };
+        if thread == 0 || process == 0 {
+            tracing::warn!("cannot find the thread of the desktop window, the location watch is not installed");
+            return;
+        }
+        // SAFETY: the callback is a plain function that lives for the whole process and only touches this thread's
+        // state; out-of-context hooks run it on this thread, inside its message loop. The hook is removed in `Drop`.
+        let hook = unsafe {
+            SetWinEventHook(
+                EVENT_OBJECT_LOCATIONCHANGE,
+                EVENT_OBJECT_LOCATIONCHANGE,
+                None,
+                Some(location_watch_proc),
+                process,
+                thread,
+                WINEVENT_OUTOFCONTEXT | WINEVENT_SKIPOWNPROCESS,
+            )
+        };
+        if hook.is_invalid() {
+            tracing::warn!("cannot install the location watch, the surface does not follow its desktop window");
+            return;
+        }
+        WATCHED.with(|watched| {
+            watched.borrow_mut().push(Watched {
+                hook,
+                surface: self.hwnd,
+                parent,
+                root,
+                target,
+                parent_rect,
+            });
+        });
+        self.watch.set(Some(hook));
     }
 
     fn attach_with(&self, strategy: Strategy, shell: &Shell, progman: HWND, target: RectPx) -> Result<RectPx, String> {
@@ -966,6 +1045,112 @@ unsafe extern "system" fn recheck_proc(_hwnd: HWND, _message: u32, id: usize, _t
     }
 }
 
+/// The top-level window of `window` (itself when it has no parent).
+fn root_of(window: HWND) -> HWND {
+    // SAFETY: read-only query on a window handle.
+    unsafe { GetAncestor(window, GA_ROOT) }
+}
+
+/// Whether a location event asks for a re-place: the event is about a window's own location (not its caret, cursor
+/// or client area), the window is the watched parent or its root, and the parent's client area now differs from the
+/// one recorded at the last placement. `current` is only asked for once the cheap comparisons agree, and a parent that
+/// cannot be read changes nothing.
+fn location_reaction(
+    window: HWND,
+    id_object: i32,
+    parent: HWND,
+    root: HWND,
+    recorded: Option<RectPx>,
+    current: impl FnOnce() -> Option<RectPx>,
+) -> bool {
+    if id_object != OBJID_WINDOW.0 || (window != parent && window != root) {
+        return false;
+    }
+    current().is_some_and(|now| recorded != Some(now))
+}
+
+/// The location watch: explorer moved or resized a window, so if it is the one the surface lives in the surface is put
+/// back at its stored target at once.
+///
+/// A surface's screen position is its parent's client origin plus the offset fixed at its last placement, so a parent
+/// that moves drags the surface along (off its monitor), and a parent that moves back over a target that lay outside
+/// it shows the surface again only if somebody re-places it. Only the renderer's own surface is ever moved here.
+unsafe extern "system" fn location_watch_proc(
+    hook: HWINEVENTHOOK,
+    event: u32,
+    hwnd: HWND,
+    id_object: i32,
+    _id_child: i32,
+    _event_thread: u32,
+    _event_time: u32,
+) {
+    if event != EVENT_OBJECT_LOCATIONCHANGE || hwnd.is_invalid() {
+        return;
+    }
+    // A short borrow: the registry is not held while windows are queried or moved.
+    let Some((surface, parent, root, target, recorded)) = WATCHED.with(|watched| {
+        watched
+            .try_borrow()
+            .ok()?
+            .iter()
+            .find(|entry| entry.hook == hook)
+            .map(|entry| (entry.surface, entry.parent, entry.root, entry.target, entry.parent_rect))
+    }) else {
+        return;
+    };
+    if location_reaction(hwnd, id_object, parent, root, recorded, || {
+        client_rect_on_screen(parent)
+    }) {
+        follow_parent(hook, surface, parent, target, recorded);
+    }
+}
+
+/// Puts `surface` back at `target` inside its `parent` after the parent moved, remembers the parent's new client
+/// area and logs the move.
+fn follow_parent(hook: HWINEVENTHOOK, surface: HWND, parent: HWND, target: RectPx, previous: Option<RectPx>) {
+    match place_checked(surface, parent, target) {
+        Ok(placement) => {
+            store_parent_rect(hook, placement.parent);
+            tracing::info!(
+                previous = ?previous,
+                parent = ?placement.parent,
+                target = ?placement.target,
+                local = ?placement.local,
+                verdict = ?placement.verdict,
+                "the desktop window moved, surface re-placed"
+            );
+        }
+        Err(error) => tracing::warn!(%error, "cannot re-place the surface after the desktop window moved"),
+    }
+}
+
+/// Records the parent's client area of the watch `hook` after a placement (a busy registry leaves it as it was).
+fn store_parent_rect(hook: HWINEVENTHOOK, rect: RectPx) {
+    WATCHED.with(|watched| {
+        if let Ok(mut watched) = watched.try_borrow_mut()
+            && let Some(entry) = watched.iter_mut().find(|entry| entry.hook == hook)
+        {
+            entry.parent_rect = Some(rect);
+        }
+    });
+}
+
+/// Removes the watch of `hook`: forgets it and removes the hook; `false` when it was already removed.
+fn remove_watch(hook: HWINEVENTHOOK) -> bool {
+    let known = WATCHED.with(|watched| {
+        let mut watched = watched.borrow_mut();
+        let before = watched.len();
+        watched.retain(|entry| entry.hook != hook);
+        watched.len() != before
+    });
+    if known {
+        // SAFETY: the hook was installed by this thread and is removed exactly once, because the registry entry
+        // that proves it is still installed is gone now.
+        let _ = unsafe { UnhookWinEvent(hook) };
+    }
+    known
+}
+
 /// Forgets the guard of `hook` and removes the hook; `false` when it was already removed.
 fn remove_guard(hook: HWINEVENTHOOK) -> bool {
     let (known, recheck) = GUARDS.with(|guards| {
@@ -995,6 +1180,9 @@ impl Drop for DesktopSurface {
         if let Some(hook) = self.guard.take() {
             remove_guard(hook);
         }
+        if let Some(hook) = self.watch.take() {
+            remove_watch(hook);
+        }
         let handle = self.hwnd.0 as isize;
         // A surface the shell already destroyed has no window left to destroy, and its handle value may be reused.
         if !self.destroyed_externally() {
@@ -1011,6 +1199,8 @@ impl Drop for DesktopSurface {
 #[cfg(test)]
 mod tests {
     use std::ffi::c_void;
+
+    use windows::Win32::UI::WindowsAndMessaging::{OBJID_CARET, OBJID_CURSOR};
 
     use super::*;
 
@@ -1131,6 +1321,178 @@ mod tests {
             assert_eq!(placement.parent, parent_rect, "the parent's client area");
             assert_eq!(placement.actual, target, "the surface lands on its target");
         }
+    }
+
+    fn test_rect(left: i32, top: i32, right: i32, bottom: i32) -> RectPx {
+        RectPx {
+            left,
+            top,
+            right,
+            bottom,
+        }
+    }
+
+    fn handle(value: usize) -> HWND {
+        HWND(value as *mut c_void)
+    }
+
+    #[test]
+    fn the_watch_reacts_to_a_move_of_the_parent() {
+        let (parent, root) = (handle(0x10), handle(0x20));
+        let before = test_rect(-200, 0, 200, 100);
+        let after = test_rect(0, 0, 400, 100);
+        assert!(location_reaction(
+            parent,
+            OBJID_WINDOW.0,
+            parent,
+            root,
+            Some(before),
+            || Some(after)
+        ));
+        assert!(
+            location_reaction(parent, OBJID_WINDOW.0, parent, root, None, || Some(after)),
+            "a parent whose last rectangle is unknown is re-placed"
+        );
+    }
+
+    #[test]
+    fn the_watch_reacts_to_a_move_of_the_root() {
+        // WorkerWChild: the surface lives in the WorkerW, the event names Progman, its root.
+        let (parent, root) = (handle(0x10), handle(0x20));
+        let before = test_rect(-200, 0, 200, 100);
+        let after = test_rect(0, 0, 400, 100);
+        assert!(location_reaction(
+            root,
+            OBJID_WINDOW.0,
+            parent,
+            root,
+            Some(before),
+            || Some(after)
+        ));
+    }
+
+    #[test]
+    fn the_watch_ignores_a_move_that_changed_nothing() {
+        let (parent, root) = (handle(0x10), handle(0x20));
+        let same = test_rect(-200, 0, 200, 100);
+        assert!(!location_reaction(
+            parent,
+            OBJID_WINDOW.0,
+            parent,
+            root,
+            Some(same),
+            || Some(same)
+        ));
+    }
+
+    #[test]
+    fn the_watch_ignores_another_window() {
+        let (parent, root) = (handle(0x10), handle(0x20));
+        let asked = Cell::new(false);
+        let reacted = location_reaction(handle(0x30), OBJID_WINDOW.0, parent, root, None, || {
+            asked.set(true);
+            Some(test_rect(0, 0, 400, 100))
+        });
+        assert!(!reacted);
+        assert!(
+            !asked.get(),
+            "no window is queried for an event that is not about the parent"
+        );
+    }
+
+    #[test]
+    fn the_watch_ignores_other_objects_of_the_window() {
+        let (parent, root) = (handle(0x10), handle(0x20));
+        let after = test_rect(0, 0, 400, 100);
+        for object in [OBJID_CLIENT.0, OBJID_CARET.0, OBJID_CURSOR.0] {
+            assert!(
+                !location_reaction(parent, object, parent, root, None, || Some(after)),
+                "object id {object}"
+            );
+        }
+    }
+
+    #[test]
+    fn the_watch_ignores_a_parent_that_cannot_be_read() {
+        let (parent, root) = (handle(0x10), handle(0x20));
+        assert!(!location_reaction(parent, OBJID_WINDOW.0, parent, root, None, || None));
+    }
+
+    #[test]
+    fn the_watch_re_places_after_its_parent_moved() {
+        // Both windows stay hidden: the parent is never shown, and a child of a hidden window shows nothing.
+        let parent = create_window().expect("the parent window");
+        let child = create_window().expect("the child window");
+        let move_parent = |rect: RectPx| {
+            // SAFETY: plain handle and integers; SWP_NOZORDER makes the null insert-after harmless, nothing is shown.
+            unsafe {
+                SetWindowPos(
+                    parent,
+                    None,
+                    rect.left,
+                    rect.top,
+                    rect.width(),
+                    rect.height(),
+                    SWP_NOZORDER | SWP_NOACTIVATE,
+                )
+            }
+            .expect("move the parent");
+        };
+        let target = test_rect(0, 0, 200, 100);
+        let hook = HWINEVENTHOOK(0x2000 as *mut c_void);
+        move_parent(test_rect(-200, 0, 200, 100));
+        reparent(child, parent).expect("reparent the child");
+        let first = place_checked(child, parent, target);
+        WATCHED.with(|watched| {
+            watched.borrow_mut().push(Watched {
+                hook,
+                surface: child,
+                parent,
+                root: parent,
+                target,
+                parent_rect: first.as_ref().ok().map(|p| p.parent),
+            });
+        });
+
+        // The shell moves the parent, which drags the child off its target.
+        move_parent(test_rect(0, 0, 400, 100));
+        let dragged = window_rect(child);
+        // An event about another window does nothing; the parent's event puts the child back.
+        // SAFETY: the callback only reads this thread's registry and the windows named above.
+        unsafe { location_watch_proc(hook, EVENT_OBJECT_LOCATIONCHANGE, child, OBJID_WINDOW.0, 0, 0, 0) };
+        let ignored = window_rect(child);
+        // SAFETY: as above.
+        unsafe { location_watch_proc(hook, EVENT_OBJECT_LOCATIONCHANGE, parent, OBJID_WINDOW.0, 0, 0, 0) };
+        let after = read_placement(child, parent, target);
+        let recorded = WATCHED.with(|watched| {
+            let mut watched = watched.borrow_mut();
+            let recorded = watched.iter().find(|e| e.hook == hook).and_then(|e| e.parent_rect);
+            watched.retain(|e| e.hook != hook);
+            recorded
+        });
+        // Destroyed the way `Drop` does, so that the window procedure posts no quit to this thread.
+        for window in [child, parent] {
+            DROPPING.with(|dropping| dropping.borrow_mut().push(window.0 as isize));
+            // SAFETY: a window created above by this thread.
+            let _ = unsafe { DestroyWindow(window) };
+            DROPPING.with(|dropping| dropping.borrow_mut().retain(|&handle| handle != window.0 as isize));
+        }
+
+        assert_eq!(first.expect("the first placement").verdict, PlacementVerdict::Shown);
+        assert_eq!(
+            dragged,
+            Some(test_rect(200, 0, 400, 100)),
+            "the parent's move drags the child along"
+        );
+        assert_eq!(ignored, dragged, "an event about another window re-places nothing");
+        let after = after.expect("the placement after the event");
+        assert_eq!(after.actual, target, "the child is back on its target");
+        assert_eq!(after.verdict, PlacementVerdict::Shown);
+        assert_eq!(
+            recorded,
+            Some(test_rect(0, 0, 400, 100)),
+            "the new parent rectangle is recorded"
+        );
     }
 
     #[test]
