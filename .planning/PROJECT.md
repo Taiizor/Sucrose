@@ -20,10 +20,10 @@ An existing user upgrades and loses nothing (themes, store, web wallpapers and t
 - ✓ `apps/sucrose` (service stub) and `apps/sucrose-portal` (empty GPUI window, built from scratch) — M0
 - ✓ `cargo xtask ci` runs the CI checks locally — M0
 - ✓ CI green on Windows x86/x64/ARM64, macOS arm64 (x86_64 checked) and Linux x86_64/aarch64 (runs 44968506512, 44978158638) — Phase 1
+- ✓ A video theme plays behind the desktop icons on every monitor on Windows (libmpv), survives explorer restarts and monitor changes, pauses for fullscreen apps; RAM/CPU measured against the C# MpvPlayer + Backgroundog (final M1 build: 299 MB, 0.43 % CPU, 16.4 % GPU on the RTX 3050) — Phase 2 (M1). Accepted limitation G-02-7 (D-031): after a display change, a monitor outside explorer's desktop window shows the static Windows wallpaper until explorer moves that window
 
 ### Active
 
-- [ ] A video theme plays behind the desktop icons on every monitor on Windows (libmpv), survives explorer restarts and monitor changes, pauses for fullscreen apps; RAM/CPU measured against the C# MpvPlayer + Backgroundog — M1
 - [ ] Service with one IPC and single instance, optional modules that do not start when disabled, new versioned settings with atomic writes and automatic migration of legacy `Setting/*.json`; the Portal applies wallpapers and persists settings through the service; autostart — M2
 - [ ] Every engine and wallpaper type: WebView2 and CEF with the compatible JavaScript API, built-in GIF/APNG/WebP and OS video, libVLC; URL, YouTube, Application; system data, audio spectrum, media session, input forwarding; display modes including a different wallpaper per monitor; stretch modes; property editing; engine arguments editor; all performance rules — M3
 - [ ] Product features: store (Soferity), theme create/edit/import/export/share/report/review, wallpaper cycling, lock screen wallpaper (D-026), display preferences, 25 languages with RTL, Discord Rich Presence, crash reporting and telemetry with the existing opt-outs, own signed installer/updater/uninstaller with migration from the C# install — M4
@@ -69,7 +69,7 @@ An existing user upgrades and loses nothing (themes, store, web wallpapers and t
 
 ## Key Decisions
 
-The authoritative, append-only log is `docs/DECISIONS.md` (D-001 … D-027). The ones that shape the roadmap most:
+The authoritative, append-only log is `docs/DECISIONS.md` (D-001 … D-031). The ones that shape the roadmap most:
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
@@ -86,6 +86,7 @@ The authoritative, append-only log is `docs/DECISIONS.md` (D-001 … D-027). The
 | Lock screen wallpaper in scope (D-026) | Maintainer decision; mechanism decided before it is built | — Pending |
 | Target architectures: Windows x86, x64 and ARM64; macOS arm64 + x86_64 as one universal binary; Linux x86_64 and aarch64 (D-027) | Keep every Windows architecture the legacy app shipped; add ARM64 Linux and both macOS architectures | — Pending |
 | Roadmap and phase work move to `.planning/` (GSD); Phase 1–8 = M0–M7, each phase title carries its M label (e.g. "Phase 2: M1 — Video wallpaper on the desktop (Windows)"; GSD needs the colon after the phase number) | One planning system; GSD phases may commit | — Pending |
+| Wait for explorer after a display change, no fallback window; G-02-7 is an accepted limitation (D-031) | The 02-26 spike caught 8 of 8 moves and every episode ended in 1.73-2.11 s; a fallback window would cover the static wallpaper but fight explorer | ✓ Accepted at the 02-26 checkpoint (Phase 2) |
 
 ## Evolution
 
@@ -105,4 +106,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-11-22 after Phase 1*
+*Last updated: 2026-11-23 after Phase 2*

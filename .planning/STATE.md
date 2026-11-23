@@ -20,10 +20,10 @@ progress:
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-11-22)
+See: .planning/PROJECT.md (updated 2026-11-23)
 
 **Core value:** An existing user upgrades and loses nothing (themes, store, web wallpapers and their JavaScript API, settings migrated automatically) while the new app uses less memory and CPU than the C# one.
-**Current focus:** Phase 02 — M1 — Video wallpaper on the desktop (Windows)
+**Current focus:** Phase 3 — M2 — Service, IPC and Portal connected
 
 ## Current Position
 
@@ -31,7 +31,7 @@ Phase: 3 — M2 — Service, IPC and Portal connected
 Plan: Not started
 Status: Ready to plan
 Last activity: 2026-11-23 — Phase 02 complete, transitioned to Phase 3
-Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
+Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
 
 Progress: [███░░░░░░░] 25%
 
@@ -88,7 +88,7 @@ Progress: [███░░░░░░░] 25%
 
 ### Decisions
 
-Decisions are logged in PROJECT.md Key Decisions and, authoritatively, in `docs/DECISIONS.md` (append-only, D-001 … D-027).
+Decisions are logged in PROJECT.md Key Decisions and, authoritatively, in `docs/DECISIONS.md` (append-only, D-001 … D-031).
 Recent decisions affecting current work:
 
 - [Roadmap]: Exactly 8 phases, Phase N = milestone M(N-1); no decimal phases (maintainer decision)
@@ -137,6 +137,8 @@ None yet.
 
 ### Blockers/Concerns
 
+- [Phase 2]: G-02-7 is an accepted limitation (D-031), not a fix: 02-UAT.md keeps it failed; the cause of the one ~90 s UAT episode is not established
+- [Phase 2]: 7 info-level review findings stay open (IN-19 … IN-23, IN-26, IN-27 in 02-REVIEW-DISPOSITION.md)
 - [Phase 5]: DESK-10 (lock screen) needs a `docs/DECISIONS.md` entry on the mechanism before it is built (D-026)
 - [Phase 5]: STOR-01 and FMT-05 depend on D-022 (deferred); use the existing v8 endpoints until the API rewrite
 - [Phase 5]: Update signing key scheme still open (Ed25519 proposed, D-019)
@@ -160,6 +162,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-23T19:14:12.454Z
-Stopped at: Phase 02 complete, ready to plan Phase 3
+Last session: 2026-11-23T19:32:01.821Z
+Stopped at: Phase 2 complete, ready to plan Phase 3
 Resume file: None
