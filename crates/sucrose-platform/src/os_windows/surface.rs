@@ -359,12 +359,17 @@ fn set_layered(hwnd: HWND, layered: bool) -> Result<(), String> {
     }
 }
 
-/// Makes `surface` a child of `parent` (SetParent leaves the WS_CHILD and WS_POPUP bits to the caller).
+/// Makes `surface` a child of `parent`. SetParent leaves the WS_CHILD and WS_POPUP bits to the caller, and its
+/// documentation asks for them to be changed before the call when a top-level window becomes a child, so they are.
 fn reparent(surface: HWND, parent: HWND) -> Result<(), String> {
-    // SAFETY: both handles are windows; the surface belongs to this thread.
-    unsafe { SetParent(surface, Some(parent)) }.map_err(|e| format!("SetParent: {e}"))?;
     let style = window_long(surface, GWL_STYLE);
     set_window_long(surface, GWL_STYLE, (style & !WS_POPUP.0) | WS_CHILD.0 | WS_VISIBLE.0);
+    // SAFETY: both handles are windows; the surface belongs to this thread.
+    if let Err(error) = unsafe { SetParent(surface, Some(parent)) } {
+        // The window stays what it was, so that a later attempt starts from the same state.
+        set_window_long(surface, GWL_STYLE, style);
+        return Err(format!("SetParent: {error}"));
+    }
     Ok(())
 }
 
