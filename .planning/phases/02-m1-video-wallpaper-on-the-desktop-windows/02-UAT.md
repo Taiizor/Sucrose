@@ -1,9 +1,9 @@
 ---
-status: diagnosed
+status: complete
 phase: 02-m1-video-wallpaper-on-the-desktop-windows
 source: [02-VERIFICATION.md]
 started: 2026-11-22T17:34:00Z
-updated: 2026-11-23T03:08:06Z
+updated: 2026-11-23T14:52:30.512Z
 ---
 
 ## Current Test
@@ -47,18 +47,20 @@ severity: major
 
 ### 7. Re-run UAT test 2 after the gap closure: explorer.exe kill twice; disable the non-primary display (FullScreenPerformance=Resume); re-enable a display that becomes primary
 expected: (a) taskkill /IM explorer.exe /F then start explorer.exe, twice in a row, with SUCROSE_LOG=debug: the video is visible again on every monitor within seconds, the Renderer log shows 'surface attached ... order=SHELLDLL_DefView > SucroseDesktopSurface > WorkerW', the tray icon returns; (b) with FullScreenPerformance=Resume disable the NON-primary display: only that monitor's renderer closes within about 3 s; (c) re-enable a virtual display that becomes the primary and watch both monitors for a minute: the monitor that kept playing does not seek back to the start, the master does not move (one 'master clock elected' line), no visible offset between monitors, 'follower drift summary' lines show max drift within one frame. Covers G-02-2a, G-02-2c, G-02-2d.
-result: [pending]
-
+result: issue
+reported: "a) yaptım. video göründü her mönitörde b) düzgün çalıştı c) oldu gibi / 1. evet görünüyor tray icon 2. iki dakika oldu. sanırım gerçek ekranımda video oynatılmıyor şuan. ana ekranım virtual"
+severity: major
 ### 8. Two minutes of 4K60 playback on the hybrid laptop with no manual graphics entry (G-02-2b, 02-18 task D4)
 expected: No stutter, no 'Audio/Video desynchronisation' or 'underrun' in the Renderer logs, Task Manager shows the renderers' 3D engine on the RTX 3050, not the Intel UHD.
-result: [pending]
+result: pass
+note: "User: no stutter. Logs 14:49:57Z-14:52:16Z: 'GPU preference written for the renderers preference=HighPerformance' (the service wrote it after the manual entry was removed), theme Power Dancing (4K60), 'video GPU adapter name=NVIDIA GeForce RTX 3050 Laptop GPU', hwdec=d3d11va, no A/V desync, underrun or other warning in 2 min 17 s of playback"
 
 ## Summary
 
 total: 8
-passed: 4
-issues: 2
-pending: 2
+passed: 5
+issues: 3
+pending: 0
 skipped: 0
 blocked: 0
 
@@ -66,7 +68,9 @@ blocked: 0
 
 - gap_id: G-02-2a
   truth: "After explorer.exe is killed and restarted, the wallpaper comes back on every monitor within seconds and the tray icon returns"
-  status: failed
+  status: resolved
+  resolved_by: 02-16-PLAN.md
+  resolved_at: 2026-11-23
   reason: "User reported: tekrar geri gelmedi videolar (the videos did not come back after the explorer restart)"
   severity: major
   test: 2
@@ -91,7 +95,9 @@ blocked: 0
 
 - gap_id: G-02-2b
   truth: "The video wallpaper plays smoothly with audio on the maintainer's hybrid-GPU laptop, as the C# MpvPlayer does"
-  status: failed
+  status: resolved
+  resolved_by: 02-22-PLAN.md
+  resolved_at: 2026-11-23
   reason: "User reported: sucrose uygulamasından çık gir yaptım ve video donarak oynatılıyor, kasıyor yani. bir süre sonra da ses gelmiyor falan / oturumu kapatıp tekrar açtım fakat video yine kasarak oynuyor / C# stabil oynatırken Rust hali donarak kasarak oynatıyor nedense (the video freezes and stutters and the audio drops; still after signing out and in; the C# app plays the same video smoothly)"
   severity: blocker
   test: 2
@@ -127,7 +133,9 @@ blocked: 0
 
 - gap_id: G-02-2c
   truth: "Plugging a monitor adds a renderer without restarting playback elsewhere, and every monitor shows the same frame (no visible offset)"
-  status: failed
+  status: resolved
+  resolved_by: 02-20-PLAN.md
+  resolved_at: 2026-11-23
   reason: "User reported: videoda kayma var (the video is offset between the monitors), with a screenshot taken about 40 s after re-enabling the virtual display"
   severity: minor
   test: 2
@@ -152,7 +160,9 @@ blocked: 0
 
 - gap_id: G-02-2d
   truth: "Unplugging (disabling) a monitor closes only that monitor's renderer"
-  status: failed
+  status: resolved
+  resolved_by: 02-16-PLAN.md
+  resolved_at: 2026-11-23
   reason: "Found in the logs while recording test 2: the user disabled the non-primary virtual display (Yalnızca 1 üzerinde göster) and saw the real monitor keep playing (\"düzgün çalışıyor galiba\"), but the virtual display's renderer was never closed"
   severity: major
   test: 2
@@ -177,7 +187,9 @@ blocked: 0
 
 - gap_id: G-02-6
   truth: "The Rust renderer's GPU load is measured against the C# MpvPlayer on the same GPU and is not notably higher"
-  status: failed
+  status: resolved
+  resolved_by: 02-22-PLAN.md
+  resolved_at: 2026-11-23
   reason: "User decided (UAT test 6, option 1): handle the GPU load in Phase 2 rather than deferring it to Phase 4/8"
   severity: major
   test: 6
@@ -201,3 +213,21 @@ blocked: 0
     - "Remove the user's manual GpuPreference entry for sucrose.exe, re-measure both apps on the RTX 3050 with the same 4K30 theme as 02-15 (one monitor, 60 s warm-up, 300 s) and replace the MEASUREMENTS row, noting the old one compared two GPUs"
     - "Keep deband=yes and profile=low-latency for parity; revisit options (or profile=fast for iGPU-only machines, Phase 4) only if the controlled run still shows Rust clearly higher"
   debug_session: .planning/debug/renderer-gpu-load-vs-csharp.md
+
+- gap_id: G-02-7
+  truth: "After a re-enabled display becomes the primary, every monitor keeps showing the video: the monitor that kept playing does not seek back, the master does not move, no visible offset between monitors"
+  status: failed
+  reason: "User reported: iki dakika oldu. sanırım gerçek ekranımda video oynatılmıyor şuan. ana ekranım virtual (after making the virtual display the main display, the video no longer plays on the real screen)"
+  severity: major
+  test: 7
+  evidence:
+    - "(a) passed: explorer restarts at 14:38:08Z and 14:38:18Z replaced the renderer; each attach logged order=\"SHELLDLL_DefView > SucroseDesktopSurface > WorkerW\"; first frame within 2-3 s on the RTX 3050; the tray icon returned (user confirmed). Only DISPLAY1 was enabled then, so the shell restart was exercised on one monitor"
+    - "(b) passed: 14:40:30Z 'the monitor is gone, closing its renderer slot=1 monitor=DISPLAY9'; slot 0 untouched"
+    - "Re-enable at 14:40:52Z put DISPLAY9 at [1920,0] (not primary); the new follower seeked once to the master and then held max_drift_frames 1.0-2.0 with seeks=0"
+    - "Sticky master held: 14:44:31Z primary moved to DISPLAY9 (service: slot 0 DISPLAY1 -> [-1920,0,0,1080], slot 1 DISPLAY9 -> [0,0,1920,1080]); no new 'master clock elected', no seek on Renderer-0, the follower keeps receiving the master clock"
+    - "14:44:40Z the service applied a second change moving slot 0 (DISPLAY1) to [1920,0,3840,1080]; no later monitor change was logged up to 14:46Z"
+    - "Read-only window snapshot 14:46:38Z: virtual screen x=-1920 w=3840; Progman [-1920,0,1920,1080]; Progman children top-first: SHELLDLL_DefView, SucroseDesktopSurface pid 12364 (slot 1) [0,0,1920,1080], SucroseDesktopSurface pid 14808 (slot 0, DISPLAY1) [-1920,0,0,1080], WorkerW; both mpv child windows visible with the same rects"
+    - "So the OS layout at 14:46 ([-1920..1920]) disagrees with the last layout the service applied (DISPLAY1 at [1920..3840], 14:44:40Z): either a later display change was not delivered or debounced away, or the 14:44:40Z snapshot was a transient state; the slot 0 surface sits at [-1920..0] in screen coordinates although its renderer was last told [1920..3840] (child-of-Progman coordinates shift when Progman is resized)"
+    - "Not yet known: what the real screen shows (the static wallpaper, black, or a frozen frame)"
+  artifacts: []
+  missing: []
