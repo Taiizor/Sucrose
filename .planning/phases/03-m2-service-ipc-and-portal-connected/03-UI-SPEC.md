@@ -1,7 +1,8 @@
 ---
 phase: "03"
 slug: "m2-service-ipc-and-portal-connected"
-status: draft
+status: approved
+reviewed_at: "2026-11-23"
 shadcn_initialized: false
 preset: none
 created: "2026-11-23"
@@ -99,7 +100,7 @@ Role assignment (the executor must not add other sizes):
 - Heading 16: card title, settings group headings, dialog titles, link-card group titles.
 - Display 24: empty-state and search-empty titles, About product name.
 - Card title and description sit on an image overlay: white text, white at 82% opacity for the description (the only hard-coded colors allowed, `ui.md`).
-- Single-line text truncates with an ellipsis; nothing in this phase wraps except dialog bodies, descriptions in settings rows and empty-state bodies.
+- Single-line text truncates with an ellipsis; nothing in this phase wraps except dialog bodies, descriptions in settings rows, empty-state bodies, banner text and toast text.
 
 ---
 
@@ -212,7 +213,7 @@ New keys (proposed names, same dotted convention): `Portal.LibraryPage.{LoadErro
 
 **Dialogs** (modal, 12 px radius, 24 padding, 16 gap, 480 px wide, About 560): focus moves to the first action on open and returns to the trigger on close; Escape closes except the tray hint during its countdown. Help: five link rows (Web Page, Documentation, Source Code, Discussions, Report Issue; icon, title, description; open in the OS browser). About: author blurb, product name "Sucrose Wallpaper Engine" (Display size), "Version: v{version}", Release Notes link, Contributors link, Terms of Service, Privacy Policy, Code of Conduct links. There is no "Last Checked" line until the updater exists (Phase 5). Tray hint: static tray-icon illustration (no GIF, memory), message, Close button with a 5-second countdown; shown on the first window close only while `HintTrayIcon` is on and the tray icon is visible.
 
-**Toasts.** Bottom right, 16 px above the status bar, maximum 3 stacked, 5 s auto-dismiss (errors 8 s, with a close button). **Banners** sit between the header row and the content, full width, 8 × 16 padding.
+**Toasts.** Bottom right, 16 px above the status bar, maximum 3 stacked (a 4th closes the oldest immediately), 5 s auto-dismiss (errors 8 s, with a close button); text wraps. **Banners** sit between the header row and the content, full width, 8 × 16 padding.
 
 ---
 
@@ -239,35 +240,92 @@ New keys (proposed names, same dotted convention): `Portal.LibraryPage.{LoadErro
 
 ## UI Considerations
 
-Applicable state considerations resolved: 17 covered, 2 backstop, 1 unresolved
+> Populated by the ui-phase UI-consideration probe (Step 9.5) on 2026-11-23 and lifted by plan-phase's
+> `## UI Considerations` lift rule. Empty-state and error-state COPY lives in the Copywriting Contract;
+> rows here reference those rows by name. Re-running the probe REPLACES this section.
+
+Elements probed (kinds confirmed by the maintainer): E1 library grid (list-collection); E2 theme card (list-collection, media, interactive-control, static-content); E3 search box (form, interactive-control); E4 header (nav, interactive-control); E5 pagination bar (form, nav, interactive-control); E6 connection banner (interactive-control, static-content); E7 settings pages (form, list-collection, interactive-control); E8 library location (interactive-control, static-content); E9 background image (media, interactive-control, static-content); E10 status bar (static-content); E11 dialogs (list-collection, interactive-control, static-content); E12 toasts (interactive-control, static-content); E13 startup select (interactive-control, static-content); E14 tray menu (nav, interactive-control).
+
+Applicable state considerations resolved: 74 raised by the probe across 14 elements, recorded in 72 rows: 55 covered, 2 backstop, 13 dismissed, 2 unresolved
 
 | Category | Element(s) | Status | Resolution / Reason |
 |----------|------------|--------|---------------------|
-| loading | list-collection (library grid) | ✅ covered | Skeleton grid (columns × 3) appears only when the scan takes more than 150 ms; first run adds the "Preparing your library…" line while showcase themes are copied |
-| loading | media (card thumbnails) | ✅ covered | Each card shows a skeleton thumbnail until its background decode completes, then swaps in without moving layout |
-| empty | list-collection (library) | ✅ covered | Zero themes renders the documented empty-state copy with the Change Library Location button |
-| empty | list-collection (search results) | ✅ covered | A query with no matches renders the documented search-empty copy; clearing the box restores the library |
-| error | list-collection (library scan) | ✅ covered | An unreadable or missing library folder renders the documented load-error copy with Try Again and Change Library Location |
-| error | interactive-control (Use) | ✅ covered | A failed apply shows the documented toast and the previous selection stays |
-| error | nav (service connection) | ✅ covered | Connecting, lost and failed states render the documented banner copy; Use is disabled while disconnected |
-| error | form (settings write) | ✅ covered | A rejected or failed write shows the documented toast and the control reverts to the broadcast value |
-| error | media (background image) | ✅ covered | A missing or locked image shows no image, keeps the setting and shows the documented inline message in the settings row |
-| populated | list-collection (library grid) | ✅ covered | 30 cards per page by default, 3 columns at 900 px, up to the `AdaptiveLayout` cap and 400 px card width on wide windows |
-| partial | list-collection (card metadata) | ✅ covered | Title falls back to Default then the folder name; a missing description leaves the title alone in the strip |
-| overflow | list-collection (card title, description) | ✅ covered | One line each with an ellipsis; the strip height never changes |
-| overflow | static-content (library path, quote) | ✅ covered | Library path truncates with an ellipsis and a tooltip with the full path; the status-bar quote truncates and its tooltip shows the full text |
-| zero-one-many | list-collection (cards, pages) | ✅ covered | One card keeps a normal card width (max 400) aligned to the grid start; the pagination bar is hidden at one page; page buttons use the ellipsis scheme above 6 pages |
-| long-text | form (search box) | ✅ covered | MaxLength 20; the field never grows past 320 px |
-| long-text | interactive-control (tab and button labels) | ✅ covered | Labels are single line; the Library tab and header buttons never wrap or push the search box below 200 px |
-| nav | nav (pagination) | ✅ covered | Previous and Next disable at the ends; jump input clamps to 1..last page |
-| media | media (hover preview, memory) | 🧪 backstop | Memory does not grow across paging rounds (final value within the first-page value plus the cache cap); proven by the D-25 release-build measurement, not by a unit test |
-| long-text | nav (RTL text direction) | 🧪 backstop | Layout uses logical start/end; verified with a mirrored-layout screenshot when UI-06 adds Arabic and Hebrew |
-| media | media (backdrop on macOS and Linux) | ⚠ unresolved | The maintainer has no Mac or Linux desktop for visual checks; the capability-driven disabled state is unit-testable, the rendering of the background image there is a planner assumption until CI screenshots exist |
+| empty | E1 library grid | ✅ covered | Zero themes renders the "Empty state" copy (Copywriting Contract) with the Change Library Location button. |
+| loading | E1 library grid | ✅ covered | A Skeleton grid (columns × 3) appears only when the scan takes more than 150 ms; on first run the "First-run preparing" line shows under it while showcase themes are copied. |
+| error | E1 library grid | ✅ covered | An unreadable or missing library folder renders the "Library load error" copy with Try Again and Change Library Location. |
+| populated | E1 library grid | ✅ covered | 30 cards per page by default (`LibraryPagination`), 3 columns at 900 px, up to the `AdaptiveLayout` cap and 400 px card width on wide windows. |
+| populated | E1 library grid (memory) | 🧪 backstop | Memory does not grow across paging rounds (final value within the first-page value plus the cache cap); proven by the D-25 release-build measurement, not by a unit test. |
+| partial | E1 library grid | ✅ covered | Themes the legacy validity scan rejects are handled as in the legacy app (`docs/legacy/portal.md` §2; moved to the {bin} with the "Corrupt themes moved" toast only when Corrupt Themes is on); newer themes stay visible with the red badge and Use disabled; the rest of the grid renders normally. |
+| overflow | E1 library grid | ✅ covered | The content area scrolls vertically; Back from settings restores the page, scroll position and search text. |
+| zero-one-many | E1 library grid | ✅ covered | One card keeps a normal card width (max 400) aligned to the grid start; the pagination bar is hidden at one page; page buttons use the ellipsis scheme above 6 pages; the corrupt-theme toast has singular and plural copy. |
+| empty | E2 theme card (thumbnail) | ✅ covered | A thumbnail that cannot be decoded keeps the card usable: the secondary surface with a centered Lucide `ImageOff` icon replaces the image, and the error is logged. |
+| loading | E2 theme card | ✅ covered | Each card shows a Skeleton thumbnail until its background decode completes, then swaps it in without moving layout; a Use click shows an immediate spinner on that card until the service broadcasts the selection. |
+| error | E2 theme card | ✅ covered | A failed Use shows the "Use failed" toast and the previous selection stays; a hover preview GIF that fails to decode never starts, the static thumbnail stays, no message is shown and the error is logged. |
+| populated | E2 theme card | ✅ covered | Cover-fit thumbnail, 56 px strip with title and description, "Selected" pill when selected and running, red badge when `AppVersion` is newer (Layout Contract § Card). |
+| partial | E2 theme card (metadata) | ✅ covered | Title falls back to Default then the folder name; a missing description leaves the title alone in the strip. |
+| overflow | E2 theme card | ✅ covered | The card clips its content; pills sit above the strip and never overlap the title or description. |
+| zero-one-many | E2 theme card | ⛔ dismissed | A card is a single item; count behavior belongs to the grid (E1 zero-one-many row). |
+| long-text | E2 theme card (title, description) | ✅ covered | Title and description are one line each with an ellipsis; the strip height never changes. |
+| empty | E3 search box | ✅ covered | An empty query shows the whole library; the clear (x) button or Escape empties the box and restores the library. |
+| loading | E3 search box | ✅ covered | No loading indicator: the in-memory filter result appears after the 500 ms debounce and resets to page 1. |
+| error | E3 search box | ⛔ dismissed | An in-memory filter over the loaded library cannot fail; no matches is the "Search-empty" state in the Copywriting Contract. |
+| partial | E3 search box | ⛔ dismissed | A single text field has no partially filled form state. |
+| long-text | E3 search box | ✅ covered | MaxLength 20; the field never grows past 320 px and shrinks to 200 px before anything else in the header collapses. |
+| loading | E4 header | ⛔ dismissed | Header controls are static and available immediately; no data loads behind them. |
+| error | E4 header, E11 dialogs (links) | ✅ covered | When the OS cannot open the Premium, Help or About link, the UI does not change and the error is logged; there is no new copy. |
+| overflow | E4 header | ✅ covered | At the 900 px minimum every header item fits; the search box shrinks from 320 to 200 px before anything else collapses. |
+| long-text | E4 header (tab and button labels) | ✅ covered | Labels are single line; the Library tab and header buttons never wrap or push the search box below 200 px. |
+| long-text | E4 header, layout (RTL text direction) | 🧪 backstop | Layout uses logical start/end; verified with a mirrored-layout screenshot when UI-06 adds Arabic and Hebrew. |
+| empty | E5 pagination (jump field) | ✅ covered | Jump with an empty field does nothing. |
+| loading | E5 pagination | ✅ covered | A page change is immediate from the in-memory list; the grid scrolls to the top and new cards show Skeleton thumbnails until decoded. |
+| error | E5 pagination (jump field) | ✅ covered | An out-of-range jump value clamps to 1..last page. |
+| partial | E5 pagination | ⛔ dismissed | A single numeric field has no partially filled state beyond empty (covered above). |
+| overflow | E5 pagination | ✅ covered | At most 9 page buttons with the legacy ellipsis scheme when pages > 6; Previous and Next disable at the ends; the bar is hidden at one page. |
+| long-text | E5 pagination (jump field) | ✅ covered | The jump field accepts at most as many digits as the last page number has. |
+| loading | E6 connection banner | ✅ covered | While the Portal connects, the "Service connecting" banner shows and Use and the settings controls are disabled. |
+| error | E6 connection banner | ✅ covered | A lost connection shows the "Service lost" banner (Reconnecting…), and after 3 failed attempts the failed copy with Try Again; Use shows Use (Unavailable). |
+| overflow | E6 connection banner, E12 toasts | ✅ covered | Banner and toast text wraps onto more lines instead of truncating (Typography rule). |
+| long-text | E6 connection banner, E12 toasts | ✅ covered | Long or localized banner and toast copy wraps; it is never cut with an ellipsis. |
+| empty | E7 settings | ✅ covered | An emptied numeric field reverts to the previous value on commit. |
+| loading | E7 settings | ✅ covered | Before the first value broadcast from the service, controls show Skeleton and are disabled; while the service is not connected, controls are disabled and keep the last broadcast value, and the connection banner explains why. |
+| error | E7 settings, E13 startup select | ✅ covered | A rejected or failed write shows the "Setting not saved" toast and the control reverts to the broadcast value. |
+| populated | E7 settings | ✅ covered | General and Personal show only the Phase 3 rows in their legacy places (Layout Contract § Settings content), each control showing the broadcast value. |
+| partial | E7 settings | ✅ covered | Numeric values clamp to their range on commit and show the clamped value; a setting absent from the migrated file shows its legacy default. |
+| overflow | E7 settings | ✅ covered | Settings is one scroll column, max width 960, centered. |
+| zero-one-many | E7 settings | ⛔ dismissed | The set of rows on each page is fixed for Phase 3 (D-16); there is no variable-length list. |
+| long-text | E7 settings | ✅ covered | Row descriptions wrap; row titles are one line with an ellipsis; controls keep their fixed widths (200 px selects, 220 px sliders). |
+| loading | E8 library location | ✅ covered | The blocking "Move in progress" state disables the library and that row's controls until the move finishes, the wallpaper restarts and the library reloads. |
+| error | E8 library location | ✅ covered | A non-empty destination shows "Destination not empty", an unwritable one "Destination not writable"; a failed move restores the previous location and shows a toast. |
+| overflow | E8 library location, E9 background image (paths) | ✅ covered | The library path and the background image path truncate with an ellipsis and a tooltip with the full path. |
+| long-text | E8 library location, E9 background image (paths) | ✅ covered | Long paths never widen the row; they truncate as above. |
+| empty | E9 background image | ✅ covered | With no image selected, no image layer is drawn; the backdrop and the tinted page background show. |
+| loading | E9 background image | ✅ covered | The image layer stays empty until the background decode completes; there is no spinner. |
+| error | E9 background image | ✅ covered | A missing, locked or inaccessible image shows no image, keeps the setting and shows the "Background image errors" copy inline in the settings row. |
+| populated | E9 background image | ✅ covered | A full-window layer below all content, fit by `BackgroundStretch`, opacity `BackgroundOpacity / 100`. |
+| populated | E9 background image (macOS, Linux) | ⚠ unresolved | ⚠ unresolved — planner must treat as assumption. The maintainer has no Mac or Linux desktop for visual checks; the capability-driven disabled backdrop options are unit-testable, but the rendering of the background image there is a planner assumption until CI screenshots exist. |
+| overflow | E10 status bar | ✅ covered | Below 1000 px width the copyright hides first, then the quote. |
+| long-text | E10 status bar (quote) | ✅ covered | The quote is one line and truncated; its tooltip shows the full text. |
+| empty | E11 dialogs | ⛔ dismissed | Help has a fixed set of five link rows and About static content; there is no empty data. |
+| loading | E11 dialogs | ⛔ dismissed | Dialog content is local and static (the version comes from `app_version()`); nothing loads. The tray hint countdown is not a loading state. |
+| populated | E11 dialogs | ✅ covered | Help: five link rows; About: blurb, product name, version and links; tray hint: static tray-icon illustration, message and the countdown Close button (Layout Contract § Dialogs). |
+| partial | E11 dialogs (About) | ✅ covered | About omits Update.Description, Partners and "Last Checked" until their sources exist (Phase 5). |
+| overflow | E11 dialogs | ✅ covered | The dialog body scrolls inside the dialog; max height is the window height minus 64 px; the title and actions stay fixed. |
+| zero-one-many | E11 dialogs | ⛔ dismissed | The link lists have a fixed length. |
+| long-text | E11 dialogs | ✅ covered | Dialog bodies wrap (Typography rule). |
+| loading | E12 toasts | ⛔ dismissed | Toasts report outcomes; they have no in-flight state. |
+| error | E12 toasts | ✅ covered | Error toasts stay 8 s and carry a close button; other toasts auto-dismiss after 5 s. |
+| overflow | E12 toasts (stack) | ✅ covered | At most 3 toasts are stacked; a 4th closes the oldest immediately. |
+| loading | E13 startup select | ✅ covered | The requested value shows at once with no spinner while the service creates or removes the entry. |
+| overflow | E13 startup select | ✅ covered | Option labels are single line in the 200 px select with an ellipsis; Priority and Scheduler stay visible, disabled, with the "Available in a later version" tooltip. |
+| long-text | E13 startup select (notes) | ✅ covered | The startup notes are row description text and wrap. |
+| loading | E14 tray menu | ⛔ dismissed | A native menu rendered by the OS with static items; there is no loading state. |
+| error | E14 tray menu | ⚠ unresolved | ⚠ unresolved — planner must treat as assumption. What the user sees when Open Sucrose cannot start or reach the Portal was not decided in this session. |
+| overflow | E14 tray menu | ⛔ dismissed | The OS renders and sizes the native menu. |
+| long-text | E14 tray menu | ⛔ dismissed | The OS renders native menu labels; the copy is short. |
 
 Cache contract (UI-07, default pending the D-25 numbers): thumbnails decode at 360 px wide when the scale factor is at most 1.0 and 720 px otherwise (two buckets so a resize never re-decodes). The decoded cache holds at most 64 images or 48 MiB, whichever is reached first, evicting least recently shown, and evicted images are dropped from the GPUI atlas.
 
 ---
-
 ## Registry Safety
 
 | Registry | Blocks Used | Safety Gate |
@@ -280,12 +338,12 @@ Cache contract (UI-07, default pending the D-25 numbers): thumbnails decode at 3
 
 ## Checker Sign-Off
 
-- [ ] Dimension 1 Copywriting: PASS
-- [ ] Dimension 2 Visuals: PASS
-- [ ] Dimension 3 Color: PASS
-- [ ] Dimension 4 Typography: PASS
-- [ ] Dimension 5 Spacing: PASS
-- [ ] Dimension 6 Registry Safety: PASS
-- [ ] Dimension 7 Inventory Provenance: PASS
+- [x] Dimension 1 Copywriting: FLAG (non-blocking: single-word CTAs kept for legacy parity; some error copy has no next step)
+- [x] Dimension 2 Visuals: FLAG (non-blocking: no declared focal point for the library screen)
+- [x] Dimension 3 Color: PASS
+- [x] Dimension 4 Typography: PASS
+- [x] Dimension 5 Spacing: FLAG (non-blocking: `AdaptiveMargin` card gap 5–25 px is a user setting, not a token)
+- [x] Dimension 6 Registry Safety: FLAG (non-blocking: CI `deny` job is red on `bzip2-1.0.6` via `xtask`; GPUI tree clean)
+- [x] Dimension 7 Inventory Provenance: FLAG (non-blocking: 86 filesystem entries vs 70 `pub mod` not reconciled)
 
-**Approval:** pending
+**Approval:** approved 2026-11-23 (gsd-ui-checker: 0 BLOCK, 5 FLAG accepted as recommendations, after 2 revisions)
