@@ -158,6 +158,12 @@ fn loop_file_inf_restarts_the_stream_at_its_end() {
         time_pos(&player).is_some_and(|pos| pos < 0.5)
     });
     assert!(looped, "the stream did not restart after its end");
+    // The wrap must be counted: the master publishes this number as ClockTick::loop_gen (WR-10).
+    assert!(
+        wait_until(Duration::from_secs(5), || player.loop_gen() >= 1),
+        "the loop wrap was not counted: loop_gen is {}",
+        player.loop_gen()
+    );
 }
 
 #[test]

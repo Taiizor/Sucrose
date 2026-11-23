@@ -9,10 +9,11 @@ use std::ffi::{CStr, CString, c_char, c_int};
 use std::path::Path;
 use std::ptr;
 use std::sync::Arc;
-use std::sync::atomic::{AtomicBool, AtomicU32, AtomicU64, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicU32, Ordering};
 use std::sync::mpsc::{self, Receiver, Sender};
 use std::sync::{Mutex, PoisonError};
 use std::thread::{self, JoinHandle};
+use std::time::Instant;
 
 use crate::loader::Mpv;
 use crate::sys;
@@ -114,20 +115,47 @@ enum Jump {
     Skip,
 }
 
-/// Classifies the move from the position `previous` to `now` (seconds). Playback advances by well under a second
-/// between two readings that follow a restart, so a larger move is a jump.
-fn classify_jump(previous: Option<f64>, now: f64) -> Jump {
-    let Some(previous) = previous else {
+/// Where playback was at the last restart (or pause change), so that the position it should have reached at the next
+/// restart can be worked out. Two restarts of a looping file are a whole loop apart, so comparing their positions
+/// alone cannot tell a wrap from ordinary playback.
+#[derive(Debug, Clone, Copy)]
+struct Anchor {
+    at: Instant,
+    /// The position then, in seconds.
+    position: f64,
+    /// Seconds of the file that pass per second of time: the playback speed, 0 while paused.
+    rate: f64,
+}
+
+impl Anchor {
+    /// The position playback should have reached at `now`.
+    fn expected(&self, now: Instant) -> f64 {
+        self.position + now.saturating_duration_since(self.at).as_secs_f64() * self.rate
+    }
+}
+
+/// Classifies the restart that found playback at `position` (seconds) at `now`, given the `anchor` of the last
+/// restart. A restart near where playback should be is ordinary. A restart near the start of the file that follows
+/// playback which reached the end (within a margin that also absorbs a follower's small speed changes) is a loop
+/// wrap; without a known `duration` any jump back to the start after more than a second counts as one.
+fn classify_restart(anchor: Option<Anchor>, now: Instant, position: f64, duration: Option<f64>) -> Jump {
+    let Some(anchor) = anchor else {
         return Jump::None;
     };
-    let delta = now - previous;
-    if delta.abs() <= 1.0 {
-        Jump::None
-    } else if delta < 0.0 && now < 1.0 {
-        Jump::Wrap
-    } else {
-        Jump::Skip
+    let expected = anchor.expected(now);
+    if (position - expected).abs() <= 1.0 {
+        return Jump::None;
     }
+    if position < 1.0 {
+        let wrapped = match duration.filter(|duration| duration.is_finite() && *duration > 0.0) {
+            Some(duration) => expected >= duration - (1.0 + 0.1 * duration),
+            None => expected > position + 1.0,
+        };
+        if wrapped {
+            return Jump::Wrap;
+        }
+    }
+    Jump::Skip
 }
 
 /// State the event thread keeps for the thread that drives the player.
@@ -137,8 +165,6 @@ struct Shared {
     paused: AtomicBool,
     /// How many times the position wrapped back to the start.
     loop_gen: AtomicU32,
-    /// The last position the event thread saw, as the bits of an f64; NaN when unknown.
-    last_position: AtomicU64,
     /// Set at the first playback restart: the first frame was shown.
     started: AtomicBool,
 }
@@ -198,10 +224,7 @@ impl Player {
             handle: Handle(raw),
             stop: Arc::new(AtomicBool::new(false)),
             events: None,
-            shared: Arc::new(Shared {
-                last_position: AtomicU64::new(f64::NAN.to_bits()),
-                ..Shared::default()
-            }),
+            shared: Arc::new(Shared::default()),
             receiver: Mutex::new(None),
         };
 
@@ -515,6 +538,8 @@ fn error_text(mpv: &Mpv, status: c_int) -> String {
 /// Reads events until mpv shuts down or the player is dropped; the only caller of mpv_wait_event.
 fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool, shared: &Shared, events: &Sender<PlayerEvent>) {
     let mut started = false;
+    // Where playback was at the last restart or pause change: only this thread reads or writes it.
+    let mut anchor: Option<Anchor> = None;
     while !stop.load(Ordering::SeqCst) {
         // SAFETY: the handle stays valid until this thread is joined; the returned event is only read before the
         // next mpv_wait_event call, as client.h requires.
@@ -531,16 +556,19 @@ fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool, shared: &Shared, eve
             // The decoder exists once the first frame is about to show, so hwdec-current is only meaningful here.
             // A later restart follows a seek or a loop wrap: the position jumped, so the clock is due.
             sys::mpv_event_id_MPV_EVENT_PLAYBACK_RESTART if started => {
-                note_restart(mpv, handle, shared, events);
+                anchor = note_restart(mpv, handle, shared, events, anchor);
             }
-            sys::mpv_event_id_MPV_EVENT_PROPERTY_CHANGE => note_property(event, shared, events),
+            sys::mpv_event_id_MPV_EVENT_PROPERTY_CHANGE => {
+                let was_paused = shared.paused.load(Ordering::SeqCst);
+                note_property(event, shared, events);
+                // The expected position stops (or starts) advancing here, so it is worked out from this moment on.
+                if shared.paused.load(Ordering::SeqCst) != was_paused && anchor.is_some() {
+                    anchor = take_anchor(mpv, handle, shared).or(anchor);
+                }
+            }
             sys::mpv_event_id_MPV_EVENT_PLAYBACK_RESTART => {
                 started = true;
-                if let Some(position) =
-                    property_string(mpv, handle, "time-pos").and_then(|text| text.trim().parse().ok())
-                {
-                    shared.last_position.store(f64::to_bits(position), Ordering::SeqCst);
-                }
+                anchor = take_anchor(mpv, handle, shared);
                 let hwdec = property_string(mpv, handle, "hwdec-current")
                     .filter(|value| !value.is_empty())
                     .unwrap_or_else(|| "no".to_owned());
@@ -556,19 +584,49 @@ fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool, shared: &Shared, eve
     }
 }
 
-/// A restart after the first one: compares the position with the last one seen, counts a wrap and tells the driver.
-fn note_restart(mpv: &Mpv, handle: Handle, shared: &Shared, events: &Sender<PlayerEvent>) {
-    let Some(position) = property_string(mpv, handle, "time-pos").and_then(|text| text.trim().parse::<f64>().ok())
-    else {
-        return;
+/// The anchor of the position playback has now, or `None` when mpv reports none.
+fn take_anchor(mpv: &Mpv, handle: Handle, shared: &Shared) -> Option<Anchor> {
+    let position = number_property(mpv, handle, "time-pos")?;
+    let speed = number_property(mpv, handle, "speed")
+        .filter(|speed| *speed > 0.0)
+        .unwrap_or(1.0);
+    let rate = if shared.paused.load(Ordering::SeqCst) {
+        0.0
+    } else {
+        speed
     };
-    let previous = f64::from_bits(shared.last_position.swap(position.to_bits(), Ordering::SeqCst));
-    let previous = (!previous.is_nan()).then_some(previous);
-    if classify_jump(previous, position) == Jump::Wrap {
+    Some(Anchor {
+        at: Instant::now(),
+        position,
+        rate,
+    })
+}
+
+fn number_property(mpv: &Mpv, handle: Handle, name: &str) -> Option<f64> {
+    property_string(mpv, handle, name)
+        .and_then(|text| text.trim().parse::<f64>().ok())
+        .filter(|value| value.is_finite())
+}
+
+/// A restart after the first one: works out whether playback wrapped to the start of a loop, counts it and tells the
+/// driver. Returns the anchor for the next restart.
+fn note_restart(
+    mpv: &Mpv,
+    handle: Handle,
+    shared: &Shared,
+    events: &Sender<PlayerEvent>,
+    anchor: Option<Anchor>,
+) -> Option<Anchor> {
+    let Some(next) = take_anchor(mpv, handle, shared) else {
+        return anchor;
+    };
+    let duration = number_property(mpv, handle, "duration");
+    if classify_restart(anchor, next.at, next.position, duration) == Jump::Wrap {
         shared.loop_gen.fetch_add(1, Ordering::SeqCst);
     }
     // A closed channel means nobody listens (a follower, or the player is being dropped): nothing to do.
     let _ = events.send(PlayerEvent::Discontinuity);
+    Some(next)
 }
 
 /// A change of the observed `pause` property.
@@ -624,23 +682,115 @@ fn c_text(text: *const c_char) -> String {
 
 #[cfg(test)]
 mod tests {
+    use std::time::Duration;
+
     use super::*;
 
-    #[test]
-    fn ordinary_playback_is_no_jump() {
-        assert_eq!(classify_jump(None, 5.0), Jump::None);
-        assert_eq!(classify_jump(Some(5.0), 5.4), Jump::None);
-        assert_eq!(classify_jump(Some(5.0), 4.2), Jump::None);
+    /// An anchor at `position` taken at `start`, playing at `rate`.
+    fn anchor(start: Instant, position: f64, rate: f64) -> Option<Anchor> {
+        Some(Anchor {
+            at: start,
+            position,
+            rate,
+        })
+    }
+
+    fn after(start: Instant, seconds: f64) -> Instant {
+        start + Duration::from_secs_f64(seconds)
     }
 
     #[test]
-    fn a_jump_back_to_the_start_is_a_wrap() {
-        assert_eq!(classify_jump(Some(29.8), 0.05), Jump::Wrap);
+    fn the_first_restart_is_no_jump() {
+        assert_eq!(classify_restart(None, Instant::now(), 5.0, Some(30.0)), Jump::None);
+    }
+
+    #[test]
+    fn a_restart_where_playback_should_be_is_ordinary() {
+        let start = Instant::now();
+        let anchor = anchor(start, 5.0, 1.0);
+        assert_eq!(classify_restart(anchor, after(start, 0.4), 5.4, Some(30.0)), Jump::None);
+        assert_eq!(classify_restart(anchor, after(start, 0.4), 4.6, Some(30.0)), Jump::None);
+    }
+
+    #[test]
+    fn a_loop_wrap_is_found_one_whole_loop_after_the_start_of_the_last_loop() {
+        // The previous restart was the wrap that began this loop, near 0 s, and so is this one, 30 s later: the
+        // positions alone differ by almost nothing.
+        let start = Instant::now();
+        let anchor = anchor(start, 0.05, 1.0);
+        assert_eq!(
+            classify_restart(anchor, after(start, 29.97), 0.03, Some(30.0)),
+            Jump::Wrap
+        );
+        // A looping file is also a wrap when it is slightly late or early.
+        assert_eq!(
+            classify_restart(anchor, after(start, 28.5), 0.2, Some(30.0)),
+            Jump::Wrap
+        );
+    }
+
+    #[test]
+    fn a_seek_to_the_start_in_the_middle_of_the_file_is_not_a_wrap() {
+        let start = Instant::now();
+        let anchor = anchor(start, 10.0, 1.0);
+        assert_eq!(classify_restart(anchor, after(start, 2.0), 0.0, Some(30.0)), Jump::Skip);
+    }
+
+    #[test]
+    fn the_speed_moves_the_expected_position() {
+        let start = Instant::now();
+        // At 1.05x the end of a 30 s file comes after 28.6 s of time.
+        let anchor = anchor(start, 0.0, 1.05);
+        assert_eq!(
+            classify_restart(anchor, after(start, 28.6), 0.0, Some(30.0)),
+            Jump::Wrap
+        );
+    }
+
+    #[test]
+    fn a_paused_player_expects_no_progress() {
+        let start = Instant::now();
+        let anchor = anchor(start, 12.0, 0.0);
+        // A restart near 12 s after a long pause is ordinary; one at the start is a seek, not a wrap.
+        assert_eq!(
+            classify_restart(anchor, after(start, 60.0), 12.2, Some(30.0)),
+            Jump::None
+        );
+        assert_eq!(
+            classify_restart(anchor, after(start, 60.0), 0.0, Some(30.0)),
+            Jump::Skip
+        );
+    }
+
+    #[test]
+    fn without_a_duration_a_jump_back_to_the_start_after_progress_is_a_wrap() {
+        let start = Instant::now();
+        let anchor = anchor(start, 0.05, 1.0);
+        assert_eq!(classify_restart(anchor, after(start, 29.9), 0.0, None), Jump::Wrap);
+        assert_eq!(classify_restart(anchor, after(start, 0.5), 0.0, None), Jump::None);
     }
 
     #[test]
     fn any_other_jump_is_a_skip() {
-        assert_eq!(classify_jump(Some(5.0), 20.0), Jump::Skip);
-        assert_eq!(classify_jump(Some(20.0), 8.0), Jump::Skip);
+        let start = Instant::now();
+        let anchor = anchor(start, 5.0, 1.0);
+        assert_eq!(
+            classify_restart(anchor, after(start, 0.1), 20.0, Some(30.0)),
+            Jump::Skip
+        );
+        let anchor = self::anchor(start, 20.0, 1.0);
+        assert_eq!(classify_restart(anchor, after(start, 0.1), 8.0, Some(30.0)), Jump::Skip);
+    }
+
+    #[test]
+    fn the_expected_position_advances_with_time_and_rate() {
+        let start = Instant::now();
+        let anchor = Anchor {
+            at: start,
+            position: 3.0,
+            rate: 2.0,
+        };
+        assert!((anchor.expected(after(start, 1.5)) - 6.0).abs() < 1e-9);
+        assert!((anchor.expected(start) - 3.0).abs() < 1e-9);
     }
 }
