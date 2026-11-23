@@ -1,9 +1,9 @@
 ---
-status: complete
+status: diagnosed
 phase: 02-m1-video-wallpaper-on-the-desktop-windows
 source: [02-VERIFICATION.md]
 started: 2026-11-22T17:34:00Z
-updated: 2026-11-23T14:52:30.512Z
+updated: 2026-11-23T15:07:38Z
 ---
 
 ## Current Test
@@ -225,9 +225,29 @@ blocked: 0
     - "(b) passed: 14:40:30Z 'the monitor is gone, closing its renderer slot=1 monitor=DISPLAY9'; slot 0 untouched"
     - "Re-enable at 14:40:52Z put DISPLAY9 at [1920,0] (not primary); the new follower seeked once to the master and then held max_drift_frames 1.0-2.0 with seeks=0"
     - "Sticky master held: 14:44:31Z primary moved to DISPLAY9 (service: slot 0 DISPLAY1 -> [-1920,0,0,1080], slot 1 DISPLAY9 -> [0,0,1920,1080]); no new 'master clock elected', no seek on Renderer-0, the follower keeps receiving the master clock"
-    - "14:44:40Z the service applied a second change moving slot 0 (DISPLAY1) to [1920,0,3840,1080]; no later monitor change was logged up to 14:46Z"
+    - "14:44:40Z the service applied a second change moving slot 0 (DISPLAY1) to [1920,0,3840,1080]; Windows had applied a second layout at 14:44:38.2Z (DISPLAY1 at [1920..3840], primary unchanged) that stayed until 14:46:09Z; the service then applied 14:46:11Z (slot 0 back to [-1920,0,0,1080]), 14:46:54Z, 14:47:02Z and 14:47:22Z, each 2.4-2.7 s after the Intel Graphics Software display event (none missed or debounced away)"
     - "Read-only window snapshot 14:46:38Z: virtual screen x=-1920 w=3840; Progman [-1920,0,1920,1080]; Progman children top-first: SHELLDLL_DefView, SucroseDesktopSurface pid 12364 (slot 1) [0,0,1920,1080], SucroseDesktopSurface pid 14808 (slot 0, DISPLAY1) [-1920,0,0,1080], WorkerW; both mpv child windows visible with the same rects"
-    - "So the OS layout at 14:46 ([-1920..1920]) disagrees with the last layout the service applied (DISPLAY1 at [1920..3840], 14:44:40Z): either a later display change was not delivered or debounced away, or the 14:44:40Z snapshot was a transient state; the slot 0 surface sits at [-1920..0] in screen coordinates although its renderer was last told [1920..3840] (child-of-Progman coordinates shift when Progman is resized)"
-    - "Not yet known: what the real screen shows (the static wallpaper, black, or a frozen frame)"
-  artifacts: []
-  missing: []
+    - "Correction (diagnosis): the 14:46:38Z snapshot matches the layout the service last applied (14:46:11Z); the failure window was 14:44:40.9Z-14:46:11.7Z, during which the user reported at 14:45:47.9Z"
+    - "The user confirmed the real screen showed the normal static Windows wallpaper (not black, not a frozen frame, not a shifted video) while the snapshot reported the slot 0 surface at [-1920,0,0,1080] above WorkerW"
+  root_cause: "After 'Make this my main display' Windows applied two layouts: B at 14:44:28.9Z (DISPLAY9 primary [0..1920], DISPLAY1 [-1920..0]) and C at 14:44:38.2Z (DISPLAY1 moved to [1920..3840], primary unchanged), C stable until 14:46:09Z. The service applied both correctly, but explorer left Progman at layout B's rectangle [-1920..1920] for C (inferred: slot 1 kept its 1920 client offset and sat at [0..1920] in the snapshot). DesktopSurface::set_rect converts the screen target to Progman client coordinates with the origin at that instant, so DISPLAY1 [1920..3840] became client x = 3840, entirely outside Progman: the slot 0 surface was clipped to nothing while its player kept running as master, and DISPLAY1 lay outside Progman altogether, so the bare desktop showed the static wallpaper. Nothing detected or recovered it: set_rect does not verify the result or compare the target against Progman, the order guard does not watch Progman's location, and the service re-places only monitors whose own rectangle changed (the C# app re-places every engine window 2000 + 500 ms after every display change), so it stayed hidden until the next real display change (14:46:11Z)."
+  artifacts:
+    - path: "crates/sucrose-platform/src/os_windows/surface.rs"
+      issue: "set_rect/place map the screen target into Progman client coordinates at one instant and never verify the actual rect against the target or check that Progman covers it (RectPx::covers exists but is unused); the WinEvent order guard hooks EVENT_OBJECT_CREATE..EVENT_OBJECT_REORDER only, no EVENT_OBJECT_LOCATIONCHANGE on Progman"
+    - path: "apps/sucrose/src/service.rs"
+      issue: "move_to/apply_snapshot send SetRect only for monitors whose rect, work area or DPI changed (no re-place of every surface after a display change, unlike the legacy app)"
+    - path: "apps/sucrose/src/topology.rs"
+      issue: "diff emits SetRect only for changed monitors; an origin shift or a Progman move leaves unchanged monitors' surfaces misplaced (latent second failure mode)"
+    - path: "apps/sucrose/src/render.rs"
+      issue: "the SetRect handler logs 'surface moved' without verifying the placement"
+    - path: "docs/FEATURES.md"
+      issue: "row 30 documents per-monitor diffs, unlike the legacy re-place-all (src/Shared/Engine/Sucrose.Shared.Engine/Event/Handler.cs)"
+  missing:
+    - "Store each surface's screen target; after every applied display change re-place every surface, not only the changed ones (legacy parity)"
+    - "Re-place when Progman moves or resizes: extend the WinEvent hook with EVENT_OBJECT_LOCATIONCHANGE for Progman (event-driven, no polling)"
+    - "After place(), verify the actual rect equals the target and that Progman covers it; otherwise log a warning with the Progman rect and the virtual screen and retry on the next Progman change"
+    - "Decide what to do when explorer leaves a monitor outside Progman (spike)"
+    - "Log the Progman origin and the local rect in 'surface moved'"
+    - "Unit tests: a target outside the parent is detected; an origin shift re-places unchanged monitors"
+    - "Update docs/FEATURES.md row 30"
+    - "Optional confirmation (maintainer acts, no Sucrose needed): with the virtual display at [1920,0] and DISPLAY1 primary, drag the virtual display to the left of DISPLAY1 while a read-only PMv2-aware probe compares Progman's rect with the virtual screen for about 30 s"
+  debug_session: .planning/debug/real-screen-static-wallpaper-after-primary-switch.md
