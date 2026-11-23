@@ -33,19 +33,19 @@ findings:
     title: "A surface outside its desktop window is warned twice, and on every move"
   - id: WR-19
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "A late `Failed` of a renderer whose slot was released (monitor unplugged) reaches the global status (introduced by the WR-18 fix)"
   - id: WR-20
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "FEATURES.md does not record the maintainer's G-02-7 decision and still states a cause that the 02-26 spike did not confirm"
   - id: IN-25
     severity: info
-    disposition: open
+    disposition: fixed
     title: "The FEATURES.md sentence about dropped reports is wrong in two ways (follow-up of WR-18)"
   - id: IN-28
     severity: info
-    disposition: open
+    disposition: fixed
     title: "Comments that drifted with the 02-23 to 02-26 changes"
   - id: IN-07
     severity: info
@@ -57,7 +57,7 @@ findings:
     title: "A legitimate `Failed` queued behind its own renderer's `Exited` is dropped (reopens WR-15; the reason of WR-17 can be lost)"
   - id: IN-24
     severity: info
-    disposition: open
+    disposition: fixed
     title: "The WR-15 test re-implements the handler instead of testing it"
   - id: WR-15
     severity: warning
@@ -189,11 +189,11 @@ findings:
     title: "The order guard removes itself permanently after ten restores in a minute"
   - id: IN-10
     severity: info
-    disposition: open
+    disposition: fixed
     title: "The recorded GPU regression has an obvious first suspect in the generated options"
-open: 13
+open: 7
 total: 47
-recorded: 2026-11-23T19:27:50.559Z
+recorded: 2026-11-23T19:28:14.180Z
 ---
 
 # Phase 02: Code Review Disposition
@@ -207,13 +207,13 @@ recorded: 2026-11-23T19:27:50.559Z
 | IN-23 | info | open | - |
 | IN-26 | info | open | - |
 | IN-27 | info | open | - |
-| WR-19 | warning | open | - (not in the current review) |
-| WR-20 | warning | open | - (not in the current review) |
-| IN-25 | info | open | - (not in the current review) |
-| IN-28 | info | open | - (not in the current review) |
+| WR-19 | warning | fixed | resolved by 02-27 (02-REVIEW.md 27c093d7, Resolved since the last review) (not in the current review) |
+| WR-20 | warning | fixed | resolved by 02-28 (02-REVIEW.md 27c093d7, Resolved since the last review) (not in the current review) |
+| IN-25 | info | fixed | resolved by 02-27 (02-REVIEW.md 27c093d7, Resolved since the last review) (not in the current review) |
+| IN-28 | info | fixed | resolved by 02-27 and 02-28 (02-REVIEW.md 27c093d7, Resolved since the last review) (not in the current review) |
 | IN-07 | info | skipped | 02-REVIEW-FIX.md (not in the current review) |
 | WR-18 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
-| IN-24 | info | open | - (not in the current review) |
+| IN-24 | info | fixed | resolved before 02-27: tests call the pure handle_report (02-REVIEW.md 27c093d7, Resolved since the last review) (not in the current review) |
 | WR-15 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
 | WR-16 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
 | WR-17 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
@@ -246,7 +246,7 @@ recorded: 2026-11-23T19:27:50.559Z
 | WR-02 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
 | WR-03 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
 | WR-04 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
-| IN-10 | info | open | - (not in the current review) |
+| IN-10 | info | fixed | resolved by evidence: same-GPU rows show R = 1.02, no regression (02-REVIEW.md 27c093d7, Resolved since the last review) (not in the current review) |
 
 Dispositions: `open` (recorded, not yet triaged), `fixed`, `skipped`, `deferred`.
 Set `deferred` by hand and put the reason in the Source cell; both are preserved. A `|` in the reason is kept as prose and escaped on the next run.
