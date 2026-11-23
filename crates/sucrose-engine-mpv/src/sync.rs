@@ -207,6 +207,22 @@ impl Follower {
         Self::default()
     }
 
+    /// A follower that has not corrected or seeked yet and whose player runs at `speed`.
+    #[must_use]
+    pub fn at_speed(speed: f64) -> Self {
+        Self {
+            last_speed: speed,
+            ..Self::default()
+        }
+    }
+
+    /// Tells the follower that the last [SyncAction::Speed] could not be applied and the player really runs at
+    /// `actual`, so the wanted speed is sent again by the next reading instead of being taken for done.
+    pub fn speed_failed(&mut self, actual: f64) {
+        self.last_speed = actual;
+        self.counters.speed_changes = self.counters.speed_changes.saturating_sub(1);
+    }
+
     /// Decides what this follower does about the master's `tick` (see [correct] for the arguments), but only returns an
     /// action that changes something. Beyond [SEEK_THRESHOLD_S] it seeks (not again within two seconds). Otherwise
     /// the speed is the master's times `1 - c`, where `c` is [SPEED_GAIN] times the drift while correcting plus
@@ -661,6 +677,29 @@ mod tests {
         assert_eq!(summary.speed_changes, 0);
         assert_eq!(summary.seeks, 0);
         assert_eq!(follower.take_summary(), None);
+    }
+
+    #[test]
+    fn a_speed_that_could_not_be_set_is_sent_again() {
+        let mut follower = Follower::new();
+
+        let first = follower.step(&tick(100.0, SECOND), SECOND, 99.9, None, FRAME_60);
+        let wanted = speed_of(first);
+        follower.speed_failed(1.0);
+        let again = follower.step(&tick(100.0, SECOND), SECOND, 99.9, None, FRAME_60);
+
+        assert!((speed_of(again) - wanted).abs() < 1e-9);
+        let summary = follower.take_summary().expect("two ticks were taken");
+        assert_eq!(summary.speed_changes, 1);
+    }
+
+    #[test]
+    fn a_follower_can_start_at_the_speed_its_player_runs_at() {
+        let mut follower = Follower::at_speed(1.02);
+
+        let action = follower.step(&tick(100.0, SECOND), SECOND, 100.0, None, FRAME_60);
+
+        assert!((speed_of(action) - 1.0).abs() < 1e-9);
     }
 
     #[test]

@@ -392,7 +392,7 @@ fn wait_for_close(
             }
             Ok(ToRenderer::SetRole(role)) => {
                 apply_role(role, player, sync);
-                following.reset();
+                following.reset(player.speed());
             }
             Ok(ToRenderer::Clock(tick)) => follow_clock(&tick, player, sync, &mut following),
             // A second assignment is not part of this plan; later plans act on it.
@@ -446,9 +446,10 @@ struct FollowState {
 }
 
 impl FollowState {
-    /// A new role starts the controller afresh; the video, and so its frame period, stays the same.
-    fn reset(&mut self) {
-        self.follower = Follower::new();
+    /// A new role starts the controller afresh at the speed the player really runs at; the video, and so its
+    /// frame period, stays the same.
+    fn reset(&mut self, speed: f64) {
+        self.follower = Follower::at_speed(speed);
         self.ticks_since_summary = 0;
     }
 }
@@ -489,7 +490,12 @@ fn follow_clock(tick: &ClockTick, player: &Player, sync: &SyncState, state: &mut
                 drift_s = drift_s(tick, now_ns, local, duration),
                 "follower speed"
             );
-            player.set_speed(speed)
+            let result = player.set_speed(speed);
+            if result.is_err() {
+                // The controller must not take the speed for sent: the next reading sends it again.
+                state.follower.speed_failed(player.speed());
+            }
+            result
         }
         SyncAction::Seek(position) => {
             tracing::info!(local, position, "drift beyond half a second, seeking");
