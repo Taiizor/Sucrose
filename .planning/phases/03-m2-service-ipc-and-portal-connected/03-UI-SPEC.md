@@ -274,7 +274,7 @@ Cache contract (UI-07, default pending the D-25 numbers): thumbnails decode at 3
 |----------|-------------|-------------|
 | shadcn official | none (no shadcn; the project is native Rust) | not applicable |
 | Third-party UI registries | none | not applicable |
-| crates.io (`gpui-kit =0.10.0`, exact pin) | the component modules above | licenses checked by `cargo-deny` per `.claude/rules/cargo.md`; no registry view/diff step exists for crates; the pin is upgraded deliberately (`docs/GPUI.md`) |
+| crates.io (`gpui-kit =0.10.0`, exact pin) | the component modules above | Evidence (2026-11-23): `cargo-deny` is not installed in this WSL environment, so the strongest real result is the CI `deny` job (`EmbarkStudios/cargo-deny-action@v2`, `.github/workflows/rust.yml`, config `deny.toml`) on commit `2fc55b04`, run 45244990246, completed 2026-11-23T19:05Z, against a `Cargo.lock` that already pins `gpui-kit 0.10.0` and `gpui-component 0.10.0`. Result: `advisories ok, bans ok, licenses FAILED, sources ok`. The single license rejection is `libbz2-rs-sys 0.2.7` (`bzip2-1.0.6`) reached only through `xtask` (`sevenz-rust2` > `bzip2`); no rejection, advisory or unknown-source finding names `gpui-kit`, `gpui-component` or any crate of the `apps/sucrose-portal` dependency tree. This is a per-crate pass for the GPUI tree but NOT a clean overall gate: the `deny` job is red until `bzip2-1.0.6` is allowed in `deny.toml` or the dependency is dropped (tracked outside this phase; this spec does not change `deny.toml`). No view/diff step exists for crates. The pin is upgraded deliberately (`docs/GPUI.md`) and the check must be re-run on any bump |
 
 ---
 
