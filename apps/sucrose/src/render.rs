@@ -300,10 +300,15 @@ fn report_failure(connection: &mut Connection, reason: String, hint: impl Into<S
 /// Logs the GPU adapter the video device of this renderer gets. libmpv creates its Direct3D 11 device with no adapter
 /// named (config.rs sets no `d3d11-adapter`), and so does `default_gpu_adapter`, so both get the adapter Windows picks
 /// for this process from its GPU preference. The order of the adapter enumeration list says nothing about that, so
-/// no entry of it is logged as the adapter in use.
+/// no entry of it is logged as the adapter in use. Finding it creates a Direct3D device (driver load, a device on the
+/// discrete GPU), which a renderer with a low resource budget must not pay just for a log line, so it only runs when
+/// debug logging is on (`SUCROSE_LOG=debug`).
 fn log_video_adapter() {
+    if !tracing::enabled!(tracing::Level::DEBUG) {
+        return;
+    }
     match sucrose_platform::current().default_gpu_adapter() {
-        Some(adapter) => tracing::info!(
+        Some(adapter) => tracing::debug!(
             name = %adapter.name,
             luid = %adapter.luid,
             dedicated_mb = adapter.dedicated_video_memory_mb,
