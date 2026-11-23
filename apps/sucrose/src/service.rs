@@ -734,20 +734,18 @@ fn read_connection(
     }
     // A change that came between the reply and the registration found no connection to send to: catch up.
     if let ToRenderer::Assign(sent) = &reply {
-        match lock_assignments(assignments)
+        // The assignments lock is released before the send takes the renderers lock.
+        let current = lock_assignments(assignments)
             .get(&slot)
-            .map(|assignment| assignment.rect)
-        {
+            .map(|assignment| assignment.rect);
+        match current {
+            // Through the registered writer, under the lock every other sender takes (WR-12).
             Some(rect) if rect != sent.rect => {
-                if let Err(error) = connection.send(&ToRenderer::SetRect(rect)) {
-                    tracing::warn!(%error, slot, "cannot send the new rectangle to a renderer");
-                }
+                send_to(renderers, slot, &ToRenderer::SetRect(rect));
             }
             Some(_) => {}
             None => {
-                if let Err(error) = connection.send(&ToRenderer::Close) {
-                    tracing::warn!(%error, slot, "cannot send Close to a renderer");
-                }
+                send_to(renderers, slot, &ToRenderer::Close);
             }
         }
     }

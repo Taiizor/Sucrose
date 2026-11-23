@@ -12,15 +12,18 @@ use crate::IpcError;
 /// Largest frame payload either side accepts, in bytes.
 pub const MAX_FRAME: u32 = 64 * 1024;
 
-/// Writes `message` as one frame and flushes.
+/// Writes `message` as one frame and flushes. The header and the payload go out in a single write, so that two threads
+/// sharing one pipe through cloned handles can never get their halves interleaved.
 pub fn write_frame<W: Write, T: Serialize>(writer: &mut W, message: &T) -> Result<(), IpcError> {
     let payload = postcard::to_stdvec(message).map_err(IpcError::Encode)?;
     let length = u32::try_from(payload.len()).map_err(|_| IpcError::FrameTooLarge(u32::MAX))?;
     if length > MAX_FRAME {
         return Err(IpcError::FrameTooLarge(length));
     }
-    writer.write_all(&length.to_le_bytes())?;
-    writer.write_all(&payload)?;
+    let mut frame = Vec::with_capacity(4 + payload.len());
+    frame.extend_from_slice(&length.to_le_bytes());
+    frame.extend_from_slice(&payload);
+    writer.write_all(&frame)?;
     writer.flush()?;
     Ok(())
 }
@@ -70,6 +73,36 @@ mod tests {
             read_frame::<_, ToRenderer>(&mut reader).expect("read Close"),
             ToRenderer::Close
         );
+    }
+
+    /// Counts the calls to `write`, which is what a pipe turns into separate writes.
+    #[derive(Default)]
+    struct CountingWriter {
+        writes: usize,
+        bytes: Vec<u8>,
+    }
+
+    impl Write for CountingWriter {
+        fn write(&mut self, buffer: &[u8]) -> std::io::Result<usize> {
+            self.writes += 1;
+            self.bytes.extend_from_slice(buffer);
+            Ok(buffer.len())
+        }
+
+        fn flush(&mut self) -> std::io::Result<()> {
+            Ok(())
+        }
+    }
+
+    #[test]
+    fn a_frame_is_written_with_one_write_so_two_writers_cannot_split_it() {
+        let mut writer = CountingWriter::default();
+
+        write_frame(&mut writer, &hello()).expect("write Hello");
+
+        assert_eq!(writer.writes, 1, "header and payload must not be separate writes");
+        let decoded: ToService = read_frame(&mut Cursor::new(writer.bytes)).expect("read it back");
+        assert_eq!(decoded, hello());
     }
 
     #[test]
