@@ -3,10 +3,10 @@ phase: 02
 review: 02-REVIEW.md
 titles: json
 findings:
-  - id: WR-18
+  - id: WR-19
     severity: warning
-    disposition: fixed
-    title: "A legitimate `Failed` queued behind its own renderer's `Exited` is dropped (reopens WR-15; the reason of WR-17 can be lost)"
+    disposition: open
+    title: "A late `Failed` of a renderer whose slot was released (monitor unplugged) now reaches the global status (introduced by the WR-18 fix)"
   - id: IN-07
     severity: info
     disposition: skipped
@@ -31,6 +31,18 @@ findings:
     severity: info
     disposition: open
     title: "`stopped_reason` can name a failure that belongs to another monitor or an earlier attempt, and FEATURES.md promises it unconditionally (follow-up of WR-17)"
+  - id: IN-25
+    severity: info
+    disposition: open
+    title: "The FEATURES.md sentence about dropped reports is wrong in two ways (follow-up of WR-18)"
+  - id: IN-26
+    severity: info
+    disposition: open
+    title: "The new tests duplicate the budget-spending loop and rely on a magic bound"
+  - id: WR-18
+    severity: warning
+    disposition: fixed
+    title: "A legitimate `Failed` queued behind its own renderer's `Exited` is dropped (reopens WR-15; the reason of WR-17 can be lost)"
   - id: IN-24
     severity: info
     disposition: open
@@ -167,23 +179,26 @@ findings:
     severity: info
     disposition: open
     title: "The recorded GPU regression has an obvious first suspect in the generated options"
-open: 7
-total: 41
-recorded: 2026-11-23T14:23:55.862Z
+open: 10
+total: 44
+recorded: 2026-11-23T14:29:31.537Z
 ---
 
 # Phase 02: Code Review Disposition
 
 | Finding | Severity | Disposition | Source |
 |---------|----------|-------------|--------|
-| WR-18 | warning | fixed | 02-REVIEW-FIX.md |
+| WR-19 | warning | open | - |
 | IN-07 | info | skipped | 02-REVIEW-FIX.md |
 | IN-19 | info | open | - |
 | IN-20 | info | open | - |
 | IN-21 | info | open | - |
 | IN-22 | info | open | - |
 | IN-23 | info | open | - |
-| IN-24 | info | open | - |
+| IN-25 | info | open | - |
+| IN-26 | info | open | - |
+| WR-18 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-24 | info | open | - (not in the current review) |
 | WR-15 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
 | WR-16 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
 | WR-17 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
