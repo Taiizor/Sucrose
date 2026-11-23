@@ -3,7 +3,7 @@ status: diagnosed
 phase: 02-m1-video-wallpaper-on-the-desktop-windows
 source: [02-VERIFICATION.md]
 started: 2026-11-22T17:34:00Z
-updated: 2026-11-22T20:38:28Z
+updated: 2026-11-23T03:08:06Z
 ---
 
 ## Current Test
@@ -45,12 +45,20 @@ result: issue
 reported: "1 (decision: handle it in Phase 2 - after the GPU preference is ported, re-measure Rust and C# on the same GPU; if Rust still uses notably more, try deband=no and the default profile in the same fix)"
 severity: major
 
+### 7. Re-run UAT test 2 after the gap closure: explorer.exe kill twice; disable the non-primary display (FullScreenPerformance=Resume); re-enable a display that becomes primary
+expected: (a) taskkill /IM explorer.exe /F then start explorer.exe, twice in a row, with SUCROSE_LOG=debug: the video is visible again on every monitor within seconds, the Renderer log shows 'surface attached ... order=SHELLDLL_DefView > SucroseDesktopSurface > WorkerW', the tray icon returns; (b) with FullScreenPerformance=Resume disable the NON-primary display: only that monitor's renderer closes within about 3 s; (c) re-enable a virtual display that becomes the primary and watch both monitors for a minute: the monitor that kept playing does not seek back to the start, the master does not move (one 'master clock elected' line), no visible offset between monitors, 'follower drift summary' lines show max drift within one frame. Covers G-02-2a, G-02-2c, G-02-2d.
+result: [pending]
+
+### 8. Two minutes of 4K60 playback on the hybrid laptop with no manual graphics entry (G-02-2b, 02-18 task D4)
+expected: No stutter, no 'Audio/Video desynchronisation' or 'underrun' in the Renderer logs, Task Manager shows the renderers' 3D engine on the RTX 3050, not the Intel UHD.
+result: [pending]
+
 ## Summary
 
-total: 6
+total: 8
 passed: 4
 issues: 2
-pending: 0
+pending: 2
 skipped: 0
 blocked: 0
 
