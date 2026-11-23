@@ -1528,8 +1528,9 @@ impl Fleet {
         }
     }
 
-    /// Applies the monitors of a snapshot that two looks agreed on. An empty snapshot is the OS in the middle of a
-    /// hot-plug and changes nothing: the renderers stay until a snapshot with monitors arrives.
+    /// Applies the monitors of a snapshot that two looks agreed on and re-places every renderer's surface, changed or
+    /// not (legacy parity); the master is elected again only when monitors changed. An empty snapshot is the OS in the
+    /// middle of a hot-plug and changes nothing: the renderers stay until a snapshot with monitors arrives.
     fn apply_snapshot(&mut self, monitors: Vec<MonitorInfo>, ctx: &Ctx<'_>) -> Applied {
         if monitors.is_empty() {
             tracing::info!("the OS reports no monitor, the renderers stay as they are");
@@ -1556,7 +1557,7 @@ impl Fleet {
         applied
     }
 
-    /// Carries out `actions` (see [`diff`]).
+    /// Carries out `actions` (see [`replace_all`]).
     fn apply(&mut self, actions: Vec<TopologyAction>, ctx: &Ctx<'_>) -> Applied {
         let mut applied = Applied::default();
         for action in actions {
