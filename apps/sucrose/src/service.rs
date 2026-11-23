@@ -579,7 +579,7 @@ pub fn run() -> anyhow::Result<()> {
             }
             Flow::Continue
         }
-        // explorer.exe started again: Progman and every surface in it are gone, so each monitor gets a new renderer.
+        // explorer.exe started again: the surfaces have to be replaced, so each monitor gets a new renderer.
         LoopEvent::ShellRestarted => {
             if !quitting && fleet.job.is_some() {
                 let acted = fleet.shell_restarted(&Ctx {
@@ -1404,7 +1404,7 @@ impl Fleet {
         }
     }
 
-    /// explorer.exe started again. Renderers that still run are closed (their surface went with Progman) and each
+    /// explorer.exe started again. Renderers that still run are closed (their surfaces have to be replaced) and each
     /// monitor's renderer is started once more when its predecessor has ended; a monitor without a running renderer
     /// gets a fresh one at once. `false` when restarts come too fast and this one was ignored.
     fn shell_restarted(&mut self, ctx: &Ctx<'_>) -> bool {

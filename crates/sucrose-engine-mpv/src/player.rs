@@ -292,7 +292,7 @@ impl Player {
         self.set_property("volume", &volume.min(100).to_string())
     }
 
-    /// Sets the playback speed (1.0 is normal); the follower's drift correction uses 0.98 and 1.02 (D-02).
+    /// Sets the playback speed (1.0 is normal); the follower's drift correction uses a speed within 5 % of the master's (see `sync.rs`, D-02).
     pub fn set_speed(&self, speed: f64) -> Result<(), PlayerError> {
         self.set_property("speed", &format!("{speed:.4}"))
     }

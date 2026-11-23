@@ -189,8 +189,8 @@ pub const SHELL_RESTART_WINDOW: Duration = Duration::from_secs(30);
 /// of them must not keep the renderers in an endless close and start loop (T-02-26).
 const MAX_SHELL_RESTARTS: usize = 5;
 
-/// The recovery after explorer.exe restarted: it took Progman and with it every renderer's surface, so recovery
-/// means new renderers, not re-parenting. Triggered only by the `TaskbarCreated` message, never by polling (D-11).
+/// The recovery after explorer.exe restarted: the renderers' surfaces have to be replaced (how the old ones are lost
+/// is not established), so recovery means new renderers, not re-parenting. Triggered only by the `TaskbarCreated` message, never by polling (D-11).
 #[derive(Debug)]
 pub struct ShellRestart {
     /// The end of the window in which a lost surface is expected; `None` when no restart was seen yet.

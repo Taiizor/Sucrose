@@ -234,7 +234,7 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     if surface_lost {
         // Not an error: Windows destroyed the surface (explorer.exe killed sends no such message; the service
         // replaces the renderers on TaskbarCreated), and mpv ending with its parent window is part of that.
-        tracing::info!("the desktop surface was destroyed by the shell, the service starts a new renderer");
+        tracing::info!("Windows destroyed the desktop surface, the service starts a new renderer");
         return Ok(ExitCode::from(EXIT_SURFACE_LOST));
     }
     tracing::info!("the renderer stopped");
@@ -457,7 +457,7 @@ const SUMMARY_TICKS: u32 = 30;
 #[derive(Debug, Default)]
 struct FollowState {
     follower: Follower,
-    /// One frame of the video in seconds, read once the first frame is shown.
+    /// One frame of the video in seconds: the container's value is read once, an estimate is read again.
     frame_s: Option<f64>,
     /// Whether `frame_s` came from the container's frame rate and so cannot change; an estimate or the default is
     /// read again on the next readings.
