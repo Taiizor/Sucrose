@@ -73,7 +73,7 @@ All commands run from the repository root in WSL; `cargo` is the Windows toolcha
 | 02-13-01 | 13 | 13 | PERF-05 | T-02-28, T-02-29 | Foreground probe never reads window titles; 5/3 debounce limits flips | unit | `cargo test -p sucrose fullscreen && cargo test -p sucrose-platform && cargo build -p sucrose` | n/a (run check) or created in the task | ✅ green |
 | 02-13-02 | 13 | 13 | PERF-05 | T-02-28, T-02-29 | Foreground probe never reads window titles; 5/3 debounce limits flips | unit (TDD) + human-check | `cargo test -p sucrose fullscreen && cargo clippy -p sucrose --all-targets -- -D warnings` | written first in the task | ✅ green |
 | 02-14-01 | 14 | 14 | DESK-01 | T-02-30, T-02-31 | Only the current master's Clock is relayed; seeks only above 0.5 s drift | e2e run on the real desktop | `cargo test -p sucrose-engine-mpv sync && cargo build -p sucrose && rm -rf target/scratch-data/Log && (SUCROSE_DATA_DIR="$(wslpath -w target/scratch-data)" WSLENV=SUCROSE_DATA_DIR target/debug/sucrose.exe &) && sleep 10 && taskkill.exe /IM sucrose.exe /F && grep -h 'role' target/scratch-data/Log/Renderer-0.*.log` | n/a (run check) or created in the task | ✅ green (SUMMARY evidence) |
-| 02-14-02 | 14 | 14 | DESK-01 | T-02-30, T-02-31 | Only the current master's Clock is relayed; seeks only above 0.5 s drift | unit (TDD) + human-check | `cargo test -p sucrose-engine-mpv sync && cargo test -p sucrose elect_master` | written first in the task | ✅ green |
+| 02-14-02 | 14 | 14 | DESK-01 | T-02-30, T-02-31 | Only the current master's Clock is relayed; seeks only above 0.5 s drift | unit (TDD) + human-check | `cargo test -p sucrose-engine-mpv sync && cargo test -p sucrose master` | written first in the task | ✅ green |
 | 02-15-01 | 15 | 15 | MEAS-01 | T-02-32, T-02-33 | Measurement only reads process statistics; never stops or signals C# processes | e2e run on the real desktop | `cargo test -p xtask measure && cargo build --release -p sucrose && cargo xtask fetch-engines && (SUCROSE_DATA_DIR="$(wslpath -w target/scratch-data)" WSLENV=SUCROSE_DATA_DIR target/release/sucrose.exe &) && sleep 2 && cargo xtask measure --side rust --out target/measure/rust.json; code=$?; taskkill.exe /IM sucrose.exe /F; test "$code" -eq 0 && test -s target/measure/rust.json` | n/a (run check) or created in the task | ✅ green (SUMMARY evidence) |
 | 02-15-02 | 15 | 15 | MEAS-01 | T-02-32, T-02-33 | Maintainer decision or action; no code | checkpoint (maintainer) | — (blocking checkpoint, resume signal) | n/a | ✅ resolved (manual) |
 | 02-15-03 | 15 | 15 | MEAS-01 | T-02-32, T-02-33 | Measurement only reads process statistics; never stops or signals C# processes | docs grep | `test -s target/measure/csharp.json && grep -c 'M1 video wallpaper' docs/MEASUREMENTS.md` | n/a (run check) or created in the task | ✅ green |
@@ -115,6 +115,8 @@ All commands run from the repository root in WSL; `cargo` is the Windows toolcha
 | 02-18-01 | DESK-12 (T-02-40) | `apply_gpu_preference` writes nothing when `Capabilities.gpu_preference` is false, writes once for this executable with the given preference when it is true, and returns normally (one attempt, no retry) when the write fails; the fake `Platform` never touches the registry | `cargo test -p sucrose gpu_preference` | ✅ green |
 | 02-20-02 | DESK-01 | For a playing 30 fps lavfi stream the pinned libmpv reports `container-fps` (else `estimated-vf-fps`), read the way `render.rs` reads it, and `sync::frame_period` gives 1/30 s | `cargo test -p sucrose-engine-mpv --test options -- --ignored frame_rate` | ✅ green |
 
+Map correction (validate-phase, 2026-11-23, after the code review fixes): the 02-19 sticky election renamed the `elect_master` tests, so `cargo test -p sucrose elect_master` matched no test and passed empty; rows 02-14-02 and "Same frame and no echo across monitors" now use `cargo test -p sucrose master` (12 `service::tests` election tests). `cargo test --workspace` green (350 passed, 12 ignored).
+
 Escalated to manual-only (no implementation change): 02-16-02 / 02-16-03, DESK-01 (T-02-36): the raised attach waiting for the wallpaper WorkerW and the order guard restore budget are bound to the live Progman tree, `SetWinEventHook` and a thread-local budget with no pure seam; see Manual-Only Verifications.
 
 ---
@@ -138,7 +140,7 @@ Existing infrastructure covers all phase requirements: the Rust test harness nee
 | Tray icon, tooltip reasons, Quit | TRAY-01 | Clicking the tray menu cannot be automated (CLAUDE.md: never synthesize input) | Plan 09 Task 2 human-check |
 | explorer.exe restart recovery | DESK-07 | Kills and restarts the maintainer's shell | Plan 12 Task 3 human-check |
 | Monitor plug/unplug and "every monitor" beyond one | DESK-01, DESK-07 | The maintainer's machine has one display; needs a second or virtual display | Plan 12 Task 2 human-check if available, else "not verifiable: one display"; the logic is covered by `cargo test -p sucrose topology`, `debounce` and `shell_restart`, and the 02-12 and 02-15 SUMMARYs state that success criteria 1 and 2 were verified for one monitor only |
-| Same frame and no echo across monitors | DESK-01 (D-02) | Needs two displays | Plan 14 Task 2 human-check if available; logic covered by `cargo test -p sucrose-engine-mpv sync` and `cargo test -p sucrose elect_master` |
+| Same frame and no echo across monitors | DESK-01 (D-02) | Needs two displays | Plan 14 Task 2 human-check if available; logic covered by `cargo test -p sucrose-engine-mpv sync` and `cargo test -p sucrose master` |
 | Fullscreen Pause (and Close) | PERF-05 | Needs a real fullscreen app and a maintainer-made, restored edit of Backgroundog.json (D-08) | Plan 13 Task 2 human-check |
 | C# side of the measurement | MEAS-01 | The maintainer starts the C# app; Sucrose never starts or stops it | Plan 15 Task 2 checkpoint, then Task 3 |
 | Service pipe refuses a second Windows account | TYPE-01 (T-02-11) | Needs a second Windows account on the machine | Start the service as one user, connect a client from another account; expect access denied (02-05 SUMMARY) |
@@ -180,3 +182,11 @@ Existing infrastructure covers all phase requirements: the Rust test harness nee
 | Gaps found | 3 |
 | Resolved | 2 |
 | Escalated | 1 |
+
+## Validation Audit 2026-11-23
+
+| Metric | Count |
+|---|---|
+| Gaps found | 1 |
+| Resolved | 1 |
+| Escalated | 0 |
