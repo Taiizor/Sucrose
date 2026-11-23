@@ -6,7 +6,7 @@ use std::{
     process::{Child, Command},
 };
 
-use crate::{DpiAwareness, Flow, LoopEnd, LoopEvent, PlatformError, RectPx};
+use crate::{DpiAwareness, Flow, LoopEnd, LoopEvent, Placement, PlatformError, RectPx};
 
 /// A surface behind the desktop icons. Not available on this OS.
 #[derive(Debug)]
@@ -24,7 +24,7 @@ impl DesktopSurface {
     }
 
     /// Always fails on this OS.
-    pub fn set_rect(&self, _rect: RectPx) -> Result<(), PlatformError> {
+    pub fn set_rect(&self, _rect: RectPx) -> Result<Placement, PlatformError> {
         Err(PlatformError::Unsupported("desktop surface"))
     }
 

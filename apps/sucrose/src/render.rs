@@ -26,7 +26,8 @@ use sucrose_ipc::{
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, Role, ToRenderer, ToService},
 };
 use sucrose_platform::{
-    DesktopSurface, DpiAwareness, EventLoop, Flow, LoopEnd, LoopEvent, LoopProxy, RectPx, monotonic_ns,
+    DesktopSurface, DpiAwareness, EventLoop, Flow, LoopEnd, LoopEvent, LoopProxy, PlacementVerdict, RectPx,
+    monotonic_ns,
 };
 
 /// How often and how long the renderer retries while the service is still opening its endpoint.
@@ -203,7 +204,29 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
             let rect = pending_rect.lock().unwrap_or_else(PoisonError::into_inner).take();
             if let Some(rect) = rect {
                 match surface.set_rect(rect) {
-                    Ok(()) => tracing::info!(?rect, "surface moved"),
+                    Ok(placement) => {
+                        tracing::info!(
+                            target = ?placement.target,
+                            local = ?placement.local,
+                            parent = ?placement.parent,
+                            verdict = ?placement.verdict,
+                            "surface moved"
+                        );
+                        match placement.verdict {
+                            PlacementVerdict::Shown => {}
+                            PlacementVerdict::Misplaced => tracing::warn!(
+                                target = ?placement.target,
+                                actual = ?placement.actual,
+                                "the surface did not land on its target"
+                            ),
+                            PlacementVerdict::PartlyHidden { .. } | PlacementVerdict::Hidden => tracing::warn!(
+                                target = ?placement.target,
+                                parent = ?placement.parent,
+                                virtual_screen = ?placement.virtual_screen,
+                                "the surface lies outside the desktop window"
+                            ),
+                        }
+                    }
                     Err(error) => tracing::warn!(%error, ?rect, "cannot move the surface"),
                 }
             }

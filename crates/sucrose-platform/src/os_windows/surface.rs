@@ -24,13 +24,14 @@ use windows::{
             WindowsAndMessaging::{
                 CreateWindowExW, DefWindowProcW, DestroyWindow, EVENT_OBJECT_CREATE, EVENT_OBJECT_REORDER,
                 EVENT_OBJECT_SHOW, EnumWindows, FindWindowExW, FindWindowW, GA_PARENT, GA_ROOT, GW_CHILD, GW_HWNDNEXT,
-                GWL_EXSTYLE, GWL_STYLE, GetAncestor, GetClassNameW, GetWindow, GetWindowLongPtrW, GetWindowRect,
-                GetWindowThreadProcessId, IsWindowVisible, KillTimer, LWA_ALPHA, MA_NOACTIVATE, OBJID_CLIENT,
-                OBJID_WINDOW, PostQuitMessage, RegisterClassExW, SMTO_NORMAL, SWP_NOACTIVATE, SWP_NOMOVE, SWP_NOSIZE,
-                SWP_NOZORDER, SWP_SHOWWINDOW, SendMessageTimeoutW, SetLayeredWindowAttributes, SetParent, SetTimer,
-                SetWindowLongPtrW, SetWindowPos, WINDOW_LONG_PTR_INDEX, WINEVENT_OUTOFCONTEXT, WINEVENT_SKIPOWNPROCESS,
-                WM_DESTROY, WM_MOUSEACTIVATE, WNDCLASSEXW, WS_CHILD, WS_CLIPCHILDREN, WS_CLIPSIBLINGS, WS_EX_LAYERED,
-                WS_EX_NOACTIVATE, WS_EX_TOOLWINDOW, WS_POPUP, WS_VISIBLE,
+                GWL_EXSTYLE, GWL_STYLE, GetAncestor, GetClassNameW, GetClientRect, GetSystemMetrics, GetWindow,
+                GetWindowLongPtrW, GetWindowRect, GetWindowThreadProcessId, IsWindowVisible, KillTimer, LWA_ALPHA,
+                MA_NOACTIVATE, OBJID_CLIENT, OBJID_WINDOW, PostQuitMessage, RegisterClassExW, SM_CXVIRTUALSCREEN,
+                SM_CYVIRTUALSCREEN, SM_XVIRTUALSCREEN, SM_YVIRTUALSCREEN, SMTO_NORMAL, SWP_NOACTIVATE, SWP_NOMOVE,
+                SWP_NOSIZE, SWP_NOZORDER, SWP_SHOWWINDOW, SendMessageTimeoutW, SetLayeredWindowAttributes, SetParent,
+                SetTimer, SetWindowLongPtrW, SetWindowPos, WINDOW_LONG_PTR_INDEX, WINEVENT_OUTOFCONTEXT,
+                WINEVENT_SKIPOWNPROCESS, WM_DESTROY, WM_MOUSEACTIVATE, WNDCLASSEXW, WS_CHILD, WS_CLIPCHILDREN,
+                WS_CLIPSIBLINGS, WS_EX_LAYERED, WS_EX_NOACTIVATE, WS_EX_TOOLWINDOW, WS_POPUP, WS_VISIBLE,
             },
         },
     },
@@ -39,7 +40,8 @@ use windows::{
 
 use super::{event_loop::wait_pumping, os_error};
 use crate::{
-    PlatformError, RectPx,
+    Placement, PlatformError, RectPx,
+    geometry::placement_verdict,
     layout::{self, DEFVIEW_CLASS, DesktopLayout, RaisedOrder, ShellSnapshot, SiblingKind, WORKERW_CLASS, WindowNode},
 };
 
@@ -301,6 +303,58 @@ fn window_rect(hwnd: HWND) -> Option<RectPx> {
     })
 }
 
+/// The client area of `hwnd` on the screen (physical pixels): where a child of it can show.
+fn client_rect_on_screen(hwnd: HWND) -> Option<RectPx> {
+    let mut client = RECT::default();
+    // SAFETY: `client` is a valid out pointer.
+    unsafe { GetClientRect(hwnd, &mut client) }.ok()?;
+    let mut origin = POINT::default();
+    // SAFETY: `origin` is a valid in/out point; it turns the client origin into screen coordinates.
+    if !unsafe { ClientToScreen(hwnd, &mut origin) }.as_bool() {
+        return None;
+    }
+    Some(RectPx {
+        left: origin.x,
+        top: origin.y,
+        right: origin.x + (client.right - client.left),
+        bottom: origin.y + (client.bottom - client.top),
+    })
+}
+
+/// The whole virtual desktop (every monitor) in physical pixels.
+fn virtual_screen() -> RectPx {
+    // SAFETY: plain metric queries without arguments to validate.
+    let (left, top, width, height) = unsafe {
+        (
+            GetSystemMetrics(SM_XVIRTUALSCREEN),
+            GetSystemMetrics(SM_YVIRTUALSCREEN),
+            GetSystemMetrics(SM_CXVIRTUALSCREEN),
+            GetSystemMetrics(SM_CYVIRTUALSCREEN),
+        )
+    };
+    RectPx {
+        left,
+        top,
+        right: left + width,
+        bottom: top + height,
+    }
+}
+
+/// Reads where `surface` is relative to its `parent` and judges it against `target`, without moving anything.
+fn read_placement(surface: HWND, parent: HWND, target: RectPx) -> Result<Placement, String> {
+    let parent_area =
+        client_rect_on_screen(parent).ok_or_else(|| "the parent's client area is unreadable".to_owned())?;
+    let actual = window_rect(surface).ok_or_else(|| "GetWindowRect failed".to_owned())?;
+    Ok(Placement {
+        target,
+        local: target.to_parent((parent_area.left, parent_area.top)),
+        parent: parent_area,
+        actual,
+        virtual_screen: virtual_screen(),
+        verdict: placement_verdict(target, actual, parent_area),
+    })
+}
+
 fn create_window() -> Result<HWND, PlatformError> {
     // SAFETY: a null module name returns the handle of this executable.
     let module = unsafe { GetModuleHandleW(None) }.map_err(|e| os_error("GetModuleHandleW", &e))?;
@@ -394,6 +448,12 @@ fn place(surface: HWND, parent: HWND, target: RectPx) -> Result<(), String> {
         )
     }
     .map_err(|e| format!("SetWindowPos: {e}"))
+}
+
+/// Moves `surface` like [`place`], then reads back where it is and judges it against its parent.
+fn place_checked(surface: HWND, parent: HWND, target: RectPx) -> Result<Placement, String> {
+    place(surface, parent, target)?;
+    read_placement(surface, parent, target)
 }
 
 /// Progman's children, topmost first.
@@ -510,7 +570,10 @@ impl DesktopSurface {
 
     /// Moves the surface onto `rect` (physical pixels of the virtual desktop) without recreating it, so what is
     /// embedded in it keeps playing; the embedded window follows the surface's size by itself.
-    pub fn set_rect(&self, rect: RectPx) -> Result<(), PlatformError> {
+    ///
+    /// Returns where the surface really is relative to its parent; a surface the parent clips away is not an error,
+    /// the caller reports it.
+    pub fn set_rect(&self, rect: RectPx) -> Result<Placement, PlatformError> {
         // SAFETY: read-only query on a window handle owned by this thread.
         let parent = unsafe { GetAncestor(self.hwnd, GA_PARENT) };
         if parent.is_invalid() {
@@ -519,7 +582,7 @@ impl DesktopSurface {
                 message: "the surface has no parent window".to_owned(),
             });
         }
-        place(self.hwnd, parent, rect).map_err(|message| PlatformError::Failed {
+        place_checked(self.hwnd, parent, rect).map_err(|message| PlatformError::Failed {
             context: "move the desktop surface",
             message,
         })

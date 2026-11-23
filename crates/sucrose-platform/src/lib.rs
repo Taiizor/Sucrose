@@ -31,7 +31,7 @@ pub mod geometry;
 pub mod icon;
 pub mod layout;
 
-pub use geometry::{MonitorInfo, RectPx};
+pub use geometry::{MonitorInfo, Placement, PlacementVerdict, RectPx};
 pub use icon::truncate_tooltip;
 pub use imp::{DesktopSurface, EventLoop, LoopProxy, LoopTimers, RendererJob, Tray};
 pub use sucrose_core::settings::GpuPreference;
