@@ -1,0 +1,1 @@
+No external API integration: the "endpoint" in this phase is Sucrose's own per-user local socket between its service, renderers and Portal (D-009, D-033); the only network action is opening fixed https links (Premium, Help, About) in the OS browser, and no external service is called.

@@ -121,7 +121,72 @@ Plans:
   3. Starting the service or the Portal a second time reuses the running instance, Exit closes every Sucrose process, and a renderer that keeps crashing is restarted a bounded number of times and then stopped, never in a loop.
   4. An optional module the user turns off starts no thread and does no polling, and with "start with the OS" on, Sucrose starts after sign-in and resumes the wallpaper.
   5. The Portal follows light, dark or the OS theme with its Mica/Acrylic backdrop and optional background image, has header actions, search, a status bar and Help/About, and scrolling through a large library keeps its memory bounded (release build, recorded in `docs/MEASUREMENTS.md`).
-**Plans**: TBD
+**Plans**: 25 plans
+Plans:
+**Wave 1**
+- [ ] 03-01-PLAN.md — Settings tracer: Setting/Sucrose.json migrated once, atomic store with .bak and kill test, service reads it (D-032)
+- [ ] 03-02-PLAN.md — Library scan core: legacy validity rules, path containment, case-insensitive Type, sort, search, URL check
+- [ ] 03-03-PLAN.md — Localization: cargo xtask localize, legacy-keyed English strings, new keys, rust-i18n in the Portal, deny.toml
+
+**Wave 2** *(blocked on Wave 1 completion)*
+- [ ] 03-04-PLAN.md — Every legacy key typed and migrated, D-05 exclusions, D-21 theme/backdrop split, ROADMAP/REQUIREMENTS/FEATURES wording
+- [ ] 03-05-PLAN.md — cargo xtask synth-library: synthetic libraries with prepared settings for Portal runs and D-25
+
+**Wave 3** *(blocked on Wave 2 completion)*
+- [ ] 03-06-PLAN.md — Portal protocol on the one endpoint: PortalHello routing, registry, AlreadyOpen, endpoint per data folder, test harness (D-033)
+
+**Wave 4** *(blocked on Wave 3 completion)*
+- [ ] 03-07-PLAN.md — Settings host: validated, atomic, broadcast changes that persist across restarts
+
+**Wave 5** *(blocked on Wave 4 completion)*
+- [ ] 03-08-PLAN.md — Portal connects: starts the service with --no-portal, banners, reconnect, single instance, strict arguments
+
+**Wave 6** *(blocked on Wave 5 completion)*
+- [ ] 03-09-PLAN.md — Use through the service: LoadSource into running renderers, refusals, budget reset, runtime state
+- [ ] 03-10-PLAN.md — Library grid with card-size thumbnails and the bounded, released thumbnail cache
+
+**Wave 7** *(blocked on Wave 6 completion)*
+- [ ] 03-11-PLAN.md — Checkpoint: maintainer verifies the no-black-frame Use transition (D-26)
+
+**Wave 8** *(blocked on Wave 7 completion)*
+- [ ] 03-12-PLAN.md — Use from a card: spinner, Selected pill, disabled reasons, keyboard, toasts
+- [ ] 03-13-PLAN.md — Optional modules start nothing when off; live tray toggle; memory report while the Portal is connected
+
+**Wave 9** *(blocked on Wave 8 completion)*
+- [ ] 03-14-PLAN.md — Header search, pagination with the legacy scheme, sort and layout live, empty and error states
+
+**Wave 10** *(blocked on Wave 9 completion)*
+- [ ] 03-15-PLAN.md — Lifecycle: second launch opens or focuses the Portal, legacy Launcher start rule, D-13 exit, foreground handoff
+
+**Wave 11** *(blocked on Wave 10 completion)*
+- [ ] 03-16-PLAN.md — Tray menu Open Sucrose and Close Applications/Exit; Close Applications ends every Sucrose process
+
+**Wave 12** *(blocked on Wave 11 completion)*
+- [ ] 03-17-PLAN.md — Theme mode with toggle and OS following, backdrop by capability, background image layer
+
+**Wave 13** *(blocked on Wave 12 completion)*
+- [ ] 03-18-PLAN.md — Status bar with memory total and quotes, Premium, Help and About, tray hint dialog
+
+**Wave 14** *(blocked on Wave 13 completion)*
+- [ ] 03-19-PLAN.md — Hover previews: capped card-size GIF, one at a time, released on leave
+
+**Wave 15** *(blocked on Wave 14 completion)*
+- [ ] 03-20-PLAN.md — Settings mode: General and Personal pages with the Phase 3 keys
+
+**Wave 16** *(blocked on Wave 15 completion)*
+- [ ] 03-21-PLAN.md — Showcase copy tracked in the new settings; corrupt themes to the recycle bin
+
+**Wave 17** *(blocked on Wave 16 completion)*
+- [ ] 03-22-PLAN.md — Library move: verified rename or copy, rollback, nested refusal, wallpaper restart
+
+**Wave 18** *(blocked on Wave 17 completion)*
+- [ ] 03-23-PLAN.md — Start with the OS: own Run value, LaunchAgent, XDG autostart; legacy entry detection (D-034)
+
+**Wave 19** *(blocked on Wave 18 completion)*
+- [ ] 03-24-PLAN.md — Checkpoint: Portal memory sampled while the maintainer pages the real and the 500-theme library (D-25)
+
+**Wave 20** *(blocked on Wave 19 completion)*
+- [ ] 03-25-PLAN.md — UI-07 judged and recorded in MEASUREMENTS.md; ARCHITECTURE, FEATURES and GPUI updated for M2
 **UI hint**: yes
 **Notes**: `apps/sucrose-portal` is built from scratch; `exp/GPUI/Sucrose.Portal` is not its base. Runtime state (pause/close flags, ports) travels over IPC and is never stored in settings. Only Video themes can play until Phase 4 adds the other engines. The bounded thumbnail cache built here (UI-07) is reused by the store in Phase 5. Normal startup only; the priority and scheduled-task modes are TRAY-04 in Phase 5 (the M2 checklist said "Task Scheduler option later").
 
