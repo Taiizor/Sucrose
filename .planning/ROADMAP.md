@@ -45,7 +45,7 @@ Sucrose is rewritten from scratch in Rust on `develop-rust`, Windows first, then
   3. While a fullscreen game runs it applies the configured action (Pause: pauses and resumes).
   4. CPU and RAM are measured against the C# MpvPlayer engine + Backgroundog and recorded in `docs/MEASUREMENTS.md`.
   5. On a machine with the C# app installed, Sucrose plays the theme selected there (read from the legacy `Library.json` and `General.json`, which stay unchanged), sharp at each monitor's DPI, and the tray icon's Quit stops it.
-**Plans**: 22/26 plans executed (02-16 to 02-26: gap closure from UAT)
+**Plans**: 22/25 plans executed (02-16 to 02-25: gap closure from UAT)
 Plans:
 **Wave 1**
 - [x] 02-01-PLAN.md — libmpv delivered: `cargo xtask fetch-engines` (pinned, SHA256-verified), committed bindgen bindings, D-18 loader; apps/sucrose tracked by git
@@ -92,7 +92,7 @@ Plans:
 **Wave 15** *(blocked on Wave 14 completion)*
 - [x] 02-15-PLAN.md — `cargo xtask measure`, MEAS-01 rows vs the C# app, M1 docs close-out, verification scope
 
-**Gap closure from UAT** *(gap_closure plans; 02-16 to 02-22 in their own waves 1–7, 02-23 to 02-26 in waves 1–4; run with `/gsd-execute-phase 2 --gaps-only`)*
+**Gap closure from UAT** *(gap_closure plans; 02-16 to 02-22 in their own waves 1–7, 02-23 to 02-25 in waves 1–3, and the plan for the behavior chosen at the 02-25 checkpoint is written after that decision; run with `/gsd-execute-phase 2 --gaps-only`)*
 - [x] 02-16-PLAN.md — gap wave 1: sent display and shell messages reach the service at once; WorkerW-aware attach and an order guard after explorer.exe restarts (G-02-2d, G-02-2a)
 - [x] 02-17-PLAN.md — gap wave 2: GPU preference, platform part (DESK-12): GpuPreference setting, UserGpuPreferences write with the legacy merge rules, DXGI adapter list, gpu_preference capability (G-02-2b)
 - [x] 02-18-PLAN.md — gap wave 3: GPU preference wired (DESK-12): Engine.json GraphicPreference applied to sucrose.exe before the renderers start, adapter logged, docs (G-02-2b)
@@ -102,8 +102,7 @@ Plans:
 - [x] 02-22-PLAN.md — gap wave 7: Rust re-measured on the same GPU, MEAS-01 rows replaced, mpv options kept unless measured otherwise (DECISIONS.md entry if changed) (G-02-6)
 - [ ] 02-23-PLAN.md — gap round 2, wave 1: every surface placement is checked against its target and the shell's desktop window, and the surface follows that window when explorer moves it (WinEvent location watch, no polling) (G-02-7)
 - [ ] 02-24-PLAN.md — gap round 2, wave 2: every surface is re-placed after every applied display change, as the legacy app does (G-02-7)
-- [ ] 02-25-PLAN.md — gap round 2, wave 3: maintainer runs the instrumented build through UAT 7(c) and an origin-only change; decision on what a monitor shows while explorer leaves it outside its desktop window (G-02-7)
-- [ ] 02-26-PLAN.md — gap round 2, wave 4: the chosen behavior, FEATURES (and DECISIONS for the fallback), final UAT test 7 check (G-02-7)
+- [ ] 02-25-PLAN.md — gap round 2, wave 3: maintainer runs the instrumented build through UAT 7(c) and an origin-only change; decision on what a monitor shows while explorer leaves it outside its desktop window (G-02-7 stays open until the plan written after this decision)
 **Notes**: Criteria 1–4 are the "Done when" list of M1 from the former `docs/ROADMAP.md`. The desktop surface must handle the Windows 11 24H2 Progman/WorkerW hierarchy. libmpv ships inside the Sucrose package — `cargo xtask fetch-engines` places the pinned, hash-verified build next to the exe — and is loaded at runtime (D-028, D-013); detection with hints for the WebView2 Runtime and VC++ Redist is ENG-06 in Phase 4. `SucroseInfo.json` fixtures come from real themes with personal data removed. Measure in a release build. DESK-12 (GPU preference) was pulled in from Phase 5 by the UAT decision (test 6): on hybrid-GPU laptops the video engine needs it.
 
 ### Phase 3: M2 — Service, IPC and Portal connected
@@ -201,7 +200,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
-| 2. M1 — Video wallpaper on the desktop (Windows) | 22/26 | In Progress | - |
+| 2. M1 — Video wallpaper on the desktop (Windows) | 22/25 | In Progress | - |
 | 3. M2 — Service, IPC and Portal connected | 0/TBD | Not started | - |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
