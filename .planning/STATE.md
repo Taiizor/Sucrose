@@ -2,17 +2,17 @@
 gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
-status: executing
-stopped_at: Completed 02-21-PLAN.md
-last_updated: "2026-11-23T02:20:04.325Z"
+status: verifying
+stopped_at: Completed 02-22-PLAN.md
+last_updated: "2026-11-23T02:34:06.920Z"
 last_activity: 2026-11-23
 last_activity_desc: Phase 02 execution started
-state_head: bbda1f27f3a36d2ef5f4b367cb47ecc438671cd4
+state_head: 0003b6efcf49b24100cd4d8573323af5354f2af0
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 22
-  completed_plans: 21
+  completed_plans: 22
   percent: 13
 ---
 
@@ -29,7 +29,7 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 
 Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
 Plan: 22 of 22
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-11-23 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
 
@@ -74,6 +74,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 02 P19 | 4 min | 3 tasks | 5 files |
 | Phase 02 P20 | 8 min | 2 tasks | 3 files |
 | Phase 02 P21 | 40 min | 3 tasks | 3 files |
+| Phase 02 P22 | 12 min | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -113,6 +114,7 @@ Recent decisions affecting current work:
 - [Phase 02]: D-030: sticky master clock; a renderer counts only after its first frame; departs from the 02-CONTEXT primary-monitor rule
 - [Phase 02]: 02-20: follower integral gain 0.1 with a closing-drift guard (planner's 0.03 overshoots the one-frame band in simulation)
 - [Phase 02]: 02-21: GPU adapter evidence for measure is the per-pid typeperf LUID with the largest summed utilization; --row refuses a cross-adapter or adapter-less pair
+- [Phase 02]: 02-22: mpv deband=yes and profile=low-latency kept for parity; same-GPU R = 1.02 (Rust 16.4 % vs C# 16.1 % on RTX 3050)
 
 ### Pending Todos
 
@@ -143,6 +145,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-23T02:20:00.416Z
-Stopped at: Completed 02-21-PLAN.md
+Last session: 2026-11-23T02:34:03.035Z
+Stopped at: Completed 02-22-PLAN.md
 Resume file: None

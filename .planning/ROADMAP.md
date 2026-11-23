@@ -45,7 +45,7 @@ Sucrose is rewritten from scratch in Rust on `develop-rust`, Windows first, then
   3. While a fullscreen game runs it applies the configured action (Pause: pauses and resumes).
   4. CPU and RAM are measured against the C# MpvPlayer engine + Backgroundog and recorded in `docs/MEASUREMENTS.md`.
   5. On a machine with the C# app installed, Sucrose plays the theme selected there (read from the legacy `Library.json` and `General.json`, which stay unchanged), sharp at each monitor's DPI, and the tray icon's Quit stops it.
-**Plans**: 21/22 plans executed (02-16 to 02-22: gap closure from UAT)
+**Plans**: 22/22 plans executed (02-16 to 02-22: gap closure from UAT)
 Plans:
 **Wave 1**
 - [x] 02-01-PLAN.md — libmpv delivered: `cargo xtask fetch-engines` (pinned, SHA256-verified), committed bindgen bindings, D-18 loader; apps/sucrose tracked by git
@@ -99,7 +99,7 @@ Plans:
 - [x] 02-19-PLAN.md — gap wave 4: renderers count once their first frame shows; master policy chosen by the maintainer and recorded in DECISIONS.md (G-02-2c)
 - [x] 02-20-PLAN.md — gap wave 5: follower controller converges to the same frame, drift summary (G-02-2c)
 - [x] 02-21-PLAN.md — gap wave 6: measure records each process's GPU adapter and refuses cross-GPU rows; C# re-measured (G-02-6)
-- [ ] 02-22-PLAN.md — gap wave 7: Rust re-measured on the same GPU, MEAS-01 rows replaced, mpv options kept unless measured otherwise (DECISIONS.md entry if changed) (G-02-6)
+- [x] 02-22-PLAN.md — gap wave 7: Rust re-measured on the same GPU, MEAS-01 rows replaced, mpv options kept unless measured otherwise (DECISIONS.md entry if changed) (G-02-6)
 **Notes**: Criteria 1–4 are the "Done when" list of M1 from the former `docs/ROADMAP.md`. The desktop surface must handle the Windows 11 24H2 Progman/WorkerW hierarchy. libmpv ships inside the Sucrose package — `cargo xtask fetch-engines` places the pinned, hash-verified build next to the exe — and is loaded at runtime (D-028, D-013); detection with hints for the WebView2 Runtime and VC++ Redist is ENG-06 in Phase 4. `SucroseInfo.json` fixtures come from real themes with personal data removed. Measure in a release build. DESK-12 (GPU preference) was pulled in from Phase 5 by the UAT decision (test 6): on hybrid-GPU laptops the video engine needs it.
 
 ### Phase 3: M2 — Service, IPC and Portal connected
@@ -197,7 +197,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
-| 2. M1 — Video wallpaper on the desktop (Windows) | 21/22 | In Progress | - |
+| 2. M1 — Video wallpaper on the desktop (Windows) | 22/22 | In Progress | - |
 | 3. M2 — Service, IPC and Portal connected | 0/TBD | Not started | - |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
