@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
 status: executing
-stopped_at: Completed 02-26-PLAN.md
-last_updated: "2026-11-23T18:37:38.001Z"
+stopped_at: Completed 02-27-PLAN.md
+last_updated: "2026-11-23T18:53:22.061Z"
 last_activity: 2026-11-23
 last_activity_desc: Phase 02 execution started
-state_head: 323011bf6aa8fa84d6830beaae508f7df8019c57
+state_head: 4019eb0ea3aec694b4e068974d0a8c2fbd5401c7
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 29
-  completed_plans: 26
+  completed_plans: 27
   percent: 13
 ---
 
@@ -27,8 +27,8 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 
 ## Current Position
 
-Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — READY TO EXECUTE
-Plan: 26 of 26
+Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
+Plan: 28 of 29
 Status: Ready to execute
 Last activity: 2026-11-23 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
@@ -79,6 +79,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 02 P24 | 7 min | 2 tasks | 2 files |
 | Phase 02 P25 | 5 min | 2 tasks | 3 files |
 | Phase 02 P26 | interactive spike | 3 tasks | 1 files |
+| Phase 02 P27 | 4 min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -123,6 +124,7 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-24: the location watch is a second WinEvent hook filtered to the thread of the parent's root; the 02-16 order guard is unchanged
 - [Phase 02]: 02-25: replace_all re-places every surviving surface after each applied display change; diff stays for the initial start; the master election runs only when monitors changed
 - [Phase 02]: G-02-7 after 02-26: wait for explorer and accept the gap; sign-off 'wait' (maintainer's verbatim reply); class (c) not seen, no watch fix
+- [Phase 02]: 02-27: a report of an unassigned slot (monitor removed or renderer closed by the fullscreen rule) is dropped even while the renderer is connected, through SlotState.assigned from Fleet::slot_assigned (WR-19)
 
 ### Pending Todos
 
@@ -153,6 +155,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-23T17:38:02.900Z
-Stopped at: Completed 02-26-PLAN.md
+Last session: 2026-11-23T18:53:15.514Z
+Stopped at: Completed 02-27-PLAN.md
 Resume file: None
