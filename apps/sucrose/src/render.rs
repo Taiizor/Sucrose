@@ -441,6 +441,9 @@ struct FollowState {
     follower: Follower,
     /// One frame of the video in seconds, read once the first frame is shown.
     frame_s: Option<f64>,
+    /// Whether `frame_s` came from the container's frame rate and so cannot change; an estimate or the default is
+    /// read again on the next readings.
+    frame_final: bool,
     /// Ticks followed since the last drift summary was logged.
     ticks_since_summary: u32,
 }
@@ -455,15 +458,31 @@ impl FollowState {
 }
 
 /// One frame of the playing video in seconds: from its container frame rate, else mpv's estimate, else a default.
-fn video_frame_period(player: &Player) -> f64 {
-    let fps = ["container-fps", "estimated-vf-fps"].into_iter().find_map(|name| {
+/// The flag says whether the value is final, which only the container's frame rate is.
+fn video_frame_period(player: &Player) -> (f64, bool) {
+    let read = |name: &str| {
         player
             .get_property_string(name)
             .and_then(|value| value.trim().parse::<f64>().ok())
             .filter(|fps| fps.is_finite() && *fps > 0.0)
-    });
-    let period = frame_period(fps);
-    tracing::info!(?fps, frame_period_s = period, "frame period");
+    };
+    let container = read("container-fps");
+    let fps = container.or_else(|| read("estimated-vf-fps"));
+    (frame_period(fps), container.is_some())
+}
+
+/// The frame period for this follower: the container's once known, else the best current guess, read again on each
+/// reading and logged when it changes.
+fn current_frame_period(player: &Player, state: &mut FollowState) -> f64 {
+    if let (true, Some(period)) = (state.frame_final, state.frame_s) {
+        return period;
+    }
+    let (period, is_final) = video_frame_period(player);
+    if state.frame_s.is_none_or(|known| (known - period).abs() > known * 0.01) {
+        tracing::info!(frame_period_s = period, is_final, "frame period");
+    }
+    state.frame_s = Some(period);
+    state.frame_final = is_final;
     period
 }
 
@@ -479,7 +498,7 @@ fn follow_clock(tick: &ClockTick, player: &Player, sync: &SyncState, state: &mut
         return;
     };
     let duration = if sync.looping { player.duration() } else { None };
-    let frame_s = *state.frame_s.get_or_insert_with(|| video_frame_period(player));
+    let frame_s = current_frame_period(player, state);
     let now_ns = monotonic_ns();
     let action = state.follower.step(tick, now_ns, local, duration, frame_s);
     let applied = match action {
