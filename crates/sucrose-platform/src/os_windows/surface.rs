@@ -825,8 +825,7 @@ impl DesktopSurface {
     /// The hook is limited to the process and thread that own `root`: explorer's desktop thread owns Progman and its
     /// `WorkerW` and moves and resizes them itself, so the location events of the taskbar, File Explorer windows and
     /// the cursor (other threads) never wake the renderer. There is no polling (D-11). Hook delivery cannot be tested
-    /// in-process, so the maintainer run of 02-26 checks on the desktop that a parent move produces the "desktop window
-    /// moved" line.
+    /// in-process; it was checked on a real desktop (UAT G-02-7, D-031).
     fn install_location_watch(&self, parent: HWND, root: HWND, target: RectPx, parent_rect: Option<RectPx>) {
         if self.watch.get().is_some() || parent.is_invalid() || root.is_invalid() {
             return;
