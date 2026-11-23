@@ -25,11 +25,11 @@ use windows::{
                 CreateWindowExW, DefWindowProcW, DestroyWindow, EVENT_OBJECT_CREATE, EVENT_OBJECT_REORDER,
                 EVENT_OBJECT_SHOW, EnumWindows, FindWindowExW, FindWindowW, GA_PARENT, GA_ROOT, GW_CHILD, GW_HWNDNEXT,
                 GWL_EXSTYLE, GWL_STYLE, GetAncestor, GetClassNameW, GetWindow, GetWindowLongPtrW, GetWindowRect,
-                GetWindowThreadProcessId, IsWindowVisible, LWA_ALPHA, MA_NOACTIVATE, OBJID_CLIENT, OBJID_WINDOW,
-                PostQuitMessage, RegisterClassExW, SMTO_NORMAL, SWP_NOACTIVATE, SWP_NOMOVE, SWP_NOSIZE, SWP_NOZORDER,
-                SWP_SHOWWINDOW, SendMessageTimeoutW, SetLayeredWindowAttributes, SetParent, SetWindowLongPtrW,
-                SetWindowPos, WINDOW_LONG_PTR_INDEX, WINEVENT_OUTOFCONTEXT, WINEVENT_SKIPOWNPROCESS, WM_DESTROY,
-                WM_MOUSEACTIVATE, WNDCLASSEXW, WS_CHILD, WS_CLIPCHILDREN, WS_CLIPSIBLINGS, WS_EX_LAYERED,
+                GetWindowThreadProcessId, IsWindowVisible, KillTimer, LWA_ALPHA, MA_NOACTIVATE, OBJID_CLIENT,
+                OBJID_WINDOW, PostQuitMessage, RegisterClassExW, SMTO_NORMAL, SWP_NOACTIVATE, SWP_NOMOVE, SWP_NOSIZE,
+                SWP_NOZORDER, SWP_SHOWWINDOW, SendMessageTimeoutW, SetLayeredWindowAttributes, SetParent, SetTimer,
+                SetWindowLongPtrW, SetWindowPos, WINDOW_LONG_PTR_INDEX, WINEVENT_OUTOFCONTEXT, WINEVENT_SKIPOWNPROCESS,
+                WM_DESTROY, WM_MOUSEACTIVATE, WNDCLASSEXW, WS_CHILD, WS_CLIPCHILDREN, WS_CLIPSIBLINGS, WS_EX_LAYERED,
                 WS_EX_NOACTIVATE, WS_EX_TOOLWINDOW, WS_POPUP, WS_VISIBLE,
             },
         },
@@ -62,23 +62,71 @@ const GUARD_MAX_RESTORES: usize = 10;
 /// The span over which [`GUARD_MAX_RESTORES`] is counted.
 const GUARD_WINDOW: Duration = Duration::from_secs(60);
 
+/// A little after the oldest restore leaves [`GUARD_WINDOW`], so that the budget is open when the re-check looks.
+const GUARD_RECHECK_MARGIN: Duration = Duration::from_millis(100);
+
 /// What the order guard of one surface needs inside its WinEvent callback.
 struct Guarded {
     hook: HWINEVENTHOOK,
     surface: HWND,
     progman: HWND,
+    budget: RestoreBudget,
+}
+
+/// The restore budget of one guard (T-02-36) and the bookkeeping of its re-check.
+#[derive(Debug, Default)]
+struct RestoreBudget {
     /// When the guard last moved the surface, oldest first, only those within [`GUARD_WINDOW`].
     restores: VecDeque<Instant>,
     /// Whether the guard is holding back because the budget is used up; set to warn once per episode.
     throttled: bool,
+    /// The thread timer that looks at the order again once the budget opens, when one is armed. The guard only
+    /// reacts to shell events, so without it the last event of a burst that used the budget up would leave the
+    /// surface under the shell's wallpaper until some unrelated event came (WR-14).
+    recheck: Option<usize>,
+}
+
+impl RestoreBudget {
+    /// What the budget says at `now` about a restore an event asks for. Nothing is counted here: a restore counts
+    /// once it worked ([`RestoreBudget::record`]).
+    fn consult(&mut self, now: Instant) -> Budget {
+        while self
+            .restores
+            .front()
+            .is_some_and(|at| now.duration_since(*at) > GUARD_WINDOW)
+        {
+            self.restores.pop_front();
+        }
+        if self.restores.len() >= GUARD_MAX_RESTORES
+            && let Some(oldest) = self.restores.front()
+        {
+            let first = !self.throttled;
+            self.throttled = true;
+            // One re-check per episode of holding back: the timer is armed once and fires when the budget opens.
+            let arm_in = self
+                .recheck
+                .is_none()
+                .then(|| (*oldest + GUARD_WINDOW).saturating_duration_since(now) + GUARD_RECHECK_MARGIN);
+            return Budget::Exhausted { first, arm_in };
+        }
+        self.throttled = false;
+        Budget::Allowed
+    }
+
+    /// Counts a restore that moved the surface.
+    fn record(&mut self, now: Instant) {
+        self.restores.push_back(now);
+    }
 }
 
 /// What the restore budget of a guard says about the restore an event asks for.
+#[derive(Debug, PartialEq, Eq)]
 enum Budget {
-    /// Restore now; the restore is counted.
+    /// Restore now.
     Allowed,
-    /// The budget is used up; `first` is true for the first refusal of this episode.
-    Exhausted { first: bool },
+    /// The budget is used up; `first` is true for the first refusal of this episode. `arm_in` is the time to the
+    /// re-check that has to be armed, `None` when one is armed already.
+    Exhausted { first: bool, arm_in: Option<Duration> },
     /// No guard can be consulted (the registry is borrowed or the guard is gone); do nothing.
     Unavailable,
 }
@@ -572,8 +620,7 @@ impl DesktopSurface {
                 hook,
                 surface: self.hwnd,
                 progman,
-                restores: VecDeque::new(),
-                throttled: false,
+                budget: RestoreBudget::default(),
             });
         });
         self.guard.set(Some(hook));
@@ -648,8 +695,9 @@ fn send_spawn_message(progman: HWND) -> bool {
 /// It lives as long as the surface, not only after a shell restart: explorer can recreate its `WorkerW` at any time
 /// (a wallpaper change, a slideshow step). It only ever moves its own surface; it never moves, resizes or restyles a
 /// shell window. Past [`GUARD_MAX_RESTORES`] restores in [`GUARD_WINDOW`] it holds back (the hook stays) until the
-/// oldest restore leaves the window, so a shell that keeps reordering cannot keep the renderer busy (T-02-36) and a
-/// burst of events cannot switch the protection off for good.
+/// oldest restore leaves the window, so a shell that keeps reordering cannot keep the renderer busy (T-02-36), and
+/// when it holds back it arms a one-shot timer that looks at the order again at that moment, so the end of a burst
+/// of events cannot leave the surface hidden until an unrelated event comes. Only a restore that worked is counted.
 unsafe extern "system" fn order_guard_proc(
     hook: HWINEVENTHOOK,
     event: u32,
@@ -707,28 +755,16 @@ fn restore_order(hook: HWINEVENTHOOK, surface: HWND, progman: HWND) {
         let Some(guarded) = guards.iter_mut().find(|guarded| guarded.hook == hook) else {
             return Budget::Unavailable;
         };
-        let now = Instant::now();
-        while guarded
-            .restores
-            .front()
-            .is_some_and(|at| now.duration_since(*at) > GUARD_WINDOW)
-        {
-            guarded.restores.pop_front();
-        }
-        if guarded.restores.len() >= GUARD_MAX_RESTORES {
-            let first = !guarded.throttled;
-            guarded.throttled = true;
-            return Budget::Exhausted { first };
-        }
-        guarded.throttled = false;
-        guarded.restores.push_back(now);
-        Budget::Allowed
+        guarded.budget.consult(Instant::now())
     });
     match budget {
         Budget::Allowed => {}
-        Budget::Exhausted { first } => {
+        Budget::Exhausted { first, arm_in } => {
             if first {
                 tracing::warn!("the shell keeps reordering the desktop, the order guard holds back for a while");
+            }
+            if let Some(arm_in) = arm_in {
+                arm_recheck(hook, arm_in);
             }
             return;
         }
@@ -752,23 +788,112 @@ fn restore_order(hook: HWINEVENTHOOK, surface: HWND, progman: HWND) {
         )
     };
     match moved {
-        Ok(()) => tracing::info!(
-            before = %before,
-            after = %order_text(progman),
-            "the shell put its wallpaper above the surface, order restored"
-        ),
+        Ok(()) => {
+            GUARDS.with(|guards| {
+                if let Ok(mut guards) = guards.try_borrow_mut()
+                    && let Some(guarded) = guards.iter_mut().find(|guarded| guarded.hook == hook)
+                {
+                    guarded.budget.record(Instant::now());
+                }
+            });
+            tracing::info!(
+                before = %before,
+                after = %order_text(progman),
+                "the shell put its wallpaper above the surface, order restored"
+            );
+        }
         Err(error) => tracing::warn!(%error, before = %before, "cannot restore the surface order"),
+    }
+}
+
+/// Arms the one-shot re-check of the guard of `hook` in `delay`. The timer belongs to this thread's message queue (no
+/// window), which the surface's thread pumps; [`recheck_proc`] ends it.
+fn arm_recheck(hook: HWINEVENTHOOK, delay: Duration) {
+    let millis = u32::try_from(delay.as_millis()).unwrap_or(u32::MAX).max(1);
+    // SAFETY: a thread timer without a window; the callback is a plain function that lives for the whole process.
+    let id = unsafe { SetTimer(None, 0, millis, Some(recheck_proc)) };
+    if id == 0 {
+        tracing::warn!("cannot arm the order guard's re-check, it only acts on the next shell event");
+        return;
+    }
+    let stored = GUARDS.with(|guards| {
+        let Ok(mut guards) = guards.try_borrow_mut() else {
+            return false;
+        };
+        match guards.iter_mut().find(|guarded| guarded.hook == hook) {
+            Some(guarded) => {
+                guarded.budget.recheck = Some(id);
+                true
+            }
+            None => false,
+        }
+    });
+    if !stored {
+        // The guard is gone (or the registry is busy): the timer would find nobody, so it is removed again.
+        // SAFETY: `id` is the timer just created on this thread.
+        let _ = unsafe { KillTimer(None, id) };
+    }
+}
+
+/// Who a re-check timer belongs to.
+enum Recheck {
+    /// The registry is borrowed right now; the timer stays and fires again after its period.
+    Busy,
+    /// No guard owns the timer (the guard was removed): it only has to end.
+    Nobody,
+    /// The guard `hook` of `surface` asked for it.
+    Guard {
+        hook: HWINEVENTHOOK,
+        surface: HWND,
+        progman: HWND,
+    },
+}
+
+/// The re-check of an order guard: the budget has had time to open, so the order is looked at again.
+unsafe extern "system" fn recheck_proc(_hwnd: HWND, _message: u32, id: usize, _time: u32) {
+    let owner = GUARDS.with(|guards| {
+        let Ok(mut guards) = guards.try_borrow_mut() else {
+            return Recheck::Busy;
+        };
+        match guards.iter_mut().find(|guarded| guarded.budget.recheck == Some(id)) {
+            Some(guarded) => {
+                guarded.budget.recheck = None;
+                Recheck::Guard {
+                    hook: guarded.hook,
+                    surface: guarded.surface,
+                    progman: guarded.progman,
+                }
+            }
+            None => Recheck::Nobody,
+        }
+    });
+    if matches!(owner, Recheck::Busy) {
+        return;
+    }
+    // SAFETY: `id` is a thread timer of this thread. It is one-shot by design and removed before the order is looked
+    // at, because that may arm a new one.
+    let _ = unsafe { KillTimer(None, id) };
+    if let Recheck::Guard { hook, surface, progman } = owner {
+        restore_order(hook, surface, progman);
     }
 }
 
 /// Forgets the guard of `hook` and removes the hook; `false` when it was already removed.
 fn remove_guard(hook: HWINEVENTHOOK) -> bool {
-    let known = GUARDS.with(|guards| {
+    let (known, recheck) = GUARDS.with(|guards| {
         let mut guards = guards.borrow_mut();
         let before = guards.len();
+        let recheck = guards
+            .iter()
+            .find(|guarded| guarded.hook == hook)
+            .and_then(|guarded| guarded.budget.recheck);
         guards.retain(|guarded| guarded.hook != hook);
-        guards.len() != before
+        (guards.len() != before, recheck)
     });
+    if let Some(id) = recheck {
+        // SAFETY: the timer was armed by this thread for the guard that is gone now.
+        let _ = unsafe { KillTimer(None, id) };
+    }
     if known {
         // SAFETY: the hook was installed by this thread and is removed exactly once, because the registry entry
         // that proves it is still installed is gone now.
@@ -792,5 +917,104 @@ impl Drop for DesktopSurface {
             DROPPING.with(|dropping| dropping.borrow_mut().retain(|h| *h != handle));
         }
         LOST.with(|lost| lost.borrow_mut().retain(|h| *h != handle));
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use std::ffi::c_void;
+
+    use super::*;
+
+    fn spent(now: Instant) -> RestoreBudget {
+        let mut budget = RestoreBudget::default();
+        for _ in 0..GUARD_MAX_RESTORES {
+            budget.record(now);
+        }
+        budget
+    }
+
+    #[test]
+    fn a_budget_with_room_allows_and_counts_nothing_until_a_restore_worked() {
+        let now = Instant::now();
+        let mut budget = RestoreBudget::default();
+
+        // Asking again and again does not use the budget up: only recorded restores count.
+        for _ in 0..(GUARD_MAX_RESTORES * 3) {
+            assert_eq!(budget.consult(now), Budget::Allowed);
+        }
+        assert!(budget.restores.is_empty());
+    }
+
+    #[test]
+    fn a_spent_budget_asks_for_one_recheck_when_the_oldest_restore_leaves_the_window() {
+        let start = Instant::now();
+        let mut budget = spent(start);
+        let later = start + Duration::from_secs(20);
+
+        let Budget::Exhausted { first, arm_in } = budget.consult(later) else {
+            panic!("the budget is spent");
+        };
+
+        assert!(first, "the first refusal of the episode");
+        assert_eq!(arm_in, Some(Duration::from_secs(40) + GUARD_RECHECK_MARGIN));
+        // Once the timer is armed no second one is asked for, and the episode is not announced again.
+        budget.recheck = Some(1);
+        let Budget::Exhausted { first, arm_in } = budget.consult(later) else {
+            panic!("still spent");
+        };
+        assert!(!first);
+        assert_eq!(arm_in, None);
+    }
+
+    #[test]
+    fn the_budget_opens_again_after_the_window() {
+        let start = Instant::now();
+        let mut budget = spent(start);
+
+        let after = start + GUARD_WINDOW + GUARD_RECHECK_MARGIN;
+
+        assert_eq!(
+            budget.consult(after),
+            Budget::Allowed,
+            "the recheck finds the budget open"
+        );
+        assert!(budget.restores.is_empty());
+        assert!(!budget.throttled, "a new episode is announced again");
+    }
+
+    #[test]
+    fn a_recheck_timer_fires_on_the_thread_and_clears_its_mark() {
+        // A guard with handles no window has: the re-check finds the order unreadable and does nothing, which is all
+        // this test needs. What it proves is that the timer fires through this thread's messages exactly once.
+        let hook = HWINEVENTHOOK(0x1000 as *mut c_void);
+        GUARDS.with(|guards| {
+            guards.borrow_mut().push(Guarded {
+                hook,
+                surface: HWND(std::ptr::null_mut()),
+                progman: HWND(std::ptr::null_mut()),
+                budget: RestoreBudget::default(),
+            });
+        });
+
+        arm_recheck(hook, Duration::from_millis(30));
+        let armed = GUARDS.with(|guards| {
+            guards
+                .borrow()
+                .iter()
+                .find(|g| g.hook == hook)
+                .and_then(|g| g.budget.recheck)
+        });
+        assert!(armed.is_some(), "the timer id is remembered");
+
+        wait_pumping(Duration::from_millis(400));
+
+        let cleared = GUARDS.with(|guards| {
+            let mut guards = guards.borrow_mut();
+            let mark = guards.iter().find(|g| g.hook == hook).map(|g| g.budget.recheck);
+            guards.retain(|g| g.hook != hook);
+            mark
+        });
+        assert_eq!(cleared, Some(None), "the re-check ran and ended its timer");
     }
 }
