@@ -350,28 +350,28 @@ fn shader_cache_dir() -> PathBuf {
 
 /// Waits for the service's answer to the Hello: `Some` for a job, `None` when the service asks to stop.
 fn wait_for_assignment(connection: &mut Connection) -> anyhow::Result<Option<Assignment>> {
-    match connection.recv::<ToRenderer>() {
-        Ok(ToRenderer::Assign(assignment)) => Ok(Some(assignment)),
-        Ok(ToRenderer::Close) => {
-            tracing::info!("the service asked this renderer to close");
-            Ok(None)
+    loop {
+        match connection.recv::<ToRenderer>() {
+            Ok(ToRenderer::Assign(assignment)) => return Ok(Some(assignment)),
+            Ok(ToRenderer::Close) => {
+                tracing::info!("the service asked this renderer to close");
+                return Ok(None);
+            }
+            Err(IpcError::Closed) => {
+                tracing::info!("the service closed the connection");
+                return Ok(None);
+            }
+            // Controls only make sense once a wallpaper plays; before that the service has nothing to control. The
+            // protocol never sends one first, so it is skipped and the wait goes on, as the log says.
+            Ok(
+                ToRenderer::Pause(_)
+                | ToRenderer::SetVolume(_)
+                | ToRenderer::SetRect(_)
+                | ToRenderer::SetRole(_)
+                | ToRenderer::Clock(_),
+            ) => tracing::warn!("ignoring a control message that arrived before the assignment"),
+            Err(error) => bail!("the service sent no valid assignment: {error}"),
         }
-        Err(IpcError::Closed) => {
-            tracing::info!("the service closed the connection");
-            Ok(None)
-        }
-        // Controls only make sense once a wallpaper plays; before that the service has nothing to control.
-        Ok(
-            ToRenderer::Pause(_)
-            | ToRenderer::SetVolume(_)
-            | ToRenderer::SetRect(_)
-            | ToRenderer::SetRole(_)
-            | ToRenderer::Clock(_),
-        ) => {
-            tracing::warn!("ignoring a control message that arrived before the assignment");
-            Ok(None)
-        }
-        Err(error) => bail!("the service sent no valid assignment: {error}"),
     }
 }
 
