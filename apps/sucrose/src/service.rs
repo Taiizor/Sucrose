@@ -277,9 +277,18 @@ impl Status {
     }
 }
 
-/// `text` cut to [`MAX_REPORT_CHARS`] characters.
+/// `text` cut to [`MAX_REPORT_CHARS`] characters, with control characters made visible (see [`printable`]).
 fn limit(text: &str) -> String {
-    text.chars().take(MAX_REPORT_CHARS).collect()
+    printable(&text.chars().take(MAX_REPORT_CHARS).collect::<String>())
+}
+
+/// `text` with every control character (a newline, an escape sequence) replaced by U+FFFD. Text that comes from a
+/// theme or a renderer reaches the log and the tray tooltip, where it must not forge a log line or garble a tooltip
+/// (IN-08).
+fn printable(text: &str) -> String {
+    text.chars()
+        .map(|c| if c.is_control() { '\u{fffd}' } else { c })
+        .collect()
 }
 
 /// Creates the tray when General.json's AppVisible says so (D-15). With AppVisible false `create` is never called:
@@ -1556,8 +1565,10 @@ fn apply_gpu_preference(platform: &dyn sucrose_platform::Platform, preference: G
 /// Runs the gate (D-13) on the selected theme and, when it passes, builds what every renderer plays. The error is
 /// one English sentence for the log and the tooltip: the gate's own reason.
 fn plan_for(location: &std::path::Path, selected: &str, engine: &EngineSettings) -> Result<Job, String> {
-    let theme = check_selected(location, selected, &app_version()).map_err(|rejection| rejection.to_string())?;
-    tracing::info!(theme = %selected, kind = ?theme.info.kind, source = %theme.info.source, "selected theme");
+    let theme =
+        check_selected(location, selected, &app_version()).map_err(|rejection| printable(&rejection.to_string()))?;
+    // Debug formatting for the text a theme or the settings supply: control characters show as escapes.
+    tracing::info!(theme = ?selected, kind = ?theme.info.kind, source = ?theme.info.source, "selected theme");
     job_for(&theme, engine)
 }
 
@@ -1569,7 +1580,7 @@ fn job_for(theme: &SelectedTheme, engine: &EngineSettings) -> Result<Job, String
         .ok_or_else(|| "the video path is not valid UTF-8".to_owned())?
         .to_owned();
     Ok(Job {
-        title: theme.info.title.clone(),
+        title: printable(&theme.info.title),
         source,
         settings: playback_settings(engine),
         screen: engine.screen,
@@ -1884,6 +1895,20 @@ mod tests {
             None,
             "no theme, no wallpaper"
         );
+    }
+
+    #[test]
+    fn control_characters_of_a_theme_or_renderer_text_are_made_visible() {
+        assert_eq!(
+            printable("a\nb\r\u{1b}[31mc\t"),
+            "a\u{fffd}b\u{fffd}\u{fffd}[31mc\u{fffd}"
+        );
+        assert_eq!(printable("Cyber Samurai — 夜"), "Cyber Samurai — 夜");
+        assert_eq!(limit("reason\nforged line"), "reason\u{fffd}forged line");
+        let rejection = ThemeRejection::FolderMissing {
+            folder: "x\ninjected".to_owned(),
+        };
+        assert!(!printable(&rejection.to_string()).contains('\n'));
     }
 
     #[test]
