@@ -1,65 +1,44 @@
 ---
 phase: 02-m1-video-wallpaper-on-the-desktop-windows
-fixed_at: 2026-11-23T14:01:00Z
+fixed_at: 2026-11-23T14:23:31.559Z
 review_path: .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-REVIEW.md
 iteration: 1
-findings_in_scope: 3
-fixed: 3
+findings_in_scope: 1
+fixed: 1
 skipped: 0
 status: all_fixed
 ---
 
 # Phase 2: Code Review Fix Report
 
-**Fixed at:** 2026-11-23
+**Fixed at:** 2026-11-23T14:23:31.559Z
 **Source review:** .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-REVIEW.md
 **Iteration:** 1
 
 **Summary:**
-- Findings in scope: 3 (WR-15, WR-16, WR-17; no Critical finding)
-- Fixed: 3
+- Findings in scope: 1
+- Fixed: 1
 - Skipped: 0
 
-Out of scope (fix_scope `critical_warning`) and untouched: IN-07 (necessity finding), IN-19, IN-20, IN-21.
-
-All three fixes are state-machine logic changes. Each has unit tests on a pure seam, but none was exercised against a real renderer, so each is marked "requires human verification".
+Info findings (IN-07, IN-19 ... IN-24) are out of scope for `critical_warning` and were not touched. The fix extracts the decision IN-24 asks for as a by-product (see below); IN-24 itself stays open in the review.
 
 ## Fixed Issues
 
-### WR-15: A late `Playing` or `Failed` of an already ended renderer still rewrites the status (reopens IN-16 and WR-01)
+### WR-18: A legitimate `Failed` queued behind its own renderer's `Exited` is dropped (reopens WR-15; the reason of WR-17 can be lost)
 
-**Status:** fixed: requires human verification
-**Files modified:** `apps/sucrose/src/service.rs`
-**Commit:** 3a6224b8
-**Applied fix:** `report_is_stale(link_pid, pid)` is now `link_pid != Some(pid)`, so every report from a renderer whose connection the slot no longer holds (ended or replaced) is dropped before it reaches `playing`, the election or `Status::after`. The now redundant `link_pid == Some(pid)` test on the Playing branch was removed. The old test was rewritten (no connection is stale) and a test was added that a late Playing or Failed yields no status change.
-
-### WR-16: A refused Hello makes the renderer exit with code 0, and the monitor stays without a wallpaper (reopens WR-05)
-
-**Status:** fixed: requires human verification
-**Files modified:** `apps/sucrose/src/render.rs`, `apps/sucrose/src/service.rs`
-**Commit:** b3d55ef4
-**Applied fix:**
-- `render.rs`: the reply handling moved into the pure `judge_hello_reply`. A connection closed before an assignment (`IpcError::Closed`) is now an error, so the renderer exits with code 1 (counted as a crash, restarted within the budget once the old link is gone). `Close` is still the clean stop. Tests added for both.
-- `service.rs`: the `Exited` handler now remembers whether the ended renderer's link was the registered one. On the stale-exit path (a replacement already runs) it removes the slot's `playing` entry through `forget_replaced_playing` and re-elects the master, so the replacement is not counted as showing a frame before it has one. Test added.
-- Not done: the alternative of making `shell_restarted` skip slots that still have a registered link. The two changes above already make the refused replacement restart.
-
-### WR-17: A failed start loses its reason from the tooltip right after the exit (reopens IN-01, WR-11)
-
-**Status:** fixed: requires human verification
 **Files modified:** `apps/sucrose/src/service.rs`, `docs/FEATURES.md`
-**Commit:** 3f2417b9
-**Applied fix:** I fixed the status mapping rather than the documented behavior.
-- New `Status::restarting_after(class, title)`: an `ExitClass::StartFailed` exit leaves a `Failed` status as it is (no change to `Starting`), so mpv's reason stays in the tooltip while the restart runs. The shell-restart path keeps using `restarting`.
-- New `Status::stopped_reason(exhausted)`: when the budget is spent and the status still holds a failure, `RendererStopped` reads "<reason> (the renderer stopped after 3 crashes in 60 s)", with the failure first because the tooltip is cut at the end.
-- `docs/FEATURES.md` (Video row): "mpv's reason in the tray tooltip" now adds that it stays through the restarts and is named again when the budget is spent. The behavior now matches the sentence's original claim.
-- Not done: `Decision::Leave` for an explained start failure. `START_FAILED` (exit 4) also covers a surface that could not be attached, which a restart can fix (for example during a shell restart), so a deterministic missing file still costs three restarts, each loading libmpv. That is a supervisor policy change for the maintainer to decide.
+**Commit:** a436d88d
+**Status:** fixed: requires human verification (logic change in a race handled by two threads; unit-tested, not reproducible on demand)
+**Applied fix:**
+- The decision of the `Event::Renderer` arm moved out of the inline closure into the pure `handle_report(status, link_pid, running, slot, pid, message, title) -> Option<ReportEffect>`. A report is dropped when its renderer was replaced (another connection holds the slot, or another process runs for it in `supervisor.pids()`) and a late `Playing` of an ended renderer stays dropped (WR-15). A late `Failed` with nobody holding or running the slot now reaches `Status::after`. As the review suggested, a late `Failed` does not replace `Status::RendererStopped` (a spent budget keeps its verdict); a connected renderer's `Failed` still does.
+- The status part of the `Exited` arm (`Decision` to new status) moved into `status_after_exit`; side effects (`fleet.stopped`, `restart_after`, logging) stay in the arm.
+- Replaced `report_is_stale` (one boolean) and the closure-copy test `a_late_report_of_an_ended_renderer_cannot_rewrite_the_restart_status` with tests of the real functions: `an_engine_failure_whose_exit_is_handled_first_still_names_its_reason` (exit code 2), `a_failed_start_whose_exit_is_handled_first_keeps_its_reason_through_the_restart` (exit code 4, then through the budget until the reason leads the `RendererStopped` text), `a_late_failed_does_not_replace_the_verdict_of_the_spent_budget`, `a_failed_of_a_replaced_renderer_is_dropped_whether_or_not_the_replacement_connected`, `a_late_playing_of_an_ended_renderer_is_dropped`, `a_report_counts_only_while_its_renderer_holds_the_slot`. The exit tests run `classify_exit`, `decide_exit`, `status_after_exit` and `handle_report` in the order the loop runs them.
+- `docs/FEATURES.md` Video row: states that the failure reason also arrives when the exit is handled before the report, and when a report is dropped.
 
-## Verification
-
-Ran in an isolated worktree with its own `target/` (no shared target dir, see the stale-target note in memory). Per commit: `cargo fmt --all`, `cargo test -p sucrose` (121 tests, 120 passed, 1 ignored by design) and `cargo clippy --workspace --all-targets -- -D warnings` (clean). After the fast-forward of `develop-rust`, `cargo test --workspace` ran in the **main checkout**: all test results ok, no failures. No GUI build or sucrose.exe was started, and no real settings or registry were touched. The worktree, temporary branch and recovery sentinel were removed.
+**Verification:** run in the isolated worktree (shared `target` not used): `cargo fmt --all`, `cargo clippy --workspace --all-targets -- -D warnings`, `cargo test -p sucrose` (124 passed). After the fast-forward, `cargo test --workspace` was run in the main checkout: all passed (engine tests needing `cargo xtask fetch-engines` stay ignored). Nothing was started or run as a GUI.
 
 ---
 
-_Fixed: 2026-11-23_
+_Fixed: 2026-11-23T14:23:31.559Z_
 _Fixer: Claude (gsd-code-fixer)_
 _Iteration: 1_
