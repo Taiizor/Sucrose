@@ -34,7 +34,7 @@ use windows::{
             },
         },
     },
-    core::{BOOL, PCWSTR, w},
+    core::{BOOL, HRESULT, PCWSTR, w},
 };
 
 use super::{event_loop::wait_pumping, os_error};
@@ -321,7 +321,7 @@ fn create_window() -> Result<HWND, PlatformError> {
         if code != ERROR_CLASS_ALREADY_EXISTS {
             return Err(PlatformError::Os {
                 context: "RegisterClassExW",
-                code: code.0 as i32,
+                code: HRESULT::from_win32(code.0).0,
             });
         }
     }
@@ -481,9 +481,9 @@ impl DesktopSurface {
                         Ok(()) => Ok(surface),
                         Err(reason) => {
                             tracing::error!(%reason, "the desktop surface could not be attached");
-                            Err(PlatformError::Os {
+                            Err(PlatformError::Failed {
                                 context: "attach the desktop surface",
-                                code: 0,
+                                message: reason,
                             })
                         }
                     };

@@ -1011,12 +1011,17 @@ fn dwm_text(report: &Report) -> String {
 /// both sides are appended to the notes.
 pub fn checked_row(csharp: &Report, rust: &Report, scenario: &str, notes: &str) -> Result<String, String> {
     let adapter = same_adapter(csharp, rust)?;
-    let notes = format!(
-        "{notes} GPU: {}, both sides. dwm.exe GPU: C# {}, Rust {}.",
+    let gpu = format!(
+        "GPU: {}, both sides. dwm.exe GPU: C# {}, Rust {}.",
         adapter.name,
         dwm_text(csharp),
         dwm_text(rust)
     );
+    // A note that ends without a full stop must not run into the GPU sentence.
+    let notes = match notes.trim().trim_end_matches(['.', ';', ',']).trim_end() {
+        "" => gpu,
+        notes => format!("{notes}. {gpu}"),
+    };
     Ok(format_row(csharp, rust, scenario, &notes))
 }
 
@@ -1355,6 +1360,12 @@ mod tests {
         );
         assert!(row.contains("dwm.exe GPU: C# 1.5 %, Rust 2.2 %"), "{row}");
         assert!(row.ends_with(" |"));
+        // A note with or without a final full stop is separated from the GPU sentence the same way.
+        assert!(row.contains("note. GPU:"), "{row}");
+        let bare = checked_row(&csharp, &rust, "scenario", "no full stop").expect("same adapter");
+        assert!(bare.contains("no full stop. GPU:"), "{bare}");
+        let empty = checked_row(&csharp, &rust, "scenario", "").expect("same adapter");
+        assert!(!empty.contains(". GPU:"), "{empty}");
     }
 
     #[test]

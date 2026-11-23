@@ -30,7 +30,7 @@ use windows::{
             WNDCLASSEXW, WS_EX_TOOLWINDOW, WS_POPUP,
         },
     },
-    core::{PCWSTR, w},
+    core::{HRESULT, PCWSTR, w},
 };
 
 use super::os_error;
@@ -138,7 +138,7 @@ fn create_window() -> Result<HWND, PlatformError> {
         if code != ERROR_CLASS_ALREADY_EXISTS {
             return Err(PlatformError::Os {
                 context: "RegisterClassExW",
-                code: code.0 as i32,
+                code: HRESULT::from_win32(code.0).0,
             });
         }
     }
