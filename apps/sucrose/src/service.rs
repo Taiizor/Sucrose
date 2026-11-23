@@ -179,19 +179,29 @@ impl Status {
         )
     }
 
-    /// The status while a crashed renderer is started again: a playing wallpaper is starting once more.
-    fn restarting(&self) -> Option<Self> {
+    /// The status while a crashed renderer is started again: a playing wallpaper is starting once more, and so is
+    /// one that failed (the new renderer may well start). `title` is the selected theme's, which a failure does not
+    /// carry.
+    fn restarting(&self, title: Option<&str>) -> Option<Self> {
         match self {
             Self::Playing { title } => Some(Self::Starting { title: title.clone() }),
+            Self::Failed { .. } => title.map(|title| Self::Starting {
+                title: title.to_owned(),
+            }),
             _ => None,
         }
     }
 
-    /// The status a renderer message leads to, or `None` when it changes nothing.
-    fn after(&self, message: &ToService) -> Option<Self> {
+    /// The status a renderer message leads to, or `None` when it changes nothing. A renderer that plays replaces a
+    /// failure too: after a restart, or while another monitor's renderer failed, the wallpaper does play. Only a
+    /// status that says no renderer was wanted ([`Status::NoWallpaper`]) stays.
+    fn after(&self, message: &ToService, title: Option<&str>) -> Option<Self> {
         match message {
-            ToService::Playing => match self {
-                Self::Starting { title } => Some(Self::Playing { title: title.clone() }),
+            ToService::Playing => match (self, title) {
+                (Self::Starting { title }, _) => Some(Self::Playing { title: title.clone() }),
+                (Self::Failed { .. } | Self::RendererStopped { .. }, Some(title)) => Some(Self::Playing {
+                    title: title.to_owned(),
+                }),
                 _ => None,
             },
             ToService::Failed { reason, hint } => Some(Self::Failed {
@@ -351,7 +361,7 @@ pub fn run() -> anyhow::Result<()> {
                                 renderers: &renderers,
                             });
                         }
-                        if let Some(next) = status.after(&message) {
+                        if let Some(next) = status.after(&message, fleet.job.as_ref().map(|job| job.title.as_str())) {
                             status = next;
                             if status.is_failure() {
                                 tracing::warn!(status = %status.text(), "no wallpaper, the service waits in the tray");
@@ -407,7 +417,7 @@ pub fn run() -> anyhow::Result<()> {
                                 fleet.stopped.remove(&exited.slot);
                                 tracing::warn!(slot = exited.slot, ?class, ?after, "restarting the renderer");
                                 supervisor.restart_after(exited.slot, after, i32::from(START_FAILED));
-                                status.restarting()
+                                status.restarting(fleet.job.as_ref().map(|job| job.title.as_str()))
                             }
                             Decision::GiveUp(exhausted) => {
                                 fleet.stopped.insert(exited.slot);
@@ -512,7 +522,7 @@ pub fn run() -> anyhow::Result<()> {
                     supervisor: &supervisor,
                     renderers: &renderers,
                 });
-                if acted && let Some(next) = status.restarting() {
+                if acted && let Some(next) = status.restarting(fleet.job.as_ref().map(|job| job.title.as_str())) {
                     status = next;
                     if let Some(tray) = &tray {
                         tray.set_tooltip(&status.tooltip());
@@ -1692,6 +1702,8 @@ mod tests {
         assert!(clock_targets(None, 0, [0, 1]).is_empty());
     }
 
+    const TITLE: Option<&str> = Some("Cyber Samurai");
+
     fn starting() -> Status {
         Status::Starting {
             title: "Cyber Samurai".to_owned(),
@@ -1705,7 +1717,7 @@ mod tests {
 
     #[test]
     fn a_playing_report_names_the_theme_in_the_tooltip() {
-        let playing = starting().after(&ToService::Playing).expect("a status change");
+        let playing = starting().after(&ToService::Playing, TITLE).expect("a status change");
 
         assert_eq!(playing.tooltip(), "Sucrose — playing Cyber Samurai");
     }
@@ -1714,8 +1726,8 @@ mod tests {
     fn a_playing_report_changes_nothing_when_no_renderer_was_expected() {
         let rejected = Status::NoWallpaper { reason: "x".to_owned() };
 
-        assert_eq!(rejected.after(&ToService::Playing), None);
-        assert_eq!(starting().after(&hello(PROTOCOL_VERSION, 1, 0)), None);
+        assert_eq!(rejected.after(&ToService::Playing, TITLE), None);
+        assert_eq!(starting().after(&hello(PROTOCOL_VERSION, 1, 0), TITLE), None);
     }
 
     #[test]
@@ -1730,10 +1742,13 @@ mod tests {
     #[test]
     fn a_failed_renderer_shows_its_reason_and_hint_in_the_tooltip() {
         let failed = starting()
-            .after(&ToService::Failed {
-                reason: "libmpv could not be found.".to_owned(),
-                hint: "Reinstall Sucrose.".to_owned(),
-            })
+            .after(
+                &ToService::Failed {
+                    reason: "libmpv could not be found.".to_owned(),
+                    hint: "Reinstall Sucrose.".to_owned(),
+                },
+                TITLE,
+            )
             .expect("a status change");
 
         assert_eq!(
@@ -1759,21 +1774,60 @@ mod tests {
 
     #[test]
     fn a_restarting_renderer_shows_the_app_name_until_it_plays_again() {
-        let playing = starting().after(&ToService::Playing).expect("a status change");
+        let playing = starting().after(&ToService::Playing, TITLE).expect("a status change");
 
-        let restarting = playing.restarting().expect("a status change");
+        let restarting = playing.restarting(TITLE).expect("a status change");
 
         assert_eq!(restarting, starting());
-        assert_eq!(restarting.restarting(), None);
+        assert_eq!(restarting.restarting(TITLE), None);
+    }
+
+    fn failed() -> Status {
+        Status::Failed {
+            reason: "the surface could not be attached".to_owned(),
+            hint: "Check the log for details.".to_owned(),
+        }
+    }
+
+    #[test]
+    fn a_failed_renderer_that_is_restarted_and_then_plays_leaves_no_failure_behind() {
+        let restarting = failed().restarting(TITLE).expect("a failed renderer is started again");
+        assert_eq!(restarting, starting());
+
+        let playing = restarting.after(&ToService::Playing, TITLE).expect("a status change");
+
+        assert_eq!(playing.tooltip(), "Sucrose — playing Cyber Samurai");
+        assert!(!playing.is_failure());
+    }
+
+    #[test]
+    fn a_renderer_that_plays_replaces_a_failure_of_another_monitor_or_a_stopped_one() {
+        let stopped = Status::RendererStopped {
+            monitor: "DISPLAY2".to_owned(),
+            reason: Exhausted::Crashes.reason(),
+        };
+
+        for status in [failed(), stopped] {
+            let playing = status.after(&ToService::Playing, TITLE).expect("a status change");
+            assert_eq!(playing.tooltip(), "Sucrose — playing Cyber Samurai");
+        }
+        assert_eq!(
+            failed().after(&ToService::Playing, None),
+            None,
+            "no theme, no wallpaper"
+        );
     }
 
     #[test]
     fn a_long_reason_is_cut_to_127_utf16_units_in_the_tooltip() {
         let failed = starting()
-            .after(&ToService::Failed {
-                reason: "r".repeat(300),
-                hint: "h".repeat(300),
-            })
+            .after(
+                &ToService::Failed {
+                    reason: "r".repeat(300),
+                    hint: "h".repeat(300),
+                },
+                TITLE,
+            )
             .expect("a status change");
 
         assert_eq!(failed.tooltip().encode_utf16().count(), 127);
