@@ -9,7 +9,6 @@ use std::{
     cell::{Cell, RefCell},
     collections::VecDeque,
     mem::size_of,
-    thread,
     time::{Duration, Instant},
 };
 
@@ -38,7 +37,7 @@ use windows::{
     core::{BOOL, PCWSTR, w},
 };
 
-use super::os_error;
+use super::{event_loop::wait_pumping, os_error};
 use crate::{
     PlatformError, RectPx,
     layout::{self, DEFVIEW_CLASS, DesktopLayout, RaisedOrder, ShellSnapshot, SiblingKind, WORKERW_CLASS, WindowNode},
@@ -414,7 +413,8 @@ fn verify(surface: HWND, expected_root: HWND, target: RectPx, strategy: Strategy
 
 impl DesktopSurface {
     /// Creates the surface and attaches it behind the desktop icons, covering `rect` (physical pixels of the virtual
-    /// desktop). Retries for up to ten seconds while the shell settles.
+    /// desktop). Retries for up to ten seconds while the shell settles, dispatching this thread's messages between
+    /// the attempts.
     pub fn attach(rect: RectPx) -> Result<Self, PlatformError> {
         let surface = Self {
             hwnd: create_window()?,
@@ -442,7 +442,15 @@ impl DesktopSurface {
                 }
                 Err(reason) => tracing::debug!(%reason, "attach attempt failed, retrying"),
             }
-            thread::sleep(delay);
+            // The thread owns two windows: waiting must not stop their messages, or the shell and the service see
+            // an unresponsive process for as long as the shell takes to settle (WR-08).
+            if wait_pumping(delay) {
+                tracing::warn!("the message loop was asked to quit while the surface was attaching");
+                return Err(PlatformError::Failed {
+                    context: "attach the desktop surface",
+                    message: "the message loop was asked to quit".to_owned(),
+                });
+            }
             delay = (delay * 2).min(Duration::from_secs(1));
         }
     }

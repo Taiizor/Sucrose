@@ -15,6 +15,7 @@ use std::{
     marker::PhantomData,
     mem::size_of,
     sync::atomic::{AtomicU32, Ordering},
+    time::{Duration, Instant},
 };
 
 use windows::{
@@ -23,8 +24,9 @@ use windows::{
         System::LibraryLoader::GetModuleHandleW,
         UI::WindowsAndMessaging::{
             ChangeWindowMessageFilterEx, CreateWindowExW, DefWindowProcW, DestroyWindow, DispatchMessageW, GetMessageW,
-            KillTimer, MSG, MSGFLT_ALLOW, PostMessageW, RegisterClassExW, RegisterWindowMessageW, SPI_SETWORKAREA,
-            SetTimer, TranslateMessage, WM_APP, WM_DISPLAYCHANGE, WM_DPICHANGED, WM_SETTINGCHANGE, WM_TIMER,
+            KillTimer, MSG, MSGFLT_ALLOW, MsgWaitForMultipleObjects, PM_REMOVE, PeekMessageW, PostMessageW,
+            PostQuitMessage, QS_ALLINPUT, RegisterClassExW, RegisterWindowMessageW, SPI_SETWORKAREA, SetTimer,
+            TranslateMessage, WM_APP, WM_DISPLAYCHANGE, WM_DPICHANGED, WM_QUIT, WM_SETTINGCHANGE, WM_TIMER,
             WNDCLASSEXW, WS_EX_TOOLWINDOW, WS_POPUP,
         },
     },
@@ -159,6 +161,48 @@ fn create_window() -> Result<HWND, PlatformError> {
         )
     }
     .map_err(|e| os_error("CreateWindowExW", &e))
+}
+
+/// Waits up to `duration` while this thread keeps dispatching its messages, so the windows it owns (the loop window
+/// and a desktop surface) stay responsive and a sent message from another thread is not left waiting. A `WM_QUIT`
+/// found in the queue ends the wait early and is posted again for the loop that runs later; `true` then. `false`
+/// when the whole time passed.
+pub(super) fn wait_pumping(duration: Duration) -> bool {
+    let deadline = Instant::now() + duration;
+    loop {
+        let remaining = deadline.saturating_duration_since(Instant::now());
+        if remaining.is_zero() {
+            return false;
+        }
+        let millis = u32::try_from(remaining.as_millis()).unwrap_or(u32::MAX);
+        // SAFETY: no handle is waited for (an empty list is allowed); the call returns when a message arrives or the
+        // time is up, and only reads this thread's own queue state.
+        let _ = unsafe { MsgWaitForMultipleObjects(None, false, millis, QS_ALLINPUT) };
+        if dispatch_waiting() {
+            return true;
+        }
+    }
+}
+
+/// Dispatches every message in this thread's queue without blocking; `true` when it found `WM_QUIT`, which it posts
+/// again.
+fn dispatch_waiting() -> bool {
+    let mut message = MSG::default();
+    // SAFETY: `message` is a valid out pointer; a null window handle takes the messages of every window of this
+    // thread, and PM_REMOVE takes each one out of the queue.
+    while unsafe { PeekMessageW(&mut message, None, 0, 0, PM_REMOVE) }.as_bool() {
+        if message.message == WM_QUIT {
+            // SAFETY: plain integer; it only posts WM_QUIT to this thread's queue, so a later loop still sees it.
+            unsafe { PostQuitMessage(message.wParam.0 as i32) };
+            return true;
+        }
+        // SAFETY: `message` was filled by PeekMessageW just above.
+        unsafe {
+            let _ = TranslateMessage(&message);
+            DispatchMessageW(&message);
+        }
+    }
+    false
 }
 
 /// The thread's `GetMessageW` loop. A child window of another process (the desktop surface, an embedded player)
@@ -381,6 +425,49 @@ mod tests {
         );
         let delay = arrived.duration_since(started);
         assert!(delay < LIMIT, "the event took {delay:?} to reach the handler");
+    }
+
+    #[test]
+    fn waiting_dispatches_a_posted_message_and_still_waits_the_whole_time() {
+        let event_loop = EventLoop::new().expect("the loop window can be created");
+        let proxy = event_loop.proxy();
+        let sender = thread::spawn(move || {
+            thread::sleep(Duration::from_millis(50));
+            proxy.wake();
+        });
+        let started = Instant::now();
+
+        let quit = wait_pumping(Duration::from_millis(300));
+
+        sender.join().expect("the sender thread ends");
+        assert!(!quit, "no WM_QUIT was posted");
+        assert!(
+            started.elapsed() >= Duration::from_millis(290),
+            "the wait was cut short"
+        );
+        let queued: Vec<LoopEvent> = PENDING.with(|pending| pending.borrow_mut().drain(..).collect());
+        assert_eq!(
+            queued,
+            vec![LoopEvent::Wake],
+            "the posted message reached the window procedure"
+        );
+    }
+
+    #[test]
+    fn waiting_ends_at_a_quit_message_and_posts_it_again() {
+        // SAFETY: plain integer; posts WM_QUIT to this thread's queue.
+        unsafe { PostQuitMessage(7) };
+
+        let started = Instant::now();
+        let quit = wait_pumping(Duration::from_secs(5));
+
+        assert!(quit, "the quit message was seen");
+        assert!(started.elapsed() < Duration::from_secs(2), "the wait ended early");
+        let mut message = MSG::default();
+        // SAFETY: `message` is a valid out pointer; WM_QUIT is only ever retrieved with a null window.
+        let again = unsafe { PeekMessageW(&mut message, None, WM_QUIT, WM_QUIT, PM_REMOVE) };
+        assert!(again.as_bool(), "the quit message was posted again");
+        assert_eq!(message.wParam.0, 7, "with its exit code");
     }
 
     #[test]
