@@ -251,18 +251,8 @@ impl EventLoop {
         })
     }
 
-    /// Starts (or restarts) the timer `id`: [`LoopEvent::Timer`] arrives every `ms` milliseconds until
-    /// [`EventLoop::kill_timer`]. Use [`EventLoop::timers`] to change timers from inside the handler.
-    pub fn set_timer(&self, id: u32, ms: u32) {
-        self.timers().set(id, ms);
-    }
-
-    /// Stops the timer `id`; stopping a timer that is not running does nothing.
-    pub fn kill_timer(&self, id: u32) {
-        self.timers().kill(id);
-    }
-
-    /// A handle for the timers of this loop that the handler can use while [`EventLoop::run`] owns the loop.
+    /// A handle for the timers of this loop ([`LoopTimers::set`] arrives as [`LoopEvent::Timer`] every `ms`
+    /// milliseconds until [`LoopTimers::kill`]) that the handler can use while [`EventLoop::run`] owns the loop.
     pub fn timers(&self) -> LoopTimers {
         LoopTimers { hwnd: self.hwnd }
     }

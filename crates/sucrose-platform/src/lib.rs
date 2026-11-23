@@ -57,7 +57,7 @@ pub enum LoopEvent {
     DisplayChanged,
     /// The shell (explorer.exe) started again, so everything it owned, including the desktop surface, is gone.
     ShellRestarted,
-    /// The timer with this id (see [`EventLoop::set_timer`]) fired.
+    /// The timer with this id (see [`LoopTimers::set`]) fired.
     Timer(u32),
 }
 

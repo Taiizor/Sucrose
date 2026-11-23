@@ -54,12 +54,6 @@ impl EventLoop {
         LoopEnd::Quit
     }
 
-    /// Does nothing on this OS.
-    pub fn set_timer(&self, _id: u32, _ms: u32) {}
-
-    /// Does nothing on this OS.
-    pub fn kill_timer(&self, _id: u32) {}
-
     /// A handle for the loop's timers, which do nothing on this OS.
     pub fn timers(&self) -> LoopTimers {
         LoopTimers
