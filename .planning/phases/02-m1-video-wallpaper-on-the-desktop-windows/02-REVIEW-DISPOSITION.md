@@ -6,11 +6,11 @@ findings:
   - id: WR-19
     severity: warning
     disposition: open
-    title: "A late `Failed` of a renderer whose slot was released (monitor unplugged) now reaches the global status (introduced by the WR-18 fix)"
-  - id: IN-07
-    severity: info
-    disposition: skipped
-    title: "Generality without instantiation: affected-monitor scope and `PauseKind` plumbing"
+    title: "A late `Failed` of a renderer whose slot was released (monitor unplugged) reaches the global status (introduced by the WR-18 fix)"
+  - id: WR-20
+    severity: warning
+    disposition: open
+    title: "FEATURES.md does not record the maintainer's G-02-7 decision and still states a cause that the 02-26 spike did not confirm"
   - id: IN-19
     severity: info
     disposition: open
@@ -39,6 +39,18 @@ findings:
     severity: info
     disposition: open
     title: "The new tests duplicate the budget-spending loop and rely on a magic bound"
+  - id: IN-27
+    severity: info
+    disposition: open
+    title: "A surface outside its desktop window is warned twice, and on every move"
+  - id: IN-28
+    severity: info
+    disposition: open
+    title: "Comments that drifted with the 02-23 to 02-26 changes"
+  - id: IN-07
+    severity: info
+    disposition: skipped
+    title: "Generality without instantiation: affected-monitor scope and `PauseKind` plumbing"
   - id: WR-18
     severity: warning
     disposition: fixed
@@ -179,9 +191,9 @@ findings:
     severity: info
     disposition: open
     title: "The recorded GPU regression has an obvious first suspect in the generated options"
-open: 10
-total: 44
-recorded: 2026-11-23T14:29:31.537Z
+open: 13
+total: 47
+recorded: 2026-11-23T17:57:06.359Z
 ---
 
 # Phase 02: Code Review Disposition
@@ -189,7 +201,7 @@ recorded: 2026-11-23T14:29:31.537Z
 | Finding | Severity | Disposition | Source |
 |---------|----------|-------------|--------|
 | WR-19 | warning | open | - |
-| IN-07 | info | skipped | 02-REVIEW-FIX.md |
+| WR-20 | warning | open | - |
 | IN-19 | info | open | - |
 | IN-20 | info | open | - |
 | IN-21 | info | open | - |
@@ -197,6 +209,9 @@ recorded: 2026-11-23T14:29:31.537Z
 | IN-23 | info | open | - |
 | IN-25 | info | open | - |
 | IN-26 | info | open | - |
+| IN-27 | info | open | - |
+| IN-28 | info | open | - |
+| IN-07 | info | skipped | 02-REVIEW-FIX.md (not in the current review) |
 | WR-18 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
 | IN-24 | info | open | - (not in the current review) |
 | WR-15 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
