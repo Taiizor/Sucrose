@@ -107,6 +107,12 @@ created: "2026-11-22"
 | T-02-51 | Denial of Service | apps/sucrose/src/service.rs apply_snapshot | low | mitigate | One SetRect per connected renderer per applied display change, bounded by the existing 2000 ms + 500 ms debounce with two equal looks and the bounded per-renderer queue — **Evidence:** `DEBOUNCE_MS = 2000` and `SETTLE_MS = 500` in `apps/sucrose/src/topology.rs`; `topology::replace_all` emits one SetRect per surviving monitor (7 pure tests) and `Fleet::apply_snapshot` runs it once per applied snapshot (2 Fleet tests; `cargo test -p sucrose replace_all`, 9 tests) | closed |
 | T-02-52 | Tampering | maintainer run (02-26 Task 1, Task 2) | low | mitigate | Scratch `SUCROSE_DATA_DIR`, real settings read only; the executor synthesizes no input, changes no display setting and stops only `sucrose.exe` — **Evidence:** the 02-26 start command set `SUCROSE_DATA_DIR="$(wslpath -w target/scratch-data)"`; every display change was made by the maintainer (02-26 SUMMARY); the run was stopped with `taskkill.exe /IM sucrose.exe /F` and `tasklist.exe` showed no `sucrose.exe` afterwards; no C# process was running or touched | closed |
 | T-02-53 | Information Disclosure | surface.rs watch log lines | low | accept | The watch logs window and screen rectangles and a verdict, no window titles or process names (T-02-28 rule); logs stay in the user's own data folder — **Evidence:** accepted risk AR-10 | closed |
+| T-02-54 | Spoofing | apps/sucrose/src/service.rs handle_report | low | mitigate | A report counts only while its renderer's slot belongs to a connected monitor and is not closed by the fullscreen rule, on top of the existing pid checks — **Evidence:** `struct SlotState` (service.rs:1069) carries `assigned`, which the service loop fills from `Fleet::slot_assigned` (service.rs:1386, `SlotMap::monitor_of(slot)` plus the rule-closed set); `a_late_failed_of_a_removed_monitor_is_dropped` and `a_report_of_a_renderer_whose_slot_is_not_assigned_is_dropped_even_while_connected` pass (`cargo test -p sucrose`, 137 tests) | closed |
+| T-02-55 | Denial of Service | apps/sucrose/src/service.rs handle_report (tray status) | low | mitigate | The new drop is limited to unassigned slots, so a real failure of an assigned monitor still reaches the tooltip — **Evidence:** `a_late_failed_of_an_assigned_slot_still_counts` (service.rs:1960) and the WR-18 tests run with `assigned: true` pass | closed |
+| T-02-56 | Repudiation | docs/DECISIONS.md | low | mitigate | D-031 is append-only and carries the maintainer's verbatim reply and its checkpoint — **Evidence:** `git diff -U0 d3670ec4 HEAD -- docs/DECISIONS.md` removes 0 lines; one `## D-031: ` heading before `## Open questions` | closed |
+| T-02-57 | Repudiation | docs/FEATURES.md, 02-UAT.md | low | mitigate | The row says "Accepted limitation (G-02-7, D-031)" and "not bounded by the app" and drops the unconfirmed cause; G-02-7 cannot be closed silently — **Evidence:** both phrases found once in docs/FEATURES.md; `git diff --quiet d3670ec4 HEAD -- 02-UAT.md` exits 0; the row keeps 🟨 | closed |
+| T-02-58 | Tampering | maintainer run (02-29 Task 2) | low | mitigate | Scratch `SUCROSE_DATA_DIR`, legacy settings read only, no synthesized input, only the started `sucrose.exe` stopped, precondition refuses to start beside a C# Sucrose process — **Evidence:** 02-29 SUMMARY: started with `SUCROSE_DATA_DIR` = target/scratch-data, stopped with `taskkill.exe /IM sucrose.exe /F`; `tasklist.exe` shows no `sucrose.exe` afterwards; the C# app was exited by the maintainer before the run | closed |
+| T-02-59 | Repudiation | docs/MEASUREMENTS.md | low | mitigate | `--row` refuses cross-adapter pairs; a refused pair becomes a Rust-only row with the reason in its notes; result files are never edited — **Evidence:** the 2026-11-23 "final M1 build (Rust)" row has an empty C# column and names the adapter and the LUID change after the reboot as the reason; `target/measure/rust-final-build.json` is untracked and unedited | closed |
 | T-02-SC | Tampering | crates.io dependencies (plans 02-16 … 02-26) | high | mitigate | No crate is added: only features of the already pinned `windows` 0.62.2 crate and workspace crates; `cargo deny check` runs in CI — **Evidence:** `git diff cc92d08e HEAD -- Cargo.lock` adds only the workspace crates `sucrose-core` (to sucrose-platform) and `sucrose-platform` (to xtask), no new package; the new `windows` features (`Win32_UI_Accessibility`, `Win32_System_Registry`, `Win32_Graphics_Dxgi`, `Win32_Graphics_Direct3D`, `Win32_Graphics_Direct3D11`) use the root pin `windows = "0.62.2"`; the `deny` job in `.github/workflows/rust.yml` runs `EmbarkStudios/cargo-deny-action@v2`; the code review fix round (WR-05 … IN-17) adds no package either: `git diff 0dadcaa1 HEAD -- Cargo.lock` only adds `sucrose-engine-mpv` as its own dev-dependency for the test-only `test-support` feature (IN-14); the G-02-7 gap closure (02-23 … 02-26) adds no package and no `windows` feature: `git diff dd51e9c2 HEAD -- Cargo.lock Cargo.toml` is empty | closed |
 
 *Status: open · closed · open — below high threshold (non-blocking)*
@@ -119,7 +125,7 @@ created: "2026-11-22"
 |------|------|------|-------------|
 | local-message-surface | 02-09 | `crates/sucrose-platform/src/os_windows/event_loop.rs` | accepted (AR-06): the hidden service window accepts WM_APP / WM_APP+1 from any same-user process, which can stop the service; a same-user process can already terminate it, so no new capability |
 
-All other SUMMARY Threat Flags sections report no new surface beyond the register (for the gap closure plans, 02-17, 02-20, 02-21 and 02-22 say so explicitly; 02-16, 02-18 and 02-19 have no Threat Flags section). The G-02-7 gap closure plans 02-23, 02-24 and 02-25 report no new surface beyond the register (T-02-48, T-02-50, T-02-51); 02-26 has no Threat Flags section and adds no code.
+All other SUMMARY Threat Flags sections report no new surface beyond the register (for the gap closure plans, 02-17, 02-20, 02-21 and 02-22 say so explicitly; 02-16, 02-18 and 02-19 have no Threat Flags section). The G-02-7 gap closure plans 02-23, 02-24 and 02-25 report no new surface beyond the register (T-02-48, T-02-50, T-02-51); 02-26 has no Threat Flags section and adds no code. The gap closure plans 02-27 … 02-29 add no surface beyond the register: 02-27 reports T-02-54 and T-02-55 mitigated, 02-28 reports none, and 02-29 adds no code (T-02-58, T-02-59).
 
 ---
 
@@ -152,6 +158,7 @@ All other SUMMARY Threat Flags sections report no new surface beyond the registe
 | 2026-11-23 | 48 | 48 | 0 | /gsd-secure-phase 02 after the fixes WR-15 … WR-17 (L1 re-check of the anchors in `apps/sucrose/src/service.rs` and `render.rs`; no new threat, no new dependency; short-circuit per ASVS L1) |
 | 2026-11-23 | 48 | 48 | 0 | /gsd-secure-phase 02 after the WR-18 fix (L1 re-check of the anchors in `apps/sucrose/src/service.rs`; no new threat, no new dependency; short-circuit per ASVS L1) |
 | 2026-11-23 | 54 | 54 | 0 | /gsd-secure-phase 02 after the G-02-7 gap closure 02-23 … 02-26 (6 new threats: T-02-48 … T-02-53, T-02-SC evidence extended; L1 verification by the orchestrator; register authored at plan time, short-circuit per ASVS L1) |
+| 2026-11-23 | 60 | 60 | 0 | /gsd-secure-phase 02 after the gap closure 02-27 … 02-29 (6 new threats: T-02-54 … T-02-59; L1 verification by the orchestrator; register authored at plan time, short-circuit per ASVS L1) |
 
 ---
 
@@ -182,4 +189,12 @@ All other SUMMARY Threat Flags sections report no new surface beyond the registe
 |---|---|
 | Threats found | 54 |
 | Closed | 54 |
+| Open | 0 |
+
+## Security Audit 2026-11-23
+
+| Metric | Count |
+|---|---|
+| Threats found | 60 |
+| Closed | 60 |
 | Open | 0 |
