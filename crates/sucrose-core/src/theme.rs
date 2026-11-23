@@ -1,4 +1,4 @@
-//! Theme model shared with the C# app: the wallpaper type, \`SucroseInfo.json\` (read, written and checked) and the gate
+//! Theme model shared with the C# app: the wallpaper type, `SucroseInfo.json` (read, written and checked) and the gate
 //! that decides whether the selected theme may start (D-13).
 
 use std::{
