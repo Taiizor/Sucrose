@@ -326,6 +326,60 @@ mod tests {
     }
 
     #[test]
+    fn replace_all_the_same_monitors_give_one_set_rect_each() {
+        let actions = replace_all(&[right(), left()], &[left(), right()]);
+
+        assert_eq!(
+            actions,
+            [
+                TopologyAction::SetRect(left().id, left().rect),
+                TopologyAction::SetRect(right().id, right().rect),
+            ]
+        );
+    }
+
+    #[test]
+    fn replace_all_orders_closes_then_set_rects_then_spawns() {
+        let gone = monitor("\\\\.\\DISPLAY0", rect(-1920, 0, 0, 1080), 96, false);
+        let added = monitor("\\\\.\\DISPLAY3", rect(3840, 0, 5760, 1080), 96, false);
+
+        let actions = replace_all(&[right(), gone.clone(), left()], &[added.clone(), right(), left()]);
+
+        assert_eq!(
+            actions,
+            [
+                TopologyAction::Close(gone.id),
+                TopologyAction::SetRect(left().id, left().rect),
+                TopologyAction::SetRect(right().id, right().rect),
+                TopologyAction::Spawn(added),
+            ]
+        );
+    }
+
+    #[test]
+    fn replace_all_an_empty_new_snapshot_gives_nothing() {
+        assert!(replace_all(&[left(), right()], &[]).is_empty());
+    }
+
+    #[test]
+    fn replace_all_from_nothing_only_spawns() {
+        assert_eq!(
+            replace_all(&[], &[right(), left()]),
+            [TopologyAction::Spawn(left()), TopologyAction::Spawn(right())]
+        );
+    }
+
+    #[test]
+    fn replace_all_a_repeated_id_gives_one_action() {
+        let twin = monitor(&left().id, rect(5, 5, 10, 10), 96, false);
+
+        assert_eq!(
+            replace_all(&[left(), twin.clone()], &[twin, left()]),
+            [TopologyAction::SetRect(left().id, rect(5, 5, 10, 10))]
+        );
+    }
+
+    #[test]
     fn from_nothing_to_two_monitors_spawns_both_sorted_by_id() {
         let actions = diff(&[], &[right(), left()]);
 

@@ -1510,14 +1510,23 @@ impl Fleet {
             return Applied::default();
         }
         let changed = diff(&self.monitors, &monitors);
-        if changed.is_empty() {
-            tracing::debug!("the monitors did not change in a way that matters");
-            return Applied::default();
+        let actions = replace_all(&self.monitors, &monitors);
+        let surfaces = actions
+            .iter()
+            .filter(|action| matches!(action, TopologyAction::SetRect(..)))
+            .count();
+        if !changed.is_empty() {
+            tracing::info!(actions = changed.len(), "applying a monitor change");
         }
-        tracing::info!(actions = changed.len(), "applying a monitor change");
-        let applied = self.apply(replace_all(&self.monitors, &monitors), ctx);
+        // Every surface is put back after a display change, whether its monitor changed or not: explorer may have
+        // moved the parent window the surface's position depends on (legacy parity).
+        tracing::info!(changed = changed.len(), surfaces, "re-placing every surface");
+        let applied = self.apply(actions, ctx);
         self.monitors = monitors;
-        self.elect(ctx);
+        if !changed.is_empty() {
+            // Unchanged monitors cannot change the master.
+            self.elect(ctx);
+        }
         applied
     }
 
@@ -2695,6 +2704,37 @@ mod tests {
         let assignments = lock_assignments(&fleet.assignments);
         assert_eq!(assignments[&slot_first].rect, [0, 0, 1920, 1080]);
         assert_eq!(assignments[&slot_second].rect, [-1920, 0, 0, 1080]);
+    }
+
+    #[test]
+    fn replace_all_an_unchanged_snapshot_re_places_every_renderer() {
+        let first = "\\\\.\\DISPLAY1";
+        let second = "\\\\.\\DISPLAY2";
+        let layout = || {
+            vec![
+                monitor_at(first, true, [0, 0, 1920, 1080]),
+                monitor_at(second, false, [1920, 0, 3840, 1080]),
+            ]
+        };
+        let (mut fleet, renderers, logs) = recording_fleet(&layout());
+        // A playing monitor gives an election something to do, so a wrongly run one would send a role.
+        fleet
+            .playing
+            .insert(fleet.slots.slot_of(first).expect("a slot for the first monitor"));
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+
+        let applied = fleet.apply_snapshot(layout(), &ctx);
+
+        assert_eq!(applied, Applied { started: 0, failed: 0 });
+        for (id, rect) in [(first, [0, 0, 1920, 1080]), (second, [1920, 0, 3840, 1080])] {
+            let slot = fleet.slots.slot_of(id).expect("a slot");
+            assert_eq!(sent_to(&renderers, &logs, slot), [ToRenderer::SetRect(rect)]);
+        }
+        assert_eq!(lock(&renderers).master, None, "no election ran");
     }
 
     #[test]
