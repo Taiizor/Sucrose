@@ -146,6 +146,76 @@ struct Watched {
     target: RectPx,
     /// The parent's client area on the screen at the last placement; `None` when it could not be read.
     parent_rect: Option<RectPx>,
+    /// Whether the surface lies partly or wholly outside the parent, as of the last placement (an "outside episode").
+    outside: bool,
+}
+
+/// A change in whether the surface lies outside its desktop window.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum Episode {
+    /// The surface was inside (or its verdict was not known yet) and now lies outside: warn once.
+    Started,
+    /// The surface lay outside and is shown again: report the recovery once.
+    Ended,
+}
+
+/// The watch's registry could not be used (it is borrowed right now, or the watch is gone).
+struct Busy;
+
+/// What a placement with `verdict` changes in an outside episode that `was_outside`. PartlyHidden and Hidden count
+/// as outside; Misplaced says nothing about the parent, so it changes nothing (its caller logs it on its own).
+fn outside_episode(was_outside: bool, verdict: PlacementVerdict) -> Option<Episode> {
+    let outside = matches!(
+        verdict,
+        PlacementVerdict::PartlyHidden { .. } | PlacementVerdict::Hidden
+    );
+    match (was_outside, verdict) {
+        (false, _) if outside => Some(Episode::Started),
+        (true, PlacementVerdict::Shown) => Some(Episode::Ended),
+        _ => None,
+    }
+}
+
+/// Stores the target and the parent's client area of a placement in the watch `entry`, so that a later parent move
+/// re-places at the newest target, and moves the outside episode on. Returns what changed in the episode.
+fn record_placement(entry: &mut Watched, target: RectPx, placement: &Placement) -> Option<Episode> {
+    entry.target = target;
+    entry.parent_rect = Some(placement.parent);
+    let change = outside_episode(entry.outside, placement.verdict);
+    match change {
+        Some(Episode::Started) => entry.outside = true,
+        Some(Episode::Ended) => entry.outside = false,
+        None => {}
+    }
+    change
+}
+
+/// Records a placement of the surface of the watch `hook` (see [`record_placement`]); the registry is only borrowed
+/// for the update, never while a window moves.
+fn note_placement(hook: HWINEVENTHOOK, target: RectPx, placement: &Placement) -> Result<Option<Episode>, Busy> {
+    WATCHED.with(|watched| {
+        let mut watched = watched.try_borrow_mut().map_err(|_| Busy)?;
+        let entry = watched.iter_mut().find(|entry| entry.hook == hook).ok_or(Busy)?;
+        Ok(record_placement(entry, target, placement))
+    })
+}
+
+/// Logs the start of an outside episode (a warning) or its end.
+fn log_episode(change: Option<Episode>, placement: &Placement) {
+    match change {
+        Some(Episode::Started) => tracing::warn!(
+            target = ?placement.target,
+            parent = ?placement.parent,
+            virtual_screen = ?placement.virtual_screen,
+            "the surface lies outside the desktop window"
+        ),
+        Some(Episode::Ended) => tracing::info!(
+            target = ?placement.target,
+            parent = ?placement.parent,
+            "the surface is inside the desktop window again"
+        ),
+        None => {}
+    }
 }
 
 thread_local! {
@@ -606,10 +676,19 @@ impl DesktopSurface {
                 message: "the surface has no parent window".to_owned(),
             });
         }
-        place_checked(self.hwnd, parent, rect).map_err(|message| PlatformError::Failed {
+        let placement = place_checked(self.hwnd, parent, rect).map_err(|message| PlatformError::Failed {
             context: "move the desktop surface",
             message,
-        })
+        })?;
+        // The watch re-places at the newest target from now on (the window is not moving here, so the registry is
+        // only borrowed briefly).
+        if let Some(hook) = self.watch.get() {
+            match note_placement(hook, rect, &placement) {
+                Ok(change) => log_episode(change, &placement),
+                Err(Busy) => tracing::debug!("the location watch is busy, it keeps its previous target"),
+            }
+        }
+        Ok(placement)
     }
 
     /// Whether the surface was destroyed by someone else (Windows destroyed the window; a killed explorer.exe was
@@ -667,25 +746,21 @@ impl DesktopSurface {
                     // Judged, never refused: a renderer that would not attach spends its restart budget while the
                     // shell is stale, and a surface outside the desktop window shows up once the shell moves it.
                     let placement = read_placement(self.hwnd, parent, target);
-                    if let Ok(placement) = &placement
-                        && matches!(
-                            placement.verdict,
-                            PlacementVerdict::PartlyHidden { .. } | PlacementVerdict::Hidden
-                        )
-                    {
-                        tracing::warn!(
-                            target = ?placement.target,
-                            parent = ?placement.parent,
-                            virtual_screen = ?placement.virtual_screen,
-                            "the surface lies outside the desktop window"
-                        );
-                    }
                     self.install_location_watch(
                         parent,
                         root_of(parent),
                         target,
                         placement.as_ref().ok().map(|p| p.parent),
                     );
+                    if let Ok(placement) = &placement {
+                        // The first placement of the watch: an outside attach starts an episode (warned once).
+                        let first = outside_episode(false, placement.verdict);
+                        let change = match self.watch.get() {
+                            Some(hook) => note_placement(hook, target, placement).unwrap_or(first),
+                            None => first,
+                        };
+                        log_episode(change, placement);
+                    }
                     tracing::info!(
                         ?layout,
                         ?strategy,
@@ -788,6 +863,7 @@ impl DesktopSurface {
                 root,
                 target,
                 parent_rect,
+                outside: false,
             });
         });
         self.watch.set(Some(hook));
@@ -1110,7 +1186,10 @@ unsafe extern "system" fn location_watch_proc(
 fn follow_parent(hook: HWINEVENTHOOK, surface: HWND, parent: HWND, target: RectPx, previous: Option<RectPx>) {
     match place_checked(surface, parent, target) {
         Ok(placement) => {
-            store_parent_rect(hook, placement.parent);
+            match note_placement(hook, target, &placement) {
+                Ok(change) => log_episode(change, &placement),
+                Err(Busy) => tracing::debug!("the location watch is busy, its record of the parent stays as it was"),
+            }
             tracing::info!(
                 previous = ?previous,
                 parent = ?placement.parent,
@@ -1122,17 +1201,6 @@ fn follow_parent(hook: HWINEVENTHOOK, surface: HWND, parent: HWND, target: RectP
         }
         Err(error) => tracing::warn!(%error, "cannot re-place the surface after the desktop window moved"),
     }
-}
-
-/// Records the parent's client area of the watch `hook` after a placement (a busy registry leaves it as it was).
-fn store_parent_rect(hook: HWINEVENTHOOK, rect: RectPx) {
-    WATCHED.with(|watched| {
-        if let Ok(mut watched) = watched.try_borrow_mut()
-            && let Some(entry) = watched.iter_mut().find(|entry| entry.hook == hook)
-        {
-            entry.parent_rect = Some(rect);
-        }
-    });
 }
 
 /// Removes the watch of `hook`: forgets it and removes the hook; `false` when it was already removed.
@@ -1451,6 +1519,7 @@ mod tests {
                 root: parent,
                 target,
                 parent_rect: first.as_ref().ok().map(|p| p.parent),
+                outside: false,
             });
         });
 
@@ -1493,6 +1562,81 @@ mod tests {
             Some(test_rect(0, 0, 400, 100)),
             "the new parent rectangle is recorded"
         );
+    }
+
+    fn test_placement(parent: RectPx, verdict: PlacementVerdict) -> Placement {
+        Placement {
+            target: parent,
+            local: parent,
+            parent,
+            actual: parent,
+            virtual_screen: parent,
+            verdict,
+        }
+    }
+
+    fn test_entry(target: RectPx, parent_rect: RectPx) -> Watched {
+        Watched {
+            hook: HWINEVENTHOOK(0x3000 as *mut c_void),
+            surface: handle(0x40),
+            parent: handle(0x10),
+            root: handle(0x20),
+            target,
+            parent_rect: Some(parent_rect),
+            outside: false,
+        }
+    }
+
+    #[test]
+    fn the_watch_episode_starts_on_hidden() {
+        let partly = PlacementVerdict::PartlyHidden {
+            visible: test_rect(0, 0, 10, 10),
+        };
+        assert_eq!(outside_episode(false, PlacementVerdict::Hidden), Some(Episode::Started));
+        assert_eq!(outside_episode(false, partly), Some(Episode::Started));
+    }
+
+    #[test]
+    fn the_watch_episode_stays_quiet_while_outside() {
+        let partly = PlacementVerdict::PartlyHidden {
+            visible: test_rect(0, 0, 10, 10),
+        };
+        assert_eq!(outside_episode(true, PlacementVerdict::Hidden), None);
+        assert_eq!(outside_episode(true, partly), None);
+        assert_eq!(
+            outside_episode(true, PlacementVerdict::Misplaced),
+            None,
+            "Misplaced changes nothing"
+        );
+    }
+
+    #[test]
+    fn the_watch_episode_ends_when_shown_again() {
+        assert_eq!(outside_episode(true, PlacementVerdict::Shown), Some(Episode::Ended));
+    }
+
+    #[test]
+    fn the_watch_episode_is_silent_while_inside() {
+        assert_eq!(outside_episode(false, PlacementVerdict::Shown), None);
+        assert_eq!(outside_episode(false, PlacementVerdict::Misplaced), None);
+    }
+
+    #[test]
+    fn the_watch_records_the_newest_target_and_parent() {
+        let (t1, p1) = (test_rect(0, 0, 200, 100), test_rect(-200, 0, 200, 100));
+        let (t2, p2) = (test_rect(200, 0, 400, 100), test_rect(0, 0, 400, 100));
+        let mut entry = test_entry(t1, p1);
+
+        let started = record_placement(&mut entry, t2, &test_placement(p2, PlacementVerdict::Hidden));
+        assert_eq!((entry.target, entry.parent_rect, entry.outside), (t2, Some(p2), true));
+        assert_eq!(started, Some(Episode::Started));
+
+        let quiet = record_placement(&mut entry, t2, &test_placement(p2, PlacementVerdict::Hidden));
+        assert_eq!(quiet, None, "one warning per episode");
+
+        let ended = record_placement(&mut entry, t1, &test_placement(p1, PlacementVerdict::Shown));
+        assert_eq!((entry.target, entry.parent_rect, entry.outside), (t1, Some(p1), false));
+        assert_eq!(ended, Some(Episode::Ended));
     }
 
     #[test]
