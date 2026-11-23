@@ -455,10 +455,15 @@ pub fn run() -> anyhow::Result<()> {
                         // A report can be handled after the Exited of the same renderer (two threads feed the
                         // channel), or after the slot got another renderer; handle_report decides what still
                         // counts (WR-15, WR-18).
+                        let running = supervisor.pids();
+                        let holder = SlotState {
+                            link_pid,
+                            running: &running,
+                            assigned: fleet.slot_assigned(slot),
+                        };
                         let Some(effect) = handle_report(
                             &status,
-                            link_pid,
-                            &supervisor.pids(),
+                            &holder,
                             slot,
                             pid,
                             &message,
@@ -467,7 +472,8 @@ pub fn run() -> anyhow::Result<()> {
                             tracing::debug!(
                                 slot,
                                 pid,
-                                "ignoring a report of a renderer that is gone or was replaced"
+                                assigned = holder.assigned,
+                                "ignoring a report of a renderer that is gone, was replaced or lost its monitor"
                             );
                             continue;
                         };
@@ -1059,24 +1065,38 @@ struct ReportEffect {
     status: Option<Status>,
 }
 
-/// Decides what a report of process `pid` on `slot` does, or `None` when it is dropped. `link_pid` is the process
-/// whose connection the slot holds and `running` the processes the supervisor runs (pid to slot). A renderer registers
-/// its connection before its first report is queued and the connection goes when the renderer ended, so:
+/// Who holds a report's slot when the report is handled.
+struct SlotState<'a> {
+    /// The process whose connection the slot holds.
+    link_pid: Option<u32>,
+    /// The processes the supervisor runs (pid to slot).
+    running: &'a HashMap<u32, u8>,
+    /// The slot belongs to a connected monitor and the fullscreen rule has not closed its renderer.
+    assigned: bool,
+}
+
+/// Decides what a report of process `pid` on `slot` does, or `None` when it is dropped. `holder` says who holds the
+/// slot (see [`SlotState`]). A renderer registers its connection before its first report is queued and the
+/// connection goes when the renderer ended, so:
 /// - a report of a renderer that was replaced (another connection, or another process runs for the slot) is dropped;
+/// - a report for a slot whose monitor was removed, or whose renderer the fullscreen rule closed, is dropped, whether
+///   or not the renderer is still connected: the single tray status must not say "no wallpaper" while the other
+///   monitors play (WR-19);
 /// - a report of a renderer that is gone and has no replacement can still be its last word: `Failed` is the one
 ///   report a renderer sends right before it ends, and its exit may be handled first (two threads feed the channel),
 ///   so it is kept (WR-18). A late `Playing` would claim a wallpaper nobody shows and is dropped (WR-15).
 fn handle_report(
     status: &Status,
-    link_pid: Option<u32>,
-    running: &HashMap<u32, u8>,
+    holder: &SlotState<'_>,
     slot: u8,
     pid: u32,
     message: &ToService,
     title: Option<&str>,
 ) -> Option<ReportEffect> {
-    let replaced = link_pid.is_some_and(|current| current != pid) || exit_is_stale(running, slot, pid);
-    let late = link_pid != Some(pid);
+    let replaced = holder.link_pid.is_some_and(|current| current != pid)
+        || exit_is_stale(holder.running, slot, pid)
+        || !holder.assigned;
+    let late = holder.link_pid != Some(pid);
     if replaced || (late && matches!(message, ToService::Playing)) {
         return None;
     }
@@ -1361,6 +1381,12 @@ impl RuleClosed {
 }
 
 impl Fleet {
+    /// Whether `slot` belongs to a connected monitor and the fullscreen rule has not closed its renderer: only then
+    /// do the reports of its renderer count for the tray status (WR-19).
+    fn slot_assigned(&self, slot: u8) -> bool {
+        self.slots.monitor_of(slot).is_some() && !self.rule_closed.is_closed(slot)
+    }
+
     fn new(job: Option<Job>, assignments: SharedAssignments) -> Self {
         Self {
             job,
@@ -1791,6 +1817,15 @@ mod tests {
         );
     }
 
+    /// The holder of a slot that belongs to a connected monitor.
+    fn holder(link_pid: Option<u32>, running: &HashMap<u32, u8>) -> SlotState<'_> {
+        SlotState {
+            link_pid,
+            running,
+            assigned: true,
+        }
+    }
+
     fn failed_report() -> ToService {
         ToService::Failed {
             reason: "mpv could not open the file".to_owned(),
@@ -1811,7 +1846,7 @@ mod tests {
         let class = classify_exit(Some(i32::from(code)));
         let decision = decide_exit(budget, &mut ShellRestart::default(), class, 0, Instant::now());
         let mut status = status_after_exit(&status, decision, class, TITLE, "Monitor 1".to_owned()).unwrap_or(status);
-        let effect = handle_report(&status, None, &HashMap::new(), 0, 10, &failed_report(), TITLE)
+        let effect = handle_report(&status, &holder(None, &HashMap::new()), 0, 10, &failed_report(), TITLE)
             .expect("the last words of a renderer that ended with nobody to replace it count");
         assert!(!effect.first_frame);
         if let Some(next) = effect.status {
@@ -1824,7 +1859,7 @@ mod tests {
     fn a_report_counts_only_while_its_renderer_holds_the_slot() {
         let none = HashMap::new();
         let counts = |link_pid, running: &HashMap<u32, u8>, message: &ToService| {
-            handle_report(&starting(), link_pid, running, 0, 7, message, TITLE)
+            handle_report(&starting(), &holder(link_pid, running), 0, 7, message, TITLE)
         };
 
         let playing = counts(Some(7), &none, &ToService::Playing).expect("the current renderer");
@@ -1850,7 +1885,14 @@ mod tests {
         // The renderer played, died and was restarted: the status is Starting. Its Playing report, handled after the
         // Exited, finds no connection for its pid and must not claim the wallpaper (WR-15).
         assert_eq!(
-            handle_report(&starting(), None, &HashMap::new(), 0, 7, &ToService::Playing, TITLE),
+            handle_report(
+                &starting(),
+                &holder(None, &HashMap::new()),
+                0,
+                7,
+                &ToService::Playing,
+                TITLE
+            ),
             None
         );
     }
@@ -1860,19 +1902,92 @@ mod tests {
         let running = HashMap::from([(20, 0)]);
 
         assert_eq!(
-            handle_report(&starting(), None, &running, 0, 10, &failed_report(), TITLE),
+            handle_report(&starting(), &holder(None, &running), 0, 10, &failed_report(), TITLE),
             None,
             "pid 20 runs for the slot but has not connected yet"
         );
         assert_eq!(
-            handle_report(&starting(), Some(20), &running, 0, 10, &failed_report(), TITLE),
+            handle_report(&starting(), &holder(Some(20), &running), 0, 10, &failed_report(), TITLE),
             None,
             "pid 20 is connected"
         );
         assert!(
-            handle_report(&starting(), None, &running, 1, 10, &failed_report(), TITLE).is_some(),
+            handle_report(&starting(), &holder(None, &running), 1, 10, &failed_report(), TITLE).is_some(),
             "the replacement runs for another slot"
         );
+    }
+
+    #[test]
+    fn a_late_failed_of_a_removed_monitor_is_dropped() {
+        // The monitor was unplugged: its slot is retired, then the renderer's exit and a queued Failed arrive. The
+        // tooltip of the monitors that still play must not switch to "no wallpaper" (WR-19).
+        let none = HashMap::new();
+        let removed = SlotState {
+            link_pid: None,
+            running: &none,
+            assigned: false,
+        };
+
+        assert_eq!(
+            handle_report(&starting(), &removed, 0, 10, &failed_report(), TITLE),
+            None
+        );
+    }
+
+    #[test]
+    fn a_report_of_a_renderer_whose_slot_is_not_assigned_is_dropped_even_while_connected() {
+        // The monitor is retired, or the fullscreen rule closed the renderer, and the renderer is still connected: it
+        // changes neither the status nor the master (WR-19).
+        let none = HashMap::new();
+        let connected = SlotState {
+            link_pid: Some(10),
+            running: &none,
+            assigned: false,
+        };
+
+        assert_eq!(
+            handle_report(&starting(), &connected, 0, 10, &failed_report(), TITLE),
+            None
+        );
+        assert_eq!(
+            handle_report(&starting(), &connected, 0, 10, &ToService::Playing, TITLE),
+            None
+        );
+    }
+
+    #[test]
+    fn a_late_failed_of_an_assigned_slot_still_counts() {
+        // A renderer of a connected monitor ended with nobody replacing it: its last words still set the reason, so the
+        // WR-19 drop cannot hide a real failure (WR-18).
+        let none = HashMap::new();
+        let ended = SlotState {
+            link_pid: None,
+            running: &none,
+            assigned: true,
+        };
+
+        let effect = handle_report(&starting(), &ended, 0, 10, &failed_report(), TITLE).expect("it counts");
+
+        assert_eq!(effect.status, Some(failed_reported()));
+    }
+
+    #[test]
+    fn slot_assigned_follows_the_monitor_and_the_fullscreen_rule() {
+        let mut fleet = fleet_with_a_job();
+        let slot = fleet.slots.assign("DISPLAY1").expect("a free slot");
+        assert!(fleet.slot_assigned(slot), "a connected monitor's slot");
+
+        fleet.rule_closed.close(slot, false);
+        assert!(!fleet.slot_assigned(slot), "the fullscreen rule closed its renderer");
+
+        fleet.rule_closed.forget(slot);
+        assert!(fleet.slot_assigned(slot), "the renderer is back");
+
+        assert_eq!(fleet.slots.retire("DISPLAY1"), Some(slot));
+        assert!(!fleet.slot_assigned(slot), "the monitor was removed");
+
+        assert!(fleet.slots.release(slot));
+        assert!(!fleet.slot_assigned(slot), "the slot is free");
     }
 
     #[test]
@@ -1929,14 +2044,22 @@ mod tests {
         }
         assert!(matches!(status, Status::RendererStopped { .. }));
 
-        let effect = handle_report(&status, None, &HashMap::new(), 0, 10, &failed_report(), TITLE).expect("it counts");
+        let effect =
+            handle_report(&status, &holder(None, &HashMap::new()), 0, 10, &failed_report(), TITLE).expect("it counts");
 
         assert_eq!(
             effect.status, None,
             "the status keeps saying that the monitor gets no more renderers"
         );
-        let live =
-            handle_report(&status, Some(10), &HashMap::new(), 0, 10, &failed_report(), TITLE).expect("it counts");
+        let live = handle_report(
+            &status,
+            &holder(Some(10), &HashMap::new()),
+            0,
+            10,
+            &failed_report(),
+            TITLE,
+        )
+        .expect("it counts");
         assert_eq!(
             live.status,
             Some(failed_reported()),
