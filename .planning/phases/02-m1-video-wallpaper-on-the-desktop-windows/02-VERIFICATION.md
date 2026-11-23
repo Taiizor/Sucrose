@@ -1,8 +1,8 @@
 ---
 phase: 02-m1-video-wallpaper-on-the-desktop-windows
-verified: 2026-11-23T13:50:00Z
+verified: 2026-11-23T14:11:23Z
 status: human_needed
-score: 4/5 roadmap truths verified (1 present and wired, behavior not exercised on the real desktop since the gap-closure and review fixes)
+score: 4/5 roadmap truths verified (1 present and wired, behavior not exercised on the real desktop)
 covered_files:
   - .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-01-PLAN.md
   - .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-01-SUMMARY.md
@@ -87,7 +87,7 @@ covered_files:
   - xtask/Cargo.toml
   - xtask/src/fetch_engines.rs
   - xtask/src/measure.rs
-covered_digest: "v4:sha256:143bb566abfd02c61422ca241429b635e4b55ef2e50e83a1e5817a60b119fb7b"
+covered_digest: "v4:sha256:343628d24eb7e005081495d215a1532ee5f18caf8190d9f6eb9dc1280300860a"
 behavior_unverified: 1
 overrides_applied: 0
 re_verification:
@@ -98,107 +98,95 @@ re_verification:
   regressions: []
 behavior_unverified_items:
   - truth: "SC2/DESK-07: the wallpaper survives an explorer.exe restart and monitors being plugged/unplugged"
-    test: "(a) taskkill /IM explorer.exe /F, start explorer.exe, twice in a row, with SUCROSE_LOG=debug; (b) with FullScreenPerformance=Resume disable the NON-primary display; (c) re-enable a virtual display that becomes the primary and watch both monitors for a minute"
-    expected: "(a) the video is visible again on every monitor within seconds, the Renderer log shows 'surface attached ... order=SHELLDLL_DefView > SucroseDesktopSurface > WorkerW', the tray icon returns; (b) only that monitor's renderer closes within about 3 s; (c) the monitor that kept playing does not seek back to the start, the master does not move (one 'master clock elected' line), no visible offset between monitors, 'follower drift summary' lines show max drift within one frame"
-    why_human: "Needs killing the maintainer's shell and a second (virtual) display. The fixes are proven by unit tests (4 sent_ tests on the real window procedure, 6 raised_order tests, choose_master tests, 29 sync simulations) and one release-run attach log, but UAT test 2 recorded all of these behaviors as failing before the fixes and has not been re-run since (UAT test 7 is pending). Grep and unit tests cannot see the real explorer/Progman ordering or a real display unplug"
+    test: "UAT test 7: (a) taskkill /IM explorer.exe /F, start explorer.exe, twice in a row, with SUCROSE_LOG=debug; (b) with FullScreenPerformance=Resume disable the NON-primary display; (c) re-enable a virtual display that becomes the primary and watch both monitors for a minute"
+    expected: "(a) the video is visible again on every monitor within seconds, the Renderer log shows the order SHELLDLL_DefView > SucroseDesktopSurface > WorkerW, the tray icon returns; (b) only that monitor's renderer closes within about 3 s; (c) the monitor that kept playing does not seek back to the start, the master does not move (one 'master clock elected' line), no visible offset between monitors, 'follower drift summary' lines show max drift within one frame"
+    why_human: "Needs killing the maintainer's shell and a second (virtual) display. The fixes are proven by unit tests (sent_* tests on the real window procedure, raised_order tests, choose_master tests, follower sync simulations) and one release-run attach log, but UAT test 2 recorded these behaviors as failing before the fixes and has not been re-run since (UAT test 7 is pending). Grep and unit tests cannot see the real explorer/Progman ordering or a real display unplug"
 coincidental_reliance_items: []
-advisory: []
+advisory:
+  - finding: "WR-18: a Failed report queued behind its own renderer's Exited is dropped by report_is_stale (apps/sucrose/src/service.rs:458, 1050), so with libmpv missing (exit code 2) the tooltip stays 'starting' and mpv's reason is lost for exit code 4"
+    category: other
+    reason: "Failure-path tooltip only; no ROADMAP success criterion or requirement names the failure tooltip; needs a narrow two-thread ordering; the log still carries the reason. Fix recorded in 02-REVIEW.md (drop a late Failed only when another renderer holds or runs the slot)"
+    evidence_status: "code read; 02-REVIEW.md; no test reproduces the ordering (IN-24)"
 human_verification:
   - test: "UAT test 7: explorer.exe kill twice; disable the non-primary display (FullScreenPerformance=Resume); re-enable a display that becomes primary"
     expected: "See behavior_unverified_items (covers G-02-2a, G-02-2c, G-02-2d: video back on every monitor with the logged order, only the unplugged monitor's renderer closes, sticky master, same frame on every monitor within one frame of drift)"
     why_human: "Disturbs the live desktop, needs a second or virtual display"
   - test: "UAT test 8: two minutes of 4K60 playback on the hybrid laptop with no manual graphics entry (G-02-2b)"
-    expected: "No stutter, no 'Audio/Video desynchronisation' or 'underrun' in the Renderer logs, Task Manager shows the renderers' 3D engine on the RTX 3050, not the Intel UHD"
-    why_human: "Smoothness and Task Manager's GPU engine column need a person at the machine; the counter/LUID evidence was measured on a 4K30 theme, the UAT failure was on the 4K60 theme. The maintainer's manual Graphics-settings entry for sucrose.exe must be absent so the service's own registry write is what is tested"
+    expected: "No stutter, no 'Audio/Video desynchronisation' or 'underrun' in the Renderer logs, Task Manager shows the renderers' 3D engine on the RTX 3050, not the Intel UHD. The maintainer's manual Graphics-settings entry for sucrose.exe must be absent so the service's own registry write is what is tested"
+    why_human: "Smoothness and Task Manager's GPU engine column need a person at the machine; the counter/LUID evidence was measured on a 4K30 theme, the UAT failure was on the 4K60 theme"
 ---
 
 # Phase 2: M1 - Video wallpaper on the desktop (Windows) Verification Report
 
 **Phase Goal:** An existing user's selected video theme plays behind the desktop icons on every monitor on Windows through libmpv, survives shell and monitor changes, and pauses for fullscreen apps.
-**Verified:** 2026-11-23T13:50:00Z
+**Verified:** 2026-11-23T14:11:23Z
 **Status:** human_needed
-**Re-verification:** Yes - the 2026-11-23T03:10Z report was stale (covered source files changed through review fixes WR-05 .. WR-14 and IN-01 .. IN-17, plus WR-01 .. WR-04 before them). All must-haves were re-checked against HEAD 9e982657.
+**Re-verification:** Yes - the 2026-11-23T13:50Z report was stale: apps/sucrose/src/render.rs, apps/sucrose/src/service.rs and docs/FEATURES.md changed through the fix commits 3a6224b8 (WR-15), b3d55ef4 (WR-16) and 3f2417b9 (WR-17). All must-haves were re-checked against HEAD d200292c.
 
 ## Goal Achievement
 
-The verifier read the current code, re-ran `cargo test --workspace` itself (exit 0: 350 passed, 0 failed, 12 ignored, 0 compiler warnings), scanned the phase's Rust and manifest files for debt markers (none), and read the new incremental review (02-REVIEW.md, 0 critical, 3 warning, 4 info) and the UAT file. It did not start sucrose.exe, did not touch the maintainer's desktop, settings or registry, and did not rely on the SUMMARYs.
+The verifier re-read the changed code (the report handler in service.rs, `Status` and its transitions, render.rs start-up and the Hello handling), re-ran `cargo test --workspace` itself (exit 0: 356 passed, 0 failed, 12 ignored, no warnings), scanned the phase's Rust files for debt markers (none in apps/sucrose/src), and read the new incremental review (02-REVIEW.md: 0 critical, 1 warning, 7 info), the disposition and the UAT file. It did not start sucrose.exe and did not touch the maintainer's desktop, settings or registry. SUMMARY claims were not used as evidence.
 
-No roadmap truth is FAILED. The code for every truth is present, substantive and wired. What remains open is exactly what needs the maintainer's desktop (explorer restart, a real display plug/unplug, 4K60 smoothness); UAT tests 7 and 8 are still pending. The review fixes since the last report added about 1,580 lines in 19 files (service, supervisor, render, player, loader, surface, event loop, IPC frame, measure tool). The full test run covers them and stays green, which is the regression evidence available without the desktop.
+No roadmap truth is FAILED. The diff since the last report (git diff 9e982657..HEAD: render.rs +81, service.rs +159, FEATURES.md one row) touches only the service's status/exit handling and the renderer's Hello handling; it does not change the surface, event loop, election, engine, fullscreen or measurement code that carries the truths. What stays open is what needs the maintainer's desktop (UAT tests 7 and 8, still pending).
 
 ### Observable Truths (ROADMAP success criteria)
 
 | # | Truth | Status | Evidence |
 |---|-------|--------|----------|
-| 1 | The selected video plays behind the desktop icons on every monitor | VERIFIED | UAT test 1 pass (two displays, 5 min, same frame, one audio source, promotion on unplug); UAT tests 4 and 5 also ran with the video behind the icons. Code: `choose_master` (service.rs:983) is sticky and `apply_gpu_preference` (service.rs:370, defined :1599) runs before the first renderer; one renderer per monitor through the Fleet. The election, status and writer-queue code changed again after UAT 1 (WR-05, WR-12, WR-13): the 350-test run covers it (`plugging_a_monitor_keeps_the_playing_master`, `a_renderer_that_does_not_play_yet_is_never_the_master`, the writer/queue tests). The same-frame and sticky-master behavior after those changes is in the human item |
-| 2 | It survives an explorer.exe restart and monitors being plugged/unplugged | PRESENT_BEHAVIOR_UNVERIFIED | Present and wired: (G-02-2d) `loop_proc` posts `WM_DRAIN` (event_loop.rs:45,73,113) after queuing an event from a sent message; the four `sent_*` tests send from another thread and pass. (G-02-2a) `verify()` (surface.rs:439) rejects any Progman child order other than DefView > surface > WorkerW through `layout::raised_order` (6 tests), `try_attach` waits for a wallpaper WorkerW and resends 0x052C, a WinEvent hook order guard is installed after a LayeredChild attach (surface.rs:575,598,609) with a 10-restores-per-minute budget and a re-check timer (WR-14), the attach wait keeps pumping messages (WR-08). (G-02-2c) sticky master, Playing only after the first frame, PI follower with an fps-derived band. No real explorer kill, real unplug or real plug has been run since; UAT test 2 recorded them failing before the fixes and test 7 is pending |
-| 3 | While a fullscreen game runs it applies the configured action (Pause: pauses and resumes) | VERIFIED | UAT test 3 pass (real fullscreen app, Pause then Close). fullscreen.rs, foreground.rs and the tray are not in the diff of the 25 review fixes (git diff fcac6699..HEAD); the fullscreen tests are inside the green run |
-| 4 | CPU and RAM are measured against the C# MpvPlayer engine + Backgroundog and recorded in docs/MEASUREMENTS.md | VERIFIED | docs/MEASUREMENTS.md rows of 2026-11-23 (line 10-11): same GPU for both sides (RTX 3050), 4K30 HEVC, 60 s warm-up, 300 s; Rust 301 MB RAM, CPU 0.40 %, GPU 16.4 % vs C# 596 MB / 0.70 % / 16.1 %. target/measure/rust-same-gpu.json read by the verifier: renderer `gpu_adapter` RTX 3050 (LUID 0x00000000_0x0000FAEB), GPU 16.39 %, WS 284 MB. IN-17 renamed the repeated one-display row honestly ("one-monitor numbers repeated, not a multi-monitor measurement"). `xtask/src/measure.rs` still refuses cross-adapter rows (28 xtask tests green) |
-| 5 | On a machine with the C# app installed, Sucrose plays the theme selected there (legacy Library.json and General.json unchanged), sharp at each monitor's DPI, and the tray icon's Quit stops it | VERIFIED | UAT test 4 pass (125/150 % sharpness, tooltip, one-item menu, Quit exits 0, wallpaper returns); legacy reader tests (19 + 8) and 18 theme tests green; legacy files only read. `parse_mode` (IN-15) keeps `no argument = service` and `--render <slot>` = renderer, and refuses anything else with exit 64 (2 tests), so the normal start paths are unchanged |
+| 1 | The selected video plays behind the desktop icons on every monitor | VERIFIED | UAT test 1 pass (two displays, 5 min, same frame, one audio source, promotion on unplug); UAT 4 and 5 also ran with the video behind the icons. Code: `choose_master` (service.rs:1014) sticky; `apply_gpu_preference` (service.rs:392, defined :1639) runs before the first renderer; one renderer per monitor through the Fleet; surface order check `layout::raised_order` used by surface.rs:456 and the guard at :749. Election/status code changed after UAT 1 (WR-05, WR-12, WR-13, WR-15..17): covered by the 356-test run. Same-frame/sticky-master after those changes is in the human item |
+| 2 | It survives an explorer.exe restart and monitors being plugged/unplugged | PRESENT_BEHAVIOR_UNVERIFIED | Present and wired: `WM_DRAIN` (event_loop.rs:45) posted after a queued event from a sent message, 4 `sent_*` tests; `verify()` rejects any Progman order other than DefView > surface > WorkerW (surface.rs:439-456), `install_order_guard` called after attach (:575); `shell_restarted` respawns slots; sticky `choose_master`. WR-16 (b3d55ef4) now turns a refused Hello into a failed start (render.rs:372 bails on `Closed`, test at :726 asserts it cannot exit 0), so a monitor is no longer left dead after a shell restart; the cost is one crash strike (IN-22, info). No test exercises a real explorer restart or display unplug: UAT test 2 failed these before the fixes and test 7 is pending. This is a state-transition/ordering invariant, so presence is not enough |
+| 3 | A fullscreen app triggers the configured action (Pause: pauses and resumes) | VERIFIED | UAT test 3 pass (real fullscreen app, Pause then Close). fullscreen.rs, foreground.rs and the tray are not in the diff since the last report; fullscreen tests are inside the green run |
+| 4 | CPU and RAM are measured against the C# MpvPlayer engine + Backgroundog and recorded in docs/MEASUREMENTS.md | VERIFIED | docs/MEASUREMENTS.md 2026-11-23 rows: same GPU both sides (RTX 3050), Rust service + 1 renderer RAM 301 MB, CPU 0.40 %, GPU 16.4 % vs C# 596 MB / 0.70 % / 16.1 %; the repeated one-display row is labeled honestly as not a multi-monitor measurement; xtask/src/measure.rs adapter checks (28 xtask tests) green |
+| 5 | On a machine with the C# app installed, Sucrose plays the theme selected there (legacy Library.json and General.json unchanged), sharp at each monitor's DPI, and the tray icon's Quit stops it | VERIFIED | UAT test 4 pass (125/150 % sharpness, tooltip, one-item menu, Quit exits 0); legacy reader and theme tests green; legacy files only read; `parse_mode` unchanged in the diff |
 
-**Score:** 4/5 truths verified; 1 present and wired, behavior-unverified.
+**Score:** 4/5 truths verified; 1 present and wired, behavior-unverified (excluded from the score).
 
 ### Review findings against the truths
 
-The incremental review (02-REVIEW.md, 0 critical, 3 warning, 4 info) was checked in the code. None of its findings falsifies a must-have; they are recorded here as warnings, not gaps.
-
 | Finding | Confirmed in code | Blocks a truth? | Judgment |
 |---------|-------------------|-----------------|----------|
-| WR-15 late Playing/Failed of an ended renderer rewrites the status | Yes: `status.after` (service.rs ~453) runs for any message, only the `playing` insert is guarded by `link_pid == Some(pid)` | No | Cosmetic tray text, needs a rare two-thread ordering. The wallpaper itself is not affected. Warning |
-| WR-16 refused Hello (AlreadyConnected) exits 0 and can leave a monitor without a wallpaper after a shell restart | Yes: `accept_hello` refuses, `wait_for_assignment` maps `Closed` to `Ok(None)`, `run` returns SUCCESS, the slot is left stopped; `shell_restarted` decides from `supervisor.slots()` alone | Not SC2 as such, it touches it at the edge | Needs an old renderer's exit that is queued but not handled while the replacement process starts and says Hello (tens of milliseconds, with the main thread waking on the exit at once) around a shell restart. Real but narrow; it is the one finding worth fixing before the human explorer-restart re-run, because it fails silently (exit 0, a log line that reads like a normal stop). Warning |
-| WR-17 a failed start loses its reason from the tooltip | Yes: `Status::restarting` maps `Failed` to `Starting`, GiveUp sets a generic text | No (no success criterion names the failure tooltip) | docs/FEATURES.md (Video row) promises "mpv's reason in the tray tooltip"; either fix the status mapping or correct the sentence (docs-true rule). Warning |
-| IN-19, IN-20, IN-21 | Yes (code read) | No | Bounded robustness points. IN-20: a Quit during the up-to-10 s attach wait is handled only after the attach; the service force-kills after 2 s |
-| IN-07 | Yes | No | Skipped by the fixer citing D-05, unchanged |
+| WR-18 (reopens WR-15): a Failed queued behind its renderer's Exited is dropped | Yes: `Event::Renderer` arm (service.rs:452-465) skips any report when `report_is_stale(link_pid, pid)` (:1050); `Exited` removes the link first (:486-497). A Failed ends in `Decision::Leave` for exit 2, so the status stays "starting"; for exit 4 `Status::Failed` is never set | No | See below. Warning, recorded as advisory |
+| WR-15, WR-16, WR-17 | Fixed (commits present, behavior in the code read above) | - | Fixed, with the residue IN-22, IN-23 (info) |
+| IN-07, IN-19, IN-20, IN-21, IN-22, IN-23, IN-24 | Per 02-REVIEW.md, spot-checked | No | Info (robustness, necessity, test quality) |
 
-### Gap closure check (UAT gaps against current code)
-
-| Gap | Fix in code | Status |
-|-----|-------------|--------|
-| G-02-2d non-primary unplug not detected | `WM_DRAIN` in event_loop.rs; 4 `sent_*` tests pass | Fixed at loop level; end-to-end unplug is human |
-| G-02-2a video hidden after explorer restart | WorkerW wait, `raised_order` in `verify()`, WinEvent order guard with re-check timer, FEATURES row records that explorer sends no WM_DESTROY | Code in place; real explorer restart is human |
-| G-02-2b renderer on the Intel GPU | `apply_gpu_preference` before the first `Fleet::apply`, gpu.rs registry merge/write, `GraphicPreference` read, adapter logged at debug (IN-04) | Verified on the machine earlier (counters/LUID, 4K30); 4K60 smoothness is human |
-| G-02-2c offset / restart on plug | sticky `choose_master`, Playing after the first frame, PI follower and drift summary, loop-wrap detection from the expected position (WR-10) | Unit-proven; real plug is human |
-| G-02-6 GPU load across two GPUs | same-adapter check in measure.rs, same-GPU rows | Closed by measurement (R = 1.02) |
+**WR-18 judgment.** Roadmap success criteria 1-5 and the 11 requirement texts do not mention the tray tooltip naming a failure; TRAY-01 is "a tray icon with Quit is available while a wallpaper runs", which UAT 4 passed and which this path does not touch (Quit still works with the stale tooltip). The failure also needs the renderer's report and its process exit to reach the main loop in the reverse order, a window of milliseconds, and the log still carries the reason. It is therefore not a blocker for a phase truth. It does contradict one sentence in docs/FEATURES.md (mpv's reason in the tooltip) in that rare ordering, and the stale tooltip with no restart is permanent when it hits, so it is worth fixing before M2 builds on the status path. Recorded as a warning, not a gap.
 
 ### Required Artifacts
 
 | Artifact | Expected | Status | Details |
 | -------- | -------- | ------ | ------- |
-| `crates/sucrose-platform/src/os_windows/surface.rs` | WorkerW wait, order check, guard, pumping attach | VERIFIED | `verify` uses `raised_order`; `install_order_guard` called after the attach; 39 unsafe blocks, 39 SAFETY comments |
-| `crates/sucrose-platform/src/layout.rs` | pure `raised_order` | VERIFIED | used by surface.rs, 6 tests |
-| `crates/sucrose-platform/src/os_windows/event_loop.rs` | `WM_DRAIN`, failed loop reported as an error (WR-09) | VERIFIED | 4 `sent_*` tests |
-| `crates/sucrose-platform/src/os_windows/gpu.rs` | UserGpuPreferences write, DXGI list | VERIFIED | wired through `Platform`; 15 unsafe blocks, 15 SAFETY comments; unsupported.rs reports the capability false |
-| `apps/sucrose/src/service.rs` | sticky election, GPU preference, slot/pid binding, bounded writer queue | VERIFIED | wired in `run`; advisory findings WR-15..WR-17 above |
-| `apps/sucrose/src/supervisor.rs`, `render.rs`, `main.rs` | spawn/restart budget, renderer, mode parsing | VERIFIED | substantive and wired |
-| `crates/sucrose-engine-mpv/src/{config,loader,player,sync}.rs` | libmpv options, loader, player, follower | VERIFIED | WR-06/WR-07 hardening present; 52 engine tests (+9 ignored real-libmpv) |
-| `xtask/src/measure.rs` | adapter per pid, same-adapter check | VERIFIED | 28 xtask tests green |
-| `docs/MEASUREMENTS.md`, `docs/FEATURES.md`, `docs/DECISIONS.md` (D-030) | rows and decisions recorded | VERIFIED | contents read |
+| `crates/sucrose-platform/src/os_windows/surface.rs` | WorkerW wait, order check, guard | VERIFIED | `raised_order` in `verify` and guard; `install_order_guard` called |
+| `crates/sucrose-platform/src/layout.rs` | pure `raised_order` | VERIFIED | used by surface.rs; tests/layout.rs |
+| `crates/sucrose-platform/src/os_windows/event_loop.rs` | `WM_DRAIN` | VERIFIED | present, sent_* tests pass |
+| `crates/sucrose-platform/src/os_windows/gpu.rs` | UserGpuPreferences write | VERIFIED | wired via `apply_gpu_preference`; unsupported.rs reports the capability false |
+| `apps/sucrose/src/service.rs` | sticky election, GPU preference, status, writer queue | VERIFIED | wired in `run`; WR-18 warning |
+| `apps/sucrose/src/render.rs`, `supervisor.rs`, `main.rs` | renderer, spawn/restart budget, mode | VERIFIED | substantive and wired |
+| `crates/sucrose-engine-mpv/src/{config,loader,player,sync,sys}.rs` | libmpv engine | VERIFIED | present, tests in the green run |
+| `xtask/src/measure.rs`, `fetch_engines.rs` | measurement and engine fetch | VERIFIED | 28 xtask tests green |
+| `docs/MEASUREMENTS.md`, `docs/FEATURES.md`, `docs/DECISIONS.md` | recorded | VERIFIED | contents read |
 
 ### Key Link Verification
 
 | From | To | Via | Status |
 | ---- | -- | --- | ------ |
-| surface.rs | layout.rs | `raised_order` in `verify` and the guard | WIRED |
-| event_loop.rs | service.rs | `LoopEvent::DisplayChanged` / `ShellRestarted` with `request_drain` | WIRED |
-| service.rs | gpu.rs | `apply_gpu_preference` (service.rs:370) before the first renderer | WIRED |
+| surface.rs | layout.rs | `raised_order` (surface.rs:456, 749) | WIRED |
+| event_loop.rs | service.rs | `LoopEvent` display/shell events with `WM_DRAIN` | WIRED |
+| service.rs | gpu.rs | `apply_gpu_preference` (service.rs:392) before the first renderer | WIRED |
 | legacy.rs | settings.rs | `GraphicPreference` to `GpuPreference` | WIRED |
-| render.rs | service.rs | `ToService::Playing` on the first frame, `Event::Renderer` marks playing and re-elects | WIRED |
-| render.rs | sync.rs | follower clock control | WIRED |
-| measure.rs | platform | adapter LUID to name | WIRED |
+| render.rs | service.rs | `ToService::Playing`/`Failed` through the connection, handled in `Event::Renderer` | WIRED (stale-report filter, WR-18) |
+| render.rs | engine-mpv sync.rs | follower clock control | WIRED |
 
 ### Data-Flow Trace (Level 4)
 
-Engine.json `GraphicPreference` flows from the legacy file through the settings to the registry value written for `current_exe()` (tests with a fake platform). The legacy Library.json/General.json selected theme flows to the `Job` every renderer is assigned. Clock readings flow from the master's reader thread through the bounded per-connection writer queue to followers. Measurement JSON flows from the counters (LUID) to the table. FLOWING.
+Selected theme from legacy Library.json/General.json flows into the Job each renderer receives; Engine.json settings flow through `GpuPreference` to the registry write; master clock readings flow via the bounded writer queue to followers; measurement counters flow to the table. FLOWING.
 
 ### Behavioral Spot-Checks
 
 | Behavior | Command | Result | Status |
 | -------- | ------- | ------ | ------ |
-| Whole workspace | `cargo test --workspace` (run once, by the verifier) | exit 0; 350 passed, 0 failed, 12 ignored, no warnings | PASS |
-| Sent messages reach the loop handler | `sent_*` tests in the run above | 4 present, run, pass | PASS |
-| Command line parsing | `parse_mode` tests in the run above | pass | PASS |
-| Same-GPU measurement file | read target/measure/rust-same-gpu.json | renderer on RTX 3050, GPU 16.39 % | PASS |
-| Registry value for sucrose.exe | not queried this time (registry out of scope for this run); the earlier report recorded the value, the write is covered by 14 + 3 + 2 tests | - | SKIP |
-| Running sucrose.exe / explorer kill | not run (CLAUDE.md: real desktop, no synthetic input) | - | SKIP (human) |
+| Whole workspace | `cargo test --workspace` (run by the verifier) | 356 passed, 0 failed, 12 ignored | PASS |
+| Hello closed before assignment is an error | `render::tests::a_connection_closed_before_the_assignment_is_an_error_not_a_clean_stop` (in the run) | ok | PASS |
+| Running sucrose.exe / explorer kill | not run (real desktop out of scope) | - | SKIP (human) |
 
 ### Probe Execution
 
@@ -206,44 +194,42 @@ No `probe-*.sh` declared (Rust project, automation in xtask). SKIPPED.
 
 ### Requirements Coverage
 
-All 11 IDs are claimed by at least one PLAN's `requirements` frontmatter and appear in REQUIREMENTS.md as Phase 2 / Complete (traceability rows 237-340); none is orphaned. SVC-04 (uninstall removes the GPU value) is Phase 5 and not claimed here.
+All 11 IDs appear in the PLAN frontmatter of at least one plan (02-01..02-22) and in REQUIREMENTS.md as Phase 2 / Complete; none is orphaned. SVC-04 is Phase 5 and not claimed here.
 
-| Requirement | Source Plans | Status | Evidence |
-| ----------- | ------------ | ------ | -------- |
-| TYPE-01 | 03, 05, 06, 07, 08 | SATISFIED | UAT 1 and 4, legacy-selection reader tests |
-| ENG-01 | 01, 02, 07, 11, 18 | SATISFIED | bundled libmpv, loader hardening (WR-07), wid embedding, adapter logged |
-| DESK-01 | 05, 06, 07, 12, 14, 16, 19, 20 | SATISFIED (UAT 1, 4); order after an explorer restart needs the human re-run | surface.rs, order guard |
-| DESK-06 | 06, 07, 12 | SATISFIED | UAT 4 pass (125/150 %) |
-| DESK-07 | 10, 12, 16, 19 | NEEDS HUMAN | code and unit tests in place, UAT test 7 pending |
-| PERF-05 | 13 | SATISFIED | UAT 3 pass, fullscreen tests green |
-| TRAY-01 | 09 | SATISFIED | UAT 4 pass (tooltip, one-item menu, Quit) |
-| FMT-02 | 08 | SATISFIED | fixtures, theme tests |
-| FMT-08 | 03, 04 | SATISFIED | legacy reader tests |
-| MEAS-01 | 15, 21, 22 | SATISFIED | same-GPU rows recorded, tool refuses cross-GPU |
-| DESK-12 | 17, 18, 22 | SATISFIED on Windows | gpu.rs write/merge, tests, capability false on macOS/Linux |
+| Requirement | Status | Evidence |
+| ----------- | ------ | -------- |
+| TYPE-01 | SATISFIED | UAT 1 and 4, legacy-selection reader tests |
+| ENG-01 | SATISFIED | bundled libmpv, loader, wid embedding |
+| DESK-01 | SATISFIED (UAT 1, 4); order after an explorer restart in UAT 7 | surface.rs, order guard |
+| DESK-06 | SATISFIED | UAT 4 (125/150 %) |
+| DESK-07 | NEEDS HUMAN | code and unit tests in place, UAT 7 pending |
+| PERF-05 | SATISFIED | UAT 3, fullscreen tests |
+| TRAY-01 | SATISFIED | UAT 4 (tooltip, one-item menu, Quit) |
+| FMT-02 | SATISFIED | fixtures, theme tests |
+| FMT-08 | SATISFIED | legacy reader tests |
+| MEAS-01 | SATISFIED | same-GPU rows, tool refuses cross-GPU |
+| DESK-12 | SATISFIED on Windows | gpu.rs write/merge, tests; capability false on macOS/Linux; 4K60 smoothness in UAT 8 |
 
 ### Anti-Patterns Found
 
 | File | Line | Pattern | Severity | Impact |
 | ---- | ---- | ------- | -------- | ------ |
-| all phase Rust files and manifests | - | TBD/FIXME/XXX/TODO/HACK, `todo!`, `unimplemented!` | none | debt-marker gate clear |
-| apps/sucrose/src/service.rs | ~453 | status rewritten by a report of an ended renderer (WR-15) | Warning | stale tray text |
-| apps/sucrose/src/service.rs, render.rs | 1068-1097; 99-101 | refused Hello ends the renderer with exit 0 (WR-16) | Warning | narrow race, monitor can stay without a wallpaper until the next shell or monitor event |
-| apps/sucrose/src/service.rs | 257-266 | failure reason replaced by "starting" on restart (WR-17) | Warning | tooltip differs from FEATURES.md |
-| surface.rs, event_loop.rs, service.rs | - | IN-19, IN-20, IN-21 | Info | robustness |
+| apps/sucrose/src/*.rs | - | TBD/FIXME/XXX/TODO/HACK, todo!, unimplemented! | none | debt-marker gate clear |
+| apps/sucrose/src/service.rs | 452-465, 1050 | late Failed dropped as stale (WR-18) | Warning | permanent stale tooltip in a rare ordering on the failure path |
+| surface.rs, event_loop.rs, service.rs | - | IN-19, IN-20, IN-21, IN-22, IN-23, IN-24 | Info | robustness and test quality |
 
 ### Human Verification Required
 
-1. **UAT test 7 (explorer restart, display unplug/plug).** Kill explorer.exe twice with SUCROSE_LOG=debug, disable the non-primary display with FullScreenPerformance=Resume, re-enable a display that becomes primary. Expected: the video returns on every monitor within seconds with the logged order DefView > surface > WorkerW and the tray back; only the unplugged monitor's renderer closes (about 3 s); the playing monitor never seeks back, one master election line (sticky master), no visible offset between monitors (same-frame followers, drift summaries within one frame).
-2. **UAT test 8 (4K60 on the hybrid laptop with no manual graphics entry).** Expected: no stutter or A/V desync warnings, renderers' 3D engine on the RTX 3050.
+1. **UAT test 7 (explorer restart, display unplug/plug).** Kill explorer.exe twice with SUCROSE_LOG=debug, disable the non-primary display with FullScreenPerformance=Resume, re-enable a display that becomes primary. Expected: video returns on every monitor within seconds with the logged order DefView > surface > WorkerW and the tray back; only the unplugged monitor's renderer closes (about 3 s); the playing monitor never seeks back, one master election line, no visible offset between monitors.
+2. **UAT test 8 (4K60 on the hybrid laptop, no manual graphics entry).** Expected: no stutter or A/V desync warnings, renderers' 3D engine on the RTX 3050.
 
 UAT tests 1, 3, 4 and 5 stay as recorded (pass); test 6 is answered by the same-GPU measurement.
 
 ### Gaps Summary
 
-No FAILED truth, missing or stubbed artifact, unwired link or debt marker. The status is human_needed because SC2 (explorer restart and monitor plug/unplug) and the 4K60 smoothness check have only been exercised by unit tests, a release attach log and 4K30 counters since the fixes. Suggested before the human re-run: fix or consciously accept WR-16 (silent exit 0 after a refused Hello) and settle WR-17 (fix the status or the FEATURES.md sentence); WR-15 and the infos can follow. They do not need a gap-closure plan to pass this phase's truths.
+No FAILED truth, missing or stubbed artifact, unwired link or debt marker. Status is human_needed because SC2 (explorer restart and monitor plug/unplug) and the 4K60 smoothness check have only been exercised by unit tests, a release attach log and 4K30 counters since the fixes. WR-18 is a warning to fix (drop a late Failed only when another renderer holds or runs the slot) but does not block a truth.
 
 ---
 
-_Verified: 2026-11-23T13:50:00Z_
+_Verified: 2026-11-23T14:11:23Z_
 _Verifier: Claude (gsd-verifier)_
