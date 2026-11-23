@@ -26,14 +26,14 @@ All three fixes are state-machine logic changes. Each has unit tests on a pure s
 
 ## Fixed Issues
 
-### WR-15: A late `Playing` or `Failed` of an already ended renderer still rewrites the status
+### WR-15: A late `Playing` or `Failed` of an already ended renderer still rewrites the status (reopens IN-16 and WR-01)
 
 **Status:** fixed: requires human verification
 **Files modified:** `apps/sucrose/src/service.rs`
 **Commit:** 3a6224b8
 **Applied fix:** `report_is_stale(link_pid, pid)` is now `link_pid != Some(pid)`, so every report from a renderer whose connection the slot no longer holds (ended or replaced) is dropped before it reaches `playing`, the election or `Status::after`. The now redundant `link_pid == Some(pid)` test on the Playing branch was removed. The old test was rewritten (no connection is stale) and a test was added that a late Playing or Failed yields no status change.
 
-### WR-16: A refused Hello makes the renderer exit with code 0, and the monitor stays without a wallpaper
+### WR-16: A refused Hello makes the renderer exit with code 0, and the monitor stays without a wallpaper (reopens WR-05)
 
 **Status:** fixed: requires human verification
 **Files modified:** `apps/sucrose/src/render.rs`, `apps/sucrose/src/service.rs`
@@ -43,7 +43,7 @@ All three fixes are state-machine logic changes. Each has unit tests on a pure s
 - `service.rs`: the `Exited` handler now remembers whether the ended renderer's link was the registered one. On the stale-exit path (a replacement already runs) it removes the slot's `playing` entry through `forget_replaced_playing` and re-elects the master, so the replacement is not counted as showing a frame before it has one. Test added.
 - Not done: the alternative of making `shell_restarted` skip slots that still have a registered link. The two changes above already make the refused replacement restart.
 
-### WR-17: A failed start loses its reason from the tooltip right after the exit
+### WR-17: A failed start loses its reason from the tooltip right after the exit (reopens IN-01, WR-11)
 
 **Status:** fixed: requires human verification
 **Files modified:** `apps/sucrose/src/service.rs`, `docs/FEATURES.md`
