@@ -1,64 +1,60 @@
 ---
 phase: 02-m1-video-wallpaper-on-the-desktop-windows
-reviewed: 2026-11-23T14:30:00Z
+reviewed: 2026-11-23T15:00:00Z
 depth: standard
 files_reviewed: 6
 files_reviewed_list:
-  - apps/sucrose/src/render.rs
   - apps/sucrose/src/service.rs
   - docs/FEATURES.md
   - apps/sucrose/src/fullscreen.rs
   - crates/sucrose-platform/src/os_windows/surface.rs
   - crates/sucrose-platform/src/os_windows/event_loop.rs
+  - apps/sucrose/src/supervisor.rs
 findings:
   critical: 0
   warning: 1
-  info: 7
-  total: 8
+  info: 8
+  total: 9
   necessity: 1
 status: issues_found
 ---
 
-# Phase 2: Code Review Report (incremental: fix commits WR-15, WR-16, WR-17)
+# Phase 2: Code Review Report (incremental: fix commit WR-18)
 
 **Reviewed:** 2026-11-23
 **Depth:** standard
-**Files Reviewed:** 6 (the three files of the diff `d2a4fdfc..HEAD`, plus three files read only to re-verify carried findings)
-**Status:** issues_found
+**Files Reviewed:** 6 (the two files of the diff `5f78c99a..HEAD`: `apps/sucrose/src/service.rs` and `docs/FEATURES.md`; plus `fullscreen.rs`, `surface.rs`, `event_loop.rs` read only to re-verify carried findings, and `supervisor.rs` read for the exit and restart contract)
 
 ## Summary
 
-Reviewed `git diff d2a4fdfc..HEAD` for `apps/sucrose/src/render.rs`, `apps/sucrose/src/service.rs` and `docs/FEATURES.md` (commits 3a6224b8, b3d55ef4, 3f2417b9), reading each touched function whole with its callers (`read_connection`, `register_writer`, `accept_hello`, `shell_restarted`, `start_shutdown`, `Supervisor::wait_for`, `decide_exit`, `report_failure`, `publish_clock`). Nothing was built or run (Windows toolchain only, no GUI runs). The reference `necessity-review.md` was read; only IN-07 (carried) is a necessity finding.
+Reviewed the diff of commit a436d88d (WR-18): the new pure functions `handle_report` and `status_after_exit`, the rewritten `Event::Renderer` and `Event::Exited` arms of `run()`, the replaced tests and the FEATURES.md Video row. Nothing was built or run (Windows toolchain only, no GUI runs); the reasoning below is from reading the code and the supervisor/IPC paths (`Supervisor::wait_for`, `pids()`, `decide_exit`, `read_connection`, `report_failure` call sites in `render.rs`).
 
-Verdict per fix:
-- **WR-15 (reports of a renderer without the slot's connection are dropped):** fully resolves the stale `Playing` case (the original WR-01/IN-16 scenario) and the stale `Failed` that overwrites a restart's `Starting`. But it is too broad for `Failed`: a renderer reports `Failed` and exits right after, so a legitimate `Failed` can be queued behind its own `Exited` and is now dropped (WR-18, which reopens WR-15 and weakens WR-17).
-- **WR-16 (a closed connection before the assignment is exit code 1; the stale-exit path forgets the old `playing` entry):** sufficient without the `shell_restarted` change. I traced the gap: `Supervisor::wait_for` removes the slot from `running` before `Exited` is queued, `shell_restarted` starts the replacement, the replacement's Hello is refused (`AlreadyConnected`), it exits with 1, `Exited(old)` removes the old link, `Exited(new)` is a normal crash exit and `restart_after` starts a third renderer 500 ms later that connects. The monitor is no longer left dead, and the old `playing` entry no longer counts for the replacement (`forget_replaced_playing` runs only when the old link was the registered one, and a replacement cannot have reported `Playing` before that link was removed, so it cannot remove the replacement's own entry). No new race found in that path. What remains is a cost, not a defect (IN-22). Exit code 1 for a service that quits is harmless: shutdown sets `closing`, which answers a Hello with `Close`, and no restart happens while `quitting`.
-- **WR-17 (failure kept in the status through restarts and named in `RendererStopped`):** works for the sequence it targets. It inherits WR-18 (the reason is lost when the `Failed` report is dropped) and has a misattribution when the status holds another monitor's failure (IN-23). Not applying `Decision::Leave` for an explained start failure is a policy choice and is accepted.
-- **docs/FEATURES.md:** the Video row now matches the code, with the two caveats in IN-23.
+**WR-18 verdict: resolved for the cases it targets.**
+- Exit code 2 (`Decision::Leave`) with the Exited handled first: the link is removed, no process runs for the slot, so `replaced` is false, `late` is true, the message is `Failed`, so it is not dropped, and `kept` is false unless the status is already `RendererStopped`. `Status::after` sets `Failed`. Correct.
+- Exit code 4 (`Decision::Restart`) with the Exited handled first: the restart is only scheduled (`restart_after` starts the process after the delay), so `pids()` holds nothing for the slot and the late `Failed` reaches the status. `restarting_after` then keeps it through further start failures, and `stopped_reason` names it in `RendererStopped`. Correct; the budget needs three strikes (`MAX_CRASHES`), so the final `GiveUp` always sees a `Failed` kept from an earlier attempt, and the `kept` rule (a late `Failed` does not replace `RendererStopped`) cannot lose the reason in the normal sequence.
+- A late `Playing` of an ended renderer is still dropped (`late && Playing`), as WR-15 requires; `first_frame` can only be true for a report whose renderer holds the link, so no stale `playing` entry or election is introduced.
+- A `Failed` of a replaced renderer is dropped whether the replacement is connected (`link_pid` differs) or only started (`exit_is_stale` over `supervisor.pids()`).
 
-Carried findings: IN-07, IN-19, IN-20 and IN-21 still hold on the current code (`fullscreen.rs`, `surface.rs` and `event_loop.rs` are unchanged by the diff; `service.rs` line numbers moved). IN-10 stays resolved (see the end).
+**Handler side effects:** every side effect of the old inline arms is still applied. In the report arm: the `playing` insert and election (`first_frame`, guarded by `!quitting`), the status assignment, the failure/info log and the tray tooltip. In the exit arm: `fleet.stopped` insert for `Leave` and `GiveUp`, remove for `Restart`, `supervisor.restart_after`, the `GiveUp` warn log, the status assignment and the tooltip. `Decision` is `Copy`, so using `decision` after `status_after_exit` is sound. `monitor_of` is still evaluated after `slots.release`, as before.
+
+One regression-shaped gap remains (WR-19), and FEATURES.md overstates the drop rule (IN-25).
+
+Carried findings: IN-07, IN-19, IN-20, IN-21, IN-22 and IN-23 still hold on the current code. IN-24 and IN-10 are resolved (see the end).
 
 ## Warnings
 
-### WR-18: A legitimate `Failed` queued behind its own renderer's `Exited` is dropped (reopens WR-15; the reason of WR-17 can be lost)
+### WR-19: A late `Failed` of a renderer whose slot was released (monitor unplugged) now reaches the global status (introduced by the WR-18 fix)
 
-**Origin:** new; the WR-15 fix is incomplete for `Failed`
-**File:** `apps/sucrose/src/service.rs:452-465` (`report_is_stale` at `:1050-1052`), `:486-497` (link removed in `Exited`); `apps/sucrose/src/render.rs:114-135` (`report_failure` then `return`), `:634-644`
-**Issue:** `Failed` is the one report a renderer sends right before it ends: after the attach failure and the engine failure `run` returns at once after `report_failure`, and the clock thread asks the loop to quit after it. The report reaches the main loop through the reader thread of the connection (`read_connection` -> `notifier.send`), the exit through the waiter thread (`wait_for` -> sink). These are two senders into one channel, so `Exited` can be queued first (the same race the WR-15 comment describes for `Playing`). Handling `Exited` removes the renderer's link, so the late `Failed` finds `link_pid == None` and is now dropped with a debug line. Consequences:
-- an engine failure (exit code 2, `Decision::Leave`, status unchanged): the tooltip stays "starting" with no renderer and no restart, for good (before WR-15 the late `Failed` still set the status);
-- a start failure (exit code 4): `Status::Failed` is never set, so `restarting_after` has nothing to keep and `stopped_reason` has nothing to name; mpv's reason is only in the log, which is the loss WR-17 set out to remove.
-The window is small (the renderer's process teardown normally takes longer than the reader thread's wake-up), which is why this is not a blocker, but the failure mode is a permanent wrong tooltip and the paths are exactly the ones that exit immediately after the send.
-**Fix:** Drop a late report only when it can do harm. A late `Playing` (stale wallpaper claim) stays dropped. A `Failed` should be dropped only when a different renderer holds or runs the slot, not when nobody does:
+**Origin:** new; side effect of the WR-18 fix (reopens WR-15 for this case)
+**File:** `apps/sucrose/src/service.rs:452-472` (call of `handle_report`), `:1049-1090` (`handle_report`), `:536-544` (the release path of `Exited`)
+**Issue:** `handle_report` keeps a `Failed` when "nobody holds or runs the slot". That test is only about the connection and the supervisor, not about whether the slot still belongs to a monitor. When a monitor is unplugged the service sends `Close`; the renderer ends, the `Exited` arm takes the `fleet.slots.release(..)` branch and `continue`s (no status change). A `Failed` queued behind that exit (for example the renderer's start failure racing with the unplug, the same two-thread ordering WR-18 describes) now finds no link and no running process, is kept, and sets the single global status to `Failed` ("no wallpaper: ...") while the remaining monitors play; before the fix it was dropped. The same holds for a renderer closed by the fullscreen rule (`rule_closed.note_exit` branch) and for a slot whose monitor was reassigned. The window is narrow, but the result is a wrong tooltip that stays until some renderer reports `Playing` again, and nothing in the tests covers a released slot.
+**Fix:** Give `handle_report` the knowledge of whether the slot is still assigned to a monitor and drop the `Failed` when it is not, for example by passing `slot_assigned: bool` (`fleet.slots.monitor_of(slot).is_some()`, if `monitor_of` returns `None` after `release`; otherwise add the check to `Slots`):
 ```rust
 let replaced = link_pid.is_some_and(|current| current != pid)
-    || exit_is_stale(&supervisor.pids(), slot, pid); // another process runs for the slot
-let late_playing = link_pid != Some(pid) && matches!(message, ToService::Playing);
-if replaced || late_playing {
-    tracing::debug!(slot, pid, "ignoring a report of a renderer that is gone or was replaced");
-    continue;
-}
+    || exit_is_stale(running, slot, pid)
+    || !slot_assigned;
 ```
-A late `Failed` of the last renderer then still reaches `Status::after`; if `RendererStopped` was already set it would replace it, so keep `RendererStopped` as it is for that case. Add a test on the real decision, not on a closure (see IN-24).
+and add a test with `slot_assigned = false` and `link_pid = None`.
 
 ## Info
 
@@ -66,55 +62,63 @@ A late `Failed` of the last renderer then still reaches `Status::after`; if `Ren
 
 **Origin:** carried from the previous review (ledger disposition: skipped)
 **Category:** necessity
-**File:** `apps/sucrose/src/fullscreen.rs:94-105`, `:129-140`, `:186-188`; `apps/sucrose/src/service.rs:196-198`, `:1325-1336`
-**Issue:** Still holds (`fullscreen.rs` is unchanged by the diff). `ActionScope::AffectedMonitor` (`Rule::acted`, the second arm of `plan_action`/`acts_on`, an `#[allow(dead_code)]` at `fullscreen.rs:102` whose reason says "Phase 3 persists it") is reachable only through `const ACTION_SCOPE = AllMonitors`; `PauseKind` is read from settings and passed to `enable_fullscreen` only to log "Heavy is handled like Light". It is exercised only by tests and changes no behavior in M1. The comment at `service.rs:197` names Phase 3 for persisting the switch while `.planning/REQUIREMENTS.md` schedules the UI (PERF-01) later; whether a later phase consumes it is a roadmap judgment, hence Info. The fixer skipped it citing D-05, a maintainer scope decision.
+**File:** `apps/sucrose/src/fullscreen.rs:94-105`, `:129-140`; `apps/sucrose/src/service.rs:196-198`, `:1206`, `:1381-1390`
+**Issue:** Still holds. `ActionScope::AffectedMonitor` is constructed only in tests (`fullscreen.rs:393-478`); production uses `const ACTION_SCOPE = AllMonitors` (`service.rs:198`). `PauseKind` is read from settings and passed to `enable_fullscreen` only to log that Heavy is handled like Light (`service.rs:1386`). It changes no behavior in M1. The comment at `service.rs:197` says persisting it is Phase 3 while the UI requirement (PERF-01) is scheduled later; whether a later phase consumes it is a roadmap judgment, hence Info. The fixer skipped it citing D-05, a maintainer scope decision.
 **Fix:** Keep only if the settings phase consumes it; otherwise remove the unused scope branch and the `pause` parameter until needed, and make the comments agree on the phase.
 
 ### IN-19: The order guard no longer limits a failing restore (reopens WR-14)
 
 **Origin:** carried from the previous review (ledger disposition: open)
 **File:** `crates/sucrose-platform/src/os_windows/surface.rs:748-811`
-**Issue:** Still holds. The budget is recorded only in the `Ok` arm of `SetWindowPos` (`:796-803`). When the call keeps failing (Progman gone, access denied) the budget never fills, so the T-02-36 limit ("a shell that keeps reordering cannot keep the renderer busy") no longer applies: each shell event runs `find_child`, `order_text`, the failing call and a `warn!`. There is no feedback loop (a failed call produces no new shell event), so it is bounded by the shell's own event rate.
+**Issue:** Still holds. The budget is recorded only in the `Ok` arm of `SetWindowPos` (`:796-803`). When the call keeps failing (Progman gone, access denied) the budget never fills, so the T-02-36 limit ("a shell that keeps reordering cannot keep the renderer busy") no longer applies: each shell event runs `find_child`, `order_text`, the failing call and a `warn!` (`:807`). There is no feedback loop (a failed call produces no new shell event), so it is bounded by the shell's own event rate.
 **Fix:** Count a failed attempt too (`record` in the `Err` arm), or count attempts and drop the success-only rule; the re-check timer already covers the "burst used the budget up" case.
 
 ### IN-20: A Quit queued while the surface attaches is not seen until attach ends (reopens WR-08)
 
 **Origin:** carried from the previous review (ledger disposition: open)
-**File:** `crates/sucrose-platform/src/os_windows/event_loop.rs:170-185`, `:98` (`WM_QUIT_REQUEST`); `crates/sucrose-platform/src/os_windows/surface.rs:500-507`
-**Issue:** Still holds. `LoopProxy::quit` posts `WM_QUIT_REQUEST`, which `loop_proc` turns into a queued `LoopEvent::Quit`, not into `WM_QUIT`. `wait_pumping` -> `dispatch_waiting` only stops for a real `WM_QUIT`, so a Close from the service (monitor unplugged, Quit from the tray) during the up to 10 s attach retry is dispatched but not acted on; the service waits its 2 s grace and kills the renderer. The log line "asked to quit while the surface was attaching" is unreachable on the normal quit path.
+**File:** `crates/sucrose-platform/src/os_windows/event_loop.rs:98`, `:167-185`, `:351`; `crates/sucrose-platform/src/os_windows/surface.rs:495-507`
+**Issue:** Still holds. `LoopProxy::quit` posts `WM_QUIT_REQUEST` (`:351`), which `loop_proc` turns into a queued `LoopEvent::Quit` (`:98`), not into `WM_QUIT`. `wait_pumping` -> `dispatch_waiting` only stops for a real `WM_QUIT` (`:194`), so a Close from the service (monitor unplugged, Quit from the tray) during the up to 10 s attach retry is dispatched but not acted on; the service waits its 2 s grace and kills the renderer. The warn line "asked to quit while the surface was attaching" (`surface.rs:500`) is unreachable on the normal quit path.
 **Fix:** Have `wait_pumping` (or `attach`) also return early when the pending events hold a `LoopEvent::Quit`, without consuming it.
 
 ### IN-21: A stuck or broken renderer link is only logged, and warns once per clock reading
 
 **Origin:** carried from the previous review (ledger disposition: open)
-**File:** `apps/sucrose/src/service.rs:161-168` (`Link::offer`), `:959-974` (`send_role`), `:988-1007` (`relay_clock`), `:1183-1194` (`send_to`)
-**Issue:** Still holds. `Offer::Failed` (queue full of non-skippable messages, or the writer thread ended after a write error) is logged at warn level and nothing else happens: the link stays registered, a stuck renderer keeps its monitor frozen without a restart or kill (before WR-13 it froze the service, so this is an improvement), and with a dead writer `relay_clock` warns once per master reading per follower until `Exited` arrives. A full queue of clock readings also fails a `SetRect`/`Close` although queued readings could have been dropped to make room.
+**File:** `apps/sucrose/src/service.rs:161-168` (`Link::offer`), `:967-981` (`send_role`), `:994-1014` (`relay_clock`), `:1239` (`send_to`)
+**Issue:** Still holds (code unchanged by the diff). `Offer::Failed` (queue full of non-skippable messages, or the writer thread ended after a write error) is logged at warn level and nothing else happens: the link stays registered, a stuck renderer keeps its monitor frozen without a restart or kill, and with a dead writer `relay_clock` warns once per master reading per follower until `Exited` arrives. A full queue of clock readings also fails a `SetRect`/`Close` although queued readings could have been dropped to make room.
 **Fix:** On `Failed` for a non-clock message treat the renderer as lost (close its connection or ask the supervisor to end that process so the restart budget applies), and log the dead-writer case once per link.
 
 ### IN-22: A refused Hello is still the normal outcome of the shell-restart gap and costs a crash strike (follow-up of WR-16)
 
-**Origin:** new; residue of WR-16, which the fixer deliberately left
-**File:** `apps/sucrose/src/service.rs:1516-1533` (`shell_restarted`, the `!running.contains` test at `:1526`), `:1126-1135` (`AlreadyConnected`); `apps/sucrose/src/render.rs:352-377`
-**Issue:** After the WR-16 fix the monitor recovers, but only through the crash path: the replacement started in the gap is refused, exits with code 1 (`Crashed(1)`, "killed" class), is logged as a crash, spends one of the three strikes (`MAX_CRASHES`) of a monitor whose budget `shell_restarted` had just reset, and the wallpaper is delayed by the 500 ms backoff plus a second libmpv-less start. The user sees nothing wrong, so this is a robustness cost only. Skipping a slot that still has a registered link would avoid it, but it is not free: the old exit must then restart the slot, which `decide_exit` does only for a `SurfaceLost` inside the shell window or for a slot in `respawn`.
-**Fix:** In `shell_restarted` treat a slot that is not running but still has a registered link as "ending": add it to the set that `ShellRestart::begin` remembers (`respawn`) instead of spawning, so its pending `Exited` restarts it with the shortest pause and without a strike. Keep the exit-code-1 rule as the safety net.
+**Origin:** carried from the previous review (ledger disposition: open)
+**File:** `apps/sucrose/src/service.rs:1572-1590` (`shell_restarted`, the `!running.contains` test at `:1582`), `:1190` (`AlreadyConnected`); `apps/sucrose/src/render.rs:352-377`
+**Issue:** Still holds (code unchanged by the diff). The replacement started in the gap is refused, exits with code 1 (`Crashed(1)`), is logged as a crash, spends one of the three strikes (`MAX_CRASHES`) of a monitor whose budget `shell_restarted` had just reset, and the wallpaper is delayed by the 500 ms backoff plus a second start. A robustness cost only.
+**Fix:** In `shell_restarted` treat a slot that is not running but still has a registered link as "ending": add it to the set `ShellRestart::begin` remembers (`respawn`) instead of spawning, so its pending `Exited` restarts it with the shortest pause and without a strike. Keep the exit-code-1 rule as the safety net.
 
 ### IN-23: `stopped_reason` can name a failure that belongs to another monitor or an earlier attempt, and FEATURES.md promises it unconditionally (follow-up of WR-17)
 
-**Origin:** new; residue of WR-17
-**File:** `apps/sucrose/src/service.rs:279-287` (`stopped_reason`), `:561-573`; `docs/FEATURES.md` (Video row)
-**Issue:** The status is one global value, but a `GiveUp` is per slot. `stopped_reason` appends the budget sentence to whatever `Status::Failed` is current. With two monitors, if slot 0's renderer failed to attach and slot 1's renderer then crashes three times, slot 1's tooltip reads "no wallpaper on <slot 1 monitor>: the desktop surface could not be attached (the renderer stopped after 3 crashes in 60 s)", blaming the wrong monitor; with the status `Playing` (slot 0 recovered first) the reason is not named at all. The same happens within one slot when the last exit that exhausts the budget is a crash (`Crashed`) after earlier start failures: the kept failure text is attached to a crash sentence. The FEATURES.md sentence ("stays through the restarts and is named again when the budget is spent") is true only for a single monitor whose failures all were start failures.
-**Fix:** Remember the failure per slot (for example `last_failure: HashMap<u8, String>` in `Fleet`, set where `Failed` is accepted and cleared on `Playing`) and use it in `stopped_reason` only when the ended renderer's class is `StartFailed`; or word the FEATURES.md sentence as "on a single monitor".
+**Origin:** carried from the previous review (ledger disposition: open)
+**File:** `apps/sucrose/src/service.rs:279-287` (`stopped_reason`), `:567-580` (`GiveUp` through `status_after_exit` at `:1095-1108`); `docs/FEATURES.md` (Video row)
+**Issue:** Still holds, and the WR-18 fix makes it slightly more reachable: a late `Failed` now also reaches the one global status. `stopped_reason` appends the budget sentence to whatever `Status::Failed` is current, whichever slot reported it. With two monitors, if slot 0's renderer failed to attach and slot 1's renderer then crashes three times, slot 1's tooltip reads "no wallpaper on <slot 1 monitor>: the desktop surface could not be attached (the renderer stopped after 3 crashes in 60 s)", blaming the wrong monitor; with the status `Playing` the reason is not named at all. Within one slot, a final `Crashed` exit after earlier start failures attaches the kept failure text to a crash sentence. The FEATURES.md sentence ("stays through the restarts and is named again when the budget is spent") is true only for a single monitor whose failures all were start failures. `status_after_exit` is now a pure function, so the fix is easy to test.
+**Fix:** Remember the failure per slot (for example `last_failure: HashMap<u8, String>` in `Fleet`, set where `Failed` is accepted and cleared on `Playing`) and pass it to `status_after_exit` instead of reading it from the global status, using it only when the ended renderer's class is `StartFailed`; or word the FEATURES.md sentence as "on a single monitor".
 
-### IN-24: The WR-15 test re-implements the handler instead of testing it
+### IN-25: The FEATURES.md sentence about dropped reports is wrong in two ways (follow-up of WR-18)
 
 **Origin:** new
-**File:** `apps/sucrose/src/service.rs:1731-1744` (`a_late_report_of_an_ended_renderer_cannot_rewrite_the_restart_status`), `:1746-1763`
-**Issue:** The test builds a closure `(!report_is_stale(link_pid, 7)).then(|| starting().after(..))` that copies the loop's logic, so it passes whatever the real `Event::Renderer` arm does (it cannot catch WR-18, nor a regression that moves the check). `forget_replaced_playing` is a one-line `&&` and its test checks the same boolean. The real decision sits in an inline closure of `run` that no test reaches.
-**Fix:** Move the arm's decision (stale or not, playing insert, status change) into a pure function that takes `link_pid`, the pids running for the slot, the message and the status, and test that function with the ordering cases (Exited first, replacement connected, replacement running).
+**File:** `docs/FEATURES.md:13` (Video row, the parenthesis "a report is dropped only when another renderer holds or runs the monitor's slot")
+**Issue:** The new text says a report is dropped *only* when another renderer holds or runs the slot. The code (`handle_report`, `service.rs:1049-1090`) also drops (a) a late `Playing` of a renderer that ended with nobody replacing it (WR-15, by design) and (b) a late `Failed` while the status is `RendererStopped` (a spent budget keeps its verdict). It also depends on the report being a `Failed`, which the sentence does not say. FEATURES.md is the parity record, so the behavior statement should be exact.
+**Fix:** Reword the parenthesis, for example: "(a `Failed` that arrives after its renderer's exit still counts; it is dropped when another renderer holds or runs the monitor's slot, or when the status already says the restart budget is spent; a late `Playing` of an ended renderer is always dropped)". If WR-19 is fixed, add "or when the monitor was removed".
+
+### IN-26: The new tests duplicate the budget-spending loop and rely on a magic bound
+
+**Origin:** new
+**File:** `apps/sucrose/src/service.rs:1895-1925` (`a_failed_start_whose_exit_is_handled_first_keeps_its_reason_through_the_restart`), `:1927-1955` (`a_late_failed_does_not_replace_the_verdict_of_the_spent_budget`)
+**Issue:** Both tests contain the same `for _ in 0..10 { decide_exit; status_after_exit; break on GiveUp }` loop with the literal 10 (an arbitrary bound above `MAX_CRASHES`; if the cap changes the first test's `expect("the budget runs out")` is the only signal and the second would assert on a status that never reached `RendererStopped` with an unclear message). The helper `exit_then_failed` shows the intended shape but is not reused. Test reliability, not behavior.
+**Fix:** Extract a helper `spend_budget(status, budget) -> Status` that loops until `GiveUp` with an `unreachable!`-style message, and use it in both tests.
 
 ## Carried findings resolved
 
-- **IN-10** (recorded GPU regression, first suspect `deband=yes`/`profile=low-latency`): resolved by evidence, not carried. `docs/MEASUREMENTS.md` and the FEATURES.md Video row record the same-GPU measurement (RTX 3050, GPU 16.4 % vs 16.1 %, R = 1.02); the earlier gap compared two different adapters. The row can be closed.
+- **IN-24** (the WR-15 test re-implements the handler instead of testing it): resolved by the WR-18 fix. The closure-copy test is gone; the decision of the `Event::Renderer` arm is the pure `handle_report` (`service.rs:1049-1090`) and the status part of the `Exited` arm is `status_after_exit` (`:1095-1108`). The new tests call the real functions with the ordering cases (exit first with codes 2 and 4, replacement connected, replacement running, other slot, spent budget). What stays outside unit tests is the glue (the `playing` insert, election and tooltip), which is trivial.
+- **IN-10** (recorded GPU regression, first suspect `deband=yes`/`profile=low-latency`): resolved by evidence; `docs/MEASUREMENTS.md` and the FEATURES.md Video row record the same-GPU measurement (RTX 3050, GPU 16.4 % vs 16.1 %, R = 1.02).
 
 ---
 
