@@ -348,29 +348,52 @@ fn shader_cache_dir() -> PathBuf {
     dir
 }
 
-/// Waits for the service's answer to the Hello: `Some` for a job, `None` when the service asks to stop.
+/// What one reply of the service to the Hello leads to.
+#[derive(Debug)]
+enum HelloReply {
+    /// The renderer has its job.
+    Assigned(Assignment),
+    /// The service asked the renderer to stop.
+    Stop,
+    /// A message that means nothing before the assignment: the wait goes on.
+    Skip,
+}
+
+/// Reads one reply to the Hello. A connection that ends before an assignment came is an error, not a normal stop:
+/// the service drops the connection of a Hello it refuses, and a renderer that read that as a clean exit would stay
+/// unrestarted for good (WR-16). A real stop is the `Close` message.
+fn judge_hello_reply(reply: Result<ToRenderer, IpcError>) -> anyhow::Result<HelloReply> {
+    match reply {
+        Ok(ToRenderer::Assign(assignment)) => Ok(HelloReply::Assigned(assignment)),
+        Ok(ToRenderer::Close) => {
+            tracing::info!("the service asked this renderer to close");
+            Ok(HelloReply::Stop)
+        }
+        Err(IpcError::Closed) => bail!("the service closed the connection before it assigned a wallpaper"),
+        // Controls only make sense once a wallpaper plays; before that the service has nothing to control. The
+        // protocol never sends one first, so it is skipped and the wait goes on, as the log says.
+        Ok(
+            ToRenderer::Pause(_)
+            | ToRenderer::SetVolume(_)
+            | ToRenderer::SetRect(_)
+            | ToRenderer::SetRole(_)
+            | ToRenderer::Clock(_),
+        ) => {
+            tracing::warn!("ignoring a control message that arrived before the assignment");
+            Ok(HelloReply::Skip)
+        }
+        Err(error) => bail!("the service sent no valid assignment: {error}"),
+    }
+}
+
+/// Waits for the service's answer to the Hello: `Some` for a job, `None` when the service asks to stop. An error
+/// when the connection ends first (see [`judge_hello_reply`]), so the renderer exits with a code the budget counts.
 fn wait_for_assignment(connection: &mut Connection) -> anyhow::Result<Option<Assignment>> {
     loop {
-        match connection.recv::<ToRenderer>() {
-            Ok(ToRenderer::Assign(assignment)) => return Ok(Some(assignment)),
-            Ok(ToRenderer::Close) => {
-                tracing::info!("the service asked this renderer to close");
-                return Ok(None);
-            }
-            Err(IpcError::Closed) => {
-                tracing::info!("the service closed the connection");
-                return Ok(None);
-            }
-            // Controls only make sense once a wallpaper plays; before that the service has nothing to control. The
-            // protocol never sends one first, so it is skipped and the wait goes on, as the log says.
-            Ok(
-                ToRenderer::Pause(_)
-                | ToRenderer::SetVolume(_)
-                | ToRenderer::SetRect(_)
-                | ToRenderer::SetRole(_)
-                | ToRenderer::Clock(_),
-            ) => tracing::warn!("ignoring a control message that arrived before the assignment"),
-            Err(error) => bail!("the service sent no valid assignment: {error}"),
+        match judge_hello_reply(connection.recv::<ToRenderer>())? {
+            HelloReply::Assigned(assignment) => return Ok(Some(assignment)),
+            HelloReply::Stop => return Ok(None),
+            HelloReply::Skip => {}
         }
     }
 }
@@ -696,6 +719,22 @@ mod tests {
 
         assert!(!reason.is_empty());
         assert_eq!(hint, CHECK_THE_LOG);
+    }
+
+    #[test]
+    fn a_connection_closed_before_the_assignment_is_an_error_not_a_clean_stop() {
+        let error = judge_hello_reply(Err(IpcError::Closed)).expect_err("a refused Hello must not exit with code 0");
+
+        assert!(error.to_string().contains("before it assigned"), "{error}");
+    }
+
+    #[test]
+    fn close_stops_the_renderer_and_a_control_message_waits_on() {
+        assert!(matches!(judge_hello_reply(Ok(ToRenderer::Close)), Ok(HelloReply::Stop)));
+        assert!(matches!(
+            judge_hello_reply(Ok(ToRenderer::Pause(true))),
+            Ok(HelloReply::Skip)
+        ));
     }
 
     #[test]

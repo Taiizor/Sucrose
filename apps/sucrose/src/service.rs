@@ -462,16 +462,17 @@ pub fn run() -> anyhow::Result<()> {
                         }
                     }
                     Event::Exited(exited) => {
-                        {
+                        let old_link_removed = {
                             let mut state = lock(&renderers);
-                            if state
+                            let is_old = state
                                 .connections
                                 .get(&exited.slot)
-                                .is_some_and(|link| link.pid == exited.pid)
-                            {
+                                .is_some_and(|link| link.pid == exited.pid);
+                            if is_old {
                                 state.connections.remove(&exited.slot);
                             }
-                        }
+                            is_old
+                        };
                         // A replacement already runs for the slot (it was started in the gap between the old one
                         // ending and this event): this exit says nothing about the new renderer.
                         if exit_is_stale(&supervisor.pids(), exited.slot, exited.pid) {
@@ -480,6 +481,15 @@ pub fn run() -> anyhow::Result<()> {
                                 pid = exited.pid,
                                 "a replaced renderer ended, nothing to do"
                             );
+                            // The old renderer's connection was still registered, so its replacement could not
+                            // connect yet and its first frame cannot have been reported: the entry in `playing` is
+                            // the old renderer's and must not count for the replacement (WR-16).
+                            if forget_replaced_playing(&mut fleet.playing, exited.slot, old_link_removed) && !quitting {
+                                fleet.elect(&Ctx {
+                                    supervisor: &supervisor,
+                                    renderers: &renderers,
+                                });
+                            }
                             continue;
                         }
                         // A renderer that ended plays no more and cannot stay the master; its replacement counts
@@ -1017,6 +1027,13 @@ fn role_changes(old: Option<u8>, new: Option<u8>, active: &[u8], volume: u8) -> 
 /// or was replaced.
 fn report_is_stale(link_pid: Option<u32>, pid: u32) -> bool {
     link_pid != Some(pid)
+}
+
+/// Removes the `playing` entry of `slot` when the renderer that ended was the one whose connection the slot held
+/// (`old_link_removed`) and a replacement already runs: the entry is the old renderer's. `true` when an entry was
+/// removed, so that the master has to be elected again.
+fn forget_replaced_playing(playing: &mut HashSet<u8>, slot: u8, old_link_removed: bool) -> bool {
+    old_link_removed && playing.remove(&slot)
 }
 
 /// Whether the end of process `pid` is that of a renderer that was replaced: another process (`running`, pid to slot)
@@ -1704,6 +1721,23 @@ mod tests {
                 hint: String::new(),
             }),
             None
+        );
+    }
+
+    #[test]
+    fn a_replaced_renderer_that_played_leaves_no_playing_entry_for_its_replacement() {
+        let mut playing = HashSet::from([0, 1]);
+
+        assert!(
+            !forget_replaced_playing(&mut playing, 0, false),
+            "its connection was not the registered one: the entry is not its to remove"
+        );
+        assert!(playing.contains(&0));
+        assert!(forget_replaced_playing(&mut playing, 0, true));
+        assert_eq!(playing, HashSet::from([1]));
+        assert!(
+            !forget_replaced_playing(&mut playing, 0, true),
+            "nothing left, no new election"
         );
     }
 
