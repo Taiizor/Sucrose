@@ -335,7 +335,14 @@ pub fn run() -> anyhow::Result<()> {
                         fleet.catch_up_renderer(slot, &renderers);
                     }
                     Event::Renderer { slot, message } => {
-                        if matches!(message, ToService::Playing) && fleet.playing.insert(slot) && !quitting {
+                        // A Playing report can be handled after the Exited of the same renderer (two threads feed the
+                        // channel). Without a registered connection the report comes from a renderer that is already
+                        // gone: counting it would leave a stale entry that a later renderer of the slot inherits.
+                        if matches!(message, ToService::Playing)
+                            && lock(&renderers).connections.contains_key(&slot)
+                            && fleet.playing.insert(slot)
+                            && !quitting
+                        {
                             // Its first frame is shown: only now can it be the master clock.
                             tracing::debug!(slot, "a renderer shows its first frame");
                             fleet.elect(&Ctx {
