@@ -184,6 +184,22 @@ pub struct Player {
     receiver: Mutex<Option<Receiver<PlayerEvent>>>,
 }
 
+impl Player {
+    /// [`Player::open`] for any mpv source string and without a window, for the integration tests that play a generated
+    /// stream with `vo=null`. Only built with the `test-support` feature, so no other caller can hand theme text to
+    /// `loadfile` through it.
+    #[cfg(feature = "test-support")]
+    #[doc(hidden)]
+    pub fn open_source_for_tests(
+        mpv: Arc<Mpv>,
+        wid: Option<u64>,
+        source: &str,
+        options: &OpenOptions<'_>,
+    ) -> Result<Self, PlayerError> {
+        Self::open_source(mpv, wid, source, options)
+    }
+}
+
 impl std::fmt::Debug for Player {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("Player").finish_non_exhaustive()
@@ -208,10 +224,10 @@ impl Player {
     /// Like [Player::open], for a source that is not a file path (an mpv URL such as `av://lavfi:...`) and for an
     /// instance without a window (`wid` of None, for tests with `vo=null`).
     ///
-    /// The caller vouches for `source`: only a file the theme gate accepted (see [Player::open]) or a fixed test
-    /// source may be passed, never text taken from a theme (T-02-14).
-    #[doc(hidden)]
-    pub fn open_source(
+    /// The caller vouches for `source`: only a file the theme gate accepted (see [Player::open]) is passed, never text
+    /// taken from a theme (T-02-14). It is private to the crate; the integration tests reach it through
+    /// [`Player::open_source_for_tests`].
+    fn open_source(
         mpv: Arc<Mpv>,
         wid: Option<u64>,
         source: &str,

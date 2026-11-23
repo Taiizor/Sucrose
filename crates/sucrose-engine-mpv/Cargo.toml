@@ -14,5 +14,12 @@ sucrose-ipc = { workspace = true }
 thiserror = { workspace = true }
 tracing = { workspace = true }
 
+[features]
+# Exposes Player::open_source_for_tests (any mpv source string, no window) to the integration tests only.
+test-support = []
+
+[dev-dependencies]
+sucrose-engine-mpv = { workspace = true, features = ["test-support"] }
+
 [lints]
 workspace = true

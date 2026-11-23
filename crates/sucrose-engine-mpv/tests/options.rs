@@ -92,7 +92,7 @@ fn start_with_user_config(settings: PlaybackSettings, seconds: u32, user_config:
         user_config,
     };
     let source = format!("av://lavfi:testsrc=duration={seconds}:size=320x240:rate=30");
-    Player::open_source(load_mpv(), None, &source, &options)
+    Player::open_source_for_tests(load_mpv(), None, &source, &options)
         .unwrap_or_else(|error| panic!("the test stream cannot be played: {error}"))
 }
 
@@ -184,7 +184,7 @@ fn a_file_that_cannot_be_opened_is_reported_as_a_failed_start() {
     let missing = std::env::temp_dir().join(format!("sucrose-no-such-video-{}.mp4", std::process::id()));
     assert!(!missing.exists(), "the scratch path must not exist");
 
-    let player = Player::open_source(load_mpv(), None, &missing.display().to_string(), &options)
+    let player = Player::open_source_for_tests(load_mpv(), None, &missing.display().to_string(), &options)
         .expect("loadfile is asynchronous, so opening the player succeeds");
 
     assert!(

@@ -6417,6 +6417,7 @@ version = "26.11.22+1"
 dependencies = [
  "libloading 0.9.1",
  "sucrose-core",
+ "sucrose-engine-mpv",
  "sucrose-ipc",
  "thiserror 2.0.21",
  "tracing",
