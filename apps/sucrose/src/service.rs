@@ -452,18 +452,25 @@ pub fn run() -> anyhow::Result<()> {
                     Event::Renderer { slot, pid, message } => {
                         let link_pid = lock(&renderers).connections.get(&slot).map(|link| link.pid);
                         // A report can be handled after the Exited of the same renderer (two threads feed the
-                        // channel), or after the slot got another renderer. Only the renderer whose connection the
-                        // slot holds still speaks for it: a late Playing would claim a wallpaper nobody shows, a late
-                        // Failed would replace the status of the restart (WR-15).
-                        if report_is_stale(link_pid, pid) {
+                        // channel), or after the slot got another renderer; handle_report decides what still
+                        // counts (WR-15, WR-18).
+                        let Some(effect) = handle_report(
+                            &status,
+                            link_pid,
+                            &supervisor.pids(),
+                            slot,
+                            pid,
+                            &message,
+                            fleet.job.as_ref().map(|job| job.title.as_str()),
+                        ) else {
                             tracing::debug!(
                                 slot,
                                 pid,
                                 "ignoring a report of a renderer that is gone or was replaced"
                             );
                             continue;
-                        }
-                        if matches!(message, ToService::Playing) && fleet.playing.insert(slot) && !quitting {
+                        };
+                        if effect.first_frame && fleet.playing.insert(slot) && !quitting {
                             // Its first frame is shown: only now can it be the master clock.
                             tracing::debug!(slot, "a renderer shows its first frame");
                             fleet.elect(&Ctx {
@@ -471,7 +478,7 @@ pub fn run() -> anyhow::Result<()> {
                                 renderers: &renderers,
                             });
                         }
-                        if let Some(next) = status.after(&message, fleet.job.as_ref().map(|job| job.title.as_str())) {
+                        if let Some(next) = effect.status {
                             status = next;
                             if status.is_failure() {
                                 tracing::warn!(status = %status.text(), "no wallpaper, the service waits in the tray");
@@ -547,31 +554,30 @@ pub fn run() -> anyhow::Result<()> {
                         let class = classify_exit(exited.code);
                         let decision = decide_exit(budget, &mut fleet.shell, class, exited.slot, Instant::now());
                         tracing::info!(slot = exited.slot, ?class, ?decision, "a renderer ended");
-                        let next = match decision {
-                            Decision::Leave => {
+                        match decision {
+                            Decision::Leave | Decision::GiveUp(_) => {
                                 fleet.stopped.insert(exited.slot);
-                                None
                             }
                             Decision::Restart(after) => {
                                 fleet.stopped.remove(&exited.slot);
                                 tracing::warn!(slot = exited.slot, ?class, ?after, "restarting the renderer");
                                 supervisor.restart_after(exited.slot, after, i32::from(START_FAILED));
-                                status.restarting_after(class, fleet.job.as_ref().map(|job| job.title.as_str()))
                             }
-                            Decision::GiveUp(exhausted) => {
-                                fleet.stopped.insert(exited.slot);
-                                let monitor = fleet
-                                    .slots
-                                    .monitor_of(exited.slot)
-                                    .map_or_else(|| format!("slot {}", exited.slot), str::to_owned);
-                                let stopped = Status::RendererStopped {
-                                    monitor,
-                                    reason: status.stopped_reason(exhausted),
-                                };
-                                tracing::warn!(status = %stopped.text(), "no wallpaper, the service waits in the tray");
-                                Some(stopped)
-                            }
-                        };
+                        }
+                        let monitor = fleet
+                            .slots
+                            .monitor_of(exited.slot)
+                            .map_or_else(|| format!("slot {}", exited.slot), str::to_owned);
+                        let next = status_after_exit(
+                            &status,
+                            decision,
+                            class,
+                            fleet.job.as_ref().map(|job| job.title.as_str()),
+                            monitor,
+                        );
+                        if let (Some(next), Decision::GiveUp(_)) = (&next, decision) {
+                            tracing::warn!(status = %next.text(), "no wallpaper, the service waits in the tray");
+                        }
                         if let Some(next) = next {
                             status = next;
                             if let Some(tray) = &tray {
@@ -1043,12 +1049,62 @@ fn role_changes(old: Option<u8>, new: Option<u8>, active: &[u8], volume: u8) -> 
     changes
 }
 
-/// Whether a report from process `pid` is from a renderer that no longer speaks for its slot: `link_pid` is the process
-/// whose connection the slot has now. A renderer registers its connection before its first report is queued and the
-/// connection is removed when the renderer ended, so a report without a matching connection is from one that is gone
-/// or was replaced.
-fn report_is_stale(link_pid: Option<u32>, pid: u32) -> bool {
-    link_pid != Some(pid)
+/// What the main thread does about a report that still counts.
+#[derive(Debug, PartialEq, Eq)]
+struct ReportEffect {
+    /// The report says the renderer shows its first frame: it may become the master clock.
+    first_frame: bool,
+    /// The new status, `None` when the report changes nothing.
+    status: Option<Status>,
+}
+
+/// Decides what a report of process `pid` on `slot` does, or `None` when it is dropped. `link_pid` is the process
+/// whose connection the slot holds and `running` the processes the supervisor runs (pid to slot). A renderer registers
+/// its connection before its first report is queued and the connection goes when the renderer ended, so:
+/// - a report of a renderer that was replaced (another connection, or another process runs for the slot) is dropped;
+/// - a report of a renderer that is gone and has no replacement can still be its last word: `Failed` is the one
+///   report a renderer sends right before it ends, and its exit may be handled first (two threads feed the channel),
+///   so it is kept (WR-18). A late `Playing` would claim a wallpaper nobody shows and is dropped (WR-15).
+fn handle_report(
+    status: &Status,
+    link_pid: Option<u32>,
+    running: &HashMap<u32, u8>,
+    slot: u8,
+    pid: u32,
+    message: &ToService,
+    title: Option<&str>,
+) -> Option<ReportEffect> {
+    let replaced = link_pid.is_some_and(|current| current != pid) || exit_is_stale(running, slot, pid);
+    let late = link_pid != Some(pid);
+    if replaced || (late && matches!(message, ToService::Playing)) {
+        return None;
+    }
+    // The restart budget's verdict stays when the last words of the renderer that spent it arrive after its exit:
+    // the status already says the monitor gets no more renderers.
+    let kept = late && matches!(message, ToService::Failed { .. }) && matches!(status, Status::RendererStopped { .. });
+    Some(ReportEffect {
+        first_frame: matches!(message, ToService::Playing),
+        status: if kept { None } else { status.after(message, title) },
+    })
+}
+
+/// The status after a renderer ended and `decision` was taken: a restart keeps a failed start's reason, a spent budget
+/// names the monitor and why (WR-17). `None` when nothing changes.
+fn status_after_exit(
+    status: &Status,
+    decision: Decision,
+    class: ExitClass,
+    title: Option<&str>,
+    monitor: String,
+) -> Option<Status> {
+    match decision {
+        Decision::Leave => None,
+        Decision::Restart(_) => status.restarting_after(class, title),
+        Decision::GiveUp(exhausted) => Some(Status::RendererStopped {
+            monitor,
+            reason: status.stopped_reason(exhausted),
+        }),
+    }
 }
 
 /// Removes the `playing` entry of `slot` when the renderer that ended was the one whose connection the slot held
@@ -1699,6 +1755,7 @@ mod tests {
     use sucrose_core::theme::ThemeRejection;
 
     use super::*;
+    use crate::supervisor::ENGINE_MISSING;
 
     fn hello(protocol_version: u16, pid: u32, slot: u8) -> ToService {
         ToService::Hello {
@@ -1718,30 +1775,156 @@ mod tests {
         );
     }
 
-    #[test]
-    fn a_report_counts_only_while_its_renderer_holds_the_slot() {
-        assert!(!report_is_stale(Some(7), 7), "the current renderer");
-        assert!(
-            report_is_stale(None, 7),
-            "the renderer ended and its connection is gone"
-        );
-        assert!(report_is_stale(Some(8), 7), "a replacement is connected");
+    fn failed_report() -> ToService {
+        ToService::Failed {
+            reason: "mpv could not open the file".to_owned(),
+            hint: "Check the file.".to_owned(),
+        }
+    }
+
+    fn failed_reported() -> Status {
+        Status::Failed {
+            reason: "mpv could not open the file".to_owned(),
+            hint: "Check the file.".to_owned(),
+        }
+    }
+
+    /// The main thread's handling of a renderer that sent `Failed` and ended with `code`, the exit handled first: the
+    /// exit takes its decision and removes the connection, then the report finds no link and no replacement.
+    fn exit_then_failed(status: Status, budget: &mut RestartBudget, code: u8) -> Status {
+        let class = classify_exit(Some(i32::from(code)));
+        let decision = decide_exit(budget, &mut ShellRestart::default(), class, 0, Instant::now());
+        let mut status = status_after_exit(&status, decision, class, TITLE, "Monitor 1".to_owned()).unwrap_or(status);
+        let effect = handle_report(&status, None, &HashMap::new(), 0, 10, &failed_report(), TITLE)
+            .expect("the last words of a renderer that ended with nobody to replace it count");
+        assert!(!effect.first_frame);
+        if let Some(next) = effect.status {
+            status = next;
+        }
+        status
     }
 
     #[test]
-    fn a_late_report_of_an_ended_renderer_cannot_rewrite_the_restart_status() {
-        // The renderer played, died and was restarted: the status is Starting. Its Playing report, handled after the
-        // Exited, finds no connection for its pid and is dropped before it reaches Status::after.
-        let link_pid = None;
-        let handled = |message: &ToService| (!report_is_stale(link_pid, 7)).then(|| starting().after(message, TITLE));
+    fn a_report_counts_only_while_its_renderer_holds_the_slot() {
+        let none = HashMap::new();
+        let counts = |link_pid, running: &HashMap<u32, u8>, message: &ToService| {
+            handle_report(&starting(), link_pid, running, 0, 7, message, TITLE)
+        };
 
-        assert_eq!(handled(&ToService::Playing), None);
+        let playing = counts(Some(7), &none, &ToService::Playing).expect("the current renderer");
+        assert!(playing.first_frame);
         assert_eq!(
-            handled(&ToService::Failed {
-                reason: "stale".to_owned(),
-                hint: String::new(),
-            }),
+            playing.status,
+            Some(Status::Playing {
+                title: "Cyber Samurai".to_owned()
+            })
+        );
+        assert!(
+            counts(Some(8), &none, &ToService::Playing).is_none(),
+            "a replacement is connected"
+        );
+        assert!(
+            counts(Some(8), &none, &failed_report()).is_none(),
+            "a replacement is connected"
+        );
+    }
+
+    #[test]
+    fn a_late_playing_of_an_ended_renderer_is_dropped() {
+        // The renderer played, died and was restarted: the status is Starting. Its Playing report, handled after the
+        // Exited, finds no connection for its pid and must not claim the wallpaper (WR-15).
+        assert_eq!(
+            handle_report(&starting(), None, &HashMap::new(), 0, 7, &ToService::Playing, TITLE),
             None
+        );
+    }
+
+    #[test]
+    fn a_failed_of_a_replaced_renderer_is_dropped_whether_or_not_the_replacement_connected() {
+        let running = HashMap::from([(20, 0)]);
+
+        assert_eq!(
+            handle_report(&starting(), None, &running, 0, 10, &failed_report(), TITLE),
+            None,
+            "pid 20 runs for the slot but has not connected yet"
+        );
+        assert_eq!(
+            handle_report(&starting(), Some(20), &running, 0, 10, &failed_report(), TITLE),
+            None,
+            "pid 20 is connected"
+        );
+        assert!(
+            handle_report(&starting(), None, &running, 1, 10, &failed_report(), TITLE).is_some(),
+            "the replacement runs for another slot"
+        );
+    }
+
+    #[test]
+    fn an_engine_failure_whose_exit_is_handled_first_still_names_its_reason() {
+        // Exit code 2: Decision::Leave leaves the status Starting, the late Failed sets the reason (WR-18).
+        let mut budget = RestartBudget::default();
+
+        assert_eq!(
+            exit_then_failed(starting(), &mut budget, ENGINE_MISSING),
+            failed_reported()
+        );
+    }
+
+    #[test]
+    fn a_failed_start_whose_exit_is_handled_first_keeps_its_reason_through_the_restart() {
+        // Exit code 4: the restart is scheduled and the status is still Starting when the late Failed arrives (WR-18).
+        let mut budget = RestartBudget::default();
+        let status = exit_then_failed(starting(), &mut budget, START_FAILED);
+        assert_eq!(status, failed_reported());
+
+        // The restarted renderer fails the same way until the budget is spent: the reason leads the final status.
+        let mut status = status;
+        let mut spent = None;
+        for _ in 0..10 {
+            let class = ExitClass::StartFailed;
+            let decision = decide_exit(&mut budget, &mut ShellRestart::default(), class, 0, Instant::now());
+            if let Some(next) = status_after_exit(&status, decision, class, TITLE, "Monitor 1".to_owned()) {
+                status = next;
+            }
+            if matches!(decision, Decision::GiveUp(_)) {
+                spent = Some(status.clone());
+                break;
+            }
+        }
+        let spent = spent.expect("the budget runs out");
+        assert!(
+            matches!(&spent, Status::RendererStopped { reason, .. } if reason.starts_with("mpv could not open the file ("))
+        );
+    }
+
+    #[test]
+    fn a_late_failed_does_not_replace_the_verdict_of_the_spent_budget() {
+        let mut budget = RestartBudget::default();
+        let mut status = starting();
+        for _ in 0..10 {
+            let class = ExitClass::StartFailed;
+            let decision = decide_exit(&mut budget, &mut ShellRestart::default(), class, 0, Instant::now());
+            if let Some(next) = status_after_exit(&status, decision, class, TITLE, "Monitor 1".to_owned()) {
+                status = next;
+            }
+            if matches!(decision, Decision::GiveUp(_)) {
+                break;
+            }
+        }
+        assert!(matches!(status, Status::RendererStopped { .. }));
+
+        let effect = handle_report(&status, None, &HashMap::new(), 0, 10, &failed_report(), TITLE).expect("it counts");
+
+        assert_eq!(
+            effect.status, None,
+            "the status keeps saying that the monitor gets no more renderers"
+        );
+        let live =
+            handle_report(&status, Some(10), &HashMap::new(), 0, 10, &failed_report(), TITLE).expect("it counts");
+        assert_eq!(
+            live.status,
+            Some(failed_reported()),
+            "a connected renderer's failure still reports"
         );
     }
 
