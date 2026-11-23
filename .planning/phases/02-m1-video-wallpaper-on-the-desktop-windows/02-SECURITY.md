@@ -101,7 +101,13 @@ created: "2026-11-22"
 | T-02-45 | Information Disclosure | measurement JSON and rows (adapter names, LUIDs) | low | accept | Adapter names and LUIDs describe the maintainer's hardware only; LUIDs change every boot and carry no personal data; results stay under target/ and the committed row names only the GPU model — **Evidence:** accepted (AR-07) | closed |
 | T-02-46 | Tampering | crates/sucrose-engine-mpv/src/config.rs (conditional change) | low | mitigate | Only deband and the profile line may change; the hardening options and their order after the user's config stay untouched and are re-checked by tests/options.rs — **Evidence:** not triggered: `git log 4b768f29..HEAD -- crates/sucrose-engine-mpv/src/config.rs` is empty (02-22 kept `deband=yes` and `profile=low-latency`, R = 1.02); the hardening stays covered by T-02-14 and `crates/sucrose-engine-mpv/tests/options.rs` | closed |
 | T-02-47 | Repudiation | docs/MEASUREMENTS.md | low | mitigate | The replaced rows are named in a note ("compared two GPUs") instead of being dropped silently, so the history of the claim stays traceable — **Evidence:** the M1 reading note in `docs/MEASUREMENTS.md` says the first M1 rows (2026-11-22, plan 02-15) compared two GPUs and are replaced by the same-GPU rows | closed |
-| T-02-SC | Tampering | crates.io dependencies (plans 02-16 … 02-22) | high | mitigate | No crate is added: only features of the already pinned `windows` 0.62.2 crate and workspace crates; `cargo deny check` runs in CI — **Evidence:** `git diff cc92d08e HEAD -- Cargo.lock` adds only the workspace crates `sucrose-core` (to sucrose-platform) and `sucrose-platform` (to xtask), no new package; the new `windows` features (`Win32_UI_Accessibility`, `Win32_System_Registry`, `Win32_Graphics_Dxgi`, `Win32_Graphics_Direct3D`, `Win32_Graphics_Direct3D11`) use the root pin `windows = "0.62.2"`; the `deny` job in `.github/workflows/rust.yml` runs `EmbarkStudios/cargo-deny-action@v2`; the code review fix round (WR-05 … IN-17) adds no package either: `git diff 0dadcaa1 HEAD -- Cargo.lock` only adds `sucrose-engine-mpv` as its own dev-dependency for the test-only `test-support` feature (IN-14) | closed |
+| T-02-48 | Denial of Service | crates/sucrose-platform/src/os_windows/surface.rs location watch | low | mitigate | Hook limited to EVENT_OBJECT_LOCATIONCHANGE from the process and thread that own the surface's parent; O(1) handle and object-id comparisons; re-place only when the parent's client rectangle differs from the recorded one; only the renderer's own surface moves; own moves skipped — **Evidence:** `SetWinEventHook(EVENT_OBJECT_LOCATIONCHANGE, EVENT_OBJECT_LOCATIONCHANGE, None, Some(location_watch_proc), process, thread, WINEVENT_OUTOFCONTEXT \| WINEVENT_SKIPOWNPROCESS)` with `process`/`thread` from `GetWindowThreadProcessId(root)`; `location_reaction` returns true only for `OBJID_WINDOW` on the parent or its root and only when `recorded != Some(now)`; the hook is removed with `UnhookWinEvent` in `Drop`; covered by `cargo test -p sucrose-platform watch` (12 tests) | closed |
+| T-02-49 | Tampering | crates/sucrose-platform/src/os_windows/surface.rs location watch | low | accept | A process that moves Progman can make a renderer re-place its own surface at the target the service gave it; the renderer never moves, resizes, restyles or destroys a shell window — **Evidence:** accepted risk AR-08 | closed |
+| T-02-50 | Information Disclosure | renderer placement log lines (apps/sucrose/src/render.rs) | low | accept | New log fields are window and screen rectangles and a verdict, no window titles or process names (T-02-28 rule); logs stay in the user's own data folder — **Evidence:** accepted risk AR-09 | closed |
+| T-02-51 | Denial of Service | apps/sucrose/src/service.rs apply_snapshot | low | mitigate | One SetRect per connected renderer per applied display change, bounded by the existing 2000 ms + 500 ms debounce with two equal looks and the bounded per-renderer queue — **Evidence:** `DEBOUNCE_MS = 2000` and `SETTLE_MS = 500` in `apps/sucrose/src/topology.rs`; `topology::replace_all` emits one SetRect per surviving monitor (7 pure tests) and `Fleet::apply_snapshot` runs it once per applied snapshot (2 Fleet tests; `cargo test -p sucrose replace_all`, 9 tests) | closed |
+| T-02-52 | Tampering | maintainer run (02-26 Task 1, Task 2) | low | mitigate | Scratch `SUCROSE_DATA_DIR`, real settings read only; the executor synthesizes no input, changes no display setting and stops only `sucrose.exe` — **Evidence:** the 02-26 start command set `SUCROSE_DATA_DIR="$(wslpath -w target/scratch-data)"`; every display change was made by the maintainer (02-26 SUMMARY); the run was stopped with `taskkill.exe /IM sucrose.exe /F` and `tasklist.exe` showed no `sucrose.exe` afterwards; no C# process was running or touched | closed |
+| T-02-53 | Information Disclosure | surface.rs watch log lines | low | accept | The watch logs window and screen rectangles and a verdict, no window titles or process names (T-02-28 rule); logs stay in the user's own data folder — **Evidence:** accepted risk AR-10 | closed |
+| T-02-SC | Tampering | crates.io dependencies (plans 02-16 … 02-26) | high | mitigate | No crate is added: only features of the already pinned `windows` 0.62.2 crate and workspace crates; `cargo deny check` runs in CI — **Evidence:** `git diff cc92d08e HEAD -- Cargo.lock` adds only the workspace crates `sucrose-core` (to sucrose-platform) and `sucrose-platform` (to xtask), no new package; the new `windows` features (`Win32_UI_Accessibility`, `Win32_System_Registry`, `Win32_Graphics_Dxgi`, `Win32_Graphics_Direct3D`, `Win32_Graphics_Direct3D11`) use the root pin `windows = "0.62.2"`; the `deny` job in `.github/workflows/rust.yml` runs `EmbarkStudios/cargo-deny-action@v2`; the code review fix round (WR-05 … IN-17) adds no package either: `git diff 0dadcaa1 HEAD -- Cargo.lock` only adds `sucrose-engine-mpv` as its own dev-dependency for the test-only `test-support` feature (IN-14); the G-02-7 gap closure (02-23 … 02-26) adds no package and no `windows` feature: `git diff dd51e9c2 HEAD -- Cargo.lock Cargo.toml` is empty | closed |
 
 *Status: open · closed · open — below high threshold (non-blocking)*
 *Severity: critical > high > medium > low — only open threats at or above workflow.security_block_on count toward threats_open*
@@ -113,7 +119,7 @@ created: "2026-11-22"
 |------|------|------|-------------|
 | local-message-surface | 02-09 | `crates/sucrose-platform/src/os_windows/event_loop.rs` | accepted (AR-06): the hidden service window accepts WM_APP / WM_APP+1 from any same-user process, which can stop the service; a same-user process can already terminate it, so no new capability |
 
-All other SUMMARY Threat Flags sections report no new surface beyond the register (for the gap closure plans, 02-17, 02-20, 02-21 and 02-22 say so explicitly; 02-16, 02-18 and 02-19 have no Threat Flags section).
+All other SUMMARY Threat Flags sections report no new surface beyond the register (for the gap closure plans, 02-17, 02-20, 02-21 and 02-22 say so explicitly; 02-16, 02-18 and 02-19 have no Threat Flags section). The G-02-7 gap closure plans 02-23, 02-24 and 02-25 report no new surface beyond the register (T-02-48, T-02-50, T-02-51); 02-26 has no Threat Flags section and adds no code.
 
 ---
 
@@ -128,6 +134,9 @@ All other SUMMARY Threat Flags sections report no new surface beyond the registe
 | AR-05 | T-02-32 | Measurement files hold only image names, pids and resource numbers, under the git-ignored `target/` | 02-15 plan threat model | 2026-11-22 |
 | AR-06 | 02-09 flag local-message-surface | Same-user processes are inside the trust boundary (ASVS L1) and can already terminate the service | 02-09 SUMMARY threat flag | 2026-11-22 |
 | AR-07 | T-02-45 | Adapter names and LUIDs describe the maintainer's hardware only; LUIDs change every boot and carry no personal data; results stay under the git-ignored `target/`; the committed row names only the GPU model (the reading note also quotes one boot-scoped LUID, which this rationale covers) | 02-21 plan threat model | 2026-11-23 |
+| AR-08 | T-02-49 | A process that can move Progman can already change what the desktop shows; the location watch only re-places the renderer's own surface at the target the service gave it and never touches a shell window | 02-24 plan threat model | 2026-11-23 |
+| AR-09 | T-02-50 | Placement log lines hold rectangles and a verdict only (T-02-28 rule) and stay in the user's own data folder | 02-23 plan threat model | 2026-11-23 |
+| AR-10 | T-02-53 | Watch log lines hold rectangles and a verdict only (T-02-28 rule) and stay in the user's own data folder | 02-24 plan threat model | 2026-11-23 |
 
 *Accepted risks do not resurface in future audit runs.*
 
@@ -142,6 +151,7 @@ All other SUMMARY Threat Flags sections report no new surface beyond the registe
 | 2026-11-23 | 48 | 48 | 0 | /gsd-secure-phase 02 after the code review fixes WR-05 … WR-14 and IN-01 … IN-17 (L1 re-check of the mitigation anchors in the 17 changed source files; no new threat; evidence of T-02-02, T-02-41 and T-02-SC updated; short-circuit per ASVS L1) |
 | 2026-11-23 | 48 | 48 | 0 | /gsd-secure-phase 02 after the fixes WR-15 … WR-17 (L1 re-check of the anchors in `apps/sucrose/src/service.rs` and `render.rs`; no new threat, no new dependency; short-circuit per ASVS L1) |
 | 2026-11-23 | 48 | 48 | 0 | /gsd-secure-phase 02 after the WR-18 fix (L1 re-check of the anchors in `apps/sucrose/src/service.rs`; no new threat, no new dependency; short-circuit per ASVS L1) |
+| 2026-11-23 | 54 | 54 | 0 | /gsd-secure-phase 02 after the G-02-7 gap closure 02-23 … 02-26 (6 new threats: T-02-48 … T-02-53, T-02-SC evidence extended; L1 verification by the orchestrator; register authored at plan time, short-circuit per ASVS L1) |
 
 ---
 
@@ -156,10 +166,20 @@ All other SUMMARY Threat Flags sections report no new surface beyond the registe
 
 **Approval (gap closure):** verified 2026-11-23 (`/gsd-secure-phase 02` for plans 02-16 … 02-22: 14 threats added, 14 closed, 0 open; AR-07 added)
 
+**Approval (gap closure G-02-7):** verified 2026-11-23 (`/gsd-secure-phase 02` for plans 02-23 … 02-26: 6 threats added, 6 closed, 0 open; AR-08 … AR-10 added)
+
 ## Security Audit 2026-11-23
 
 | Metric | Count |
 |---|---|
 | Threats found | 48 |
 | Closed | 48 |
+| Open | 0 |
+
+## Security Audit 2026-11-23
+
+| Metric | Count |
+|---|---|
+| Threats found | 54 |
+| Closed | 54 |
 | Open | 0 |
