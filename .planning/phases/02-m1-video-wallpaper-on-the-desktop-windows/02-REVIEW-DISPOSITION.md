@@ -3,14 +3,6 @@ phase: 02
 review: 02-REVIEW.md
 titles: json
 findings:
-  - id: WR-19
-    severity: warning
-    disposition: open
-    title: "A late `Failed` of a renderer whose slot was released (monitor unplugged) reaches the global status (introduced by the WR-18 fix)"
-  - id: WR-20
-    severity: warning
-    disposition: open
-    title: "FEATURES.md does not record the maintainer's G-02-7 decision and still states a cause that the 02-26 spike did not confirm"
   - id: IN-19
     severity: info
     disposition: open
@@ -31,18 +23,26 @@ findings:
     severity: info
     disposition: open
     title: "`stopped_reason` can name a failure that belongs to another monitor or an earlier attempt, and FEATURES.md promises it unconditionally (follow-up of WR-17)"
-  - id: IN-25
-    severity: info
-    disposition: open
-    title: "The FEATURES.md sentence about dropped reports is wrong in two ways (follow-up of WR-18)"
   - id: IN-26
     severity: info
     disposition: open
-    title: "The new tests duplicate the budget-spending loop and rely on a magic bound"
+    title: "The tests duplicate the budget-spending loop and rely on a magic bound"
   - id: IN-27
     severity: info
     disposition: open
     title: "A surface outside its desktop window is warned twice, and on every move"
+  - id: WR-19
+    severity: warning
+    disposition: open
+    title: "A late `Failed` of a renderer whose slot was released (monitor unplugged) reaches the global status (introduced by the WR-18 fix)"
+  - id: WR-20
+    severity: warning
+    disposition: open
+    title: "FEATURES.md does not record the maintainer's G-02-7 decision and still states a cause that the 02-26 spike did not confirm"
+  - id: IN-25
+    severity: info
+    disposition: open
+    title: "The FEATURES.md sentence about dropped reports is wrong in two ways (follow-up of WR-18)"
   - id: IN-28
     severity: info
     disposition: open
@@ -193,24 +193,24 @@ findings:
     title: "The recorded GPU regression has an obvious first suspect in the generated options"
 open: 13
 total: 47
-recorded: 2026-11-23T17:57:06.359Z
+recorded: 2026-11-23T19:27:50.559Z
 ---
 
 # Phase 02: Code Review Disposition
 
 | Finding | Severity | Disposition | Source |
 |---------|----------|-------------|--------|
-| WR-19 | warning | open | - |
-| WR-20 | warning | open | - |
 | IN-19 | info | open | - |
 | IN-20 | info | open | - |
 | IN-21 | info | open | - |
 | IN-22 | info | open | - |
 | IN-23 | info | open | - |
-| IN-25 | info | open | - |
 | IN-26 | info | open | - |
 | IN-27 | info | open | - |
-| IN-28 | info | open | - |
+| WR-19 | warning | open | - (not in the current review) |
+| WR-20 | warning | open | - (not in the current review) |
+| IN-25 | info | open | - (not in the current review) |
+| IN-28 | info | open | - (not in the current review) |
 | IN-07 | info | skipped | 02-REVIEW-FIX.md (not in the current review) |
 | WR-18 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
 | IN-24 | info | open | - (not in the current review) |
