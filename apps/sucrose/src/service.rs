@@ -29,7 +29,10 @@ use sucrose_core::settings::{FullScreenAction, GpuPreference, PauseKind, ScreenA
 
 use crate::{
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
-    supervisor::{Decision, Exited, RestartBudget, START_FAILED, ShellRestart, Supervisor, classify_exit, decide_exit},
+    supervisor::{
+        Decision, Exhausted, ExitClass, Exited, RestartBudget, START_FAILED, ShellRestart, Supervisor, classify_exit,
+        decide_exit,
+    },
     topology::{
         Debounce, SlotMap, TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, TimerCommand, TopologyAction, diff, primary, with_area,
     },
@@ -261,6 +264,25 @@ impl Status {
                 title: title.to_owned(),
             }),
             _ => None,
+        }
+    }
+
+    /// The status while the renderer that ended with `class` is started again. A failed start keeps its failure: the
+    /// reason the renderer reported is what the user needs, and the restart may fail the same way (WR-17).
+    fn restarting_after(&self, class: ExitClass, title: Option<&str>) -> Option<Self> {
+        if class == ExitClass::StartFailed && matches!(self, Self::Failed { .. }) {
+            return None;
+        }
+        self.restarting(title)
+    }
+
+    /// Why the monitor's renderer is not started again once its budget is spent: the reason of the last failed start
+    /// when the status still holds it (the sentence is cut at the end for the tooltip, so it comes first), otherwise
+    /// the budget's own.
+    fn stopped_reason(&self, exhausted: Exhausted) -> String {
+        match self {
+            Self::Failed { reason, .. } => format!("{reason} ({})", exhausted.reason()),
+            _ => exhausted.reason(),
         }
     }
 
@@ -534,7 +556,7 @@ pub fn run() -> anyhow::Result<()> {
                                 fleet.stopped.remove(&exited.slot);
                                 tracing::warn!(slot = exited.slot, ?class, ?after, "restarting the renderer");
                                 supervisor.restart_after(exited.slot, after, i32::from(START_FAILED));
-                                status.restarting(fleet.job.as_ref().map(|job| job.title.as_str()))
+                                status.restarting_after(class, fleet.job.as_ref().map(|job| job.title.as_str()))
                             }
                             Decision::GiveUp(exhausted) => {
                                 fleet.stopped.insert(exited.slot);
@@ -544,7 +566,7 @@ pub fn run() -> anyhow::Result<()> {
                                     .map_or_else(|| format!("slot {}", exited.slot), str::to_owned);
                                 let stopped = Status::RendererStopped {
                                     monitor,
-                                    reason: exhausted.reason(),
+                                    reason: status.stopped_reason(exhausted),
                                 };
                                 tracing::warn!(status = %stopped.text(), "no wallpaper, the service waits in the tray");
                                 Some(stopped)
@@ -1677,7 +1699,6 @@ mod tests {
     use sucrose_core::theme::ThemeRejection;
 
     use super::*;
-    use crate::supervisor::Exhausted;
 
     fn hello(protocol_version: u16, pid: u32, slot: u8) -> ToService {
         ToService::Hello {
@@ -2009,6 +2030,40 @@ mod tests {
 
         assert_eq!(playing.tooltip(), "Sucrose — playing Cyber Samurai");
         assert!(!playing.is_failure());
+    }
+
+    #[test]
+    fn a_failed_start_keeps_its_reason_while_the_renderer_is_started_again() {
+        assert_eq!(
+            failed().restarting_after(ExitClass::StartFailed, TITLE),
+            None,
+            "the failure stays in the tooltip"
+        );
+        assert_eq!(
+            failed().restarting_after(ExitClass::Crashed(1), TITLE),
+            Some(starting()),
+            "a crash after the failure is a new attempt"
+        );
+        let playing = starting().after(&ToService::Playing, TITLE).expect("a status change");
+        assert_eq!(
+            playing.restarting_after(ExitClass::StartFailed, TITLE),
+            Some(starting()),
+            "nothing failed on screen yet"
+        );
+    }
+
+    #[test]
+    fn a_spent_budget_after_failed_starts_names_the_failure() {
+        let reason = failed().stopped_reason(Exhausted::Crashes);
+
+        assert_eq!(
+            reason,
+            "the surface could not be attached (the renderer stopped after 3 crashes in 60 s)"
+        );
+        assert_eq!(
+            starting().stopped_reason(Exhausted::Crashes),
+            Exhausted::Crashes.reason()
+        );
     }
 
     #[test]
