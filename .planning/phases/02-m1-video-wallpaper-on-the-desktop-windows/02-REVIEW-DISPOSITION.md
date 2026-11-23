@@ -5,7 +5,7 @@ titles: json
 findings:
   - id: WR-18
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "A legitimate `Failed` queued behind its own renderer's `Exited` is dropped (reopens WR-15; the reason of WR-17 can be lost)"
   - id: IN-07
     severity: info
@@ -167,16 +167,16 @@ findings:
     severity: info
     disposition: open
     title: "The recorded GPU regression has an obvious first suspect in the generated options"
-open: 8
+open: 7
 total: 41
-recorded: 2026-11-23T14:09:44.783Z
+recorded: 2026-11-23T14:23:55.862Z
 ---
 
 # Phase 02: Code Review Disposition
 
 | Finding | Severity | Disposition | Source |
 |---------|----------|-------------|--------|
-| WR-18 | warning | open | - |
+| WR-18 | warning | fixed | 02-REVIEW-FIX.md |
 | IN-07 | info | skipped | 02-REVIEW-FIX.md |
 | IN-19 | info | open | - |
 | IN-20 | info | open | - |
