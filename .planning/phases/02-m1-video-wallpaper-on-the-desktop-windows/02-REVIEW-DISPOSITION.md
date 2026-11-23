@@ -3,6 +3,34 @@ phase: 02
 review: 02-REVIEW.md
 titles: json
 findings:
+  - id: WR-15
+    severity: warning
+    disposition: open
+    title: "A late `Playing` or `Failed` of an already ended renderer still rewrites the status (reopens IN-16 and WR-01)"
+  - id: WR-16
+    severity: warning
+    disposition: open
+    title: "A refused Hello makes the renderer exit with code 0, and the monitor stays without a wallpaper (reopens WR-05)"
+  - id: WR-17
+    severity: warning
+    disposition: open
+    title: "A failed start loses its reason from the tooltip right after the exit (reopens IN-01, WR-11)"
+  - id: IN-07
+    severity: info
+    disposition: skipped
+    title: "Generality without instantiation: affected-monitor scope and `PauseKind` plumbing"
+  - id: IN-19
+    severity: info
+    disposition: open
+    title: "The order guard no longer limits a failing restore (reopens WR-14)"
+  - id: IN-20
+    severity: info
+    disposition: open
+    title: "A Quit queued while the surface attaches is not seen until attach ends (reopens WR-08)"
+  - id: IN-21
+    severity: info
+    disposition: open
+    title: "A stuck or broken renderer link is only logged, and warns once per clock reading"
   - id: WR-05
     severity: warning
     disposition: fixed
@@ -67,10 +95,6 @@ findings:
     severity: info
     disposition: fixed
     title: "Unused public timer methods on `EventLoop`"
-  - id: IN-07
-    severity: info
-    disposition: skipped
-    title: "Generality without instantiation: affected-monitor scope and `PauseKind` plumbing"
   - id: IN-08
     severity: info
     disposition: fixed
@@ -127,41 +151,47 @@ findings:
     severity: info
     disposition: open
     title: "The recorded GPU regression has an obvious first suspect in the generated options"
-open: 1
-total: 31
-recorded: 2026-11-23T04:15:28.452Z
+open: 7
+total: 37
+recorded: 2026-11-23T13:44:08.198Z
 ---
 
 # Phase 02: Code Review Disposition
 
 | Finding | Severity | Disposition | Source |
 |---------|----------|-------------|--------|
-| WR-05 | warning | fixed | 02-REVIEW-FIX.md |
-| WR-06 | warning | fixed | 02-REVIEW-FIX.md |
-| WR-07 | warning | fixed | 02-REVIEW-FIX.md |
-| WR-08 | warning | fixed | 02-REVIEW-FIX.md |
-| WR-09 | warning | fixed | 02-REVIEW-FIX.md |
-| WR-10 | warning | fixed | 02-REVIEW-FIX.md |
-| WR-11 | warning | fixed | 02-REVIEW-FIX.md |
-| WR-12 | warning | fixed | 02-REVIEW-FIX.md |
-| WR-13 | warning | fixed | 02-REVIEW-FIX.md |
-| WR-14 | warning | fixed | 02-REVIEW-FIX.md |
-| IN-01 | info | fixed | 02-REVIEW-FIX.md |
-| IN-02 | info | fixed | 02-REVIEW-FIX.md |
-| IN-03 | info | fixed | 02-REVIEW-FIX.md |
-| IN-04 | info | fixed | 02-REVIEW-FIX.md |
-| IN-05 | info | fixed | 02-REVIEW-FIX.md |
-| IN-06 | info | fixed | 02-REVIEW-FIX.md |
+| WR-15 | warning | open | - |
+| WR-16 | warning | open | - |
+| WR-17 | warning | open | - |
 | IN-07 | info | skipped | 02-REVIEW-FIX.md |
-| IN-08 | info | fixed | 02-REVIEW-FIX.md |
-| IN-09 | info | fixed | 02-REVIEW-FIX.md |
-| IN-11 | info | fixed | 02-REVIEW-FIX.md |
-| IN-12 | info | fixed | 02-REVIEW-FIX.md |
-| IN-13 | info | fixed | 02-REVIEW-FIX.md |
-| IN-14 | info | fixed | 02-REVIEW-FIX.md |
-| IN-15 | info | fixed | 02-REVIEW-FIX.md |
-| IN-16 | info | fixed | 02-REVIEW-FIX.md |
-| IN-17 | info | fixed | 02-REVIEW-FIX.md |
+| IN-19 | info | open | - |
+| IN-20 | info | open | - |
+| IN-21 | info | open | - |
+| WR-05 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| WR-06 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| WR-07 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| WR-08 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| WR-09 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| WR-10 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| WR-11 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| WR-12 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| WR-13 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| WR-14 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-01 | info | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-02 | info | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-03 | info | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-04 | info | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-05 | info | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-06 | info | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-08 | info | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-09 | info | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-11 | info | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-12 | info | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-13 | info | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-14 | info | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-15 | info | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-16 | info | fixed | 02-REVIEW-FIX.md (not in the current review) |
+| IN-17 | info | fixed | 02-REVIEW-FIX.md (not in the current review) |
 | WR-01 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
 | WR-02 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
 | WR-03 | warning | fixed | 02-REVIEW-FIX.md (not in the current review) |
