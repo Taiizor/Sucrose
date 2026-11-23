@@ -429,20 +429,19 @@ pub fn run() -> anyhow::Result<()> {
                     }
                     Event::Renderer { slot, pid, message } => {
                         let link_pid = lock(&renderers).connections.get(&slot).map(|link| link.pid);
-                        // The renderer of this slot was replaced meanwhile: what the old one said no longer counts.
+                        // A report can be handled after the Exited of the same renderer (two threads feed the
+                        // channel), or after the slot got another renderer. Only the renderer whose connection the
+                        // slot holds still speaks for it: a late Playing would claim a wallpaper nobody shows, a late
+                        // Failed would replace the status of the restart (WR-15).
                         if report_is_stale(link_pid, pid) {
-                            tracing::debug!(slot, pid, "ignoring a report of a renderer that was replaced");
+                            tracing::debug!(
+                                slot,
+                                pid,
+                                "ignoring a report of a renderer that is gone or was replaced"
+                            );
                             continue;
                         }
-                        // A Playing report can be handled after the Exited of the same renderer (two threads feed the
-                        // channel). Without this renderer's registered connection the report comes from one that is
-                        // already gone: counting it would leave a stale entry that a later renderer of the slot
-                        // inherits.
-                        if matches!(message, ToService::Playing)
-                            && link_pid == Some(pid)
-                            && fleet.playing.insert(slot)
-                            && !quitting
-                        {
+                        if matches!(message, ToService::Playing) && fleet.playing.insert(slot) && !quitting {
                             // Its first frame is shown: only now can it be the master clock.
                             tracing::debug!(slot, "a renderer shows its first frame");
                             fleet.elect(&Ctx {
@@ -1012,10 +1011,12 @@ fn role_changes(old: Option<u8>, new: Option<u8>, active: &[u8], volume: u8) -> 
     changes
 }
 
-/// Whether a report from process `pid` is from a renderer that was replaced: `link_pid` is the process whose connection
-/// the slot has now, if any.
+/// Whether a report from process `pid` is from a renderer that no longer speaks for its slot: `link_pid` is the process
+/// whose connection the slot has now. A renderer registers its connection before its first report is queued and the
+/// connection is removed when the renderer ended, so a report without a matching connection is from one that is gone
+/// or was replaced.
 fn report_is_stale(link_pid: Option<u32>, pid: u32) -> bool {
-    link_pid.is_some_and(|current| current != pid)
+    link_pid != Some(pid)
 }
 
 /// Whether the end of process `pid` is that of a renderer that was replaced: another process (`running`, pid to slot)
@@ -1680,13 +1681,30 @@ mod tests {
     }
 
     #[test]
-    fn a_report_is_stale_only_when_another_process_holds_the_slot() {
+    fn a_report_counts_only_while_its_renderer_holds_the_slot() {
         assert!(!report_is_stale(Some(7), 7), "the current renderer");
         assert!(
-            !report_is_stale(None, 7),
-            "no connection: judged by the Playing rule, not as stale"
+            report_is_stale(None, 7),
+            "the renderer ended and its connection is gone"
         );
         assert!(report_is_stale(Some(8), 7), "a replacement is connected");
+    }
+
+    #[test]
+    fn a_late_report_of_an_ended_renderer_cannot_rewrite_the_restart_status() {
+        // The renderer played, died and was restarted: the status is Starting. Its Playing report, handled after the
+        // Exited, finds no connection for its pid and is dropped before it reaches Status::after.
+        let link_pid = None;
+        let handled = |message: &ToService| (!report_is_stale(link_pid, 7)).then(|| starting().after(message, TITLE));
+
+        assert_eq!(handled(&ToService::Playing), None);
+        assert_eq!(
+            handled(&ToService::Failed {
+                reason: "stale".to_owned(),
+                hint: String::new(),
+            }),
+            None
+        );
     }
 
     #[test]
