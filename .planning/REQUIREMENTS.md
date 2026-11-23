@@ -25,7 +25,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Wallpaper types
 
-- [ ] **TYPE-01**: User can set a Video theme as the desktop wallpaper (Win ✅ · mac ✅ · Linux ✅)
+- [x] **TYPE-01**: User can set a Video theme as the desktop wallpaper (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-02**: User can set a GIF theme, drawn by Sucrose's built-in renderer, which also plays APNG and WebP (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-03**: User can set a Web theme (local HTML) on a web engine: WebView2/CEF on Windows, WKWebView/CEF on macOS, WebKitGTK/CEF on Linux (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-04**: User can set a URL wallpaper; it has no properties and receives forwarded input (Win ✅ · mac ✅ · Linux ✅)
@@ -34,7 +34,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Engines
 
-- [ ] **ENG-01**: The libmpv engine ships inside the Sucrose package, is loaded at runtime, embeds into the desktop surface, and supports hardware decoding, loop, pause and volume (D-013, D-028)
+- [x] **ENG-01**: The libmpv engine ships inside the Sucrose package, is loaded at runtime, embeds into the desktop surface, and supports hardware decoding, loop, pause and volume (D-013, D-028)
 - [ ] **ENG-02**: The WebView2 engine hosts Web, URL and YouTube wallpapers with the C#-compatible JavaScript API
 - [ ] **ENG-03**: The CEF engine hosts the same wallpapers with the same JavaScript API
 - [ ] **ENG-04**: The libVLC engine plays video when libVLC is installed
@@ -49,13 +49,13 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **DESK-03**: **New:** user can put a different wallpaper on each monitor, one renderer per monitor (Win ✅ · mac ✅ · Linux ⚠️)
 - [ ] **DESK-04**: User can choose the working area or the full display bounds (Win ✅ · mac ✅ · Linux ⚠️)
 - [ ] **DESK-05**: User can choose a stretch mode (None, Fill, Uniform, UniformToFill), mapped per engine as in `engines.md` §3 (Win ✅ · mac ✅ · Linux ✅)
-- [ ] **DESK-06**: Wallpapers are sharp on every monitor with per-monitor DPI (Win ✅ · mac ✅ · Linux ✅)
+- [x] **DESK-06**: Wallpapers are sharp on every monitor with per-monitor DPI (Win ✅ · mac ✅ · Linux ✅)
 - [x] **DESK-07**: Wallpapers recover from monitor changes and shell restarts (legacy CrashExplorer) (Win ✅ · mac ? · Linux ?)
 - [ ] **DESK-08**: User can toggle hiding the desktop icons (Win ✅ · mac ? · Linux ?)
 - [ ] **DESK-09**: User can set the OS wallpaper from a theme thumbnail and disable the OS slideshow (Win ✅ · mac ⚠️ · Linux ⚠️)
 - [ ] **DESK-10**: User can set a Video or GIF theme as the live lock and sign-in screen wallpaper with fit mode, mute and sync with the desktop (`lock-screen.md`; mechanism decided first, D-026) (Win ✅ · mac ? · Linux ?)
 - [ ] **DESK-11**: User can keep the computer awake while a wallpaper runs, avoiding UAC where possible (Win ✅ · mac ✅ · Linux ✅)
-- [ ] **DESK-12**: Sucrose can request the high-performance GPU (registry `UserGpuPreferences`) (Win ✅ · mac ❌ · Linux ❌)
+- [x] **DESK-12**: Sucrose can request the high-performance GPU (registry `UserGpuPreferences`) (Win ✅ · mac ❌ · Linux ❌)
 
 ### Playback and sound
 
@@ -71,7 +71,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **PERF-02**: Session lock, sleep, user switch and log out trigger the configured action (default Close) (Win ✅ · mac ✅ · Linux ⚠️)
 - [ ] **PERF-03**: The screen saver triggers the configured action (default Pause) (Win ✅ · mac ✅ · Linux ⚠️)
 - [ ] **PERF-04**: The desktop losing focus (Focus) triggers the configured action (Win ✅ · mac ⚠️ · Linux ⚠️)
-- [ ] **PERF-05**: A fullscreen app triggers the configured action (Win ✅ · mac ✅ · Linux ⚠️ Wayland)
+- [x] **PERF-05**: A fullscreen app triggers the configured action (Win ✅ · mac ✅ · Linux ⚠️ Wayland)
 - [ ] **PERF-06**: CPU, memory and per-adapter GPU usage thresholds trigger the configured action (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **PERF-07**: Network ping, upload and download thresholds trigger the configured action, without the legacy bug that checks ping first even at threshold 0 (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **PERF-08**: Battery level and battery saver trigger the configured action (Win ✅ · mac ✅ · Linux ✅)
@@ -138,7 +138,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Tray and app lifecycle (`services.md` §3)
 
-- [ ] **TRAY-01**: A tray icon with Quit is available while a wallpaper runs
+- [x] **TRAY-01**: A tray icon with Quit is available while a wallpaper runs
 - [ ] **TRAY-02**: The full tray menu offers open, close/reload/change/customize wallpaper, settings, report, updates and exit, with a grayscale icon while paused (Win ✅ · mac ✅ · Linux ⚠️ GNOME needs AppIndicator)
 - [ ] **TRAY-03**: Sucrose can start with the OS (normal startup) (Win ✅ · mac ✅ LaunchAgent · Linux ✅ XDG autostart)
 - [ ] **TRAY-04**: User can choose the priority and scheduled-task startup modes (Win ✅ · mac ? · Linux ?)
@@ -158,13 +158,13 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 ### Formats and contracts (D-007)
 
 - [ ] **FMT-01**: Legacy `Setting/*.json` files (14 files, `Properties` wrapper, enums by name) migrate to the new settings format on first run, `Donate.json` excluded (D-023), proven with fixtures
-- [ ] **FMT-02**: `SucroseInfo.json` is read and written compatibly, proven with fixtures from real themes
+- [x] **FMT-02**: `SucroseInfo.json` is read and written compatibly, proven with fixtures from real themes
 - [ ] **FMT-03**: `SucroseProperties.json` and `SucroseCompatible.json` are read and written compatibly, proven with fixtures
 - [ ] **FMT-04**: Theme archives are validated with the legacy rules (`formats.md` §3)
 - [ ] **FMT-05**: The store protocol and cache layout stay compatible (D-022, `formats.md` §4)
 - [ ] **FMT-06**: The data folder layout (`Setting`, `Log`, `Cache`, `Library`, `Showcase`) and 25-character theme folder names stay the same (`formats.md` §2)
 - [ ] **FMT-07**: The web wallpaper JavaScript API stays compatible (`engines.md` §6), proven with fixture pages
-- [ ] **FMT-08**: The selected theme and library location of an existing C# install are read from the legacy `Library.json` and `General.json` (read-only until FMT-01)
+- [x] **FMT-08**: The selected theme and library location of an existing C# install are read from the legacy `Library.json` and `General.json` (read-only until FMT-01)
 
 ### Security
 
@@ -234,13 +234,13 @@ Which phases cover which requirements. Filled during roadmap creation.
 | ARCH-03 | Phase 3 | Pending |
 | ARCH-04 | Phase 3 | Pending |
 | ARCH-05 | Phase 3 | Pending |
-| TYPE-01 | Phase 2 | Gaps Found |
+| TYPE-01 | Phase 2 | Complete |
 | TYPE-02 | Phase 4 | Pending |
 | TYPE-03 | Phase 4 | Pending |
 | TYPE-04 | Phase 4 | Pending |
 | TYPE-05 | Phase 4 | Pending |
 | TYPE-06 | Phase 4 | Pending |
-| ENG-01 | Phase 2 | Gaps Found |
+| ENG-01 | Phase 2 | Complete |
 | ENG-02 | Phase 4 | Pending |
 | ENG-03 | Phase 4 | Pending |
 | ENG-04 | Phase 4 | Pending |
@@ -252,13 +252,13 @@ Which phases cover which requirements. Filled during roadmap creation.
 | DESK-03 | Phase 4 | Pending |
 | DESK-04 | Phase 4 | Pending |
 | DESK-05 | Phase 4 | Pending |
-| DESK-06 | Phase 2 | Gaps Found |
+| DESK-06 | Phase 2 | Complete |
 | DESK-07 | Phase 2 | Complete |
 | DESK-08 | Phase 5 | Pending |
 | DESK-09 | Phase 5 | Pending |
 | DESK-10 | Phase 5 | Pending |
 | DESK-11 | Phase 5 | Pending |
-| DESK-12 | Phase 2 | Gaps Found |
+| DESK-12 | Phase 2 | Complete |
 | PLAY-01 | Phase 4 | Pending |
 | PLAY-02 | Phase 4 | Pending |
 | PLAY-03 | Phase 4 | Pending |
@@ -268,7 +268,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | PERF-02 | Phase 4 | Pending |
 | PERF-03 | Phase 4 | Pending |
 | PERF-04 | Phase 4 | Pending |
-| PERF-05 | Phase 2 | Gaps Found |
+| PERF-05 | Phase 2 | Complete |
 | PERF-06 | Phase 4 | Pending |
 | PERF-07 | Phase 4 | Pending |
 | PERF-08 | Phase 4 | Pending |
@@ -314,7 +314,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | UI-05 | Phase 3 | Pending |
 | UI-06 | Phase 5 | Pending |
 | UI-07 | Phase 3 | Pending |
-| TRAY-01 | Phase 2 | Gaps Found |
+| TRAY-01 | Phase 2 | Complete |
 | TRAY-02 | Phase 5 | Pending |
 | TRAY-03 | Phase 3 | Pending |
 | TRAY-04 | Phase 5 | Pending |
@@ -328,13 +328,13 @@ Which phases cover which requirements. Filled during roadmap creation.
 | SVC-07 | Phase 5 | Pending |
 | SVC-08 | Phase 5 | Pending |
 | FMT-01 | Phase 3 | Pending |
-| FMT-02 | Phase 2 | Gaps Found |
+| FMT-02 | Phase 2 | Complete |
 | FMT-03 | Phase 4 | Pending |
 | FMT-04 | Phase 5 | Pending |
 | FMT-05 | Phase 5 | Pending |
 | FMT-06 | Phase 3 | Pending |
 | FMT-07 | Phase 4 | Pending |
-| FMT-08 | Phase 2 | Gaps Found |
+| FMT-08 | Phase 2 | Complete |
 | SEC-01 | Phase 5 | Pending |
 | SEC-02 | Phase 4 | Pending |
 | MEAS-01 | Phase 2 | Complete |

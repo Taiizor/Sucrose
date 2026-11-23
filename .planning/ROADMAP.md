@@ -11,7 +11,7 @@ Sucrose is rewritten from scratch in Rust on `develop-rust`, Windows first, then
 - No decimal phases are planned
 
 - [x] **Phase 1: M0 — Foundation** - CI is green on Windows, macOS and Linux with stub platform implementations (completed 2026-11-22)
-- [ ] **Phase 2: M1 — Video wallpaper on the desktop (Windows)** - The selected video theme plays behind the desktop icons on every monitor on Windows through libmpv
+- [x] **Phase 2: M1 — Video wallpaper on the desktop (Windows)** - The selected video theme plays behind the desktop icons on every monitor on Windows through libmpv (completed 2026-11-23)
 - [ ] **Phase 3: M2 — Service, IPC and Portal connected** - The Portal shows the library and applies wallpapers through a single-instance service; settings migrate and persist
 - [ ] **Phase 4: M3 — Engines and the wallpaper API** - Every wallpaper type and engine on Windows, the compatible web wallpaper API, display modes, property editing and all performance rules
 - [ ] **Phase 5: M4 — Product features** - Store, theme authoring, cycling, lock screen, 25 languages, integrations and an own signed installer and updater
@@ -45,7 +45,7 @@ Sucrose is rewritten from scratch in Rust on `develop-rust`, Windows first, then
   3. While a fullscreen game runs it applies the configured action (Pause: pauses and resumes).
   4. CPU and RAM are measured against the C# MpvPlayer engine + Backgroundog and recorded in `docs/MEASUREMENTS.md`.
   5. On a machine with the C# app installed, Sucrose plays the theme selected there (read from the legacy `Library.json` and `General.json`, which stay unchanged), sharp at each monitor's DPI, and the tray icon's Quit stops it.
-**Plans**: 29/29 plans executed (02-16 to 02-26: gap closure from UAT; 02-27 to 02-29: gap closure from verification)
+**Plans**: 29/29 plans complete (02-16 to 02-26: gap closure from UAT; 02-27 to 02-29: gap closure from verification)
 Plans:
 **Wave 1**
 - [x] 02-01-PLAN.md — libmpv delivered: `cargo xtask fetch-engines` (pinned, SHA256-verified), committed bindgen bindings, D-18 loader; apps/sucrose tracked by git
@@ -205,7 +205,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
-| 2. M1 — Video wallpaper on the desktop (Windows) | 29/29 | In Progress | - |
+| 2. M1 — Video wallpaper on the desktop (Windows) | 29/29 | Complete    | 2026-11-23 |
 | 3. M2 — Service, IPC and Portal connected | 0/TBD | Not started | - |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |

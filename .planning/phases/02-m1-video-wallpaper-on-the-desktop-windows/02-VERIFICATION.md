@@ -1,9 +1,10 @@
 ---
 phase: 02-m1-video-wallpaper-on-the-desktop-windows
-verified: 2026-11-23T18:10:00Z
-status: gaps_found
-score: 5/5 roadmap truths verified (1 through the maintainer's accepted-gap override for G-02-7); 2 documentation/measurement gaps open
+verified: 2026-11-23T19:35:00Z
+status: passed
+score: 5/5 roadmap truths verified (1 through the maintainer's accepted-limitation override for G-02-7)
 covered_files:
+  - .planning/REQUIREMENTS.md
   - .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-01-PLAN.md
   - .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-01-SUMMARY.md
   - .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-02-PLAN.md
@@ -56,187 +57,154 @@ covered_files:
   - .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-25-SUMMARY.md
   - .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-26-PLAN.md
   - .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-26-SUMMARY.md
-  - apps/sucrose/src/fullscreen.rs
-  - apps/sucrose/src/main.rs
-  - apps/sucrose/src/render.rs
+  - .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-27-PLAN.md
+  - .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-27-SUMMARY.md
+  - .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-28-PLAN.md
+  - .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-28-SUMMARY.md
+  - .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-29-PLAN.md
+  - .planning/phases/02-m1-video-wallpaper-on-the-desktop-windows/02-29-SUMMARY.md
   - apps/sucrose/src/service.rs
-  - apps/sucrose/src/supervisor.rs
-  - apps/sucrose/src/topology.rs
-  - crates/sucrose-config/src/legacy.rs
-  - crates/sucrose-core/src/settings.rs
-  - crates/sucrose-core/src/theme.rs
-  - crates/sucrose-engine-mpv/src/config.rs
-  - crates/sucrose-engine-mpv/src/player.rs
-  - crates/sucrose-engine-mpv/src/sync.rs
-  - crates/sucrose-ipc/src/protocol.rs
-  - crates/sucrose-platform/src/geometry.rs
-  - crates/sucrose-platform/src/layout.rs
-  - crates/sucrose-platform/src/lib.rs
-  - crates/sucrose-platform/src/os_windows/event_loop.rs
-  - crates/sucrose-platform/src/os_windows/gpu.rs
   - crates/sucrose-platform/src/os_windows/surface.rs
-  - crates/sucrose-platform/src/unsupported.rs
   - docs/DECISIONS.md
   - docs/FEATURES.md
   - docs/MEASUREMENTS.md
-  - xtask/src/measure.rs
-covered_digest: "v4:sha256:1a7cf078b49a63eb1b9450c1635eda77277db145bf1ca3f138e8290efbc989db"
+covered_digest: "v4:sha256:9f56bab4f747dc21b21218fdc1c06bdeb7b3360b1d5908c841a8a5403b5c86ef"
 behavior_unverified: 0
 overrides_applied: 1
 overrides:
   - must_have: "SC2: it survives an explorer.exe restart and monitors being plugged/unplugged (the G-02-7 sub-case: after a re-enabled display becomes the primary, every monitor keeps showing the video)"
-    reason: "Maintainer chose 'wait' in 02-26: G-02-7 is an accepted limitation while explorer leaves a monitor outside its desktop window. UAT test 7(a) and 7(b) passed; 7(c) failed (G-02-7); the 02-23..02-25 mitigations were spiked on the real desktop (4 display changes, every outside episode ended within 2.11 s) but the original two-layout sequence (layout B then C) did not recur, so the fix is neither confirmed nor refuted. G-02-7 stays OPEN in 02-UAT.md (status failed); it is not closed."
-    accepted_by: "maintainer (verbatim reply 'wait', recorded in 02-26-SUMMARY.md)"
+    reason: "Maintainer chose 'wait' in 02-26: G-02-7 is an accepted limitation while explorer leaves a monitor outside its desktop window (D-031). UAT test 7(a) and 7(b) passed; 7(c) failed (G-02-7); the 02-23..02-25 mitigations were spiked on the real desktop (4 display changes, 8 of 8 Progman moves caught, every outside episode 1.73-2.11 s) but the original two-layout sequence did not recur, so the fix is neither confirmed nor refuted. G-02-7 stays OPEN in 02-UAT.md (status failed); it is not closed."
+    accepted_by: "maintainer (verbatim reply 'wait', recorded in 02-26-SUMMARY.md and D-031)"
     accepted_at: "2026-11-23T17:30:36Z"
 re_verification:
-  previous_status: human_needed
-  previous_score: 4/5 roadmap truths verified
+  previous_status: gaps_found
+  previous_score: "5/5 roadmap truths (SC2 via override); 2 documentation/measurement gaps open"
   gaps_closed:
-    - "G-02-2a, G-02-2b, G-02-2c, G-02-2d, G-02-6 (UAT 7a, 7b and 8 pass on the real machine; 02-UAT.md marks them resolved)"
-    - "WR-18 advisory of the previous report (fixed)"
-  gaps_remaining:
-    - "G-02-7 (accepted by the maintainer, open)"
+    - "Parity record of the G-02-7 decision (WR-20): docs/FEATURES.md row 30 now states the observed behavior, spike numbers and 'Accepted limitation (G-02-7, D-031)'; D-031 added to docs/DECISIONS.md (plan 02-28)"
+    - "RAM/CPU of the final behavior: docs/MEASUREMENTS.md has a row for the final M1 build (299 MB, 0.43 % CPU, 16.4 % GPU, release build, RTX 3050) and a comparison sentence (plan 02-29)"
+    - "WR-19 advisory: handle_report drops a report whose slot lost its monitor or was closed by the fullscreen rule (plan 02-27, 4 new unit tests)"
+  gaps_remaining: []
   regressions: []
-gaps:
-  - truth: "The maintainer's decision on G-02-7 is recorded in the parity record (CLAUDE.md non-negotiable 1: behavior changes and limitations are written down in docs/FEATURES.md in the same change)"
-    status: failed
-    reason: "docs/FEATURES.md row 'Monitor changes, shell restart recovery (CrashExplorer)' still ends with the hypothesis 'explorer most likely left Progman at an earlier layout's rectangle ...' and says nothing about the accepted limitation or the measured behavior (a monitor can show the static wallpaper until explorer moves Progman, up to about 2 s in the 02-26 spike, not bounded by the app). 02-26 made no commit. Review finding WR-20, open in 02-REVIEW-DISPOSITION.md. 02-26-SUMMARY names the follow-up: /gsd-plan-phase 2 --gaps"
-    artifacts:
-      - path: "docs/FEATURES.md"
-        issue: "row 30 states an unconfirmed cause and omits the accepted limitation"
-    missing:
-      - "Replace the last sentence of the row by the observed behavior and the maintainer's decision (accepted limitation, G-02-7, 02-26 spike numbers)"
-      - "Optionally record the accepted gap in docs/DECISIONS.md"
-  - truth: "RAM/CPU of the final user-visible behavior (checked placement read-back, location WinEvent hook, re-place-all) is measured on a release build and recorded in docs/MEASUREMENTS.md (CLAUDE.md non-negotiable 6)"
-    status: partial
-    reason: "The last MEASUREMENTS.md rows (2026-11-23, same-GPU C# vs Rust, 301 MB / 0.40 % CPU) predate the 02-23..02-25 code; no row records the build with the new hook and read-backs. 02-UAT.md G-02-7 'missing' and the plan checker both require it, and the follow-up plan after the 02-26 decision has not been written. The added work is small (one read-back per move, one hook limited to explorer's desktop thread) and the 02-26 spike ran on the instrumented release build, but no numbers were taken"
-    artifacts:
-      - path: "docs/MEASUREMENTS.md"
-        issue: "no row for the build after 02-23..02-25"
-    missing:
-      - "cargo xtask measure (or a short release-build sample) of the final behavior, one row in docs/MEASUREMENTS.md"
+gaps: []
 deferred: []
 advisory:
-  - finding: "WR-19: handle_report keeps a late Failed whose slot was released (monitor unplugged or fullscreen Close), so the single global tray status can read 'no wallpaper' while other monitors play (service.rs:1069-1090, release path :537-545)"
+  - finding: "IN-19..IN-23, IN-26, IN-27 (order guard does not budget failing restores, Quit during attach not seen until attach ends, stuck renderer link only logged, refused Hello costs a crash strike, stopped_reason can name another monitor's failure, duplicated test loop, outside-surface warning repeated)"
     category: other
-    reason: "Affects only tooltip text in a narrow two-thread ordering; fix recorded in 02-REVIEW.md (slot_assigned argument plus a test). Unchanged since the previous report"
-    evidence_status: "code read; no test covers a released slot"
-  - finding: "IN-19..IN-23, IN-25..IN-28 (order guard failing restores not budgeted, Quit during attach not seen until attach ends, stuck link only logged, refused Hello costs a crash strike, stopped_reason can name another monitor's failure, FEATURES wording, duplicated outside-surface warning, drifted comments)"
+    reason: "02-REVIEW.md (re-review of 02-27..02-29): 0 critical, 0 warnings, 7 info, all carried and untouched; robustness, log volume and test quality only"
+    evidence_status: "code read by the re-review and spot-read here; no failing test"
+  - finding: ".planning/REQUIREMENTS.md still shows the Phase 2 traceability rows TYPE-01, ENG-01, DESK-06, DESK-12, PERF-05, TRAY-01, FMT-02, FMT-08 as 'Gaps Found' and unchecked (commit 129f0ede reverted them after the earlier gaps_found)"
     category: other
-    reason: "Robustness, wording and test quality; 02-REVIEW.md: 0 critical, 2 warnings (WR-19, WR-20), 9 info"
-    evidence_status: "code read by the re-review and spot-read here"
+    reason: "Bookkeeping that the orchestrator's phase-complete step updates after a passed verdict; no code or behavior is affected. DESK-01, DESK-07 and MEAS-01 are already Complete"
+    evidence_status: "grep of REQUIREMENTS.md"
 ---
 
 # Phase 2: M1 - Video wallpaper on the desktop (Windows) Verification Report
 
 **Phase Goal:** An existing user's selected video theme plays behind the desktop icons on every monitor on Windows through libmpv, survives shell and monitor changes, and pauses for fullscreen apps.
-**Verified:** 2026-11-23T18:10:00Z
-**Status:** gaps_found
-**Re-verification:** Yes - after the G-02-7 gap-closure plans 02-23..02-26 (previous report: human_needed, 4/5). HEAD ce0b152a, working tree clean.
+**Verified:** 2026-11-23T19:35:00Z
+**Status:** passed (with one accepted limitation carried as an override)
+**Re-verification:** Yes - after gap-closure plans 02-27, 02-28 and 02-29 (previous report: gaps_found, two documentation/measurement gaps). HEAD fafc9f05, working tree clean.
 
 ## Goal Achievement
 
-Method: re-read 02-UAT.md (8 tests: 5 pass, 3 issues recorded, 0 pending), 02-26-SUMMARY.md, 02-REVIEW.md and its disposition, and the code the 02-23..02-25 plans changed (geometry.rs, surface.rs, render.rs, topology.rs, service.rs, FEATURES.md); ran `cargo test --workspace` myself (exit 0, 390 passed, 0 failed, 12 ignored; it was 360 at the previous report); grepped the phase's Rust sources and tests for TBD/FIXME/XXX/TODO/HACK/todo!/unimplemented! (no match). SUMMARY claims were not used as evidence of behavior. I did not start sucrose.exe or touch the desktop; clippy and fmt were not re-run.
+Method: read the previous 02-VERIFICATION.md, 02-UAT.md, the three new SUMMARYs, 02-REVIEW.md and its disposition, 02-SECURITY.md; compared the actual contents of docs/FEATURES.md, docs/DECISIONS.md, docs/MEASUREMENTS.md and apps/sucrose/src/service.rs against what the SUMMARYs claim; ran `cargo test --workspace` once (exit 0), `cargo clippy --workspace --all-targets -- -D warnings` (clean) and `cargo fmt --all -- --check` (clean); grepped the Rust sources for debt markers. SUMMARY text was not used as evidence of behavior. I did not start sucrose.exe or touch the desktop.
 
 ### Observable Truths (ROADMAP success criteria)
 
 | # | Truth | Status | Evidence |
 |---|-------|--------|----------|
-| 1 | The selected video plays behind the desktop icons on every monitor | VERIFIED | UAT 1 pass (two displays, 5 min, same frame, one audio source, audio promotion on unplug); UAT 7 observed video on both monitors in sync and the 02-26 run showed both monitors playing with the master elected once and no seek (19 drift summaries, seeks=0). Code: one renderer per monitor through the Fleet, sticky master election |
-| 2 | It survives an explorer.exe restart and monitors being plugged/unplugged | PASSED (override), G-02-7 OPEN | UAT 7(a) pass (two explorer kills, order DefView > SucroseDesktopSurface > WorkerW logged each time, video back in 2-3 s, tray icon returned); 7(b) pass (only the unplugged monitor's renderer closed); sticky master held. 7(c) FAILED: after making the virtual display the main display the real screen showed the static wallpaper for about 90 s (G-02-7, status failed in 02-UAT.md). 02-23..02-25 added checked placement, an event-driven location watch and re-place-all; the 02-26 spike on the real desktop saw 4 display changes, 8 of 8 Progman moves caught, every outside episode 1.73-2.11 s. The spike did not reproduce the two-layout sequence of the UAT failure, so the fix is not proven for it. The maintainer answered 'wait': accepted limitation, recorded as an override above. NOT closed |
-| 3 | A fullscreen app triggers the configured action (Pause: pauses and resumes) | VERIFIED | UAT 3 pass (real fullscreen app, Pause then Close); fullscreen.rs not touched since; tests in the green run |
-| 4 | CPU and RAM are measured against the C# MpvPlayer engine + Backgroundog and recorded in docs/MEASUREMENTS.md | VERIFIED (see gap 2 for the later code) | MEASUREMENTS.md 2026-11-23 rows: both sides on the RTX 3050, C# 596 MB / 0.70 % CPU / 16.1 % GPU vs Rust service + 1 renderer 301 MB / 0.40 % / 16.4 %; the one-display repeat is labeled as not a multi-monitor measurement |
-| 5 | With the C# app installed, Sucrose plays the theme selected there (legacy Library.json and General.json unchanged), sharp at each monitor's DPI, Quit stops it | VERIFIED | UAT 4 pass (125/150 % sharpness, tooltip, one-item menu, Quit exits 0); legacy reader tests green; legacy files only read |
+| 1 | The selected video plays behind the desktop icons on every monitor | VERIFIED | UAT 1 pass (two displays, 5 min, same frame, one audio source, audio promotion on unplug); one renderer per monitor through the Fleet; 02-26 run showed both monitors playing, master elected once, no seek. Code unchanged by 02-27..02-29 except the report-drop rule |
+| 2 | It survives an explorer.exe restart and monitors being plugged/unplugged | PASSED (override), G-02-7 OPEN | UAT 7(a) pass (explorer killed twice, order DefView > SucroseDesktopSurface > WorkerW logged each time, video back in 2-3 s, tray icon back), 7(b) pass (only the unplugged monitor's renderer closed). 7(c) failed in UAT (about 90 s of static wallpaper after a primary switch). Mitigations 02-23..02-25 (checked placement, location WinEvent hook, re-place-all) are in the code and tested; the real-desktop spike caught 8 of 8 moves, episodes 1.73-2.11 s, but did not reproduce the two-layout sequence. The maintainer answered 'wait'. The limitation is now written down in D-031 and FEATURES.md row 30 (verified below), so the override is no longer an undocumented deviation. 02-UAT.md still lists G-02-7 as failed; that is correct and unchanged |
+| 3 | A fullscreen app triggers the configured action (Pause: pauses and resumes) | VERIFIED | UAT 3 pass (real fullscreen app, Pause then Close); fullscreen.rs untouched; tests green |
+| 4 | CPU and RAM are measured against the C# MpvPlayer engine + Backgroundog and recorded in docs/MEASUREMENTS.md | VERIFIED | MEASUREMENTS.md 2026-11-23 same-GPU rows (C# 596 MB / 0.70 % / 16.1 % GPU vs Rust 301 MB / 0.40 % / 16.4 %) plus the new row for the final build at line 12 (299 MB, peak 362, private 1034 MB, CPU 0.43 %, GPU 16.4 %, release build, RTX 3050, C# column empty with the LUID reason stated, pointing at the same-GPU C# reference row) |
+| 5 | With the C# app installed Sucrose plays the theme selected there (legacy Library.json and General.json unchanged), sharp at each monitor's DPI, Quit stops it | VERIFIED | UAT 4 pass (125/150 % sharpness, tooltip, one-item menu, Quit exits 0); legacy reader tests green; legacy files only read |
 
-**Score:** 5/5 roadmap truths (SC2 through an accepted-gap override); G-02-7 remains open.
+**Score:** 5/5 roadmap truths (SC2 through the accepted-limitation override); 0 present-but-behavior-unverified.
 
-### Truths added by plans 02-23..02-25
+### Gap-closure truths (02-27..02-29)
 
 | Truth | Status | Evidence |
 |-------|--------|----------|
-| Every surface move is read back and judged against target and parent (Shown / Misplaced / PartlyHidden / Hidden); UAT layout C replay is Hidden | VERIFIED | geometry.rs `placement_verdict`, `RectPx::intersection`/`covers`, `Placement`; unit tests incl. `placement_verdict_uat_layout_c_is_hidden`; surface.rs `place_checked`/`read_placement` with the real-window test `placement_check_against_a_real_parent_window` |
-| The renderer logs target, local rect, parent rect and verdict, and warns when outside; a Hidden verdict never fails a move | VERIFIED | render.rs Wake handler (lines ~205-232): logs "surface moved", warns "the surface lies outside the desktop window", Err only warns |
-| The surface follows its parent through an event-driven WinEvent location hook, no polling; re-places at the newest target | VERIFIED (hook delivery on the real desktop only by the 02-26 run) | surface.rs `location_watch_proc`, `location_reaction`, `follow_parent`, `remove_watch` in Drop; tests `the_watch_re_places_after_its_parent_moved`, `the_watch_ignores_*`, `the_watch_records_the_newest_target_and_parent`. In-process delivery cannot be tested (own-process events are skipped); the debug session records the real-desktop moves |
-| After every applied display change every renderer that stays gets a SetRect, changed or not; spawns/closes unchanged; election only when monitors changed | VERIFIED | topology.rs `replace_all` (shared walk with `diff`), service.rs `apply_snapshot` calls it; tests `replace_all_an_origin_shift_*` (topology and Fleet-level with recording links), `replace_all_an_unchanged_snapshot_re_places_every_renderer` (asserts no election ran) |
-| Order guard (02-16) unchanged; watch is a separate hook | VERIFIED | separate `WATCHED` registry; guard code and its tests still present |
+| FEATURES.md row 30 states the observed behavior and the accepted limitation instead of an unconfirmed cause (WR-20) | VERIFIED | Read the row: ends with the 4-change run, '8 of 8 moves', '1.73-2.11 s', the not-recurred 90 s episode 'its cause is not established', and 'Accepted limitation (G-02-7, D-031): Sucrose waits for explorer and shows no fallback window meanwhile'. The old sentence 'explorer most likely left Progman ...' is gone |
+| D-031 exists in docs/DECISIONS.md, Accepted, with the rejected alternative and consequences | VERIFIED | docs/DECISIONS.md lines 163-168: status, decision, why with spike numbers, rejected fallback window, consequences incl. 'G-02-7 ... stays open (not closed)' |
+| RAM/CPU of the final user-visible behavior is recorded (CLAUDE.md non-negotiable 6) | VERIFIED | docs/MEASUREMENTS.md line 12 plus the reading paragraph (line 14) comparing against the first same-GPU Rust row; row is Rust-only because the machine rebooted (LUID mismatch refused by `--row`), which is stated, not hidden. MEAS-02 (C# comparison at sign-off) stays Phase 8 |
+| A report of a renderer whose monitor was removed or whose renderer the fullscreen rule closed no longer reaches the tray status (WR-19), while a real failure of an assigned slot still counts (WR-18 kept) | VERIFIED | service.rs: `SlotState { link_pid, running, assigned }`, `Fleet::slot_assigned` (line 1386, `monitor_of` is some and not rule-closed), `handle_report` (line 1088) drops when `!holder.assigned`; call site line 462 passes `fleet.slot_assigned(slot)`; tests `a_late_failed_of_a_removed_monitor_is_dropped`, `a_late_failed_of_an_assigned_slot_still_counts`, `slot_assigned_follows_the_monitor_and_the_fullscreen_rule` appear in the green run. Re-review 02-REVIEW.md independently found no bug in it |
 
 ### Required Artifacts
 
 | Artifact | Status | Details |
 |----------|--------|---------|
-| crates/sucrose-platform/src/geometry.rs | VERIFIED | placement types and pure verdict, tested |
-| crates/sucrose-platform/src/os_windows/surface.rs | VERIFIED | checked placement, location watch, order guard, Drop removes both hooks |
-| crates/sucrose-platform/src/unsupported.rs, lib.rs | VERIFIED | Placement signature on macOS/Linux stubs (workspace compiles, tests green on Windows; CI covers the other OSes) |
-| apps/sucrose/src/{render,service,topology}.rs | VERIFIED | wired, substantive |
-| engine-mpv, ipc, config, xtask artifacts of 02-01..02-22 | VERIFIED | unchanged since the previous report, covered by the green run |
-| docs/FEATURES.md row 30 | PARTIAL | text is current for the mechanism but states an unconfirmed cause and omits the accepted limitation (gap 1) |
+| apps/sucrose/src/service.rs | VERIFIED | substantive, wired (call site at 462), tests pass |
+| crates/sucrose-platform/src/os_windows/surface.rs | VERIFIED | doc-comment-only change in 02-28 (3 lines); behavior as verified previously |
+| docs/DECISIONS.md (D-031), docs/FEATURES.md (rows 13, 30), docs/MEASUREMENTS.md (row 12, paragraph) | VERIFIED | content read, not only grepped; CRLF/LF shape matches the files' existing shape (`git ls-files --eol`) |
+| engine-mpv, ipc, config, platform, xtask artifacts of 02-01..02-26 | VERIFIED | unchanged since the previous report except the files above (`git diff 58d41e47..HEAD --stat`: 5 files); covered by the green run |
 
 ### Key Link Verification
 
 | From | To | Via | Status |
 |------|----|-----|--------|
-| surface.rs | geometry.rs | `placement_verdict` in `read_placement` | WIRED |
-| render.rs | surface.rs | `surface.set_rect` returns `Placement`, logged | WIRED |
-| surface.rs watch | place_checked | `follow_parent` | WIRED |
-| service.rs | topology.rs | `apply_snapshot` -> `replace_all` -> `move_to` -> `ToRenderer::SetRect` | WIRED |
-| service.rs | render.rs | `ToRenderer::SetRect` reaches the Wake handler | WIRED |
+| service loop | handle_report | `assigned: fleet.slot_assigned(slot)` (service.rs:462) | WIRED |
+| Fleet::slot_assigned | SlotMap::monitor_of and rule-closed set | service.rs:1386 | WIRED |
+| FEATURES row 30 | D-031 | text reference and D-031 'recorded in docs/FEATURES.md' | WIRED |
+| MEASUREMENTS row 12 | same-GPU C# reference row | stated in the row's notes | WIRED |
 
 ### Data-Flow Trace (Level 4)
 
-Monitor snapshots flow from the OS event loop through the debounce into `apply_snapshot`, which updates the stored assignment and sends the rectangle to each renderer; the renderer's `set_rect` reads the real window rectangles back (Win32), not a constant. FLOWING. Theme selection, GPU preference and clock paths are unchanged from the previous report.
+Monitor snapshots flow from the OS event loop through the debounce into `apply_snapshot`, which sends each renderer its rectangle; the renderer reads the real window rectangles back (Win32). Renderer reports flow reader thread -> channel -> `handle_report` -> `Status` -> tray tooltip, now gated by the live slot map. FLOWING. The measurement row comes from a real `cargo xtask measure` run (result file under target/measure, untracked); I did not re-measure.
 
 ### Behavioral Spot-Checks
 
 | Behavior | Command | Result | Status |
 |----------|---------|--------|--------|
-| Whole workspace | `cargo test --workspace` (run once) | exit 0; 390 passed, 0 failed, 12 ignored | PASS |
-| Debt markers | grep over apps/sucrose, crates, xtask sources and tests | no match | PASS |
-| Real explorer/display behavior | not run (maintainer's desktop) | covered by UAT 7 and the 02-26 spike | SKIP (human evidence) |
+| Whole workspace (run once) | `cargo test --workspace` | exit 0; 394 passed, 0 failed, 12 ignored (390 at the previous report; +4 from 02-27) | PASS |
+| Lints | `cargo clippy --workspace --all-targets -- -D warnings` | clean | PASS |
+| Format | `cargo fmt --all -- --check` | clean | PASS |
+| Debt markers | grep TBD/FIXME/XXX/todo!/unimplemented! over apps/sucrose/src, crates, xtask/src | no match | PASS |
+| Real explorer/display behavior | not run (maintainer's desktop) | covered by UAT 7 and the 02-26 spike | SKIP (human evidence recorded) |
 
 ### Probe Execution
 
-No probe-*.sh declared; skipped.
+No probe-*.sh declared by the phase; skipped.
 
 ### Requirements Coverage
 
-All 11 IDs appear in plan frontmatter (02-01..02-26) and are marked Complete in REQUIREMENTS.md; none orphaned. SVC-04 (Phase 5) is not claimed.
+All 11 phase IDs appear in plan frontmatter (02-01..02-29) and in REQUIREMENTS.md; none orphaned; SVC-04 (Phase 5) is not claimed.
 
 | Requirement | Source Plans | Status | Evidence |
 |-------------|--------------|--------|----------|
 | TYPE-01 | 02-03, 02-05..02-08 | SATISFIED | UAT 1, 4 |
-| ENG-01 | 02-01, 02-02, 02-07, 02-11, 02-18 | SATISFIED | bundled libmpv, loader, wid embedding |
-| DESK-01 | 02-05..02-07, 02-12, 02-14, 02-16, 02-19, 02-20, 02-23, 02-24, 02-26 | SATISFIED | UAT 1, 4, 7(a); G-02-7 sub-case open |
+| ENG-01 | 02-01, 02-02, 02-07, 02-11, 02-18 | SATISFIED | bundled libmpv, loader, wid embedding, engine tests |
+| DESK-01 | 02-05..02-07, 02-12, 02-14, 02-16, 02-19, 02-20, 02-23, 02-24, 02-26, 02-28 | SATISFIED WITH ACCEPTED LIMITATION | UAT 1, 4, 7(a); G-02-7 sub-case accepted (D-031) |
 | DESK-06 | 02-06, 02-07, 02-12 | SATISFIED | UAT 4 |
-| DESK-07 | 02-10, 02-12, 02-16, 02-19, 02-23..02-26 | SATISFIED WITH ACCEPTED LIMITATION | UAT 7(a), 7(b) pass; G-02-7 (primary switch) open, accepted by the maintainer. REQUIREMENTS.md marks it Complete: true for explorer restart and unplug, to be read with the limitation |
+| DESK-07 | 02-10, 02-12, 02-16, 02-19, 02-23..02-26, 02-28 | SATISFIED WITH ACCEPTED LIMITATION | UAT 7(a), 7(b) pass; primary-switch sub-case G-02-7 open and accepted, written down in D-031 and FEATURES |
 | PERF-05 | 02-13 | SATISFIED | UAT 3 |
-| TRAY-01 | 02-09 | SATISFIED | UAT 4 |
+| TRAY-01 | 02-09, 02-27 | SATISFIED | UAT 4; status-drop tests |
 | FMT-02 | 02-08 | SATISFIED | fixtures, theme tests |
 | FMT-08 | 02-03, 02-04 | SATISFIED | legacy reader tests |
-| MEAS-01 | 02-15, 02-21, 02-22 | SATISFIED | same-GPU rows (gap 2 asks for a row for the final build) |
+| MEAS-01 | 02-15, 02-21, 02-22, 02-29 | SATISFIED | same-GPU rows and the final-build row |
 | DESK-12 | 02-17, 02-18, 02-22 | SATISFIED on Windows | UAT 8 pass: service wrote the preference, RTX 3050, 4K60, no desync |
 
 ### Anti-Patterns Found
 
 | File | Line | Pattern | Severity | Impact |
 |------|------|---------|----------|--------|
-| apps/sucrose/src/service.rs | 1069-1090, 537-545 | late Failed of a released slot reaches global status (WR-19) | Warning (advisory) | tooltip text only |
-| docs/FEATURES.md | 30 | unconfirmed cause, no accepted limitation (WR-20) | Warning (gap 1) | parity record not true |
-| docs/FEATURES.md | 13 | "dropped only when" overstated (IN-25) | Info | wording |
-| surface.rs, event_loop.rs, service.rs | various | IN-19..IN-23, IN-26..IN-28 | Info | robustness, comments |
+| surface.rs, event_loop.rs, service.rs, render.rs | various | IN-19..IN-23, IN-26, IN-27 | Info (advisory) | robustness, log volume, test quality; none blocks a truth |
 | debt markers | - | none | - | gate clear |
 
 ### Human Verification Required
 
-None open. All eight UAT tests have a result. The one remaining optional confirmation (drag the virtual display left of DISPLAY1 while a read-only probe compares Progman with the virtual screen, to see the two-layout sequence) is the maintainer's choice, and they chose to wait.
+None open. All eight UAT tests have a result, and the one remaining optional confirmation of G-02-7 (replay the two-layout display sequence) was declined by the maintainer ('wait').
 
 ### Gaps Summary
 
-No roadmap truth is FAILED and the code and tests of 02-23..02-25 are sound. Two items keep the phase from being clean:
+The two gaps of the previous report are closed in the repository itself, not only in the SUMMARYs: FEATURES.md row 30 and D-031 record the accepted limitation with the measured numbers, and MEASUREMENTS.md has a row for the final build. The WR-19 tooltip advisory is fixed with tests, and workspace tests, clippy and fmt are green. No roadmap truth fails.
 
-1. **G-02-7 is open and accepted, not closed.** The failure the maintainer saw (static wallpaper on the real screen for about 90 s after a primary switch) has mitigations in place and a favorable real-desktop spike, but the original two-layout sequence has not been observed again, so nothing proves it fixed. It is carried as an override of SC2 with the maintainer's verbatim "wait". 02-UAT.md still lists it as failed; it should stay that way.
-2. **The parity and measurement records lag the decision** (gap 1: FEATURES.md row 30, WR-20; gap 2: no RAM/CPU row for the final build). Both are small and are what 02-26-SUMMARY names as the next step (`/gsd-plan-phase 2 --gaps`, no gap_ids, FEATURES limitation note); fold the measurement row into that plan. WR-19 (tooltip) is worth fixing in the same pass.
+Residual, non-blocking points for the maintainer:
+1. G-02-7 is accepted, not fixed. The cause of the 90 s episode is unknown, the length of an episode is explorer's, and D-031 says a recurrence supersedes the decision. 02-UAT.md correctly keeps it as failed.
+2. The final-build measurement is Rust-only (no same-boot C# pair). That is a documented limitation of the row, and the same-GPU C# comparison already exists from earlier the same day.
+3. REQUIREMENTS.md traceability rows for eight IDs still read 'Gaps Found'; update them when the phase is closed.
 
 ---
 
-_Verified: 2026-11-23T18:10:00Z_
+_Verified: 2026-11-23T19:35:00Z_
 _Verifier: Claude (gsd-verifier)_
