@@ -5,19 +5,19 @@ titles: json
 findings:
   - id: WR-01
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "A Playing report that is processed after its renderer's Exit leaves a stale \"playing\" slot"
   - id: WR-02
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "The follower controller records a speed as sent before `set_speed` succeeded"
   - id: WR-03
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "The video's frame period is cached once, including the fallback default"
   - id: WR-04
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "The order guard removes itself permanently after ten restores in a minute"
   - id: IN-01
     severity: info
@@ -79,19 +79,19 @@ findings:
     severity: info
     disposition: open
     title: "The recorded GPU regression has an obvious first suspect in the generated options"
-open: 19
+open: 15
 total: 19
-recorded: 2026-11-23T03:03:03.052Z
+recorded: 2026-11-23T03:23:50.615Z
 ---
 
 # Phase 02: Code Review Disposition
 
 | Finding | Severity | Disposition | Source |
 |---------|----------|-------------|--------|
-| WR-01 | warning | open | - |
-| WR-02 | warning | open | - |
-| WR-03 | warning | open | - |
-| WR-04 | warning | open | - |
+| WR-01 | warning | fixed | 02-REVIEW-FIX.md |
+| WR-02 | warning | fixed | 02-REVIEW-FIX.md |
+| WR-03 | warning | fixed | 02-REVIEW-FIX.md |
+| WR-04 | warning | fixed | 02-REVIEW-FIX.md |
 | IN-01 | info | open | - |
 | IN-02 | info | open | - |
 | IN-03 | info | open | - |
