@@ -6,19 +6,39 @@ findings:
   - id: WR-01
     severity: warning
     disposition: open
-    title: "Loop wrap is never detected, `loop_gen` stays 0 for an ordinary loop"
+    title: "A Playing report that is processed after its renderer's Exit leaves a stale \"playing\" slot"
   - id: WR-02
     severity: warning
     disposition: open
-    title: "Tray/log status stays \"no wallpaper\" after the renderer recovers"
+    title: "The follower controller records a speed as sent before `set_speed` succeeded"
   - id: WR-03
     severity: warning
     disposition: open
-    title: "Unsynchronised writes on the reader's pipe handle can interleave frames"
+    title: "The video's frame period is cached once, including the fallback default"
   - id: WR-04
     severity: warning
     disposition: open
-    title: "Blocking pipe writes while holding the global `Renderers` mutex can freeze the service loop"
+    title: "The order guard removes itself permanently after ten restores in a minute"
+  - id: IN-01
+    severity: info
+    disposition: open
+    title: "Playing is now only reported after the first frame, with no path for a file that never starts"
+  - id: IN-02
+    severity: info
+    disposition: open
+    title: "Stale comments after the 02-19/02-20/UAT changes"
+  - id: IN-03
+    severity: info
+    disposition: open
+    title: "The GPU preference overwrites a choice the user made in Windows Settings, on every start"
+  - id: IN-04
+    severity: info
+    disposition: open
+    title: "The renderer creates a Direct3D device just to log the adapter"
+  - id: IN-05
+    severity: info
+    disposition: open
+    title: "Smaller inconsistencies in the new code"
   - id: WR-05
     severity: warning
     disposition: open
@@ -39,26 +59,6 @@ findings:
     severity: warning
     disposition: open
     title: "A failing `GetMessageW` ends the loop like a normal quit and the renderer exits with code 0"
-  - id: IN-01
-    severity: info
-    disposition: open
-    title: "`reparent` sets the child style after `SetParent`"
-  - id: IN-02
-    severity: info
-    disposition: open
-    title: "Log message and behaviour disagree for a control message before the assignment"
-  - id: IN-03
-    severity: info
-    disposition: open
-    title: "Comment says the shader cache is never in the C# app's folder"
-  - id: IN-04
-    severity: info
-    disposition: open
-    title: "`Player::open_source` is public and takes any mpv source string"
-  - id: IN-05
-    severity: info
-    disposition: open
-    title: "Any unrecognised command line starts the service"
   - id: IN-06
     severity: info
     disposition: open
@@ -81,7 +81,7 @@ findings:
     title: "The recorded GPU regression has an obvious first suspect in the generated options"
 open: 19
 total: 19
-recorded: 2026-11-22T17:29:24.562Z
+recorded: 2026-11-23T03:03:03.052Z
 ---
 
 # Phase 02: Code Review Disposition
@@ -92,21 +92,21 @@ recorded: 2026-11-22T17:29:24.562Z
 | WR-02 | warning | open | - |
 | WR-03 | warning | open | - |
 | WR-04 | warning | open | - |
-| WR-05 | warning | open | - |
-| WR-06 | warning | open | - |
-| WR-07 | warning | open | - |
-| WR-08 | warning | open | - |
-| WR-09 | warning | open | - |
 | IN-01 | info | open | - |
 | IN-02 | info | open | - |
 | IN-03 | info | open | - |
 | IN-04 | info | open | - |
 | IN-05 | info | open | - |
-| IN-06 | info | open | - |
-| IN-07 | info | open | - |
-| IN-08 | info | open | - |
-| IN-09 | info | open | - |
-| IN-10 | info | open | - |
+| WR-05 | warning | open | - (not in the current review) |
+| WR-06 | warning | open | - (not in the current review) |
+| WR-07 | warning | open | - (not in the current review) |
+| WR-08 | warning | open | - (not in the current review) |
+| WR-09 | warning | open | - (not in the current review) |
+| IN-06 | info | open | - (not in the current review) |
+| IN-07 | info | open | - (not in the current review) |
+| IN-08 | info | open | - (not in the current review) |
+| IN-09 | info | open | - (not in the current review) |
+| IN-10 | info | open | - (not in the current review) |
 
 Dispositions: `open` (recorded, not yet triaged), `fixed`, `skipped`, `deferred`.
 Set `deferred` by hand and put the reason in the Source cell; both are preserved. A `|` in the reason is kept as prose and escaped on the next run.
