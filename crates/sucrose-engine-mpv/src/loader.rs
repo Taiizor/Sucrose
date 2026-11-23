@@ -126,19 +126,46 @@ fn describe(error: &libloading::Error) -> String {
 }
 
 /// The folders that may hold libmpv, in search order: the exe folder, then each absolute `PATH` entry once.
-/// Relative and empty entries are skipped, and so is the current folder (T-02-02).
+/// Relative and empty entries are skipped, and so is the current folder and a network (UNC) folder, which a `PATH`
+/// entry must not make a place to load code from (T-02-02, WR-07). The exe folder itself is never skipped.
 fn folders(exe_dir: Option<&Path>, path_var: Option<&OsStr>) -> Vec<PathBuf> {
+    let current_dir = std::env::current_dir().ok();
+    folders_with(exe_dir, path_var, current_dir.as_deref())
+}
+
+/// [`folders`] with the current folder given, so the rule can be tested.
+fn folders_with(exe_dir: Option<&Path>, path_var: Option<&OsStr>, current_dir: Option<&Path>) -> Vec<PathBuf> {
     let from_path = path_var.into_iter().flat_map(std::env::split_paths);
     let mut folders: Vec<PathBuf> = Vec::new();
-    for folder in exe_dir.map(Path::to_path_buf).into_iter().chain(from_path) {
+    let mut accept = |folder: PathBuf, from_exe: bool| {
         if folder.as_os_str().is_empty() || !folder.is_absolute() {
-            continue;
+            return;
+        }
+        if !from_exe && (is_network_folder(&folder) || current_dir.is_some_and(|current| same_folder(current, &folder)))
+        {
+            return;
         }
         if !folders.iter().any(|known| same_folder(known, &folder)) {
             folders.push(folder);
         }
+    };
+    if let Some(exe_dir) = exe_dir {
+        accept(exe_dir.to_path_buf(), true);
+    }
+    for folder in from_path {
+        accept(folder, false);
     }
     folders
+}
+
+/// Whether `folder` is on a network share (a UNC path, also in its `\\?\UNC\` form). Only Windows has such a prefix.
+fn is_network_folder(folder: &Path) -> bool {
+    use std::path::{Component, Prefix};
+
+    matches!(
+        folder.components().next(),
+        Some(Component::Prefix(prefix)) if matches!(prefix.kind(), Prefix::UNC(..) | Prefix::VerbatimUNC(..))
+    )
 }
 
 /// Folder equality for de-duplication: trailing separators are ignored, and so is letter case on Windows.
@@ -193,6 +220,14 @@ pub fn load_default() -> Result<Mpv, LoadError> {
     }
     let path_var = std::env::var_os("PATH");
     let path = resolve(exe_dir.as_deref(), path_var.as_deref())?;
+    let beside_exe = exe_dir
+        .as_deref()
+        .zip(path.parent())
+        .is_some_and(|(exe_dir, folder)| same_folder(exe_dir, folder));
+    if !beside_exe {
+        // The order is D-028's, but a library from a `PATH` folder is code from wherever that folder points: say so.
+        tracing::warn!(path = %path.display(), "libmpv is loaded from a PATH folder, not from next to sucrose.exe");
+    }
     load(&path)
 }
 
@@ -343,6 +378,36 @@ mod tests {
             exe.clone(),
         ];
         assert_eq!(candidates(&exe, Some(&path_var(&entries))), files_in(&[&exe, &a]));
+    }
+
+    #[test]
+    fn a_path_entry_that_is_the_current_folder_is_skipped_but_the_exe_folder_never_is() {
+        let scratch = Scratch::new("cwd");
+        let (exe, a, current) = (scratch.folder("exe"), scratch.folder("a"), scratch.folder("current"));
+        let var = path_var(&[current.clone(), a.clone()]);
+
+        assert_eq!(
+            folders_with(Some(&exe), Some(&var), Some(&current)),
+            vec![exe.clone(), a.clone()]
+        );
+        // Started from the exe folder itself: it stays the first place to look.
+        assert_eq!(folders_with(Some(&exe), Some(&var), Some(&exe)), vec![exe, current, a]);
+    }
+
+    #[cfg(windows)]
+    #[test]
+    fn a_network_path_entry_is_skipped() {
+        let scratch = Scratch::new("unc");
+        let (exe, a) = (scratch.folder("exe"), scratch.folder("a"));
+        let var = path_var(&[
+            PathBuf::from(r"\\server\share\bin"),
+            PathBuf::from(r"\\?\UNC\server\share\bin"),
+            a.clone(),
+        ]);
+
+        assert_eq!(folders_with(Some(&exe), Some(&var), None), vec![exe, a]);
+        assert!(is_network_folder(Path::new(r"\\server\share")));
+        assert!(!is_network_folder(Path::new(r"C:\tools")));
     }
 
     #[test]
