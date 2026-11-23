@@ -616,31 +616,42 @@ fn launch_agent(label: &str, exe: &str) -> String {
 | A12 | LaunchAgent plist keys (`Label`, `ProgramArguments`, `RunAtLoad`) and the XDG `.desktop` fields are as described | Pattern 8 | macOS and Linux autostart fails; the maintainer cannot check, CI only checks the text |
 | A13 | The build scripts of the new crates do nothing unexpected | Package audit | Supply-chain risk in a dependency |
 
-## Open Questions
+## Open Questions (RESOLVED)
+
+Every question below carries its resolution: answered by the maintainer on 2026-11-24 and recorded in 03-CONTEXT.md (questions 1, 2, 4 and 5), or the recommendation adopted by a named plan (questions 3, 6, 7, 8 and 9). Plan numbers refer to the revised set 03-01 … 03-26 (plan 26 was split from plan 04).
 
 1. **Correct two facts in CONTEXT.md (D-21 and D-25)?**
    - What we know: the maintainer's real `BackdropType` is `Acrylic`, so D-21 migrates them to Dark + Acrylic; the real library has 90 valid themes (3 pages), not 108 (4 pages), because 18 entries are not themes (F1, F2).
    - What's unclear: whether the maintainer wants D-25 to measure the 90-theme library as is (yes by the data) or also a 108-entry variant.
    - Recommendation: plans use the real numbers and say so; ask the maintainer to confirm at the first checkpoint, no re-discussion needed.
+   - **Resolution (RESOLVED: maintainer, 2026-11-24, CONTEXT.md D-21 and D-25):** both facts are corrected in CONTEXT.md: D-21 says the maintainer migrates to Dark + Acrylic, and D-25 measures the real library as it is (90 valid themes among 108 entries, 30 per page, 3 pages); no 108-entry variant is measured. Plan 04 Task 1 checks Dark + Acrylic on the real files (ignored test `real_install_migrates`); plan 24 measures the 90-theme library and the about-500-theme synthetic library of plan 05, and plan 25 records the result.
 2. **Runtime-state keys in the migration (ARCH-04 versus D-04, D-05)**
    - What we know: `Backgroundog.json` carries `TransmissionPort`, `PipeRequired`, `SignalRequired`, `TransmissionRequired`, `AudioRequired`, `PausePerformance`, `ClosePerformance`, `Cycling.PassingTime` and `CommunicationType` (F2, F3); formats.md calls the first seven runtime state; ARCH-04 forbids runtime state in settings.
    - What's unclear: the maintainer's wording for the exclusion list.
    - Recommendation: add these nine to the D-05 exclusion list (same change that edits criterion 2, FMT-01 and FEATURES.md) and map none of the four stale old names.
+   - **Resolution (RESOLVED: maintainer, 2026-11-24, CONTEXT.md D-05):** the eight Backgroundog runtime keys and `Cycling.json` `PassingTime` are on the D-05 exclusion list, and `GpuUsage`, `CpuUsage`, `CpuPerformance` and `GpuPerformance` map to no field. Plan 26 Task 1 implements and tests the exclusions and the stale names; plan 26 Task 2 rewrites ROADMAP criterion 2, FMT-01 and the FEATURES.md Formats row in the same plan.
 3. **Legacy strictness (Required.Always) for the scan**
    - What we know: Rust is more lenient on missing keys (safe for the bin) and less lenient on enum name case (unsafe).
    - Recommendation: keep Rust lenient on missing keys, add case-insensitive type names, document both in FEATURES.md.
+   - **Resolution (RESOLVED: recommendation adopted by plan 02):** the scan keeps missing optional `SucroseInfo.json` keys lenient and matches `Type` names in any case like Newtonsoft (finding F5), while ordinals stay as they are; plan 02 implements and tests both and records them in the FEATURES.md Library rows.
 4. **Library move: everything or themes only**
    - What we know: legacy moves the whole folder content including non-theme files and deletes the source (F6); D-07 says "themes are copied and the old folder removed".
    - Recommendation: move everything with verification (parity, nothing lost); confirm wording with the maintainer when they review the move dialog copy.
+   - **Resolution (RESOLVED: maintainer, 2026-11-24, CONTEXT.md D-07):** everything in the library folder moves (theme folders and every other file): rename first, otherwise copy and verify, write the setting, and only then delete the source; a destination inside the source is refused, and the confirmation mentions the C# app when its `Setting` folder exists. Plan 22 implements the move, the refusals, the rollback and the confirmation copy.
 5. **Should the D-26 spike gate the dependent plans?**
    - What we know: `Player::load` does not exist and the no-black-frame claim is untested (A5).
    - Recommendation: a checkpoint plan before the dependent Portal plans; the fallback (restart) is already specified in D-26.
+   - **Resolution (RESOLVED: maintainer, 2026-11-24, CONTEXT.md D-26):** yes. Plan 09 builds the LoadSource transition with the restart path behind `USE_TRANSITION`; plan 11 is the blocking checkpoint on the maintainer's machine before plan 12 (Use from a card), and it switches to the restart path and asks the maintainer again if a black or static frame appears.
 6. **Endpoint naming per data folder and the `--no-portal` flag**
    - Both are small additions CONTEXT.md leaves to discretion (Portal starts the service; both single-instance checks use the endpoint). Recommendation: adopt both as written in Patterns 2 and 3 and record them in DECISIONS.md.
+   - **Resolution (RESOLVED: recommendation adopted by plans 06, 08 and 15):** plan 06 names the endpoint per data folder (a hash of `SUCROSE_DATA_DIR` when it is set, the unchanged name otherwise) and records it, with the Portal-started service flag, in D-033 of `docs/DECISIONS.md`; plan 08 adds `sucrose --no-portal` and starts the service with it from the Portal; plan 15 makes the service honor it.
 7. **UI-SPEC E14 (unresolved): what the user sees when "Open Sucrose" cannot start the Portal**
    - Recommendation: log an error and set the tray tooltip to a short failure text; no dialog, because the service has no window.
+   - **Resolution (RESOLVED: recommendation adopted by plan 16):** when Open Sucrose cannot start the Portal, the service logs the error and sets the tray tooltip to "Sucrose couldn't open its window"; no dialog.
 8. **UI-SPEC E9 on macOS and Linux (unresolved):** the background image there stays an assumption until CI screenshots exist; the plans test only the capability-driven option states and the setting plumbing.
+   - **Resolution (RESOLVED: recommendation adopted by plan 17, accepted limitation):** plan 17 unit-tests the capability-driven backdrop option states and the background image plumbing and states that the image rendering on macOS and Linux is not checked by hand until CI screenshots exist (D-002); no hardware for those systems is available this phase (Environment Availability).
 9. **The CI `deny` job is red** on `bzip2-1.0.6` through `xtask` (UI-SPEC); decide in the first dependency plan whether to allow it in `deny.toml` so this phase's new crates can be judged by a green job.
+   - **Resolution (RESOLVED: recommendation adopted by plan 03):** plan 03 allows the `bzip2-1.0.6` license id in `deny.toml` with a comment naming the crate that needs it (reached only through `xtask`), so the CI deny job judges this phase's new crates; the advisories, bans and sources checks stay unchanged (T-03-08).
 
 ## Environment Availability
 

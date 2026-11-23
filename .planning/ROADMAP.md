@@ -121,7 +121,7 @@ Plans:
   3. Starting the service or the Portal a second time reuses the running instance, Exit closes every Sucrose process, and a renderer that keeps crashing is restarted a bounded number of times and then stopped, never in a loop.
   4. An optional module the user turns off starts no thread and does no polling, and with "start with the OS" on, Sucrose starts after sign-in and resumes the wallpaper.
   5. The Portal follows light, dark or the OS theme with its Mica/Acrylic backdrop and optional background image, has header actions, search, a status bar and Help/About, and scrolling through a large library keeps its memory bounded (release build, recorded in `docs/MEASUREMENTS.md`).
-**Plans**: 25 plans
+**Plans**: 26 plans
 Plans:
 **Wave 1**
 - [ ] 03-01-PLAN.md — Settings tracer: Setting/Sucrose.json migrated once, atomic store with .bak and kill test, service reads it (D-032)
@@ -129,11 +129,12 @@ Plans:
 - [ ] 03-03-PLAN.md — Localization: cargo xtask localize, legacy-keyed English strings, new keys, rust-i18n in the Portal, deny.toml
 
 **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 03-04-PLAN.md — Every legacy key typed and migrated, D-05 exclusions, D-21 theme/backdrop split, ROADMAP/REQUIREMENTS/FEATURES wording
+- [ ] 03-04-PLAN.md — General, Portal, Library and Warehouse keys typed and migrated, D-21 theme/backdrop split, LIB-01 and FEATURES wording
 - [ ] 03-05-PLAN.md — cargo xtask synth-library: synthetic libraries with prepared settings for Portal runs and D-25
 
 **Wave 3** *(blocked on Wave 2 completion)*
 - [ ] 03-06-PLAN.md — Portal protocol on the one endpoint: PortalHello routing, registry, AlreadyOpen, endpoint per data folder, test harness (D-033)
+- [ ] 03-26-PLAN.md — Engine, Backgroundog, Cycling, Hook and Update keys typed and migrated, D-05 exclusions and stale names, ROADMAP/FMT-01/FEATURES wording (split from 03-04)
 
 **Wave 4** *(blocked on Wave 3 completion)*
 - [ ] 03-07-PLAN.md — Settings host: validated, atomic, broadcast changes that persist across restarts
