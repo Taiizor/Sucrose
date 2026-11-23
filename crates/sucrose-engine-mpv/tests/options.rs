@@ -288,3 +288,32 @@ fn a_user_config_that_cannot_load_falls_back_to_the_generated_options() {
         "the fallback path lost the hardening"
     );
 }
+
+#[test]
+#[ignore = "needs cargo xtask fetch-engines"]
+fn the_playing_video_frame_rate_gives_a_30_fps_frame_period() {
+    let player = start(PlaybackSettings::default(), 10);
+    assert!(
+        wait_until(Duration::from_secs(20), || time_pos(&player)
+            .is_some_and(|pos| pos > 0.3)),
+        "the stream never started"
+    );
+
+    // The same lookup as render.rs video_frame_period: container-fps first, then the estimate.
+    let fps = ["container-fps", "estimated-vf-fps"]
+        .into_iter()
+        .find_map(|name| {
+            player
+                .get_property_string(name)
+                .and_then(|value| value.trim().parse::<f64>().ok())
+                .filter(|fps| fps.is_finite() && *fps > 0.0)
+        })
+        .expect("libmpv reports neither container-fps nor estimated-vf-fps");
+    assert!((fps - 30.0).abs() < 0.5, "the test stream plays at {fps} fps, not 30");
+
+    let period = sucrose_engine_mpv::sync::frame_period(Some(fps));
+    assert!(
+        (period - 1.0 / 30.0).abs() < 1e-3,
+        "frame period is {period} s, expected 1/30 s"
+    );
+}

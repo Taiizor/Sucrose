@@ -1924,4 +1924,88 @@ mod tests {
         assert!(!fleet.enable_fullscreen(FullScreenAction::Pause, PauseKind::Light));
         assert!(fleet.fullscreen.is_none());
     }
+
+    /// A Platform that records every GPU preference write and answers with a configured capability and result.
+    struct GpuFake {
+        capable: bool,
+        fail: bool,
+        writes: std::sync::Mutex<Vec<(std::path::PathBuf, GpuPreference)>>,
+    }
+
+    impl GpuFake {
+        fn new(capable: bool, fail: bool) -> Self {
+            Self {
+                capable,
+                fail,
+                writes: std::sync::Mutex::new(Vec::new()),
+            }
+        }
+
+        fn writes(&self) -> Vec<(std::path::PathBuf, GpuPreference)> {
+            self.writes.lock().expect("the fake's lock").clone()
+        }
+    }
+
+    impl sucrose_platform::Platform for GpuFake {
+        fn name(&self) -> &'static str {
+            "fake"
+        }
+
+        fn capabilities(&self) -> sucrose_platform::Capabilities {
+            sucrose_platform::Capabilities {
+                gpu_preference: self.capable,
+                ..sucrose_platform::Capabilities::default()
+            }
+        }
+
+        fn set_gpu_preference(
+            &self,
+            exe: &std::path::Path,
+            preference: GpuPreference,
+        ) -> Result<GpuPreferenceChange, PlatformError> {
+            self.writes
+                .lock()
+                .expect("the fake's lock")
+                .push((exe.to_path_buf(), preference));
+            if self.fail {
+                Err(PlatformError::Os {
+                    context: "set the GPU preference",
+                    code: 5,
+                })
+            } else {
+                Ok(GpuPreferenceChange::Written)
+            }
+        }
+    }
+
+    #[test]
+    fn apply_gpu_preference_writes_nothing_when_the_os_has_no_gpu_preference() {
+        let fake = GpuFake::new(false, false);
+
+        apply_gpu_preference(&fake, GpuPreference::HighPerformance);
+
+        assert!(
+            fake.writes().is_empty(),
+            "a non-capable OS must not write any preference"
+        );
+    }
+
+    #[test]
+    fn apply_gpu_preference_writes_once_for_this_executable_with_the_given_preference() {
+        let fake = GpuFake::new(true, false);
+
+        apply_gpu_preference(&fake, GpuPreference::PowerSaving);
+
+        let expected_exe = std::env::current_exe().expect("the test executable path");
+        assert_eq!(fake.writes(), vec![(expected_exe, GpuPreference::PowerSaving)]);
+    }
+
+    #[test]
+    fn a_failed_gpu_preference_write_returns_normally_and_is_attempted_once() {
+        let fake = GpuFake::new(true, true);
+
+        apply_gpu_preference(&fake, GpuPreference::HighPerformance);
+
+        assert_eq!(fake.writes().len(), 1, "a failed write must not be retried");
+    }
 }
