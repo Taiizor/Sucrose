@@ -141,6 +141,7 @@ All other SUMMARY Threat Flags sections report no new surface beyond the registe
 | 2026-11-23 | 48 | 48 | 0 | /gsd-secure-phase 02 after gap closure 02-16 … 02-22 (14 new threats: T-02-35 … T-02-47 and T-02-SC; L1 verification by the orchestrator; register authored at plan time, short-circuit per ASVS L1) |
 | 2026-11-23 | 48 | 48 | 0 | /gsd-secure-phase 02 after the code review fixes WR-05 … WR-14 and IN-01 … IN-17 (L1 re-check of the mitigation anchors in the 17 changed source files; no new threat; evidence of T-02-02, T-02-41 and T-02-SC updated; short-circuit per ASVS L1) |
 | 2026-11-23 | 48 | 48 | 0 | /gsd-secure-phase 02 after the fixes WR-15 … WR-17 (L1 re-check of the anchors in `apps/sucrose/src/service.rs` and `render.rs`; no new threat, no new dependency; short-circuit per ASVS L1) |
+| 2026-11-23 | 48 | 48 | 0 | /gsd-secure-phase 02 after the WR-18 fix (L1 re-check of the anchors in `apps/sucrose/src/service.rs`; no new threat, no new dependency; short-circuit per ASVS L1) |
 
 ---
 
