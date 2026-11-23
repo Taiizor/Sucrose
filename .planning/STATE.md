@@ -2,17 +2,17 @@
 gsd_state_version: "1.0"
 current_phase: 02
 current_phase_name: M1 — Video wallpaper on the desktop (Windows)
-status: verifying
-stopped_at: Completed 02-22-PLAN.md
-last_updated: "2026-11-23T02:34:06.920Z"
+status: executing
+stopped_at: Completed 02-23-PLAN.md
+last_updated: "2026-11-23T17:00:58.860Z"
 last_activity: 2026-11-23
 last_activity_desc: Phase 02 execution started
-state_head: 0003b6efcf49b24100cd4d8573323af5354f2af0
+state_head: 750ae7ff4d8147b80d5cb02e410c5a1bb3c7319b
 progress:
   total_phases: 8
   completed_phases: 1
-  total_plans: 22
-  completed_plans: 22
+  total_plans: 26
+  completed_plans: 23
   percent: 13
 ---
 
@@ -28,8 +28,8 @@ See: .planning/PROJECT.md (updated 2026-11-22)
 ## Current Position
 
 Phase: 02 (M1 — Video wallpaper on the desktop (Windows)) — EXECUTING
-Plan: 22 of 22
-Status: Phase complete — ready for verification
+Plan: 24 of 26
+Status: Ready to execute
 Last activity: 2026-11-23 — Phase 02 execution started
 Next step: Phase 2 (M1 — Video wallpaper on the desktop (Windows)): `/gsd-discuss-phase 2`, or `/gsd-plan-phase 2` to plan directly.
 
@@ -75,6 +75,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 02 P20 | 8 min | 2 tasks | 3 files |
 | Phase 02 P21 | 40 min | 3 tasks | 3 files |
 | Phase 02 P22 | 12 min | 3 tasks | 2 files |
+| Phase 02 P23 | 5 min | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -115,6 +116,7 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-20: follower integral gain 0.1 with a closing-drift guard (planner's 0.03 overshoots the one-frame band in simulation)
 - [Phase 02]: 02-21: GPU adapter evidence for measure is the per-pid typeperf LUID with the largest summed utilization; --row refuses a cross-adapter or adapter-less pair
 - [Phase 02]: 02-22: mpv deband=yes and profile=low-latency kept for parity; same-GPU R = 1.02 (Rust 16.4 % vs C# 16.1 % on RTX 3050)
+- [Phase 02]: 02-23: a PartlyHidden or Hidden placement verdict never fails an attach or a move; the renderer attaches, keeps playing and logs
 
 ### Pending Todos
 
@@ -145,6 +147,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-23T02:34:03.035Z
-Stopped at: Completed 02-22-PLAN.md
+Last session: 2026-11-23T17:00:50.042Z
+Stopped at: Completed 02-23-PLAN.md
 Resume file: None
