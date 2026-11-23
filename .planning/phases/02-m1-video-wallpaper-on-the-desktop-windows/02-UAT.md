@@ -249,5 +249,6 @@ blocked: 0
     - "Log the Progman origin and the local rect in 'surface moved'"
     - "Unit tests: a target outside the parent is detected; an origin shift re-places unchanged monitors"
     - "Update docs/FEATURES.md row 30"
+    - "In the plan written after the 02-26 decision (maintainer choice 2026-11-23): measure RAM/CPU of the final behavior on a release build and record it in docs/MEASUREMENTS.md (CLAUDE.md non-negotiable 6; the plan checker flagged 02-23 … 02-26 for it)"
     - "Optional confirmation (maintainer acts, no Sucrose needed): with the virtual display at [1920,0] and DISPLAY1 primary, drag the virtual display to the left of DISPLAY1 while a read-only PMv2-aware probe compares Progman's rect with the virtual screen for about 30 s"
   debug_session: .planning/debug/real-screen-static-wallpaper-after-primary-switch.md
