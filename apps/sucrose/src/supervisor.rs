@@ -259,6 +259,8 @@ pub fn decide_exit(
 pub struct Exited {
     /// The slot the renderer served.
     pub slot: u8,
+    /// The process that ended, as in [`Supervisor::pids`]; 0 for a restart that could not even start one.
+    pub pid: u32,
     /// The exit code; `None` when the OS reports none.
     pub code: Option<i32>,
 }
@@ -365,7 +367,7 @@ impl Supervisor {
             state.running.remove(&slot);
         }
         self.ended.notify_all();
-        (self.sink)(Exited { slot, code });
+        (self.sink)(Exited { slot, pid, code });
     }
 
     /// The pids of the renderers that run now, each with the slot it was started for.
@@ -435,6 +437,7 @@ impl Supervisor {
                         tracing::error!(%error, slot, "cannot restart the renderer");
                         (this.sink)(Exited {
                             slot,
+                            pid: 0,
                             code: Some(failed_code),
                         });
                     }

@@ -67,8 +67,9 @@ pub fn endpoint() -> anyhow::Result<Endpoint> {
 /// What the threads of the service tell its main thread.
 #[derive(Debug)]
 enum Event {
-    /// A message from the renderer of `slot`. The slot is the one verified at its Hello, never read from the message.
-    Renderer { slot: u8, message: ToService },
+    /// A message from the renderer of `slot`, started as process `pid`. Both are the ones verified at its Hello, never
+    /// read from the message.
+    Renderer { slot: u8, pid: u32, message: ToService },
     /// A renderer process ended.
     Exited(Exited),
     /// The shutdown worker finished closing every renderer.
@@ -114,13 +115,20 @@ enum Offer {
 /// never wait for it, and nothing blocks while the `Renderers` lock is held. One writer per connection also keeps
 /// the order of the messages and never interleaves two frames (WR-12).
 struct Link {
+    /// The renderer process on the other end, as verified at its Hello. Reports and exits carry a pid too, so one of
+    /// a renderer that has been replaced is never taken for its replacement's.
+    pid: u32,
     queue: Sender<ToRenderer>,
 }
 
 impl Link {
     /// Starts the writer thread `name`, which calls `write` for each queued message and ends when `write` says the
     /// connection is broken or the link is dropped (after sending what was queued).
-    fn start(name: String, mut write: impl FnMut(ToRenderer) -> bool + Send + 'static) -> std::io::Result<Self> {
+    fn start(
+        name: String,
+        pid: u32,
+        mut write: impl FnMut(ToRenderer) -> bool + Send + 'static,
+    ) -> std::io::Result<Self> {
         let (queue, receiver) = crossbeam_channel::bounded::<ToRenderer>(OUTGOING_CAPACITY);
         thread::Builder::new().name(name).spawn(move || {
             while let Ok(message) = receiver.recv() {
@@ -129,12 +137,12 @@ impl Link {
                 }
             }
         })?;
-        Ok(Self { queue })
+        Ok(Self { pid, queue })
     }
 
     /// The writer of `connection`, a clone of the handle the reader thread keeps.
-    fn for_connection(slot: u8, mut connection: Connection) -> std::io::Result<Self> {
-        Self::start(format!("ipc-writer-{slot}"), move |message| {
+    fn for_connection(slot: u8, pid: u32, mut connection: Connection) -> std::io::Result<Self> {
+        Self::start(format!("ipc-writer-{slot}"), pid, move |message| {
             match connection.send(&message) {
                 Ok(()) => true,
                 Err(error) => {
@@ -414,16 +422,24 @@ pub fn run() -> anyhow::Result<()> {
                     Event::Renderer {
                         slot,
                         message: ToService::Hello { pid, .. },
+                        ..
                     } => {
                         tracing::info!(pid, slot, "renderer connected");
                         fleet.catch_up_renderer(slot, &renderers);
                     }
-                    Event::Renderer { slot, message } => {
+                    Event::Renderer { slot, pid, message } => {
+                        let link_pid = lock(&renderers).connections.get(&slot).map(|link| link.pid);
+                        // The renderer of this slot was replaced meanwhile: what the old one said no longer counts.
+                        if report_is_stale(link_pid, pid) {
+                            tracing::debug!(slot, pid, "ignoring a report of a renderer that was replaced");
+                            continue;
+                        }
                         // A Playing report can be handled after the Exited of the same renderer (two threads feed the
-                        // channel). Without a registered connection the report comes from a renderer that is already
-                        // gone: counting it would leave a stale entry that a later renderer of the slot inherits.
+                        // channel). Without this renderer's registered connection the report comes from one that is
+                        // already gone: counting it would leave a stale entry that a later renderer of the slot
+                        // inherits.
                         if matches!(message, ToService::Playing)
-                            && lock(&renderers).connections.contains_key(&slot)
+                            && link_pid == Some(pid)
                             && fleet.playing.insert(slot)
                             && !quitting
                         {
@@ -447,7 +463,26 @@ pub fn run() -> anyhow::Result<()> {
                         }
                     }
                     Event::Exited(exited) => {
-                        lock(&renderers).connections.remove(&exited.slot);
+                        {
+                            let mut state = lock(&renderers);
+                            if state
+                                .connections
+                                .get(&exited.slot)
+                                .is_some_and(|link| link.pid == exited.pid)
+                            {
+                                state.connections.remove(&exited.slot);
+                            }
+                        }
+                        // A replacement already runs for the slot (it was started in the gap between the old one
+                        // ending and this event): this exit says nothing about the new renderer.
+                        if exit_is_stale(&supervisor.pids(), exited.slot, exited.pid) {
+                            tracing::info!(
+                                slot = exited.slot,
+                                pid = exited.pid,
+                                "a replaced renderer ended, nothing to do"
+                            );
+                            continue;
+                        }
                         // A renderer that ended plays no more and cannot stay the master; its replacement counts
                         // again once it shows its first frame.
                         let was_playing = fleet.playing.remove(&exited.slot);
@@ -777,6 +812,10 @@ fn read_connection(
             return;
         }
     };
+    let ToService::Hello { pid, .. } = &first else {
+        return;
+    };
+    let pid = *pid;
     // The renderer waits for this message; without a job for its slot, or once shutdown has begun, it has nothing
     // to do, so it is told to stop.
     let assignment = lock_assignments(assignments).get(&slot).cloned();
@@ -799,7 +838,7 @@ fn read_connection(
         // The reply to a Hello is only ever an Assign or a Close.
         _ => {}
     }
-    if !register_writer(renderers, slot, &mut connection) {
+    if !register_writer(renderers, slot, pid, &mut connection) {
         return;
     }
     if matches!(reply, ToRenderer::Assign(_)) {
@@ -822,7 +861,11 @@ fn read_connection(
             }
         }
     }
-    if !notifier.send(Event::Renderer { slot, message: first }) {
+    if !notifier.send(Event::Renderer {
+        slot,
+        pid,
+        message: first,
+    }) {
         return;
     }
     loop {
@@ -830,7 +873,7 @@ fn read_connection(
             // The clock goes straight from this thread to the followers: it is frequent and changes no status.
             Ok(ToService::Clock(tick)) => relay_clock(renderers, slot, tick),
             Ok(message) => {
-                if !notifier.send(Event::Renderer { slot, message }) {
+                if !notifier.send(Event::Renderer { slot, pid, message }) {
                     return;
                 }
             }
@@ -850,11 +893,11 @@ fn read_connection(
 /// reading. When shutdown began in the meantime, the Close goes out right here instead. `false` when the connection
 /// must not be served: its write handle cannot be kept, or another renderer got the slot first (a slot's connection is
 /// never replaced).
-fn register_writer(renderers: &Mutex<Renderers>, slot: u8, connection: &mut Connection) -> bool {
+fn register_writer(renderers: &Mutex<Renderers>, slot: u8, pid: u32, connection: &mut Connection) -> bool {
     let writer = match connection
         .try_clone()
         .map_err(|error| error.to_string())
-        .and_then(|clone| Link::for_connection(slot, clone).map_err(|error| error.to_string()))
+        .and_then(|clone| Link::for_connection(slot, pid, clone).map_err(|error| error.to_string()))
     {
         Ok(writer) => writer,
         Err(error) => {
@@ -967,6 +1010,20 @@ fn role_changes(old: Option<u8>, new: Option<u8>, active: &[u8], volume: u8) -> 
         changes.push((old, ToRenderer::SetRole(Role::Follower)));
     }
     changes
+}
+
+/// Whether a report from process `pid` is from a renderer that was replaced: `link_pid` is the process whose connection
+/// the slot has now, if any.
+fn report_is_stale(link_pid: Option<u32>, pid: u32) -> bool {
+    link_pid.is_some_and(|current| current != pid)
+}
+
+/// Whether the end of process `pid` is that of a renderer that was replaced: another process (`running`, pid to slot)
+/// already runs for `slot`.
+fn exit_is_stale(running: &HashMap<u32, u8>, slot: u8, pid: u32) -> bool {
+    running
+        .iter()
+        .any(|(other, other_slot)| *other_slot == slot && *other != pid)
 }
 
 /// Why the service refuses a renderer's Hello.
@@ -1623,6 +1680,29 @@ mod tests {
     }
 
     #[test]
+    fn a_report_is_stale_only_when_another_process_holds_the_slot() {
+        assert!(!report_is_stale(Some(7), 7), "the current renderer");
+        assert!(
+            !report_is_stale(None, 7),
+            "no connection: judged by the Playing rule, not as stale"
+        );
+        assert!(report_is_stale(Some(8), 7), "a replacement is connected");
+    }
+
+    #[test]
+    fn an_exit_is_stale_only_when_a_replacement_runs_for_the_slot() {
+        let running = HashMap::from([(20, 0), (30, 1)]);
+
+        assert!(exit_is_stale(&running, 0, 10), "pid 20 replaced pid 10 on slot 0");
+        assert!(
+            !exit_is_stale(&running, 0, 20),
+            "the renderer that runs ended: not stale"
+        );
+        assert!(!exit_is_stale(&running, 2, 40), "nothing runs for slot 2");
+        assert!(!exit_is_stale(&HashMap::new(), 0, 10), "the ordinary exit");
+    }
+
+    #[test]
     fn accept_hello_refuses_a_slot_the_pid_was_not_started_for() {
         let spawned = HashMap::from([(100, 0), (200, 7)]);
 
@@ -1939,7 +2019,7 @@ mod tests {
         let (release_tx, release_rx) = crossbeam_channel::unbounded::<()>();
         let written = Arc::new(Mutex::new(Vec::new()));
         let record = Arc::clone(&written);
-        let link = Link::start("test-writer".to_owned(), move |message| {
+        let link = Link::start("test-writer".to_owned(), 0, move |message| {
             let _ = holding_tx.send(());
             // Blocks like a pipe write to a renderer that does not read; ends when the test lets go.
             let _ = release_rx.recv();
@@ -2024,7 +2104,7 @@ mod tests {
     fn messages_are_written_in_the_order_they_were_offered() {
         let written = Arc::new(Mutex::new(Vec::new()));
         let record = Arc::clone(&written);
-        let link = Link::start("test-writer".to_owned(), move |message| {
+        let link = Link::start("test-writer".to_owned(), 0, move |message| {
             record.lock().unwrap_or_else(PoisonError::into_inner).push(message);
             true
         })
@@ -2050,7 +2130,7 @@ mod tests {
 
     #[test]
     fn a_broken_connection_fails_every_later_offer() {
-        let link = Link::start("test-writer".to_owned(), |_| false).expect("the writer thread starts");
+        let link = Link::start("test-writer".to_owned(), 0, |_| false).expect("the writer thread starts");
         assert_eq!(link.offer(ToRenderer::Close), Offer::Queued);
 
         let deadline = Instant::now() + Duration::from_secs(5);
