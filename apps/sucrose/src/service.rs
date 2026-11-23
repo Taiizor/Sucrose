@@ -93,11 +93,75 @@ impl Notifier {
     }
 }
 
+/// How many messages may wait for one renderer that does not read. The service sends a handful of control messages and
+/// one clock reading per second, so a full queue means a renderer that is stuck, not a busy one.
+const OUTGOING_CAPACITY: usize = 64;
+
+/// What became of a message offered to a [`Link`].
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum Offer {
+    /// Queued; the writer thread sends it.
+    Queued,
+    /// A clock reading dropped because the renderer is behind: the next reading replaces it anyway.
+    Dropped,
+    /// Not queued: the queue is full of messages that cannot be skipped, or the writer thread has ended (the
+    /// connection is broken).
+    Failed,
+}
+
+/// The write side of one renderer's connection (WR-13). Messages go into a bounded queue that a writer thread of its
+/// own drains, so a renderer that stops reading blocks that thread only: the main thread and the other renderers
+/// never wait for it, and nothing blocks while the `Renderers` lock is held. One writer per connection also keeps
+/// the order of the messages and never interleaves two frames (WR-12).
+struct Link {
+    queue: Sender<ToRenderer>,
+}
+
+impl Link {
+    /// Starts the writer thread `name`, which calls `write` for each queued message and ends when `write` says the
+    /// connection is broken or the link is dropped (after sending what was queued).
+    fn start(name: String, mut write: impl FnMut(ToRenderer) -> bool + Send + 'static) -> std::io::Result<Self> {
+        let (queue, receiver) = crossbeam_channel::bounded::<ToRenderer>(OUTGOING_CAPACITY);
+        thread::Builder::new().name(name).spawn(move || {
+            while let Ok(message) = receiver.recv() {
+                if !write(message) {
+                    break;
+                }
+            }
+        })?;
+        Ok(Self { queue })
+    }
+
+    /// The writer of `connection`, a clone of the handle the reader thread keeps.
+    fn for_connection(slot: u8, mut connection: Connection) -> std::io::Result<Self> {
+        Self::start(format!("ipc-writer-{slot}"), move |message| {
+            match connection.send(&message) {
+                Ok(()) => true,
+                Err(error) => {
+                    tracing::warn!(%error, slot, "cannot send a message to a renderer, its writer stops");
+                    false
+                }
+            }
+        })
+    }
+
+    /// Queues `message` without ever waiting. A clock reading that finds the queue full is dropped; any other message
+    /// that does is a failure, because losing it would leave the renderer in a wrong state.
+    fn offer(&self, message: ToRenderer) -> Offer {
+        let skippable = matches!(message, ToRenderer::Clock(_));
+        match self.queue.try_send(message) {
+            Ok(()) => Offer::Queued,
+            Err(crossbeam_channel::TrySendError::Full(_)) if skippable => Offer::Dropped,
+            Err(_) => Offer::Failed,
+        }
+    }
+}
+
 /// The channels to the renderers this service started.
 #[derive(Default)]
 struct Renderers {
     /// The write side of each connected renderer, by slot.
-    connections: HashMap<u8, Connection>,
+    connections: HashMap<u8, Link>,
     /// Set when shutdown begins: a renderer that connects later is told to close at once.
     closing: bool,
     /// The slot of the master clock (D-02); the others are followers. Kept under the same lock as the connections so
@@ -611,7 +675,7 @@ fn shutdown(control: &mut impl RendererControl, grace: Duration) {
 /// The real renderers: only the processes this service spawned are ever touched (D-14).
 struct ProcessRenderers {
     supervisor: Arc<Supervisor>,
-    connections: HashMap<u8, Connection>,
+    connections: HashMap<u8, Link>,
 }
 
 impl RendererControl for ProcessRenderers {
@@ -620,10 +684,10 @@ impl RendererControl for ProcessRenderers {
     }
 
     fn close(&mut self, slot: u8) {
-        match self.connections.get_mut(&slot) {
-            Some(connection) => {
-                if let Err(error) = connection.send(&ToRenderer::Close) {
-                    tracing::warn!(%error, slot, "cannot send Close to a renderer");
+        match self.connections.get(&slot) {
+            Some(link) => {
+                if link.offer(ToRenderer::Close) == Offer::Failed {
+                    tracing::warn!(slot, "cannot send Close to a renderer");
                 }
             }
             None => tracing::debug!(slot, "no connection to send Close to, the renderer is still starting"),
@@ -778,7 +842,11 @@ fn read_connection(
 /// must not be served: its write handle cannot be kept, or another renderer got the slot first (a slot's connection is
 /// never replaced).
 fn register_writer(renderers: &Mutex<Renderers>, slot: u8, connection: &mut Connection) -> bool {
-    let writer = match connection.try_clone() {
+    let writer = match connection
+        .try_clone()
+        .map_err(|error| error.to_string())
+        .and_then(|clone| Link::for_connection(slot, clone).map_err(|error| error.to_string()))
+    {
         Ok(writer) => writer,
         Err(error) => {
             tracing::warn!(%error, slot, "cannot keep a write handle for a renderer");
@@ -808,16 +876,16 @@ fn register_writer(renderers: &Mutex<Renderers>, slot: u8, connection: &mut Conn
 /// Tells the renderer of `slot` whether it is the master clock or a follower, through the connection kept for the
 /// service's own sends so that it cannot interleave with another message.
 fn send_role(renderers: &Mutex<Renderers>, slot: u8) {
-    let mut state = lock(renderers);
+    let state = lock(renderers);
     let role = if state.master == Some(slot) {
         Role::Master
     } else {
         Role::Follower
     };
-    if let Some(connection) = state.connections.get_mut(&slot) {
-        match connection.send(&ToRenderer::SetRole(role)) {
-            Ok(()) => tracing::info!(slot, ?role, "role sent to a renderer"),
-            Err(error) => tracing::warn!(%error, slot, "cannot send the role to a renderer"),
+    if let Some(link) = state.connections.get(&slot) {
+        match link.offer(ToRenderer::SetRole(role)) {
+            Offer::Failed => tracing::warn!(slot, "cannot send the role to a renderer"),
+            Offer::Queued | Offer::Dropped => tracing::info!(slot, ?role, "role sent to a renderer"),
         }
     }
 }
@@ -835,7 +903,7 @@ fn clock_targets(master: Option<u8>, from: u8, connected: impl IntoIterator<Item
 
 /// Hands the master's clock reading to the followers; a reading from any other renderer is ignored.
 fn relay_clock(renderers: &Mutex<Renderers>, from: u8, tick: ClockTick) {
-    let mut state = lock(renderers);
+    let state = lock(renderers);
     if state.master != Some(from) {
         tracing::debug!(
             slot = from,
@@ -845,10 +913,12 @@ fn relay_clock(renderers: &Mutex<Renderers>, from: u8, tick: ClockTick) {
     }
     let targets = clock_targets(state.master, from, state.connections.keys().copied());
     for slot in targets {
-        if let Some(connection) = state.connections.get_mut(&slot)
-            && let Err(error) = connection.send(&ToRenderer::Clock(tick))
-        {
-            tracing::warn!(%error, slot, "cannot send the clock to a renderer");
+        if let Some(link) = state.connections.get(&slot) {
+            match link.offer(ToRenderer::Clock(tick)) {
+                Offer::Queued => {}
+                Offer::Dropped => tracing::debug!(slot, "a renderer is behind, a clock reading was skipped"),
+                Offer::Failed => tracing::warn!(slot, "cannot send the clock to a renderer"),
+            }
         }
     }
 }
@@ -1005,11 +1075,11 @@ impl Job {
 /// Sends `message` to the renderer of `slot`. `false` when it has no connection (it is still starting) or the send
 /// failed.
 fn send_to(renderers: &Mutex<Renderers>, slot: u8, message: &ToRenderer) -> bool {
-    match lock(renderers).connections.get_mut(&slot) {
-        Some(connection) => match connection.send(message) {
-            Ok(()) => true,
-            Err(error) => {
-                tracing::warn!(%error, slot, "cannot send a message to a renderer");
+    match lock(renderers).connections.get(&slot) {
+        Some(link) => match link.offer(message.clone()) {
+            Offer::Queued | Offer::Dropped => true,
+            Offer::Failed => {
+                tracing::warn!(slot, "cannot send a message to a renderer");
                 false
             }
         },
@@ -1261,10 +1331,10 @@ impl Fleet {
         state.master = wanted;
         tracing::info!(?old, new = ?wanted, "master clock elected");
         for (slot, message) in role_changes(old, wanted, &self.slots.active_slots(), volume) {
-            if let Some(connection) = state.connections.get_mut(&slot)
-                && let Err(error) = connection.send(&message)
+            if let Some(link) = state.connections.get(&slot)
+                && link.offer(message) == Offer::Failed
             {
-                tracing::warn!(%error, slot, "cannot send a role change to a renderer");
+                tracing::warn!(slot, "cannot send a role change to a renderer");
             }
         }
     }
@@ -1835,6 +1905,134 @@ mod tests {
         };
         assert_eq!(reason.chars().count(), MAX_REPORT_CHARS);
         assert_eq!(hint.chars().count(), MAX_REPORT_CHARS);
+    }
+
+    /// A link whose writer first announces it holds a message, then waits until `release` is dropped or fed, and records
+    /// what it was asked to write.
+    fn gated_link() -> Gated {
+        let (holding_tx, holding_rx) = crossbeam_channel::unbounded();
+        let (release_tx, release_rx) = crossbeam_channel::unbounded::<()>();
+        let written = Arc::new(Mutex::new(Vec::new()));
+        let record = Arc::clone(&written);
+        let link = Link::start("test-writer".to_owned(), move |message| {
+            let _ = holding_tx.send(());
+            // Blocks like a pipe write to a renderer that does not read; ends when the test lets go.
+            let _ = release_rx.recv();
+            record.lock().unwrap_or_else(PoisonError::into_inner).push(message);
+            true
+        })
+        .expect("the writer thread starts");
+        Gated {
+            link,
+            holding: holding_rx,
+            release: release_tx,
+            written,
+        }
+    }
+
+    /// What `gated_link` returns.
+    struct Gated {
+        link: Link,
+        /// Receives a unit each time the writer takes a message.
+        holding: crossbeam_channel::Receiver<()>,
+        /// Dropping it lets the writer through.
+        release: Sender<()>,
+        written: Arc<Mutex<Vec<ToRenderer>>>,
+    }
+
+    fn tick() -> ClockTick {
+        ClockTick {
+            position_s: 1.0,
+            stamp_ns: 0,
+            speed: 1.0,
+            paused: false,
+            loop_gen: 0,
+        }
+    }
+
+    #[test]
+    fn a_renderer_that_does_not_read_never_blocks_the_sender_and_loses_only_clock_readings() {
+        let Gated {
+            link,
+            holding,
+            release,
+            written,
+        } = gated_link();
+        // The writer takes the first message and is stuck writing it.
+        assert_eq!(link.offer(ToRenderer::Pause(true)), Offer::Queued);
+        holding
+            .recv_timeout(Duration::from_secs(5))
+            .expect("the writer holds a message");
+
+        // The queue fills with readings; the sender is never made to wait.
+        for _ in 0..OUTGOING_CAPACITY {
+            assert_eq!(link.offer(ToRenderer::Clock(tick())), Offer::Queued);
+        }
+        assert_eq!(
+            link.offer(ToRenderer::Clock(tick())),
+            Offer::Dropped,
+            "a reading is skipped"
+        );
+        assert_eq!(
+            link.offer(ToRenderer::Close),
+            Offer::Failed,
+            "a control message is never skipped silently"
+        );
+
+        // Letting the renderer read again delivers what was queued, in order.
+        drop(release);
+        let deadline = Instant::now() + Duration::from_secs(5);
+        while written.lock().unwrap_or_else(PoisonError::into_inner).len() < 1 + OUTGOING_CAPACITY {
+            assert!(Instant::now() < deadline, "the queued messages were not written");
+            thread::sleep(Duration::from_millis(10));
+        }
+        let written = written.lock().unwrap_or_else(PoisonError::into_inner);
+        assert_eq!(written.first(), Some(&ToRenderer::Pause(true)));
+        assert!(
+            written[1..]
+                .iter()
+                .all(|message| matches!(message, ToRenderer::Clock(_)))
+        );
+    }
+
+    #[test]
+    fn messages_are_written_in_the_order_they_were_offered() {
+        let written = Arc::new(Mutex::new(Vec::new()));
+        let record = Arc::clone(&written);
+        let link = Link::start("test-writer".to_owned(), move |message| {
+            record.lock().unwrap_or_else(PoisonError::into_inner).push(message);
+            true
+        })
+        .expect("the writer thread starts");
+
+        let sent = [
+            ToRenderer::SetVolume(10),
+            ToRenderer::Pause(true),
+            ToRenderer::Pause(false),
+            ToRenderer::Close,
+        ];
+        for message in sent.clone() {
+            assert_eq!(link.offer(message), Offer::Queued);
+        }
+
+        let deadline = Instant::now() + Duration::from_secs(5);
+        while written.lock().unwrap_or_else(PoisonError::into_inner).len() < sent.len() {
+            assert!(Instant::now() < deadline, "the messages were not written");
+            thread::sleep(Duration::from_millis(10));
+        }
+        assert_eq!(*written.lock().unwrap_or_else(PoisonError::into_inner), sent);
+    }
+
+    #[test]
+    fn a_broken_connection_fails_every_later_offer() {
+        let link = Link::start("test-writer".to_owned(), |_| false).expect("the writer thread starts");
+        assert_eq!(link.offer(ToRenderer::Close), Offer::Queued);
+
+        let deadline = Instant::now() + Duration::from_secs(5);
+        while link.offer(ToRenderer::Pause(true)) != Offer::Failed {
+            assert!(Instant::now() < deadline, "the broken link kept accepting messages");
+            thread::sleep(Duration::from_millis(10));
+        }
     }
 
     #[test]

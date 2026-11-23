@@ -116,7 +116,7 @@ pub trait Engine {
 
 ## Threading, errors, logging (D-012)
 
-- Service: OS event loop on the main thread; IPC, network and decoding on worker threads; communication with `crossbeam-channel`.
+- Service: OS event loop on the main thread; IPC, network and decoding on worker threads; communication with `crossbeam-channel`. Each renderer connection has a bounded outgoing queue drained by a writer thread of its own, so a renderer that stops reading never blocks the main thread or the other renderers (a clock reading is dropped when the queue is full, any other message is a failure).
 - UI: GPUI executor (`cx.spawn`, `background_executor`). Never block the UI thread with I/O or decoding.
 - Errors: `thiserror` in crates, `anyhow` in apps. No `unwrap()` on I/O, parsing or FFI results.
 - Logging: `tracing`; daily rolling files under `Log/`; no `println!` outside `xtask`.
