@@ -160,6 +160,14 @@ When you make or change a decision, add an entry here in the same change.
 - Deviation: departs from the Phase 2 context rule (02-CONTEXT, Claude's discretion: "the primary monitor, with another renderer promoted when the master's monitor goes away"): after a primary-monitor change the master stays on the renderer that already plays, which can be on a non-primary monitor, until its monitor goes away or it stops playing. The other half of the rule stays: another renderer is promoted when the master's monitor goes away.
 - Consequences: the audio is played by the master's process; it goes to the same default output device whichever renderer plays it, and the legacy app has no master clock, so no legacy behavior changes. No protocol change; the policy is the pure `choose_master` in `apps/sucrose/src/service.rs`.
 
+## D-031: Wait for explorer when a display change leaves a monitor outside its desktop window
+- Status: Accepted (2026-11-23), maintainer choice at the plan 02-26 checkpoint (verbatim reply "wait")
+- Decision: after a display change each surface stays in explorer's desktop window (Progman on the raised desktop) and is re-placed when explorer moves or resizes that window (location watch) and after every applied display change (re-place-all); while explorer leaves a monitor, or part of it, outside that window, that part shows the static Windows wallpaper and no icons; Sucrose does not switch to a fallback window there.
+- Why: a spike on the maintainer's machine with the release build of 02-23..02-25 made 4 display changes (two primary switches and two origin-only changes); the location watch caught 8 of 8 moves of the window, every outside episode lasted 1.73-2.11 s and ended with the surface shown, so the run was classified "explorer keeps up". The episode of about 90 s seen in UAT test 7(c), after Windows applied two layouts in a row, did not recur (Windows applied one layout per change in the spike), so its cause is neither confirmed nor refuted.
+- Rejected: the fallback window (while explorer's window does not reach a monitor, the surface leaves Progman for a bottom-most, non-activating tool window on that monitor, and its live video child is reparented twice per episode): it is a new surface mode for an episode that lasted about 2 s in the spike, and the legacy app parents its engine windows into the same shell windows (docs/legacy/engines.md, section 2), so a fallback would be new behavior, not parity.
+- Consequences: UAT gap G-02-7 is an accepted limitation and stays open (not closed); the length of an episode is explorer's, not bounded by the app; the surface logs each episode (a warning when it starts, an info line when it ends) so a long one can be diagnosed from the logs; if a long episode recurs, a new entry that supersedes this one reopens the choice; recorded in docs/FEATURES.md, row "Monitor changes, shell restart recovery (CrashExplorer)".
+
+
 ---
 
 ## Open questions
