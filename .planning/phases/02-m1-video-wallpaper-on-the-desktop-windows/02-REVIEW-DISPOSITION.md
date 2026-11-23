@@ -5,15 +5,15 @@ titles: json
 findings:
   - id: WR-15
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "A late `Playing` or `Failed` of an already ended renderer still rewrites the status (reopens IN-16 and WR-01)"
   - id: WR-16
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "A refused Hello makes the renderer exit with code 0, and the monitor stays without a wallpaper (reopens WR-05)"
   - id: WR-17
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "A failed start loses its reason from the tooltip right after the exit (reopens IN-01, WR-11)"
   - id: IN-07
     severity: info
@@ -151,18 +151,18 @@ findings:
     severity: info
     disposition: open
     title: "The recorded GPU regression has an obvious first suspect in the generated options"
-open: 7
+open: 4
 total: 37
-recorded: 2026-11-23T13:44:08.198Z
+recorded: 2026-11-23T14:01:30.247Z
 ---
 
 # Phase 02: Code Review Disposition
 
 | Finding | Severity | Disposition | Source |
 |---------|----------|-------------|--------|
-| WR-15 | warning | open | - |
-| WR-16 | warning | open | - |
-| WR-17 | warning | open | - |
+| WR-15 | warning | fixed | 02-REVIEW-FIX.md |
+| WR-16 | warning | fixed | 02-REVIEW-FIX.md |
+| WR-17 | warning | fixed | 02-REVIEW-FIX.md |
 | IN-07 | info | skipped | 02-REVIEW-FIX.md |
 | IN-19 | info | open | - |
 | IN-20 | info | open | - |
