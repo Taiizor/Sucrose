@@ -1,8 +1,8 @@
 //! The background image layer (UI-01, UI-07): a full-window image below the page tint, fitted by the stored stretch and
 //! drawn at the stored opacity.
 //!
-//! The file is untrusted (T-03-40): the header is read first and an image over [`MAX_SIDE`] pixels per side is refused
-//! before any decoding, the decode runs on the background executor, and the result is no larger than the window needs
+//! The file is untrusted (T-03-40, CR-01): the header is read first and an image over [`MAX_SIDE`] pixels per side or over
+//! [`MAX_PIXELS`](crate::library::thumbs::MAX_PIXELS) pixels in area is refused by [`check_dimensions`] before any decoding, the decode runs on the background executor, and the result is no larger than the window needs
 //! (long edge at most [`MAX_LONG_EDGE`]). An animated GIF keeps its frames only inside the hover-preview caps
 //! ([`GIF_MAX_FRAMES`], [`GIF_MAX_BYTES`]); beyond them only the first frame is shown. A replaced image is released from
 //! GPUI's atlas.
@@ -15,13 +15,13 @@ use std::{
 
 use gpui_kit::*;
 use image::{
-    AnimationDecoder as _, DynamicImage, Frame, ImageDecoder as _, ImageFormat, ImageReader, Limits,
-    codecs::gif::GifDecoder, imageops::FilterType,
+    AnimationDecoder as _, Frame, ImageDecoder as _, ImageFormat, ImageReader, Limits, codecs::gif::GifDecoder,
+    imageops::FilterType,
 };
 use sucrose_core::settings::Stretch;
 
 use crate::atlas;
-use crate::library::thumbs::{MAX_SIDE, decode_generic, image_bytes, to_bgra};
+use crate::library::thumbs::{MAX_SIDE, check_dimensions, decode_generic, decode_jpeg_scaled, image_bytes, to_bgra};
 
 /// The longest edge, in pixels, a decoded background image may have.
 pub const MAX_LONG_EDGE: u32 = 2560;
@@ -169,9 +169,7 @@ pub fn decode_bytes(bytes: &[u8], window: (u32, u32)) -> Result<Decoded, Backgro
         .map_err(|_| BackgroundError::Unsupported)?;
     let format = reader.format();
     let (width, height) = reader.into_dimensions().map_err(|_| BackgroundError::Unsupported)?;
-    if width > MAX_SIDE || height > MAX_SIDE {
-        return Err(BackgroundError::Unsupported);
-    }
+    check_dimensions(width, height).map_err(|_| BackgroundError::Unsupported)?;
     let target = decode_size((width, height), window);
     if format == Some(ImageFormat::Gif) {
         return decode_gif(bytes, target);
@@ -190,29 +188,6 @@ pub fn decode_bytes(bytes: &[u8], window: (u32, u32)) -> Result<Decoded, Backgro
         shown: Arc::new(RenderImage::new(vec![frame])),
         still: None,
     })
-}
-
-/// A JPEG decoded straight at 1/2, 1/4 or 1/8 size, so a large photo never exists in memory at full size. `None` when it
-/// is not a JPEG this decoder handles; the generic decoder then takes over.
-fn decode_jpeg_scaled(bytes: &[u8], target: (u32, u32)) -> Option<DynamicImage> {
-    if !bytes.starts_with(&[0xFF, 0xD8]) {
-        return None;
-    }
-    let mut decoder = jpeg_decoder::Decoder::new(Cursor::new(bytes));
-    let (width, height) = decoder
-        .scale(u16::try_from(target.0).ok()?, u16::try_from(target.1).ok()?)
-        .ok()?;
-    let pixels = decoder.decode().ok()?;
-    let (width, height) = (u32::from(width), u32::from(height));
-    match decoder.info()?.pixel_format {
-        jpeg_decoder::PixelFormat::RGB24 => {
-            image::RgbImage::from_raw(width, height, pixels).map(DynamicImage::ImageRgb8)
-        }
-        jpeg_decoder::PixelFormat::L8 => {
-            image::GrayImage::from_raw(width, height, pixels).map(DynamicImage::ImageLuma8)
-        }
-        _ => None,
-    }
 }
 
 /// A GIF at `target` pixels: every frame while they fit the caps, otherwise the first frame only.

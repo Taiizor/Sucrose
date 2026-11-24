@@ -2,7 +2,8 @@
 //! pointer rested on the card for [`HOVER_DWELL`], within hard frame and byte caps. One preview lives at a time and it is
 //! released when the pointer leaves, so a sweep across the grid decodes nothing and memory returns to where it was.
 //!
-//! The GIF is untrusted (T-03-44): a logical screen over [`MAX_SIDE`] pixels per side is refused, the decoder allocates at
+//! The GIF is untrusted (T-03-44, CR-01): a logical screen over [`MAX_SIDE`] pixels per side or [`MAX_PIXELS`](super::thumbs::MAX_PIXELS) pixels in area
+//! is refused by [`check_dimensions`], the decoder allocates at
 //! most [`MAX_DECODE_ALLOC`] bytes, and every frame is shrunk to card size before it is kept.
 
 use std::{io::Cursor, path::Path, sync::Arc, time::Duration};
@@ -11,7 +12,7 @@ use anyhow::{Context as _, bail};
 use gpui_kit::RenderImage;
 use image::{AnimationDecoder as _, Delay, Frame, ImageDecoder as _, Limits, codecs::gif::GifDecoder, imageops};
 
-use super::thumbs::{Bucket, MAX_SIDE, image_bytes, to_bgra};
+use super::thumbs::{Bucket, MAX_SIDE, check_dimensions, image_bytes, to_bgra};
 
 /// The most frames a preview keeps; a longer GIF loops what was decoded.
 pub const MAX_PREVIEW_FRAMES: usize = 120;
@@ -28,10 +29,10 @@ const MIN_DELAY_MS: u32 = 20;
 const DEFAULT_DELAY_MS: u32 = 100;
 
 /// The size a preview of `bytes` is decoded at for `bucket`: the GIF's own proportions, never wider than the bucket and
-/// never enlarged. `None` when the file is not a GIF or its logical screen is over [`MAX_SIDE`].
+/// never enlarged. `None` when the file is not a GIF or its logical screen is over [`MAX_SIDE`] or [`MAX_PIXELS`](super::thumbs::MAX_PIXELS).
 pub fn preview_size(bytes: &[u8], bucket: Bucket) -> Option<(u32, u32)> {
     let (width, height) = GifDecoder::new(Cursor::new(bytes)).ok()?.dimensions();
-    if width == 0 || height == 0 || width > MAX_SIDE || height > MAX_SIDE {
+    if width == 0 || height == 0 || check_dimensions(width, height).is_err() {
         return None;
     }
     let target = bucket.width().min(width);
@@ -47,7 +48,7 @@ pub fn decode_preview(bytes: &[u8], width: u32, height: u32) -> Option<Vec<Frame
     }
     let mut decoder = GifDecoder::new(Cursor::new(bytes)).ok()?;
     let (screen_width, screen_height) = decoder.dimensions();
-    if screen_width > MAX_SIDE || screen_height > MAX_SIDE {
+    if check_dimensions(screen_width, screen_height).is_err() {
         return None;
     }
     let mut limits = Limits::default();
