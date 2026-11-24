@@ -130,7 +130,7 @@ Task 2 (tdd="true"): RED `d6c5930c` then GREEN `ea64e4fa`; no refactor commit. R
 
 **1. [Rule 2 - Missing Critical] Refuse the real data folder as --out**
 - **Found during:** Task 1 (threat T-03-11, prohibition "never writes to %APPDATA%\Sucrose")
-- **Issue:** The plan's mitigation (marker or --force) still lets `--force` with a mistyped `--out%APPDATA%\Sucrose` remove the real `Library` and `Setting` folders, which the generator replaces on a rewrite.
+- **Issue:** The plan's mitigation (marker or --force) still lets `--force` with a mistyped `--out %APPDATA%\Sucrose` remove the real `Library` and `Setting` folders, which the generator replaces on a rewrite.
 - **Fix:** `generate` compares the absolute `--out` (case-insensitive, `.` and `..` resolved textually) with `paths::legacy_data_dir()` and stops before writing; unit test `synth_real_data_folder_is_recognised_even_through_dots_and_case`.
 - **Files modified:** xtask/src/synth_library.rs
 - **Committed in:** 7158bd54, test in d6c5930c
