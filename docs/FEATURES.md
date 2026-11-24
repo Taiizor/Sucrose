@@ -90,8 +90,8 @@ Actions Close / Pause / Resume per condition; trigger after 5 consecutive 1 s po
 | Feature | Notes | Status |
 |---|---|---|
 | Showcase themes copied on first run | tracked in `Warehouse.json` | ⬜ |
-| Scan, validity rules, delete corrupt themes | | ⬜ |
-| Sorting (name, creation, modification; asc/desc), search index | | ⬜ |
+| Scan, validity rules, delete corrupt themes | Rust scan (`sucrose_core::library`) keeps the legacy rules and only reads. It reads missing optional SucroseInfo keys leniently, matches Type names in any case like Newtonsoft, and treats a Preview, Thumbnail or Source outside the theme folder as corrupt (new safety rule). | ⬜ |
+| Sorting (name, creation, modification; asc/desc), search index | Ties keep folder-name order. Search lowercases with Unicode lowercase only (no Turkish folding) and orders results by the number of matched words. | ⬜ |
 | Pagination, adaptive layout (margin, max per row) | | ⬜ |
 | Card: use, review, customize, add/remove from cycle, find, share, delete (confirm), edit | | ⬜ |
 | Hover previews, hide details while previewing | | ⬜ |
