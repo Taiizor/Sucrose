@@ -40,6 +40,7 @@ use sucrose_core::settings::{FullScreenAction, FullScreenScope, GpuPreference, P
 
 use crate::{
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
+    lifecycle::{should_exit, start_actions},
     modules::{MEMORY_TIMER, MemoryModule, ModuleAction, module_off, pids_by_slot, start_module, tray_action},
     portal_link::{
         PortalAdmission, PortalLink, PortalRegistry, ask_service_to_open_portal, portal_args, request_kind,
@@ -480,6 +481,16 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
     // When this service last started a Portal that has not registered yet, so a launcher that comes in the meantime
     // does not start a second one (T-03-35).
     let mut portal_spawned: Option<Instant> = None;
+    // The legacy Launcher rule (D-12): what the service itself starts besides the wallpaper that the plan already
+    // started above.
+    let start = start_actions(plan.selected_exists, plan.app_visible, portal_wanted);
+    tracing::info!(?start, "start rule");
+    if start.open_portal {
+        match open_portal(None) {
+            Ok(()) => portal_spawned = Some(Instant::now()),
+            Err(error) => tracing::warn!(%error, "cannot open the Portal at start"),
+        }
+    }
     // The runtime state last offered to the Portal, so that only a change is sent (D-23).
     let mut last_runtime: Option<RuntimeState> = None;
     let legacy_root = legacy_data_dir();
@@ -492,6 +503,9 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
     }
     let loop_end = event_loop.run(|event| match event {
         LoopEvent::Wake => {
+            // Set by what can leave the service with nothing to do: the Portal going, a renderer ending, the tray
+            // switch (D-13).
+            let mut check_exit = false;
             for event in receiver.try_iter() {
                 match event {
                     Event::Renderer {
@@ -550,6 +564,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                         }
                     }
                     Event::Exited(exited) => {
+                        check_exit = true;
                         let old_link_removed = {
                             let mut state = lock(&renderers);
                             let is_old = state
@@ -687,6 +702,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                             // Notification Area Icon: the tray appears or goes at once. Changes are
                                             // handled one at a time here, so quick toggles end in the last value.
                                             if let SettingChange::AppVisible(visible) = &stored {
+                                                check_exit = true;
                                                 match tray_action(tray.is_some(), *visible) {
                                                     ModuleAction::Create => {
                                                         tray = start_module("tray", true, || {
@@ -748,6 +764,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                     Event::PortalGone { connection } => {
                         if portals.gone(connection) {
                             tracing::info!("the portal disconnected");
+                            check_exit = true;
                         }
                     }
                     Event::Launch { page, reply } => {
@@ -777,6 +794,17 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                         let _ = reply.send(answer);
                     }
                 }
+            }
+            if check_exit
+                && !quitting
+                && should_exit(
+                    tray.is_some(),
+                    fleet.wallpaper_wanted(),
+                    portals.registered_pid().is_some() || spawn_pending(portal_spawned, Instant::now()),
+                )
+            {
+                tracing::info!("nothing needs the service, exiting");
+                tray_proxy.quit();
             }
             // The memory report follows the Portal: started when one is registered, stopped when it is gone.
             if !quitting {
@@ -1520,6 +1548,9 @@ struct Plan {
     status: Status,
     /// General.json AppVisible: whether the tray exists at all (D-15).
     app_visible: bool,
+    /// Whether the selected theme has a folder in the library. A theme the gate rejects still counts, like in the
+    /// legacy Launcher (D-12).
+    selected_exists: bool,
     /// Backgroundog.json FullScreenPerformance: what a fullscreen app in front does to the wallpaper.
     fullscreen: FullScreenAction,
     /// Backgroundog.FullScreenScope: which monitors the fullscreen rule acts on.
@@ -2234,6 +2265,19 @@ fn announce_runtime(
 }
 
 impl Fleet {
+    /// Whether a wallpaper is still wanted: a theme is selected and at least one monitor's renderer runs, is about to
+    /// start, or waits for the fullscreen rule to bring it back. A renderer that ended for good does not count.
+    fn wallpaper_wanted(&self) -> bool {
+        if self.job.is_none() {
+            return false;
+        }
+        let slots = self.slots.active_slots();
+        slots.is_empty()
+            || slots
+                .iter()
+                .any(|slot| !self.stopped.contains(slot) || self.rule_closed.is_closed(*slot))
+    }
+
     /// What the fullscreen rule does to the wallpaper now, read from the rule itself: no second record to keep in step.
     fn rule_state(&self) -> RuleState {
         let Some(rule) = &self.fullscreen else {
@@ -2330,6 +2374,7 @@ fn plan_wallpapers() -> (Plan, SettingsHost) {
                 reason: "the OS reports no config folder, so the settings cannot be read".to_owned(),
             },
             app_visible: true,
+            selected_exists: false,
             fullscreen: FullScreenAction::default(),
             scope: ActionScope::AllMonitors,
             pause: PauseKind::default(),
@@ -2393,6 +2438,7 @@ fn plan_from(settings: &Settings, legacy_root: &std::path::Path) -> Plan {
         job,
         status,
         app_visible: settings.general.app_visible,
+        selected_exists: !settings.library.selected.is_empty() && location.join(&settings.library.selected).is_dir(),
         fullscreen: settings.backgroundog.fullscreen,
         scope: action_scope(settings.backgroundog.full_screen_scope),
         pause: settings.backgroundog.pause,
@@ -3388,6 +3434,39 @@ mod tests {
                 .insert(fleet.slots.slot_of(id).expect("a slot for a playing monitor"));
         }
         fleet
+    }
+
+    #[test]
+    fn no_job_means_no_wallpaper_is_wanted() {
+        let mut fleet = fleet_of(&[("a", true)], &[]);
+        fleet.job = None;
+        assert!(!fleet.wallpaper_wanted());
+    }
+
+    #[test]
+    fn a_job_with_a_renderer_that_runs_or_will_start_is_wanted() {
+        assert!(fleet_with_a_job().wallpaper_wanted(), "no monitor yet, one may come");
+        assert!(fleet_of(&[("a", true)], &[]).wallpaper_wanted());
+    }
+
+    #[test]
+    fn a_job_whose_renderers_all_gave_up_is_not_wanted_but_one_alive_keeps_it() {
+        let mut fleet = fleet_of(&[("a", true), ("b", false)], &[]);
+        let a = fleet.slots.slot_of("a").expect("a slot");
+        let b = fleet.slots.slot_of("b").expect("a slot");
+        fleet.stopped.insert(a);
+        assert!(fleet.wallpaper_wanted(), "the other monitor still plays");
+        fleet.stopped.insert(b);
+        assert!(!fleet.wallpaper_wanted(), "every renderer ended for good");
+    }
+
+    #[test]
+    fn a_renderer_closed_by_the_fullscreen_rule_is_still_wanted() {
+        let mut fleet = fleet_of(&[("a", true)], &[]);
+        let a = fleet.slots.slot_of("a").expect("a slot");
+        fleet.stopped.insert(a);
+        fleet.rule_closed.close(a, true);
+        assert!(fleet.wallpaper_wanted());
     }
 
     /// A monitor with an explicit rectangle (its work area is the same).

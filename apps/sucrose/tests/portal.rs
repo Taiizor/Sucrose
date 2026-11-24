@@ -117,7 +117,7 @@ fn quick_toggles_leave_the_state_of_the_last_value() {
     if !service_runs("quick_toggles_leave_the_state_of_the_last_value") {
         return;
     }
-    let service = TestService::start("tray-quick", &json!({}));
+    let mut service = TestService::start("tray-quick", &json!({}));
     let (mut portal, first) = PortalClient::hello(&service, None);
     assert!(matches!(first, PortalEvent::Welcome { .. }), "{first:?}");
 
@@ -140,18 +140,12 @@ fn quick_toggles_leave_the_state_of_the_last_value() {
     assert_eq!(service.settings_file()["General"]["AppVisible"], false);
     drop(portal);
 
-    // A Welcome describes the state the service is in now, so it shows where the toggles ended.
-    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
-    loop {
-        let (_next, event) = PortalClient::hello(&service, None);
-        if let PortalEvent::Welcome { settings, runtime } = event {
-            assert!(!settings.app_visible);
-            assert!(!runtime.tray_visible, "the tray ended as the last value says");
-            break;
-        }
-        assert!(std::time::Instant::now() < deadline, "no Welcome: {event:?}");
-        std::thread::sleep(std::time::Duration::from_millis(50));
-    }
+    // With the tray hidden and nothing to play, the service ends once the Portal is gone (D-13); that only happens when
+    // the tray ended as the last value says.
+    assert!(
+        service.exits_within(std::time::Duration::from_secs(3)),
+        "the tray ended visible although the last value hides it"
+    );
 }
 
 #[test]
@@ -391,7 +385,11 @@ fn a_failed_write_is_rejected_with_the_not_saved_text_and_nothing_is_broadcast()
     if !service_runs("a_failed_write_is_rejected_with_the_not_saved_text_and_nothing_is_broadcast") {
         return;
     }
-    let service = TestService::start("readonly", &json!({ "Portal": { "LibraryPagination": 12 } }));
+    // The tray keeps the service running after the first Portal leaves (D-13).
+    let service = TestService::start(
+        "readonly",
+        &json!({ "Portal": { "LibraryPagination": 12 }, "General": { "AppVisible": true } }),
+    );
     let (mut portal, _) = PortalClient::hello(&service, None);
     let _readonly = ReadOnly::new(service.dir.join("Setting").join("Sucrose.json"));
 

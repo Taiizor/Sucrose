@@ -14,18 +14,16 @@ pub struct StartActions {
 /// the tray is hidden (the user would have no other way in); with nothing selected the Portal opens. A service started
 /// with `--no-portal` (`open_portal_flag` false) never opens one.
 pub fn start_actions(selected_exists: bool, tray_visible: bool, open_portal_flag: bool) -> StartActions {
-    let _ = (selected_exists, tray_visible, open_portal_flag);
     StartActions {
-        start_wallpaper: false,
-        open_portal: false,
+        start_wallpaper: selected_exists,
+        open_portal: open_portal_flag && (!selected_exists || !tray_visible),
     }
 }
 
 /// The service exit rule (D-13): with the tray hidden, no wallpaper wanted and no Portal connected nothing needs the
 /// service; with the tray visible it stays until Exit.
 pub fn should_exit(tray_visible: bool, wallpaper_wanted: bool, portal_connected: bool) -> bool {
-    let _ = (tray_visible, wallpaper_wanted, portal_connected);
-    false
+    !tray_visible && !wallpaper_wanted && !portal_connected
 }
 
 #[cfg(test)]
