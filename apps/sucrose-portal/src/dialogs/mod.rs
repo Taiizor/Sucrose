@@ -7,6 +7,8 @@
 
 pub mod about;
 pub mod help;
+#[allow(dead_code, reason = "wired into the window close in the next commit")]
+pub mod tray_hint;
 
 use gpui_kit::assets::IconName;
 use gpui_kit::component::{
