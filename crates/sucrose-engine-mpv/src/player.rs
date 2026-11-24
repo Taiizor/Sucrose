@@ -9,7 +9,7 @@ use std::ffi::{CStr, CString, c_char, c_int};
 use std::path::Path;
 use std::ptr;
 use std::sync::Arc;
-use std::sync::atomic::{AtomicBool, AtomicU32, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicU32, AtomicU64, Ordering};
 use std::sync::mpsc::{self, Receiver, Sender};
 use std::sync::{Mutex, PoisonError};
 use std::thread::{self, JoinHandle};
@@ -193,6 +193,9 @@ struct Shared {
     /// Set by [`Player::load_source`] and cleared at the first playback restart of the new file: until then the
     /// position and the first-frame flag belong to the file that was replaced.
     loading: AtomicBool,
+    /// Counts the [`Player::load_source`] requests, bumped before the `loadfile` command is issued so that no event of
+    /// the new file can precede it. The event thread feeds it to its [`SourceSwitch`].
+    load_generation: AtomicU64,
     /// mpv's description of the error that ended the file before its first frame, when that happened.
     start_failure: Mutex<Option<String>>,
 }
@@ -207,25 +210,45 @@ enum Restart {
 }
 
 /// Decides, on the event thread, which playback restart is the first frame of a file requested with
-/// [`Player::load_source`].
+/// [`Player::load_source`] (WR-08).
+///
+/// A request does not replace the file at once: events of the old file that mpv had already queued (a loop wrap, a
+/// finished seek) still arrive after it, so "the next restart" is not the new file's first frame. The new file's
+/// first frame is the first restart after the `FILE_LOADED` event of the latest request. Requests carry a generation
+/// ([`Shared::load_generation`]); only the file loaded for the latest generation can start, so two quick loads start
+/// once, for the last file.
 #[derive(Debug, Default)]
 struct SourceSwitch {
+    /// The generation of the latest request seen; 0 before any.
     requested: u64,
+    /// The latest request's start was not reported yet.
     pending: bool,
+    /// The file of the latest request finished loading.
+    loaded: bool,
 }
 
 impl SourceSwitch {
+    /// A new load request; one with a generation already seen is ignored.
     fn requested(&mut self, generation: u64) {
         if generation > self.requested {
             self.requested = generation;
             self.pending = true;
+            self.loaded = false;
         }
     }
 
-    fn file_loaded(&mut self, _generation: u64) {}
+    /// A file finished loading; `generation` is the request it belongs to. Only the latest request counts.
+    fn file_loaded(&mut self, generation: u64) {
+        if self.pending && generation == self.requested {
+            self.loaded = true;
+        }
+    }
 
+    /// A playback restart: the new file's first frame (once per request) or a restart of the old file.
     fn restart(&mut self) -> Restart {
-        if std::mem::take(&mut self.pending) {
+        if self.pending && self.loaded {
+            self.pending = false;
+            self.loaded = false;
             Restart::NewStart
         } else {
             Restart::Old
@@ -370,7 +393,8 @@ impl Player {
     ///
     /// `path` must be absolute: only a file the theme gate accepted is passed, never text taken from a theme (T-03-24).
     /// Until the first frame of the new file is shown, [`Player::has_started`] is false and the event thread reports the
-    /// new file as a new start (a `Started` event), not as a jump of the old one.
+    /// new file as a new start (a `Started` event), not as a jump of the old one. That first frame is the first playback
+    /// restart after the new file loaded: a restart of the old file that mpv had queued earlier is not taken for it.
     pub fn load_source(&self, path: &Path, settings: &PlaybackSettings) -> Result<(), PlayerError> {
         let text = path
             .to_str()
@@ -386,6 +410,8 @@ impl Player {
             }
         }
         self.shared.loading.store(true, Ordering::SeqCst);
+        // Before the command, so every event of the new file sees the new generation.
+        self.shared.load_generation.fetch_add(1, Ordering::SeqCst);
         if let Err(error) = self.load(text) {
             self.shared.loading.store(false, Ordering::SeqCst);
             return Err(error);
@@ -664,6 +690,15 @@ fn error_text(mpv: &Mpv, status: c_int) -> String {
 /// Reads events until mpv shuts down or the player is dropped; the only caller of mpv_wait_event.
 fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool, shared: &Shared, events: &Sender<PlayerEvent>) {
     let mut started = false;
+    // Which restart is the first frame of the file the latest load_source asked for.
+    let mut switch = SourceSwitch::default();
+    // The load request the file mpv is starting belongs to, as of its START_FILE. mpv's playlist entry id of that event
+    // would name the request exactly, but `mpv_command` does not return the id of its `loadfile`; the generation read
+    // at START_FILE is never older than the request (it is bumped before the command) and only newer when another
+    // load_source landed between the command and this thread reading the event. Then the first file's loaded event
+    // counts for the newer request, and a restart of that first file can pass for the new start: the window is the
+    // time between two back-to-back loads, and the file of that restart is a requested one.
+    let mut starting: u64 = 0;
     // Where playback was at the last restart or pause change: only this thread reads or writes it.
     let mut anchor: Option<Anchor> = None;
     while !stop.load(Ordering::SeqCst) {
@@ -674,17 +709,23 @@ fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool, shared: &Shared, eve
         let Some(event) = (unsafe { event.as_ref() }) else {
             continue;
         };
+        // Requests made so far, including any made since the previous event was read.
+        switch.requested(shared.load_generation.load(Ordering::SeqCst));
         match event.event_id {
             sys::mpv_event_id_MPV_EVENT_SHUTDOWN => {
                 tracing::debug!("libmpv shut down");
                 return;
             }
+            sys::mpv_event_id_MPV_EVENT_START_FILE => starting = shared.load_generation.load(Ordering::SeqCst),
+            sys::mpv_event_id_MPV_EVENT_FILE_LOADED => switch.file_loaded(starting),
             // The decoder exists once the first frame is about to show, so hwdec-current is only meaningful here.
             // A later restart follows a seek or a loop wrap: the position jumped, so the clock is due.
             sys::mpv_event_id_MPV_EVENT_PLAYBACK_RESTART if started => {
-                if shared.loading.swap(false, Ordering::SeqCst) {
-                    // The first frame of a file loaded with `load_source`: a new start. Its position is not a jump
+                if switch.restart() == Restart::NewStart {
+                    // The first frame of the file loaded with `load_source`: a new start. Its position is not a jump
                     // of the old file, so nothing is classified, the anchor starts afresh and the driver is told.
+                    // Cleared before the event is sent, so whoever receives Started also sees has_started.
+                    shared.loading.store(false, Ordering::SeqCst);
                     anchor = take_anchor(mpv, handle, shared);
                     tracing::info!("playback started on the new source");
                     let _ = events.send(PlayerEvent::Started);
@@ -702,6 +743,10 @@ fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool, shared: &Shared, eve
             }
             sys::mpv_event_id_MPV_EVENT_PLAYBACK_RESTART => {
                 started = true;
+                // A load_source made before the very first frame: this restart may already be its first frame.
+                if switch.restart() == Restart::NewStart {
+                    shared.loading.store(false, Ordering::SeqCst);
+                }
                 anchor = take_anchor(mpv, handle, shared);
                 let hwdec = property_string(mpv, handle, "hwdec-current")
                     .filter(|value| !value.is_empty())
