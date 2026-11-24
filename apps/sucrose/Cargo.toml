@@ -16,6 +16,7 @@ sucrose-engine-mpv = { workspace = true }
 sucrose-ipc = { workspace = true }
 sucrose-log = { workspace = true }
 sucrose-platform = { workspace = true }
+sysinfo = { workspace = true }
 tracing = { workspace = true }
 
 [dev-dependencies]

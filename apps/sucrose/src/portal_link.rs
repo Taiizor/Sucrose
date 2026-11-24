@@ -123,6 +123,11 @@ pub struct PortalRegistry {
 }
 
 impl PortalRegistry {
+    /// The pid of the registered Portal, if one is.
+    pub fn registered_pid(&self) -> Option<u32> {
+        self.registered.as_ref().map(PortalLink::pid)
+    }
+
     /// Whether `connection` is the registered Portal's.
     pub fn is_registered(&self, connection: u64) -> bool {
         self.registered

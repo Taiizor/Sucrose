@@ -41,6 +41,43 @@ fn welcome_carries_the_settings_view() {
 }
 
 #[test]
+fn memory_reports_arrive_while_connected() {
+    if !service_runs("memory_reports_arrive_while_connected") {
+        return;
+    }
+    let service = TestService::start("memory", &json!({}));
+    let (portal, first) = PortalClient::hello(&service, None);
+    assert!(matches!(first, PortalEvent::Welcome { .. }), "{first:?}");
+    let started = std::time::Instant::now();
+
+    let mut reports = Vec::new();
+    while reports.len() < 2 {
+        match portal.next_event() {
+            Some(PortalEvent::Memory(report)) => reports.push(report),
+            Some(_) => {}
+            None => panic!("only {} Memory events arrived", reports.len()),
+        }
+    }
+
+    assert!(
+        started.elapsed() < std::time::Duration::from_secs(3),
+        "two reports took {:?}",
+        started.elapsed()
+    );
+    for report in &reports {
+        assert!(report.service > 0, "the service figure is above 0: {report:?}");
+        assert!(
+            report.renderers.is_empty(),
+            "no wallpaper plays, so no renderer: {report:?}"
+        );
+        assert!(
+            report.portal > 0,
+            "the Portal (this test process) is counted: {report:?}"
+        );
+    }
+}
+
+#[test]
 fn a_second_portal_is_told_the_first_is_open_and_the_first_is_focused() {
     if !service_runs("a_second_portal_is_told_the_first_is_open_and_the_first_is_focused") {
         return;

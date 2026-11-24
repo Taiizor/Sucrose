@@ -29,14 +29,14 @@ use sucrose_ipc::{
     service_endpoint,
 };
 use sucrose_platform::{
-    EventLoop, Flow, GpuPreferenceChange, LoopEnd, LoopEvent, LoopProxy, LoopTimers, MonitorInfo, PlatformError,
-    RectPx, Tray,
+    EventLoop, Flow, GpuPreferenceChange, LoopEnd, LoopEvent, LoopProxy, LoopTimers, MonitorInfo, RectPx, Tray,
 };
 // ScreenArea is read below to choose the surface rectangle.
 use sucrose_core::settings::{FullScreenAction, FullScreenScope, GpuPreference, PauseKind, ScreenArea};
 
 use crate::{
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
+    modules::{MEMORY_TIMER, MemoryModule, module_off, pids_by_slot, start_module},
     portal_link::{PortalAdmission, PortalLink, PortalRegistry, request_kind, runtime_state},
     settings_host::{SettingsHost, describe},
     supervisor::{
@@ -325,26 +325,6 @@ fn printable(text: &str) -> String {
         .collect()
 }
 
-/// Creates the tray when General.json's AppVisible says so (D-15). With AppVisible false `create` is never called:
-/// no icon, no menu and none of their resources exist (D-008). A tray that cannot be created is logged and the
-/// service runs without one.
-fn start_tray<T>(app_visible: bool, create: impl FnOnce() -> Result<T, PlatformError>) -> Option<T> {
-    if !app_visible {
-        tracing::info!("tray disabled: General.json AppVisible is false");
-        return None;
-    }
-    match create() {
-        Ok(tray) => {
-            tracing::info!("tray icon ready");
-            Some(tray)
-        }
-        Err(error) => {
-            tracing::error!(%error, "cannot show the tray icon, Sucrose can only be stopped from Task Manager");
-            None
-        }
-    }
-}
-
 /// Runs the service until Quit is chosen from the tray.
 pub fn run() -> anyhow::Result<()> {
     let awareness = sucrose_platform::init_dpi_awareness();
@@ -432,7 +412,12 @@ pub fn run() -> anyhow::Result<()> {
         .context("cannot start the accept thread")?;
 
     let tray_proxy = event_loop.proxy();
-    let tray = start_tray(plan.app_visible, || Tray::new(TRAY_ICON, &status.tooltip(), tray_proxy));
+    // General.json AppVisible (D-15): with it false no icon, no menu and none of their resources exist (D-008).
+    let tray = start_module("tray", plan.app_visible, || {
+        Tray::new(TRAY_ICON, &status.tooltip(), tray_proxy).inspect_err(|_| {
+            tracing::error!("without the tray icon Sucrose can only be stopped from Task Manager");
+        })
+    });
     if status.is_failure() {
         tracing::warn!(status = %status.text(), "no wallpaper, the service waits in the tray");
     }
@@ -444,6 +429,9 @@ pub fn run() -> anyhow::Result<()> {
     let mut last_runtime: Option<RuntimeState> = None;
     let legacy_root = legacy_data_dir();
     let timers = event_loop.timers();
+    // The memory report exists only while a Portal is connected (D-19): nothing runs until one registers.
+    let mut memory = MemoryModule::default();
+    module_off("memory");
     if fleet.enable_fullscreen(plan.fullscreen, plan.scope, plan.pause) {
         timers.set(FULLSCREEN_TIMER, FULLSCREEN_POLL_MS);
     }
@@ -692,6 +680,10 @@ pub fn run() -> anyhow::Result<()> {
                     }
                 }
             }
+            // The memory report follows the Portal: started when one is registered, stopped when it is gone.
+            if !quitting {
+                run_timers(&timers, memory.follow(portals.registered_pid().is_some()).into_iter().collect());
+            }
             // Whatever the events changed (a Use, an exit, a first frame, a setting) reaches the Portal once.
             announce_runtime(&mut portals, &mut last_runtime, &host, &fleet, &supervisor, tray.is_some());
             Flow::Continue
@@ -701,7 +693,7 @@ pub fn run() -> anyhow::Result<()> {
                 quitting = true;
                 tracing::info!("Quit chosen, closing the renderers");
                 // No monitor change is applied while the renderers are being closed.
-                for id in [TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, FULLSCREEN_TIMER] {
+                for id in [TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, FULLSCREEN_TIMER, MEMORY_TIMER] {
                     timers.kill(id);
                 }
                 start_shutdown(&renderers, &supervisor, &notifier);
@@ -713,6 +705,21 @@ pub fn run() -> anyhow::Result<()> {
         LoopEvent::DisplayChanged => {
             if !quitting && fleet.job.is_some() {
                 run_timers(&timers, fleet.debounce.display_changed().timers);
+            }
+            Flow::Continue
+        }
+        LoopEvent::Timer(MEMORY_TIMER) => {
+            let portal = portals.registered_pid();
+            if quitting {
+                timers.kill(MEMORY_TIMER);
+            } else if portal.is_none() {
+                // The Portal went away between two messages: the module stops with it.
+                run_timers(&timers, memory.follow(false).into_iter().collect());
+            } else if let Some(report) =
+                memory.sample(std::process::id(), &pids_by_slot(&supervisor.pids()), portal)
+            {
+                // The writer drops a Memory event when the Portal is slow, the next reading replaces it (D-19).
+                portals.send(PortalEvent::Memory(report));
             }
             Flow::Continue
         }
@@ -2342,6 +2349,7 @@ fn playback_settings(engine: &Engine) -> PlaybackSettings {
 #[cfg(test)]
 mod tests {
     use sucrose_core::theme::ThemeRejection;
+    use sucrose_platform::PlatformError;
 
     use super::*;
     use crate::supervisor::ENGINE_MISSING;
@@ -3114,31 +3122,6 @@ mod tests {
             assert!(Instant::now() < deadline, "the broken link kept accepting messages");
             thread::sleep(Duration::from_millis(10));
         }
-    }
-
-    #[test]
-    fn with_app_visible_false_no_tray_is_built() {
-        let mut built = false;
-
-        let tray = start_tray(false, || {
-            built = true;
-            Ok(())
-        });
-
-        assert!(tray.is_none());
-        assert!(!built, "the tray must not be created at all");
-    }
-
-    #[test]
-    fn with_app_visible_true_the_tray_is_built() {
-        assert_eq!(start_tray(true, || Ok(7)), Some(7));
-    }
-
-    #[test]
-    fn a_tray_that_cannot_be_created_leaves_the_service_without_one() {
-        let tray: Option<()> = start_tray(true, || Err(PlatformError::Unsupported("tray icon")));
-
-        assert!(tray.is_none());
     }
 
     #[test]
