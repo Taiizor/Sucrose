@@ -5,9 +5,11 @@ use std::{
     path::{Path, PathBuf},
 };
 
+use serde_json::json;
 use sucrose_core::{
-    library::{Compatibility, CorruptReason, Scan, scan},
+    library::{Compatibility, CorruptReason, LibraryTheme, Scan, display_title, is_url, scan, search, sort},
     paths::legacy_setting_dir,
+    settings::{SortKind, SortMode},
     theme::{WallpaperType, parse_info},
     version::{LegacyVersion, app_version},
 };
@@ -29,6 +31,25 @@ impl Scratch {
         let _ = fs::remove_dir_all(&dir);
         fs::create_dir_all(&dir).expect("create scratch folder");
         Self(dir)
+    }
+
+    /// A library of theme folders written from `(folder, title, description, tags, localization)`, each with every
+    /// file it names.
+    fn library_of(&self, themes: &[(&str, &str, &str, serde_json::Value, serde_json::Value)]) -> &Path {
+        for (folder, title, description, tags, localization) in themes {
+            let theme = self.0.join(folder);
+            fs::create_dir_all(&theme).expect("create theme folder");
+            let info = json!({
+                "AppVersion": "26.10.19.0", "Title": title, "Thumbnail": "th.jpg", "Preview": "pv.gif",
+                "Description": description, "Type": 3, "Source": "v.mp4", "Tags": tags,
+                "Localization": localization,
+            });
+            fs::write(theme.join("SucroseInfo.json"), info.to_string()).expect("write info");
+            for name in ["th.jpg", "pv.gif", "v.mp4"] {
+                fs::write(theme.join(name), b"x").expect("write file");
+            }
+        }
+        &self.0
     }
 
     /// Adds a theme folder `t` whose SucroseInfo.json has the given Preview and every file it names.
@@ -201,6 +222,183 @@ fn sanitized_real_theme_files_parse() {
         let path = fixtures().join("library-real").join(name).join("SucroseInfo.json");
         let info = parse_info(&fs::read_to_string(path).expect("fixture is readable")).expect("parses");
         assert_eq!(info.kind, kind, "{name}");
+    }
+}
+
+fn folders(themes: &[LibraryTheme]) -> Vec<&str> {
+    themes.iter().map(|t| t.folder.as_str()).collect()
+}
+
+fn at(seconds: u64) -> Option<std::time::SystemTime> {
+    Some(std::time::UNIX_EPOCH + std::time::Duration::from_secs(seconds))
+}
+
+#[test]
+fn the_index_holds_title_description_and_tags_lowercased_without_punctuation() {
+    let fixture = fixture_scan();
+    let video = fixture.themes.iter().find(|t| t.folder == "video").expect("listed");
+    assert_eq!(video.index, ["calm", "sea", "waves", "at", "night", "ocean", "blue"]);
+
+    let scratch = Scratch::new("index");
+    let location = scratch.library_of(&[
+        (
+            "a",
+            "Rock'n'Roll, Rock!",
+            "",
+            json!(["ROCK", "Night-Sky"]),
+            json!({"TR": {"Title": "Deniz", "Description": "Dalga"}}),
+        ),
+        ("b", "Ünï İstanbul", "(x) [y]", json!(null), json!(null)),
+    ]);
+    let scan = scan(location, &app_version()).expect("scans");
+    assert_eq!(
+        scan.themes[0].index,
+        ["rocknroll", "rock", "deniz", "dalga", "nightsky"]
+    );
+    assert_eq!(scan.themes[1].index, ["ünï", "i\u{307}stanbul", "x", "y"]);
+}
+
+#[test]
+fn the_title_is_the_localized_one_then_the_base_one_then_the_folder() {
+    let scratch = Scratch::new("title");
+    let location = scratch.library_of(&[
+        ("plain", "Base", "", json!(null), json!(null)),
+        (
+            "local",
+            "Base",
+            "",
+            json!(null),
+            json!({"en": {"Title": "Local", "Description": "d"}}),
+        ),
+        (
+            "other",
+            "Base",
+            "",
+            json!(null),
+            json!({"TR": {"Title": "Yerel", "Description": "d"}}),
+        ),
+        ("empty", "", "", json!(null), json!(null)),
+    ]);
+    let scan = scan(location, &app_version()).expect("scans");
+    let title = |folder: &str| {
+        let theme = scan.themes.iter().find(|t| t.folder == folder).expect("listed");
+        display_title(&theme.info, &theme.folder).to_owned()
+    };
+    assert_eq!(title("plain"), "Base");
+    assert_eq!(title("local"), "Local");
+    assert_eq!(title("other"), "Base");
+    assert_eq!(title("empty"), "empty");
+}
+
+#[test]
+fn sorting_by_name_is_by_title_and_descending_reverses_it() {
+    let mut themes = fixture_scan().themes;
+    sort(&mut themes, SortMode::Name, SortKind::Ascending);
+    assert_eq!(
+        folders(&themes),
+        ["video", "gif", "url-source", "newer-version", "lower-case-type", "web"]
+    );
+    sort(&mut themes, SortMode::Name, SortKind::Descending);
+    assert_eq!(
+        folders(&themes),
+        ["web", "lower-case-type", "newer-version", "url-source", "gif", "video"]
+    );
+}
+
+#[test]
+fn equal_keys_keep_folder_name_order_in_both_directions() {
+    let mut themes = fixture_scan().themes;
+    // Folder order: gif, lower-case-type, newer-version, url-source, video, web.
+    for (theme, seconds) in themes.iter_mut().zip([30, 10, 20, 10, 50, 20]) {
+        theme.created = at(seconds);
+        theme.modified = at(60 - seconds);
+    }
+    sort(&mut themes, SortMode::Creation, SortKind::Ascending);
+    assert_eq!(
+        folders(&themes),
+        ["lower-case-type", "url-source", "newer-version", "web", "gif", "video"]
+    );
+    themes.reverse();
+    sort(&mut themes, SortMode::Creation, SortKind::Descending);
+    assert_eq!(
+        folders(&themes),
+        ["video", "gif", "newer-version", "web", "lower-case-type", "url-source"]
+    );
+    sort(&mut themes, SortMode::Modification, SortKind::Ascending);
+    assert_eq!(
+        folders(&themes),
+        ["video", "gif", "newer-version", "web", "lower-case-type", "url-source"]
+    );
+    sort(&mut themes, SortMode::Modification, SortKind::Descending);
+    assert_eq!(
+        folders(&themes),
+        ["lower-case-type", "url-source", "newer-version", "web", "gif", "video"]
+    );
+}
+
+fn search_library(scratch: &Scratch) -> Vec<LibraryTheme> {
+    let location = scratch.library_of(&[
+        ("a", "Night Owl", "", json!(null), json!(null)),
+        ("b", "Sea Shell", "A shell", json!(["ocean"]), json!(null)),
+        ("c", "Calm Sea", "Waves at night", json!(null), json!(null)),
+        ("d", "Mountain", "", json!(null), json!(null)),
+    ]);
+    scan(location, &app_version()).expect("scans").themes
+}
+
+#[test]
+fn an_empty_query_returns_every_theme_in_the_current_order() {
+    let scratch = Scratch::new("search-empty");
+    let themes = search_library(&scratch);
+    assert_eq!(search(&themes, ""), [0, 1, 2, 3]);
+    assert_eq!(search(&themes, "   "), [0, 1, 2, 3]);
+    assert_eq!(search(&themes, "!?"), [0, 1, 2, 3]);
+}
+
+#[test]
+fn themes_matching_more_words_come_first_and_ties_keep_the_order() {
+    let scratch = Scratch::new("search-order");
+    let themes = search_library(&scratch);
+    assert_eq!(search(&themes, "sea night"), [2, 0, 1]);
+    assert_eq!(search(&themes, "night"), [0, 2]);
+}
+
+#[test]
+fn a_query_word_matches_inside_a_token_ignoring_case_and_punctuation() {
+    let scratch = Scratch::new("search-substring");
+    let themes = search_library(&scratch);
+    assert_eq!(search(&themes, "OCEA"), [1]);
+    assert_eq!(search(&themes, "Sea,"), [1, 2]);
+    assert!(search(&themes, "zebra").is_empty());
+}
+
+#[test]
+fn legacy_addresses_are_accepted_and_everything_else_is_not() {
+    for url in [
+        "http://example.com",
+        "https://www.example.com/page?x=1#y",
+        "HTTPS://EXAMPLE.COM",
+        "http://a-b.c_d.org/path/",
+        "https://example.com.",
+        "http://sub.example.com:8080/x",
+        "http://x.y",
+    ] {
+        assert!(is_url(url), "{url}");
+    }
+    for text in [
+        "ftp://x.y",
+        "http://localhost",
+        "index.html",
+        "",
+        "http://",
+        "http://.com",
+        "http://a..b",
+        "https://exa mple.com",
+        "http://example.com/a b",
+        "http://example.com/x,",
+        "http://example.com\n",
+    ] {
+        assert!(!is_url(text), "{text:?}");
     }
 }
 

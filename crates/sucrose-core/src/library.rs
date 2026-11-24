@@ -10,6 +10,7 @@ use std::{
 };
 
 use crate::{
+    settings::{SortKind, SortMode},
     theme::{INFO_FILE, SucroseInfo, ThemeError, read_info},
     version::LegacyVersion,
 };
@@ -289,4 +290,17 @@ pub fn scan(location: &Path, app: &LegacyVersion) -> io::Result<Scan> {
         }
     }
     Ok(scan)
+}
+
+/// Title shown for a theme (placeholder, implemented next).
+pub fn display_title<'a>(_info: &'a SucroseInfo, folder: &'a str) -> &'a str {
+    folder
+}
+
+/// Sorts themes (placeholder, implemented next).
+pub fn sort(_themes: &mut [LibraryTheme], _mode: SortMode, _kind: SortKind) {}
+
+/// Searches themes (placeholder, implemented next).
+pub fn search(_themes: &[LibraryTheme], _query: &str) -> Vec<usize> {
+    Vec::new()
 }
