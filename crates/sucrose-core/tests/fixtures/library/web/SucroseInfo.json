@@ -1,0 +1,18 @@
+{
+  "AppVersion": "26.10.19.0",
+  "Version": "1.0.0.0",
+  "Title": "Web Clock",
+  "Thumbnail": "Thumbnail.jpg",
+  "Preview": "Preview.gif",
+  "Description": "A clock",
+  "Author": "Fixture",
+  "License": null,
+  "Contact": "",
+  "Type": 2,
+  "Source": "index.html",
+  "Tags": [
+    "clock"
+  ],
+  "Arguments": null,
+  "Localization": null
+}

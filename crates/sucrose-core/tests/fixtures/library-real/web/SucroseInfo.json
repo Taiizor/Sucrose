@@ -1,0 +1,29 @@
+{
+  "AppVersion": "26.6.19.0",
+  "Version": "1.0.0.0",
+  "Title": "Sample web",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "Sample web wallpaper description",
+  "Author": "Author",
+  "License": "License.txt",
+  "Contact": "https://example.com/web",
+  "Type": 2,
+  "Source": "Sample.html",
+  "Tags": [
+    "One",
+    "Two",
+    "Three"
+  ],
+  "Arguments": null,
+  "Localization": {
+    "DE": {
+      "Title": "Sample web",
+      "Description": "Beispielbeschreibung"
+    },
+    "TR": {
+      "Title": "Sample web",
+      "Description": "Ornek aciklama"
+    }
+  }
+}

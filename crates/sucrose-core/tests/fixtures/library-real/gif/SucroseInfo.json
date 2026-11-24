@@ -1,0 +1,16 @@
+{
+  "AppVersion": "26.7.5.0",
+  "Version": "1.0.0.5",
+  "Title": "Sample gif",
+  "Thumbnail": "look.jpg",
+  "Preview": "peek.gif",
+  "Description": "Sample gif",
+  "Author": "Author",
+  "License": null,
+  "Contact": "https://example.com/gif",
+  "Type": 0,
+  "Source": "sample.gif",
+  "Tags": null,
+  "Arguments": null,
+  "Localization": null
+}

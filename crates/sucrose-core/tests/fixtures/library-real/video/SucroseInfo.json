@@ -1,0 +1,16 @@
+{
+  "AppVersion": "26.9.2.0",
+  "Version": "1.0.0.0",
+  "Title": "Sample video",
+  "Thumbnail": "Thumbnail.jpg",
+  "Preview": "Preview.gif",
+  "Description": "Sample video - Video Wallpaper",
+  "Author": "Author",
+  "License": null,
+  "Contact": "https://example.com/video",
+  "Type": 3,
+  "Source": "s_sample-video.mp4",
+  "Tags": [],
+  "Arguments": null,
+  "Localization": null
+}

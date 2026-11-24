@@ -1,0 +1,16 @@
+{
+  "AppVersion": "26.10.19.0",
+  "Version": "1.0.0.0",
+  "Title": "Quiet Lake",
+  "Thumbnail": "Thumbnail.jpg",
+  "Preview": "Preview.gif",
+  "Description": "Fixture theme",
+  "Author": "Fixture",
+  "License": null,
+  "Contact": "",
+  "Type": "video",
+  "Source": "video.mp4",
+  "Tags": null,
+  "Arguments": null,
+  "Localization": null
+}

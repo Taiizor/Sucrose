@@ -2,6 +2,7 @@
 //!
 //! This crate must not contain OS-specific code (see `docs/ARCHITECTURE.md`).
 
+pub mod library;
 pub mod paths;
 pub mod settings;
 pub mod theme;

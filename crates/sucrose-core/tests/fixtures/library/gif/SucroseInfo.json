@@ -1,0 +1,16 @@
+{
+  "AppVersion": "26.10.19.0",
+  "Version": "1.0.0.0",
+  "Title": "Dancing Cat",
+  "Thumbnail": "Thumbnail.jpg",
+  "Preview": "Preview.gif",
+  "Description": "A cat",
+  "Author": "Fixture",
+  "License": null,
+  "Contact": "",
+  "Type": 0,
+  "Source": "cat.gif",
+  "Tags": null,
+  "Arguments": null,
+  "Localization": null
+}

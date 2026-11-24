@@ -1,0 +1,19 @@
+{
+  "AppVersion": "26.10.19.0",
+  "Version": "1.0.0.0",
+  "Title": "Calm Sea",
+  "Thumbnail": "Thumbnail.jpg",
+  "Preview": "Preview.gif",
+  "Description": "Waves at night",
+  "Author": "Fixture",
+  "License": null,
+  "Contact": "",
+  "Type": 3,
+  "Source": "video.mp4",
+  "Tags": [
+    "ocean",
+    "blue"
+  ],
+  "Arguments": null,
+  "Localization": null
+}
