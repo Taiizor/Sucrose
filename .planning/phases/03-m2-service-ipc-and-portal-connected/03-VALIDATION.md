@@ -151,7 +151,7 @@ Plans 03-11 (T1, T2), 03-24 (T2, T3), 03-28 (T3), 03-37 (T2, T3) and 03-38 (T2, 
 | UI-02 | COVERED | theme.rs#theme_system_follows_the_os_appearance; header.rs theme toggle test; settings/mod.rs gear test |
 | UI-03 | COVERED | xtask localize tests, i18n.rs key tests, main.rs argument tests, status_bar.rs, header.rs, ipc.rs state tests; captures are manual |
 | UI-05 | COVERED | i18n.rs coverage tests; dialogs help, about, tray_hint, link tests |
-| UI-07 | COVERED (automated parts) | thumbs.rs cache, queue, decode, pixel-area and JPEG decode-budget tests (WR-12); atlas.rs release tests; xtask measure and synth tests; memory.rs tests. The memory bound itself is judged by D-25 measurements (manual) |
+| UI-07 | COVERED (automated parts) | thumbs.rs cache, queue, decode, pixel-area and decode-budget tests (WR-12; WR-13 the_generic_fallback_decodes_under_a_permit_priced_from_the_header); atlas.rs release tests; xtask measure and synth tests; memory.rs tests. The memory bound itself is judged by D-25 measurements (manual) |
 
 Counts: 21 requirements, 21 COVERED, 0 PARTIAL, 0 MISSING. A spot check of 220 test-function references from the SUMMARY coverage entries found every function present (one reference, `the_runtime_state_is_published_only_when_it_differs_from_the_last_one_sent` in 03-09, is the shortened name `..._from_the_last_one` in apps/sucrose/src/service.rs).
 
