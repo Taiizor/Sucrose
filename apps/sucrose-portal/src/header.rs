@@ -1,5 +1,6 @@
-//! The header row of the library mode (UI-SPEC E3, E4): the Library tab and the search box. Later plans add the theme
-//! toggle, Premium, the more menu and the settings gear to the row.
+//! The header row of the library mode (UI-SPEC E3, E4): the Library tab, the search box, the light/dark toggle, Premium and
+//! the more menu with Help and About (D-15: only what Phase 3 has). Items follow each other in flex order, so the row
+//! mirrors for Arabic and Hebrew (UI-SPEC E4 RTL row). Later plans add the settings gear.
 
 use std::time::Duration;
 
@@ -9,6 +10,7 @@ use gpui_kit::component::{
     button::{Button, ButtonVariants as _},
     h_flex,
     input::{Input, InputEvent, InputState},
+    menu::{DropdownMenu as _, PopupMenuItem},
     tab::{Tab, TabBar},
     tooltip::Tooltip,
 };
@@ -16,8 +18,10 @@ use gpui_kit::*;
 use sucrose_core::settings::ThemeMode;
 use sucrose_ipc::portal::{PortalRequest, SettingChange};
 
-use crate::{i18n::tr, ipc::ServiceLink, library::LibraryView};
+use crate::{dialogs, i18n::tr, ipc::ServiceLink, library::LibraryView};
 
+/// The premium theme store, opened in the OS browser (legacy value of `Url.PremiumStore`; fixed at build time, T-03-42).
+const PREMIUM_URL: &str = "https://sucrose.dev/premium";
 /// Height of the row (UI-SPEC spacing: 2xl).
 const HEADER_HEIGHT: f32 = 48.0;
 /// The search box width, and the least it shrinks to before anything else collapses.
@@ -121,6 +125,8 @@ impl Render for Header {
             (IconName::Moon, tr("Portal.MainWindow.MenuDarkTip"))
         };
         let target = toggle_target(self.dark);
+        let premium_tip = tr("Portal.MainWindow.MenuPremiumStoreTip");
+        let more_tip = tr("Portal.MainWindow.MenuOtherOptionsTip");
         h_flex()
             .w_full()
             .h(px(HEADER_HEIGHT))
@@ -153,14 +159,47 @@ impl Render for Header {
                     ),
             )
             .child(
-                Button::new("theme-toggle")
-                    .ghost()
-                    .icon(icon)
-                    .tooltip(toggle_tip.clone())
-                    .accessibility_label(toggle_tip)
-                    .on_click(cx.listener(move |this, _: &ClickEvent, _, _| {
-                        this.link.send(PortalRequest::Change(SettingChange::ThemeMode(target)));
-                    })),
+                h_flex()
+                    .flex_none()
+                    .gap_2()
+                    .items_center()
+                    .child(
+                        Button::new("theme-toggle")
+                            .ghost()
+                            .icon(icon)
+                            .tooltip(toggle_tip.clone())
+                            .accessibility_label(toggle_tip)
+                            .on_click(cx.listener(move |this, _: &ClickEvent, _, _| {
+                                this.link.send(PortalRequest::Change(SettingChange::ThemeMode(target)));
+                            })),
+                    )
+                    .child(
+                        Button::new("premium")
+                            .ghost()
+                            .icon(IconName::Crown)
+                            .tooltip(premium_tip.clone())
+                            .accessibility_label(premium_tip)
+                            .on_click(|_, _, cx| dialogs::open_link(PREMIUM_URL, cx)),
+                    )
+                    .child(
+                        Button::new("more")
+                            .ghost()
+                            .icon(IconName::EllipsisVertical)
+                            .tooltip(more_tip.clone())
+                            .accessibility_label(more_tip)
+                            .dropdown_menu_with_anchor(Anchor::TopRight, |menu, _, _| {
+                                menu.item(
+                                    PopupMenuItem::new(tr("Portal.MainWindow.MenuHelp"))
+                                        .icon(IconName::BookOpen)
+                                        .on_click(|_, window, cx| dialogs::help::open(window, cx)),
+                                )
+                                .item(
+                                    PopupMenuItem::new(tr("Portal.MainWindow.MenuAbout"))
+                                        .icon(IconName::Info)
+                                        .on_click(|_, window, cx| dialogs::about::open(window, cx)),
+                                )
+                            }),
+                    ),
             )
     }
 }
@@ -169,7 +208,14 @@ impl Render for Header {
 mod tests {
     use sucrose_core::settings::ThemeMode;
 
-    use super::{SEARCH_MAX_CHARS, normalize_query, toggle_target};
+    use super::{PREMIUM_URL, SEARCH_MAX_CHARS, normalize_query, toggle_target};
+    use crate::dialogs::urls;
+
+    #[test]
+    fn premium_is_a_page_of_the_official_site_over_https() {
+        assert_eq!(PREMIUM_URL, format!("{}/premium", urls::OFFICIAL));
+        assert!(PREMIUM_URL.starts_with("https://"));
+    }
 
     #[test]
     fn theme_toggle_asks_for_the_opposite_of_what_is_shown() {

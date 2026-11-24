@@ -9,7 +9,29 @@ use gpui_kit::{AssetSource, SharedString};
 gpui_kit::assets::icon_assets!(
     PageIcons,
     [
-        FolderX, ImageOff, LayoutGrid, Library, LibraryBig, Moon, PackageX, SearchX, Sun
+        BookOpen,
+        Bug,
+        ClipboardList,
+        Code,
+        Crown,
+        EllipsisVertical,
+        ExternalLink,
+        FileText,
+        FolderX,
+        Globe,
+        ImageOff,
+        Info,
+        LayoutGrid,
+        Library,
+        LibraryBig,
+        MessagesSquare,
+        Moon,
+        NotebookText,
+        PackageX,
+        SearchX,
+        Shield,
+        Sun,
+        Users
     ]
 );
 

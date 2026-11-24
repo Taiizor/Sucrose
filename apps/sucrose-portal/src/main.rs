@@ -16,6 +16,7 @@ mod app;
 mod assets;
 mod background;
 mod banner;
+mod dialogs;
 mod header;
 #[allow(dead_code, reason = "the Portal pages of the following plans call these helpers")]
 mod i18n;
