@@ -121,7 +121,7 @@ Plans:
   3. Starting the service or the Portal a second time reuses the running instance, Exit closes every Sucrose process, and a renderer that keeps crashing is restarted a bounded number of times and then stopped, never in a loop.
   4. An optional module the user turns off starts no thread and does no polling, and with "start with the OS" on, Sucrose starts after sign-in and resumes the wallpaper.
   5. The Portal follows light, dark or the OS theme with its Mica/Acrylic backdrop and optional background image, has header actions, search, a status bar and Help/About, and scrolling through a large library keeps its memory bounded (release build, recorded in `docs/MEASUREMENTS.md`).
-**Plans**: 26/39 plans executed
+**Plans**: 26/40 plans executed
 Plans:
 **Wave 1**
 - [x] 03-01-PLAN.md — Settings tracer: Setting/Sucrose.json migrated once, atomic store with .bak and kill test, service reads it (D-032)
@@ -189,32 +189,43 @@ Plans:
 **Wave 20** *(blocked on Wave 19 completion)*
 - [x] 03-25-PLAN.md — UI-07 judged and recorded in MEASUREMENTS.md; ARCHITECTURE, FEATURES and GPUI updated for M2
 
+**Cross-cutting constraints:** <!-- gsd:generated -->
+- The clock starts only after the maintainer replied 'start' to the ready checkpoint; the continuation starts the Portal and the sampler about 30 s later at most and returns the exact local start time at once, so no time runs while a checkpoint is in transit
+- Rounds, first page and final value come from the Portal's own page log (03-36 --portal-log), not from fixed windows; the maintainer pages at their own pace and ends the run by closing the Portal after at least 30 s idle on page 1
+- Hover previews animate during the run (the Portal log has 'preview playing' lines; the maintainer confirms)
+- The 'page shown' lines carry 03-40's heap_allocated_mb, heap_committed_mb, gpu_local_mb and gpu_non_local_mb, and the summary's attribution line (growth of video memory, held heap and allocator retention against the private growth, with its verdict) goes into the SUMMARY with the numbers, so 03-39 can confirm the atlas cause or pick a named follow-up
+- The run uses a scratch data folder; the real settings and library are only read; the preview switch is edited only in the scratch Sucrose.json
+- Afterwards no sucrose.exe or sucrose-portal.exe is left running (taskkill, confirmed with tasklist)
+
 **Gap closure (2026-11-24, from 03-VERIFICATION.md gaps and 03-REVIEW.md CR-01, CR-02, WR-01..WR-08)**
 
 **Gap wave 1**
-- [ ] 03-27-PLAN.md — Images released inside a window update leave GPUI's atlas (paging-memory root cause, atlas::release_image, GPUI tests)
+- [ ] 03-27-PLAN.md — Images released inside a window update leave GPUI's atlas (paging-memory leading cause, atlas::release_image, GPUI tests)
 - [ ] 03-30-PLAN.md — CR-02: an unreadable Sucrose.json is retried and never restored or migrated over
 - [ ] 03-31-PLAN.md — WR-01, WR-03, WR-07: library move exclusive with maintenance, quiet fleet, printable status text
 - [ ] 03-34-PLAN.md — WR-08: the new source starts only after its own file loaded
 - [ ] 03-35-PLAN.md — WR-05: turning startup off never leaves setting and Run value disagreeing
-- [ ] 03-36-PLAN.md — D-25 rounds from the Portal's page log; WR-06 canonical synth-library guard
 
 **Gap wave 2** *(blocked on gap wave 1)*
 - [ ] 03-28-PLAN.md — Hover previews animate (card element id, frame test, diagnostics, maintainer hover run)
 - [ ] 03-29-PLAN.md — CR-01: one pixel-area limit for thumbnails, background image and preview GIF
 - [ ] 03-32-PLAN.md — WR-02: no Portal request acts while quitting; exit waits for a library move
+- [ ] 03-36-PLAN.md — D-25 rounds from the Portal's page log; WR-06 canonical synth-library guard
 
 **Gap wave 3** *(blocked on gap wave 2)*
 - [ ] 03-33-PLAN.md — WR-04: a Portal dropped for a full queue is disconnected; every Portal end re-checks the exit rule
 
 **Gap wave 4** *(blocked on gap wave 3)*
-- [ ] 03-37-PLAN.md — Checkpoint: D-25 scenario 1 rerun on the real library (ready gate, page-log rounds)
+- [ ] 03-40-PLAN.md — SC5 growth-source attribution: heap and video memory on the page log, attribution verdict in the D-25 summary
 
 **Gap wave 5** *(blocked on gap wave 4)*
-- [ ] 03-38-PLAN.md — Checkpoint: D-25 scenario 2 rerun on the 500-theme library
+- [ ] 03-37-PLAN.md — Checkpoint: D-25 scenario 1 rerun on the real library (ready gate, page-log rounds, attribution)
 
 **Gap wave 6** *(blocked on gap wave 5)*
-- [ ] 03-39-PLAN.md — Record and judge the reruns, close the review ledger, mark LIB-06 and UI-07 on evidence
+- [ ] 03-38-PLAN.md — Checkpoint: D-25 scenario 2 rerun on the 500-theme library (attribution)
+
+**Gap wave 7** *(blocked on gap wave 6)*
+- [ ] 03-39-PLAN.md — Record and judge the reruns and their attribution (cause confirmed or named follow-up), close the review ledger, mark LIB-06 and UI-07 on evidence
 **UI hint**: yes
 **Notes**: `apps/sucrose-portal` is built from scratch; `exp/GPUI/Sucrose.Portal` is not its base. Runtime state (pause/close flags, ports) travels over IPC and is never stored in settings. Only Video themes can play until Phase 4 adds the other engines. The bounded thumbnail cache built here (UI-07) is reused by the store in Phase 5. Normal startup only; the priority and scheduled-task modes are TRAY-04 in Phase 5 (the M2 checklist said "Task Scheduler option later").
 
