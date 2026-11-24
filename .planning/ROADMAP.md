@@ -121,7 +121,7 @@ Plans:
   3. Starting the service or the Portal a second time reuses the running instance, Exit closes every Sucrose process, and a renderer that keeps crashing is restarted a bounded number of times and then stopped, never in a loop.
   4. An optional module the user turns off starts no thread and does no polling, and with "start with the OS" on, Sucrose starts after sign-in and resumes the wallpaper.
   5. The Portal follows light, dark or the OS theme with its Mica/Acrylic backdrop and optional background image, has header actions, search, a status bar and Help/About, and scrolling through a large library keeps its memory bounded (release build, recorded in `docs/MEASUREMENTS.md`).
-**Plans**: 23/26 plans executed
+**Plans**: 24/26 plans executed
 Plans:
 **Wave 1**
 - [x] 03-01-PLAN.md — Settings tracer: Setting/Sucrose.json migrated once, atomic store with .bak and kill test, service reads it (D-032)
@@ -181,7 +181,7 @@ Plans:
 - [x] 03-22-PLAN.md — Library move: verified rename or copy, rollback, nested refusal, wallpaper restart
 
 **Wave 18** *(blocked on Wave 17 completion)*
-- [ ] 03-23-PLAN.md — Start with the OS: own Run value, LaunchAgent, XDG autostart; legacy entry detection (D-034)
+- [x] 03-23-PLAN.md — Start with the OS: own Run value, LaunchAgent, XDG autostart; legacy entry detection (D-034)
 
 **Wave 19** *(blocked on Wave 18 completion)*
 - [ ] 03-24-PLAN.md — Checkpoint: Portal memory sampled while the maintainer pages the real and the 500-theme library (D-25)
@@ -272,7 +272,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 |-------|----------------|--------|-----------|
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
 | 2. M1 — Video wallpaper on the desktop (Windows) | 29/29 | Complete    | 2026-11-23 |
-| 3. M2 — Service, IPC and Portal connected | 23/26 | In Progress | - |
+| 3. M2 — Service, IPC and Portal connected | 24/26 | In Progress | - |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
 | 6. M5 — macOS | 0/TBD | Not started | - |

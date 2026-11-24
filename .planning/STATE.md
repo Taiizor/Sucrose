@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-22-PLAN.md
-last_updated: "2026-11-24T11:28:07.623Z"
+stopped_at: Completed 03-23-PLAN.md
+last_updated: "2026-11-24T11:53:09.613Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: 25d98e9dc495b29514933d5573913f0a31069e4e
+state_head: be7b36d665aee3059c46eac62f5b8d3cbcc435c8
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 55
-  completed_plans: 52
+  completed_plans: 53
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 24 of 26
+Plan: 25 of 26
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -106,6 +106,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P20 | 17 min | 3 tasks | 14 files |
 | Phase 03 P21 | 24 min | 2 tasks | 17 files |
 | Phase 03 P22 | 33 min | 2 tasks | 12 files |
+| Phase 03 P23 | 21 min | 2 tasks | 19 files |
 
 ## Accumulated Context
 
@@ -192,6 +193,8 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-22: The MoveLibrary answer is sent when the whole move is over (wallpaper restarted), so the old folder is gone when the Portal hears Moved
 - [Phase 03]: 03-22: Renderers close through RuleClosed and a 4 s timer ends survivors, so library_moving cannot stay true
 - [Phase 03]: 03-22: The Portal applies the new library location from the destination it sent; no SettingChange exists for it
+- [Phase 03]: D-034: Sucrose's own start entry is Sucrose.Service (Run value), dev.sucrose.Sucrose (LaunchAgent), sucrose.desktop (XDG); the C# entry is only detected
+- [Phase 03]: 03-23: a startup setting that cannot be saved takes the entry change back; the C# entry lookup runs on a worker thread only when the General page opens
 
 ### Pending Todos
 
@@ -224,6 +227,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T11:28:00.171Z
-Stopped at: Completed 03-22-PLAN.md
+Last session: 2026-11-24T11:53:01.456Z
+Stopped at: Completed 03-23-PLAN.md
 Resume file: None
