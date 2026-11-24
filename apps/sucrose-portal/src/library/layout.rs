@@ -47,6 +47,53 @@ pub fn row_width(card_width: f32, gap: f32, columns: usize) -> f32 {
     card_width * columns + gap * (columns - 1.0)
 }
 
+/// An arrow key.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Arrow {
+    Left,
+    Right,
+    Up,
+    Down,
+}
+
+impl Arrow {
+    /// The arrow a GPUI key name stands for.
+    pub fn from_key(key: &str) -> Option<Self> {
+        match key {
+            "left" => Some(Self::Left),
+            "right" => Some(Self::Right),
+            "up" => Some(Self::Up),
+            "down" => Some(Self::Down),
+            _ => None,
+        }
+    }
+}
+
+/// The card that arrow key `arrow` moves focus to from card `position` of `count` cards laid out row by row in `columns`
+/// columns, or `None` at an edge. Left and Right walk the row-major order (Left on the first card of a row goes to the
+/// last of the row above); Up and Down keep the column, and Down from a column the last row lacks goes to the last card.
+pub fn neighbor(position: usize, count: usize, columns: usize, arrow: Arrow) -> Option<usize> {
+    let columns = columns.max(1);
+    if position >= count {
+        return None;
+    }
+    match arrow {
+        Arrow::Left => position.checked_sub(1),
+        Arrow::Right => (position + 1 < count).then_some(position + 1),
+        Arrow::Up => position.checked_sub(columns),
+        Arrow::Down => {
+            let below = position + columns;
+            if below < count {
+                Some(below)
+            } else if position / columns < (count - 1) / columns {
+                Some(count - 1)
+            } else {
+                None
+            }
+        }
+    }
+}
+
 /// How many pages `count` themes make with `size` themes on a page.
 pub fn page_count(count: usize, size: usize) -> usize {
     if size == 0 { 0 } else { count.div_ceil(size) }
@@ -155,5 +202,50 @@ mod tests {
         assert_eq!(page_slice(31, 3, 30), 31..31, "past the last page is empty");
         assert_eq!(page_slice(31, usize::MAX, 30), 31..31);
         assert_eq!(page_slice(31, 1, 0), 0..0);
+    }
+
+    #[test]
+    fn arrow_keys_name_four_directions() {
+        assert_eq!(Arrow::from_key("left"), Some(Arrow::Left));
+        assert_eq!(Arrow::from_key("down"), Some(Arrow::Down));
+        assert_eq!(Arrow::from_key("enter"), None);
+        assert_eq!(Arrow::from_key("Left"), None);
+    }
+
+    #[test]
+    fn arrows_walk_the_cards_in_row_major_order() {
+        // 7 cards in 3 columns: rows [0 1 2] [3 4 5] [6].
+        assert_eq!(neighbor(1, 7, 3, Arrow::Right), Some(2));
+        assert_eq!(
+            neighbor(2, 7, 3, Arrow::Right),
+            Some(3),
+            "the next row continues the order"
+        );
+        assert_eq!(neighbor(6, 7, 3, Arrow::Right), None, "the last card has no next one");
+        assert_eq!(neighbor(3, 7, 3, Arrow::Left), Some(2));
+        assert_eq!(neighbor(0, 7, 3, Arrow::Left), None);
+    }
+
+    #[test]
+    fn arrows_up_and_down_keep_the_column() {
+        assert_eq!(neighbor(4, 7, 3, Arrow::Up), Some(1));
+        assert_eq!(neighbor(1, 7, 3, Arrow::Up), None, "the first row has nothing above");
+        assert_eq!(neighbor(0, 7, 3, Arrow::Down), Some(3));
+        assert_eq!(neighbor(3, 7, 3, Arrow::Down), Some(6));
+    }
+
+    #[test]
+    fn arrow_down_from_a_short_last_row_goes_to_the_last_card() {
+        assert_eq!(neighbor(5, 7, 3, Arrow::Down), Some(6));
+        assert_eq!(neighbor(6, 7, 3, Arrow::Down), None, "the last row has nothing below");
+        assert_eq!(neighbor(2, 7, 3, Arrow::Down), Some(5));
+    }
+
+    #[test]
+    fn arrows_cope_with_one_column_and_no_cards() {
+        assert_eq!(neighbor(0, 3, 1, Arrow::Down), Some(1));
+        assert_eq!(neighbor(2, 3, 1, Arrow::Up), Some(1));
+        assert_eq!(neighbor(0, 0, 3, Arrow::Right), None);
+        assert_eq!(neighbor(0, 1, 0, Arrow::Down), None, "zero columns count as one");
     }
 }

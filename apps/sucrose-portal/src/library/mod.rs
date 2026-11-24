@@ -147,6 +147,8 @@ pub struct LibraryView {
     connected: bool,
     /// The folder of the last Use click that the service has not answered yet; its card shows the spinner.
     pending_use: Option<String>,
+    /// One focus handle per card position of the page, kept between renders so focus survives a re-render.
+    focus: Vec<FocusHandle>,
 }
 
 impl LibraryView {
@@ -170,6 +172,7 @@ impl LibraryView {
             runtime: None,
             connected: false,
             pending_use: None,
+            focus: Vec::new(),
         }
     }
 
@@ -196,7 +199,7 @@ impl LibraryView {
         let Some(theme) = self.themes.iter().find(|theme| theme.folder == folder) else {
             return;
         };
-        if !card::can_use(theme, self.runtime.as_ref(), self.connected) {
+        if !card::use_state(theme, self.runtime.as_ref(), self.connected).is_enabled() {
             return;
         }
         // The request of this folder is in flight already; a click on another card replaces it (the last click wins).
@@ -402,11 +405,16 @@ impl LibraryView {
     }
 
     /// The cards of the page that is shown.
-    fn cards(&mut self, settings: &LibrarySettings, cx: &mut Context<Self>) -> Vec<CardData> {
+    fn cards(&mut self, settings: &LibrarySettings, columns: usize, cx: &mut Context<Self>) -> Vec<CardData> {
         let this = cx.entity().downgrade();
         let range = layout::page_slice(self.themes.len(), self.page, settings.pagination);
-        let mut cards = Vec::with_capacity(range.len());
-        for index in range {
+        while self.focus.len() < range.len() {
+            self.focus.push(cx.focus_handle().tab_stop(true));
+        }
+        let handles: Rc<[FocusHandle]> = self.focus[..range.len()].iter().cloned().collect();
+        let count = range.len();
+        let mut cards = Vec::with_capacity(count);
+        for (position, index) in range.enumerate() {
             let theme = &self.themes[index];
             let key = thumb_key(&self.thumb_times, theme, self.bucket);
             let thumb = match self.cache.get(&key) {
@@ -416,9 +424,17 @@ impl LibraryView {
             };
             let folder = theme.folder.clone();
             let on_use_view = this.clone();
-            let on_use: Rc<dyn Fn(&mut Window, &mut App)> = Rc::new(move |_, cx| {
+            let on_use: card::UseHandler = Rc::new(move |_, cx| {
                 on_use_view.update(cx, |view, cx| view.use_theme(&folder, cx)).ok();
             });
+            let on_arrow: card::ArrowHandler = {
+                let handles = Rc::clone(&handles);
+                Rc::new(move |arrow, window, cx| {
+                    if let Some(next) = layout::neighbor(position, count, columns, arrow) {
+                        window.focus(&handles[next], cx);
+                    }
+                })
+            };
             let selected = self
                 .runtime
                 .as_ref()
@@ -431,8 +447,10 @@ impl LibraryView {
                 needs_newer_app: matches!(theme.compatibility, library::Compatibility::NeedsNewerApp { .. }),
                 selected,
                 pending: self.pending_use.as_deref() == Some(&theme.folder),
-                enabled: card::can_use(theme, self.runtime.as_ref(), self.connected),
+                state: card::use_state(theme, self.runtime.as_ref(), self.connected),
+                focus: handles[position].clone(),
                 on_use,
+                on_arrow,
             });
         }
         cards
@@ -455,7 +473,8 @@ impl Render for LibraryView {
                 grid::skeleton(content_width, settings.margin, settings.adaptive_layout, &self.scroll)
             }
             Phase::Ready if !self.themes.is_empty() => {
-                let cards = self.cards(&settings, cx);
+                let columns = layout::columns(content_width, settings.margin, settings.adaptive_layout);
+                let cards = self.cards(&settings, columns, cx);
                 grid::page(
                     cards,
                     content_width,

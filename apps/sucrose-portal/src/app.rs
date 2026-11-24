@@ -5,10 +5,14 @@ use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
 use sucrose_ipc::portal::{PortalEvent, PortalPage, PortalSettings, RuntimeState};
 
+use sucrose_ipc::portal::UseOutcome;
+
 use crate::{
     banner,
+    i18n::tr,
     ipc::{ConnectionState, LinkEvent, ServiceLink, next_state},
     library::LibraryView,
+    toast,
 };
 
 /// The Portal window's content. Later plans add the pages as children.
@@ -104,6 +108,14 @@ impl PortalApp {
                 PortalEvent::UseResult { folder, outcome } => {
                     self.library
                         .update(cx, |library, cx| library.on_use_result(&folder, &outcome, cx));
+                    // Whatever kept the wallpaper from changing, the user hears it; the old selection stays.
+                    if !matches!(outcome, UseOutcome::Applied) {
+                        toast::show_error(tr("Portal.LibraryCard.UseFailed"), window, cx);
+                    }
+                }
+                PortalEvent::Rejected { reason, .. } => {
+                    tracing::warn!(%reason, "the service did not apply a setting");
+                    toast::show_error(tr("Portal.Setting.SaveFailed"), window, cx);
                 }
                 PortalEvent::AlreadyOpen { existing_pid } => {
                     tracing::info!(existing_pid, "already open");

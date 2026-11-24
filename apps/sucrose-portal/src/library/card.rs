@@ -11,9 +11,9 @@ use sucrose_core::{
     library::{Compatibility, LibraryTheme},
     theme::WallpaperType,
 };
-use sucrose_ipc::portal::{PortalRequest, RuntimeState};
+use sucrose_ipc::portal::{PortalRequest, RuleState, RuntimeState};
 
-use super::layout::CARD_HEIGHT;
+use super::layout::{Arrow, CARD_HEIGHT};
 use crate::{i18n::tr, ipc::ServiceLink};
 
 /// Height of the strip with the title and the description.
@@ -28,6 +28,12 @@ pub enum Thumb {
     /// It cannot be decoded.
     Failed,
 }
+
+/// What a click on a card does.
+pub type UseHandler = Rc<dyn Fn(&mut Window, &mut App)>;
+
+/// What an arrow key on a focused card does.
+pub type ArrowHandler = Rc<dyn Fn(Arrow, &mut Window, &mut App)>;
 
 /// Everything one card needs to draw itself.
 pub struct CardData {
@@ -45,20 +51,91 @@ pub struct CardData {
     pub selected: bool,
     /// Whether a Use request for this theme is in flight (the spinner).
     pub pending: bool,
-    /// Whether a click can apply the theme: it sets the hand cursor and the hover ring.
-    pub enabled: bool,
-    /// What a click does; it checks again whether Use is allowed.
-    pub on_use: Rc<dyn Fn(&mut Window, &mut App)>,
+    /// Whether Use works on this card, and when it does not, why (the hand cursor, the hover ring and the tooltip).
+    pub state: CardUse,
+    /// The card's focus handle: a tab stop, so the keyboard reaches disabled cards too.
+    pub focus: FocusHandle,
+    /// What a click, or Enter and Space on the focused card, does; it checks again whether Use is allowed.
+    pub on_use: UseHandler,
+    /// What an arrow key does: moves focus to the neighboring card.
+    pub on_arrow: ArrowHandler,
 }
 
-/// Whether a click on `theme` can apply it now (a first version: connected, compatible, a Video theme, and not the one
-/// that plays already).
-pub fn can_use(theme: &LibraryTheme, runtime: Option<&RuntimeState>, connected: bool) -> bool {
-    let playing = runtime.is_some_and(|runtime| runtime.running && runtime.selected.as_deref() == Some(&theme.folder));
-    connected
-        && matches!(theme.compatibility, Compatibility::Compatible)
-        && theme.info.kind == WallpaperType::Video
-        && !playing
+/// Why Use is unavailable on a card (UI-SPEC: Use disabled reasons).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum DisabledReason {
+    /// The service is not connected.
+    Unavailable,
+    /// The theme was made for a newer Sucrose (LIB-08, D-18).
+    NewerVersion,
+    /// This build plays only Video themes (D-17).
+    UnsupportedType,
+    /// The theme is the selected one and the wallpaper plays.
+    Selected,
+    /// A fullscreen rule paused the wallpaper (D-23).
+    Paused,
+    /// A fullscreen rule closed the wallpaper (D-23).
+    Closed,
+}
+
+impl DisabledReason {
+    /// The tooltip and the accessible description of a disabled card.
+    pub fn tooltip(self) -> SharedString {
+        match self {
+            Self::Unavailable => use_with("Portal.Connection.Unavailable"),
+            Self::NewerVersion => tr("Portal.LibraryCard.VersionTip"),
+            Self::UnsupportedType => tr("Portal.LibraryCard.UnsupportedType"),
+            Self::Selected => use_with("Portal.LibraryCard.Selected"),
+            Self::Paused => use_with("Portal.LibraryCard.Paused"),
+            Self::Closed => use_with("Portal.LibraryCard.Closed"),
+        }
+    }
+}
+
+/// "Use (<reason>)" from the text of `reason_key`.
+fn use_with(reason_key: &str) -> SharedString {
+    SharedString::from(format!("{} ({})", tr("Portal.LibraryCard.MenuUse"), tr(reason_key)))
+}
+
+/// Whether a click on a card applies its theme.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum CardUse {
+    /// A click sends Use.
+    Enabled,
+    /// A click does nothing, for this reason.
+    Disabled(DisabledReason),
+}
+
+impl CardUse {
+    /// Whether a click sends Use.
+    pub fn is_enabled(self) -> bool {
+        matches!(self, Self::Enabled)
+    }
+}
+
+/// Whether Use works on `theme` now, in the priority of the UI-SPEC: no connection, a newer theme, a type this build does
+/// not play, the theme that plays already, then a fullscreen rule. A selected theme that does not run can be used again.
+pub fn use_state(theme: &LibraryTheme, runtime: Option<&RuntimeState>, connected: bool) -> CardUse {
+    if !connected {
+        return CardUse::Disabled(DisabledReason::Unavailable);
+    }
+    if matches!(theme.compatibility, Compatibility::NeedsNewerApp { .. }) {
+        return CardUse::Disabled(DisabledReason::NewerVersion);
+    }
+    if theme.info.kind != WallpaperType::Video {
+        return CardUse::Disabled(DisabledReason::UnsupportedType);
+    }
+    let Some(runtime) = runtime else {
+        return CardUse::Enabled;
+    };
+    if runtime.running && runtime.selected.as_deref() == Some(&theme.folder) {
+        return CardUse::Disabled(DisabledReason::Selected);
+    }
+    match runtime.rule {
+        RuleState::None => CardUse::Enabled,
+        RuleState::Paused => CardUse::Disabled(DisabledReason::Paused),
+        RuleState::Closed => CardUse::Disabled(DisabledReason::Closed),
+    }
 }
 
 /// Asks the service to make `folder` the wallpaper (D-11): the Portal changes nothing itself and waits for the broadcast.
@@ -73,7 +150,15 @@ pub fn render_card(data: CardData, width: Pixels, cx: &App) -> impl IntoElement 
     let theme = cx.theme();
     let index = data.index;
     let on_use = Rc::clone(&data.on_use);
+    let on_arrow = Rc::clone(&data.on_arrow);
+    let label = data.title.clone();
+    let enabled = data.state.is_enabled();
+    let disabled_reason = match data.state {
+        CardUse::Enabled => None,
+        CardUse::Disabled(reason) => Some(reason.tooltip()),
+    };
     let ring = theme.primary.opacity(0.55);
+    let focus_ring = theme.primary;
     let layer = match data.thumb {
         Thumb::Ready(image) => img(image)
             .absolute()
@@ -146,12 +231,28 @@ pub fn render_card(data: CardData, width: Pixels, cx: &App) -> impl IntoElement 
         .border_color(theme.border)
         .bg(theme.secondary)
         .overflow_hidden()
-        .when(data.enabled, |card| {
+        .track_focus(&data.focus)
+        .focus_visible(move |style| style.border_2().border_color(focus_ring))
+        .role(Role::Button)
+        .aria_label(label)
+        .when(enabled, |card| {
             // The 2 px accent ring at 55 % and the hand cursor only where Use is possible (UI-SPEC E2).
             card.cursor_pointer()
                 .hover(move |style| style.border_2().border_color(ring))
         })
+        .when_some(disabled_reason, |card, reason| {
+            // A disabled card stays focusable and says why, as its tooltip and as its accessible description.
+            card.aria_description(reason.clone())
+                .tooltip(move |window, cx| Tooltip::new(reason.clone()).build(window, cx))
+        })
+        // A click, and Enter or Space on the focused card (GPUI turns those into a click), are Use.
         .on_click(move |_, window, cx| on_use(window, cx))
+        .on_key_down(move |event, window, cx| {
+            if let Some(arrow) = Arrow::from_key(&event.keystroke.key) {
+                cx.stop_propagation();
+                on_arrow(arrow, window, cx);
+            }
+        })
         .child(layer)
         .child(strip)
         .when(data.selected, |card| {
@@ -210,4 +311,178 @@ pub fn render_card(data: CardData, width: Pixels, cx: &App) -> impl IntoElement 
 /// A card-sized placeholder for the grid that shows while the library is scanned.
 pub fn render_skeleton_card(width: Pixels) -> impl IntoElement {
     Skeleton::new().flex_none().w(width).h(px(CARD_HEIGHT)).rounded(px(8.))
+}
+
+#[cfg(test)]
+mod tests {
+    // Not `use super::*`: the crate root glob-imports GPUI, whose `test` macro would shadow the built-in attribute.
+    use super::{CardUse, DisabledReason, use_state};
+    use std::path::PathBuf;
+    use sucrose_core::{
+        library::{Compatibility, LibraryTheme},
+        theme::{SucroseInfo, WallpaperType},
+        version::LegacyVersion,
+    };
+    use sucrose_ipc::portal::{RuleState, RuntimeState};
+
+    fn theme(kind: WallpaperType, compatibility: Compatibility) -> LibraryTheme {
+        LibraryTheme {
+            folder: "Rain".to_owned(),
+            dir: PathBuf::from("Rain"),
+            info: SucroseInfo {
+                app_version: LegacyVersion::default(),
+                version: LegacyVersion::default(),
+                title: "Rain".to_owned(),
+                thumbnail: String::new(),
+                preview: String::new(),
+                description: String::new(),
+                author: String::new(),
+                license: None,
+                contact: String::new(),
+                kind,
+                source: String::new(),
+                tags: None,
+                arguments: None,
+                localization: None,
+                extra: Default::default(),
+            },
+            thumbnail: PathBuf::new(),
+            preview: PathBuf::new(),
+            compatibility,
+            created: None,
+            modified: None,
+            index: Vec::new(),
+        }
+    }
+
+    fn video() -> LibraryTheme {
+        theme(WallpaperType::Video, Compatibility::Compatible)
+    }
+
+    fn newer(kind: WallpaperType) -> LibraryTheme {
+        theme(
+            kind,
+            Compatibility::NeedsNewerApp {
+                required: LegacyVersion::new(99, 0, -1, -1),
+            },
+        )
+    }
+
+    fn runtime(selected: Option<&str>, running: bool, rule: RuleState) -> RuntimeState {
+        RuntimeState {
+            selected: selected.map(str::to_owned),
+            running,
+            rule,
+            library_moving: false,
+            tray_visible: true,
+        }
+    }
+
+    fn state(theme: &LibraryTheme, runtime: &RuntimeState, connected: bool) -> CardUse {
+        use_state(theme, Some(runtime), connected)
+    }
+
+    #[test]
+    fn a_compatible_video_theme_can_be_used() {
+        let idle = runtime(None, false, RuleState::None);
+        assert_eq!(state(&video(), &idle, true), CardUse::Enabled);
+        assert_eq!(
+            use_state(&video(), None, true),
+            CardUse::Enabled,
+            "no runtime report yet is not a reason"
+        );
+    }
+
+    #[test]
+    fn no_connection_wins_over_every_other_reason() {
+        let paused = runtime(Some("Rain"), true, RuleState::Paused);
+        let reason = CardUse::Disabled(DisabledReason::Unavailable);
+        assert_eq!(state(&newer(WallpaperType::Web), &paused, false), reason);
+        assert_eq!(state(&video(), &paused, false), reason);
+    }
+
+    #[test]
+    fn a_newer_theme_is_refused_before_its_type_is_looked_at() {
+        let idle = runtime(None, false, RuleState::None);
+        assert_eq!(
+            state(&newer(WallpaperType::Web), &idle, true),
+            CardUse::Disabled(DisabledReason::NewerVersion)
+        );
+    }
+
+    #[test]
+    fn every_type_but_video_is_not_supported_yet() {
+        let idle = runtime(None, false, RuleState::None);
+        for kind in [
+            WallpaperType::Gif,
+            WallpaperType::Url,
+            WallpaperType::Web,
+            WallpaperType::YouTube,
+            WallpaperType::Application,
+        ] {
+            assert_eq!(
+                state(&theme(kind, Compatibility::Compatible), &idle, true),
+                CardUse::Disabled(DisabledReason::UnsupportedType),
+                "{kind:?}"
+            );
+        }
+    }
+
+    #[test]
+    fn a_type_that_is_not_supported_beats_the_rule_and_the_selection() {
+        let paused = runtime(Some("Rain"), true, RuleState::Paused);
+        assert_eq!(
+            state(&theme(WallpaperType::Gif, Compatibility::Compatible), &paused, true),
+            CardUse::Disabled(DisabledReason::UnsupportedType)
+        );
+    }
+
+    #[test]
+    fn the_theme_that_plays_is_selected_and_one_that_does_not_run_can_be_used_again() {
+        let playing = runtime(Some("Rain"), true, RuleState::None);
+        assert_eq!(
+            state(&video(), &playing, true),
+            CardUse::Disabled(DisabledReason::Selected)
+        );
+        let stopped = runtime(Some("Rain"), false, RuleState::None);
+        assert_eq!(state(&video(), &stopped, true), CardUse::Enabled);
+        let other = runtime(Some("Snow"), true, RuleState::None);
+        assert_eq!(state(&video(), &other, true), CardUse::Enabled);
+    }
+
+    #[test]
+    fn a_fullscreen_rule_disables_use_until_it_lifts() {
+        let paused = runtime(Some("Snow"), true, RuleState::Paused);
+        assert_eq!(
+            state(&video(), &paused, true),
+            CardUse::Disabled(DisabledReason::Paused)
+        );
+        let closed = runtime(None, false, RuleState::Closed);
+        assert_eq!(
+            state(&video(), &closed, true),
+            CardUse::Disabled(DisabledReason::Closed)
+        );
+        let selected = runtime(Some("Rain"), true, RuleState::Paused);
+        assert_eq!(
+            state(&video(), &selected, true),
+            CardUse::Disabled(DisabledReason::Selected),
+            "selected and running comes before the rule"
+        );
+    }
+
+    #[test]
+    fn the_tooltips_are_the_english_texts_of_the_ui_spec() {
+        assert_eq!(&*DisabledReason::Unavailable.tooltip(), "Use (Unavailable)");
+        assert_eq!(
+            &*DisabledReason::NewerVersion.tooltip(),
+            "Update Sucrose to use this theme"
+        );
+        assert_eq!(
+            &*DisabledReason::UnsupportedType.tooltip(),
+            "This wallpaper type is not supported yet."
+        );
+        assert_eq!(&*DisabledReason::Selected.tooltip(), "Use (Selected)");
+        assert_eq!(&*DisabledReason::Paused.tooltip(), "Use (Paused)");
+        assert_eq!(&*DisabledReason::Closed.tooltip(), "Use (Closed)");
+    }
 }

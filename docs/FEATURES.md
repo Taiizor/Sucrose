@@ -93,10 +93,10 @@ Actions Close / Pause / Resume per condition; trigger after 5 consecutive 1 s po
 | Scan, validity rules, delete corrupt themes | Rust scan (`sucrose_core::library`) keeps the legacy rules and only reads. It reads missing optional SucroseInfo keys leniently, matches Type names in any case like Newtonsoft, and treats a Preview, Thumbnail or Source outside the theme folder as corrupt (new safety rule). | ⬜ |
 | Sorting (name, creation, modification; asc/desc), search index | Ties keep folder-name order. Search lowercases with Unicode lowercase only (no Turkish folding) and orders results by the number of matched words. | ⬜ |
 | Pagination, adaptive layout (margin, max per row) | Columns = floor((width + gap) / (260 + gap)), at least one, capped by the max per row; cards are at most 400 px wide and a capped row is centered. The first page shows (page size from `LibraryPagination`); the page bar comes later. | 🟨 |
-| Card: use, review, customize, add/remove from cycle, find, share, delete (confirm), edit | | ⬜ |
+| Card: use, review, customize, add/remove from cycle, find, share, delete (confirm), edit | Phase 3: left click, or Enter and Space on the focused card, is Use through the service (the Selected pill follows the service's broadcast, never the click; the last click wins); arrow keys move focus between cards. There is no "…" button or context menu until LIB-05 (D-18). Non-Video themes are shown with Use disabled until Phase 4 (D-17, temporary; the tooltip says "This wallpaper type is not supported yet."). A disabled card stays focusable and gives its reason as tooltip and accessible description, in this priority: service not connected, newer theme, non-Video, selected and running, fullscreen rule paused or closed. | 🟨 |
 | Hover previews, hide details while previewing | | ⬜ |
 | Drag & drop: files, `.url`, archives, URLs | | ⬜ |
-| Incompatible theme version handling | The card stays visible with a red PackageX pill and the legacy tooltip; Use is not wired yet. | 🟨 |
+| Incompatible theme version handling | The card stays visible with a red PackageX pill and the legacy tooltip; Use is disabled and does nothing until the updater (Phase 5, D-18). | 🟨 |
 | Library location change and move | | ⬜ |
 
 ## Store (`portal.md` §3, `formats.md` §4)
