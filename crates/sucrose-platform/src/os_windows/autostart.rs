@@ -220,25 +220,32 @@ pub(crate) fn enable_autostart(exe: &Path) -> Result<(), PlatformError> {
     Ok(())
 }
 
-/// Removes the entry in two steps: the Run value first, then Task Manager's flag.
+/// Removes the entry in two steps: the Run value first, then Task Manager's flag. The Run value is what starts the
+/// app, so its error is returned and the flag stays; once it is gone the entry is off, and a flag that cannot be removed
+/// is only logged (the rule `enable_autostart` applies to the same flag).
 fn remove_entry(
     run: impl FnOnce() -> Result<(), PlatformError>,
     flag: impl FnOnce() -> Result<(), PlatformError>,
 ) -> Result<(), PlatformError> {
     run()?;
-    flag()?;
+    if let Err(error) = flag() {
+        tracing::warn!(%error, "the Task Manager flag of the startup entry could not be removed");
+    }
     Ok(())
 }
 
-/// Deletes Sucrose's own Run value and its Task Manager flag; nothing else.
+/// Deletes Sucrose's own Run value and, as best effort, its Task Manager flag; nothing else.
 pub(crate) fn disable_autostart() -> Result<(), PlatformError> {
-    if let Some(run) = open(RUN_KEY, KEY_SET_VALUE)? {
-        delete_value(&run, RUN_VALUE_NAME)?;
-    }
-    if let Some(approved) = open(APPROVED_KEY, KEY_SET_VALUE)? {
-        delete_value(&approved, RUN_VALUE_NAME)?;
-    }
-    Ok(())
+    remove_entry(
+        || match open(RUN_KEY, KEY_SET_VALUE)? {
+            Some(run) => delete_value(&run, RUN_VALUE_NAME),
+            None => Ok(()),
+        },
+        || match open(APPROVED_KEY, KEY_SET_VALUE)? {
+            Some(approved) => delete_value(&approved, RUN_VALUE_NAME),
+            None => Ok(()),
+        },
+    )
 }
 
 /// Whether Sucrose's own Run value starts `exe`, and whether Task Manager turned it off. An unreadable key counts as
