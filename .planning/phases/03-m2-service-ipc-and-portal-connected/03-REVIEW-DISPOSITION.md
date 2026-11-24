@@ -3,6 +3,62 @@ phase: 03
 review: 03-REVIEW.md
 titles: json
 findings:
+  - id: WR-09
+    severity: warning
+    disposition: open
+    title: "A corrupt settings file with no backup is overwritten and its content is lost"
+  - id: WR-10
+    severity: warning
+    disposition: open
+    title: "A quit that arrives during a library move can never finish (service never exits)"
+  - id: WR-11
+    severity: warning
+    disposition: open
+    title: "The event thread clears `loading` with a plain store and can erase a newer `load_source`"
+  - id: WR-12
+    severity: warning
+    disposition: open
+    title: "The pixel-area cap bounds one JPEG decode, not memory; three decodes plus the background image can hold about 800 MB"
+  - id: IN-02
+    severity: info
+    disposition: deferred
+    title: "Endpoint hardening is Windows-only while Linux gets an abstract socket"
+  - id: IN-04
+    severity: info
+    disposition: open
+    title: "Stale `#[allow(dead_code)]` with an outdated reason"
+  - id: IN-10
+    severity: info
+    disposition: deferred
+    title: "An invalid `Version` is read as current and then overwritten"
+  - id: IN-11
+    severity: info
+    disposition: deferred
+    title: "Background image path check accepts NUL and UNC paths"
+  - id: IN-13
+    severity: info
+    disposition: open
+    title: "The doc comment of `monotonic_ns` is attached to `disconnect_pipe`"
+  - id: IN-14
+    severity: info
+    disposition: open
+    title: "A Portal dropped by `send` during Close Applications is not counted as gone"
+  - id: IN-15
+    severity: info
+    disposition: open
+    title: "GPUI.md contradicts itself about whether the preview cost is measured"
+  - id: IN-16
+    severity: info
+    disposition: open
+    title: "`request_page` reads heap and DXGI memory on the GPUI thread"
+  - id: IN-17
+    severity: info
+    disposition: open
+    title: "`measure --side portal` reports success when the Portal crashed"
+  - id: IN-18
+    severity: info
+    disposition: open
+    title: "The scratch endpoint name hashes the unnormalized data-folder text"
   - id: CR-01
     severity: critical
     disposition: fixed
@@ -47,18 +103,10 @@ findings:
     severity: info
     disposition: deferred
     title: "No limit on connections and no read timeout on the first message"
-  - id: IN-02
-    severity: info
-    disposition: deferred
-    title: "Endpoint hardening is Windows-only while Linux gets an abstract socket"
   - id: IN-03
     severity: info
     disposition: deferred
     title: "Duplicated code"
-  - id: IN-04
-    severity: info
-    disposition: deferred
-    title: "Stale `#[allow(dead_code)]` with outdated reasons"
   - id: IN-05
     severity: info
     disposition: deferred
@@ -79,43 +127,52 @@ findings:
     severity: info
     disposition: deferred
     title: "A refresh answer can cause a false \"could not be saved\" toast"
-  - id: IN-10
-    severity: info
-    disposition: deferred
-    title: "An invalid `Version` is read as current and then overwritten"
-  - id: IN-11
-    severity: info
-    disposition: deferred
-    title: "Background image path check accepts NUL and UNC paths"
   - id: IN-12
     severity: info
     disposition: deferred
     title: "Timing assertion in the memory integration test is tight"
+open: 11
+total: 32
+recorded: 2026-11-24T19:55:49.793Z
 ---
 
 # Phase 03: Code Review Disposition
 
 | Finding | Severity | Disposition | Source |
 |---------|----------|-------------|--------|
-| CR-01 | critical | fixed | 03-29 |
-| CR-02 | critical | fixed | 03-30 |
-| WR-01 | warning | fixed | 03-31 |
-| WR-02 | warning | fixed | 03-32 |
-| WR-03 | warning | fixed | 03-31 |
-| WR-04 | warning | fixed | 03-33 |
-| WR-05 | warning | fixed | 03-35 |
-| WR-06 | warning | fixed | 03-36 |
-| WR-07 | warning | fixed | 03-31 |
-| WR-08 | warning | fixed | 03-34 |
-| IN-01 | info | deferred | Same-user only (single-SID pipe DACL); connection cap and first-read deadline belong with the next IPC hardening pass |
+| WR-09 | warning | open | - |
+| WR-10 | warning | open | - |
+| WR-11 | warning | open | - |
+| WR-12 | warning | open | - |
 | IN-02 | info | deferred | Latent until the Linux service exists (EventLoop::new fails there today); fix before Linux support is enabled |
-| IN-03 | info | deferred | Fixed in part by 03-29 (one decode_jpeg_scaled for thumbnails and the background image, with CR-01); the bin_name duplicate remains: no behavior impact, next Portal cleanup |
-| IN-04 | info | deferred | Lint hygiene only, no behavior impact; next Portal cleanup |
-| IN-05 | info | deferred | Test-only field, no behavior impact; next lifecycle change |
-| IN-06 | info | deferred | Deliberate documented D-26 fallback; remove after the LoadSource path has run longer |
-| IN-07 | info | deferred | Log hygiene (paths in info lines), no functional impact; with the logging and backup work |
-| IN-08 | info | deferred | Both derivations agree today; move to a service-sent resolved folder with the full settings pages (UI-04) |
-| IN-09 | info | deferred | Rare transient toast in a refresh/SetStartup race; fix with the full settings pages (UI-04) |
+| IN-04 | info | open | - |
 | IN-10 | info | deferred | Needs a hand-edited or damaged Version; fix with the next settings format change |
 | IN-11 | info | deferred | Same-user settings and IPC only; share one path validator when the background image picker grows (UI-04) |
-| IN-12 | info | deferred | Test robustness; passes today; widen the deadline if it flakes on CI |
+| IN-13 | info | open | - |
+| IN-14 | info | open | - |
+| IN-15 | info | open | - |
+| IN-16 | info | open | - |
+| IN-17 | info | open | - |
+| IN-18 | info | open | - |
+| CR-01 | critical | fixed | 03-29 (not in the current review) |
+| CR-02 | critical | fixed | 03-30 (not in the current review) |
+| WR-01 | warning | fixed | 03-31 (not in the current review) |
+| WR-02 | warning | fixed | 03-32 (not in the current review) |
+| WR-03 | warning | fixed | 03-31 (not in the current review) |
+| WR-04 | warning | fixed | 03-33 (not in the current review) |
+| WR-05 | warning | fixed | 03-35 (not in the current review) |
+| WR-06 | warning | fixed | 03-36 (not in the current review) |
+| WR-07 | warning | fixed | 03-31 (not in the current review) |
+| WR-08 | warning | fixed | 03-34 (not in the current review) |
+| IN-01 | info | deferred | Same-user only (single-SID pipe DACL); connection cap and first-read deadline belong with the next IPC hardening pass (not in the current review) |
+| IN-03 | info | deferred | Fixed in part by 03-29 (one decode_jpeg_scaled for thumbnails and the background image, with CR-01); the bin_name duplicate remains: no behavior impact, next Portal cleanup (not in the current review) |
+| IN-05 | info | deferred | Test-only field, no behavior impact; next lifecycle change (not in the current review) |
+| IN-06 | info | deferred | Deliberate documented D-26 fallback; remove after the LoadSource path has run longer (not in the current review) |
+| IN-07 | info | deferred | Log hygiene (paths in info lines), no functional impact; with the logging and backup work (not in the current review) |
+| IN-08 | info | deferred | Both derivations agree today; move to a service-sent resolved folder with the full settings pages (UI-04) (not in the current review) |
+| IN-09 | info | deferred | Rare transient toast in a refresh/SetStartup race; fix with the full settings pages (UI-04) (not in the current review) |
+| IN-12 | info | deferred | Test robustness; passes today; widen the deadline if it flakes on CI (not in the current review) |
+
+Dispositions: `open` (recorded, not yet triaged), `fixed`, `skipped`, `deferred`.
+Set `deferred` by hand and put the reason in the Source cell; both are preserved. A `|` in the reason is kept as prose and escaped on the next run.
+Re-running the gate keeps every row it can. A row the current review no longer reports is kept and its Source cell flagged, so a finding does not leave this record silently. ONE exception: when a finding id is REUSED by a different finding, the earlier decision cannot keep a row — the id is taken — and it is dropped. A RECORDED decision (anything but `open`) is named on the console when that happens; a row still at `open` is replaced silently, because `open` records no decision to lose.
