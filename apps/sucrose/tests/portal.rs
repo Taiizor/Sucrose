@@ -14,7 +14,7 @@ use sucrose_ipc::{
     connect,
     portal::{
         Launch, LaunchReply, MaintainReport, MoveOutcome, MoveRefusal, PortalEvent, PortalPage, PortalRequest,
-        SettingChange, UseOutcome, UseRefusal,
+        SettingChange, StartupInfo, StartupMode, UseOutcome, UseRefusal,
     },
     protocol::ToService,
     service_endpoint_for,
@@ -672,6 +672,54 @@ fn showcase_themes_are_copied_once_and_recorded_in_the_settings() {
 }
 
 /// Sends a MoveLibrary and returns the service's answer, skipping the other events (Runtime and the like).
+/// The next Startup answer. Memory events arrive every second, so a bare read loop would never time out.
+fn next_startup(portal: &PortalClient) -> StartupInfo {
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(10);
+    while std::time::Instant::now() < deadline {
+        match portal.next_event() {
+            Some(PortalEvent::Startup(info)) => return info,
+            Some(_) => {}
+            None => break,
+        }
+    }
+    panic!("no Startup answer");
+}
+
+#[test]
+fn refresh_startup_answers_the_stored_mode() {
+    if !service_runs("refresh_startup_answers_the_stored_mode") {
+        return;
+    }
+    let service = TestService::start("startup-refresh", &json!({ "General": { "RunStartup": 3 } }));
+    let (mut portal, first) = PortalClient::hello(&service, None);
+    assert!(matches!(first, PortalEvent::Welcome { .. }), "{first:?}");
+
+    portal.request(&PortalRequest::RefreshStartup);
+    let info = next_startup(&portal);
+
+    assert_eq!(info.mode, StartupMode::Scheduler);
+    assert!(!info.entry_present, "Scheduler writes no entry of Sucrose's own: {info:?}");
+}
+
+#[test]
+fn set_startup_priority_and_scheduler_are_refused_and_change_nothing() {
+    if !service_runs("set_startup_priority_and_scheduler_are_refused_and_change_nothing") {
+        return;
+    }
+    let service = TestService::start("startup-refused", &json!({ "General": { "RunStartup": 3 } }));
+    let (mut portal, first) = PortalClient::hello(&service, None);
+    assert!(matches!(first, PortalEvent::Welcome { .. }), "{first:?}");
+
+    for mode in [StartupMode::Scheduler, StartupMode::Priority] {
+        portal.request(&PortalRequest::SetStartup(mode));
+        let info = next_startup(&portal);
+
+        assert_eq!(info.mode, StartupMode::Scheduler, "asked for {mode:?}: the stored mode stays");
+        assert!(!info.entry_present, "{info:?}");
+    }
+    assert_eq!(service.settings_file()["General"]["RunStartup"], 3);
+}
+
 fn move_library(portal: &mut PortalClient, destination: &std::path::Path) -> MoveOutcome {
     portal.request(&PortalRequest::MoveLibrary {
         destination: destination.to_string_lossy().into_owned(),
