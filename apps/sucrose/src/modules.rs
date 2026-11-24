@@ -44,6 +44,23 @@ pub fn module_off(name: &'static str) {
     tracing::info!(name, "module off");
 }
 
+/// What the main thread does with a module that can come and go while the service runs.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ModuleAction {
+    /// Build it: it is wanted and does not exist.
+    Create,
+    /// Drop it: it exists and is no longer wanted.
+    Drop,
+    /// Nothing to do.
+    Keep,
+}
+
+/// What to do with the tray when the Portal switches Notification Area Icon: `current` is whether the tray exists,
+/// `wanted` what AppVisible says now.
+pub fn tray_action(_current: bool, _wanted: bool) -> ModuleAction {
+    ModuleAction::Keep
+}
+
 /// The renderer pids in slot order, so the Portal's list does not reorder from one report to the next.
 pub fn pids_by_slot(running: &HashMap<u32, u8>) -> Vec<u32> {
     let mut by_slot: Vec<(u8, u32)> = running.iter().map(|(pid, slot)| (*slot, *pid)).collect();
@@ -161,6 +178,22 @@ mod tests {
         let tray: Option<()> = start_module("tray", true, || Err(PlatformError::Unsupported("tray icon")));
 
         assert!(tray.is_none());
+    }
+
+    #[test]
+    fn the_tray_is_created_when_wanted_and_absent() {
+        assert_eq!(tray_action(false, true), ModuleAction::Create);
+    }
+
+    #[test]
+    fn the_tray_is_dropped_when_present_and_no_longer_wanted() {
+        assert_eq!(tray_action(true, false), ModuleAction::Drop);
+    }
+
+    #[test]
+    fn a_tray_that_is_as_wanted_is_kept() {
+        assert_eq!(tray_action(true, true), ModuleAction::Keep);
+        assert_eq!(tray_action(false, false), ModuleAction::Keep);
     }
 
     #[test]

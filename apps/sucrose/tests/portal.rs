@@ -77,6 +77,83 @@ fn memory_reports_arrive_while_connected() {
     }
 }
 
+/// Reads events until a Runtime with this tray state arrives, skipping the others (Memory and the like).
+fn wait_for_tray(portal: &PortalClient, visible: bool) {
+    // Memory events arrive every second, so a bare read loop would never time out.
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+    while std::time::Instant::now() < deadline {
+        match portal.next_event() {
+            Some(PortalEvent::Runtime(runtime)) if runtime.tray_visible == visible => return,
+            Some(_) => {}
+            None => break,
+        }
+    }
+    panic!("no Runtime with tray_visible {visible}");
+}
+
+#[test]
+fn the_tray_follows_the_notification_area_switch_live() {
+    if !service_runs("the_tray_follows_the_notification_area_switch_live") {
+        return;
+    }
+    let service = TestService::start("tray-live", &json!({}));
+    let (mut portal, first) = PortalClient::hello(&service, None);
+    let PortalEvent::Welcome { runtime, .. } = first else {
+        panic!("the first event is not a Welcome: {first:?}");
+    };
+    assert!(!runtime.tray_visible, "AppVisible is false: no tray at start");
+
+    portal.request(&PortalRequest::Change(SettingChange::AppVisible(true)));
+    wait_for_tray(&portal, true);
+
+    // The tray is removed again, so no icon is left behind when the service is killed at the end of the test.
+    portal.request(&PortalRequest::Change(SettingChange::AppVisible(false)));
+    wait_for_tray(&portal, false);
+    assert_eq!(service.settings_file()["General"]["AppVisible"], false);
+}
+
+#[test]
+fn quick_toggles_leave_the_state_of_the_last_value() {
+    if !service_runs("quick_toggles_leave_the_state_of_the_last_value") {
+        return;
+    }
+    let service = TestService::start("tray-quick", &json!({}));
+    let (mut portal, first) = PortalClient::hello(&service, None);
+    assert!(matches!(first, PortalEvent::Welcome { .. }), "{first:?}");
+
+    for visible in [true, false, true, false] {
+        portal.request(&PortalRequest::Change(SettingChange::AppVisible(visible)));
+    }
+    let mut changed = 0;
+    let answered_by = std::time::Instant::now() + std::time::Duration::from_secs(5);
+    while changed < 4 {
+        assert!(
+            std::time::Instant::now() < answered_by,
+            "only {changed} of 4 changes were answered"
+        );
+        match portal.next_event() {
+            Some(PortalEvent::Changed(SettingChange::AppVisible(_))) => changed += 1,
+            Some(_) => {}
+            None => panic!("only {changed} of 4 changes were answered"),
+        }
+    }
+    assert_eq!(service.settings_file()["General"]["AppVisible"], false);
+    drop(portal);
+
+    // A Welcome describes the state the service is in now, so it shows where the toggles ended.
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+    loop {
+        let (_next, event) = PortalClient::hello(&service, None);
+        if let PortalEvent::Welcome { settings, runtime } = event {
+            assert!(!settings.app_visible);
+            assert!(!runtime.tray_visible, "the tray ended as the last value says");
+            break;
+        }
+        assert!(std::time::Instant::now() < deadline, "no Welcome: {event:?}");
+        std::thread::sleep(std::time::Duration::from_millis(50));
+    }
+}
+
 #[test]
 fn a_second_portal_is_told_the_first_is_open_and_the_first_is_focused() {
     if !service_runs("a_second_portal_is_told_the_first_is_open_and_the_first_is_focused") {
