@@ -292,3 +292,69 @@ fn start_service() -> io::Result<()> {
     tracing::info!(path = %path.display(), "started the service");
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn lost(attempt: u8) -> LinkEvent {
+        LinkEvent::Lost { attempt }
+    }
+
+    #[test]
+    fn backoff_starts_at_50_ms_doubles_and_stops_at_500_ms() {
+        let steps: Vec<u128> = (0..8).map(|attempt| backoff(attempt).as_millis()).collect();
+        assert_eq!(steps, [50, 100, 200, 400, 500, 500, 500, 500]);
+        assert_eq!(backoff(u32::MAX).as_millis(), 500);
+    }
+
+    #[test]
+    fn connecting_becomes_connected_and_a_lost_connection_counts_its_attempts() {
+        let connected = next_state(ConnectionState::Connecting, &LinkEvent::Connected);
+        assert_eq!(connected, ConnectionState::Connected);
+        let first = next_state(connected, &lost(1));
+        assert_eq!(first, ConnectionState::Lost { attempt: 1 });
+        assert_eq!(next_state(first, &lost(2)), ConnectionState::Lost { attempt: 2 });
+    }
+
+    #[test]
+    fn a_lost_event_after_the_last_attempt_is_a_failure() {
+        let last = ConnectionState::Lost { attempt: 3 };
+        assert_eq!(next_state(last, &lost(4)), ConnectionState::Failed);
+        assert_eq!(next_state(last, &lost(3)), ConnectionState::Failed);
+        assert_eq!(next_state(last, &LinkEvent::Failed), ConnectionState::Failed);
+    }
+
+    #[test]
+    fn try_again_starts_over_and_a_late_connection_still_counts() {
+        assert_eq!(
+            next_state(ConnectionState::Failed, &LinkEvent::Connecting),
+            ConnectionState::Connecting
+        );
+        assert_eq!(
+            next_state(ConnectionState::Failed, &LinkEvent::Connected),
+            ConnectionState::Connected
+        );
+    }
+
+    #[test]
+    fn a_refusal_ends_in_failed_and_other_service_messages_change_nothing() {
+        let refused = LinkEvent::Event(PortalEvent::Refused {
+            reason: "old".to_owned(),
+        });
+        assert_eq!(
+            next_state(ConnectionState::Connecting, &refused),
+            ConnectionState::Failed
+        );
+        let focus = LinkEvent::Event(PortalEvent::Focus { page: None });
+        assert_eq!(
+            next_state(ConnectionState::Connected, &focus),
+            ConnectionState::Connected
+        );
+        let already = LinkEvent::Event(PortalEvent::AlreadyOpen { existing_pid: 1 });
+        assert_eq!(
+            next_state(ConnectionState::Connecting, &already),
+            ConnectionState::Connecting
+        );
+    }
+}

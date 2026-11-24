@@ -18,6 +18,24 @@ mod ipc;
 // sucrose.en.yml holds the keys new in Phase 3. Both load as locale "en".
 rust_i18n::i18n!("locales", fallback = "en");
 
+/// What the command line asks for.
+#[derive(Debug, PartialEq, Eq)]
+struct Args {
+    /// The page to open on.
+    page: PortalPage,
+    /// Open the window without taking focus.
+    no_focus: bool,
+}
+
+/// Reads the arguments (without the program name). Only `--no-focus`, `GeneralSetting` and `SystemSetting` are
+/// accepted, each at most once; `SystemSetting` opens General too until the settings pages exist (UI-03).
+fn parse_args(_args: &[String]) -> Result<Args, String> {
+    Ok(Args {
+        page: PortalPage::Library,
+        no_focus: false,
+    })
+}
+
 /// The window title, localized.
 pub(crate) fn window_title() -> String {
     rust_i18n::t!("Portal.MainWindow.Title").into_owned()
@@ -69,6 +87,72 @@ fn main() -> anyhow::Result<()> {
 
 #[cfg(test)]
 mod tests {
+    // Not `use super::*`: the crate root glob-imports GPUI, whose `test` macro would shadow the built-in attribute.
+    use super::{Args, parse_args};
+    use sucrose_ipc::portal::PortalPage;
+
+    fn args(list: &[&str]) -> Vec<String> {
+        list.iter().map(|arg| (*arg).to_owned()).collect()
+    }
+
+    #[test]
+    fn no_argument_opens_the_library_and_takes_focus() {
+        assert_eq!(
+            parse_args(&args(&[])),
+            Ok(Args {
+                page: PortalPage::Library,
+                no_focus: false
+            })
+        );
+    }
+
+    #[test]
+    fn general_and_system_setting_both_open_general() {
+        for page in ["GeneralSetting", "SystemSetting"] {
+            assert_eq!(
+                parse_args(&args(&[page])),
+                Ok(Args {
+                    page: PortalPage::General,
+                    no_focus: false
+                }),
+                "{page}"
+            );
+        }
+    }
+
+    #[test]
+    fn no_focus_keeps_both_flags_in_either_order() {
+        let expected = Ok(Args {
+            page: PortalPage::General,
+            no_focus: true,
+        });
+        assert_eq!(parse_args(&args(&["--no-focus", "GeneralSetting"])), expected);
+        assert_eq!(parse_args(&args(&["GeneralSetting", "--no-focus"])), expected);
+        assert_eq!(
+            parse_args(&args(&["--no-focus"])),
+            Ok(Args {
+                page: PortalPage::Library,
+                no_focus: true
+            })
+        );
+    }
+
+    #[test]
+    fn anything_else_is_refused() {
+        for bad in [
+            &["PersonalSetting"][..],
+            &["x"],
+            &["GeneralSetting", "GeneralSetting"],
+            &["GeneralSetting", "SystemSetting"],
+            &["--no-focus", "--no-focus"],
+            &["--no-focus", "GeneralSetting", "x"],
+            &["--nofocus"],
+            &["generalsetting"],
+            &[""],
+        ] {
+            assert!(parse_args(&args(bad)).is_err(), "{bad:?}");
+        }
+    }
     #[test]
     fn legacy_keys_resolve_to_their_text() {
         // Flat dotted keys of the generated file resolve like nested ones (RESEARCH assumption A7).
