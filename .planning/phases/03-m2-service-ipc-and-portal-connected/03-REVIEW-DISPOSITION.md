@@ -3,22 +3,10 @@ phase: 03
 review: 03-REVIEW.md
 titles: json
 findings:
-  - id: WR-09
+  - id: WR-13
     severity: warning
-    disposition: fixed
-    title: "A corrupt settings file with no backup is overwritten and its content is lost"
-  - id: WR-10
-    severity: warning
-    disposition: fixed
-    title: "A quit that arrives during a library move can never finish (service never exits)"
-  - id: WR-11
-    severity: warning
-    disposition: fixed
-    title: "The event thread clears `loading` with a plain store and can erase a newer `load_source`"
-  - id: WR-12
-    severity: warning
-    disposition: fixed
-    title: "The pixel-area cap bounds one JPEG decode, not memory; three decodes plus the background image can hold about 800 MB"
+    disposition: open
+    title: "The JPEG decode budget is bypassed by the generic fallback, so the WR-12 bound does not hold"
   - id: IN-02
     severity: info
     disposition: deferred
@@ -59,6 +47,30 @@ findings:
     severity: info
     disposition: open
     title: "The scratch endpoint name hashes the unnormalized data-folder text"
+  - id: IN-19
+    severity: info
+    disposition: open
+    title: "A synchronous `loadfile` failure marks every earlier in-flight request as finished"
+  - id: IN-20
+    severity: info
+    disposition: open
+    title: "A corrupt file is kept in one slot only, and a failed move still lets the write replace it"
+  - id: WR-09
+    severity: warning
+    disposition: fixed
+    title: "A corrupt settings file with no backup is overwritten and its content is lost"
+  - id: WR-10
+    severity: warning
+    disposition: fixed
+    title: "A quit that arrives during a library move can never finish (service never exits)"
+  - id: WR-11
+    severity: warning
+    disposition: fixed
+    title: "The event thread clears `loading` with a plain store and can erase a newer `load_source`"
+  - id: WR-12
+    severity: warning
+    disposition: fixed
+    title: "The pixel-area cap bounds one JPEG decode, not memory; three decodes plus the background image can hold about 800 MB"
   - id: CR-01
     severity: critical
     disposition: fixed
@@ -131,19 +143,16 @@ findings:
     severity: info
     disposition: deferred
     title: "Timing assertion in the memory integration test is tight"
-open: 6
-total: 32
-recorded: 2026-11-24T20:35:32.597Z
+open: 9
+total: 35
+recorded: 2026-11-24T21:02:46.020Z
 ---
 
 # Phase 03: Code Review Disposition
 
 | Finding | Severity | Disposition | Source |
 |---------|----------|-------------|--------|
-| WR-09 | warning | fixed | 03-REVIEW-FIX.md |
-| WR-10 | warning | fixed | 03-REVIEW-FIX.md |
-| WR-11 | warning | fixed | 03-REVIEW-FIX.md |
-| WR-12 | warning | fixed | 03-REVIEW-FIX.md |
+| WR-13 | warning | open | - |
 | IN-02 | info | deferred | Latent until the Linux service exists (EventLoop::new fails there today); fix before Linux support is enabled |
 | IN-04 | info | deferred | Lint hygiene only, no behavior impact; next Portal cleanup (same finding as the earlier IN-04, re-reported with Origin and narrowed to apps/sucrose-portal/src/main.rs:22; the decision was restored after the ledger tool dropped it on the changed title) |
 | IN-10 | info | deferred | Needs a hand-edited or damaged Version; fix with the next settings format change |
@@ -154,6 +163,12 @@ recorded: 2026-11-24T20:35:32.597Z
 | IN-16 | info | open | - |
 | IN-17 | info | open | - |
 | IN-18 | info | open | - |
+| IN-19 | info | open | - |
+| IN-20 | info | open | - |
+| WR-09 | warning | fixed | 03-REVIEW-FIX.md (not in the current review) |
+| WR-10 | warning | fixed | 03-REVIEW-FIX.md (not in the current review) |
+| WR-11 | warning | fixed | 03-REVIEW-FIX.md (not in the current review) |
+| WR-12 | warning | fixed | 03-REVIEW-FIX.md (not in the current review) |
 | CR-01 | critical | fixed | 03-29 (not in the current review) |
 | CR-02 | critical | fixed | 03-30 (not in the current review) |
 | WR-01 | warning | fixed | 03-31 (not in the current review) |
