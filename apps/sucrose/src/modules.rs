@@ -1,13 +1,13 @@
 //! Optional service modules (D-008, ARCH-03): a module the user turns off starts nothing, not a timer that returns
 //! early. Every module logs one line when it is started or found off, with its name (tray, fullscreen, memory).
 
-use std::collections::HashMap;
+use std::{collections::HashMap, path::Path};
 
 use sucrose_ipc::portal::MemoryReport;
 use sucrose_platform::PlatformError;
-use sysinfo::{Pid, ProcessRefreshKind, ProcessesToUpdate, System};
+use sysinfo::{Pid, ProcessRefreshKind, ProcessesToUpdate, System, UpdateKind};
 
-use crate::topology::TimerCommand;
+use crate::{lifecycle::is_sibling_portal, topology::TimerCommand};
 
 /// The loop timer of the memory report (1 and 2 belong to the topology debounce, 3 to the fullscreen rule).
 pub const MEMORY_TIMER: u32 = 4;
@@ -62,6 +62,51 @@ pub fn tray_action(current: bool, wanted: bool) -> ModuleAction {
         (false, true) => ModuleAction::Create,
         (true, false) => ModuleAction::Drop,
         _ => ModuleAction::Keep,
+    }
+}
+
+/// What became of the attempt to end the Portal that did not close in time.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum PortalEnd {
+    /// The process was the sibling Portal executable and was ended.
+    Ended,
+    /// No process has that pid any more.
+    Gone,
+    /// The process is not the sibling Portal executable (or its path cannot be read): it was left alone.
+    NotThePortal,
+    /// The OS refused to end it, or the process information could not be opened.
+    Failed,
+}
+
+/// Ends the Portal of process `pid`, only after the OS confirms that the pid runs the executable `sibling` (T-03-37):
+/// a pid that was reused by another program, or a same-user program that registered as the Portal, is never ended.
+pub fn end_portal(pid: u32, sibling: &Path) -> PortalEnd {
+    let mut system = match System::new() {
+        Ok(system) => system,
+        Err(error) => {
+            tracing::warn!(%error, "cannot read the process list, the Portal is left alone");
+            return PortalEnd::Failed;
+        }
+    };
+    let pid = Pid::from_u32(pid);
+    system.refresh_processes_specifics(
+        ProcessesToUpdate::Some(&[pid]),
+        true,
+        ProcessRefreshKind::nothing().with_exe(UpdateKind::Always),
+    );
+    let Some(process) = system.process(pid) else {
+        return PortalEnd::Gone;
+    };
+    // Both sides canonical, so a verbatim prefix or a short name on one of them does not hide a match.
+    let canonical = |path: &Path| std::fs::canonicalize(path).unwrap_or_else(|_| path.to_path_buf());
+    let running = process.exe().map(canonical);
+    if !is_sibling_portal(running.as_deref(), &canonical(sibling)) {
+        return PortalEnd::NotThePortal;
+    }
+    if process.kill() {
+        PortalEnd::Ended
+    } else {
+        PortalEnd::Failed
     }
 }
 

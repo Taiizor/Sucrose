@@ -1,6 +1,8 @@
 //! When the service starts a Portal and when it ends by itself (D-12, D-13). Both rules are pure functions of facts the
 //! service already holds, so they are tested without a process.
 
+use std::path::Path;
+
 /// What the service does at start.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct StartActions {
@@ -38,30 +40,61 @@ pub struct Closing {
 
 impl Closing {
     /// Starts closing `renderers` running renderers and, when `portal` is true, one registered Portal.
-    pub fn new(_renderers: usize, _portal: bool) -> Self {
+    pub fn new(renderers: usize, portal: bool) -> Self {
         Self {
-            renderers_done: false,
-            portal_done: false,
+            renderers_done: renderers == 0,
+            portal_done: !portal,
         }
     }
 
     /// The shutdown worker reported every renderer ended.
-    pub fn renderers_ended(&mut self) {}
+    pub fn renderers_ended(&mut self) {
+        self.renderers_done = true;
+    }
 
     /// The Portal is gone, whether it closed on the Close it was sent, closed before that, or was ended.
-    pub fn portal_gone(&mut self) {}
+    pub fn portal_gone(&mut self) {
+        self.portal_done = true;
+    }
 
     /// Whether the service may exit.
     pub fn done(&self) -> bool {
-        false
+        self.renderers_done && self.portal_done
     }
 }
 
 /// Whether the process that holds the Portal's pid is the Portal executable next to this one (T-03-37). `running` is
 /// the executable path the OS reports for it, `sibling` the path the service starts the Portal from. Anything else
 /// is not ours to end.
-pub fn is_sibling_portal(_running: Option<&std::path::Path>, _sibling: &std::path::Path) -> bool {
-    false
+pub fn is_sibling_portal(running: Option<&Path>, sibling: &Path) -> bool {
+    running.is_some_and(|running| same_path(running, sibling))
+}
+
+/// Whether two paths name the same file by their text: component by component, and on Windows without regard to
+/// ASCII case (its file names are case-insensitive). A difference in non-ASCII case reads as another file, which only
+/// ever leaves a process alone.
+fn same_path(a: &Path, b: &Path) -> bool {
+    if cfg!(windows) {
+        let mut a = a.components();
+        let mut b = b.components();
+        loop {
+            match (a.next(), b.next()) {
+                (None, None) => return true,
+                (Some(x), Some(y)) => {
+                    if !x
+                        .as_os_str()
+                        .to_string_lossy()
+                        .eq_ignore_ascii_case(&y.as_os_str().to_string_lossy())
+                    {
+                        return false;
+                    }
+                }
+                _ => return false,
+            }
+        }
+    } else {
+        a == b
+    }
 }
 
 /// The Open item of the tray menu. English until the service has a language of its own (UI-06, Phase 5).

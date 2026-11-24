@@ -40,8 +40,11 @@ use sucrose_core::settings::{FullScreenAction, FullScreenScope, GpuPreference, P
 
 use crate::{
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
-    lifecycle::{OPEN_LABEL, exit_label, should_exit, start_actions},
-    modules::{MEMORY_TIMER, MemoryModule, ModuleAction, module_off, pids_by_slot, start_module, tray_action},
+    lifecycle::{Closing, OPEN_LABEL, exit_label, should_exit, start_actions},
+    modules::{
+        MEMORY_TIMER, MemoryModule, ModuleAction, PortalEnd, end_portal, module_off, pids_by_slot, start_module,
+        tray_action,
+    },
     portal_link::{
         PortalAdmission, PortalLink, PortalRegistry, ask_service_to_open_portal, portal_args, request_kind,
         runtime_state, spawn_pending,
@@ -359,6 +362,13 @@ fn start_fullscreen(fleet: &mut Fleet, action: FullScreenAction, scope: ActionSc
     .unwrap_or(false)
 }
 
+/// The loop timer of Close Applications (1 and 2 belong to the topology debounce, 3 to the fullscreen rule, 4 to the
+/// memory report): the Portal gets this long to close before it is ended.
+const CLOSE_TIMER: u32 = 5;
+
+/// How long the Portal has to close after it was told to (TRAY-05, about 2 s).
+const CLOSE_GRACE_MS: u32 = 2000;
+
 /// What the tray tooltip says when Open Sucrose cannot start the Portal (UI-SPEC E14).
 const OPEN_FAILED_TOOLTIP: &str = "Sucrose couldn't open its window";
 
@@ -406,8 +416,8 @@ fn open_portal(page: Option<PortalPage>) -> std::io::Result<()> {
     Ok(())
 }
 
-/// Runs the service until Quit is chosen from the tray. `portal_wanted` is false for a service the Portal started
-/// itself (`--no-portal`, D-12): neither it nor a second `sucrose` of that kind asks for another Portal.
+/// Runs the service until Close Applications is chosen from the tray or nothing needs it any more (D-13).
+/// `portal_wanted` is false for a service the Portal started itself (`--no-portal`, D-12): neither it nor a second `sucrose` of that kind asks for another Portal.
 pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
     let awareness = sucrose_platform::init_dpi_awareness();
     let endpoint = service_endpoint().context("cannot identify the current user")?;
@@ -511,6 +521,11 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
     }
 
     let mut quitting = false;
+    // Set while Close Applications waits for the renderers and the Portal; the service exits when it is done.
+    let mut closing: Option<Closing> = None;
+    // The pid of the Portal that Close Applications told to close, so it can be ended after the grace even when its
+    // connection was already given up.
+    let mut closing_portal: Option<u32> = None;
     // The one Portal that is open, if any; owned by this thread so two that connect together are decided here.
     let mut portals = PortalRegistry::default();
     // When this service last started a Portal that has not registered yet, so a launcher that comes in the meantime
@@ -699,7 +714,11 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                             }
                         }
                     }
-                    Event::ShutdownDone => return Flow::Exit,
+                    // The Quit path leaves at once; Close Applications also waits for the Portal.
+                    Event::ShutdownDone => match &mut closing {
+                        Some(closing) => closing.renderers_ended(),
+                        None => return Flow::Exit,
+                    },
                     Event::PortalConnected {
                         link,
                         version,
@@ -762,6 +781,12 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                                     ModuleAction::Keep => {}
                                                 }
                                             }
+                                            // The exit item says Close Applications or Exit, live.
+                                            if let SettingChange::AppExit(app_exit) = &stored
+                                                && let Some(tray) = &tray
+                                            {
+                                                tray.set_exit_label(exit_label(*app_exit));
+                                            }
                                             portals.send(PortalEvent::Changed(stored));
                                         }
                                         Err(reason) => {
@@ -811,6 +836,9 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                         if portals.gone(connection) {
                             tracing::info!("the portal disconnected");
                             check_exit = true;
+                            if let Some(closing) = &mut closing {
+                                closing.portal_gone();
+                            }
                         }
                     }
                     Event::PortalFocus { page } => {
@@ -838,10 +866,38 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                         }
                     }
                     Event::Tray(TrayAction::Exit) => {
-                        // Close Applications and Exit follow in the next step; the Quit path stops the service.
-                        tray_proxy.quit();
+                        if quitting {
+                            tracing::debug!("Exit chosen while the service stops, ignored");
+                        } else if host.settings().general.app_exit {
+                            // Close Applications (TRAY-05): the renderers, the Portal, then the service.
+                            quitting = true;
+                            tracing::info!("Close Applications chosen, closing the renderers and the Portal");
+                            for id in [TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, FULLSCREEN_TIMER, MEMORY_TIMER] {
+                                timers.kill(id);
+                            }
+                            closing_portal = portals.registered_pid();
+                            closing = Some(Closing::new(supervisor.pids().len(), closing_portal.is_some()));
+                            start_shutdown(&renderers, &supervisor, &notifier);
+                            if closing_portal.is_some() {
+                                portals.send(PortalEvent::Close);
+                                timers.set(CLOSE_TIMER, CLOSE_GRACE_MS);
+                            }
+                        } else {
+                            // Exit (AppExit off): only the tray goes. The wallpaper keeps playing and the exit rule
+                            // (D-13) decides about the service.
+                            tracing::info!("Exit chosen, removing the tray");
+                            tray = None;
+                            module_off("tray");
+                            check_exit = true;
+                        }
                     }
                     Event::Launch { page, reply } => {
+                        // A launch while the tray is wanted but was removed by Exit shows it again (the legacy
+                        // relaunch does the same).
+                        if !quitting && tray.is_none() && host.settings().general.app_visible {
+                            tray = build_tray(true, &status, host.settings().general.app_exit, &notifier);
+                            open_enabled = true;
+                        }
                         let answer = if quitting {
                             LaunchReply::Refused {
                                 reason: "Sucrose is stopping".to_owned(),
@@ -868,6 +924,10 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                         let _ = reply.send(answer);
                     }
                 }
+            }
+            if closing.as_ref().is_some_and(Closing::done) {
+                tracing::info!("the renderers ended and the Portal is gone, the service exits");
+                return Flow::Exit;
             }
             if check_exit
                 && !quitting
@@ -913,6 +973,38 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
         LoopEvent::DisplayChanged => {
             if !quitting && fleet.job.is_some() {
                 run_timers(&timers, fleet.debounce.display_changed().timers);
+            }
+            Flow::Continue
+        }
+        // The Portal had its grace to close: end it if it is still there and is the sibling Portal executable.
+        LoopEvent::Timer(CLOSE_TIMER) => {
+            timers.kill(CLOSE_TIMER);
+            if let Some(closing) = &mut closing {
+                if !closing.portal_done
+                    && let Some(pid) = closing_portal
+                {
+                    match portal_path() {
+                        Ok(sibling) => {
+                            let end = end_portal(pid, &sibling);
+                            match end {
+                                PortalEnd::Ended => tracing::warn!(pid, "the Portal did not close in time, it was ended"),
+                                PortalEnd::Gone => tracing::info!(pid, "the Portal was already gone"),
+                                PortalEnd::NotThePortal => {
+                                    tracing::warn!(pid, "the process is not the Portal executable, it is left alone");
+                                }
+                                PortalEnd::Failed => tracing::warn!(pid, "the Portal could not be ended"),
+                            }
+                        }
+                        Err(error) => tracing::warn!(pid, %error, "cannot tell where the Portal lives, it is left alone"),
+                    }
+                    // Whatever the outcome, there is nothing more to wait for: a process that is not ours is not
+                    // waited for, and one that was ended is gone.
+                    closing.portal_gone();
+                }
+                if closing.done() {
+                    tracing::info!("Close Applications is done, the service exits");
+                    return Flow::Exit;
+                }
             }
             Flow::Continue
         }
