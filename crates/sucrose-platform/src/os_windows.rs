@@ -18,11 +18,13 @@ use std::{
 };
 
 use windows::{
+    Wdk::System::SystemServices::RtlGetVersion,
     Win32::{
         Foundation::{CloseHandle, HANDLE, HLOCAL, LocalFree},
         Security::{Authorization::ConvertSidToStringSidW, GetTokenInformation, TOKEN_QUERY, TOKEN_USER, TokenUser},
         System::{
             Performance::{QueryPerformanceCounter, QueryPerformanceFrequency},
+            SystemInformation::OSVERSIONINFOW,
             Threading::{CREATE_NO_WINDOW, GetCurrentProcess, OpenProcessToken},
         },
     },
@@ -183,13 +185,20 @@ const BACKDROP_MIN_BUILD: u32 = 22621;
 
 /// Whether Windows build `build` can show a window backdrop.
 fn backdrop_supported(build: u32) -> bool {
-    let _ = build;
-    false
+    build >= BACKDROP_MIN_BUILD
 }
 
-/// The build number of this Windows.
+/// The build number of this Windows, or 0 when the OS does not answer. `RtlGetVersion` is the call the window system
+/// itself makes: unlike `GetVersionEx` it is not shimmed by an application manifest.
 fn windows_build() -> u32 {
-    0
+    let mut info = OSVERSIONINFOW {
+        dwOSVersionInfoSize: u32::try_from(size_of::<OSVERSIONINFOW>()).unwrap_or(0),
+        ..OSVERSIONINFOW::default()
+    };
+    // SAFETY: `info` is a live, writable OSVERSIONINFOW whose `dwOSVersionInfoSize` is its real size, which is all
+    // `RtlGetVersion` requires; the call only fills the struct and keeps no pointer.
+    let status = unsafe { RtlGetVersion(&mut info) };
+    if status.is_ok() { info.dwBuildNumber } else { 0 }
 }
 
 #[cfg(test)]

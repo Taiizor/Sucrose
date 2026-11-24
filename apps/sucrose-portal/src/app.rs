@@ -3,7 +3,7 @@
 use gpui_kit::component::{ActiveTheme, TitleBar, v_flex};
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
-use sucrose_core::settings::ThemeMode;
+use sucrose_core::settings::{Backdrop, ThemeMode};
 use sucrose_ipc::portal::{PortalEvent, PortalPage, PortalSettings, RuntimeState, SettingChange};
 
 use sucrose_ipc::portal::UseOutcome;
@@ -43,6 +43,8 @@ pub struct PortalApp {
     _keys: Subscription,
     /// Follows the OS light/dark setting while the theme mode is System.
     _appearance: Subscription,
+    /// Whether this OS can show a window backdrop (read once at start; D-22).
+    window_backdrop: bool,
 }
 
 impl PortalApp {
@@ -51,6 +53,7 @@ impl PortalApp {
     pub fn new(
         page: PortalPage,
         link: ServiceLink,
+        window_backdrop: bool,
         early: Vec<LinkEvent>,
         events: async_channel::Receiver<LinkEvent>,
         window: &mut Window,
@@ -99,6 +102,7 @@ impl PortalApp {
             _events: task,
             _keys: keys,
             _appearance: appearance,
+            window_backdrop,
         };
         for event in early {
             app.on_link_event(event, window, cx);
@@ -111,6 +115,21 @@ impl PortalApp {
         self.settings
             .as_ref()
             .map_or(ThemeMode::System, |settings| settings.theme_mode)
+    }
+
+    /// The stored backdrop; None until the service has reported the settings.
+    fn backdrop(&self) -> Backdrop {
+        self.settings
+            .as_ref()
+            .map_or(Backdrop::None, |settings| settings.backdrop)
+    }
+
+    /// Tells the window which backdrop to draw. A stored value this OS cannot show is applied as opaque; the setting
+    /// itself is never rewritten (D-22).
+    fn apply_backdrop(&self, window: &mut Window) {
+        let appearance = theme::appearance(self.backdrop(), self.window_backdrop);
+        window.set_background_appearance(appearance);
+        tracing::info!(backdrop = ?self.backdrop(), supported = self.window_backdrop, ?appearance, "backdrop applied");
     }
 
     /// Applies the stored theme mode and tells the header what the window shows now.
@@ -137,6 +156,7 @@ impl PortalApp {
                     self.settings = Some(settings);
                     self.runtime = Some(runtime);
                     self.apply_theme(window, cx);
+                    self.apply_backdrop(window);
                 }
                 PortalEvent::Changed(change) => {
                     if let Some(settings) = &mut self.settings {
@@ -146,6 +166,9 @@ impl PortalApp {
                     }
                     if matches!(change, SettingChange::ThemeMode(_)) {
                         self.apply_theme(window, cx);
+                    }
+                    if matches!(change, SettingChange::Backdrop(_)) {
+                        self.apply_backdrop(window);
                     }
                 }
                 PortalEvent::Runtime(runtime) => {
@@ -190,9 +213,11 @@ impl PortalApp {
 
 impl Render for PortalApp {
     fn render(&mut self, _: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
+        // The page tint is translucent while a backdrop shows through it (UI-SPEC Color).
+        let alpha = theme::page_alpha(theme::backdrop_active(self.backdrop(), self.window_backdrop), false);
         v_flex()
             .size_full()
-            .bg(cx.theme().background)
+            .bg(cx.theme().background.opacity(alpha))
             .text_color(cx.theme().foreground)
             .child(TitleBar::new().child(div().text_xs().child(crate::window_title())))
             .child(self.header.clone())

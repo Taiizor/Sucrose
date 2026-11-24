@@ -76,14 +76,32 @@ pub fn apply_mode(mode: ThemeMode, window: &mut Window, cx: &mut App) {
 /// The window background GPUI is told to use for the stored `backdrop`. `supported` is the platform capability: an OS that
 /// cannot show a backdrop gets an opaque window and the stored value stays as it is (D-22).
 pub fn appearance(backdrop: Backdrop, supported: bool) -> WindowBackgroundAppearance {
-    let _ = (backdrop, supported);
-    WindowBackgroundAppearance::Opaque
+    if !supported {
+        return WindowBackgroundAppearance::Opaque;
+    }
+    match backdrop {
+        Backdrop::None => WindowBackgroundAppearance::Opaque,
+        Backdrop::Mica => WindowBackgroundAppearance::MicaBackdrop,
+        Backdrop::Acrylic => WindowBackgroundAppearance::Blurred,
+        Backdrop::Tabbed => WindowBackgroundAppearance::MicaAltBackdrop,
+    }
+}
+
+/// The alpha of the page tint while a backdrop or a background image is active (UI-SPEC Color: dominant).
+const TINT_ALPHA: f32 = 0.78;
+
+/// Whether the stored `backdrop` is actually on screen: the OS can show it and it is not None.
+pub fn backdrop_active(backdrop: Backdrop, supported: bool) -> bool {
+    supported && backdrop != Backdrop::None
 }
 
 /// The alpha of the tinted page background: a backdrop or a background image must show through it.
 pub fn page_alpha(backdrop_active: bool, image_active: bool) -> f32 {
-    let _ = (backdrop_active, image_active);
-    1.0
+    if backdrop_active || image_active {
+        TINT_ALPHA
+    } else {
+        1.0
+    }
 }
 
 /// Calls `on_change` when the OS switches between light and dark, but only while `is_system` says the stored mode is

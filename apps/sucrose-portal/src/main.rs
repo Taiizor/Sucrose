@@ -9,7 +9,7 @@ use std::process::ExitCode;
 
 use gpui_kit::component::TitleBar;
 use gpui_kit::*;
-use sucrose_core::settings::ThemeMode;
+use sucrose_core::settings::{Backdrop, ThemeMode};
 use sucrose_ipc::portal::{PortalEvent, PortalPage, PortalSettings};
 
 mod app;
@@ -99,6 +99,9 @@ fn main() -> anyhow::Result<ExitCode> {
     let no_focus = args.no_focus;
     let page = args.page;
 
+    // Read once: whether this OS can show a window backdrop (D-22).
+    let window_backdrop = sucrose_platform::current().capabilities().window_backdrop;
+
     // Say hello before any window exists: a second Portal ends on AlreadyOpen without a window flashing.
     let (link, events) = ipc::ServiceLink::start(args.hello_page());
     let early = ipc::first_events(&events, ipc::FIRST_EVENT_WAIT);
@@ -129,11 +132,13 @@ fn main() -> anyhow::Result<ExitCode> {
             })
             .detach();
 
+            let backdrop = early_settings(&early).map_or(Backdrop::None, |settings| settings.backdrop);
             let bounds = Bounds::centered(None, size(px(900.), px(600.)), cx);
             let options = WindowOptions {
                 window_bounds: Some(WindowBounds::Windowed(bounds)),
                 window_min_size: Some(size(px(900.), px(600.))),
                 focus: !no_focus,
+                window_background: theme::appearance(backdrop, window_backdrop),
                 titlebar: Some(TitlebarOptions {
                     title: Some(window_title().into()),
                     ..TitleBar::title_bar_options()
@@ -142,7 +147,7 @@ fn main() -> anyhow::Result<ExitCode> {
             };
 
             let opened = gpui_kit::open_window(options, cx, move |window, cx| {
-                cx.new(|cx| app::PortalApp::new(page, link, early, events, window, cx))
+                cx.new(|cx| app::PortalApp::new(page, link, window_backdrop, early, events, window, cx))
             });
             if let Err(error) = opened {
                 tracing::error!(%error, "cannot open the Portal window");
