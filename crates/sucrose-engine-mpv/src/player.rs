@@ -197,6 +197,42 @@ struct Shared {
     start_failure: Mutex<Option<String>>,
 }
 
+/// What a playback restart means for a source switch (see [`SourceSwitch`]).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum Restart {
+    /// A restart of a file that is not the newly requested one (a loop wrap or a finished seek of the old file).
+    Old,
+    /// The first frame of the file the latest [`Player::load_source`] asked for.
+    NewStart,
+}
+
+/// Decides, on the event thread, which playback restart is the first frame of a file requested with
+/// [`Player::load_source`].
+#[derive(Debug, Default)]
+struct SourceSwitch {
+    requested: u64,
+    pending: bool,
+}
+
+impl SourceSwitch {
+    fn requested(&mut self, generation: u64) {
+        if generation > self.requested {
+            self.requested = generation;
+            self.pending = true;
+        }
+    }
+
+    fn file_loaded(&mut self, _generation: u64) {}
+
+    fn restart(&mut self) -> Restart {
+        if std::mem::take(&mut self.pending) {
+            Restart::NewStart
+        } else {
+            Restart::Old
+        }
+    }
+}
+
 /// A running embedded mpv instance. Dropping it stops the event thread and destroys the instance.
 pub struct Player {
     // Declared first so it is dropped last: the library must outlive every call into it.
@@ -953,5 +989,75 @@ mod tests {
         };
         assert!((anchor.expected(after(start, 1.5)) - 6.0).abs() < 1e-9);
         assert!((anchor.expected(start) - 3.0).abs() < 1e-9);
+    }
+
+    #[derive(Clone, Copy)]
+    enum Step {
+        Requested(u64),
+        FileLoaded(u64),
+        Restart,
+    }
+
+    /// Feeds the steps to a fresh [`SourceSwitch`] and returns what each restart was taken for.
+    fn switch_after(steps: &[Step]) -> Vec<Restart> {
+        let mut switch = SourceSwitch::default();
+        let mut restarts = Vec::new();
+        for step in steps {
+            match *step {
+                Step::Requested(generation) => switch.requested(generation),
+                Step::FileLoaded(generation) => switch.file_loaded(generation),
+                Step::Restart => restarts.push(switch.restart()),
+            }
+        }
+        restarts
+    }
+
+    #[test]
+    fn source_switch_ignores_a_restart_queued_before_the_new_file_loaded() {
+        // mpv had queued a restart of the old file (a loop wrap) when the load was requested.
+        let restarts = switch_after(&[Step::Requested(1), Step::Restart, Step::FileLoaded(1), Step::Restart]);
+
+        assert_eq!(restarts, [Restart::Old, Restart::NewStart]);
+    }
+
+    #[test]
+    fn source_switch_reports_one_start_per_load_of_the_same_path() {
+        let restarts = switch_after(&[
+            Step::Requested(1),
+            Step::FileLoaded(1),
+            Step::Restart,
+            Step::Requested(2),
+            Step::Restart,
+            Step::FileLoaded(2),
+            Step::Restart,
+            // Nothing is pending any more: a later wrap of the new file is an ordinary restart.
+            Step::Restart,
+        ]);
+
+        assert_eq!(
+            restarts,
+            [Restart::NewStart, Restart::Old, Restart::NewStart, Restart::Old]
+        );
+    }
+
+    #[test]
+    fn source_switch_starts_only_the_last_of_two_quick_loads() {
+        let restarts = switch_after(&[
+            Step::Requested(1),
+            Step::Requested(2),
+            Step::FileLoaded(1),
+            Step::Restart,
+            Step::FileLoaded(2),
+            Step::Restart,
+        ]);
+
+        assert_eq!(restarts, [Restart::Old, Restart::NewStart]);
+    }
+
+    #[test]
+    fn source_switch_with_no_load_pending_treats_every_restart_as_old() {
+        let restarts = switch_after(&[Step::Restart, Step::FileLoaded(0), Step::Restart, Step::Restart]);
+
+        assert_eq!(restarts, [Restart::Old, Restart::Old, Restart::Old]);
     }
 }
