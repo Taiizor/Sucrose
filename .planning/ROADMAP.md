@@ -121,7 +121,7 @@ Plans:
   3. Starting the service or the Portal a second time reuses the running instance, Exit closes every Sucrose process, and a renderer that keeps crashing is restarted a bounded number of times and then stopped, never in a loop.
   4. An optional module the user turns off starts no thread and does no polling, and with "start with the OS" on, Sucrose starts after sign-in and resumes the wallpaper.
   5. The Portal follows light, dark or the OS theme with its Mica/Acrylic backdrop and optional background image, has header actions, search, a status bar and Help/About, and scrolling through a large library keeps its memory bounded (release build, recorded in `docs/MEASUREMENTS.md`).
-**Plans**: 5/26 plans executed
+**Plans**: 6/26 plans executed
 Plans:
 **Wave 1**
 - [x] 03-01-PLAN.md — Settings tracer: Setting/Sucrose.json migrated once, atomic store with .bak and kill test, service reads it (D-032)
@@ -133,7 +133,7 @@ Plans:
 - [x] 03-05-PLAN.md — cargo xtask synth-library: synthetic libraries with prepared settings for Portal runs and D-25
 
 **Wave 3** *(blocked on Wave 2 completion)*
-- [ ] 03-06-PLAN.md — Portal protocol on the one endpoint: PortalHello routing, registry, AlreadyOpen, endpoint per data folder, test harness (D-033)
+- [x] 03-06-PLAN.md — Portal protocol on the one endpoint: PortalHello routing, registry, AlreadyOpen, endpoint per data folder, test harness (D-033)
 - [ ] 03-26-PLAN.md — Engine, Backgroundog, Cycling, Hook and Update keys typed and migrated, D-05 exclusions and stale names, ROADMAP/FMT-01/FEATURES wording (split from 03-04)
 
 **Wave 4** *(blocked on Wave 3 completion)*
@@ -272,7 +272,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 |-------|----------------|--------|-----------|
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
 | 2. M1 — Video wallpaper on the desktop (Windows) | 29/29 | Complete    | 2026-11-23 |
-| 3. M2 — Service, IPC and Portal connected | 5/26 | In Progress | - |
+| 3. M2 — Service, IPC and Portal connected | 6/26 | In Progress | - |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
 | 6. M5 — macOS | 0/TBD | Not started | - |
