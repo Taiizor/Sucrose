@@ -295,6 +295,21 @@ fn parse_destination(text: &str) -> Result<PathBuf, MoveOutcome> {
     }
 }
 
+/// Whether the service acts on a Portal request once it is closing (WR-02): only the startup read, which changes nothing.
+/// Nothing that starts, moves or changes anything is acted on after the renderers were told to close.
+fn acts_while_quitting(request: &PortalRequest) -> bool {
+    matches!(request, PortalRequest::RefreshStartup)
+}
+
+/// The answer a Portal gets to a request that is not acted on while the service closes: a move was asked for and is
+/// refused Busy, so the Portal does not wait for a result that never comes; the other requests have no answer.
+fn quitting_answer(request: &PortalRequest) -> Option<PortalEvent> {
+    match request {
+        PortalRequest::MoveLibrary { .. } => Some(PortalEvent::MoveResult(MoveOutcome::Refused(MoveRefusal::Busy))),
+        _ => None,
+    }
+}
+
 /// Everything a step of a library move touches on the main thread.
 struct MoveEnv<'a> {
     host: &'a mut SettingsHost,
@@ -1254,6 +1269,12 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                     Event::Portal { connection, request } => {
                         if !portals.is_registered(connection) {
                             tracing::debug!("ignoring a request of a portal that is not registered");
+                        } else if quitting && !acts_while_quitting(&request) {
+                            // WR-02: nothing starts or changes once the renderers were told to close.
+                            tracing::debug!("a portal request was ignored, the service is closing");
+                            if let Some(answer) = quitting_answer(&request) {
+                                portals.send(answer);
+                            }
                         } else {
                             match request {
                                 PortalRequest::Change(change) => {
@@ -5283,5 +5304,45 @@ mod tests {
             !closed.any_awaiting(),
             "a slot that was forgotten (its monitor went) is not waited for"
         );
+    }
+
+    #[test]
+    fn only_refresh_startup_acts_while_quitting() {
+        let change = PortalRequest::Change(SettingChange::AppVisible(true));
+        let used = PortalRequest::Use {
+            folder: "Theme".to_owned(),
+        };
+        let moved = PortalRequest::MoveLibrary {
+            destination: "C:/Library".to_owned(),
+        };
+        let startup = PortalRequest::SetStartup(sucrose_ipc::portal::StartupMode::Normal);
+        for request in [change, used, PortalRequest::MaintainLibrary, moved, startup] {
+            assert!(
+                !acts_while_quitting(&request),
+                "{request:?} must not be acted on while quitting"
+            );
+        }
+        assert!(acts_while_quitting(&PortalRequest::RefreshStartup));
+    }
+
+    #[test]
+    fn a_move_asked_for_while_quitting_is_refused_busy() {
+        let moved = PortalRequest::MoveLibrary {
+            destination: "C:/Library".to_owned(),
+        };
+
+        assert_eq!(
+            quitting_answer(&moved),
+            Some(PortalEvent::MoveResult(MoveOutcome::Refused(MoveRefusal::Busy)))
+        );
+        let used = PortalRequest::Use {
+            folder: "Theme".to_owned(),
+        };
+        assert_eq!(
+            quitting_answer(&used),
+            None,
+            "a request that is only dropped has no answer"
+        );
+        assert_eq!(quitting_answer(&PortalRequest::RefreshStartup), None);
     }
 }
