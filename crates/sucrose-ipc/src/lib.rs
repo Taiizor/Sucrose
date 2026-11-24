@@ -231,7 +231,17 @@ impl Connection {
     /// returns an error and the peer's next `recv` returns [`IpcError::Closed`]. Only the service side of a
     /// connection (the end `Listener::accept` returned) can be disconnected.
     pub fn disconnect(&self) -> Result<(), IpcError> {
-        Err(IpcError::Unsupported("disconnecting a connection"))
+        #[cfg(windows)]
+        {
+            use std::os::windows::io::AsHandle as _;
+
+            let Stream::NamedPipe(pipe) = &self.stream;
+            sucrose_platform::disconnect_pipe(pipe.as_handle()).map_err(|error| IpcError::Io(io::Error::other(error)))
+        }
+        #[cfg(not(windows))]
+        {
+            Err(IpcError::Unsupported("disconnecting a connection"))
+        }
     }
 
     /// Another handle to the same connection, so one thread can read while another writes.

@@ -12,7 +12,10 @@ mod tray;
 
 use std::{
     io,
-    os::windows::process::CommandExt,
+    os::windows::{
+        io::{AsRawHandle, BorrowedHandle},
+        process::CommandExt,
+    },
     path::Path,
     process::{Child, Command},
     sync::OnceLock,
@@ -25,6 +28,7 @@ use windows::{
         Security::{Authorization::ConvertSidToStringSidW, GetTokenInformation, TOKEN_QUERY, TOKEN_USER, TokenUser},
         System::{
             Performance::{QueryPerformanceCounter, QueryPerformanceFrequency},
+            Pipes::DisconnectNamedPipe,
             SystemInformation::OSVERSIONINFOW,
             Threading::{CREATE_NO_WINDOW, GetCurrentProcess, OpenProcessToken},
         },
@@ -98,6 +102,17 @@ pub(crate) fn spawn_detached(cmd: &mut Command) -> io::Result<Child> {
 
 /// QueryPerformanceCounter scaled to nanoseconds. The counter is system-wide, so the service and its renderers read
 /// comparable values (RESEARCH A4). 0 when the OS refuses, which a caller sees as "no clock".
+/// Ends a named pipe connection on the server side: every handle of the pipe instance stops working, so a thread
+/// blocked in a read on another handle returns and the client's next operation fails.
+pub(crate) fn disconnect_pipe(handle: BorrowedHandle<'_>) -> Result<(), PlatformError> {
+    // SAFETY: `handle` is a valid, open pipe handle that is borrowed for the whole call; DisconnectNamedPipe only
+    // changes the state of the pipe instance and fails (reported below) for a handle that is not a server end.
+    unsafe { DisconnectNamedPipe(HANDLE(handle.as_raw_handle())) }.map_err(|error| PlatformError::Failed {
+        context: "pipe disconnect",
+        message: error.to_string(),
+    })
+}
+
 pub(crate) fn monotonic_ns() -> u64 {
     static FREQUENCY: OnceLock<i64> = OnceLock::new();
     let frequency = *FREQUENCY.get_or_init(|| {

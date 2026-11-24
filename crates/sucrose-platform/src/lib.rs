@@ -228,6 +228,14 @@ pub fn allow_set_foreground(pid: u32) -> Result<(), PlatformError> {
     imp::allow_set_foreground(pid)
 }
 
+/// Disconnects the server end of a named pipe, which ends the connection for every handle of it (the IPC layer uses it
+/// to drop a peer whose reader thread is blocked on another handle). Windows only: other OSes have no equivalent call
+/// and the IPC layer reports that itself.
+#[cfg(target_os = "windows")]
+pub fn disconnect_pipe(handle: std::os::windows::io::BorrowedHandle<'_>) -> Result<(), PlatformError> {
+    imp::disconnect_pipe(handle)
+}
+
 /// Repaints the desktop after the last wallpaper surface is gone, so no frame of the wallpaper is left behind.
 pub fn refresh_desktop() {
     imp::refresh_desktop();
