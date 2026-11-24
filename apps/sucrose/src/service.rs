@@ -127,12 +127,21 @@ const NOTHING_MAINTAINED: MaintainReport = MaintainReport {
     corrupt_skipped: 0,
 };
 
+/// A bin that refuses everything, until the platform wrapper is wired in.
+struct NoBin;
+
+impl library_ops::Trash for NoBin {
+    fn move_to_trash(&self, _path: &std::path::Path) -> Result<(), String> {
+        Err("no bin yet".to_owned())
+    }
+}
+
 /// Starts the `library-ops` thread for one maintenance run (T-03-50): copying and moving never run on the main thread.
 /// The result comes back as `Event::LibraryOps`, also when the worker panics. `false` when the thread cannot start.
 fn start_library_ops(input: MaintainInput, notifier: &Notifier) -> bool {
     let notifier = notifier.clone();
     let started = thread::Builder::new().name("library-ops".to_owned()).spawn(move || {
-        let done = std::panic::catch_unwind(|| library_ops::maintain(&input)).map_or_else(
+        let done = std::panic::catch_unwind(|| library_ops::maintain(&input, &NoBin)).map_or_else(
             |_| {
                 tracing::error!("the library maintenance panicked");
                 LibraryDone {

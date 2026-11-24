@@ -21,6 +21,16 @@ pub struct MaintainInput {
     pub showcase: Option<PathBuf>,
     /// Folder names already recorded in `Warehouse.Showcase`.
     pub copied: Vec<String>,
+    /// Whether corrupt themes go to the bin (`Library.DeleteCorrupt`).
+    pub delete_corrupt: bool,
+    /// The folder with the per-theme property caches (`Cache/Properties`).
+    pub properties: Option<PathBuf>,
+}
+
+/// Where a corrupt theme goes: the OS recycle bin or trash. A trait so tests record the calls instead of touching a bin.
+pub trait Trash {
+    /// Moves `path` (a folder) to the bin. The error is a sentence for the log, never a path.
+    fn move_to_trash(&self, path: &Path) -> Result<(), String>;
 }
 
 impl MaintainInput {
@@ -30,6 +40,8 @@ impl MaintainInput {
             location: settings.library_location(legacy_root),
             showcase: paths::showcase_dir(),
             copied: settings.warehouse.showcase.clone(),
+            delete_corrupt: settings.library.delete_corrupt,
+            properties: paths::properties_cache_dir(),
         }
     }
 }
@@ -78,12 +90,13 @@ fn copy_tree_with(from: &Path, to: &Path, copy_file: CopyFile<'_>) -> io::Result
 }
 
 /// Runs the maintenance: the report and the showcase names to record in `Warehouse.Showcase`.
-pub fn maintain(input: &MaintainInput) -> (MaintainReport, Vec<String>) {
-    maintain_with(input, &|source, destination| fs::copy(source, destination))
+pub fn maintain(input: &MaintainInput, trash: &dyn Trash) -> (MaintainReport, Vec<String>) {
+    maintain_with(input, trash, &|source, destination| fs::copy(source, destination))
 }
 
 /// [`maintain`] with the file copy given.
-fn maintain_with(input: &MaintainInput, copy_file: CopyFile<'_>) -> (MaintainReport, Vec<String>) {
+fn maintain_with(input: &MaintainInput, trash: &dyn Trash, copy_file: CopyFile<'_>) -> (MaintainReport, Vec<String>) {
+    let _ = trash;
     let mut report = MaintainReport {
         showcase_copied: 0,
         corrupt_moved: 0,
@@ -157,6 +170,7 @@ pub fn record_names(list: &mut Vec<String>, names: &[String]) {
 #[cfg(test)]
 mod tests {
     use std::{
+        cell::RefCell,
         fs,
         path::{Path, PathBuf},
     };
@@ -198,7 +212,155 @@ mod tests {
             location: scratch.path("Library"),
             showcase: Some(scratch.path("Showcase")),
             copied: copied.iter().map(|name| (*name).to_owned()).collect(),
+            delete_corrupt: false,
+            properties: Some(scratch.path("Properties")),
         }
+    }
+
+    /// A fake bin: records what it is given and fails when told to.
+    #[derive(Default)]
+    struct Recorder {
+        moved: RefCell<Vec<PathBuf>>,
+        fail: bool,
+    }
+
+    impl Trash for Recorder {
+        fn move_to_trash(&self, path: &Path) -> Result<(), String> {
+            if self.fail {
+                return Err("the bin is full".to_owned());
+            }
+            self.moved.borrow_mut().push(path.to_path_buf());
+            Ok(())
+        }
+    }
+
+    impl Recorder {
+        /// The folder names handed to the bin, in order.
+        fn names(&self) -> Vec<String> {
+            self.moved
+                .borrow()
+                .iter()
+                .filter_map(|path| path.file_name().map(|name| name.to_string_lossy().into_owned()))
+                .collect()
+        }
+    }
+
+    /// A folder of the library that is no theme: no `SucroseInfo.json`.
+    fn corrupt_folder(library: &Path, name: &str) {
+        fs::create_dir_all(library.join(name)).expect("the folder can be created");
+        fs::write(library.join(name).join("readme.txt"), b"x").expect("the file can be written");
+    }
+
+    /// A theme folder the scan accepts, written for `app_version`.
+    fn library_theme(library: &Path, name: &str, app_version: &str) {
+        let dir = library.join(name);
+        fs::create_dir_all(&dir).expect("the theme folder can be created");
+        let info = format!(
+            r#"{{"AppVersion":"{app_version}","Title":"T","Thumbnail":"th.jpg","Preview":"pv.gif","Type":3,"Source":"v.mp4"}}"#
+        );
+        fs::write(dir.join("SucroseInfo.json"), info).expect("the info file can be written");
+        for file in ["th.jpg", "pv.gif", "v.mp4"] {
+            fs::write(dir.join(file), b"x").expect("the theme file can be written");
+        }
+    }
+
+    /// An input that moves corrupt themes, with a library of one valid theme, one that needs a newer app and two corrupt
+    /// folders, and a property cache file for each of three folders.
+    fn corrupt_scene(scratch: &Scratch) -> MaintainInput {
+        let library = scratch.path("Library");
+        library_theme(&library, "good", "26.10.19.0");
+        library_theme(&library, "newer", "99.0.0.0");
+        corrupt_folder(&library, "bad-one");
+        corrupt_folder(&library, "bad-two");
+        let properties = scratch.path("Properties");
+        fs::create_dir_all(&properties).expect("the property cache can be created");
+        for name in ["good", "bad-one", "bad-two"] {
+            fs::write(properties.join(format!("{name}.json")), b"{}").expect("the cache file can be written");
+        }
+        MaintainInput {
+            delete_corrupt: true,
+            ..input(scratch, &[])
+        }
+    }
+
+    #[test]
+    fn corrupt_themes_stay_where_they_are_when_the_setting_is_off() {
+        let scratch = Scratch::new("corrupt-off");
+        let input = MaintainInput {
+            delete_corrupt: false,
+            ..corrupt_scene(&scratch)
+        };
+        let bin = Recorder::default();
+
+        let (report, _) = maintain(&input, &bin);
+
+        assert!(bin.names().is_empty());
+        assert_eq!((report.corrupt_moved, report.corrupt_skipped), (0, 0));
+        assert!(scratch.path("Properties/bad-one.json").is_file());
+    }
+
+    #[test]
+    fn corrupt_folders_go_to_the_bin_once_and_their_property_file_is_deleted() {
+        let scratch = Scratch::new("corrupt-on");
+        let input = corrupt_scene(&scratch);
+        let bin = Recorder::default();
+
+        let (report, names) = maintain(&input, &bin);
+
+        assert_eq!(
+            bin.names(),
+            ["bad-one", "bad-two"],
+            "valid and newer themes are never moved"
+        );
+        assert_eq!((report.corrupt_moved, report.corrupt_skipped), (2, 0));
+        assert!(names.is_empty());
+        assert!(!scratch.path("Properties/bad-one.json").exists());
+        assert!(!scratch.path("Properties/bad-two.json").exists());
+        assert!(
+            scratch.path("Properties/good.json").is_file(),
+            "a theme that stays keeps its cache"
+        );
+    }
+
+    #[test]
+    fn corrupt_error_from_the_bin_counts_as_skipped_and_keeps_the_folder() {
+        let scratch = Scratch::new("corrupt-fail");
+        let input = corrupt_scene(&scratch);
+        let bin = Recorder {
+            fail: true,
+            ..Recorder::default()
+        };
+
+        let (report, _) = maintain(&input, &bin);
+
+        assert_eq!((report.corrupt_moved, report.corrupt_skipped), (0, 2));
+        assert!(
+            scratch.path("Library/bad-one").is_dir(),
+            "the folder is never deleted by the corrupt step"
+        );
+        assert!(scratch.path("Library/bad-two").is_dir());
+        assert!(
+            scratch.path("Properties/bad-one.json").is_file(),
+            "its cache stays with it"
+        );
+    }
+
+    #[test]
+    fn corrupt_step_leaves_a_library_of_valid_and_newer_themes_alone() {
+        let scratch = Scratch::new("corrupt-none");
+        let library = scratch.path("Library");
+        library_theme(&library, "good", "26.10.19.0");
+        library_theme(&library, "newer", "99.0.0.0");
+        let input = MaintainInput {
+            delete_corrupt: true,
+            ..input(&scratch, &[])
+        };
+        let bin = Recorder::default();
+
+        let (report, _) = maintain(&input, &bin);
+
+        assert!(bin.names().is_empty());
+        assert_eq!((report.corrupt_moved, report.corrupt_skipped), (0, 0));
     }
 
     #[test]
@@ -207,7 +369,7 @@ mod tests {
         theme(&scratch.path("Showcase"), "A");
         theme(&scratch.path("Showcase"), "B");
 
-        let (report, names) = maintain(&input(&scratch, &["A"]));
+        let (report, names) = maintain(&input(&scratch, &["A"]), &Recorder::default());
 
         assert_eq!(names, ["B"]);
         assert_eq!(report.showcase_copied, 1);
@@ -221,7 +383,7 @@ mod tests {
         theme(&scratch.path("Showcase"), "A");
         theme(&scratch.path("Showcase"), "B");
 
-        let (report, names) = maintain(&input(&scratch, &["A", "B"]));
+        let (report, names) = maintain(&input(&scratch, &["A", "B"]), &Recorder::default());
 
         assert!(names.is_empty());
         assert_eq!(report.showcase_copied, 0);
@@ -236,7 +398,7 @@ mod tests {
         fs::create_dir_all(scratch.path("Library/B")).expect("the library folder can be created");
         fs::write(scratch.path("Library/B/mine.txt"), b"mine").expect("the file can be written");
 
-        let (report, names) = maintain(&input(&scratch, &[]));
+        let (report, names) = maintain(&input(&scratch, &[]), &Recorder::default());
 
         assert_eq!(names, ["B"], "the name is recorded: the folder was already there");
         assert_eq!(report.showcase_copied, 0, "nothing was copied");
@@ -251,7 +413,7 @@ mod tests {
     fn a_missing_showcase_folder_copies_nothing() {
         let scratch = Scratch::new("no-showcase");
 
-        let (report, names) = maintain(&input(&scratch, &[]));
+        let (report, names) = maintain(&input(&scratch, &[]), &Recorder::default());
 
         assert!(names.is_empty());
         assert_eq!(report.showcase_copied, 0);
@@ -307,7 +469,7 @@ mod tests {
             }
         };
 
-        let (report, names) = maintain_with(&input(&scratch, &[]), &failing);
+        let (report, names) = maintain_with(&input(&scratch, &[]), &Recorder::default(), &failing);
 
         assert!(names.is_empty(), "a failed copy is not recorded");
         assert_eq!(report.showcase_copied, 0);
