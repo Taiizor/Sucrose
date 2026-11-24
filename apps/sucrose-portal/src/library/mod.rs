@@ -189,6 +189,7 @@ pub struct LibraryView {
     /// The page the jump field was last set to; the field shows the page that is shown until the user types.
     jump_synced: usize,
     _jump_subscription: Subscription,
+    _visibility: Subscription,
 }
 
 impl LibraryView {
@@ -200,6 +201,13 @@ impl LibraryView {
         let jump_subscription = cx.subscribe_in(&jump, window, |this, _, event: &InputEvent, window, cx| {
             if matches!(event, InputEvent::PressEnter { .. }) {
                 this.jump_to_typed(window, cx);
+            }
+        });
+        // A window that is no longer visible shows no preview.
+        let this = cx.weak_entity();
+        let visibility = window.observe_window_visibility(move |visibility, _, cx| {
+            if !visibility.is_visible() {
+                this.update(cx, |this, cx| this.stop_preview(cx)).ok();
             }
         });
         Self {
@@ -231,6 +239,7 @@ impl LibraryView {
             jump_total,
             jump_synced: 0,
             _jump_subscription: jump_subscription,
+            _visibility: visibility,
         }
     }
 
@@ -295,6 +304,11 @@ impl LibraryView {
         let Some(old) = self.settings.replace(new.clone()) else {
             return;
         };
+        // Turning Library Preview off ends a playing preview at once; Hide Details is read when the card is drawn, so it
+        // applies to the current preview and to the next ones.
+        if preview_stopped_by(&old, &new) {
+            self.stop_preview(cx);
+        }
         if old.location != new.location {
             self.reload(cx);
             return;
@@ -310,6 +324,7 @@ impl LibraryView {
             self.scroll.set_offset(point(px(0.), px(0.)));
         }
         if paged_again || page != self.page {
+            self.stop_preview(cx);
             self.page = page;
             self.request_page(cx);
         }
@@ -323,6 +338,7 @@ impl LibraryView {
             return;
         }
         self.query = query.to_owned();
+        self.stop_preview(cx);
         self.refilter();
         self.page = 1;
         self.scroll.set_offset(point(px(0.), px(0.)));
@@ -361,6 +377,7 @@ impl LibraryView {
         };
         self.generation += 1;
         let generation = self.generation;
+        self.stop_preview(cx);
         if self.phase != Phase::Ready {
             self.phase = Phase::Scanning { skeleton: false };
         }
@@ -407,8 +424,11 @@ impl LibraryView {
                     ignored = scanned.ignored,
                     "library loaded"
                 );
+                // The cards below are new; whatever plays belongs to the old list.
+                self.stop_preview(cx);
                 self.themes = scanned.themes;
                 self.thumb_times = scanned.thumb_times;
+                self.preview_failed.clear();
                 if let Some(settings) = &self.settings
                     && (settings.sort_mode, settings.sort_kind) != sorted_by
                 {
@@ -436,6 +456,7 @@ impl LibraryView {
         if page == self.page {
             return;
         }
+        self.stop_preview(cx);
         self.page = page;
         self.scroll.set_offset(point(px(0.), px(0.)));
         self.request_page(cx);
@@ -488,6 +509,13 @@ impl LibraryView {
             timer.await;
             this.update(cx, |this, cx| this.on_dwell(&folder, cx)).ok();
         }));
+        self.after_preview_change(released, cx);
+    }
+
+    /// Stops the preview wherever it stands (waiting, decoding or playing) and releases its frames from GPUI's atlas. A
+    /// decode that is still running ends as a stale result and is released too.
+    fn stop_preview(&mut self, cx: &mut Context<Self>) {
+        let released = self.preview.stop();
         self.after_preview_change(released, cx);
     }
 
@@ -751,6 +779,12 @@ impl Render for LibraryView {
     }
 }
 
+/// Whether the settings change from `old` to `new` ends the live preview: `Changed(LibraryPreview(false))`. `LibraryPreviewHide`
+/// only changes how the strip is drawn.
+fn preview_stopped_by(old: &LibrarySettings, new: &LibrarySettings) -> bool {
+    old.preview && !new.preview
+}
+
 /// The page to show after the settings changed from `old` to `new` with `count` themes loaded: page 1 when the order or the
 /// page size changed, otherwise the current page kept inside the page range.
 fn page_after_settings_change(old: &LibrarySettings, new: &LibrarySettings, page: usize, count: usize) -> usize {
@@ -767,7 +801,7 @@ mod tests {
 
     use sucrose_core::settings::{SortKind, SortMode};
 
-    use super::{LibrarySettings, layout, page_after_settings_change};
+    use super::{LibrarySettings, layout, page_after_settings_change, preview_stopped_by};
 
     fn settings() -> LibrarySettings {
         LibrarySettings {
@@ -780,6 +814,27 @@ mod tests {
             preview: false,
             preview_hide: false,
         }
+    }
+
+    #[test]
+    fn preview_turned_off_stops_the_live_preview_and_hide_details_does_not() {
+        let on = LibrarySettings {
+            preview: true,
+            ..settings()
+        };
+        let off = settings();
+        assert!(preview_stopped_by(&on, &off));
+        assert!(!preview_stopped_by(&off, &on), "turning it on stops nothing");
+        assert!(!preview_stopped_by(&on, &on));
+        let hidden = LibrarySettings {
+            preview_hide: true,
+            ..on.clone()
+        };
+        assert!(!preview_stopped_by(&on, &hidden));
+        assert_ne!(
+            on, hidden,
+            "a Hide Details change is still a settings change the cards redraw for"
+        );
     }
 
     #[test]

@@ -36,6 +36,8 @@ Practical notes for the UI (`gpui-kit`). GPUI documentation is thin; read the so
 - `Button` is a `ParentElement`: a clickable row with an icon and two lines of text is a ghost `Button` with children, which the keyboard reaches for free. `font_semibold()` and the other weights need `gpui_kit::component::StyledExt` in scope.
 - `window.on_window_should_close(cx, f)` calls `f` from the platform, outside any entity update; reach the root entity through a `cx.weak_entity()` taken beforehand and `update` it. Returning false keeps the window open.
 
+- Hover preview (library card): `.on_hover(|hovered, window, cx| …)` is a second listener next to `.hover(style)`, and an element takes only one `on_hover`. A multi-frame `RenderImage` in `img()` animates by itself, so the preview is a child above the static thumbnail and costs nothing once it is removed; drop its frames with `cx.drop_image(image, None)` when the hover ends or the page, search or setting changes, because `on_hover(false)` does not fire for a card that leaves the tree. A preview decode shares the thumbnail decode slots (`DecodeQueue::reserve`) and its result is checked against the state machine, so a result for a card the pointer left is released instead of shown. `observe_window_visibility` tells the view to stop when the window hides.
+
 ## Patterns
 
 - State lives in entities; long work runs on `cx.background_executor()`, results come back with `this.update(cx, …)`.
