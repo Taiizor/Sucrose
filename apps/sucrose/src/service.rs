@@ -2,7 +2,10 @@
 
 use std::{
     collections::{HashMap, HashSet, hash_map::Entry},
-    sync::{Arc, Mutex, MutexGuard, PoisonError},
+    sync::{
+        Arc, Mutex, MutexGuard, PoisonError,
+        atomic::{AtomicU64, Ordering},
+    },
     thread,
     time::{Duration, Instant},
 };
@@ -21,8 +24,10 @@ use sucrose_core::{
     version::app_version,
 };
 use sucrose_ipc::{
-    Connection, IpcError, Listener, endpoint_name,
+    Connection, IpcError, Listener,
+    portal::{PortalEvent, PortalPage, PortalRequest},
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
+    service_endpoint,
 };
 use sucrose_platform::{
     EventLoop, Flow, GpuPreferenceChange, LoopEnd, LoopEvent, LoopProxy, LoopTimers, MonitorInfo, PlatformError,
@@ -33,6 +38,7 @@ use sucrose_core::settings::{FullScreenAction, GpuPreference, PauseKind, ScreenA
 
 use crate::{
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
+    portal_link::{PortalAdmission, PortalLink, PortalRegistry, portal_view, request_kind, runtime_state},
     supervisor::{
         Decision, Exhausted, ExitClass, Exited, RestartBudget, START_FAILED, ShellRestart, Supervisor, classify_exit,
         decide_exit,
@@ -42,35 +48,6 @@ use crate::{
         replace_all, with_area,
     },
 };
-
-/// Where this user's service listens.
-pub struct Endpoint {
-    /// The endpoint name, shared by the service and its renderers.
-    pub name: String,
-    /// The account the endpoint is restricted to, where the OS can restrict it (the SID on Windows).
-    pub owner: Option<String>,
-}
-
-/// The endpoint of the current user. The account SID names it and owns it on Windows; the user name is only the
-/// fallback where the platform has no user identity (macOS and Linux, which have no M1 wallpaper).
-pub fn endpoint() -> anyhow::Result<Endpoint> {
-    match sucrose_platform::current().user_key() {
-        Ok(key) => Ok(Endpoint {
-            name: endpoint_name(&key),
-            owner: Some(key),
-        }),
-        Err(PlatformError::Unsupported(_)) => {
-            let user = std::env::var("USERNAME")
-                .or_else(|_| std::env::var("USER"))
-                .unwrap_or_else(|_| "user".to_owned());
-            Ok(Endpoint {
-                name: endpoint_name(&user),
-                owner: None,
-            })
-        }
-        Err(error) => Err(error).context("cannot identify the current user"),
-    }
-}
 
 /// What the threads of the service tell its main thread.
 #[derive(Debug)]
@@ -82,6 +59,27 @@ enum Event {
     Exited(Exited),
     /// The shutdown worker finished closing every renderer.
     ShutdownDone,
+    /// A Portal said hello on a connection of its own. The main thread decides whether it is the one Portal.
+    PortalConnected {
+        /// The writer of that connection.
+        link: PortalLink,
+        /// The Portal protocol version it announced.
+        version: u16,
+        /// The page it was asked to open on.
+        page: Option<PortalPage>,
+    },
+    /// A request of the Portal on `connection`.
+    Portal {
+        /// Identifies the connection, as in [`PortalLink::connection`].
+        connection: u64,
+        /// What it asks.
+        request: PortalRequest,
+    },
+    /// The Portal on `connection` disconnected.
+    PortalGone {
+        /// Identifies the connection.
+        connection: u64,
+    },
 }
 
 /// Sends events to the main thread and wakes its message loop, so the loop never polls.
@@ -104,14 +102,14 @@ impl Notifier {
 
 /// How many messages may wait for one renderer that does not read. The service sends a handful of control messages and
 /// one clock reading per second, so a full queue means a renderer that is stuck, not a busy one.
-const OUTGOING_CAPACITY: usize = 64;
+pub(crate) const OUTGOING_CAPACITY: usize = 64;
 
-/// What became of a message offered to a [`Link`].
+/// What became of a message offered to a [`Link`] or a `PortalLink`.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum Offer {
+pub(crate) enum Offer {
     /// Queued; the writer thread sends it.
     Queued,
-    /// A clock reading dropped because the renderer is behind: the next reading replaces it anyway.
+    /// A reading dropped because the peer is behind: the next reading replaces it anyway.
     Dropped,
     /// Not queued: the queue is full of messages that cannot be skipped, or the writer thread has ended (the
     /// connection is broken).
@@ -307,7 +305,9 @@ impl Status {
                 reason: limit(reason),
                 hint: limit(hint),
             }),
-            ToService::Hello { .. } | ToService::Clock(_) => None,
+            ToService::Hello { .. } | ToService::Clock(_) | ToService::PortalHello { .. } | ToService::Launch(_) => {
+                None
+            }
         }
     }
 }
@@ -349,7 +349,7 @@ fn start_tray<T>(app_visible: bool, create: impl FnOnce() -> Result<T, PlatformE
 /// Runs the service until Quit is chosen from the tray.
 pub fn run() -> anyhow::Result<()> {
     let awareness = sucrose_platform::init_dpi_awareness();
-    let endpoint = endpoint()?;
+    let endpoint = service_endpoint().context("cannot identify the current user")?;
     let listener = match Listener::bind(&endpoint.name, endpoint.owner.as_deref()) {
         Ok(listener) => listener,
         Err(IpcError::AlreadyRunning) => {
@@ -371,7 +371,7 @@ pub fn run() -> anyhow::Result<()> {
         "service started"
     );
     // The store stays alive for the whole run: plan 07 moves it into the settings host.
-    let (plan, _settings_store) = plan_wallpapers();
+    let (plan, settings, settings_store) = plan_wallpapers();
     let assignments = SharedAssignments::default();
     let mut fleet = Fleet::new(plan.job, Arc::clone(&assignments));
     let mut status = plan.status;
@@ -439,6 +439,8 @@ pub fn run() -> anyhow::Result<()> {
     }
 
     let mut quitting = false;
+    // The one Portal that is open, if any; owned by this thread so two that connect together are decided here.
+    let mut portals = PortalRegistry::default();
     let timers = event_loop.timers();
     if fleet.enable_fullscreen(plan.fullscreen, plan.pause) {
         timers.set(FULLSCREEN_TIMER, FULLSCREEN_POLL_MS);
@@ -598,6 +600,38 @@ pub fn run() -> anyhow::Result<()> {
                         }
                     }
                     Event::ShutdownDone => return Flow::Exit,
+                    Event::PortalConnected { link, version, page } => {
+                        let pid = link.pid();
+                        let current = settings_store.as_ref().map_or(&settings, Store::settings);
+                        let running = fleet.job.is_some() && !supervisor.pids().is_empty();
+                        let tray_visible = tray.is_some();
+                        let admission = portals.admit(link, version, page, quitting, || PortalEvent::Welcome {
+                            settings: portal_view(current),
+                            runtime: runtime_state(current, running, tray_visible),
+                        });
+                        match admission {
+                            PortalAdmission::Register => tracing::info!(pid, "portal registered"),
+                            PortalAdmission::AlreadyOpen { existing_pid } => {
+                                tracing::info!(pid, existing_pid, "a second portal was told the first one is open");
+                            }
+                            PortalAdmission::Close => {
+                                tracing::info!(pid, "a portal connected while the service stops, it was told to close");
+                            }
+                            PortalAdmission::Refuse(reason) => tracing::warn!(pid, %reason, "refusing a portal"),
+                        }
+                    }
+                    Event::Portal { connection, request } => {
+                        if portals.is_registered(connection) {
+                            tracing::debug!(kind = request_kind(&request), "portal request, nothing handles it yet");
+                        } else {
+                            tracing::debug!("ignoring a request of a portal that is not registered");
+                        }
+                    }
+                    Event::PortalGone { connection } => {
+                        if portals.gone(connection) {
+                            tracing::info!("the portal disconnected");
+                        }
+                    }
                 }
             }
             Flow::Continue
@@ -849,6 +883,22 @@ fn read_connection(
             return;
         }
     };
+    // The first message says which kind of peer this is (D-033); a renderer's Hello continues below.
+    match &first {
+        ToService::PortalHello {
+            portal_protocol_version,
+            pid,
+            page,
+        } => {
+            serve_portal(connection, notifier, *portal_protocol_version, *pid, *page);
+            return;
+        }
+        ToService::Launch(_) => {
+            tracing::warn!("a launcher connected, but Launch is not answered yet; dropping the connection");
+            return;
+        }
+        _ => {}
+    }
     let (accepted, closing) = {
         let state = lock(renderers);
         let connected: HashSet<u8> = state.connections.keys().copied().collect();
@@ -936,6 +986,47 @@ fn read_connection(
             }
         }
     }
+}
+
+/// Numbers the Portal connections, so an event is never attributed to another connection that claims the same pid.
+static NEXT_PORTAL_CONNECTION: AtomicU64 = AtomicU64::new(1);
+
+/// Serves one Portal's connection: hands its writer to the main thread, which decides whether it is the one Portal,
+/// then forwards its requests until it goes. Whatever goes wrong here ends this connection only (T-03-14).
+fn serve_portal(mut connection: Connection, notifier: &Notifier, version: u16, pid: u32, page: Option<PortalPage>) {
+    let id = NEXT_PORTAL_CONNECTION.fetch_add(1, Ordering::Relaxed);
+    let link = match connection
+        .try_clone()
+        .map_err(|error| error.to_string())
+        .and_then(|clone| PortalLink::for_connection(id, pid, clone).map_err(|error| error.to_string()))
+    {
+        Ok(link) => link,
+        Err(error) => {
+            tracing::warn!(%error, "cannot keep a write handle for a portal");
+            return;
+        }
+    };
+    if !notifier.send(Event::PortalConnected { link, version, page }) {
+        return;
+    }
+    loop {
+        match connection.recv::<PortalRequest>() {
+            Ok(request) => {
+                if !notifier.send(Event::Portal {
+                    connection: id,
+                    request,
+                }) {
+                    return;
+                }
+            }
+            Err(IpcError::Closed) => break,
+            Err(error) => {
+                tracing::warn!(%error, "dropping a portal connection after an invalid message");
+                break;
+            }
+        }
+    }
+    notifier.send(Event::PortalGone { connection: id });
 }
 
 /// Remembers the write side of a renderer's connection so shutdown can send Close while this thread is blocked
@@ -1688,8 +1779,8 @@ impl Fleet {
 }
 
 /// Opens the settings file (migrating the legacy files read-only the first time, D-03), logs what the service will
-/// use and returns what they lead to, with the store that owns the file.
-fn plan_wallpapers() -> (Plan, Option<Store>) {
+/// use and returns what they lead to, the settings as loaded and the store that owns the file.
+fn plan_wallpapers() -> (Plan, Settings, Option<Store>) {
     let (Some(root), Some(legacy_setting)) = (legacy_data_dir(), legacy_setting_dir()) else {
         tracing::warn!("the OS reports no config folder, so the settings cannot be found");
         let plan = Plan {
@@ -1702,10 +1793,10 @@ fn plan_wallpapers() -> (Plan, Option<Store>) {
             pause: PauseKind::default(),
             gpu: GpuPreference::default(),
         };
-        return (plan, None);
+        return (plan, Settings::default(), None);
     };
     let (settings, store) = load_settings(&root, &legacy_setting);
-    (plan_from(&settings, &root), store)
+    (plan_from(&settings, &root), settings, store)
 }
 
 /// Opens the store. When the folder cannot be opened or written the legacy files are still migrated, in memory only,

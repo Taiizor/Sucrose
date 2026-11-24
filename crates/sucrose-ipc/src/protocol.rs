@@ -8,6 +8,8 @@
 use serde::{Deserialize, Serialize};
 use sucrose_core::settings::Stretch;
 
+use crate::portal::{Launch, PortalPage};
+
 /// Version of this protocol, sent in [`ToService::Hello`] so the service can refuse a renderer it cannot talk to.
 pub const PROTOCOL_VERSION: u16 = 3;
 
@@ -36,6 +38,18 @@ pub enum ToService {
     /// The master's playback clock, about once a second and right after a seek, loop wrap, pause or resume. The
     /// service relays it to the followers and ignores it from any renderer that is not the master (D-02).
     Clock(ClockTick),
+    /// First message of a Portal's connection (D-033): which Portal protocol it speaks, who it is and which page it
+    /// was opened on. The service answers with a [`crate::portal::PortalEvent`].
+    PortalHello {
+        /// The Portal's [`crate::portal::PORTAL_PROTOCOL_VERSION`].
+        portal_protocol_version: u16,
+        /// Process id of the Portal, reported to a second Portal that finds this one open.
+        pid: u32,
+        /// The page the Portal was asked to open on.
+        page: Option<PortalPage>,
+    },
+    /// First message of a launcher's connection: what it asks of the service.
+    Launch(Launch),
 }
 
 /// Messages from the service to a renderer.
@@ -162,6 +176,24 @@ mod tests {
         assert_eq!(hello[0], 0);
         assert_eq!(failed[0], 1);
         assert_eq!(playing, [2]);
+    }
+
+    #[test]
+    fn portal_hello_and_launch_keep_their_wire_index_and_survive_the_wire() {
+        let hello = ToService::PortalHello {
+            portal_protocol_version: crate::portal::PORTAL_PROTOCOL_VERSION,
+            pid: 7,
+            page: Some(PortalPage::General),
+        };
+        let launch = ToService::Launch(Launch::OpenPortal { page: None });
+
+        // Appended after Hello (0), Failed (1), Playing (2) and Clock (3).
+        let bytes = postcard::to_stdvec(&hello).expect("encode");
+        assert_eq!(bytes[0], 4);
+        assert_eq!(postcard::from_bytes::<ToService>(&bytes).expect("decode"), hello);
+        let bytes = postcard::to_stdvec(&launch).expect("encode");
+        assert_eq!(bytes[0], 5);
+        assert_eq!(postcard::from_bytes::<ToService>(&bytes).expect("decode"), launch);
     }
 
     #[test]

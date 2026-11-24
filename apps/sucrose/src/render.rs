@@ -88,7 +88,7 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         );
     }
 
-    let endpoint = crate::service::endpoint()?;
+    let endpoint = sucrose_ipc::service_endpoint()?;
     let mut connection = connect_with_retry(&endpoint.name)?;
     connection.send(&ToService::Hello {
         protocol_version: PROTOCOL_VERSION,
