@@ -22,6 +22,10 @@ Practical notes for the UI (`gpui-kit`). GPUI documentation is thin; read the so
 - Opening a window from automation steals focus and can receive the user's keystrokes. Use `focus: false` (the prototype's `--no-focus`) for automated runs, and capture with `PrintWindow` instead of the screen.
 - rust-i18n (Portal, D-20): `rust_i18n::i18n!("locales", fallback = "en")` at the crate root; every `locales/*.<lang>.yml` file loads as that locale (`legacy.en.yml` and `sucrose.en.yml` both merge into `en`), flat dotted keys resolve, and `t!` also takes a runtime `&str` key. A locale file with no entries (comments only) makes every lookup return the key, so never commit one. A key defined in two files of the same locale is ambiguous; `cargo xtask localize` leaves the reworded legacy keys out (`REPLACED_KEYS`) and a test checks the files share no key.
 
+- `gpui_kit::assets::Assets` embeds only the default component icons; an icon such as `ImageOff` or `PackageX` renders as nothing until it is registered. The Portal's `assets.rs` composes `Assets` with `icon_assets!(PageIcons, [...])`; add the icons a page needs there (the full `AllAssets` catalog is not embedded).
+- `RenderImage` takes BGRA with premultiplied alpha, so a thumbnail from the `image` crate (RGBA) needs the red/blue swap and a premultiply. Evicted images are freed from the atlas with `cx.drop_image(image, None)` (`Some(window)` only while that window is being updated).
+- `Skeleton::new()` defaults to full width and 16 px height; override with `.w()`, `.h()`, `.size_full()` and `.rounded()`.
+
 ## Patterns
 
 - State lives in entities; long work runs on `cx.background_executor()`, results come back with `this.update(cx, …)`.
