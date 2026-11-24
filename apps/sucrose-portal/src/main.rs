@@ -21,6 +21,8 @@ mod header;
 mod i18n;
 mod ipc;
 mod library;
+#[allow(dead_code, reason = "the status bar entity is wired in the next commit")]
+mod status_bar;
 mod theme;
 mod toast;
 
