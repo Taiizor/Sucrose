@@ -131,6 +131,11 @@ pub(crate) fn init_dpi_awareness() -> DpiAwareness {
 /// Nothing is painted on this OS, so there is nothing to refresh.
 pub(crate) fn refresh_desktop() {}
 
+/// Always fails on this OS: there is no foreground right to hand over.
+pub(crate) fn allow_set_foreground(_pid: u32) -> Result<(), PlatformError> {
+    Err(PlatformError::Unsupported("foreground handoff"))
+}
+
 /// The wall clock since the Unix epoch in nanoseconds: not monotonic, which is why [crate::monotonic_ns] documents it
 /// as a fallback until these OSes get a real implementation.
 pub(crate) fn monotonic_ns() -> u64 {

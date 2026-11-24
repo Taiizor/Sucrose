@@ -16,7 +16,7 @@ use std::{
 use crossbeam_channel::{Receiver, Sender, TrySendError, bounded};
 use sucrose_ipc::{
     Connection, connect,
-    portal::{PORTAL_PROTOCOL_VERSION, PortalEvent, PortalPage, PortalRequest},
+    portal::{Launch, PORTAL_PROTOCOL_VERSION, PortalEvent, PortalPage, PortalRequest},
     protocol::ToService,
     service_endpoint,
 };
@@ -337,6 +337,11 @@ impl Supervisor {
                         welcomed = true;
                         self.emit(LinkEvent::Connected)?;
                     }
+                    if let PortalEvent::AlreadyOpen { existing_pid } = &event {
+                        // This process was just started by the user and holds the foreground right: hand it to the
+                        // Portal that is open and ask the service to bring that one to the front, then exit.
+                        pass_on_foreground(&mut reader, *existing_pid, self.page);
+                    }
                     self.emit(LinkEvent::Event(event))?;
                     if last {
                         break Served::Final;
@@ -350,6 +355,18 @@ impl Supervisor {
         };
         *lock(&self.slot) = None;
         Ok(served)
+    }
+}
+
+/// Passes the foreground right of this just-started Portal to the Portal `existing_pid` and asks the service to focus
+/// it. Nothing here may stop the exit: a failed grant only means the existing window can flash instead of coming to
+/// the front.
+fn pass_on_foreground(connection: &mut Connection, existing_pid: u32, page: Option<PortalPage>) {
+    if let Err(error) = sucrose_platform::allow_set_foreground(existing_pid) {
+        tracing::warn!(%error, existing_pid, "cannot hand the foreground to the open Portal");
+    }
+    if let Err(error) = connection.send(&ToService::Launch(Launch::ForegroundGranted { page })) {
+        tracing::warn!(%error, "cannot ask the service to focus the open Portal");
     }
 }
 

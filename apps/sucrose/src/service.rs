@@ -73,7 +73,14 @@ enum Event {
         link: PortalLink,
         /// The Portal protocol version it announced.
         version: u16,
-        /// The page it was asked to open on.
+        /// Where the main thread tells the reader thread whether this Portal was turned away because another is
+        /// open (`true`), in which case the connection is read for the foreground grant instead of for requests.
+        turned_away: Sender<bool>,
+    },
+    /// The foreground right was passed on (a second `sucrose` or a second Portal): the registered Portal comes to the
+    /// front.
+    PortalFocus {
+        /// The page to show.
         page: Option<PortalPage>,
     },
     /// A request of the Portal on `connection`.
@@ -665,13 +672,19 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                         }
                     }
                     Event::ShutdownDone => return Flow::Exit,
-                    Event::PortalConnected { link, version, page } => {
+                    Event::PortalConnected {
+                        link,
+                        version,
+                        turned_away,
+                    } => {
                         let pid = link.pid();
                         let runtime = current_runtime(&host, &fleet, &supervisor, tray.is_some());
-                        let admission = portals.admit(link, version, page, quitting, || PortalEvent::Welcome {
+                        let admission = portals.admit(link, version, quitting, || PortalEvent::Welcome {
                             settings: host.view(),
                             runtime: runtime.clone(),
                         });
+                        // The reader thread of this connection waits for this; it never matters to anything else.
+                        let _ = turned_away.send(matches!(admission, PortalAdmission::AlreadyOpen { .. }));
                         match admission {
                             PortalAdmission::Register => {
                                 // The Welcome carries this state, so it is what the Portal knows.
@@ -766,6 +779,9 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                             tracing::info!("the portal disconnected");
                             check_exit = true;
                         }
+                    }
+                    Event::PortalFocus { page } => {
+                        portals.send(PortalEvent::Focus { page });
                     }
                     Event::Launch { page, reply } => {
                         let answer = if quitting {
@@ -1084,9 +1100,9 @@ fn read_connection(
         ToService::PortalHello {
             portal_protocol_version,
             pid,
-            page,
+            ..
         } => {
-            serve_portal(connection, notifier, *portal_protocol_version, *pid, *page);
+            serve_portal(connection, notifier, *portal_protocol_version, *pid);
             return;
         }
         ToService::Launch(launch) => {
@@ -1216,6 +1232,24 @@ fn serve_launcher(mut connection: Connection, notifier: &Notifier, launch: Launc
         });
     if let Err(error) = connection.send(&reply) {
         tracing::warn!(%error, "cannot answer a launcher");
+        return;
+    }
+    // A launcher that found the Portal open passes the foreground right on and expects it to come to the front.
+    if matches!(reply, LaunchReply::PortalRunning { .. }) {
+        read_foreground_grant(&mut connection, notifier);
+    }
+}
+
+/// Reads the one message that follows a refusal or a `PortalRunning` answer: the foreground grant. The Portal that is
+/// open is told to come to the front. Anything else, or a peer that leaves without it, changes nothing.
+fn read_foreground_grant(connection: &mut Connection, notifier: &Notifier) {
+    match connection.recv::<ToService>() {
+        Ok(ToService::Launch(Launch::ForegroundGranted { page })) => {
+            notifier.send(Event::PortalFocus { page });
+        }
+        Ok(_) => tracing::debug!("a peer sent something else instead of the foreground grant, ignored"),
+        Err(IpcError::Closed) => tracing::debug!("a peer left without passing on the foreground"),
+        Err(error) => tracing::debug!(%error, "cannot read the foreground grant"),
     }
 }
 
@@ -1224,7 +1258,7 @@ static NEXT_PORTAL_CONNECTION: AtomicU64 = AtomicU64::new(1);
 
 /// Serves one Portal's connection: hands its writer to the main thread, which decides whether it is the one Portal,
 /// then forwards its requests until it goes. Whatever goes wrong here ends this connection only (T-03-14).
-fn serve_portal(mut connection: Connection, notifier: &Notifier, version: u16, pid: u32, page: Option<PortalPage>) {
+fn serve_portal(mut connection: Connection, notifier: &Notifier, version: u16, pid: u32) {
     let id = NEXT_PORTAL_CONNECTION.fetch_add(1, Ordering::Relaxed);
     let link = match connection
         .try_clone()
@@ -1237,7 +1271,18 @@ fn serve_portal(mut connection: Connection, notifier: &Notifier, version: u16, p
             return;
         }
     };
-    if !notifier.send(Event::PortalConnected { link, version, page }) {
+    let (turned_away, verdict) = crossbeam_channel::bounded(1);
+    if !notifier.send(Event::PortalConnected {
+        link,
+        version,
+        turned_away,
+    }) {
+        return;
+    }
+    // A Portal that is not the one open passes the foreground right on before it exits; the one open focuses then.
+    if verdict.recv_timeout(LAUNCH_REPLY_WAIT).unwrap_or(false) {
+        read_foreground_grant(&mut connection, notifier);
+        notifier.send(Event::PortalGone { connection: id });
         return;
     }
     loop {
@@ -4108,7 +4153,7 @@ mod tests {
         })
         .expect("the writer thread starts");
         let mut registry = PortalRegistry::default();
-        let admission = registry.admit(link, sucrose_ipc::portal::PORTAL_PROTOCOL_VERSION, None, false, || {
+        let admission = registry.admit(link, sucrose_ipc::portal::PORTAL_PROTOCOL_VERSION, false, || {
             PortalEvent::Focus { page: None }
         });
         assert_eq!(admission, PortalAdmission::Register);

@@ -7,11 +7,23 @@ use windows::Win32::{
     Foundation::RECT,
     Graphics::Dwm::{DWMWA_CLOAKED, DwmGetWindowAttribute},
     UI::WindowsAndMessaging::{
-        GetClassNameW, GetForegroundWindow, GetWindowRect, GetWindowThreadProcessId, IsIconic, IsWindowVisible,
+        AllowSetForegroundWindow, GetClassNameW, GetForegroundWindow, GetWindowRect, GetWindowThreadProcessId,
+        IsIconic, IsWindowVisible,
     },
 };
 
-use crate::{ForegroundWindow, RectPx};
+use crate::{ForegroundWindow, PlatformError, RectPx};
+
+/// Lets process `pid` bring a window to the front once, on behalf of the caller, which must hold the foreground
+/// right itself (the process the user just started does).
+pub(crate) fn allow_set_foreground(pid: u32) -> Result<(), PlatformError> {
+    // SAFETY: the call takes a process id by value and only changes the foreground permission of the window manager;
+    // an id that names no process makes it fail, which is reported below.
+    unsafe { AllowSetForegroundWindow(pid) }.map_err(|error| PlatformError::Os {
+        context: "allowing a process to take the foreground",
+        code: error.code().0,
+    })
+}
 
 /// The window the user is working in right now, or `None` when there is none (the secure desktop, a window that
 /// closed between the calls) or it cannot be measured.
@@ -67,6 +79,12 @@ pub(crate) fn foreground_window() -> Option<ForegroundWindow> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn granting_the_foreground_to_a_process_that_does_not_exist_fails_without_panicking() {
+        // Neither a pid nobody has nor the lack of a foreground right of a test runner may panic; the result is an error.
+        assert!(allow_set_foreground(u32::MAX - 1).is_err());
+    }
 
     #[test]
     fn the_snapshot_never_panics_and_is_self_consistent() {

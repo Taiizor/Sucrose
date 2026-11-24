@@ -157,9 +157,16 @@ fn a_second_portal_is_told_the_first_is_open_and_the_first_is_focused() {
     let (first, first_event) = PortalClient::hello_as(&service, 1001, None);
     assert!(matches!(first_event, PortalEvent::Welcome { .. }), "{first_event:?}");
 
-    let (_second, second_event) = PortalClient::hello_as(&service, 1002, Some(PortalPage::General));
+    let (mut second, second_event) = PortalClient::hello_as(&service, 1002, Some(PortalPage::General));
 
     assert_eq!(second_event, PortalEvent::AlreadyOpen { existing_pid: 1001 });
+    // The first one is focused once the second has passed on the foreground right, not before.
+    second
+        .connection()
+        .send(&ToService::Launch(Launch::ForegroundGranted {
+            page: Some(PortalPage::General),
+        }))
+        .expect("the grant is sent");
     assert_eq!(
         first.next_event(),
         Some(PortalEvent::Focus {
@@ -220,6 +227,28 @@ fn a_service_with_the_tray_visible_stays_when_its_only_portal_leaves() {
         !service.exits_within(std::time::Duration::from_secs(2)),
         "the tray keeps the service until Exit"
     );
+}
+
+#[test]
+fn a_launcher_that_passes_on_the_foreground_gets_the_open_portal_focused() {
+    if !service_runs("a_launcher_that_passes_on_the_foreground_gets_the_open_portal_focused") {
+        return;
+    }
+    let service = TestService::start("grant", &json!({}));
+    let (portal, first_event) = PortalClient::hello_as(&service, 1001, None);
+    assert!(matches!(first_event, PortalEvent::Welcome { .. }), "{first_event:?}");
+
+    let mut launcher = service.connect().expect("the service accepts a launcher");
+    launcher
+        .send(&ToService::Launch(Launch::OpenPortal { page: None }))
+        .expect("the request is sent");
+    let reply: LaunchReply = launcher.recv().expect("the service answers a launcher");
+    assert_eq!(reply, LaunchReply::PortalRunning { pid: 1001 });
+    launcher
+        .send(&ToService::Launch(Launch::ForegroundGranted { page: None }))
+        .expect("the grant is sent");
+
+    assert_eq!(portal.next_event(), Some(PortalEvent::Focus { page: None }));
 }
 
 #[test]

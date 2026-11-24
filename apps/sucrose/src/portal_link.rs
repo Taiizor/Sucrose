@@ -93,7 +93,8 @@ impl PortalLink {
 pub enum PortalAdmission {
     /// It is the one Portal: register it and send Welcome.
     Register,
-    /// Another Portal is registered: tell the newcomer, and the registered one to focus.
+    /// Another Portal is registered: tell the newcomer. The registered one is told to focus once the newcomer has
+    /// passed on the foreground right (`Launch::ForegroundGranted`).
     AlreadyOpen {
         /// Process id of the registered Portal.
         existing_pid: u32,
@@ -145,7 +146,6 @@ impl PortalRegistry {
         &mut self,
         newcomer: PortalLink,
         version: u16,
-        page: Option<PortalPage>,
         closing: bool,
         welcome: impl FnOnce() -> PortalEvent,
     ) -> PortalAdmission {
@@ -162,7 +162,6 @@ impl PortalRegistry {
                 newcomer.offer(PortalEvent::AlreadyOpen {
                     existing_pid: *existing_pid,
                 });
-                self.send(PortalEvent::Focus { page });
             }
             PortalAdmission::Close => {
                 newcomer.offer(PortalEvent::Close);
@@ -268,9 +267,20 @@ fn exchange(endpoint: &str) -> Result<LaunchReply, String> {
     connection
         .send(&ToService::Launch(Launch::OpenPortal { page: None }))
         .map_err(|error| format!("cannot send the request: {error}"))?;
-    connection
+    let reply = connection
         .recv::<LaunchReply>()
-        .map_err(|error| format!("cannot read the answer: {error}"))
+        .map_err(|error| format!("cannot read the answer: {error}"))?;
+    if let LaunchReply::PortalRunning { pid } = &reply {
+        // This process was just started by the user, so it may hand the foreground to the Portal that is open; the
+        // service then tells that Portal to come to the front. A failed grant only means the window may flash instead.
+        if let Err(error) = sucrose_platform::allow_set_foreground(*pid) {
+            tracing::warn!(%error, pid, "cannot hand the foreground to the Portal");
+        }
+        connection
+            .send(&ToService::Launch(Launch::ForegroundGranted { page: None }))
+            .map_err(|error| format!("cannot pass on the foreground: {error}"))?;
+    }
+    Ok(reply)
 }
 
 /// What the service tells the Portal it is doing: the selected theme from the settings, whether a renderer runs, what
@@ -457,19 +467,13 @@ mod tests {
     }
 
     #[test]
-    fn the_registry_registers_one_portal_and_focuses_it_for_the_second() {
+    fn the_registry_registers_one_portal_and_turns_the_second_away_without_focusing_the_first() {
         let mut registry = PortalRegistry::default();
         let (first, first_written) = recording_link(1, 100);
         let (second, second_written) = recording_link(2, 200);
 
-        let one = registry.admit(first, PORTAL_PROTOCOL_VERSION, None, false, || PortalEvent::Close);
-        let two = registry.admit(
-            second,
-            PORTAL_PROTOCOL_VERSION,
-            Some(PortalPage::General),
-            false,
-            welcome,
-        );
+        let one = registry.admit(first, PORTAL_PROTOCOL_VERSION, false, || PortalEvent::Close);
+        let two = registry.admit(second, PORTAL_PROTOCOL_VERSION, false, welcome);
 
         assert_eq!(one, PortalAdmission::Register);
         assert_eq!(two, PortalAdmission::AlreadyOpen { existing_pid: 100 });
@@ -479,29 +483,22 @@ mod tests {
             wait_for(&second_written, 1),
             [PortalEvent::AlreadyOpen { existing_pid: 100 }]
         );
-        assert_eq!(
-            wait_for(&first_written, 2),
-            [
-                PortalEvent::Close,
-                PortalEvent::Focus {
-                    page: Some(PortalPage::General)
-                }
-            ]
-        );
+        // The first Portal is only told to focus after the newcomer passed on the foreground right.
+        assert_eq!(wait_for(&first_written, 1), [PortalEvent::Close]);
     }
 
     #[test]
     fn a_registered_portal_that_goes_frees_the_place_for_the_next() {
         let mut registry = PortalRegistry::default();
         let (first, _) = recording_link(1, 100);
-        registry.admit(first, PORTAL_PROTOCOL_VERSION, None, false, welcome);
+        registry.admit(first, PORTAL_PROTOCOL_VERSION, false, welcome);
 
         assert!(!registry.gone(2), "another connection's end changes nothing");
         assert!(registry.gone(1));
 
         let (next, _) = recording_link(3, 100);
         assert_eq!(
-            registry.admit(next, PORTAL_PROTOCOL_VERSION, None, false, welcome),
+            registry.admit(next, PORTAL_PROTOCOL_VERSION, false, welcome),
             PortalAdmission::Register
         );
     }
@@ -511,7 +508,7 @@ mod tests {
         let mut registry = PortalRegistry::default();
         let (link, written) = recording_link(1, 100);
 
-        let admission = registry.admit(link, PORTAL_PROTOCOL_VERSION, None, true, || {
+        let admission = registry.admit(link, PORTAL_PROTOCOL_VERSION, true, || {
             panic!("Welcome must not be built while the service stops")
         });
 
@@ -525,7 +522,7 @@ mod tests {
         let mut registry = PortalRegistry::default();
         let (link, written) = recording_link(1, 100);
 
-        registry.admit(link, PORTAL_PROTOCOL_VERSION + 1, None, false, welcome);
+        registry.admit(link, PORTAL_PROTOCOL_VERSION + 1, false, welcome);
 
         let events = wait_for(&written, 1);
         assert!(matches!(events.as_slice(), [PortalEvent::Refused { .. }]), "{events:?}");

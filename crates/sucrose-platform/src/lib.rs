@@ -189,6 +189,14 @@ pub fn spawn_detached(cmd: &mut Command) -> io::Result<Child> {
     imp::spawn_detached(cmd)
 }
 
+/// Lets the process `pid` bring a window to the front once. A process the user just started holds the foreground right
+/// and uses this to pass it to the Portal that is already open, so the existing window comes to the front instead of
+/// only flashing in the taskbar. Fails with [`PlatformError::Unsupported`] where the OS has no such right, and with
+/// [`PlatformError::Os`] when the caller does not hold it; callers log that and go on.
+pub fn allow_set_foreground(pid: u32) -> Result<(), PlatformError> {
+    imp::allow_set_foreground(pid)
+}
+
 /// Repaints the desktop after the last wallpaper surface is gone, so no frame of the wallpaper is left behind.
 pub fn refresh_desktop() {
     imp::refresh_desktop();

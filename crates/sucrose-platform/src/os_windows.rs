@@ -36,6 +36,7 @@ use crate::{
 
 pub(crate) use display::init_dpi_awareness;
 pub use event_loop::{EventLoop, LoopProxy, LoopTimers};
+pub(crate) use foreground::allow_set_foreground;
 pub use job::RendererJob;
 pub(crate) use refresh::refresh_desktop;
 pub use surface::DesktopSurface;
