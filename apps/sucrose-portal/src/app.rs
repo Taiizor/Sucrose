@@ -3,7 +3,8 @@
 use gpui_kit::component::{ActiveTheme, TitleBar, v_flex};
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
-use sucrose_ipc::portal::{PortalEvent, PortalPage, PortalSettings, RuntimeState};
+use sucrose_core::settings::ThemeMode;
+use sucrose_ipc::portal::{PortalEvent, PortalPage, PortalSettings, RuntimeState, SettingChange};
 
 use sucrose_ipc::portal::UseOutcome;
 
@@ -13,7 +14,7 @@ use crate::{
     i18n::tr,
     ipc::{ConnectionState, LinkEvent, ServiceLink, next_state},
     library::LibraryView,
-    toast,
+    theme, toast,
 };
 
 /// The Portal window's content. Later plans add the pages as children.
@@ -40,6 +41,8 @@ pub struct PortalApp {
     _events: Task<()>,
     /// Watches the keyboard for Ctrl+F, which works wherever the focus is.
     _keys: Subscription,
+    /// Follows the OS light/dark setting while the theme mode is System.
+    _appearance: Subscription,
 }
 
 impl PortalApp {
@@ -69,7 +72,8 @@ impl PortalApp {
         });
         let header = cx.new({
             let library = library.clone();
-            |cx| Header::new(library, window, cx)
+            let link = link.clone();
+            |cx| Header::new(library, link, window, cx)
         });
         // Ctrl+F (Cmd+F on macOS) puts the cursor in the search box from anywhere in the window.
         let keys = cx.observe_keystrokes(|this, event, window, cx| {
@@ -77,6 +81,13 @@ impl PortalApp {
                 this.header.update(cx, |header, cx| header.focus_search(window, cx));
             }
         });
+        // The OS theme changed: only the System mode follows it; no polling.
+        let appearance = theme::follow_os(
+            window,
+            cx,
+            |this: &Self| this.theme_mode() == ThemeMode::System,
+            |this, window, cx| this.apply_theme(window, cx),
+        );
         let mut app = Self {
             state: ConnectionState::Connecting,
             settings: None,
@@ -87,11 +98,27 @@ impl PortalApp {
             header,
             _events: task,
             _keys: keys,
+            _appearance: appearance,
         };
         for event in early {
             app.on_link_event(event, window, cx);
         }
         app
+    }
+
+    /// The stored theme mode; System until the service has reported the settings.
+    fn theme_mode(&self) -> ThemeMode {
+        self.settings
+            .as_ref()
+            .map_or(ThemeMode::System, |settings| settings.theme_mode)
+    }
+
+    /// Applies the stored theme mode and tells the header what the window shows now.
+    fn apply_theme(&mut self, window: &mut Window, cx: &mut Context<Self>) {
+        let mode = self.theme_mode();
+        theme::apply_mode(mode, window, cx);
+        let dark = theme::effective_dark(mode, window);
+        self.header.update(cx, |header, cx| header.set_dark(dark, cx));
     }
 
     /// Applies one event of the link to the app.
@@ -109,12 +136,16 @@ impl PortalApp {
                     });
                     self.settings = Some(settings);
                     self.runtime = Some(runtime);
+                    self.apply_theme(window, cx);
                 }
                 PortalEvent::Changed(change) => {
                     if let Some(settings) = &mut self.settings {
                         settings.apply(&change);
                         self.library
                             .update(cx, |library, cx| library.update_settings(settings, cx));
+                    }
+                    if matches!(change, SettingChange::ThemeMode(_)) {
+                        self.apply_theme(window, cx);
                     }
                 }
                 PortalEvent::Runtime(runtime) => {

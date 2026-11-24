@@ -6479,6 +6479,7 @@ dependencies = [
  "image",
  "jpeg-decoder",
  "rust-i18n",
+ "serde_json",
  "sucrose-core",
  "sucrose-ipc",
  "sucrose-log",

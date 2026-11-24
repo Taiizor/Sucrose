@@ -5,14 +5,18 @@ use std::time::Duration;
 
 use gpui_kit::assets::IconName;
 use gpui_kit::component::{
-    Icon, Sizable as _, h_flex,
+    Icon, Sizable as _,
+    button::{Button, ButtonVariants as _},
+    h_flex,
     input::{Input, InputEvent, InputState},
     tab::{Tab, TabBar},
     tooltip::Tooltip,
 };
 use gpui_kit::*;
+use sucrose_core::settings::ThemeMode;
+use sucrose_ipc::portal::{PortalRequest, SettingChange};
 
-use crate::{i18n::tr, library::LibraryView};
+use crate::{i18n::tr, ipc::ServiceLink, library::LibraryView};
 
 /// Height of the row (UI-SPEC spacing: 2xl).
 const HEADER_HEIGHT: f32 = 48.0;
@@ -29,9 +33,18 @@ pub fn normalize_query(text: &str) -> String {
     text.trim().to_lowercase().chars().take(SEARCH_MAX_CHARS).collect()
 }
 
+/// The theme mode the toggle asks for: the opposite of what the window shows (an explicit Light or Dark, also from System).
+pub fn toggle_target(dark: bool) -> ThemeMode {
+    if dark { ThemeMode::Light } else { ThemeMode::Dark }
+}
+
 /// The header row. The search text lives here, so it survives a visit to the settings.
 pub struct Header {
     library: Entity<LibraryView>,
+    /// Sends the theme change to the service.
+    link: ServiceLink,
+    /// Whether the window shows the dark theme (what the toggle's icon reflects).
+    dark: bool,
     search: Entity<InputState>,
     /// The pending debounce; replacing it cancels the one before.
     pending: Option<Task<()>>,
@@ -40,7 +53,7 @@ pub struct Header {
 
 impl Header {
     /// The header that filters `library`.
-    pub fn new(library: Entity<LibraryView>, window: &mut Window, cx: &mut Context<Self>) -> Self {
+    pub fn new(library: Entity<LibraryView>, link: ServiceLink, window: &mut Window, cx: &mut Context<Self>) -> Self {
         let search = cx.new(|cx| {
             InputState::new(window, cx)
                 .placeholder(tr("Portal.MainWindow.SearchBoxHint"))
@@ -56,9 +69,19 @@ impl Header {
         });
         Self {
             library,
+            link,
+            dark: false,
             search,
             pending: None,
             _subscription: subscription,
+        }
+    }
+
+    /// The window now shows the dark (or light) theme: the toggle's icon follows.
+    pub fn set_dark(&mut self, dark: bool, cx: &mut Context<Self>) {
+        if self.dark != dark {
+            self.dark = dark;
+            cx.notify();
         }
     }
 
@@ -89,8 +112,15 @@ impl Header {
 }
 
 impl Render for Header {
-    fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
+    fn render(&mut self, _: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
         let tip = tr("Portal.MainWindow.SearchBoxTip");
+        // Sun while dark, Moon while light; the tooltip names the theme a click switches to.
+        let (icon, toggle_tip) = if self.dark {
+            (IconName::Sun, tr("Portal.MainWindow.MenuLightTip"))
+        } else {
+            (IconName::Moon, tr("Portal.MainWindow.MenuDarkTip"))
+        };
+        let target = toggle_target(self.dark);
         h_flex()
             .w_full()
             .h(px(HEADER_HEIGHT))
@@ -122,12 +152,30 @@ impl Render for Header {
                             .aria_label(tr("Portal.MainWindow.SearchBoxHint")),
                     ),
             )
+            .child(
+                Button::new("theme-toggle")
+                    .ghost()
+                    .icon(icon)
+                    .tooltip(toggle_tip.clone())
+                    .accessibility_label(toggle_tip)
+                    .on_click(cx.listener(move |this, _: &ClickEvent, _, _| {
+                        this.link.send(PortalRequest::Change(SettingChange::ThemeMode(target)));
+                    })),
+            )
     }
 }
 
 #[cfg(test)]
 mod tests {
-    use super::{SEARCH_MAX_CHARS, normalize_query};
+    use sucrose_core::settings::ThemeMode;
+
+    use super::{SEARCH_MAX_CHARS, normalize_query, toggle_target};
+
+    #[test]
+    fn theme_toggle_asks_for_the_opposite_of_what_is_shown() {
+        assert_eq!(toggle_target(true), ThemeMode::Light);
+        assert_eq!(toggle_target(false), ThemeMode::Dark);
+    }
 
     #[test]
     fn search_text_is_trimmed_and_lowercased() {
