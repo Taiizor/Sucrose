@@ -62,10 +62,6 @@ pub struct CopyStats {
 
 /// Copies the folder `from` to `to` (created), nested folders and files included; symbolic links are skipped, never
 /// followed.
-#[allow(
-    dead_code,
-    reason = "the library move of the next plan copies across volumes with it"
-)]
 pub fn copy_tree(from: &Path, to: &Path) -> io::Result<CopyStats> {
     copy_tree_with(from, to, &|source, destination| fs::copy(source, destination))
 }
@@ -218,31 +214,191 @@ fn write_probe(folder: &Path) -> io::Result<()> {
 
 /// The checks of [`check_destination`] (`carry`) and [`check_location`] with the write probe given.
 fn check_with(source: &Path, destination: &Path, carry: bool, probe: Probe<'_>) -> Result<(), MoveRefusal> {
-    let _ = (source, destination, carry, probe);
-    Ok(())
+    if !destination.is_dir() {
+        return Err(MoveRefusal::Missing);
+    }
+    // Resolved, so a link, a `..` or another spelling of the same folder cannot get past the nesting check (T-03-52).
+    let library = resolved(source);
+    let target = resolved(destination);
+    if library == target {
+        return Err(MoveRefusal::Same);
+    }
+    if carry {
+        if target.starts_with(&library) || library.starts_with(&target) {
+            return Err(MoveRefusal::Nested);
+        }
+        let empty = fs::read_dir(destination).is_ok_and(|mut entries| entries.next().is_none());
+        if !empty {
+            return Err(MoveRefusal::NotEmpty);
+        }
+    }
+    probe(destination).map_err(|_| MoveRefusal::NotWritable)
+}
+
+/// `path` with links and `..` resolved; the path itself when it does not exist (a library folder that was never created).
+fn resolved(path: &Path) -> PathBuf {
+    fs::canonicalize(path).unwrap_or_else(|_| path.to_path_buf())
 }
 
 /// Moves every top-level entry of `source` into `destination`: renamed when that works, else copied and verified by file
 /// count and size. Nothing in `source` is deleted here. A failure puts everything back before it returns.
 pub fn move_library(source: &Path, destination: &Path, ops: &dyn MoveOps) -> Result<MovePlanDone, MoveFailure> {
-    let _ = (source, destination, ops);
-    Err(MoveFailure {
-        reason: "not implemented".to_owned(),
-    })
+    let entries = entries_of(source).map_err(|error| failure("the library folder cannot be read", &error))?;
+    let mut done = MovePlanDone {
+        source: source.to_path_buf(),
+        destination: destination.to_path_buf(),
+        renamed: Vec::new(),
+        copied: Vec::new(),
+        stats: MoveStats::default(),
+    };
+    for entry in entries {
+        let from = source.join(&entry.name);
+        let to = destination.join(&entry.name);
+        // Any rename error means "copy instead": a cross-volume move is the expected one (A2), and a file that is held
+        // open is as well served by a copy.
+        if ops.rename(&from, &to).is_ok() {
+            done.renamed.push(entry.name);
+            done.stats.renamed += 1;
+            done.stats.entries += 1;
+            continue;
+        }
+        // A link is never followed, so it cannot be copied: it stays where it is.
+        if entry.is_link {
+            tracing::debug!("a link in the library stays in the old folder");
+            continue;
+        }
+        match copy_verified(ops, &from, &to) {
+            Ok(copied) => {
+                done.copied.push(entry.name);
+                done.stats.entries += 1;
+                done.stats.files += copied.files;
+                done.stats.bytes += copied.bytes;
+            }
+            Err(error) => {
+                // Whatever the failed copy left in the destination was created by it: the destination was empty.
+                if to.symlink_metadata().is_ok()
+                    && let Err(error) = ops.remove_entry(&to)
+                {
+                    tracing::warn!(%error, "what the failed copy created could not be removed");
+                }
+                let restored = restore(&done, ops);
+                let reason = if restored {
+                    error
+                } else {
+                    format!("{error}; some of the content could not be put back")
+                };
+                return Err(MoveFailure { reason });
+            }
+        }
+    }
+    Ok(done)
+}
+
+/// A top-level entry of the library folder.
+struct Entry {
+    name: OsString,
+    is_link: bool,
+}
+
+/// The files, folders and links directly inside `folder`, by name.
+fn entries_of(folder: &Path) -> io::Result<Vec<Entry>> {
+    let mut entries = Vec::new();
+    for entry in fs::read_dir(folder)? {
+        let entry = entry?;
+        let kind = entry.file_type()?;
+        if kind.is_dir() || kind.is_file() || kind.is_symlink() {
+            entries.push(Entry {
+                name: entry.file_name(),
+                is_link: kind.is_symlink(),
+            });
+        }
+    }
+    entries.sort_by(|a, b| a.name.cmp(&b.name));
+    Ok(entries)
+}
+
+/// A sentence for a failure: what went wrong and the OS's own words, never a path.
+fn failure(what: &str, error: &io::Error) -> MoveFailure {
+    MoveFailure {
+        reason: format!("{what}: {error}"),
+    }
+}
+
+/// Copies `from` to `to` and compares file count and total size of both sides.
+fn copy_verified(ops: &dyn MoveOps, from: &Path, to: &Path) -> Result<CopyStats, String> {
+    let copied = ops
+        .copy_tree(from, to)
+        .map_err(|error| format!("a file could not be copied to the new folder: {error}"))?;
+    let before = measure(from).map_err(|error| format!("the copy could not be verified: {error}"))?;
+    let after = measure(to).map_err(|error| format!("the copy could not be verified: {error}"))?;
+    if before != after || copied != after {
+        return Err("the copy in the new folder does not match the original".to_owned());
+    }
+    Ok(after)
+}
+
+/// File count and total size of `path` (a file or a folder tree); links are not counted, like the copy skips them.
+fn measure(path: &Path) -> io::Result<CopyStats> {
+    let meta = fs::symlink_metadata(path)?;
+    if meta.is_file() {
+        return Ok(CopyStats {
+            files: 1,
+            bytes: meta.len(),
+        });
+    }
+    let mut stats = CopyStats::default();
+    if meta.is_dir() {
+        for entry in fs::read_dir(path)? {
+            let inner = measure(&entry?.path())?;
+            stats.files += inner.files;
+            stats.bytes += inner.bytes;
+        }
+    }
+    Ok(stats)
+}
+
+/// Puts back what `done` moved: renamed entries are renamed back, copies are removed. `true` when nothing is left over.
+fn restore(done: &MovePlanDone, ops: &dyn MoveOps) -> bool {
+    let mut all_back = true;
+    for name in done.renamed.iter().rev() {
+        if let Err(error) = ops.rename(&done.destination.join(name), &done.source.join(name)) {
+            tracing::warn!(%error, "an entry could not be renamed back");
+            all_back = false;
+        }
+    }
+    for name in done.copied.iter().rev() {
+        if let Err(error) = ops.remove_entry(&done.destination.join(name)) {
+            tracing::warn!(%error, "a copied entry could not be removed from the new folder");
+            all_back = false;
+        }
+    }
+    all_back
 }
 
 /// Removes the copied entries from the old folder, then the old folder itself when it is empty. Renamed entries are
 /// already gone from it.
 pub fn finish_move(done: MovePlanDone, ops: &dyn MoveOps) -> FinishStats {
-    let _ = (done, ops);
-    FinishStats::default()
+    let mut finished = FinishStats::default();
+    for name in &done.copied {
+        match ops.remove_entry(&done.source.join(name)) {
+            Ok(()) => finished.removed += 1,
+            Err(error) => {
+                tracing::warn!(%error, "a copied entry could not be removed from the old folder");
+                finished.failed += 1;
+            }
+        }
+    }
+    // Only an empty folder goes: a link or a file that could not be removed keeps its folder.
+    if let Err(error) = fs::remove_dir(&done.source) {
+        tracing::debug!(%error, "the old library folder stays");
+    }
+    finished
 }
 
 /// Puts a move back: renamed entries are renamed back and the copies in the destination are removed. `true` when
 /// everything is back.
 pub fn rollback_move(done: MovePlanDone, ops: &dyn MoveOps) -> bool {
-    let _ = (done, ops);
-    false
+    restore(&done, ops)
 }
 
 /// Runs the maintenance: the report and the showcase names to record in `Warehouse.Showcase`.
@@ -682,8 +838,8 @@ mod tests {
     /// File operations that fail on demand and count what they are asked to do.
     #[derive(Default)]
     struct TestOps {
-        /// Renames from this call number on (0-based) fail; `usize::MAX` never.
-        fail_rename_from: Option<usize>,
+        /// Renames with a number in this range (0-based) fail.
+        fail_rename: Option<std::ops::Range<usize>>,
         /// The copy with this number (0-based) fails after it created part of its destination.
         fail_copy_at: Option<usize>,
         renames: Cell<usize>,
@@ -694,7 +850,7 @@ mod tests {
         fn rename(&self, from: &Path, to: &Path) -> io::Result<()> {
             let call = self.renames.get();
             self.renames.set(call + 1);
-            if self.fail_rename_from.is_some_and(|first| call >= first) {
+            if self.fail_rename.as_ref().is_some_and(|range| range.contains(&call)) {
                 return Err(io::Error::from(io::ErrorKind::CrossesDevices));
             }
             RealOps.rename(from, to)
@@ -832,7 +988,7 @@ mod tests {
         let scratch = Scratch::new("move-copy");
         let (library, new) = move_scene(&scratch);
         let ops = TestOps {
-            fail_rename_from: Some(0),
+            fail_rename: Some(0..usize::MAX),
             ..TestOps::default()
         };
 
@@ -868,7 +1024,7 @@ mod tests {
         let scratch = Scratch::new("move-copy-fails");
         let (library, new) = move_scene(&scratch);
         let ops = TestOps {
-            fail_rename_from: Some(0),
+            fail_rename: Some(0..usize::MAX),
             fail_copy_at: Some(2),
             ..TestOps::default()
         };
@@ -885,9 +1041,9 @@ mod tests {
     fn entries_renamed_before_a_failure_are_renamed_back() {
         let scratch = Scratch::new("move-mixed-fails");
         let (library, new) = move_scene(&scratch);
-        // The first two renames work; from the third on they fail, and so does the copy that replaces it.
+        // The first two renames work; the third fails, and so does the copy that replaces it.
         let ops = TestOps {
-            fail_rename_from: Some(2),
+            fail_rename: Some(2..3),
             fail_copy_at: Some(0),
             ..TestOps::default()
         };
@@ -905,7 +1061,7 @@ mod tests {
         let scratch = Scratch::new("move-rollback");
         let (library, new) = move_scene(&scratch);
         let ops = TestOps {
-            fail_rename_from: Some(2),
+            fail_rename: Some(2..4),
             ..TestOps::default()
         };
         let done = move_library(&library, &new, &ops).expect("the move succeeds");
@@ -927,7 +1083,7 @@ mod tests {
         permissions.set_readonly(true);
         fs::set_permissions(&locked, permissions).expect("the flag can be set");
         let ops = TestOps {
-            fail_rename_from: Some(0),
+            fail_rename: Some(0..usize::MAX),
             ..TestOps::default()
         };
 
@@ -948,7 +1104,7 @@ mod tests {
             return;
         }
         let ops = TestOps {
-            fail_rename_from: Some(0),
+            fail_rename: Some(0..usize::MAX),
             ..TestOps::default()
         };
 
