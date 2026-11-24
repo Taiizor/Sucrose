@@ -1,18 +1,18 @@
 ---
 gsd_state_version: "1.0"
-current_phase: 3
+current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Phase 3 UI-SPEC approved
-last_updated: "2026-11-23T22:48:39.813Z"
-last_activity: 2026-11-23
-last_activity_desc: Phase 02 complete, transitioned to Phase 3
-state_head: 95dafd0890917fe878d43225f50530547b42e3c7
+stopped_at: Completed 03-01-PLAN.md
+last_updated: "2026-11-24T04:07:46.642Z"
+last_activity: 2026-11-24
+last_activity_desc: Phase 03 execution started
+state_head: 05b504227dfc1c9d488c3c8cb4b9b20e3a05c058
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 55
-  completed_plans: 29
+  completed_plans: 30
   percent: 25
 ---
 
@@ -23,14 +23,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-11-23)
 
 **Core value:** An existing user upgrades and loses nothing (themes, store, web wallpapers and their JavaScript API, settings migrated automatically) while the new app uses less memory and CPU than the C# one.
-**Current focus:** Phase 3 — M2 — Service, IPC and Portal connected
+**Current focus:** Phase 03 — M2 — Service, IPC and Portal connected
 
 ## Current Position
 
-Phase: 3 (M2 — Service, IPC and Portal connected) — READY TO EXECUTE
-Plan: Not started
+Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
+Plan: 2 of 26
 Status: Ready to execute
-Last activity: 2026-11-23 — Phase 02 complete, transitioned to Phase 3
+Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
 
 Progress: [███░░░░░░░] 25%
@@ -83,6 +83,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 02 P27 | 4 min | 2 tasks | 2 files |
 | Phase 02 P28 | 3 min | 2 tasks | 3 files |
 | Phase 02 P29 | 10 min | 3 tasks | 1 files |
+| Phase 03 P01 | 11 min | 2 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -130,6 +131,8 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-27: a report of an unassigned slot (monitor removed or renderer closed by the fullscreen rule) is dropped even while the renderer is connected, through SlotState.assigned from Fleet::slot_assigned (WR-19)
 - [Phase 02]: D-031: wait for explorer after a display change, no fallback window; G-02-7 stays open as an accepted limitation
 - [Phase 02]: 02-29: final M1 build row is Rust-only because --row refused the C# pair after a reboot (LUIDs differ); same-GPU C# reference stays the first 2026-11-23 row
+- [Phase 03]: Settings live in Setting/Sucrose.json (D-01, D-032): versioned, atomic temp+sync_all+rename, .bak outside the *.json glob, service is the only writer
+- [Phase 03]: Default library location is stored as an empty string meaning the legacy default folder; invalid values read as legacy defaults section by section
 
 ### Pending Todos
 
@@ -162,6 +165,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-23T20:56:00.044Z
-Stopped at: Phase 3 UI-SPEC approved
-Resume file: .planning/phases/03-m2-service-ipc-and-portal-connected/03-UI-SPEC.md
+Last session: 2026-11-24T04:07:36.761Z
+Stopped at: Completed 03-01-PLAN.md
+Resume file: None
