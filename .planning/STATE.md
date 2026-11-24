@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-38-PLAN.md
-last_updated: "2026-11-24T19:25:35.629Z"
+stopped_at: Completed 03-39-PLAN.md
+last_updated: "2026-11-24T19:36:31.541Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: 08efb41e5447dfe9e4a370d71761f805c7bfef9a
+state_head: 13bb644fb412b44c7cbe6690accbfab87e9bff20
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 69
-  completed_plans: 68
+  completed_plans: 69
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 39 of 40
+Plan: 40 of 40
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -122,6 +122,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P40 | 14 min | 2 tasks | 7 files |
 | Phase 03 P37 | 60min | 3 tasks | 0 files |
 | Phase 03 P38 | 25 min | 3 tasks | 0 files |
+| Phase 03 P39 | 7 min | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -225,6 +226,7 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-28: fix the missing element id on the card preview img() instead of overriding the OS reduced-motion preference; behavior difference recorded in docs/FEATURES.md
 - [Phase 03]: 03-33: Connection::disconnect ends a connection for every handle (DisconnectNamedPipe in sucrose-platform); PortalRegistry::send ends the link it drops; every ended Portal connection re-checks the exit rule (WR-04)
 - [Phase 03]: [03-40] Attribution verdict order: not recorded first, then within the cap (48 MiB), then the part that is at least half of the private growth, else unattributed
+- [Phase 03]: 03-39: both D-25 reruns pass the rule as written; atlas release (03-27) confirmed as the source of the 500-theme growth; real-library round-3 attribution 'unattributed' recorded as a caveat
 
 ### Pending Todos
 
@@ -257,6 +259,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T19:25:18.556Z
-Stopped at: Completed 03-38-PLAN.md
+Last session: 2026-11-24T19:36:14.435Z
+Stopped at: Completed 03-39-PLAN.md
 Resume file: None
