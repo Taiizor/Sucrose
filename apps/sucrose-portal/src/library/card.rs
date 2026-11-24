@@ -62,7 +62,8 @@ pub struct CardData {
     pub on_use: UseHandler,
     /// What an arrow key does: moves focus to the neighboring card.
     pub on_arrow: ArrowHandler,
-    /// The animated preview that plays on this card, shown above the thumbnail.
+    /// The animated preview that plays on this card, shown above the thumbnail. It is painted with the element id
+    /// `("library-card-preview", index)`: the id is what makes GPUI advance the frames of a multi-frame image.
     pub preview: Option<Arc<RenderImage>>,
     /// Whether the strip hides while the preview plays (`LibraryPreviewHide`).
     pub preview_hide: bool,
@@ -280,7 +281,15 @@ pub fn render_card(data: CardData, width: Pixels, cx: &App) -> impl IntoElement 
         .child(layer)
         // The preview plays above the static thumbnail, which stays underneath.
         .when_some(data.preview, |card, image| {
-            card.child(img(image).absolute().inset_0().size_full().object_fit(ObjectFit::Cover))
+            // The element id is what makes GPUI keep the frame index of a multi-frame image and request animation frames.
+            card.child(
+                img(image)
+                    .id(("library-card-preview", index))
+                    .absolute()
+                    .inset_0()
+                    .size_full()
+                    .object_fit(ObjectFit::Cover),
+            )
         })
         .when(show_strip, |card| card.child(strip))
         .when(data.selected, |card| {
