@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-34-PLAN.md
-last_updated: "2026-11-24T15:23:54.230Z"
+stopped_at: Completed 03-35-PLAN.md
+last_updated: "2026-11-24T15:30:48.628Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: eecceea205395f907a97d6467d637a179102147c
+state_head: f477252e45ab53b0032e03ec450ede0ca76270cc
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 69
-  completed_plans: 59
+  completed_plans: 60
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 31 of 40
+Plan: 32 of 40
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -113,6 +113,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P30 | 6 min | 2 tasks | 3 files |
 | Phase 03 P31 | 7 min | 3 tasks | 1 files |
 | Phase 03 P34 | 7 min | 2 tasks | 2 files |
+| Phase 03 P35 | 4 min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -208,6 +209,7 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-30: an unreadable Sucrose.json or backup makes Store::open fail with StoreError::Io (host runs in no-save mode); only Missing or Corrupt files lead to a restore or migration
 - [Phase 03]: 03-31: a settled monitor snapshot during a library move is kept (latest wins) and applied by Fleet::finish_move after the job names the new library; respawn_closed waits for the move's end
 - [Phase 03]: 03-34: a load_source's new start is the first playback restart after the FILE_LOADED of its own request (SourceSwitch, generation read at START_FILE), not the next restart
+- [Phase 03]: Plan 03-35: after a failed startup enable/disable call set_startup settles RunStartup by the OS-reported entry state; the Task Manager flag removal is best effort
 
 ### Pending Todos
 
@@ -240,6 +242,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T15:23:39.303Z
-Stopped at: Completed 03-34-PLAN.md
+Last session: 2026-11-24T15:30:33.219Z
+Stopped at: Completed 03-35-PLAN.md
 Resume file: None
