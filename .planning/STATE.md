@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-01-PLAN.md
-last_updated: "2026-11-24T04:07:46.642Z"
+stopped_at: Completed 03-02-PLAN.md
+last_updated: "2026-11-24T04:20:04.928Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: 05b504227dfc1c9d488c3c8cb4b9b20e3a05c058
+state_head: ae89781a71dafbee68f56ef72ec39af53a563c7b
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 55
-  completed_plans: 30
+  completed_plans: 31
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 2 of 26
+Plan: 3 of 26
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -84,6 +84,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 02 P28 | 3 min | 2 tasks | 3 files |
 | Phase 02 P29 | 10 min | 3 tasks | 1 files |
 | Phase 03 P01 | 11 min | 2 tasks | 9 files |
+| Phase 03 P02 | 10 min | 2 tasks | 42 files |
 
 ## Accumulated Context
 
@@ -133,6 +134,8 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-29: final M1 build row is Rust-only because --row refused the C# pair after a reboot (LUIDs differ); same-GPU C# reference stays the first 2026-11-23 row
 - [Phase 03]: Settings live in Setting/Sucrose.json (D-01, D-032): versioned, atomic temp+sync_all+rename, .bak outside the *.json glob, service is the only writer
 - [Phase 03]: Default library location is stored as an empty string meaning the legacy default folder; invalid values read as legacy defaults section by section
+- [Phase 03]: 03-02: a folder that cannot be read is Unreadable and outranks every other corrupt reason; PathEscapes outranks a missing file, so a transient error never reads as corrupt
+- [Phase 03]: 03-02: SucroseInfo Type names parse in any letter case (Newtonsoft), settings enum names stay case-sensitive
 
 ### Pending Todos
 
@@ -165,6 +168,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T04:07:36.761Z
-Stopped at: Completed 03-01-PLAN.md
+Last session: 2026-11-24T04:19:56.588Z
+Stopped at: Completed 03-02-PLAN.md
 Resume file: None
