@@ -4,6 +4,7 @@
 
 use std::{
     collections::HashSet,
+    ffi::OsString,
     fs, io,
     path::{Path, PathBuf},
 };
@@ -14,7 +15,7 @@ use sucrose_core::{
     paths,
     version::app_version,
 };
-use sucrose_ipc::portal::MaintainReport;
+use sucrose_ipc::portal::{MaintainReport, MoveRefusal};
 
 /// What one maintenance run works on, copied from the settings so the worker never touches them.
 #[derive(Debug, Clone)]
@@ -91,6 +92,157 @@ fn copy_tree_with(from: &Path, to: &Path, copy_file: CopyFile<'_>) -> io::Result
         }
     }
     Ok(stats)
+}
+
+/// What a failed library move reports; the move was rolled back as far as it could be.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct MoveFailure {
+    /// One sentence for the user and the log; it never holds a path.
+    pub reason: String,
+}
+
+/// What a move did, for the log: entries are the top-level items of the library folder.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub struct MoveStats {
+    /// Top-level entries that arrived in the destination.
+    pub entries: u32,
+    /// Of those, how many were renamed (the rest were copied).
+    pub renamed: u32,
+    /// Files copied.
+    pub files: u64,
+    /// Bytes copied.
+    pub bytes: u64,
+}
+
+/// A move whose content is in the destination and verified; the source still holds the copied entries. The caller writes
+/// the setting and then calls [`finish_move`], or calls [`rollback_move`] when the write failed.
+#[derive(Debug)]
+pub struct MovePlanDone {
+    source: PathBuf,
+    destination: PathBuf,
+    renamed: Vec<OsString>,
+    copied: Vec<OsString>,
+    stats: MoveStats,
+}
+
+impl MovePlanDone {
+    /// What was moved.
+    pub fn stats(&self) -> MoveStats {
+        self.stats
+    }
+}
+
+/// What [`finish_move`] removed from the old location.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub struct FinishStats {
+    /// Copied entries removed from the old folder.
+    pub removed: u32,
+    /// Copied entries that could not be removed and stay in the old folder.
+    pub failed: u32,
+}
+
+/// The file operations of a move; tests swap them for ones that fail on demand.
+pub trait MoveOps {
+    /// Renames `from` to `to` (a file or a folder).
+    fn rename(&self, from: &Path, to: &Path) -> io::Result<()>;
+    /// Copies a file or a folder tree; links are skipped.
+    fn copy_tree(&self, from: &Path, to: &Path) -> io::Result<CopyStats>;
+    /// Removes a file or a folder tree.
+    fn remove_entry(&self, path: &Path) -> io::Result<()>;
+}
+
+/// The operations on the real file system.
+#[derive(Debug, Clone, Copy)]
+pub struct RealOps;
+
+impl MoveOps for RealOps {
+    fn rename(&self, from: &Path, to: &Path) -> io::Result<()> {
+        fs::rename(from, to)
+    }
+
+    fn copy_tree(&self, from: &Path, to: &Path) -> io::Result<CopyStats> {
+        if fs::symlink_metadata(from)?.is_file() {
+            fs::copy(from, to).map(|bytes| CopyStats { files: 1, bytes })
+        } else {
+            copy_tree(from, to)
+        }
+    }
+
+    fn remove_entry(&self, path: &Path) -> io::Result<()> {
+        if fs::symlink_metadata(path)?.is_dir() {
+            fs::remove_dir_all(path)
+        } else {
+            remove_file_forced(path)
+        }
+    }
+}
+
+/// Removes a file, clearing the read-only flag first when that is what stops the removal (Windows).
+fn remove_file_forced(path: &Path) -> io::Result<()> {
+    match fs::remove_file(path) {
+        Err(error) if error.kind() == io::ErrorKind::PermissionDenied => {
+            let mut permissions = fs::metadata(path)?.permissions();
+            #[allow(
+                clippy::permissions_set_readonly_false,
+                reason = "the file is the library's own and is being deleted right after"
+            )]
+            permissions.set_readonly(false);
+            fs::set_permissions(path, permissions)?;
+            fs::remove_file(path)
+        }
+        other => other,
+    }
+}
+
+/// Whether `destination` can take the library of `source`, for a move that carries the content along: the folder
+/// exists, is not the library, not inside it nor around it, is empty and can be written to.
+pub fn check_destination(source: &Path, destination: &Path) -> Result<(), MoveRefusal> {
+    check_with(source, destination, true, &write_probe)
+}
+
+/// The answer of [`check_destination`] for a change that leaves the themes where they are: the folder exists, is not the
+/// library and can be written to; it may hold themes already.
+pub fn check_location(source: &Path, destination: &Path) -> Result<(), MoveRefusal> {
+    check_with(source, destination, false, &write_probe)
+}
+
+/// How a folder is probed for write access; tests swap it.
+type Probe<'a> = &'a dyn Fn(&Path) -> io::Result<()>;
+
+/// Creates and removes a file in `folder`: the only reliable test for write access on every OS.
+fn write_probe(folder: &Path) -> io::Result<()> {
+    let probe = folder.join(format!(".sucrose-write-test-{}", std::process::id()));
+    fs::write(&probe, b"")?;
+    fs::remove_file(&probe)
+}
+
+/// The checks of [`check_destination`] (`carry`) and [`check_location`] with the write probe given.
+fn check_with(source: &Path, destination: &Path, carry: bool, probe: Probe<'_>) -> Result<(), MoveRefusal> {
+    let _ = (source, destination, carry, probe);
+    Ok(())
+}
+
+/// Moves every top-level entry of `source` into `destination`: renamed when that works, else copied and verified by file
+/// count and size. Nothing in `source` is deleted here. A failure puts everything back before it returns.
+pub fn move_library(source: &Path, destination: &Path, ops: &dyn MoveOps) -> Result<MovePlanDone, MoveFailure> {
+    let _ = (source, destination, ops);
+    Err(MoveFailure {
+        reason: "not implemented".to_owned(),
+    })
+}
+
+/// Removes the copied entries from the old folder, then the old folder itself when it is empty. Renamed entries are
+/// already gone from it.
+pub fn finish_move(done: MovePlanDone, ops: &dyn MoveOps) -> FinishStats {
+    let _ = (done, ops);
+    FinishStats::default()
+}
+
+/// Puts a move back: renamed entries are renamed back and the copies in the destination are removed. `true` when
+/// everything is back.
+pub fn rollback_move(done: MovePlanDone, ops: &dyn MoveOps) -> bool {
+    let _ = (done, ops);
+    false
 }
 
 /// Runs the maintenance: the report and the showcase names to record in `Warehouse.Showcase`.
@@ -221,7 +373,7 @@ pub fn record_names(list: &mut Vec<String>, names: &[String]) {
 #[cfg(test)]
 mod tests {
     use std::{
-        cell::RefCell,
+        cell::{Cell, RefCell},
         fs,
         path::{Path, PathBuf},
     };
@@ -525,6 +677,296 @@ mod tests {
         assert!(names.is_empty(), "a failed copy is not recorded");
         assert_eq!(report.showcase_copied, 0);
         assert!(!scratch.path("Library/B").exists(), "the half copy is removed");
+    }
+
+    /// File operations that fail on demand and count what they are asked to do.
+    #[derive(Default)]
+    struct TestOps {
+        /// Renames from this call number on (0-based) fail; `usize::MAX` never.
+        fail_rename_from: Option<usize>,
+        /// The copy with this number (0-based) fails after it created part of its destination.
+        fail_copy_at: Option<usize>,
+        renames: Cell<usize>,
+        copies: Cell<usize>,
+    }
+
+    impl MoveOps for TestOps {
+        fn rename(&self, from: &Path, to: &Path) -> io::Result<()> {
+            let call = self.renames.get();
+            self.renames.set(call + 1);
+            if self.fail_rename_from.is_some_and(|first| call >= first) {
+                return Err(io::Error::from(io::ErrorKind::CrossesDevices));
+            }
+            RealOps.rename(from, to)
+        }
+
+        fn copy_tree(&self, from: &Path, to: &Path) -> io::Result<CopyStats> {
+            let call = self.copies.get();
+            self.copies.set(call + 1);
+            if self.fail_copy_at == Some(call) {
+                fs::create_dir_all(to)?;
+                return Err(io::Error::other("the disk is full"));
+            }
+            RealOps.copy_tree(from, to)
+        }
+
+        fn remove_entry(&self, path: &Path) -> io::Result<()> {
+            RealOps.remove_entry(path)
+        }
+    }
+
+    /// A library of two themes, a loose file and a folder that is no theme; `Library` and an empty `New` next to it.
+    fn move_scene(scratch: &Scratch) -> (PathBuf, PathBuf) {
+        let library = scratch.path("Library");
+        theme(&library, "Alpha");
+        theme(&library, "Beta");
+        corrupt_folder(&library, "Notes");
+        fs::write(library.join("loose.txt"), b"loose").expect("the loose file can be written");
+        let new = scratch.path("New");
+        fs::create_dir_all(&new).expect("the new folder can be created");
+        (library, new)
+    }
+
+    /// The names inside `folder`, sorted.
+    fn names(folder: &Path) -> Vec<String> {
+        let mut names: Vec<String> = fs::read_dir(folder)
+            .map(|entries| {
+                entries
+                    .filter_map(Result::ok)
+                    .map(|entry| entry.file_name().to_string_lossy().into_owned())
+                    .collect()
+            })
+            .unwrap_or_default();
+        names.sort();
+        names
+    }
+
+    #[test]
+    fn a_destination_with_anything_in_it_is_not_empty() {
+        let scratch = Scratch::new("dest-not-empty");
+        let (library, new) = move_scene(&scratch);
+        fs::write(new.join("a.txt"), b"a").expect("the file can be written");
+
+        assert_eq!(check_destination(&library, &new), Err(MoveRefusal::NotEmpty));
+        // Without moving the themes along, a folder with themes in it is a fine new location.
+        assert_eq!(check_location(&library, &new), Ok(()));
+    }
+
+    #[test]
+    fn the_library_itself_is_the_same_folder_whatever_its_spelling() {
+        let scratch = Scratch::new("dest-same");
+        let (library, _) = move_scene(&scratch);
+        let spelled = library.join("..").join("Library");
+
+        assert_eq!(check_destination(&library, &library), Err(MoveRefusal::Same));
+        assert_eq!(check_destination(&library, &spelled), Err(MoveRefusal::Same));
+        assert_eq!(check_location(&library, &library), Err(MoveRefusal::Same));
+    }
+
+    #[test]
+    fn a_folder_inside_the_library_or_around_it_is_nested() {
+        let scratch = Scratch::new("dest-nested");
+        let (library, _) = move_scene(&scratch);
+        let inside = library.join("Inner");
+        fs::create_dir_all(&inside).expect("the inner folder can be created");
+
+        assert_eq!(check_destination(&library, &inside), Err(MoveRefusal::Nested));
+        assert_eq!(check_destination(&inside, &library), Err(MoveRefusal::Nested));
+        assert_eq!(check_destination(&library, &scratch.0), Err(MoveRefusal::Nested));
+    }
+
+    #[test]
+    fn a_destination_that_is_not_a_folder_is_missing() {
+        let scratch = Scratch::new("dest-missing");
+        let (library, _) = move_scene(&scratch);
+        fs::write(scratch.path("file.txt"), b"x").expect("the file can be written");
+
+        assert_eq!(
+            check_destination(&library, &scratch.path("nowhere")),
+            Err(MoveRefusal::Missing)
+        );
+        assert_eq!(
+            check_destination(&library, &scratch.path("file.txt")),
+            Err(MoveRefusal::Missing)
+        );
+    }
+
+    #[test]
+    fn a_destination_where_the_probe_file_cannot_be_created_is_not_writable() {
+        let scratch = Scratch::new("dest-readonly");
+        let (library, new) = move_scene(&scratch);
+        let denied = |_: &Path| Err(io::Error::from(io::ErrorKind::PermissionDenied));
+
+        assert_eq!(check_with(&library, &new, true, &denied), Err(MoveRefusal::NotWritable));
+        assert_eq!(
+            check_with(&library, &new, false, &denied),
+            Err(MoveRefusal::NotWritable)
+        );
+        assert_eq!(check_destination(&library, &new), Ok(()));
+        assert!(names(&new).is_empty(), "the probe leaves nothing behind");
+    }
+
+    #[test]
+    fn on_one_volume_every_entry_is_renamed_and_nothing_is_copied() {
+        let scratch = Scratch::new("move-rename");
+        let (library, new) = move_scene(&scratch);
+        let ops = TestOps::default();
+
+        let done = move_library(&library, &new, &ops).expect("the move succeeds");
+
+        assert_eq!(ops.copies.get(), 0);
+        assert_eq!(names(&new), ["Alpha", "Beta", "Notes", "loose.txt"]);
+        assert!(names(&library).is_empty());
+        assert_eq!(done.stats().entries, 4);
+        assert_eq!(done.stats().renamed, 4);
+        assert!(new.join("Alpha/assets/video.mp4").is_file());
+
+        let finished = finish_move(done, &ops);
+
+        assert_eq!(finished, FinishStats::default());
+        assert!(!library.exists(), "the empty old folder is removed");
+    }
+
+    #[test]
+    fn when_rename_fails_every_entry_is_copied_and_verified_and_the_source_waits_for_finish() {
+        let scratch = Scratch::new("move-copy");
+        let (library, new) = move_scene(&scratch);
+        let ops = TestOps {
+            fail_rename_from: Some(0),
+            ..TestOps::default()
+        };
+
+        let done = move_library(&library, &new, &ops).expect("the move succeeds");
+
+        assert_eq!(ops.copies.get(), 4);
+        assert_eq!(done.stats().renamed, 0);
+        assert_eq!(done.stats().entries, 4);
+        assert_eq!(
+            done.stats().files,
+            2 + 2 + 1 + 1,
+            "two files per theme, one in Notes, the loose file"
+        );
+        assert_eq!(names(&new), ["Alpha", "Beta", "Notes", "loose.txt"]);
+        assert_eq!(
+            names(&library),
+            ["Alpha", "Beta", "Notes", "loose.txt"],
+            "the source is untouched"
+        );
+
+        let finished = finish_move(done, &ops);
+
+        assert_eq!(finished, FinishStats { removed: 4, failed: 0 });
+        assert!(!library.exists());
+        assert_eq!(
+            fs::read(new.join("loose.txt")).ok().as_deref(),
+            Some(b"loose".as_slice())
+        );
+    }
+
+    #[test]
+    fn a_copy_that_fails_on_the_third_entry_removes_the_copies_and_leaves_the_source_whole() {
+        let scratch = Scratch::new("move-copy-fails");
+        let (library, new) = move_scene(&scratch);
+        let ops = TestOps {
+            fail_rename_from: Some(0),
+            fail_copy_at: Some(2),
+            ..TestOps::default()
+        };
+
+        let failure = move_library(&library, &new, &ops).expect_err("the third copy fails");
+
+        assert!(!failure.reason.is_empty());
+        assert!(names(&new).is_empty(), "the destination is empty again");
+        assert_eq!(names(&library), ["Alpha", "Beta", "Notes", "loose.txt"]);
+        assert!(library.join("Beta/assets/video.mp4").is_file());
+    }
+
+    #[test]
+    fn entries_renamed_before_a_failure_are_renamed_back() {
+        let scratch = Scratch::new("move-mixed-fails");
+        let (library, new) = move_scene(&scratch);
+        // The first two renames work; from the third on they fail, and so does the copy that replaces it.
+        let ops = TestOps {
+            fail_rename_from: Some(2),
+            fail_copy_at: Some(0),
+            ..TestOps::default()
+        };
+
+        let failure = move_library(&library, &new, &ops).expect_err("the copy of the third entry fails");
+
+        assert!(!failure.reason.is_empty());
+        assert!(names(&new).is_empty(), "the destination is empty again");
+        assert_eq!(names(&library), ["Alpha", "Beta", "Notes", "loose.txt"]);
+        assert!(library.join("Alpha/assets/video.mp4").is_file());
+    }
+
+    #[test]
+    fn a_rollback_after_a_finished_copy_removes_the_copies() {
+        let scratch = Scratch::new("move-rollback");
+        let (library, new) = move_scene(&scratch);
+        let ops = TestOps {
+            fail_rename_from: Some(2),
+            ..TestOps::default()
+        };
+        let done = move_library(&library, &new, &ops).expect("the move succeeds");
+        assert_eq!(done.stats().renamed, 2);
+
+        assert!(rollback_move(done, &ops), "everything is back");
+
+        assert!(names(&new).is_empty());
+        assert_eq!(names(&library), ["Alpha", "Beta", "Notes", "loose.txt"]);
+    }
+
+    #[test]
+    fn a_read_only_file_is_moved_and_removed_from_the_source() {
+        let scratch = Scratch::new("move-readonly");
+        let (library, new) = move_scene(&scratch);
+        let locked = library.join("locked.txt");
+        fs::write(&locked, b"locked").expect("the file can be written");
+        let mut permissions = fs::metadata(&locked).expect("the file has metadata").permissions();
+        permissions.set_readonly(true);
+        fs::set_permissions(&locked, permissions).expect("the flag can be set");
+        let ops = TestOps {
+            fail_rename_from: Some(0),
+            ..TestOps::default()
+        };
+
+        let done = move_library(&library, &new, &ops).expect("the move succeeds");
+        let finished = finish_move(done, &ops);
+
+        assert_eq!(finished.failed, 0);
+        assert!(new.join("locked.txt").is_file());
+        assert!(!library.exists());
+    }
+
+    #[test]
+    fn a_link_is_never_followed_and_stays_in_the_source_when_the_copy_is_used() {
+        let scratch = Scratch::new("move-link");
+        let (library, new) = move_scene(&scratch);
+        fs::write(scratch.path("outside.txt"), b"outside").expect("the file can be written");
+        if !link(&scratch.path("outside.txt"), &library.join("link.txt")) {
+            return;
+        }
+        let ops = TestOps {
+            fail_rename_from: Some(0),
+            ..TestOps::default()
+        };
+
+        let done = move_library(&library, &new, &ops).expect("the move succeeds");
+        let finished = finish_move(done, &ops);
+
+        assert_eq!(
+            names(&new),
+            ["Alpha", "Beta", "Notes", "loose.txt"],
+            "the link is not copied"
+        );
+        assert_eq!(finished.removed, 4);
+        assert_eq!(
+            names(&library),
+            ["link.txt"],
+            "the link stays, so does the folder around it"
+        );
+        assert!(scratch.path("outside.txt").is_file());
     }
 
     #[test]
