@@ -5,6 +5,8 @@
 mod card;
 mod grid;
 pub mod layout;
+#[allow(dead_code, reason = "the pagination bar is wired in the next commit")]
+mod pagination;
 pub mod thumbs;
 
 use std::{
@@ -487,5 +489,84 @@ impl Render for LibraryView {
             // The empty and error states, with their buttons, come with the search and paging plan.
             _ => div().size_full().into_any_element(),
         }
+    }
+}
+
+/// The page to show after the settings changed from `old` to `new` with `count` themes loaded: page 1 when the order or the
+/// page size changed, otherwise the current page kept inside the page range.
+fn page_after_settings_change(_old: &LibrarySettings, _new: &LibrarySettings, page: usize, _count: usize) -> usize {
+    page
+}
+
+#[cfg(test)]
+mod tests {
+    use std::path::PathBuf;
+
+    use sucrose_core::settings::{SortKind, SortMode};
+
+    use super::{LibrarySettings, layout, page_after_settings_change};
+
+    fn settings() -> LibrarySettings {
+        LibrarySettings {
+            location: PathBuf::from("Library"),
+            pagination: 30,
+            adaptive_layout: 0,
+            margin: 10.0,
+            sort_mode: SortMode::Creation,
+            sort_kind: SortKind::Descending,
+        }
+    }
+
+    #[test]
+    fn a_new_page_size_returns_to_page_one_with_the_new_page_count() {
+        let old = settings();
+        let new = LibrarySettings {
+            pagination: 10,
+            ..settings()
+        };
+        assert_eq!(layout::page_count(40, old.pagination), 2);
+        assert_eq!(layout::page_count(40, new.pagination), 4);
+        assert_eq!(page_after_settings_change(&old, &new, 2, 40), 1);
+    }
+
+    #[test]
+    fn a_new_sort_order_returns_to_page_one() {
+        let old = settings();
+        for new in [
+            LibrarySettings {
+                sort_mode: SortMode::Name,
+                ..settings()
+            },
+            LibrarySettings {
+                sort_kind: SortKind::Ascending,
+                ..settings()
+            },
+        ] {
+            assert_eq!(page_after_settings_change(&old, &new, 2, 40), 1);
+        }
+    }
+
+    #[test]
+    fn a_new_layout_keeps_the_page() {
+        let old = settings();
+        for new in [
+            LibrarySettings {
+                adaptive_layout: 3,
+                ..settings()
+            },
+            LibrarySettings {
+                margin: 25.0,
+                ..settings()
+            },
+        ] {
+            assert_eq!(page_after_settings_change(&old, &new, 2, 40), 2);
+        }
+    }
+
+    #[test]
+    fn an_unchanged_page_is_clamped_into_the_range() {
+        let settings = settings();
+        assert_eq!(page_after_settings_change(&settings, &settings, 5, 40), 2);
+        assert_eq!(page_after_settings_change(&settings, &settings, 1, 0), 1);
     }
 }
