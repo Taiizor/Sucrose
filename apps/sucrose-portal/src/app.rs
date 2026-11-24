@@ -1,5 +1,7 @@
 //! The Portal's root entity: the connection to the service, what the service reported, and the window layout.
 
+use std::time::Duration;
+
 use gpui_kit::component::{ActiveTheme, TitleBar, v_flex};
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
@@ -11,6 +13,7 @@ use sucrose_ipc::portal::UseOutcome;
 use crate::{
     background::BackgroundImage,
     banner,
+    dialogs::tray_hint::{self, TrayHint, should_hint},
     header::Header,
     i18n::tr,
     ipc::{ConnectionState, LinkEvent, ServiceLink, next_state},
@@ -51,7 +54,16 @@ pub struct PortalApp {
     window_backdrop: bool,
     /// The background image layer, below the page tint.
     pub background: Entity<BackgroundImage>,
+    /// The tray hint was shown during this window's life; closing again closes at once.
+    tray_hint_shown: bool,
+    /// Close of the tray hint was pressed: the window closes when the service answers, or after [`HINT_WRITE_WAIT`].
+    closing_after_hint: bool,
+    /// Closes the window when the service does not answer; dropped with the app.
+    _hint_timer: Option<Task<()>>,
 }
+
+/// How long the window waits for the service to confirm that the hint is off before it closes anyway.
+const HINT_WRITE_WAIT: Duration = Duration::from_secs(1);
 
 impl PortalApp {
     /// Builds the app, applies `early` (the events that were ready before the window opened) and starts awaiting the
@@ -113,11 +125,54 @@ impl PortalApp {
             _appearance: appearance,
             window_backdrop,
             background,
+            tray_hint_shown: false,
+            closing_after_hint: false,
+            _hint_timer: None,
         };
+        // The first close with the hint on explains the tray (UI-05); every other close goes through.
+        let this = cx.weak_entity();
+        window.on_window_should_close(cx, move |window, cx| {
+            this.update(cx, |app, cx| app.on_close_requested(window, cx))
+                .unwrap_or(true)
+        });
         for event in early {
             app.on_link_event(event, window, cx);
         }
         app
+    }
+
+    /// The window is about to close: false while the tray hint takes the close (it closes the window itself).
+    fn on_close_requested(&mut self, window: &mut Window, cx: &mut Context<Self>) -> bool {
+        let hint_on = self.settings.as_ref().is_some_and(|settings| settings.hint_tray_icon);
+        let tray_visible = self.runtime.as_ref().is_some_and(|runtime| runtime.tray_visible);
+        if !should_hint(hint_on, tray_visible, self.tray_hint_shown) {
+            return true;
+        }
+        self.tray_hint_shown = true;
+        let app = cx.weak_entity();
+        let link = self.link.clone();
+        let hint = cx.new(|cx| {
+            TrayHint::new(
+                link,
+                move |window, cx| {
+                    app.update(cx, |app, cx| app.finish_tray_hint(window, cx)).ok();
+                },
+                cx,
+            )
+        });
+        tray_hint::open(hint, window, cx);
+        cx.notify();
+        false
+    }
+
+    /// Close of the tray hint was pressed (it has sent the change to the service): the window closes once the service has
+    /// answered, or after a second whatever happens (a refused write shows the hint again next time).
+    fn finish_tray_hint(&mut self, window: &mut Window, cx: &mut Context<Self>) {
+        self.closing_after_hint = true;
+        self._hint_timer = Some(cx.spawn_in(window, async move |this, cx| {
+            cx.background_executor().timer(HINT_WRITE_WAIT).await;
+            this.update_in(cx, |_, window, _| window.remove_window()).ok();
+        }));
     }
 
     /// The stored theme mode; System until the service has reported the settings.
@@ -197,6 +252,9 @@ impl PortalApp {
                     if matches!(change, SettingChange::Backdrop(_)) {
                         self.apply_backdrop(window);
                     }
+                    if self.closing_after_hint && matches!(change, SettingChange::HintTrayIcon(_)) {
+                        window.remove_window();
+                    }
                     // Stretch and opacity apply live to the image that is shown; a new path decodes again.
                     match change {
                         SettingChange::BackgroundImage(_) => self.apply_background(window, cx),
@@ -229,6 +287,10 @@ impl PortalApp {
                 }
                 PortalEvent::Rejected { reason, .. } => {
                     tracing::warn!(%reason, "the service did not apply a setting");
+                    if self.closing_after_hint {
+                        // The hint stays on and shows again next time; the user asked to close.
+                        window.remove_window();
+                    }
                     toast::show_error(tr("Portal.Setting.SaveFailed"), window, cx);
                 }
                 PortalEvent::AlreadyOpen { existing_pid } => {

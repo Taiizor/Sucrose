@@ -129,7 +129,7 @@ Actions Close / Pause / Resume per condition; trigger after 5 consecutive 1 s po
 | Header actions, search, status bar (memory, quotes with copy), command-line page arguments | Rust (Phase 3): search, light/dark, Premium, ⋮ Help/About (D-15); status bar memory = total of all Sucrose processes with a per-process tooltip, reported by the service once a second only while the Portal is connected (behavior change D-19; legacy: Portal process only); quote copy; command-line GeneralSetting and SystemSetting open General. | 🟨 |
 | Settings pages: General, Personal, Performance, Wallpaper, System, Other (every key in `portal.md` §4) | | ⬜ |
 | Donate page and advertising settings | Removed (D-023). | ➖ |
-| Help and About dialogs, tray hint dialog | | ⬜ |
+| Help and About dialogs, tray hint dialog | Rust (Phase 3): Help has five link rows; About has the author blurb, product name, version and release notes, contributors, terms, privacy and code of conduct links, without update status, partners or "Last Checked" until the updater (Phase 5); all links are plain https addresses fixed in the build and open in the OS browser (D-020, D-023). The tray hint shows on the first window close while `HintTrayIcon` is on and the tray icon is visible, with a static tray illustration instead of the legacy GIF and a 5 s countdown on Close; Close turns the hint off through the service and closes the window. Escape does not dismiss the tray hint (the legacy dialog had no Escape either). Maintainer check of the dialogs is due at the end of Phase 3. | 🟨 |
 | 25 languages, RTL for Arabic and Hebrew, live language switch | | ⬜ |
 | Single instance | | ⬜ |
 
