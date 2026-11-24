@@ -361,6 +361,10 @@ fn a_file_that_is_empty_while_the_c_sharp_app_writes_it_is_retried() {
 /// migrates it into a scratch folder. Ignored: it needs the C# app's data on the machine.
 #[test]
 #[ignore = "reads the real C# install's Setting folder"]
+#[allow(
+    clippy::print_stdout,
+    reason = "the ignored run reports the migrated look for the maintainer to read"
+)]
 fn real_install_migrates() {
     let legacy = std::env::var_os("SUCROSE_LEGACY_SETTING_DIR")
         .map(PathBuf::from)

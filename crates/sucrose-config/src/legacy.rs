@@ -142,18 +142,49 @@ impl Properties {
         from_name: impl Fn(&str) -> Option<T>,
         from_index: impl Fn(i64) -> Option<T>,
     ) -> T {
-        let Some(value) = self.value(key) else {
-            return default;
-        };
+        self.get_enum_opt(key, from_name, from_index).unwrap_or(default)
+    }
+
+    /// Like [`Self::get_enum`] but `None` instead of a default: for values that are only inputs of a mapping, where
+    /// "not stored" and "unknown name" matter to the caller.
+    pub fn get_enum_opt<T>(
+        &self,
+        key: &str,
+        from_name: impl Fn(&str) -> Option<T>,
+        from_index: impl Fn(i64) -> Option<T>,
+    ) -> Option<T> {
+        let value = self.value(key)?;
         let parsed = match value {
             Value::String(text) => from_name(text).or_else(|| text.trim().parse().ok().and_then(&from_index)),
             Value::Number(_) => integer(value).and_then(&from_index),
             _ => None,
         };
-        parsed.unwrap_or_else(|| {
+        if parsed.is_none() {
             self.warn_invalid(key);
-            default
-        })
+        }
+        parsed
+    }
+
+    /// The string items of a list key; a missing key or a value that is not a list is empty, a non-string item is
+    /// skipped with a warning.
+    pub fn get_string_list(&self, key: &str) -> Vec<String> {
+        match self.value(key) {
+            None => Vec::new(),
+            Some(Value::Array(items)) => items
+                .iter()
+                .filter_map(|item| {
+                    let text = item.as_str().map(str::to_owned);
+                    if text.is_none() {
+                        self.warn_invalid(key);
+                    }
+                    text
+                })
+                .collect(),
+            Some(_) => {
+                self.warn_invalid(key);
+                Vec::new()
+            }
+        }
     }
 }
 
@@ -259,7 +290,8 @@ pub struct GeneralSettings {
 }
 
 impl GeneralSettings {
-    fn from_properties(properties: &Properties) -> Self {
+    /// Builds the settings from `General.json`.
+    pub fn from_properties(properties: &Properties) -> Self {
         Self {
             app_visible: properties.get_bool("AppVisible", true),
         }
@@ -287,7 +319,8 @@ pub struct EngineSettings {
 }
 
 impl EngineSettings {
-    fn from_properties(properties: &Properties) -> Self {
+    /// Builds the settings from `Engine.json`.
+    pub fn from_properties(properties: &Properties) -> Self {
         let volume = properties.get_clamped("WallpaperVolume", 100, 0, 100);
         Self {
             volume: u8::try_from(volume).unwrap_or(100),
@@ -327,7 +360,8 @@ pub struct BackgroundogSettings {
 }
 
 impl BackgroundogSettings {
-    fn from_properties(properties: &Properties) -> Self {
+    /// Builds the settings from `Backgroundog.json`.
+    pub fn from_properties(properties: &Properties) -> Self {
         Self {
             fullscreen: properties.get_enum(
                 "FullScreenPerformance",

@@ -376,23 +376,50 @@ impl Settings {
         };
         let mut library = Fields::section("Library", root.remove("Library"));
         let mut general = Fields::section("General", root.remove("General"));
+        let mut portal = Fields::section("Portal", root.remove("Portal"));
         let mut engine = Fields::section("Engine", root.remove("Engine"));
         let mut backgroundog = Fields::section("Backgroundog", root.remove("Backgroundog"));
+        let mut warehouse = Fields::section("Warehouse", root.remove("Warehouse"));
         Self {
             version,
             library: Library {
                 location: library.string("Location", ""),
                 selected: library.string("Selected", ""),
+                delete_corrupt: library.boolean("DeleteCorrupt", false),
+                delete_confirm: library.boolean("DeleteConfirm", true),
+                move_library: library.boolean("Move", true),
                 extra: library.rest(),
-                ..Library::default()
             },
             general: General {
+                culture: general.optional_string("Culture"),
+                run_startup: general.clamped("RunStartup", 0, 0, 10),
+                user_agent: general.string("UserAgent", DEFAULT_USER_AGENT),
+                telemetry_data: general.boolean("TelemetryData", true),
+                exception_data: general.boolean("ExceptionData", true),
                 app_visible: general.boolean("AppVisible", true),
+                app_exit: general.boolean("AppExit", true),
                 extra: general.rest(),
-                ..General::default()
             },
-            portal: Portal::default(),
-            warehouse: Warehouse::default(),
+            portal: Portal {
+                theme_mode: portal.name("ThemeMode", ThemeMode::default(), ThemeMode::from_legacy_name),
+                backdrop: portal.name("Backdrop", Backdrop::default(), Backdrop::from_legacy_name),
+                background_opacity: portal.clamped("BackgroundOpacity", 100, 0, 100),
+                library_pagination: portal.clamped("LibraryPagination", 30, 1, 100),
+                store_pagination: portal.clamped("StorePagination", 30, 1, 100),
+                adaptive_layout: portal.clamped("AdaptiveLayout", 0, 0, 100),
+                adaptive_margin: portal.clamped("AdaptiveMargin", 5, 5, 25),
+                store_duration: portal.clamped("StoreDuration", 3, 1, 24),
+                background_image: portal.string("BackgroundImage", ""),
+                library_preview_hide: portal.boolean("LibraryPreviewHide", false),
+                store_preview_hide: portal.boolean("StorePreviewHide", false),
+                library_preview: portal.boolean("LibraryPreview", false),
+                store_preview: portal.boolean("StorePreview", false),
+                store_adult: portal.boolean("StoreAdult", true),
+                background_stretch: portal.name("BackgroundStretch", Stretch::default(), Stretch::from_legacy_name),
+                library_sort_kind: portal.name("LibrarySortKind", SortKind::default(), SortKind::from_legacy_name),
+                library_sort_mode: portal.name("LibrarySortMode", SortMode::default(), SortMode::from_legacy_name),
+                extra: portal.rest(),
+            },
             engine: Engine {
                 volume: engine.volume("WallpaperVolume", 100),
                 looping: engine.boolean("WallpaperLoop", true),
@@ -418,6 +445,15 @@ impl Settings {
                     PauseKind::from_legacy_name,
                 ),
                 extra: backgroundog.rest(),
+            },
+            warehouse: Warehouse {
+                showcase: warehouse.strings("Showcase"),
+                cef_sharp_time: warehouse.string("CefSharpTime", MIN_DATE_TIME),
+                web_view_time: warehouse.string("WebViewTime", MIN_DATE_TIME),
+                cefsharp_continue: warehouse.boolean("CefsharpContinue", false),
+                web_view_continue: warehouse.boolean("WebViewContinue", false),
+                hint_tray_icon: warehouse.boolean("HintTrayIcon", true),
+                extra: warehouse.rest(),
             },
             extra: root,
         }
@@ -470,8 +506,48 @@ impl Fields {
         }
     }
 
+    /// A string that may be absent: a missing, empty or non-string value is `None`.
+    fn optional_string(&mut self, key: &str) -> Option<String> {
+        match self.map.remove(key) {
+            None => None,
+            Some(Value::String(text)) if !text.is_empty() => Some(text),
+            Some(Value::String(_)) => None,
+            Some(_) => {
+                self.invalid(key);
+                None
+            }
+        }
+    }
+
+    /// A list of strings: a missing or invalid list is empty, a non-string item is skipped.
+    fn strings(&mut self, key: &str) -> Vec<String> {
+        match self.map.remove(key) {
+            None => Vec::new(),
+            Some(Value::Array(items)) => items
+                .into_iter()
+                .filter_map(|item| match item {
+                    Value::String(text) => Some(text),
+                    _ => {
+                        self.invalid(key);
+                        None
+                    }
+                })
+                .collect(),
+            Some(_) => {
+                self.invalid(key);
+                Vec::new()
+            }
+        }
+    }
+
     /// A percentage: a number outside 0..=100 is clamped like the legacy reader, anything else is the default.
     fn volume(&mut self, key: &str, default: u8) -> u8 {
+        self.clamped(key, default, 0, 100)
+    }
+
+    /// A small number limited to `min..=max`: a number outside the range is clamped like the legacy reader, anything
+    /// else is the default.
+    fn clamped(&mut self, key: &str, default: u8, min: u8, max: u8) -> u8 {
         let number = match self.map.remove(key) {
             None => return default,
             Some(Value::Number(number)) => number.as_i64().or_else(|| {
@@ -483,7 +559,7 @@ impl Fields {
             Some(_) => None,
         };
         match number {
-            Some(number) => u8::try_from(number.clamp(0, 100)).unwrap_or(default),
+            Some(number) => u8::try_from(number.clamp(i64::from(min), i64::from(max))).unwrap_or(default),
             None => {
                 self.invalid(key);
                 default
@@ -560,6 +636,37 @@ mod tests {
         let settings = Settings::from_slice(text).unwrap();
         assert_eq!(settings.engine, Engine::default());
         assert_eq!(settings.general, General::default());
+    }
+
+    #[test]
+    fn the_portal_and_warehouse_sections_use_the_legacy_key_names() {
+        let value = serde_json::to_value(Settings::default()).unwrap();
+        assert_eq!(value["Portal"]["ThemeMode"], "System");
+        assert_eq!(value["Portal"]["Backdrop"], "None");
+        assert_eq!(value["Portal"]["LibraryPagination"], 30);
+        assert_eq!(value["Portal"]["StoreAdult"], true);
+        assert_eq!(value["Portal"]["BackgroundStretch"], "UniformToFill");
+        assert_eq!(value["Library"]["Move"], true);
+        assert_eq!(value["General"]["RunStartup"], 0);
+        assert!(value["General"].get("Culture").is_none());
+        assert_eq!(value["Warehouse"]["CefsharpContinue"], false);
+        assert_eq!(value["Warehouse"]["HintTrayIcon"], true);
+        assert_eq!(value["Warehouse"]["CefSharpTime"], MIN_DATE_TIME);
+    }
+
+    #[test]
+    fn the_new_sections_clamp_and_keep_their_values_on_read() {
+        let text = br#"{"Portal":{"ThemeMode":"Dark","Backdrop":"Tabbed","LibraryPagination":0,"AdaptiveMargin":99},
+            "General":{"Culture":"TR","RunStartup":50},"Warehouse":{"Showcase":["a",1,"b"],"HintTrayIcon":false}}"#;
+        let settings = Settings::from_slice(text).unwrap();
+        assert_eq!(settings.portal.theme_mode, ThemeMode::Dark);
+        assert_eq!(settings.portal.backdrop, Backdrop::Tabbed);
+        assert_eq!(settings.portal.library_pagination, 1);
+        assert_eq!(settings.portal.adaptive_margin, 25);
+        assert_eq!(settings.general.culture.as_deref(), Some("TR"));
+        assert_eq!(settings.general.run_startup, 10);
+        assert_eq!(settings.warehouse.showcase, ["a", "b"]);
+        assert!(!settings.warehouse.hint_tray_icon);
     }
 
     #[test]
