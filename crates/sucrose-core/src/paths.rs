@@ -34,6 +34,16 @@ pub fn cache_dir() -> Option<PathBuf> {
     data_dir().map(|dir| dir.join("Cache"))
 }
 
+/// Folder with the themes shipped for first use; each is copied into the library once (D-10).
+pub fn showcase_dir() -> Option<PathBuf> {
+    data_dir().map(|dir| dir.join("Showcase"))
+}
+
+/// Folder with the per-theme property caches (`Cache\Properties`).
+pub fn properties_cache_dir() -> Option<PathBuf> {
+    cache_dir().map(|dir| dir.join("Properties"))
+}
+
 /// Data folder of the installed C# app, or `None` when the OS reports no config directory.
 ///
 /// Read-only: Sucrose never writes here (D-008). Unlike [`data_dir`] it ignores `SUCROSE_DATA_DIR`, because that
@@ -64,6 +74,8 @@ mod tests {
         assert_eq!(log_dir().unwrap(), root.join("Log"));
         assert_eq!(setting_dir().unwrap(), root.join("Setting"));
         assert_eq!(cache_dir().unwrap(), root.join("Cache"));
+        assert_eq!(showcase_dir().unwrap(), root.join("Showcase"));
+        assert_eq!(properties_cache_dir().unwrap(), root.join("Cache").join("Properties"));
     }
 
     #[test]

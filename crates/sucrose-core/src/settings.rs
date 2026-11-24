@@ -115,6 +115,31 @@ impl GpuPreference {
     }
 }
 
+legacy_enum! {
+    /// What the library is sorted by (`SortModeType`, `Portal.json:LibrarySortMode`); the legacy default is `Creation`.
+    SortMode, default Creation {
+        /// The localized title.
+        Name,
+        /// Creation time of the theme folder.
+        #[default]
+        Creation,
+        /// Last write of `SucroseInfo.json`.
+        Modification,
+    }
+}
+
+legacy_enum! {
+    /// Direction of the library sort (`SortKindType`, `Portal.json:LibrarySortKind`); the legacy default is
+    /// `Descending`.
+    SortKind, default Descending {
+        /// Smallest first.
+        Ascending,
+        /// Largest first.
+        #[default]
+        Descending,
+    }
+}
+
 macro_rules! legacy_index {
     ($($name:ident),+) => {
         $(
@@ -129,7 +154,7 @@ macro_rules! legacy_index {
 }
 
 // ScreenArea is left out on purpose: its C# ordinals are unclear.
-legacy_index!(Stretch, FullScreenAction, PauseKind, GpuPreference);
+legacy_index!(Stretch, FullScreenAction, PauseKind, GpuPreference, SortMode, SortKind);
 
 #[cfg(test)]
 mod tests {
@@ -142,6 +167,23 @@ mod tests {
         assert_eq!(FullScreenAction::default(), FullScreenAction::Resume);
         assert_eq!(PauseKind::default(), PauseKind::Light);
         assert_eq!(GpuPreference::default(), GpuPreference::HighPerformance);
+        assert_eq!(SortMode::default(), SortMode::Creation);
+        assert_eq!(SortKind::default(), SortKind::Descending);
+    }
+
+    #[test]
+    fn sort_enums_round_trip_their_legacy_names_and_follow_the_declaration_order() {
+        for value in SortMode::ALL {
+            assert_eq!(SortMode::from_legacy_name(value.legacy_name()), Some(*value));
+        }
+        for value in SortKind::ALL {
+            assert_eq!(SortKind::from_legacy_name(value.legacy_name()), Some(*value));
+        }
+        assert_eq!(SortMode::from_legacy_name("name"), None);
+        assert_eq!(SortMode::from_legacy_index(2), Some(SortMode::Modification));
+        assert_eq!(SortMode::from_legacy_index(3), None);
+        assert_eq!(SortKind::from_legacy_index(0), Some(SortKind::Ascending));
+        assert_eq!(SortKind::from_legacy_index(2), None);
     }
 
     #[test]
