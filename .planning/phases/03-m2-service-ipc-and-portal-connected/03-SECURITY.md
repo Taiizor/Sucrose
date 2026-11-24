@@ -34,7 +34,7 @@ created: "2026-11-24"
 
 | Threat ID | Category | Component | Severity | Disposition | Mitigation (evidence) | Status |
 |-----------|----------|-----------|----------|-------------|-----------------------|--------|
-| T-03-01 | Denial of Service | crates/sucrose-config/src/store.rs | high | mitigate | crates/sucrose-config/src/store.rs (temp + sync_all + rename, BACKUP_FILE Sucrose.json.bak line 23, load order line 79); test kill_during_write_never_leaves_a_corrupt_file (tests/store.rs:412); 03-01-SUMMARY | closed |
+| T-03-01 | Denial of Service | crates/sucrose-config/src/store.rs | high | mitigate | crates/sucrose-config/src/store.rs (temp + sync_all + rename, BACKUP_FILE Sucrose.json.bak line 23, load order line 79); test kill_during_write_never_leaves_a_corrupt_file (tests/store.rs:412); 03-01-SUMMARY; WR-09 keep_corrupt_aside keeps a corrupt file as Sucrose.json.corrupt before it is replaced (tests/store.rs a_corrupt_file_*) | closed |
 | T-03-02 | Tampering | legacy Setting/*.json | high | mitigate | crates/sucrose-config/src/migrate.rs:4 (never writes, renames or deletes a legacy file); legacy.rs reader read-only (tests/legacy.rs); 03-01-SUMMARY: SHA-256 of 14 real legacy files matched before and after | closed |
 | T-03-03 | Tampering | Sucrose.json written by a newer build or edited by hand | medium | mitigate | crates/sucrose-config/src/model.rs:79 #[serde(flatten)] extra map; store.rs:49 StoreError::NewerVersion kept unchanged; typed getters in legacy.rs (get_clamped/get_enum) | closed |
 | T-03-SC | Tampering | crates.io dependencies | high | mitigate | Package legitimacy recorded in 03-27-SUMMARY:149 (40 OK); crates pinned in root Cargo.toml [workspace.dependencies] (rust-i18n=4.2.4, trash=5.4.0, gpui =0.3.12); cargo deny job .github/workflows/rust.yml:95-99; no crate added in 03-01/03-04 summaries | closed |
@@ -59,7 +59,7 @@ created: "2026-11-24"
 | T-03-22 | Tampering | apps/sucrose/src/service.rs Use | high | mitigate | apps/sucrose/src/service.rs:23,657,3119 check_selected on a folder; decide_use at :3045; 03-09-SUMMARY | closed |
 | T-03-23 | Denial of Service | renderer restarts after a Use | medium | mitigate | apps/sucrose/src/supervisor.rs:140 RestartBudget; service.rs:805 budget spent behavior; 03-09-SUMMARY | closed |
 | T-03-24 | Elevation of Privilege | crates/sucrose-engine-mpv/src/player.rs | medium | mitigate | crates/sucrose-engine-mpv/src/config.rs:31-35 load-scripts/ytdl/scripts/config options disabled; 03-09-SUMMARY (LoadSource hardening kept) | closed |
-| T-03-25 | Denial of Service | apps/sucrose-portal/src/library/thumbs.rs | high | mitigate | apps/sucrose-portal/src/library/thumbs.rs:4,22,29 check_dimensions, CACHE_BYTES 48 MiB, MAX_PIXELS; 03-29 adds the header check | closed |
+| T-03-25 | Denial of Service | apps/sucrose-portal/src/library/thumbs.rs | high | mitigate | apps/sucrose-portal/src/library/thumbs.rs:4,22,29 check_dimensions, CACHE_BYTES 48 MiB, MAX_PIXELS; 03-29 adds the header check; WR-12 decode_jpeg_scaled sets the decoder buffer cap and takes a JPEG_BUDGET (256 MiB) permit | closed |
 | T-03-26 | Information Disclosure | thumbnail paths | medium | mitigate | apps/sucrose-portal/src/library/thumbs.rs decodes only the scan Thumbnail path (contained by theme.rs:344,370) | closed |
 | T-03-27 | Tampering | malformed image | low | accept | accept: documented in 03-10 plan; assets.rs:24, card.rs:202 ImageOff on decode error | closed |
 | T-03-28 | Tampering | maintainer data during the run | medium | mitigate | process rule: 03-11 plan and run records scratch SUCROSE_DATA_DIR (target/scratch-data); later runs 03-24/03-37/03-38 SUMMARY repeat it | closed |
@@ -174,3 +174,11 @@ All 27 SUMMARY files with a "Threat Flags" section state "None" or restate plann
 - [x] `status: verified` set in frontmatter
 
 **Approval:** verified 2026-11-24
+
+## Security Audit 2026-11-24
+
+| Metric | Count |
+|---|---|
+| Threats found | 88 |
+| Closed | 88 |
+| Open | 0 |
