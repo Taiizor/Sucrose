@@ -1,5 +1,6 @@
 //! Windows implementation: user identity, monitors, DPI awareness, the message loop and the desktop surface.
 
+mod autostart;
 mod display;
 mod event_loop;
 mod foreground;
@@ -36,6 +37,7 @@ use crate::{
     PlatformError,
 };
 
+pub(crate) use autostart::{autostart_state, disable_autostart, enable_autostart, legacy_entry};
 pub(crate) use display::init_dpi_awareness;
 pub use event_loop::{EventLoop, LoopProxy, LoopTimers};
 pub(crate) use foreground::allow_set_foreground;

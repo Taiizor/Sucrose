@@ -3,10 +3,14 @@
 
 use std::{
     io,
+    path::{Path, PathBuf},
     process::{Child, Command},
 };
 
-use crate::{DpiAwareness, Flow, LoopEnd, LoopEvent, Placement, PlatformError, RectPx, TrayAction, TrayLabels};
+use crate::{
+    DpiAwareness, Flow, LoopEnd, LoopEvent, Placement, PlatformError, RectPx, TrayAction, TrayLabels,
+    autostart::{self, AutostartState, EntryKind},
+};
 
 /// A surface behind the desktop icons. Not available on this OS.
 #[derive(Debug)]
@@ -137,6 +141,61 @@ pub(crate) fn spawn_detached(cmd: &mut Command) -> io::Result<Child> {
 
 pub(crate) fn init_dpi_awareness() -> DpiAwareness {
     DpiAwareness::NotApplicable
+}
+
+/// The kind of start entry file this OS uses and the folder it lives under: the home folder for a macOS LaunchAgent,
+/// the config folder for a Linux XDG autostart file.
+fn entry_target() -> Result<(EntryKind, PathBuf), PlatformError> {
+    #[cfg(target_os = "macos")]
+    {
+        let home = std::env::var_os("HOME").filter(|home| Path::new(home).is_absolute());
+        home.map(|home| (EntryKind::LaunchAgent, PathBuf::from(home)))
+            .ok_or(PlatformError::Unsupported("the home folder"))
+    }
+    #[cfg(target_os = "linux")]
+    {
+        autostart::config_dir_from(
+            std::env::var_os("XDG_CONFIG_HOME").as_deref(),
+            std::env::var_os("HOME").as_deref(),
+        )
+        .map(|dir| (EntryKind::Desktop, dir))
+        .ok_or(PlatformError::Unsupported("the config folder"))
+    }
+    #[cfg(not(any(target_os = "macos", target_os = "linux")))]
+    {
+        Err(PlatformError::Unsupported("start with the OS"))
+    }
+}
+
+/// Writes Sucrose's own LaunchAgent or XDG autostart file for `exe`.
+pub(crate) fn enable_autostart(exe: &Path) -> Result<(), PlatformError> {
+    if !exe.is_absolute() {
+        return Err(PlatformError::Failed {
+            context: "startup entry",
+            message: "the executable path is not absolute".to_owned(),
+        });
+    }
+    let (kind, base) = entry_target()?;
+    autostart::write_entry(kind, &base, exe)
+}
+
+/// Removes Sucrose's own entry file.
+pub(crate) fn disable_autostart() -> Result<(), PlatformError> {
+    let (kind, base) = entry_target()?;
+    autostart::remove_entry(kind, &base)
+}
+
+/// Reads Sucrose's own entry file.
+pub(crate) fn autostart_state(exe: &Path) -> AutostartState {
+    entry_target().map_or_else(
+        |_| AutostartState::default(),
+        |(kind, base)| autostart::entry_state(kind, &base, exe),
+    )
+}
+
+/// The C# app has no start entry on these OSes.
+pub(crate) fn legacy_entry() -> bool {
+    false
 }
 
 /// Nothing is painted on this OS, so there is nothing to refresh.

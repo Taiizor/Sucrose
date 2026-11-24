@@ -82,7 +82,10 @@ fn autostart_desktop_entry_escapes_quote_backslash_backtick_and_dollar() {
     // The quoting rule puts a backslash before each of them, then the string rule doubles every backslash.
     let entry = desktop_entry("Sucrose", "/o/a\"b\\c\u{60}d$e/s");
 
-    assert!(entry.contains("\nExec=\"/o/a\\\\\"b\\\\\\\\c\\\\\u{60}d\\\\$e/s\"\n"), "{entry}");
+    assert!(
+        entry.contains("\nExec=\"/o/a\\\\\"b\\\\\\\\c\\\\\u{60}d\\\\$e/s\"\n"),
+        "{entry}"
+    );
 }
 
 #[test]
@@ -90,7 +93,11 @@ fn autostart_desktop_entry_doubles_percent_and_cannot_be_split_by_a_newline() {
     let entry = desktop_entry("Sucrose", "/o/100%/a\nExec=evil");
 
     assert!(entry.contains("100%%"), "{entry}");
-    assert_eq!(entry.matches("\nExec=").count(), 1, "a newline in the path made a second key: {entry}");
+    assert_eq!(
+        entry.matches("\nExec=").count(),
+        1,
+        "a newline in the path made a second key: {entry}"
+    );
 }
 
 #[test]
@@ -157,7 +164,9 @@ fn autostart_entry_paths_follow_the_os_conventions() {
     let home = Path::new("/h");
     assert_eq!(
         entry_path(EntryKind::LaunchAgent, home),
-        home.join("Library").join("LaunchAgents").join("dev.sucrose.Sucrose.plist")
+        home.join("Library")
+            .join("LaunchAgents")
+            .join("dev.sucrose.Sucrose.plist")
     );
     assert_eq!(
         entry_path(EntryKind::Desktop, home),
@@ -218,9 +227,15 @@ fn autostart_an_entry_for_another_executable_is_not_this_ones() {
 
 #[cfg(windows)]
 mod registry {
-    use std::process::Command;
+    use std::{
+        process::Command,
+        sync::{Mutex, PoisonError},
+    };
 
     use sucrose_platform::{autostart_state, disable_autostart, enable_autostart};
+
+    /// The tests share the same registry values, so they run one after the other.
+    static REGISTRY: Mutex<()> = Mutex::new(());
 
     const RUN: &str = r"HKCU\Software\Microsoft\Windows\CurrentVersion\Run";
     const APPROVED: &str = r"HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run";
@@ -257,14 +272,25 @@ mod registry {
     #[test]
     #[ignore = "writes the real HKCU Run key, run it with --ignored"]
     fn autostart_registry_enable_disable_leaves_the_csharp_entry_alone() {
+        let _serial = REGISTRY.lock().unwrap_or_else(PoisonError::into_inner);
         // The maintainer's own entries are never touched: with one present the test does nothing.
         if has(RUN, "Sucrose.Service") {
-            eprintln!("a Sucrose.Service value exists already, the test leaves it alone");
+            // A real entry of the maintainer: the test leaves it alone.
             return;
         }
         let legacy_existed = has(RUN, "Sucrose");
         if !legacy_existed {
-            assert!(reg(&["add", RUN, "/v", "Sucrose", "/t", "REG_SZ", "/d", "legacy-test", "/f"]));
+            assert!(reg(&[
+                "add",
+                RUN,
+                "/v",
+                "Sucrose",
+                "/t",
+                "REG_SZ",
+                "/d",
+                "legacy-test",
+                "/f"
+            ]));
         }
         let _cleanup = Cleanup {
             own: true,
@@ -289,8 +315,9 @@ mod registry {
     #[test]
     #[ignore = "writes the real HKCU Run key, run it with --ignored"]
     fn autostart_registry_enable_clears_the_task_manager_flag() {
+        let _serial = REGISTRY.lock().unwrap_or_else(PoisonError::into_inner);
         if has(RUN, "Sucrose.Service") {
-            eprintln!("a Sucrose.Service value exists already, the test leaves it alone");
+            // A real entry of the maintainer: the test leaves it alone.
             return;
         }
         let _cleanup = Cleanup {
@@ -321,8 +348,9 @@ mod registry {
     #[test]
     #[ignore = "writes the real HKCU Run key, run it with --ignored"]
     fn autostart_registry_reports_an_entry_task_manager_turned_off() {
+        let _serial = REGISTRY.lock().unwrap_or_else(PoisonError::into_inner);
         if has(RUN, "Sucrose.Service") {
-            eprintln!("a Sucrose.Service value exists already, the test leaves it alone");
+            // A real entry of the maintainer: the test leaves it alone.
             return;
         }
         let _cleanup = Cleanup {
