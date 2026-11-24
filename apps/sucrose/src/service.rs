@@ -24,7 +24,10 @@ use sucrose_core::{
 };
 use sucrose_ipc::{
     Connection, IpcError, Listener,
-    portal::{PortalEvent, PortalPage, PortalRequest, RuleState, RuntimeState, SettingChange, UseOutcome, UseRefusal},
+    portal::{
+        Launch, LaunchReply, PortalEvent, PortalPage, PortalRequest, RuleState, RuntimeState, SettingChange,
+        UseOutcome, UseRefusal,
+    },
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
     service_endpoint,
 };
@@ -38,7 +41,10 @@ use sucrose_core::settings::{FullScreenAction, FullScreenScope, GpuPreference, P
 use crate::{
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
     modules::{MEMORY_TIMER, MemoryModule, ModuleAction, module_off, pids_by_slot, start_module, tray_action},
-    portal_link::{PortalAdmission, PortalLink, PortalRegistry, request_kind, runtime_state},
+    portal_link::{
+        PortalAdmission, PortalLink, PortalRegistry, ask_service_to_open_portal, portal_args, request_kind,
+        runtime_state, spawn_pending,
+    },
     settings_host::{SettingsHost, describe},
     supervisor::{
         Decision, Exhausted, ExitClass, Exited, RestartBudget, START_FAILED, ShellRestart, Supervisor, classify_exit,
@@ -80,6 +86,13 @@ enum Event {
     PortalGone {
         /// Identifies the connection.
         connection: u64,
+    },
+    /// A launcher (a second `sucrose`) asked the service to open the Portal. The answer goes back through `reply`.
+    Launch {
+        /// The page the Portal is to show.
+        page: Option<PortalPage>,
+        /// Where the main thread puts the answer for the launcher's connection.
+        reply: Sender<LaunchReply>,
     },
 }
 
@@ -344,14 +357,38 @@ fn create_tray(status: &Status, proxy: LoopProxy) -> Result<Tray, PlatformError>
     })
 }
 
-/// Runs the service until Quit is chosen from the tray.
-pub fn run() -> anyhow::Result<()> {
+/// Starts the Portal that sits next to this executable (T-03-34): the fixed name, the argument vector chosen from a
+/// page enum here, never text from a request, and never a PATH lookup.
+fn open_portal(page: Option<PortalPage>) -> std::io::Result<()> {
+    let exe = std::env::current_exe()?;
+    let folder = exe
+        .parent()
+        .ok_or_else(|| std::io::Error::other("the Sucrose executable has no folder"))?;
+    let path = folder.join(format!("sucrose-portal{}", std::env::consts::EXE_SUFFIX));
+    let mut command = std::process::Command::new(&path);
+    command.args(portal_args(page));
+    sucrose_platform::spawn_detached(&mut command)?;
+    tracing::info!(path = %path.display(), ?page, "started the Portal");
+    Ok(())
+}
+
+/// Runs the service until Quit is chosen from the tray. `portal_wanted` is false for a service the Portal started
+/// itself (`--no-portal`, D-12): neither it nor a second `sucrose` of that kind asks for another Portal.
+pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
     let awareness = sucrose_platform::init_dpi_awareness();
     let endpoint = service_endpoint().context("cannot identify the current user")?;
     let listener = match Listener::bind(&endpoint.name, endpoint.owner.as_deref()) {
         Ok(listener) => listener,
         Err(IpcError::AlreadyRunning) => {
-            tracing::info!("Sucrose is already running; exiting");
+            if portal_wanted {
+                // This is a second `sucrose` (D-12): the running service opens or raises the Portal for it.
+                match ask_service_to_open_portal(&endpoint.name) {
+                    Ok(reply) => tracing::info!(?reply, "Sucrose is already running"),
+                    Err(error) => tracing::warn!(%error, "Sucrose is already running, but its answer was not read"),
+                }
+            } else {
+                tracing::info!("Sucrose is already running; exiting");
+            }
             return Ok(());
         }
         Err(error) => return Err(error).context("cannot open the service endpoint"),
@@ -440,6 +477,9 @@ pub fn run() -> anyhow::Result<()> {
     let mut quitting = false;
     // The one Portal that is open, if any; owned by this thread so two that connect together are decided here.
     let mut portals = PortalRegistry::default();
+    // When this service last started a Portal that has not registered yet, so a launcher that comes in the meantime
+    // does not start a second one (T-03-35).
+    let mut portal_spawned: Option<Instant> = None;
     // The runtime state last offered to the Portal, so that only a change is sent (D-23).
     let mut last_runtime: Option<RuntimeState> = None;
     let legacy_root = legacy_data_dir();
@@ -621,6 +661,7 @@ pub fn run() -> anyhow::Result<()> {
                             PortalAdmission::Register => {
                                 // The Welcome carries this state, so it is what the Portal knows.
                                 last_runtime = Some(runtime);
+                                portal_spawned = None;
                                 tracing::info!(pid, "portal registered");
                             }
                             PortalAdmission::AlreadyOpen { existing_pid } => {
@@ -708,6 +749,32 @@ pub fn run() -> anyhow::Result<()> {
                         if portals.gone(connection) {
                             tracing::info!("the portal disconnected");
                         }
+                    }
+                    Event::Launch { page, reply } => {
+                        let answer = if quitting {
+                            LaunchReply::Refused {
+                                reason: "Sucrose is stopping".to_owned(),
+                            }
+                        } else if let Some(pid) = portals.registered_pid() {
+                            LaunchReply::PortalRunning { pid }
+                        } else if spawn_pending(portal_spawned, Instant::now()) {
+                            LaunchReply::Opened
+                        } else {
+                            match open_portal(page) {
+                                Ok(()) => {
+                                    portal_spawned = Some(Instant::now());
+                                    LaunchReply::Opened
+                                }
+                                Err(error) => {
+                                    tracing::warn!(%error, "cannot start the Portal for a launcher");
+                                    LaunchReply::Refused {
+                                        reason: "the Portal could not be started".to_owned(),
+                                    }
+                                }
+                            }
+                        };
+                        // The launcher's connection thread may have given up waiting; nothing to do then.
+                        let _ = reply.send(answer);
                     }
                 }
             }
@@ -994,8 +1061,8 @@ fn read_connection(
             serve_portal(connection, notifier, *portal_protocol_version, *pid, *page);
             return;
         }
-        ToService::Launch(_) => {
-            tracing::warn!("a launcher connected, but Launch is not answered yet; dropping the connection");
+        ToService::Launch(launch) => {
+            serve_launcher(connection, notifier, *launch);
             return;
         }
         _ => {}
@@ -1096,6 +1163,31 @@ fn read_connection(
                 return;
             }
         }
+    }
+}
+
+/// How long a launcher waits for the service's answer; the main thread answers at once, so a longer wait means it is
+/// busy shutting down.
+const LAUNCH_REPLY_WAIT: Duration = Duration::from_secs(5);
+
+/// Serves one launcher's connection: hands its request to the main thread and writes the answer back. The connection
+/// ends with the launcher.
+fn serve_launcher(mut connection: Connection, notifier: &Notifier, launch: Launch) {
+    let Launch::OpenPortal { page } = launch else {
+        tracing::warn!("a launcher started with a foreground grant instead of a request, dropping the connection");
+        return;
+    };
+    let (reply, answer) = crossbeam_channel::bounded(1);
+    if !notifier.send(Event::Launch { page, reply }) {
+        return;
+    }
+    let reply = answer
+        .recv_timeout(LAUNCH_REPLY_WAIT)
+        .unwrap_or_else(|_| LaunchReply::Refused {
+            reason: "the service did not answer in time".to_owned(),
+        });
+    if let Err(error) = connection.send(&reply) {
+        tracing::warn!(%error, "cannot answer a launcher");
     }
 }
 

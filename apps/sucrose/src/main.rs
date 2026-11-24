@@ -60,9 +60,8 @@ fn main() -> anyhow::Result<ExitCode> {
         }
         Ok(Mode::Service { open_portal }) => {
             let _log = sucrose_log::init("Service")?;
-            // Plan 15 acts on the flag; until then the service never opens a Portal itself.
             tracing::info!(open_portal, "the service is starting");
-            service::run().map(|()| ExitCode::SUCCESS)
+            service::run(open_portal).map(|()| ExitCode::SUCCESS)
         }
         Err(message) => {
             // The release build has no console, so the log is the only place the reason can be read.

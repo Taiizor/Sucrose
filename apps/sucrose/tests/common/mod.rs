@@ -83,7 +83,9 @@ impl TestService {
     }
 
     fn spawn_on(dir: PathBuf) -> Self {
+        // `--no-portal`: the start rule opens a Portal otherwise, and no test may open a window.
         let child = Command::new(env!("CARGO_BIN_EXE_sucrose"))
+            .arg("--no-portal")
             .env("SUCROSE_DATA_DIR", &dir)
             .stdin(Stdio::null())
             .stdout(Stdio::null())

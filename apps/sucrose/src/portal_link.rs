@@ -6,12 +6,16 @@
 
 use std::io;
 use std::thread;
+use std::time::{Duration, Instant};
 
 use crossbeam_channel::Sender;
 use sucrose_config::model::Settings;
 use sucrose_ipc::{
-    Connection,
-    portal::{MAX_PATH_TEXT, PORTAL_PROTOCOL_VERSION, PortalEvent, PortalPage, RuleState, RuntimeState},
+    Connection, connect,
+    portal::{
+        Launch, LaunchReply, MAX_PATH_TEXT, PORTAL_PROTOCOL_VERSION, PortalEvent, PortalPage, RuleState, RuntimeState,
+    },
+    protocol::ToService,
 };
 
 use crate::service::{OUTGOING_CAPACITY, Offer};
@@ -218,6 +222,57 @@ pub(crate) fn clip(text: &str) -> String {
     text.get(..end).unwrap_or_default().to_owned()
 }
 
+/// How long a Portal the service just started has to register before the service starts another one for a launcher
+/// (T-03-35).
+const SPAWN_WINDOW: Duration = Duration::from_secs(10);
+
+/// Whether a Portal started at `spawned` is still expected to register: a launcher that comes now must not start
+/// another one.
+pub fn spawn_pending(spawned: Option<Instant>, now: Instant) -> bool {
+    spawned.is_some_and(|at| now.saturating_duration_since(at) < SPAWN_WINDOW)
+}
+
+/// The arguments the Portal starts with for `page`. Chosen here from the enum, never from text a client sent
+/// (T-03-34); the Portal reads no argument for the other pages yet.
+pub fn portal_args(page: Option<PortalPage>) -> Vec<&'static str> {
+    match page {
+        Some(PortalPage::General) => vec!["GeneralSetting"],
+        Some(PortalPage::Library | PortalPage::Personal) | None => Vec::new(),
+    }
+}
+
+/// How long a second `sucrose` waits for the running service's answer.
+const LAUNCH_WAIT: Duration = Duration::from_secs(5);
+
+/// The launcher side of a second `sucrose` (D-12): asks the service on `endpoint` to open or raise the Portal and
+/// returns its answer. The exchange runs on a thread of its own because a pipe read has no timeout; a service that
+/// does not answer within [`LAUNCH_WAIT`] is an error, never a hang.
+pub fn ask_service_to_open_portal(endpoint: &str) -> Result<LaunchReply, String> {
+    let (result, answer) = crossbeam_channel::bounded(1);
+    let endpoint = endpoint.to_owned();
+    thread::Builder::new()
+        .name("launcher".to_owned())
+        .spawn(move || {
+            // The receiver may be gone after a timeout; the answer is then of no use.
+            let _ = result.send(exchange(&endpoint));
+        })
+        .map_err(|error| format!("cannot start the launcher thread: {error}"))?;
+    answer
+        .recv_timeout(LAUNCH_WAIT)
+        .map_err(|_| "the service did not answer in time".to_owned())?
+}
+
+/// One request and one reply on a connection of its own.
+fn exchange(endpoint: &str) -> Result<LaunchReply, String> {
+    let mut connection = connect(endpoint).map_err(|error| format!("cannot reach the service: {error}"))?;
+    connection
+        .send(&ToService::Launch(Launch::OpenPortal { page: None }))
+        .map_err(|error| format!("cannot send the request: {error}"))?;
+    connection
+        .recv::<LaunchReply>()
+        .map_err(|error| format!("cannot read the answer: {error}"))
+}
+
 /// What the service tells the Portal it is doing: the selected theme from the settings, whether a renderer runs, what
 /// the fullscreen rule does to the wallpaper and whether the tray exists. It is never written to Sucrose.json (D-23).
 /// No library move exists yet.
@@ -243,6 +298,21 @@ mod tests {
     use sucrose_ipc::portal::MemoryReport;
 
     use super::*;
+
+    #[test]
+    fn a_spawned_portal_is_expected_for_ten_seconds_only() {
+        let start = Instant::now();
+        assert!(!spawn_pending(None, start));
+        assert!(spawn_pending(Some(start), start + Duration::from_secs(9)));
+        assert!(!spawn_pending(Some(start), start + Duration::from_secs(10)));
+    }
+
+    #[test]
+    fn the_portal_argument_comes_from_the_page_enum() {
+        assert_eq!(portal_args(None), Vec::<&str>::new());
+        assert_eq!(portal_args(Some(PortalPage::Library)), Vec::<&str>::new());
+        assert_eq!(portal_args(Some(PortalPage::General)), ["GeneralSetting"]);
+    }
 
     fn recording_link(connection: u64, pid: u32) -> (PortalLink, Arc<Mutex<Vec<PortalEvent>>>) {
         let written = Arc::new(Mutex::new(Vec::new()));

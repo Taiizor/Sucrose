@@ -12,7 +12,7 @@ use sucrose_core::{
 };
 use sucrose_ipc::{
     connect,
-    portal::{PortalEvent, PortalPage, PortalRequest, SettingChange, UseOutcome, UseRefusal},
+    portal::{Launch, LaunchReply, PortalEvent, PortalPage, PortalRequest, SettingChange, UseOutcome, UseRefusal},
     protocol::ToService,
     service_endpoint_for,
 };
@@ -172,6 +172,24 @@ fn a_second_portal_is_told_the_first_is_open_and_the_first_is_focused() {
             page: Some(PortalPage::General)
         })
     );
+}
+
+#[test]
+fn a_launch_with_a_portal_registered_gets_portal_running() {
+    if !service_runs("a_launch_with_a_portal_registered_gets_portal_running") {
+        return;
+    }
+    let service = TestService::start("launch", &json!({}));
+    let (_portal, first_event) = PortalClient::hello_as(&service, 1001, None);
+    assert!(matches!(first_event, PortalEvent::Welcome { .. }), "{first_event:?}");
+
+    let mut launcher = service.connect().expect("the service accepts a launcher");
+    launcher
+        .send(&ToService::Launch(Launch::OpenPortal { page: None }))
+        .expect("the request is sent");
+    let reply: LaunchReply = launcher.recv().expect("the service answers a launcher");
+
+    assert_eq!(reply, LaunchReply::PortalRunning { pid: 1001 });
 }
 
 #[test]
