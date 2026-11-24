@@ -11,6 +11,7 @@ use std::{
     collections::{HashMap, HashSet},
     io,
     path::{Path, PathBuf},
+    rc::Rc,
     sync::Arc,
     time::{Duration, SystemTime},
 };
@@ -22,9 +23,11 @@ use sucrose_core::{
     settings::{SortKind, SortMode},
     version::app_version,
 };
-use sucrose_ipc::portal::PortalSettings;
+use sucrose_ipc::portal::{PortalSettings, RuntimeState, UseOutcome};
 
 use card::{CardData, Thumb};
+
+use crate::ipc::ServiceLink;
 use thumbs::{Bucket, CACHE_BYTES, CACHE_IMAGES, DECODE_SLOTS, DecodeQueue, ThumbCache, ThumbKey, decode_thumbnail};
 
 /// How long a scan may take before the skeleton grid shows (UI-SPEC E1 loading row).
@@ -136,11 +139,19 @@ pub struct LibraryView {
     generation: u64,
     scan_task: Option<Task<()>>,
     skeleton_task: Option<Task<()>>,
+    /// Sends Use requests to the service.
+    link: ServiceLink,
+    /// What the service is doing, as it last reported.
+    runtime: Option<RuntimeState>,
+    /// Whether the Portal is registered with the service.
+    connected: bool,
+    /// The folder of the last Use click that the service has not answered yet; its card shows the spinner.
+    pending_use: Option<String>,
 }
 
 impl LibraryView {
     /// An empty page; `scale_factor` is the window's, which picks the thumbnail bucket.
-    pub fn new(scale_factor: f32) -> Self {
+    pub fn new(scale_factor: f32, link: ServiceLink) -> Self {
         Self {
             settings: None,
             phase: Phase::Idle,
@@ -155,7 +166,60 @@ impl LibraryView {
             generation: 0,
             scan_task: None,
             skeleton_task: None,
+            link,
+            runtime: None,
+            connected: false,
+            pending_use: None,
         }
+    }
+
+    /// The service reported what it is doing: the Selected pill and the disabled reasons follow it, never the clicks.
+    pub fn set_runtime(&mut self, runtime: RuntimeState, cx: &mut Context<Self>) {
+        self.runtime = Some(runtime);
+        cx.notify();
+    }
+
+    /// The connection to the service came up or went down. A request that was in flight is lost with the connection.
+    pub fn set_connected(&mut self, connected: bool, cx: &mut Context<Self>) {
+        if self.connected == connected {
+            return;
+        }
+        self.connected = connected;
+        if !connected {
+            self.pending_use = None;
+        }
+        cx.notify();
+    }
+
+    /// Use was clicked on the card of `folder`: ask the service, show the spinner, and wait for what it broadcasts.
+    fn use_theme(&mut self, folder: &str, cx: &mut Context<Self>) {
+        let Some(theme) = self.themes.iter().find(|theme| theme.folder == folder) else {
+            return;
+        };
+        if !card::can_use(theme, self.runtime.as_ref(), self.connected) {
+            return;
+        }
+        // The request of this folder is in flight already; a click on another card replaces it (the last click wins).
+        if self.pending_use.as_deref() == Some(folder) {
+            return;
+        }
+        tracing::debug!("use requested");
+        self.pending_use = Some(folder.to_owned());
+        card::send_use(&self.link, folder);
+        cx.notify();
+    }
+
+    /// The service answered a Use request: only the spinner of the folder it names goes away.
+    pub fn on_use_result(&mut self, folder: &str, outcome: &UseOutcome, cx: &mut Context<Self>) {
+        if self.pending_use.as_deref() == Some(folder) {
+            self.pending_use = None;
+        }
+        match outcome {
+            UseOutcome::Applied => tracing::debug!("use applied"),
+            UseOutcome::Refused(refusal) => tracing::warn!(?refusal, "the service refused to use the theme"),
+            UseOutcome::Failed { reason } => tracing::warn!(%reason, "the service could not apply the theme"),
+        }
+        cx.notify();
     }
 
     /// The service reported its settings (Welcome): remember them and scan the library.
@@ -338,7 +402,8 @@ impl LibraryView {
     }
 
     /// The cards of the page that is shown.
-    fn cards(&mut self, settings: &LibrarySettings) -> Vec<CardData> {
+    fn cards(&mut self, settings: &LibrarySettings, cx: &mut Context<Self>) -> Vec<CardData> {
+        let this = cx.entity().downgrade();
         let range = layout::page_slice(self.themes.len(), self.page, settings.pagination);
         let mut cards = Vec::with_capacity(range.len());
         for index in range {
@@ -349,12 +414,25 @@ impl LibraryView {
                 None if self.failed.contains(&key) => Thumb::Failed,
                 None => Thumb::Loading,
             };
+            let folder = theme.folder.clone();
+            let on_use_view = this.clone();
+            let on_use: Rc<dyn Fn(&mut Window, &mut App)> = Rc::new(move |_, cx| {
+                on_use_view.update(cx, |view, cx| view.use_theme(&folder, cx)).ok();
+            });
+            let selected = self
+                .runtime
+                .as_ref()
+                .is_some_and(|runtime| runtime.running && runtime.selected.as_deref() == Some(&theme.folder));
             cards.push(CardData {
                 index,
                 title: SharedString::from(library::display_title(&theme.info, &theme.folder).to_owned()),
                 description: library::display_description(&theme.info).map(|text| SharedString::from(text.to_owned())),
                 thumb,
                 needs_newer_app: matches!(theme.compatibility, library::Compatibility::NeedsNewerApp { .. }),
+                selected,
+                pending: self.pending_use.as_deref() == Some(&theme.folder),
+                enabled: card::can_use(theme, self.runtime.as_ref(), self.connected),
+                on_use,
             });
         }
         cards
@@ -377,7 +455,7 @@ impl Render for LibraryView {
                 grid::skeleton(content_width, settings.margin, settings.adaptive_layout, &self.scroll)
             }
             Phase::Ready if !self.themes.is_empty() => {
-                let cards = self.cards(&settings);
+                let cards = self.cards(&settings, cx);
                 grid::page(
                     cards,
                     content_width,

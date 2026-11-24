@@ -54,7 +54,10 @@ impl PortalApp {
                 }
             }
         });
-        let library = cx.new(|_| LibraryView::new(window.scale_factor()));
+        let library = cx.new({
+            let link = link.clone();
+            |_| LibraryView::new(window.scale_factor(), link)
+        });
         let mut app = Self {
             state: ConnectionState::Connecting,
             settings: None,
@@ -73,10 +76,16 @@ impl PortalApp {
     /// Applies one event of the link to the app.
     pub fn on_link_event(&mut self, event: LinkEvent, window: &mut Window, cx: &mut Context<Self>) {
         self.state = next_state(self.state, &event);
+        let connected = self.state == ConnectionState::Connected;
+        self.library
+            .update(cx, |library, cx| library.set_connected(connected, cx));
         if let LinkEvent::Event(event) = event {
             match event {
                 PortalEvent::Welcome { settings, runtime } => {
-                    self.library.update(cx, |library, cx| library.load(&settings, cx));
+                    self.library.update(cx, |library, cx| {
+                        library.load(&settings, cx);
+                        library.set_runtime(runtime.clone(), cx);
+                    });
                     self.settings = Some(settings);
                     self.runtime = Some(runtime);
                 }
@@ -87,7 +96,15 @@ impl PortalApp {
                             .update(cx, |library, cx| library.update_settings(settings, cx));
                     }
                 }
-                PortalEvent::Runtime(runtime) => self.runtime = Some(runtime),
+                PortalEvent::Runtime(runtime) => {
+                    self.library
+                        .update(cx, |library, cx| library.set_runtime(runtime.clone(), cx));
+                    self.runtime = Some(runtime);
+                }
+                PortalEvent::UseResult { folder, outcome } => {
+                    self.library
+                        .update(cx, |library, cx| library.on_use_result(&folder, &outcome, cx));
+                }
                 PortalEvent::AlreadyOpen { existing_pid } => {
                     tracing::info!(existing_pid, "already open");
                     cx.quit();
