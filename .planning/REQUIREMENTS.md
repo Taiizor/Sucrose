@@ -107,7 +107,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **LIB-05**: A theme card offers use, review, customize, add/remove from cycling, find, share, delete (with confirmation) and edit
 - [ ] **LIB-06**: Theme cards show hover previews, optionally hiding details while previewing
 - [ ] **LIB-07**: User can drag and drop files, `.url` files, archives and URLs onto the library
-- [ ] **LIB-08**: Themes made for an incompatible version are handled as in the legacy app
+- [x] **LIB-08**: Themes made for an incompatible version are handled as in the legacy app
 - [ ] **LIB-09**: User can change the library location and move the existing themes
 
 ### Store (`portal.md` §3, `formats.md` §4)
@@ -295,7 +295,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | LIB-05 | Phase 5 | Pending |
 | LIB-06 | Phase 3 | Pending |
 | LIB-07 | Phase 5 | Pending |
-| LIB-08 | Phase 3 | Pending |
+| LIB-08 | Phase 3 | Complete |
 | LIB-09 | Phase 3 | Pending |
 | STOR-01 | Phase 5 | Pending |
 | STOR-02 | Phase 5 | Pending |

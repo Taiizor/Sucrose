@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-11-PLAN.md
-last_updated: "2026-11-24T07:17:22.772Z"
+stopped_at: Completed 03-12-PLAN.md
+last_updated: "2026-11-24T07:46:22.502Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: 2d07055aa06abc57f832818ca6f5776f5799a601
+state_head: 52a3b7e21e610dfa730111991f17cb89737da93d
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 55
-  completed_plans: 41
+  completed_plans: 42
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 13 of 26
+Plan: 14 of 26
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -95,6 +95,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P09 | 15 min | 2 tasks | 7 files |
 | Phase 03 P10 | 19 min | 2 tasks | 15 files |
 | Phase 03 P11 | 60 min | 3 tasks | 2 files |
+| Phase 03 P12 | 27 min | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -162,6 +163,7 @@ Recent decisions affecting current work:
 - [Phase 03]: Library thumbnails: bucket-wide square box, never enlarged, DCT-scaled JPEG; bucket from the scale factor; only the first 64 cards of a page are queued
 - [Phase 03]: Portal asset source composes the default component icons with icon_assets! for the icons pages add
 - [Phase 03]: D-26 confirmed: Use between Video themes keeps UseTransition::LoadSource (no restart, no hybrid memory-threshold restart); maintainer checked ten switches on 2026-11-24
+- [Phase 03]: 03-12: every non-Applied UseOutcome shows the Use-failed toast; keyboard Use rides on GPUI click-on-Enter/Space; error toasts self-time 8 s
 
 ### Pending Todos
 
@@ -194,6 +196,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T07:17:14.894Z
-Stopped at: Completed 03-11-PLAN.md
+Last session: 2026-11-24T07:46:05.911Z
+Stopped at: Completed 03-12-PLAN.md
 Resume file: None
