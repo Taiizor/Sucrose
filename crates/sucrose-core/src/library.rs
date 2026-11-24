@@ -249,6 +249,7 @@ fn classify(dir: &Path, folder: &str, app: &LegacyVersion) -> Result<LibraryThem
     let created = fs::metadata(dir)
         .ok()
         .and_then(|metadata| metadata.created().or_else(|_| metadata.modified()).ok());
+    let index = build_index(&info);
     Ok(LibraryTheme {
         folder: folder.to_owned(),
         dir: dir.to_path_buf(),
@@ -258,8 +259,7 @@ fn classify(dir: &Path, folder: &str, app: &LegacyVersion) -> Result<LibraryThem
         compatibility,
         created,
         modified: info_meta.modified().ok(),
-        // Filled in by the search index step.
-        index: Vec::new(),
+        index,
     })
 }
 
@@ -292,15 +292,132 @@ pub fn scan(location: &Path, app: &LegacyVersion) -> io::Result<Scan> {
     Ok(scan)
 }
 
-/// Title shown for a theme (placeholder, implemented next).
-pub fn display_title<'a>(_info: &'a SucroseInfo, folder: &'a str) -> &'a str {
-    folder
+/// Language of the Portal in Phase 3; the language setting arrives with UI-06. Matched like the legacy culture, ignoring
+/// letter case.
+const CURRENT_LANGUAGE: &str = "EN";
+
+/// The title to show for a theme: the text of the current language, then the base title, then the folder name.
+pub fn display_title<'a>(info: &'a SucroseInfo, folder: &'a str) -> &'a str {
+    let localized = info
+        .localization
+        .as_ref()
+        .and_then(|texts| {
+            texts
+                .iter()
+                .find(|(language, _)| language.eq_ignore_ascii_case(CURRENT_LANGUAGE))
+        })
+        .map(|(_, text)| text.title.as_str())
+        .filter(|title| !title.trim().is_empty());
+    localized
+        .or(Some(info.title.as_str()).filter(|title| !title.trim().is_empty()))
+        .unwrap_or(folder)
 }
 
-/// Sorts themes (placeholder, implemented next).
-pub fn sort(_themes: &mut [LibraryTheme], _mode: SortMode, _kind: SortKind) {}
+/// Whether `c` is punctuation in the sense of the legacy `\p{P}` (symbols such as `$` and `+` are not). Characters
+/// outside ASCII are covered by the common blocks (general punctuation, CJK and full-width forms), not by the full
+/// Unicode table the standard library does not carry.
+fn is_punctuation(c: char) -> bool {
+    if c.is_ascii() {
+        c.is_ascii_punctuation() && !matches!(c, '$' | '+' | '<' | '=' | '>' | '^' | '`' | '|' | '~')
+    } else {
+        matches!(
+            c,
+            '\u{A1}' | '\u{A7}' | '\u{AB}' | '\u{B6}' | '\u{B7}' | '\u{BB}' | '\u{BF}'
+                | '\u{2010}'..='\u{2027}'
+                | '\u{2030}'..='\u{2043}'
+                | '\u{2045}'..='\u{2051}'
+                | '\u{2053}'..='\u{205E}'
+                | '\u{3001}'..='\u{3003}'
+                | '\u{3008}'..='\u{3011}'
+                | '\u{FF01}'..='\u{FF03}'
+                | '\u{FF05}'..='\u{FF0A}'
+                | '\u{FF0C}'..='\u{FF0F}'
+                | '\u{FF1A}'..='\u{FF1B}'
+                | '\u{FF1F}'..='\u{FF20}'
+        )
+    }
+}
 
-/// Searches themes (placeholder, implemented next).
-pub fn search(_themes: &[LibraryTheme], _query: &str) -> Vec<usize> {
-    Vec::new()
+/// A search word: punctuation removed, then lowercased with `str::to_lowercase` only. No Turkish-specific folding is
+/// done; the legacy culture-dependent lowercase differs only for Turkish text and is accepted until UI-06.
+fn token(word: &str) -> String {
+    word.chars()
+        .filter(|c| !is_punctuation(*c))
+        .collect::<String>()
+        .to_lowercase()
+}
+
+/// Search tokens of a theme: the base title and description, the texts of every complete localization and the tags,
+/// split on whitespace, de-duplicated, in that order.
+fn build_index(info: &SucroseInfo) -> Vec<String> {
+    let mut texts: Vec<&str> = vec![&info.title, &info.description];
+    if let Some(localization) = &info.localization {
+        for text in localization.values() {
+            if !text.title.trim().is_empty() && !text.description.trim().is_empty() {
+                texts.push(&text.title);
+                texts.push(&text.description);
+            }
+        }
+    }
+    if let Some(tags) = &info.tags {
+        texts.extend(tags.iter().map(String::as_str));
+    }
+    let mut index: Vec<String> = Vec::new();
+    for word in texts.iter().flat_map(|text| text.split_whitespace()) {
+        let word = token(word);
+        if !word.is_empty() && !index.contains(&word) {
+            index.push(word);
+        }
+    }
+    index
+}
+
+/// Sorts themes by the chosen key. The sort is stable by construction: themes with equal keys keep folder-name order,
+/// in both directions. `Name` compares titles lowercased, as the legacy culture comparison does for ordinary text.
+pub fn sort(themes: &mut [LibraryTheme], mode: SortMode, kind: SortKind) {
+    themes.sort_by(|a, b| {
+        let order = match mode {
+            SortMode::Name => display_title(&a.info, &a.folder)
+                .to_lowercase()
+                .cmp(&display_title(&b.info, &b.folder).to_lowercase()),
+            SortMode::Creation => a.created.cmp(&b.created),
+            SortMode::Modification => a.modified.cmp(&b.modified),
+        };
+        let order = if kind == SortKind::Descending {
+            order.reverse()
+        } else {
+            order
+        };
+        order.then_with(|| a.folder.cmp(&b.folder))
+    });
+}
+
+/// Indexes into `themes` of the themes that match `query`, best first. A theme matches when at least one query word is
+/// a substring of one of its index tokens; themes are ordered by the number of query words matched, descending, and
+/// ties keep the order of `themes`. An empty query (or one that is only punctuation) returns every index in order.
+pub fn search(themes: &[LibraryTheme], query: &str) -> Vec<usize> {
+    let mut words: Vec<String> = Vec::new();
+    for word in query.split_whitespace() {
+        let word = token(word);
+        if !word.is_empty() && !words.contains(&word) {
+            words.push(word);
+        }
+    }
+    if words.is_empty() {
+        return (0..themes.len()).collect();
+    }
+    let mut hits: Vec<(usize, usize)> = themes
+        .iter()
+        .enumerate()
+        .filter_map(|(position, theme)| {
+            let matched = words
+                .iter()
+                .filter(|word| theme.index.iter().any(|token| token.contains(word.as_str())))
+                .count();
+            (matched > 0).then_some((position, matched))
+        })
+        .collect();
+    // `sort_by` is stable, so equal counts keep the input order.
+    hits.sort_by_key(|hit| std::cmp::Reverse(hit.1));
+    hits.into_iter().map(|(position, _)| position).collect()
 }
