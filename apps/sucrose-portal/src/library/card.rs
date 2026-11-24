@@ -625,7 +625,7 @@ mod tests {
 
     #[gpui_kit::test]
     fn card_preview_paints_its_second_frame(cx: &mut TestAppContext) {
-        cx.update(|cx| gpui_kit::init(cx));
+        cx.update(gpui_kit::init);
         let image = two_frames();
         let shown = image.clone();
         let (_, window) = cx.add_window_view(|_, cx| PreviewHost {
@@ -640,7 +640,7 @@ mod tests {
 
     #[gpui_kit::test]
     fn card_preview_without_an_id_stays_on_frame_zero(cx: &mut TestAppContext) {
-        cx.update(|cx| gpui_kit::init(cx));
+        cx.update(gpui_kit::init);
         let image = two_frames();
         let shown = image.clone();
         let (_, window) = cx.add_window_view(|_, _| BareHost { preview: shown });

@@ -548,13 +548,25 @@ impl LibraryView {
             self.after_preview_change(released, cx);
             return;
         }
-        if !self.settings.as_ref().is_some_and(|settings| settings.preview) || self.preview.folder() == Some(folder) {
+        // Values only in these lines: no folder name, title or path reaches the log (T-03-63).
+        if !self.settings.as_ref().is_some_and(|settings| settings.preview) {
+            tracing::debug!(reason = "preview switched off", "hover preview not started");
+            return;
+        }
+        if self.preview.folder() == Some(folder) {
+            tracing::debug!(reason = "already this card", "hover preview not started");
             return;
         }
         let Some(theme) = self.themes.iter().find(|theme| theme.folder == folder) else {
+            tracing::debug!(reason = "theme not in the list", "hover preview not started");
             return;
         };
-        if theme.preview.as_os_str().is_empty() || self.preview_failed.contains(&theme.preview) {
+        if theme.preview.as_os_str().is_empty() {
+            tracing::debug!(reason = "no preview file", "hover preview not started");
+            return;
+        }
+        if self.preview_failed.contains(&theme.preview) {
+            tracing::debug!(reason = "preview failed before", "hover preview not started");
             return;
         }
         // Another card's preview is released before this one starts.
@@ -598,6 +610,7 @@ impl LibraryView {
     /// The pointer rested on the card of `folder` for the whole dwell: decode its preview when a slot is free.
     fn on_dwell(&mut self, folder: &str, cx: &mut Context<Self>) {
         if !self.preview.dwell_elapsed(folder) {
+            tracing::debug!(reason = "pointer left during the dwell", "hover preview not started");
             return;
         }
         match self.themes.iter().find(|theme| theme.folder == folder) {
@@ -610,6 +623,7 @@ impl LibraryView {
             }
             // The theme went away during the dwell.
             None => {
+                tracing::debug!(reason = "theme left during the dwell", "hover preview not started");
                 let released = self.preview.leave(folder);
                 self.after_preview_change(released, cx);
             }
@@ -635,9 +649,21 @@ impl LibraryView {
                 None
             }
         };
+        let frames = image.as_ref().map(|image| image.frame_count());
         let stale = match self.preview.finished(folder, image) {
-            Finish::Stale(image) => image,
-            Finish::Playing | Finish::Failed => None,
+            Finish::Stale(image) => {
+                tracing::debug!("preview decoded for a card the pointer left");
+                image
+            }
+            Finish::Playing => {
+                tracing::debug!(
+                    frames = frames.unwrap_or_default(),
+                    reduce_motion = cx.reduce_motion(),
+                    "preview playing"
+                );
+                None
+            }
+            Finish::Failed => None,
         };
         self.after_preview_change(stale, cx);
         self.pump(cx);
