@@ -32,6 +32,9 @@ pub enum Thumb {
 /// What a click on a card does.
 pub type UseHandler = Rc<dyn Fn(&mut Window, &mut App)>;
 
+/// What the pointer entering (`true`) or leaving (`false`) a card does.
+pub type HoverHandler = Rc<dyn Fn(bool, &mut Window, &mut App)>;
+
 /// What an arrow key on a focused card does.
 pub type ArrowHandler = Rc<dyn Fn(Arrow, &mut Window, &mut App)>;
 
@@ -59,6 +62,17 @@ pub struct CardData {
     pub on_use: UseHandler,
     /// What an arrow key does: moves focus to the neighboring card.
     pub on_arrow: ArrowHandler,
+    /// The animated preview that plays on this card, shown above the thumbnail.
+    pub preview: Option<Arc<RenderImage>>,
+    /// Whether the strip hides while the preview plays (`LibraryPreviewHide`).
+    pub preview_hide: bool,
+    /// What the pointer entering or leaving the card does (the hover preview).
+    pub on_hover: HoverHandler,
+}
+
+/// Whether the title strip shows: it hides only while a preview plays and `LibraryPreviewHide` is on (LIB-06).
+pub fn strip_visible(preview_playing: bool, preview_hide: bool) -> bool {
+    !(preview_playing && preview_hide)
 }
 
 /// Why Use is unavailable on a card (UI-SPEC: Use disabled reasons).
@@ -151,6 +165,8 @@ pub fn render_card(data: CardData, width: Pixels, cx: &App) -> impl IntoElement 
     let index = data.index;
     let on_use = Rc::clone(&data.on_use);
     let on_arrow = Rc::clone(&data.on_arrow);
+    let on_hover = Rc::clone(&data.on_hover);
+    let show_strip = strip_visible(data.preview.is_some(), data.preview_hide);
     let label = data.title.clone();
     let enabled = data.state.is_enabled();
     let disabled_reason = match data.state {
@@ -247,6 +263,7 @@ pub fn render_card(data: CardData, width: Pixels, cx: &App) -> impl IntoElement 
         })
         // A click, and Enter or Space on the focused card (GPUI turns those into a click), are Use.
         .on_click(move |_, window, cx| on_use(window, cx))
+        .on_hover(move |hovered, window, cx| on_hover(*hovered, window, cx))
         .on_key_down(move |event, window, cx| {
             if let Some(arrow) = Arrow::from_key(&event.keystroke.key) {
                 cx.stop_propagation();
@@ -254,7 +271,11 @@ pub fn render_card(data: CardData, width: Pixels, cx: &App) -> impl IntoElement 
             }
         })
         .child(layer)
-        .child(strip)
+        // The preview plays above the static thumbnail, which stays underneath.
+        .when_some(data.preview, |card, image| {
+            card.child(img(image).absolute().inset_0().size_full().object_fit(ObjectFit::Cover))
+        })
+        .when(show_strip, |card| card.child(strip))
         .when(data.selected, |card| {
             card.child(
                 div()
@@ -316,7 +337,7 @@ pub fn render_skeleton_card(width: Pixels) -> impl IntoElement {
 #[cfg(test)]
 mod tests {
     // Not `use super::*`: the crate root glob-imports GPUI, whose `test` macro would shadow the built-in attribute.
-    use super::{CardUse, DisabledReason, use_state};
+    use super::{CardUse, DisabledReason, strip_visible, use_state};
     use std::path::PathBuf;
     use sucrose_core::{
         library::{Compatibility, LibraryTheme},
@@ -468,6 +489,14 @@ mod tests {
             CardUse::Disabled(DisabledReason::Selected),
             "selected and running comes before the rule"
         );
+    }
+
+    #[test]
+    fn card_preview_hides_the_strip_only_while_it_plays_and_hide_is_on() {
+        assert!(strip_visible(false, false));
+        assert!(strip_visible(false, true), "no preview, the strip stays");
+        assert!(strip_visible(true, false), "hide is off, the strip stays");
+        assert!(!strip_visible(true, true));
     }
 
     #[test]

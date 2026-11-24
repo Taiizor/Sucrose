@@ -34,6 +34,7 @@ use sucrose_core::{
 use sucrose_ipc::portal::{PortalSettings, RuntimeState, UseOutcome};
 
 use card::{CardData, Thumb};
+use preview::{Finish, HOVER_DWELL, PreviewState, load_preview};
 
 use crate::ipc::ServiceLink;
 use thumbs::{Bucket, CACHE_BYTES, CACHE_IMAGES, DECODE_SLOTS, DecodeQueue, ThumbCache, ThumbKey, decode_thumbnail};
@@ -54,6 +55,10 @@ struct LibrarySettings {
     margin: f32,
     sort_mode: SortMode,
     sort_kind: SortKind,
+    /// Whether a hovered card plays its preview (LIB-06).
+    preview: bool,
+    /// Whether the title strip hides while a preview plays.
+    preview_hide: bool,
 }
 
 impl LibrarySettings {
@@ -73,8 +78,16 @@ impl LibrarySettings {
             margin: f32::from(settings.adaptive_margin),
             sort_mode: settings.library_sort_mode,
             sort_kind: settings.library_sort_kind,
+            preview: settings.library_preview,
+            preview_hide: settings.library_preview_hide,
         }
     }
+}
+
+/// A preview decode that waits for a free decode slot.
+struct PreviewJob {
+    folder: String,
+    path: PathBuf,
 }
 
 /// Where the scan stands.
@@ -145,6 +158,14 @@ pub struct LibraryView {
     queue: DecodeQueue,
     /// Thumbnails that could not be decoded.
     failed: HashSet<ThumbKey>,
+    /// The single live hover preview; its frames never enter `cache` (they are not thumbnails).
+    preview: PreviewState<Arc<RenderImage>>,
+    /// The dwell timer of the card the pointer rests on; dropping it cancels the wait.
+    preview_timer: Option<Task<()>>,
+    /// The preview decode that waits for a decode slot.
+    preview_job: Option<PreviewJob>,
+    /// Preview files that could not be decoded, so a card is not tried (and logged) again.
+    preview_failed: HashSet<PathBuf>,
     bucket: Bucket,
     scroll: ScrollHandle,
     /// Bumped by every scan so an older result is ignored.
@@ -192,6 +213,10 @@ impl LibraryView {
             cache: ThumbCache::new(CACHE_IMAGES, CACHE_BYTES),
             queue: DecodeQueue::new(DECODE_SLOTS),
             failed: HashSet::new(),
+            preview: PreviewState::Idle,
+            preview_timer: None,
+            preview_job: None,
+            preview_failed: HashSet::new(),
             bucket: Bucket::for_scale(window.scale_factor()),
             scroll: ScrollHandle::new(),
             generation: 0,
@@ -438,8 +463,114 @@ impl LibraryView {
         self.pump(cx);
     }
 
-    /// Starts decodes while a slot is free.
+    /// The pointer entered (`true`) or left (`false`) the card of `folder`: with Library Preview on, a card the pointer
+    /// rests on for [`HOVER_DWELL`] plays its preview; leaving releases it.
+    fn hover_card(&mut self, folder: &str, hovered: bool, cx: &mut Context<Self>) {
+        if !hovered {
+            let released = self.preview.leave(folder);
+            self.after_preview_change(released, cx);
+            return;
+        }
+        if !self.settings.as_ref().is_some_and(|settings| settings.preview) || self.preview.folder() == Some(folder) {
+            return;
+        }
+        let Some(theme) = self.themes.iter().find(|theme| theme.folder == folder) else {
+            return;
+        };
+        if theme.preview.as_os_str().is_empty() || self.preview_failed.contains(&theme.preview) {
+            return;
+        }
+        // Another card's preview is released before this one starts.
+        let released = self.preview.hover(folder);
+        let timer = cx.background_executor().timer(HOVER_DWELL);
+        let folder = folder.to_owned();
+        self.preview_timer = Some(cx.spawn(async move |this, cx| {
+            timer.await;
+            this.update(cx, |this, cx| this.on_dwell(&folder, cx)).ok();
+        }));
+        self.after_preview_change(released, cx);
+    }
+
+    /// Releases `released` from GPUI's atlas, drops a decode request nothing waits for any more and redraws.
+    fn after_preview_change(&mut self, released: Option<Arc<RenderImage>>, cx: &mut Context<Self>) {
+        if let Some(image) = released {
+            cx.drop_image(image, None);
+        }
+        if !matches!(self.preview, PreviewState::Waiting { .. }) {
+            self.preview_timer = None;
+        }
+        if !matches!(self.preview, PreviewState::Decoding { .. }) {
+            self.preview_job = None;
+        }
+        cx.notify();
+    }
+
+    /// The pointer rested on the card of `folder` for the whole dwell: decode its preview when a slot is free.
+    fn on_dwell(&mut self, folder: &str, cx: &mut Context<Self>) {
+        if !self.preview.dwell_elapsed(folder) {
+            return;
+        }
+        match self.themes.iter().find(|theme| theme.folder == folder) {
+            Some(theme) => {
+                self.preview_job = Some(PreviewJob {
+                    folder: folder.to_owned(),
+                    path: theme.preview.clone(),
+                });
+                self.pump(cx);
+            }
+            // The theme went away during the dwell.
+            None => {
+                let released = self.preview.leave(folder);
+                self.after_preview_change(released, cx);
+            }
+        }
+    }
+
+    /// The preview decode of `folder` ended. A result the pointer has moved away from is released at once.
+    fn on_preview_decoded(
+        &mut self,
+        folder: &str,
+        path: PathBuf,
+        result: anyhow::Result<Arc<RenderImage>>,
+        cx: &mut Context<Self>,
+    ) {
+        self.queue.unreserve();
+        let image = match result {
+            Ok(image) => Some(image),
+            Err(error) => {
+                // The card keeps its thumbnail and shows no message (UI-SPEC E2 error row); the path stays out of info.
+                tracing::warn!(%error, "a preview could not be decoded");
+                tracing::debug!(path = %path.display(), "preview not decoded");
+                self.preview_failed.insert(path);
+                None
+            }
+        };
+        let stale = match self.preview.finished(folder, image) {
+            Finish::Stale(image) => image,
+            Finish::Playing | Finish::Failed => None,
+        };
+        self.after_preview_change(stale, cx);
+        self.pump(cx);
+    }
+
+    /// Starts decodes while a slot is free: the preview of the hovered card first, then the thumbnails.
     fn pump(&mut self, cx: &mut Context<Self>) {
+        if self.preview_job.is_some()
+            && self.queue.reserve()
+            && let Some(PreviewJob { folder, path }) = self.preview_job.take()
+        {
+            let bucket = self.bucket;
+            let decode_path = path.clone();
+            let task = cx
+                .background_executor()
+                .spawn(async move { load_preview(&decode_path, bucket) });
+            cx.spawn(async move |this, cx| {
+                let result = task.await;
+                this.update(cx, |this, cx| this.on_preview_decoded(&folder, path, result, cx))
+                    .ok();
+            })
+            .detach();
+        }
         while let Some(key) = self.queue.next() {
             let (path, bucket) = (key.path.clone(), key.bucket);
             let task = cx
@@ -499,6 +630,13 @@ impl LibraryView {
                 None => Thumb::Loading,
             };
             let folder = theme.folder.clone();
+            let hover_folder = theme.folder.clone();
+            let on_hover_view = this.clone();
+            let on_hover: card::HoverHandler = Rc::new(move |hovered, _, cx| {
+                on_hover_view
+                    .update(cx, |view, cx| view.hover_card(&hover_folder, hovered, cx))
+                    .ok();
+            });
             let on_use_view = this.clone();
             let on_use: card::UseHandler = Rc::new(move |_, cx| {
                 on_use_view.update(cx, |view, cx| view.use_theme(&folder, cx)).ok();
@@ -527,6 +665,9 @@ impl LibraryView {
                 focus: handles[position].clone(),
                 on_use,
                 on_arrow,
+                preview: self.preview.image_of(&theme.folder).cloned(),
+                preview_hide: settings.preview_hide,
+                on_hover,
             });
         }
         cards
@@ -636,6 +777,8 @@ mod tests {
             margin: 10.0,
             sort_mode: SortMode::Creation,
             sort_kind: SortKind::Descending,
+            preview: false,
+            preview_hide: false,
         }
     }
 

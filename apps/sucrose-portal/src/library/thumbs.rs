@@ -167,6 +167,8 @@ impl<T: Release + Clone> ThumbCache<T> {
 /// the same time.
 pub struct DecodeQueue {
     slots: usize,
+    /// Slots held by decodes that are not thumbnails (the hover preview).
+    reserved: usize,
     running: HashSet<ThumbKey>,
     pending: VecDeque<ThumbKey>,
 }
@@ -176,9 +178,24 @@ impl DecodeQueue {
     pub fn new(slots: usize) -> Self {
         Self {
             slots,
+            reserved: 0,
             running: HashSet::new(),
             pending: VecDeque::new(),
         }
+    }
+
+    /// Takes a free slot for a decode that is not a thumbnail; `false` when every slot is taken.
+    pub fn reserve(&mut self) -> bool {
+        if self.running.len() + self.reserved >= self.slots {
+            return false;
+        }
+        self.reserved += 1;
+        true
+    }
+
+    /// Gives back a slot taken by [`Self::reserve`].
+    pub fn unreserve(&mut self) {
+        self.reserved = self.reserved.saturating_sub(1);
     }
 
     /// Replaces the waiting thumbnails with those of the page that is shown now, first card first: what the page left is
@@ -194,7 +211,7 @@ impl DecodeQueue {
 
     /// The next thumbnail to decode when a slot is free.
     pub fn next(&mut self) -> Option<ThumbKey> {
-        if self.running.len() >= self.slots {
+        if self.running.len() + self.reserved >= self.slots {
             return None;
         }
         let key = self.pending.pop_front()?;
@@ -209,7 +226,7 @@ impl DecodeQueue {
 
     /// Whether nothing waits and nothing runs.
     pub fn is_idle(&self) -> bool {
-        self.running.is_empty() && self.pending.is_empty()
+        self.running.is_empty() && self.pending.is_empty() && self.reserved == 0
     }
 }
 
@@ -461,6 +478,21 @@ mod tests {
         queue.finish(&key("b"));
         assert_eq!(queue.next(), Some(key("d")));
         assert_eq!(queue.next(), None);
+    }
+
+    #[test]
+    fn thumbs_queue_shares_its_slots_with_a_reserved_preview_decode() {
+        let mut queue = DecodeQueue::new(2);
+        assert!(queue.reserve());
+        queue.set_wanted(["a", "b"].map(key));
+        assert_eq!(queue.next(), Some(key("a")));
+        assert_eq!(queue.next(), None, "the preview holds the second slot");
+        assert!(!queue.reserve(), "no slot is left for another preview");
+        queue.unreserve();
+        assert_eq!(queue.next(), Some(key("b")));
+        queue.finish(&key("a"));
+        queue.finish(&key("b"));
+        assert!(queue.is_idle());
     }
 
     #[test]

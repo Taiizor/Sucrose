@@ -29,19 +29,81 @@ const DEFAULT_DELAY_MS: u32 = 100;
 
 /// The size a preview of `bytes` is decoded at for `bucket`: the GIF's own proportions, never wider than the bucket and
 /// never enlarged. `None` when the file is not a GIF or its logical screen is over [`MAX_SIDE`].
-pub fn preview_size(_bytes: &[u8], _bucket: Bucket) -> Option<(u32, u32)> {
-    None
+pub fn preview_size(bytes: &[u8], bucket: Bucket) -> Option<(u32, u32)> {
+    let (width, height) = GifDecoder::new(Cursor::new(bytes)).ok()?.dimensions();
+    if width == 0 || height == 0 || width > MAX_SIDE || height > MAX_SIDE {
+        return None;
+    }
+    let target = bucket.width().min(width);
+    let scaled = (u64::from(height) * u64::from(target) + u64::from(width) / 2) / u64::from(width);
+    Some((target, u32::try_from(scaled).unwrap_or(1).max(1)))
 }
 
 /// The frames of the GIF in `bytes` at `width` x `height` (BGRA, alpha premultiplied, source delays), at most
 /// [`MAX_PREVIEW_FRAMES`] and [`MAX_PREVIEW_BYTES`]. A damaged tail keeps the frames before it; garbage gives `None`.
-pub fn decode_preview(_bytes: &[u8], _width: u32, _height: u32) -> Option<Vec<Frame>> {
-    None
+pub fn decode_preview(bytes: &[u8], width: u32, height: u32) -> Option<Vec<Frame>> {
+    if width == 0 || height == 0 {
+        return None;
+    }
+    let mut decoder = GifDecoder::new(Cursor::new(bytes)).ok()?;
+    let (screen_width, screen_height) = decoder.dimensions();
+    if screen_width > MAX_SIDE || screen_height > MAX_SIDE {
+        return None;
+    }
+    let mut limits = Limits::default();
+    limits.max_image_width = Some(MAX_SIDE);
+    limits.max_image_height = Some(MAX_SIDE);
+    limits.max_alloc = Some(MAX_DECODE_ALLOC);
+    decoder.set_limits(limits).ok()?;
+    let frame_bytes = image_bytes(width, height, 1);
+    let mut frames = decoder.into_frames();
+    let mut kept = Vec::new();
+    // The caps are checked before the next frame is pulled, so a capped GIF is never decoded past them.
+    while kept.len() < MAX_PREVIEW_FRAMES && frame_bytes.saturating_mul(kept.len() + 1) <= MAX_PREVIEW_BYTES {
+        // A damaged tail keeps the frames before it.
+        let Some(Ok(frame)) = frames.next() else { break };
+        let delay = playable_delay(frame.delay());
+        let buffer = imageops::thumbnail(frame.buffer(), width, height);
+        kept.push(Frame::from_parts(to_bgra(buffer), 0, 0, delay));
+    }
+    (!kept.is_empty()).then_some(kept)
 }
 
-/// Reads and decodes the preview GIF at `path` for `bucket`.
-pub fn load_preview(_path: &Path, _bucket: Bucket) -> anyhow::Result<Arc<RenderImage>> {
-    bail!("not implemented")
+/// `delay`, or the browser default when the GIF declares almost none.
+fn playable_delay(delay: Delay) -> Delay {
+    let (numer, denom) = delay.numer_denom_ms();
+    if numer / denom.max(1) < MIN_DELAY_MS {
+        Delay::from_numer_denom_ms(DEFAULT_DELAY_MS, 1)
+    } else {
+        delay
+    }
+}
+
+/// Reads and decodes the preview GIF at `path` for `bucket`; the image holds every kept frame.
+pub fn load_preview(path: &Path, bucket: Bucket) -> anyhow::Result<Arc<RenderImage>> {
+    let metadata = std::fs::metadata(path).context("cannot read the preview")?;
+    if !metadata.is_file() {
+        bail!("the preview is not a file");
+    }
+    if metadata.len() > MAX_FILE_BYTES {
+        bail!(
+            "the preview is {} bytes, over the {MAX_FILE_BYTES} byte limit",
+            metadata.len()
+        );
+    }
+    let bytes = std::fs::read(path).context("cannot read the preview")?;
+    let Some((width, height)) = preview_size(&bytes, bucket) else {
+        bail!("the preview is not a GIF this decoder accepts");
+    };
+    let Some(frames) = decode_preview(&bytes, width, height) else {
+        bail!("the preview GIF cannot be decoded");
+    };
+    tracing::debug!(
+        frames = frames.len(),
+        bytes = image_bytes(width, height, frames.len()),
+        "preview decoded"
+    );
+    Ok(Arc::new(RenderImage::new(frames)))
 }
 
 /// What the finished decode of a folder means for the single live preview.
@@ -55,10 +117,11 @@ pub enum Finish<I> {
     Stale(Option<I>),
 }
 
-/// The single live preview.
-#[derive(Debug, PartialEq, Eq)]
+/// The single live preview: at most one card waits, decodes or plays at any time.
+#[derive(Debug, Default, PartialEq, Eq)]
 pub enum PreviewState<I> {
     /// No card is hovered with a preview in mind.
+    #[default]
     Idle,
     /// The pointer rests on `folder`; the dwell has not passed.
     Waiting { folder: String },
@@ -69,40 +132,92 @@ pub enum PreviewState<I> {
 }
 
 impl<I> PreviewState<I> {
-    /// The pointer entered the card of `folder`. Returns the image of the card that played before, to release.
-    pub fn hover(&mut self, _folder: &str) -> Option<I> {
-        None
+    /// The folder this state is about.
+    pub fn folder(&self) -> Option<&str> {
+        match self {
+            Self::Idle => None,
+            Self::Waiting { folder } | Self::Decoding { folder } | Self::Playing { folder, .. } => Some(folder),
+        }
     }
 
-    /// The pointer left the card of `folder`. Returns its image, to release.
-    pub fn leave(&mut self, _folder: &str) -> Option<I> {
-        None
+    /// The pointer entered the card of `folder`. Returns the image of the card that played before, to release; the card
+    /// that already waits, decodes or plays keeps doing so.
+    pub fn hover(&mut self, folder: &str) -> Option<I> {
+        if self.folder() == Some(folder) {
+            return None;
+        }
+        let released = self.stop();
+        *self = Self::Waiting {
+            folder: folder.to_owned(),
+        };
+        released
+    }
+
+    /// The pointer left the card of `folder`. Returns its image, to release; another card's leave changes nothing.
+    pub fn leave(&mut self, folder: &str) -> Option<I> {
+        if self.folder() == Some(folder) {
+            self.stop()
+        } else {
+            None
+        }
     }
 
     /// The dwell of `folder` ended: whether its decode should start now.
-    pub fn dwell_elapsed(&mut self, _folder: &str) -> bool {
-        false
+    pub fn dwell_elapsed(&mut self, folder: &str) -> bool {
+        match self {
+            Self::Waiting { folder: waiting } if waiting == folder => {
+                *self = Self::Decoding {
+                    folder: folder.to_owned(),
+                };
+                true
+            }
+            _ => false,
+        }
     }
 
     /// The decode of `folder` ended with `image` (`None` when it failed).
-    pub fn finished(&mut self, _folder: &str, image: Option<I>) -> Finish<I> {
-        Finish::Stale(image)
+    pub fn finished(&mut self, folder: &str, image: Option<I>) -> Finish<I> {
+        match self {
+            Self::Decoding { folder: decoding } if decoding == folder => match image {
+                Some(image) => {
+                    *self = Self::Playing {
+                        folder: folder.to_owned(),
+                        image,
+                    };
+                    Finish::Playing
+                }
+                None => {
+                    *self = Self::Idle;
+                    Finish::Failed
+                }
+            },
+            _ => Finish::Stale(image),
+        }
     }
 
     /// Stops whatever runs and returns the playing image, to release (a setting turned off, a page change, a search).
     pub fn stop(&mut self) -> Option<I> {
-        None
+        match std::mem::take(self) {
+            Self::Playing { image, .. } => Some(image),
+            _ => None,
+        }
     }
 
     /// The folder whose preview plays, when one does.
+    #[cfg(test)]
     pub fn playing(&self) -> Option<&str> {
-        None
+        match self {
+            Self::Playing { folder, .. } => Some(folder),
+            _ => None,
+        }
     }
-}
 
-impl<I> Default for PreviewState<I> {
-    fn default() -> Self {
-        Self::Idle
+    /// The image that plays on the card of `folder`, when it does.
+    pub fn image_of(&self, folder: &str) -> Option<&I> {
+        match self {
+            Self::Playing { folder: playing, image } if playing == folder => Some(image),
+            _ => None,
+        }
     }
 }
 
