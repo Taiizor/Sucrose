@@ -48,10 +48,11 @@ use crate::{
         tray_action,
     },
     portal_link::{
-        PortalAdmission, PortalLink, PortalRegistry, ask_service_to_open_portal, portal_args, request_kind,
-        runtime_state, spawn_pending,
+        PortalAdmission, PortalLink, PortalRegistry, ask_service_to_open_portal, portal_args, runtime_state,
+        spawn_pending,
     },
     settings_host::{SettingsHost, describe},
+    startup::{SystemStartup, set_startup, startup_info},
     supervisor::{
         Decision, Exhausted, ExitClass, Exited, RestartBudget, START_FAILED, ShellRestart, Supervisor, classify_exit,
         decide_exit,
@@ -113,6 +114,8 @@ enum Event {
     LibraryOps(LibraryDone),
     /// The library-ops worker finished a step of the library move.
     LibraryMove(MoveStep),
+    /// The startup worker found out whether the C# app has a start entry.
+    StartupLegacy(bool),
 }
 
 /// What the library-ops worker reports: the counts for the Portal and the showcase names for the settings.
@@ -160,6 +163,27 @@ fn start_library_ops(input: MaintainInput, notifier: &Notifier) -> bool {
         Ok(_) => true,
         Err(error) => {
             tracing::warn!(%error, "cannot start the library-ops thread");
+            false
+        }
+    }
+}
+
+/// Starts the `startup-legacy` thread that looks for a start entry of the C# app (it may start a short-lived process, so
+/// it never runs on the main thread). The answer comes back as `Event::StartupLegacy`. `false` when the thread cannot
+/// start.
+fn start_legacy_check(notifier: &Notifier) -> bool {
+    let notifier = notifier.clone();
+    let started = thread::Builder::new().name("startup-legacy".to_owned()).spawn(move || {
+        let legacy = std::panic::catch_unwind(sucrose_platform::legacy_entry).unwrap_or_else(|_| {
+            tracing::error!("the check for the C# start entry panicked");
+            false
+        });
+        notifier.send(Event::StartupLegacy(legacy));
+    });
+    match started {
+        Ok(_) => true,
+        Err(error) => {
+            tracing::warn!(%error, "cannot start the startup-legacy thread");
             false
         }
     }
@@ -953,6 +977,10 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
     let mut tray = build_tray(plan.app_visible, &status, host.settings().general.app_exit, &notifier);
     // Whether the Open item is enabled: it is greyed out while the Portal is open.
     let mut open_enabled = true;
+    // Startup with the OS: the entry is always this executable's own, and the C# entry is looked up only when the
+    // Portal asks (the General page opens), so the last answer is kept for the other replies.
+    let startup_exe = std::env::current_exe().unwrap_or_default();
+    let mut legacy_startup = false;
     if status.is_failure() {
         tracing::warn!(status = %status.text(), "no wallpaper, the service waits in the tray");
     }
@@ -1295,8 +1323,25 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                     };
                                     env.begin(&destination, library_job);
                                 }
-                                other => {
-                                    tracing::debug!(kind = request_kind(&other), "portal request, nothing handles it yet");
+                                PortalRequest::SetStartup(mode) => {
+                                    set_startup(mode, &startup_exe, &SystemStartup, &mut host);
+                                    portals.send(PortalEvent::Startup(startup_info(
+                                        &host,
+                                        &startup_exe,
+                                        &SystemStartup,
+                                        legacy_startup,
+                                    )));
+                                }
+                                PortalRequest::RefreshStartup => {
+                                    // The answer comes with the C# lookup; without a thread the last one is used.
+                                    if !start_legacy_check(&notifier) {
+                                        portals.send(PortalEvent::Startup(startup_info(
+                                            &host,
+                                            &startup_exe,
+                                            &SystemStartup,
+                                            legacy_startup,
+                                        )));
+                                    }
                                 }
                             }
                         }
@@ -1318,6 +1363,15 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                             "library maintained"
                         );
                         portals.send(PortalEvent::LibraryMaintained(done.report));
+                    }
+                    Event::StartupLegacy(legacy) => {
+                        legacy_startup = legacy;
+                        portals.send(PortalEvent::Startup(startup_info(
+                            &host,
+                            &startup_exe,
+                            &SystemStartup,
+                            legacy_startup,
+                        )));
                     }
                     Event::LibraryMove(step) => {
                         let progress = MoveEnv {

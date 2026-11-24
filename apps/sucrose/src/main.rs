@@ -13,6 +13,7 @@ mod portal_link;
 mod render;
 mod service;
 mod settings_host;
+mod startup;
 mod supervisor;
 mod topology;
 

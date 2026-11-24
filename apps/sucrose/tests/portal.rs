@@ -698,7 +698,10 @@ fn refresh_startup_answers_the_stored_mode() {
     let info = next_startup(&portal);
 
     assert_eq!(info.mode, StartupMode::Scheduler);
-    assert!(!info.entry_present, "Scheduler writes no entry of Sucrose's own: {info:?}");
+    assert!(
+        !info.entry_present,
+        "Scheduler writes no entry of Sucrose's own: {info:?}"
+    );
 }
 
 #[test]
@@ -714,7 +717,11 @@ fn set_startup_priority_and_scheduler_are_refused_and_change_nothing() {
         portal.request(&PortalRequest::SetStartup(mode));
         let info = next_startup(&portal);
 
-        assert_eq!(info.mode, StartupMode::Scheduler, "asked for {mode:?}: the stored mode stays");
+        assert_eq!(
+            info.mode,
+            StartupMode::Scheduler,
+            "asked for {mode:?}: the stored mode stays"
+        );
         assert!(!info.entry_present, "{info:?}");
     }
     assert_eq!(service.settings_file()["General"]["RunStartup"], 3);

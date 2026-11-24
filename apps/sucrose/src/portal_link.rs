@@ -199,19 +199,6 @@ impl PortalRegistry {
     }
 }
 
-/// The text of a request kind for the log: never its content, which can hold a theme name or a path (D-08).
-pub fn request_kind(request: &sucrose_ipc::portal::PortalRequest) -> &'static str {
-    use sucrose_ipc::portal::PortalRequest;
-    match request {
-        PortalRequest::Use { .. } => "use",
-        PortalRequest::Change(_) => "change",
-        PortalRequest::SetStartup(_) => "set startup",
-        PortalRequest::RefreshStartup => "refresh startup",
-        PortalRequest::MaintainLibrary => "maintain library",
-        PortalRequest::MoveLibrary { .. } => "move library",
-    }
-}
-
 /// `text` cut to [`MAX_PATH_TEXT`] bytes at a character boundary.
 pub(crate) fn clip(text: &str) -> String {
     let mut end = text.len().min(MAX_PATH_TEXT);
