@@ -121,7 +121,7 @@ Plans:
   3. Starting the service or the Portal a second time reuses the running instance, Exit closes every Sucrose process, and a renderer that keeps crashing is restarted a bounded number of times and then stopped, never in a loop.
   4. An optional module the user turns off starts no thread and does no polling, and with "start with the OS" on, Sucrose starts after sign-in and resumes the wallpaper.
   5. The Portal follows light, dark or the OS theme with its Mica/Acrylic backdrop and optional background image, has header actions, search, a status bar and Help/About, and scrolling through a large library keeps its memory bounded (release build, recorded in `docs/MEASUREMENTS.md`).
-**Plans**: 26/40 plans executed
+**Plans**: 27/40 plans executed
 Plans:
 **Wave 1**
 - [x] 03-01-PLAN.md — Settings tracer: Setting/Sucrose.json migrated once, atomic store with .bak and kill test, service reads it (D-032)
@@ -200,7 +200,7 @@ Plans:
 **Gap closure (2026-11-24, from 03-VERIFICATION.md gaps and 03-REVIEW.md CR-01, CR-02, WR-01..WR-08)**
 
 **Gap wave 1**
-- [ ] 03-27-PLAN.md — Images released inside a window update leave GPUI's atlas (paging-memory leading cause, atlas::release_image, GPUI tests)
+- [x] 03-27-PLAN.md — Images released inside a window update leave GPUI's atlas (paging-memory leading cause, atlas::release_image, GPUI tests)
 - [ ] 03-30-PLAN.md — CR-02: an unreadable Sucrose.json is retried and never restored or migrated over
 - [ ] 03-31-PLAN.md — WR-01, WR-03, WR-07: library move exclusive with maintenance, quiet fleet, printable status text
 - [ ] 03-34-PLAN.md — WR-08: the new source starts only after its own file loaded
@@ -310,7 +310,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 |-------|----------------|--------|-----------|
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
 | 2. M1 — Video wallpaper on the desktop (Windows) | 29/29 | Complete    | 2026-11-23 |
-| 3. M2 — Service, IPC and Portal connected | 26/26 | In Progress | - |
+| 3. M2 — Service, IPC and Portal connected | 27/40 | In Progress | - |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
 | 6. M5 — macOS | 0/TBD | Not started | - |
