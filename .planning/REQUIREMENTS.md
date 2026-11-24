@@ -162,7 +162,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **FMT-03**: `SucroseProperties.json` and `SucroseCompatible.json` are read and written compatibly, proven with fixtures
 - [ ] **FMT-04**: Theme archives are validated with the legacy rules (`formats.md` §3)
 - [ ] **FMT-05**: The store protocol and cache layout stay compatible (D-022, `formats.md` §4)
-- [ ] **FMT-06**: The data folder layout (`Setting`, `Log`, `Cache`, `Library`, `Showcase`) and 25-character theme folder names stay the same (`formats.md` §2)
+- [x] **FMT-06**: The data folder layout (`Setting`, `Log`, `Cache`, `Library`, `Showcase`) and 25-character theme folder names stay the same (`formats.md` §2)
 - [ ] **FMT-07**: The web wallpaper JavaScript API stays compatible (`engines.md` §6), proven with fixture pages
 - [x] **FMT-08**: The selected theme and library location of an existing C# install are read from the legacy `Library.json` and `General.json` (read-only until FMT-01)
 
@@ -332,7 +332,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | FMT-03 | Phase 4 | Pending |
 | FMT-04 | Phase 5 | Pending |
 | FMT-05 | Phase 5 | Pending |
-| FMT-06 | Phase 3 | Pending |
+| FMT-06 | Phase 3 | Complete |
 | FMT-07 | Phase 4 | Pending |
 | FMT-08 | Phase 2 | Complete |
 | SEC-01 | Phase 5 | Pending |
