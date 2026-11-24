@@ -5,7 +5,7 @@
 //! can enter the cache.
 
 use std::{
-    collections::VecDeque,
+    collections::{HashSet, VecDeque},
     io::Cursor,
     path::{Path, PathBuf},
     sync::Arc,
@@ -89,12 +89,14 @@ impl Release for Arc<RenderImage> {
     }
 }
 
-/// The decoded thumbnails that are kept. Inserting returns what had to go, for the caller to release.
+/// The decoded thumbnails that are kept, at most `max_images` and `max_bytes`; the one shown longest ago goes first.
+/// Inserting returns what had to go, for the caller to release.
 pub struct ThumbCache<T: Release> {
     max_images: usize,
-    #[allow(dead_code, reason = "the byte cap is enforced by the cache task that follows")]
     max_bytes: usize,
-    /// Oldest first.
+    /// The bytes of all entries.
+    bytes: usize,
+    /// Least recently shown first.
     entries: VecDeque<(ThumbKey, T)>,
 }
 
@@ -104,6 +106,7 @@ impl<T: Release + Clone> ThumbCache<T> {
         Self {
             max_images,
             max_bytes,
+            bytes: 0,
             entries: VecDeque::new(),
         }
     }
@@ -115,7 +118,7 @@ impl<T: Release + Clone> ThumbCache<T> {
 
     /// The bytes of all kept images.
     pub fn total_bytes(&self) -> usize {
-        self.entries.iter().map(|(_, value)| value.bytes()).sum()
+        self.bytes
     }
 
     /// Whether `key` is kept.
@@ -123,32 +126,48 @@ impl<T: Release + Clone> ThumbCache<T> {
         self.entries.iter().any(|(kept, _)| kept == key)
     }
 
-    /// The image for `key`.
+    /// The image for `key`; it counts as shown now.
     pub fn get(&mut self, key: &ThumbKey) -> Option<T> {
-        self.entries
-            .iter()
-            .find(|(kept, _)| kept == key)
-            .map(|(_, value)| value.clone())
+        let position = self.entries.iter().position(|(kept, _)| kept == key)?;
+        let entry = self.entries.remove(position)?;
+        let value = entry.1.clone();
+        self.entries.push_back(entry);
+        Some(value)
     }
 
-    /// Keeps `value` and returns the images that were pushed out.
+    /// Keeps `value` as the most recently shown image and returns the images that were pushed out. An image that is over
+    /// the byte cap on its own is returned at once and not kept; the others stay.
     pub fn insert(&mut self, key: ThumbKey, value: T) -> Vec<T> {
         let mut evicted = Vec::new();
-        if let Some(position) = self.entries.iter().position(|(kept, _)| *kept == key) {
-            evicted.extend(self.entries.remove(position).map(|(_, old)| old));
+        if let Some(position) = self.entries.iter().position(|(kept, _)| *kept == key)
+            && let Some((_, old)) = self.entries.remove(position)
+        {
+            self.bytes -= old.bytes();
+            evicted.push(old);
         }
+        let size = value.bytes();
+        if size > self.max_bytes {
+            evicted.push(value);
+            return evicted;
+        }
+        self.bytes += size;
         self.entries.push_back((key, value));
-        while self.entries.len() > self.max_images {
-            evicted.extend(self.entries.pop_front().map(|(_, old)| old));
+        while self.entries.len() > self.max_images || self.bytes > self.max_bytes {
+            let Some((_, oldest)) = self.entries.pop_front() else {
+                break;
+            };
+            self.bytes -= oldest.bytes();
+            evicted.push(oldest);
         }
         evicted
     }
 }
 
-/// Which thumbnails wait for a decode and which are being decoded.
+/// Which thumbnails wait for a decode and which are being decoded: a key is decoded once, and only `slots` decodes run at
+/// the same time.
 pub struct DecodeQueue {
     slots: usize,
-    running: usize,
+    running: HashSet<ThumbKey>,
     pending: VecDeque<ThumbKey>,
 }
 
@@ -157,34 +176,40 @@ impl DecodeQueue {
     pub fn new(slots: usize) -> Self {
         Self {
             slots,
-            running: 0,
+            running: HashSet::new(),
             pending: VecDeque::new(),
         }
     }
 
-    /// Queues the thumbnails of the page that is shown now.
+    /// Replaces the waiting thumbnails with those of the page that is shown now, first card first: what the page left is
+    /// dropped from the queue, what already runs or repeats is not queued again. Decodes that run keep running.
     pub fn set_wanted(&mut self, keys: impl IntoIterator<Item = ThumbKey>) {
-        self.pending.extend(keys);
+        self.pending.clear();
+        for key in keys {
+            if !self.running.contains(&key) && !self.pending.contains(&key) {
+                self.pending.push_back(key);
+            }
+        }
     }
 
     /// The next thumbnail to decode when a slot is free.
     pub fn next(&mut self) -> Option<ThumbKey> {
-        if self.running >= self.slots {
+        if self.running.len() >= self.slots {
             return None;
         }
         let key = self.pending.pop_front()?;
-        self.running += 1;
+        self.running.insert(key.clone());
         Some(key)
     }
 
     /// Frees the slot of a finished decode.
-    pub fn finish(&mut self, _key: &ThumbKey) {
-        self.running = self.running.saturating_sub(1);
+    pub fn finish(&mut self, key: &ThumbKey) {
+        self.running.remove(key);
     }
 
     /// Whether nothing waits and nothing runs.
     pub fn is_idle(&self) -> bool {
-        self.running == 0 && self.pending.is_empty()
+        self.running.is_empty() && self.pending.is_empty()
     }
 }
 
@@ -369,6 +394,24 @@ mod tests {
         assert_eq!(names(&evicted), ["old"]);
         assert_eq!(cache.len(), 1);
         assert_eq!(cache.total_bytes(), 10);
+    }
+
+    #[test]
+    fn thumbs_cache_default_caps_are_64_images_and_48_mib() {
+        assert_eq!((CACHE_IMAGES, CACHE_BYTES), (64, 48 * 1024 * 1024));
+        let mut cache = ThumbCache::new(CACHE_IMAGES, CACHE_BYTES);
+        let twelve_mib = 12 * 1024 * 1024;
+        for name in ["a", "b", "c", "d"] {
+            assert!(cache.insert(key(name), Pic("p", twelve_mib)).is_empty());
+        }
+        let evicted = cache.insert(key("e"), Pic("e", twelve_mib));
+        assert_eq!(
+            evicted.len(),
+            1,
+            "four images fill the byte cap, the fifth pushes one out"
+        );
+        assert!(!cache.contains(&key("a")));
+        assert_eq!(cache.total_bytes(), CACHE_BYTES);
     }
 
     #[test]

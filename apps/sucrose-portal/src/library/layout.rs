@@ -9,17 +9,36 @@ pub const MAX_CARD_WIDTH: f32 = 400.0;
 /// Height of every card.
 pub const CARD_HEIGHT: f32 = 160.0;
 
+/// A width this close below a column boundary still reaches it, so float noise from a scale factor does not drop a column.
+const BOUNDARY_TOLERANCE: f32 = 0.01;
+/// Card widths are rounded down to this step (a power of two, so sums of them are exact in `f32`).
+const WIDTH_STEP: f32 = 1.0 / 64.0;
+
 /// The number of columns for a content `width` and a `gap`: as many cards of at least [`MIN_CARD_WIDTH`] as fit, at least
-/// one, and at most `max_per_row` when that is above zero (the `AdaptiveLayout` setting).
+/// one, and at most `max_per_row` when that is above zero (the `AdaptiveLayout` setting). A width that is not a number
+/// gives one column.
 pub fn columns(width: f32, gap: f32, max_per_row: usize) -> usize {
-    let fit = ((width + gap) / (MIN_CARD_WIDTH + gap)).floor().max(1.0) as usize;
+    let fit = ((width + gap + BOUNDARY_TOLERANCE) / (MIN_CARD_WIDTH + gap))
+        .floor()
+        .max(1.0) as usize;
     if max_per_row > 0 { fit.min(max_per_row) } else { fit }
 }
 
-/// The width of one card when `columns` of them share `width` with `gap` between them, capped at [`MAX_CARD_WIDTH`].
+/// The width of one card when `columns` of them share `width` with `gap` between them: capped at [`MAX_CARD_WIDTH`], never
+/// negative, and small enough that [`row_width`] never exceeds `width`.
 pub fn card_width(width: f32, gap: f32, columns: usize) -> f32 {
     let columns = columns.max(1) as f32;
-    ((width - gap * (columns - 1.0)) / columns).min(MAX_CARD_WIDTH)
+    let gaps = gap * (columns - 1.0);
+    let card = ((width - gaps) / columns).clamp(0.0, MAX_CARD_WIDTH);
+    if !card.is_finite() {
+        return 0.0;
+    }
+    let mut card = (card / WIDTH_STEP).floor() * WIDTH_STEP;
+    // Rounding down makes this a safeguard only; it keeps the promise whatever the inputs were.
+    while card > 0.0 && card * columns + gaps > width {
+        card = (card - WIDTH_STEP).max(0.0);
+    }
+    card
 }
 
 /// The width a row of `columns` cards of `card_width` takes, gaps included.
@@ -33,10 +52,11 @@ pub fn page_count(count: usize, size: usize) -> usize {
     if size == 0 { 0 } else { count.div_ceil(size) }
 }
 
-/// The themes of 1-based `page`, as a range of indexes into the sorted list.
+/// The themes of 1-based `page`, as a range of indexes into the sorted list. Page 0 is the first page and a page past the
+/// last is empty.
 pub fn page_slice(count: usize, page: usize, size: usize) -> Range<usize> {
-    let start = ((page - 1) * size).min(count);
-    start..(start + size).min(count)
+    let start = (page.max(1) - 1).saturating_mul(size).min(count);
+    start..start.saturating_add(size).min(count)
 }
 
 #[cfg(test)]
