@@ -741,14 +741,24 @@ enum Status {
 }
 
 impl Status {
-    /// The sentence for the log.
+    /// The sentence for the log. Every free-text field passes through [`printable`] here, in the one place that builds
+    /// the sentence, so no constructor can forget it (WR-07): a theme name from `Library.Selected` cannot forge a log
+    /// line or garble the tooltip.
     fn text(&self) -> String {
         match self {
             Self::Starting { .. } => APP_LONG_NAME.to_owned(),
-            Self::Playing { title } => format!("Sucrose — playing {title}"),
-            Self::NoWallpaper { reason } => format!("Sucrose — no wallpaper: {reason}"),
-            Self::Failed { reason, hint } => format!("Sucrose — no wallpaper: {reason} {hint}"),
-            Self::RendererStopped { monitor, reason } => format!("Sucrose — no wallpaper on {monitor}: {reason}"),
+            Self::Playing { title } => format!("Sucrose — playing {}", printable(title)),
+            Self::NoWallpaper { reason } => format!("Sucrose — no wallpaper: {}", printable(reason)),
+            Self::Failed { reason, hint } => {
+                format!("Sucrose — no wallpaper: {} {}", printable(reason), printable(hint))
+            }
+            Self::RendererStopped { monitor, reason } => {
+                format!(
+                    "Sucrose — no wallpaper on {}: {}",
+                    printable(monitor),
+                    printable(reason)
+                )
+            }
         }
     }
 
