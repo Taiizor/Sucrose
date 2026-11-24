@@ -1,9 +1,9 @@
 ---
-status: partial
+status: diagnosed
 phase: 03-m2-service-ipc-and-portal-connected
 source: [03-VERIFICATION.md]
 started: 2026-11-24T20:01:31.075Z
-updated: 2026-11-24T22:43:55.217Z
+updated: 2026-11-24T23:09:03.027Z
 ---
 
 ## Current Test
@@ -80,8 +80,20 @@ blocked: 1
   reason: "User reported: 2 backdrop etkisiz. hiç bir şey değişmedi (step 2 of test 5, Acrylic; steps 1, 3, 4, 5 and 6 passed)"
   severity: major
   test: 5
-  artifacts: []
-  missing: []
+  root_cause: "The backdrop reaches DWM (GPUI sets the acrylic accent for Blurred and DWMWA_SYSTEMBACKDROP_TYPE for Mica/MicaAlt on a DirectComposition premultiplied-alpha swapchain), but an opaque full-window fill hides it: gpui_kit::open_window wraps the Portal view in gpui_base::Root, whose gpui-component RootPlugin::style paints .bg(tokens.background), opaque #202020 (Dark) / #F3F3F3 (Light). Plan 03-17 lowered the alpha only on the Portal's own page div (theme::page_alpha, 78 %), so Acrylic, Mica, Tabbed and None all produce the same pixels. A probe with the same gpui-kit 0.10.0 open path showed identical captures for every backdrop with the Root fill and a blurred desktop once only the Root background was made transparent."
+  artifacts:
+    - path: "apps/sucrose-portal/src/app.rs"
+      issue: "render (435-462) lowers alpha only on the page div; apply_backdrop (258-262) never touches the Root surface fill"
+    - path: "apps/sucrose-portal/src/theme.rs"
+      issue: "page_alpha / backdrop_active apply the transparency to the wrong layer"
+    - path: "apps/sucrose-portal/themes/sucrose.json"
+      issue: "background token is opaque; it is the source of the Root fill (not a defect by itself)"
+  missing:
+    - "While a backdrop is active, make the Root surface background transparent (gpui_kit::base::Root::update -> style().background), at open, on Welcome and on Changed(Backdrop); restore the opaque fill for Backdrop None so GPUI's clear does not show under a 55 % background image"
+    - "Do not make theme tokens transparent through Theme::global_mut (docs/GPUI.md rule; components such as the switch thumb use tokens.background)"
+    - "An e2e check that compares a real screen capture (not PrintWindow, which captures no content under Acrylic) for None against Acrylic instead of trusting the 'backdrop applied' log line"
+    - "Maintainer eye check of Mica and Tabbed on the active window (the probe only saw them unfocused)"
+  debug_session: ".planning/debug/portal-backdrop-no-visible-effect.md"
 
 - gap_id: G-03-6
   truth: "With Library Pagination at its maximum (250 typed, clamped to 100, stored as LibraryPagination 100), the library page shows a scrollbar, every card scrolled into view with the mouse wheel shows its thumbnail, and hovering such a card plays its preview"
@@ -89,8 +101,20 @@ blocked: 1
   reason: "User reported: 3 250 yapınca kütüphaneye döndüm kaydırma çubuğu yani scroll bar yok. ayrıca tekerlek ile aşağı inince temaların thumbnaili görünmüyor, üzerine fare tutunca da preview oynamıyor (steps 1 and 2 of test 6 passed; the clamp itself worked, Sucrose.json holds LibraryPagination 100)"
   severity: major
   test: 6
-  artifacts: []
-  missing: []
+  root_cause: "Three separate causes. (1) No scrollbar: the library grid scrolls with overflow_y_scroll() and draws no scrollbar (dialogs use overflow_y_scrollbar()). (2) Missing thumbnails: request_page() queues only the first CACHE_IMAGES (64) cards of the page (.take(CACHE_IMAGES), since 03-10, e5d7d870); with 100 per page all 90 themes sit on one page and cards 65-90 are never requested and stay skeletons. Same cause as G-03-8. (3) No hover preview: the maintainer's real Sucrose.json has LibraryPreview false (migrated from the C# Portal.json, never changed in the logs), so hover_card returns early with 'preview switched off'; a setting, not a code defect."
+  artifacts:
+    - path: "apps/sucrose-portal/src/library/grid.rs"
+      issue: "line 149 overflow_y_scroll() without a visible scrollbar"
+    - path: "apps/sucrose-portal/src/library/mod.rs"
+      issue: "request_page() .take(CACHE_IMAGES) (line 546) never requests cards past the 64th; cards() reorders the cache on every render and evicted keys that are still on screen are not requested again"
+    - path: "apps/sucrose-portal/src/library/thumbs.rs"
+      issue: "CACHE_IMAGES 64 and CACHE_BYTES 48 MiB (about 41 images at W720): removing .take alone would evict card 1 when card 65 arrives and never reload it"
+  missing:
+    - "A visible scrollbar on the library grid"
+    - "Request thumbnails for every card the page can show (preferably the rows in view while scrolling) and re-request evicted keys that are on screen again, within the D-25 memory rule"
+    - "Stop the endless skeleton animation frames for cards that will never load (side effect noticed by the diagnosis, not measured)"
+    - "Re-run the hover part with Library Preview (Settings > Personal > Theme Preview) switched on"
+  debug_session: ".planning/debug/hover-preview-and-thumbnails-stall.md"
 
 - gap_id: G-03-8
   truth: "On the release Portal a slowly hovered card animates and hides its title strip, and a fast sweep starts nothing"
@@ -98,5 +122,13 @@ blocked: 1
   reason: "User reported: iki durum da çalışmıyor. bu kütüphane sayfasını 250 yapınca başladı sorun galiba. alttaki duvar kağıtlarının thumbnaili bile görünmüyor (maintainer screenshot with LibraryPagination 100: only the first four cards show a thumbnail, from the fifth card on the thumbnail area is empty even on the first screen; status bar shows 854 MB)"
   severity: major
   test: 8
-  artifacts: []
-  missing: []
+  root_cause: "Two independent causes, and decoding never stalls. (1) The empty thumbnails are the 64-card request cap of G-03-6: the screenshot is scrolled, the visible cards are 61-69 in Creation Descending order, so the four with thumbnails are 61-64 and the empty ones start at card 65, the first never requested. At 30 per page every card loaded; WR-11/12/13 and the decode budget are not involved (each thumbnail holds 12.4 MB of the 256 MB budget, no decode error in the logs). (2) The hover previews do not play because the maintainer's real settings have LibraryPreview false (hover_card logs reason='preview switched off'); the UAT prompt wrongly said the preview was on."
+  artifacts:
+    - path: "apps/sucrose-portal/src/library/mod.rs"
+      issue: "request_page() .take(CACHE_IMAGES) leaves cards past the 64th without a thumbnail"
+    - path: "apps/sucrose-portal/src/library/thumbs.rs"
+      issue: "cache caps (64 images / 48 MiB) smaller than a 100-card page"
+  missing:
+    - "Fix the request cap as listed under G-03-6 (one fix closes both)"
+    - "Re-run test 8 with Library Preview switched on before judging the hover previews"
+  debug_session: ".planning/debug/hover-preview-and-thumbnails-stall.md"
