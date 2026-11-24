@@ -57,8 +57,12 @@ pub enum ModuleAction {
 
 /// What to do with the tray when the Portal switches Notification Area Icon: `current` is whether the tray exists,
 /// `wanted` what AppVisible says now.
-pub fn tray_action(_current: bool, _wanted: bool) -> ModuleAction {
-    ModuleAction::Keep
+pub fn tray_action(current: bool, wanted: bool) -> ModuleAction {
+    match (current, wanted) {
+        (false, true) => ModuleAction::Create,
+        (true, false) => ModuleAction::Drop,
+        _ => ModuleAction::Keep,
+    }
 }
 
 /// The renderer pids in slot order, so the Portal's list does not reorder from one report to the next.

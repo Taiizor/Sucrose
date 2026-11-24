@@ -24,19 +24,20 @@ use sucrose_core::{
 };
 use sucrose_ipc::{
     Connection, IpcError, Listener,
-    portal::{PortalEvent, PortalPage, PortalRequest, RuleState, RuntimeState, UseOutcome, UseRefusal},
+    portal::{PortalEvent, PortalPage, PortalRequest, RuleState, RuntimeState, SettingChange, UseOutcome, UseRefusal},
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
     service_endpoint,
 };
 use sucrose_platform::{
-    EventLoop, Flow, GpuPreferenceChange, LoopEnd, LoopEvent, LoopProxy, LoopTimers, MonitorInfo, RectPx, Tray,
+    EventLoop, Flow, GpuPreferenceChange, LoopEnd, LoopEvent, LoopProxy, LoopTimers, MonitorInfo, PlatformError,
+    RectPx, Tray,
 };
 // ScreenArea is read below to choose the surface rectangle.
 use sucrose_core::settings::{FullScreenAction, FullScreenScope, GpuPreference, PauseKind, ScreenArea};
 
 use crate::{
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
-    modules::{MEMORY_TIMER, MemoryModule, module_off, pids_by_slot, start_module},
+    modules::{MEMORY_TIMER, MemoryModule, ModuleAction, module_off, pids_by_slot, start_module, tray_action},
     portal_link::{PortalAdmission, PortalLink, PortalRegistry, request_kind, runtime_state},
     settings_host::{SettingsHost, describe},
     supervisor::{
@@ -325,6 +326,24 @@ fn printable(text: &str) -> String {
         .collect()
 }
 
+/// Starts the fullscreen rule through the module gate (D-008): with FullScreenPerformance Resume, or with no wallpaper
+/// to act on, nothing is built and the module logs that it is off. `true` when the rule is on and its timer has to run.
+fn start_fullscreen(fleet: &mut Fleet, action: FullScreenAction, scope: ActionScope, pause: PauseKind) -> bool {
+    let wanted = action != FullScreenAction::Resume && fleet.job.is_some();
+    start_module("fullscreen", wanted, || {
+        Ok(fleet.enable_fullscreen(action, scope, pause))
+    })
+    .unwrap_or(false)
+}
+
+/// Builds the tray icon with the tooltip of `status`. Without it Sucrose can only be stopped from Task Manager, so a
+/// failure says so.
+fn create_tray(status: &Status, proxy: LoopProxy) -> Result<Tray, PlatformError> {
+    Tray::new(TRAY_ICON, &status.tooltip(), proxy).inspect_err(|_| {
+        tracing::error!("without the tray icon Sucrose can only be stopped from Task Manager");
+    })
+}
+
 /// Runs the service until Quit is chosen from the tray.
 pub fn run() -> anyhow::Result<()> {
     let awareness = sucrose_platform::init_dpi_awareness();
@@ -413,11 +432,7 @@ pub fn run() -> anyhow::Result<()> {
 
     let tray_proxy = event_loop.proxy();
     // General.json AppVisible (D-15): with it false no icon, no menu and none of their resources exist (D-008).
-    let tray = start_module("tray", plan.app_visible, || {
-        Tray::new(TRAY_ICON, &status.tooltip(), tray_proxy).inspect_err(|_| {
-            tracing::error!("without the tray icon Sucrose can only be stopped from Task Manager");
-        })
-    });
+    let mut tray = start_module("tray", plan.app_visible, || create_tray(&status, tray_proxy.clone()));
     if status.is_failure() {
         tracing::warn!(status = %status.text(), "no wallpaper, the service waits in the tray");
     }
@@ -432,7 +447,7 @@ pub fn run() -> anyhow::Result<()> {
     // The memory report exists only while a Portal is connected (D-19): nothing runs until one registers.
     let mut memory = MemoryModule::default();
     module_off("memory");
-    if fleet.enable_fullscreen(plan.fullscreen, plan.scope, plan.pause) {
+    if start_fullscreen(&mut fleet, plan.fullscreen, plan.scope, plan.pause) {
         timers.set(FULLSCREEN_TIMER, FULLSCREEN_POLL_MS);
     }
     let loop_end = event_loop.run(|event| match event {
@@ -628,6 +643,22 @@ pub fn run() -> anyhow::Result<()> {
                                     match host.apply(change.clone()) {
                                         Ok(stored) => {
                                             tracing::info!(setting = %describe(&stored), "setting changed");
+                                            // Notification Area Icon: the tray appears or goes at once. Changes are
+                                            // handled one at a time here, so quick toggles end in the last value.
+                                            if let SettingChange::AppVisible(visible) = &stored {
+                                                match tray_action(tray.is_some(), *visible) {
+                                                    ModuleAction::Create => {
+                                                        tray = start_module("tray", true, || {
+                                                            create_tray(&status, tray_proxy.clone())
+                                                        });
+                                                    }
+                                                    ModuleAction::Drop => {
+                                                        tray = None;
+                                                        module_off("tray");
+                                                    }
+                                                    ModuleAction::Keep => {}
+                                                }
+                                            }
                                             portals.send(PortalEvent::Changed(stored));
                                         }
                                         Err(reason) => {
@@ -1586,7 +1617,6 @@ impl Fleet {
     /// state exist at all (D-008). `true` when the rule is on and its timer has to run.
     fn enable_fullscreen(&mut self, action: FullScreenAction, scope: ActionScope, pause: PauseKind) -> bool {
         if action == FullScreenAction::Resume || self.job.is_none() {
-            tracing::info!("fullscreen rule off (FullScreenPerformance = Resume)");
             return false;
         }
         if pause == PauseKind::Heavy {
@@ -2056,7 +2086,8 @@ fn handle_use(
     fleet.elect(ctx);
     let arm_fullscreen = fleet.fullscreen.is_none() && {
         let settings = host.settings();
-        fleet.enable_fullscreen(
+        start_fullscreen(
+            fleet,
             settings.backgroundog.fullscreen,
             action_scope(settings.backgroundog.full_screen_scope),
             settings.backgroundog.pause,
@@ -2349,7 +2380,6 @@ fn playback_settings(engine: &Engine) -> PlaybackSettings {
 #[cfg(test)]
 mod tests {
     use sucrose_core::theme::ThemeRejection;
-    use sucrose_platform::PlatformError;
 
     use super::*;
     use crate::supervisor::ENGINE_MISSING;
