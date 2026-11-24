@@ -156,6 +156,25 @@ fn maintenance_decision(running: bool, moving: bool) -> MaintenanceDecision {
     }
 }
 
+/// What the main thread does when a Portal connection ends (WR-04).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+struct PortalGoneEffect {
+    /// Re-check the exit rule: the service may have been kept alive only by this Portal.
+    check_exit: bool,
+    /// Tell the closing sequence its Portal is gone. Only the registered Portal is the one it waits for.
+    tell_closing: bool,
+}
+
+/// What a Portal connection that ended asks of the main thread. `was_registered` is whether it was the registered
+/// one: every ended connection re-checks the exit rule, but only the registered Portal counts for the closing
+/// sequence.
+fn portal_gone_effect(was_registered: bool) -> PortalGoneEffect {
+    PortalGoneEffect {
+        check_exit: was_registered,
+        tell_closing: was_registered,
+    }
+}
+
 /// The OS recycle bin or trash for the library-ops worker.
 struct OsBin;
 
@@ -5243,6 +5262,25 @@ mod tests {
 
             assert_eq!(fleet.rule_state(), expected, "{action:?}");
         }
+    }
+
+    #[test]
+    fn a_portal_that_leaves_always_rechecks_the_exit_rule() {
+        assert_eq!(
+            portal_gone_effect(true),
+            PortalGoneEffect {
+                check_exit: true,
+                tell_closing: true
+            }
+        );
+        assert_eq!(
+            portal_gone_effect(false),
+            PortalGoneEffect {
+                check_exit: true,
+                tell_closing: false
+            },
+            "a Portal that was never registered cannot keep the service alive either, but the closing sequence does not wait for it"
+        );
     }
 
     /// A registry with one Portal whose events are recorded; the first recorded event is its Welcome stand-in.

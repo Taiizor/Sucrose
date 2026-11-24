@@ -4,6 +4,7 @@
 //! The registry lives on the service's main thread, so two Portals that connect at the same moment are decided in one
 //! place: exactly one is registered, the other is told who is open.
 
+use std::fmt;
 use std::io;
 use std::thread;
 use std::time::{Duration, Instant};
@@ -30,6 +31,17 @@ pub struct PortalLink {
     /// The pid the Portal reported in its `PortalHello`.
     pid: u32,
     queue: Sender<PortalEvent>,
+    /// Ends the connection for every handle of it, when the link was built for a real one.
+    closer: Option<Closer>,
+}
+
+/// The call that ends a connection; it is not `Debug`, so the link prints only whether it has one.
+struct Closer(Box<dyn Fn() + Send + Sync>);
+
+impl fmt::Debug for Closer {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.write_str("Closer")
+    }
 }
 
 impl PortalLink {
@@ -49,12 +61,26 @@ impl PortalLink {
                 }
             }
         })?;
-        Ok(Self { connection, pid, queue })
+        Ok(Self {
+            connection,
+            pid,
+            queue,
+            closer: None,
+        })
     }
 
-    /// The writer of `connection`, a clone of the handle the reader thread keeps.
+    /// Gives the link the call that ends its connection ([`PortalLink::close`]).
+    #[must_use]
+    pub fn with_closer(mut self, close: impl Fn() + Send + Sync + 'static) -> Self {
+        self.closer = Some(Closer(Box::new(close)));
+        self
+    }
+
+    /// The writer of `connection`, a clone of the handle the reader thread keeps. The link also holds one more
+    /// clone, which [`PortalLink::close`] uses to end the connection for the reader thread and the Portal too.
     pub fn for_connection(id: u64, pid: u32, mut connection: Connection) -> io::Result<Self> {
-        Self::start(format!("portal-writer-{id}"), id, pid, move |event| {
+        let ender = connection.try_clone().map_err(io::Error::other)?;
+        let link = Self::start(format!("portal-writer-{id}"), id, pid, move |event| {
             match connection.send(&event) {
                 Ok(()) => true,
                 Err(error) => {
@@ -62,7 +88,20 @@ impl PortalLink {
                     false
                 }
             }
-        })
+        })?;
+        Ok(link.with_closer(move || {
+            if let Err(error) = ender.disconnect() {
+                tracing::debug!(%error, "cannot disconnect the portal connection");
+            }
+        }))
+    }
+
+    /// Ends the connection this link writes to, for every handle of it: the reader thread of the service returns
+    /// and the Portal sees its connection end. Without a closer (a link built for a test) it does nothing.
+    pub fn close(&self) {
+        if let Some(Closer(close)) = &self.closer {
+            close();
+        }
     }
 
     /// The connection this link writes to.
@@ -294,7 +333,10 @@ pub fn runtime_state(
 #[cfg(test)]
 mod tests {
     use std::{
-        sync::{Arc, Mutex, PoisonError},
+        sync::{
+            Arc, Mutex, PoisonError,
+            atomic::{AtomicUsize, Ordering},
+        },
         time::{Duration, Instant},
     };
 
@@ -405,6 +447,86 @@ mod tests {
         let events = wait_for(&written, 1 + OUTGOING_CAPACITY);
         assert_eq!(events.first(), Some(&PortalEvent::Focus { page: None }));
         assert!(events[1..].iter().all(|event| matches!(event, PortalEvent::Memory(_))));
+    }
+
+    /// A gated link (see [`gated_link`]) whose closer counts its calls.
+    fn gated_link_with_counting_closer() -> (Gated, Arc<AtomicUsize>) {
+        let calls = Arc::new(AtomicUsize::new(0));
+        let counter = Arc::clone(&calls);
+        let mut gated = gated_link();
+        gated.link = gated.link.with_closer(move || {
+            counter.fetch_add(1, Ordering::SeqCst);
+        });
+        (gated, calls)
+    }
+
+    #[test]
+    fn a_portal_dropped_for_a_full_queue_is_disconnected() {
+        let (gated, calls) = gated_link_with_counting_closer();
+        let mut registry = PortalRegistry::default();
+        assert_eq!(
+            registry.admit(gated.link, PORTAL_PROTOCOL_VERSION, false, || PortalEvent::Focus {
+                page: None
+            }),
+            PortalAdmission::Register
+        );
+        gated
+            .holding
+            .recv_timeout(Duration::from_secs(5))
+            .expect("the writer holds the Welcome");
+        for _ in 0..OUTGOING_CAPACITY {
+            registry.send(memory());
+        }
+        assert_eq!(calls.load(Ordering::SeqCst), 0, "a Portal that keeps up is left alone");
+
+        registry.send(PortalEvent::Close);
+
+        assert_eq!(registry.registered_pid(), None, "the registration is dropped");
+        assert_eq!(calls.load(Ordering::SeqCst), 1, "the connection was ended once");
+        registry.send(PortalEvent::Close);
+        assert_eq!(
+            calls.load(Ordering::SeqCst),
+            1,
+            "nothing is sent to, or ended for, the dropped link"
+        );
+    }
+
+    #[test]
+    fn sending_with_no_portal_disconnects_nothing() {
+        let calls = Arc::new(AtomicUsize::new(0));
+        let counter = Arc::clone(&calls);
+        let (link, _written) = recording_link(1, 100);
+        let _unregistered = link.with_closer(move || {
+            counter.fetch_add(1, Ordering::SeqCst);
+        });
+        let mut registry = PortalRegistry::default();
+
+        registry.send(PortalEvent::Close);
+
+        assert_eq!(calls.load(Ordering::SeqCst), 0);
+    }
+
+    #[test]
+    fn a_dropped_portal_frees_the_slot_for_one_new_portal() {
+        let (gated, _calls) = gated_link_with_counting_closer();
+        let mut registry = PortalRegistry::default();
+        registry.admit(gated.link, PORTAL_PROTOCOL_VERSION, false, || PortalEvent::Focus {
+            page: None,
+        });
+        gated
+            .holding
+            .recv_timeout(Duration::from_secs(5))
+            .expect("the writer holds the Welcome");
+        for _ in 0..=OUTGOING_CAPACITY {
+            registry.send(memory());
+        }
+        registry.send(PortalEvent::Close);
+        let (next, _written) = recording_link(2, 200);
+
+        let admission = registry.admit(next, PORTAL_PROTOCOL_VERSION, false, welcome);
+
+        assert_eq!(admission, PortalAdmission::Register);
+        assert_eq!(registry.registered_pid(), Some(200));
     }
 
     #[test]
