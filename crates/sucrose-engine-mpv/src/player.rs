@@ -190,14 +190,31 @@ struct Shared {
     loop_gen: AtomicU32,
     /// Set at the first playback restart: the first frame was shown.
     started: AtomicBool,
-    /// Set by [`Player::load_source`] and cleared at the first playback restart of the new file: until then the
-    /// position and the first-frame flag belong to the file that was replaced.
-    loading: AtomicBool,
     /// Counts the [`Player::load_source`] requests, bumped before the `loadfile` command is issued so that no event of
     /// the new file can precede it. The event thread feeds it to its [`SourceSwitch`].
     load_generation: AtomicU64,
+    /// The generation of the latest request whose first frame was shown (or that failed to start). While it is behind
+    /// [`Shared::load_generation`] a load is in progress ([`Shared::is_loading`]): the position and the first-frame
+    /// flag belong to the file that was replaced. A generation, not a flag, so the event thread finishing request N
+    /// can never wipe the fact that a newer request N+1 was made in the meantime (WR-11).
+    started_generation: AtomicU64,
     /// mpv's description of the error that ended the file before its first frame, when that happened.
     start_failure: Mutex<Option<String>>,
+}
+
+impl Shared {
+    /// Whether a [`Player::load_source`] request has not shown its first frame yet.
+    fn is_loading(&self) -> bool {
+        // The finished generation is read first: the request count is never behind what it was compared with, so a
+        // newer request cannot be missed.
+        let started = self.started_generation.load(Ordering::SeqCst);
+        started < self.load_generation.load(Ordering::SeqCst)
+    }
+
+    /// Request `generation` showed its first frame (or failed to start). A newer request stays loading.
+    fn finish_loading(&self, generation: u64) {
+        self.started_generation.fetch_max(generation, Ordering::SeqCst);
+    }
 }
 
 /// What a playback restart means for a source switch (see [`SourceSwitch`]).
@@ -409,11 +426,11 @@ impl Player {
                 }
             }
         }
-        self.shared.loading.store(true, Ordering::SeqCst);
-        // Before the command, so every event of the new file sees the new generation.
-        self.shared.load_generation.fetch_add(1, Ordering::SeqCst);
+        // Before the command, so every event of the new file sees the new generation. From here on the player is
+        // loading, until the event thread finishes this generation or a newer one.
+        let generation = self.shared.load_generation.fetch_add(1, Ordering::SeqCst) + 1;
         if let Err(error) = self.load(text) {
-            self.shared.loading.store(false, Ordering::SeqCst);
+            self.shared.finish_loading(generation);
             return Err(error);
         }
         Ok(())
@@ -494,7 +511,7 @@ impl Player {
     /// Whether the first frame was shown. Before that the player has no clock worth publishing or following.
     #[must_use]
     pub fn has_started(&self) -> bool {
-        self.shared.started.load(Ordering::SeqCst) && !self.shared.loading.load(Ordering::SeqCst)
+        self.shared.started.load(Ordering::SeqCst) && !self.shared.is_loading()
     }
 
     /// Why the file could not be played, once mpv ended it with an error before the first frame (the file cannot be
@@ -724,8 +741,8 @@ fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool, shared: &Shared, eve
                 if switch.restart() == Restart::NewStart {
                     // The first frame of the file loaded with `load_source`: a new start. Its position is not a jump
                     // of the old file, so nothing is classified, the anchor starts afresh and the driver is told.
-                    // Cleared before the event is sent, so whoever receives Started also sees has_started.
-                    shared.loading.store(false, Ordering::SeqCst);
+                    // Finished before the event is sent, so whoever receives Started also sees has_started.
+                    shared.finish_loading(switch.requested);
                     anchor = take_anchor(mpv, handle, shared);
                     tracing::info!("playback started on the new source");
                     let _ = events.send(PlayerEvent::Started);
@@ -745,7 +762,7 @@ fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool, shared: &Shared, eve
                 started = true;
                 // A load_source made before the very first frame: this restart may already be its first frame.
                 if switch.restart() == Restart::NewStart {
-                    shared.loading.store(false, Ordering::SeqCst);
+                    shared.finish_loading(switch.requested);
                 }
                 anchor = take_anchor(mpv, handle, shared);
                 let hwdec = property_string(mpv, handle, "hwdec-current")
@@ -758,7 +775,7 @@ fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool, shared: &Shared, eve
             }
             sys::mpv_event_id_MPV_EVENT_END_FILE => {
                 if let Some(message) = log_end_file(mpv, event)
-                    && (!started || shared.loading.load(Ordering::SeqCst))
+                    && (!started || shared.is_loading())
                 {
                     // The file never reached its first frame: whoever drives the player has to know.
                     *shared.start_failure.lock().unwrap_or_else(PoisonError::into_inner) = Some(message);
@@ -1034,6 +1051,39 @@ mod tests {
         };
         assert!((anchor.expected(after(start, 1.5)) - 6.0).abs() < 1e-9);
         assert!((anchor.expected(start) - 3.0).abs() < 1e-9);
+    }
+
+    #[test]
+    fn finishing_a_load_never_wipes_a_newer_request() {
+        let shared = Shared::default();
+        assert!(!shared.is_loading(), "nothing was requested");
+
+        // Request 1 is made and its first frame is about to be reported by the event thread.
+        shared.load_generation.fetch_add(1, Ordering::SeqCst);
+        assert!(shared.is_loading());
+        // A second load_source lands before the event thread finishes request 1.
+        shared.load_generation.fetch_add(1, Ordering::SeqCst);
+        shared.finish_loading(1);
+
+        assert!(shared.is_loading(), "request 2 is still loading");
+        shared.finish_loading(2);
+        assert!(!shared.is_loading());
+        // A late finish of an older request changes nothing.
+        shared.finish_loading(1);
+        assert!(!shared.is_loading());
+    }
+
+    #[test]
+    fn a_failed_load_stops_loading_unless_a_newer_one_follows() {
+        let shared = Shared::default();
+        shared.load_generation.fetch_add(1, Ordering::SeqCst);
+        shared.finish_loading(1);
+        assert!(!shared.is_loading());
+
+        shared.load_generation.fetch_add(1, Ordering::SeqCst);
+        shared.load_generation.fetch_add(1, Ordering::SeqCst);
+        shared.finish_loading(2);
+        assert!(shared.is_loading(), "request 3 is newer than the failed 2");
     }
 
     #[derive(Clone, Copy)]
