@@ -59,6 +59,24 @@ impl WallpaperType {
         }
     }
 
+    /// Type for a name in any letter case (or a numeric string). Newtonsoft's enum reader, which parses
+    /// `SucroseInfo.json`, ignores case, unlike `Enum.Parse` as used for the settings.
+    pub fn from_name_ignore_case(name: &str) -> Option<Self> {
+        const NAMES: [(&str, WallpaperType); 6] = [
+            ("Gif", WallpaperType::Gif),
+            ("Url", WallpaperType::Url),
+            ("Web", WallpaperType::Web),
+            ("Video", WallpaperType::Video),
+            ("YouTube", WallpaperType::YouTube),
+            ("Application", WallpaperType::Application),
+        ];
+        NAMES
+            .iter()
+            .find(|(known, _)| known.eq_ignore_ascii_case(name))
+            .map(|(_, kind)| *kind)
+            .or_else(|| Self::from_legacy_name(name))
+    }
+
     /// The legacy ordinal, which is how the type is written.
     pub const fn legacy_int(self) -> i64 {
         match self {
@@ -75,7 +93,7 @@ impl WallpaperType {
 fn deserialize_type<'de, D: Deserializer<'de>>(deserializer: D) -> Result<WallpaperType, D::Error> {
     let parsed = match Value::deserialize(deserializer)? {
         Value::Number(number) => number.as_i64().and_then(WallpaperType::from_legacy_int),
-        Value::String(name) => WallpaperType::from_legacy_name(&name),
+        Value::String(name) => WallpaperType::from_name_ignore_case(&name),
         _ => None,
     };
     // The value is not echoed: it is untrusted text and this message reaches the log.
@@ -424,6 +442,21 @@ mod tests {
         assert_eq!(info.source, "video.mp4");
         assert_eq!(info.title, "Sample");
         assert_eq!(info.app_version, LegacyVersion::new(26, 10, 19, 0));
+    }
+
+    #[test]
+    fn a_type_name_in_any_case_parses_in_info_but_not_in_settings_names() {
+        for name in ["video", "VIDEO", "Video", "vIdEo"] {
+            let info = parse_info(&format!("{{\"Type\":\"{name}\",\"Source\":\"a.mp4\"}}")).unwrap();
+            assert_eq!(info.kind, WallpaperType::Video, "{name}");
+        }
+        assert_eq!(
+            WallpaperType::from_name_ignore_case("youtube"),
+            Some(WallpaperType::YouTube)
+        );
+        assert_eq!(WallpaperType::from_name_ignore_case("3"), Some(WallpaperType::Video));
+        assert_eq!(WallpaperType::from_name_ignore_case("film"), None);
+        assert_eq!(WallpaperType::from_legacy_name("video"), None);
     }
 
     #[test]
