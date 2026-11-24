@@ -5,6 +5,7 @@ use std::{
     sync::atomic::{AtomicU32, Ordering},
     sync::mpsc,
     thread,
+    time::Duration,
 };
 
 use sucrose_ipc::{
@@ -127,6 +128,56 @@ fn a_second_handle_can_send_while_the_first_waits_for_a_message() {
 
     assert_eq!(reply, ToRenderer::Close);
     assert_eq!(server.join().expect("server thread").expect("Hello"), hello());
+}
+
+#[cfg(windows)]
+#[test]
+fn a_disconnected_connection_wakes_a_blocked_reader() {
+    let name = unique_name();
+    let listener = Listener::bind(&name, None).expect("bind");
+    let accepting = thread::spawn(move || listener.accept().expect("accept"));
+    let mut client = connect(&name).expect("connect");
+    let server = accepting.join().expect("accept thread");
+    let closer = server.try_clone().expect("clone");
+    let (woke, reader_woke) = mpsc::channel();
+    let reader = thread::spawn(move || {
+        let mut server = server;
+        let result = server.recv::<ToService>();
+        woke.send(result.is_err()).expect("tell the test");
+    });
+    // The reader is (about to be) blocked in recv; if the disconnect wins the race recv fails at once, which the
+    // test accepts too.
+    thread::sleep(Duration::from_millis(100));
+
+    closer.disconnect().expect("disconnect");
+
+    let reader_failed = reader_woke
+        .recv_timeout(Duration::from_secs(2))
+        .expect("the blocked reader returned within 2 s");
+    assert!(reader_failed, "the reader must see an error, not a message");
+    reader.join().expect("reader thread");
+    let result = client.recv::<ToRenderer>();
+    assert!(
+        matches!(result, Err(IpcError::Closed | IpcError::Io(_))),
+        "the client must see the connection end: {result:?}"
+    );
+}
+
+#[cfg(windows)]
+#[test]
+fn disconnecting_twice_or_after_the_peer_left_is_harmless() {
+    let name = unique_name();
+    let listener = Listener::bind(&name, None).expect("bind");
+    let accepting = thread::spawn(move || listener.accept().expect("accept"));
+    let client = connect(&name).expect("connect");
+    let server = accepting.join().expect("accept thread");
+    drop(client);
+
+    let first = server.disconnect();
+    let second = server.disconnect();
+
+    // Either call may report an error (nothing is left to disconnect); neither may panic.
+    let _ = (first, second);
 }
 
 #[cfg(windows)]

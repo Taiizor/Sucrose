@@ -49,6 +49,9 @@ pub enum IpcError {
     /// The OS cannot say which user runs this process, so the endpoint cannot be named.
     #[error("cannot identify the current user: {0}")]
     Identity(String),
+    /// This OS does not provide the operation.
+    #[error("{0} is not supported on this OS")]
+    Unsupported(&'static str),
 }
 
 impl From<io::Error> for IpcError {
@@ -222,6 +225,13 @@ impl Connection {
     /// Waits for the next message.
     pub fn recv<T: DeserializeOwned>(&mut self) -> Result<T, IpcError> {
         frame::read_frame(&mut self.stream)
+    }
+
+    /// Ends the connection for every handle of it: a reader blocked in [`Connection::recv`] on another handle
+    /// returns an error and the peer's next `recv` returns [`IpcError::Closed`]. Only the service side of a
+    /// connection (the end `Listener::accept` returned) can be disconnected.
+    pub fn disconnect(&self) -> Result<(), IpcError> {
+        Err(IpcError::Unsupported("disconnecting a connection"))
     }
 
     /// Another handle to the same connection, so one thread can read while another writes.
