@@ -142,7 +142,7 @@ impl PortalClient {
     pub fn hello_as(service: &TestService, pid: u32, page: Option<PortalPage>) -> (Self, PortalEvent) {
         let client = Self::connect_with(
             service,
-            ToService::PortalHello {
+            &ToService::PortalHello {
                 portal_protocol_version: PORTAL_PROTOCOL_VERSION,
                 pid,
                 page,
@@ -158,10 +158,21 @@ impl PortalClient {
     }
 
     /// Connects and sends `first` as the first message, whatever it is.
-    pub fn connect_with(service: &TestService, first: ToService) -> Self {
+    pub fn connect_with(service: &TestService, first: &ToService) -> Self {
         let mut connection = service.connect().expect("the service accepts a connection");
+        connection.send(first).expect("the first message is sent");
+        Self::listen(connection)
+    }
+
+    /// Connects and sends a frame whose payload is no message at all.
+    pub fn connect_with_garbage(service: &TestService) -> Self {
+        let mut connection = service.connect().expect("the service accepts a connection");
+        connection.send(&vec![0xFF_u8; 64]).expect("the garbage frame is sent");
+        Self::listen(connection)
+    }
+
+    fn listen(connection: Connection) -> Self {
         let mut reader = connection.try_clone().expect("the connection can be cloned");
-        connection.send(&first).expect("the first message is sent");
         let (sender, events) = mpsc::channel();
         thread::spawn(move || {
             while let Ok(event) = reader.recv::<PortalEvent>() {

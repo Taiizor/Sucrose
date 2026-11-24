@@ -286,6 +286,86 @@ mod tests {
         }
     }
 
+    /// A writer that takes one event and then blocks, like a pipe write to a Portal that does not read.
+    struct Gated {
+        link: PortalLink,
+        holding: crossbeam_channel::Receiver<()>,
+        release: Sender<()>,
+        written: Arc<Mutex<Vec<PortalEvent>>>,
+    }
+
+    fn gated_link() -> Gated {
+        let (holding_tx, holding) = crossbeam_channel::unbounded::<()>();
+        let (release, release_rx) = crossbeam_channel::unbounded::<()>();
+        let written = Arc::new(Mutex::new(Vec::new()));
+        let record = Arc::clone(&written);
+        let link = PortalLink::start("test-portal-writer".to_owned(), 1, 100, move |event| {
+            let _ = holding_tx.send(());
+            let _ = release_rx.recv();
+            record.lock().unwrap_or_else(PoisonError::into_inner).push(event);
+            true
+        })
+        .expect("the writer thread starts");
+        Gated {
+            link,
+            holding,
+            release,
+            written,
+        }
+    }
+
+    fn memory() -> PortalEvent {
+        PortalEvent::Memory(MemoryReport {
+            service: 1,
+            renderers: Vec::new(),
+            portal: 0,
+        })
+    }
+
+    #[test]
+    fn a_portal_that_does_not_read_never_blocks_the_sender_and_loses_only_memory_events() {
+        let Gated {
+            link,
+            holding,
+            release,
+            written,
+        } = gated_link();
+        // The writer takes the first event and is stuck writing it.
+        assert_eq!(link.offer(PortalEvent::Focus { page: None }), Offer::Queued);
+        holding
+            .recv_timeout(Duration::from_secs(5))
+            .expect("the writer holds an event");
+
+        for _ in 0..OUTGOING_CAPACITY {
+            assert_eq!(link.offer(memory()), Offer::Queued);
+        }
+        assert_eq!(link.offer(memory()), Offer::Dropped, "a memory reading is skipped");
+        assert_eq!(
+            link.offer(PortalEvent::Close),
+            Offer::Failed,
+            "any other event ends the connection"
+        );
+
+        // Letting the Portal read again delivers what was queued, in order.
+        drop(release);
+        let events = wait_for(&written, 1 + OUTGOING_CAPACITY);
+        assert_eq!(events.first(), Some(&PortalEvent::Focus { page: None }));
+        assert!(events[1..].iter().all(|event| matches!(event, PortalEvent::Memory(_))));
+    }
+
+    #[test]
+    fn a_broken_connection_fails_every_later_offer() {
+        let link =
+            PortalLink::start("test-portal-writer".to_owned(), 1, 100, |_| false).expect("the writer thread starts");
+        assert_eq!(link.offer(PortalEvent::Close), Offer::Queued);
+
+        let deadline = Instant::now() + Duration::from_secs(5);
+        while link.offer(PortalEvent::Close) != Offer::Failed {
+            assert!(Instant::now() < deadline, "the broken link kept accepting events");
+            thread::sleep(Duration::from_millis(10));
+        }
+    }
+
     fn welcome() -> PortalEvent {
         PortalEvent::Close
     }
