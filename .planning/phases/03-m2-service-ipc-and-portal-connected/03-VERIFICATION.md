@@ -1,6 +1,6 @@
 ---
 phase: 03-m2-service-ipc-and-portal-connected
-verified: 2026-11-24T21:09:50Z
+verified: 2026-11-24T21:55:00Z
 status: human_needed
 score: 11/13 must-haves verified
 covered_files:
@@ -116,7 +116,7 @@ covered_files:
   - xtask/src/main.rs
   - xtask/src/measure.rs
   - xtask/src/synth_library.rs
-covered_digest: "v4:sha256:a0d2fd015135a474ebb1020e6b9f7bee6d138795968cf8091d360ef794961123"
+covered_digest: "v4:sha256:a7dfc092049ad43de8001ec4d8223ea9dea791b21c6c568db9b5e47ce8076c8e"
 behavior_unverified: 2
 overrides_applied: 0
 re_verification:
@@ -167,13 +167,13 @@ human_verification:
 # Phase 3: M2 - Service, IPC and Portal connected Verification Report
 
 **Phase Goal:** The service and the Portal work as one app: the user picks a theme in the Portal's library, "Use" applies it through the service, settings migrate from the C# install and persist, and Sucrose can start with the OS.
-**Verified:** 2026-11-24T21:09:50Z
+**Verified:** 2026-11-24T21:55:00Z
 **Status:** human_needed
-**Re-verification:** Yes. The previous report (human_needed, 11/13, 2026-11-24T20:05Z) went stale after the code review fixes WR-09..WR-12 (8a60d6f1, 2a5fde89, 7a334708, a4e650bc). All 13 truths were re-checked; the four fixed files were read again, not taken from 03-REVIEW-FIX.md.
+**Re-verification:** Yes. The previous report (human_needed, 11/13, 2026-11-24T21:09:50Z) went stale after commit 718081ed (WR-13), which changed `apps/sucrose-portal/src/background.rs` and `apps/sucrose-portal/src/library/thumbs.rs`. Nothing else under `apps/`, `crates/`, `xtask/` or `docs/` changed since (`git diff --stat 594ec313..HEAD` lists only those two files).
 
 ## Goal Achievement
 
-The fixes hold and nothing regressed. I read the changed code and ran the named tests of each fix in the main checkout (the orchestrator's single `cargo test --workspace` run, 28 binaries and 0 failed, is the whole-suite evidence and was not repeated). One new warning, WR-13 (the generic JPEG fallback is outside the WR-12 decode budget), is open. It is hardening for hostile input and does not fail a success criterion as written, so it is not a gap. The status stays `human_needed` for the same two reasons as before: Exit closing every process and start after sign-in need the real desktop, and the plans' end-of-phase manual checks are still pending (03-UAT.md, 0 of 8 answered).
+The WR-13 fix holds and nothing regressed. I read the diff of 718081ed and the current `thumbs.rs` and `background.rs` myself, ran the portal `thumbs::` and `background::` tests (44 passed, 0 failed), the whole `sucrose-config` store test binary (17 passed) and the service quitting and supervisor tests (8 passed) in the main checkout. The orchestrator's single `cargo test` run on this HEAD (943 passed, 0 failed, 20 ignored) is the whole-suite evidence and was not repeated. The one warning of the previous report is closed. The status stays `human_needed` for the same two reasons as before: Exit closing every process and start after sign-in need the real desktop, and the plans' end-of-phase manual checks are still pending (03-UAT.md, status testing, every result still pending). I did not start `sucrose.exe` or `sucrose-portal.exe`.
 
 ### Observable Truths
 
@@ -190,12 +190,12 @@ The fixes hold and nothing regressed. I read the changed code and ran the named 
 | 9 | SC4b: with start with the OS on, Sucrose starts after sign-in and resumes the wallpaper | ⚠️ PRESENT_BEHAVIOR_UNVERIFIED | Platform autostart code, WR-05 fix (03-35) and text tests are present and wired; sign-in itself and the three #[ignore] registry tests were never run (human check 03-23). |
 | 10 | SC5a: light/dark/OS theme, Mica/Acrylic backdrop, optional background image, header actions, search, status bar, Help/About | VERIFIED | Unchanged since the last report; `background.rs` still calls `check_dimensions` and the now budgeted `decode_jpeg_scaled` (line 177). Visual judgment is human (03-UI-REVIEW.md 18/24). |
 | 11 | SC5b: scrolling a large library keeps memory bounded, recorded in MEASUREMENTS.md | VERIFIED | Rows 16-17 of `docs/MEASUREMENTS.md` (final 178 MB against 193 MB on the real library, 165 MB against 184 MB on 500 themes) were reproduced from the stored samples in the previous run and are unchanged. The thumbnail cache (64 images / 48 MiB) tests pass. Caveat: the rows pre-date the WR-12 decode budget; the budget only delays decodes when another one holds the allowance, so it cannot raise the working set, but it is listed in Human Verification as a refresh the maintainer may want. |
-| 12 | Derived: untrusted theme/background images cannot exhaust memory (T-03-25, T-03-40; CR-01) | VERIFIED (warning WR-13) | Header limits hold on all three decode paths (`check_dimensions`, 16384 square tests pass). WR-12 added `set_max_decoding_buffer_size(256 MiB)`, a second header check on the decoder's own `read_info` and one process-wide `JPEG_DECODES` budget (thumbs.rs 332-349); the tests `a_jpeg_whose_own_header_is_over_the_limit_is_not_decoded_by_the_scaled_decoder`, `the_decode_budget_admits_what_fits_and_gives_it_back_on_drop`, `a_decode_over_the_whole_budget_still_runs_when_it_is_alone` and `a_decode_that_does_not_fit_waits_for_the_running_one` pass (24 of 24 thumbs tests). WR-13 is confirmed in the code: `decode_jpeg_scaled` returns None for any refusal or decode error, and `decode_bytes` (thumbs.rs 321-324) and `background.rs` (177-179) then call `decode_generic` with no permit, a full-size decode bounded only per image by `MAX_DECODE_ALLOC` (256 MB) and the pixel cap. The per-image memory bomb of CR-01 stays closed; only the aggregate bound of up to three thumbnail decodes plus the background image on a hostile, partly broken JPEG is not reached. |
+| 12 | Derived: untrusted theme/background images cannot exhaust memory (T-03-25, T-03-40; CR-01) | VERIFIED | Header limits hold on all three decode paths (`check_dimensions`; the 16384-square tests pass for thumbnails and background). WR-13 is fixed in the code: `decode_budgeted` (thumbs.rs 332-351) prices the decode from the declared header size (6 bytes per pixel for JPEG, 4 otherwise), takes one permit of the process-wide `IMAGE_DECODES` budget (256 MiB) before either decoder runs and holds it until the `finish` closure (fit or resize and BGRA conversion) has returned. `decode_jpeg_scaled` and `decode_generic` are now private (lines 356 and 381), so the only callers are `decode_budgeted`; both `decode_bytes` (thumbs.rs 323, background.rs 178) go through it and there is no nested acquire. Tests pass (44 of 44 in `thumbs::` and `background::`), including `the_generic_fallback_decodes_under_a_permit_priced_from_the_header`, `the_decode_budget_admits_what_fits_and_gives_it_back_on_drop`, `a_decode_over_the_whole_budget_still_runs_when_it_is_alone` and `a_decode_that_does_not_fit_waits_for_the_running_one`. Residual, both Info in 03-REVIEW.md: IN-21 (GIF paths decode outside the shared budget; they keep the frame and size caps) and IN-22 (16-bit and float images are priced below what they hold). Neither is a success-criterion failure. |
 | 13 | Derived: the settings store never overwrites a good Sucrose.json after a transient read error (CR-02) | VERIFIED | `read_retrying`, `Read::Unreadable` and `StoreError::Io` (store.rs 104-135, 219-245) are unchanged by WR-09; the three CR-02 tests pass in this run. |
 
 **Score:** 11/13 truths verified (2 present, behavior-unverified; 0 failed)
 
-**WR-13 against UI-07.** UI-07 requires card-size decoding, a bounded cache, release of images no longer shown and a recorded measurement. All four hold for real and synthetic libraries. WR-13 concerns only a hostile JPEG that the scaled decoder rejects after its header passes, an input class no success criterion measures, and the per-image cap still applies. I classify it as a Warning, not a BLOCKER, and the requirement stays satisfied. It should be fixed in the next gap round because it contradicts the WR-12 fix text ("about one worst-case decode instead of four").
+**UI-07 after WR-13.** Card-size decoding, a bounded cache, release of images no longer shown and a recorded measurement all hold. The decode budget now covers the generic fallback as well, so the per-image and the aggregate decode bounds both apply to every thumbnail and background JPEG or PNG decode.
 
 ### Deferred Items
 
@@ -212,7 +212,7 @@ None.
 | `crates/sucrose-config/src/store.rs` | atomic settings, retried read, Unreadable not Corrupt, corrupt kept aside | VERIFIED | `CORRUPT_FILE` line 26, `keep_corrupt_aside` 196 called at 118 and 186; 8 store tests pass |
 | `apps/sucrose/src/service.rs` | quit bookkeeping for a library move | VERIFIED | `note_exit_while_quitting` 2757, called at 1225 |
 | `crates/sucrose-engine-mpv/src/player.rs` | request-generation loading state | VERIFIED | `load_generation`, `started_generation`, `finish_loading` (fetch_max) lines 195-216, 431-433, 745, 765; unit test passes. IN-19 is a rare residual |
-| `apps/sucrose-portal/src/library/thumbs.rs`, `background.rs`, `preview.rs` | pixel-area limit and shared JPEG budget | VERIFIED (WR-13 open) | `check_dimensions` in all three; budget only on the scaled JPEG path |
+| `apps/sucrose-portal/src/library/thumbs.rs`, `background.rs`, `preview.rs` | pixel-area limit and shared decode budget | VERIFIED | `check_dimensions` in all three; `decode_budgeted` holds one permit across the scaled decoder, the fallback and the resize (WR-13 closed); GIF paths outside the budget (IN-21, Info) |
 | `apps/sucrose-portal/src/library/card.rs`, `atlas.rs` | hover preview painted, released images | VERIFIED | unchanged since the last report |
 | `apps/sucrose/src/{portal_link,settings_host,startup,supervisor,modules,lifecycle}.rs` | service host and lifecycle | VERIFIED | wired; tests pass in the full run |
 | `crates/sucrose-platform/src/{autostart,os_windows/autostart,os_windows/memory}.rs` | OS start entry, memory detail | VERIFIED (Windows) | macOS and Linux text-tested only |
@@ -228,7 +228,7 @@ None.
 | hover event | animated preview | `on_hover` -> `hover_card` -> `PreviewState` -> `img(image).id(..)` | WIRED | unchanged |
 | Portal settings rows | Sucrose.json | `PortalRequest::Change` -> settings_host -> store | WIRED | `a_change_survives_a_restart` |
 | autostart row | Run value | `startup::set_startup` -> platform | WIRED | |
-| image decode | pixel-area limit and decode budget | `check_dimensions`, `JPEG_DECODES.acquire` | WIRED (budget skipped on the generic fallback) | WR-13 |
+| image decode | pixel-area limit and decode budget | `check_dimensions`, `decode_budgeted` -> `IMAGE_DECODES.acquire` | WIRED | WR-13 closed; both decoders private |
 | corrupt settings file | `Sucrose.json.corrupt` | `keep_corrupt_aside` in `open` and `persist` | WIRED | WR-09 |
 
 ### Data-Flow Trace (Level 4)
@@ -243,11 +243,10 @@ None.
 
 | Behavior | Command | Result | Status |
 |----------|---------|--------|--------|
-| Whole workspace | `cargo test --workspace` (orchestrator, once, main checkout) | 28 binaries, 0 failed, includes the 11 WR-09..WR-12 tests | PASS (reported, not repeated) |
-| WR-09, CR-02, kill during write | `cargo test -p sucrose-config --test store -- corrupt kept_aside unreadable kill_during` | 8 passed | PASS |
-| WR-10 quitting | `cargo test -p sucrose --bin sucrose -- note_exit quitting` | 7 passed | PASS |
-| WR-11 loading generation | `cargo test -p sucrose-engine-mpv --lib -- loading generation` | 1 passed (the other new test has a different name; covered by the full run) | PASS |
-| WR-12 budget and pixel limit | `cargo test -p sucrose-portal --bin sucrose-portal -- thumbs::` | 24 passed | PASS |
+| Whole workspace | `cargo test` from the repository root (orchestrator, once, this HEAD) | 943 passed, 0 failed, 20 ignored | PASS (reported, not repeated) |
+| WR-13 decode budget, pixel limit, background | `cargo test -p sucrose-portal --bin sucrose-portal -- thumbs:: background::` | 44 passed, 0 failed | PASS |
+| Settings store (CR-02, WR-09, kill during write, migration) | `cargo test -p sucrose-config --test store` | 17 passed, 0 failed | PASS |
+| Quit bookkeeping (WR-10) and bounded restart | `cargo test -p sucrose --bin sucrose -- quitting note_exit three_crashes` | 8 passed, 0 failed | PASS |
 | Debt markers | `grep -rnE "TBD|FIXME|XXX" apps crates xtask --include=*.rs` | no match | PASS |
 
 ### Probe Execution
@@ -280,7 +279,7 @@ All 21 phase IDs (ARCH-01..05, FMT-01, FMT-06, TRAY-03, TRAY-05, LIB-01..04, LIB
 | UI-02 | 03-17, 03-20 | SATISFIED (visual human) | theme mode and OS following |
 | UI-03 | 03-03, 03-08, 03-14, 03-18 | SATISFIED | header, search, status bar, arguments |
 | UI-05 | 03-03, 03-18 | SATISFIED (visual human) | Help, About, tray hint dialogs |
-| UI-07 | 03-05, 03-10, 03-19, 03-24..03-27, 03-36..03-40 | SATISFIED (warning WR-13) | card-size decode, bounded cache, release, D-25 rows; see the WR-13 note under the score |
+| UI-07 | 03-05, 03-10, 03-19, 03-24..03-27, 03-36..03-40 | SATISFIED | card-size decode, bounded cache, release, D-25 rows; WR-13 closed |
 
 **Bookkeeping drift (still open, not a code gap):** `.planning/REQUIREMENTS.md` still shows ARCH-03, FMT-01, FMT-06, LIB-01..LIB-04, LIB-08, UI-02, UI-03 and UI-05 with unticked checkboxes and "Gaps Found" in the traceability table, left over from the first verification (lines 22, 103-106, 110, 132-133, 135, 160, 165 and 234, 291-299, 311-314, 330, 335). The evidence above supports ticking them. UI-02 and UI-05 have visual human checks pending, and TRAY-03 and TRAY-05 are ticked although their end-to-end checks are pending. The orchestrator should reconcile this after the maintainer answers 03-UAT.md.
 
@@ -289,7 +288,7 @@ All 21 phase IDs (ARCH-01..05, FMT-01, FMT-06, TRAY-03, TRAY-05, LIB-01..04, LIB
 | File | Line | Pattern | Severity | Impact |
 |------|------|---------|----------|--------|
 | (apps, crates, xtask) | - | TBD/FIXME/XXX | none | grep returned nothing; no debt marker gate hit |
-| `apps/sucrose-portal/src/library/thumbs.rs` | 321-324, 332-359 | JPEG decode budget bypassed by `decode_generic` fallback (WR-13, open) | Warning | aggregate bound of WR-12 not reached on hostile JPEGs the scaled decoder fails on; per-image cap still applies. Same fallback in `background.rs` 177-179 |
+| `apps/sucrose-portal/src/library/thumbs.rs`, `background.rs` | various | IN-21 (GIF decode outside the shared budget), IN-22 (16-bit and float images priced low) | Info | residual hardening after WR-13; the per-image cap and the frame cap still apply |
 | `crates/sucrose-config/src/store.rs` | 195-202 | one `.corrupt` slot, failed rename still lets the write replace the corrupt file (IN-20, open) | Info | second corruption destroys the first copy; rare |
 | `crates/sucrose-engine-mpv/src/player.rs` | 430-436 | synchronous load failure marks an earlier in-flight request finished (IN-19, open) | Info | needs two back-to-back loads with the second failing synchronously |
 | `apps/sucrose/src/portal_link.rs` | 218-229 | Portal dropped by a full queue is not counted as gone while closing (IN-14, open) | Info | Exit waits the 2 s close timer instead of leaving at once |
@@ -301,9 +300,9 @@ See the frontmatter `human_verification` and `behavior_unverified_items`; the sa
 
 ### Gaps Summary
 
-No gap blocks the goal. The review fixes WR-09, WR-10, WR-11 and WR-12 are present, wired and covered by passing tests, and the earlier closures (hover previews, bounded paging memory, CR-01, CR-02) still hold. Open items: WR-13 (warning) and nine ledger rows (WR-13 plus IN-13..IN-20 open), none of them a success-criterion failure. Fix WR-13 in the next gap round by taking the budget permit in `decode_bytes` (thumbs and background) before either decoder runs, and answer the pending UAT items.
+No gap blocks the goal. WR-13 is closed (commit 718081ed, confirmed by the code, the new test and 03-REVIEW.md), the review fixes WR-09..WR-12 and the earlier closures (hover previews, bounded paging memory, CR-01, CR-02) still hold, and the review found no critical issue and no warning. Open items are Info only (IN-02, IN-04, IN-10, IN-11, IN-13..IN-22, ledger in 03-REVIEW-DISPOSITION.md). The nine human items in the frontmatter, led by Exit closing every process (SC3, TRAY-05) and autostart across a logon (SC4, TRAY-03), remain for the maintainer in 03-UAT.md. Nyquist (0 gaps) and security (threats_open 0) audits ran on this HEAD and are consistent with this result.
 
 ---
 
-_Verified: 2026-11-24T21:09:50Z_
+_Verified: 2026-11-24T21:55:00Z_
 _Verifier: Claude (gsd-verifier)_
