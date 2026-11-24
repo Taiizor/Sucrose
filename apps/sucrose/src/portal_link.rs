@@ -73,11 +73,14 @@ impl PortalLink {
         self.pid
     }
 
-    /// Queues `event` without ever waiting. A full queue is a failure: the Portal is stuck, and losing an event
-    /// would leave it showing a wrong state.
+    /// Queues `event` without ever waiting. A memory reading that finds the queue full is dropped: the next one
+    /// replaces it. Any other event that does is a failure, because the Portal is stuck and losing the event would
+    /// leave it showing a wrong state; the connection is given up and the Portal reconnects.
     pub fn offer(&self, event: PortalEvent) -> Offer {
+        let skippable = matches!(event, PortalEvent::Memory(_));
         match self.queue.try_send(event) {
             Ok(()) => Offer::Queued,
+            Err(crossbeam_channel::TrySendError::Full(_)) if skippable => Offer::Dropped,
             Err(_) => Offer::Failed,
         }
     }
