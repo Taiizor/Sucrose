@@ -62,6 +62,7 @@ struct LibrarySettings {
 }
 
 /// The library folder the service reported: its configured location, or the default folder when none is set.
+#[allow(dead_code, reason = "the General page of this plan's last task shows it")]
 pub fn location_of(settings: &PortalSettings) -> PathBuf {
     LibrarySettings::from_portal(settings).location
 }

@@ -35,15 +35,6 @@ impl Mode {
         }
     }
 
-    /// The page of the protocol this mode shows.
-    pub fn page(self) -> PortalPage {
-        match self {
-            Self::Library => PortalPage::Library,
-            Self::Settings(SettingsTab::General) => PortalPage::General,
-            Self::Settings(SettingsTab::Personal) => PortalPage::Personal,
-        }
-    }
-
     /// Whether a settings page is shown.
     pub fn is_settings(self) -> bool {
         matches!(self, Self::Settings(_))
@@ -116,13 +107,6 @@ mod tests {
             Mode::from_page(PortalPage::Personal),
             Mode::Settings(SettingsTab::Personal)
         );
-    }
-
-    #[test]
-    fn settings_mode_names_the_page_it_shows() {
-        for page in [PortalPage::Library, PortalPage::General, PortalPage::Personal] {
-            assert_eq!(Mode::from_page(page).page(), page);
-        }
     }
 
     #[test]
