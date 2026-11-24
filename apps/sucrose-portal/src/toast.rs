@@ -72,10 +72,6 @@ pub fn configure(cx: &mut App) {
 }
 
 /// Shows a plain toast.
-#[allow(
-    dead_code,
-    reason = "the settings and library plans show info toasts (corrupt themes moved, copied)"
-)]
 pub fn show_info(text: impl Into<SharedString>, window: &mut Window, cx: &mut App) {
     show(Kind::Info, text.into(), window, cx);
 }

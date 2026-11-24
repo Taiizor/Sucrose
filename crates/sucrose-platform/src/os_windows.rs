@@ -57,6 +57,7 @@ impl Platform for Current {
             fullscreen_detection: true,
             gpu_preference: true,
             window_backdrop: backdrop_supported(windows_build()),
+            recycle_bin: true,
             ..Capabilities::default()
         }
     }

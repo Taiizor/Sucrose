@@ -127,12 +127,12 @@ const NOTHING_MAINTAINED: MaintainReport = MaintainReport {
     corrupt_skipped: 0,
 };
 
-/// A bin that refuses everything, until the platform wrapper is wired in.
-struct NoBin;
+/// The OS recycle bin or trash for the library-ops worker.
+struct OsBin;
 
-impl library_ops::Trash for NoBin {
-    fn move_to_trash(&self, _path: &std::path::Path) -> Result<(), String> {
-        Err("no bin yet".to_owned())
+impl library_ops::Trash for OsBin {
+    fn move_to_trash(&self, path: &std::path::Path) -> Result<(), String> {
+        sucrose_platform::move_to_trash(path).map_err(|error| error.to_string())
     }
 }
 
@@ -141,7 +141,7 @@ impl library_ops::Trash for NoBin {
 fn start_library_ops(input: MaintainInput, notifier: &Notifier) -> bool {
     let notifier = notifier.clone();
     let started = thread::Builder::new().name("library-ops".to_owned()).spawn(move || {
-        let done = std::panic::catch_unwind(|| library_ops::maintain(&input, &NoBin)).map_or_else(
+        let done = std::panic::catch_unwind(|| library_ops::maintain(&input, &OsBin)).map_or_else(
             |_| {
                 tracing::error!("the library maintenance panicked");
                 LibraryDone {

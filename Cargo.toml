@@ -43,6 +43,8 @@ sha2 = "0.11.1"
 sysinfo = { version = "0.40.4", default-features = false, features = ["system"] }
 thiserror = "2"
 toml = "1.2.2"
+# Recycle bin / trash on every OS, behind sucrose-platform (D-09): corrupt themes are moved there, never deleted.
+trash = "5.4.0"
 # Default features off: the default one is the Linux GTK AppIndicator backend (Windows only, via sucrose-platform).
 tray-icon = { version = "0.26.1", default-features = false }
 tracing = "0.1"

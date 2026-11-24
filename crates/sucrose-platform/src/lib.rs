@@ -18,6 +18,7 @@ mod os_linux;
 mod os_macos;
 #[cfg(target_os = "windows")]
 mod os_windows;
+mod trash;
 #[cfg(not(target_os = "windows"))]
 mod unsupported;
 
@@ -39,6 +40,7 @@ pub use geometry::{MonitorInfo, Placement, PlacementVerdict, RectPx};
 pub use icon::truncate_tooltip;
 pub use imp::{DesktopSurface, EventLoop, LoopProxy, LoopTimers, RendererJob, Tray};
 pub use sucrose_core::settings::GpuPreference;
+pub use trash::move_to_trash;
 
 /// What the user chose on the tray icon (D-14).
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -133,6 +135,10 @@ pub struct Capabilities {
     /// The window backdrop materials (Mica, Acrylic, Tabbed) can be shown behind a window (Windows 11 22H2 and later).
     /// Where this is `false` a stored backdrop is applied as none without changing the setting (D-22).
     pub window_backdrop: bool,
+    /// Folders can be moved to the recycle bin (Windows) or trash (macOS, Linux) instead of being deleted (D-09). The
+    /// `trash` crate supports a bin on all three OSes; on a Linux system without a trash folder the move itself fails
+    /// and the caller keeps the item.
+    pub recycle_bin: bool,
 }
 
 /// A GPU adapter of this machine.

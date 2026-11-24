@@ -15,9 +15,9 @@ use crate::{
     banner,
     dialogs::tray_hint::{self, TrayHint, should_hint},
     header::{Header, HeaderEvent},
-    i18n::tr,
+    i18n::{tr, tr_count_with},
     ipc::{ConnectionState, LinkEvent, ServiceLink, next_state},
-    library::{ChangeLocation, LibraryView},
+    library::{ChangeLocation, LibraryView, bin_name},
     settings::{Mode, SettingsTab, general::GeneralPage, personal::PersonalPage},
     status_bar::StatusBar,
     theme, toast,
@@ -345,6 +345,18 @@ impl PortalApp {
                 PortalEvent::LibraryMaintained(report) => {
                     self.library
                         .update(cx, |library, cx| library.on_maintained(&report, cx));
+                    // The user hears about themes that left the library, and where they can get them back.
+                    if report.corrupt_moved > 0 {
+                        toast::show_info(
+                            tr_count_with(
+                                "Portal.LibraryPage.CorruptMoved",
+                                report.corrupt_moved as usize,
+                                &[("bin", bin_name())],
+                            ),
+                            window,
+                            cx,
+                        );
+                    }
                 }
                 PortalEvent::Memory(report) => {
                     self.status_bar.update(cx, |bar, cx| bar.set_memory(Some(report), cx));

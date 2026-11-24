@@ -15,6 +15,9 @@ impl Platform for Current {
     }
 
     fn capabilities(&self) -> Capabilities {
-        Capabilities::default()
+        Capabilities {
+            recycle_bin: true,
+            ..Capabilities::default()
+        }
     }
 }

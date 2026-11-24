@@ -9,7 +9,11 @@ use std::{
 };
 
 use sucrose_config::model::Settings;
-use sucrose_core::paths;
+use sucrose_core::{
+    library::{CorruptReason, scan},
+    paths,
+    version::app_version,
+};
 use sucrose_ipc::portal::MaintainReport;
 
 /// What one maintenance run works on, copied from the settings so the worker never touches them.
@@ -96,7 +100,6 @@ pub fn maintain(input: &MaintainInput, trash: &dyn Trash) -> (MaintainReport, Ve
 
 /// [`maintain`] with the file copy given.
 fn maintain_with(input: &MaintainInput, trash: &dyn Trash, copy_file: CopyFile<'_>) -> (MaintainReport, Vec<String>) {
-    let _ = trash;
     let mut report = MaintainReport {
         showcase_copied: 0,
         corrupt_moved: 0,
@@ -108,7 +111,55 @@ fn maintain_with(input: &MaintainInput, trash: &dyn Trash, copy_file: CopyFile<'
     }
     let (copied, names) = copy_showcase(input, copy_file);
     report.showcase_copied = copied;
+    if input.delete_corrupt {
+        (report.corrupt_moved, report.corrupt_skipped) = trash_corrupt(input, trash);
+    }
     (report, names)
+}
+
+/// Moves every folder the library scan classifies as corrupt to the bin and deletes that theme's property cache file
+/// (legacy). The service scans here itself and trusts no list from the Portal (T-03-48). A folder that cannot be read, a
+/// link, or one the bin refuses stays where it is. Nothing is ever deleted except a cache file. Returns how many folders
+/// moved and how many stayed.
+fn trash_corrupt(input: &MaintainInput, trash: &dyn Trash) -> (u32, u32) {
+    let scan = match scan(&input.location, &app_version()) {
+        Ok(scan) => scan,
+        Err(error) => {
+            tracing::warn!(%error, "the library cannot be scanned, no corrupt theme is moved");
+            return (0, 0);
+        }
+    };
+    let (mut moved, mut skipped) = (0, 0);
+    for corrupt in scan.corrupt {
+        // Unreadable is never a reason to move a folder; a link would be followed by the scan but is not ours to move.
+        let is_link = corrupt
+            .dir
+            .symlink_metadata()
+            .is_ok_and(|meta| meta.file_type().is_symlink());
+        if corrupt.reason == CorruptReason::Unreadable || is_link {
+            skipped += 1;
+            continue;
+        }
+        match trash.move_to_trash(&corrupt.dir) {
+            Ok(()) => {
+                moved += 1;
+                if let Some(properties) = &input.properties {
+                    // The folder name is a directory entry name of the scan, so it cannot leave the cache folder.
+                    let cache = properties.join(format!("{}.json", corrupt.folder));
+                    if cache.is_file()
+                        && let Err(error) = fs::remove_file(&cache)
+                    {
+                        tracing::debug!(%error, "the property cache of a moved theme could not be deleted");
+                    }
+                }
+            }
+            Err(error) => {
+                tracing::warn!(%error, "a corrupt theme could not be moved to the bin, it stays");
+                skipped += 1;
+            }
+        }
+    }
+    (moved, skipped)
 }
 
 /// Copies every folder of the showcase whose name is not recorded yet into the library. A name is returned only when the

@@ -61,6 +61,16 @@ struct LibrarySettings {
     preview_hide: bool,
 }
 
+/// What the OS calls the place deleted items wait in (UI-SPEC: "Recycle Bin" on Windows, "Trash" on macOS and Linux).
+pub fn bin_name() -> &'static str {
+    bin_name_for(std::env::consts::OS)
+}
+
+/// [`bin_name`] for the OS named like `std::env::consts::OS`.
+fn bin_name_for(os: &str) -> &'static str {
+    if os == "windows" { "Recycle Bin" } else { "Trash" }
+}
+
 /// The library folder the service reported: its configured location, or the default folder when none is set.
 pub fn location_of(settings: &PortalSettings) -> PathBuf {
     LibrarySettings::from_portal(settings).location
@@ -867,6 +877,15 @@ fn page_after_settings_change(old: &LibrarySettings, new: &LibrarySettings, page
 #[cfg(test)]
 mod tests {
     use std::path::PathBuf;
+
+    use super::bin_name_for;
+
+    #[test]
+    fn the_bin_is_the_recycle_bin_on_windows_and_the_trash_elsewhere() {
+        assert_eq!(bin_name_for("windows"), "Recycle Bin");
+        assert_eq!(bin_name_for("macos"), "Trash");
+        assert_eq!(bin_name_for("linux"), "Trash");
+    }
 
     use sucrose_core::settings::{SortKind, SortMode};
 
