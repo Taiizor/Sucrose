@@ -91,16 +91,12 @@ impl Debounce {
     }
 }
 
-/// Which renderers the rule acts on. Both scopes exist; M1 uses [`ActionScope::AllMonitors`] without a switch (D-05).
+/// Which renderers the rule acts on; `Backgroundog.FullScreenScope` chooses (D-05), all monitors by default.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ActionScope {
     /// Every monitor's renderer, whichever monitor the fullscreen window is on (the legacy behavior).
     AllMonitors,
     /// Only the renderers of the monitors the fullscreen window covers.
-    #[allow(
-        dead_code,
-        reason = "implemented and tested, but no switch reaches it in M1 (D-05): Phase 3 persists it"
-    )]
     AffectedMonitor,
 }
 

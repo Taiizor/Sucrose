@@ -5,19 +5,22 @@
 //! only ever sees [`SettingsHost::view`] and the `Changed` events. Requests are applied one at a time on the service's
 //! main thread, so the last change wins and there is no second writer and no cache.
 
-use std::path::Path;
+use std::{ffi::OsStr, path::Path};
 
 use sucrose_config::{
     migrate::migrate,
     model::Settings,
     store::{LoadOutcome, Store},
 };
-use sucrose_ipc::portal::{PortalSettings, SettingChange};
+use sucrose_ipc::portal::{MAX_PATH_TEXT, PortalSettings, SettingChange};
 
 use crate::portal_link::clip;
 
 /// What the Portal is told when a change could not be written (UI-SPEC "Setting not saved").
 pub const NOT_SAVED: &str = "Your setting couldn't be saved. Try again.";
+
+/// The image types the legacy background picker offers (formats, case-insensitive).
+const IMAGE_EXTENSIONS: [&str; 6] = ["png", "jpg", "jpeg", "tiff", "webp", "gif"];
 
 /// The settings of the running service and the file they are saved in.
 #[derive(Debug)]
@@ -100,7 +103,42 @@ impl SettingsHost {
 /// Checks `change` and returns the value to store: numbers are clamped to the ranges of the legacy Portal, a
 /// background image must be empty or an absolute path of an image type the legacy picker offers.
 pub fn validate(change: SettingChange) -> Result<SettingChange, String> {
-    Ok(change)
+    Ok(match change {
+        SettingChange::BackgroundOpacity(value) => SettingChange::BackgroundOpacity(value.min(100)),
+        SettingChange::LibraryPagination(value) => SettingChange::LibraryPagination(value.clamp(1, 100)),
+        SettingChange::AdaptiveLayout(value) => SettingChange::AdaptiveLayout(value.min(100)),
+        SettingChange::AdaptiveMargin(value) => SettingChange::AdaptiveMargin(value.clamp(5, 25)),
+        SettingChange::BackgroundImage(path) => {
+            check_image(&path)?;
+            SettingChange::BackgroundImage(path)
+        }
+        other => other,
+    })
+}
+
+/// A background image is no image (empty), or an absolute path of at most [`MAX_PATH_TEXT`] bytes that ends in one of
+/// [`IMAGE_EXTENSIONS`]. Whether the file exists is the Portal's business when it draws it.
+fn check_image(text: &str) -> Result<(), String> {
+    if text.is_empty() {
+        return Ok(());
+    }
+    if text.len() > MAX_PATH_TEXT {
+        return Err("The image path is too long.".to_owned());
+    }
+    let path = Path::new(text);
+    if !path.is_absolute() {
+        return Err("The image path must be an absolute path.".to_owned());
+    }
+    let known = path.extension().and_then(OsStr::to_str).is_some_and(|extension| {
+        IMAGE_EXTENSIONS
+            .iter()
+            .any(|known| known.eq_ignore_ascii_case(extension))
+    });
+    if known {
+        Ok(())
+    } else {
+        Err("The image must be a PNG, JPG, JPEG, TIFF, WEBP or GIF file.".to_owned())
+    }
 }
 
 /// Sets the field `change` names.

@@ -182,7 +182,9 @@ fn a_refused_image_is_rejected_and_nothing_is_stored() {
         panic!("the change is not answered Rejected");
     };
     assert_eq!(refused, change);
-    assert_eq!(service.settings_file()["Portal"]["BackgroundImage"], "");
+    // The default is not written out, so the key is absent or empty; either way the refused path is not there.
+    let stored = service.settings_file();
+    assert_eq!(stored["Portal"]["BackgroundImage"].as_str().unwrap_or(""), "");
 }
 
 /// Makes a file writable again when dropped, so a failed assertion cannot leave a read-only file in the scratch

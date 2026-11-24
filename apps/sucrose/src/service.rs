@@ -33,7 +33,7 @@ use sucrose_platform::{
     RectPx, Tray,
 };
 // ScreenArea is read below to choose the surface rectangle.
-use sucrose_core::settings::{FullScreenAction, GpuPreference, PauseKind, ScreenArea};
+use sucrose_core::settings::{FullScreenAction, FullScreenScope, GpuPreference, PauseKind, ScreenArea};
 
 use crate::{
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
@@ -195,10 +195,6 @@ fn lock_assignments(assignments: &Mutex<HashMap<u8, Assignment>>) -> MutexGuard<
 fn lock(renderers: &Mutex<Renderers>) -> MutexGuard<'_, Renderers> {
     renderers.lock().unwrap_or_else(PoisonError::into_inner)
 }
-
-/// The fullscreen rule acts on every monitor, as the legacy app does (D-05). Acting on the affected monitor only is
-/// implemented too ([`ActionScope::AffectedMonitor`]) but has no switch in M1: persisting it is Phase 3, its UI PERF-01.
-const ACTION_SCOPE: ActionScope = ActionScope::AllMonitors;
 
 /// How long a renderer gets to leave after Close before it is killed.
 const SHUTDOWN_GRACE: Duration = Duration::from_secs(2);
@@ -442,7 +438,7 @@ pub fn run() -> anyhow::Result<()> {
     // The one Portal that is open, if any; owned by this thread so two that connect together are decided here.
     let mut portals = PortalRegistry::default();
     let timers = event_loop.timers();
-    if fleet.enable_fullscreen(plan.fullscreen, plan.pause) {
+    if fleet.enable_fullscreen(plan.fullscreen, plan.scope, plan.pause) {
         timers.set(FULLSCREEN_TIMER, FULLSCREEN_POLL_MS);
     }
     let loop_end = event_loop.run(|event| match event {
@@ -1331,6 +1327,8 @@ struct Plan {
     app_visible: bool,
     /// Backgroundog.json FullScreenPerformance: what a fullscreen app in front does to the wallpaper.
     fullscreen: FullScreenAction,
+    /// Backgroundog.FullScreenScope: which monitors the fullscreen rule acts on.
+    scope: ActionScope,
     /// Backgroundog.json PausePerformanceType.
     pause: PauseKind,
     /// Engine.json GraphicPreference: the GPU Windows is asked to give the renderers (DESK-12).
@@ -1513,7 +1511,7 @@ impl Fleet {
 
     /// Switches the fullscreen rule on for `action` unless it is Resume, which disables it: then no timer and no
     /// state exist at all (D-008). `true` when the rule is on and its timer has to run.
-    fn enable_fullscreen(&mut self, action: FullScreenAction, pause: PauseKind) -> bool {
+    fn enable_fullscreen(&mut self, action: FullScreenAction, scope: ActionScope, pause: PauseKind) -> bool {
         if action == FullScreenAction::Resume || self.job.is_none() {
             tracing::info!("fullscreen rule off (FullScreenPerformance = Resume)");
             return false;
@@ -1522,7 +1520,7 @@ impl Fleet {
             tracing::info!("PausePerformanceType Heavy is handled like Light in M1");
         }
         tracing::info!(?action, "fullscreen rule on");
-        self.fullscreen = Some(Rule::new(action, ACTION_SCOPE));
+        self.fullscreen = Some(Rule::new(action, scope));
         true
     }
 
@@ -1802,6 +1800,7 @@ fn plan_wallpapers() -> (Plan, SettingsHost) {
             },
             app_visible: true,
             fullscreen: FullScreenAction::default(),
+            scope: ActionScope::AllMonitors,
             pause: PauseKind::default(),
             gpu: GpuPreference::default(),
         };
@@ -1864,8 +1863,17 @@ fn plan_from(settings: &Settings, legacy_root: &std::path::Path) -> Plan {
         status,
         app_visible: settings.general.app_visible,
         fullscreen: settings.backgroundog.fullscreen,
+        scope: action_scope(settings.backgroundog.full_screen_scope),
         pause: settings.backgroundog.pause,
         gpu: settings.engine.gpu_preference,
+    }
+}
+
+/// The monitors the fullscreen rule acts on for `Backgroundog.FullScreenScope` (Phase 2 D-05).
+fn action_scope(scope: FullScreenScope) -> ActionScope {
+    match scope {
+        FullScreenScope::AllMonitors => ActionScope::AllMonitors,
+        FullScreenScope::AffectedMonitor => ActionScope::AffectedMonitor,
     }
 }
 
@@ -3033,7 +3041,7 @@ mod tests {
     fn enable_fullscreen_resume_keeps_the_rule_and_its_timer_off() {
         let mut fleet = fleet_with_a_job();
 
-        assert!(!fleet.enable_fullscreen(FullScreenAction::Resume, PauseKind::Light));
+        assert!(!fleet.enable_fullscreen(FullScreenAction::Resume, ActionScope::AllMonitors, PauseKind::Light));
         assert!(fleet.fullscreen.is_none(), "a Resume rule left state behind");
     }
 
@@ -3041,7 +3049,7 @@ mod tests {
     fn enable_fullscreen_pause_turns_the_rule_and_its_timer_on() {
         let mut fleet = fleet_with_a_job();
 
-        assert!(fleet.enable_fullscreen(FullScreenAction::Pause, PauseKind::Light));
+        assert!(fleet.enable_fullscreen(FullScreenAction::Pause, ActionScope::AllMonitors, PauseKind::Light));
         assert!(fleet.fullscreen.is_some());
     }
 
@@ -3049,7 +3057,7 @@ mod tests {
     fn enable_fullscreen_close_turns_the_rule_and_its_timer_on_for_heavy_pause() {
         let mut fleet = fleet_with_a_job();
 
-        assert!(fleet.enable_fullscreen(FullScreenAction::Close, PauseKind::Heavy));
+        assert!(fleet.enable_fullscreen(FullScreenAction::Close, ActionScope::AllMonitors, PauseKind::Heavy));
         assert!(fleet.fullscreen.is_some());
     }
 
@@ -3057,8 +3065,19 @@ mod tests {
     fn enable_fullscreen_without_a_job_stays_off() {
         let mut fleet = Fleet::new(None, SharedAssignments::default());
 
-        assert!(!fleet.enable_fullscreen(FullScreenAction::Pause, PauseKind::Light));
+        assert!(!fleet.enable_fullscreen(FullScreenAction::Pause, ActionScope::AllMonitors, PauseKind::Light));
         assert!(fleet.fullscreen.is_none());
+    }
+
+    #[test]
+    fn the_plan_carries_the_fullscreen_scope_of_the_settings() {
+        let mut settings = Settings::default();
+        let root = std::path::Path::new("no-such-legacy-root");
+
+        assert_eq!(plan_from(&settings, root).scope, ActionScope::AllMonitors);
+
+        settings.backgroundog.full_screen_scope = FullScreenScope::AffectedMonitor;
+        assert_eq!(plan_from(&settings, root).scope, ActionScope::AffectedMonitor);
     }
 
     /// A Platform that records every GPU preference write and answers with a configured capability and result.
