@@ -1,6 +1,6 @@
 ---
 phase: 03-m2-service-ipc-and-portal-connected
-verified: 2026-11-24T20:05:00Z
+verified: 2026-11-24T21:09:50Z
 status: human_needed
 score: 11/13 must-haves verified
 covered_files:
@@ -109,36 +109,33 @@ covered_files:
   - crates/sucrose-platform/src/os_windows.rs
   - crates/sucrose-platform/src/os_windows/autostart.rs
   - crates/sucrose-platform/src/os_windows/memory.rs
+  - docs/ARCHITECTURE.md
   - docs/FEATURES.md
   - docs/GPUI.md
   - docs/MEASUREMENTS.md
   - xtask/src/main.rs
   - xtask/src/measure.rs
   - xtask/src/synth_library.rs
-covered_digest: "v4:sha256:93e372cb096b54929e1054a3c057b0ac1915883f074326a68e224a9c2048d95c"
+covered_digest: "v4:sha256:a0d2fd015135a474ebb1020e6b9f7bee6d138795968cf8091d360ef794961123"
 behavior_unverified: 2
 overrides_applied: 0
 re_verification:
-  previous_status: gaps_found
-  previous_score: 7/13
-  gaps_closed:
-    - "SC1: the user can see hover previews of themes in the library (03-28: card preview img has an element id; GPUI test paints frame 1; maintainer hover run)"
-    - "SC5: scrolling through a large library keeps the Portal's memory bounded (03-27 atlas release; D-25 reruns pass on 90 and 500 themes, recorded in docs/MEASUREMENTS.md)"
-    - "Untrusted theme images cannot exhaust memory, CR-01 (03-29: one pixel-area limit in thumbs, background and preview)"
-    - "The settings store never replaces a good Sucrose.json after a transient read error, CR-02 (03-30: retried read, Unreadable state, StoreError::Io)"
+  previous_status: human_needed
+  previous_score: 11/13
+  gaps_closed: []
   gaps_remaining: []
   regressions: []
 behavior_unverified_items:
   - truth: "SC3: Exit / Close Applications closes every Sucrose process (TRAY-05)"
     test: "Release build playing a wallpaper with the Portal open: right-click the tray icon, check Open Sucrose is greyed, choose Close Applications, then list processes (plan 03-16 human check)"
     expected: "Wallpaper stops, Portal closes, tray icon gone within about 3 s, no sucrose.exe or sucrose-portal.exe left"
-    why_human: "The Closing state machine, the Portal-ending rule and the quitting gate (03-32) are unit tested, but the end-to-end kill of renderer, Portal and service needs a tray click (no synthesized input) on the real desktop."
+    why_human: "The Closing state machine, the Portal-ending rule, the quitting gate (03-32) and the WR-10 exit bookkeeping are unit tested, but the end-to-end kill of renderer, Portal and service needs a tray click (no synthesized input) on the real desktop."
   - truth: "SC4: with start with the OS on, Sucrose starts after sign-in and resumes the wallpaper (TRAY-03)"
     test: "Release build with the maintainer's settings: General row Normal, sign out and in, then None (plan 03-23 human check)"
     expected: "After sign-in Sucrose starts and the selected wallpaper plays; the C# entry is unchanged; after None the Sucrose.Service Run value is gone"
     why_human: "Run value text, LaunchAgent and XDG entry text are tested; the three registry tests are #[ignore] (they write the real HKCU key) and a real logon cannot be automated. macOS and Linux are unexercised."
 human_verification:
-  - test: "Exit / Close Applications closes every Sucrose process (03-16)"
+  - test: "Exit / Close Applications closes every Sucrose process (03-16); also quit once while a library move is in its closing stage if it can be provoked (WR-10 wiring is covered by predicate tests only)"
     expected: "Wallpaper stops, Portal closes, tray icon gone within about 3 s, no sucrose.exe or sucrose-portal.exe left"
     why_human: "Needs a tray click on the real desktop; verifier must not launch the apps"
   - test: "Start with the OS across a real sign-out and sign-in, then set None (03-23)"
@@ -162,18 +159,21 @@ human_verification:
   - test: "Hover previews on the release Portal, one more look after the final code (03-28 was confirmed by the maintainer on 2026-11-24)"
     expected: "A slowly hovered card animates and hides its title strip; a fast sweep starts nothing"
     why_human: "Real pointer movement; listed for completeness, already confirmed once, not a gap"
+  - test: "Release Portal paging after the WR-12 decode budget (a4e650bc): page through the synthetic 500-theme library once and read the working set"
+    expected: "Final working set stays inside the D-25 rule recorded in docs/MEASUREMENTS.md rows 16-17; no visible stall while thumbnails decode"
+    why_human: "The budget makes a decode wait when others hold the allowance; the D-25 rows pre-date it (advisory: re-run cargo xtask measure --side portal if the maintainer wants the number refreshed)"
 ---
 
 # Phase 3: M2 - Service, IPC and Portal connected Verification Report
 
 **Phase Goal:** The service and the Portal work as one app: the user picks a theme in the Portal's library, "Use" applies it through the service, settings migrate from the C# install and persist, and Sucrose can start with the OS.
-**Verified:** 2026-11-24T20:05:00Z
+**Verified:** 2026-11-24T21:09:50Z
 **Status:** human_needed
-**Re-verification:** Yes, after gap closure 03-27..03-40 (previous status gaps_found, 7/13)
+**Re-verification:** Yes. The previous report (human_needed, 11/13, 2026-11-24T20:05Z) went stale after the code review fixes WR-09..WR-12 (8a60d6f1, 2a5fde89, 7a334708, a4e650bc). All 13 truths were re-checked; the four fixed files were read again, not taken from 03-REVIEW-FIX.md.
 
 ## Goal Achievement
 
-All four gaps of the previous report are closed in the code and re-proved here, not taken from the SUMMARY files. I ran `cargo test --workspace` once in this session: exit 0, 931 passed, 0 failed, 20 ignored (the ignored tests need the real C# install, the real libmpv download, the real recycle bin or the real HKCU key, and each says so). The remaining open items are two end-of-phase checks that need the real desktop (Exit closes every process, autostart across a logon) and four open review warnings (WR-09..WR-12) that are narrow and are not part of a success criterion as written.
+The fixes hold and nothing regressed. I read the changed code and ran the named tests of each fix in the main checkout (the orchestrator's single `cargo test --workspace` run, 28 binaries and 0 failed, is the whole-suite evidence and was not repeated). One new warning, WR-13 (the generic JPEG fallback is outside the WR-12 decode budget), is open. It is hardening for hostile input and does not fail a success criterion as written, so it is not a gap. The status stays `human_needed` for the same two reasons as before: Exit closing every process and start after sign-in need the real desktop, and the plans' end-of-phase manual checks are still pending (03-UAT.md, 0 of 8 answered).
 
 ### Observable Truths
 
@@ -182,18 +182,20 @@ All four gaps of the previous report are closed in the code and re-proved here, 
 | 1 | SC1a: first run shows the library with showcase copied, corrupt and incompatible themes handled as legacy, sortable, searchable, paged, movable | VERIFIED | Unchanged since the first report; the full test run is green (portal integration tests for showcase copy once, corrupt and newer-version refusal, `a_library_moves_to_an_empty_folder_and_the_location_follows` pass). 03-31 hardened the move (maintenance refused, fleet quiet). Typing and picker parts are in Human Verification. |
 | 2 | SC1b: the user sees hover previews | VERIFIED | `apps/sucrose-portal/src/library/card.rs` lines 284-291 now paint `img(image).id(("library-card-preview", index))`. GPUI tests `card_preview_paints_its_second_frame` and the control `card_preview_without_an_id_stays_on_frame_zero` both pass, so the paint path is covered and the old defect is demonstrated and absent. 03-28-SUMMARY records the maintainer's hover run (animation, strip hiding, quiet fast sweep); both D-25 reruns logged 63 and 272 "preview playing" lines. |
 | 3 | SC1c: "Use" on a video theme plays on the desktop through the service | VERIFIED | `PortalRequest::Use` from the card, `decide_use` and `load_source` in `service.rs`; 03-34 now starts the new source only after its own file loaded (WR-08 fix, tests pass; the libmpv-bound test is #[ignore] and was covered by the maintainer run in 03-11/03-12). |
-| 4 | SC2: legacy settings migrate (nine files key by key, Donate and documented exclusions out), legacy layout kept, a changed setting survives restart, a kill during write never leaves a corrupt file, legacy files never modified | VERIFIED | `kill_during_write_never_leaves_a_corrupt_file`, `migration_runs_once_and_never_writes_a_legacy_file` and `a_change_survives_a_restart` pass in this run. CR-02 is closed: `store.rs` now has `read_retrying` (retry on any non-NotFound error), `Read::Unreadable` and `Err(StoreError::Io)` on both the main file and the backup, and no restore or migrate happens over an unreadable file (tests `an_unreadable_settings_file_is_never_overwritten`, `an_unreadable_backup_with_a_corrupt_settings_file_is_never_migrated_over` pass). See warning WR-09 for the corrupt-without-backup case. |
+| 4 | SC2: legacy settings migrate (nine files key by key, Donate and documented exclusions out), legacy layout kept, a changed setting survives restart, a kill during write never leaves a corrupt file, legacy files never modified | VERIFIED | `kill_during_write_never_leaves_a_corrupt_file`, `migration_runs_once_and_never_writes_a_legacy_file` and `a_change_survives_a_restart` pass in this run. CR-02 is closed: `store.rs` now has `read_retrying` (retry on any non-NotFound error), `Read::Unreadable` and `Err(StoreError::Io)` on both the main file and the backup, and no restore or migrate happens over an unreadable file (tests `an_unreadable_settings_file_is_never_overwritten`, `an_unreadable_backup_with_a_corrupt_settings_file_is_never_migrated_over` pass). WR-09 is now fixed: `keep_corrupt_aside` (store.rs 196) renames a corrupt file to `Sucrose.json.corrupt` on the migrate, defaults, restore and later-save paths; tests `a_corrupt_file_without_a_backup_is_kept_aside_byte_for_byte`, `..._restored_from_its_backup_is_kept_aside_too`, `a_file_that_turns_corrupt_while_running_is_kept_aside_by_the_next_save` pass in this run together with the CR-02 and kill tests (8 of 8). |
 | 5 | SC3a: a second service or Portal start reuses the running instance | VERIFIED | Portal protocol tests pass; 03-33 also disconnects a Portal the service dropped (WR-04). |
-| 6 | SC3b: Exit closes every Sucrose process | ⚠️ PRESENT_BEHAVIOR_UNVERIFIED | `Closing` state machine, `end_portal` sibling-path check and the quitting gate (`acts_while_quitting`, `settle_exit`, 03-32) are present and wired, with unit tests (`quitting_waits_for_the_library_move_before_exit`, `only_refresh_startup_acts_while_quitting`). No test spawns the real processes; the tray click is a human check. See WR-10 and IN-14. |
-| 7 | SC3c: a crashing renderer is restarted a bounded number of times, never in a loop | VERIFIED | `supervisor::tests::three_crashes_in_a_minute_are_restarted_with_growing_pauses_and_the_fourth_is_refused` passes in this run. |
-| 8 | SC4a: an optional module the user turns off starts no thread and does no polling | VERIFIED | `modules` tests pass; the tray-follows-switch portal test passes. |
-| 9 | SC4b: with start with the OS on, Sucrose starts after sign-in and resumes the wallpaper | ⚠️ PRESENT_BEHAVIOR_UNVERIFIED | Platform autostart code and text tests pass; 03-35 makes turning startup off succeed once the Run value is gone and keeps the setting in agreement with the OS state (tests added). Sign-in itself and the three registry tests were never run (human check 03-23). |
-| 10 | SC5a: light/dark/OS theme, Mica/Acrylic backdrop, optional background image, header actions, search, status bar, Help/About | VERIFIED | `theme.rs`, `background.rs`, `header.rs`, `status_bar.rs`, dialogs exist, are substantive and wired; the background image now uses the shared pixel-area limit. Visual judgment is human (03-UI-REVIEW.md 18/24). |
-| 11 | SC5b: scrolling a large library keeps memory bounded, recorded in MEASUREMENTS.md | VERIFIED | `docs/MEASUREMENTS.md` rows 16-17 ("after the atlas fix"): real library final 178 MB against the limit 193 MB, 500 themes final 165 MB against 184 MB (before the fix 269 MB), both Rule: pass, previews animating. I re-ran `cargo xtask measure --portal-summary target/measure/portal-synth-2.json --rounds 3` on the stored samples: working set first page 133.4, final 165.1, peak 187.7; private final 155.8, matching the recorded row (fixed-window rounds 170 / 177 / 166 stay inside the 5 percent rule). 03-27 adds `atlas::release_image` with GPUI tests. Caveats recorded by the executor and accepted: one hand-driven run per scenario, uneven round lengths, the real library's growth attribution reads "unattributed". |
-| 12 | Derived: untrusted theme/background images cannot exhaust memory (T-03-25, T-03-40; CR-01) | VERIFIED | `thumbs.rs` has `MAX_PIXELS = 32 Mi` and `check_dimensions` called right after `into_dimensions` in `decode_bytes`, and in `background.rs` and `preview.rs`. Tests `a_16384_square_jpeg_header_is_refused_by_the_pixel_area_limit`, `background_refuses_a_16384_square_header_...`, `preview_refuses_a_16384_square_screen_...` pass. WR-12 (aggregate of concurrent decodes) is the remaining hardening note. |
-| 13 | Derived: the settings store never overwrites a good Sucrose.json after a transient read error (CR-02) | VERIFIED | See truth 4: the read-error path no longer reaches restore or migrate-and-persist. |
+| 6 | SC3b: Exit closes every Sucrose process | ⚠️ PRESENT_BEHAVIOR_UNVERIFIED | `Closing` state machine, `end_portal` sibling-path check and the quitting gate (`acts_while_quitting`, `settle_exit`, 03-32) are present and wired, with unit tests (`quitting_waits_for_the_library_move_before_exit`, `only_refresh_startup_acts_while_quitting`). No test spawns the real processes; the tray click is a human check. WR-10 is now fixed: service.rs 1224-1226 calls `note_exit_while_quitting` before the quitting early return, so a library move in Closing sees the exit and `settle_exit` can release the service; the 7 quitting tests pass, but they cover the predicate and the method, not the handler wiring end to end. IN-14 (a Portal dropped by a full queue costs the 2 s close timer) is open and only delays the exit. |
+| 7 | SC3c: a crashing renderer is restarted a bounded number of times, never in a loop | VERIFIED | `supervisor::tests::three_crashes_in_a_minute_are_restarted_with_growing_pauses_and_the_fourth_is_refused` passed in the orchestrator's full run; supervisor code untouched by the review fixes. |
+| 8 | SC4a: an optional module the user turns off starts no thread and does no polling | VERIFIED | `modules` tests and the tray-follows-switch portal test passed in the full run; no file of the fix commits touches them. |
+| 9 | SC4b: with start with the OS on, Sucrose starts after sign-in and resumes the wallpaper | ⚠️ PRESENT_BEHAVIOR_UNVERIFIED | Platform autostart code, WR-05 fix (03-35) and text tests are present and wired; sign-in itself and the three #[ignore] registry tests were never run (human check 03-23). |
+| 10 | SC5a: light/dark/OS theme, Mica/Acrylic backdrop, optional background image, header actions, search, status bar, Help/About | VERIFIED | Unchanged since the last report; `background.rs` still calls `check_dimensions` and the now budgeted `decode_jpeg_scaled` (line 177). Visual judgment is human (03-UI-REVIEW.md 18/24). |
+| 11 | SC5b: scrolling a large library keeps memory bounded, recorded in MEASUREMENTS.md | VERIFIED | Rows 16-17 of `docs/MEASUREMENTS.md` (final 178 MB against 193 MB on the real library, 165 MB against 184 MB on 500 themes) were reproduced from the stored samples in the previous run and are unchanged. The thumbnail cache (64 images / 48 MiB) tests pass. Caveat: the rows pre-date the WR-12 decode budget; the budget only delays decodes when another one holds the allowance, so it cannot raise the working set, but it is listed in Human Verification as a refresh the maintainer may want. |
+| 12 | Derived: untrusted theme/background images cannot exhaust memory (T-03-25, T-03-40; CR-01) | VERIFIED (warning WR-13) | Header limits hold on all three decode paths (`check_dimensions`, 16384 square tests pass). WR-12 added `set_max_decoding_buffer_size(256 MiB)`, a second header check on the decoder's own `read_info` and one process-wide `JPEG_DECODES` budget (thumbs.rs 332-349); the tests `a_jpeg_whose_own_header_is_over_the_limit_is_not_decoded_by_the_scaled_decoder`, `the_decode_budget_admits_what_fits_and_gives_it_back_on_drop`, `a_decode_over_the_whole_budget_still_runs_when_it_is_alone` and `a_decode_that_does_not_fit_waits_for_the_running_one` pass (24 of 24 thumbs tests). WR-13 is confirmed in the code: `decode_jpeg_scaled` returns None for any refusal or decode error, and `decode_bytes` (thumbs.rs 321-324) and `background.rs` (177-179) then call `decode_generic` with no permit, a full-size decode bounded only per image by `MAX_DECODE_ALLOC` (256 MB) and the pixel cap. The per-image memory bomb of CR-01 stays closed; only the aggregate bound of up to three thumbnail decodes plus the background image on a hostile, partly broken JPEG is not reached. |
+| 13 | Derived: the settings store never overwrites a good Sucrose.json after a transient read error (CR-02) | VERIFIED | `read_retrying`, `Read::Unreadable` and `StoreError::Io` (store.rs 104-135, 219-245) are unchanged by WR-09; the three CR-02 tests pass in this run. |
 
 **Score:** 11/13 truths verified (2 present, behavior-unverified; 0 failed)
+
+**WR-13 against UI-07.** UI-07 requires card-size decoding, a bounded cache, release of images no longer shown and a recorded measurement. All four hold for real and synthetic libraries. WR-13 concerns only a hostile JPEG that the scaled decoder rejects after its header passes, an input class no success criterion measures, and the per-image cap still applies. I classify it as a Warning, not a BLOCKER, and the requirement stays satisfied. It should be fixed in the next gap round because it contradicts the WR-12 fix text ("about one worst-case decode instead of four").
 
 ### Deferred Items
 
@@ -201,36 +203,39 @@ None. No gap was moved to a later phase.
 
 ### Advisory (New Scope, Unevidenced)
 
-None. The incremental review's open items were each read against the code and are listed under Anti-Patterns and Gaps Summary.
+None.
 
 ### Required Artifacts
 
 | Artifact | Expected | Status | Details |
 |----------|----------|--------|---------|
-| `crates/sucrose-config/src/store.rs` | atomic settings, retried read, Unreadable not Corrupt | VERIFIED | lines 196-224, 104, 127 |
-| `apps/sucrose-portal/src/library/card.rs` | preview with element id | VERIFIED | lines 284-291, two paint tests |
-| `apps/sucrose-portal/src/library/thumbs.rs`, `background.rs`, `preview.rs` | shared pixel-area limit | VERIFIED | `check_dimensions` in all three decode paths |
-| `apps/sucrose-portal/src/atlas.rs` | release of images leaving the window | VERIFIED | wired from the library, GPUI tests pass; paging memory passes the rule |
-| `apps/sucrose/src/{service,portal_link,settings_host,startup,supervisor,modules,lifecycle}.rs` | service host and lifecycle | VERIFIED | wired; tests pass |
+| `crates/sucrose-config/src/store.rs` | atomic settings, retried read, Unreadable not Corrupt, corrupt kept aside | VERIFIED | `CORRUPT_FILE` line 26, `keep_corrupt_aside` 196 called at 118 and 186; 8 store tests pass |
+| `apps/sucrose/src/service.rs` | quit bookkeeping for a library move | VERIFIED | `note_exit_while_quitting` 2757, called at 1225 |
+| `crates/sucrose-engine-mpv/src/player.rs` | request-generation loading state | VERIFIED | `load_generation`, `started_generation`, `finish_loading` (fetch_max) lines 195-216, 431-433, 745, 765; unit test passes. IN-19 is a rare residual |
+| `apps/sucrose-portal/src/library/thumbs.rs`, `background.rs`, `preview.rs` | pixel-area limit and shared JPEG budget | VERIFIED (WR-13 open) | `check_dimensions` in all three; budget only on the scaled JPEG path |
+| `apps/sucrose-portal/src/library/card.rs`, `atlas.rs` | hover preview painted, released images | VERIFIED | unchanged since the last report |
+| `apps/sucrose/src/{portal_link,settings_host,startup,supervisor,modules,lifecycle}.rs` | service host and lifecycle | VERIFIED | wired; tests pass in the full run |
 | `crates/sucrose-platform/src/{autostart,os_windows/autostart,os_windows/memory}.rs` | OS start entry, memory detail | VERIFIED (Windows) | macOS and Linux text-tested only |
-| `docs/MEASUREMENTS.md` | D-25 rows after the fix | VERIFIED | rows 16-17 reproduced from stored samples |
+| `docs/MEASUREMENTS.md` | D-25 rows after the atlas fix | VERIFIED | rows 16-17 |
 
 ### Key Link Verification
 
 | From | To | Via | Status | Details |
 |------|----|-----|--------|---------|
-| card click | service Use | `PortalRequest::Use` | WIRED | |
-| service Use | renderer | `ToRenderer::LoadSource` | WIRED | start tied to the file-loaded event (03-34) |
-| hover event | animated preview | `on_hover` -> `hover_card` -> `PreviewState` -> `img(image).id(..)` | WIRED | the PARTIAL link of the first report is fixed |
+| card click | service Use | `PortalRequest::Use` | WIRED | unchanged |
+| service Use | renderer | `ToRenderer::LoadSource` | WIRED | start tied to the file-loaded event (03-34); WR-11 changed the loading state to generations, unit tested |
+| renderer exit while quitting | library move | `note_exit_while_quitting` -> `rule_closed.note_exit` -> `settle_exit` | WIRED | new in WR-10; tested by predicate, not end to end |
+| hover event | animated preview | `on_hover` -> `hover_card` -> `PreviewState` -> `img(image).id(..)` | WIRED | unchanged |
 | Portal settings rows | Sucrose.json | `PortalRequest::Change` -> settings_host -> store | WIRED | `a_change_survives_a_restart` |
 | autostart row | Run value | `startup::set_startup` -> platform | WIRED | |
-| image decode | pixel-area limit | `check_dimensions` | WIRED | thumbs, background, preview |
+| image decode | pixel-area limit and decode budget | `check_dimensions`, `JPEG_DECODES.acquire` | WIRED (budget skipped on the generic fallback) | WR-13 |
+| corrupt settings file | `Sucrose.json.corrupt` | `keep_corrupt_aside` in `open` and `persist` | WIRED | WR-09 |
 
 ### Data-Flow Trace (Level 4)
 
 | Artifact | Data Variable | Source | Produces Real Data | Status |
 |----------|---------------|--------|--------------------|--------|
-| card preview layer | `data.preview` | `decode_preview` multi-frame RenderImage, painted with an id | Yes, second frame painted (test) | FLOWING |
+| card preview layer | `data.preview` | `decode_preview` multi-frame RenderImage painted with an id | Yes (paint test) | FLOWING |
 | library grid | `themes` | `sucrose-core` library scan | Yes | FLOWING |
 | status bar memory | `MemoryReport` | service sampler over IPC | Yes | FLOWING |
 
@@ -238,11 +243,12 @@ None. The incremental review's open items were each read against the code and ar
 
 | Behavior | Command | Result | Status |
 |----------|---------|--------|--------|
-| Whole workspace | `cargo test --workspace` (once) | exit 0, 931 passed, 0 failed, 20 ignored | PASS |
-| Hover frame painted | named tests in `library::card::tests` | both ok | PASS |
-| Pixel-area limit | five named tests in thumbs, background, preview | all ok | PASS |
-| Unreadable settings | three named tests in sucrose-config | all ok | PASS |
-| Paging memory rule | `cargo xtask measure --portal-summary ... portal-synth-2.json --rounds 3` | final 165.1 MB against 133.4 + 50 | PASS |
+| Whole workspace | `cargo test --workspace` (orchestrator, once, main checkout) | 28 binaries, 0 failed, includes the 11 WR-09..WR-12 tests | PASS (reported, not repeated) |
+| WR-09, CR-02, kill during write | `cargo test -p sucrose-config --test store -- corrupt kept_aside unreadable kill_during` | 8 passed | PASS |
+| WR-10 quitting | `cargo test -p sucrose --bin sucrose -- note_exit quitting` | 7 passed | PASS |
+| WR-11 loading generation | `cargo test -p sucrose-engine-mpv --lib -- loading generation` | 1 passed (the other new test has a different name; covered by the full run) | PASS |
+| WR-12 budget and pixel limit | `cargo test -p sucrose-portal --bin sucrose-portal -- thumbs::` | 24 passed | PASS |
+| Debt markers | `grep -rnE "TBD|FIXME|XXX" apps crates xtask --include=*.rs` | no match | PASS |
 
 ### Probe Execution
 
@@ -250,57 +256,54 @@ Step 7c: SKIPPED (no probe scripts declared by the phase plans).
 
 ### Requirements Coverage
 
-All 21 phase IDs appear in the `requirements:` field of at least one PLAN and in REQUIREMENTS.md; no orphaned IDs.
+All 21 phase IDs (ARCH-01..05, FMT-01, FMT-06, TRAY-03, TRAY-05, LIB-01..04, LIB-06, LIB-08, LIB-09, UI-01, UI-02, UI-03, UI-05, UI-07) appear in the `requirements:` field of at least one PLAN and in ROADMAP.md and REQUIREMENTS.md. No orphaned IDs.
 
 | Requirement | Source Plan(s) | Status | Evidence |
 |-------------|----------------|--------|----------|
-| ARCH-01 | 03-09, 03-34 | SATISFIED | bounded restart, source start rule |
-| ARCH-02 | 03-06, 03-08, 03-15, 03-33 | SATISFIED | one endpoint, single instance tests |
+| ARCH-01 | 03-09, 03-34 | SATISFIED | bounded restart; WR-11 generation tracking |
+| ARCH-02 | 03-06, 03-08, 03-15, 03-33 | SATISFIED | one endpoint, single-instance tests |
 | ARCH-03 | 03-13 | SATISFIED | modules tests |
-| ARCH-04 | 03-01, 03-07, 03-30 | SATISFIED | atomic store, kill test, CR-02 closed |
+| ARCH-04 | 03-01, 03-07, 03-30 | SATISFIED | atomic store, kill test, CR-02 and WR-09 closed |
 | ARCH-05 | 03-07, 03-09, 03-11, 03-12, 03-20, 03-32, 03-34 | SATISFIED | Use through the service, change survives restart |
-| FMT-01 | 03-01, 03-04, 03-26 | SATISFIED | real-file fixtures, exclusions |
+| FMT-01 | 03-01, 03-04, 03-26 | SATISFIED | real-file fixtures, exclusions; legacy files never written |
 | FMT-06 | 03-01, 03-04 | SATISFIED | layout and 25-character names |
-| TRAY-03 | 03-23, 03-35 | NEEDS HUMAN | code and text tests; sign-in is a human check. REQUIREMENTS.md already ticks it |
-| TRAY-05 | 03-16, 03-32 | NEEDS HUMAN | state machine tested; real process end is a human check. REQUIREMENTS.md already ticks it |
+| TRAY-03 | 03-23, 03-35 | NEEDS HUMAN | code and text tests; sign-in is a human check |
+| TRAY-05 | 03-16, 03-32 | NEEDS HUMAN | state machine and WR-10 predicate tested; real process end is a human check |
 | LIB-01 | 03-04, 03-21 | SATISFIED | showcase copy once |
 | LIB-02 | 03-02, 03-21 | SATISFIED | scan rules, recycle bin |
 | LIB-03 | 03-02, 03-14 | SATISFIED | sort and search tests |
 | LIB-04 | 03-10, 03-14, 03-20 | SATISFIED | layout and pagination tests |
 | LIB-06 | 03-19, 03-28, 03-39 | SATISFIED | paint test plus maintainer hover run |
 | LIB-08 | 03-02, 03-09, 03-12 | SATISFIED | newer-version refusal and badge |
-| LIB-09 | 03-22, 03-31 | SATISFIED | move with rollback, nested refusal |
+| LIB-09 | 03-22, 03-31 | SATISFIED | move with rollback, nested refusal; WR-10 lets a quit finish a move |
 | UI-01 | 03-17, 03-20, 03-29 | SATISFIED (visual human) | backdrop, background image with pixel limit |
 | UI-02 | 03-17, 03-20 | SATISFIED (visual human) | theme mode and OS following |
 | UI-03 | 03-03, 03-08, 03-14, 03-18 | SATISFIED | header, search, status bar, arguments |
 | UI-05 | 03-03, 03-18 | SATISFIED (visual human) | Help, About, tray hint dialogs |
-| UI-07 | 03-05, 03-10, 03-19, 03-24..03-27, 03-36..03-40 | SATISFIED | 500-theme and real-library reruns pass the rule |
+| UI-07 | 03-05, 03-10, 03-19, 03-24..03-27, 03-36..03-40 | SATISFIED (warning WR-13) | card-size decode, bounded cache, release, D-25 rows; see the WR-13 note under the score |
 
-**Bookkeeping drift (not a code gap):** `.planning/REQUIREMENTS.md` still shows ARCH-03, FMT-01, FMT-06, LIB-01..LIB-04, LIB-08, UI-02, UI-03 and UI-05 with unticked checkboxes and "Gaps Found" in the traceability table, left over from the first verification. The evidence above supports ticking them (UI-02, UI-05 with the visual human checks pending). The orchestrator should update them after this verdict.
+**Bookkeeping drift (still open, not a code gap):** `.planning/REQUIREMENTS.md` still shows ARCH-03, FMT-01, FMT-06, LIB-01..LIB-04, LIB-08, UI-02, UI-03 and UI-05 with unticked checkboxes and "Gaps Found" in the traceability table, left over from the first verification (lines 22, 103-106, 110, 132-133, 135, 160, 165 and 234, 291-299, 311-314, 330, 335). The evidence above supports ticking them. UI-02 and UI-05 have visual human checks pending, and TRAY-03 and TRAY-05 are ticked although their end-to-end checks are pending. The orchestrator should reconcile this after the maintainer answers 03-UAT.md.
 
 ### Anti-Patterns Found
 
 | File | Line | Pattern | Severity | Impact |
 |------|------|---------|----------|--------|
-| (apps, crates, xtask) | - | TBD/FIXME/XXX/TODO/HACK/todo!/unimplemented! | none | grep returned nothing |
-| `apps/sucrose-portal/src/main.rs` | 22 | stale `#[allow(dead_code)]` reason (IN-04, deferred) | Info | hides unused helpers |
-| `crates/sucrose-config/src/store.rs` | 105-143 | corrupt `Sucrose.json` with no `.bak` is replaced without keeping a copy (WR-09, open) | Warning | settings of a hand-edited or newer-format file can be lost; the same class as CR-02 but for a corrupt, not unreadable, file; not covered by SC2 as written (atomic write, kill during write) |
-| `apps/sucrose/src/service.rs` | 1224-1226 | renderer exit while quitting returns before `rule_closed.note_exit` (WR-10, open, confirmed in code) | Warning | if a library move is in its Closing stage when `LoopEvent::Quit` is handled, the move never advances and the service never exits. Reach is a narrow race: tray Exit is ignored during a move, and the only other Quit sender (`tray_proxy.quit()`, line 1651) requires no move at the time it is posted. Touches truth 6 |
-| `crates/sucrose-engine-mpv/src/player.rs` | 726-748 | plain `loading.store(false)` can erase a newer request's flag (WR-11, open) | Warning | microsecond window between back-to-back loads; the newer request is still tracked by `SourceSwitch` |
-| `apps/sucrose-portal/src/library/thumbs.rs` | 29, 281-300 | pixel cap bounds one decode, not aggregate memory (WR-12, open) | Warning | up to about 800 MB with three thumbnail decodes plus the background image on hostile JPEGs; `set_max_decoding_buffer_size` is unused. Hardening of CR-01, which is closed |
-| `os_windows.rs`, `portal_link.rs`, `docs/GPUI.md`, `library/mod.rs`, `xtask/measure.rs`, `ipc/lib.rs` | various | IN-13..IN-18 (open info items) | Info | doc comment misplacement, a 2 s wait on a dropped Portal while closing, a stale GPUI.md sentence, diagnostics on the UI thread, measure exit code, endpoint hashing |
-
-None of the open items is a debt marker, and none fails a ROADMAP success criterion as written, so none is counted as a gap. They should be triaged in the next planning round (a small `/gsd-plan-phase --gaps` or `/gsd-quick` pass; WR-09 and WR-10 first).
+| (apps, crates, xtask) | - | TBD/FIXME/XXX | none | grep returned nothing; no debt marker gate hit |
+| `apps/sucrose-portal/src/library/thumbs.rs` | 321-324, 332-359 | JPEG decode budget bypassed by `decode_generic` fallback (WR-13, open) | Warning | aggregate bound of WR-12 not reached on hostile JPEGs the scaled decoder fails on; per-image cap still applies. Same fallback in `background.rs` 177-179 |
+| `crates/sucrose-config/src/store.rs` | 195-202 | one `.corrupt` slot, failed rename still lets the write replace the corrupt file (IN-20, open) | Info | second corruption destroys the first copy; rare |
+| `crates/sucrose-engine-mpv/src/player.rs` | 430-436 | synchronous load failure marks an earlier in-flight request finished (IN-19, open) | Info | needs two back-to-back loads with the second failing synchronously |
+| `apps/sucrose/src/portal_link.rs` | 218-229 | Portal dropped by a full queue is not counted as gone while closing (IN-14, open) | Info | Exit waits the 2 s close timer instead of leaving at once |
+| `apps/sucrose-portal/src/main.rs`, `os_windows.rs`, `docs/GPUI.md`, `library/mod.rs`, `xtask/measure.rs`, `ipc/lib.rs`, `settings_host.rs`, `model.rs` | various | IN-02, IN-04, IN-10, IN-11, IN-13, IN-15..IN-18 | Info | lint, doc, diagnostics and latent Linux hardening; none touches a success criterion (ledger: 9 open rows, rest deferred or fixed) |
 
 ### Human Verification Required
 
-See the frontmatter `human_verification` and `behavior_unverified_items`. The two that decide the phase goal are the Exit check (SC3, TRAY-05) and the autostart check across a logon (SC4, TRAY-03); the others are the end-of-phase checks the plans deferred (typing, clicking, visual and desktop checks). I did not start `sucrose.exe` or `sucrose-portal.exe`.
+See the frontmatter `human_verification` and `behavior_unverified_items`; the same items are persisted in 03-UAT.md (not edited here). The two that decide the phase goal are Exit closing every process (SC3, TRAY-05) and autostart across a logon (SC4, TRAY-03). I added one advisory refresh item (paging memory after the WR-12 budget). I did not start `sucrose.exe` or `sucrose-portal.exe`.
 
 ### Gaps Summary
 
-No gap blocks the goal. The four gaps of the first report (hover previews, bounded paging memory, CR-01, CR-02) are closed with code and test evidence in this session, the full workspace test run is green, and the D-25 numbers reproduce from the stored samples. The phase is `human_needed` for two reasons: SC3's Exit-closes-every-process and SC4's start-after-sign-in are behavior that only the real desktop can show, and the plans' end-of-phase manual checks are still unrecorded. Four review warnings (WR-09..WR-12) stay open as non-blocking hardening; WR-09 (a corrupt settings file without a backup is overwritten) and WR-10 (a quit during a library move can leave the service running) are the two worth fixing before the phase is called done.
+No gap blocks the goal. The review fixes WR-09, WR-10, WR-11 and WR-12 are present, wired and covered by passing tests, and the earlier closures (hover previews, bounded paging memory, CR-01, CR-02) still hold. Open items: WR-13 (warning) and nine ledger rows (WR-13 plus IN-13..IN-20 open), none of them a success-criterion failure. Fix WR-13 in the next gap round by taking the budget permit in `decode_bytes` (thumbs and background) before either decoder runs, and answer the pending UAT items.
 
 ---
 
-_Verified: 2026-11-24T20:05:00Z_
+_Verified: 2026-11-24T21:09:50Z_
 _Verifier: Claude (gsd-verifier)_
