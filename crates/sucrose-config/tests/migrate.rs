@@ -11,7 +11,8 @@ use std::{
 };
 
 use sucrose_config::{
-    migrate::{map_theme, migrate},
+    legacy::LegacyFile,
+    migrate::{MIGRATED_FILES, map_theme, migrate},
     model::{DEFAULT_USER_AGENT, MIN_DATE_TIME, Settings},
 };
 use sucrose_core::settings::{Backdrop, LegacyBackdropType, LegacyThemeType, SortKind, SortMode, Stretch, ThemeMode};
@@ -677,6 +678,29 @@ fn a_token_file_and_a_donate_file_never_reach_the_new_settings() {
 }
 
 #[test]
+fn migrated_files_lists_exactly_the_nine_files() {
+    let mut names: Vec<&str> = MIGRATED_FILES.iter().map(|file| file.file_name()).collect();
+    names.sort_unstable();
+    assert_eq!(
+        names,
+        [
+            "Backgroundog.json",
+            "Cycling.json",
+            "Engine.json",
+            "General.json",
+            "Hook.json",
+            "Library.json",
+            "Portal.json",
+            "Update.json",
+            "Warehouse.json",
+        ]
+    );
+    for file in [LegacyFile::Cycling, LegacyFile::Hook, LegacyFile::Update] {
+        assert!(MIGRATED_FILES.contains(&file));
+    }
+}
+
+#[test]
 fn the_nine_real_files_serialize_to_stable_text_without_excluded_keys() {
     let settings = migrate(&full_real_folder("stable", true), Path::new(ROOT));
     let first = settings.to_bytes().expect("settings serialize");
@@ -744,6 +768,15 @@ fn real_install_migrates() {
         settings.portal.background_opacity,
         settings.warehouse.showcase.len(),
         settings.warehouse.hint_tray_icon
+    );
+
+    // No D-05 excluded name and no stale Backgroundog name reaches the written file; the look is still Acrylic.
+    let written = fs::read_to_string(target.join("Sucrose.json")).expect("the migrated Sucrose.json was written");
+    assert_no_excluded_key(&written);
+    assert_eq!(settings.portal.backdrop, Backdrop::Acrylic);
+    println!(
+        "Engine video = {:?}, Cycling active = {}, Update time = {}, FullScreenScope = {:?}",
+        settings.engine.video, settings.cycling.active, settings.update.time, settings.backgroundog.full_screen_scope
     );
 
     assert_eq!(snapshot(&legacy), before, "a legacy file changed");

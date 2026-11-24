@@ -4,12 +4,17 @@
 //! and the settings pages map them one to one. Reading is lenient: a missing or invalid value is the legacy default
 //! (logged), and keys this build does not know are kept so a write never drops them (T-03-03).
 
-use std::path::{Path, PathBuf};
+use std::{
+    collections::BTreeMap,
+    path::{Path, PathBuf},
+};
 
 use serde::Serialize;
 use serde_json::{Map, Value};
 use sucrose_core::settings::{
-    Backdrop, FullScreenAction, GpuPreference, PauseKind, ScreenArea, SortKind, SortMode, Stretch, ThemeMode,
+    Backdrop, DisplayScreenType, EngineType, FullScreenScope, GpuPreference, InputModuleType, InputType, PauseKind,
+    PerformanceType, ScreenArea, ScreenModeType, SortKind, SortMode, Stretch, ThemeMode, TransitionCycleType,
+    UpdateAutoType, UpdateChannelType, UpdateExtensionType, UpdateModuleType, UpdateServerType,
 };
 
 /// The `General.UserAgent` default of the C# app.
@@ -17,6 +22,22 @@ pub const DEFAULT_USER_AGENT: &str = "Sucrose/2.4 (Windows NT 10.0; Wallpaper En
 
 /// What the C# app stores for a `DateTime` that was never set (`DateTime.MinValue`); kept as the raw string.
 pub const MIN_DATE_TIME: &str = "0001-01-01T00:00:00";
+
+/// The legacy `StorageType` name of the default `Backgroundog.DownloadType`; the value set of that external enum is
+/// unknown, so a stored value only has to be a non-empty name.
+pub const DEFAULT_DOWNLOAD_TYPE: &str = "Megabyte";
+
+/// The legacy `StorageType` name of the default `Backgroundog.UploadType`.
+pub const DEFAULT_UPLOAD_TYPE: &str = "Kilobyte";
+
+/// The legacy `StorageType` name of the default `Update.LimitType`.
+pub const DEFAULT_LIMIT_TYPE: &str = "Megabyte";
+
+/// The default `Backgroundog.PingType` host key.
+pub const DEFAULT_PING_TYPE: &str = "Bing";
+
+/// The largest legacy value of a storage limit (`DownloadValue`, `UploadValue`, `LimitValue`).
+pub const MAX_STORAGE_VALUE: u32 = 99_999_999;
 
 /// The format version this build writes. A file with a higher version is read but never overwritten.
 pub const SETTINGS_VERSION: u32 = 1;
@@ -42,6 +63,15 @@ pub struct Settings {
     /// Performance rules (legacy `Backgroundog.json`).
     #[serde(rename = "Backgroundog")]
     pub backgroundog: Backgroundog,
+    /// Wallpaper cycling (legacy `Cycling.json`).
+    #[serde(rename = "Cycling")]
+    pub cycling: Cycling,
+    /// The Discord hook (legacy `Hook.json`).
+    #[serde(rename = "Hook")]
+    pub hook: Hook,
+    /// Update rules (legacy `Update.json`).
+    #[serde(rename = "Update")]
+    pub update: Update,
     /// Showcase copy state and hints (legacy `Warehouse.json`).
     #[serde(rename = "Warehouse")]
     pub warehouse: Warehouse,
@@ -209,6 +239,93 @@ pub struct Engine {
     /// Which GPU Windows is asked to give the renderers (`GraphicPreference`).
     #[serde(rename = "GraphicPreference")]
     pub gpu_preference: GpuPreference,
+    /// Command line switches handed to the CefSharp engine, by name (`CefArguments`).
+    #[serde(rename = "CefArguments")]
+    pub cef_arguments: BTreeMap<String, String>,
+    /// Command line switches handed to the WebView engine, in order (`WebArguments`).
+    #[serde(rename = "WebArguments")]
+    pub web_arguments: Vec<String>,
+    /// How sensitive the silence detection is, 1..=10 (`VolumeSilentSensitivity`).
+    #[serde(rename = "VolumeSilentSensitivity")]
+    pub volume_silent_sensitivity: u8,
+    /// The port of the developer tools, 0..=65535, 0 for none (`DeveloperPort`).
+    #[serde(rename = "DeveloperPort")]
+    pub developer_port: u16,
+    /// How a duplicated screen layout is handled (`DuplicateScreenType`).
+    #[serde(rename = "DuplicateScreenType")]
+    pub duplicate_screen_type: ScreenModeType,
+    /// How an expanded screen layout is handled (`ExpandScreenType`).
+    #[serde(rename = "ExpandScreenType")]
+    pub expand_screen_type: ScreenModeType,
+    /// How wallpapers are spread over several monitors (`DisplayScreenType`).
+    #[serde(rename = "DisplayScreenType")]
+    pub display_screen_type: DisplayScreenType,
+    /// The monitor a single wallpaper plays on, empty for the primary one (`ScreenDevice`).
+    #[serde(rename = "ScreenDevice")]
+    pub screen_device: String,
+    /// Which input is forwarded to web wallpapers (`InputType`).
+    #[serde(rename = "InputType")]
+    pub input_type: InputType,
+    /// How input is read (`InputModuleType`).
+    #[serde(rename = "InputModuleType")]
+    pub input_module_type: InputModuleType,
+    /// The engine of gif wallpapers (`Gif`).
+    #[serde(rename = "Gif")]
+    pub gif: EngineType,
+    /// The engine of url wallpapers (`Url`).
+    #[serde(rename = "Url")]
+    pub url: EngineType,
+    /// The engine of web wallpapers (`Web`).
+    #[serde(rename = "Web")]
+    pub web: EngineType,
+    /// The engine of video wallpapers (`Video`).
+    #[serde(rename = "Video")]
+    pub video: EngineType,
+    /// The engine of YouTube wallpapers (`YouTube`).
+    #[serde(rename = "YouTube")]
+    pub youtube: EngineType,
+    /// The engine of application wallpapers (`Application`).
+    #[serde(rename = "Application")]
+    pub application: EngineType,
+    /// Path of the wallpaper behind a transparent theme, empty for none (`BackgroundImagePath`).
+    #[serde(rename = "BackgroundImagePath")]
+    pub background_image_path: String,
+    /// Whether that background image is used (`BackgroundImage`).
+    #[serde(rename = "BackgroundImage")]
+    pub background_image: bool,
+    /// Whether the slideshow is disabled (`DisableSlideshow`).
+    #[serde(rename = "DisableSlideshow")]
+    pub disable_slideshow: bool,
+    /// Whether the live slideshow is disabled (`DisableSlideshowLive`).
+    #[serde(rename = "DisableSlideshowLive")]
+    pub disable_slideshow_live: bool,
+    /// Whether the wallpaper is picked at random when none is selected (`WallpaperShuffle`).
+    #[serde(rename = "WallpaperShuffle")]
+    pub wallpaper_shuffle: bool,
+    /// Whether the volume follows the desktop (`VolumeDesktop`).
+    #[serde(rename = "VolumeDesktop")]
+    pub volume_desktop: bool,
+    /// Whether silence detection is on (`VolumeSilent`).
+    #[serde(rename = "VolumeSilent")]
+    pub volume_silent: bool,
+    /// Whether input is only forwarded while the desktop is in front (`InputDesktop`).
+    #[serde(rename = "InputDesktop")]
+    pub input_desktop: bool,
+    /// Whether developer mode is on (`DeveloperMode`).
+    #[serde(rename = "DeveloperMode")]
+    pub developer_mode: bool,
+    /// Whether Explorer is restarted when Sucrose crashes (`CrashExplorer`).
+    #[serde(rename = "CrashExplorer")]
+    pub crash_explorer: bool,
+    /// Whether the library is started with the engine (`LibraryStart`).
+    #[serde(rename = "LibraryStart")]
+    pub library_start: bool,
+    /// Whether the store is started with the engine (`StoreStart`).
+    #[serde(rename = "StoreStart")]
+    pub store_start: bool,
+    /// Whether the system is kept awake while a wallpaper plays (`StayAwake`).
+    #[serde(rename = "StayAwake")]
+    pub stay_awake: bool,
     /// Keys of the section this build does not know.
     #[serde(flatten)]
     pub extra: Map<String, Value>,
@@ -219,10 +336,169 @@ pub struct Engine {
 pub struct Backgroundog {
     /// What happens while a fullscreen app is in front (`FullScreenPerformance`).
     #[serde(rename = "FullScreenPerformance")]
-    pub fullscreen: FullScreenAction,
+    pub fullscreen: PerformanceType,
     /// How a pause is carried out (`PausePerformanceType`).
     #[serde(rename = "PausePerformanceType")]
     pub pause: PauseKind,
+    /// Which monitors a fullscreen app affects (new, `FullScreenScope`).
+    #[serde(rename = "FullScreenScope")]
+    pub full_screen_scope: FullScreenScope,
+    /// Download speed that counts as busy network, 0..=99999999 in `download_type` units (`DownloadValue`).
+    #[serde(rename = "DownloadValue")]
+    pub download_value: u32,
+    /// The unit of `DownloadValue` as the legacy storage type name, never empty (`DownloadType`).
+    #[serde(rename = "DownloadType")]
+    pub download_type: String,
+    /// Upload speed that counts as busy network, 0..=99999999 in `upload_type` units (`UploadValue`).
+    #[serde(rename = "UploadValue")]
+    pub upload_value: u32,
+    /// The unit of `UploadValue` as the legacy storage type name, never empty (`UploadType`).
+    #[serde(rename = "UploadType")]
+    pub upload_type: String,
+    /// Processor load percentage that triggers the processor rule, 0..=100 (`ProcessorUsage`).
+    #[serde(rename = "ProcessorUsage")]
+    pub processor_usage: u8,
+    /// Graphics load percentage that triggers the graphics rule, 0..=100 (`GraphicUsage`).
+    #[serde(rename = "GraphicUsage")]
+    pub graphic_usage: u8,
+    /// Battery percentage that triggers the battery rule, 0..=100 (`BatteryUsage`).
+    #[serde(rename = "BatteryUsage")]
+    pub battery_usage: u8,
+    /// Memory load percentage that triggers the memory rule, 0..=100 (`MemoryUsage`).
+    #[serde(rename = "MemoryUsage")]
+    pub memory_usage: u8,
+    /// Ping in milliseconds that triggers the network rule, 0..=1000 (`PingValue`).
+    #[serde(rename = "PingValue")]
+    pub ping_value: u16,
+    /// The host the ping goes to, as a legacy host key such as `Bing` (`PingType`).
+    #[serde(rename = "PingType")]
+    pub ping_type: String,
+    /// The network adapter that is measured, empty for the default (`NetworkAdapter`).
+    #[serde(rename = "NetworkAdapter")]
+    pub network_adapter: String,
+    /// The graphics adapter that is measured, empty for the default (`GraphicAdapter`).
+    #[serde(rename = "GraphicAdapter")]
+    pub graphic_adapter: String,
+    /// Whether the performance counters run at all (`PerformanceCounter`).
+    #[serde(rename = "PerformanceCounter")]
+    pub performance_counter: bool,
+    /// What happens on battery saver (`BatterySaverPerformance`).
+    #[serde(rename = "BatterySaverPerformance")]
+    pub battery_saver_performance: PerformanceType,
+    /// What happens while the screen saver runs (`ScreenSaverPerformance`).
+    #[serde(rename = "ScreenSaverPerformance")]
+    pub screen_saver_performance: PerformanceType,
+    /// What happens under high processor load (`ProcessorPerformance`).
+    #[serde(rename = "ProcessorPerformance")]
+    pub processor_performance: PerformanceType,
+    /// What happens inside a virtual machine (`VirtualPerformance`).
+    #[serde(rename = "VirtualPerformance")]
+    pub virtual_performance: PerformanceType,
+    /// What happens on a slow network (`NetworkPerformance`).
+    #[serde(rename = "NetworkPerformance")]
+    pub network_performance: PerformanceType,
+    /// What happens under high graphics load (`GraphicPerformance`).
+    #[serde(rename = "GraphicPerformance")]
+    pub graphic_performance: PerformanceType,
+    /// What happens on a low battery (`BatteryPerformance`).
+    #[serde(rename = "BatteryPerformance")]
+    pub battery_performance: PerformanceType,
+    /// What happens in a remote session (`RemotePerformance`).
+    #[serde(rename = "RemotePerformance")]
+    pub remote_performance: PerformanceType,
+    /// What happens under high memory load (`MemoryPerformance`).
+    #[serde(rename = "MemoryPerformance")]
+    pub memory_performance: PerformanceType,
+    /// What happens while another window has focus (`FocusPerformance`).
+    #[serde(rename = "FocusPerformance")]
+    pub focus_performance: PerformanceType,
+    /// What happens when the session is switched away (`SessionPerformance`).
+    #[serde(rename = "SessionPerformance")]
+    pub session_performance: PerformanceType,
+    /// What happens while a console app is in front (`ConsolePerformance`).
+    #[serde(rename = "ConsolePerformance")]
+    pub console_performance: PerformanceType,
+    /// What happens when the PC sleeps (`SleepPerformance`).
+    #[serde(rename = "SleepPerformance")]
+    pub sleep_performance: PerformanceType,
+    /// What happens when the PC is locked (`LockPerformance`).
+    #[serde(rename = "LockPerformance")]
+    pub lock_performance: PerformanceType,
+    /// Keys of the section this build does not know.
+    #[serde(flatten)]
+    pub extra: Map<String, Value>,
+}
+
+/// The `Cycling` section.
+#[derive(Debug, Clone, PartialEq, Serialize)]
+pub struct Cycling {
+    /// Seconds between two wallpapers, 10..=99999 (`TransitionTime`).
+    #[serde(rename = "TransitionTime")]
+    pub transition_time: u32,
+    /// Folder names of themes that cycling skips (`Exclusion`).
+    #[serde(rename = "Exclusion")]
+    pub exclusion: Vec<String>,
+    /// Whether cycling is on (`Active`).
+    #[serde(rename = "Active")]
+    pub active: bool,
+    /// The order in which cycling picks the next theme (`TransitionType`).
+    #[serde(rename = "TransitionType")]
+    pub transition_type: TransitionCycleType,
+    /// Keys of the section this build does not know.
+    #[serde(flatten)]
+    pub extra: Map<String, Value>,
+}
+
+/// The `Hook` section.
+#[derive(Debug, Clone, PartialEq, Serialize)]
+pub struct Hook {
+    /// Seconds between two Discord reconnect attempts, 60..=3600 (`DiscordRefreshDelay`).
+    #[serde(rename = "DiscordRefreshDelay")]
+    pub discord_refresh_delay: u32,
+    /// Whether the Discord connection is refreshed (`DiscordRefreshConnect`).
+    #[serde(rename = "DiscordRefreshConnect")]
+    pub discord_refresh_connect: bool,
+    /// Whether Discord is connected at all (`DiscordConnect`).
+    #[serde(rename = "DiscordConnect")]
+    pub discord_connect: bool,
+    /// Keys of the section this build does not know.
+    #[serde(flatten)]
+    pub extra: Map<String, Value>,
+}
+
+/// The `Update` section.
+#[derive(Debug, Clone, PartialEq, Serialize)]
+pub struct Update {
+    /// Download limit, 0..=99999999 in `limit_type` units (`LimitValue`).
+    #[serde(rename = "LimitValue")]
+    pub limit_value: u32,
+    /// The unit of `LimitValue` as the legacy storage type name, never empty (`LimitType`).
+    #[serde(rename = "LimitType")]
+    pub limit_type: String,
+    /// When updates were last checked, as the raw legacy date-time text (`Time`).
+    #[serde(rename = "Time")]
+    pub time: String,
+    /// Whether an update is pending (`State`).
+    #[serde(rename = "State")]
+    pub state: bool,
+    /// Whether updates are checked automatically (`Auto`).
+    #[serde(rename = "Auto")]
+    pub auto: bool,
+    /// How an update is downloaded (`ModuleType`).
+    #[serde(rename = "ModuleType")]
+    pub module_type: UpdateModuleType,
+    /// Where updates come from (`ServerType`).
+    #[serde(rename = "ServerType")]
+    pub server_type: UpdateServerType,
+    /// How visible an automatic update is (`AutoType`).
+    #[serde(rename = "AutoType")]
+    pub auto_type: UpdateAutoType,
+    /// The package kind an update downloads (`ExtensionType`).
+    #[serde(rename = "ExtensionType")]
+    pub extension_type: UpdateExtensionType,
+    /// The release channel updates come from (`ChannelType`).
+    #[serde(rename = "ChannelType")]
+    pub channel_type: UpdateChannelType,
     /// Keys of the section this build does not know.
     #[serde(flatten)]
     pub extra: Map<String, Value>,
@@ -304,6 +580,35 @@ impl Default for Engine {
             hardware_acceleration: true,
             screen: ScreenArea::default(),
             gpu_preference: GpuPreference::default(),
+            cef_arguments: BTreeMap::new(),
+            web_arguments: Vec::new(),
+            volume_silent_sensitivity: 5,
+            developer_port: 0,
+            duplicate_screen_type: ScreenModeType::default(),
+            expand_screen_type: ScreenModeType::default(),
+            display_screen_type: DisplayScreenType::default(),
+            screen_device: String::new(),
+            input_type: InputType::default(),
+            input_module_type: InputModuleType::default(),
+            gif: EngineType::MpvPlayerLive,
+            url: EngineType::CefSharpLive,
+            web: EngineType::CefSharpLive,
+            video: EngineType::MpvPlayerLive,
+            youtube: EngineType::CefSharpLive,
+            application: EngineType::AuroraLive,
+            background_image_path: String::new(),
+            background_image: false,
+            disable_slideshow: false,
+            disable_slideshow_live: false,
+            wallpaper_shuffle: true,
+            volume_desktop: false,
+            volume_silent: false,
+            input_desktop: false,
+            developer_mode: false,
+            crash_explorer: false,
+            library_start: true,
+            store_start: true,
+            stay_awake: false,
             extra: Map::new(),
         }
     }
@@ -312,8 +617,77 @@ impl Default for Engine {
 impl Default for Backgroundog {
     fn default() -> Self {
         Self {
-            fullscreen: FullScreenAction::default(),
+            fullscreen: PerformanceType::Resume,
             pause: PauseKind::default(),
+            full_screen_scope: FullScreenScope::default(),
+            download_value: 10,
+            download_type: DEFAULT_DOWNLOAD_TYPE.to_owned(),
+            upload_value: 800,
+            upload_type: DEFAULT_UPLOAD_TYPE.to_owned(),
+            processor_usage: 70,
+            graphic_usage: 70,
+            battery_usage: 50,
+            memory_usage: 80,
+            ping_value: 100,
+            ping_type: DEFAULT_PING_TYPE.to_owned(),
+            network_adapter: String::new(),
+            graphic_adapter: String::new(),
+            performance_counter: true,
+            battery_saver_performance: PerformanceType::Resume,
+            screen_saver_performance: PerformanceType::Pause,
+            processor_performance: PerformanceType::Resume,
+            virtual_performance: PerformanceType::Resume,
+            network_performance: PerformanceType::Resume,
+            graphic_performance: PerformanceType::Resume,
+            battery_performance: PerformanceType::Resume,
+            remote_performance: PerformanceType::Resume,
+            memory_performance: PerformanceType::Resume,
+            focus_performance: PerformanceType::Resume,
+            session_performance: PerformanceType::Close,
+            console_performance: PerformanceType::Close,
+            sleep_performance: PerformanceType::Close,
+            lock_performance: PerformanceType::Close,
+            extra: Map::new(),
+        }
+    }
+}
+
+impl Default for Cycling {
+    fn default() -> Self {
+        Self {
+            transition_time: 1800,
+            exclusion: Vec::new(),
+            active: false,
+            transition_type: TransitionCycleType::default(),
+            extra: Map::new(),
+        }
+    }
+}
+
+impl Default for Hook {
+    fn default() -> Self {
+        Self {
+            discord_refresh_delay: 60,
+            discord_refresh_connect: true,
+            discord_connect: true,
+            extra: Map::new(),
+        }
+    }
+}
+
+impl Default for Update {
+    fn default() -> Self {
+        Self {
+            limit_value: 500,
+            limit_type: DEFAULT_LIMIT_TYPE.to_owned(),
+            time: MIN_DATE_TIME.to_owned(),
+            state: false,
+            auto: true,
+            module_type: UpdateModuleType::default(),
+            server_type: UpdateServerType::default(),
+            auto_type: UpdateAutoType::default(),
+            extension_type: UpdateExtensionType::default(),
+            channel_type: UpdateChannelType::default(),
             extra: Map::new(),
         }
     }
@@ -328,6 +702,9 @@ impl Default for Settings {
             portal: Portal::default(),
             engine: Engine::default(),
             backgroundog: Backgroundog::default(),
+            cycling: Cycling::default(),
+            hook: Hook::default(),
+            update: Update::default(),
             warehouse: Warehouse::default(),
             extra: Map::new(),
         }
@@ -379,6 +756,9 @@ impl Settings {
         let mut portal = Fields::section("Portal", root.remove("Portal"));
         let mut engine = Fields::section("Engine", root.remove("Engine"));
         let mut backgroundog = Fields::section("Backgroundog", root.remove("Backgroundog"));
+        let mut cycling = Fields::section("Cycling", root.remove("Cycling"));
+        let mut hook = Fields::section("Hook", root.remove("Hook"));
+        let mut update = Fields::section("Update", root.remove("Update"));
         let mut warehouse = Fields::section("Warehouse", root.remove("Warehouse"));
         Self {
             version,
@@ -431,20 +811,139 @@ impl Settings {
                     GpuPreference::default(),
                     GpuPreference::from_legacy_name,
                 ),
+                cef_arguments: engine.string_map("CefArguments"),
+                web_arguments: engine.strings("WebArguments"),
+                volume_silent_sensitivity: engine.clamped("VolumeSilentSensitivity", 5, 1, 10),
+                developer_port: engine.clamped_u16("DeveloperPort", 0, 0, 65535),
+                duplicate_screen_type: engine.name(
+                    "DuplicateScreenType",
+                    ScreenModeType::default(),
+                    ScreenModeType::from_legacy_name,
+                ),
+                expand_screen_type: engine.name(
+                    "ExpandScreenType",
+                    ScreenModeType::default(),
+                    ScreenModeType::from_legacy_name,
+                ),
+                display_screen_type: engine.name(
+                    "DisplayScreenType",
+                    DisplayScreenType::default(),
+                    DisplayScreenType::from_legacy_name,
+                ),
+                screen_device: engine.string("ScreenDevice", ""),
+                input_type: engine.name("InputType", InputType::default(), InputType::from_legacy_name),
+                input_module_type: engine.name(
+                    "InputModuleType",
+                    InputModuleType::default(),
+                    InputModuleType::from_legacy_name,
+                ),
+                gif: engine.engine("Gif", EngineType::MpvPlayerLive, EngineType::GIF),
+                url: engine.engine("Url", EngineType::CefSharpLive, EngineType::URL),
+                web: engine.engine("Web", EngineType::CefSharpLive, EngineType::WEB),
+                video: engine.engine("Video", EngineType::MpvPlayerLive, EngineType::VIDEO),
+                youtube: engine.engine("YouTube", EngineType::CefSharpLive, EngineType::YOUTUBE),
+                application: engine.engine("Application", EngineType::AuroraLive, EngineType::APPLICATION),
+                background_image_path: engine.string("BackgroundImagePath", ""),
+                background_image: engine.boolean("BackgroundImage", false),
+                disable_slideshow: engine.boolean("DisableSlideshow", false),
+                disable_slideshow_live: engine.boolean("DisableSlideshowLive", false),
+                wallpaper_shuffle: engine.boolean("WallpaperShuffle", true),
+                volume_desktop: engine.boolean("VolumeDesktop", false),
+                volume_silent: engine.boolean("VolumeSilent", false),
+                input_desktop: engine.boolean("InputDesktop", false),
+                developer_mode: engine.boolean("DeveloperMode", false),
+                crash_explorer: engine.boolean("CrashExplorer", false),
+                library_start: engine.boolean("LibraryStart", true),
+                store_start: engine.boolean("StoreStart", true),
+                stay_awake: engine.boolean("StayAwake", false),
                 extra: engine.rest(),
             },
             backgroundog: Backgroundog {
-                fullscreen: backgroundog.name(
-                    "FullScreenPerformance",
-                    FullScreenAction::default(),
-                    FullScreenAction::from_legacy_name,
-                ),
+                fullscreen: backgroundog.rule("FullScreenPerformance", PerformanceType::Resume),
                 pause: backgroundog.name(
                     "PausePerformanceType",
                     PauseKind::default(),
                     PauseKind::from_legacy_name,
                 ),
+                full_screen_scope: backgroundog.name(
+                    "FullScreenScope",
+                    FullScreenScope::default(),
+                    FullScreenScope::from_legacy_name,
+                ),
+                download_value: backgroundog.clamped_u32("DownloadValue", 10, 0, MAX_STORAGE_VALUE),
+                download_type: backgroundog.non_empty_string("DownloadType", DEFAULT_DOWNLOAD_TYPE),
+                upload_value: backgroundog.clamped_u32("UploadValue", 800, 0, MAX_STORAGE_VALUE),
+                upload_type: backgroundog.non_empty_string("UploadType", DEFAULT_UPLOAD_TYPE),
+                processor_usage: backgroundog.volume("ProcessorUsage", 70),
+                graphic_usage: backgroundog.volume("GraphicUsage", 70),
+                battery_usage: backgroundog.volume("BatteryUsage", 50),
+                memory_usage: backgroundog.volume("MemoryUsage", 80),
+                ping_value: backgroundog.clamped_u16("PingValue", 100, 0, 1000),
+                ping_type: backgroundog.non_empty_string("PingType", DEFAULT_PING_TYPE),
+                network_adapter: backgroundog.string("NetworkAdapter", ""),
+                graphic_adapter: backgroundog.string("GraphicAdapter", ""),
+                performance_counter: backgroundog.boolean("PerformanceCounter", true),
+                battery_saver_performance: backgroundog.rule("BatterySaverPerformance", PerformanceType::Resume),
+                screen_saver_performance: backgroundog.rule("ScreenSaverPerformance", PerformanceType::Pause),
+                processor_performance: backgroundog.rule("ProcessorPerformance", PerformanceType::Resume),
+                virtual_performance: backgroundog.rule("VirtualPerformance", PerformanceType::Resume),
+                network_performance: backgroundog.rule("NetworkPerformance", PerformanceType::Resume),
+                graphic_performance: backgroundog.rule("GraphicPerformance", PerformanceType::Resume),
+                battery_performance: backgroundog.rule("BatteryPerformance", PerformanceType::Resume),
+                remote_performance: backgroundog.rule("RemotePerformance", PerformanceType::Resume),
+                memory_performance: backgroundog.rule("MemoryPerformance", PerformanceType::Resume),
+                focus_performance: backgroundog.rule("FocusPerformance", PerformanceType::Resume),
+                session_performance: backgroundog.rule("SessionPerformance", PerformanceType::Close),
+                console_performance: backgroundog.rule("ConsolePerformance", PerformanceType::Close),
+                sleep_performance: backgroundog.rule("SleepPerformance", PerformanceType::Close),
+                lock_performance: backgroundog.rule("LockPerformance", PerformanceType::Close),
                 extra: backgroundog.rest(),
+            },
+            cycling: Cycling {
+                transition_time: cycling.clamped_u32("TransitionTime", 1800, 10, 99999),
+                exclusion: cycling.strings("Exclusion"),
+                active: cycling.boolean("Active", false),
+                transition_type: cycling.name(
+                    "TransitionType",
+                    TransitionCycleType::default(),
+                    TransitionCycleType::from_legacy_name,
+                ),
+                extra: cycling.rest(),
+            },
+            hook: Hook {
+                discord_refresh_delay: hook.clamped_u32("DiscordRefreshDelay", 60, 60, 3600),
+                discord_refresh_connect: hook.boolean("DiscordRefreshConnect", true),
+                discord_connect: hook.boolean("DiscordConnect", true),
+                extra: hook.rest(),
+            },
+            update: Update {
+                limit_value: update.clamped_u32("LimitValue", 500, 0, MAX_STORAGE_VALUE),
+                limit_type: update.non_empty_string("LimitType", DEFAULT_LIMIT_TYPE),
+                time: update.string("Time", MIN_DATE_TIME),
+                state: update.boolean("State", false),
+                auto: update.boolean("Auto", true),
+                module_type: update.name(
+                    "ModuleType",
+                    UpdateModuleType::default(),
+                    UpdateModuleType::from_legacy_name,
+                ),
+                server_type: update.name(
+                    "ServerType",
+                    UpdateServerType::default(),
+                    UpdateServerType::from_legacy_name,
+                ),
+                auto_type: update.name("AutoType", UpdateAutoType::default(), UpdateAutoType::from_legacy_name),
+                extension_type: update.name(
+                    "ExtensionType",
+                    UpdateExtensionType::default(),
+                    UpdateExtensionType::from_legacy_name,
+                ),
+                channel_type: update.name(
+                    "ChannelType",
+                    UpdateChannelType::default(),
+                    UpdateChannelType::from_legacy_name,
+                ),
+                extra: update.rest(),
             },
             warehouse: Warehouse {
                 showcase: warehouse.strings("Showcase"),
@@ -548,6 +1047,23 @@ impl Fields {
     /// A small number limited to `min..=max`: a number outside the range is clamped like the legacy reader, anything
     /// else is the default.
     fn clamped(&mut self, key: &str, default: u8, min: u8, max: u8) -> u8 {
+        let value = self.clamped_i64(key, i64::from(default), i64::from(min), i64::from(max));
+        u8::try_from(value).unwrap_or(default)
+    }
+
+    /// Like [`Self::clamped`] for a number up to `u16::MAX`.
+    fn clamped_u16(&mut self, key: &str, default: u16, min: u16, max: u16) -> u16 {
+        let value = self.clamped_i64(key, i64::from(default), i64::from(min), i64::from(max));
+        u16::try_from(value).unwrap_or(default)
+    }
+
+    /// Like [`Self::clamped`] for a number up to `u32::MAX`.
+    fn clamped_u32(&mut self, key: &str, default: u32, min: u32, max: u32) -> u32 {
+        let value = self.clamped_i64(key, i64::from(default), i64::from(min), i64::from(max));
+        u32::try_from(value).unwrap_or(default)
+    }
+
+    fn clamped_i64(&mut self, key: &str, default: i64, min: i64, max: i64) -> i64 {
         let number = match self.map.remove(key) {
             None => return default,
             Some(Value::Number(number)) => number.as_i64().or_else(|| {
@@ -559,12 +1075,67 @@ impl Fields {
             Some(_) => None,
         };
         match number {
-            Some(number) => u8::try_from(number.clamp(i64::from(min), i64::from(max))).unwrap_or(default),
+            Some(number) => number.clamp(min, max),
             None => {
                 self.invalid(key);
                 default
             }
         }
+    }
+
+    /// A string that must not be empty: a missing, empty or non-string value is the default.
+    fn non_empty_string(&mut self, key: &str, default: &str) -> String {
+        match self.map.remove(key) {
+            None => default.to_owned(),
+            Some(Value::String(text)) if !text.is_empty() => text,
+            Some(_) => {
+                self.invalid(key);
+                default.to_owned()
+            }
+        }
+    }
+
+    /// An object of string values: a missing or invalid object is empty, an entry with another value is skipped.
+    fn string_map(&mut self, key: &str) -> BTreeMap<String, String> {
+        match self.map.remove(key) {
+            None => BTreeMap::new(),
+            Some(Value::Object(entries)) => entries
+                .into_iter()
+                .filter_map(|(name, value)| match value {
+                    Value::String(text) => Some((name, text)),
+                    _ => {
+                        self.invalid(key);
+                        None
+                    }
+                })
+                .collect(),
+            Some(_) => {
+                self.invalid(key);
+                BTreeMap::new()
+            }
+        }
+    }
+
+    /// An engine stored by its legacy name that must be one of `allowed`: any other name is the default.
+    fn engine(&mut self, key: &str, default: EngineType, allowed: &[EngineType]) -> EngineType {
+        match self.map.remove(key) {
+            None => default,
+            Some(Value::String(text)) => EngineType::from_legacy_name(&text)
+                .filter(|engine| allowed.contains(engine))
+                .unwrap_or_else(|| {
+                    self.invalid(key);
+                    default
+                }),
+            Some(_) => {
+                self.invalid(key);
+                default
+            }
+        }
+    }
+
+    /// A performance rule stored by its legacy name.
+    fn rule(&mut self, key: &str, default: PerformanceType) -> PerformanceType {
+        self.name(key, default, PerformanceType::from_legacy_name)
     }
 
     /// An enum stored by its legacy name; an unknown name is the default.
@@ -600,7 +1171,7 @@ mod tests {
         assert!(settings.engine.hardware_acceleration);
         assert!(settings.general.app_visible);
         assert_eq!(settings.engine.stretch, Stretch::UniformToFill);
-        assert_eq!(settings.backgroundog.fullscreen, FullScreenAction::Resume);
+        assert_eq!(settings.backgroundog.fullscreen, PerformanceType::Resume);
         assert_eq!(settings.library.selected, "");
     }
 
@@ -667,6 +1238,34 @@ mod tests {
         assert_eq!(settings.general.run_startup, 10);
         assert_eq!(settings.warehouse.showcase, ["a", "b"]);
         assert!(!settings.warehouse.hint_tray_icon);
+    }
+
+    #[test]
+    fn the_engine_cycling_hook_and_update_sections_use_the_legacy_names_and_defaults() {
+        let value = serde_json::to_value(Settings::default()).unwrap();
+        assert_eq!(value["Engine"]["Gif"], "MpvPlayerLive");
+        assert_eq!(value["Engine"]["Application"], "AuroraLive");
+        assert_eq!(value["Engine"]["InputType"], "MouseKeyboard");
+        assert_eq!(value["Engine"]["VolumeSilentSensitivity"], 5);
+        assert_eq!(value["Backgroundog"]["FullScreenScope"], "AllMonitors");
+        assert_eq!(value["Backgroundog"]["ScreenSaverPerformance"], "Pause");
+        assert_eq!(value["Backgroundog"]["LockPerformance"], "Close");
+        assert_eq!(value["Backgroundog"]["DownloadType"], "Megabyte");
+        assert_eq!(value["Cycling"]["TransitionTime"], 1800);
+        assert_eq!(value["Hook"]["DiscordRefreshDelay"], 60);
+        assert_eq!(value["Update"]["AutoType"], "SemiSilent");
+        assert_eq!(value["Update"]["Time"], MIN_DATE_TIME);
+        assert!(value["Cycling"].get("PassingTime").is_none());
+    }
+
+    #[test]
+    fn a_stored_engine_outside_its_allowed_set_is_the_default() {
+        let text = br#"{"Engine":{"Video":"AuroraLive","Application":"VlcPlayerLive","Gif":"NebulaLive","Url":"WebViewLive"}}"#;
+        let settings = Settings::from_slice(text).unwrap();
+        assert_eq!(settings.engine.video, EngineType::MpvPlayerLive);
+        assert_eq!(settings.engine.application, EngineType::AuroraLive);
+        assert_eq!(settings.engine.gif, EngineType::MpvPlayerLive);
+        assert_eq!(settings.engine.url, EngineType::WebViewLive);
     }
 
     #[test]

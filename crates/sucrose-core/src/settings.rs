@@ -201,6 +201,204 @@ legacy_enum! {
     }
 }
 
+legacy_enum! {
+    /// How wallpapers are spread over several monitors (Skylark `DisplayScreenType`, Engine.json
+    /// `DisplayScreenType`); the legacy default is `PerDisplay`.
+    ///
+    /// The C# enum comes from an external library and its ordinals are unclear, so only names are read.
+    DisplayScreenType, default PerDisplay {
+        /// Each monitor plays its own wallpaper.
+        #[default]
+        PerDisplay,
+        /// Every monitor plays the same wallpaper.
+        SameDuplicate,
+        /// One wallpaper is stretched across all monitors.
+        SpanAcross,
+    }
+}
+
+legacy_enum! {
+    /// How a duplicated or expanded screen layout is handled (Skylark screen mode, Engine.json
+    /// `DuplicateScreenType` and `ExpandScreenType`); the legacy default is `Default`.
+    ///
+    /// The C# enum comes from an external library and its ordinals are unclear, so only names are read.
+    ScreenModeType, default Default {
+        /// The standard handling.
+        #[default]
+        Default,
+        /// The advanced handling.
+        Advanced,
+    }
+}
+
+legacy_enum! {
+    /// Which input is forwarded to a web wallpaper (Skylark `InputType`, Engine.json `InputType`); the legacy
+    /// default is `MouseKeyboard`.
+    ///
+    /// The C# enum comes from an external library and its ordinals are unclear, so only names are read.
+    InputType, default MouseKeyboard {
+        /// No input.
+        Close,
+        /// Mouse input only.
+        OnlyMouse,
+        /// Keyboard input only.
+        OnlyKeyboard,
+        /// Mouse and keyboard input.
+        #[default]
+        MouseKeyboard,
+    }
+}
+
+legacy_enum! {
+    /// How input is read (`InputModuleType`, Engine.json `InputModuleType`); the only value is `RawInput`.
+    InputModuleType, default RawInput {
+        /// Windows raw input.
+        #[default]
+        RawInput,
+    }
+}
+
+legacy_enum! {
+    /// The engine that plays a wallpaper (`EngineType`, Engine.json `Gif`, `Url`, `Web`, `Video`, `YouTube`
+    /// and `Application`).
+    ///
+    /// Every wallpaper type has its own default and its own allowed subset (see [`EngineType::GIF`] and the
+    /// other constants); the value here is only the enum default.
+    EngineType, default MpvPlayerLive {
+        /// The application engine.
+        AuroraLive,
+        /// The video engine of the legacy app.
+        NebulaLive,
+        /// A gif engine.
+        VexanaLive,
+        /// A gif engine.
+        XavierLive,
+        /// The WebView2 engine.
+        WebViewLive,
+        /// The CefSharp engine.
+        CefSharpLive,
+        /// The mpv player engine.
+        #[default]
+        MpvPlayerLive,
+        /// The VLC player engine.
+        VlcPlayerLive,
+    }
+}
+
+impl EngineType {
+    /// The engines a gif wallpaper may use (`GifEngineType`).
+    pub const GIF: &'static [Self] = &[
+        Self::VexanaLive,
+        Self::XavierLive,
+        Self::WebViewLive,
+        Self::CefSharpLive,
+        Self::MpvPlayerLive,
+        Self::VlcPlayerLive,
+    ];
+    /// The engines a url wallpaper may use (`UrlEngineType`).
+    pub const URL: &'static [Self] = &[Self::WebViewLive, Self::CefSharpLive];
+    /// The engines a web wallpaper may use (`WebEngineType`).
+    pub const WEB: &'static [Self] = &[Self::WebViewLive, Self::CefSharpLive];
+    /// The engines a video wallpaper may use (`VideoEngineType`).
+    pub const VIDEO: &'static [Self] = &[
+        Self::NebulaLive,
+        Self::WebViewLive,
+        Self::CefSharpLive,
+        Self::MpvPlayerLive,
+        Self::VlcPlayerLive,
+    ];
+    /// The engines a YouTube wallpaper may use (`YouTubeEngineType`).
+    pub const YOUTUBE: &'static [Self] = &[Self::WebViewLive, Self::CefSharpLive];
+    /// The engines an application wallpaper may use (`ApplicationEngineType`).
+    pub const APPLICATION: &'static [Self] = &[Self::AuroraLive];
+}
+
+legacy_enum! {
+    /// The order in which cycling picks the next wallpaper (`TransitionCycleType`); the legacy default is `Random`.
+    TransitionCycleType, default Random {
+        /// A random theme.
+        #[default]
+        Random,
+        /// The next theme in library order.
+        Sequential,
+    }
+}
+
+legacy_enum! {
+    /// How an update is downloaded (`UpdateModuleType`); the legacy default is `Downloader`.
+    UpdateModuleType, default Downloader {
+        /// The built-in downloader of the legacy app.
+        Native,
+        /// The separate downloader.
+        #[default]
+        Downloader,
+    }
+}
+
+legacy_enum! {
+    /// Where updates come from (`UpdateServerType`); the legacy default is `Soferity`.
+    UpdateServerType, default Soferity {
+        /// GitHub releases.
+        GitHub,
+        /// The Soferity server.
+        #[default]
+        Soferity,
+    }
+}
+
+legacy_enum! {
+    /// How visible an automatic update is (`UpdateAutoType`); the legacy default is `SemiSilent`.
+    UpdateAutoType, default SemiSilent {
+        /// Fully visible.
+        Visible,
+        /// Visible only to confirm.
+        #[default]
+        SemiSilent,
+        /// Silent update, visible result.
+        UpdateSilent,
+        /// Silent from start to end.
+        CompleteSilent,
+    }
+}
+
+legacy_enum! {
+    /// The package kind an update downloads (`UpdateExtensionType`); the legacy default is `Executable`.
+    UpdateExtensionType, default Executable {
+        /// A compressed archive.
+        Compressed,
+        /// An installer executable.
+        #[default]
+        Executable,
+    }
+}
+
+legacy_enum! {
+    /// The release channel updates come from (`UpdateChannelType`); the legacy default is `Release`.
+    UpdateChannelType, default Release {
+        /// Stable releases.
+        #[default]
+        Release,
+        /// Pre-releases too.
+        PreRelease,
+    }
+}
+
+legacy_enum! {
+    /// Which monitors a fullscreen app affects (new, `Backgroundog.FullScreenScope`, Phase 2 D-05); the default is
+    /// `AllMonitors`.
+    FullScreenScope, default AllMonitors {
+        /// A fullscreen app on any monitor applies the rule to every wallpaper.
+        #[default]
+        AllMonitors,
+        /// Only the wallpaper on the monitor of the fullscreen app is affected.
+        AffectedMonitor,
+    }
+}
+
+/// What a wallpaper does while a performance rule applies: the legacy `PerformanceType` of every `*Performance`
+/// key, the same enum as [`FullScreenAction`].
+pub type PerformanceType = FullScreenAction;
+
 macro_rules! legacy_index {
     ($($name:ident),+) => {
         $(
@@ -214,7 +412,8 @@ macro_rules! legacy_index {
     };
 }
 
-// ScreenArea is left out on purpose: its C# ordinals are unclear.
+// ScreenArea, DisplayScreenType, ScreenModeType and InputType are left out on purpose: their C# ordinals are unclear.
+// FullScreenScope is new and has no legacy ordinal.
 legacy_index!(
     Stretch,
     FullScreenAction,
@@ -223,7 +422,15 @@ legacy_index!(
     SortMode,
     SortKind,
     LegacyThemeType,
-    LegacyBackdropType
+    LegacyBackdropType,
+    InputModuleType,
+    EngineType,
+    TransitionCycleType,
+    UpdateModuleType,
+    UpdateServerType,
+    UpdateAutoType,
+    UpdateExtensionType,
+    UpdateChannelType
 );
 
 #[cfg(test)]
@@ -348,5 +555,74 @@ mod tests {
         assert_eq!(Stretch::from_legacy_index(4), None);
         assert_eq!(Stretch::from_legacy_index(-1), None);
         assert_eq!(PauseKind::from_legacy_index(2), None);
+    }
+
+    #[test]
+    fn the_engine_and_update_enums_follow_the_declaration_order_of_the_legacy_enums() {
+        assert_eq!(EngineType::from_legacy_index(0), Some(EngineType::AuroraLive));
+        assert_eq!(EngineType::from_legacy_index(7), Some(EngineType::VlcPlayerLive));
+        assert_eq!(EngineType::from_legacy_index(8), None);
+        assert_eq!(EngineType::from_legacy_name("cefsharplive"), None);
+        assert_eq!(
+            EngineType::from_legacy_name("CefSharpLive"),
+            Some(EngineType::CefSharpLive)
+        );
+        assert_eq!(
+            TransitionCycleType::from_legacy_index(1),
+            Some(TransitionCycleType::Sequential)
+        );
+        assert_eq!(UpdateModuleType::from_legacy_index(0), Some(UpdateModuleType::Native));
+        assert_eq!(
+            UpdateServerType::from_legacy_name("GitHub"),
+            Some(UpdateServerType::GitHub)
+        );
+        assert_eq!(
+            UpdateAutoType::from_legacy_index(3),
+            Some(UpdateAutoType::CompleteSilent)
+        );
+        assert_eq!(UpdateAutoType::from_legacy_index(4), None);
+        assert_eq!(
+            UpdateExtensionType::from_legacy_name("Compressed"),
+            Some(UpdateExtensionType::Compressed)
+        );
+        assert_eq!(
+            UpdateChannelType::from_legacy_name("PreRelease"),
+            Some(UpdateChannelType::PreRelease)
+        );
+        assert_eq!(InputModuleType::from_legacy_index(0), Some(InputModuleType::RawInput));
+        assert_eq!(InputModuleType::from_legacy_index(1), None);
+    }
+
+    #[test]
+    fn the_skylark_enums_are_read_by_name_only() {
+        assert_eq!(
+            InputType::from_legacy_name("OnlyKeyboard"),
+            Some(InputType::OnlyKeyboard)
+        );
+        assert_eq!(InputType::from_legacy_name("onlykeyboard"), None);
+        assert_eq!(
+            DisplayScreenType::from_legacy_name("SpanAcross"),
+            Some(DisplayScreenType::SpanAcross)
+        );
+        assert_eq!(
+            ScreenModeType::from_legacy_name("Advanced"),
+            Some(ScreenModeType::Advanced)
+        );
+        assert_eq!(InputType::default(), InputType::MouseKeyboard);
+        assert_eq!(DisplayScreenType::default(), DisplayScreenType::PerDisplay);
+        assert_eq!(ScreenModeType::default(), ScreenModeType::Default);
+        assert_eq!(FullScreenScope::default(), FullScreenScope::AllMonitors);
+    }
+
+    #[test]
+    fn every_wallpaper_type_allows_only_its_engines() {
+        assert!(EngineType::VIDEO.contains(&EngineType::NebulaLive));
+        assert!(!EngineType::VIDEO.contains(&EngineType::AuroraLive));
+        assert!(!EngineType::GIF.contains(&EngineType::NebulaLive));
+        assert_eq!(EngineType::URL, EngineType::WEB);
+        assert_eq!(EngineType::URL, EngineType::YOUTUBE);
+        assert_eq!(EngineType::APPLICATION, &[EngineType::AuroraLive]);
+        let performance: PerformanceType = PerformanceType::Pause;
+        assert_eq!(performance, FullScreenAction::Pause);
     }
 }

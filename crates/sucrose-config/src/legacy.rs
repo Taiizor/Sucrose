@@ -4,6 +4,7 @@
 //! Like the legacy reader, any failure yields defaults, but each failure is logged.
 
 use std::{
+    collections::BTreeMap,
     fs, io,
     path::{Path, PathBuf},
     thread,
@@ -32,6 +33,12 @@ pub enum LegacyFile {
     Engine,
     /// `Backgroundog.json`.
     Backgroundog,
+    /// `Cycling.json`: the wallpaper cycling rules.
+    Cycling,
+    /// `Hook.json`: the Discord hook.
+    Hook,
+    /// `Update.json`: the update rules.
+    Update,
 }
 
 impl LegacyFile {
@@ -44,6 +51,9 @@ impl LegacyFile {
             Self::Warehouse => "Warehouse.json",
             Self::Engine => "Engine.json",
             Self::Backgroundog => "Backgroundog.json",
+            Self::Cycling => "Cycling.json",
+            Self::Hook => "Hook.json",
+            Self::Update => "Update.json",
         }
     }
 }
@@ -183,6 +193,28 @@ impl Properties {
             Some(_) => {
                 self.warn_invalid(key);
                 Vec::new()
+            }
+        }
+    }
+
+    /// The string entries of an object key; a missing key or a value that is not an object is empty, an entry whose
+    /// value is not a string is skipped with a warning.
+    pub fn get_string_map(&self, key: &str) -> BTreeMap<String, String> {
+        match self.value(key) {
+            None => BTreeMap::new(),
+            Some(Value::Object(entries)) => entries
+                .iter()
+                .filter_map(|(name, value)| {
+                    let text = value.as_str().map(str::to_owned);
+                    if text.is_none() {
+                        self.warn_invalid(key);
+                    }
+                    text.map(|text| (name.clone(), text))
+                })
+                .collect(),
+            Some(_) => {
+                self.warn_invalid(key);
+                BTreeMap::new()
             }
         }
     }
