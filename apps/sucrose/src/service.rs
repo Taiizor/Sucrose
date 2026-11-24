@@ -133,6 +133,24 @@ const NOTHING_MAINTAINED: MaintainReport = MaintainReport {
     corrupt_skipped: 0,
 };
 
+/// What a MaintainLibrary request does given what else touches the library (WR-01).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum MaintenanceDecision {
+    /// Start a library-ops run.
+    Start,
+    /// A run is going: its report answers this request too.
+    Wait,
+    /// A library move runs: nothing is maintained and the Portal is told so at once.
+    AnswerNothing,
+}
+
+/// What a MaintainLibrary request does: maintenance and a library move never run together (WR-01); the move side is
+/// `MoveEnv::start`'s Busy refusal. `running` is a library-ops run that is going, `moving` a library move.
+fn maintenance_decision(running: bool, moving: bool) -> MaintenanceDecision {
+    let _ = (running, moving);
+    MaintenanceDecision::Start
+}
+
 /// The OS recycle bin or trash for the library-ops worker.
 struct OsBin;
 
@@ -1294,18 +1312,27 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                     });
                                 }
                                 PortalRequest::MaintainLibrary => {
-                                    if library_job {
-                                        // The one registered Portal gets the report of the run that is going.
-                                        tracing::debug!("library maintenance is running, the answer comes when it ends");
-                                    } else if let Some(root) = legacy_root.as_deref() {
-                                        let input = MaintainInput::from_settings(host.settings(), root);
-                                        if start_library_ops(input, &notifier) {
-                                            library_job = true;
-                                        } else {
+                                    match maintenance_decision(library_job, fleet.library_move.is_some()) {
+                                        MaintenanceDecision::Wait => {
+                                            // The one registered Portal gets the report of the run that is going.
+                                            tracing::debug!("library maintenance is running, the answer comes when it ends");
+                                        }
+                                        MaintenanceDecision::AnswerNothing => {
+                                            tracing::debug!("library maintenance skipped: the library is being moved");
                                             portals.send(PortalEvent::LibraryMaintained(NOTHING_MAINTAINED));
                                         }
-                                    } else {
-                                        portals.send(PortalEvent::LibraryMaintained(NOTHING_MAINTAINED));
+                                        MaintenanceDecision::Start => {
+                                            if let Some(root) = legacy_root.as_deref() {
+                                                let input = MaintainInput::from_settings(host.settings(), root);
+                                                if start_library_ops(input, &notifier) {
+                                                    library_job = true;
+                                                } else {
+                                                    portals.send(PortalEvent::LibraryMaintained(NOTHING_MAINTAINED));
+                                                }
+                                            } else {
+                                                portals.send(PortalEvent::LibraryMaintained(NOTHING_MAINTAINED));
+                                            }
+                                        }
                                     }
                                 }
                                 PortalRequest::MoveLibrary { destination } => {
@@ -4586,6 +4613,26 @@ mod tests {
             gate: Err(rejection),
             ..use_input()
         }
+    }
+
+    #[test]
+    fn maintenance_is_answered_with_nothing_during_a_library_move() {
+        assert_eq!(maintenance_decision(false, true), MaintenanceDecision::AnswerNothing);
+    }
+
+    #[test]
+    fn maintenance_waits_for_the_run_that_is_going_during_no_library_move() {
+        assert_eq!(maintenance_decision(true, false), MaintenanceDecision::Wait);
+        assert_eq!(
+            maintenance_decision(true, true),
+            MaintenanceDecision::Wait,
+            "the run that is going answers"
+        );
+    }
+
+    #[test]
+    fn maintenance_starts_when_nothing_else_touches_the_library_move_free() {
+        assert_eq!(maintenance_decision(false, false), MaintenanceDecision::Start);
     }
 
     mod decide_use {
