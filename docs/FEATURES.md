@@ -124,7 +124,7 @@ Actions Close / Pause / Resume per condition; trigger after 5 consecutive 1 s po
 
 | Feature | Notes | Status |
 |---|---|---|
-| Window backdrop (Mica/Acrylic/…), background image with stretch and opacity | Windows backdrops; image works everywhere. Theme mode (Light/Dark/System) and backdrop (None/Mica/Acrylic/Tabbed) are two settings (D-21): the legacy ThemeType Dark/Light migrates to the mode, BackdropType Auto migrates to System + Mica, the other BackdropType names map one to one, and a fresh install is System + None. | ⬜ |
+| Window backdrop (Mica/Acrylic/…), background image with stretch and opacity | Windows backdrops; image works everywhere. Theme mode (Light/Dark/System) and backdrop (None/Mica/Acrylic/Tabbed) are two settings (D-21): the legacy ThemeType Dark/Light migrates to the mode, BackdropType Auto migrates to System + Mica, the other BackdropType names map one to one, and a fresh install is System + None. Rust: backdrops need Windows 11 22H2 (build 22621) and show disabled with a reason elsewhere (D-22); a stored backdrop the OS cannot show is applied as None and the setting is not rewritten; the background image with stretch and opacity is drawn by the Portal on every OS (macOS and Linux unverified by hand). | 🟨 |
 | Light/dark, follow OS theme | | ⬜ |
 | Header actions, search, status bar (memory, quotes with copy), command-line page arguments | Rust (Phase 3, in progress): the header row has the Library tab and the search box; the other actions come with the following plans. | 🟨 |
 | Settings pages: General, Personal, Performance, Wallpaper, System, Other (every key in `portal.md` §4) | | ⬜ |

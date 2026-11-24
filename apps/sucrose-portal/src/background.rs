@@ -50,6 +50,7 @@ pub enum BackgroundError {
 
 impl BackgroundError {
     /// The locale key of the text the settings row shows for this error.
+    #[allow(dead_code, reason = "the settings page of plan 20 shows the error text")]
     pub fn text_key(self) -> &'static str {
         match self {
             Self::Missing | Self::Unsupported => "Portal.GeneralSettingPage.WindowBackdrop.ImageMissing",
@@ -61,8 +62,13 @@ impl BackgroundError {
 
 /// Which error an I/O failure on the image file is.
 pub fn classify_error(error: &io::Error) -> BackgroundError {
-    let _ = error;
-    BackgroundError::Unsupported
+    match error.kind() {
+        io::ErrorKind::NotFound => BackgroundError::Missing,
+        io::ErrorKind::PermissionDenied => BackgroundError::Denied,
+        // ERROR_SHARING_VIOLATION and ERROR_LOCK_VIOLATION: another process holds the file.
+        _ if cfg!(windows) && matches!(error.raw_os_error(), Some(32 | 33)) => BackgroundError::Locked,
+        _ => BackgroundError::Unsupported,
+    }
 }
 
 /// Whether the file name carries an extension of the legacy file filter.
@@ -75,8 +81,15 @@ pub fn supported_extension(path: &Path) -> bool {
 /// The pixel size to decode an `image` for a `window`, both in pixels: the smallest size that still covers the window,
 /// never larger than the original, and never above [`MAX_LONG_EDGE`] on its long edge.
 pub fn decode_size(image: (u32, u32), window: (u32, u32)) -> (u32, u32) {
-    let _ = window;
-    image
+    let (width, height) = (f64::from(image.0.max(1)), f64::from(image.1.max(1)));
+    let cover = (f64::from(window.0) / width).max(f64::from(window.1) / height);
+    let mut scale = cover.min(1.0);
+    let long = width.max(height) * scale;
+    if long > f64::from(MAX_LONG_EDGE) {
+        scale *= f64::from(MAX_LONG_EDGE) / long;
+    }
+    let side = |value: f64| (value * scale).round().clamp(1.0, f64::from(MAX_LONG_EDGE)) as u32;
+    (side(width), side(height))
 }
 
 /// Where the image is drawn inside the window area, in logical pixels from the area's top left.
@@ -95,19 +108,37 @@ pub struct Placement {
 /// The placement of an `image` (width, height) in an `area` for `stretch`: None keeps the image size centered, Fill
 /// stretches to the area, Uniform contains the image and UniformToFill covers the area (the overflow is clipped).
 pub fn fit(stretch: Stretch, image: (f32, f32), area: (f32, f32)) -> Placement {
-    let _ = (stretch, image);
-    Placement {
+    let whole = Placement {
         x: 0.0,
         y: 0.0,
         width: area.0,
         height: area.1,
+    };
+    if image.0 <= 0.0 || image.1 <= 0.0 {
+        return whole;
+    }
+    let scale = match stretch {
+        Stretch::Fill => return whole,
+        Stretch::None => 1.0,
+        Stretch::Uniform => (area.0 / image.0).min(area.1 / image.1),
+        Stretch::UniformToFill => (area.0 / image.0).max(area.1 / image.1),
+    };
+    let (width, height) = (image.0 * scale, image.1 * scale);
+    Placement {
+        x: (area.0 - width) / 2.0,
+        y: (area.1 - height) / 2.0,
+        width,
+        height,
     }
 }
 
 /// The alpha of the image layer for a stored opacity of 0 to 100, or `None` when the layer is not drawn at all.
 pub fn layer_alpha(opacity: u8) -> Option<f32> {
-    let _ = opacity;
-    Some(1.0)
+    match opacity {
+        0 => None,
+        100.. => Some(1.0),
+        percent => Some(f32::from(percent) / 100.0),
+    }
 }
 
 /// A decoded background image, ready for GPUI.
@@ -303,6 +334,7 @@ impl BackgroundImage {
     }
 
     /// Why the image is not shown, for the settings row; `None` while it is fine or not set.
+    #[allow(dead_code, reason = "the settings page of plan 20 shows the error")]
     pub fn error(&self) -> Option<BackgroundError> {
         self.error
     }
