@@ -22,7 +22,7 @@ pub const SETTINGS_FILE: &str = "Sucrose.json";
 /// tools that glob `*.json` leave it alone.
 pub const BACKUP_FILE: &str = "Sucrose.json.bak";
 
-/// How often a rename is attempted while another program holds the target for a moment.
+/// How often a rename or a read is attempted while another program holds the target for a moment.
 const ATTEMPTS: u32 = 3;
 const RETRY_DELAY: Duration = Duration::from_millis(50);
 
@@ -31,7 +31,8 @@ const RETRY_DELAY: Duration = Duration::from_millis(50);
 pub enum LoadOutcome {
     /// `Sucrose.json` was read.
     Loaded,
-    /// `Sucrose.json` was missing or corrupt and `Sucrose.json.bak` took its place.
+    /// `Sucrose.json` was missing or corrupt and `Sucrose.json.bak` took its place. A file that merely cannot be read
+    /// (locked by another program, access denied) is never replaced: the store refuses to open instead.
     RestoredFromBackup,
     /// Neither file existed and the legacy files were migrated.
     Migrated,
@@ -67,6 +68,9 @@ pub struct Store {
 enum Read {
     Missing,
     Corrupt,
+    /// The file exists but cannot be read (another program holds it, access denied), even after a few attempts. It
+    /// says nothing about the content, so it must never lead to a restore or a migration over the file.
+    Unreadable(io::Error),
     /// The parsed settings and the exact bytes they came from.
     Good(Box<Settings>, Vec<u8>),
 }
@@ -74,45 +78,54 @@ enum Read {
 impl Store {
     /// Opens the store in `setting_dir` (created when missing). The load order is the settings file, then its `.bak`,
     /// then the migration of the legacy files (`legacy`: the legacy `Setting` folder and the C# data folder); the legacy
-    /// files are read, never written, and only when neither settings file can be read. Temporary files a killed writer
-    /// left behind are removed.
+    /// files are read, never written, and only when neither settings file exists in a good state. A file that exists but
+    /// cannot be read (locked, access denied) is never replaced by the backup, the migration or the defaults: the store
+    /// refuses with [`StoreError::Io`] and writes nothing. Temporary files a killed writer left behind are removed.
     pub fn open(setting_dir: &Path, legacy: Option<(&Path, &Path)>) -> Result<(Self, LoadOutcome), StoreError> {
         fs::create_dir_all(setting_dir)?;
         remove_stale_temporaries(setting_dir);
         let path = setting_dir.join(SETTINGS_FILE);
         let backup = setting_dir.join(BACKUP_FILE);
 
-        if let Read::Good(settings, _) = read_file(&path) {
-            let newer = newer_version(&settings);
-            let settings = *settings;
-            return Ok((
-                Self {
-                    path,
-                    backup,
-                    settings,
-                    newer,
-                },
-                LoadOutcome::Loaded,
-            ));
-        }
-        if let Read::Good(settings, bytes) = read_file(&backup) {
-            let newer = newer_version(&settings);
-            let settings = *settings;
-            if newer.is_none()
-                && let Err(error) = write_atomic(&path, &bytes)
-            {
-                tracing::warn!(%error, "the settings file cannot be restored from its backup, using the backup in memory");
+        match read_file(&path) {
+            Read::Good(settings, _) => {
+                let newer = newer_version(&settings);
+                let settings = *settings;
+                return Ok((
+                    Self {
+                        path,
+                        backup,
+                        settings,
+                        newer,
+                    },
+                    LoadOutcome::Loaded,
+                ));
             }
-            tracing::info!("the settings file was missing or corrupt and is restored from its backup");
-            return Ok((
-                Self {
-                    path,
-                    backup,
-                    settings,
-                    newer,
-                },
-                LoadOutcome::RestoredFromBackup,
-            ));
+            Read::Unreadable(error) => return Err(StoreError::Io(error)),
+            Read::Missing | Read::Corrupt => {}
+        }
+        match read_file(&backup) {
+            Read::Good(settings, bytes) => {
+                let newer = newer_version(&settings);
+                let settings = *settings;
+                if newer.is_none()
+                    && let Err(error) = write_atomic(&path, &bytes)
+                {
+                    tracing::warn!(%error, "the settings file cannot be restored from its backup, using the backup in memory");
+                }
+                tracing::info!("the settings file was missing or corrupt and is restored from its backup");
+                return Ok((
+                    Self {
+                        path,
+                        backup,
+                        settings,
+                        newer,
+                    },
+                    LoadOutcome::RestoredFromBackup,
+                ));
+            }
+            Read::Unreadable(error) => return Err(StoreError::Io(error)),
+            Read::Missing | Read::Corrupt => {}
         }
         let (settings, outcome) = match legacy {
             Some((legacy_setting_dir, legacy_root)) if legacy_setting_dir.is_dir() => {
@@ -178,8 +191,23 @@ fn newer_version(settings: &Settings) -> Option<u32> {
     })
 }
 
+/// Reads `path`, trying again a few times when the read fails for any reason but "not found" (a sharing violation while a
+/// virus scanner or the C# app holds the file, as `legacy::read` does).
+fn read_retrying(mut read: impl FnMut() -> io::Result<Vec<u8>>) -> io::Result<Vec<u8>> {
+    let mut attempt = 1;
+    loop {
+        match read() {
+            Err(error) if error.kind() != io::ErrorKind::NotFound && attempt < ATTEMPTS => {
+                attempt += 1;
+                thread::sleep(RETRY_DELAY);
+            }
+            result => return result,
+        }
+    }
+}
+
 fn read_file(path: &Path) -> Read {
-    match fs::read(path) {
+    match read_retrying(|| fs::read(path)) {
         Ok(bytes) => match Settings::from_slice(&bytes) {
             Ok(settings) => Read::Good(Box::new(settings), bytes),
             Err(error) => {
@@ -189,8 +217,9 @@ fn read_file(path: &Path) -> Read {
         },
         Err(error) if error.kind() == io::ErrorKind::NotFound => Read::Missing,
         Err(error) => {
-            tracing::warn!(%error, "a settings file cannot be read");
-            Read::Corrupt
+            // The error kind only: the message of an OS error can carry the path.
+            tracing::warn!(kind = ?error.kind(), "a settings file cannot be read and is left as it is");
+            Read::Unreadable(error)
         }
     }
 }
@@ -265,4 +294,57 @@ fn retry_busy(mut action: impl FnMut() -> io::Result<()>) -> io::Result<()> {
 fn is_busy(error: &io::Error) -> bool {
     // 32 is ERROR_SHARING_VIOLATION.
     error.kind() == io::ErrorKind::PermissionDenied || error.raw_os_error() == Some(32)
+}
+
+#[cfg(test)]
+mod tests {
+    use std::cell::Cell;
+
+    use super::*;
+
+    #[test]
+    fn a_read_that_fails_once_with_a_sharing_violation_is_retried() {
+        let calls = Cell::new(0);
+
+        let result = read_retrying(|| {
+            calls.set(calls.get() + 1);
+            if calls.get() == 1 {
+                Err(io::Error::from_raw_os_error(32))
+            } else {
+                Ok(b"bytes".to_vec())
+            }
+        });
+
+        assert_eq!(result.expect("the second attempt reads"), b"bytes");
+        assert_eq!(calls.get(), 2);
+    }
+
+    #[test]
+    fn a_read_that_keeps_failing_is_tried_attempts_times() {
+        let calls = Cell::new(0);
+
+        let result = read_retrying(|| {
+            calls.set(calls.get() + 1);
+            Err(io::Error::from(io::ErrorKind::PermissionDenied))
+        });
+
+        assert!(result.is_err());
+        assert_eq!(calls.get(), ATTEMPTS);
+    }
+
+    #[test]
+    fn a_missing_file_is_not_retried() {
+        let calls = Cell::new(0);
+
+        let result = read_retrying(|| {
+            calls.set(calls.get() + 1);
+            Err(io::Error::from(io::ErrorKind::NotFound))
+        });
+
+        assert_eq!(
+            result.expect_err("not found stays an error").kind(),
+            io::ErrorKind::NotFound
+        );
+        assert_eq!(calls.get(), 1);
+    }
 }

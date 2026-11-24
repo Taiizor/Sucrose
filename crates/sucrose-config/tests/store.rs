@@ -306,7 +306,7 @@ fn a_settings_file_that_cannot_be_read_as_a_file_is_unreadable_not_corrupt() {
         "nothing replaced the settings file"
     );
     assert_eq!(fs::read(setting.join(BACKUP_FILE)).unwrap(), backup_before);
-    assert_eq!(file_names(&setting), [BACKUP_FILE, SETTINGS_FILE]);
+    assert_eq!(file_names(&setting), [SETTINGS_FILE, BACKUP_FILE]);
     assert_eq!(legacy_snapshot(&legacy), legacy_before);
 }
 
