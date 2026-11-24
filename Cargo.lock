@@ -8622,10 +8622,13 @@ name = "xtask"
 version = "26.11.22+1"
 dependencies = [
  "bindgen",
+ "image",
  "serde",
  "serde_json",
  "sevenz-rust2",
  "sha2 0.11.1",
+ "sucrose-config",
+ "sucrose-core",
  "sucrose-platform",
  "sysinfo 0.40.4",
  "toml 1.2.2+spec-1.1.0",

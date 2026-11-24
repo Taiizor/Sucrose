@@ -9,10 +9,13 @@ publish.workspace = true
 
 [dependencies]
 bindgen = { workspace = true, optional = true }
+image = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
 sevenz-rust2 = { workspace = true }
 sha2 = { workspace = true }
+sucrose-config = { workspace = true }
+sucrose-core = { workspace = true }
 sucrose-platform = { workspace = true }
 sysinfo = { workspace = true }
 toml = { workspace = true }

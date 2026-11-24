@@ -9,6 +9,7 @@ mod bindgen_mpv;
 mod fetch_engines;
 mod localize;
 mod measure;
+mod synth_library;
 
 const USAGE: &str = "usage: cargo xtask <task>
 
@@ -18,6 +19,7 @@ tasks:
   fetch-engines  download, verify and place pinned engine binaries (xtask/engines.toml)
   localize       convert the legacy XAML strings to the Portal's rust-i18n YAML (--lang EN, --check)
   measure        sample RAM, CPU and GPU of the running wallpaper processes (--side rust|csharp, --row)
+  synth-library  write a synthetic library and prepared settings for UI runs (--out, --count, --seed, --force)
 ";
 
 fn main() -> ExitCode {
@@ -28,6 +30,7 @@ fn main() -> ExitCode {
         Some("fetch-engines") => fetch_engines::run(&args[2..]),
         Some("localize") => localize::run(&args[2..]),
         Some("measure") => measure::run(&args[2..]),
+        Some("synth-library") => synth_library::run(&args[2..]),
         _ => {
             eprint!("{USAGE}");
             ExitCode::FAILURE
