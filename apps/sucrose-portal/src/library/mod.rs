@@ -6,6 +6,7 @@ mod card;
 mod grid;
 pub mod layout;
 mod pagination;
+pub mod preview;
 pub mod thumbs;
 
 use std::{
