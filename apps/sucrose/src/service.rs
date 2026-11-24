@@ -2627,6 +2627,11 @@ impl Fleet {
     /// Starts the renderers the rule closed and wants back, once their old renderer has ended. Retried on every tick
     /// until it works.
     fn respawn_closed(&mut self, ctx: &Ctx<'_>) {
+        // While the library moves nothing starts: it would open files of the old folder (WR-03). The move's end calls
+        // this again, and the slots stay wanted until then.
+        if self.library_move.is_some() {
+            return;
+        }
         for slot in self.rule_closed.ready() {
             if self.job.is_none() || self.slots.monitor_of(slot).is_none() {
                 self.rule_closed.forget(slot);
@@ -2701,7 +2706,12 @@ impl Fleet {
     /// kept for the end of the move (the latest wins, WR-03: no renderer may start on the old folder), otherwise it is
     /// applied.
     fn apply_or_defer(&mut self, monitors: Vec<MonitorInfo>, quitting: bool, ctx: &Ctx<'_>) -> Applied {
-        if quitting || self.library_move.is_some() {
+        if quitting {
+            return Applied::default();
+        }
+        if self.library_move.is_some() {
+            tracing::debug!("a monitor change settled while the library moves, applying it when the move ends");
+            self.pending_snapshot = Some(monitors);
             return Applied::default();
         }
         self.apply_snapshot(monitors, ctx)
@@ -2710,8 +2720,15 @@ impl Fleet {
     /// The fleet catches up after a library move: the monitor change that settled meanwhile is applied (the job is
     /// the new library's by now) and the closed renderers that still have a monitor start again.
     fn finish_move(&mut self, ctx: &Ctx<'_>) -> Applied {
+        let mut applied = Applied::default();
+        if let Some(monitors) = self.pending_snapshot.take() {
+            // With no job (the theme is gone) the topology is ignored, as it is outside a move.
+            if self.job.is_some() {
+                applied = self.apply_snapshot(monitors, ctx);
+            }
+        }
         self.respawn_closed(ctx);
-        Applied::default()
+        applied
     }
 
     /// Applies the monitors of a snapshot that two looks agreed on and re-places every renderer's surface, changed or
@@ -4741,7 +4758,10 @@ mod tests {
             "nothing was applied yet"
         );
         assert!(
-            sent_to(&renderers, &logs, slot_first).is_empty(),
+            logs[&slot_first]
+                .lock()
+                .unwrap_or_else(PoisonError::into_inner)
+                .is_empty(),
             "a renderer was told during the move"
         );
         fleet.library_move = None;
