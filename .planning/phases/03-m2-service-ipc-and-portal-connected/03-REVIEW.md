@@ -1,173 +1,135 @@
 ---
 phase: 03-m2-service-ipc-and-portal-connected
-reviewed: 2026-11-24T20:00:00Z
+reviewed: 2026-11-24T21:02:22Z
 depth: standard
-files_reviewed: 31
+files_reviewed: 6
 files_reviewed_list:
-  - Cargo.lock
-  - Cargo.toml
-  - apps/sucrose-portal/Cargo.toml
-  - apps/sucrose-portal/src/atlas.rs
-  - apps/sucrose-portal/src/background.rs
-  - apps/sucrose-portal/src/library/card.rs
-  - apps/sucrose-portal/src/library/mod.rs
-  - apps/sucrose-portal/src/library/preview.rs
   - apps/sucrose-portal/src/library/thumbs.rs
-  - apps/sucrose-portal/src/main.rs
-  - apps/sucrose/src/portal_link.rs
   - apps/sucrose/src/service.rs
-  - apps/sucrose/src/settings_host.rs
-  - apps/sucrose/src/startup.rs
   - crates/sucrose-config/src/store.rs
   - crates/sucrose-config/tests/store.rs
   - crates/sucrose-engine-mpv/src/player.rs
-  - crates/sucrose-engine-mpv/tests/options.rs
-  - crates/sucrose-ipc/src/lib.rs
-  - crates/sucrose-ipc/tests/socket.rs
-  - crates/sucrose-platform/Cargo.toml
-  - crates/sucrose-platform/src/lib.rs
-  - crates/sucrose-platform/src/os_windows.rs
-  - crates/sucrose-platform/src/os_windows/autostart.rs
-  - crates/sucrose-platform/src/os_windows/memory.rs
-  - docs/FEATURES.md
-  - docs/GPUI.md
-  - docs/MEASUREMENTS.md
-  - xtask/src/main.rs
-  - xtask/src/measure.rs
-  - xtask/src/synth_library.rs
+  - docs/ARCHITECTURE.md
 findings:
   critical: 0
-  warning: 4
-  info: 10
-  total: 14
+  warning: 1
+  info: 12
+  total: 13
 status: issues_found
 ---
 
 # Phase 3: Code Review Report
 
-**Reviewed:** 2026-11-24T20:00:00Z
+**Reviewed:** 2026-11-24T21:02:22Z
 **Depth:** standard
-**Files Reviewed:** 31
+**Files Reviewed:** 6
 **Status:** issues_found
 
 ## Summary
 
-Incremental re-review after the fixes for CR-01..CR-02 and WR-01..WR-08. The diff since 1571dc40 was read in full for service.rs, player.rs, portal_link.rs, the Portal image code, measure.rs and synth_library.rs; store.rs, ipc/lib.rs, startup.rs, settings_host.rs, autostart.rs, memory.rs and os_windows.rs were read in full. The previous critical fixes hold: the pixel-area limit refuses the 16384-square header before any decoder allocates, and a transient read error no longer replaces a good `Sucrose.json`. No new critical issue was found.
+Incremental re-review of the fixes for WR-09, WR-10, WR-11 and WR-12 (commits 8a60d6f1, 2a5fde89, 7a334708, a4e650bc), read from `git diff 7895ece1..HEAD` and the surrounding code (the Exited handler and the move driver in service.rs, `SourceSwitch` and the event loop in player.rs, `open`/`persist`/`read_file` in store.rs, `decode_bytes`/`decode_generic` and the background caller for thumbs.rs, and jpeg-decoder 0.3.2 `read_info`/`scale`).
 
-The remaining concerns are narrower. The WR-02/WR-01 fix for quitting during a library move introduces a path on which the service can never exit. The WR-08 fix replaced an atomic `swap` with a plain `store` that can erase a newer request's flag. The settings store still overwrites a corrupt `Sucrose.json` without keeping a copy when there is no `.bak`. The CR-01 limit is a cap per image, not a bound on concurrent decodes.
+- WR-09 holds: a corrupt `Sucrose.json` is renamed to `Sucrose.json.corrupt` on the migration, defaults, restore and later-save paths, and the three tests cover each. Two residual weaknesses are minor (IN-20).
+- WR-10 holds: the exit is recorded in `rule_closed` before the quitting early-return, `drive` can leave `Closing`, `MOVE_TIMER` is not killed by Quit, and `settle_exit` then lets the move finish before the service exits. The new tests cover the predicate and `note_exit_while_quitting` only, not the handler wiring.
+- WR-11 holds: `started_generation` / `load_generation` removes the wipe. One edge case of the failed-load path is IN-19.
+- WR-12 is only partly closed: the decoder buffer limit and the shared budget apply to the scaled JPEG path, but any JPEG the scaled decoder refuses or fails on goes to the unbudgeted generic decoder (WR-13).
 
-The necessity reference (`necessity-review.md`) was not read for this pass, so no `necessity:` count is given.
-
-IDs: new findings number from WR-09 and IN-13. IN-02, IN-04, IN-10 and IN-11 are deferred ledger rows that are still present in the code; they keep their ledger ids and carry an Origin line.
+No critical issue was found. The ten carried findings (IN-02, IN-04, IN-10, IN-11, IN-13..IN-18) were re-opened in their source files; all are still present and are re-reported below with their ledger ids and titles. The necessity reference (`necessity-review.md`) was not read for this pass, so no `necessity:` count is given.
 
 ## Warnings
 
-### WR-09: A corrupt settings file with no backup is overwritten and its content is lost
+### WR-13: The JPEG decode budget is bypassed by the generic fallback, so the WR-12 bound does not hold
 
-**File:** `crates/sucrose-config/src/store.rs:105-143` (and `:167-178`)
-**Issue:** `Store::open` treats `Read::Corrupt` like `Read::Missing`. With a corrupt `Sucrose.json` and no `.bak` (the first run after the `.bak` feature, a deleted backup, or any file whose previous version never was "good"), it falls through to migration or defaults and calls `persist()`. `persist` only backs up the file it replaces when that file reads as `Good`, so the corrupt file is replaced by `write_atomic` and no copy of it survives. A hand-edited file with a typo, a truncated file, or a file from a newer build that an older build cannot parse (an enum variant it does not know reads as corrupt, not as a newer `Version`) is silently replaced with defaults or the legacy migration. The user's settings are gone with only a `warn` log line. This is the same class of loss CR-02 closed for unreadable files; corrupt files were left out.
-**Fix:** Before writing over a `Corrupt` main file, move it aside under a name that does not end in `.json` (for example `Sucrose.json.corrupt`, replacing an older one), and log that it was kept:
-```rust
-Read::Corrupt => {
-    let aside = setting_dir.join("Sucrose.json.corrupt");
-    if let Err(error) = fs::rename(&path, &aside) {
-        tracing::warn!(%error, "the corrupt settings file cannot be kept aside");
-    }
-}
-```
-Do this only on the path that will persist (after the backup restore failed), and add a test that a corrupt file with no `.bak` is still present, byte for byte, after `open`.
-
-### WR-10: A quit that arrives during a library move can never finish (service never exits)
-
-**File:** `apps/sucrose/src/service.rs:1224-1226` (with `:1242`, `:430`, `:1636-1637`, `:1669-1678`)
-**Issue:** The WR-02 fix keeps the service alive on the Quit path until a running library move ends (`quit_done` plus `settle_exit`). But the renderer-exit handler returns early with `if quitting { continue; }` before `fleet.rule_closed.note_exit(exited.slot)`. A move in its `Closing` stage has marked every slot in `rule_closed` (`close_for_move`) and `MoveEnv::drive` only advances when `!rule_closed.any_awaiting()`. Once `quitting` is set, no exit event is ever recorded as ended, so `any_awaiting()` stays true, the stage stays `Closing`, `fleet.library_move` stays `Some`, and `settle_exit` returns false forever. `MOVE_TIMER` only calls `kill_survivors` once and is not re-armed. Before the fix the Quit path returned `Flow::Exit` at once, so this is a regression. It is reachable only when `LoopEvent::Quit` is handled after a move started: the only sender is `tray_proxy.quit()` at line 1651, which requires no registered Portal and no move, so the window is a Portal that connects and starts a move between the post and the handling of the quit message. It is narrow, but the code was written to handle exactly this case and the new tests only cover the pure predicates (`may_exit`, `resume_after_move`), not the sequence.
-**Fix:** Record the exit for the move before the quitting early-return, for example call `fleet.rule_closed.note_exit(exited.slot)` (and, if `library_move` is some, keep the `fleet.stopped`/`shell` bookkeeping skipped) ahead of `if quitting { continue; }`. Add a test that drives `Closing` plus quit plus renderer exits to `ended`. Alternatively give `settle_exit` a deadline after which a move is abandoned (rolled back or left to the next start's recovery) so a stuck move cannot hold the process.
-
-### WR-11: The event thread clears `loading` with a plain store and can erase a newer `load_source`
-
-**File:** `crates/sucrose-engine-mpv/src/player.rs:726-728` (also `:746-748`), against `:412-414`
-**Issue:** WR-08 replaced `shared.loading.swap(false)` with `switch.restart()` followed by `shared.loading.store(false)`. `load_source` runs on another thread and does `loading.store(true)` then `load_generation.fetch_add(1)`. If a second `load_source` runs between the event thread's `switch.restart()` returning `NewStart` (for request N) and its `loading.store(false)`, the store wipes the flag the newer request set. The newer request is still tracked by `SourceSwitch` (it reads the generation on the next event), so a `Started` event will follow, but until then `has_started()` returns true and `position`/first-frame readings are taken as belonging to the new file, which is what `loading` exists to prevent. The old `swap` was a single atomic step per restart; the new code splits decision and clear. The window is a few microseconds between two back-to-back loads, but the comment in `event_loop` already acknowledges back-to-back loads as the scenario.
-**Fix:** Clear `loading` only when no newer request exists: compare `shared.load_generation.load()` with `switch.requested` first, and skip the clear when they differ, or replace the bool with the generation (`loading_for: AtomicU64`, `has_started` compares it with `started_generation`) so there is nothing to wipe.
-
-### WR-12: The pixel-area cap bounds one JPEG decode, not memory; three decodes plus the background image can hold about 800 MB
-
-**File:** `apps/sucrose-portal/src/library/thumbs.rs:29`, `:270`, `:281-300`; `apps/sucrose-portal/src/background.rs:171`
-**Issue:** CR-01 was fixed by refusing images over `MAX_PIXELS` (32 Mi pixels). The comment itself puts a progressive JPEG at about 6 bytes per pixel before scaling, so one accepted file costs about 200 MB. `DECODE_SLOTS` is 3 and the background image decodes on its own task, so four hostile theme thumbnails (or one background and three thumbnails) can hold about 800 MB at once, while the generic decoder is capped at `MAX_DECODE_ALLOC` (256 MB per image) and the Portal's stated budget is a 48 MiB cache. jpeg-decoder 0.3.2 has `Decoder::set_max_decoding_buffer_size` (decoder.rs:163, enforced at :636 for the coefficient buffer) and it is not used. Theme folders are untrusted input (T-03-25).
-**Fix:** Set the limit on the decoder in `decode_jpeg_scaled` so the decoder refuses before allocating, with a value aligned to `MAX_DECODE_ALLOC`:
-```rust
-let mut decoder = jpeg_decoder::Decoder::new(Cursor::new(bytes));
-decoder.set_max_decoding_buffer_size(MAX_DECODE_ALLOC as usize);
-```
-and consider lowering `MAX_PIXELS` to what a thumbnail source realistically needs (for example 16 Mi pixels), or sharing one decode budget between thumbnails and the background image.
+**File:** `apps/sucrose-portal/src/library/thumbs.rs:313-324` (fallback), `:332-359`; `apps/sucrose-portal/src/background.rs:177`
+**Issue:** `decode_jpeg_scaled` returns `None` for every failure: a file that is not a JPEG, a header over the limit, the decoder's own buffer refusal (`set_max_decoding_buffer_size`), and any decode error after the coefficient buffers were allocated (a truncated or corrupt scan). Both callers then run `decode_generic` (`image` with the zune/JPEG path) on the same bytes. That path holds no `DecodePermit`; it is bounded only per image by `MAX_DECODE_ALLOC` (256 MB), and it decodes at full size (no DCT scaling). A theme thumbnail that jpeg-decoder rejects but `image` accepts, or a truncated 32 Mi pixel JPEG, therefore costs a full-size decode (about 100 MB RGB plus the `thumbnail` copy) outside the budget. With `DECODE_SLOTS` = 3 plus the background task, the stated aim of WR-12 (all JPEG decodes of the Portal about one worst-case decode) is not reached for hostile input, which is the case T-03-25 is about. The fix report names the fallback as unbudgeted but the summary still says the bound is "about one worst-case decode instead of four".
+**Fix:** Take the budget in the shared entry points, not inside the scaled decoder: acquire a `DecodePermit` in `decode_bytes` (thumbs) and in the background `decode_bytes` before either decoder runs, priced from the header size already read (`width * height * 6` for JPEG, `* 4` otherwise), and hold it across the fallback. Alternatively, when the input starts with `FF D8` and `decode_jpeg_scaled` fails, refuse instead of falling back to the full-size decoder.
 
 ## Info
 
 ### IN-02: Endpoint hardening is Windows-only while Linux gets an abstract socket
 
-**Origin:** deferred ledger row IN-02
-**File:** `crates/sucrose-ipc/src/lib.rs:140-148`, `:162-168`
+**Origin:** carried from the 2026-11-24 review
+**File:** `crates/sucrose-ipc/src/lib.rs:141-148`, `:162-168`
 **Issue:** Still present. `GenericNamespaced::is_supported()` is true on Linux, so the endpoint is an abstract Unix socket that any local user can connect to, and `owner_sid` is discarded (`let _ = owner_sid`). Latent until the Linux service exists, as the ledger says.
 **Fix:** As deferred: before Linux support is enabled, use a filesystem socket in a mode 0700 per-user folder, or check peer credentials on accept.
 
 ### IN-04: Stale `#[allow(dead_code)]` with an outdated reason
 
-**Origin:** deferred ledger row IN-04
+**Origin:** carried from the 2026-11-24 review
 **File:** `apps/sucrose-portal/src/main.rs:22`
 **Issue:** Still present: `#[allow(dead_code, reason = "the Portal pages of the following plans call these helpers")]` on `mod i18n`. The reason refers to plans that have since landed, so it hides genuinely unused helpers.
 **Fix:** Remove the allow and delete or use whatever the compiler then reports.
 
 ### IN-10: An invalid `Version` is read as current and then overwritten
 
-**Origin:** deferred ledger row IN-10
-**File:** `crates/sucrose-config/src/model.rs:744-750`
-**Issue:** Still present: an invalid `Version` logs "using the current version" and the next update writes the file. Relates to WR-09, because a damaged or newer-format version field is the way a newer file can be lost.
-**Fix:** As deferred; with WR-09 fixed, also treat an unparsable `Version` as "keep a copy aside before the first write".
+**Origin:** carried from the 2026-11-24 review
+**File:** `crates/sucrose-config/src/model.rs:743-753`
+**Issue:** Still present: an invalid `Version` logs "using the current version" and the next update writes the file. Since WR-09 the damage is limited, because such a file still parses (it is not `Corrupt`), so `persist` keeps it as the `.bak` before replacing it; but that is one level only and the next save replaces the backup with the rewritten file.
+**Fix:** As deferred: treat an unparsable `Version` as "keep a copy aside before the first write" (the same `keep_corrupt_aside` path), or refuse to write over it.
 
 ### IN-11: Background image path check accepts NUL and UNC paths
 
-**Origin:** deferred ledger row IN-11
+**Origin:** carried from the 2026-11-24 review
 **File:** `apps/sucrose/src/settings_host.rs:121-142`
-**Issue:** Still present: `check_image` checks emptiness, length, absoluteness and extension only. A path with an embedded NUL passes and is stored; a UNC path (`\\\\server\\share\\a.png`) makes the Portal open a network location on the user's behalf. Same-user IPC only, as the ledger says.
-**Fix:** Reject `\0` in the text and, unless UNC backgrounds are wanted, reject paths that start with `\\\\`.
+**Issue:** Still present: `check_image` checks emptiness, length, absoluteness and extension only. A path with an embedded NUL passes and is stored; a UNC path (`\\server\share\a.png`) makes the Portal open a network location on the user's behalf. Same-user IPC only, as the ledger says.
+**Fix:** Reject `\0` in the text and, unless UNC backgrounds are wanted, reject paths that start with two backslashes.
 
 ### IN-13: The doc comment of `monotonic_ns` is attached to `disconnect_pipe`
 
+**Origin:** carried from the 2026-11-24 review
 **File:** `crates/sucrose-platform/src/os_windows.rs:105-118`
-**Issue:** The two doc lines of `monotonic_ns` ("QueryPerformanceCounter scaled to nanoseconds ... RESEARCH A4") sit directly above the doc of `disconnect_pipe`, so rustdoc merges them into the documentation of `disconnect_pipe` and `monotonic_ns` has none.
+**Issue:** Still present: the two doc lines of `monotonic_ns` ("QueryPerformanceCounter scaled to nanoseconds ... RESEARCH A4") sit directly above the doc of `disconnect_pipe` (line 105 against 109), so rustdoc merges them into the documentation of `disconnect_pipe` and `monotonic_ns` (line 118) has none.
 **Fix:** Move the two lines down to `pub(crate) fn monotonic_ns`.
 
 ### IN-14: A Portal dropped by `send` during Close Applications is not counted as gone
 
-**File:** `apps/sucrose/src/portal_link.rs:218-229`, `apps/sucrose/src/service.rs:1514-1531`
-**Issue:** `PortalRegistry::send` clears `registered` when the queue is full. During Close Applications `closing` waits for exactly that Portal, but the later `PortalGone` is classed as "not the registered one" (`was_registered` is false), so `closing.portal_gone()` is not called. The service then waits for `CLOSE_TIMER` (2 s) and ends the process, instead of leaving at once. `portal_gone_effect` is also a function that returns `check_exit: true` in both cases.
+**Origin:** carried from the 2026-11-24 review
+**File:** `apps/sucrose/src/portal_link.rs:218-229`, `apps/sucrose/src/service.rs:1517-1536`, `:168-176`
+**Issue:** Still present. `PortalRegistry::send` clears `registered` when the queue is full. During Close Applications `closing` waits for exactly that Portal, but the later `PortalGone` is classed as "not the registered one" (`was_registered` is false), so `closing.portal_gone()` is not called. The service then waits for `CLOSE_TIMER` (2 s) and ends the process, instead of leaving at once. `portal_gone_effect` also returns `check_exit: true` in both cases.
 **Fix:** Remember the pid or connection of the Portal the closing sequence waits for (`closing_portal`) and call `closing.portal_gone()` when a connection of that Portal ends; inline `check_exit = true`.
 
 ### IN-15: GPUI.md contradicts itself about whether the preview cost is measured
 
+**Origin:** carried from the 2026-11-24 review
 **File:** `docs/GPUI.md:46-47`
-**Issue:** The bullet on hover previews ends "The preview cost is still not in the UI-07 numbers until the D-25 runs are repeated", and the next bullet and `docs/MEASUREMENTS.md` say the runs were repeated with animating previews and pass. The project rule is that docs stay true to each other in the same change.
+**Issue:** Still present: the hover-preview bullet ends "The preview cost is still not in the UI-07 numbers until the D-25 runs are repeated", and the next bullet and `docs/MEASUREMENTS.md` say the runs were repeated with animating previews and pass. The project rule is that docs stay true to each other in the same change.
 **Fix:** Replace the sentence with a pointer to the repeated runs ("the preview cost is inside the 2026-11-24 repeat rows of MEASUREMENTS.md").
 
 ### IN-16: `request_page` reads heap and DXGI memory on the GPUI thread
 
-**File:** `apps/sucrose-portal/src/library/mod.rs:525-531`, `crates/sucrose-platform/src/os_windows/memory.rs:33-97`
-**Issue:** With debug logging on, every page change calls `memory_detail()` on the UI thread: `HeapSummary` takes the process heap lock and walks every block, and `CreateDXGIFactory1` plus adapter enumeration is a COM round trip. The UI rule (D-12, `.claude/rules/ui.md`) is that the GPUI thread does no blocking work. It is gated by `tracing::enabled!(DEBUG)` and is a measurement aid, so the cost is only in diagnostic runs, but it also perturbs the measurements it supports and the heap lock stalls decode threads.
+**Origin:** carried from the 2026-11-24 review
+**File:** `apps/sucrose-portal/src/library/mod.rs:520-531`, `crates/sucrose-platform/src/os_windows/memory.rs:33-97`
+**Issue:** Still present. With debug logging on, every page change calls `memory_detail()` on the UI thread: `HeapSummary` takes the process heap lock and walks every block, and `CreateDXGIFactory1` plus adapter enumeration is a COM round trip. The UI rule (D-12, `.claude/rules/ui.md`) is that the GPUI thread does no blocking work. It is gated by `tracing::enabled!(DEBUG)` and is a measurement aid, so the cost is only in diagnostic runs, but it also perturbs the measurements it supports and the heap lock stalls decode threads.
 **Fix:** Take the reading on `cx.background_executor()` and log it from there, or sample it from the measurement tool only.
 
 ### IN-17: `measure --side portal` reports success when the Portal crashed
 
-**File:** `xtask/src/measure.rs:2152-2163` (and the `ended_by` assignment above it)
-**Issue:** `ended_by` is `portal-exit` for any early end, so a crash and the maintainer closing the Portal after the idle window look the same, and the command now exits 0 in both cases (it used to fail). The page-log summary accepts such a series; rounds and 20 s idle checks catch most crashed runs but not a crash during the final idle window, which then produces a "final" value from a shortened tail.
+**Origin:** carried from the 2026-11-24 review
+**File:** `xtask/src/measure.rs:2143-2163`
+**Issue:** Still present. `ended_by` is `portal-exit` for any early end, so a crash and the maintainer closing the Portal after the idle window look the same, and the command exits 0 in both cases. The page-log summary accepts such a series; rounds and 20 s idle checks catch most crashed runs but not a crash during the final idle window, which then produces a "final" value from a shortened tail.
 **Fix:** Record the Portal's exit code or ask the maintainer to close it only after the planned time, and keep the non-zero exit when the process ended with a failure code.
 
 ### IN-18: The scratch endpoint name hashes the unnormalized data-folder text
 
+**Origin:** carried from the 2026-11-24 review
 **File:** `crates/sucrose-ipc/src/lib.rs:115-126`
-**Issue:** `endpoint_name_for` hashes `SUCROSE_DATA_DIR` as written. `E:\\scratch`, `e:\\scratch\\` and a junction to it give three endpoint names, so two services can run on one data folder, which breaks the rule that the service is the only writer of `Sucrose.json`. It also lossy-converts non-UTF-8 paths, so two different folders can collide. Only scratch runs set the variable.
+**Issue:** Still present. `endpoint_name_for` hashes `SUCROSE_DATA_DIR` as written. `E:\scratch`, `e:\scratch\` and a junction to it give three endpoint names, so two services can run on one data folder, which breaks the rule that the service is the only writer of `Sucrose.json`. It also lossy-converts non-UTF-8 paths, so two different folders can collide. Only scratch runs set the variable.
 **Fix:** Hash the result of the same resolution that `synth_library::resolve` does (absolute, canonical where it exists, verbatim prefix stripped, lowercase on Windows), or document that the value must be spelled the same way for every process.
+
+### IN-19: A synchronous `loadfile` failure marks every earlier in-flight request as finished
+
+**File:** `crates/sucrose-engine-mpv/src/player.rs:430-436`, `:225-228`
+**Issue:** `finish_loading` uses `fetch_max`, so `load_source` failing at `self.load(text)` for generation N also finishes any request N-1 whose first frame has not been reported. mpv keeps loading file N-1 (the failed command did not replace it), but `is_loading()` is now false, so `has_started()` is true and the position and first-frame flag are read as belonging to the new file, which is the state the generation counter was added to prevent. It needs two back-to-back loads with the second failing synchronously, so it is rare; the second unit test pins the opposite case only (a newer request after the failed one).
+**Fix:** On a failed command restore the counter instead of finishing it: `self.shared.load_generation.compare_exchange(generation, generation - 1, ..)` (falling back to `finish_loading` only when another request already followed), so an older in-flight request keeps `is_loading()` true. Add a unit test for request 1 pending, request 2 failing.
+
+### IN-20: A corrupt file is kept in one slot only, and a failed move still lets the write replace it
+
+**File:** `crates/sucrose-config/src/store.rs:195-202`
+**Issue:** `keep_corrupt_aside` renames onto `Sucrose.json.corrupt`, so a second corruption silently destroys the copy of the first (documented as "replacing an older one", but the first is usually the file the user most wants to fix by hand). When the rename fails for a reason that does not also block the later replace of `Sucrose.json` (a read-only or directory-shaped `.corrupt`, which `is_busy` retries three times as PermissionDenied), the function only logs and `write_atomic` then overwrites the corrupt content, which is the loss WR-09 closed. The new tests cover neither case.
+**Fix:** Pick the next free name (`Sucrose.json.corrupt`, `.corrupt.1`, ... capped at a few) or keep the older copy, and on a failed rename fall back to `fs::copy`; when both fail, return an error from `persist` (as for an unreadable file) instead of writing over the corrupt file.
 
 ---
 
-_Reviewed: 2026-11-24T20:00:00Z_
+_Reviewed: 2026-11-24T21:02:22Z_
 _Reviewer: Claude (gsd-code-reviewer)_
 _Depth: standard_
