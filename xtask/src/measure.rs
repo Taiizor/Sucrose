@@ -51,7 +51,12 @@ const USAGE: &str = "usage:
                     is the median of the 10 s before the first page change, a round ends at the first page-1 event
                     after the last page, its end value is the median of the next 5 s, the final value runs from 10 s
                     after the last round to 1 s before the series ends (at least 20 s of idle needed); --portal-logs
-                    takes the real-library log first and the synthetic-library log second
+                    takes the real-library log first and the synthetic-library log second. The summary adds an
+                    attribution line: the private growth against the growth of GPU memory, held heap and allocator
+                    retention read from the page lines' heap_allocated_mb, heap_committed_mb, gpu_local_mb and
+                    gpu_non_local_mb ('within the cap' up to 48 MiB; else the part that is at least half of the
+                    growth, 'unattributed', or 'not recorded' for a log without the fields); --portal-row adds the
+                    verdict to each scenario's cell
 ";
 const DEFAULT_PORTAL_SECONDS: u64 = 240;
 const DEFAULT_PORTAL_INTERVAL_MS: u64 = 500;
@@ -1758,7 +1763,12 @@ pub fn portal_row_from_logs(
     require_build(synth.0, "synthetic-library")?;
     let cell = |label: &str, (series, log): (&PortalSeries, &str), who: &str| -> Result<String, String> {
         let (ws, private) = log_summaries(series, log, rounds).map_err(|e| format!("{who}: {e}"))?;
-        Ok(format_cell(label, &ws.values, &private.values))
+        let attribution = log_attribution(series, log, rounds).map_err(|e| format!("{who}: {e}"))?;
+        Ok(format!(
+            "{}; attribution {}",
+            format_cell(label, &ws.values, &private.values),
+            attribution.verdict_text()
+        ))
     };
     let date = synth.0.started.get(..10).unwrap_or(&synth.0.started);
     let cells = [
@@ -1872,25 +1882,117 @@ pub struct Attribution {
 /// first "page shown" event whose page is not 1 (it still describes page 1 as the maintainer left it); the end event is
 /// the closing page-1 event of the last round. `events` are counted from the series start, as `private`'s rounds are.
 pub fn portal_attribution(private: &PortalLogSummary, events: &[PageEvent], rounds: usize) -> Attribution {
-    let _ = (private, events, rounds);
+    let last = rounds.checked_sub(1);
+    let growth_of_private = last
+        .and_then(|index| private.values.round_end.get(index))
+        .map_or(0.0, |end| end - private.values.first_page);
+    let mut events = events.to_vec();
+    events.sort_by_key(|event| event.at_ms);
+    let start = events.iter().find(|event| event.page != 1);
+    let end = last.and_then(|index| private.rounds.get(index)).and_then(|span| {
+        events
+            .iter()
+            .find(|event| event.page == 1 && event.at_ms == span.end_ms)
+    });
+    let ends = start.zip(end);
+    let growth = ends.and_then(|(start, end)| growth_between(&start.memory, &end.memory));
+    let verdict = growth
+        .as_ref()
+        .map_or(Verdict::NotRecorded, |growth| decide(growth_of_private, growth));
     Attribution {
-        verdict: Verdict::NotRecorded,
-        private: 0.0,
-        growth: None,
-        span: None,
+        verdict,
+        private: growth_of_private,
+        growth,
+        span: ends.map(|(start, end)| (start.at_ms, end.at_ms)),
+    }
+}
+
+/// GPU, held heap and retention of one event in MiB; `None` when the line lacks one of the four fields.
+fn memory_parts(memory: &PageMemory) -> Option<(f64, f64, f64)> {
+    let gpu = memory.gpu_local_mb?.checked_add(memory.gpu_non_local_mb?)?;
+    let held = memory.heap_allocated_mb?;
+    let committed = memory.heap_committed_mb?;
+    Some((gpu as f64, held as f64, committed as f64 - held as f64))
+}
+
+fn growth_between(start: &PageMemory, end: &PageMemory) -> Option<Growth> {
+    let (start_gpu, start_held, start_retention) = memory_parts(start)?;
+    let (end_gpu, end_held, end_retention) = memory_parts(end)?;
+    let thumbnails = start
+        .thumb_bytes
+        .zip(end.thumb_bytes)
+        .map(|(start, end)| (end as f64 - start as f64) / MB);
+    Some(Growth {
+        gpu: end_gpu - start_gpu,
+        held_heap: end_held - start_held,
+        retention: end_retention - start_retention,
+        thumbnails,
+    })
+}
+
+/// The mechanical verdict: nothing to attribute within the cap; otherwise the largest part when it makes up at least
+/// half of the private growth, else "unattributed" with the largest part kept.
+fn decide(private: f64, growth: &Growth) -> Verdict {
+    if private <= ATTRIBUTION_CAP_MB {
+        return Verdict::WithinCap;
+    }
+    let largest = [Part::HeldHeap, Part::AllocatorRetention]
+        .into_iter()
+        .fold(Part::GpuAtlas, |best, part| {
+            if growth.of(part) > growth.of(best) { part } else { best }
+        });
+    if growth.of(largest) >= ATTRIBUTION_SHARE * private {
+        Verdict::Named(largest)
+    } else {
+        Verdict::Unattributed(largest)
+    }
+}
+
+impl Attribution {
+    /// The verdict with what it needs to be read alone: "unattributed" names the largest part and its growth.
+    fn verdict_text(&self) -> String {
+        match (self.verdict, &self.growth) {
+            (Verdict::Unattributed(part), Some(growth)) => {
+                format!("unattributed, largest part {} {:+.1} MB", part.label(), growth.of(part))
+            }
+            (verdict, _) => verdict.label().to_owned(),
+        }
     }
 }
 
 /// The attribution of a series from its page log text.
 fn log_attribution(series: &PortalSeries, log: &str, rounds: usize) -> Result<Attribution, String> {
-    let _ = (series, log, rounds);
-    Err("not yet".to_owned())
+    let start = parse_utc_ms(&series.started)
+        .ok_or_else(|| format!("the series start '{}' is not an RFC 3339 UTC time", series.started))?;
+    let events = rebase_events(&page_events(log), start);
+    let (_, private) = log_summaries(series, log, rounds)?;
+    Ok(portal_attribution(&private, &events, rounds))
 }
 
-/// The one-line attribution report with the start and end of the span in local time.
+/// The one-line attribution report with the start and end of the span in local time (UTC when the offset is unknown).
 fn attribution_text(attribution: &Attribution, offset_minutes: Option<i32>, series_start_ms: i64) -> String {
-    let _ = (attribution, offset_minutes, series_start_ms);
-    String::new()
+    let offset = offset_minutes.unwrap_or(0);
+    let mut parts = vec![format!("private {:+.1} MB", attribution.private)];
+    match &attribution.growth {
+        Some(growth) => {
+            let thumbnails = growth
+                .thumbnails
+                .map_or_else(|| "n/a".to_owned(), |mb| format!("{mb:+.1}"));
+            parts.push(format!(
+                "gpu {:+.1}, held heap {:+.1}, retention {:+.1}, thumbnails {thumbnails} MB",
+                growth.gpu, growth.held_heap, growth.retention
+            ));
+        }
+        None => parts.push("the page log has no heap or video memory fields".to_owned()),
+    }
+    if let Some((start, end)) = attribution.span {
+        parts.push(format!(
+            "start {}, end {}",
+            clock_text(series_start_ms + start, offset),
+            clock_text(series_start_ms + end, offset)
+        ));
+    }
+    format!("attribution: {} ({})", attribution.verdict_text(), parts.join("; "))
 }
 
 /// The offset of local time from UTC in minutes, from `+HHMM`, `+HH:MM` or a whole number of minutes.
@@ -2092,6 +2194,8 @@ fn print_portal_log_summary(args: &PortalSummaryArgs, log_path: &str) -> Result<
     }
     print_summary_line("working set", &working_set.values);
     print_summary_line("private    ", &private.values);
+    let attribution = log_attribution(&series, &log, args.shape.rounds)?;
+    println!("{}", attribution_text(&attribution, offset, start));
     Ok(())
 }
 
@@ -3016,10 +3120,10 @@ mod tests {
 
     #[test]
     fn portal_attribution_is_taken_from_the_page_log_of_a_series() {
-        // Private grows from 100 to 180 MB over three rounds; the log says the video memory grew by 60 MB meanwhile.
+        // Private (twice the series value) grows from 200 to 280 MB over three rounds; the log says the video memory grew by 60 MB meanwhile.
         let scaled: Vec<(u64, f64)> = log_points(130)
             .into_iter()
-            .map(|(t, v)| (t, 100.0 + (v - 100.0) * 8.0))
+            .map(|(t, v)| (t, 100.0 + (v - 100.0) * 4.0))
             .collect();
         let mut series = series_of(&scaled, Some("release"));
         series.started = LOG_START.to_owned();
