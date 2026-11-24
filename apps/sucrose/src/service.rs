@@ -543,23 +543,26 @@ fn resume_wallpaper(
     for slot in closed {
         fleet.rule_closed.want_back(*slot);
     }
-    match gate {
+    let (title, no_wallpaper) = match gate {
         Ok(job) => {
             let title = job.title.clone();
             if fleet.job.is_some() || !closed.is_empty() {
                 fleet.adopt_job(job);
             }
-            fleet.respawn_closed(ctx);
-            (!closed.is_empty()).then_some(Status::Starting { title })
+            (Some(title), None)
         }
         Err(rejection) => {
             fleet.job = None;
-            // With no job the slots are forgotten instead of started.
-            fleet.respawn_closed(ctx);
-            (!closed.is_empty()).then(|| Status::NoWallpaper {
-                reason: rejection.to_string(),
-            })
+            (None, Some(rejection.to_string()))
         }
+    };
+    // The job names the new library now: the monitor change of the move is applied and the closed slots come back (with
+    // no job they are forgotten instead of started).
+    let applied = fleet.finish_move(ctx);
+    match (title, no_wallpaper) {
+        (Some(title), _) if !closed.is_empty() || applied.started > 0 => Some(Status::Starting { title }),
+        (None, Some(reason)) if !closed.is_empty() => Some(Status::NoWallpaper { reason }),
+        _ => None,
     }
 }
 
@@ -1670,10 +1673,12 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                 }
             };
             run_timers(&timers, step.timers);
-            // No renderer starts for a monitor while the library moves: it would open files of the old folder.
-            if let (Some(monitors), false) = (step.apply, quitting || fleet.library_move.is_some()) {
-                let applied = fleet.apply_snapshot(
+            // No renderer starts for a monitor while the library moves: it would open files of the old folder. The
+            // snapshot waits for the end of the move.
+            if let Some(monitors) = step.apply {
+                let applied = fleet.apply_or_defer(
                     monitors,
+                    quitting,
                     &Ctx {
                         supervisor: &supervisor,
                         renderers: &renderers,
@@ -2471,6 +2476,8 @@ struct Fleet {
     playing: HashSet<u8>,
     /// The library move that is going on, if any (`RuntimeState.library_moving`).
     library_move: Option<LibraryMove>,
+    /// A monitor change that settled while the library moved, applied when the move ends; the latest one wins (WR-03).
+    pending_snapshot: Option<Vec<MonitorInfo>>,
 }
 
 /// The renderers the fullscreen rule closed (FullScreenPerformance = Close) and has to bring back (D-06). A slot is
@@ -2562,6 +2569,7 @@ impl Fleet {
             rule_closed: RuleClosed::default(),
             playing: HashSet::new(),
             library_move: None,
+            pending_snapshot: None,
         }
     }
 
@@ -2687,6 +2695,23 @@ impl Fleet {
                 tracing::warn!(slot, "cannot send a role change to a renderer");
             }
         }
+    }
+
+    /// Handles a monitor snapshot that settled: while the service quits it is dropped, while the library moves it is
+    /// kept for the end of the move (the latest wins, WR-03: no renderer may start on the old folder), otherwise it is
+    /// applied.
+    fn apply_or_defer(&mut self, monitors: Vec<MonitorInfo>, quitting: bool, ctx: &Ctx<'_>) -> Applied {
+        if quitting || self.library_move.is_some() {
+            return Applied::default();
+        }
+        self.apply_snapshot(monitors, ctx)
+    }
+
+    /// The fleet catches up after a library move: the monitor change that settled meanwhile is applied (the job is
+    /// the new library's by now) and the closed renderers that still have a monitor start again.
+    fn finish_move(&mut self, ctx: &Ctx<'_>) -> Applied {
+        self.respawn_closed(ctx);
+        Applied::default()
     }
 
     /// Applies the monitors of a snapshot that two looks agreed on and re-places every renderer's surface, changed or
@@ -4638,6 +4663,117 @@ mod tests {
     #[test]
     fn maintenance_starts_when_nothing_else_touches_the_library_move_free() {
         assert_eq!(maintenance_decision(false, false), MaintenanceDecision::Start);
+    }
+
+    /// A library move that has not ended.
+    fn a_move() -> LibraryMove {
+        LibraryMove {
+            source: PathBuf::from("source"),
+            destination: PathBuf::from("destination"),
+            carry: false,
+            stage: MoveStage::Closing,
+            closed: Vec::new(),
+        }
+    }
+
+    #[test]
+    fn respawn_closed_waits_while_the_library_move_runs() {
+        let id = "\\\\.\\DISPLAY1";
+        let (mut fleet, renderers, _logs) = recording_fleet(&[monitor_at(id, true, [0, 0, 1920, 1080])]);
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        // A spawn would fail instead of starting a process: what counts is whether it is tried.
+        supervisor.begin_shutdown();
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        let slot = fleet.slots.slot_of(id).expect("a slot");
+        fleet.rule_closed.close(slot, true);
+        fleet.rule_closed.want_back(slot);
+        fleet.stopped.insert(slot);
+        fleet.library_move = Some(a_move());
+
+        fleet.respawn_closed(&ctx);
+
+        assert!(fleet.stopped.contains(&slot), "a start was tried during the move");
+        assert_eq!(fleet.rule_closed.ready(), [slot], "the slot is still wanted back");
+        // The monitor going during the move changes nothing either: the slot is dealt with when the move ends.
+        fleet.slots.retire(id);
+        fleet.respawn_closed(&ctx);
+        assert_eq!(fleet.rule_closed.ready(), [slot]);
+        fleet.library_move = None;
+        fleet.respawn_closed(&ctx);
+        assert!(
+            fleet.rule_closed.ready().is_empty(),
+            "the slot of a gone monitor is forgotten"
+        );
+    }
+
+    #[test]
+    fn a_monitor_change_during_a_library_move_is_applied_when_the_move_ends() {
+        let first = "\\\\.\\DISPLAY1";
+        let second = "\\\\.\\DISPLAY9";
+        let (mut fleet, renderers, logs) = recording_fleet(&[
+            monitor_at(first, true, [0, 0, 1920, 1080]),
+            monitor_at(second, false, [1920, 0, 3840, 1080]),
+        ]);
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        let slot_first = fleet.slots.slot_of(first).expect("a slot");
+        let slot_second = fleet.slots.slot_of(second).expect("a slot");
+        fleet.library_move = Some(a_move());
+
+        // Two snapshots settle during the move: the second one replaces the first.
+        let during = [
+            vec![monitor_at(first, true, [0, 0, 1280, 720])],
+            vec![monitor_at(first, true, [0, 0, 2560, 1440])],
+        ];
+        for monitors in during {
+            assert_eq!(fleet.apply_or_defer(monitors, false, &ctx), Applied::default());
+        }
+
+        assert_eq!(
+            fleet.slots.slot_of(second),
+            Some(slot_second),
+            "nothing was applied yet"
+        );
+        assert!(
+            sent_to(&renderers, &logs, slot_first).is_empty(),
+            "a renderer was told during the move"
+        );
+        fleet.library_move = None;
+        fleet.finish_move(&ctx);
+
+        assert_eq!(
+            sent_to(&renderers, &logs, slot_first),
+            [ToRenderer::SetRect([0, 0, 2560, 1440])],
+            "the latest snapshot is the one that counts"
+        );
+        assert_eq!(fleet.slots.slot_of(second), None, "the unplugged monitor lost its slot");
+        assert_eq!(fleet.slots.slot_of(first), Some(slot_first));
+        assert!(fleet.pending_snapshot.is_none());
+    }
+
+    #[test]
+    fn a_monitor_change_that_settles_while_quitting_is_dropped() {
+        let id = "\\\\.\\DISPLAY1";
+        let (mut fleet, renderers, logs) = recording_fleet(&[monitor_at(id, true, [0, 0, 1920, 1080])]);
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        let slot = fleet.slots.slot_of(id).expect("a slot");
+        fleet.library_move = Some(a_move());
+
+        let applied = fleet.apply_or_defer(vec![monitor_at(id, true, [0, 0, 1280, 720])], true, &ctx);
+
+        assert_eq!(applied, Applied::default());
+        assert!(fleet.pending_snapshot.is_none(), "nothing is kept while quitting");
+        assert!(sent_to(&renderers, &logs, slot).is_empty());
     }
 
     mod decide_use {
