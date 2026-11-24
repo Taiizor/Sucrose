@@ -105,7 +105,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **LIB-03**: User can sort the library by name, creation or modification date (ascending/descending) and search it
 - [ ] **LIB-04**: The library is paginated with an adaptive layout (margin, max per row)
 - [ ] **LIB-05**: A theme card offers use, review, customize, add/remove from cycling, find, share, delete (with confirmation) and edit
-- [ ] **LIB-06**: Theme cards show hover previews, optionally hiding details while previewing
+- [x] **LIB-06**: Theme cards show hover previews, optionally hiding details while previewing
 - [ ] **LIB-07**: User can drag and drop files, `.url` files, archives and URLs onto the library
 - [ ] **LIB-08**: Themes made for an incompatible version are handled as in the legacy app
 - [x] **LIB-09**: User can change the library location and move the existing themes
@@ -134,7 +134,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **UI-04**: The settings pages General, Personal, Performance, Wallpaper, System and Other cover every key in `portal.md` §4
 - [ ] **UI-05**: Help and About dialogs and the tray hint dialog exist; plain links (wiki, report an issue) stay (D-020)
 - [ ] **UI-06**: The UI is available in the 25 existing languages, converted by `xtask`, with RTL for Arabic and Hebrew and a live language switch (D-015)
-- [ ] **UI-07**: Browsing the library and store keeps memory bounded: thumbnails are decoded at card size, the cache is bounded, and images no longer shown are released from GPUI (`docs/GPUI.md`, prototype lesson). Measured as part of MEAS-02
+- [x] **UI-07**: Browsing the library and store keeps memory bounded: thumbnails are decoded at card size, the cache is bounded, and images no longer shown are released from GPUI (`docs/GPUI.md`, prototype lesson). Measured as part of MEAS-02
 
 ### Tray and app lifecycle (`services.md` §3)
 
@@ -293,7 +293,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | LIB-03 | Phase 3 | Gaps Found |
 | LIB-04 | Phase 3 | Gaps Found |
 | LIB-05 | Phase 5 | Pending |
-| LIB-06 | Phase 3 | Gaps Found |
+| LIB-06 | Phase 3 | Complete |
 | LIB-07 | Phase 5 | Pending |
 | LIB-08 | Phase 3 | Gaps Found |
 | LIB-09 | Phase 3 | Complete |
@@ -313,7 +313,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | UI-04 | Phase 5 | Pending |
 | UI-05 | Phase 3 | Gaps Found |
 | UI-06 | Phase 5 | Pending |
-| UI-07 | Phase 3 | Pending |
+| UI-07 | Phase 3 | Complete |
 | TRAY-01 | Phase 2 | Complete |
 | TRAY-02 | Phase 5 | Pending |
 | TRAY-03 | Phase 3 | Complete |
