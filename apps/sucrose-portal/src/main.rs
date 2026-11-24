@@ -5,11 +5,14 @@
 
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+use std::process::ExitCode;
+
 use gpui_kit::component::TitleBar;
 use gpui_kit::*;
-use sucrose_ipc::portal::PortalPage;
+use sucrose_ipc::portal::{PortalEvent, PortalPage};
 
 mod app;
+mod banner;
 #[allow(dead_code, reason = "the Portal pages of the following plans call these helpers")]
 mod i18n;
 mod ipc;
@@ -29,22 +32,69 @@ struct Args {
 
 /// Reads the arguments (without the program name). Only `--no-focus`, `GeneralSetting` and `SystemSetting` are
 /// accepted, each at most once; `SystemSetting` opens General too until the settings pages exist (UI-03).
-fn parse_args(_args: &[String]) -> Result<Args, String> {
+fn parse_args(args: &[String]) -> Result<Args, String> {
+    let mut page = None;
+    let mut no_focus = false;
+    for arg in args {
+        match arg.as_str() {
+            "--no-focus" if !no_focus => no_focus = true,
+            "GeneralSetting" | "SystemSetting" if page.is_none() => page = Some(PortalPage::General),
+            "--no-focus" | "GeneralSetting" | "SystemSetting" => {
+                return Err(format!("{arg} is given more than once"));
+            }
+            _ => {
+                return Err(format!(
+                    "unknown argument {arg:?}; use --no-focus, GeneralSetting or SystemSetting"
+                ));
+            }
+        }
+    }
     Ok(Args {
-        page: PortalPage::Library,
-        no_focus: false,
+        page: page.unwrap_or(PortalPage::Library),
+        no_focus,
     })
 }
+
+impl Args {
+    /// The page named in the PortalHello: only a page the user asked for, so a plain launch leaves the page of an
+    /// open Portal alone.
+    fn hello_page(&self) -> Option<PortalPage> {
+        (self.page != PortalPage::Library).then_some(self.page)
+    }
+}
+
+/// The exit code for a command line that cannot be understood (the same as the service's).
+const EXIT_USAGE: u8 = 64;
 
 /// The window title, localized.
 pub(crate) fn window_title() -> String {
     rust_i18n::t!("Portal.MainWindow.Title").into_owned()
 }
 
-fn main() -> anyhow::Result<()> {
+fn main() -> anyhow::Result<ExitCode> {
     let _log = sucrose_log::init("Portal")?;
-    let no_focus = std::env::args().any(|arg| arg == "--no-focus");
-    let (link, events) = ipc::ServiceLink::start(None);
+    let arguments: Vec<String> = std::env::args().skip(1).collect();
+    let args = match parse_args(&arguments) {
+        Ok(args) => args,
+        Err(message) => {
+            // The release build has no console, so the log is the only place the reason can be read.
+            tracing::error!(%message, "the command line is not understood, nothing was started");
+            return Ok(ExitCode::from(EXIT_USAGE));
+        }
+    };
+    let no_focus = args.no_focus;
+    let page = args.page;
+
+    // Say hello before any window exists: a second Portal ends on AlreadyOpen without a window flashing.
+    let (link, events) = ipc::ServiceLink::start(args.hello_page());
+    let early = ipc::first_events(&events, ipc::FIRST_EVENT_WAIT);
+    if let Some(existing_pid) = early.iter().find_map(|event| match event {
+        ipc::LinkEvent::Event(PortalEvent::AlreadyOpen { existing_pid }) => Some(*existing_pid),
+        _ => None,
+    }) {
+        tracing::info!(existing_pid, "already open");
+        return Ok(ExitCode::SUCCESS);
+    }
 
     gpui_kit::application()
         .with_assets(gpui_kit::assets::Assets)
@@ -70,7 +120,7 @@ fn main() -> anyhow::Result<()> {
             };
 
             let opened = gpui_kit::open_window(options, cx, move |window, cx| {
-                cx.new(|cx| app::PortalApp::new(PortalPage::Library, link, events, window, cx))
+                cx.new(|cx| app::PortalApp::new(page, link, early, events, window, cx))
             });
             if let Err(error) = opened {
                 tracing::error!(%error, "cannot open the Portal window");
@@ -82,7 +132,7 @@ fn main() -> anyhow::Result<()> {
             }
         });
 
-    Ok(())
+    Ok(ExitCode::SUCCESS)
 }
 
 #[cfg(test)]

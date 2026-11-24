@@ -1,10 +1,14 @@
 //! The Portal's root entity: the connection to the service, what the service reported, and the window layout.
 
 use gpui_kit::component::{ActiveTheme, TitleBar, v_flex};
+use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
 use sucrose_ipc::portal::{PortalEvent, PortalPage, PortalSettings, RuntimeState};
 
-use crate::ipc::{ConnectionState, LinkEvent, ServiceLink, next_state};
+use crate::{
+    banner,
+    ipc::{ConnectionState, LinkEvent, ServiceLink, next_state},
+};
 
 /// The Portal window's content. Later plans add the pages as children.
 #[allow(
@@ -27,10 +31,12 @@ pub struct PortalApp {
 }
 
 impl PortalApp {
-    /// Builds the app and starts awaiting the link's events on the GPUI thread.
+    /// Builds the app, applies `early` (the events that were ready before the window opened) and starts awaiting the
+    /// link's events on the GPUI thread.
     pub fn new(
         page: PortalPage,
         link: ServiceLink,
+        early: Vec<LinkEvent>,
         events: async_channel::Receiver<LinkEvent>,
         window: &mut Window,
         cx: &mut Context<Self>,
@@ -45,22 +51,53 @@ impl PortalApp {
                 }
             }
         });
-        Self {
+        let mut app = Self {
             state: ConnectionState::Connecting,
             settings: None,
             runtime: None,
             page,
             link,
             _events: task,
+        };
+        for event in early {
+            app.on_link_event(event, window, cx);
         }
+        app
     }
 
     /// Applies one event of the link to the app.
-    pub fn on_link_event(&mut self, event: LinkEvent, _window: &mut Window, cx: &mut Context<Self>) {
+    pub fn on_link_event(&mut self, event: LinkEvent, window: &mut Window, cx: &mut Context<Self>) {
         self.state = next_state(self.state, &event);
-        if let LinkEvent::Event(PortalEvent::Welcome { settings, runtime }) = event {
-            self.settings = Some(settings);
-            self.runtime = Some(runtime);
+        if let LinkEvent::Event(event) = event {
+            match event {
+                PortalEvent::Welcome { settings, runtime } => {
+                    self.settings = Some(settings);
+                    self.runtime = Some(runtime);
+                }
+                PortalEvent::Changed(change) => {
+                    if let Some(settings) = &mut self.settings {
+                        settings.apply(&change);
+                    }
+                }
+                PortalEvent::Runtime(runtime) => self.runtime = Some(runtime),
+                PortalEvent::AlreadyOpen { existing_pid } => {
+                    tracing::info!(existing_pid, "already open");
+                    cx.quit();
+                }
+                PortalEvent::Refused { reason } => tracing::warn!(%reason, "the service refused this Portal"),
+                PortalEvent::Focus { page } => {
+                    if let Some(page) = page {
+                        self.page = page;
+                    }
+                    // Windows restores a minimized window as part of activating it.
+                    window.activate_window();
+                }
+                PortalEvent::Close => {
+                    tracing::info!("the service is stopping, closing the Portal");
+                    cx.quit();
+                }
+                _ => {}
+            }
         }
         cx.notify();
     }
@@ -73,6 +110,10 @@ impl Render for PortalApp {
             .bg(cx.theme().background)
             .text_color(cx.theme().foreground)
             .child(TitleBar::new().child(div().text_xs().child(crate::window_title())))
+            .when_some(
+                banner::connection_banner(self.state, cx.listener(|this, _: &ClickEvent, _, _| this.link.retry())),
+                |column, banner| column.child(banner),
+            )
             .child(v_flex().flex_1())
     }
 }

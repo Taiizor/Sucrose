@@ -27,6 +27,19 @@ const REQUEST_QUEUE: usize = 64;
 /// How long the Portal keeps trying to reach a service it has just started.
 const CONNECT_WINDOW: Duration = Duration::from_secs(10);
 
+/// How long one reconnect attempt keeps trying once it has started the service again.
+const RECONNECT_WINDOW: Duration = Duration::from_secs(5);
+
+/// How many times a lost connection is retried before the Portal gives up (UI-SPEC E6).
+pub const MAX_RECONNECTS: u8 = 3;
+
+/// The pause before each reconnect attempt.
+const RECONNECT_GAP: Duration = Duration::from_secs(1);
+
+/// How long the Portal waits for the service's first word before it opens its window (D-12): long enough that a
+/// second Portal exits on AlreadyOpen without a window flashing.
+pub const FIRST_EVENT_WAIT: Duration = Duration::from_secs(2);
+
 /// The argument the Portal starts the service with: the service must not open a second Portal (D-12).
 const SERVICE_ARGUMENT: &str = "--no-portal";
 
@@ -64,13 +77,18 @@ pub enum ConnectionState {
     Failed,
 }
 
-/// The state after `event`. Messages from the service do not change it, except that a refusal ends in `Failed`.
+/// The state after `event`. A lost-connection event after the last attempt is a failure; messages from the service do
+/// not change the state, except that a refusal ends in `Failed`.
 pub fn next_state(state: ConnectionState, event: &LinkEvent) -> ConnectionState {
     match event {
         LinkEvent::Connecting => ConnectionState::Connecting,
         LinkEvent::Connected => ConnectionState::Connected,
-        LinkEvent::Lost { attempt } => ConnectionState::Lost { attempt: *attempt },
-        LinkEvent::Failed => ConnectionState::Failed,
+        LinkEvent::Lost { attempt } => match state {
+            ConnectionState::Lost { attempt: done } if done >= MAX_RECONNECTS => ConnectionState::Failed,
+            _ if *attempt > MAX_RECONNECTS => ConnectionState::Failed,
+            _ => ConnectionState::Lost { attempt: *attempt },
+        },
+        LinkEvent::Failed | LinkEvent::Event(PortalEvent::Refused { .. }) => ConnectionState::Failed,
         LinkEvent::Event(_) => state,
     }
 }
@@ -85,6 +103,7 @@ pub fn backoff(attempt: u32) -> Duration {
 #[derive(Debug, Clone)]
 pub struct ServiceLink {
     requests: Sender<PortalRequest>,
+    retry: Sender<()>,
 }
 
 impl ServiceLink {
@@ -93,11 +112,13 @@ impl ServiceLink {
     pub fn start(page: Option<PortalPage>) -> (Self, async_channel::Receiver<LinkEvent>) {
         let (events, receiver) = async_channel::unbounded();
         let (requests, queue) = bounded(REQUEST_QUEUE);
+        let (retry, retries) = bounded(1);
         let slot: Slot = Arc::new(Mutex::new(None));
 
         let supervisor = Supervisor {
             page,
             events: events.clone(),
+            retries,
             slot: Arc::clone(&slot),
         };
         let started = thread::Builder::new()
@@ -113,7 +134,13 @@ impl ServiceLink {
             // The channel is unbounded and its receiver is alive, so this cannot fail.
             let _ = events.try_send(LinkEvent::Failed);
         }
-        (Self { requests }, receiver)
+        (Self { requests, retry }, receiver)
+    }
+
+    /// Starts a new connection cycle after the link gave up (Try Again). Does nothing while the link is still trying.
+    pub fn retry(&self) {
+        // A full slot already holds a retry; a closed one means the link is gone.
+        let _ = self.retry.try_send(());
     }
 
     /// Queues a request for the service. Never blocks the caller: when the queue is full or the writer is gone the
@@ -164,13 +191,28 @@ enum Served {
     /// The service answered AlreadyOpen, Refused or Close: it ended the connection on purpose.
     Final,
     /// The connection broke.
-    Lost,
+    Lost {
+        /// Whether the service had registered the Portal (answered Welcome) before.
+        welcomed: bool,
+    },
+}
+
+/// When the link tells the UI it is connecting.
+#[derive(Clone, Copy, PartialEq, Eq)]
+enum Announce {
+    /// Not at all: a reconnect is already shown as Lost.
+    Never,
+    /// Only when no service answers and one has to be started.
+    WhenStarting,
+    /// At once: the user asked to try again.
+    Now,
 }
 
 /// The `portal-ipc` thread.
 struct Supervisor {
     page: Option<PortalPage>,
     events: async_channel::Sender<LinkEvent>,
+    retries: Receiver<()>,
     slot: Slot,
 }
 
@@ -179,23 +221,53 @@ impl Supervisor {
         self.events.send_blocking(event).map_err(|_| UiGone)
     }
 
+    /// One cycle per start and per Try Again; between cycles the thread waits for the user.
     fn run(&self) {
+        let mut announce = Announce::WhenStarting;
         // An UiGone result means the window is closed: the thread ends with it.
-        let _ = self.session();
-    }
-
-    fn session(&self) -> Result<(), UiGone> {
-        let Some(connection) = self.connect_or_start()? else {
-            return self.emit(LinkEvent::Failed);
-        };
-        match self.serve(connection)? {
-            Served::Final => Ok(()),
-            Served::Lost => self.emit(LinkEvent::Failed),
+        while self.session(announce).is_ok() {
+            // A retry asked for while the link was still busy is stale.
+            while self.retries.try_recv().is_ok() {}
+            if self.retries.recv().is_err() {
+                return;
+            }
+            announce = Announce::Now;
         }
     }
 
-    /// Connects to the service; when none answers, starts it once and keeps trying for [CONNECT_WINDOW].
-    fn connect_or_start(&self) -> Result<Option<Connection>, UiGone> {
+    /// Connects, serves the connection, and after a loss reconnects [MAX_RECONNECTS] times before giving up.
+    fn session(&self, announce: Announce) -> Result<(), UiGone> {
+        let Some(mut connection) = self.connect_or_start(CONNECT_WINDOW, announce)? else {
+            return self.emit(LinkEvent::Failed);
+        };
+        let mut used = 0_u8;
+        loop {
+            match self.serve(connection)? {
+                Served::Final => return Ok(()),
+                // A connection that lived to be registered earns a fresh set of attempts; one that broke before
+                // that does not, so a service that dies at once cannot keep the Portal retrying forever.
+                Served::Lost { welcomed } => {
+                    if welcomed {
+                        used = 0;
+                    }
+                }
+            }
+            let mut restored = None;
+            while restored.is_none() && used < MAX_RECONNECTS {
+                used += 1;
+                self.emit(LinkEvent::Lost { attempt: used })?;
+                thread::sleep(RECONNECT_GAP);
+                restored = self.connect_or_start(RECONNECT_WINDOW, Announce::Never)?;
+            }
+            match restored {
+                Some(next) => connection = next,
+                None => return self.emit(LinkEvent::Failed),
+            }
+        }
+    }
+
+    /// Connects to the service; when none answers, starts it once and keeps trying for `window`.
+    fn connect_or_start(&self, window: Duration, announce: Announce) -> Result<Option<Connection>, UiGone> {
         let endpoint = match service_endpoint() {
             Ok(endpoint) => endpoint,
             Err(error) => {
@@ -203,16 +275,21 @@ impl Supervisor {
                 return Ok(None);
             }
         };
+        if announce == Announce::Now {
+            self.emit(LinkEvent::Connecting)?;
+        }
         match connect(&endpoint.name) {
             Ok(connection) => return Ok(Some(connection)),
             Err(error) => tracing::info!(%error, "no service answers, starting one"),
         }
-        self.emit(LinkEvent::Connecting)?;
+        if announce == Announce::WhenStarting {
+            self.emit(LinkEvent::Connecting)?;
+        }
         if let Err(error) = start_service() {
             // Another process may be starting the service, so keep trying to connect.
             tracing::error!(%error, "cannot start the service");
         }
-        let deadline = Instant::now() + CONNECT_WINDOW;
+        let deadline = Instant::now() + window;
         for attempt in 0_u32.. {
             thread::sleep(backoff(attempt));
             match connect(&endpoint.name) {
@@ -229,11 +306,12 @@ impl Supervisor {
 
     /// Says PortalHello and forwards the service's events until the connection ends.
     fn serve(&self, mut reader: Connection) -> Result<Served, UiGone> {
+        let mut welcomed = false;
         let writer = match reader.try_clone() {
             Ok(writer) => writer,
             Err(error) => {
                 tracing::warn!(%error, "cannot share the connection with the writer thread");
-                return Ok(Served::Lost);
+                return Ok(Served::Lost { welcomed });
             }
         };
         let hello = ToService::PortalHello {
@@ -243,7 +321,7 @@ impl Supervisor {
         };
         if let Err(error) = reader.send(&hello) {
             tracing::warn!(%error, "cannot say hello to the service");
-            return Ok(Served::Lost);
+            return Ok(Served::Lost { welcomed });
         }
         *lock(&self.slot) = Some(writer);
 
@@ -256,6 +334,7 @@ impl Supervisor {
                     );
                     if matches!(event, PortalEvent::Welcome { .. }) {
                         tracing::info!("connected to the service");
+                        welcomed = true;
                         self.emit(LinkEvent::Connected)?;
                     }
                     self.emit(LinkEvent::Event(event))?;
@@ -265,13 +344,33 @@ impl Supervisor {
                 }
                 Err(error) => {
                     tracing::warn!(%error, "service lost");
-                    break Served::Lost;
+                    break Served::Lost { welcomed };
                 }
             }
         };
         *lock(&self.slot) = None;
         Ok(served)
     }
+}
+
+/// The events that are ready when the Portal starts: waits up to `wait` for the first one, then takes the ones that are
+/// already queued. The window opens after this, so AlreadyOpen ends the process before any window exists (D-12).
+pub fn first_events(events: &async_channel::Receiver<LinkEvent>, wait: Duration) -> Vec<LinkEvent> {
+    let deadline = Instant::now() + wait;
+    let mut ready = Vec::new();
+    loop {
+        match events.try_recv() {
+            Ok(event) => ready.push(event),
+            Err(async_channel::TryRecvError::Empty) => {
+                if !ready.is_empty() || Instant::now() >= deadline {
+                    break;
+                }
+                thread::sleep(Duration::from_millis(10));
+            }
+            Err(async_channel::TryRecvError::Closed) => break,
+        }
+    }
+    ready
 }
 
 /// The service binary: the fixed name next to this executable (T-03-19). Never a PATH lookup.
