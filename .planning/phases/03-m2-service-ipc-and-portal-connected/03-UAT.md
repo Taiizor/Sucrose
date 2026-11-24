@@ -3,7 +3,7 @@ status: testing
 phase: 03-m2-service-ipc-and-portal-connected
 source: [03-VERIFICATION.md]
 started: 2026-11-24T20:01:31.075Z
-updated: 2026-11-24T20:01:31.075Z
+updated: 2026-11-24T21:10:41.768Z
 ---
 
 ## Current Test
@@ -48,12 +48,20 @@ result: [pending]
 expected: A slowly hovered card animates and hides its title strip; a fast sweep starts nothing
 result: [pending]
 
+### 9. Exit / Close Applications closes every Sucrose process (03-16); also quit once while a library move is in its closing stage if it can be provoked (WR-10 wiring is covered by predicate tests only)
+expected: Wallpaper stops, Portal closes, tray icon gone within about 3 s, no sucrose.exe or sucrose-portal.exe left
+result: [pending]
+
+### 10. Release Portal paging after the WR-12 decode budget (a4e650bc): page through the synthetic 500-theme library once and read the working set
+expected: Final working set stays inside the D-25 rule recorded in docs/MEASUREMENTS.md rows 16-17; no visible stall while thumbnails decode
+result: [pending]
+
 ## Summary
 
-total: 8
+total: 10
 passed: 0
 issues: 0
-pending: 8
+pending: 10
 skipped: 0
 blocked: 0
 
