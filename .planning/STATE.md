@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-23-PLAN.md
-last_updated: "2026-11-24T11:53:09.613Z"
+stopped_at: Completed 03-24-PLAN.md
+last_updated: "2026-11-24T12:31:54.602Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: be7b36d665aee3059c46eac62f5b8d3cbcc435c8
+state_head: 4cbc7a111ee9ef227eccbd95f00266baf9943985
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 55
-  completed_plans: 53
+  completed_plans: 54
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 25 of 26
+Plan: 26 of 26
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -107,6 +107,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P21 | 24 min | 2 tasks | 17 files |
 | Phase 03 P22 | 33 min | 2 tasks | 12 files |
 | Phase 03 P23 | 21 min | 2 tasks | 19 files |
+| Phase 03 P24 | 90 min | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -195,6 +196,7 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-22: The Portal applies the new library location from the destination it sent; no SettingChange exists for it
 - [Phase 03]: D-034: Sucrose's own start entry is Sucrose.Service (Run value), dev.sucrose.Sucrose (LaunchAgent), sucrose.desktop (XDG); the C# entry is only detected
 - [Phase 03]: 03-23: a startup setting that cannot be saved takes the entry change back; the C# entry lookup runs on a worker thread only when the General page opens
+- [Phase 03]: 03-24: both D-25 Portal scenarios must be repeated after the hover-preview defect (card.rs:282-283, mod.rs:541-562) is fixed; scenario 2 round windows are skewed, only first-page, peak and final are valid
 
 ### Pending Todos
 
@@ -227,6 +229,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T11:53:01.456Z
-Stopped at: Completed 03-23-PLAN.md
+Last session: 2026-11-24T12:31:44.705Z
+Stopped at: Completed 03-24-PLAN.md
 Resume file: None
