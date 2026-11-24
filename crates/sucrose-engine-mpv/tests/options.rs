@@ -17,7 +17,7 @@ use sucrose_core::settings::Stretch;
 use sucrose_engine_mpv::{
     config::{embedding_options, generated_options},
     loader::{self, Mpv},
-    player::{OpenOptions, Player},
+    player::{OpenOptions, Player, PlayerEvent},
 };
 use sucrose_ipc::protocol::PlaybackSettings;
 
@@ -192,6 +192,49 @@ fn a_file_that_cannot_be_opened_is_reported_as_a_failed_start() {
         "mpv never reported that the file cannot be played"
     );
     assert!(!player.has_started());
+}
+
+/// A 1x1 GIF: the smallest file mpv plays as an image, so the test needs no video fixture.
+const TINY_GIF: &[u8] = &[
+    0x47, 0x49, 0x46, 0x38, 0x39, 0x61, 0x01, 0x00, 0x01, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff, 0xff,
+    0x21, 0xf9, 0x04, 0x01, 0x00, 0x00, 0x00, 0x00, 0x2c, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x02,
+    0x01, 0x44, 0x00, 0x3b,
+];
+
+#[test]
+#[ignore = "needs cargo xtask fetch-engines"]
+fn load_source_reports_started_for_the_new_file() {
+    let player = start(PlaybackSettings::default(), 120);
+    let events = player.take_events().expect("the events are taken once");
+    assert!(
+        wait_until(Duration::from_secs(20), || player.has_started()),
+        "the test stream never started"
+    );
+    // The first start belongs to the stream that is replaced below.
+    while events.try_recv().is_ok() {}
+    let gif = std::env::temp_dir().join(format!("sucrose-load-source-{}.gif", std::process::id()));
+    std::fs::write(&gif, TINY_GIF).expect("the scratch image is written");
+
+    player
+        .load_source(&gif, &PlaybackSettings::default())
+        .expect("the scratch image is accepted");
+
+    let started = wait_until(Duration::from_secs(10), || {
+        while let Ok(event) = events.try_recv() {
+            if event == PlayerEvent::Started {
+                return true;
+            }
+        }
+        false
+    });
+    let playing = player.get_property_string("path");
+    let _ = std::fs::remove_file(&gif);
+    assert!(started, "the new file never reported its first frame");
+    assert!(player.has_started());
+    assert!(
+        playing.is_some_and(|path| path.contains("sucrose-load-source-")),
+        "Started came from the old stream, not from the new file"
+    );
 }
 
 #[test]
