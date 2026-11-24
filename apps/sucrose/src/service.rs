@@ -4020,6 +4020,71 @@ mod tests {
     }
 
     #[test]
+    fn a_no_wallpaper_reason_with_control_characters_is_printable() {
+        let forged = "Rain\n2026 ERROR forged\u{1b}[31m";
+        let status = Status::NoWallpaper {
+            reason: forged.to_owned(),
+        };
+
+        for sentence in [status.text(), status.tooltip()] {
+            assert!(!sentence.chars().any(char::is_control), "{sentence:?}");
+        }
+        assert_eq!(
+            status.text(),
+            "Sucrose — no wallpaper: Rain\u{fffd}2026 ERROR forged\u{fffd}[31m"
+        );
+    }
+
+    #[test]
+    fn every_free_text_field_of_a_status_is_printable() {
+        let dirty = "x\ny\u{1b}z";
+        let statuses = [
+            Status::Playing {
+                title: dirty.to_owned(),
+            },
+            Status::Starting {
+                title: dirty.to_owned(),
+            },
+            Status::Failed {
+                reason: dirty.to_owned(),
+                hint: dirty.to_owned(),
+            },
+            Status::RendererStopped {
+                monitor: dirty.to_owned(),
+                reason: dirty.to_owned(),
+            },
+        ];
+
+        for status in statuses {
+            for sentence in [status.text(), status.tooltip()] {
+                assert!(!sentence.chars().any(char::is_control), "{status:?}: {sentence:?}");
+            }
+        }
+        let failed = Status::Failed {
+            reason: dirty.to_owned(),
+            hint: dirty.to_owned(),
+        };
+        assert_eq!(
+            failed.text(),
+            "Sucrose — no wallpaper: x\u{fffd}y\u{fffd}z x\u{fffd}y\u{fffd}z"
+        );
+    }
+
+    #[test]
+    fn the_monitor_wait_is_still_recognized_after_printable_text() {
+        let waiting = Status::NoWallpaper {
+            reason: NO_MONITOR.to_owned(),
+        };
+
+        assert!(waiting.is_waiting_for_a_monitor());
+        assert_eq!(
+            printable(NO_MONITOR),
+            NO_MONITOR,
+            "the reason has no control character to lose"
+        );
+    }
+
+    #[test]
     fn a_long_reason_is_cut_to_127_utf16_units_in_the_tooltip() {
         let failed = starting()
             .after(
