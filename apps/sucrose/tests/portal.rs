@@ -193,11 +193,48 @@ fn a_launch_with_a_portal_registered_gets_portal_running() {
 }
 
 #[test]
+fn a_service_with_the_tray_hidden_and_nothing_to_play_exits_when_its_only_portal_leaves() {
+    if !service_runs("a_service_with_the_tray_hidden_and_nothing_to_play_exits_when_its_only_portal_leaves") {
+        return;
+    }
+    let mut service = TestService::start("exit-hidden", &json!({}));
+    let (portal, event) = PortalClient::hello_as(&service, 1001, None);
+    assert!(matches!(event, PortalEvent::Welcome { .. }), "{event:?}");
+    assert!(
+        !service.exits_within(std::time::Duration::from_millis(500)),
+        "the service stays while the Portal is connected"
+    );
+    drop(portal);
+
+    assert!(
+        service.exits_within(std::time::Duration::from_secs(3)),
+        "nothing needs the service any more, it exits"
+    );
+}
+
+#[test]
+fn a_service_with_the_tray_visible_stays_when_its_only_portal_leaves() {
+    if !service_runs("a_service_with_the_tray_visible_stays_when_its_only_portal_leaves") {
+        return;
+    }
+    let mut service = TestService::start("stay-visible", &json!({ "General": { "AppVisible": true } }));
+    let (portal, event) = PortalClient::hello_as(&service, 1001, None);
+    assert!(matches!(event, PortalEvent::Welcome { .. }), "{event:?}");
+    drop(portal);
+
+    assert!(
+        !service.exits_within(std::time::Duration::from_secs(2)),
+        "the tray keeps the service until Exit"
+    );
+}
+
+#[test]
 fn a_portal_that_left_makes_room_for_the_next() {
     if !service_runs("a_portal_that_left_makes_room_for_the_next") {
         return;
     }
-    let service = TestService::start("left", &json!({}));
+    // The tray keeps the service running after the first Portal leaves (D-13).
+    let service = TestService::start("left", &json!({ "General": { "AppVisible": true } }));
     let (first, first_event) = PortalClient::hello_as(&service, 1001, None);
     assert!(matches!(first_event, PortalEvent::Welcome { .. }), "{first_event:?}");
     drop(first);

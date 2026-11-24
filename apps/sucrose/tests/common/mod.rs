@@ -97,6 +97,20 @@ impl TestService {
         service
     }
 
+    /// Whether the service process ends within `timeout`.
+    pub fn exits_within(&mut self, timeout: Duration) -> bool {
+        let deadline = Instant::now() + timeout;
+        loop {
+            if self.child.try_wait().expect("the child can be polled").is_some() {
+                return true;
+            }
+            if Instant::now() >= deadline {
+                return false;
+            }
+            thread::sleep(Duration::from_millis(50));
+        }
+    }
+
     /// The saved settings file as the service wrote it.
     pub fn settings_file(&self) -> Value {
         let bytes = fs::read(self.dir.join("Setting").join("Sucrose.json")).expect("the settings file can be read");
