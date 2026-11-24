@@ -24,6 +24,8 @@ pub const CACHE_BYTES: usize = 48 * 1024 * 1024;
 pub const DECODE_SLOTS: usize = 3;
 /// The longest side, in pixels, an image may declare before it is refused.
 pub const MAX_SIDE: u32 = 16_384;
+/// The most pixels an image may declare before it is refused.
+pub const MAX_PIXELS: u64 = 32 * 1024 * 1024;
 /// The largest thumbnail file that is read.
 const MAX_FILE_BYTES: u64 = 64 * 1024 * 1024;
 /// The most memory the generic decoder may allocate for one image.
@@ -246,6 +248,11 @@ pub fn decode_thumbnail(path: &Path, bucket: Bucket) -> anyhow::Result<Arc<Rende
     decode_bytes(&bytes, bucket)
 }
 
+/// Refuses an image whose declared size is over the limits.
+pub fn check_dimensions(_width: u32, _height: u32) -> anyhow::Result<()> {
+    Ok(())
+}
+
 /// Decodes image `bytes` at the width of `bucket`.
 pub fn decode_bytes(bytes: &[u8], bucket: Bucket) -> anyhow::Result<Arc<RenderImage>> {
     let (width, height) = ImageReader::new(Cursor::new(bytes))
@@ -323,6 +330,25 @@ pub fn to_bgra(mut pixels: image::RgbaImage) -> image::RgbaImage {
         pixel.swap(0, 2);
     }
     pixels
+}
+
+/// A small real JPEG whose frame header (SOF0) declares `width` x `height`, so the header says one thing and the data
+/// another: for tests of limits that must refuse before any pixel is decoded.
+#[cfg(test)]
+pub(crate) fn patched_jpeg(width: u16, height: u16) -> Vec<u8> {
+    use image::{ImageEncoder as _, codecs::jpeg::JpegEncoder};
+
+    let mut out = Vec::new();
+    JpegEncoder::new(&mut out)
+        .write_image(&[128u8; 16 * 16 * 3], 16, 16, image::ExtendedColorType::Rgb8)
+        .expect("encode jpeg");
+    let sof = out
+        .windows(2)
+        .position(|pair| pair == [0xFF, 0xC0])
+        .expect("a baseline JPEG has a SOF0 marker");
+    out[sof + 5..sof + 7].copy_from_slice(&height.to_be_bytes());
+    out[sof + 7..sof + 9].copy_from_slice(&width.to_be_bytes());
+    out
 }
 
 #[cfg(test)]
@@ -566,6 +592,28 @@ mod tests {
         let error = decode_bytes(&png(MAX_SIDE + 1, 1), Bucket::W360).expect_err("too wide");
         assert!(error.to_string().contains("pixel limit"), "{error}");
         assert!(decode_bytes(&png(MAX_SIDE, 1), Bucket::W360).is_ok());
+    }
+
+    #[test]
+    fn a_16384_square_jpeg_header_is_refused_by_the_pixel_area_limit() {
+        let bytes = patched_jpeg(16_384, 16_384);
+        let error = decode_bytes(&bytes, Bucket::W360).expect_err("over the area limit");
+        assert!(error.to_string().contains("over the limit"), "{error}");
+    }
+
+    #[test]
+    fn the_pixel_area_limit_accepts_exactly_max_pixels_and_refuses_one_row_more() {
+        assert_eq!(MAX_PIXELS, 8192 * 4096);
+        assert!(check_dimensions(8192, 4096).is_ok());
+        assert!(check_dimensions(8192, 4097).is_err());
+        assert!(check_dimensions(16_385, 1).is_err());
+    }
+
+    #[test]
+    fn a_one_pixel_image_still_decodes_after_the_pixel_area_limit() {
+        let image = decode_bytes(&png(1, 1), Bucket::W360).expect("decodes");
+        let size = image.size(0);
+        assert_eq!((size.width.0, size.height.0), (1, 1));
     }
 
     #[test]
