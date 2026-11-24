@@ -522,12 +522,23 @@ impl LibraryView {
             return;
         };
         let range = layout::page_slice(self.visible.len(), self.page, settings.pagination);
+        // The memory reading costs a heap walk and a DXGI query, so only a run that logs it pays (UI-07 diagnosis).
+        let memory = if tracing::enabled!(tracing::Level::DEBUG) {
+            sucrose_platform::memory_detail()
+        } else {
+            sucrose_platform::MemoryDetail::default()
+        };
+        let mib = |bytes: Option<u64>| bytes.map(|bytes| bytes / (1024 * 1024));
         tracing::debug!(
             page = self.page,
             pages = layout::page_count(self.visible.len(), settings.pagination),
             thumbs = self.cache.len(),
             thumb_bytes = self.cache.total_bytes(),
             preview_playing = matches!(self.preview, PreviewState::Playing { .. }),
+            heap_allocated_mb = mib(memory.heap_allocated),
+            heap_committed_mb = mib(memory.heap_committed),
+            gpu_local_mb = mib(memory.gpu_local),
+            gpu_non_local_mb = mib(memory.gpu_non_local),
             "page shown"
         );
         let keys: Vec<ThumbKey> = self.visible[range]
