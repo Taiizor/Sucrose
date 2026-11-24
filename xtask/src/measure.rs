@@ -29,14 +29,29 @@ use sysinfo::{CpuRefreshKind, Pid, ProcessRefreshKind, ProcessesToUpdate, System
 const USAGE: &str = "usage:
   cargo xtask measure --side rust|csharp [--warmup <s>] [--duration <s>] [--out <json>]
   cargo xtask measure --row <csharp.json> <rust.json> --scenario <text> --notes <text>
+  cargo xtask measure --side portal [--seconds <n>] [--interval-ms <ms>] [--out <json>]
+  cargo xtask measure --portal-summary <json> [--warmup <s>] [--rounds <n>] [--idle <s>]
+  cargo xtask measure --portal-row <real.json> <synth.json> [--warmup <s>] [--rounds <n>] [--idle <s>]
 
   --side      rust: every sucrose.exe (service and --render renderers); csharp: Sucrose.Launcher,
-              Sucrose.Live.MpvPlayer and Sucrose.Backgroundog
-  --warmup    seconds to wait before sampling (default 60)
+              Sucrose.Live.MpvPlayer and Sucrose.Backgroundog; portal: the sucrose-portal.exe process
+  --warmup    seconds to wait before sampling (default 60); with --portal-summary/--portal-row the
+              warm-up window of the run (default 20)
   --duration  seconds to sample, once per second (default 300)
   --out       result file (default target/measure/<side>.json)
   --row       print the docs/MEASUREMENTS.md table row for two result files
+  --seconds   portal: seconds to sample (default 240); --interval-ms: sample spacing (default 500)
+  --portal-summary  first-page value, end and peak of each round, peak and final value of a portal series
+  --rounds    rounds between the warm-up and the idle window (default 3); --idle: final idle window (default 20)
+  --portal-row      print the docs/MEASUREMENTS.md row for the real-library and synthetic-library series
 ";
+const DEFAULT_PORTAL_SECONDS: u64 = 240;
+const DEFAULT_PORTAL_INTERVAL_MS: u64 = 500;
+const DEFAULT_PORTAL_WARMUP: u64 = 20;
+const DEFAULT_PORTAL_ROUNDS: usize = 3;
+const DEFAULT_PORTAL_IDLE: u64 = 20;
+/// The first-page value is the median of this many seconds at the end of the warm-up.
+const FIRST_PAGE_WINDOW_MS: u64 = 10_000;
 
 const MB: f64 = 1024.0 * 1024.0;
 const DEFAULT_WARMUP: u64 = 60;
@@ -66,7 +81,8 @@ impl Side {
         match text {
             "rust" => Ok(Self::Rust),
             "csharp" => Ok(Self::Csharp),
-            other => Err(format!("--side must be rust or csharp, not '{other}'")),
+            "portal" => Ok(Self::Portal),
+            other => Err(format!("--side must be rust, csharp or portal, not '{other}'")),
         }
     }
 
@@ -97,7 +113,7 @@ struct RowArgs {
 
 /// The D-25 scenario shape: a warm-up on page 1, `rounds` rounds of paging, a final idle window.
 #[derive(Debug)]
-struct PortalShape {
+pub struct PortalShape {
     warmup: u64,
     rounds: usize,
     idle: u64,
@@ -143,20 +159,31 @@ fn seconds(text: &str, flag: &str) -> Result<u64, String> {
         .map_err(|_| format!("{flag} must be a whole number of seconds, not '{text}'"))
 }
 
+fn count(text: &str, flag: &str) -> Result<usize, String> {
+    text.parse::<usize>()
+        .map_err(|_| format!("{flag} must be a whole number, not '{text}'"))
+}
+
 fn parse_args(args: &[String]) -> Result<Task, String> {
     let mut side = None;
-    let mut warmup = DEFAULT_WARMUP;
-    let mut duration = DEFAULT_DURATION;
+    let mut warmup = None;
+    let mut duration = None;
     let mut out = None;
     let mut row: Option<(String, String)> = None;
     let mut scenario = None;
     let mut notes = None;
+    let mut portal_seconds = None;
+    let mut interval_ms = None;
+    let mut rounds = None;
+    let mut idle = None;
+    let mut summary = None;
+    let mut portal_row: Option<(String, String)> = None;
     let mut it = args.iter();
     while let Some(arg) = it.next() {
         match arg.as_str() {
             "--side" => side = Some(Side::parse(value(&mut it, "--side")?)?),
-            "--warmup" => warmup = seconds(value(&mut it, "--warmup")?, "--warmup")?,
-            "--duration" => duration = seconds(value(&mut it, "--duration")?, "--duration")?,
+            "--warmup" => warmup = Some(seconds(value(&mut it, "--warmup")?, "--warmup")?),
+            "--duration" => duration = Some(seconds(value(&mut it, "--duration")?, "--duration")?),
             "--out" => out = Some(value(&mut it, "--out")?.to_owned()),
             "--row" => {
                 let csharp = value(&mut it, "--row")?.to_owned();
@@ -165,29 +192,100 @@ fn parse_args(args: &[String]) -> Result<Task, String> {
             }
             "--scenario" => scenario = Some(value(&mut it, "--scenario")?.to_owned()),
             "--notes" => notes = Some(value(&mut it, "--notes")?.to_owned()),
+            "--seconds" => portal_seconds = Some(seconds(value(&mut it, "--seconds")?, "--seconds")?),
+            "--interval-ms" => interval_ms = Some(seconds(value(&mut it, "--interval-ms")?, "--interval-ms")?),
+            "--rounds" => rounds = Some(count(value(&mut it, "--rounds")?, "--rounds")?),
+            "--idle" => idle = Some(seconds(value(&mut it, "--idle")?, "--idle")?),
+            "--portal-summary" => summary = Some(value(&mut it, "--portal-summary")?.to_owned()),
+            "--portal-row" => {
+                let real = value(&mut it, "--portal-row")?.to_owned();
+                let synth = value(&mut it, "--portal-row")?.to_owned();
+                portal_row = Some((real, synth));
+            }
             other => return Err(format!("unknown argument '{other}'")),
         }
     }
+    let modes = [row.is_some(), side.is_some(), summary.is_some(), portal_row.is_some()];
+    if modes.iter().filter(|m| **m).count() > 1 {
+        return Err("--side, --row, --portal-summary and --portal-row cannot be combined".to_owned());
+    }
+    let portal_flags = portal_seconds.is_some() || interval_ms.is_some();
+    let shape_flags = rounds.is_some() || idle.is_some();
+    let shape = || -> Result<PortalShape, String> {
+        let rounds = rounds.unwrap_or(DEFAULT_PORTAL_ROUNDS);
+        if rounds == 0 {
+            return Err("--rounds must be at least 1".to_owned());
+        }
+        Ok(PortalShape {
+            warmup: warmup.unwrap_or(DEFAULT_PORTAL_WARMUP),
+            rounds,
+            idle: idle.unwrap_or(DEFAULT_PORTAL_IDLE),
+        })
+    };
+    if let Some(path) = summary {
+        if portal_flags || duration.is_some() {
+            return Err("--portal-summary takes --warmup, --rounds and --idle only".to_owned());
+        }
+        return Ok(Task::PortalSummary(PortalSummaryArgs { path, shape: shape()? }));
+    }
+    if let Some((real, synth)) = portal_row {
+        if portal_flags || duration.is_some() {
+            return Err("--portal-row takes --warmup, --rounds and --idle only".to_owned());
+        }
+        return Ok(Task::PortalRow(PortalRowArgs {
+            real,
+            synth,
+            shape: shape()?,
+        }));
+    }
+    if portal_flags && side != Some(Side::Portal) {
+        return Err("--seconds and --interval-ms belong to --side portal".to_owned());
+    }
+    if shape_flags {
+        return Err("--rounds and --idle belong to --portal-summary and --portal-row".to_owned());
+    }
     match (row, side) {
-        (Some(_), Some(_)) => Err("--row and --side cannot be combined".to_owned()),
         (Some((csharp, rust)), None) => Ok(Task::Row(RowArgs {
             csharp,
             rust,
             scenario: scenario.ok_or("--row needs --scenario")?,
             notes: notes.ok_or("--row needs --notes")?,
         })),
+        (None, Some(Side::Portal)) => {
+            if warmup.is_some() || duration.is_some() {
+                return Err("--warmup and --duration do not apply to --side portal; use --seconds".to_owned());
+            }
+            let seconds = portal_seconds.unwrap_or(DEFAULT_PORTAL_SECONDS);
+            let interval_ms = interval_ms.unwrap_or(DEFAULT_PORTAL_INTERVAL_MS);
+            if seconds == 0 {
+                return Err("--seconds must be at least 1".to_owned());
+            }
+            if interval_ms == 0 {
+                return Err("--interval-ms must be at least 1".to_owned());
+            }
+            if seconds * 1000 < interval_ms {
+                return Err("--seconds must cover at least one --interval-ms".to_owned());
+            }
+            Ok(Task::Portal(PortalArgs {
+                seconds,
+                interval_ms,
+                out,
+            }))
+        }
         (None, Some(side)) => {
+            let duration = duration.unwrap_or(DEFAULT_DURATION);
             if duration == 0 {
                 return Err("--duration must be at least 1".to_owned());
             }
             Ok(Task::Sample(SampleArgs {
                 side,
-                warmup,
+                warmup: warmup.unwrap_or(DEFAULT_WARMUP),
                 duration,
                 out,
             }))
         }
-        (None, None) => Err("give --side or --row".to_owned()),
+        (None, None) => Err("give --side, --row, --portal-summary or --portal-row".to_owned()),
+        (Some(_), Some(_)) => Err("--row and --side cannot be combined".to_owned()),
     }
 }
 
@@ -226,6 +324,7 @@ pub fn classify(side: Side, name: &str, cmd: &[String]) -> Option<&'static str> 
             "sucrose.backgroundog" => Some("backgroundog"),
             _ => None,
         },
+        Side::Portal if stem == "sucrose-portal" => Some("portal"),
         Side::Rust | Side::Portal => None,
     }
 }
@@ -1106,37 +1205,277 @@ pub struct PortalSummary {
     pub final_value: f64,
 }
 
-/// Summary of a series of `(elapsed ms, value)` points.
+/// The median of a non-empty list.
+fn median(mut values: Vec<f64>) -> f64 {
+    values.sort_by(f64::total_cmp);
+    let mid = values.len() / 2;
+    if values.len() % 2 == 1 {
+        values[mid]
+    } else {
+        f64::midpoint(values[mid - 1], values[mid])
+    }
+}
+
+fn maximum(values: &[f64]) -> f64 {
+    values.iter().copied().fold(f64::MIN, f64::max)
+}
+
+/// Statistics of `(elapsed ms, value)` points in the D-25 shape. Windows are half-open on time, `(from, to]`, because
+/// the sampler stamps a sample with the end of its interval: the warm-up is `(0, warmup]`, the idle window is the last
+/// `idle` seconds and the rounds split the time between them evenly. `first_page` is the median of the last 10 s of the
+/// warm-up, `round_end` the last sample of each round, `round_peak` its maximum, `peak` the maximum of the whole run
+/// and `final_value` the median of the idle window.
 pub fn portal_summary(
-    _points: &[(u64, f64)],
-    _warmup_s: u64,
-    _rounds: usize,
-    _idle_s: u64,
+    points: &[(u64, f64)],
+    warmup_s: u64,
+    rounds: usize,
+    idle_s: u64,
 ) -> Result<PortalSummary, String> {
+    if rounds == 0 {
+        return Err("--rounds must be at least 1".to_owned());
+    }
+    if warmup_s == 0 {
+        return Err("--warmup must be at least 1".to_owned());
+    }
+    if idle_s == 0 {
+        return Err("--idle must be at least 1".to_owned());
+    }
+    let end = points.last().map(|p| p.0).ok_or("the series has no samples")?;
+    let warmup_ms = warmup_s * 1000;
+    let idle_ms = idle_s * 1000;
+    if warmup_ms + idle_ms >= end {
+        return Err(format!(
+            "the series covers {} s, which leaves no time for the rounds after a {warmup_s} s warm-up and a {idle_s} s idle window",
+            end / 1000
+        ));
+    }
+    let window = |from: u64, to: u64| -> Vec<f64> {
+        points
+            .iter()
+            .filter(|(t, _)| *t > from && *t <= to)
+            .map(|(_, v)| *v)
+            .collect()
+    };
+    let first = window(warmup_ms.saturating_sub(FIRST_PAGE_WINDOW_MS), warmup_ms);
+    if first.is_empty() {
+        return Err("the series has no samples in the last 10 s of the warm-up".to_owned());
+    }
+    let span = end - warmup_ms - idle_ms;
+    let mut round_end = Vec::with_capacity(rounds);
+    let mut round_peak = Vec::with_capacity(rounds);
+    for round in 0..rounds {
+        let from = warmup_ms + span * round as u64 / rounds as u64;
+        let to = warmup_ms + span * (round as u64 + 1) / rounds as u64;
+        let values = window(from, to);
+        let last = *values
+            .last()
+            .ok_or_else(|| format!("round {} has no samples", round + 1))?;
+        round_end.push(last);
+        round_peak.push(maximum(&values));
+    }
+    let idle = window(end - idle_ms, end);
+    if idle.is_empty() {
+        return Err("the idle window has no samples".to_owned());
+    }
+    let all: Vec<f64> = points.iter().map(|(_, v)| *v).collect();
     Ok(PortalSummary {
-        first_page: 0.0,
-        round_end: Vec::new(),
-        round_peak: Vec::new(),
-        peak: 0.0,
-        final_value: 0.0,
+        first_page: median(first),
+        round_end,
+        round_peak,
+        peak: maximum(&all),
+        final_value: median(idle),
     })
 }
 
-/// The MEASUREMENTS row of the two scenarios.
-pub fn portal_row(_real: &PortalSeries, _synth: &PortalSeries, _shape: &PortalShape) -> Result<String, String> {
-    Ok(String::new())
+/// The working-set and private-bytes summaries of a series.
+fn series_summaries(series: &PortalSeries, shape: &PortalShape) -> Result<(PortalSummary, PortalSummary), String> {
+    let pick = |f: fn(&PortalSample) -> f64| -> Vec<(u64, f64)> {
+        series.samples.iter().map(|s| (s.elapsed_ms, f(s))).collect()
+    };
+    let working_set = portal_summary(&pick(|s| s.working_set_mb), shape.warmup, shape.rounds, shape.idle)?;
+    let private = portal_summary(&pick(|s| s.private_mb), shape.warmup, shape.rounds, shape.idle)?;
+    Ok((working_set, private))
 }
 
-fn sample_portal(_args: &PortalArgs) -> Result<(), String> {
-    Err("not implemented".to_owned())
+fn mb_list(values: &[f64]) -> String {
+    values.iter().map(|v| format!("{v:.0}")).collect::<Vec<_>>().join(" / ")
 }
 
-fn print_portal_summary(_args: &PortalSummaryArgs) -> Result<(), String> {
-    Err("not implemented".to_owned())
+fn portal_cell(label: &str, series: &PortalSeries, shape: &PortalShape) -> Result<String, String> {
+    let (ws, private) = series_summaries(series, shape)?;
+    Ok(format!(
+        "{label}: working set first page {:.0} MB, peak {:.0}, final {:.0} (round ends {}, round peaks {}); \
+         private first page {:.0} MB, peak {:.0}, final {:.0}",
+        ws.first_page,
+        ws.peak,
+        ws.final_value,
+        mb_list(&ws.round_end),
+        mb_list(&ws.round_peak),
+        private.first_page,
+        private.peak,
+        private.final_value
+    ))
 }
 
-fn print_portal_row(_args: &PortalRowArgs) -> Result<(), String> {
-    Err("not implemented".to_owned())
+fn require_release(series: &PortalSeries, who: &str) -> Result<(), String> {
+    if !series.complete {
+        return Err(format!(
+            "the {who} series ended before its planned time (the Portal exited); measure again"
+        ));
+    }
+    match series.build.as_deref() {
+        Some("release") => Ok(()),
+        other => Err(format!(
+            "the {who} series was not measured on a release build ({}); the numbers are not comparable, measure again",
+            other.unwrap_or("build unknown")
+        )),
+    }
+}
+
+/// The MEASUREMENTS row of the two scenarios: Rust column only (the C# Portal is not a comparison target here).
+pub fn portal_row(real: &PortalSeries, synth: &PortalSeries, shape: &PortalShape) -> Result<String, String> {
+    require_release(real, "real-library")?;
+    require_release(synth, "synthetic-library")?;
+    let date = synth.started.get(..10).unwrap_or(&synth.started);
+    let cells = [
+        portal_cell("real library", real, shape)?,
+        portal_cell("500 synthetic themes", synth, shape)?,
+    ];
+    let notes = format!(
+        "Portal process only, sampled every {} ms and {} ms; {} s warm-up on page 1, {} rounds forward and back through every page \
+         with hover previews on (by hand), {} s idle on page 1; release build; scratch data folders",
+        real.interval_ms, synth.interval_ms, shape.warmup, shape.rounds, shape.idle
+    );
+    Ok(format!(
+        "| {date} | M2 Portal library paging, memory over time (Rust, release build) | – | {} | {} |",
+        clean_cell(&cells.join("; ")),
+        clean_cell(&notes)
+    ))
+}
+
+fn write_portal_series(series: &PortalSeries, path: &Path) -> Result<(), String> {
+    if let Some(parent) = path.parent().filter(|p| !p.as_os_str().is_empty()) {
+        fs::create_dir_all(parent).map_err(|e| format!("cannot create {}: {e}", parent.display()))?;
+    }
+    let json = serde_json::to_string_pretty(series).map_err(|e| format!("cannot encode the result: {e}"))?;
+    fs::write(path, json).map_err(|e| format!("cannot write {}: {e}", path.display()))
+}
+
+fn read_portal_series(path: &str) -> Result<PortalSeries, String> {
+    let text = fs::read_to_string(path).map_err(|e| format!("cannot read {path}: {e}"))?;
+    let series: PortalSeries =
+        serde_json::from_str(&text).map_err(|e| format!("{path} is not a portal series: {e}"))?;
+    if series.side != "portal" {
+        return Err(format!("{path} is a {} result, not a portal series", series.side));
+    }
+    Ok(series)
+}
+
+/// Samples the Portal's working set and private bytes every `--interval-ms` for `--seconds` (D-25). Only reads
+/// process statistics: the maintainer starts the Portal and pages through it by hand.
+fn sample_portal(args: &PortalArgs) -> Result<(), String> {
+    let mut system = System::new().map_err(|e| format!("cannot read system information: {e}"))?;
+    let found = scan(&mut system, Side::Portal);
+    let Some(target) = found.first() else {
+        return Err("no matching processes: sucrose-portal.exe is not running; start the Portal first".to_owned());
+    };
+    if found.len() > 1 {
+        println!("{} Portal processes found; sampling pid {}", found.len(), target.pid);
+    }
+    let pid = Pid::from_u32(target.pid);
+    let ticks = args.seconds * 1000 / args.interval_ms;
+    println!(
+        "sampling {} (pid {}) every {} ms for {} s",
+        target.name, target.pid, args.interval_ms, args.seconds
+    );
+    let kind = ProcessRefreshKind::nothing().with_memory();
+    let started = now_iso();
+    let begin = Instant::now();
+    let mut samples = Vec::new();
+    let mut complete = true;
+    for tick in 1..=ticks {
+        let elapsed_ms = tick * args.interval_ms;
+        thread::sleep((begin + Duration::from_millis(elapsed_ms)).saturating_duration_since(Instant::now()));
+        system.refresh_processes_specifics(ProcessesToUpdate::Some(&[pid]), true, kind);
+        let Some(process) = system.process(pid) else {
+            complete = false;
+            break;
+        };
+        samples.push(PortalSample {
+            elapsed_ms,
+            working_set_mb: process.memory() as f64 / MB,
+            private_mb: process.virtual_memory() as f64 / MB,
+        });
+        if elapsed_ms.is_multiple_of(30_000) {
+            println!("  {} / {} s", elapsed_ms / 1000, args.seconds);
+        }
+    }
+    let series = PortalSeries {
+        side: Side::Portal.as_str().to_owned(),
+        started,
+        interval_ms: args.interval_ms,
+        pid: target.pid,
+        build: build_of(&found),
+        complete,
+        samples,
+    };
+    let out = args
+        .out
+        .clone()
+        .unwrap_or_else(|| format!("target/measure/{}.json", Side::Portal.as_str()));
+    write_portal_series(&series, Path::new(&out))?;
+    println!("wrote {out} ({} samples)", series.samples.len());
+    if complete {
+        Ok(())
+    } else {
+        Err(format!(
+            "the Portal (pid {}) exited after {} s; the partial series is in {out} and is marked incomplete",
+            target.pid,
+            series.samples.last().map_or(0, |s| s.elapsed_ms) / 1000
+        ))
+    }
+}
+
+fn print_summary_line(label: &str, summary: &PortalSummary) {
+    println!(
+        "{label}: first page {:.1}, round end {}, round peak {}, peak {:.1}, final {:.1}",
+        summary.first_page,
+        mb_list(&summary.round_end),
+        mb_list(&summary.round_peak),
+        summary.peak,
+        summary.final_value
+    );
+}
+
+fn print_portal_summary(args: &PortalSummaryArgs) -> Result<(), String> {
+    let series = read_portal_series(&args.path)?;
+    if !series.complete {
+        eprintln!(
+            "warning: {} ended before its planned time (the Portal exited)",
+            args.path
+        );
+    }
+    let (working_set, private) = series_summaries(&series, &args.shape)?;
+    println!(
+        "{}: {} samples every {} ms, build {}; warm-up {} s, {} rounds, idle {} s (MB)",
+        args.path,
+        series.samples.len(),
+        series.interval_ms,
+        series.build.as_deref().unwrap_or("unknown"),
+        args.shape.warmup,
+        args.shape.rounds,
+        args.shape.idle
+    );
+    print_summary_line("working set", &working_set);
+    print_summary_line("private    ", &private);
+    Ok(())
+}
+
+fn print_portal_row(args: &PortalRowArgs) -> Result<(), String> {
+    let real = read_portal_series(&args.real)?;
+    let synth = read_portal_series(&args.synth)?;
+    println!("{}", portal_row(&real, &synth, &args.shape)?);
+    Ok(())
 }
 
 #[cfg(test)]
@@ -1607,7 +1946,7 @@ mod tests {
     }
 
     #[test]
-    fn portal_summary_gives_first_page_round_values_peak_and_final() {
+    fn measure_portal_series_gives_first_page_round_values_peak_and_final() {
         let summary = portal_summary(&rounds_series(), 20, 3, 20).expect("summary");
         assert!(approx(summary.first_page, 100.0), "{summary:?}");
         assert_eq!(summary.round_peak.len(), 3, "{summary:?}");
@@ -1623,7 +1962,7 @@ mod tests {
     }
 
     #[test]
-    fn portal_summary_first_page_is_the_median_of_the_last_ten_seconds_of_the_warm_up() {
+    fn measure_portal_series_first_page_is_the_median_of_the_last_ten_seconds_of_the_warm_up() {
         let mut points = rounds_series();
         for point in points.iter_mut().take(20) {
             point.1 = 300.0;
@@ -1634,7 +1973,7 @@ mod tests {
     }
 
     #[test]
-    fn portal_summary_refuses_a_series_without_room_or_samples() {
+    fn measure_portal_series_refuses_a_series_without_room_or_samples() {
         let points = rounds_series();
         assert!(portal_summary(&points, 20, 0, 20).is_err());
         assert!(portal_summary(&[], 20, 3, 20).is_err());
