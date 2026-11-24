@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-21-PLAN.md
-last_updated: "2026-11-24T10:50:56.701Z"
+stopped_at: Completed 03-22-PLAN.md
+last_updated: "2026-11-24T11:28:07.623Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: cc46cc9d0fec1c792525fd8805b2683c6bb7bbc3
+state_head: 25d98e9dc495b29514933d5573913f0a31069e4e
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 55
-  completed_plans: 51
+  completed_plans: 52
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 23 of 26
+Plan: 24 of 26
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -105,6 +105,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P19 | 11 min | 2 tasks | 6 files |
 | Phase 03 P20 | 17 min | 3 tasks | 14 files |
 | Phase 03 P21 | 24 min | 2 tasks | 17 files |
+| Phase 03 P22 | 33 min | 2 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -186,6 +187,11 @@ Recent decisions affecting current work:
 - [Phase 03]: Settings pages show only broadcast values; Escape leaves settings only when no dialog is open and no field holds the keyboard
 - [Phase 03]: Library maintenance: an existing showcase folder is recorded without being written to; names are recorded only after a successful copy
 - [Phase 03]: Corrupt themes go to the OS bin through sucrose_platform::move_to_trash (trash 5.4.0, path-free errors); the service re-scans and trusts no list from the Portal
+- [Phase 03]: 03-22: With Move off the destination may hold files (legacy rule); the empty-folder check applies only when the themes move along
+- [Phase 03]: 03-22: Library.Location is written only after the worker verified the content; the old copy is removed after the write, and a failed write rolls the content back
+- [Phase 03]: 03-22: The MoveLibrary answer is sent when the whole move is over (wallpaper restarted), so the old folder is gone when the Portal hears Moved
+- [Phase 03]: 03-22: Renderers close through RuleClosed and a 4 s timer ends survivors, so library_moving cannot stay true
+- [Phase 03]: 03-22: The Portal applies the new library location from the destination it sent; no SettingChange exists for it
 
 ### Pending Todos
 
@@ -218,6 +224,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T10:50:49.454Z
-Stopped at: Completed 03-21-PLAN.md
+Last session: 2026-11-24T11:28:00.171Z
+Stopped at: Completed 03-22-PLAN.md
 Resume file: None
