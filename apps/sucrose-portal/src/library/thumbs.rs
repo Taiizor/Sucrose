@@ -8,7 +8,7 @@ use std::{
     collections::{HashSet, VecDeque},
     io::Cursor,
     path::{Path, PathBuf},
-    sync::Arc,
+    sync::{Arc, Condvar, Mutex, PoisonError},
     time::SystemTime,
 };
 
@@ -29,8 +29,59 @@ pub const MAX_SIDE: u32 = 16_384;
 pub const MAX_PIXELS: u64 = 32 * 1024 * 1024;
 /// The largest thumbnail file that is read.
 const MAX_FILE_BYTES: u64 = 64 * 1024 * 1024;
-/// The most memory the generic decoder may allocate for one image.
+/// The most memory the generic decoder may allocate for one image; also the most the JPEG decoder may buffer for one.
 const MAX_DECODE_ALLOC: u64 = 256 * 1024 * 1024;
+/// What a JPEG decode is estimated to hold per declared pixel before it is scaled down (a progressive JPEG keeps its
+/// coefficients, about 6 bytes per pixel).
+const JPEG_BYTES_PER_PIXEL: u64 = 6;
+/// The most memory, by that estimate, the JPEG decodes of the whole Portal (thumbnails and the background image) hold
+/// together (WR-12). A decode that would go over waits for the running ones; one that is alone always runs, so a file
+/// within [`MAX_PIXELS`] is never refused for its size alone. Ordinary photos cost a few MB and never wait.
+const JPEG_BUDGET: u64 = 256 * 1024 * 1024;
+
+/// A shared allowance of estimated decode memory: [`DecodeBudget::acquire`] blocks while the running decodes hold too
+/// much, and the returned permit gives its share back when dropped.
+struct DecodeBudget {
+    used: Mutex<u64>,
+    freed: Condvar,
+}
+
+/// The share of a [`DecodeBudget`] one running decode holds.
+struct DecodePermit<'a> {
+    budget: &'a DecodeBudget,
+    cost: u64,
+}
+
+impl DecodeBudget {
+    const fn new() -> Self {
+        Self {
+            used: Mutex::new(0),
+            freed: Condvar::new(),
+        }
+    }
+
+    /// Waits until `cost` fits under `limit` next to the running decodes, or until none runs, and takes that share.
+    fn acquire(&self, cost: u64, limit: u64) -> DecodePermit<'_> {
+        let mut used = self.used.lock().unwrap_or_else(PoisonError::into_inner);
+        while *used > 0 && used.saturating_add(cost) > limit {
+            used = self.freed.wait(used).unwrap_or_else(PoisonError::into_inner);
+        }
+        *used = used.saturating_add(cost);
+        DecodePermit { budget: self, cost }
+    }
+}
+
+impl Drop for DecodePermit<'_> {
+    fn drop(&mut self) {
+        let mut used = self.budget.used.lock().unwrap_or_else(PoisonError::into_inner);
+        *used = used.saturating_sub(self.cost);
+        drop(used);
+        self.budget.freed.notify_all();
+    }
+}
+
+/// The JPEG decodes in progress in this process.
+static JPEG_DECODES: DecodeBudget = DecodeBudget::new();
 
 /// The width a thumbnail is decoded at, chosen from the window scale factor so a resize never decodes again.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -283,6 +334,15 @@ pub fn decode_jpeg_scaled(bytes: &[u8], target: (u32, u32)) -> Option<DynamicIma
         return None;
     }
     let mut decoder = jpeg_decoder::Decoder::new(Cursor::new(bytes));
+    // The decoder refuses before it allocates more than this for the coefficients of one image (WR-12).
+    decoder.set_max_decoding_buffer_size(usize::try_from(MAX_DECODE_ALLOC).ok()?);
+    // The decoder's own reading of the header, which is what it allocates by: it is checked again and it prices the
+    // decode against the budget that all the decodes of the Portal share.
+    decoder.read_info().ok()?;
+    let info = decoder.info()?;
+    check_dimensions(u32::from(info.width), u32::from(info.height)).ok()?;
+    let cost = u64::from(info.width) * u64::from(info.height) * JPEG_BYTES_PER_PIXEL;
+    let _permit = JPEG_DECODES.acquire(cost, JPEG_BUDGET);
     let (width, height) = decoder
         .scale(u16::try_from(target.0).ok()?, u16::try_from(target.1).ok()?)
         .ok()?;
@@ -613,6 +673,59 @@ mod tests {
         assert!(check_dimensions(8192, 4096).is_ok());
         assert!(check_dimensions(8192, 4097).is_err());
         assert!(check_dimensions(16_385, 1).is_err());
+    }
+
+    #[test]
+    fn a_jpeg_whose_own_header_is_over_the_limit_is_not_decoded_by_the_scaled_decoder() {
+        assert!(decode_jpeg_scaled(&patched_jpeg(16_384, 16_384), (360, 360)).is_none());
+    }
+
+    #[test]
+    fn the_decode_budget_admits_what_fits_and_gives_it_back_on_drop() {
+        let budget = DecodeBudget::new();
+        let first = budget.acquire(60, 100);
+        let second = budget.acquire(40, 100);
+        assert_eq!(*budget.used.lock().unwrap(), 100);
+        drop(first);
+        drop(second);
+        assert_eq!(*budget.used.lock().unwrap(), 0);
+    }
+
+    #[test]
+    fn a_decode_over_the_whole_budget_still_runs_when_it_is_alone() {
+        let budget = DecodeBudget::new();
+        let permit = budget.acquire(500, 100);
+        assert_eq!(*budget.used.lock().unwrap(), 500);
+        drop(permit);
+        assert_eq!(*budget.used.lock().unwrap(), 0);
+    }
+
+    #[test]
+    fn a_decode_that_does_not_fit_waits_for_the_running_one() {
+        use std::{sync::mpsc, thread, time::Duration};
+
+        let budget = Arc::new(DecodeBudget::new());
+        let running = budget.acquire(80, 100);
+        let (sender, receiver) = mpsc::channel();
+        let waiting = {
+            let budget = Arc::clone(&budget);
+            thread::spawn(move || {
+                let _permit = budget.acquire(80, 100);
+                sender.send(()).unwrap();
+            })
+        };
+
+        assert!(
+            receiver.recv_timeout(Duration::from_millis(200)).is_err(),
+            "the second decode must wait while the first holds the budget"
+        );
+        drop(running);
+        assert!(
+            receiver.recv_timeout(Duration::from_secs(5)).is_ok(),
+            "the second decode runs once the first is done"
+        );
+        waiting.join().unwrap();
+        assert_eq!(*budget.used.lock().unwrap(), 0);
     }
 
     #[test]
