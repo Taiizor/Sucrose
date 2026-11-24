@@ -26,6 +26,44 @@ pub fn should_exit(tray_visible: bool, wallpaper_wanted: bool, portal_connected:
     !tray_visible && !wallpaper_wanted && !portal_connected
 }
 
+/// What Close Applications still waits for (TRAY-05): the renderers to end and the Portal to be gone. Pure, so the order
+/// of the two is tested without a process.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct Closing {
+    /// Every renderer has ended (or was killed after the grace).
+    pub renderers_done: bool,
+    /// The Portal is gone: it closed, was ended, or was never there.
+    pub portal_done: bool,
+}
+
+impl Closing {
+    /// Starts closing `renderers` running renderers and, when `portal` is true, one registered Portal.
+    pub fn new(_renderers: usize, _portal: bool) -> Self {
+        Self {
+            renderers_done: false,
+            portal_done: false,
+        }
+    }
+
+    /// The shutdown worker reported every renderer ended.
+    pub fn renderers_ended(&mut self) {}
+
+    /// The Portal is gone, whether it closed on the Close it was sent, closed before that, or was ended.
+    pub fn portal_gone(&mut self) {}
+
+    /// Whether the service may exit.
+    pub fn done(&self) -> bool {
+        false
+    }
+}
+
+/// Whether the process that holds the Portal's pid is the Portal executable next to this one (T-03-37). `running` is
+/// the executable path the OS reports for it, `sibling` the path the service starts the Portal from. Anything else
+/// is not ours to end.
+pub fn is_sibling_portal(_running: Option<&std::path::Path>, _sibling: &std::path::Path) -> bool {
+    false
+}
+
 /// The Open item of the tray menu. English until the service has a language of its own (UI-06, Phase 5).
 pub const OPEN_LABEL: &str = "Open Sucrose";
 
@@ -92,5 +130,84 @@ mod tests {
         assert!(!should_exit(false, true, false), "a wallpaper is wanted");
         assert!(!should_exit(false, false, true), "a Portal is connected");
         assert!(!should_exit(true, true, true));
+    }
+
+    #[test]
+    fn closing_with_nothing_to_wait_for_is_done_at_once() {
+        assert!(Closing::new(0, false).done());
+    }
+
+    #[test]
+    fn closing_with_a_portal_is_done_only_after_the_portal_is_gone() {
+        let mut closing = Closing::new(0, true);
+        assert!(!closing.done());
+        closing.portal_gone();
+        assert!(closing.done());
+    }
+
+    #[test]
+    fn a_portal_gone_before_close_was_sent_counts() {
+        // The Portal left on its own between the choice and the Close: its disconnect is all that is awaited.
+        let mut closing = Closing::new(2, true);
+        closing.portal_gone();
+        assert!(!closing.done(), "the renderers are still closing");
+        closing.renderers_ended();
+        assert!(closing.done());
+    }
+
+    #[test]
+    fn closing_with_renderers_and_a_portal_needs_both_in_either_order() {
+        let mut renderers_first = Closing::new(2, true);
+        renderers_first.renderers_ended();
+        assert!(!renderers_first.done());
+        renderers_first.portal_gone();
+        assert!(renderers_first.done());
+
+        let mut portal_first = Closing::new(2, true);
+        portal_first.portal_gone();
+        assert!(!portal_first.done());
+        portal_first.renderers_ended();
+        assert!(portal_first.done());
+    }
+
+    #[test]
+    fn closing_with_renderers_and_no_portal_waits_for_the_renderers() {
+        let mut closing = Closing::new(1, false);
+        assert!(!closing.done());
+        closing.renderers_ended();
+        assert!(closing.done());
+    }
+
+    #[test]
+    fn only_the_sibling_portal_executable_may_be_ended() {
+        use std::path::Path;
+        let sibling = Path::new("C:/Sucrose/sucrose-portal.exe");
+        assert!(is_sibling_portal(
+            Some(Path::new("C:/Sucrose/sucrose-portal.exe")),
+            sibling
+        ));
+        assert!(!is_sibling_portal(
+            Some(Path::new("C:/Other/sucrose-portal.exe")),
+            sibling
+        ));
+        assert!(!is_sibling_portal(Some(Path::new("C:/Sucrose/sucrose.exe")), sibling));
+        assert!(!is_sibling_portal(
+            Some(Path::new("C:/Sucrose/Sucrose.Portal.exe")),
+            sibling
+        ));
+        assert!(
+            !is_sibling_portal(None, sibling),
+            "an executable the OS did not report is not trusted"
+        );
+    }
+
+    #[cfg(windows)]
+    #[test]
+    fn the_sibling_check_ignores_case_on_windows() {
+        use std::path::Path;
+        assert!(is_sibling_portal(
+            Some(Path::new("c:\\sucrose\\SUCROSE-PORTAL.EXE")),
+            Path::new("C:\\Sucrose\\sucrose-portal.exe")
+        ));
     }
 }
