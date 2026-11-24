@@ -302,6 +302,16 @@ mod tests {
     }
 
     #[test]
+    fn preview_refuses_a_16384_square_screen_by_the_pixel_area_limit() {
+        // A small real GIF whose logical screen descriptor (bytes 6..10, little endian) is patched to 16384 x 16384.
+        let mut bytes = gif(1, 8, 8);
+        bytes[6..8].copy_from_slice(&16_384u16.to_le_bytes());
+        bytes[8..10].copy_from_slice(&16_384u16.to_le_bytes());
+        assert!(preview_size(&bytes, Bucket::W360).is_none());
+        assert!(decode_preview(&bytes, 360, 203).is_none());
+    }
+
+    #[test]
     fn preview_size_keeps_the_proportions_and_never_enlarges() {
         let bytes = gif(1, 64, 36);
         assert_eq!(preview_size(&bytes, Bucket::W360), Some((64, 36)));

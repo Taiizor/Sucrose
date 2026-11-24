@@ -627,6 +627,15 @@ mod tests {
     }
 
     #[test]
+    fn background_refuses_a_16384_square_header_by_the_pixel_area_limit() {
+        let bytes = crate::library::thumbs::patched_jpeg(16_384, 16_384);
+        assert_eq!(
+            decode_bytes(&bytes, (1920, 1080)).err(),
+            Some(BackgroundError::Unsupported)
+        );
+    }
+
+    #[test]
     fn background_something_that_is_not_an_image_is_unsupported() {
         assert_eq!(
             decode_bytes(b"not an image at all", (100, 100)).err(),
