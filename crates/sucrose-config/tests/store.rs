@@ -310,6 +310,79 @@ fn a_settings_file_that_cannot_be_read_as_a_file_is_unreadable_not_corrupt() {
     assert_eq!(legacy_snapshot(&legacy), legacy_before);
 }
 
+#[cfg(windows)]
+#[test]
+fn an_unreadable_backup_with_a_corrupt_settings_file_is_never_migrated_over() {
+    use std::os::windows::fs::OpenOptionsExt;
+
+    let setting = scratch("locked-backup-setting");
+    let legacy = legacy_copy("locked-backup-legacy");
+    let corrupt = b"{\"Version\":1,\"Library\":{\"Sel";
+    fs::write(setting.join(SETTINGS_FILE), corrupt).unwrap();
+    write_settings(
+        &setting,
+        BACKUP_FILE,
+        &settings_with(|s| s.library.selected = "older".to_owned()),
+    );
+    let backup_before = fs::read(setting.join(BACKUP_FILE)).unwrap();
+    let legacy_before = legacy_snapshot(&legacy);
+
+    // Another program holds the backup exclusively while the settings file is corrupt.
+    let lock = OpenOptions::new()
+        .read(true)
+        .share_mode(0)
+        .open(setting.join(BACKUP_FILE))
+        .expect("the backup can be locked");
+    let result = Store::open(&setting, Some((&legacy, Path::new(ROOT))));
+    drop(lock);
+
+    assert!(matches!(result, Err(StoreError::Io(_))), "{result:?}");
+    assert_eq!(fs::read(setting.join(SETTINGS_FILE)).unwrap(), corrupt);
+    assert_eq!(fs::read(setting.join(BACKUP_FILE)).unwrap(), backup_before);
+    assert_eq!(
+        file_names(&setting),
+        [SETTINGS_FILE, BACKUP_FILE],
+        "no migration happened"
+    );
+    assert_eq!(legacy_snapshot(&legacy), legacy_before);
+}
+
+#[cfg(unix)]
+#[test]
+fn an_unreadable_settings_file_is_never_overwritten_on_unix() {
+    use std::{fs::Permissions, os::unix::fs::PermissionsExt};
+
+    let setting = scratch("mode-setting");
+    let legacy = legacy_copy("mode-legacy");
+    write_settings(
+        &setting,
+        SETTINGS_FILE,
+        &settings_with(|s| s.library.selected = "mine".to_owned()),
+    );
+    write_settings(
+        &setting,
+        BACKUP_FILE,
+        &settings_with(|s| s.library.selected = "older".to_owned()),
+    );
+    let main_before = fs::read(setting.join(SETTINGS_FILE)).unwrap();
+    let backup_before = fs::read(setting.join(BACKUP_FILE)).unwrap();
+    let legacy_before = legacy_snapshot(&legacy);
+    fs::set_permissions(setting.join(SETTINGS_FILE), Permissions::from_mode(0o000)).unwrap();
+    if fs::read(setting.join(SETTINGS_FILE)).is_ok() {
+        // Running as root: the mode does not stop the read, so there is nothing to prove.
+        return;
+    }
+
+    let result = Store::open(&setting, Some((&legacy, Path::new(ROOT))));
+    fs::set_permissions(setting.join(SETTINGS_FILE), Permissions::from_mode(0o644)).unwrap();
+
+    assert!(matches!(result, Err(StoreError::Io(_))), "{result:?}");
+    assert_eq!(fs::read(setting.join(SETTINGS_FILE)).unwrap(), main_before);
+    assert_eq!(fs::read(setting.join(BACKUP_FILE)).unwrap(), backup_before);
+    assert_eq!(legacy_snapshot(&legacy), legacy_before);
+    assert!(temporary_files(&setting).is_empty(), "{:?}", temporary_files(&setting));
+}
+
 /// The writer of the kill test: it only does anything in the copy of this binary the kill test starts.
 #[test]
 fn write_loop_child() {

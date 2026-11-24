@@ -334,6 +334,31 @@ mod tests {
     }
 
     #[test]
+    fn a_host_whose_settings_file_cannot_be_read_saves_nothing() {
+        let scratch = Scratch::new("unreadable");
+        // A directory where the settings file belongs: it exists and cannot be read as a file, on every OS.
+        fs::create_dir_all(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).unwrap();
+
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+        let before = host.view();
+        let answer = host.apply(SettingChange::LibraryPagination(7));
+
+        assert!(!host.persists());
+        assert_eq!(answer, Err(NOT_SAVED.to_owned()));
+        assert_eq!(host.view(), before);
+        let names: Vec<String> = fs::read_dir(&scratch.0)
+            .unwrap()
+            .filter_map(|entry| entry.ok()?.file_name().into_string().ok())
+            .collect();
+        assert_eq!(
+            names,
+            [sucrose_config::store::SETTINGS_FILE],
+            "the host wrote and migrated nothing"
+        );
+        assert!(scratch.0.join(sucrose_config::store::SETTINGS_FILE).is_dir());
+    }
+
+    #[test]
     fn the_view_carries_the_values_the_portal_shows() {
         let mut settings = Settings::default();
         settings.portal.library_pagination = 17;
