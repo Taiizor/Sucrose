@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-30-PLAN.md
-last_updated: "2026-11-24T15:04:53.751Z"
+stopped_at: Completed 03-31-PLAN.md
+last_updated: "2026-11-24T15:14:20.377Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: 7f27a7910f8e05b2110f35497662a98c8b0135d9
+state_head: 6569840b80833da9b83b7d126500bd9186a6a689
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 69
-  completed_plans: 57
+  completed_plans: 58
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 29 of 40
+Plan: 30 of 40
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -111,6 +111,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P25 | 6 min | 2 tasks | 4 files |
 | Phase 03 P27 | 14 min | 2 tasks | 8 files |
 | Phase 03 P30 | 6 min | 2 tasks | 3 files |
+| Phase 03 P31 | 7 min | 3 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -204,6 +205,7 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-27: every Portal image release goes through atlas::release_image(s), deferred with App::defer, because App::drop_image with no window misses the window being updated
 - [Phase 03]: 03-27: GPUI test support comes from a gpui-pre dev-dependency (workspace key gpui), since gpui-kit test-support cannot resolve against the locked wgpu
 - [Phase 03]: 03-30: an unreadable Sucrose.json or backup makes Store::open fail with StoreError::Io (host runs in no-save mode); only Missing or Corrupt files lead to a restore or migration
+- [Phase 03]: 03-31: a settled monitor snapshot during a library move is kept (latest wins) and applied by Fleet::finish_move after the job names the new library; respawn_closed waits for the move's end
 
 ### Pending Todos
 
@@ -236,6 +238,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T15:04:39.975Z
-Stopped at: Completed 03-30-PLAN.md
+Last session: 2026-11-24T15:14:05.811Z
+Stopped at: Completed 03-31-PLAN.md
 Resume file: None
