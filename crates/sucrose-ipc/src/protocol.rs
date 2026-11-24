@@ -71,6 +71,15 @@ pub enum ToRenderer {
     SetRole(Role),
     /// The master's clock, for a follower to correct its drift against.
     Clock(ClockTick),
+    /// Play this file instead of the current one, in the running renderer and without restarting it: the Portal's
+    /// "Use" switched the wallpaper (D-26). `source` is the absolute path the service resolved after the theme gate;
+    /// `settings` are the playback settings to apply on the way.
+    LoadSource {
+        /// The absolute path of the file to play.
+        source: String,
+        /// How to play it.
+        settings: PlaybackSettings,
+    },
 }
 
 /// What a renderer does when several monitors show the same wallpaper (D-02).
@@ -245,6 +254,20 @@ mod tests {
         let bytes = postcard::to_stdvec(&clock).expect("encode");
         assert_eq!(bytes[0], 6);
         assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), clock);
+    }
+
+    #[test]
+    fn load_source_keeps_its_wire_index_and_survives_the_wire() {
+        let message = ToRenderer::LoadSource {
+            source: "C:\\themes\\other.mp4".to_owned(),
+            settings: PlaybackSettings::default(),
+        };
+
+        let bytes = postcard::to_stdvec(&message).expect("encode");
+
+        // Appended after Close (0), Assign (1), Pause (2), SetVolume (3), SetRect (4), SetRole (5) and Clock (6).
+        assert_eq!(bytes[0], 7);
+        assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
     }
 
     #[test]

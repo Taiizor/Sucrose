@@ -15,6 +15,9 @@ use std::sync::{Mutex, PoisonError};
 use std::thread::{self, JoinHandle};
 use std::time::Instant;
 
+use sucrose_core::settings::Stretch;
+use sucrose_ipc::protocol::PlaybackSettings;
+
 use crate::loader::Mpv;
 use crate::sys;
 
@@ -160,6 +163,24 @@ fn classify_restart(anchor: Option<Anchor>, now: Instant, position: f64, duratio
     Jump::Skip
 }
 
+/// The properties that follow the playback settings while a file plays: volume, looping and the stretch. They use the
+/// values of the generated options of [`crate::config`], so a switch looks like a fresh start with those settings.
+fn runtime_properties(settings: &PlaybackSettings) -> Vec<(&'static str, String)> {
+    let (panscan, keepaspect, unscaled) = match settings.stretch {
+        Stretch::UniformToFill => ("1.0", "yes", "no"),
+        Stretch::Fill => ("0.0", "no", "no"),
+        Stretch::None => ("0.0", "yes", "yes"),
+        Stretch::Uniform => ("0.0", "yes", "no"),
+    };
+    vec![
+        ("volume", settings.volume.min(100).to_string()),
+        ("loop-file", if settings.looping { "inf" } else { "no" }.to_owned()),
+        ("panscan", panscan.to_owned()),
+        ("keepaspect", keepaspect.to_owned()),
+        ("video-unscaled", unscaled.to_owned()),
+    ]
+}
+
 /// State the event thread keeps for the thread that drives the player.
 #[derive(Debug, Default)]
 struct Shared {
@@ -169,6 +190,9 @@ struct Shared {
     loop_gen: AtomicU32,
     /// Set at the first playback restart: the first frame was shown.
     started: AtomicBool,
+    /// Set by [`Player::load_source`] and cleared at the first playback restart of the new file: until then the
+    /// position and the first-frame flag belong to the file that was replaced.
+    loading: AtomicBool,
     /// mpv's description of the error that ended the file before its first frame, when that happened.
     start_failure: Mutex<Option<String>>,
 }
@@ -182,6 +206,9 @@ pub struct Player {
     events: Option<JoinHandle<()>>,
     shared: Arc<Shared>,
     receiver: Mutex<Option<Receiver<PlayerEvent>>>,
+    /// Whether the user's own mpv config was loaded: then the generated look and audio options never applied, and
+    /// [`Player::load_source`] leaves those alone too.
+    user_config_loaded: bool,
 }
 
 impl Player {
@@ -246,6 +273,7 @@ impl Player {
             events: None,
             shared: Arc::new(Shared::default()),
             receiver: Mutex::new(None),
+            user_config_loaded: false,
         };
 
         // The user's config first, then the generated look, then the embedding on top: see OpenOptions.
@@ -261,6 +289,7 @@ impl Player {
                 }
             }
         }
+        player.user_config_loaded = user_config_loaded;
         if !user_config_loaded {
             for (name, value) in options.generated {
                 player.set_option(name, value)?;
@@ -296,6 +325,36 @@ impl Player {
         player.start_event_thread()?;
         player.load(source)?;
         Ok(player)
+    }
+
+    /// Plays `path` instead of the current file on this running player, without restarting it (D-26): `loadfile` with
+    /// `replace`. The playback settings that can change while playing (volume, loop, stretch) are applied first, with the
+    /// values [`crate::config`] produces for them, unless the user's own mpv config is in charge; hardware decoding keeps
+    /// the value the player was opened with. A refused setting is logged and does not stop the switch.
+    ///
+    /// `path` must be absolute: only a file the theme gate accepted is passed, never text taken from a theme (T-03-24).
+    /// Until the first frame of the new file is shown, [`Player::has_started`] is false and the event thread reports the
+    /// new file as a new start (a `Started` event), not as a jump of the old one.
+    pub fn load_source(&self, path: &Path, settings: &PlaybackSettings) -> Result<(), PlayerError> {
+        let text = path
+            .to_str()
+            .filter(|text| path.is_absolute() && !text.contains('\0'))
+            .ok_or_else(|| PlayerError::InvalidPath {
+                path: path.display().to_string(),
+            })?;
+        if !self.user_config_loaded {
+            for (name, value) in runtime_properties(settings) {
+                if let Err(error) = self.set_property(name, value.as_str()) {
+                    tracing::warn!(%error, "cannot apply a playback setting to the new source");
+                }
+            }
+        }
+        self.shared.loading.store(true, Ordering::SeqCst);
+        if let Err(error) = self.load(text) {
+            self.shared.loading.store(false, Ordering::SeqCst);
+            return Err(error);
+        }
+        Ok(())
     }
 
     /// Pauses (true) or resumes (false) playback.
@@ -373,7 +432,7 @@ impl Player {
     /// Whether the first frame was shown. Before that the player has no clock worth publishing or following.
     #[must_use]
     pub fn has_started(&self) -> bool {
-        self.shared.started.load(Ordering::SeqCst)
+        self.shared.started.load(Ordering::SeqCst) && !self.shared.loading.load(Ordering::SeqCst)
     }
 
     /// Why the file could not be played, once mpv ended it with an error before the first frame (the file cannot be
@@ -587,7 +646,15 @@ fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool, shared: &Shared, eve
             // The decoder exists once the first frame is about to show, so hwdec-current is only meaningful here.
             // A later restart follows a seek or a loop wrap: the position jumped, so the clock is due.
             sys::mpv_event_id_MPV_EVENT_PLAYBACK_RESTART if started => {
-                anchor = note_restart(mpv, handle, shared, events, anchor);
+                if shared.loading.swap(false, Ordering::SeqCst) {
+                    // The first frame of a file loaded with `load_source`: a new start. Its position is not a jump
+                    // of the old file, so nothing is classified, the anchor starts afresh and the driver is told.
+                    anchor = take_anchor(mpv, handle, shared);
+                    tracing::info!("playback started on the new source");
+                    let _ = events.send(PlayerEvent::Started);
+                } else {
+                    anchor = note_restart(mpv, handle, shared, events, anchor);
+                }
             }
             sys::mpv_event_id_MPV_EVENT_PROPERTY_CHANGE => {
                 let was_paused = shared.paused.load(Ordering::SeqCst);
@@ -610,7 +677,7 @@ fn event_loop(mpv: &Mpv, handle: Handle, stop: &AtomicBool, shared: &Shared, eve
             }
             sys::mpv_event_id_MPV_EVENT_END_FILE => {
                 if let Some(message) = log_end_file(mpv, event)
-                    && !started
+                    && (!started || shared.loading.load(Ordering::SeqCst))
                 {
                     // The file never reached its first frame: whoever drives the player has to know.
                     *shared.start_failure.lock().unwrap_or_else(PoisonError::into_inner) = Some(message);
@@ -738,6 +805,59 @@ mod tests {
 
     fn after(start: Instant, seconds: f64) -> Instant {
         start + Duration::from_secs_f64(seconds)
+    }
+
+    fn value_of(properties: &[(&'static str, String)], name: &str) -> Option<String> {
+        properties
+            .iter()
+            .find_map(|(property, value)| (*property == name).then(|| value.clone()))
+    }
+
+    #[test]
+    fn runtime_properties_carry_volume_and_looping_of_the_settings() {
+        let settings = PlaybackSettings {
+            volume: 250,
+            looping: false,
+            ..PlaybackSettings::default()
+        };
+
+        let properties = runtime_properties(&settings);
+
+        assert_eq!(value_of(&properties, "volume").as_deref(), Some("100"));
+        assert_eq!(value_of(&properties, "loop-file").as_deref(), Some("no"));
+        let looping = runtime_properties(&PlaybackSettings::default());
+        assert_eq!(value_of(&looping, "loop-file").as_deref(), Some("inf"));
+    }
+
+    #[test]
+    fn each_stretch_sets_exactly_its_own_property_and_resets_the_others() {
+        for (stretch, panscan, keepaspect, unscaled) in [
+            (Stretch::UniformToFill, "1.0", "yes", "no"),
+            (Stretch::Fill, "0.0", "no", "no"),
+            (Stretch::None, "0.0", "yes", "yes"),
+            (Stretch::Uniform, "0.0", "yes", "no"),
+        ] {
+            let properties = runtime_properties(&PlaybackSettings {
+                stretch,
+                ..PlaybackSettings::default()
+            });
+
+            assert_eq!(
+                value_of(&properties, "panscan").as_deref(),
+                Some(panscan),
+                "{stretch:?}"
+            );
+            assert_eq!(
+                value_of(&properties, "keepaspect").as_deref(),
+                Some(keepaspect),
+                "{stretch:?}"
+            );
+            assert_eq!(
+                value_of(&properties, "video-unscaled").as_deref(),
+                Some(unscaled),
+                "{stretch:?}"
+            );
+        }
     }
 
     #[test]

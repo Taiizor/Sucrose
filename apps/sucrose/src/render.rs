@@ -23,7 +23,7 @@ use sucrose_engine_mpv::{
 };
 use sucrose_ipc::{
     Connection, IpcError, connect,
-    protocol::{Assignment, ClockTick, PROTOCOL_VERSION, Role, ToRenderer, ToService},
+    protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
 };
 use sucrose_platform::{
     DesktopSurface, DpiAwareness, EventLoop, Flow, LoopEnd, LoopEvent, LoopProxy, PlacementVerdict, RectPx,
@@ -66,8 +66,12 @@ struct SyncState {
     volume: AtomicU8,
     /// Set when the clock thread should publish a reading without waiting for its period.
     kick: AtomicBool,
-    /// Whether the video loops, so that a follower treats the loop end as a wrap and not as drift.
-    looping: bool,
+    /// Whether the video loops, so that a follower treats the loop end as a wrap and not as drift. A new source can
+    /// change it.
+    looping: AtomicBool,
+    /// Set when a new source was loaded: the clock thread tells the service again that the wallpaper plays once the
+    /// first frame of the new file is shown.
+    reloaded: AtomicBool,
     /// Set by the clock thread when the file could not be played: the renderer exits with the start-failure code.
     start_failed: AtomicBool,
 }
@@ -139,7 +143,8 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         master: AtomicBool::new(false),
         volume: AtomicU8::new(assignment.settings.volume),
         kick: AtomicBool::new(false),
-        looping: assignment.settings.looping,
+        looping: AtomicBool::new(assignment.settings.looping),
+        reloaded: AtomicBool::new(false),
         start_failed: AtomicBool::new(false),
     });
     let proxy = event_loop.proxy();
@@ -400,7 +405,8 @@ fn judge_hello_reply(reply: Result<ToRenderer, IpcError>) -> anyhow::Result<Hell
             | ToRenderer::SetVolume(_)
             | ToRenderer::SetRect(_)
             | ToRenderer::SetRole(_)
-            | ToRenderer::Clock(_),
+            | ToRenderer::Clock(_)
+            | ToRenderer::LoadSource { .. },
         ) => {
             tracing::warn!("ignoring a control message that arrived before the assignment");
             Ok(HelloReply::Skip)
@@ -464,6 +470,20 @@ fn wait_for_close(
                 following.reset(player.speed());
             }
             Ok(ToRenderer::Clock(tick)) => follow_clock(&tick, player, sync, &mut following),
+            Ok(ToRenderer::LoadSource { source, settings }) => {
+                if let Err(error) = switch_source(&source, &settings, player, sync, &mut following) {
+                    // The supervisor and its restart budget take over, as for any failed start (Phase 2 D-13).
+                    tracing::error!(%error, "the new source cannot be loaded, the renderer exits as a failed start");
+                    report_failure(
+                        connection,
+                        format!("the new video could not be loaded: {error}"),
+                        CHECK_THE_LOG,
+                    );
+                    sync.start_failed.store(true, Ordering::SeqCst);
+                    proxy.quit();
+                    return;
+                }
+            }
             // A second assignment is not part of this plan; later plans act on it.
             Ok(ToRenderer::Assign(_)) => tracing::warn!("ignoring an unexpected second assignment"),
             Err(IpcError::Closed) => {
@@ -476,6 +496,31 @@ fn wait_for_close(
             }
         }
     }
+}
+
+/// Plays `source` on the running player instead of the current file (D-26): the renderer, its surface and its
+/// connection stay. The follower's controller starts afresh (its drift belongs to the old file), the speed goes back
+/// to normal, and the clock thread is told to announce the new file's first frame. The path is not logged.
+fn switch_source(
+    source: &str,
+    settings: &PlaybackSettings,
+    player: &Player,
+    sync: &SyncState,
+    following: &mut FollowState,
+) -> Result<(), PlayerError> {
+    // The audio switch the role chose (aid) is a player option and carries over to the next file by itself; only a
+    // speed the drift correction left behind has to be put back.
+    if let Err(error) = player.set_speed(1.0) {
+        tracing::warn!(%error, "cannot restore the normal speed for the new source");
+    }
+    player.load_source(Path::new(source), settings)?;
+    sync.volume.store(settings.volume, Ordering::SeqCst);
+    sync.looping.store(settings.looping, Ordering::SeqCst);
+    *following = FollowState::default();
+    following.reset(1.0);
+    sync.reloaded.store(true, Ordering::SeqCst);
+    tracing::info!("source loaded");
+    Ok(())
 }
 
 /// Takes on the role the service chose: the master plays the audio at the configured volume and publishes its clock,
@@ -566,7 +611,11 @@ fn follow_clock(tick: &ClockTick, player: &Player, sync: &SyncState, state: &mut
     let Some(local) = player.time_pos() else {
         return;
     };
-    let duration = if sync.looping { player.duration() } else { None };
+    let duration = if sync.looping.load(Ordering::SeqCst) {
+        player.duration()
+    } else {
+        None
+    };
     let frame_s = current_frame_period(player, state);
     let now_ns = monotonic_ns();
     let action = state.follower.step(tick, now_ns, local, duration, frame_s);
@@ -640,6 +689,11 @@ fn publish_clock(mut connection: Connection, player: &Player, sync: &SyncState, 
     let mut sent_once = false;
     let mut announced = false;
     while !stop.load(Ordering::SeqCst) {
+        // A new source: its first frame is announced again, and the master's clock starts afresh with it.
+        if sync.reloaded.swap(false, Ordering::SeqCst) {
+            announced = false;
+            sent_once = false;
+        }
         let mut due = sync.kick.swap(false, Ordering::SeqCst);
         match &events {
             Some(events) => match events.recv_timeout(CLOCK_POLL) {
@@ -758,6 +812,16 @@ mod tests {
             judge_hello_reply(Ok(ToRenderer::Pause(true))),
             Ok(HelloReply::Skip)
         ));
+    }
+
+    #[test]
+    fn a_new_source_before_the_assignment_waits_on_like_any_control_message() {
+        let reply = judge_hello_reply(Ok(ToRenderer::LoadSource {
+            source: "C:/clip.mp4".to_owned(),
+            settings: PlaybackSettings::default(),
+        }));
+
+        assert!(matches!(reply, Ok(HelloReply::Skip)));
     }
 
     #[test]
