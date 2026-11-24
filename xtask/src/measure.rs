@@ -31,7 +31,9 @@ const USAGE: &str = "usage:
   cargo xtask measure --row <csharp.json> <rust.json> --scenario <text> --notes <text>
   cargo xtask measure --side portal [--seconds <n>] [--interval-ms <ms>] [--out <json>]
   cargo xtask measure --portal-summary <json> [--warmup <s>] [--rounds <n>] [--idle <s>]
+  cargo xtask measure --portal-summary <json> --portal-log <Portal.log> [--rounds <n>]
   cargo xtask measure --portal-row <real.json> <synth.json> [--warmup <s>] [--rounds <n>] [--idle <s>]
+  cargo xtask measure --portal-row <real.json> <synth.json> --portal-logs <real.log> <synth.log> [--rounds <n>]
 
   --side      rust: every sucrose.exe (service and --render renderers); csharp: Sucrose.Launcher,
               Sucrose.Live.MpvPlayer and Sucrose.Backgroundog; portal: the sucrose-portal.exe process
@@ -44,6 +46,12 @@ const USAGE: &str = "usage:
   --portal-summary  first-page value, end and peak of each round, peak and final value of a portal series
   --rounds    rounds between the warm-up and the idle window (default 3); --idle: final idle window (default 20)
   --portal-row      print the docs/MEASUREMENTS.md row for the real-library and synthetic-library series
+  --portal-log      split the rounds by the Portal's own 'page shown' debug lines (start the Portal with
+                    SUCROSE_LOG=info,sucrose_portal::library=debug) instead of fixed windows: the first-page value
+                    is the median of the 10 s before the first page change, a round ends at the first page-1 event
+                    after the last page, its end value is the median of the next 5 s, the final value runs from 10 s
+                    after the last round to 1 s before the series ends (at least 20 s of idle needed); --portal-logs
+                    takes the real-library log first and the synthetic-library log second
 ";
 const DEFAULT_PORTAL_SECONDS: u64 = 240;
 const DEFAULT_PORTAL_INTERVAL_MS: u64 = 500;
@@ -52,6 +60,20 @@ const DEFAULT_PORTAL_ROUNDS: usize = 3;
 const DEFAULT_PORTAL_IDLE: u64 = 20;
 /// The first-page value is the median of this many seconds at the end of the warm-up.
 const FIRST_PAGE_WINDOW_MS: u64 = 10_000;
+/// With the page log, a round's end value is the median of this many ms after its closing page-1 event.
+const ROUND_END_WINDOW_MS: u64 = 5_000;
+/// With the page log, the final value starts this many ms after the last round's end ...
+const FINAL_SKIP_MS: i64 = 10_000;
+/// ... and stops this many ms before the series ends.
+const FINAL_TAIL_MS: i64 = 1_000;
+/// With the page log, the series must run at least this long after the last round's end (the maintainer idles on page 1).
+const MIN_LOG_IDLE_MS: i64 = 20_000;
+/// The message of the Portal's page event and the target that logs it (apps/sucrose-portal/src/library/mod.rs).
+const PAGE_SHOWN: &str = "page shown";
+const PAGE_LOG_TARGET: &str = "sucrose_portal::library";
+/// How a portal series ended: the planned time ran out, or the Portal process went away.
+const ENDED_BY_TIME: &str = "time";
+const ENDED_BY_EXIT: &str = "portal-exit";
 
 const MB: f64 = 1024.0 * 1024.0;
 const DEFAULT_WARMUP: u64 = 60;
@@ -129,6 +151,8 @@ struct PortalArgs {
 #[derive(Debug)]
 struct PortalSummaryArgs {
     path: String,
+    /// The Portal log that splits the rounds; None keeps the fixed windows of `shape`.
+    log: Option<String>,
     shape: PortalShape,
 }
 
@@ -136,6 +160,8 @@ struct PortalSummaryArgs {
 struct PortalRowArgs {
     real: String,
     synth: String,
+    /// The real-library and synthetic-library Portal logs; None keeps the fixed windows of `shape`.
+    logs: Option<(String, String)>,
     shape: PortalShape,
 }
 
@@ -178,6 +204,8 @@ fn parse_args(args: &[String]) -> Result<Task, String> {
     let mut idle = None;
     let mut summary = None;
     let mut portal_row: Option<(String, String)> = None;
+    let mut portal_log: Option<String> = None;
+    let mut portal_logs: Option<(String, String)> = None;
     let mut it = args.iter();
     while let Some(arg) = it.next() {
         match arg.as_str() {
@@ -202,12 +230,30 @@ fn parse_args(args: &[String]) -> Result<Task, String> {
                 let synth = value(&mut it, "--portal-row")?.to_owned();
                 portal_row = Some((real, synth));
             }
+            "--portal-log" => portal_log = Some(value(&mut it, "--portal-log")?.to_owned()),
+            "--portal-logs" => {
+                let real = value(&mut it, "--portal-logs")?.to_owned();
+                let synth = value(&mut it, "--portal-logs")?.to_owned();
+                portal_logs = Some((real, synth));
+            }
             other => return Err(format!("unknown argument '{other}'")),
         }
     }
     let modes = [row.is_some(), side.is_some(), summary.is_some(), portal_row.is_some()];
     if modes.iter().filter(|m| **m).count() > 1 {
         return Err("--side, --row, --portal-summary and --portal-row cannot be combined".to_owned());
+    }
+    if portal_log.is_some() && summary.is_none() {
+        return Err("--portal-log belongs to --portal-summary".to_owned());
+    }
+    if portal_logs.is_some() && portal_row.is_none() {
+        return Err("--portal-logs belongs to --portal-row".to_owned());
+    }
+    if (portal_log.is_some() || portal_logs.is_some()) && (warmup.is_some() || idle.is_some()) {
+        return Err(
+            "with a Portal log the rounds, the first page and the final value come from the log; --warmup and --idle do not apply"
+                .to_owned(),
+        );
     }
     let portal_flags = portal_seconds.is_some() || interval_ms.is_some();
     let shape_flags = rounds.is_some() || idle.is_some();
@@ -224,17 +270,22 @@ fn parse_args(args: &[String]) -> Result<Task, String> {
     };
     if let Some(path) = summary {
         if portal_flags || duration.is_some() {
-            return Err("--portal-summary takes --warmup, --rounds and --idle only".to_owned());
+            return Err("--portal-summary takes --portal-log or --warmup/--idle, and --rounds only".to_owned());
         }
-        return Ok(Task::PortalSummary(PortalSummaryArgs { path, shape: shape()? }));
+        return Ok(Task::PortalSummary(PortalSummaryArgs {
+            path,
+            log: portal_log,
+            shape: shape()?,
+        }));
     }
     if let Some((real, synth)) = portal_row {
         if portal_flags || duration.is_some() {
-            return Err("--portal-row takes --warmup, --rounds and --idle only".to_owned());
+            return Err("--portal-row takes --portal-logs or --warmup/--idle, and --rounds only".to_owned());
         }
         return Ok(Task::PortalRow(PortalRowArgs {
             real,
             synth,
+            logs: portal_logs,
             shape: shape()?,
         }));
     }
@@ -736,6 +787,61 @@ pub fn iso_utc(unix_secs: u64) -> String {
     )
 }
 
+/// UTC time of a Unix timestamp in milliseconds as `YYYY-MM-DDTHH:MM:SS.mmmZ`.
+pub fn iso_utc_ms(unix_ms: u64) -> String {
+    let secs = iso_utc(unix_ms / 1000);
+    format!("{}.{:03}Z", secs.trim_end_matches('Z'), unix_ms % 1000)
+}
+
+/// Days from 1970-01-01 to a civil date (Howard Hinnant's algorithm, the inverse of `iso_utc`).
+fn days_from_civil(year: i64, month: i64, day: i64) -> i64 {
+    let year = year - i64::from(month <= 2);
+    let era = year.div_euclid(400);
+    let yoe = year.rem_euclid(400);
+    let doy = (153 * ((month + 9) % 12) + 2) / 5 + day - 1;
+    let doe = yoe * 365 + yoe / 4 - yoe / 100 + doy;
+    era * 146_097 + doe - 719_468
+}
+
+/// Milliseconds since the Unix epoch of an RFC 3339 UTC time (`...Z`) with or without a fraction of a second (the
+/// Portal log writes microseconds, the series writes milliseconds, older series whole seconds); None for any other shape.
+pub fn parse_utc_ms(text: &str) -> Option<i64> {
+    fn number(text: &str) -> Option<i64> {
+        if text.is_empty() || !text.bytes().all(|b| b.is_ascii_digit()) {
+            return None;
+        }
+        text.parse().ok()
+    }
+    let (date, time) = text.strip_suffix('Z')?.split_once('T')?;
+    let (clock, fraction) = time.split_once('.').unwrap_or((time, ""));
+    let mut date = date.splitn(3, '-');
+    let (year, month, day) = (number(date.next()?)?, number(date.next()?)?, number(date.next()?)?);
+    let mut clock = clock.splitn(3, ':');
+    let (hour, minute, second) = (number(clock.next()?)?, number(clock.next()?)?, number(clock.next()?)?);
+    if !(1..=12).contains(&month) || !(1..=31).contains(&day) || hour > 23 || minute > 59 || second > 60 {
+        return None;
+    }
+    let millis = if fraction.is_empty() {
+        0
+    } else {
+        let digits: String = fraction.chars().chain("00".chars()).take(3).collect();
+        if !fraction.bytes().all(|b| b.is_ascii_digit()) {
+            return None;
+        }
+        digits.parse::<i64>().ok()?
+    };
+    let secs = days_from_civil(year, month, day) * 86_400 + hour * 3_600 + minute * 60 + second;
+    Some(secs * 1000 + millis)
+}
+
+fn now_iso_ms() -> String {
+    iso_utc_ms(
+        SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .map_or(0, |d| u64::try_from(d.as_millis()).unwrap_or(0)),
+    )
+}
+
 fn now_iso() -> String {
     iso_utc(SystemTime::now().duration_since(UNIX_EPOCH).map_or(0, |d| d.as_secs()))
 }
@@ -1192,6 +1298,10 @@ pub struct PortalSeries {
     pub build: Option<String>,
     /// False when the process ended before the planned time.
     pub complete: bool,
+    /// `time` when the planned time ran out, `portal-exit` when the Portal went away first (the maintainer closed it
+    /// after the idle window); absent in files from before the page-log split.
+    #[serde(default)]
+    pub ended_by: Option<String>,
     pub samples: Vec<PortalSample>,
 }
 
@@ -1303,7 +1413,11 @@ fn mb_list(values: &[f64]) -> String {
 
 fn portal_cell(label: &str, series: &PortalSeries, shape: &PortalShape) -> Result<String, String> {
     let (ws, private) = series_summaries(series, shape)?;
-    Ok(format!(
+    Ok(format_cell(label, &ws, &private))
+}
+
+fn format_cell(label: &str, ws: &PortalSummary, private: &PortalSummary) -> String {
+    format!(
         "{label}: working set first page {:.0} MB, peak {:.0}, final {:.0} (round ends {}, round peaks {}); \
          private first page {:.0} MB, peak {:.0}, final {:.0}",
         ws.first_page,
@@ -1314,7 +1428,7 @@ fn portal_cell(label: &str, series: &PortalSeries, shape: &PortalShape) -> Resul
         private.first_page,
         private.peak,
         private.final_value
-    ))
+    )
 }
 
 fn require_release(series: &PortalSeries, who: &str) -> Result<(), String> {
@@ -1323,6 +1437,10 @@ fn require_release(series: &PortalSeries, who: &str) -> Result<(), String> {
             "the {who} series ended before its planned time (the Portal exited); measure again"
         ));
     }
+    require_build(series, who)
+}
+
+fn require_build(series: &PortalSeries, who: &str) -> Result<(), String> {
     match series.build.as_deref() {
         Some("release") => Ok(()),
         other => Err(format!(
@@ -1351,6 +1469,371 @@ pub fn portal_row(real: &PortalSeries, synth: &PortalSeries, shape: &PortalShape
         clean_cell(&cells.join("; ")),
         clean_cell(&notes)
     ))
+}
+
+// ---- Rounds from the Portal's page log ----
+
+/// One "page shown" line of the Portal log.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct PageEvent {
+    /// Milliseconds since the Unix epoch from `page_events`; milliseconds since the series start after `rebase_events`
+    /// (negative for an event before the sampler started).
+    pub at_ms: i64,
+    /// The page shown, counted from 1.
+    pub page: u32,
+    /// How many pages the library has, when the line says so.
+    pub pages: Option<u32>,
+}
+
+/// The "page shown" events of a Portal log (target `sucrose_portal::library`), in file order. Other lines, a line
+/// without a readable `page=` and a last line that was cut off (no newline yet) are ignored.
+pub fn page_events(log: &str) -> Vec<PageEvent> {
+    let complete = if log.ends_with('\n') {
+        log
+    } else {
+        log.rfind('\n').map_or("", |end| &log[..=end])
+    };
+    complete.lines().filter_map(page_event).collect()
+}
+
+fn page_event(line: &str) -> Option<PageEvent> {
+    let (stamp, rest) = line.trim_start().split_once(char::is_whitespace)?;
+    let at_ms = parse_utc_ms(stamp)?;
+    let (head, fields) = rest.split_once(PAGE_SHOWN)?;
+    if !head.contains(PAGE_LOG_TARGET) {
+        return None;
+    }
+    let (mut page, mut pages) = (None, None);
+    for field in fields.split_whitespace() {
+        match field.split_once('=') {
+            Some(("page", value)) => page = value.parse::<u32>().ok().filter(|page| *page >= 1),
+            Some(("pages", value)) => pages = value.parse::<u32>().ok(),
+            _ => {}
+        }
+    }
+    Some(PageEvent {
+        at_ms,
+        page: page?,
+        pages,
+    })
+}
+
+/// The events with their time counted from the series start (`start_ms`, Unix milliseconds).
+pub fn rebase_events(events: &[PageEvent], start_ms: i64) -> Vec<PageEvent> {
+    events
+        .iter()
+        .map(|event| PageEvent {
+            at_ms: event.at_ms - start_ms,
+            ..*event
+        })
+        .collect()
+}
+
+/// One round of paging: from the first page change after the previous round to its closing page-1 event, in
+/// milliseconds since the series start.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct RoundSpan {
+    pub start_ms: i64,
+    pub end_ms: i64,
+}
+
+/// The result of splitting a series by the page log: the usual statistics plus where each round was.
+#[derive(Debug, Clone, PartialEq)]
+pub struct PortalLogSummary {
+    pub values: PortalSummary,
+    pub rounds: Vec<RoundSpan>,
+}
+
+/// Splits time-ordered events into rounds. A round starts at the first event whose page is not 1 and ends at the first
+/// page-1 event after the last page was shown. The second value is the start of a round that never closed.
+fn split_rounds(events: &[PageEvent]) -> (Vec<RoundSpan>, Option<i64>) {
+    let seen_max = events.iter().map(|event| event.page).max().unwrap_or(1);
+    let mut rounds = Vec::new();
+    let mut start = None;
+    let mut reached_last = false;
+    for event in events {
+        if event.page != 1 && start.is_none() {
+            start = Some(event.at_ms);
+        }
+        let last = event.pages.unwrap_or(seen_max);
+        if last > 1 && event.page >= last {
+            reached_last = true;
+        }
+        if event.page == 1 && reached_last {
+            if let Some(start_ms) = start {
+                rounds.push(RoundSpan {
+                    start_ms,
+                    end_ms: event.at_ms,
+                });
+            }
+            start = None;
+            reached_last = false;
+        }
+    }
+    (rounds, start)
+}
+
+/// Statistics of one metric when the rounds come from the Portal's page log (events counted from the series start):
+/// `first_page` is the median of the 10 s before the first page change, a round's end value the median of the 5 s
+/// after its closing page-1 event, its peak the maximum between its start and its end, `final_value` the median from
+/// 10 s after the last round's end to 1 s before the series ends, `peak` the maximum of the whole run. Windows are
+/// half-open on time, `(from, to]`, as in `portal_summary`. Refuses, naming what is missing, a log with fewer than
+/// `rounds` complete rounds (or paging beyond them), a warm-up shorter than 10 s and less than 20 s of idle at the end.
+pub fn portal_log_summary(
+    points: &[(u64, f64)],
+    events: &[PageEvent],
+    rounds: usize,
+) -> Result<PortalLogSummary, String> {
+    if rounds == 0 {
+        return Err("--rounds must be at least 1".to_owned());
+    }
+    let points: Vec<(i64, f64)> = points
+        .iter()
+        .map(|(t, v)| (i64::try_from(*t).unwrap_or(i64::MAX), *v))
+        .collect();
+    let end = points.last().map(|p| p.0).ok_or("the series has no samples")?;
+    let mut events = events.to_vec();
+    events.sort_by_key(|event| event.at_ms);
+    let (spans, open) = split_rounds(&events);
+    let first_change =
+        spans.first().map(|span| span.start_ms).or(open).ok_or(
+            "the page log shows no page change: the maintainer never left page 1, or the log lines are missing",
+        )?;
+    let window_ms = i64::try_from(FIRST_PAGE_WINDOW_MS).unwrap_or(i64::MAX);
+    if first_change < window_ms {
+        return Err(format!(
+            "the warm-up before the first page change is {:.1} s, shorter than the {} s the first-page value needs",
+            first_change as f64 / 1000.0,
+            FIRST_PAGE_WINDOW_MS / 1000
+        ));
+    }
+    if spans.len() < rounds {
+        return Err(format!(
+            "the page log has {} complete rounds, --rounds asks for {rounds}; a round ends at the first page-1 event after \
+             the last page was shown",
+            spans.len()
+        ));
+    }
+    if spans.len() > rounds {
+        return Err(format!(
+            "the page log has {} complete rounds, more than --rounds {rounds}; the final window would not be idle, \
+             give --rounds {}",
+            spans.len(),
+            spans.len()
+        ));
+    }
+    if let Some(started) = open {
+        return Err(format!(
+            "the page log shows paging again from {:.1} s after the last round's end; the final window would not be \
+             idle, measure again",
+            (started - spans[rounds - 1].end_ms) as f64 / 1000.0
+        ));
+    }
+    for (index, span) in spans.iter().enumerate() {
+        if span.end_ms <= 0 || span.end_ms > end {
+            return Err(format!(
+                "round {} ends outside the series (at {:.1} s of {:.1} s): the log does not belong to this series",
+                index + 1,
+                span.end_ms as f64 / 1000.0,
+                end as f64 / 1000.0
+            ));
+        }
+    }
+    let last_end = spans[rounds - 1].end_ms;
+    let idle = end - last_end;
+    if idle < MIN_LOG_IDLE_MS {
+        return Err(format!(
+            "the series ends {:.1} s after the last round's end; the final idle window needs at least {} s (close the \
+             Portal only after that)",
+            idle as f64 / 1000.0,
+            MIN_LOG_IDLE_MS / 1000
+        ));
+    }
+    let window = |from: i64, to: i64| -> Vec<f64> {
+        points
+            .iter()
+            .filter(|(t, _)| *t > from && *t <= to)
+            .map(|(_, v)| *v)
+            .collect()
+    };
+    let first = window(first_change - window_ms, first_change);
+    if first.is_empty() {
+        return Err("the series has no samples in the 10 s before the first page change".to_owned());
+    }
+    let after = i64::try_from(ROUND_END_WINDOW_MS).unwrap_or(i64::MAX);
+    let mut round_end = Vec::with_capacity(rounds);
+    let mut round_peak = Vec::with_capacity(rounds);
+    for (index, span) in spans.iter().enumerate() {
+        let settled = window(span.end_ms, span.end_ms + after);
+        let inside = window(span.start_ms, span.end_ms);
+        if settled.is_empty() || inside.is_empty() {
+            return Err(format!("round {} has no samples", index + 1));
+        }
+        round_end.push(median(settled));
+        round_peak.push(maximum(&inside));
+    }
+    let idle_values = window(last_end + FINAL_SKIP_MS, end - FINAL_TAIL_MS);
+    if idle_values.is_empty() {
+        return Err("the final idle window has no samples".to_owned());
+    }
+    let all: Vec<f64> = points.iter().map(|(_, v)| *v).collect();
+    Ok(PortalLogSummary {
+        values: PortalSummary {
+            first_page: median(first),
+            round_end,
+            round_peak,
+            peak: maximum(&all),
+            final_value: median(idle_values),
+        },
+        rounds: spans,
+    })
+}
+
+/// A series can be split by its log when it ran its time out or ended because the Portal was closed.
+fn require_log_series(series: &PortalSeries, who: &str) -> Result<(), String> {
+    if series.complete || series.ended_by.as_deref() == Some(ENDED_BY_EXIT) {
+        Ok(())
+    } else {
+        Err(format!(
+            "the {who} series ended before its planned time and does not say why (an older file); measure again"
+        ))
+    }
+}
+
+/// The working-set and private-bytes summaries of a series, split by the page log text.
+fn log_summaries(
+    series: &PortalSeries,
+    log: &str,
+    rounds: usize,
+) -> Result<(PortalLogSummary, PortalLogSummary), String> {
+    let start = parse_utc_ms(&series.started)
+        .ok_or_else(|| format!("the series start '{}' is not an RFC 3339 UTC time", series.started))?;
+    let events = rebase_events(&page_events(log), start);
+    if events.is_empty() {
+        return Err(format!(
+            "the log has no \"{PAGE_SHOWN}\" lines; start the Portal with SUCROSE_LOG=\"info,{PAGE_LOG_TARGET}=debug\""
+        ));
+    }
+    let pick = |f: fn(&PortalSample) -> f64| -> Vec<(u64, f64)> {
+        series.samples.iter().map(|s| (s.elapsed_ms, f(s))).collect()
+    };
+    let working_set = portal_log_summary(&pick(|s| s.working_set_mb), &events, rounds)?;
+    let private = portal_log_summary(&pick(|s| s.private_mb), &events, rounds)?;
+    Ok((working_set, private))
+}
+
+/// The MEASUREMENTS row of the two scenarios with the rounds taken from each scenario's Portal log text.
+pub fn portal_row_from_logs(
+    real: (&PortalSeries, &str),
+    synth: (&PortalSeries, &str),
+    rounds: usize,
+) -> Result<String, String> {
+    require_log_series(real.0, "real-library")?;
+    require_log_series(synth.0, "synthetic-library")?;
+    require_build(real.0, "real-library")?;
+    require_build(synth.0, "synthetic-library")?;
+    let cell = |label: &str, (series, log): (&PortalSeries, &str), who: &str| -> Result<String, String> {
+        let (ws, private) = log_summaries(series, log, rounds).map_err(|e| format!("{who}: {e}"))?;
+        Ok(format_cell(label, &ws.values, &private.values))
+    };
+    let date = synth.0.started.get(..10).unwrap_or(&synth.0.started);
+    let cells = [
+        cell("real library", real, "real-library")?,
+        cell("500 synthetic themes", synth, "synthetic-library")?,
+    ];
+    let notes = format!(
+        "Portal process only, sampled every {} ms and {} ms; {rounds} rounds forward and back through every page with hover \
+         previews on (by hand); the rounds come from the Portal's page log (first page = median of the 10 s before the first \
+         page change, round end = median of the 5 s after the closing page-1 event, final = median from 10 s after the last \
+         round to 1 s before the end); release build; scratch data folders",
+        real.0.interval_ms, synth.0.interval_ms
+    );
+    Ok(format!(
+        "| {date} | M2 Portal library paging, memory over time (Rust, release build) | – | {} | {} |",
+        clean_cell(&cells.join("; ")),
+        clean_cell(&notes)
+    ))
+}
+
+/// The offset of local time from UTC in minutes, from `+HHMM`, `+HH:MM` or a whole number of minutes.
+fn parse_utc_offset(text: &str) -> Option<i32> {
+    let text = text.trim();
+    if let Some(sign) = text.chars().next().filter(|c| matches!(c, '+' | '-')) {
+        let digits: String = text[1..].chars().filter(|c| *c != ':').collect();
+        if digits.len() == 4 && digits.bytes().all(|b| b.is_ascii_digit()) {
+            let hours: i32 = digits[..2].parse().ok()?;
+            let minutes: i32 = digits[2..].parse().ok()?;
+            let total = hours * 60 + minutes;
+            return Some(if sign == '-' { -total } else { total });
+        }
+    }
+    text.parse().ok()
+}
+
+/// Local time's offset from UTC now, asked of the OS (PowerShell on Windows, `date` elsewhere); None when unknown.
+fn local_utc_offset() -> Option<i32> {
+    let output = if cfg!(windows) {
+        Command::new("powershell")
+            .args([
+                "-NoProfile",
+                "-NonInteractive",
+                "-Command",
+                "[int][TimeZoneInfo]::Local.GetUtcOffset([DateTime]::UtcNow).TotalMinutes",
+            ])
+            .stderr(Stdio::null())
+            .output()
+    } else {
+        Command::new("date").arg("+%z").stderr(Stdio::null()).output()
+    }
+    .ok()?;
+    if !output.status.success() {
+        return None;
+    }
+    parse_utc_offset(&String::from_utf8_lossy(&output.stdout))
+}
+
+/// `HH:MM:SS.t` of a Unix time in milliseconds at the given offset from UTC.
+fn clock_text(unix_ms: i64, offset_minutes: i32) -> String {
+    let day_ms = (unix_ms + i64::from(offset_minutes) * 60_000).rem_euclid(86_400_000);
+    format!(
+        "{:02}:{:02}:{:02}.{}",
+        day_ms / 3_600_000,
+        day_ms % 3_600_000 / 60_000,
+        day_ms % 60_000 / 1000,
+        day_ms % 1000 / 100
+    )
+}
+
+fn offset_label(offset_minutes: Option<i32>) -> String {
+    match offset_minutes {
+        Some(0) => "UTC".to_owned(),
+        Some(minutes) => format!(
+            "UTC{}{:02}:{:02}",
+            if minutes < 0 { '-' } else { '+' },
+            minutes.abs() / 60,
+            minutes.abs() % 60
+        ),
+        None => "UTC, the local offset could not be read".to_owned(),
+    }
+}
+
+/// One line per round with its start and end in local time (UTC when the offset is unknown) and its length, for
+/// cross-checking with what the maintainer remembers.
+fn round_times(rounds: &[RoundSpan], series_start_ms: i64, offset_minutes: Option<i32>) -> Vec<String> {
+    let offset = offset_minutes.unwrap_or(0);
+    rounds
+        .iter()
+        .enumerate()
+        .map(|(index, span)| {
+            format!(
+                "round {}: {} to {} ({:.1} s)",
+                index + 1,
+                clock_text(series_start_ms + span.start_ms, offset),
+                clock_text(series_start_ms + span.end_ms, offset),
+                (span.end_ms - span.start_ms) as f64 / 1000.0
+            )
+        })
+        .collect()
 }
 
 fn write_portal_series(series: &PortalSeries, path: &Path) -> Result<(), String> {
@@ -1389,7 +1872,7 @@ fn sample_portal(args: &PortalArgs) -> Result<(), String> {
         target.name, target.pid, args.interval_ms, args.seconds
     );
     let kind = ProcessRefreshKind::nothing().with_memory();
-    let started = now_iso();
+    let started = now_iso_ms();
     let begin = Instant::now();
     let mut samples = Vec::new();
     let mut complete = true;
@@ -1417,6 +1900,7 @@ fn sample_portal(args: &PortalArgs) -> Result<(), String> {
         pid: target.pid,
         build: build_of(&found),
         complete,
+        ended_by: Some((if complete { ENDED_BY_TIME } else { ENDED_BY_EXIT }).to_owned()),
         samples,
     };
     let out = args
@@ -1425,15 +1909,16 @@ fn sample_portal(args: &PortalArgs) -> Result<(), String> {
         .unwrap_or_else(|| format!("target/measure/{}.json", Side::Portal.as_str()));
     write_portal_series(&series, Path::new(&out))?;
     println!("wrote {out} ({} samples)", series.samples.len());
-    if complete {
-        Ok(())
-    } else {
-        Err(format!(
-            "the Portal (pid {}) exited after {} s; the partial series is in {out} and is marked incomplete",
+    if !complete {
+        // Closing the Portal after the idle window is how a page-log run ends, so this is not a failure.
+        println!(
+            "the Portal (pid {}) exited after {} s; the series is saved with ended_by {ENDED_BY_EXIT} (the page-log \
+             summary accepts it, the fixed-window summary does not)",
             target.pid,
             series.samples.last().map_or(0, |s| s.elapsed_ms) / 1000
-        ))
+        );
     }
+    Ok(())
 }
 
 fn print_summary_line(label: &str, summary: &PortalSummary) {
@@ -1447,7 +1932,35 @@ fn print_summary_line(label: &str, summary: &PortalSummary) {
     );
 }
 
+fn print_portal_log_summary(args: &PortalSummaryArgs, log_path: &str) -> Result<(), String> {
+    let series = read_portal_series(&args.path)?;
+    require_log_series(&series, &args.path)?;
+    let log = fs::read_to_string(log_path).map_err(|e| format!("cannot read {log_path}: {e}"))?;
+    let (working_set, private) = log_summaries(&series, &log, args.shape.rounds)?;
+    println!(
+        "{}: {} samples every {} ms, build {}, started {}, ended by {}; rounds from the page log {log_path} (MB)",
+        args.path,
+        series.samples.len(),
+        series.interval_ms,
+        series.build.as_deref().unwrap_or("unknown"),
+        series.started,
+        series.ended_by.as_deref().unwrap_or("unknown"),
+    );
+    let offset = local_utc_offset();
+    let start = parse_utc_ms(&series.started).unwrap_or(0);
+    println!("round times, local clock ({}):", offset_label(offset));
+    for line in round_times(&working_set.rounds, start, offset) {
+        println!("  {line}");
+    }
+    print_summary_line("working set", &working_set.values);
+    print_summary_line("private    ", &private.values);
+    Ok(())
+}
+
 fn print_portal_summary(args: &PortalSummaryArgs) -> Result<(), String> {
+    if let Some(log) = &args.log {
+        return print_portal_log_summary(args, log);
+    }
     let series = read_portal_series(&args.path)?;
     if !series.complete {
         eprintln!(
@@ -1474,6 +1987,15 @@ fn print_portal_summary(args: &PortalSummaryArgs) -> Result<(), String> {
 fn print_portal_row(args: &PortalRowArgs) -> Result<(), String> {
     let real = read_portal_series(&args.real)?;
     let synth = read_portal_series(&args.synth)?;
+    if let Some((real_log, synth_log)) = &args.logs {
+        let read = |path: &String| fs::read_to_string(path).map_err(|e| format!("cannot read {path}: {e}"));
+        let (real_text, synth_text) = (read(real_log)?, read(synth_log)?);
+        println!(
+            "{}",
+            portal_row_from_logs((&real, &real_text), (&synth, &synth_text), args.shape.rounds)?
+        );
+        return Ok(());
+    }
     println!("{}", portal_row(&real, &synth, &args.shape)?);
     Ok(())
 }
@@ -1862,6 +2384,7 @@ mod tests {
             pid: 7,
             build: build.map(str::to_owned),
             complete: true,
+            ended_by: Some(ENDED_BY_TIME.to_owned()),
             samples: points
                 .iter()
                 .map(|(t, v)| PortalSample {
@@ -2017,5 +2540,299 @@ mod tests {
         let mut cut = series_of(&rounds_series(), Some("release"));
         cut.complete = false;
         assert!(portal_row(&release, &cut, &shape).is_err());
+    }
+
+    const LOG_START: &str = "2026-11-24T10:00:00.000Z";
+    const ROUND_STARTS_S: [u64; 3] = [20, 50, 80];
+    const ROUND_ENDS_S: [u64; 3] = [40, 70, 100];
+
+    /// Memory of the synthetic D-25 run: 100 MB on page 1, a ramp to 150 MB inside each round, then 130, 125 and 110 MB
+    /// until the next round (the last value holds to the end).
+    fn log_value(t_ms: u64) -> f64 {
+        let t = t_ms as f64 / 1000.0;
+        let settled = [130.0, 125.0, 110.0];
+        for round in 0..3 {
+            let (start, end) = (ROUND_STARTS_S[round] as f64, ROUND_ENDS_S[round] as f64);
+            if t > start && t <= end {
+                return 100.0 + 50.0 * (t - start) / (end - start);
+            }
+            let next = ROUND_STARTS_S.get(round + 1).map_or(f64::MAX, |s| *s as f64);
+            if t > end && t <= next {
+                return settled[round];
+            }
+        }
+        100.0
+    }
+
+    fn log_points(seconds: u64) -> Vec<(u64, f64)> {
+        (1..=seconds * 2).map(|i| (i * 500, log_value(i * 500))).collect()
+    }
+
+    /// The page events of the rounds above: page 2 at the start, page 3 5 s later, page 2 again, page 1 at the end.
+    fn round_events(rounds: usize, first_s: u64) -> Vec<(u64, u32)> {
+        let mut events = vec![(1, 1)];
+        for round in 0..rounds {
+            let start = if round == 0 { first_s } else { ROUND_STARTS_S[round] };
+            let end = ROUND_ENDS_S[round];
+            events.extend([(start, 2), (start + 5, 3), (start + 10, 2), (end, 1)]);
+        }
+        events
+    }
+
+    fn start_ms() -> i64 {
+        parse_utc_ms(LOG_START).expect("a valid start")
+    }
+
+    fn page_log(events: &[(u64, u32)], pages: u32) -> String {
+        let mut text = String::new();
+        for (second, page) in events {
+            let at = iso_utc_ms(u64::try_from(start_ms()).expect("positive") + second * 1000 + 250);
+            let at = at.replace('Z', "123Z");
+            let _ = writeln!(
+                text,
+                "{at}  DEBUG sucrose_portal::library: page shown page={page} pages={pages} thumbs=3 thumb_bytes=900 preview_playing=false"
+            );
+        }
+        text
+    }
+
+    fn elapsed_events(events: &[(u64, u32)], pages: u32) -> Vec<PageEvent> {
+        rebase_events(&page_events(&page_log(events, pages)), start_ms())
+    }
+
+    #[test]
+    fn portal_log_page_events_keep_only_page_shown_lines_and_ignore_a_cut_last_line() {
+        let log = "2026-11-24T10:00:01.500123Z  INFO sucrose_portal: starting\n\
+                   2026-11-24T10:00:02.000000Z DEBUG sucrose_portal::library: page shown page=2 pages=17 thumbs=3\n\
+                   2026-11-24T10:00:02.500000Z DEBUG other::module: page shown page=9 pages=17\n\
+                   2026-11-24T10:00:03.000000Z DEBUG sucrose_portal::library: page shown thumbs=3\n\
+                   2026-11-24T10:00:04.000000Z DEBUG sucrose_portal::library: page shown page=1 pages=17\n\
+                   2026-11-24T10:00:05.000000Z DEBUG sucrose_portal::library: page shown page=1";
+        let events = page_events(log);
+        assert_eq!(events.len(), 2, "{events:?}");
+        assert_eq!((events[0].page, events[0].pages), (2, Some(17)));
+        assert_eq!((events[1].page, events[1].pages), (1, Some(17)));
+        assert_eq!(events[1].at_ms - events[0].at_ms, 2000);
+        assert_eq!(page_events("no newline at all").len(), 0);
+    }
+
+    #[test]
+    fn portal_log_rounds_end_when_page_one_follows_the_last_page() {
+        let pages = [1, 2, 3, 2, 1, 2, 3, 2, 1, 2, 3, 2, 1];
+        let events: Vec<PageEvent> = pages
+            .iter()
+            .enumerate()
+            .map(|(i, page)| PageEvent {
+                at_ms: (i as i64 + 1) * 10_000,
+                page: *page,
+                pages: Some(3),
+            })
+            .collect();
+        let (rounds, open) = split_rounds(&events);
+        assert_eq!(open, None);
+        // Event i is at (i + 1) * 10 s: round 1 runs from index 1 to index 4, round 2 from 5 to 8, round 3 from 9 to 12.
+        let want = [(20_000, 50_000), (60_000, 90_000), (100_000, 130_000)];
+        assert_eq!(rounds.len(), 3, "{rounds:?}");
+        for (round, (start, end)) in rounds.iter().zip(want) {
+            assert_eq!((round.start_ms, round.end_ms), (start, end));
+        }
+        // Paging that goes back before the last page is not a round end.
+        let early: Vec<PageEvent> = [(1, 1), (2, 2), (3, 1), (4, 2)]
+            .iter()
+            .map(|(second, page)| PageEvent {
+                at_ms: second * 1000,
+                page: *page,
+                pages: Some(3),
+            })
+            .collect();
+        assert_eq!(split_rounds(&early), (Vec::new(), Some(2000)));
+    }
+
+    #[test]
+    fn portal_log_summary_matches_a_synthetic_series() {
+        let events = elapsed_events(&round_events(3, 20), 3);
+        let summary = portal_log_summary(&log_points(130), &events, 3).expect("summary");
+        let values = &summary.values;
+        assert!(approx(values.first_page, 100.0), "{values:?}");
+        for (got, want) in values.round_end.iter().zip([130.0, 125.0, 110.0]) {
+            assert!(approx(*got, want), "{values:?}");
+        }
+        for got in &values.round_peak {
+            assert!(approx(*got, 150.0), "{values:?}");
+        }
+        assert!(approx(values.peak, 150.0), "{values:?}");
+        assert!(approx(values.final_value, 110.0), "{values:?}");
+        assert_eq!(summary.rounds.len(), 3);
+        // The log lines carry a 250 ms offset after the whole second.
+        assert_eq!((summary.rounds[0].start_ms, summary.rounds[0].end_ms), (20_250, 40_250));
+    }
+
+    #[test]
+    fn portal_log_summary_refuses_too_few_rounds_and_a_short_idle() {
+        let two = elapsed_events(&round_events(2, 20), 3);
+        let error = portal_log_summary(&log_points(130), &two, 3).expect_err("two rounds");
+        assert!(
+            error.contains("2 complete rounds") && error.contains("--rounds asks for 3"),
+            "{error}"
+        );
+
+        let three = elapsed_events(&round_events(3, 20), 3);
+        let error = portal_log_summary(&log_points(115), &three, 3).expect_err("15 s of idle");
+        assert!(error.contains("14.8") && error.contains("at least 20 s"), "{error}");
+        assert!(portal_log_summary(&log_points(121), &three, 3).is_ok());
+
+        let short_warm_up = elapsed_events(&round_events(3, 5), 3);
+        let error = portal_log_summary(&log_points(130), &short_warm_up, 3).expect_err("5 s warm-up");
+        assert!(error.contains("warm-up") && error.contains("10 s"), "{error}");
+
+        let error = portal_log_summary(&log_points(130), &three, 2).expect_err("more rounds than asked");
+        assert!(error.contains("give --rounds 3"), "{error}");
+        let mut paging_again = round_events(3, 20);
+        paging_again.push((110, 2));
+        let error =
+            portal_log_summary(&log_points(130), &elapsed_events(&paging_again, 3), 3).expect_err("paging again");
+        assert!(error.contains("paging again"), "{error}");
+        assert!(portal_log_summary(&log_points(130), &[], 3).is_err());
+    }
+
+    #[test]
+    fn portal_log_summary_is_the_same_twice() {
+        let events = elapsed_events(&round_events(3, 20), 3);
+        let first = portal_log_summary(&log_points(130), &events, 3).expect("summary");
+        let second = portal_log_summary(&log_points(130), &events, 3).expect("summary");
+        assert_eq!(first, second);
+        let log = page_log(&round_events(3, 20), 3);
+        let mut series = series_of(&log_points(130), Some("release"));
+        series.started = LOG_START.to_owned();
+        let (a, _) = log_summaries(&series, &log, 3).expect("summary");
+        let (b, _) = log_summaries(&series, &log, 3).expect("summary");
+        assert_eq!(a, b);
+    }
+
+    #[test]
+    fn portal_log_row_says_the_rounds_come_from_the_page_log() {
+        let log = page_log(&round_events(3, 20), 3);
+        let mut real = series_of(&log_points(130), Some("release"));
+        real.started = LOG_START.to_owned();
+        real.complete = false;
+        real.ended_by = Some(ENDED_BY_EXIT.to_owned());
+        let mut synth = real.clone();
+        synth.complete = true;
+        synth.ended_by = Some(ENDED_BY_TIME.to_owned());
+        let row = portal_row_from_logs((&real, &log), (&synth, &log), 3).expect("row");
+        assert!(row.starts_with("| 2026-11-24 |"), "{row}");
+        assert!(row.contains("the rounds come from the Portal's page log"), "{row}");
+        assert!(row.contains("first page 100 MB") && row.contains("final 110"), "{row}");
+        assert!(!row.contains('\n'), "{row}");
+        let mut old = real.clone();
+        old.ended_by = None;
+        assert!(portal_row_from_logs((&old, &log), (&synth, &log), 3).is_err());
+        let mut debug = synth.clone();
+        debug.build = Some("debug".to_owned());
+        assert!(portal_row_from_logs((&real, &log), (&debug, &log), 3).is_err());
+        assert!(portal_row_from_logs((&real, "nothing"), (&synth, &log), 3).is_err());
+    }
+
+    #[test]
+    fn portal_series_start_keeps_milliseconds_and_old_files_still_parse() {
+        let text = iso_utc_ms(1_795_514_400_123);
+        assert_eq!(text, "2026-11-24T10:00:00.123Z");
+        assert_eq!(parse_utc_ms(&text), Some(1_795_514_400_123));
+        // Whole seconds (older series) and microseconds (the log) parse too; other shapes do not.
+        assert_eq!(parse_utc_ms("2026-11-24T10:00:00Z"), Some(1_795_514_400_000));
+        assert_eq!(parse_utc_ms("2026-11-24T10:00:00.123456Z"), Some(1_795_514_400_123));
+        assert_eq!(parse_utc_ms("2026-11-24T10:00:00.5Z"), Some(1_795_514_400_500));
+        assert_eq!(parse_utc_ms("2026-11-24 10:00:00Z"), None);
+        assert_eq!(parse_utc_ms("2026-11-24T10:00:00+01:00"), None);
+        assert_eq!(parse_utc_ms("2026-13-24T10:00:00Z"), None);
+        assert_eq!(parse_utc_ms("1970-01-01T00:00:00.000Z"), Some(0));
+        let old = r#"{"side":"portal","started":"2026-11-24T12:19:24Z","interval_ms":500,"pid":1,"build":"release","complete":true,"samples":[]}"#;
+        let series: PortalSeries = serde_json::from_str(old).expect("an older series parses");
+        assert_eq!(series.ended_by, None);
+        assert_eq!(parse_utc_ms(&series.started), Some(1_795_522_764_000));
+        let new = serde_json::to_string(&series_of(&[(500, 1.0)], Some("release"))).expect("encodes");
+        assert!(new.contains("\"ended_by\":\"time\""), "{new}");
+    }
+
+    #[test]
+    fn portal_log_clock_text_and_offsets() {
+        assert_eq!(parse_utc_offset("+0300"), Some(180));
+        assert_eq!(parse_utc_offset("-05:30"), Some(-330));
+        assert_eq!(parse_utc_offset("180\r\n"), Some(180));
+        assert_eq!(parse_utc_offset("-60"), Some(-60));
+        assert_eq!(parse_utc_offset("nope"), None);
+        let ms = 1_795_514_400_123;
+        assert_eq!(clock_text(ms, 0), "10:00:00.1");
+        assert_eq!(clock_text(ms, 180), "13:00:00.1");
+        assert_eq!(clock_text(ms, -600), "00:00:00.1");
+        assert_eq!(offset_label(Some(180)), "UTC+03:00");
+        assert_eq!(offset_label(Some(-330)), "UTC-05:30");
+        assert_eq!(offset_label(Some(0)), "UTC");
+        let spans = [RoundSpan {
+            start_ms: 20_000,
+            end_ms: 40_500,
+        }];
+        let lines = round_times(&spans, 1_795_514_400_000, Some(180));
+        assert_eq!(lines, vec!["round 1: 13:00:20.0 to 13:00:40.5 (20.5 s)".to_owned()]);
+    }
+
+    #[test]
+    fn portal_log_args_choose_the_log_split_and_refuse_fixed_window_flags() {
+        let summary = parse_args(&strings(&[
+            "--portal-summary",
+            "p.json",
+            "--portal-log",
+            "p.log",
+            "--rounds",
+            "3",
+        ]))
+        .expect("log summary args");
+        assert!(matches!(
+            summary,
+            Task::PortalSummary(PortalSummaryArgs {
+                log: Some(_),
+                shape: PortalShape { rounds: 3, .. },
+                ..
+            })
+        ));
+        let row = parse_args(&strings(&[
+            "--portal-row",
+            "a.json",
+            "b.json",
+            "--portal-logs",
+            "a.log",
+            "b.log",
+        ]))
+        .expect("log row args");
+        assert!(matches!(row, Task::PortalRow(PortalRowArgs { logs: Some(_), .. })));
+        assert!(
+            parse_args(&strings(&[
+                "--portal-summary",
+                "p.json",
+                "--portal-log",
+                "p.log",
+                "--warmup",
+                "5"
+            ]))
+            .is_err()
+        );
+        assert!(
+            parse_args(&strings(&[
+                "--portal-summary",
+                "p.json",
+                "--portal-log",
+                "p.log",
+                "--idle",
+                "5"
+            ]))
+            .is_err()
+        );
+        assert!(parse_args(&strings(&["--portal-log", "p.log"])).is_err());
+        assert!(parse_args(&strings(&["--portal-logs", "a.log", "b.log"])).is_err());
+        let plain = parse_args(&strings(&["--portal-summary", "p.json"])).expect("fixed windows still work");
+        assert!(matches!(
+            plain,
+            Task::PortalSummary(PortalSummaryArgs { log: None, .. })
+        ));
     }
 }

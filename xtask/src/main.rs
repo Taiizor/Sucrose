@@ -18,7 +18,7 @@ tasks:
   ci             run the checks CI runs: fmt, clippy, test
   fetch-engines  download, verify and place pinned engine binaries (xtask/engines.toml)
   localize       convert the legacy XAML strings to the Portal's rust-i18n YAML (--lang EN, --check)
-  measure        sample RAM, CPU and GPU of the running wallpaper processes (--side rust|csharp|portal, --row, --portal-summary, --portal-row)
+  measure        sample RAM, CPU and GPU of the running wallpaper processes (--side rust|csharp|portal, --row, --portal-summary, --portal-row, --portal-log)
   synth-library  write a synthetic library and prepared settings for UI runs (--out, --count, --seed, --force)
 ";
 
