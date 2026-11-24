@@ -1,5 +1,26 @@
 //! The pagination bar of the library page (LIB-04, UI-SPEC E5): the page buttons follow the legacy control's scheme and
-//! the jump field clamps what the user types.
+//! the jump field clamps what the user types. The bar is composed from Buttons and an Input because gpui-component's
+//! Pagination has no jump field and no fixed nine-slot scheme (RESEARCH Pattern 7).
+
+use std::{cell::Cell, rc::Rc};
+
+use gpui_kit::assets::IconName;
+use gpui_kit::component::{
+    Disableable as _,
+    button::{Button, ButtonVariants as _},
+    h_flex,
+    input::{Input, InputState},
+};
+use gpui_kit::prelude::FluentBuilder as _;
+use gpui_kit::*;
+
+use crate::i18n::tr;
+
+/// Height of the bar (UI-SPEC spacing: 2xl).
+pub const BAR_HEIGHT: f32 = 48.0;
+
+/// More pages than this use the ellipsis scheme.
+const FULL_ROW_PAGES: usize = 6;
 
 /// One slot of the page row.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -10,19 +31,166 @@ pub enum PageButton {
     Ellipsis,
 }
 
-/// The page row for `current` of `total` pages, in the legacy control's scheme.
-pub fn page_buttons(_current: usize, _total: usize) -> Vec<PageButton> {
-    Vec::new()
+/// The page row for `current` of `total` pages, in the legacy control's scheme: every page up to six pages; above that
+/// nine slots, the first two and last two pages always shown, with the pages around the current one or the first five or
+/// last five, and "..." slots where pages are skipped. No row (the bar is hidden) at one page or fewer.
+pub fn page_buttons(current: usize, total: usize) -> Vec<PageButton> {
+    use PageButton::{Ellipsis, Page};
+    if total <= 1 {
+        return Vec::new();
+    }
+    if total <= FULL_ROW_PAGES {
+        return (1..=total).map(Page).collect();
+    }
+    let current = current.clamp(1, total);
+    if current <= 4 {
+        vec![
+            Page(1),
+            Page(2),
+            Page(3),
+            Page(4),
+            Page(5),
+            Ellipsis,
+            Ellipsis,
+            Page(total - 1),
+            Page(total),
+        ]
+    } else if total - current < 4 {
+        vec![
+            Page(1),
+            Page(2),
+            Ellipsis,
+            Ellipsis,
+            Page(total - 4),
+            Page(total - 3),
+            Page(total - 2),
+            Page(total - 1),
+            Page(total),
+        ]
+    } else {
+        vec![
+            Page(1),
+            Page(2),
+            Ellipsis,
+            Page(current - 1),
+            Page(current),
+            Page(current + 1),
+            Ellipsis,
+            Page(total - 1),
+            Page(total),
+        ]
+    }
 }
 
 /// The page a jump field text asks for, clamped to 1..=`total`; `None` for an empty or non-numeric text.
-pub fn clamp_jump(_text: &str, _total: usize) -> Option<usize> {
-    None
+pub fn clamp_jump(text: &str, total: usize) -> Option<usize> {
+    let text = text.trim();
+    if text.is_empty() || !text.bytes().all(|byte| byte.is_ascii_digit()) {
+        return None;
+    }
+    let last = total.max(1);
+    // A number too large for `usize` is beyond the last page like any other.
+    let page = text.parse::<usize>().unwrap_or(usize::MAX);
+    Some(page.clamp(1, last))
+}
+
+/// How many digits the last page number has.
+fn digits(total: usize) -> usize {
+    total.max(1).to_string().len()
 }
 
 /// Whether the jump field may hold `text`: digits only, at most as many as the last page number has.
-pub fn jump_text_allowed(_text: &str, _total: usize) -> bool {
-    false
+pub fn jump_text_allowed(text: &str, total: usize) -> bool {
+    text.len() <= digits(total) && text.bytes().all(|byte| byte.is_ascii_digit())
+}
+
+/// A handler that gets a page number.
+pub type PageHandler = Rc<dyn Fn(usize, &mut Window, &mut App)>;
+
+/// A handler for the Jump button.
+pub type JumpHandler = Rc<dyn Fn(&mut Window, &mut App)>;
+
+/// The state of the jump field: it takes only what `total` (kept current by the view) allows.
+pub fn jump_state(
+    total: &Rc<Cell<usize>>,
+    window: &mut Window,
+    cx: &mut Context<super::LibraryView>,
+) -> Entity<InputState> {
+    let total = Rc::clone(total);
+    cx.new(|cx| InputState::new(window, cx).validate(move |text, _| jump_text_allowed(text, total.get())))
+}
+
+/// The bar: Previous, the page row, Next, the numeric field and Jump. `on_page` gets the page a button asks for and
+/// `on_jump` runs for the Jump button.
+pub fn bar(
+    current: usize,
+    total: usize,
+    jump: &Entity<InputState>,
+    on_page: PageHandler,
+    on_jump: JumpHandler,
+) -> AnyElement {
+    let previous = {
+        let on_page = Rc::clone(&on_page);
+        Button::new("page-previous")
+            .ghost()
+            .icon(IconName::ChevronLeft)
+            .accessibility_label(tr("Portal.Pagination.Previous"))
+            .disabled(current <= 1)
+            .on_click(move |_, window, cx| on_page(current.saturating_sub(1).max(1), window, cx))
+    };
+    let next = {
+        let on_page = Rc::clone(&on_page);
+        Button::new("page-next")
+            .ghost()
+            .icon(IconName::ChevronRight)
+            .accessibility_label(tr("Portal.Pagination.Next"))
+            .disabled(current >= total)
+            .on_click(move |_, window, cx| on_page((current + 1).min(total), window, cx))
+    };
+    let row = page_buttons(current, total)
+        .into_iter()
+        .enumerate()
+        .map(|(slot, button)| match button {
+            PageButton::Page(page) => {
+                let on_page = Rc::clone(&on_page);
+                Button::new(("page", page))
+                    .compact()
+                    .label(page.to_string())
+                    .when(page == current, |button| button.primary())
+                    .when(page != current, |button| button.ghost())
+                    .on_click(move |_, window, cx| on_page(page, window, cx))
+                    .into_any_element()
+            }
+            PageButton::Ellipsis => Button::new(("page-gap", slot))
+                .compact()
+                .ghost()
+                .label("...")
+                .disabled(true)
+                .into_any_element(),
+        });
+    h_flex()
+        .w_full()
+        .h(px(BAR_HEIGHT))
+        .flex_shrink_0()
+        .justify_center()
+        .items_center()
+        .gap_1()
+        .child(previous)
+        .children(row)
+        .child(next)
+        .child(
+            div()
+                .w(px(72.))
+                .ml_2()
+                .child(Input::new(jump).aria_label(tr("Portal.Pagination.PageJump"))),
+        )
+        .child(
+            Button::new("page-jump")
+                .outline()
+                .label(tr("Portal.Pagination.PageJump"))
+                .on_click(move |_, window, cx| on_jump(window, cx)),
+        )
+        .into_any_element()
 }
 
 #[cfg(test)]

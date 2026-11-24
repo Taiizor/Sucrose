@@ -60,7 +60,7 @@ impl PortalApp {
         });
         let library = cx.new({
             let link = link.clone();
-            |_| LibraryView::new(window.scale_factor(), link)
+            |cx| LibraryView::new(link, window, cx)
         });
         let mut app = Self {
             state: ConnectionState::Connecting,

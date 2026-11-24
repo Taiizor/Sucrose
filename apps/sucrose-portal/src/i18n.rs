@@ -150,6 +150,8 @@ pub const REQUIRED_KEYS: &[&str] = &[
     "Portal.LibraryPage.LoadError.Body",
     "Portal.LibraryPage.TryAgain",
     "Portal.LibraryPage.ChangeLocation",
+    "Portal.Pagination.Previous",
+    "Portal.Pagination.Next",
     "Portal.LibraryPage.Preparing",
     "Portal.LibraryPage.CorruptMoved",
     "Portal.LibraryPage.CorruptMovedOne",

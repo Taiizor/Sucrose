@@ -5,11 +5,11 @@
 mod card;
 mod grid;
 pub mod layout;
-#[allow(dead_code, reason = "the pagination bar is wired in the next commit")]
 mod pagination;
 pub mod thumbs;
 
 use std::{
+    cell::Cell,
     collections::{HashMap, HashSet},
     io,
     path::{Path, PathBuf},
@@ -18,6 +18,11 @@ use std::{
     time::{Duration, SystemTime},
 };
 
+use gpui_kit::component::{
+    input::{InputEvent, InputState},
+    v_flex,
+};
+use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
 use sucrose_core::{
     library::{self, LibraryTheme},
@@ -128,6 +133,10 @@ pub struct LibraryView {
     phase: Phase,
     /// The scanned themes in display order.
     themes: Vec<LibraryTheme>,
+    /// The normalized search text; empty shows the whole library.
+    query: String,
+    /// Indexes into `themes` of what the search lets through, in the order shown across the pages.
+    visible: Vec<usize>,
     thumb_times: HashMap<PathBuf, Option<SystemTime>>,
     /// The page shown, counted from 1.
     page: usize,
@@ -151,21 +160,38 @@ pub struct LibraryView {
     pending_use: Option<String>,
     /// One focus handle per card position of the page, kept between renders so focus survives a re-render.
     focus: Vec<FocusHandle>,
+    /// The jump field of the pagination bar.
+    jump: Entity<InputState>,
+    /// The page count the jump field limits its digits by.
+    jump_total: Rc<Cell<usize>>,
+    /// The page the jump field was last set to; the field shows the page that is shown until the user types.
+    jump_synced: usize,
+    _jump_subscription: Subscription,
 }
 
 impl LibraryView {
-    /// An empty page; `scale_factor` is the window's, which picks the thumbnail bucket.
-    pub fn new(scale_factor: f32, link: ServiceLink) -> Self {
+    /// An empty page; the window's scale factor picks the thumbnail bucket.
+    pub fn new(link: ServiceLink, window: &mut Window, cx: &mut Context<Self>) -> Self {
+        let jump_total = Rc::new(Cell::new(1));
+        let jump = pagination::jump_state(&jump_total, window, cx);
+        // Enter in the jump field is Jump.
+        let jump_subscription = cx.subscribe_in(&jump, window, |this, _, event: &InputEvent, window, cx| {
+            if matches!(event, InputEvent::PressEnter { .. }) {
+                this.jump_to_typed(window, cx);
+            }
+        });
         Self {
             settings: None,
             phase: Phase::Idle,
             themes: Vec::new(),
+            query: String::new(),
+            visible: Vec::new(),
             thumb_times: HashMap::new(),
             page: 1,
             cache: ThumbCache::new(CACHE_IMAGES, CACHE_BYTES),
             queue: DecodeQueue::new(DECODE_SLOTS),
             failed: HashSet::new(),
-            bucket: Bucket::for_scale(scale_factor),
+            bucket: Bucket::for_scale(window.scale_factor()),
             scroll: ScrollHandle::new(),
             generation: 0,
             scan_task: None,
@@ -175,6 +201,10 @@ impl LibraryView {
             connected: false,
             pending_use: None,
             focus: Vec::new(),
+            jump,
+            jump_total,
+            jump_synced: 0,
+            _jump_subscription: jump_subscription,
         }
     }
 
@@ -246,19 +276,60 @@ impl LibraryView {
         let resorted = (old.sort_mode, old.sort_kind) != (new.sort_mode, new.sort_kind);
         if resorted {
             library::sort(&mut self.themes, new.sort_mode, new.sort_kind);
-            self.page = 1;
+            self.refilter();
         }
-        self.page = self
-            .page
-            .clamp(1, layout::page_count(self.themes.len(), new.pagination).max(1));
-        if resorted || old.pagination != new.pagination {
+        let page = page_after_settings_change(&old, &new, self.page, self.visible.len());
+        let paged_again = resorted || old.pagination != new.pagination;
+        if paged_again {
+            self.scroll.set_offset(point(px(0.), px(0.)));
+        }
+        if paged_again || page != self.page {
+            self.page = page;
             self.request_page(cx);
         }
         cx.notify();
     }
 
+    /// The search text changed (already trimmed, lowercased and cut to its length by the header): show what matches, from
+    /// page 1. An empty text shows the whole library again.
+    #[allow(dead_code, reason = "the header search of the next commit calls it")]
+    pub fn set_query(&mut self, query: &str, cx: &mut Context<Self>) {
+        if self.query == query {
+            return;
+        }
+        self.query = query.to_owned();
+        self.refilter();
+        self.page = 1;
+        self.scroll.set_offset(point(px(0.), px(0.)));
+        self.request_page(cx);
+        cx.notify();
+    }
+
+    /// Lists what the search lets through: the whole library, or the matches in match-count order.
+    fn refilter(&mut self) {
+        self.visible = library::search(&self.themes, &self.query);
+    }
+
+    /// The number of pages the visible themes fill.
+    fn pages(&self) -> usize {
+        self.settings.as_ref().map_or(0, |settings| {
+            layout::page_count(self.visible.len(), settings.pagination)
+        })
+    }
+
+    /// The jump field was confirmed (Jump or Enter): go to the page it holds. An empty field does nothing.
+    fn jump_to_typed(&mut self, _window: &mut Window, cx: &mut Context<Self>) {
+        let text = self.jump.read(cx).value();
+        let Some(page) = pagination::clamp_jump(&text, self.pages()) else {
+            return;
+        };
+        // Whatever was typed, the field shows the page that is shown afterwards.
+        self.jump_synced = 0;
+        self.set_page(page, cx);
+        cx.notify();
+    }
+
     /// Scans the library folder again.
-    #[allow(dead_code, reason = "the retry button of the error state calls it")]
     pub fn reload(&mut self, cx: &mut Context<Self>) {
         let Some(settings) = self.settings.clone() else {
             return;
@@ -313,20 +384,21 @@ impl LibraryView {
                 );
                 self.themes = scanned.themes;
                 self.thumb_times = scanned.thumb_times;
-                if let Some(settings) = &self.settings {
+                if let Some(settings) = &self.settings
+                    && (settings.sort_mode, settings.sort_kind) != sorted_by
+                {
                     // The sort settings changed while the scan ran.
-                    if (settings.sort_mode, settings.sort_kind) != sorted_by {
-                        library::sort(&mut self.themes, settings.sort_mode, settings.sort_kind);
-                    }
-                    let pages = layout::page_count(self.themes.len(), settings.pagination).max(1);
-                    self.page = self.page.clamp(1, pages);
+                    library::sort(&mut self.themes, settings.sort_mode, settings.sort_kind);
                 }
+                self.refilter();
+                self.page = self.page.clamp(1, self.pages().max(1));
                 self.phase = Phase::Ready;
                 self.request_page(cx);
             }
             Err(error) => {
                 tracing::warn!(%error, "the library folder cannot be read");
                 self.themes.clear();
+                self.refilter();
                 self.phase = Phase::Failed;
             }
         }
@@ -334,12 +406,8 @@ impl LibraryView {
     }
 
     /// Shows page `page` (counted from 1; out of range values are clamped) and scrolls to its top.
-    #[allow(dead_code, reason = "the pagination bar of the search and paging plan calls it")]
     pub fn set_page(&mut self, page: usize, cx: &mut Context<Self>) {
-        let Some(settings) = &self.settings else {
-            return;
-        };
-        let page = page.clamp(1, layout::page_count(self.themes.len(), settings.pagination).max(1));
+        let page = page.clamp(1, self.pages().max(1));
         if page == self.page {
             return;
         }
@@ -354,11 +422,16 @@ impl LibraryView {
         let Some(settings) = &self.settings else {
             return;
         };
-        let range = layout::page_slice(self.themes.len(), self.page, settings.pagination);
-        let keys: Vec<ThumbKey> = self.themes[range]
+        let range = layout::page_slice(self.visible.len(), self.page, settings.pagination);
+        tracing::debug!(
+            page = self.page,
+            pages = layout::page_count(self.visible.len(), settings.pagination),
+            "page shown"
+        );
+        let keys: Vec<ThumbKey> = self.visible[range]
             .iter()
             .take(CACHE_IMAGES)
-            .map(|theme| thumb_key(&self.thumb_times, theme, self.bucket))
+            .map(|&index| thumb_key(&self.thumb_times, &self.themes[index], self.bucket))
             .filter(|key| !self.cache.contains(key) && !self.failed.contains(key))
             .collect();
         self.queue.set_wanted(keys);
@@ -409,14 +482,15 @@ impl LibraryView {
     /// The cards of the page that is shown.
     fn cards(&mut self, settings: &LibrarySettings, columns: usize, cx: &mut Context<Self>) -> Vec<CardData> {
         let this = cx.entity().downgrade();
-        let range = layout::page_slice(self.themes.len(), self.page, settings.pagination);
+        let range = layout::page_slice(self.visible.len(), self.page, settings.pagination);
         while self.focus.len() < range.len() {
             self.focus.push(cx.focus_handle().tab_stop(true));
         }
         let handles: Rc<[FocusHandle]> = self.focus[..range.len()].iter().cloned().collect();
         let count = range.len();
         let mut cards = Vec::with_capacity(count);
-        for (position, index) in range.enumerate() {
+        for (position, slot) in range.enumerate() {
+            let index = self.visible[slot];
             let theme = &self.themes[index];
             let key = thumb_key(&self.thumb_times, theme, self.bucket);
             let thumb = match self.cache.get(&key) {
@@ -470,11 +544,11 @@ impl Render for LibraryView {
             return div().size_full().into_any_element();
         };
         let content_width = (f32::from(window.viewport_size().width) - 2.0 * grid::CONTENT_PADDING).max(0.0);
-        match self.phase {
+        let content = match self.phase {
             Phase::Scanning { skeleton: true } => {
                 grid::skeleton(content_width, settings.margin, settings.adaptive_layout, &self.scroll)
             }
-            Phase::Ready if !self.themes.is_empty() => {
+            Phase::Ready if !self.visible.is_empty() => {
                 let columns = layout::columns(content_width, settings.margin, settings.adaptive_layout);
                 let cards = self.cards(&settings, columns, cx);
                 grid::page(
@@ -486,16 +560,47 @@ impl Render for LibraryView {
                     cx,
                 )
             }
-            // The empty and error states, with their buttons, come with the search and paging plan.
+            // The empty, search-empty and error states come with the header and search task.
             _ => div().size_full().into_any_element(),
-        }
+        };
+
+        // The pagination bar sits under the scrolling grid and shows from two pages on.
+        let pages = self.pages();
+        self.jump_total.set(pages.max(1));
+        let bar = (self.phase == Phase::Ready && pages > 1).then(|| {
+            if self.jump_synced != self.page {
+                self.jump_synced = self.page;
+                let text = SharedString::from(self.page.to_string());
+                self.jump.update(cx, |state, cx| state.set_value(text, window, cx));
+            }
+            let this = cx.entity().downgrade();
+            let on_page: pagination::PageHandler = Rc::new({
+                let this = this.clone();
+                move |page, _, cx| {
+                    this.update(cx, |view, cx| view.set_page(page, cx)).ok();
+                }
+            });
+            let on_jump: pagination::JumpHandler = Rc::new(move |window, cx| {
+                this.update(cx, |view, cx| view.jump_to_typed(window, cx)).ok();
+            });
+            pagination::bar(self.page, pages, &self.jump, on_page, on_jump)
+        });
+        v_flex()
+            .size_full()
+            .child(div().flex_1().min_h_0().w_full().child(content))
+            .when_some(bar, |column, bar| column.child(bar))
+            .into_any_element()
     }
 }
 
 /// The page to show after the settings changed from `old` to `new` with `count` themes loaded: page 1 when the order or the
 /// page size changed, otherwise the current page kept inside the page range.
-fn page_after_settings_change(_old: &LibrarySettings, _new: &LibrarySettings, page: usize, _count: usize) -> usize {
-    page
+fn page_after_settings_change(old: &LibrarySettings, new: &LibrarySettings, page: usize, count: usize) -> usize {
+    let reordered = (old.sort_mode, old.sort_kind) != (new.sort_mode, new.sort_kind);
+    if reordered || old.pagination != new.pagination {
+        return 1;
+    }
+    page.clamp(1, layout::page_count(count, new.pagination).max(1))
 }
 
 #[cfg(test)]

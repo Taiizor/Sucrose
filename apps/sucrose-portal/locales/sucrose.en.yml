@@ -6,6 +6,8 @@
 "Portal.LibraryPage.LoadError.Body": "Check that the library folder exists and that Sucrose can open it, then try again."
 "Portal.LibraryPage.TryAgain": "Try Again"
 "Portal.LibraryPage.ChangeLocation": "Change Library Location"
+"Portal.Pagination.Previous": "Previous page"
+"Portal.Pagination.Next": "Next page"
 "Portal.LibraryPage.Preparing": "Preparing your library…"
 "Portal.LibraryPage.CorruptMoved": "%{count} corrupt themes were moved to the %{bin}."
 "Portal.LibraryPage.CorruptMovedOne": "1 corrupt theme was moved to the %{bin}."
