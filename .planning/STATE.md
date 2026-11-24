@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-27-PLAN.md
-last_updated: "2026-11-24T14:56:08.141Z"
+stopped_at: Completed 03-30-PLAN.md
+last_updated: "2026-11-24T15:04:53.751Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: 05ac3117905115a69080928c47549ce7dd411279
+state_head: 7f27a7910f8e05b2110f35497662a98c8b0135d9
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 69
-  completed_plans: 56
+  completed_plans: 57
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 28 of 40
+Plan: 29 of 40
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -110,6 +110,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P24 | 90 min | 3 tasks | 2 files |
 | Phase 03 P25 | 6 min | 2 tasks | 4 files |
 | Phase 03 P27 | 14 min | 2 tasks | 8 files |
+| Phase 03 P30 | 6 min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -202,6 +203,7 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-25: UI-07 is not marked complete; the synthetic 500-theme library fails the D-25 rule (working set 131 MB first page, 269 MB final against 181 MB) and is reported as a gap
 - [Phase 03]: 03-27: every Portal image release goes through atlas::release_image(s), deferred with App::defer, because App::drop_image with no window misses the window being updated
 - [Phase 03]: 03-27: GPUI test support comes from a gpui-pre dev-dependency (workspace key gpui), since gpui-kit test-support cannot resolve against the locked wgpu
+- [Phase 03]: 03-30: an unreadable Sucrose.json or backup makes Store::open fail with StoreError::Io (host runs in no-save mode); only Missing or Corrupt files lead to a restore or migration
 
 ### Pending Todos
 
@@ -234,6 +236,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T14:55:54.873Z
-Stopped at: Completed 03-27-PLAN.md
+Last session: 2026-11-24T15:04:39.975Z
+Stopped at: Completed 03-30-PLAN.md
 Resume file: None
