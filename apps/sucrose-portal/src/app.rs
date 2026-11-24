@@ -15,6 +15,7 @@ use crate::{
     i18n::tr,
     ipc::{ConnectionState, LinkEvent, ServiceLink, next_state},
     library::LibraryView,
+    status_bar::StatusBar,
     theme, toast,
 };
 
@@ -38,6 +39,8 @@ pub struct PortalApp {
     pub library: Entity<LibraryView>,
     /// The header row: the Library tab and the search box.
     pub header: Entity<Header>,
+    /// The status bar at the bottom: build, memory of the Sucrose processes, quote and copyright.
+    pub status_bar: Entity<StatusBar>,
     /// The task that awaits the link's events; dropped with the app.
     _events: Task<()>,
     /// Watches the keyboard for Ctrl+F, which works wherever the focus is.
@@ -95,6 +98,7 @@ impl PortalApp {
             |this, window, cx| this.apply_theme(window, cx),
         );
         let background = cx.new(|cx| BackgroundImage::new(window, cx));
+        let status_bar = cx.new(|_| StatusBar::new());
         let mut app = Self {
             state: ConnectionState::Connecting,
             settings: None,
@@ -103,6 +107,7 @@ impl PortalApp {
             link,
             library,
             header,
+            status_bar,
             _events: task,
             _keys: keys,
             _appearance: appearance,
@@ -163,6 +168,10 @@ impl PortalApp {
         let connected = self.state == ConnectionState::Connected;
         self.library
             .update(cx, |library, cx| library.set_connected(connected, cx));
+        if !connected {
+            // The memory text shows "—" until the service reports again.
+            self.status_bar.update(cx, |bar, cx| bar.set_memory(None, cx));
+        }
         if let LinkEvent::Event(event) = event {
             match event {
                 PortalEvent::Welcome { settings, runtime } => {
@@ -206,6 +215,9 @@ impl PortalApp {
                     self.library
                         .update(cx, |library, cx| library.set_runtime(runtime.clone(), cx));
                     self.runtime = Some(runtime);
+                }
+                PortalEvent::Memory(report) => {
+                    self.status_bar.update(cx, |bar, cx| bar.set_memory(Some(report), cx));
                 }
                 PortalEvent::UseResult { folder, outcome } => {
                     self.library
@@ -262,7 +274,8 @@ impl Render for PortalApp {
                     banner::connection_banner(self.state, cx.listener(|this, _: &ClickEvent, _, _| this.link.retry())),
                     |column, banner| column.child(banner),
                 )
-                .child(v_flex().flex_1().min_h_0().child(self.library.clone())),
+                .child(v_flex().flex_1().min_h_0().child(self.library.clone()))
+                .child(self.status_bar.clone()),
         )
     }
 }

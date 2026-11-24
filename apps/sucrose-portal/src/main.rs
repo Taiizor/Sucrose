@@ -21,7 +21,6 @@ mod header;
 mod i18n;
 mod ipc;
 mod library;
-#[allow(dead_code, reason = "the status bar entity is wired in the next commit")]
 mod status_bar;
 mod theme;
 mod toast;
@@ -86,6 +85,11 @@ fn early_settings(early: &[ipc::LinkEvent]) -> Option<&PortalSettings> {
 /// The window title, localized.
 pub(crate) fn window_title() -> String {
     rust_i18n::t!("Portal.MainWindow.Title").into_owned()
+}
+
+/// The version as the legacy app shows it (four components), without the "v".
+pub(crate) fn version_text() -> String {
+    sucrose_core::version::app_version().to_string()
 }
 
 fn main() -> anyhow::Result<ExitCode> {

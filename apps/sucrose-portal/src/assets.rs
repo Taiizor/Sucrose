@@ -8,7 +8,9 @@ use gpui_kit::{AssetSource, SharedString};
 // Add the icon of a new page here (Lucide names as in `gpui_kit::assets::IconName`).
 gpui_kit::assets::icon_assets!(
     PageIcons,
-    [FolderX, ImageOff, Library, LibraryBig, Moon, PackageX, SearchX, Sun]
+    [
+        FolderX, ImageOff, LayoutGrid, Library, LibraryBig, Moon, PackageX, SearchX, Sun
+    ]
 );
 
 /// The asset source the Portal registers.
