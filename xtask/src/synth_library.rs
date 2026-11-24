@@ -179,19 +179,41 @@ struct PoolFiles {
     previews: Vec<Vec<u8>>,
 }
 
-/// The pool to generate. The first version is a single small image of each kind; the real-sized pool replaces it.
+/// The pool to generate, shaped like the maintainer's library (finding F1): 12 JPEG thumbnails of 1280x720 from about
+/// 100 KB to 640 KB with a median near 190 KB, and 8 GIF previews from about 0.2 MB to 4.9 MB with a median near
+/// 1.5 MB. The theme folders copy from it round-robin, so a 500-theme library still has varied sizes.
 fn pool_plan() -> PoolPlan {
+    const THUMBNAIL_BYTES: [usize; 12] = [
+        100_000, 125_000, 150_000, 170_000, 185_000, 190_000, 200_000, 220_000, 260_000, 330_000, 450_000, 640_000,
+    ];
+    // Frame size by file size: small previews use small frames so one frame never overshoots a small target.
+    const PREVIEWS: [(u32, u32, usize); 8] = [
+        (320, 180, 200_000),
+        (480, 270, 700_000),
+        (640, 360, 1_100_000),
+        (640, 360, 1_300_000),
+        (640, 360, 1_600_000),
+        (640, 360, 2_400_000),
+        (640, 360, 4_200_000),
+        (640, 360, 4_900_000),
+    ];
     PoolPlan {
-        thumbnails: vec![ThumbSpec {
-            width: 320,
-            height: 180,
-            target_bytes: 20_000,
-        }],
-        previews: vec![PreviewSpec {
-            width: 64,
-            height: 36,
-            target_bytes: 20_000,
-        }],
+        thumbnails: THUMBNAIL_BYTES
+            .into_iter()
+            .map(|target_bytes| ThumbSpec {
+                width: 1280,
+                height: 720,
+                target_bytes,
+            })
+            .collect(),
+        previews: PREVIEWS
+            .into_iter()
+            .map(|(width, height, target_bytes)| PreviewSpec {
+                width,
+                height,
+                target_bytes,
+            })
+            .collect(),
     }
 }
 
@@ -383,8 +405,17 @@ enum Generated {
 }
 
 /// Whether the text of a marker is that of a finished run with this count and seed.
-fn marker_matches(_text: &str, _count: usize, _seed: u64) -> bool {
-    false
+fn marker_matches(text: &str, count: usize, seed: u64) -> bool {
+    text == marker_text(count, seed)
+}
+
+/// Whether `out` already holds a finished run with this count and seed whose library and settings are still there.
+fn is_up_to_date(out: &Path, plan: &Plan) -> bool {
+    let marked = fs::read_to_string(out.join(MARKER)).is_ok_and(|text| marker_matches(&text, plan.count, plan.seed));
+    marked
+        && out.join("Setting").join(SETTINGS_FILE).is_file()
+        && library::scan(&out.join("Library"), &app_version())
+            .is_ok_and(|scan| scan.themes.len() == plan.count && scan.corrupt.len() == CORRUPT)
 }
 
 fn generate(plan: &Plan) -> Outcome<()> {
@@ -416,6 +447,15 @@ fn generate_with(plan: &Plan, pool: &PoolPlan) -> Outcome<Generated> {
     let library_dir = out.join("Library");
     let setting_dir = out.join("Setting");
     let pool_dir = out.join(POOL);
+    if is_up_to_date(&out, plan) {
+        println!(
+            "synth library: up to date ({} themes, seed {}) at {}",
+            plan.count,
+            plan.seed,
+            out.display()
+        );
+        return Ok(Generated::UpToDate);
+    }
     create_dir(&out)?;
     // The marker goes first (unfinished), so a run that dies halfway can be repeated without --force.
     write_file(&out.join(MARKER), b"incomplete\n")?;
