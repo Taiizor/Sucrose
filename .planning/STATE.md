@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-17-PLAN.md
-last_updated: "2026-11-24T09:27:48.818Z"
+stopped_at: Completed 03-18-PLAN.md
+last_updated: "2026-11-24T09:47:46.774Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: e7297fa6efc7f474a8b06afb0050b5962d8411ed
+state_head: e6dc187b6b0ec26ce10ad90f621fa9f7ab755b72
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 55
-  completed_plans: 47
+  completed_plans: 48
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 19 of 26
+Plan: 20 of 26
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -101,6 +101,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P15 | 13 min | 3 tasks | 13 files |
 | Phase 03 P16 | 15 min | 2 tasks | 7 files |
 | Phase 03 P17 | 19 min | 3 tasks | 15 files |
+| Phase 03 P18 | 13 min | 3 tasks | 11 files |
 
 ## Accumulated Context
 
@@ -176,6 +177,8 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-16: after the 2 s grace the Portal counts as gone whatever the outcome; only the sibling sucrose-portal executable is ever ended
 - [Phase 03]: 03-17: the background image is decoded at the smallest size that covers the window (never enlarged, long edge 2560), so UniformToFill is not upscaled
 - [Phase 03]: 03-17: a stored backdrop the OS cannot show is applied as Opaque and never rewritten; Capabilities.window_backdrop is read once with RtlGetVersion (build 22621)
+- [Phase 03]: Plan 18: status bar and About show the legacy four-component version text; the tray hint dialog has Escape and backdrop presses off for its whole life (the dialog layer fixes them at open)
+- [Phase 03]: Plan 18: quote hides below 900 px and copyright below 1000 px; Premium address lives in header.rs, other links in dialogs/mod.rs as https constants
 
 ### Pending Todos
 
@@ -208,6 +211,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T09:27:31.981Z
-Stopped at: Completed 03-17-PLAN.md
+Last session: 2026-11-24T09:47:37.582Z
+Stopped at: Completed 03-18-PLAN.md
 Resume file: None
