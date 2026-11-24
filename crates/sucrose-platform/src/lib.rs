@@ -40,6 +40,24 @@ pub use icon::truncate_tooltip;
 pub use imp::{DesktopSurface, EventLoop, LoopProxy, LoopTimers, RendererJob, Tray};
 pub use sucrose_core::settings::GpuPreference;
 
+/// What the user chose on the tray icon (D-14).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum TrayAction {
+    /// Open Sucrose: from the menu item or a left double-click on the icon.
+    Open,
+    /// The exit item: Close Applications or Exit, by what its label says.
+    Exit,
+}
+
+/// The texts of the tray menu items. The service owns them, so the platform crate carries no language.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct TrayLabels {
+    /// The Open item.
+    pub open: String,
+    /// The exit item.
+    pub exit: String,
+}
+
 /// A clock in nanoseconds that every process on this machine reads the same way, for comparing moments across
 /// the service and its renderers (D-02). On Windows it is QueryPerformanceCounter scaled to nanoseconds, which is
 /// monotonic and system-wide. On the OSes without an implementation yet it is the wall clock since the Unix epoch,

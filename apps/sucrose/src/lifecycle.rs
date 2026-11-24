@@ -26,9 +26,29 @@ pub fn should_exit(tray_visible: bool, wallpaper_wanted: bool, portal_connected:
     !tray_visible && !wallpaper_wanted && !portal_connected
 }
 
+/// The Open item of the tray menu. English until the service has a language of its own (UI-06, Phase 5).
+pub const OPEN_LABEL: &str = "Open Sucrose";
+
+/// The exit item with AppExit on: it closes every Sucrose application, not only the tray.
+pub const CLOSE_APPLICATIONS_LABEL: &str = "Close Applications";
+
+/// The exit item with AppExit off: it removes only the tray.
+pub const EXIT_LABEL: &str = "Exit";
+
+/// What the exit item of the tray menu says for the current AppExit value (D-14).
+pub fn exit_label(app_exit: bool) -> &'static str {
+    if app_exit { CLOSE_APPLICATIONS_LABEL } else { EXIT_LABEL }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn the_exit_item_is_named_by_app_exit() {
+        assert_eq!(exit_label(true), "Close Applications");
+        assert_eq!(exit_label(false), "Exit");
+    }
 
     fn actions(selected: bool, tray: bool, flag: bool) -> (bool, bool) {
         let actions = start_actions(selected, tray, flag);

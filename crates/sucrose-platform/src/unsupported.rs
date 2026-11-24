@@ -6,7 +6,7 @@ use std::{
     process::{Child, Command},
 };
 
-use crate::{DpiAwareness, Flow, LoopEnd, LoopEvent, Placement, PlatformError, RectPx};
+use crate::{DpiAwareness, Flow, LoopEnd, LoopEvent, Placement, PlatformError, RectPx, TrayAction, TrayLabels};
 
 /// A surface behind the desktop icons. Not available on this OS.
 #[derive(Debug)]
@@ -90,12 +90,23 @@ pub struct Tray;
 
 impl Tray {
     /// Always fails on this OS.
-    pub fn new(_ico: &[u8], _tooltip: &str, _proxy: LoopProxy) -> Result<Self, PlatformError> {
+    pub fn new(
+        _ico: &[u8],
+        _tooltip: &str,
+        _labels: &TrayLabels,
+        _on_action: impl Fn(TrayAction) + Send + Sync + 'static,
+    ) -> Result<Self, PlatformError> {
         Err(PlatformError::Unsupported("tray icon"))
     }
 
     /// Does nothing on this OS.
     pub fn set_tooltip(&self, _tooltip: &str) {}
+
+    /// Does nothing on this OS.
+    pub fn set_open_enabled(&self, _enabled: bool) {}
+
+    /// Does nothing on this OS.
+    pub fn set_exit_label(&self, _label: &str) {}
 }
 
 /// Renderer processes started by the service. No wallpaper renderer exists on this OS yet, so this only spawns.

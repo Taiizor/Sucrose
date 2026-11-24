@@ -33,14 +33,14 @@ use sucrose_ipc::{
 };
 use sucrose_platform::{
     EventLoop, Flow, GpuPreferenceChange, LoopEnd, LoopEvent, LoopProxy, LoopTimers, MonitorInfo, PlatformError,
-    RectPx, Tray,
+    RectPx, Tray, TrayAction, TrayLabels,
 };
 // ScreenArea is read below to choose the surface rectangle.
 use sucrose_core::settings::{FullScreenAction, FullScreenScope, GpuPreference, PauseKind, ScreenArea};
 
 use crate::{
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
-    lifecycle::{should_exit, start_actions},
+    lifecycle::{OPEN_LABEL, exit_label, should_exit, start_actions},
     modules::{MEMORY_TIMER, MemoryModule, ModuleAction, module_off, pids_by_slot, start_module, tray_action},
     portal_link::{
         PortalAdmission, PortalLink, PortalRegistry, ask_service_to_open_portal, portal_args, request_kind,
@@ -67,6 +67,8 @@ enum Event {
     Exited(Exited),
     /// The shutdown worker finished closing every renderer.
     ShutdownDone,
+    /// The user chose an item of the tray menu, or double-clicked the icon.
+    Tray(TrayAction),
     /// A Portal said hello on a connection of its own. The main thread decides whether it is the one Portal.
     PortalConnected {
         /// The writer of that connection.
@@ -357,22 +359,46 @@ fn start_fullscreen(fleet: &mut Fleet, action: FullScreenAction, scope: ActionSc
     .unwrap_or(false)
 }
 
-/// Builds the tray icon with the tooltip of `status`. Without it Sucrose can only be stopped from Task Manager, so a
-/// failure says so.
-fn create_tray(status: &Status, proxy: LoopProxy) -> Result<Tray, PlatformError> {
-    Tray::new(TRAY_ICON, &status.tooltip(), proxy).inspect_err(|_| {
-        tracing::error!("without the tray icon Sucrose can only be stopped from Task Manager");
+/// What the tray tooltip says when Open Sucrose cannot start the Portal (UI-SPEC E14).
+const OPEN_FAILED_TOOLTIP: &str = "Sucrose couldn't open its window";
+
+/// Builds the tray icon with the tooltip of `status` and the exit item labelled for `app_exit`. What the user
+/// chooses reaches the main thread as `Event::Tray`. Without the icon Sucrose can only be stopped from Task Manager,
+/// so a failure says so.
+fn create_tray(status: &Status, app_exit: bool, notifier: &Notifier) -> Result<Tray, PlatformError> {
+    let labels = TrayLabels {
+        open: OPEN_LABEL.to_owned(),
+        exit: exit_label(app_exit).to_owned(),
+    };
+    let notifier = notifier.clone();
+    let tray = Tray::new(TRAY_ICON, &status.tooltip(), &labels, move |action| {
+        notifier.send(Event::Tray(action));
     })
+    .inspect_err(|_| {
+        tracing::error!("without the tray icon Sucrose can only be stopped from Task Manager");
+    })?;
+    tracing::info!(open = %labels.open, exit = %labels.exit, "tray icon ready");
+    Ok(tray)
+}
+
+/// The tray as a module (D-008): not built at all when `enabled` is false.
+fn build_tray(enabled: bool, status: &Status, app_exit: bool, notifier: &Notifier) -> Option<Tray> {
+    start_module("tray", enabled, || create_tray(status, app_exit, notifier))
+}
+
+/// The Portal executable that sits next to this one.
+fn portal_path() -> std::io::Result<std::path::PathBuf> {
+    let exe = std::env::current_exe()?;
+    let folder = exe
+        .parent()
+        .ok_or_else(|| std::io::Error::other("the Sucrose executable has no folder"))?;
+    Ok(folder.join(format!("sucrose-portal{}", std::env::consts::EXE_SUFFIX)))
 }
 
 /// Starts the Portal that sits next to this executable (T-03-34): the fixed name, the argument vector chosen from a
 /// page enum here, never text from a request, and never a PATH lookup.
 fn open_portal(page: Option<PortalPage>) -> std::io::Result<()> {
-    let exe = std::env::current_exe()?;
-    let folder = exe
-        .parent()
-        .ok_or_else(|| std::io::Error::other("the Sucrose executable has no folder"))?;
-    let path = folder.join(format!("sucrose-portal{}", std::env::consts::EXE_SUFFIX));
+    let path = portal_path()?;
     let mut command = std::process::Command::new(&path);
     command.args(portal_args(page));
     sucrose_platform::spawn_detached(&mut command)?;
@@ -477,7 +503,9 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
 
     let tray_proxy = event_loop.proxy();
     // General.json AppVisible (D-15): with it false no icon, no menu and none of their resources exist (D-008).
-    let mut tray = start_module("tray", plan.app_visible, || create_tray(&status, tray_proxy.clone()));
+    let mut tray = build_tray(plan.app_visible, &status, host.settings().general.app_exit, &notifier);
+    // Whether the Open item is enabled: it is greyed out while the Portal is open.
+    let mut open_enabled = true;
     if status.is_failure() {
         tracing::warn!(status = %status.text(), "no wallpaper, the service waits in the tray");
     }
@@ -718,9 +746,14 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                                 check_exit = true;
                                                 match tray_action(tray.is_some(), *visible) {
                                                     ModuleAction::Create => {
-                                                        tray = start_module("tray", true, || {
-                                                            create_tray(&status, tray_proxy.clone())
-                                                        });
+                                                        tray = build_tray(
+                                                            true,
+                                                            &status,
+                                                            host.settings().general.app_exit,
+                                                            &notifier,
+                                                        );
+                                                        // A new item is enabled; the sync after the events fixes it.
+                                                        open_enabled = true;
                                                     }
                                                     ModuleAction::Drop => {
                                                         tray = None;
@@ -783,6 +816,31 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                     Event::PortalFocus { page } => {
                         portals.send(PortalEvent::Focus { page });
                     }
+                    Event::Tray(TrayAction::Open) => {
+                        if quitting {
+                            tracing::debug!("Open chosen while the service stops, ignored");
+                        } else if portals.registered_pid().is_some() {
+                            // The item is greyed out while the Portal is open, but a double-click is not: bring the
+                            // open Portal to the front.
+                            portals.send(PortalEvent::Focus { page: None });
+                        } else if spawn_pending(portal_spawned, Instant::now()) {
+                            tracing::debug!("Open chosen while the Portal is starting, ignored");
+                        } else {
+                            match open_portal(None) {
+                                Ok(()) => portal_spawned = Some(Instant::now()),
+                                Err(error) => {
+                                    tracing::error!(%error, "cannot open the Portal from the tray");
+                                    if let Some(tray) = &tray {
+                                        tray.set_tooltip(OPEN_FAILED_TOOLTIP);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    Event::Tray(TrayAction::Exit) => {
+                        // Close Applications and Exit follow in the next step; the Quit path stops the service.
+                        tray_proxy.quit();
+                    }
                     Event::Launch { page, reply } => {
                         let answer = if quitting {
                             LaunchReply::Refused {
@@ -821,6 +879,14 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
             {
                 tracing::info!("nothing needs the service, exiting");
                 tray_proxy.quit();
+            }
+            // The Open item is greyed out exactly while a Portal is registered.
+            let portal_open = portals.registered_pid().is_some();
+            if open_enabled == portal_open {
+                open_enabled = !portal_open;
+                if let Some(tray) = &tray {
+                    tray.set_open_enabled(open_enabled);
+                }
             }
             // The memory report follows the Portal: started when one is registered, stopped when it is gone.
             if !quitting {
