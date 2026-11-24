@@ -1,4 +1,4 @@
-//! Modal dialogs of the Portal (UI-SPEC "Dialogs", E11): Help, About and the tray hint. They are 480 px wide (About 560),
+//! Modal dialogs of the Portal (UI-SPEC "Dialogs", E11): Help, About, the tray hint and the Move Library confirmation. They are 480 px wide (About 560),
 //! 12 px radius, with a title and actions that stay fixed while the body scrolls. Links open in the OS browser; every
 //! target is an https address that is part of the build, never read from settings or themes (T-03-42).
 //!
@@ -7,6 +7,7 @@
 
 pub mod about;
 pub mod help;
+pub mod move_library;
 pub mod tray_hint;
 
 use gpui_kit::assets::IconName;

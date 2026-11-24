@@ -297,7 +297,10 @@ impl PortalApp {
                         library.set_runtime(runtime.clone(), cx);
                     });
                     self.personal.update(cx, |page, cx| page.load(&settings, window, cx));
-                    self.general.update(cx, |page, cx| page.load(&settings, window, cx));
+                    self.general.update(cx, |page, cx| {
+                        page.load(&settings, window, cx);
+                        page.set_moving(runtime.library_moving, cx);
+                    });
                     self.settings = Some(settings);
                     self.runtime = Some(runtime);
                     self.apply_theme(window, cx);
@@ -340,7 +343,20 @@ impl PortalApp {
                 PortalEvent::Runtime(runtime) => {
                     self.library
                         .update(cx, |library, cx| library.set_runtime(runtime.clone(), cx));
+                    self.general
+                        .update(cx, |page, cx| page.set_moving(runtime.library_moving, cx));
                     self.runtime = Some(runtime);
+                }
+                PortalEvent::MoveResult(outcome) => {
+                    let applied = self
+                        .general
+                        .update(cx, |page, cx| page.on_move_result(&outcome, window, cx));
+                    // The library loads again from the new folder: a changed location makes it scan.
+                    if let (Some(location), Some(settings)) = (applied, &mut self.settings) {
+                        settings.library_location = location;
+                        self.library
+                            .update(cx, |library, cx| library.update_settings(settings, cx));
+                    }
                 }
                 PortalEvent::LibraryMaintained(report) => {
                     self.library

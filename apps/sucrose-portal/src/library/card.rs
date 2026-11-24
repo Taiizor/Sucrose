@@ -90,6 +90,8 @@ pub enum DisabledReason {
     Paused,
     /// A fullscreen rule closed the wallpaper (D-23).
     Closed,
+    /// The library is being moved to another folder (LIB-09); the service refuses Use until it ends.
+    Moving,
 }
 
 impl DisabledReason {
@@ -102,6 +104,7 @@ impl DisabledReason {
             Self::Selected => use_with("Portal.LibraryCard.Selected"),
             Self::Paused => use_with("Portal.LibraryCard.Paused"),
             Self::Closed => use_with("Portal.LibraryCard.Closed"),
+            Self::Moving => tr("Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move"),
         }
     }
 }
@@ -127,11 +130,15 @@ impl CardUse {
     }
 }
 
-/// Whether Use works on `theme` now, in the priority of the UI-SPEC: no connection, a newer theme, a type this build does
+/// Whether Use works on `theme` now, in the priority of the UI-SPEC: no connection, a library move, a newer theme, a type this build does
 /// not play, the theme that plays already, then a fullscreen rule. A selected theme that does not run can be used again.
 pub fn use_state(theme: &LibraryTheme, runtime: Option<&RuntimeState>, connected: bool) -> CardUse {
     if !connected {
         return CardUse::Disabled(DisabledReason::Unavailable);
+    }
+    // The library is on its way to another folder: nothing in it can be used until the move ends.
+    if runtime.is_some_and(|runtime| runtime.library_moving) {
+        return CardUse::Disabled(DisabledReason::Moving);
     }
     if matches!(theme.compatibility, Compatibility::NeedsNewerApp { .. }) {
         return CardUse::Disabled(DisabledReason::NewerVersion);
@@ -513,5 +520,24 @@ mod tests {
         assert_eq!(&*DisabledReason::Selected.tooltip(), "Use (Selected)");
         assert_eq!(&*DisabledReason::Paused.tooltip(), "Use (Paused)");
         assert_eq!(&*DisabledReason::Closed.tooltip(), "Use (Closed)");
+        assert_eq!(
+            &*DisabledReason::Moving.tooltip(),
+            "Please wait while the location is being changed"
+        );
+    }
+
+    #[test]
+    fn a_library_move_disables_use_before_any_other_reason_but_the_connection() {
+        let moving = RuntimeState {
+            library_moving: true,
+            ..runtime(Some("Rain"), true, RuleState::Paused)
+        };
+        let reason = CardUse::Disabled(DisabledReason::Moving);
+        assert_eq!(state(&video(), &moving, true), reason);
+        assert_eq!(state(&newer(WallpaperType::Web), &moving, true), reason);
+        assert_eq!(
+            state(&video(), &moving, false),
+            CardUse::Disabled(DisabledReason::Unavailable)
+        );
     }
 }

@@ -14,7 +14,7 @@ use gpui_kit::component::{
 };
 use gpui_kit::*;
 use sucrose_core::settings::{Backdrop, Stretch, ThemeMode};
-use sucrose_ipc::portal::{PortalRequest, PortalSettings, SettingChange};
+use sucrose_ipc::portal::{MoveOutcome, MoveRefusal, PortalRequest, PortalSettings, SettingChange};
 
 use super::row::{
     Choice, ChoiceSelect, ControlState, SELECT_WIDTH, SLIDER_WIDTH, SettingRow, choice_select, control_state,
@@ -22,9 +22,10 @@ use super::row::{
 };
 use crate::{
     background::{self, BackgroundError, BackgroundImage},
+    dialogs::move_library,
     i18n::{tr, tr_with},
     ipc::ServiceLink,
-    library,
+    library, toast,
 };
 
 /// Why a backdrop cannot be chosen on this machine.
@@ -112,6 +113,102 @@ pub fn truncate_path(path: &str, max_chars: usize) -> String {
     format!("\u{2026}{tail}")
 }
 
+/// Why a folder for the library is turned away: the Portal's quick checks and the service's refusals share these.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum LocationProblem {
+    /// The folder holds files already and the themes are to move into it.
+    NotEmpty,
+    /// A file cannot be created in the folder.
+    NoAccess,
+    /// The folder is inside the library or around it.
+    Nested,
+    /// The folder does not exist.
+    Missing,
+    /// Another move or a theme change is still running.
+    Busy,
+}
+
+impl LocationProblem {
+    /// The key of the sentence that says why.
+    pub fn text_key(self) -> &'static str {
+        match self {
+            Self::NotEmpty => "Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty",
+            Self::NoAccess => "Portal.GeneralSettingPage.PrivateLibrary.NoAccess",
+            Self::Nested => "Portal.GeneralSettingPage.PrivateLibrary.Nested",
+            Self::Missing => "Portal.GeneralSettingPage.PrivateLibrary.Missing",
+            Self::Busy => "Portal.GeneralSettingPage.PrivateLibrary.Busy",
+        }
+    }
+}
+
+/// What the Portal learns from a folder that passed its quick checks.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Picked {
+    /// The folder is the library in use: nothing to do.
+    Same,
+    /// The service is asked about it.
+    Usable,
+}
+
+/// The quick checks on a folder the user picked, for immediate feedback; the service decides again (D-11). With the move
+/// on the folder must be empty (legacy); either way a file must be creatable in it. It does file I/O, so it runs on the
+/// background executor.
+pub fn precheck_destination(current: &Path, destination: &Path, move_on: bool) -> Result<Picked, LocationProblem> {
+    if !destination.is_dir() {
+        return Err(LocationProblem::Missing);
+    }
+    let resolved = |path: &Path| std::fs::canonicalize(path).unwrap_or_else(|_| path.to_path_buf());
+    if resolved(current) == resolved(destination) {
+        return Ok(Picked::Same);
+    }
+    if move_on
+        && std::fs::read_dir(destination)
+            .map_err(|_| LocationProblem::NoAccess)?
+            .next()
+            .is_some()
+    {
+        return Err(LocationProblem::NotEmpty);
+    }
+    let probe = destination.join(format!(".sucrose-write-test-{}", std::process::id()));
+    std::fs::write(&probe, b"")
+        .and_then(|()| std::fs::remove_file(&probe))
+        .map_err(|_| LocationProblem::NoAccess)?;
+    Ok(Picked::Usable)
+}
+
+/// What the Portal does with the answer of a MoveLibrary request.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum MoveEffect {
+    /// The location changed: show it and load the library from it.
+    Applied,
+    /// The folder was turned away: say why under the row.
+    Note(LocationProblem),
+    /// The move failed and was rolled back: an error toast.
+    Failed,
+    /// Nothing to show.
+    Nothing,
+}
+
+/// The effect of `outcome` on the page.
+pub fn move_effect(outcome: &MoveOutcome) -> MoveEffect {
+    match outcome {
+        MoveOutcome::Moved | MoveOutcome::Changed => MoveEffect::Applied,
+        MoveOutcome::Refused(refusal) => match refusal {
+            MoveRefusal::NotEmpty => MoveEffect::Note(LocationProblem::NotEmpty),
+            MoveRefusal::NotWritable => MoveEffect::Note(LocationProblem::NoAccess),
+            MoveRefusal::Nested => MoveEffect::Note(LocationProblem::Nested),
+            MoveRefusal::Busy => MoveEffect::Note(LocationProblem::Busy),
+            MoveRefusal::Missing => MoveEffect::Note(LocationProblem::Missing),
+            // The picked folder is the library in use: nothing changes, nothing to say.
+            MoveRefusal::Same => MoveEffect::Nothing,
+        },
+        MoveOutcome::Failed { .. } => MoveEffect::Failed,
+    }
+}
+
+/// How long the sentence about a turned-away folder stays under the row (legacy: 3 s).
+const NOTE_TIME: Duration = Duration::from_secs(3);
+
 /// How many characters of a path the rows show before the end is cut; the row's own width cuts what is left.
 const PATH_CHARS: usize = 64;
 /// How long the opacity slider rests before its value is sent.
@@ -182,6 +279,14 @@ pub struct GeneralPage {
     opacity_rest: Option<Task<()>>,
     /// Why the image the user picked last was not used.
     image_error: Option<BackgroundError>,
+    /// The folder a MoveLibrary request is on its way for; the answer says what became of it.
+    pending_move: Option<String>,
+    /// The service reports that the library is being moved.
+    moving: bool,
+    /// Why the folder picked last was turned away; goes by itself after [`NOTE_TIME`].
+    location_note: Option<LocationProblem>,
+    /// Clears the note; replacing it cancels the one before.
+    note_timer: Option<Task<()>>,
     _subscriptions: Vec<Subscription>,
 }
 
@@ -236,6 +341,10 @@ impl GeneralPage {
             opacity,
             opacity_rest: None,
             image_error: None,
+            pending_move: None,
+            moving: false,
+            location_note: None,
+            note_timer: None,
             _subscriptions: subscriptions,
         }
     }
@@ -244,7 +353,147 @@ impl GeneralPage {
     pub fn set_connected(&mut self, connected: bool, cx: &mut Context<Self>) {
         if self.connected != connected {
             self.connected = connected;
+            if !connected {
+                // The answer of a request that was in flight is lost with the connection.
+                self.pending_move = None;
+            }
             cx.notify();
+        }
+    }
+
+    /// The service says whether the library is being moved: the row shows the progress text and its controls rest.
+    pub fn set_moving(&mut self, moving: bool, cx: &mut Context<Self>) {
+        if self.moving != moving {
+            self.moving = moving;
+            cx.notify();
+        }
+    }
+
+    /// Whether the library location is being changed: a request is on its way or the service reports the move.
+    fn changing_location(&self) -> bool {
+        self.moving || self.pending_move.is_some()
+    }
+
+    /// The service answered a MoveLibrary request. Returns the new location when it was applied, so the app can load the
+    /// library from it.
+    pub fn on_move_result(
+        &mut self,
+        outcome: &MoveOutcome,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) -> Option<String> {
+        let destination = self.pending_move.take();
+        let applied = match move_effect(outcome) {
+            MoveEffect::Applied => {
+                let location = destination?;
+                if let Some(settings) = &mut self.settings {
+                    settings.library_location.clone_from(&location);
+                }
+                self.location_note = None;
+                Some(location)
+            }
+            MoveEffect::Note(problem) => {
+                self.show_note(problem, cx);
+                None
+            }
+            MoveEffect::Failed => {
+                if let MoveOutcome::Failed { reason } = outcome {
+                    tracing::warn!(%reason, "the service could not move the library");
+                }
+                toast::show_error(tr("Portal.GeneralSettingPage.PrivateLibrary.MoveFailed"), window, cx);
+                None
+            }
+            MoveEffect::Nothing => None,
+        };
+        cx.notify();
+        applied
+    }
+
+    /// Shows why a folder was turned away, for [`NOTE_TIME`].
+    fn show_note(&mut self, problem: LocationProblem, cx: &mut Context<Self>) {
+        self.location_note = Some(problem);
+        self.note_timer = Some(cx.spawn(async move |this, cx| {
+            cx.background_executor().timer(NOTE_TIME).await;
+            this.update(cx, |this, cx| {
+                this.location_note = None;
+                cx.notify();
+            })
+            .ok();
+        }));
+        cx.notify();
+    }
+
+    /// Asks the service to move the library to `destination`; the page waits for its answer.
+    fn start_move(&mut self, destination: String, cx: &mut Context<Self>) {
+        if self.state() != ControlState::Enabled || self.changing_location() {
+            return;
+        }
+        self.location_note = None;
+        self.pending_move = Some(destination.clone());
+        self.link.send(PortalRequest::MoveLibrary { destination });
+        cx.notify();
+    }
+
+    /// Opens the folder picker; the folder is checked on the background executor, then the confirmation opens (Move on)
+    /// or the request goes straight to the service (Move off).
+    fn choose_location(&mut self, window: &mut Window, cx: &mut Context<Self>) {
+        let Some(settings) = &self.settings else { return };
+        if self.changing_location() {
+            return;
+        }
+        let (current, move_on) = (library::location_of(settings), settings.library_move);
+        let chosen = cx.prompt_for_paths(PathPromptOptions {
+            files: false,
+            directories: true,
+            multiple: false,
+            prompt: Some(tr("Portal.LibraryPage.ChangeLocation")),
+        });
+        cx.spawn_in(window, async move |this, cx| {
+            let Ok(Ok(Some(paths))) = chosen.await else { return };
+            let Some(path) = paths.into_iter().next() else { return };
+            let checked = cx
+                .background_executor()
+                .spawn(async move {
+                    let picked = precheck_destination(&current, &path, move_on)?;
+                    let text = path.to_str().map(str::to_owned).ok_or(LocationProblem::Missing)?;
+                    // Looked at only when the confirmation needs it; this is the background executor.
+                    let classic = move_on && picked == Picked::Usable && move_library::classic_app_present();
+                    Ok::<_, LocationProblem>((picked, text, classic))
+                })
+                .await;
+            this.update_in(cx, |this, window, cx| this.on_picked(checked, move_on, window, cx))
+                .ok();
+        })
+        .detach();
+    }
+
+    /// The picked folder passed or failed the quick checks.
+    fn on_picked(
+        &mut self,
+        checked: Result<(Picked, String, bool), LocationProblem>,
+        move_on: bool,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
+        match checked {
+            Err(problem) => self.show_note(problem, cx),
+            Ok((Picked::Same, ..)) => {}
+            // Move off changes the location only, so there is nothing to confirm (UI-SPEC Copywriting).
+            Ok((Picked::Usable, text, _)) if !move_on => self.start_move(text, cx),
+            Ok((Picked::Usable, text, classic)) => {
+                let this = cx.weak_entity();
+                let destination = text.clone();
+                move_library::open(
+                    text,
+                    classic,
+                    move |_, cx| {
+                        this.update(cx, |page, cx| page.start_move(destination.clone(), cx))
+                            .ok();
+                    },
+                    window,
+                    cx,
+                );
+            }
         }
     }
 
@@ -502,7 +751,9 @@ impl Render for GeneralPage {
             .state(state)
             .build(cx);
 
-        // Library Location: the folder in use; plan 22 adds the folder picker and the move.
+        // Library Location: the folder in use, the picker and the move switch. While the location changes the row shows the
+        // progress text and rests.
+        let changing = self.changing_location();
         let location = settings
             .as_ref()
             .map(|s| library::location_of(s).to_string_lossy().into_owned())
@@ -528,13 +779,44 @@ impl Render for GeneralPage {
                 }),
             LOCATION_WIDTH,
         )
-        .footer(self.checkbox(
-            "library-move",
-            settings.as_ref().is_some_and(|s| s.library_move),
-            tr("Portal.GeneralSettingPage.PrivateLibrary.LibraryMove"),
-            SettingChange::LibraryMove,
-            cx,
-        ))
+        .footer(
+            h_flex().w_full().gap_3().items_center().child(
+                Button::new("library-change")
+                    .primary()
+                    .label(tr("Portal.LibraryPage.ChangeLocation"))
+                    .disabled(disabled || changing)
+                    .on_click(cx.listener(|this, _: &ClickEvent, window, cx| this.choose_location(window, cx))),
+            ),
+        )
+        .footer(
+            self.checkbox(
+                "library-move",
+                settings.as_ref().is_some_and(|s| s.library_move),
+                tr("Portal.GeneralSettingPage.PrivateLibrary.LibraryMove"),
+                SettingChange::LibraryMove,
+                cx,
+            )
+            .disabled(disabled || changing),
+        );
+        let library_row = if changing {
+            library_row.footer(
+                div()
+                    .text_xs()
+                    .text_color(muted)
+                    .child(tr("Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move")),
+            )
+        } else {
+            library_row
+        };
+        let library_row = match self.location_note {
+            Some(problem) => library_row.footer(
+                div()
+                    .text_xs()
+                    .text_color(cx.theme().danger)
+                    .child(tr(problem.text_key())),
+            ),
+            None => library_row,
+        }
         .state(state)
         .build(cx);
 
@@ -557,7 +839,12 @@ mod tests {
 
     use sucrose_core::settings::Backdrop;
 
-    use super::{BackdropReason, backdrop_options, image_choice, reason_text, truncate_path};
+    use sucrose_ipc::portal::{MoveOutcome, MoveRefusal};
+
+    use super::{
+        BackdropReason, LocationProblem, MoveEffect, Picked, backdrop_options, image_choice, move_effect,
+        precheck_destination, reason_text, truncate_path,
+    };
     use crate::background::BackgroundError;
 
     fn disabled(options: &[super::BackdropOption]) -> Vec<Backdrop> {
@@ -636,5 +923,122 @@ mod tests {
         let wide = "é".repeat(30);
         let cut = truncate_path(&wide, 10);
         assert_eq!(cut.chars().count(), 10);
+    }
+
+    /// A scratch folder of its own under the OS temp folder, removed when the test ends.
+    struct Scratch(std::path::PathBuf);
+
+    impl Scratch {
+        fn new(name: &str) -> Self {
+            let dir = std::env::temp_dir().join(format!("sucrose-portal-general-{}-{name}", std::process::id()));
+            let _ = std::fs::remove_dir_all(&dir);
+            std::fs::create_dir_all(&dir).expect("the scratch folder can be created");
+            Self(dir)
+        }
+
+        fn folder(&self, name: &str) -> std::path::PathBuf {
+            let dir = self.0.join(name);
+            std::fs::create_dir_all(&dir).expect("the folder can be created");
+            dir
+        }
+    }
+
+    impl Drop for Scratch {
+        fn drop(&mut self) {
+            let _ = std::fs::remove_dir_all(&self.0);
+        }
+    }
+
+    #[test]
+    fn settings_location_a_missing_folder_is_turned_away() {
+        let scratch = Scratch::new("missing");
+        let current = scratch.folder("Library");
+
+        assert_eq!(
+            precheck_destination(&current, &scratch.0.join("nowhere"), true),
+            Err(LocationProblem::Missing)
+        );
+    }
+
+    #[test]
+    fn settings_location_the_library_itself_changes_nothing() {
+        let scratch = Scratch::new("same");
+        let current = scratch.folder("Library");
+
+        assert_eq!(precheck_destination(&current, &current, true), Ok(Picked::Same));
+        assert_eq!(
+            precheck_destination(&current, &current.join("..").join("Library"), false),
+            Ok(Picked::Same)
+        );
+    }
+
+    #[test]
+    fn settings_location_a_folder_with_files_is_not_empty_only_when_the_move_is_on() {
+        let scratch = Scratch::new("not-empty");
+        let current = scratch.folder("Library");
+        let full = scratch.folder("Full");
+        std::fs::write(full.join("a.txt"), b"a").expect("the file can be written");
+
+        assert_eq!(
+            precheck_destination(&current, &full, true),
+            Err(LocationProblem::NotEmpty)
+        );
+        assert_eq!(precheck_destination(&current, &full, false), Ok(Picked::Usable));
+    }
+
+    #[test]
+    fn settings_location_an_empty_writable_folder_is_usable_and_the_probe_leaves_nothing() {
+        let scratch = Scratch::new("usable");
+        let current = scratch.folder("Library");
+        let empty = scratch.folder("Empty");
+
+        assert_eq!(precheck_destination(&current, &empty, true), Ok(Picked::Usable));
+        assert_eq!(std::fs::read_dir(&empty).map(Iterator::count).ok(), Some(0));
+    }
+
+    #[test]
+    fn settings_location_the_service_answers_lead_to_the_matching_effect() {
+        assert_eq!(move_effect(&MoveOutcome::Moved), MoveEffect::Applied);
+        assert_eq!(move_effect(&MoveOutcome::Changed), MoveEffect::Applied);
+        assert_eq!(
+            move_effect(&MoveOutcome::Refused(MoveRefusal::NotEmpty)),
+            MoveEffect::Note(LocationProblem::NotEmpty)
+        );
+        assert_eq!(
+            move_effect(&MoveOutcome::Refused(MoveRefusal::NotWritable)),
+            MoveEffect::Note(LocationProblem::NoAccess)
+        );
+        assert_eq!(
+            move_effect(&MoveOutcome::Refused(MoveRefusal::Nested)),
+            MoveEffect::Note(LocationProblem::Nested)
+        );
+        assert_eq!(
+            move_effect(&MoveOutcome::Refused(MoveRefusal::Busy)),
+            MoveEffect::Note(LocationProblem::Busy)
+        );
+        assert_eq!(
+            move_effect(&MoveOutcome::Refused(MoveRefusal::Missing)),
+            MoveEffect::Note(LocationProblem::Missing)
+        );
+        assert_eq!(
+            move_effect(&MoveOutcome::Refused(MoveRefusal::Same)),
+            MoveEffect::Nothing
+        );
+        assert_eq!(
+            move_effect(&MoveOutcome::Failed { reason: String::new() }),
+            MoveEffect::Failed
+        );
+    }
+
+    #[test]
+    fn settings_location_the_sentences_are_the_ui_spec_texts() {
+        assert_eq!(
+            &*crate::i18n::tr(LocationProblem::NotEmpty.text_key()),
+            "Please select an empty folder"
+        );
+        assert_eq!(
+            &*crate::i18n::tr(LocationProblem::NoAccess.text_key()),
+            "Unfortunately, you don't have access to the new location"
+        );
     }
 }
