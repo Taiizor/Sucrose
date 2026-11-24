@@ -3,10 +3,13 @@
 //! everything from its own settings and its own scan; the Portal only asks.
 
 use std::{
-    io,
+    collections::HashSet,
+    fs, io,
     path::{Path, PathBuf},
 };
 
+use sucrose_config::model::Settings;
+use sucrose_core::paths;
 use sucrose_ipc::portal::MaintainReport;
 
 /// What one maintenance run works on, copied from the settings so the worker never touches them.
@@ -20,6 +23,17 @@ pub struct MaintainInput {
     pub copied: Vec<String>,
 }
 
+impl MaintainInput {
+    /// What the settings say about the library, with the showcase folder of this data folder.
+    pub fn from_settings(settings: &Settings, legacy_root: &Path) -> Self {
+        Self {
+            location: settings.library_location(legacy_root),
+            showcase: paths::showcase_dir(),
+            copied: settings.warehouse.showcase.clone(),
+        }
+    }
+}
+
 /// How much one [`copy_tree`] copied.
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
 pub struct CopyStats {
@@ -31,27 +45,113 @@ pub struct CopyStats {
 
 /// Copies the folder `from` to `to` (created), nested folders and files included; symbolic links are skipped, never
 /// followed.
+#[allow(
+    dead_code,
+    reason = "the library move of the next plan copies across volumes with it"
+)]
 pub fn copy_tree(from: &Path, to: &Path) -> io::Result<CopyStats> {
-    let _ = (from, to);
-    Ok(CopyStats::default())
+    copy_tree_with(from, to, &|source, destination| fs::copy(source, destination))
+}
+
+/// How one file is copied; tests swap it for one that fails.
+type CopyFile<'a> = &'a dyn Fn(&Path, &Path) -> io::Result<u64>;
+
+/// [`copy_tree`] with the file copy given.
+fn copy_tree_with(from: &Path, to: &Path, copy_file: CopyFile<'_>) -> io::Result<CopyStats> {
+    fs::create_dir_all(to)?;
+    let mut stats = CopyStats::default();
+    for entry in fs::read_dir(from)? {
+        let entry = entry?;
+        // The type of the entry itself: a link is neither a file nor a folder here, so it is never followed.
+        let kind = entry.file_type()?;
+        let target = to.join(entry.file_name());
+        if kind.is_dir() {
+            let inner = copy_tree_with(&entry.path(), &target, copy_file)?;
+            stats.files += inner.files;
+            stats.bytes += inner.bytes;
+        } else if kind.is_file() {
+            stats.bytes += copy_file(&entry.path(), &target)?;
+            stats.files += 1;
+        }
+    }
+    Ok(stats)
 }
 
 /// Runs the maintenance: the report and the showcase names to record in `Warehouse.Showcase`.
 pub fn maintain(input: &MaintainInput) -> (MaintainReport, Vec<String>) {
-    let _ = input;
-    (
-        MaintainReport {
-            showcase_copied: 0,
-            corrupt_moved: 0,
-            corrupt_skipped: 0,
-        },
-        Vec::new(),
-    )
+    maintain_with(input, &|source, destination| fs::copy(source, destination))
+}
+
+/// [`maintain`] with the file copy given.
+fn maintain_with(input: &MaintainInput, copy_file: CopyFile<'_>) -> (MaintainReport, Vec<String>) {
+    let mut report = MaintainReport {
+        showcase_copied: 0,
+        corrupt_moved: 0,
+        corrupt_skipped: 0,
+    };
+    if let Err(error) = fs::create_dir_all(&input.location) {
+        tracing::warn!(%error, "the library folder cannot be created, nothing is maintained");
+        return (report, Vec::new());
+    }
+    let (copied, names) = copy_showcase(input, copy_file);
+    report.showcase_copied = copied;
+    (report, names)
+}
+
+/// Copies every folder of the showcase whose name is not recorded yet into the library. A name is returned only when the
+/// folder is in the library afterwards: copied now, or already there (legacy: it was there before). An existing folder is
+/// never written to. Returns the number of folders copied and the names to record.
+fn copy_showcase(input: &MaintainInput, copy_file: CopyFile<'_>) -> (u32, Vec<String>) {
+    let Some(showcase) = &input.showcase else {
+        return (0, Vec::new());
+    };
+    // A showcase folder that is missing is the normal case after the first run, and under SUCROSE_DATA_DIR.
+    let Ok(entries) = fs::read_dir(showcase) else {
+        return (0, Vec::new());
+    };
+    let listed: HashSet<&str> = input.copied.iter().map(String::as_str).collect();
+    let mut folders: Vec<_> = entries
+        .filter_map(Result::ok)
+        // A link is not followed: only real folders are showcase themes.
+        .filter(|entry| entry.file_type().is_ok_and(|kind| kind.is_dir()))
+        .collect();
+    folders.sort_by_key(fs::DirEntry::file_name);
+    let (mut copied, mut names) = (0, Vec::new());
+    for entry in folders {
+        let name = entry.file_name().to_string_lossy().into_owned();
+        if listed.contains(name.as_str()) {
+            continue;
+        }
+        let destination = input.location.join(entry.file_name());
+        if destination.symlink_metadata().is_ok() {
+            names.push(name);
+            continue;
+        }
+        match copy_tree_with(&entry.path(), &destination, copy_file) {
+            Ok(stats) => {
+                tracing::debug!(files = stats.files, bytes = stats.bytes, "a showcase theme was copied");
+                copied += 1;
+                names.push(name);
+            }
+            Err(error) => {
+                tracing::warn!(%error, "a showcase theme could not be copied");
+                // The destination did not exist before this copy, so everything in it was created by it.
+                if let Err(error) = fs::remove_dir_all(&destination) {
+                    tracing::warn!(%error, "what the failed copy created could not be removed");
+                }
+            }
+        }
+    }
+    (copied, names)
 }
 
 /// Adds `names` to the recorded showcase list, each once.
 pub fn record_names(list: &mut Vec<String>, names: &[String]) {
-    let _ = (list, names);
+    for name in names {
+        if !list.contains(name) {
+            list.push(name.clone());
+        }
+    }
 }
 
 #[cfg(test)]
@@ -192,6 +292,26 @@ mod tests {
         #[cfg(windows)]
         let made = std::os::windows::fs::symlink_file(target, at);
         made.is_ok()
+    }
+
+    #[test]
+    fn a_copy_that_fails_halfway_removes_what_it_created_and_records_nothing() {
+        let scratch = Scratch::new("halfway");
+        theme(&scratch.path("Showcase"), "B");
+        // The info file copies, the nested video does not.
+        let failing = |source: &Path, destination: &Path| {
+            if source.file_name().is_some_and(|name| name == "video.mp4") {
+                Err(io::Error::other("the disk is full"))
+            } else {
+                fs::copy(source, destination)
+            }
+        };
+
+        let (report, names) = maintain_with(&input(&scratch, &[]), &failing);
+
+        assert!(names.is_empty(), "a failed copy is not recorded");
+        assert_eq!(report.showcase_copied, 0);
+        assert!(!scratch.path("Library/B").exists(), "the half copy is removed");
     }
 
     #[test]

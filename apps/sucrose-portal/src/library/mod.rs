@@ -31,7 +31,7 @@ use sucrose_core::{
     settings::{SortKind, SortMode},
     version::app_version,
 };
-use sucrose_ipc::portal::{PortalSettings, RuntimeState, UseOutcome};
+use sucrose_ipc::portal::{MaintainReport, PortalRequest, PortalSettings, RuntimeState, UseOutcome};
 
 use card::{CardData, Thumb};
 use preview::{Finish, HOVER_DWELL, PreviewState, load_preview};
@@ -189,6 +189,11 @@ pub struct LibraryView {
     runtime: Option<RuntimeState>,
     /// Whether the Portal is registered with the service.
     connected: bool,
+    /// Whether this connection already asked the service to maintain the library (once per connection, after the first
+    /// scan).
+    maintain_sent: bool,
+    /// Whether the service is maintaining the library and has not reported yet: first run, showcase copy.
+    preparing: bool,
     /// The folder of the last Use click that the service has not answered yet; its card shows the spinner.
     pending_use: Option<String>,
     /// One focus handle per card position of the page, kept between renders so focus survives a re-render.
@@ -244,6 +249,8 @@ impl LibraryView {
             link,
             runtime: None,
             connected: false,
+            maintain_sent: false,
+            preparing: false,
             pending_use: None,
             focus: Vec::new(),
             jump,
@@ -268,6 +275,29 @@ impl LibraryView {
         self.connected = connected;
         if !connected {
             self.pending_use = None;
+            // The next connection asks again; a report that was on its way is lost with this one.
+            self.maintain_sent = false;
+            self.preparing = false;
+        }
+        cx.notify();
+    }
+
+    /// Asks the service to maintain the library (showcase copy, corrupt themes), once per connection. The service decides
+    /// everything itself; the request carries nothing (D-11).
+    fn request_maintenance(&mut self) {
+        if self.connected && !self.maintain_sent {
+            self.maintain_sent = true;
+            self.preparing = true;
+            self.link.send(PortalRequest::MaintainLibrary);
+        }
+    }
+
+    /// The service finished maintaining the library: the preparing line goes, and the folder is scanned again when the
+    /// maintenance changed it (themes copied or moved) or when the first scan failed (the folder may exist now).
+    pub fn on_maintained(&mut self, report: &MaintainReport, cx: &mut Context<Self>) {
+        self.preparing = false;
+        if report.showcase_copied > 0 || report.corrupt_moved > 0 || self.phase == Phase::Failed {
+            self.reload(cx);
         }
         cx.notify();
     }
@@ -458,6 +488,7 @@ impl LibraryView {
                 self.phase = Phase::Failed;
             }
         }
+        self.request_maintenance();
         cx.notify();
     }
 
@@ -730,7 +761,16 @@ impl Render for LibraryView {
             return div().size_full().into_any_element();
         };
         let content_width = (f32::from(window.viewport_size().width) - 2.0 * grid::CONTENT_PADDING).max(0.0);
+        // While the service prepares a library that shows nothing yet, the skeleton grid and the preparing line stand in for
+        // the empty and error states; with themes on screen the maintenance stays unseen.
+        let preparing = self.preparing
+            && self.themes.is_empty()
+            && matches!(
+                self.phase,
+                Phase::Ready | Phase::Failed | Phase::Scanning { skeleton: true }
+            );
         let content = match self.phase {
+            _ if preparing => grid::skeleton(content_width, settings.margin, settings.adaptive_layout, &self.scroll),
             Phase::Scanning { skeleton: true } => {
                 grid::skeleton(content_width, settings.margin, settings.adaptive_layout, &self.scroll)
             }
@@ -802,6 +842,7 @@ impl Render for LibraryView {
         v_flex()
             .size_full()
             .child(div().flex_1().min_h_0().w_full().child(content))
+            .when(preparing, |column| column.child(grid::preparing(cx)))
             .when_some(bar, |column, bar| column.child(bar))
             .into_any_element()
     }

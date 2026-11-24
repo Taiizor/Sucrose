@@ -2,7 +2,7 @@
 
 use gpui_kit::assets::IconName;
 use gpui_kit::component::{
-    Icon, Sizable as _,
+    ActiveTheme as _, Icon, Sizable as _,
     button::Button,
     empty::{Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyMediaVariant, EmptyTitle},
     h_flex, v_flex,
@@ -191,6 +191,19 @@ pub fn skeleton(content_width: f32, gap: f32, max_per_row: usize, scroll: &Scrol
         );
     }
     scroll_area(scroll, block)
+}
+
+/// The first-run line under the skeleton grid while the service prepares the library (UI-SPEC E1 loading row).
+pub fn preparing(cx: &App) -> AnyElement {
+    div()
+        .w_full()
+        .flex_none()
+        .py(px(CONTENT_PADDING))
+        .text_center()
+        .text_sm()
+        .text_color(cx.theme().muted_foreground)
+        .child(tr("Portal.LibraryPage.Preparing"))
+        .into_any_element()
 }
 
 #[cfg(test)]

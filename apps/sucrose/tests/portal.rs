@@ -12,7 +12,10 @@ use sucrose_core::{
 };
 use sucrose_ipc::{
     connect,
-    portal::{Launch, LaunchReply, PortalEvent, PortalPage, PortalRequest, SettingChange, UseOutcome, UseRefusal},
+    portal::{
+        Launch, LaunchReply, MaintainReport, PortalEvent, PortalPage, PortalRequest, SettingChange, UseOutcome,
+        UseRefusal,
+    },
     protocol::ToService,
     service_endpoint_for,
 };
@@ -624,4 +627,46 @@ fn utc_now() -> String {
         rest % 60,
         since_epoch.subsec_millis()
     )
+}
+
+/// Sends a MaintainLibrary and returns the report the service answers with, skipping the other events.
+fn maintain(portal: &mut PortalClient) -> MaintainReport {
+    portal.request(&PortalRequest::MaintainLibrary);
+    loop {
+        match portal.next_event() {
+            Some(PortalEvent::LibraryMaintained(report)) => return report,
+            Some(_) => {}
+            None => panic!("no LibraryMaintained"),
+        }
+    }
+}
+
+#[test]
+fn showcase_themes_are_copied_once_and_recorded_in_the_settings() {
+    if !service_runs("showcase_themes_are_copied_once_and_recorded_in_the_settings") {
+        return;
+    }
+    let service = TestService::start("showcase-once", &json!({ "Warehouse": { "Showcase": ["Listed"] } }));
+    for name in ["Listed", "Fresh"] {
+        let theme = service.dir.join("Showcase").join(name);
+        std::fs::create_dir_all(&theme).expect("the showcase theme folder can be created");
+        std::fs::write(theme.join("SucroseInfo.json"), b"{}").expect("the showcase file can be written");
+    }
+    let (mut portal, first) = PortalClient::hello(&service, None);
+    assert!(matches!(first, PortalEvent::Welcome { .. }), "{first:?}");
+
+    let report = maintain(&mut portal);
+
+    assert_eq!(report.showcase_copied, 1);
+    assert_eq!(report.corrupt_moved, 0);
+    assert!(service.dir.join("Library/Fresh/SucroseInfo.json").is_file());
+    assert!(
+        !service.dir.join("Library/Listed").exists(),
+        "a listed name is not copied"
+    );
+    let recorded = service.settings_file()["Warehouse"]["Showcase"].clone();
+    assert_eq!(recorded, json!(["Listed", "Fresh"]));
+
+    // The second run finds every name recorded and copies nothing.
+    assert_eq!(maintain(&mut portal).showcase_copied, 0);
 }

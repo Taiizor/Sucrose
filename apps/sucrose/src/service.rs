@@ -25,8 +25,8 @@ use sucrose_core::{
 use sucrose_ipc::{
     Connection, IpcError, Listener,
     portal::{
-        Launch, LaunchReply, PortalEvent, PortalPage, PortalRequest, RuleState, RuntimeState, SettingChange,
-        UseOutcome, UseRefusal,
+        Launch, LaunchReply, MaintainReport, PortalEvent, PortalPage, PortalRequest, RuleState, RuntimeState,
+        SettingChange, UseOutcome, UseRefusal,
     },
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
     service_endpoint,
@@ -40,6 +40,7 @@ use sucrose_core::settings::{FullScreenAction, FullScreenScope, GpuPreference, P
 
 use crate::{
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
+    library_ops::{self, MaintainInput},
     lifecycle::{Closing, OPEN_LABEL, exit_label, should_exit, start_actions},
     modules::{
         MEMORY_TIMER, MemoryModule, ModuleAction, PortalEnd, end_portal, module_off, pids_by_slot, start_module,
@@ -107,6 +108,49 @@ enum Event {
         /// Where the main thread puts the answer for the launcher's connection.
         reply: Sender<LaunchReply>,
     },
+    /// The library-ops worker finished a maintenance run.
+    LibraryOps(LibraryDone),
+}
+
+/// What the library-ops worker reports: the counts for the Portal and the showcase names for the settings.
+#[derive(Debug)]
+struct LibraryDone {
+    report: MaintainReport,
+    /// Showcase folder names that are in the library now and must be recorded in `Warehouse.Showcase`.
+    copied: Vec<String>,
+}
+
+/// The report of a maintenance that did nothing.
+const NOTHING_MAINTAINED: MaintainReport = MaintainReport {
+    showcase_copied: 0,
+    corrupt_moved: 0,
+    corrupt_skipped: 0,
+};
+
+/// Starts the `library-ops` thread for one maintenance run (T-03-50): copying and moving never run on the main thread.
+/// The result comes back as `Event::LibraryOps`, also when the worker panics. `false` when the thread cannot start.
+fn start_library_ops(input: MaintainInput, notifier: &Notifier) -> bool {
+    let notifier = notifier.clone();
+    let started = thread::Builder::new().name("library-ops".to_owned()).spawn(move || {
+        let done = std::panic::catch_unwind(|| library_ops::maintain(&input)).map_or_else(
+            |_| {
+                tracing::error!("the library maintenance panicked");
+                LibraryDone {
+                    report: NOTHING_MAINTAINED,
+                    copied: Vec::new(),
+                }
+            },
+            |(report, copied)| LibraryDone { report, copied },
+        );
+        notifier.send(Event::LibraryOps(done));
+    });
+    match started {
+        Ok(_) => true,
+        Err(error) => {
+            tracing::warn!(%error, "cannot start the library-ops thread");
+            false
+        }
+    }
 }
 
 /// Sends events to the main thread and wakes its message loop, so the loop never polls.
@@ -531,6 +575,8 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
     // When this service last started a Portal that has not registered yet, so a launcher that comes in the meantime
     // does not start a second one (T-03-35).
     let mut portal_spawned: Option<Instant> = None;
+    // Whether the library-ops worker runs; one maintenance at a time.
+    let mut library_job = false;
     // The legacy Launcher rule (D-12): what the service itself starts besides the wallpaper that the plan already
     // started above.
     let start = start_actions(plan.selected_exists, plan.app_visible, portal_wanted);
@@ -826,11 +872,44 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                         outcome: done.outcome,
                                     });
                                 }
+                                PortalRequest::MaintainLibrary => {
+                                    if library_job {
+                                        // The one registered Portal gets the report of the run that is going.
+                                        tracing::debug!("library maintenance is running, the answer comes when it ends");
+                                    } else if let Some(root) = legacy_root.as_deref() {
+                                        let input = MaintainInput::from_settings(host.settings(), root);
+                                        if start_library_ops(input, &notifier) {
+                                            library_job = true;
+                                        } else {
+                                            portals.send(PortalEvent::LibraryMaintained(NOTHING_MAINTAINED));
+                                        }
+                                    } else {
+                                        portals.send(PortalEvent::LibraryMaintained(NOTHING_MAINTAINED));
+                                    }
+                                }
                                 other => {
                                     tracing::debug!(kind = request_kind(&other), "portal request, nothing handles it yet");
                                 }
                             }
                         }
+                    }
+                    Event::LibraryOps(done) => {
+                        library_job = false;
+                        // Recorded only now, after the copies succeeded; a failed save only means the next run finds the
+                        // folders there and records them.
+                        if !done.copied.is_empty()
+                            && let Err(reason) =
+                                host.update(|settings| library_ops::record_names(&mut settings.warehouse.showcase, &done.copied))
+                        {
+                            tracing::warn!(%reason, "the copied showcase names could not be saved");
+                        }
+                        tracing::info!(
+                            showcase_copied = done.report.showcase_copied,
+                            corrupt_moved = done.report.corrupt_moved,
+                            corrupt_skipped = done.report.corrupt_skipped,
+                            "library maintained"
+                        );
+                        portals.send(PortalEvent::LibraryMaintained(done.report));
                     }
                     Event::PortalGone { connection } => {
                         if portals.gone(connection) {

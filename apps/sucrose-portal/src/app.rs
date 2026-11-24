@@ -342,6 +342,10 @@ impl PortalApp {
                         .update(cx, |library, cx| library.set_runtime(runtime.clone(), cx));
                     self.runtime = Some(runtime);
                 }
+                PortalEvent::LibraryMaintained(report) => {
+                    self.library
+                        .update(cx, |library, cx| library.on_maintained(&report, cx));
+                }
                 PortalEvent::Memory(report) => {
                     self.status_bar.update(cx, |bar, cx| bar.set_memory(Some(report), cx));
                 }
