@@ -30,6 +30,8 @@ gpui-kit = "=0.10.0"
 # Image decoding and encoding; GPUI already depends on ^0.25, so the Portal shares the copy. Default features off.
 image = { version = "0.25", default-features = false, features = ["jpeg", "png", "gif", "webp", "tiff"] }
 interprocess = "2.4.9"
+# JPEG decoding with DCT scaling (a thumbnail never exists at full size); default features off drops rayon.
+jpeg-decoder = { version = "0.3.2", default-features = false }
 libloading = "0.9.1"
 postcard = { version = "1.2.0", features = ["use-std"] }
 rust-i18n = "4.2.4"

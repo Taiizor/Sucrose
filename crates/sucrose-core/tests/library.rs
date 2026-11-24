@@ -7,7 +7,10 @@ use std::{
 
 use serde_json::json;
 use sucrose_core::{
-    library::{Compatibility, CorruptReason, LibraryTheme, Scan, display_title, is_url, scan, search, sort},
+    library::{
+        Compatibility, CorruptReason, LibraryTheme, Scan, display_description, display_title, is_url, scan, search,
+        sort,
+    },
     paths::legacy_setting_dir,
     settings::{SortKind, SortMode},
     theme::{WallpaperType, parse_info},
@@ -288,6 +291,38 @@ fn the_title_is_the_localized_one_then_the_base_one_then_the_folder() {
     assert_eq!(title("local"), "Local");
     assert_eq!(title("other"), "Base");
     assert_eq!(title("empty"), "empty");
+}
+
+#[test]
+fn the_description_is_the_localized_one_then_the_base_one_then_nothing() {
+    let scratch = Scratch::new("description");
+    let location = scratch.library_of(&[
+        ("plain", "T", "Base text", json!(null), json!(null)),
+        (
+            "local",
+            "T",
+            "Base text",
+            json!(null),
+            json!({"en": {"Title": "T", "Description": "Local text"}}),
+        ),
+        (
+            "other",
+            "T",
+            "Base text",
+            json!(null),
+            json!({"TR": {"Title": "T", "Description": "Yerel"}}),
+        ),
+        ("blank", "T", "   ", json!(null), json!(null)),
+    ]);
+    let scan = scan(location, &app_version()).expect("scans");
+    let description = |folder: &str| {
+        let theme = scan.themes.iter().find(|t| t.folder == folder).expect("listed");
+        display_description(&theme.info).map(str::to_owned)
+    };
+    assert_eq!(description("plain").as_deref(), Some("Base text"));
+    assert_eq!(description("local").as_deref(), Some("Local text"));
+    assert_eq!(description("other").as_deref(), Some("Base text"));
+    assert_eq!(description("blank"), None);
 }
 
 #[test]

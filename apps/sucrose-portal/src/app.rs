@@ -8,6 +8,7 @@ use sucrose_ipc::portal::{PortalEvent, PortalPage, PortalSettings, RuntimeState}
 use crate::{
     banner,
     ipc::{ConnectionState, LinkEvent, ServiceLink, next_state},
+    library::LibraryView,
 };
 
 /// The Portal window's content. Later plans add the pages as children.
@@ -26,6 +27,8 @@ pub struct PortalApp {
     pub page: PortalPage,
     /// Sends requests to the service.
     pub link: ServiceLink,
+    /// The library page.
+    pub library: Entity<LibraryView>,
     /// The task that awaits the link's events; dropped with the app.
     _events: Task<()>,
 }
@@ -51,12 +54,14 @@ impl PortalApp {
                 }
             }
         });
+        let library = cx.new(|_| LibraryView::new(window.scale_factor()));
         let mut app = Self {
             state: ConnectionState::Connecting,
             settings: None,
             runtime: None,
             page,
             link,
+            library,
             _events: task,
         };
         for event in early {
@@ -71,12 +76,15 @@ impl PortalApp {
         if let LinkEvent::Event(event) = event {
             match event {
                 PortalEvent::Welcome { settings, runtime } => {
+                    self.library.update(cx, |library, cx| library.load(&settings, cx));
                     self.settings = Some(settings);
                     self.runtime = Some(runtime);
                 }
                 PortalEvent::Changed(change) => {
                     if let Some(settings) = &mut self.settings {
                         settings.apply(&change);
+                        self.library
+                            .update(cx, |library, cx| library.update_settings(settings, cx));
                     }
                 }
                 PortalEvent::Runtime(runtime) => self.runtime = Some(runtime),
@@ -114,6 +122,6 @@ impl Render for PortalApp {
                 banner::connection_banner(self.state, cx.listener(|this, _: &ClickEvent, _, _| this.link.retry())),
                 |column, banner| column.child(banner),
             )
-            .child(v_flex().flex_1())
+            .child(v_flex().flex_1().min_h_0().child(self.library.clone()))
     }
 }

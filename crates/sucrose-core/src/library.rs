@@ -313,6 +313,22 @@ pub fn display_title<'a>(info: &'a SucroseInfo, folder: &'a str) -> &'a str {
         .unwrap_or(folder)
 }
 
+/// The description to show for a theme: the text of the current language, then the base description; `None` when both
+/// are empty.
+pub fn display_description(info: &SucroseInfo) -> Option<&str> {
+    let localized = info
+        .localization
+        .as_ref()
+        .and_then(|texts| {
+            texts
+                .iter()
+                .find(|(language, _)| language.eq_ignore_ascii_case(CURRENT_LANGUAGE))
+        })
+        .map(|(_, text)| text.description.as_str())
+        .filter(|description| !description.trim().is_empty());
+    localized.or(Some(info.description.as_str()).filter(|description| !description.trim().is_empty()))
+}
+
 /// Whether `c` is punctuation in the sense of the legacy `\p{P}` (symbols such as `$` and `+` are not). Characters
 /// outside ASCII are covered by the common blocks (general punctuation, CJK and full-width forms), not by the full
 /// Unicode table the standard library does not carry.

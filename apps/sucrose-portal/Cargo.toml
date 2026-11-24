@@ -12,6 +12,8 @@ anyhow = { workspace = true }
 async-channel = { workspace = true }
 crossbeam-channel = { workspace = true }
 gpui-kit = { workspace = true }
+image = { workspace = true }
+jpeg-decoder = { workspace = true }
 rust-i18n = { workspace = true }
 sucrose-core = { workspace = true }
 sucrose-ipc = { workspace = true }
