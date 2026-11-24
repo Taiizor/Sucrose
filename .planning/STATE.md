@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-07-PLAN.md
-last_updated: "2026-11-24T05:39:16.205Z"
+stopped_at: Completed 03-08-PLAN.md
+last_updated: "2026-11-24T05:59:17.107Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: ce16bdb8e0aac6665971b5392b96669fbe478b2c
+state_head: 7191ab2789c5eb03ba35b817ed64743e6122a8c3
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 55
-  completed_plans: 37
+  completed_plans: 38
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 9 of 26
+Plan: 10 of 26
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -91,6 +91,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P06 | 11 min | 2 tasks | 11 files |
 | Phase 03 P26 | 9 min | 2 tasks | 15 files |
 | Phase 03 P07 | 9 min | 2 tasks | 7 files |
+| Phase 03 P08 | 17 min | 2 tasks | 13 files |
 
 ## Accumulated Context
 
@@ -152,6 +153,7 @@ Recent decisions affecting current work:
 - [Phase 03]: A Portal connection is identified by a service-assigned connection id, never by the pid it claims
 - [Phase 03]: [03-26] Engine choices are validated against the allowed engine set of their wallpaper type; storage and ping type names stay non-empty strings; Backgroundog runtime keys, stale names and Cycling.PassingTime are never fields
 - [Phase 03]: 03-07: SettingsHost without a store keeps legacy settings in memory and refuses every change with the not-saved text
+- [Phase 03]: 03-08: the Portal says PortalHello before opening its window and waits up to 2 s for the first event, so a second Portal exits with 0 on AlreadyOpen without a window; a connection that broke before Welcome does not reset the 3 reconnect attempts
 
 ### Pending Todos
 
@@ -184,6 +186,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T05:38:59.951Z
-Stopped at: Completed 03-07-PLAN.md
+Last session: 2026-11-24T05:59:01.033Z
+Stopped at: Completed 03-08-PLAN.md
 Resume file: None
