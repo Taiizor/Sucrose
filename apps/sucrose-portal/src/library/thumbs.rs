@@ -1,8 +1,8 @@
 //! Card-size thumbnails (UI-07): the decoder, the bounded cache and the queue that limits concurrent decodes.
 //!
-//! Theme images are untrusted (T-03-25): the header is read first and an image over [`MAX_SIDE`] pixels per side is
-//! refused, JPEG is scaled by the DCT before it is fully decoded, and the result is resized to the bucket width before it
-//! can enter the cache.
+//! Theme images are untrusted (T-03-25, CR-01): the header is read first and an image over [`MAX_SIDE`] pixels per side
+//! or over [`MAX_PIXELS`] pixels in area is refused by [`check_dimensions`] before any decoder allocates, JPEG is scaled
+//! by the DCT before it is fully decoded, and the result is resized to the bucket width before it can enter the cache.
 
 use std::{
     collections::{HashSet, VecDeque},
@@ -24,7 +24,8 @@ pub const CACHE_BYTES: usize = 48 * 1024 * 1024;
 pub const DECODE_SLOTS: usize = 3;
 /// The longest side, in pixels, an image may declare before it is refused.
 pub const MAX_SIDE: u32 = 16_384;
-/// The most pixels an image may declare before it is refused.
+/// The most pixels (width x height) an image may declare before it is refused. A progressive JPEG needs about 6 bytes per
+/// pixel before it is scaled, so a header of 16384 x 16384 would cost about 1.6 GB (CR-01); 32 Mi pixels cost about 200 MB.
 pub const MAX_PIXELS: u64 = 32 * 1024 * 1024;
 /// The largest thumbnail file that is read.
 const MAX_FILE_BYTES: u64 = 64 * 1024 * 1024;
@@ -248,8 +249,12 @@ pub fn decode_thumbnail(path: &Path, bucket: Bucket) -> anyhow::Result<Arc<Rende
     decode_bytes(&bytes, bucket)
 }
 
-/// Refuses an image whose declared size is over the limits.
-pub fn check_dimensions(_width: u32, _height: u32) -> anyhow::Result<()> {
+/// Refuses an image that declares a side over [`MAX_SIDE`] or an area over [`MAX_PIXELS`]. Called with the size from the
+/// header, before any decoder allocates.
+pub fn check_dimensions(width: u32, height: u32) -> anyhow::Result<()> {
+    if width > MAX_SIDE || height > MAX_SIDE || u64::from(width) * u64::from(height) > MAX_PIXELS {
+        bail!("the image is {width} x {height} pixels, over the limit");
+    }
     Ok(())
 }
 
@@ -260,26 +265,27 @@ pub fn decode_bytes(bytes: &[u8], bucket: Bucket) -> anyhow::Result<Arc<RenderIm
         .context("the image format is unknown")?
         .into_dimensions()
         .context("the image header cannot be read")?;
-    if width > MAX_SIDE || height > MAX_SIDE {
-        bail!("the image is {width} x {height} pixels, over the {MAX_SIDE} pixel limit");
-    }
+    check_dimensions(width, height)?;
     let target = bucket.width();
-    let image = match decode_jpeg_scaled(bytes, target) {
+    let image = match decode_jpeg_scaled(bytes, (target, target)) {
         Some(image) => image,
         None => decode_generic(bytes)?,
     };
     Ok(to_render_image(fit(image, target)))
 }
 
-/// A JPEG decoded straight at 1/2, 1/4 or 1/8 size, so a 1920 x 1080 cover never exists in memory at full size. `None`
-/// when the file is not a JPEG this decoder handles; the generic decoder then takes over.
-fn decode_jpeg_scaled(bytes: &[u8], target: u32) -> Option<DynamicImage> {
+/// A JPEG decoded straight at 1/2, 1/4 or 1/8 size of which the result still covers `target` (width, height), so a large
+/// photo never exists in memory at full size. Shared by the thumbnails and the background image; the caller has checked
+/// the declared size with [`check_dimensions`] first. `None` when the file is not a JPEG this decoder handles; the generic
+/// decoder then takes over.
+pub fn decode_jpeg_scaled(bytes: &[u8], target: (u32, u32)) -> Option<DynamicImage> {
     if !bytes.starts_with(&[0xFF, 0xD8]) {
         return None;
     }
-    let side = u16::try_from(target).ok()?;
     let mut decoder = jpeg_decoder::Decoder::new(Cursor::new(bytes));
-    let (width, height) = decoder.scale(side, side).ok()?;
+    let (width, height) = decoder
+        .scale(u16::try_from(target.0).ok()?, u16::try_from(target.1).ok()?)
+        .ok()?;
     let pixels = decoder.decode().ok()?;
     let (width, height) = (u32::from(width), u32::from(height));
     match decoder.info()?.pixel_format {
@@ -590,7 +596,7 @@ mod tests {
     #[test]
     fn thumbs_decode_refuses_an_image_that_declares_more_than_16384_pixels_a_side() {
         let error = decode_bytes(&png(MAX_SIDE + 1, 1), Bucket::W360).expect_err("too wide");
-        assert!(error.to_string().contains("pixel limit"), "{error}");
+        assert!(error.to_string().contains("over the limit"), "{error}");
         assert!(decode_bytes(&png(MAX_SIDE, 1), Bucket::W360).is_ok());
     }
 
