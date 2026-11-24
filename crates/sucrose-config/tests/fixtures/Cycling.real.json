@@ -1,0 +1,9 @@
+{
+  "Properties": {
+    "PassingTime": 70180,
+    "Active": true,
+    "TransitionTime": 99999,
+    "TransitionType": "Random",
+    "Exclusion": []
+  }
+}

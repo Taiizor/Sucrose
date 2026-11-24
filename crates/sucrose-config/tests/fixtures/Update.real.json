@@ -1,0 +1,14 @@
+{
+  "Properties": {
+    "LimitType": "Megabyte",
+    "ChannelType": "PreRelease",
+    "ModuleType": "Downloader",
+    "ExtensionType": "Executable",
+    "Time": "2026-11-23T22:02:12.9475265+03:00",
+    "ServerType": "Soferity",
+    "AutoType": "SemiSilent",
+    "State": false,
+    "LimitValue": 500,
+    "Auto": true
+  }
+}

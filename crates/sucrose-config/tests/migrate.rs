@@ -357,6 +357,345 @@ fn a_file_that_is_empty_while_the_c_sharp_app_writes_it_is_retried() {
     assert_eq!(settings.portal.background_opacity, 12);
 }
 
+/// A scratch folder holding the nine migrated real fixtures under their legacy names, plus (when asked) the two
+/// sentinel files whose content must never reach the new settings (D-05).
+fn full_real_folder(name: &str, sentinels: bool) -> PathBuf {
+    let read = |fixture: &str| fs::read_to_string(fixtures().join(fixture)).expect("the fixture exists");
+    let mut files: Vec<(&str, String)> = vec![
+        ("General.json", read("General.real.json")),
+        ("Portal.json", read("Portal.real.json")),
+        ("Library.json", read("Library.real.json")),
+        ("Warehouse.json", read("Warehouse.real.json")),
+        ("Engine.json", read("Engine.real.json")),
+        ("Backgroundog.json", read("Backgroundog.real.json")),
+        ("Cycling.json", read("Cycling.real.json")),
+        ("Hook.json", read("Hook.real.json")),
+        ("Update.json", read("Update.real.json")),
+    ];
+    if sentinels {
+        files.push(("Objectionable.json", read("Objectionable.sentinel.json")));
+        files.push(("Donate.json", read("Donate.sentinel.json")));
+    }
+    let files: Vec<(&str, &str)> = files.iter().map(|(file, content)| (*file, content.as_str())).collect();
+    scratch(name, &files)
+}
+
+/// The migrated settings as the JSON that Sucrose.json holds.
+fn json(settings: &Settings) -> serde_json::Value {
+    serde_json::to_value(settings).expect("settings serialize")
+}
+
+/// Every legacy key D-05 leaves out of the new file, runtime state, stale names and removed features included.
+const EXCLUDED_KEYS: [&str; 24] = [
+    "TransmissionPort",
+    "PipeRequired",
+    "SignalRequired",
+    "TransmissionRequired",
+    "AudioRequired",
+    "PausePerformance",
+    "ClosePerformance",
+    "CommunicationType",
+    "GpuUsage",
+    "CpuUsage",
+    "CpuPerformance",
+    "GpuPerformance",
+    "PassingTime",
+    "StoreServerType",
+    "AppProcessName",
+    "Information",
+    "NetworkInterfaces",
+    "GraphicInterfaces",
+    "ProcessorInterfaces",
+    "AdvertisingDelay",
+    "AdvertisingActive",
+    "MenuVisible",
+    "PersonalAccessToken",
+    "BackdropType",
+];
+
+fn assert_no_excluded_key(text: &str) {
+    for key in EXCLUDED_KEYS {
+        assert!(!text.contains(&format!("\"{key}\"")), "{key} is in the settings text");
+    }
+}
+
+#[test]
+fn the_real_engine_file_migrates_every_key() {
+    let settings = migrate(&full_real_folder("engine-real", false), Path::new(ROOT));
+    let engine = &json(&settings)["Engine"];
+    assert_eq!(engine["CefArguments"]["disable-extensions"], "1");
+    assert_eq!(engine["CefArguments"]["autoplay-policy"], "no-user-gesture-required");
+    assert_eq!(engine["CefArguments"].as_object().map(|map| map.len()), Some(35));
+    assert_eq!(engine["WebArguments"].as_array().map(|list| list.len()), Some(34));
+    assert_eq!(engine["WebArguments"][0], "--disable-gpu-compositing");
+    assert_eq!(engine["VolumeSilentSensitivity"], 10);
+    assert_eq!(engine["WallpaperVolume"], 100);
+    assert_eq!(engine["DeveloperPort"], 0);
+    assert_eq!(engine["DuplicateScreenType"], "Default");
+    assert_eq!(engine["ExpandScreenType"], "Default");
+    assert_eq!(engine["DisplayScreenType"], "PerDisplay");
+    assert_eq!(engine["ScreenType"], "DisplayBound");
+    assert_eq!(engine["ScreenDevice"], "\\\\.\\DISPLAY1");
+    assert_eq!(engine["InputType"], "MouseKeyboard");
+    assert_eq!(engine["InputModuleType"], "RawInput");
+    assert_eq!(engine["StretchType"], "UniformToFill");
+    assert_eq!(engine["GraphicPreference"], "HighPerformance");
+    assert_eq!(engine["Gif"], "MpvPlayerLive");
+    assert_eq!(engine["Url"], "CefSharpLive");
+    assert_eq!(engine["Web"], "CefSharpLive");
+    assert_eq!(engine["Video"], "MpvPlayerLive");
+    assert_eq!(engine["YouTube"], "CefSharpLive");
+    assert_eq!(engine["Application"], "AuroraLive");
+    assert_eq!(engine["BackgroundImagePath"], "C:\\Pictures\\background.jpg");
+    assert_eq!(engine["BackgroundImage"], false);
+    assert_eq!(engine["DisableSlideshow"], false);
+    assert_eq!(engine["DisableSlideshowLive"], false);
+    assert_eq!(engine["HardwareAcceleration"], true);
+    assert_eq!(engine["WallpaperShuffle"], true);
+    assert_eq!(engine["WallpaperLoop"], true);
+    assert_eq!(engine["VolumeDesktop"], false);
+    assert_eq!(engine["VolumeSilent"], false);
+    assert_eq!(engine["InputDesktop"], true);
+    assert_eq!(engine["DeveloperMode"], true);
+    assert_eq!(engine["CrashExplorer"], true);
+    assert_eq!(engine["LibraryStart"], true);
+    assert_eq!(engine["StoreStart"], true);
+    assert_eq!(engine["StayAwake"], true);
+}
+
+#[test]
+fn engine_choices_outside_their_allowed_set_give_the_default_of_the_key() {
+    let settings = migrate_files(
+        "engine-choices",
+        &[(
+            "Engine.json",
+            r#"{"Properties":{"Video":"AuroraLive","Gif":"NebulaLive","Url":"VlcPlayerLive","Web":"MpvPlayerLive","YouTube":"AuroraLive","Application":"CefSharpLive"}}"#,
+        )],
+    );
+    let engine = &json(&settings)["Engine"];
+    assert_eq!(engine["Video"], "MpvPlayerLive");
+    assert_eq!(engine["Gif"], "MpvPlayerLive");
+    assert_eq!(engine["Url"], "CefSharpLive");
+    assert_eq!(engine["Web"], "CefSharpLive");
+    assert_eq!(engine["YouTube"], "CefSharpLive");
+    assert_eq!(engine["Application"], "AuroraLive");
+}
+
+#[test]
+fn engine_choices_inside_their_allowed_set_are_kept() {
+    let settings = migrate_files(
+        "engine-allowed",
+        &[(
+            "Engine.json",
+            r#"{"Properties":{"Video":"NebulaLive","Gif":"VlcPlayerLive","Url":"WebViewLive","Web":"WebViewLive","YouTube":"WebViewLive","Application":"AuroraLive"}}"#,
+        )],
+    );
+    let engine = &json(&settings)["Engine"];
+    assert_eq!(engine["Video"], "NebulaLive");
+    assert_eq!(engine["Gif"], "VlcPlayerLive");
+    assert_eq!(engine["Url"], "WebViewLive");
+    assert_eq!(engine["Web"], "WebViewLive");
+    assert_eq!(engine["YouTube"], "WebViewLive");
+    assert_eq!(engine["Application"], "AuroraLive");
+}
+
+#[test]
+fn engine_numbers_are_clamped_and_enum_names_are_exact() {
+    let high = migrate_files(
+        "engine-clamp-high",
+        &[(
+            "Engine.json",
+            r#"{"Properties":{"WallpaperVolume":250,"VolumeSilentSensitivity":99,"DeveloperPort":70000,"InputType":"OnlyMouse","DisplayScreenType":"SpanAcross","ExpandScreenType":"Advanced"}}"#,
+        )],
+    );
+    let engine = &json(&high)["Engine"];
+    assert_eq!(engine["WallpaperVolume"], 100);
+    assert_eq!(engine["VolumeSilentSensitivity"], 10);
+    assert_eq!(engine["DeveloperPort"], 65535);
+    assert_eq!(engine["InputType"], "OnlyMouse");
+    assert_eq!(engine["DisplayScreenType"], "SpanAcross");
+    assert_eq!(engine["ExpandScreenType"], "Advanced");
+
+    let low = migrate_files(
+        "engine-clamp-low",
+        &[(
+            "Engine.json",
+            r#"{"Properties":{"VolumeSilentSensitivity":0,"DeveloperPort":-1,"InputType":"onlymouse","DisplayScreenType":"spanacross"}}"#,
+        )],
+    );
+    let engine = &json(&low)["Engine"];
+    assert_eq!(engine["VolumeSilentSensitivity"], 1);
+    assert_eq!(engine["DeveloperPort"], 0);
+    assert_eq!(engine["InputType"], "MouseKeyboard");
+    assert_eq!(engine["DisplayScreenType"], "PerDisplay");
+}
+
+#[test]
+fn the_real_backgroundog_file_keeps_its_current_names_and_drops_runtime_and_stale_ones() {
+    let settings = migrate(&full_real_folder("backgroundog-real", false), Path::new(ROOT));
+    let value = json(&settings);
+    let backgroundog = &value["Backgroundog"];
+    assert_eq!(backgroundog["ProcessorUsage"], 70);
+    assert_eq!(backgroundog["GraphicUsage"], 70);
+    assert_eq!(backgroundog["BatteryUsage"], 50);
+    assert_eq!(backgroundog["MemoryUsage"], 80);
+    assert_eq!(backgroundog["DownloadValue"], 10);
+    assert_eq!(backgroundog["DownloadType"], "Megabyte");
+    assert_eq!(backgroundog["UploadValue"], 800);
+    assert_eq!(backgroundog["UploadType"], "Kilobyte");
+    assert_eq!(backgroundog["PingValue"], 100);
+    assert_eq!(backgroundog["PingType"], "Bing");
+    assert_eq!(backgroundog["NetworkAdapter"], "Example Wi-Fi Adapter");
+    assert_eq!(backgroundog["GraphicAdapter"], "Example Graphics Adapter");
+    assert_eq!(backgroundog["PerformanceCounter"], true);
+    assert_eq!(backgroundog["PausePerformanceType"], "Light");
+    // The current names keep their own values; the stale CpuPerformance "Pause" is not the processor rule.
+    assert_eq!(backgroundog["ProcessorPerformance"], "Resume");
+    assert_eq!(backgroundog["GraphicPerformance"], "Resume");
+    assert_eq!(backgroundog["BatterySaverPerformance"], "Resume");
+    assert_eq!(backgroundog["ScreenSaverPerformance"], "Pause");
+    assert_eq!(backgroundog["FullScreenPerformance"], "Resume");
+    assert_eq!(backgroundog["VirtualPerformance"], "Resume");
+    assert_eq!(backgroundog["NetworkPerformance"], "Resume");
+    assert_eq!(backgroundog["BatteryPerformance"], "Resume");
+    assert_eq!(backgroundog["RemotePerformance"], "Resume");
+    assert_eq!(backgroundog["MemoryPerformance"], "Resume");
+    assert_eq!(backgroundog["FocusPerformance"], "Resume");
+    assert_eq!(backgroundog["SessionPerformance"], "Close");
+    assert_eq!(backgroundog["ConsolePerformance"], "Close");
+    assert_eq!(backgroundog["SleepPerformance"], "Close");
+    assert_eq!(backgroundog["LockPerformance"], "Close");
+    assert_eq!(backgroundog["FullScreenScope"], "AllMonitors");
+    for key in [
+        "TransmissionPort",
+        "PipeRequired",
+        "SignalRequired",
+        "TransmissionRequired",
+        "AudioRequired",
+        "PausePerformance",
+        "ClosePerformance",
+        "CommunicationType",
+        "GpuUsage",
+        "CpuUsage",
+        "CpuPerformance",
+        "GpuPerformance",
+    ] {
+        assert!(backgroundog.get(key).is_none(), "{key} is in the Backgroundog section");
+    }
+}
+
+#[test]
+fn backgroundog_numbers_clamp_and_storage_types_stay_non_empty_strings() {
+    let settings = migrate_files(
+        "backgroundog-clamp",
+        &[(
+            "Backgroundog.json",
+            r#"{"Properties":{"ProcessorUsage":300,"GraphicUsage":-4,"BatteryUsage":101,"MemoryUsage":0,"PingValue":5000,"DownloadValue":-1,"UploadValue":999999999,"DownloadType":"Gigabyte","UploadType":"","PingType":"","ScreenSaverPerformance":"pause","SessionPerformance":"Resume"}}"#,
+        )],
+    );
+    let backgroundog = &json(&settings)["Backgroundog"];
+    assert_eq!(backgroundog["ProcessorUsage"], 100);
+    assert_eq!(backgroundog["GraphicUsage"], 0);
+    assert_eq!(backgroundog["BatteryUsage"], 100);
+    assert_eq!(backgroundog["MemoryUsage"], 0);
+    assert_eq!(backgroundog["PingValue"], 1000);
+    assert_eq!(backgroundog["DownloadValue"], 0);
+    assert_eq!(backgroundog["UploadValue"], 99_999_999);
+    assert_eq!(backgroundog["DownloadType"], "Gigabyte");
+    assert_eq!(backgroundog["UploadType"], "Kilobyte");
+    assert_eq!(backgroundog["PingType"], "Bing");
+    assert_eq!(backgroundog["ScreenSaverPerformance"], "Pause");
+    assert_eq!(backgroundog["SessionPerformance"], "Resume");
+}
+
+#[test]
+fn the_real_cycling_hook_and_update_files_migrate() {
+    let settings = migrate(&full_real_folder("cycling-hook-update-real", false), Path::new(ROOT));
+    let value = json(&settings);
+    assert_eq!(value["Cycling"]["Active"], true);
+    assert_eq!(value["Cycling"]["TransitionTime"], 99999);
+    assert_eq!(value["Cycling"]["TransitionType"], "Random");
+    assert_eq!(value["Cycling"]["Exclusion"], serde_json::json!([]));
+    assert!(value["Cycling"].get("PassingTime").is_none());
+    assert_eq!(value["Hook"]["DiscordRefreshDelay"], 60);
+    assert_eq!(value["Hook"]["DiscordRefreshConnect"], true);
+    assert_eq!(value["Hook"]["DiscordConnect"], true);
+    assert_eq!(value["Update"]["Time"], "2026-11-23T22:02:12.9475265+03:00");
+    assert_eq!(value["Update"]["LimitValue"], 500);
+    assert_eq!(value["Update"]["LimitType"], "Megabyte");
+    assert_eq!(value["Update"]["State"], false);
+    assert_eq!(value["Update"]["Auto"], true);
+    assert_eq!(value["Update"]["ModuleType"], "Downloader");
+    assert_eq!(value["Update"]["ServerType"], "Soferity");
+    assert_eq!(value["Update"]["AutoType"], "SemiSilent");
+    assert_eq!(value["Update"]["ExtensionType"], "Executable");
+    assert_eq!(value["Update"]["ChannelType"], "PreRelease");
+}
+
+#[test]
+fn cycling_hook_and_update_clamp_and_check_their_enum_names() {
+    let settings = migrate_files(
+        "chu-edge",
+        &[
+            (
+                "Cycling.json",
+                r#"{"Properties":{"TransitionTime":3,"TransitionType":"Sequential","Exclusion":["a",1,"b"]}}"#,
+            ),
+            ("Hook.json", r#"{"Properties":{"DiscordRefreshDelay":99999}}"#),
+            (
+                "Update.json",
+                r#"{"Properties":{"LimitValue":-5,"ChannelType":"release","ServerType":"GitHub","ModuleType":"Native","AutoType":"CompleteSilent","ExtensionType":"Compressed","LimitType":""}}"#,
+            ),
+        ],
+    );
+    let value = json(&settings);
+    assert_eq!(value["Cycling"]["TransitionTime"], 10);
+    assert_eq!(value["Cycling"]["TransitionType"], "Sequential");
+    assert_eq!(value["Cycling"]["Exclusion"], serde_json::json!(["a", "b"]));
+    assert_eq!(value["Hook"]["DiscordRefreshDelay"], 3600);
+    assert_eq!(value["Update"]["LimitValue"], 0);
+    assert_eq!(value["Update"]["ChannelType"], "Release");
+    assert_eq!(value["Update"]["ServerType"], "GitHub");
+    assert_eq!(value["Update"]["ModuleType"], "Native");
+    assert_eq!(value["Update"]["AutoType"], "CompleteSilent");
+    assert_eq!(value["Update"]["ExtensionType"], "Compressed");
+    assert_eq!(value["Update"]["LimitType"], "Megabyte");
+    // Nothing stored for the time is the legacy never-set value.
+    assert_eq!(value["Update"]["Time"], MIN_DATE_TIME);
+}
+
+#[test]
+fn a_token_file_and_a_donate_file_never_reach_the_new_settings() {
+    let settings = migrate(&full_real_folder("sentinels", true), Path::new(ROOT));
+    let text = String::from_utf8(settings.to_bytes().expect("settings serialize")).expect("settings are UTF-8");
+    assert!(
+        !text.contains("SENTINEL-not-a-real-token"),
+        "the token text is in Sucrose.json"
+    );
+    assert!(!text.contains("777"), "a Donate value is in Sucrose.json");
+    assert_no_excluded_key(&text);
+}
+
+#[test]
+fn the_nine_real_files_serialize_to_stable_text_without_excluded_keys() {
+    let settings = migrate(&full_real_folder("stable", true), Path::new(ROOT));
+    let first = settings.to_bytes().expect("settings serialize");
+    let again = Settings::from_slice(&first).expect("settings parse");
+    assert_eq!(again, settings);
+    assert_eq!(again.to_bytes().expect("settings serialize"), first);
+    let text = String::from_utf8(first).expect("settings are UTF-8");
+    assert_no_excluded_key(&text);
+    for section in [
+        "\"Engine\"",
+        "\"Backgroundog\"",
+        "\"Cycling\"",
+        "\"Hook\"",
+        "\"Update\"",
+    ] {
+        assert!(text.contains(section), "{section} is missing");
+    }
+}
+
 /// Reads the maintainer's real legacy folder (`%APPDATA%\Sucrose\Setting`, or `SUCROSE_LEGACY_SETTING_DIR`) and
 /// migrates it into a scratch folder. Ignored: it needs the C# app's data on the machine.
 #[test]

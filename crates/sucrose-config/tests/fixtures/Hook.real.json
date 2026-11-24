@@ -1,0 +1,7 @@
+{
+  "Properties": {
+    "DiscordRefreshConnect": true,
+    "DiscordConnect": true,
+    "DiscordRefreshDelay": 60
+  }
+}
