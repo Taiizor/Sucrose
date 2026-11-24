@@ -277,3 +277,222 @@ fn to_render_image(image: DynamicImage) -> Arc<RenderImage> {
     }
     Arc::new(RenderImage::new(vec![image::Frame::new(pixels)]))
 }
+
+#[cfg(test)]
+mod tests {
+    use std::io::Cursor;
+
+    use image::{ImageEncoder, codecs::jpeg::JpegEncoder, codecs::png::PngEncoder};
+
+    use super::*;
+
+    /// A cached value with a size, so the cache is tested without GPUI.
+    #[derive(Debug, Clone, PartialEq, Eq)]
+    struct Pic(&'static str, usize);
+
+    impl Release for Pic {
+        fn bytes(&self) -> usize {
+            self.1
+        }
+    }
+
+    fn key(name: &str) -> ThumbKey {
+        ThumbKey {
+            path: PathBuf::from(name),
+            modified: None,
+            bucket: Bucket::W360,
+        }
+    }
+
+    fn names(images: &[Pic]) -> Vec<&'static str> {
+        images.iter().map(|pic| pic.0).collect()
+    }
+
+    #[test]
+    fn thumbs_cache_evicts_the_least_recently_used_image_past_the_image_cap() {
+        let mut cache = ThumbCache::new(CACHE_IMAGES, usize::MAX);
+        let names: Vec<String> = (0..=CACHE_IMAGES).map(|n| format!("t{n}")).collect();
+        let mut evicted = Vec::new();
+        for name in &names {
+            evicted.extend(cache.insert(key(name), Pic("p", 1)));
+        }
+        assert_eq!(evicted.len(), 1);
+        assert_eq!(cache.len(), CACHE_IMAGES);
+        assert!(!cache.contains(&key("t0")), "the first image is the one that went");
+        assert!(cache.contains(&key("t64")));
+    }
+
+    #[test]
+    fn thumbs_cache_get_moves_an_image_to_the_most_recent_end() {
+        let mut cache = ThumbCache::new(2, usize::MAX);
+        cache.insert(key("a"), Pic("a", 1));
+        cache.insert(key("b"), Pic("b", 1));
+        assert_eq!(cache.get(&key("a")), Some(Pic("a", 1)));
+        let evicted = cache.insert(key("c"), Pic("c", 1));
+        assert_eq!(names(&evicted), ["b"], "a was shown last, so b is the oldest");
+        assert!(cache.contains(&key("a")) && cache.contains(&key("c")));
+    }
+
+    #[test]
+    fn thumbs_cache_evicts_the_oldest_until_the_total_is_under_the_byte_cap() {
+        let mut cache = ThumbCache::new(100, 100);
+        assert!(cache.insert(key("a"), Pic("a", 40)).is_empty());
+        assert!(cache.insert(key("b"), Pic("b", 40)).is_empty());
+        let evicted = cache.insert(key("c"), Pic("c", 40));
+        assert_eq!(names(&evicted), ["a"]);
+        assert_eq!(cache.total_bytes(), 80);
+        // One large image can push out several small ones.
+        let evicted = cache.insert(key("d"), Pic("d", 90));
+        assert_eq!(names(&evicted), ["b", "c"]);
+        assert_eq!(cache.total_bytes(), 90);
+    }
+
+    #[test]
+    fn thumbs_cache_returns_an_image_over_the_byte_cap_at_once_and_keeps_the_rest() {
+        let mut cache = ThumbCache::new(100, 100);
+        cache.insert(key("a"), Pic("a", 40));
+        let evicted = cache.insert(key("big"), Pic("big", 101));
+        assert_eq!(names(&evicted), ["big"]);
+        assert!(!cache.contains(&key("big")));
+        assert!(
+            cache.contains(&key("a")),
+            "an oversized image does not push the others out"
+        );
+        assert_eq!(cache.total_bytes(), 40);
+    }
+
+    #[test]
+    fn thumbs_cache_inserting_a_key_again_returns_the_old_image() {
+        let mut cache = ThumbCache::new(5, 100);
+        cache.insert(key("a"), Pic("old", 10));
+        let evicted = cache.insert(key("a"), Pic("new", 10));
+        assert_eq!(names(&evicted), ["old"]);
+        assert_eq!(cache.len(), 1);
+        assert_eq!(cache.total_bytes(), 10);
+    }
+
+    #[test]
+    fn thumbs_image_bytes_is_width_times_height_times_four_times_frames() {
+        assert_eq!(image_bytes(360, 202, 1), 360 * 202 * 4);
+        assert_eq!(image_bytes(10, 10, 3), 1200);
+        assert_eq!(image_bytes(0, 100, 1), 0);
+    }
+
+    #[test]
+    fn thumbs_bucket_follows_the_scale_factor() {
+        assert_eq!(Bucket::for_scale(0.75), Bucket::W360);
+        assert_eq!(Bucket::for_scale(1.0), Bucket::W360);
+        assert_eq!(Bucket::for_scale(1.25), Bucket::W720);
+        assert_eq!(Bucket::for_scale(2.0), Bucket::W720);
+        assert_eq!((Bucket::W360.width(), Bucket::W720.width()), (360, 720));
+    }
+
+    #[test]
+    fn thumbs_queue_starts_one_decode_for_a_key_requested_twice() {
+        let mut queue = DecodeQueue::new(DECODE_SLOTS);
+        queue.set_wanted([key("a"), key("a")]);
+        assert_eq!(queue.next(), Some(key("a")));
+        assert_eq!(
+            queue.next(),
+            None,
+            "the second request of the same key is no new decode"
+        );
+        // Requested again while it runs: still one decode.
+        queue.set_wanted([key("a")]);
+        assert_eq!(queue.next(), None);
+        queue.finish(&key("a"));
+        assert!(queue.is_idle());
+    }
+
+    #[test]
+    fn thumbs_queue_runs_at_most_three_decodes_at_once() {
+        let mut queue = DecodeQueue::new(DECODE_SLOTS);
+        queue.set_wanted(["a", "b", "c", "d", "e"].map(key));
+        let started: Vec<_> = std::iter::from_fn(|| queue.next()).collect();
+        assert_eq!(started, ["a", "b", "c"].map(key));
+        queue.finish(&key("b"));
+        assert_eq!(queue.next(), Some(key("d")));
+        assert_eq!(queue.next(), None);
+    }
+
+    #[test]
+    fn thumbs_queue_drops_the_requests_of_a_page_that_is_no_longer_shown() {
+        let mut queue = DecodeQueue::new(1);
+        queue.set_wanted(["a", "b", "c"].map(key));
+        assert_eq!(queue.next(), Some(key("a")));
+        // The page changed: b and c are no longer wanted, a keeps running.
+        queue.set_wanted(["x", "y"].map(key));
+        assert_eq!(queue.next(), None, "the slot is still taken by a");
+        queue.finish(&key("a"));
+        assert_eq!(queue.next(), Some(key("x")));
+        queue.finish(&key("x"));
+        assert_eq!(queue.next(), Some(key("y")));
+        queue.finish(&key("y"));
+        assert!(queue.is_idle());
+    }
+
+    #[test]
+    fn thumbs_queue_does_not_queue_what_a_new_page_shares_with_the_running_decodes() {
+        let mut queue = DecodeQueue::new(DECODE_SLOTS);
+        queue.set_wanted(["a", "b"].map(key));
+        assert_eq!(queue.next(), Some(key("a")));
+        queue.set_wanted(["a", "c"].map(key));
+        assert_eq!(queue.next(), Some(key("c")), "a already runs");
+        assert_eq!(queue.next(), None);
+    }
+
+    fn jpeg(width: u32, height: u32, rgb: [u8; 3]) -> Vec<u8> {
+        let pixels: Vec<u8> = (0..width * height).flat_map(|_| rgb).collect();
+        let mut out = Vec::new();
+        JpegEncoder::new_with_quality(&mut out, 95)
+            .write_image(&pixels, width, height, image::ExtendedColorType::Rgb8)
+            .expect("encode jpeg");
+        out
+    }
+
+    fn png(width: u32, height: u32) -> Vec<u8> {
+        let pixels = vec![200u8; (width * height * 4) as usize];
+        let mut out = Vec::new();
+        PngEncoder::new(Cursor::new(&mut out))
+            .write_image(&pixels, width, height, image::ExtendedColorType::Rgba8)
+            .expect("encode png");
+        out
+    }
+
+    #[test]
+    fn thumbs_decode_scales_a_jpeg_to_the_bucket_and_stores_it_as_bgra() {
+        let image = decode_bytes(&jpeg(1920, 1080, [255, 0, 0]), Bucket::W360).expect("decodes");
+        let size = image.size(0);
+        assert_eq!((size.width.0, size.height.0), (360, 203));
+        let pixel = &image.as_bytes(0).expect("one frame")[..4];
+        // Red in BGRA: blue first, red third; JPEG is lossy, so the values are approximate.
+        assert!(
+            pixel[0] < 40 && pixel[1] < 40 && pixel[2] > 215 && pixel[3] == 255,
+            "{pixel:?}"
+        );
+        let large = decode_bytes(&jpeg(1920, 1080, [0, 0, 255]), Bucket::W720).expect("decodes");
+        assert_eq!(large.size(0).width.0, 720);
+    }
+
+    #[test]
+    fn thumbs_decode_never_enlarges_a_small_image() {
+        let image = decode_bytes(&png(100, 50), Bucket::W360).expect("decodes");
+        let size = image.size(0);
+        assert_eq!((size.width.0, size.height.0), (100, 50));
+    }
+
+    #[test]
+    fn thumbs_decode_refuses_an_image_that_declares_more_than_16384_pixels_a_side() {
+        let error = decode_bytes(&png(MAX_SIDE + 1, 1), Bucket::W360).expect_err("too wide");
+        assert!(error.to_string().contains("pixel limit"), "{error}");
+        assert!(decode_bytes(&png(MAX_SIDE, 1), Bucket::W360).is_ok());
+    }
+
+    #[test]
+    fn thumbs_decode_reports_a_malformed_image_as_an_error() {
+        assert!(decode_bytes(b"this is not an image", Bucket::W360).is_err());
+        let mut broken = jpeg(64, 64, [1, 2, 3]);
+        broken.truncate(30);
+        assert!(decode_bytes(&broken, Bucket::W360).is_err());
+    }
+}
