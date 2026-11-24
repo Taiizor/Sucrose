@@ -21,7 +21,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **ARCH-02**: All Sucrose processes talk over one local-socket IPC, and the same endpoint keeps the service and the Portal single-instance (D-009)
 - [ ] **ARCH-03**: An optional service module the user turns off does not start at all: no thread, no polling, no allocations (D-008)
 - [x] **ARCH-04**: Settings use a new versioned format with atomic writes; runtime state (pause/close flags, ports) is never stored in settings, and processes share state over IPC instead of polled files (D-007)
-- [ ] **ARCH-05**: "Use" in the Portal applies the wallpaper through the service, and settings changed in the Portal persist across restarts
+- [x] **ARCH-05**: "Use" in the Portal applies the wallpaper through the service, and settings changed in the Portal persist across restarts
 
 ### Wallpaper types
 
@@ -142,7 +142,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **TRAY-02**: The full tray menu offers open, close/reload/change/customize wallpaper, settings, report, updates and exit, with a grayscale icon while paused (Win ✅ · mac ✅ · Linux ⚠️ GNOME needs AppIndicator)
 - [x] **TRAY-03**: Sucrose can start with the OS (normal startup) (Win ✅ · mac ✅ LaunchAgent · Linux ✅ XDG autostart)
 - [ ] **TRAY-04**: User can choose the priority and scheduled-task startup modes (Win ✅ · mac ? · Linux ?)
-- [ ] **TRAY-05**: Exiting closes all Sucrose apps (Win ✅ · mac ✅ · Linux ✅)
+- [x] **TRAY-05**: Exiting closes all Sucrose apps (Win ✅ · mac ✅ · Linux ✅)
 
 ### Services and integration
 
@@ -233,7 +233,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | ARCH-02 | Phase 3 | Gaps Found |
 | ARCH-03 | Phase 3 | Gaps Found |
 | ARCH-04 | Phase 3 | Complete |
-| ARCH-05 | Phase 3 | Gaps Found |
+| ARCH-05 | Phase 3 | Complete |
 | TYPE-01 | Phase 2 | Complete |
 | TYPE-02 | Phase 4 | Pending |
 | TYPE-03 | Phase 4 | Pending |
@@ -318,7 +318,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | TRAY-02 | Phase 5 | Pending |
 | TRAY-03 | Phase 3 | Complete |
 | TRAY-04 | Phase 5 | Pending |
-| TRAY-05 | Phase 3 | Gaps Found |
+| TRAY-05 | Phase 3 | Complete |
 | SVC-01 | Phase 5 | Pending |
 | SVC-02 | Phase 5 | Pending |
 | SVC-03 | Phase 5 | Pending |

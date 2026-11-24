@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-29-PLAN.md
-last_updated: "2026-11-24T15:42:43.489Z"
+stopped_at: Completed 03-32-PLAN.md
+last_updated: "2026-11-24T15:49:27.733Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: 205ff8dc7299c79fa72118cb43711de77cdb33be
+state_head: 6422970856568e5de71c95ae1a531b2056b18273
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 69
-  completed_plans: 61
+  completed_plans: 62
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 33 of 40
+Plan: 34 of 40
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -115,6 +115,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P34 | 7 min | 2 tasks | 2 files |
 | Phase 03 P35 | 4 min | 2 tasks | 2 files |
 | Phase 03 P29 | 7 min | 2 tasks | 3 files |
+| Phase 03 P32 | 4 min | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -212,6 +213,7 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-34: a load_source's new start is the first playback restart after the FILE_LOADED of its own request (SourceSwitch, generation read at START_FILE), not the next restart
 - [Phase 03]: Plan 03-35: after a failed startup enable/disable call set_startup settles RunStartup by the OS-reported entry state; the Task Manager flag removal is best effort
 - [Phase 03]: 03-29: one shared pixel-area limit (MAX_PIXELS = 32 Mi pixels) beside MAX_SIDE, checked by thumbs::check_dimensions right after into_dimensions in the thumbnail, background and preview paths
+- [Phase 03]: 03-32: the Quit path exits through the common end-of-pass check (quit_done plus may_exit), so one rule holds every quitting exit while a library move runs; a move that ends while quitting starts no renderer
 
 ### Pending Todos
 
@@ -244,6 +246,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T15:42:27.176Z
-Stopped at: Completed 03-29-PLAN.md
+Last session: 2026-11-24T15:49:13.116Z
+Stopped at: Completed 03-32-PLAN.md
 Resume file: None
