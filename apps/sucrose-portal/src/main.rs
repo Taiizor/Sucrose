@@ -14,6 +14,7 @@ use sucrose_ipc::portal::{PortalEvent, PortalPage, PortalSettings};
 
 mod app;
 mod assets;
+mod atlas;
 mod background;
 mod banner;
 mod dialogs;

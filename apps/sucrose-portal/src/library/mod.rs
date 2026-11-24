@@ -36,6 +36,7 @@ use sucrose_ipc::portal::{MaintainReport, PortalRequest, PortalSettings, Runtime
 use card::{CardData, Thumb};
 use preview::{Finish, HOVER_DWELL, PreviewState, load_preview};
 
+use crate::atlas;
 use crate::ipc::ServiceLink;
 use thumbs::{Bucket, CACHE_BYTES, CACHE_IMAGES, DECODE_SLOTS, DecodeQueue, ThumbCache, ThumbKey, decode_thumbnail};
 
@@ -580,7 +581,7 @@ impl LibraryView {
     /// Releases `released` from GPUI's atlas, drops a decode request nothing waits for any more and redraws.
     fn after_preview_change(&mut self, released: Option<Arc<RenderImage>>, cx: &mut Context<Self>) {
         if let Some(image) = released {
-            cx.drop_image(image, None);
+            atlas::release_image(cx, image);
         }
         if !matches!(self.preview, PreviewState::Waiting { .. }) {
             self.preview_timer = None;

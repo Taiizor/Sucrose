@@ -27,6 +27,8 @@ bindgen = "0.73.2"
 crossbeam-channel = "0.5.17"
 dirs = "6"
 gpui-kit = "=0.10.0"
+# Test builds of the Portal only: GPUI test context and Window::has_image_atlas_entry. The same crate gpui-kit builds on, so only its test-support dependencies are new.
+gpui = { package = "gpui-pre", version = "=0.3.12", features = ["test-support"] }
 # Image decoding and encoding; GPUI already depends on ^0.25, so the Portal shares the copy. Default features off.
 image = { version = "0.25", default-features = false, features = ["jpeg", "png", "gif", "webp", "tiff"] }
 interprocess = "2.4.9"
