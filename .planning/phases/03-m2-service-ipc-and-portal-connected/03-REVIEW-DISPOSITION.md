@@ -25,7 +25,7 @@ findings:
     title: "Endpoint hardening is Windows-only while Linux gets an abstract socket"
   - id: IN-04
     severity: info
-    disposition: open
+    disposition: deferred
     title: "Stale `#[allow(dead_code)]` with an outdated reason"
   - id: IN-10
     severity: info
@@ -145,7 +145,7 @@ recorded: 2026-11-24T19:55:49.793Z
 | WR-11 | warning | open | - |
 | WR-12 | warning | open | - |
 | IN-02 | info | deferred | Latent until the Linux service exists (EventLoop::new fails there today); fix before Linux support is enabled |
-| IN-04 | info | open | - |
+| IN-04 | info | deferred | Lint hygiene only, no behavior impact; next Portal cleanup (same finding as the earlier IN-04, re-reported with Origin and narrowed to apps/sucrose-portal/src/main.rs:22; the decision was restored after the ledger tool dropped it on the changed title) |
 | IN-10 | info | deferred | Needs a hand-edited or damaged Version; fix with the next settings format change |
 | IN-11 | info | deferred | Same-user settings and IPC only; share one path validator when the background image picker grows (UI-04) |
 | IN-13 | info | open | - |
