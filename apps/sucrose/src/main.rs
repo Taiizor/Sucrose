@@ -6,6 +6,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 mod fullscreen;
+mod library_ops;
 mod lifecycle;
 mod modules;
 mod portal_link;
