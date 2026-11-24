@@ -220,6 +220,16 @@ pub(crate) fn enable_autostart(exe: &Path) -> Result<(), PlatformError> {
     Ok(())
 }
 
+/// Removes the entry in two steps: the Run value first, then Task Manager's flag.
+fn remove_entry(
+    run: impl FnOnce() -> Result<(), PlatformError>,
+    flag: impl FnOnce() -> Result<(), PlatformError>,
+) -> Result<(), PlatformError> {
+    run()?;
+    flag()?;
+    Ok(())
+}
+
 /// Deletes Sucrose's own Run value and its Task Manager flag; nothing else.
 pub(crate) fn disable_autostart() -> Result<(), PlatformError> {
     if let Some(run) = open(RUN_KEY, KEY_SET_VALUE)? {
@@ -311,5 +321,56 @@ fn legacy_task() -> bool {
                 return false;
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use std::cell::Cell;
+
+    use super::*;
+
+    fn failure() -> PlatformError {
+        PlatformError::Os {
+            context: "test",
+            code: 5,
+        }
+    }
+
+    #[test]
+    fn a_flag_that_cannot_be_removed_after_the_run_value_went_is_not_an_error() {
+        let flag_called = Cell::new(false);
+
+        let result = remove_entry(
+            || Ok(()),
+            || {
+                flag_called.set(true);
+                Err(failure())
+            },
+        );
+
+        assert!(flag_called.get(), "the flag removal is still tried");
+        assert!(result.is_ok(), "the Run value is gone, so the entry is off: {result:?}");
+    }
+
+    #[test]
+    fn a_run_value_that_cannot_be_removed_is_an_error_and_the_flag_is_left() {
+        let flag_called = Cell::new(false);
+
+        let result = remove_entry(
+            || Err(failure()),
+            || {
+                flag_called.set(true);
+                Ok(())
+            },
+        );
+
+        assert!(result.is_err(), "an entry that is still active is not a success");
+        assert!(!flag_called.get(), "the flag stays while the Run value is there");
+    }
+
+    #[test]
+    fn both_steps_succeeding_is_ok() {
+        assert!(remove_entry(|| Ok(()), || Ok(())).is_ok());
     }
 }
