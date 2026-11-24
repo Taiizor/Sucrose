@@ -32,10 +32,12 @@ use os_windows as imp;
 #[cfg(not(any(target_os = "windows", target_os = "macos", target_os = "linux")))]
 compile_error!("Sucrose supports Windows, macOS and Linux only");
 
+pub mod autostart;
 pub mod geometry;
 pub mod icon;
 pub mod layout;
 
+pub use autostart::{AutostartState, autostart_state, disable_autostart, enable_autostart, legacy_entry};
 pub use geometry::{MonitorInfo, Placement, PlacementVerdict, RectPx};
 pub use icon::truncate_tooltip;
 pub use imp::{DesktopSurface, EventLoop, LoopProxy, LoopTimers, RendererJob, Tray};
@@ -132,6 +134,8 @@ pub struct Capabilities {
     pub fullscreen_detection: bool,
     /// The GPU an executable's Direct3D devices use can be requested.
     pub gpu_preference: bool,
+    /// Sucrose can start with the OS: a Run value (Windows), a LaunchAgent (macOS) or an XDG autostart file (Linux).
+    pub autostart: bool,
     /// The window backdrop materials (Mica, Acrylic, Tabbed) can be shown behind a window (Windows 11 22H2 and later).
     /// Where this is `false` a stored backdrop is applied as none without changing the setting (D-22).
     pub window_backdrop: bool,
