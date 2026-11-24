@@ -3,8 +3,10 @@
 //! `--out <dir>` gets `Library/` with `--count` valid themes (real-sized JPEG thumbnails and GIF previews), two corrupt
 //! folders and a loose file, plus `Setting/Sucrose.json`: its library location is that library, nothing is selected, the
 //! tray is hidden and the tray hint is off. Started with `SUCROSE_DATA_DIR=<dir>` the service loads the file as it is
-//! and plays nothing, so no test-only app flag is needed (D-25). Only `<dir>` is written; the real data folder is
-//! refused as `--out`.
+//! and plays nothing, so no test-only app flag is needed (D-25). Only `<dir>` is written; `--out` is refused when it is,
+//! holds or lies inside the real Sucrose data folder or the data folder in effect (`SUCROSE_DATA_DIR`), however the
+//! path is spelled (links, junctions, 8.3 names and the verbatim prefix are resolved first); `--force` never bypasses
+//! it, so run the tool without `SUCROSE_DATA_DIR` set.
 
 use std::{
     collections::BTreeSet,
@@ -341,11 +343,84 @@ fn lower_components(path: &Path) -> Vec<String> {
     parts
 }
 
-/// Whether `path` is `root` or inside it.
+/// Whether `path` is `root` or inside it (lexically).
 fn is_inside(path: &Path, root: &Path) -> bool {
     lower_components(path).starts_with(&lower_components(root))
 }
 
+/// The path without the Windows verbatim prefix: `\\?\UNC\server\share` becomes `\\server\share` and `\\?\C:\x`
+/// becomes `C:\x`, so two spellings of one folder compare equal.
+fn strip_verbatim(path: &Path) -> PathBuf {
+    let text = path.to_string_lossy();
+    if let Some(rest) = text.strip_prefix(r"\\?\UNC\") {
+        PathBuf::from(format!(r"\\{rest}"))
+    } else if let Some(rest) = text.strip_prefix(r"\\?\") {
+        PathBuf::from(rest)
+    } else {
+        path.to_path_buf()
+    }
+}
+
+/// The real location of `path` as far as it exists: every component that exists is resolved through links, junctions
+/// and 8.3 names (`canonicalize`, one step at a time so a `..` after a link goes where the OS goes; Windows removes
+/// the `..` in `std::path::absolute` first, as Win32 does), the rest, which
+/// does not exist yet, is appended as written. The verbatim prefix is stripped.
+fn resolve(path: &Path) -> PathBuf {
+    let path = std::path::absolute(path).unwrap_or_else(|_| path.to_path_buf());
+    let mut resolved = PathBuf::new();
+    let mut existing = true;
+    for component in path.components() {
+        match component {
+            Component::Prefix(_) | Component::RootDir => resolved.push(component.as_os_str()),
+            Component::CurDir => {}
+            Component::ParentDir => {
+                if existing && let Ok(real) = fs::canonicalize(resolved.join("..")) {
+                    resolved = real;
+                } else {
+                    existing = false;
+                    resolved.pop();
+                }
+            }
+            Component::Normal(name) => {
+                let next = resolved.join(name);
+                match fs::canonicalize(&next) {
+                    Ok(real) if existing => resolved = real,
+                    _ => {
+                        existing = false;
+                        resolved = next;
+                    }
+                }
+            }
+        }
+    }
+    strip_verbatim(&resolved)
+}
+
+/// Whether `out` is, holds or lies inside one of the `guarded` folders, whatever the spelling: both sides are resolved
+/// first (links, junctions, 8.3 names, the verbatim prefix, `.` and `..`), then compared by components without regard to
+/// case.
+fn refuses(out: &Path, guarded: &[PathBuf]) -> bool {
+    let out = resolve(out);
+    guarded.iter().any(|root| {
+        let root = resolve(root);
+        is_inside(&out, &root) || is_inside(&root, &out)
+    })
+}
+
+/// The folders the generator never writes in, with what to call them in a message: the C# install's data folder and
+/// the data folder in effect (`SUCROSE_DATA_DIR`, when set).
+fn guarded_folders() -> Vec<(&'static str, PathBuf)> {
+    let mut folders = Vec::new();
+    if let Some(real) = paths::legacy_data_dir() {
+        folders.push(("the real Sucrose data folder", real));
+    }
+    if let Some(current) = paths::data_dir()
+        && !folders.iter().any(|(_, real)| resolve(real) == resolve(&current))
+    {
+        folders.push(("the data folder in effect (SUCROSE_DATA_DIR)", current));
+    }
+    folders
+}
 /// The text of the marker of a finished run.
 fn marker_text(count: usize, seed: u64) -> String {
     format!("count={count}\nseed={seed}\n")
@@ -426,13 +501,14 @@ fn generate(plan: &Plan) -> Outcome<()> {
 fn generate_with(plan: &Plan, pool: &PoolPlan) -> Outcome<Generated> {
     let started = Instant::now();
     let out = std::path::absolute(&plan.out).map_err(io_error("resolve", &plan.out))?;
-    if let Some(real) = paths::legacy_data_dir()
-        && is_inside(&out, &real)
-    {
-        return Err(format!(
-            "{} is inside the real Sucrose data folder; the generator never writes there",
-            out.display()
-        ));
+    for (kind, folder) in guarded_folders() {
+        if refuses(&out, &[folder]) {
+            return Err(format!(
+                "{} is, holds or lies inside {kind}; the generator never writes there and --force does not change that \
+                 (run it without SUCROSE_DATA_DIR set)",
+                out.display()
+            ));
+        }
     }
     if out.exists() {
         let marked = out.join(MARKER).is_file();
@@ -738,5 +814,129 @@ mod tests {
 
         fs::remove_dir_all(&out).unwrap();
         fs::remove_dir_all(&other).unwrap();
+    }
+
+    /// A fresh folder under the temp folder; the caller removes it.
+    fn temp_folder(tag: &str) -> PathBuf {
+        let dir = std::env::temp_dir().join(format!("sucrose-synth-guard-{tag}-{}", std::process::id()));
+        let _ = fs::remove_dir_all(&dir);
+        fs::create_dir_all(&dir).unwrap();
+        dir
+    }
+
+    #[test]
+    fn synth_a_verbatim_spelling_of_a_guarded_folder_is_refused() {
+        let guarded = temp_folder("verbatim");
+        let child = guarded.join("Library");
+        assert!(refuses(&child, std::slice::from_ref(&guarded)));
+        assert!(refuses(&guarded, std::slice::from_ref(&guarded)));
+        if cfg!(windows) {
+            // `canonicalize` gives the verbatim form on Windows; a path that does not exist yet is spelled with it too.
+            let verbatim = fs::canonicalize(&guarded).unwrap();
+            assert!(
+                verbatim.to_string_lossy().starts_with(r"\\?\"),
+                "{}",
+                verbatim.display()
+            );
+            assert!(refuses(&verbatim.join("Library"), std::slice::from_ref(&guarded)));
+            assert!(refuses(
+                &verbatim.join("never").join("made"),
+                std::slice::from_ref(&guarded)
+            ));
+            // The guarded side may be the verbatim one as well, and the case does not matter.
+            let upper = PathBuf::from(guarded.to_string_lossy().to_uppercase()).join("x");
+            assert!(refuses(&upper, &[verbatim]));
+            assert_eq!(
+                strip_verbatim(Path::new(r"\\?\UNC\srv\share\x")),
+                PathBuf::from(r"\\srv\share\x")
+            );
+            assert_eq!(strip_verbatim(Path::new(r"\\?\C:\x")), PathBuf::from(r"C:\x"));
+        } else {
+            eprintln!("synth: the verbatim-prefix half of this test only applies on Windows");
+        }
+        // A folder next to the guarded one is not refused.
+        let other = temp_folder("verbatim-other");
+        assert!(!refuses(&other.join("Library"), std::slice::from_ref(&guarded)));
+        fs::remove_dir_all(&guarded).unwrap();
+        fs::remove_dir_all(&other).unwrap();
+    }
+
+    #[test]
+    fn synth_a_folder_that_holds_a_guarded_folder_is_refused() {
+        let outer = temp_folder("holds");
+        let guarded = outer.join("AppData").join("Sucrose");
+        fs::create_dir_all(&guarded).unwrap();
+        assert!(refuses(&outer, std::slice::from_ref(&guarded)));
+        assert!(refuses(&outer.join("AppData"), std::slice::from_ref(&guarded)));
+        assert!(refuses(
+            &outer.join("AppData").join("x").join("..").join("Sucrose"),
+            std::slice::from_ref(&guarded)
+        ));
+        assert!(!refuses(
+            &outer.join("AppData").join("Sucrose2"),
+            std::slice::from_ref(&guarded)
+        ));
+        fs::remove_dir_all(&outer).unwrap();
+    }
+
+    #[cfg(windows)]
+    fn make_dir_link(target: &Path, link: &Path) -> io::Result<()> {
+        std::os::windows::fs::symlink_dir(target, link)
+    }
+
+    #[cfg(unix)]
+    fn make_dir_link(target: &Path, link: &Path) -> io::Result<()> {
+        std::os::unix::fs::symlink(target, link)
+    }
+
+    #[test]
+    fn synth_a_link_into_a_guarded_folder_is_refused() {
+        let guarded = temp_folder("link-guarded");
+        let elsewhere = temp_folder("link-elsewhere");
+        let link = elsewhere.join("looks-harmless");
+        if let Err(error) = make_dir_link(&guarded, &link) {
+            eprintln!("synth: skipped, cannot create a directory symlink here: {error}");
+            fs::remove_dir_all(&guarded).unwrap();
+            fs::remove_dir_all(&elsewhere).unwrap();
+            return;
+        }
+        assert!(refuses(&link, std::slice::from_ref(&guarded)));
+        assert!(refuses(&link.join("Library"), std::slice::from_ref(&guarded)));
+        // On Unix a ".." after the link goes to the guarded folder's parent, which holds the guarded folder; Win32 removes
+        // the ".." before it looks at the link, so there the OS and the guard both end up beside the link.
+        if cfg!(unix) {
+            assert!(refuses(&link.join(".."), std::slice::from_ref(&guarded)));
+        }
+        assert!(!refuses(&elsewhere.join("plain"), std::slice::from_ref(&guarded)));
+        // Remove the link itself, never what it points to.
+        let _ = fs::remove_dir(&link).or_else(|_| fs::remove_file(&link));
+        fs::remove_dir_all(&guarded).unwrap();
+        fs::remove_dir_all(&elsewhere).unwrap();
+    }
+
+    #[test]
+    fn synth_generate_refuses_the_folders_it_guards_even_with_force() {
+        let guarded = temp_folder("generate");
+        let pool = PoolPlan {
+            thumbnails: Vec::new(),
+            previews: Vec::new(),
+        };
+        let plan = Plan {
+            out: guarded.join("Library"),
+            count: 1,
+            seed: 1,
+            force: true,
+        };
+        // The real data folder of this machine is guarded by name, so a plan inside it is refused whatever else is true.
+        if let Some(real) = paths::legacy_data_dir() {
+            let inside = Plan {
+                out: real.join("synth-guard-test"),
+                ..plan.clone()
+            };
+            let error = generate_with(&inside, &pool).unwrap_err();
+            assert!(error.contains("real Sucrose data folder"), "{error}");
+            assert!(!inside.out.exists());
+        }
+        fs::remove_dir_all(&guarded).unwrap();
     }
 }
