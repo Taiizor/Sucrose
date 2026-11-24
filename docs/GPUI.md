@@ -24,6 +24,9 @@ Practical notes for the UI (`gpui-kit`). GPUI documentation is thin; read the so
 
 - `gpui_kit::assets::Assets` embeds only the default component icons; an icon such as `ImageOff` or `PackageX` renders as nothing until it is registered. The Portal's `assets.rs` composes `Assets` with `icon_assets!(PageIcons, [...])`; add the icons a page needs there (the full `AllAssets` catalog is not embedded).
 - `RenderImage` takes BGRA with premultiplied alpha, so a thumbnail from the `image` crate (RGBA) needs the red/blue swap and a premultiply. Evicted images are freed from the atlas with `cx.drop_image(image, None)` (`Some(window)` only while that window is being updated).
+- `InputState` has no max length: `.validate(|text, _| text.chars().count() <= N)` refuses an edit that would pass it (a paste that is too long is refused whole), and `.clean_on_escape()` makes Escape clear the box. `InputState::set_value` emits no `Change`, so it is safe to call while rendering. The same validator can carry shared state (an `Rc<Cell<usize>>`) for a limit that follows the data, such as the digits of the last page number.
+- A shortcut that must work wherever the focus is (Ctrl+F for the search box) goes through `cx.observe_keystrokes` on the root entity; an action bound on an element only fires while focus is inside it. Use `modifiers.secondary(cx)` for Ctrl on Windows and Linux and Cmd on macOS.
+- `Empty` is `flex_1` and centers its content; for a block that starts 64 px below the top give it `.flex_none()` inside a column with a top padding. `EmptyHeader` is at most 24 rem wide, so a 24 px heading wraps; widen it with `.max_w()`. `gpui-component`'s `Pagination` has no jump field and no fixed slot scheme, so the legacy pagination bar is composed from `Button`s and an `Input`.
 - `Skeleton::new()` defaults to full width and 16 px height; override with `.w()`, `.h()`, `.size_full()` and `.rounded()`.
 
 ## Patterns
