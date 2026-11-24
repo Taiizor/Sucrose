@@ -8,13 +8,15 @@ use gpui_kit::SharedString;
 
 /// The text of a key in the current locale.
 pub fn tr(key: &str) -> SharedString {
-    SharedString::from(key.to_owned())
+    SharedString::from(rust_i18n::t!(key).into_owned())
 }
 
 /// The text of a key with its `%{name}` placeholders filled from `args` (name, value).
 pub fn tr_with(key: &str, args: &[(&str, &str)]) -> SharedString {
-    let _ = args;
-    SharedString::from(key.to_owned())
+    let text = rust_i18n::t!(key);
+    let names: Vec<&str> = args.iter().map(|(name, _)| *name).collect();
+    let values: Vec<String> = args.iter().map(|(_, value)| (*value).to_owned()).collect();
+    SharedString::from(rust_i18n::replace_patterns(&text, &names, &values))
 }
 
 /// The text of a counted message: `key` for any count but one, `<key>One` for exactly one; `%{count}` is filled in.
@@ -24,8 +26,14 @@ pub fn tr_count(key: &str, count: usize) -> SharedString {
 
 /// Like [`tr_count`], with further `%{name}` placeholders filled from `args`.
 pub fn tr_count_with(key: &str, count: usize, args: &[(&str, &str)]) -> SharedString {
-    let _ = (count, args);
-    SharedString::from(key.to_owned())
+    let number = count.to_string();
+    let mut all = vec![("count", number.as_str())];
+    all.extend_from_slice(args);
+    if count == 1 {
+        tr_with(&format!("{key}One"), &all)
+    } else {
+        tr_with(key, &all)
+    }
 }
 
 /// Every key the Portal uses in Phase 3: the legacy keys of the UI-SPEC String Inventory that are shown, and all new keys.

@@ -13,6 +13,8 @@ allow = [
     "Apache-2.0 WITH LLVM-exception",
     "BSD-2-Clause",
     "BSD-3-Clause",
+    # The permissive bzip2 license of `libbz2-rs-sys`, reached only through xtask's 7z extraction (sevenz-rust2); GPL-3.0 compatible.
+    "bzip2-1.0.6",
     "BSL-1.0",
     "CC0-1.0",
     "CDLA-Permissive-2.0",

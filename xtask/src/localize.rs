@@ -32,6 +32,13 @@ const PREFIXES: [&str; 12] = [
 ];
 /// Single keys of the String Inventory that have no common prefix.
 const EXACT_KEYS: [&str; 2] = ["Portal.Release", "Portal.Copyright"];
+/// Legacy keys whose English text Phase 3 words differently (the corrupt themes go to the system bin, not away for good).
+/// They are left out of the generated file and defined in the Portal's hand-written `sucrose.en.yml` instead, so no key is
+/// defined in two files.
+const REPLACED_KEYS: [&str; 2] = [
+    "Portal.PersonalSettingPage.Delete.Description",
+    "Portal.PersonalSettingPage.Delete.DeleteHint",
+];
 /// What `--check` prints when the committed file is out of date.
 const STALE: &str = "stale: run cargo xtask localize --lang EN";
 
@@ -154,6 +161,9 @@ fn decode_reference(name: &str) -> Option<char> {
 
 /// Whether a legacy key belongs to the String Inventory.
 fn keep_key(key: &str) -> bool {
+    if REPLACED_KEYS.contains(&key) {
+        return false;
+    }
     PREFIXES.iter().any(|prefix| key.starts_with(prefix)) || EXACT_KEYS.contains(&key)
 }
 
@@ -348,6 +358,13 @@ mod tests {
                 "\"Portal.B\": \"say \\\"hi\\\" \\\\ now\\nnext\\ttab\"",
             ]
         );
+    }
+
+    #[test]
+    fn keep_key_drops_the_keys_phase_3_rewords() {
+        assert!(keep_key("Portal.PersonalSettingPage.Delete"));
+        assert!(!keep_key("Portal.PersonalSettingPage.Delete.Description"));
+        assert!(!keep_key("Portal.PersonalSettingPage.Delete.DeleteHint"));
     }
 
     #[test]

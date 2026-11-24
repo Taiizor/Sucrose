@@ -243,8 +243,6 @@
 "Portal.PersonalSettingPage.Confirm": "Deletion Confirmation"
 "Portal.PersonalSettingPage.Confirm.Description": "Whether to ask for confirmation when deleting themes from the library."
 "Portal.PersonalSettingPage.Delete": "Corrupt Themes"
-"Portal.PersonalSettingPage.Delete.DeleteHint": "Note: Caution is advised, as this may result in data loss."
-"Portal.PersonalSettingPage.Delete.Description": "Whether to automatically delete corrupt or missing themes from the library."
 "Portal.PersonalSettingPage.Duration": "Store Refresh"
 "Portal.PersonalSettingPage.Duration.Description": "How often themes listed in the store will be refreshed."
 "Portal.PersonalSettingPage.Library": "Library Pagination"
