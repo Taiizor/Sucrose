@@ -61,6 +61,11 @@ struct LibrarySettings {
     preview_hide: bool,
 }
 
+/// The library folder the service reported: its configured location, or the default folder when none is set.
+pub fn location_of(settings: &PortalSettings) -> PathBuf {
+    LibrarySettings::from_portal(settings).location
+}
+
 impl LibrarySettings {
     fn from_portal(settings: &PortalSettings) -> Self {
         // An empty location is the default folder of the classic app's data folder (the service resolves it the same way).
@@ -510,6 +515,12 @@ impl LibraryView {
             this.update(cx, |this, cx| this.on_dwell(&folder, cx)).ok();
         }));
         self.after_preview_change(released, cx);
+    }
+
+    /// The Portal leaves the library for the settings: a hovered card cannot report that the pointer left, so the preview
+    /// stops here. The page, the scroll position and the search text stay as they are.
+    pub fn suspend(&mut self, cx: &mut Context<Self>) {
+        self.stop_preview(cx);
     }
 
     /// Stops the preview wherever it stands (waiting, decoding or playing) and releases its frames from GPUI's atlas. A

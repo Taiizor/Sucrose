@@ -22,10 +22,6 @@ mod header;
 mod i18n;
 mod ipc;
 mod library;
-#[allow(
-    dead_code,
-    reason = "the settings pages are wired in the following commits of this plan"
-)]
 mod settings;
 mod status_bar;
 mod theme;

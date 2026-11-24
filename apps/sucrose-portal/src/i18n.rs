@@ -187,6 +187,12 @@ pub const REQUIRED_KEYS: &[&str] = &[
     "Portal.PersonalSettingPage.Delete.Description",
     "Portal.PersonalSettingPage.Delete.DeleteHint",
     "Portal.Setting.SaveFailed",
+    "Portal.SettingsPage.GroupBehavior",
+    "Portal.SettingsPage.GroupAppearance",
+    "Portal.SettingsPage.GroupLibrary",
+    "Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Remove",
+    "Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.None",
+    "Portal.GeneralSettingPage.PrivateLibrary.OpenFolder",
     "Portal.TrayIcon.CloseCountdown",
 ];
 

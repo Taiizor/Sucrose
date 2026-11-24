@@ -9,6 +9,7 @@ use gpui_kit::{AssetSource, SharedString};
 gpui_kit::assets::icon_assets!(
     PageIcons,
     [
+        ArrowLeft,
         BookOpen,
         Bug,
         ClipboardList,
@@ -17,6 +18,7 @@ gpui_kit::assets::icon_assets!(
         EllipsisVertical,
         ExternalLink,
         FileText,
+        FolderOpen,
         FolderX,
         Globe,
         ImageOff,
@@ -29,6 +31,7 @@ gpui_kit::assets::icon_assets!(
         NotebookText,
         PackageX,
         SearchX,
+        Settings,
         Shield,
         Sun,
         Users

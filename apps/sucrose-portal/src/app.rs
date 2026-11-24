@@ -2,11 +2,11 @@
 
 use std::time::Duration;
 
-use gpui_kit::component::{ActiveTheme, TitleBar, v_flex};
+use gpui_kit::component::{ActiveTheme, TitleBar, WindowExt as _, v_flex};
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
 use sucrose_core::settings::{Backdrop, ThemeMode};
-use sucrose_ipc::portal::{PortalEvent, PortalPage, PortalSettings, RuntimeState, SettingChange};
+use sucrose_ipc::portal::{PortalEvent, PortalSettings, RuntimeState, SettingChange};
 
 use sucrose_ipc::portal::UseOutcome;
 
@@ -14,10 +14,11 @@ use crate::{
     background::BackgroundImage,
     banner,
     dialogs::tray_hint::{self, TrayHint, should_hint},
-    header::Header,
+    header::{Header, HeaderEvent},
     i18n::tr,
     ipc::{ConnectionState, LinkEvent, ServiceLink, next_state},
     library::LibraryView,
+    settings::{Mode, SettingsTab, personal::PersonalPage},
     status_bar::StatusBar,
     theme, toast,
 };
@@ -34,20 +35,24 @@ pub struct PortalApp {
     pub settings: Option<PortalSettings>,
     /// What the service is doing.
     pub runtime: Option<RuntimeState>,
-    /// The page the Portal was opened on.
-    pub page: PortalPage,
+    /// What the window shows: the library or a settings page.
+    pub mode: Mode,
     /// Sends requests to the service.
     pub link: ServiceLink,
     /// The library page.
     pub library: Entity<LibraryView>,
-    /// The header row: the Library tab and the search box.
+    /// The header row: the Library tab and the search box, or the settings tabs.
     pub header: Entity<Header>,
+    /// The Personal settings page.
+    pub personal: Entity<PersonalPage>,
     /// The status bar at the bottom: build, memory of the Sucrose processes, quote and copyright.
     pub status_bar: Entity<StatusBar>,
     /// The task that awaits the link's events; dropped with the app.
     _events: Task<()>,
-    /// Watches the keyboard for Ctrl+F, which works wherever the focus is.
+    /// Watches the keyboard for Ctrl+F and for Escape in the settings, which work wherever the focus is.
     _keys: Subscription,
+    /// Follows the gear, Back and the settings tabs of the header.
+    _header_events: Subscription,
     /// Follows the OS light/dark setting while the theme mode is System.
     _appearance: Subscription,
     /// Whether this OS can show a window backdrop (read once at start; D-22).
@@ -69,7 +74,7 @@ impl PortalApp {
     /// Builds the app, applies `early` (the events that were ready before the window opened) and starts awaiting the
     /// link's events on the GPUI thread.
     pub fn new(
-        page: PortalPage,
+        page: sucrose_ipc::portal::PortalPage,
         link: ServiceLink,
         window_backdrop: bool,
         early: Vec<LinkEvent>,
@@ -91,15 +96,31 @@ impl PortalApp {
             let link = link.clone();
             |cx| LibraryView::new(link, window, cx)
         });
+        let mode = Mode::from_page(page);
         let header = cx.new({
             let library = library.clone();
             let link = link.clone();
-            |cx| Header::new(library, link, window, cx)
+            |cx| Header::new(library, link, mode, window, cx)
+        });
+        let personal = cx.new({
+            let link = link.clone();
+            |cx| PersonalPage::new(link, window, cx)
+        });
+        let header_events = cx.subscribe_in(&header, window, |this, _, event: &HeaderEvent, window, cx| {
+            this.set_mode(event.0, window, cx);
         });
         // Ctrl+F (Cmd+F on macOS) puts the cursor in the search box from anywhere in the window.
         let keys = cx.observe_keystrokes(|this, event, window, cx| {
             if event.keystroke.modifiers.secondary(cx) && event.keystroke.key == "f" {
                 this.header.update(cx, |header, cx| header.focus_search(window, cx));
+            }
+            // Escape leaves the settings unless a field or a dialog has the keyboard (UI-SPEC Interaction: Settings navigation).
+            if event.keystroke.key == "escape"
+                && this.mode.is_settings()
+                && !window.has_active_dialog(cx)
+                && !this.field_focused(window, cx)
+            {
+                this.set_mode(this.mode.back(), window, cx);
             }
         });
         // The OS theme changed: only the System mode follows it; no polling.
@@ -115,13 +136,15 @@ impl PortalApp {
             state: ConnectionState::Connecting,
             settings: None,
             runtime: None,
-            page,
+            mode,
             link,
             library,
             header,
+            personal,
             status_bar,
             _events: task,
             _keys: keys,
+            _header_events: header_events,
             _appearance: appearance,
             window_backdrop,
             background,
@@ -139,6 +162,28 @@ impl PortalApp {
             app.on_link_event(event, window, cx);
         }
         app
+    }
+
+    /// Shows `mode`. Leaving the library stops its hover preview; the library itself (page, scroll position, search text)
+    /// is not rebuilt, so Back finds it as it was.
+    pub fn set_mode(&mut self, mode: Mode, _window: &mut Window, cx: &mut Context<Self>) {
+        if self.mode == mode {
+            return;
+        }
+        if mode.is_settings() && !self.mode.is_settings() {
+            self.library.update(cx, |library, cx| library.suspend(cx));
+        }
+        self.mode = mode;
+        self.header.update(cx, |header, cx| header.set_mode(mode, cx));
+        cx.notify();
+    }
+
+    /// Whether the cursor is in a field of the settings page that is shown.
+    fn field_focused(&self, window: &Window, cx: &App) -> bool {
+        match self.mode {
+            Mode::Settings(SettingsTab::Personal) => self.personal.read(cx).field_focused(window, cx),
+            Mode::Settings(SettingsTab::General) | Mode::Library => false,
+        }
     }
 
     /// The window is about to close: false while the tray hint takes the close (it closes the window itself).
@@ -223,6 +268,7 @@ impl PortalApp {
         let connected = self.state == ConnectionState::Connected;
         self.library
             .update(cx, |library, cx| library.set_connected(connected, cx));
+        self.personal.update(cx, |page, cx| page.set_connected(connected, cx));
         if !connected {
             // The memory text shows "—" until the service reports again.
             self.status_bar.update(cx, |bar, cx| bar.set_memory(None, cx));
@@ -234,6 +280,7 @@ impl PortalApp {
                         library.load(&settings, cx);
                         library.set_runtime(runtime.clone(), cx);
                     });
+                    self.personal.update(cx, |page, cx| page.load(&settings, window, cx));
                     self.settings = Some(settings);
                     self.runtime = Some(runtime);
                     self.apply_theme(window, cx);
@@ -245,6 +292,8 @@ impl PortalApp {
                         settings.apply(&change);
                         self.library
                             .update(cx, |library, cx| library.update_settings(settings, cx));
+                        self.personal
+                            .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
                     }
                     if matches!(change, SettingChange::ThemeMode(_)) {
                         self.apply_theme(window, cx);
@@ -285,8 +334,13 @@ impl PortalApp {
                         toast::show_error(tr("Portal.LibraryCard.UseFailed"), window, cx);
                     }
                 }
-                PortalEvent::Rejected { reason, .. } => {
+                PortalEvent::Rejected { reason, change } => {
                     tracing::warn!(%reason, "the service did not apply a setting");
+                    // The control that sent it shows the broadcast value again.
+                    if let Some(settings) = &self.settings {
+                        self.personal
+                            .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
+                    }
                     if self.closing_after_hint {
                         // The hint stays on and shows again next time; the user asked to close.
                         window.remove_window();
@@ -300,7 +354,7 @@ impl PortalApp {
                 PortalEvent::Refused { reason } => tracing::warn!(%reason, "the service refused this Portal"),
                 PortalEvent::Focus { page } => {
                     if let Some(page) = page {
-                        self.page = page;
+                        self.set_mode(Mode::from_page(page), window, cx);
                     }
                     // Windows restores a minimized window as part of activating it.
                     window.activate_window();
@@ -336,7 +390,12 @@ impl Render for PortalApp {
                     banner::connection_banner(self.state, cx.listener(|this, _: &ClickEvent, _, _| this.link.retry())),
                     |column, banner| column.child(banner),
                 )
-                .child(v_flex().flex_1().min_h_0().child(self.library.clone()))
+                .child(v_flex().flex_1().min_h_0().child(match self.mode {
+                    Mode::Library => self.library.clone().into_any_element(),
+                    Mode::Settings(SettingsTab::Personal) => self.personal.clone().into_any_element(),
+                    // The General page joins in the last task of this plan.
+                    Mode::Settings(SettingsTab::General) => crate::settings::column("settings-general", Vec::new()),
+                }))
                 .child(self.status_bar.clone()),
         )
     }

@@ -6,7 +6,7 @@ use std::time::Duration;
 
 use gpui_kit::assets::IconName;
 use gpui_kit::component::{
-    Icon, Sizable as _,
+    ActiveTheme as _, Icon, Sizable as _,
     button::{Button, ButtonVariants as _},
     h_flex,
     input::{Input, InputEvent, InputState},
@@ -18,7 +18,13 @@ use gpui_kit::*;
 use sucrose_core::settings::ThemeMode;
 use sucrose_ipc::portal::{PortalRequest, SettingChange};
 
-use crate::{dialogs, i18n::tr, ipc::ServiceLink, library::LibraryView};
+use crate::{
+    dialogs,
+    i18n::tr,
+    ipc::ServiceLink,
+    library::LibraryView,
+    settings::{Mode, SettingsTab},
+};
 
 /// The premium theme store, opened in the OS browser (legacy value of `Url.PremiumStore`; fixed at build time, T-03-42).
 const PREMIUM_URL: &str = "https://sucrose.dev/premium";
@@ -42,8 +48,15 @@ pub fn toggle_target(dark: bool) -> ThemeMode {
     if dark { ThemeMode::Light } else { ThemeMode::Dark }
 }
 
+/// The header asks for another mode: the gear, Back or a settings tab was pressed.
+pub struct HeaderEvent(pub Mode);
+
+impl EventEmitter<HeaderEvent> for Header {}
+
 /// The header row. The search text lives here, so it survives a visit to the settings.
 pub struct Header {
+    /// Which mode's row is drawn.
+    mode: Mode,
     library: Entity<LibraryView>,
     /// Sends the theme change to the service.
     link: ServiceLink,
@@ -57,7 +70,13 @@ pub struct Header {
 
 impl Header {
     /// The header that filters `library`.
-    pub fn new(library: Entity<LibraryView>, link: ServiceLink, window: &mut Window, cx: &mut Context<Self>) -> Self {
+    pub fn new(
+        library: Entity<LibraryView>,
+        link: ServiceLink,
+        mode: Mode,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) -> Self {
         let search = cx.new(|cx| {
             InputState::new(window, cx)
                 .placeholder(tr("Portal.MainWindow.SearchBoxHint"))
@@ -72,6 +91,7 @@ impl Header {
             }
         });
         Self {
+            mode,
             library,
             link,
             dark: false,
@@ -85,6 +105,14 @@ impl Header {
     pub fn set_dark(&mut self, dark: bool, cx: &mut Context<Self>) {
         if self.dark != dark {
             self.dark = dark;
+            cx.notify();
+        }
+    }
+
+    /// The window changed mode: the row of that mode is drawn.
+    pub fn set_mode(&mut self, mode: Mode, cx: &mut Context<Self>) {
+        if self.mode != mode {
+            self.mode = mode;
             cx.notify();
         }
     }
@@ -117,6 +145,59 @@ impl Header {
 
 impl Render for Header {
     fn render(&mut self, _: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
+        match self.mode {
+            Mode::Library => self.library_row(cx),
+            Mode::Settings(tab) => self.settings_row(tab, cx),
+        }
+    }
+}
+
+impl Header {
+    /// The row of the settings mode (UI-SPEC E4): Back, then the General and Personal tabs; no search, no actions.
+    fn settings_row(&self, tab: SettingsTab, cx: &mut Context<Self>) -> AnyElement {
+        let back_tip = tr("Portal.MainWindow.MenuBackTip");
+        let header = cx.entity();
+        let selected = match tab {
+            SettingsTab::General => 0,
+            SettingsTab::Personal => 1,
+        };
+        h_flex()
+            .w_full()
+            .h(px(HEADER_HEIGHT))
+            .flex_shrink_0()
+            .px_4()
+            .gap_3()
+            .items_center()
+            .child(
+                Button::new("settings-back")
+                    .ghost()
+                    .icon(IconName::ArrowLeft)
+                    .tooltip(back_tip.clone())
+                    .accessibility_label(back_tip)
+                    .on_click(cx.listener(|_, _: &ClickEvent, _, cx| cx.emit(HeaderEvent(Mode::Library)))),
+            )
+            .child(
+                TabBar::new("settings-tabs")
+                    .underline()
+                    .selected_index(selected)
+                    .on_click(move |index, _, cx| {
+                        let tab = if *index == 1 {
+                            SettingsTab::Personal
+                        } else {
+                            SettingsTab::General
+                        };
+                        header.update(cx, |_, cx| cx.emit(HeaderEvent(Mode::Settings(tab))));
+                    })
+                    .child(Tab::new().label(tr("Portal.MainWindow.MenuGeneral")))
+                    .child(Tab::new().label(tr("Portal.MainWindow.MenuPersonal"))),
+            )
+            .into_any_element()
+    }
+
+    /// The row of the library mode.
+    fn library_row(&self, cx: &mut Context<Self>) -> AnyElement {
+        let settings_tip = tr("Portal.MainWindow.MenuSettingTip");
+        let divider = div().flex_none().w(px(1.)).h(px(20.)).bg(cx.theme().border);
         let tip = tr("Portal.MainWindow.SearchBoxTip");
         // Sun while dark, Moon while light; the tooltip names the theme a click switches to.
         let (icon, toggle_tip) = if self.dark {
@@ -199,8 +280,20 @@ impl Render for Header {
                                         .on_click(|_, window, cx| dialogs::about::open(window, cx)),
                                 )
                             }),
+                    )
+                    .child(divider)
+                    .child(
+                        Button::new("settings-gear")
+                            .ghost()
+                            .icon(IconName::Settings)
+                            .tooltip(settings_tip.clone())
+                            .accessibility_label(settings_tip)
+                            .on_click(cx.listener(|_, _: &ClickEvent, _, cx| {
+                                cx.emit(HeaderEvent(Mode::Library.enter_settings()));
+                            })),
                     ),
             )
+            .into_any_element()
     }
 }
 
