@@ -142,6 +142,9 @@ mod tests {
         disabled_by_os: bool,
         fail_enable: bool,
         fail_disable: bool,
+        /// What the entry looks like after a failed call: a call can fail half-way and still change the OS.
+        present_after_failed_enable: Option<bool>,
+        present_after_failed_disable: Option<bool>,
         calls: RefCell<Vec<&'static str>>,
     }
 
@@ -149,6 +152,9 @@ mod tests {
         fn enable(&self, _: &Path) -> Result<(), PlatformError> {
             self.calls.borrow_mut().push("enable");
             if self.fail_enable {
+                if let Some(present) = self.present_after_failed_enable {
+                    *self.present.borrow_mut() = present;
+                }
                 return Err(PlatformError::Unsupported("test"));
             }
             *self.present.borrow_mut() = true;
@@ -158,6 +164,9 @@ mod tests {
         fn disable(&self) -> Result<(), PlatformError> {
             self.calls.borrow_mut().push("disable");
             if self.fail_disable {
+                if let Some(present) = self.present_after_failed_disable {
+                    *self.present.borrow_mut() = present;
+                }
                 return Err(PlatformError::Unsupported("test"));
             }
             *self.present.borrow_mut() = false;
@@ -282,6 +291,63 @@ mod tests {
         );
 
         assert_eq!(stored(&host), 1);
+    }
+
+    #[test]
+    fn a_removal_that_fails_after_the_entry_is_gone_stores_zero() {
+        let scratch = Scratch::new("disable-fails-entry-gone");
+        let mut host = saved_host(&scratch, 1);
+        let os = FakeOs {
+            fail_disable: true,
+            present_after_failed_disable: Some(false),
+            ..FakeOs::default()
+        };
+        *os.present.borrow_mut() = true;
+
+        assert_eq!(
+            set_startup(StartupMode::None, exe(), &os, &mut host),
+            StartupChange::Disabled
+        );
+
+        assert_eq!(stored(&host), 0, "the setting follows the entry that is gone");
+        assert!(!startup_info(&host, exe(), &os, false).entry_present);
+    }
+
+    #[test]
+    fn a_removal_that_fails_with_the_entry_still_there_leaves_the_setting_alone() {
+        let scratch = Scratch::new("disable-fails-entry-there");
+        let mut host = saved_host(&scratch, 1);
+        let os = FakeOs {
+            fail_disable: true,
+            present_after_failed_disable: Some(true),
+            ..FakeOs::default()
+        };
+        *os.present.borrow_mut() = true;
+
+        assert_eq!(
+            set_startup(StartupMode::None, exe(), &os, &mut host),
+            StartupChange::Failed
+        );
+
+        assert_eq!(stored(&host), 1);
+    }
+
+    #[test]
+    fn a_write_that_fails_with_the_entry_present_afterwards_stores_one() {
+        let scratch = Scratch::new("enable-fails-entry-there");
+        let mut host = saved_host(&scratch, 0);
+        let os = FakeOs {
+            fail_enable: true,
+            present_after_failed_enable: Some(true),
+            ..FakeOs::default()
+        };
+
+        assert_eq!(
+            set_startup(StartupMode::Normal, exe(), &os, &mut host),
+            StartupChange::Enabled
+        );
+
+        assert_eq!(stored(&host), 1, "the setting follows the entry that is there");
     }
 
     #[test]
