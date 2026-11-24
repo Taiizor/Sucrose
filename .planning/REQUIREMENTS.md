@@ -20,7 +20,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **ARCH-01**: The service runs one renderer process per running wallpaper (per monitor or span); a crashed renderer is restarted with a bounded retry, never in a loop (D-008)
 - [ ] **ARCH-02**: All Sucrose processes talk over one local-socket IPC, and the same endpoint keeps the service and the Portal single-instance (D-009)
 - [ ] **ARCH-03**: An optional service module the user turns off does not start at all: no thread, no polling, no allocations (D-008)
-- [ ] **ARCH-04**: Settings use a new versioned format with atomic writes; runtime state (pause/close flags, ports) is never stored in settings, and processes share state over IPC instead of polled files (D-007)
+- [x] **ARCH-04**: Settings use a new versioned format with atomic writes; runtime state (pause/close flags, ports) is never stored in settings, and processes share state over IPC instead of polled files (D-007)
 - [ ] **ARCH-05**: "Use" in the Portal applies the wallpaper through the service, and settings changed in the Portal persist across restarts
 
 ### Wallpaper types
@@ -232,7 +232,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | ARCH-01 | Phase 3 | Pending |
 | ARCH-02 | Phase 3 | Pending |
 | ARCH-03 | Phase 3 | Pending |
-| ARCH-04 | Phase 3 | Pending |
+| ARCH-04 | Phase 3 | Complete |
 | ARCH-05 | Phase 3 | Pending |
 | TYPE-01 | Phase 2 | Complete |
 | TYPE-02 | Phase 4 | Pending |

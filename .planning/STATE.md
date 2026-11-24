@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-26-PLAN.md
-last_updated: "2026-11-24T05:26:40.071Z"
+stopped_at: Completed 03-07-PLAN.md
+last_updated: "2026-11-24T05:39:16.205Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: 9d3c8a168ac30b5c9eff8a0ff08a01c6797221b7
+state_head: ce16bdb8e0aac6665971b5392b96669fbe478b2c
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 55
-  completed_plans: 36
+  completed_plans: 37
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 8 of 26
+Plan: 9 of 26
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -90,6 +90,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P05 | 12 min | 2 tasks | 5 files |
 | Phase 03 P06 | 11 min | 2 tasks | 11 files |
 | Phase 03 P26 | 9 min | 2 tasks | 15 files |
+| Phase 03 P07 | 9 min | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -150,6 +151,7 @@ Recent decisions affecting current work:
 - [Phase 03]: D-033: one endpoint for service, renderers and Portal, routed by the first message; one registered Portal; endpoint name carries a hash of SUCROSE_DATA_DIR
 - [Phase 03]: A Portal connection is identified by a service-assigned connection id, never by the pid it claims
 - [Phase 03]: [03-26] Engine choices are validated against the allowed engine set of their wallpaper type; storage and ping type names stay non-empty strings; Backgroundog runtime keys, stale names and Cycling.PassingTime are never fields
+- [Phase 03]: 03-07: SettingsHost without a store keeps legacy settings in memory and refuses every change with the not-saved text
 
 ### Pending Todos
 
@@ -182,6 +184,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T05:26:33.966Z
-Stopped at: Completed 03-26-PLAN.md
+Last session: 2026-11-24T05:38:59.951Z
+Stopped at: Completed 03-07-PLAN.md
 Resume file: None
