@@ -8,7 +8,7 @@
 
 use std::{
     fs,
-    path::PathBuf,
+    path::{Path, PathBuf},
     process::{Child, Command, Stdio},
     sync::mpsc::{self, Receiver},
     thread,
@@ -134,6 +134,33 @@ impl Drop for TestService {
     }
 }
 
+/// Copies the fixture library of sucrose-core (every kind of theme, damaged ones included) into the scratch library of
+/// `service`. Its video theme is not playable, so no test may Use it: a renderer must not flash on the desktop.
+pub fn copy_fixture_library(service: &TestService) {
+    let from = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("..")
+        .join("..")
+        .join("crates")
+        .join("sucrose-core")
+        .join("tests")
+        .join("fixtures")
+        .join("library");
+    copy_tree(&from, &service.dir.join("Library"));
+}
+
+fn copy_tree(from: &Path, to: &Path) {
+    fs::create_dir_all(to).expect("the destination folder can be created");
+    for entry in fs::read_dir(from).expect("the fixture folder can be read") {
+        let entry = entry.expect("the fixture entry can be read");
+        let target = to.join(entry.file_name());
+        if entry.file_type().expect("the fixture type is known").is_dir() {
+            copy_tree(&entry.path(), &target);
+        } else {
+            fs::copy(entry.path(), &target).expect("the fixture file can be copied");
+        }
+    }
+}
+
 /// `base` with every section of `overrides` merged in key by key.
 fn merged(mut base: Value, overrides: &Value) -> Value {
     if let (Some(base), Some(overrides)) = (base.as_object_mut(), overrides.as_object()) {
@@ -173,6 +200,21 @@ impl PortalClient {
     /// [`PortalClient::hello_as`] with this process's own pid.
     pub fn hello(service: &TestService, page: Option<PortalPage>) -> (Self, PortalEvent) {
         Self::hello_as(service, std::process::id(), page)
+    }
+
+    /// Says `PortalHello` as process `pid` on a connection that is already open (for a service this test did not
+    /// start) and returns the client with the first event of the service.
+    pub fn hello_on(mut connection: Connection, pid: u32) -> (Self, PortalEvent) {
+        connection
+            .send(&ToService::PortalHello {
+                portal_protocol_version: PORTAL_PROTOCOL_VERSION,
+                pid,
+                page: None,
+            })
+            .expect("the PortalHello is sent");
+        let client = Self::listen(connection);
+        let first = client.next_event().expect("the service answers a PortalHello");
+        (client, first)
     }
 
     /// Connects and sends `first` as the first message, whatever it is.

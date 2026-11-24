@@ -213,15 +213,16 @@ pub(crate) fn clip(text: &str) -> String {
     text.get(..end).unwrap_or_default().to_owned()
 }
 
-/// What the service tells the Portal it is doing: the selected theme from the settings, whether a renderer runs and
-/// whether the tray exists. No rule and no library move exist yet.
-pub fn runtime_state(settings: &Settings, running: bool, tray_visible: bool) -> RuntimeState {
+/// What the service tells the Portal it is doing: the selected theme from the settings, whether a renderer runs, what
+/// the fullscreen rule does to the wallpaper and whether the tray exists. It is never written to Sucrose.json (D-23).
+/// No library move exists yet.
+pub fn runtime_state(settings: &Settings, running: bool, rule: RuleState, tray_visible: bool) -> RuntimeState {
     RuntimeState {
         selected: Some(settings.library.selected.as_str())
             .filter(|selected| !selected.is_empty())
             .map(clip),
         running,
-        rule: RuleState::None,
+        rule,
         library_moving: false,
         tray_visible,
     }
@@ -461,7 +462,7 @@ mod tests {
         let mut settings = Settings::default();
         settings.library.selected = "abc".to_owned();
 
-        let runtime = runtime_state(&settings, true, false);
+        let runtime = runtime_state(&settings, true, RuleState::None, false);
 
         assert_eq!(runtime.selected.as_deref(), Some("abc"));
         assert!(runtime.running && !runtime.tray_visible);
@@ -471,7 +472,7 @@ mod tests {
     fn no_selected_theme_is_none() {
         let settings = Settings::default();
 
-        assert_eq!(runtime_state(&settings, false, false).selected, None);
+        assert_eq!(runtime_state(&settings, false, RuleState::None, false).selected, None);
     }
 
     #[test]

@@ -3,12 +3,18 @@
 
 mod common;
 
-use common::{PortalClient, TestService, service_runs};
+use std::path::PathBuf;
+
+use common::{PortalClient, TestService, copy_fixture_library, service_runs};
 use serde_json::json;
-use sucrose_core::settings::ThemeMode;
+use sucrose_core::{
+    library::scan, paths::legacy_data_dir, settings::ThemeMode, theme::check_selected, version::app_version,
+};
 use sucrose_ipc::{
-    portal::{PortalEvent, PortalPage, PortalRequest, SettingChange},
+    connect,
+    portal::{PortalEvent, PortalPage, PortalRequest, SettingChange, UseOutcome, UseRefusal},
     protocol::ToService,
+    service_endpoint_for,
 };
 
 #[test]
@@ -243,4 +249,183 @@ fn a_failed_write_is_rejected_with_the_not_saved_text_and_nothing_is_broadcast()
         assert!(std::time::Instant::now() < deadline, "no Welcome: {event:?}");
         std::thread::sleep(std::time::Duration::from_millis(50));
     }
+}
+
+/// Sends a Use and returns the service's answer to it, skipping the other events (Runtime and the like).
+fn use_theme(portal: &mut PortalClient, folder: &str) -> UseOutcome {
+    portal.request(&PortalRequest::Use {
+        folder: folder.to_owned(),
+    });
+    loop {
+        match portal.next_event() {
+            Some(PortalEvent::UseResult {
+                folder: answered,
+                outcome,
+            }) => {
+                assert_eq!(answered, folder, "the answer names the folder it is for");
+                return outcome;
+            }
+            Some(_) => {}
+            None => panic!("no UseResult for {folder:?}"),
+        }
+    }
+}
+
+#[test]
+fn use_of_a_web_theme_is_refused_and_the_selection_is_unchanged() {
+    if !service_runs("use_of_a_web_theme_is_refused_and_the_selection_is_unchanged") {
+        return;
+    }
+    let service = TestService::start("use-web", &json!({}));
+    copy_fixture_library(&service);
+    let (mut portal, _) = PortalClient::hello(&service, None);
+
+    let outcome = use_theme(&mut portal, "web");
+
+    assert_eq!(outcome, UseOutcome::Refused(UseRefusal::NotVideo));
+    assert_eq!(service.settings_file()["Library"]["Selected"], "");
+}
+
+#[test]
+fn use_of_a_theme_for_a_newer_sucrose_is_refused_and_the_selection_is_unchanged() {
+    if !service_runs("use_of_a_theme_for_a_newer_sucrose_is_refused_and_the_selection_is_unchanged") {
+        return;
+    }
+    let service = TestService::start("use-newer", &json!({}));
+    copy_fixture_library(&service);
+    let (mut portal, _) = PortalClient::hello(&service, None);
+
+    let outcome = use_theme(&mut portal, "newer-version");
+
+    assert_eq!(outcome, UseOutcome::Refused(UseRefusal::NewerVersion));
+    assert_eq!(service.settings_file()["Library"]["Selected"], "");
+}
+
+#[test]
+fn use_of_a_name_that_leaves_the_library_or_does_not_exist_is_refused_as_not_found() {
+    if !service_runs("use_of_a_name_that_leaves_the_library_or_does_not_exist_is_refused_as_not_found") {
+        return;
+    }
+    let service = TestService::start("use-escape", &json!({}));
+    copy_fixture_library(&service);
+    let (mut portal, _) = PortalClient::hello(&service, None);
+
+    for folder in ["../escape", "web/../video", "no-such-theme", ""] {
+        let outcome = use_theme(&mut portal, folder);
+
+        assert_eq!(outcome, UseOutcome::Refused(UseRefusal::NotFound), "folder {folder:?}");
+    }
+    assert_eq!(service.settings_file()["Library"]["Selected"], "");
+}
+
+#[test]
+fn use_of_a_damaged_theme_is_refused_as_corrupt() {
+    if !service_runs("use_of_a_damaged_theme_is_refused_as_corrupt") {
+        return;
+    }
+    let service = TestService::start("use-corrupt", &json!({}));
+    copy_fixture_library(&service);
+    let (mut portal, _) = PortalClient::hello(&service, None);
+
+    let outcome = use_theme(&mut portal, "broken-json");
+
+    assert_eq!(outcome, UseOutcome::Refused(UseRefusal::Corrupt));
+    assert_eq!(service.settings_file()["Library"]["Selected"], "");
+}
+
+/// Plan 11 runs this against the real service on the maintainer's screen; it needs two Video themes the gate accepts
+/// in the library of `SUCROSE_DATA_DIR`. `SUCROSE_SWITCH_COUNT` (default 10) Uses alternate between them,
+/// `SUCROSE_SWITCH_SECONDS` (default 10) apart, after `SUCROSE_SWITCH_DELAY` seconds (default 30) to start recording.
+/// These are knobs of this test, not flags of the app.
+#[test]
+#[ignore = "drives the real service of SUCROSE_DATA_DIR and changes its wallpaper; plan 11 runs it"]
+#[allow(clippy::print_stdout)]
+fn use_switches_between_video_themes() {
+    let count = env_number("SUCROSE_SWITCH_COUNT", 10);
+    let seconds = env_number("SUCROSE_SWITCH_SECONDS", 10);
+    let delay = env_number("SUCROSE_SWITCH_DELAY", 30);
+    let data_dir = std::env::var_os("SUCROSE_DATA_DIR").expect("SUCROSE_DATA_DIR names the data folder of the service");
+    let endpoint = service_endpoint_for(Some(data_dir.as_os_str())).expect("the endpoint of that folder is known");
+    let connection = connect(&endpoint.name).expect("a service runs on that data folder");
+    let (mut portal, first) = PortalClient::hello_on(connection, std::process::id());
+    let PortalEvent::Welcome { settings, runtime } = first else {
+        panic!("the first event is not a Welcome: {first:?}");
+    };
+
+    let location = if settings.library_location.is_empty() {
+        legacy_data_dir().expect("the OS reports a data folder").join("Library")
+    } else {
+        PathBuf::from(&settings.library_location)
+    };
+    let version = app_version();
+    let scan = scan(&location, &version).expect("the library can be scanned");
+    let mut playable: Vec<String> = scan
+        .themes
+        .iter()
+        .filter(|theme| check_selected(&location, &theme.folder, &version).is_ok())
+        .map(|theme| theme.folder.clone())
+        .collect();
+    // The current selection first, when it is one of them.
+    if let Some(selected) = &runtime.selected
+        && let Some(at) = playable.iter().position(|folder| folder == selected)
+    {
+        playable.swap(0, at);
+    }
+    assert!(
+        playable.len() >= 2,
+        "the library needs two Video themes the gate accepts, it has {}",
+        playable.len()
+    );
+    println!(
+        "{} start recording: {} themes, {count} switches {seconds} s apart",
+        utc_now(),
+        playable.len()
+    );
+    std::thread::sleep(std::time::Duration::from_secs(delay));
+    for index in 0..count {
+        // The first Use goes to the second theme: the first one is what plays now.
+        let folder = &playable[usize::from(index % 2 == 0)];
+        let outcome = use_theme(&mut portal, folder);
+        println!("{} use {index}: {outcome:?}", utc_now());
+        assert_eq!(outcome, UseOutcome::Applied, "switch {index}");
+        std::thread::sleep(std::time::Duration::from_secs(seconds));
+    }
+    println!("{} done", utc_now());
+}
+
+/// A whole number from the environment, or `default`.
+fn env_number(name: &str, default: u64) -> u64 {
+    std::env::var(name)
+        .ok()
+        .and_then(|text| text.trim().parse().ok())
+        .unwrap_or(default)
+}
+
+/// The current UTC time as `YYYY-MM-DDTHH:MM:SS.mmmZ`.
+fn utc_now() -> String {
+    let since_epoch = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap_or_default();
+    let (days, rest) = (since_epoch.as_secs() / 86_400, since_epoch.as_secs() % 86_400);
+    // Days since 1970-01-01 to a civil date (Howard Hinnant's algorithm).
+    let shifted = i64::try_from(days).unwrap_or_default() + 719_468;
+    let era = shifted.div_euclid(146_097);
+    let day_of_era = shifted.rem_euclid(146_097);
+    let year_of_era = (day_of_era - day_of_era / 1_460 + day_of_era / 36_524 - day_of_era / 146_096) / 365;
+    let day_of_year = day_of_era - (365 * year_of_era + year_of_era / 4 - year_of_era / 100);
+    let month_part = (5 * day_of_year + 2) / 153;
+    let day = day_of_year - (153 * month_part + 2) / 5 + 1;
+    let month = if month_part < 10 {
+        month_part + 3
+    } else {
+        month_part - 9
+    };
+    let year = year_of_era + era * 400 + i64::from(month <= 2);
+    format!(
+        "{year:04}-{month:02}-{day:02}T{:02}:{:02}:{:02}.{:03}Z",
+        rest / 3_600,
+        rest % 3_600 / 60,
+        rest % 60,
+        since_epoch.subsec_millis()
+    )
 }

@@ -19,12 +19,12 @@ use sucrose_config::{
 use sucrose_core::{
     APP_LONG_NAME,
     paths::{legacy_data_dir, legacy_setting_dir, setting_dir},
-    theme::{SelectedTheme, check_selected},
+    theme::{SelectedTheme, ThemeRejection, check_selected},
     version::app_version,
 };
 use sucrose_ipc::{
     Connection, IpcError, Listener,
-    portal::{PortalEvent, PortalPage, PortalRequest},
+    portal::{PortalEvent, PortalPage, PortalRequest, RuleState, RuntimeState, UseOutcome, UseRefusal},
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
     service_endpoint,
 };
@@ -204,6 +204,9 @@ const TRAY_ICON: &[u8] = include_bytes!("../assets/TrayIcon.ico");
 
 /// Why no wallpaper plays while the OS reports no monitor.
 const NO_MONITOR: &str = "the OS reports no monitor";
+
+/// The hint for a failure that has no repair step of its own.
+const CHECK_THE_LOG: &str = "Check the log for details.";
 
 /// The longest reason or hint taken from a renderer, so a misbehaving renderer cannot flood the log (T-02-19).
 const MAX_REPORT_CHARS: usize = 300;
@@ -437,6 +440,9 @@ pub fn run() -> anyhow::Result<()> {
     let mut quitting = false;
     // The one Portal that is open, if any; owned by this thread so two that connect together are decided here.
     let mut portals = PortalRegistry::default();
+    // The runtime state last offered to the Portal, so that only a change is sent (D-23).
+    let mut last_runtime: Option<RuntimeState> = None;
+    let legacy_root = legacy_data_dir();
     let timers = event_loop.timers();
     if fleet.enable_fullscreen(plan.fullscreen, plan.scope, plan.pause) {
         timers.set(FULLSCREEN_TIMER, FULLSCREEN_POLL_MS);
@@ -558,6 +564,11 @@ pub fn run() -> anyhow::Result<()> {
                             fleet.stopped.insert(exited.slot);
                             fleet.shell.forget(exited.slot);
                             tracing::info!(slot = exited.slot, "the renderer closed for the fullscreen app ended");
+                            // A switch by restart (D-26) wants its renderers back as soon as the old ones are gone.
+                            fleet.respawn_closed(&Ctx {
+                                supervisor: &supervisor,
+                                renderers: &renderers,
+                            });
                             continue;
                         }
                         let budget = fleet.budgets.entry(exited.slot).or_default();
@@ -598,14 +609,17 @@ pub fn run() -> anyhow::Result<()> {
                     Event::ShutdownDone => return Flow::Exit,
                     Event::PortalConnected { link, version, page } => {
                         let pid = link.pid();
-                        let running = fleet.job.is_some() && !supervisor.pids().is_empty();
-                        let tray_visible = tray.is_some();
+                        let runtime = current_runtime(&host, &fleet, &supervisor, tray.is_some());
                         let admission = portals.admit(link, version, page, quitting, || PortalEvent::Welcome {
                             settings: host.view(),
-                            runtime: runtime_state(host.settings(), running, tray_visible),
+                            runtime: runtime.clone(),
                         });
                         match admission {
-                            PortalAdmission::Register => tracing::info!(pid, "portal registered"),
+                            PortalAdmission::Register => {
+                                // The Welcome carries this state, so it is what the Portal knows.
+                                last_runtime = Some(runtime);
+                                tracing::info!(pid, "portal registered");
+                            }
                             PortalAdmission::AlreadyOpen { existing_pid } => {
                                 tracing::info!(pid, existing_pid, "a second portal was told the first one is open");
                             }
@@ -618,21 +632,57 @@ pub fn run() -> anyhow::Result<()> {
                     Event::Portal { connection, request } => {
                         if !portals.is_registered(connection) {
                             tracing::debug!("ignoring a request of a portal that is not registered");
-                        } else if let PortalRequest::Change(change) = request {
-                            // One request at a time on this thread: the last change wins, and the Portal only
-                            // shows what comes back as Changed.
-                            match host.apply(change.clone()) {
-                                Ok(stored) => {
-                                    tracing::info!(setting = %describe(&stored), "setting changed");
-                                    portals.send(PortalEvent::Changed(stored));
+                        } else {
+                            match request {
+                                PortalRequest::Change(change) => {
+                                    // One request at a time on this thread: the last change wins, and the Portal
+                                    // only shows what comes back as Changed.
+                                    match host.apply(change.clone()) {
+                                        Ok(stored) => {
+                                            tracing::info!(setting = %describe(&stored), "setting changed");
+                                            portals.send(PortalEvent::Changed(stored));
+                                        }
+                                        Err(reason) => {
+                                            tracing::warn!(setting = %describe(&change), %reason, "setting change refused");
+                                            portals.send(PortalEvent::Rejected { change, reason });
+                                        }
+                                    }
                                 }
-                                Err(reason) => {
-                                    tracing::warn!(setting = %describe(&change), %reason, "setting change refused");
-                                    portals.send(PortalEvent::Rejected { change, reason });
+                                PortalRequest::Use { folder } => {
+                                    let done = handle_use(
+                                        &folder,
+                                        &mut host,
+                                        &mut fleet,
+                                        legacy_root.as_deref(),
+                                        platform.as_ref(),
+                                        &Ctx {
+                                            supervisor: &supervisor,
+                                            renderers: &renderers,
+                                        },
+                                    );
+                                    if done.arm_fullscreen {
+                                        timers.set(FULLSCREEN_TIMER, FULLSCREEN_POLL_MS);
+                                    }
+                                    if let Some(next) = done.status {
+                                        status = next;
+                                        if status.is_failure() {
+                                            tracing::warn!(status = %status.text(), "no wallpaper, the service waits in the tray");
+                                        } else {
+                                            tracing::info!(status = %status.text(), "wallpaper status");
+                                        }
+                                        if let Some(tray) = &tray {
+                                            tray.set_tooltip(&status.tooltip());
+                                        }
+                                    }
+                                    portals.send(PortalEvent::UseResult {
+                                        folder,
+                                        outcome: done.outcome,
+                                    });
+                                }
+                                other => {
+                                    tracing::debug!(kind = request_kind(&other), "portal request, nothing handles it yet");
                                 }
                             }
-                        } else {
-                            tracing::debug!(kind = request_kind(&request), "portal request, nothing handles it yet");
                         }
                     }
                     Event::PortalGone { connection } => {
@@ -642,6 +692,8 @@ pub fn run() -> anyhow::Result<()> {
                     }
                 }
             }
+            // Whatever the events changed (a Use, an exit, a first frame, a setting) reaches the Portal once.
+            announce_runtime(&mut portals, &mut last_runtime, &host, &fleet, &supervisor, tray.is_some());
             Flow::Continue
         }
         LoopEvent::Quit => {
@@ -676,6 +728,7 @@ pub fn run() -> anyhow::Result<()> {
                     },
                 );
             }
+            announce_runtime(&mut portals, &mut last_runtime, &host, &fleet, &supervisor, tray.is_some());
             Flow::Continue
         }
         LoopEvent::Timer(id) => {
@@ -712,6 +765,7 @@ pub fn run() -> anyhow::Result<()> {
                     }
                 }
             }
+            announce_runtime(&mut portals, &mut last_runtime, &host, &fleet, &supervisor, tray.is_some());
             Flow::Continue
         }
         // explorer.exe started again: the surfaces have to be replaced, so each monitor gets a new renderer.
@@ -728,6 +782,7 @@ pub fn run() -> anyhow::Result<()> {
                     }
                 }
             }
+            announce_runtime(&mut portals, &mut last_runtime, &host, &fleet, &supervisor, tray.is_some());
             Flow::Continue
         }
     });
@@ -954,15 +1009,25 @@ fn read_connection(
     // A change that came between the reply and the registration found no connection to send to: catch up.
     if let ToRenderer::Assign(sent) = &reply {
         // The assignments lock is released before the send takes the renderers lock.
-        let current = lock_assignments(assignments)
-            .get(&slot)
-            .map(|assignment| assignment.rect);
+        let current = lock_assignments(assignments).get(&slot).cloned();
         match current {
             // Through the registered writer, under the lock every other sender takes (WR-12).
-            Some(rect) if rect != sent.rect => {
-                send_to(renderers, slot, &ToRenderer::SetRect(rect));
+            Some(current) => {
+                if current.rect != sent.rect {
+                    send_to(renderers, slot, &ToRenderer::SetRect(current.rect));
+                }
+                // A Use (D-26) that came in the same gap: the renderer plays the theme it was assigned, not the new one.
+                if current.source != sent.source || current.settings != sent.settings {
+                    send_to(
+                        renderers,
+                        slot,
+                        &ToRenderer::LoadSource {
+                            source: current.source,
+                            settings: current.settings,
+                        },
+                    );
+                }
             }
-            Some(_) => {}
             None => {
                 send_to(renderers, slot, &ToRenderer::Close);
             }
@@ -1336,6 +1401,7 @@ struct Plan {
 }
 
 /// What every renderer plays: the same video with the same settings on each monitor (D-01).
+#[derive(Debug, Clone)]
 struct Job {
     /// The theme's title, for the tooltip.
     title: String,
@@ -1785,6 +1851,341 @@ impl Fleet {
         }
         let told = send_to(ctx.renderers, slot, &ToRenderer::SetRect(rect));
         tracing::info!(slot, monitor = %id, ?rect, told, changed, "re-placing its surface");
+    }
+}
+
+/// How an accepted Use reaches the renderers that run (D-26).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[allow(
+    dead_code,
+    reason = "Restart is the fallback USE_TRANSITION is switched to if the maintainer sees a black frame on a switch"
+)]
+enum UseTransition {
+    /// The running renderers load the new video in place; nothing restarts.
+    LoadSource,
+    /// The renderers are closed and new ones start with the new job.
+    Restart,
+}
+
+/// The transition a Use takes: the renderers keep running and load the new video (D-26, RESEARCH assumption A5).
+const USE_TRANSITION: UseTransition = UseTransition::LoadSource;
+
+/// What decide_use needs to know about a Use request.
+#[derive(Debug)]
+struct UseInput<'a> {
+    /// The folder the Portal named.
+    folder: &'a str,
+    /// What the theme gate made of the folder: the job to play, or why the theme is refused.
+    gate: Result<Job, ThemeRejection>,
+    /// The folder selected now.
+    selected: &'a str,
+    /// Whether renderers run.
+    running: bool,
+    /// What the fullscreen rule does to the wallpaper now.
+    rule: RuleState,
+    /// Whether the library is being moved.
+    moving: bool,
+}
+
+/// What a Use request leads to.
+#[derive(Debug)]
+enum UseDecision {
+    /// Nothing changes; the Portal is told why.
+    Refuse(UseRefusal),
+    /// The theme is the selected one and plays: nothing is reloaded.
+    AlreadyApplied,
+    /// Renderers run: they switch to this job.
+    Load(Job),
+    /// No renderer runs: the fleet starts for this job.
+    Start(Job),
+}
+
+/// The refusal the Portal is told for a theme the gate rejected.
+fn refusal_of(rejection: &ThemeRejection) -> UseRefusal {
+    match rejection {
+        ThemeRejection::NothingSelected | ThemeRejection::FolderMissing { .. } => UseRefusal::NotFound,
+        ThemeRejection::NotVideo { .. } => UseRefusal::NotVideo,
+        ThemeRejection::NeedsNewerApp { .. } => UseRefusal::NewerVersion,
+        ThemeRejection::InfoUnreadable { .. } | ThemeRejection::SourceInvalid { .. } => UseRefusal::Corrupt,
+    }
+}
+
+/// Decides a Use request without touching anything (D-17, D-23, LIB-08): a refusal changes neither the selection nor
+/// the wallpaper. The library move comes first, then the fullscreen rule, then the gate's verdict on the theme.
+fn decide_use(input: &UseInput<'_>) -> UseDecision {
+    if input.moving {
+        return UseDecision::Refuse(UseRefusal::Moving);
+    }
+    match input.rule {
+        RuleState::Paused => return UseDecision::Refuse(UseRefusal::RulePaused),
+        RuleState::Closed => return UseDecision::Refuse(UseRefusal::RuleClosed),
+        RuleState::None => {}
+    }
+    let job = match &input.gate {
+        Ok(job) => job,
+        Err(rejection) => return UseDecision::Refuse(refusal_of(rejection)),
+    };
+    if input.running && input.folder == input.selected {
+        return UseDecision::AlreadyApplied;
+    }
+    if input.running {
+        UseDecision::Load(job.clone())
+    } else {
+        UseDecision::Start(job.clone())
+    }
+}
+
+/// What a Use did, for the main loop to fold into the tray and the timers.
+struct UseDone {
+    /// The answer for the Portal.
+    outcome: UseOutcome,
+    /// The new tray status, when it changed.
+    status: Option<Status>,
+    /// Whether the fullscreen timer has to start: the rule was off because no theme played, and is on now.
+    arm_fullscreen: bool,
+}
+
+impl UseDone {
+    fn refused(reason: UseRefusal) -> Self {
+        Self {
+            outcome: UseOutcome::Refused(reason),
+            status: None,
+            arm_fullscreen: false,
+        }
+    }
+
+    fn applied(status: Option<Status>) -> Self {
+        Self {
+            outcome: UseOutcome::Applied,
+            status,
+            arm_fullscreen: false,
+        }
+    }
+
+    fn failed(reason: String) -> Self {
+        Self {
+            outcome: UseOutcome::Failed { reason },
+            status: None,
+            arm_fullscreen: false,
+        }
+    }
+}
+
+/// Handles the Portal's Use: the theme gate decides (T-03-22), the selection is stored, and the renderers switch to
+/// the new video (D-26) or, when none runs, start for it like a service start does. A refused Use changes nothing.
+fn handle_use(
+    folder: &str,
+    host: &mut SettingsHost,
+    fleet: &mut Fleet,
+    legacy_root: Option<&std::path::Path>,
+    platform: &dyn sucrose_platform::Platform,
+    ctx: &Ctx<'_>,
+) -> UseDone {
+    let Some(root) = legacy_root else {
+        return UseDone::refused(UseRefusal::Unavailable);
+    };
+    let (decision, kind) = {
+        let settings = host.settings();
+        let theme = check_selected(&settings.library_location(root), folder, &app_version());
+        let kind = theme.as_ref().ok().map(|theme| theme.info.kind);
+        let gate = theme.and_then(|theme| {
+            job_for(&theme, &settings.engine).map_err(|reason| ThemeRejection::SourceInvalid {
+                folder: folder.to_owned(),
+                reason,
+            })
+        });
+        let input = UseInput {
+            folder,
+            gate,
+            selected: &settings.library.selected,
+            running: fleet.job.is_some() && !ctx.supervisor.pids().is_empty(),
+            rule: fleet.rule_state(),
+            // No library move exists before plan 22.
+            moving: false,
+        };
+        (decide_use(&input), kind)
+    };
+    let (job, starting) = match decision {
+        UseDecision::Refuse(reason) => {
+            tracing::info!(?reason, "use refused");
+            return UseDone::refused(reason);
+        }
+        UseDecision::AlreadyApplied => {
+            tracing::debug!("the theme is already in use, nothing is reloaded");
+            return UseDone::applied(None);
+        }
+        UseDecision::Load(job) => (job, false),
+        UseDecision::Start(job) => (job, true),
+    };
+    // Looked at before anything changes: a Use that cannot show anything is refused, not half applied.
+    let monitors = if starting {
+        let monitors = with_area(platform.monitors(), job.screen);
+        if monitors.is_empty() {
+            tracing::info!("use refused: the OS reports no monitor");
+            return UseDone::refused(UseRefusal::Unavailable);
+        }
+        monitors
+    } else {
+        Vec::new()
+    };
+    if let Err(reason) = host.update(|settings| settings.library.selected = folder.to_owned()) {
+        tracing::warn!(%reason, "the selection cannot be saved, nothing was changed");
+        return UseDone::failed(reason);
+    }
+    let title = job.title.clone();
+    if !starting {
+        let reached = match USE_TRANSITION {
+            UseTransition::LoadSource => fleet.load_source(job, ctx.renderers),
+            UseTransition::Restart => fleet.restart_with(job, ctx.renderers),
+        };
+        fleet.revive_stopped(ctx.supervisor);
+        tracing::info!(?kind, transition = ?USE_TRANSITION, renderers = reached.len(), "theme used");
+        return UseDone::applied(Some(Status::Starting { title }));
+    }
+    apply_gpu_preference(platform, host.settings().engine.gpu_preference);
+    fleet.adopt_job(job);
+    let applied = fleet.apply(diff(&[], &monitors), ctx);
+    fleet.monitors = monitors;
+    fleet.elect(ctx);
+    let arm_fullscreen = fleet.fullscreen.is_none() && {
+        let settings = host.settings();
+        fleet.enable_fullscreen(
+            settings.backgroundog.fullscreen,
+            action_scope(settings.backgroundog.full_screen_scope),
+            settings.backgroundog.pause,
+        )
+    };
+    tracing::info!(?kind, started = applied.started, failed = applied.failed, "theme used");
+    if applied.started == 0 {
+        let reason = "no renderer could be started for the theme".to_owned();
+        return UseDone {
+            outcome: UseOutcome::Failed { reason: reason.clone() },
+            status: Some(Status::Failed {
+                reason,
+                hint: CHECK_THE_LOG.to_owned(),
+            }),
+            arm_fullscreen,
+        };
+    }
+    UseDone {
+        arm_fullscreen,
+        ..UseDone::applied(Some(Status::Starting { title }))
+    }
+}
+
+/// What the Portal is told the service is doing now.
+fn current_runtime(host: &SettingsHost, fleet: &Fleet, supervisor: &Supervisor, tray_visible: bool) -> RuntimeState {
+    let running = fleet.job.is_some() && !supervisor.pids().is_empty();
+    runtime_state(host.settings(), running, fleet.rule_state(), tray_visible)
+}
+
+/// Sends the Portal `runtime` when it differs from the last one sent (and remembers it either way, so a Portal that
+/// connects later is told the current state by its Welcome). `true` when a Runtime event was offered. The runtime
+/// state is never written to Sucrose.json (D-23, ARCH-04).
+fn publish_runtime(portals: &mut PortalRegistry, last: &mut Option<RuntimeState>, runtime: RuntimeState) -> bool {
+    if last.as_ref() == Some(&runtime) {
+        return false;
+    }
+    portals.send(PortalEvent::Runtime(runtime.clone()));
+    *last = Some(runtime);
+    true
+}
+
+/// Offers the Portal the current runtime state when it changed since the last offer.
+fn announce_runtime(
+    portals: &mut PortalRegistry,
+    last: &mut Option<RuntimeState>,
+    host: &SettingsHost,
+    fleet: &Fleet,
+    supervisor: &Supervisor,
+    tray_visible: bool,
+) {
+    publish_runtime(portals, last, current_runtime(host, fleet, supervisor, tray_visible));
+}
+
+impl Fleet {
+    /// What the fullscreen rule does to the wallpaper now, read from the rule itself: no second record to keep in step.
+    fn rule_state(&self) -> RuleState {
+        let Some(rule) = &self.fullscreen else {
+            return RuleState::None;
+        };
+        if self.monitors.iter().any(|monitor| rule.closes(&monitor.id)) {
+            RuleState::Closed
+        } else if self.monitors.iter().any(|monitor| rule.pauses(&monitor.id)) {
+            RuleState::Paused
+        } else {
+            RuleState::None
+        }
+    }
+
+    /// Makes `job` what every renderer plays from now on: the shared assignments (so a renderer started or restarted
+    /// later plays it) and the restart budgets. An explicit Use resets the budgets: a user who replaced a bad theme is
+    /// not locked out by its old crashes (a renderer that keeps crashing is still stopped after 3 crashes in 60 s).
+    fn adopt_job(&mut self, job: Job) {
+        {
+            let mut assignments = lock_assignments(&self.assignments);
+            for assignment in assignments.values_mut() {
+                assignment.source.clone_from(&job.source);
+                assignment.settings = job.settings;
+            }
+        }
+        self.budgets.clear();
+        self.job = Some(job);
+    }
+
+    /// Switches the running renderers to `job` without restarting them (D-26): the assignments are updated first,
+    /// then every connected renderer is sent LoadSource. A renderer that has not connected yet reads the new
+    /// assignment at its Hello. Returns the slots that were told.
+    fn load_source(&mut self, job: Job, renderers: &SharedRenderers) -> Vec<u8> {
+        let message = ToRenderer::LoadSource {
+            source: job.source.clone(),
+            settings: job.settings,
+        };
+        self.adopt_job(job);
+        self.slots
+            .active_slots()
+            .into_iter()
+            .filter(|slot| send_to(renderers, *slot, &message))
+            .collect()
+    }
+
+    /// The Restart transition: every connected renderer is closed and comes back once its old one has ended (the
+    /// path of the fullscreen rule's Close), playing `job`. Returns the slots that were closed.
+    fn restart_with(&mut self, job: Job, renderers: &SharedRenderers) -> Vec<u8> {
+        self.adopt_job(job);
+        let mut closed = Vec::new();
+        for slot in self.slots.active_slots() {
+            if !lock(renderers).connections.contains_key(&slot) {
+                continue;
+            }
+            self.rule_closed.close(slot, false);
+            self.rule_closed.want_back(slot);
+            if send_to(renderers, slot, &ToRenderer::Close) {
+                closed.push(slot);
+            }
+        }
+        closed
+    }
+
+    /// Starts the renderers that had given up (budget spent, or ended for good) for the theme just selected: an
+    /// explicit Use is a new start for them too.
+    fn revive_stopped(&mut self, supervisor: &Arc<Supervisor>) {
+        let running = supervisor.slots();
+        let mut slots: Vec<u8> = self.stopped.iter().copied().collect();
+        slots.sort_unstable();
+        for slot in slots {
+            if running.contains(&slot) || self.slots.monitor_of(slot).is_none() || self.rule_closed.is_closed(slot) {
+                continue;
+            }
+            self.stopped.remove(&slot);
+            match supervisor.spawn(slot) {
+                Ok(()) => tracing::info!(slot, "a renderer that had stopped starts again for the new theme"),
+                Err(error) => {
+                    tracing::warn!(%error, slot, "cannot start a stopped renderer for the new theme");
+                    self.stopped.insert(slot);
+                }
+            }
+        }
     }
 }
 
@@ -3162,5 +3563,414 @@ mod tests {
         apply_gpu_preference(&fake, GpuPreference::HighPerformance);
 
         assert_eq!(fake.writes().len(), 1, "a failed write must not be retried");
+    }
+
+    // --- Use (plan 03-09) ---
+
+    fn use_job(source: &str) -> Job {
+        Job {
+            title: "Used".to_owned(),
+            source: source.to_owned(),
+            settings: PlaybackSettings::default(),
+            screen: ScreenArea::default(),
+        }
+    }
+
+    /// A Use of "new" while "old" is selected, whose theme passed the gate.
+    fn use_input() -> UseInput<'static> {
+        UseInput {
+            folder: "new",
+            gate: Ok(use_job("C:/themes/new/video.mp4")),
+            selected: "old",
+            running: true,
+            rule: RuleState::None,
+            moving: false,
+        }
+    }
+
+    fn refused(decision: UseDecision) -> UseRefusal {
+        match decision {
+            UseDecision::Refuse(reason) => reason,
+            other => panic!("the Use was not refused: {other:?}"),
+        }
+    }
+
+    fn rejected(rejection: ThemeRejection) -> UseInput<'static> {
+        UseInput {
+            gate: Err(rejection),
+            ..use_input()
+        }
+    }
+
+    mod decide_use {
+        use super::*;
+
+        #[test]
+        fn loads_the_theme_into_the_renderers_that_run() {
+            let decision = decide_use(&use_input());
+
+            let UseDecision::Load(job) = decision else {
+                panic!("a Use while renderers run is not a Load: {decision:?}");
+            };
+            assert_eq!(job.source, "C:/themes/new/video.mp4");
+        }
+
+        #[test]
+        fn starts_the_fleet_when_nothing_runs() {
+            let decision = decide_use(&UseInput {
+                running: false,
+                ..use_input()
+            });
+
+            assert!(matches!(decision, UseDecision::Start(_)), "{decision:?}");
+        }
+
+        #[test]
+        fn of_the_selected_theme_that_plays_reloads_nothing() {
+            let decision = decide_use(&UseInput {
+                folder: "old",
+                ..use_input()
+            });
+
+            assert!(matches!(decision, UseDecision::AlreadyApplied), "{decision:?}");
+        }
+
+        #[test]
+        fn of_the_selected_theme_that_does_not_play_starts_it() {
+            let decision = decide_use(&UseInput {
+                folder: "old",
+                running: false,
+                ..use_input()
+            });
+
+            assert!(matches!(decision, UseDecision::Start(_)), "{decision:?}");
+        }
+
+        #[test]
+        fn refuses_while_the_library_moves() {
+            let decision = decide_use(&UseInput {
+                moving: true,
+                ..use_input()
+            });
+
+            assert_eq!(refused(decision), UseRefusal::Moving);
+        }
+
+        #[test]
+        fn refuses_while_the_fullscreen_rule_paused_or_closed_the_wallpaper() {
+            for (rule, expected) in [
+                (RuleState::Paused, UseRefusal::RulePaused),
+                (RuleState::Closed, UseRefusal::RuleClosed),
+            ] {
+                let decision = decide_use(&UseInput { rule, ..use_input() });
+
+                assert_eq!(refused(decision), expected);
+            }
+        }
+
+        #[test]
+        fn refuses_a_theme_that_is_not_a_video() {
+            let decision = decide_use(&rejected(ThemeRejection::NotVideo {
+                folder: "new".to_owned(),
+                found: sucrose_core::theme::WallpaperType::Web,
+            }));
+
+            assert_eq!(refused(decision), UseRefusal::NotVideo);
+        }
+
+        #[test]
+        fn refuses_a_theme_for_a_newer_sucrose() {
+            let version = app_version();
+            let decision = decide_use(&rejected(ThemeRejection::NeedsNewerApp {
+                folder: "new".to_owned(),
+                required: version,
+                current: version,
+            }));
+
+            assert_eq!(refused(decision), UseRefusal::NewerVersion);
+        }
+
+        #[test]
+        fn refuses_a_folder_that_does_not_exist_as_not_found() {
+            for rejection in [
+                ThemeRejection::FolderMissing {
+                    folder: "new".to_owned(),
+                },
+                ThemeRejection::NothingSelected,
+            ] {
+                assert_eq!(refused(decide_use(&rejected(rejection))), UseRefusal::NotFound);
+            }
+        }
+
+        #[test]
+        fn refuses_a_damaged_theme_as_corrupt() {
+            for rejection in [
+                ThemeRejection::InfoUnreadable {
+                    folder: "new".to_owned(),
+                    reason: "the file is missing".to_owned(),
+                },
+                ThemeRejection::SourceInvalid {
+                    folder: "new".to_owned(),
+                    reason: "the file is missing".to_owned(),
+                },
+            ] {
+                assert_eq!(refused(decide_use(&rejected(rejection))), UseRefusal::Corrupt);
+            }
+        }
+
+        #[test]
+        fn checks_the_theme_even_when_it_is_the_selected_one() {
+            let decision = decide_use(&UseInput {
+                folder: "old",
+                gate: Err(ThemeRejection::FolderMissing {
+                    folder: "old".to_owned(),
+                }),
+                ..use_input()
+            });
+
+            assert_eq!(refused(decision), UseRefusal::NotFound);
+        }
+
+        #[test]
+        fn names_a_library_move_before_anything_else() {
+            let decision = decide_use(&UseInput {
+                moving: true,
+                rule: RuleState::Closed,
+                gate: Err(ThemeRejection::NothingSelected),
+                ..use_input()
+            });
+
+            assert_eq!(refused(decision), UseRefusal::Moving);
+        }
+
+        #[test]
+        fn maps_the_real_gate_for_names_that_would_leave_the_library() {
+            let library = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+                .join("..")
+                .join("..")
+                .join("crates")
+                .join("sucrose-core")
+                .join("tests")
+                .join("fixtures")
+                .join("library");
+            for (folder, expected) in [
+                ("../x", UseRefusal::NotFound),
+                ("a/b", UseRefusal::NotFound),
+                ("a\\b", UseRefusal::NotFound),
+                ("", UseRefusal::NotFound),
+                ("no-such-folder", UseRefusal::NotFound),
+                ("web", UseRefusal::NotVideo),
+                ("newer-version", UseRefusal::NewerVersion),
+                ("broken-json", UseRefusal::Corrupt),
+            ] {
+                let gate = check_selected(&library, folder, &app_version()).map(|_| use_job("C:/themes/new/video.mp4"));
+                let decision = decide_use(&UseInput {
+                    folder,
+                    gate,
+                    ..use_input()
+                });
+
+                assert_eq!(refused(decision), expected, "folder {folder:?}");
+            }
+        }
+    }
+
+    #[test]
+    fn load_source_sends_one_load_source_to_every_connected_renderer_and_updates_what_a_restart_would_play() {
+        let monitors = [
+            monitor_at("D1", true, [0, 0, 100, 100]),
+            monitor_at("D2", false, [100, 0, 200, 100]),
+        ];
+        let (mut fleet, renderers, logs) = recording_fleet(&monitors);
+        for slot in fleet.slots.active_slots() {
+            fleet.budgets.insert(slot, RestartBudget::default());
+        }
+        let job = use_job("C:/themes/new/video.mp4");
+        let message = ToRenderer::LoadSource {
+            source: job.source.clone(),
+            settings: job.settings,
+        };
+
+        let told = fleet.load_source(job, &renderers);
+
+        assert_eq!(told, fleet.slots.active_slots());
+        for slot in fleet.slots.active_slots() {
+            assert_eq!(sent_to(&renderers, &logs, slot), vec![message.clone()], "slot {slot}");
+            let assignments = lock_assignments(&fleet.assignments);
+            assert_eq!(assignments[&slot].source, "C:/themes/new/video.mp4", "slot {slot}");
+        }
+        assert!(fleet.budgets.is_empty(), "an explicit Use resets every restart budget");
+        assert_eq!(
+            fleet.job.as_ref().map(|job| job.source.as_str()),
+            Some("C:/themes/new/video.mp4")
+        );
+    }
+
+    #[test]
+    fn load_source_leaves_a_renderer_that_has_not_connected_to_read_the_new_assignment_at_its_hello() {
+        let monitors = [monitor_at("D1", true, [0, 0, 100, 100])];
+        let (mut fleet, renderers, _logs) = recording_fleet(&monitors);
+        let slot = fleet.slots.slot_of("D1").expect("a slot");
+        lock(&renderers).connections.remove(&slot);
+
+        let told = fleet.load_source(use_job("C:/themes/new/video.mp4"), &renderers);
+
+        assert!(told.is_empty(), "nobody is connected to be told");
+        assert_eq!(
+            lock_assignments(&fleet.assignments)[&slot].source,
+            "C:/themes/new/video.mp4"
+        );
+    }
+
+    #[test]
+    fn load_source_keeps_the_playback_settings_of_the_new_job_in_the_assignments() {
+        let monitors = [monitor_at("D1", true, [0, 0, 100, 100])];
+        let (mut fleet, renderers, _logs) = recording_fleet(&monitors);
+        let mut job = use_job("C:/themes/new/video.mp4");
+        job.settings.volume = 12;
+
+        fleet.load_source(job, &renderers);
+
+        let slot = fleet.slots.slot_of("D1").expect("a slot");
+        assert_eq!(lock_assignments(&fleet.assignments)[&slot].settings.volume, 12);
+    }
+
+    #[test]
+    fn the_restart_transition_closes_every_connected_renderer_and_wants_it_back() {
+        let monitors = [
+            monitor_at("D1", true, [0, 0, 100, 100]),
+            monitor_at("D2", false, [100, 0, 200, 100]),
+        ];
+        let (mut fleet, renderers, logs) = recording_fleet(&monitors);
+
+        let closed = fleet.restart_with(use_job("C:/themes/new/video.mp4"), &renderers);
+
+        assert_eq!(closed, fleet.slots.active_slots());
+        for slot in fleet.slots.active_slots() {
+            // sent_to would stop at the Close this very test looks for, so the log is read directly.
+            let deadline = Instant::now() + Duration::from_secs(5);
+            while logs[&slot].lock().unwrap_or_else(PoisonError::into_inner).is_empty() {
+                assert!(Instant::now() < deadline, "the Close of slot {slot} was not written");
+                thread::sleep(Duration::from_millis(10));
+            }
+            assert_eq!(
+                *logs[&slot].lock().unwrap_or_else(PoisonError::into_inner),
+                vec![ToRenderer::Close],
+                "slot {slot}"
+            );
+            assert!(
+                fleet.rule_closed.awaiting_exit(slot),
+                "slot {slot} waits for its old renderer to end"
+            );
+            // The exit of the old renderer makes it ready to start again with the new assignment.
+            assert!(fleet.rule_closed.note_exit(slot));
+            assert_eq!(fleet.rule_closed.ready(), vec![slot]);
+            fleet.rule_closed.forget(slot);
+            assert_eq!(
+                lock_assignments(&fleet.assignments)[&slot].source,
+                "C:/themes/new/video.mp4"
+            );
+        }
+    }
+
+    #[test]
+    fn the_use_transition_is_the_one_that_keeps_the_renderers_running() {
+        assert_eq!(USE_TRANSITION, UseTransition::LoadSource);
+    }
+
+    /// Feeds the rule fullscreen samples on every monitor until it acts.
+    fn trigger(rule: &mut Rule, monitors: &[&str]) {
+        let all: Vec<String> = monitors.iter().map(|id| (*id).to_owned()).collect();
+        for _ in 0..50 {
+            if !rule.tick(&all, &all).is_empty() {
+                return;
+            }
+        }
+        panic!("the rule never acted");
+    }
+
+    #[test]
+    fn the_fullscreen_rule_state_is_none_without_a_rule_or_while_it_is_quiet() {
+        let mut fleet = fleet_of(&[("D1", true)], &[]);
+        assert_eq!(fleet.rule_state(), RuleState::None);
+
+        fleet.fullscreen = Some(Rule::new(FullScreenAction::Pause, ActionScope::AllMonitors));
+
+        assert_eq!(fleet.rule_state(), RuleState::None);
+    }
+
+    #[test]
+    fn the_fullscreen_rule_state_reads_paused_and_closed_from_the_rule() {
+        for (action, expected) in [
+            (FullScreenAction::Pause, RuleState::Paused),
+            (FullScreenAction::Close, RuleState::Closed),
+        ] {
+            let mut fleet = fleet_of(&[("D1", true)], &[]);
+            let mut rule = Rule::new(action, ActionScope::AllMonitors);
+            trigger(&mut rule, &["D1"]);
+            fleet.fullscreen = Some(rule);
+
+            assert_eq!(fleet.rule_state(), expected, "{action:?}");
+        }
+    }
+
+    /// A registry with one Portal whose events are recorded; the first recorded event is its Welcome stand-in.
+    fn registry_with_a_portal() -> (PortalRegistry, Arc<Mutex<Vec<PortalEvent>>>) {
+        let written = Arc::new(Mutex::new(Vec::new()));
+        let record = Arc::clone(&written);
+        let link = PortalLink::start("test-portal-writer".to_owned(), 1, 1, move |event| {
+            record.lock().unwrap_or_else(PoisonError::into_inner).push(event);
+            true
+        })
+        .expect("the writer thread starts");
+        let mut registry = PortalRegistry::default();
+        let admission = registry.admit(link, sucrose_ipc::portal::PORTAL_PROTOCOL_VERSION, None, false, || {
+            PortalEvent::Focus { page: None }
+        });
+        assert_eq!(admission, PortalAdmission::Register);
+        (registry, written)
+    }
+
+    fn runtime(selected: &str, rule: RuleState) -> RuntimeState {
+        RuntimeState {
+            selected: Some(selected.to_owned()),
+            running: true,
+            rule,
+            library_moving: false,
+            tray_visible: false,
+        }
+    }
+
+    #[test]
+    fn the_runtime_state_is_published_only_when_it_differs_from_the_last_one() {
+        let (mut portals, written) = registry_with_a_portal();
+        let mut last = None;
+
+        assert!(publish_runtime(&mut portals, &mut last, runtime("a", RuleState::None)));
+        assert!(!publish_runtime(&mut portals, &mut last, runtime("a", RuleState::None)));
+        assert!(publish_runtime(
+            &mut portals,
+            &mut last,
+            runtime("a", RuleState::Paused)
+        ));
+        assert!(!publish_runtime(
+            &mut portals,
+            &mut last,
+            runtime("a", RuleState::Paused)
+        ));
+
+        let expected = vec![
+            PortalEvent::Focus { page: None },
+            PortalEvent::Runtime(runtime("a", RuleState::None)),
+            PortalEvent::Runtime(runtime("a", RuleState::Paused)),
+        ];
+        let deadline = Instant::now() + Duration::from_secs(5);
+        while written.lock().unwrap_or_else(PoisonError::into_inner).len() < expected.len() {
+            assert!(Instant::now() < deadline, "the events were not written");
+            thread::sleep(Duration::from_millis(10));
+        }
+        // Time for an event that must not exist to show up.
+        thread::sleep(Duration::from_millis(100));
+        assert_eq!(*written.lock().unwrap_or_else(PoisonError::into_inner), expected);
     }
 }
