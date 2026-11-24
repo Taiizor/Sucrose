@@ -131,10 +131,10 @@ Plans 03-11 (T1, T2), 03-24 (T2, T3), 03-28 (T3), 03-37 (T2, T3) and 03-38 (T2, 
 
 | Requirement | Class | Key automated evidence |
 |-------------|-------|------------------------|
-| ARCH-01 | COVERED | service.rs load_source_* tests; mpv player source_switch_* and tests/options.rs#load_source_reports_started_for_the_new_file |
+| ARCH-01 | COVERED | service.rs load_source_* tests; mpv player source_switch_* and tests/options.rs#load_source_reports_started_for_the_new_file; player.rs finishing_a_load_never_wipes_a_newer_request, a_failed_load_stops_loading_unless_a_newer_one_follows (WR-11) |
 | ARCH-02 | COVERED | apps/sucrose/tests/portal.rs (welcome, single portal, garbage frame, launch handoff); sucrose-ipc portal/endpoint tests; tests/socket.rs disconnect tests; portal_link.rs tests |
 | ARCH-03 | COVERED | modules.rs tests; portal.rs the_tray_follows_the_notification_area_switch_live, memory_reports_arrive_while_connected |
-| ARCH-04 | COVERED | sucrose-config tests/store.rs (atomic write, kill during write, .bak restore, newer version, unreadable file); settings_host.rs tests |
+| ARCH-04 | COVERED | sucrose-config tests/store.rs (atomic write, kill during write, .bak restore, newer version, unreadable file, corrupt file kept aside as Sucrose.json.corrupt — WR-09); settings_host.rs tests |
 | ARCH-05 | COVERED | portal.rs a_change_survives_a_restart, use_switches_between_video_themes; settings_host.rs; service.rs decide_use, quitting tests |
 | FMT-01 | COVERED | sucrose-config tests/migrate.rs (real and fixture files, nine migrated files, exclusions) |
 | FMT-06 | COVERED | tests/store.rs#nothing_at_all_gives_the_defaults_in_a_new_setting_folder; migrate.rs empty, bom, retry, clamp tests |
@@ -146,12 +146,12 @@ Plans 03-11 (T1, T2), 03-24 (T2, T3), 03-28 (T3), 03-37 (T2, T3) and 03-38 (T2, 
 | LIB-04 | COVERED | layout.rs layout_* (10), pagination.rs and library/mod.rs page tests; visual capture is manual |
 | LIB-06 | COVERED | library/preview.rs preview_* (15 tests), card.rs card_preview_paints_its_second_frame, mod.rs preview_turned_off_*; hover by eye is manual |
 | LIB-08 | COVERED | service.rs decide_use; portal.rs refusal tests; card.rs use_state and tooltip tests |
-| LIB-09 | COVERED | library_ops.rs move, rollback and nesting tests; portal.rs library move tests; service.rs library_move tests |
+| LIB-09 | COVERED | library_ops.rs move, rollback and nesting tests; portal.rs library move tests; service.rs library_move tests and a_renderer_exit_while_quitting_* (WR-10) |
 | UI-01 | COVERED | os_windows.rs#backdrop_needs_windows_11_22h2; theme.rs backdrop test; background.rs tests; general.rs backdrop options test |
 | UI-02 | COVERED | theme.rs#theme_system_follows_the_os_appearance; header.rs theme toggle test; settings/mod.rs gear test |
 | UI-03 | COVERED | xtask localize tests, i18n.rs key tests, main.rs argument tests, status_bar.rs, header.rs, ipc.rs state tests; captures are manual |
 | UI-05 | COVERED | i18n.rs coverage tests; dialogs help, about, tray_hint, link tests |
-| UI-07 | COVERED (automated parts) | thumbs.rs cache, queue, decode and pixel-area tests; atlas.rs release tests; xtask measure and synth tests; memory.rs tests. The memory bound itself is judged by D-25 measurements (manual) |
+| UI-07 | COVERED (automated parts) | thumbs.rs cache, queue, decode, pixel-area and JPEG decode-budget tests (WR-12); atlas.rs release tests; xtask measure and synth tests; memory.rs tests. The memory bound itself is judged by D-25 measurements (manual) |
 
 Counts: 21 requirements, 21 COVERED, 0 PARTIAL, 0 MISSING. A spot check of 220 test-function references from the SUMMARY coverage entries found every function present (one reference, `the_runtime_state_is_published_only_when_it_differs_from_the_last_one_sent` in 03-09, is the shortened name `..._from_the_last_one` in apps/sucrose/src/service.rs).
 
