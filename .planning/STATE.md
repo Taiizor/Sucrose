@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-20-PLAN.md
-last_updated: "2026-11-24T10:22:41.022Z"
+stopped_at: Completed 03-21-PLAN.md
+last_updated: "2026-11-24T10:50:56.701Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: f91e7b30cd2557ba7a6b66265875661e8bf54aa6
+state_head: cc46cc9d0fec1c792525fd8805b2683c6bb7bbc3
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 55
-  completed_plans: 50
+  completed_plans: 51
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 22 of 26
+Plan: 23 of 26
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -104,6 +104,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P18 | 13 min | 3 tasks | 11 files |
 | Phase 03 P19 | 11 min | 2 tasks | 6 files |
 | Phase 03 P20 | 17 min | 3 tasks | 14 files |
+| Phase 03 P21 | 24 min | 2 tasks | 17 files |
 
 ## Accumulated Context
 
@@ -183,6 +184,8 @@ Recent decisions affecting current work:
 - [Phase 03]: Plan 18: quote hides below 900 px and copyright below 1000 px; Premium address lives in header.rs, other links in dialogs/mod.rs as https constants
 - [Phase 03]: 03-19: a capped preview GIF loops the frames decoded so far; zero or tiny delays play at 100 ms; failed previews are remembered until the next rescan
 - [Phase 03]: Settings pages show only broadcast values; Escape leaves settings only when no dialog is open and no field holds the keyboard
+- [Phase 03]: Library maintenance: an existing showcase folder is recorded without being written to; names are recorded only after a successful copy
+- [Phase 03]: Corrupt themes go to the OS bin through sucrose_platform::move_to_trash (trash 5.4.0, path-free errors); the service re-scans and trusts no list from the Portal
 
 ### Pending Todos
 
@@ -215,6 +218,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T10:22:33.401Z
-Stopped at: Completed 03-20-PLAN.md
+Last session: 2026-11-24T10:50:49.454Z
+Stopped at: Completed 03-21-PLAN.md
 Resume file: None

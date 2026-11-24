@@ -100,8 +100,8 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Library (`portal.md` §2)
 
-- [ ] **LIB-01**: Showcase themes are copied on first run and tracked in the new settings (migrated from `Warehouse.json` `Showcase`)
-- [ ] **LIB-02**: The library is scanned with the legacy validity rules and corrupt themes are deleted
+- [x] **LIB-01**: Showcase themes are copied on first run and tracked in the new settings (migrated from `Warehouse.json` `Showcase`)
+- [x] **LIB-02**: The library is scanned with the legacy validity rules and corrupt themes are deleted
 - [x] **LIB-03**: User can sort the library by name, creation or modification date (ascending/descending) and search it
 - [x] **LIB-04**: The library is paginated with an adaptive layout (margin, max per row)
 - [ ] **LIB-05**: A theme card offers use, review, customize, add/remove from cycling, find, share, delete (with confirmation) and edit
@@ -288,8 +288,8 @@ Which phases cover which requirements. Filled during roadmap creation.
 | PROP-03 | Phase 4 | Pending |
 | PROP-04 | Phase 4 | Pending |
 | PROP-05 | Phase 4 | Pending |
-| LIB-01 | Phase 3 | Pending |
-| LIB-02 | Phase 3 | Pending |
+| LIB-01 | Phase 3 | Complete |
+| LIB-02 | Phase 3 | Complete |
 | LIB-03 | Phase 3 | Complete |
 | LIB-04 | Phase 3 | Complete |
 | LIB-05 | Phase 5 | Pending |
