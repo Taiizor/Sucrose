@@ -147,8 +147,13 @@ enum MaintenanceDecision {
 /// What a MaintainLibrary request does: maintenance and a library move never run together (WR-01); the move side is
 /// `MoveEnv::start`'s Busy refusal. `running` is a library-ops run that is going, `moving` a library move.
 fn maintenance_decision(running: bool, moving: bool) -> MaintenanceDecision {
-    let _ = (running, moving);
-    MaintenanceDecision::Start
+    if running {
+        MaintenanceDecision::Wait
+    } else if moving {
+        MaintenanceDecision::AnswerNothing
+    } else {
+        MaintenanceDecision::Start
+    }
 }
 
 /// The OS recycle bin or trash for the library-ops worker.
