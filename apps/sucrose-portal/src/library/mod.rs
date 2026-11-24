@@ -525,6 +525,9 @@ impl LibraryView {
         tracing::debug!(
             page = self.page,
             pages = layout::page_count(self.visible.len(), settings.pagination),
+            thumbs = self.cache.len(),
+            thumb_bytes = self.cache.total_bytes(),
+            preview_playing = matches!(self.preview, PreviewState::Playing { .. }),
             "page shown"
         );
         let keys: Vec<ThumbKey> = self.visible[range]
@@ -675,10 +678,8 @@ impl LibraryView {
         self.queue.finish(&key);
         match result {
             Ok(image) => {
-                for evicted in self.cache.insert(key, image) {
-                    // No window is being updated here, so GPUI finds every window itself.
-                    cx.drop_image(evicted, None);
-                }
+                let evicted = self.cache.insert(key, image);
+                atlas::release_images(cx, evicted);
             }
             Err(error) => {
                 tracing::warn!(%error, "a thumbnail could not be decoded");

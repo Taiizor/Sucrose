@@ -20,6 +20,7 @@ use image::{
 };
 use sucrose_core::settings::Stretch;
 
+use crate::atlas;
 use crate::library::thumbs::{MAX_SIDE, decode_generic, image_bytes, to_bgra};
 
 /// The longest edge, in pixels, a decoded background image may have.
@@ -390,10 +391,7 @@ impl BackgroundImage {
     }
 
     fn drop_decoded(decoded: Decoded, cx: &mut App) {
-        cx.drop_image(decoded.shown, None);
-        if let Some(still) = decoded.still {
-            cx.drop_image(still, None);
-        }
+        atlas::release_images(cx, std::iter::once(decoded.shown).chain(decoded.still));
     }
 }
 
@@ -430,16 +428,21 @@ impl Render for BackgroundImage {
 mod tests {
     use std::{io, io::Cursor, path::Path};
 
+    use gpui_kit::{
+        ImageSource, IntoElement as _, ParentElement as _, RenderImage, Styled as _, TestAppContext, div, img, point,
+        px, size,
+    };
     use image::{
         Delay, Frame, ImageEncoder as _, Rgba, RgbaImage,
         codecs::{gif::GifEncoder, jpeg::JpegEncoder, png::PngEncoder},
     };
+    use std::sync::Arc;
     use sucrose_core::settings::Stretch;
 
     // Not `use super::*`: the module glob-imports GPUI, whose `test` macro would shadow the built-in attribute.
     use super::{
-        BackgroundError, GIF_MAX_FRAMES, MAX_LONG_EDGE, Placement, classify_error, decode_bytes, decode_file,
-        decode_size, fit, layer_alpha, supported_extension,
+        BackgroundError, BackgroundImage, Decoded, GIF_MAX_FRAMES, MAX_LONG_EDGE, Placement, classify_error,
+        decode_bytes, decode_file, decode_size, fit, layer_alpha, supported_extension,
     };
 
     const AREA: (f32, f32) = (1000.0, 500.0);
@@ -629,5 +632,32 @@ mod tests {
             decode_bytes(b"not an image at all", (100, 100)).err(),
             Some(BackgroundError::Unsupported)
         );
+    }
+
+    #[gpui_kit::test]
+    fn background_release_inside_a_window_update_empties_the_atlas(cx: &mut TestAppContext) {
+        let frame = || Frame::new(RgbaImage::from_pixel(4, 4, Rgba([1, 2, 3, 255])));
+        let shown = Arc::new(RenderImage::new(vec![frame(), frame()]));
+        let still = Arc::new(RenderImage::new(vec![frame()]));
+        let decoded = Decoded {
+            shown: shown.clone(),
+            still: Some(still.clone()),
+        };
+        let window = cx.add_empty_window();
+        window.draw(point(px(0.), px(0.)), size(px(80.), px(40.)), |_, _| {
+            div()
+                .child(img(ImageSource::Render(shown.clone())).size(px(40.)))
+                .child(img(ImageSource::Render(still.clone())).size(px(40.)))
+                .into_any_element()
+        });
+        window.update(|window, _| {
+            assert!(window.has_image_atlas_entry(&still), "the still image was drawn");
+        });
+        window.update(|_, cx| BackgroundImage::drop_decoded(decoded, cx));
+        window.run_until_parked();
+        window.update(|window, _| {
+            assert!(!window.has_image_atlas_entry(&shown), "the shown image left the atlas");
+            assert!(!window.has_image_atlas_entry(&still), "the still image left the atlas");
+        });
     }
 }
