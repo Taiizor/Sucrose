@@ -1,6 +1,6 @@
 # Architecture (target)
 
-> Status: **planned**, except what M1 ships (Windows video wallpaper): `sucrose-core` (paths, legacy paths, theme, version, setting enums), `sucrose-log`, `sucrose-config` (legacy settings reader), `sucrose-ipc` (service and renderer messages, single instance), `sucrose-platform` (Windows desktop surface, monitors, event loop, tray, job object, foreground window, GPU preference and adapters; macOS and Linux stubs), `sucrose-engine-mpv` (bundled libmpv bindings, loader, player), `apps/sucrose` (service and renderer), `apps/sucrose-portal` (empty window) and `xtask` (ci, fetch-engines, bindgen-mpv, measure). Planned: `sucrose-engine` (Engine trait, with the second engine in Phase 4) and the rest. Update this file as code lands; when code and this file disagree, fix one of them in the same change.
+> Status: **planned**, except what M1 and M2 ship (Windows only for the platform code that has a Windows implementation): `sucrose-core` (paths, legacy paths, theme, version, setting enums, and the library scan: validity rules, sort, search index, theme-folder containment), `sucrose-log`, `sucrose-config` (the versioned `Setting/Sucrose.json` with lenient reading, atomic store, `.bak` restore and the key-by-key migration from the legacy `Setting/*.json` files, plus the legacy reader), `sucrose-ipc` (service and renderer messages, the Portal protocol, one local endpoint per data folder routed by the first message, single instance), `sucrose-platform` (Windows desktop surface, monitors, event loop, tray, job object, foreground window and foreground handoff, GPU preference and adapters, autostart entries for Windows, macOS and Linux, move to the recycle bin or trash, `window_backdrop` and `recycle_bin` capabilities; macOS and Linux stubs), `sucrose-engine-mpv` (bundled libmpv bindings, loader, player), `apps/sucrose` (service and renderer; the service adds the settings host, the Portal registry, the lifecycle rules, the library operations worker and the optional modules behind one gate), `apps/sucrose-portal` (the connected Portal: library, settings, status bar, dialogs) and `xtask` (ci, fetch-engines, bindgen-mpv, measure with a Portal mode, localize, synth-library). Planned: `sucrose-engine` (Engine trait, with the second engine in Phase 4) and the rest. Update this file as code lands; when code and this file disagree, fix one of them in the same change.
 
 ## Goals
 
@@ -26,6 +26,11 @@ Sucrose builds for these targets (D-027):
 | `sucrose` (service) | Always on while a wallpaper is active | Core: settings, single instance, IPC server, starting and supervising renderers. Optional modules, each started only when the user enables it (D-008): tray, performance rules + system data, audio capture, media session, cycling, Discord, crash/telemetry upload, update checks. |
 | `sucrose --render …` (renderer) | One per running wallpaper (per monitor or per span) | Hosts one engine on one desktop surface. Crashes are contained; the service restarts it. |
 | `sucrose-portal` (UI) | Only while the window is open | Library, store, settings, theme creation/editing. Talks only to the service over IPC, never to engines directly. |
+
+- The Portal is a peer on the one local endpoint of the service (D-033): its first message, `PortalHello`, routes it to the Portal registry instead of the renderer path. A second Portal gets `AlreadyOpen` (and a foreground grant) and exits before it opens a window. The endpoint name carries a hash of `SUCROSE_DATA_DIR` when that variable is set, so a scratch-folder service never meets the real one.
+- When no service runs, the Portal starts it with `sucrose --no-portal` (the service then never starts a Portal itself) and reconnects with backoff if the link drops.
+- Service lifetime (D-13): the service starts by the legacy Launcher rule (Portal, tray and wallpaper from the stored settings) and exits by itself when the tray is hidden and nothing needs it: no Portal registered, no renderer running, and no library operation under way. A second `sucrose` launch asks the running service to open the Portal and exits with code 0.
+- Optional modules (tray, the 1 s memory report to a connected Portal, the fullscreen rule) go through one start gate and do not exist while their setting or the Portal's presence does not call for them (D-008).
 
 ## Workspace layout
 
@@ -110,7 +115,7 @@ pub trait Engine {
 ## Data and paths
 
 - Settings, cache, logs and showcase live in the same places as the C# app on Windows (`%APPDATA%\Sucrose\…`) and in the platform config directory elsewhere (`dirs::config_dir()/Sucrose`).
-- Settings use a new versioned format with atomic writes (D-007); runtime state (pause/close flags, ports) is never stored in settings. Legacy `Setting/*.json` files are migrated on first run.
+- Settings use a new versioned format with atomic writes (D-007): `Setting/Sucrose.json` with a `Setting/Sucrose.json.bak` restore copy, written only by the service (the Portal sends `SettingChange` messages and shows the value the service broadcasts back, D-032). Runtime state (pause/close flags, ports) is never stored in settings. The nine legacy `Setting/*.json` files that carry settings are migrated key by key on first run, read-only (the C# files are never changed).
 - The library location comes from the settings (legacy: `Setting/Library.json` → `Location`).
 - File formats: see `FEATURES.md` → "Formats and contracts".
 
