@@ -157,7 +157,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Formats and contracts (D-007)
 
-- [ ] **FMT-01**: Legacy `Setting/*.json` files (14 files, `Properties` wrapper, enums by name) migrate to the new settings format on first run, `Donate.json` (D-023) and the documented exclusions excluded, proven with fixtures
+- [x] **FMT-01**: Legacy `Setting/*.json` files (14 files, `Properties` wrapper, enums by name) migrate to the new settings format on first run, `Donate.json` (D-023) and the documented exclusions excluded, proven with fixtures
 - [x] **FMT-02**: `SucroseInfo.json` is read and written compatibly, proven with fixtures from real themes
 - [ ] **FMT-03**: `SucroseProperties.json` and `SucroseCompatible.json` are read and written compatibly, proven with fixtures
 - [ ] **FMT-04**: Theme archives are validated with the legacy rules (`formats.md` §3)
@@ -327,7 +327,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | SVC-06 | Phase 5 | Pending |
 | SVC-07 | Phase 5 | Pending |
 | SVC-08 | Phase 5 | Pending |
-| FMT-01 | Phase 3 | Pending |
+| FMT-01 | Phase 3 | Complete |
 | FMT-02 | Phase 2 | Complete |
 | FMT-03 | Phase 4 | Pending |
 | FMT-04 | Phase 5 | Pending |
