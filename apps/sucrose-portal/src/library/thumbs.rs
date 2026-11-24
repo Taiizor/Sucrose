@@ -266,7 +266,7 @@ fn decode_jpeg_scaled(bytes: &[u8], target: u32) -> Option<DynamicImage> {
 }
 
 /// Any format the image crate reads, with the size and memory limits of T-03-25.
-fn decode_generic(bytes: &[u8]) -> anyhow::Result<DynamicImage> {
+pub fn decode_generic(bytes: &[u8]) -> anyhow::Result<DynamicImage> {
     let mut reader = ImageReader::new(Cursor::new(bytes))
         .with_guessed_format()
         .context("the image format is unknown")?;
@@ -289,7 +289,12 @@ fn fit(image: DynamicImage, target: u32) -> DynamicImage {
 
 /// The BGRA image GPUI draws: alpha premultiplied, red and blue swapped.
 fn to_render_image(image: DynamicImage) -> Arc<RenderImage> {
-    let mut pixels = image.into_rgba8();
+    Arc::new(RenderImage::new(vec![image::Frame::new(to_bgra(image.into_rgba8()))]))
+}
+
+/// The pixels of `pixels` in the form GPUI draws: alpha premultiplied, red and blue swapped. Shared with the background
+/// image, whose animated frames are converted one by one.
+pub fn to_bgra(mut pixels: image::RgbaImage) -> image::RgbaImage {
     let raw: &mut [u8] = &mut pixels;
     for pixel in raw.as_chunks_mut::<4>().0 {
         let alpha = u16::from(pixel[3]);
@@ -300,7 +305,7 @@ fn to_render_image(image: DynamicImage) -> Arc<RenderImage> {
         }
         pixel.swap(0, 2);
     }
-    Arc::new(RenderImage::new(vec![image::Frame::new(pixels)]))
+    pixels
 }
 
 #[cfg(test)]
