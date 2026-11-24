@@ -7,7 +7,7 @@
 
 use gpui_kit::component::{Theme, ThemeMode as ThemeShade, ThemeRegistry};
 use gpui_kit::*;
-use sucrose_core::settings::ThemeMode;
+use sucrose_core::settings::{Backdrop, ThemeMode};
 
 /// The Sucrose light and dark themes, embedded in the executable.
 const SUCROSE_THEMES: &str = include_str!("../themes/sucrose.json");
@@ -73,6 +73,19 @@ pub fn apply_mode(mode: ThemeMode, window: &mut Window, cx: &mut App) {
     change(mode, window.appearance(), cx);
 }
 
+/// The window background GPUI is told to use for the stored `backdrop`. `supported` is the platform capability: an OS that
+/// cannot show a backdrop gets an opaque window and the stored value stays as it is (D-22).
+pub fn appearance(backdrop: Backdrop, supported: bool) -> WindowBackgroundAppearance {
+    let _ = (backdrop, supported);
+    WindowBackgroundAppearance::Opaque
+}
+
+/// The alpha of the tinted page background: a backdrop or a background image must show through it.
+pub fn page_alpha(backdrop_active: bool, image_active: bool) -> f32 {
+    let _ = (backdrop_active, image_active);
+    1.0
+}
+
 /// Calls `on_change` when the OS switches between light and dark, but only while `is_system` says the stored mode is
 /// System: an explicit Light or Dark ignores the OS. The window reports the change as an event, so nothing polls.
 pub fn follow_os<T: 'static>(
@@ -93,7 +106,43 @@ mod tests {
     use gpui_kit::WindowAppearance;
     use sucrose_core::settings::ThemeMode;
 
-    use super::{DARK_NAME, LIGHT_NAME, SUCROSE_THEMES, effective_dark_for};
+    use gpui_kit::WindowBackgroundAppearance;
+    use sucrose_core::settings::Backdrop;
+
+    use super::{DARK_NAME, LIGHT_NAME, SUCROSE_THEMES, appearance, effective_dark_for, page_alpha};
+
+    #[test]
+    fn theme_backdrop_maps_to_the_window_background() {
+        assert_eq!(appearance(Backdrop::None, true), WindowBackgroundAppearance::Opaque);
+        assert_eq!(
+            appearance(Backdrop::Mica, true),
+            WindowBackgroundAppearance::MicaBackdrop
+        );
+        assert_eq!(appearance(Backdrop::Acrylic, true), WindowBackgroundAppearance::Blurred);
+        assert_eq!(
+            appearance(Backdrop::Tabbed, true),
+            WindowBackgroundAppearance::MicaAltBackdrop
+        );
+    }
+
+    #[test]
+    fn theme_backdrop_is_opaque_where_the_os_cannot_show_it() {
+        for backdrop in Backdrop::ALL {
+            assert_eq!(
+                appearance(*backdrop, false),
+                WindowBackgroundAppearance::Opaque,
+                "{backdrop:?}"
+            );
+        }
+    }
+
+    #[test]
+    fn theme_page_is_opaque_only_without_a_backdrop_and_an_image() {
+        assert!((page_alpha(false, false) - 1.0).abs() < f32::EPSILON);
+        assert!((page_alpha(true, false) - 0.78).abs() < f32::EPSILON);
+        assert!((page_alpha(false, true) - 0.78).abs() < f32::EPSILON);
+        assert!((page_alpha(true, true) - 0.78).abs() < f32::EPSILON);
+    }
 
     #[test]
     fn theme_light_and_dark_ignore_the_os_appearance() {

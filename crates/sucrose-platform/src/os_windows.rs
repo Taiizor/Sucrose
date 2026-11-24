@@ -54,6 +54,7 @@ impl Platform for Current {
             desktop_wallpaper: true,
             fullscreen_detection: true,
             gpu_preference: true,
+            window_backdrop: backdrop_supported(windows_build()),
             ..Capabilities::default()
         }
     }
@@ -177,9 +178,39 @@ fn current_user_sid() -> Result<String, PlatformError> {
     })
 }
 
+/// The first Windows build whose window backdrops (Mica and Tabbed) the window system draws: Windows 11 22H2.
+const BACKDROP_MIN_BUILD: u32 = 22621;
+
+/// Whether Windows build `build` can show a window backdrop.
+fn backdrop_supported(build: u32) -> bool {
+    let _ = build;
+    false
+}
+
+/// The build number of this Windows.
+fn windows_build() -> u32 {
+    0
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn backdrop_needs_windows_11_22h2() {
+        assert_eq!(BACKDROP_MIN_BUILD, 22621);
+        assert!(!backdrop_supported(0));
+        assert!(!backdrop_supported(19045), "Windows 10 22H2");
+        assert!(!backdrop_supported(22000), "Windows 11 21H2");
+        assert!(!backdrop_supported(22620));
+        assert!(backdrop_supported(22621), "Windows 11 22H2");
+        assert!(backdrop_supported(26100), "Windows 11 24H2");
+    }
+
+    #[test]
+    fn this_windows_reports_a_build() {
+        assert!(windows_build() >= 10_000, "{}", windows_build());
+    }
 
     #[test]
     fn the_clock_advances_and_is_in_nanoseconds() {

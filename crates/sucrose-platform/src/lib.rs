@@ -130,6 +130,9 @@ pub struct Capabilities {
     pub fullscreen_detection: bool,
     /// The GPU an executable's Direct3D devices use can be requested.
     pub gpu_preference: bool,
+    /// The window backdrop materials (Mica, Acrylic, Tabbed) can be shown behind a window (Windows 11 22H2 and later).
+    /// Where this is `false` a stored backdrop is applied as none without changing the setting (D-22).
+    pub window_backdrop: bool,
 }
 
 /// A GPU adapter of this machine.

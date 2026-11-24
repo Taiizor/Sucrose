@@ -34,6 +34,7 @@ windows = { workspace = true, features = [
     "Win32_UI_HiDpi",
     "Win32_UI_Shell",
     "Win32_UI_WindowsAndMessaging",
+    "Wdk_System_SystemServices",
 ] }
 
 [lints]
