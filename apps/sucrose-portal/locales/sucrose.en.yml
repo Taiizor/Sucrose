@@ -1,0 +1,3 @@
+# Hand-written English strings for the keys new in Phase 3 (flat dotted keys, merged with legacy.en.yml into locale "en").
+# Keys that exist in the legacy resources belong to legacy.en.yml, which `cargo xtask localize` generates.
+"Portal.Setting.SaveFailed": "Your setting couldn't be saved. Try again."
