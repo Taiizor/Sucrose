@@ -31,6 +31,11 @@ Practical notes for the UI (`gpui-kit`). GPUI documentation is thin; read the so
 - `Empty` is `flex_1` and centers its content; for a block that starts 64 px below the top give it `.flex_none()` inside a column with a top padding. `EmptyHeader` is at most 24 rem wide, so a 24 px heading wraps; widen it with `.max_w()`. `gpui-component`'s `Pagination` has no jump field and no fixed slot scheme, so the legacy pagination bar is composed from `Button`s and an `Input`.
 - `Skeleton::new()` defaults to full width and 16 px height; override with `.w()`, `.h()`, `.size_full()` and `.rounded()`.
 
+- `App::open_url` and `App::write_to_clipboard` return nothing, so a failure cannot be observed. For the clipboard read the text back with `read_from_clipboard` and compare; for a link only log the attempt.
+- Dialogs (`gpui_kit::component::WindowExt`): `window.open_dialog(cx, |dialog, window, cx| dialog.title(..).w(px(..)).child(..).footer(..))`; the builder can run again, so keep it cheap. A plain `Dialog` draws no buttons: compose a `DialogFooter` with a `Button` that calls `window.close_dialog(cx)`. Children go into a scroll container under the title and above the footer, and the surface is at most the viewport height minus 32 px; to keep another clearance give the body its own `max_h` and `overflow_y_scrollbar()` (`ScrollableElement`). `keyboard`, `overlay_closable` and `close_button` are fixed when the dialog opens, and anything that changes while it is open (a countdown) must live in an entity passed as `.footer(entity)` or `.child(entity)`.
+- `Button` is a `ParentElement`: a clickable row with an icon and two lines of text is a ghost `Button` with children, which the keyboard reaches for free. `font_semibold()` and the other weights need `gpui_kit::component::StyledExt` in scope.
+- `window.on_window_should_close(cx, f)` calls `f` from the platform, outside any entity update; reach the root entity through a `cx.weak_entity()` taken beforehand and `update` it. Returning false keeps the window open.
+
 ## Patterns
 
 - State lives in entities; long work runs on `cx.background_executor()`, results come back with `this.update(cx, …)`.
