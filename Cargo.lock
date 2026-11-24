@@ -6467,6 +6467,7 @@ version = "26.11.22+1"
 dependencies = [
  "anyhow",
  "gpui-kit",
+ "rust-i18n",
  "sucrose-core",
  "sucrose-log",
  "tracing",
