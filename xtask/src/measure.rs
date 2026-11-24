@@ -1483,6 +1483,23 @@ pub struct PageEvent {
     pub page: u32,
     /// How many pages the library has, when the line says so.
     pub pages: Option<u32>,
+    /// The memory figures of the line, as far as it carries them.
+    pub memory: PageMemory,
+}
+
+/// The memory fields of a "page shown" line; a field the line does not carry (an older Portal) is `None`.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub struct PageMemory {
+    /// Bytes the Portal's thumbnail cache holds.
+    pub thumb_bytes: Option<u64>,
+    /// MiB of process heap the Rust code keeps alive.
+    pub heap_allocated_mb: Option<u64>,
+    /// MiB of process heap the OS has committed.
+    pub heap_committed_mb: Option<u64>,
+    /// MiB of video memory in use on the local segment group.
+    pub gpu_local_mb: Option<u64>,
+    /// MiB of video memory in use on the non-local segment group.
+    pub gpu_non_local_mb: Option<u64>,
 }
 
 /// The "page shown" events of a Portal log (target `sucrose_portal::library`), in file order. Other lines, a line
@@ -1503,11 +1520,17 @@ fn page_event(line: &str) -> Option<PageEvent> {
     if !head.contains(PAGE_LOG_TARGET) {
         return None;
     }
-    let (mut page, mut pages) = (None, None);
+    let (mut page, mut pages, mut memory) = (None, None, PageMemory::default());
     for field in fields.split_whitespace() {
+        let number = |value: &str| value.parse::<u64>().ok();
         match field.split_once('=') {
             Some(("page", value)) => page = value.parse::<u32>().ok().filter(|page| *page >= 1),
             Some(("pages", value)) => pages = value.parse::<u32>().ok(),
+            Some(("thumb_bytes", value)) => memory.thumb_bytes = number(value),
+            Some(("heap_allocated_mb", value)) => memory.heap_allocated_mb = number(value),
+            Some(("heap_committed_mb", value)) => memory.heap_committed_mb = number(value),
+            Some(("gpu_local_mb", value)) => memory.gpu_local_mb = number(value),
+            Some(("gpu_non_local_mb", value)) => memory.gpu_non_local_mb = number(value),
             _ => {}
         }
     }
@@ -1515,6 +1538,7 @@ fn page_event(line: &str) -> Option<PageEvent> {
         at_ms,
         page: page?,
         pages,
+        memory,
     })
 }
 
@@ -1753,6 +1777,120 @@ pub fn portal_row_from_logs(
         clean_cell(&cells.join("; ")),
         clean_cell(&notes)
     ))
+}
+
+// ---- Growth attribution (the source of the paging growth) ----
+
+/// The D-25 cap on the private-bytes growth over a run: 48 MiB, in the MiB the series values are in.
+const ATTRIBUTION_CAP_MB: f64 = 48.0;
+/// The share of the private growth a part needs to be named as its source.
+const ATTRIBUTION_SHARE: f64 = 0.5;
+
+/// A part of the Portal's memory that can account for a growth in private bytes.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Part {
+    /// Video memory in use: where GPUI's atlas textures are counted.
+    GpuAtlas,
+    /// Heap Rust keeps alive: decode buffers, caches, anything still referenced.
+    HeldHeap,
+    /// Heap the OS keeps committed after frees.
+    AllocatorRetention,
+}
+
+impl Part {
+    fn label(self) -> &'static str {
+        match self {
+            Part::GpuAtlas => "gpu atlas",
+            Part::HeldHeap => "held heap",
+            Part::AllocatorRetention => "allocator retention",
+        }
+    }
+}
+
+/// What a D-25 run's growth is attributed to.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Verdict {
+    /// The private growth is at most the D-25 cap, so there is nothing to attribute.
+    WithinCap,
+    /// One part makes up at least half of the private growth.
+    Named(Part),
+    /// No part reaches half; the largest one is kept for the report.
+    Unattributed(Part),
+    /// The page log carries no heap or video memory fields (an older log).
+    NotRecorded,
+}
+
+impl Verdict {
+    /// The verdict word: "within the cap", "gpu atlas", "held heap", "allocator retention", "unattributed" or "not
+    /// recorded".
+    pub fn label(self) -> &'static str {
+        match self {
+            Verdict::WithinCap => "within the cap",
+            Verdict::Named(part) => part.label(),
+            Verdict::Unattributed(_) => "unattributed",
+            Verdict::NotRecorded => "not recorded",
+        }
+    }
+}
+
+/// The growth of each part between two page events, in MB (MiB).
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub struct Growth {
+    /// Local plus non-local video memory.
+    pub gpu: f64,
+    /// Allocated heap.
+    pub held_heap: f64,
+    /// Committed minus allocated heap.
+    pub retention: f64,
+    /// The thumbnail cache, for context (bounded by its cap); absent when a line lacks `thumb_bytes`.
+    pub thumbnails: Option<f64>,
+}
+
+impl Growth {
+    fn of(&self, part: Part) -> f64 {
+        match part {
+            Part::GpuAtlas => self.gpu,
+            Part::HeldHeap => self.held_heap,
+            Part::AllocatorRetention => self.retention,
+        }
+    }
+}
+
+/// The attribution of one run's private-bytes growth.
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub struct Attribution {
+    pub verdict: Verdict,
+    /// Private growth from the first-page value to the last round's end value, in MB.
+    pub private: f64,
+    /// The growth of the parts; `None` when the log lacks the fields.
+    pub growth: Option<Growth>,
+    /// The start and end events, in milliseconds since the series start, when both were found.
+    pub span: Option<(i64, i64)>,
+}
+
+/// Attributes the private-bytes growth of a run to GPU memory, held heap or allocator retention. The start event is the
+/// first "page shown" event whose page is not 1 (it still describes page 1 as the maintainer left it); the end event is
+/// the closing page-1 event of the last round. `events` are counted from the series start, as `private`'s rounds are.
+pub fn portal_attribution(private: &PortalLogSummary, events: &[PageEvent], rounds: usize) -> Attribution {
+    let _ = (private, events, rounds);
+    Attribution {
+        verdict: Verdict::NotRecorded,
+        private: 0.0,
+        growth: None,
+        span: None,
+    }
+}
+
+/// The attribution of a series from its page log text.
+fn log_attribution(series: &PortalSeries, log: &str, rounds: usize) -> Result<Attribution, String> {
+    let _ = (series, log, rounds);
+    Err("not yet".to_owned())
+}
+
+/// The one-line attribution report with the start and end of the span in local time.
+fn attribution_text(attribution: &Attribution, offset_minutes: Option<i32>, series_start_ms: i64) -> String {
+    let _ = (attribution, offset_minutes, series_start_ms);
+    String::new()
 }
 
 /// The offset of local time from UTC in minutes, from `+HHMM`, `+HH:MM` or a whole number of minutes.
@@ -2626,6 +2764,7 @@ mod tests {
                 at_ms: (i as i64 + 1) * 10_000,
                 page: *page,
                 pages: Some(3),
+                memory: PageMemory::default(),
             })
             .collect();
         let (rounds, open) = split_rounds(&events);
@@ -2643,6 +2782,7 @@ mod tests {
                 at_ms: second * 1000,
                 page: *page,
                 pages: Some(3),
+                memory: PageMemory::default(),
             })
             .collect();
         assert_eq!(split_rounds(&early), (Vec::new(), Some(2000)));
@@ -2731,6 +2871,186 @@ mod tests {
         debug.build = Some("debug".to_owned());
         assert!(portal_row_from_logs((&real, &log), (&debug, &log), 3).is_err());
         assert!(portal_row_from_logs((&real, "nothing"), (&synth, &log), 3).is_err());
+    }
+
+    fn mem(gpu: u64, held: u64, retention: u64) -> PageMemory {
+        PageMemory {
+            thumb_bytes: Some(0),
+            heap_allocated_mb: Some(held),
+            heap_committed_mb: Some(held + retention),
+            gpu_local_mb: Some(gpu),
+            gpu_non_local_mb: Some(0),
+        }
+    }
+
+    /// One round (20 s to 40 s) whose private bytes grow by `private_growth` MB, with the parts growing by `gpu`,
+    /// `held` and `retention` MB between the start event and the closing page-1 event.
+    fn attribution_case(private_growth: f64, gpu: u64, held: u64, retention: u64) -> Attribution {
+        let private = PortalLogSummary {
+            values: PortalSummary {
+                first_page: 100.0,
+                round_end: vec![100.0 + private_growth],
+                round_peak: vec![100.0 + private_growth],
+                peak: 100.0 + private_growth,
+                final_value: 100.0 + private_growth,
+            },
+            rounds: vec![RoundSpan {
+                start_ms: 20_000,
+                end_ms: 40_000,
+            }],
+        };
+        let at = |at_ms: i64, page: u32, memory: PageMemory| PageEvent {
+            at_ms,
+            page,
+            pages: Some(3),
+            memory,
+        };
+        let events = [
+            at(1_000, 1, mem(1, 1, 1)),
+            at(20_000, 2, mem(30, 40, 5)),
+            at(30_000, 3, mem(999, 999, 999)),
+            at(40_000, 1, mem(30 + gpu, 40 + held, 5 + retention)),
+        ];
+        portal_attribution(&private, &events, 1)
+    }
+
+    #[test]
+    fn portal_attribution_names_the_gpu_when_video_memory_grows_most() {
+        let attribution = attribution_case(100.0, 70, 10, 5);
+        assert_eq!(attribution.verdict, Verdict::Named(Part::GpuAtlas), "{attribution:?}");
+        assert_eq!(attribution.verdict.label(), "gpu atlas");
+        let growth = attribution.growth.expect("growth");
+        assert!(approx(growth.gpu, 70.0) && approx(growth.held_heap, 10.0) && approx(growth.retention, 5.0));
+        assert!(approx(attribution.private, 100.0));
+        assert_eq!(attribution.span, Some((20_000, 40_000)));
+    }
+
+    #[test]
+    fn portal_attribution_names_held_heap_when_allocated_grows_most() {
+        let attribution = attribution_case(100.0, 20, 60, 5);
+        assert_eq!(attribution.verdict, Verdict::Named(Part::HeldHeap), "{attribution:?}");
+        assert_eq!(attribution.verdict.label(), "held heap");
+    }
+
+    #[test]
+    fn portal_attribution_names_allocator_retention_when_committed_minus_allocated_grows_most() {
+        let attribution = attribution_case(100.0, 20, 10, 55);
+        assert_eq!(
+            attribution.verdict,
+            Verdict::Named(Part::AllocatorRetention),
+            "{attribution:?}"
+        );
+        assert_eq!(attribution.verdict.label(), "allocator retention");
+        assert!(approx(attribution.growth.expect("growth").retention, 55.0));
+    }
+
+    #[test]
+    fn portal_attribution_is_unattributed_when_no_part_reaches_half() {
+        let attribution = attribution_case(100.0, 40, 30, 20);
+        assert_eq!(
+            attribution.verdict,
+            Verdict::Unattributed(Part::GpuAtlas),
+            "{attribution:?}"
+        );
+        assert_eq!(attribution.verdict.label(), "unattributed");
+        let growth = attribution.growth.expect("growth");
+        assert!(approx(growth.of(Part::GpuAtlas), 40.0));
+        // Exactly half is enough.
+        assert_eq!(
+            attribution_case(100.0, 50, 0, 0).verdict,
+            Verdict::Named(Part::GpuAtlas)
+        );
+    }
+
+    #[test]
+    fn portal_attribution_has_nothing_to_attribute_within_the_cap() {
+        let attribution = attribution_case(40.0, 40, 0, 0);
+        assert_eq!(attribution.verdict, Verdict::WithinCap, "{attribution:?}");
+        assert_eq!(attribution.verdict.label(), "within the cap");
+        assert_eq!(attribution_case(48.0, 48, 0, 0).verdict, Verdict::WithinCap);
+        assert_eq!(attribution_case(48.5, 48, 0, 0).verdict, Verdict::Named(Part::GpuAtlas));
+    }
+
+    #[test]
+    fn portal_attribution_is_not_recorded_for_a_log_without_the_fields() {
+        // A page log of the 03-36 era: page, pages and thumbs only. The round summary still works.
+        let log = page_log(&round_events(3, 20), 3);
+        let mut series = series_of(&log_points(130), Some("release"));
+        series.started = LOG_START.to_owned();
+        let (_, private) = log_summaries(&series, &log, 3).expect("the round summary");
+        let attribution = log_attribution(&series, &log, 3).expect("attribution");
+        assert_eq!(attribution.verdict, Verdict::NotRecorded, "{attribution:?}");
+        assert_eq!(attribution.verdict.label(), "not recorded");
+        assert!(attribution.growth.is_none());
+        assert!(approx(
+            attribution.private,
+            private.values.round_end[2] - private.values.first_page
+        ));
+    }
+
+    #[test]
+    fn portal_attribution_reads_the_memory_fields_of_the_page_lines() {
+        let log = "2026-11-24T10:00:02.000000Z DEBUG sucrose_portal::library: page shown page=2 pages=3 thumbs=3 \
+                   thumb_bytes=900 preview_playing=false heap_allocated_mb=41 heap_committed_mb=47 gpu_local_mb=33 \
+                   gpu_non_local_mb=2\n\
+                   2026-11-24T10:00:03.000000Z DEBUG sucrose_portal::library: page shown page=1 pages=3 thumbs=3 \
+                   thumb_bytes=x heap_allocated_mb=-4\n";
+        let events = page_events(log);
+        assert_eq!(events.len(), 2);
+        assert_eq!(
+            events[0].memory,
+            PageMemory {
+                thumb_bytes: Some(900),
+                heap_allocated_mb: Some(41),
+                heap_committed_mb: Some(47),
+                gpu_local_mb: Some(33),
+                gpu_non_local_mb: Some(2),
+            }
+        );
+        assert_eq!(
+            events[1].memory,
+            PageMemory::default(),
+            "a malformed value is None, not a panic"
+        );
+    }
+
+    #[test]
+    fn portal_attribution_is_taken_from_the_page_log_of_a_series() {
+        // Private grows from 100 to 180 MB over three rounds; the log says the video memory grew by 60 MB meanwhile.
+        let scaled: Vec<(u64, f64)> = log_points(130)
+            .into_iter()
+            .map(|(t, v)| (t, 100.0 + (v - 100.0) * 8.0))
+            .collect();
+        let mut series = series_of(&scaled, Some("release"));
+        series.started = LOG_START.to_owned();
+        let mut log = String::new();
+        for (second, page) in round_events(3, 20) {
+            let gpu = if second < 100 { 30 } else { 90 };
+            let at =
+                iso_utc_ms(u64::try_from(start_ms()).expect("positive") + second * 1000 + 250).replace('Z', "123Z");
+            let _ = writeln!(
+                log,
+                "{at} DEBUG sucrose_portal::library: page shown page={page} pages=3 thumbs=3 thumb_bytes=900 \
+                 preview_playing=false heap_allocated_mb=40 heap_committed_mb=44 gpu_local_mb={gpu} gpu_non_local_mb=0"
+            );
+        }
+        let attribution = log_attribution(&series, &log, 3).expect("attribution");
+        assert_eq!(attribution.verdict, Verdict::Named(Part::GpuAtlas), "{attribution:?}");
+        assert!(approx(attribution.private, 80.0), "{attribution:?}");
+        assert!(approx(attribution.growth.expect("growth").gpu, 60.0), "{attribution:?}");
+        assert!(attribution_text(&attribution, Some(0), start_ms()).contains("gpu atlas"));
+    }
+
+    #[test]
+    fn portal_attribution_is_the_same_twice() {
+        assert_eq!(attribution_case(100.0, 70, 10, 5), attribution_case(100.0, 70, 10, 5));
+        let log = page_log(&round_events(3, 20), 3);
+        let mut series = series_of(&log_points(130), Some("release"));
+        series.started = LOG_START.to_owned();
+        assert_eq!(
+            log_attribution(&series, &log, 3).expect("attribution"),
+            log_attribution(&series, &log, 3).expect("attribution")
+        );
     }
 
     #[test]
