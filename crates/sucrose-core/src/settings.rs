@@ -140,6 +140,67 @@ legacy_enum! {
     }
 }
 
+legacy_enum! {
+    /// The portal's light or dark look (`Portal.ThemeMode`, D-21); a fresh install follows the system.
+    ///
+    /// The C# app stored only Dark or Light (`ThemeType`); `System` is new.
+    ThemeMode, default System {
+        /// Always light.
+        Light,
+        /// Always dark.
+        Dark,
+        /// Follow the operating system.
+        #[default]
+        System,
+    }
+}
+
+legacy_enum! {
+    /// The material behind the portal window (`Portal.Backdrop`, D-21); the legacy default is no backdrop.
+    ///
+    /// Not the C# `WindowBackdropType`: its `Auto` is split into theme mode `System` and backdrop `Mica`.
+    Backdrop, default None {
+        /// A plain window background.
+        #[default]
+        None,
+        /// The Windows 11 Mica material.
+        Mica,
+        /// The Windows acrylic blur.
+        Acrylic,
+        /// The Windows 11 tabbed (Mica Alt) material.
+        Tabbed,
+    }
+}
+
+legacy_enum! {
+    /// The C# `WindowsThemeType` stored as `General.json:ThemeType`; only read to migrate to [`ThemeMode`].
+    LegacyThemeType, default Dark {
+        /// A dark OS theme.
+        #[default]
+        Dark,
+        /// A light OS theme.
+        Light,
+    }
+}
+
+legacy_enum! {
+    /// The WPF-UI `WindowBackdropType` stored as `Portal.json:BackdropType`; only read to migrate to [`Backdrop`]
+    /// (and, for `Auto`, [`ThemeMode`]).
+    LegacyBackdropType, default None {
+        /// No backdrop (the legacy default).
+        #[default]
+        None,
+        /// Follow the system: becomes theme mode `System` with the `Mica` backdrop.
+        Auto,
+        /// Mica.
+        Mica,
+        /// Acrylic.
+        Acrylic,
+        /// Tabbed (Mica Alt).
+        Tabbed,
+    }
+}
+
 macro_rules! legacy_index {
     ($($name:ident),+) => {
         $(
@@ -154,7 +215,16 @@ macro_rules! legacy_index {
 }
 
 // ScreenArea is left out on purpose: its C# ordinals are unclear.
-legacy_index!(Stretch, FullScreenAction, PauseKind, GpuPreference, SortMode, SortKind);
+legacy_index!(
+    Stretch,
+    FullScreenAction,
+    PauseKind,
+    GpuPreference,
+    SortMode,
+    SortKind,
+    LegacyThemeType,
+    LegacyBackdropType
+);
 
 #[cfg(test)]
 mod tests {
@@ -169,6 +239,29 @@ mod tests {
         assert_eq!(GpuPreference::default(), GpuPreference::HighPerformance);
         assert_eq!(SortMode::default(), SortMode::Creation);
         assert_eq!(SortKind::default(), SortKind::Descending);
+        assert_eq!(ThemeMode::default(), ThemeMode::System);
+        assert_eq!(Backdrop::default(), Backdrop::None);
+    }
+
+    #[test]
+    fn theme_enums_use_the_legacy_names_and_declaration_order() {
+        assert_eq!(ThemeMode::from_legacy_name("Dark"), Some(ThemeMode::Dark));
+        assert_eq!(ThemeMode::from_legacy_name("dark"), None);
+        assert_eq!(Backdrop::from_legacy_name("Tabbed"), Some(Backdrop::Tabbed));
+        assert_eq!(Backdrop::from_legacy_name("Auto"), None);
+        assert_eq!(LegacyThemeType::from_legacy_index(1), Some(LegacyThemeType::Light));
+        assert_eq!(LegacyThemeType::from_legacy_index(2), None);
+        assert_eq!(
+            LegacyBackdropType::from_legacy_name("Auto"),
+            Some(LegacyBackdropType::Auto)
+        );
+        assert_eq!(LegacyBackdropType::from_legacy_name("auto"), None);
+        assert_eq!(
+            LegacyBackdropType::from_legacy_index(4),
+            Some(LegacyBackdropType::Tabbed)
+        );
+        assert_eq!(LegacyBackdropType::from_legacy_index(5), None);
+        assert_eq!(ThemeMode::ALL, &[ThemeMode::Light, ThemeMode::Dark, ThemeMode::System]);
     }
 
     #[test]

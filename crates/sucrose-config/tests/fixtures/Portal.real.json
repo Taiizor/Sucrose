@@ -1,0 +1,21 @@
+{
+  "Properties": {
+    "BackdropType": "Acrylic",
+    "StoreServerType": "Soferity",
+    "StoreAdult": true,
+    "LibraryPagination": 30,
+    "StorePagination": 30,
+    "LibraryPreview": false,
+    "LibrarySortKind": "Descending",
+    "StorePreview": true,
+    "AdaptiveLayout": 6,
+    "LibraryPreviewHide": true,
+    "BackgroundImage": "",
+    "StoreDuration": 1,
+    "LibrarySortMode": "Creation",
+    "AdaptiveMargin": 5,
+    "StorePreviewHide": false,
+    "BackgroundOpacity": 55,
+    "BackgroundStretch": "UniformToFill"
+  }
+}

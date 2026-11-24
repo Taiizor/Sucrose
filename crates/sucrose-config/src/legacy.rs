@@ -24,6 +24,10 @@ pub enum LegacyFile {
     Library,
     /// `General.json`.
     General,
+    /// `Portal.json`: the portal look, library view and store view.
+    Portal,
+    /// `Warehouse.json`: showcase copy state and hints.
+    Warehouse,
     /// `Engine.json`.
     Engine,
     /// `Backgroundog.json`.
@@ -36,6 +40,8 @@ impl LegacyFile {
         match self {
             Self::Library => "Library.json",
             Self::General => "General.json",
+            Self::Portal => "Portal.json",
+            Self::Warehouse => "Warehouse.json",
             Self::Engine => "Engine.json",
             Self::Backgroundog => "Backgroundog.json",
         }

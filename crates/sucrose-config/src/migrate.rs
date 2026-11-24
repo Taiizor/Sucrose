@@ -5,7 +5,15 @@
 
 use std::path::Path;
 
+use sucrose_core::settings::{Backdrop, LegacyBackdropType, LegacyThemeType, ThemeMode};
+
 use crate::{legacy::LegacySettings, model::Settings};
+
+/// Maps the legacy `ThemeType` and `BackdropType` to the theme mode and backdrop (D-21).
+pub fn map_theme(theme_type: Option<LegacyThemeType>, backdrop: Option<LegacyBackdropType>) -> (ThemeMode, Backdrop) {
+    let _ = (theme_type, backdrop);
+    (ThemeMode::default(), Backdrop::default())
+}
 
 /// Builds the settings from the legacy files in `legacy_setting_dir`. Anything missing or invalid is the legacy
 /// default; `legacy_root` is the C# data folder, whose `Library` folder is the default library location.

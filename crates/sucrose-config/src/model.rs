@@ -8,7 +8,15 @@ use std::path::{Path, PathBuf};
 
 use serde::Serialize;
 use serde_json::{Map, Value};
-use sucrose_core::settings::{FullScreenAction, GpuPreference, PauseKind, ScreenArea, Stretch};
+use sucrose_core::settings::{
+    Backdrop, FullScreenAction, GpuPreference, PauseKind, ScreenArea, SortKind, SortMode, Stretch, ThemeMode,
+};
+
+/// The `General.UserAgent` default of the C# app.
+pub const DEFAULT_USER_AGENT: &str = "Sucrose/2.4 (Windows NT 10.0; Wallpaper Engine) SucroseWebKit";
+
+/// What the C# app stores for a `DateTime` that was never set (`DateTime.MinValue`); kept as the raw string.
+pub const MIN_DATE_TIME: &str = "0001-01-01T00:00:00";
 
 /// The format version this build writes. A file with a higher version is read but never overwritten.
 pub const SETTINGS_VERSION: u32 = 1;
@@ -25,12 +33,18 @@ pub struct Settings {
     /// Legacy `General.json`.
     #[serde(rename = "General")]
     pub general: General,
+    /// The portal look, library view and store view (legacy `Portal.json`, plus the D-21 theme mode and backdrop).
+    #[serde(rename = "Portal")]
+    pub portal: Portal,
     /// Playback and placement (legacy `Engine.json`).
     #[serde(rename = "Engine")]
     pub engine: Engine,
     /// Performance rules (legacy `Backgroundog.json`).
     #[serde(rename = "Backgroundog")]
     pub backgroundog: Backgroundog,
+    /// Showcase copy state and hints (legacy `Warehouse.json`).
+    #[serde(rename = "Warehouse")]
+    pub warehouse: Warehouse,
     /// Top-level sections this build does not know, kept as they are.
     #[serde(flatten)]
     pub extra: Map<String, Value>,
@@ -45,6 +59,15 @@ pub struct Library {
     /// Folder name of the selected theme, empty when none is selected (`Selected`).
     #[serde(rename = "Selected")]
     pub selected: String,
+    /// Whether themes that fail the compatibility check are deleted from the library (`DeleteCorrupt`).
+    #[serde(rename = "DeleteCorrupt")]
+    pub delete_corrupt: bool,
+    /// Whether deleting a theme asks first (`DeleteConfirm`).
+    #[serde(rename = "DeleteConfirm")]
+    pub delete_confirm: bool,
+    /// Whether changing the library location moves the themes along (`Move`).
+    #[serde(rename = "Move")]
+    pub move_library: bool,
     /// Keys of the section this build does not know.
     #[serde(flatten)]
     pub extra: Map<String, Value>,
@@ -53,9 +76,113 @@ pub struct Library {
 /// The `General` section.
 #[derive(Debug, Clone, PartialEq, Serialize)]
 pub struct General {
+    /// UI language as a two-letter code; `None` follows the OS language, applied in Phase 5 (`Culture`).
+    #[serde(rename = "Culture", skip_serializing_if = "Option::is_none")]
+    pub culture: Option<String>,
+    /// How Sucrose starts with the OS, 0..=10: 0 off, 1 startup entry, 2 elevated entry, 3 scheduler task
+    /// (`RunStartup`).
+    #[serde(rename = "RunStartup")]
+    pub run_startup: u8,
+    /// The user agent web wallpapers and the store use (`UserAgent`).
+    #[serde(rename = "UserAgent")]
+    pub user_agent: String,
+    /// Whether telemetry is sent (`TelemetryData`).
+    #[serde(rename = "TelemetryData")]
+    pub telemetry_data: bool,
+    /// Whether exception reports are sent (`ExceptionData`).
+    #[serde(rename = "ExceptionData")]
+    pub exception_data: bool,
     /// Whether the app window is shown; the tray of the service reads it (`AppVisible`).
     #[serde(rename = "AppVisible")]
     pub app_visible: bool,
+    /// Whether closing the portal exits it instead of hiding it (`AppExit`).
+    #[serde(rename = "AppExit")]
+    pub app_exit: bool,
+    /// Keys of the section this build does not know.
+    #[serde(flatten)]
+    pub extra: Map<String, Value>,
+}
+
+/// The `Portal` section.
+#[derive(Debug, Clone, PartialEq, Serialize)]
+pub struct Portal {
+    /// Light, dark or follow the system (new, D-21; migrated from `General.json:ThemeType`).
+    #[serde(rename = "ThemeMode")]
+    pub theme_mode: ThemeMode,
+    /// The material behind the window (new, D-21; migrated from `BackdropType`).
+    #[serde(rename = "Backdrop")]
+    pub backdrop: Backdrop,
+    /// Opacity of the window background, 0..=100 (`BackgroundOpacity`).
+    #[serde(rename = "BackgroundOpacity")]
+    pub background_opacity: u8,
+    /// Themes per library page, 1..=100 (`LibraryPagination`).
+    #[serde(rename = "LibraryPagination")]
+    pub library_pagination: u8,
+    /// Items per store page, 1..=100 (`StorePagination`).
+    #[serde(rename = "StorePagination")]
+    pub store_pagination: u8,
+    /// How strongly the library grid adapts to the window width, 0..=100 (`AdaptiveLayout`).
+    #[serde(rename = "AdaptiveLayout")]
+    pub adaptive_layout: u8,
+    /// Margin of the adaptive grid, 5..=25 (`AdaptiveMargin`).
+    #[serde(rename = "AdaptiveMargin")]
+    pub adaptive_margin: u8,
+    /// Hours the store listing stays cached, 1..=24 (`StoreDuration`).
+    #[serde(rename = "StoreDuration")]
+    pub store_duration: u8,
+    /// Path of the window background image, empty for none (`BackgroundImage`).
+    #[serde(rename = "BackgroundImage")]
+    pub background_image: String,
+    /// Whether library cards hide their details (`LibraryPreviewHide`).
+    #[serde(rename = "LibraryPreviewHide")]
+    pub library_preview_hide: bool,
+    /// Whether store cards hide their details (`StorePreviewHide`).
+    #[serde(rename = "StorePreviewHide")]
+    pub store_preview_hide: bool,
+    /// Whether library cards preview the theme (`LibraryPreview`).
+    #[serde(rename = "LibraryPreview")]
+    pub library_preview: bool,
+    /// Whether store cards preview the theme (`StorePreview`).
+    #[serde(rename = "StorePreview")]
+    pub store_preview: bool,
+    /// Whether adult items are shown in the store (`StoreAdult`).
+    #[serde(rename = "StoreAdult")]
+    pub store_adult: bool,
+    /// How the background image is fitted (`BackgroundStretch`).
+    #[serde(rename = "BackgroundStretch")]
+    pub background_stretch: Stretch,
+    /// Direction of the library sort (`LibrarySortKind`).
+    #[serde(rename = "LibrarySortKind")]
+    pub library_sort_kind: SortKind,
+    /// What the library is sorted by (`LibrarySortMode`).
+    #[serde(rename = "LibrarySortMode")]
+    pub library_sort_mode: SortMode,
+    /// Keys of the section this build does not know.
+    #[serde(flatten)]
+    pub extra: Map<String, Value>,
+}
+
+/// The `Warehouse` section.
+#[derive(Debug, Clone, PartialEq, Serialize)]
+pub struct Warehouse {
+    /// Folder names of the showcase themes already copied into the library (`Showcase`).
+    #[serde(rename = "Showcase")]
+    pub showcase: Vec<String>,
+    /// When the CefSharp runtime was last checked, as the raw legacy date-time text (`CefSharpTime`).
+    #[serde(rename = "CefSharpTime")]
+    pub cef_sharp_time: String,
+    /// When the WebView runtime was last checked, as the raw legacy date-time text (`WebViewTime`).
+    #[serde(rename = "WebViewTime")]
+    pub web_view_time: String,
+    /// Whether to continue without the CefSharp runtime (`CefsharpContinue`, lowercase "s" like the legacy key).
+    #[serde(rename = "CefsharpContinue")]
+    pub cefsharp_continue: bool,
+    /// Whether to continue without the WebView runtime (`WebViewContinue`).
+    #[serde(rename = "WebViewContinue")]
+    pub web_view_continue: bool,
+    /// Whether the hint about the notification area icon is still shown (`HintTrayIcon`).
+    #[serde(rename = "HintTrayIcon")]
+    pub hint_tray_icon: bool,
     /// Keys of the section this build does not know.
     #[serde(flatten)]
     pub extra: Map<String, Value>,
@@ -106,6 +233,9 @@ impl Default for Library {
         Self {
             location: String::new(),
             selected: String::new(),
+            delete_corrupt: false,
+            delete_confirm: true,
+            move_library: true,
             extra: Map::new(),
         }
     }
@@ -114,7 +244,52 @@ impl Default for Library {
 impl Default for General {
     fn default() -> Self {
         Self {
+            culture: None,
+            run_startup: 0,
+            user_agent: DEFAULT_USER_AGENT.to_owned(),
+            telemetry_data: true,
+            exception_data: true,
             app_visible: true,
+            app_exit: true,
+            extra: Map::new(),
+        }
+    }
+}
+
+impl Default for Portal {
+    fn default() -> Self {
+        Self {
+            theme_mode: ThemeMode::default(),
+            backdrop: Backdrop::default(),
+            background_opacity: 100,
+            library_pagination: 30,
+            store_pagination: 30,
+            adaptive_layout: 0,
+            adaptive_margin: 5,
+            store_duration: 3,
+            background_image: String::new(),
+            library_preview_hide: false,
+            store_preview_hide: false,
+            library_preview: false,
+            store_preview: false,
+            store_adult: true,
+            background_stretch: Stretch::default(),
+            library_sort_kind: SortKind::default(),
+            library_sort_mode: SortMode::default(),
+            extra: Map::new(),
+        }
+    }
+}
+
+impl Default for Warehouse {
+    fn default() -> Self {
+        Self {
+            showcase: Vec::new(),
+            cef_sharp_time: MIN_DATE_TIME.to_owned(),
+            web_view_time: MIN_DATE_TIME.to_owned(),
+            cefsharp_continue: false,
+            web_view_continue: false,
+            hint_tray_icon: true,
             extra: Map::new(),
         }
     }
@@ -150,8 +325,10 @@ impl Default for Settings {
             version: SETTINGS_VERSION,
             library: Library::default(),
             general: General::default(),
+            portal: Portal::default(),
             engine: Engine::default(),
             backgroundog: Backgroundog::default(),
+            warehouse: Warehouse::default(),
             extra: Map::new(),
         }
     }
@@ -207,11 +384,15 @@ impl Settings {
                 location: library.string("Location", ""),
                 selected: library.string("Selected", ""),
                 extra: library.rest(),
+                ..Library::default()
             },
             general: General {
                 app_visible: general.boolean("AppVisible", true),
                 extra: general.rest(),
+                ..General::default()
             },
+            portal: Portal::default(),
+            warehouse: Warehouse::default(),
             engine: Engine {
                 volume: engine.volume("WallpaperVolume", 100),
                 looping: engine.boolean("WallpaperLoop", true),
