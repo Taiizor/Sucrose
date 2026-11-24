@@ -4,7 +4,7 @@
 //! Every test works in its own folder under the target folder, never in a real data folder.
 
 use std::{
-    fs,
+    fs::{self, OpenOptions},
     path::{Path, PathBuf},
     process::{Command, Stdio},
     thread,
@@ -235,6 +235,79 @@ fn migration_runs_once_and_never_writes_a_legacy_file() {
     assert_eq!(store.settings().library.selected, "AAAAAAAAAAAAAAAAAAAAAAAAA");
     assert_eq!(legacy_snapshot(&legacy), broken);
     assert_ne!(before, broken);
+}
+
+/// The names of the files in `dir`, sorted.
+fn file_names(dir: &Path) -> Vec<String> {
+    let mut names: Vec<String> = fs::read_dir(dir)
+        .expect("the folder can be listed")
+        .filter_map(|entry| entry.ok()?.file_name().into_string().ok())
+        .collect();
+    names.sort();
+    names
+}
+
+#[cfg(windows)]
+#[test]
+fn an_unreadable_settings_file_is_never_overwritten() {
+    use std::os::windows::fs::OpenOptionsExt;
+
+    let setting = scratch("locked-setting");
+    let legacy = legacy_copy("locked-legacy");
+    write_settings(
+        &setting,
+        SETTINGS_FILE,
+        &settings_with(|s| s.library.selected = "mine".to_owned()),
+    );
+    write_settings(
+        &setting,
+        BACKUP_FILE,
+        &settings_with(|s| s.library.selected = "older".to_owned()),
+    );
+    let main_before = fs::read(setting.join(SETTINGS_FILE)).unwrap();
+    let backup_before = fs::read(setting.join(BACKUP_FILE)).unwrap();
+    let legacy_before = legacy_snapshot(&legacy);
+
+    // Another program holds the settings file exclusively while the service starts.
+    let lock = OpenOptions::new()
+        .read(true)
+        .share_mode(0)
+        .open(setting.join(SETTINGS_FILE))
+        .expect("the settings file can be locked");
+    let result = Store::open(&setting, Some((&legacy, Path::new(ROOT))));
+    drop(lock);
+
+    assert!(matches!(result, Err(StoreError::Io(_))), "{result:?}");
+    assert_eq!(fs::read(setting.join(SETTINGS_FILE)).unwrap(), main_before);
+    assert_eq!(fs::read(setting.join(BACKUP_FILE)).unwrap(), backup_before);
+    assert_eq!(legacy_snapshot(&legacy), legacy_before);
+    assert!(temporary_files(&setting).is_empty(), "{:?}", temporary_files(&setting));
+}
+
+#[test]
+fn a_settings_file_that_cannot_be_read_as_a_file_is_unreadable_not_corrupt() {
+    let setting = scratch("directory-setting");
+    let legacy = legacy_copy("directory-legacy");
+    // A directory where the file belongs: it exists, so it is not "missing", and it cannot be read as a file.
+    fs::create_dir(setting.join(SETTINGS_FILE)).unwrap();
+    write_settings(
+        &setting,
+        BACKUP_FILE,
+        &settings_with(|s| s.library.selected = "older".to_owned()),
+    );
+    let backup_before = fs::read(setting.join(BACKUP_FILE)).unwrap();
+    let legacy_before = legacy_snapshot(&legacy);
+
+    let result = Store::open(&setting, Some((&legacy, Path::new(ROOT))));
+
+    assert!(matches!(result, Err(StoreError::Io(_))), "{result:?}");
+    assert!(
+        setting.join(SETTINGS_FILE).is_dir(),
+        "nothing replaced the settings file"
+    );
+    assert_eq!(fs::read(setting.join(BACKUP_FILE)).unwrap(), backup_before);
+    assert_eq!(file_names(&setting), [BACKUP_FILE, SETTINGS_FILE]);
+    assert_eq!(legacy_snapshot(&legacy), legacy_before);
 }
 
 /// The writer of the kill test: it only does anything in the copy of this binary the kill test starts.
