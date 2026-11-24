@@ -344,8 +344,13 @@ pub fn render_skeleton_card(width: Pixels) -> impl IntoElement {
 #[cfg(test)]
 mod tests {
     // Not `use super::*`: the crate root glob-imports GPUI, whose `test` macro would shadow the built-in attribute.
-    use super::{CardUse, DisabledReason, strip_visible, use_state};
-    use std::path::PathBuf;
+    use super::{CardData, CardUse, DisabledReason, Thumb, render_card, strip_visible, use_state};
+    use gpui_kit::{
+        Context, FocusHandle, ImageSource, IntoElement, Render, RenderImage, Styled as _, TestAppContext,
+        VisualTestContext, Window, img, px,
+    };
+    use image::{Delay, Frame, Rgba, RgbaImage};
+    use std::{path::PathBuf, rc::Rc, sync::Arc, time::Duration};
     use sucrose_core::{
         library::{Compatibility, LibraryTheme},
         theme::{SucroseInfo, WallpaperType},
@@ -538,6 +543,101 @@ mod tests {
         assert_eq!(
             state(&video(), &moving, false),
             CardUse::Disabled(DisabledReason::Unavailable)
+        );
+    }
+
+    /// A two-frame image whose frames last 20 ms each.
+    fn two_frames() -> Arc<RenderImage> {
+        let frame = || {
+            Frame::from_parts(
+                RgbaImage::from_pixel(4, 4, Rgba([1, 2, 3, 255])),
+                0,
+                0,
+                Delay::from_numer_denom_ms(20, 1),
+            )
+        };
+        Arc::new(RenderImage::new(vec![frame(), frame()]))
+    }
+
+    /// A window root that shows one card whose preview is `preview`, with handlers that do nothing.
+    struct PreviewHost {
+        preview: Arc<RenderImage>,
+        focus: FocusHandle,
+    }
+
+    impl Render for PreviewHost {
+        fn render(&mut self, _: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
+            let data = CardData {
+                index: 0,
+                title: "Rain".into(),
+                description: None,
+                thumb: Thumb::Failed,
+                needs_newer_app: false,
+                selected: false,
+                pending: false,
+                state: CardUse::Enabled,
+                focus: self.focus.clone(),
+                on_use: Rc::new(|_, _| {}),
+                on_arrow: Rc::new(|_, _, _| {}),
+                preview: Some(self.preview.clone()),
+                preview_hide: true,
+                on_hover: Rc::new(|_, _, _| {}),
+            };
+            render_card(data, px(240.), cx)
+        }
+    }
+
+    /// A window root that shows `preview` as a bare `img()` without an element id.
+    struct BareHost {
+        preview: Arc<RenderImage>,
+    }
+
+    impl Render for BareHost {
+        fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
+            img(ImageSource::Render(self.preview.clone())).size_full()
+        }
+    }
+
+    /// Activates `window`, redraws it twice with a real pause longer than a frame between the draws, and says whether
+    /// every frame of `image` was painted (GPUI times the frames with the real clock).
+    fn paints_every_frame(window: &mut VisualTestContext, image: &Arc<RenderImage>) -> bool {
+        window.update(|window, _| window.activate_window());
+        window.run_until_parked();
+        window.update(|window, _| assert!(window.is_window_active(), "the test window is active"));
+        for round in 0..2 {
+            window.update(|window, _| window.refresh());
+            window.run_until_parked();
+            if round == 0 {
+                std::thread::sleep(Duration::from_millis(60));
+            }
+        }
+        window.update(|window, _| window.has_image_atlas_entry(image))
+    }
+
+    #[gpui_kit::test]
+    fn card_preview_paints_its_second_frame(cx: &mut TestAppContext) {
+        cx.update(|cx| gpui_kit::init(cx));
+        let image = two_frames();
+        let shown = image.clone();
+        let (_, window) = cx.add_window_view(|_, cx| PreviewHost {
+            preview: shown,
+            focus: cx.focus_handle(),
+        });
+        assert!(
+            paints_every_frame(window, &image),
+            "the card's preview advanced to frame 1"
+        );
+    }
+
+    #[gpui_kit::test]
+    fn card_preview_without_an_id_stays_on_frame_zero(cx: &mut TestAppContext) {
+        cx.update(|cx| gpui_kit::init(cx));
+        let image = two_frames();
+        let shown = image.clone();
+        let (_, window) = cx.add_window_view(|_, _| BareHost { preview: shown });
+        assert!(
+            !paints_every_frame(window, &image),
+            "an img() without an element id keeps no frame state, so it never leaves frame 0"
         );
     }
 }
