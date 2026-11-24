@@ -5,7 +5,7 @@ titles: json
 findings:
   - id: WR-13
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "The JPEG decode budget is bypassed by the generic fallback, so the WR-12 bound does not hold"
   - id: IN-02
     severity: info
@@ -143,16 +143,16 @@ findings:
     severity: info
     disposition: deferred
     title: "Timing assertion in the memory integration test is tight"
-open: 9
+open: 8
 total: 35
-recorded: 2026-11-24T21:02:46.020Z
+recorded: 2026-11-24T21:33:02.163Z
 ---
 
 # Phase 03: Code Review Disposition
 
 | Finding | Severity | Disposition | Source |
 |---------|----------|-------------|--------|
-| WR-13 | warning | open | - |
+| WR-13 | warning | fixed | 03-REVIEW-FIX.md |
 | IN-02 | info | deferred | Latent until the Linux service exists (EventLoop::new fails there today); fix before Linux support is enabled |
 | IN-04 | info | deferred | Lint hygiene only, no behavior impact; next Portal cleanup (same finding as the earlier IN-04, re-reported with Origin and narrowed to apps/sucrose-portal/src/main.rs:22; the decision was restored after the ledger tool dropped it on the changed title) |
 | IN-10 | info | deferred | Needs a hand-edited or damaged Version; fix with the next settings format change |
