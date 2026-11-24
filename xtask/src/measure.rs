@@ -57,6 +57,8 @@ const CSHARP_SUBTOTAL_ROLES: [&str; 2] = ["mpv-player", "backgroundog"];
 pub enum Side {
     Rust,
     Csharp,
+    /// The Portal (`sucrose-portal.exe`) on its own: sampled by `--side portal` as a time series.
+    Portal,
 }
 
 impl Side {
@@ -72,6 +74,7 @@ impl Side {
         match self {
             Self::Rust => "rust",
             Self::Csharp => "csharp",
+            Self::Portal => "portal",
         }
     }
 }
@@ -92,10 +95,41 @@ struct RowArgs {
     notes: String,
 }
 
+/// The D-25 scenario shape: a warm-up on page 1, `rounds` rounds of paging, a final idle window.
+#[derive(Debug)]
+struct PortalShape {
+    warmup: u64,
+    rounds: usize,
+    idle: u64,
+}
+
+#[derive(Debug)]
+struct PortalArgs {
+    seconds: u64,
+    interval_ms: u64,
+    out: Option<String>,
+}
+
+#[derive(Debug)]
+struct PortalSummaryArgs {
+    path: String,
+    shape: PortalShape,
+}
+
+#[derive(Debug)]
+struct PortalRowArgs {
+    real: String,
+    synth: String,
+    shape: PortalShape,
+}
+
 #[derive(Debug)]
 enum Task {
     Sample(SampleArgs),
     Row(RowArgs),
+    Portal(PortalArgs),
+    PortalSummary(PortalSummaryArgs),
+    PortalRow(PortalRowArgs),
 }
 
 fn value<'a>(it: &mut std::slice::Iter<'a, String>, flag: &str) -> Result<&'a str, String> {
@@ -162,6 +196,9 @@ pub fn run(args: &[String]) -> ExitCode {
     let result = parse_args(args).and_then(|task| match task {
         Task::Sample(sample_args) => sample(&sample_args),
         Task::Row(row_args) => print_row(&row_args),
+        Task::Portal(portal_args) => sample_portal(&portal_args),
+        Task::PortalSummary(summary_args) => print_portal_summary(&summary_args),
+        Task::PortalRow(row_args) => print_portal_row(&row_args),
     });
     match result {
         Ok(()) => ExitCode::SUCCESS,
@@ -189,7 +226,7 @@ pub fn classify(side: Side, name: &str, cmd: &[String]) -> Option<&'static str> 
             "sucrose.backgroundog" => Some("backgroundog"),
             _ => None,
         },
-        Side::Rust => None,
+        Side::Rust | Side::Portal => None,
     }
 }
 
@@ -1035,6 +1072,73 @@ fn print_row(args: &RowArgs) -> Result<(), String> {
     Ok(())
 }
 
+// ---- Portal memory over time (D-25) ----
+
+/// One reading of the Portal process.
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct PortalSample {
+    pub elapsed_ms: u64,
+    pub working_set_mb: f64,
+    pub private_mb: f64,
+}
+
+/// The result file of `--side portal`: a time series of one process.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct PortalSeries {
+    pub side: String,
+    pub started: String,
+    pub interval_ms: u64,
+    pub pid: u32,
+    /// `release` or `debug` when the executable's folder is known.
+    pub build: Option<String>,
+    /// False when the process ended before the planned time.
+    pub complete: bool,
+    pub samples: Vec<PortalSample>,
+}
+
+/// Statistics of one metric over a D-25 run, in MB.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct PortalSummary {
+    pub first_page: f64,
+    pub round_end: Vec<f64>,
+    pub round_peak: Vec<f64>,
+    pub peak: f64,
+    pub final_value: f64,
+}
+
+/// Summary of a series of `(elapsed ms, value)` points.
+pub fn portal_summary(
+    _points: &[(u64, f64)],
+    _warmup_s: u64,
+    _rounds: usize,
+    _idle_s: u64,
+) -> Result<PortalSummary, String> {
+    Ok(PortalSummary {
+        first_page: 0.0,
+        round_end: Vec::new(),
+        round_peak: Vec::new(),
+        peak: 0.0,
+        final_value: 0.0,
+    })
+}
+
+/// The MEASUREMENTS row of the two scenarios.
+pub fn portal_row(_real: &PortalSeries, _synth: &PortalSeries, _shape: &PortalShape) -> Result<String, String> {
+    Ok(String::new())
+}
+
+fn sample_portal(_args: &PortalArgs) -> Result<(), String> {
+    Err("not implemented".to_owned())
+}
+
+fn print_portal_summary(_args: &PortalSummaryArgs) -> Result<(), String> {
+    Err("not implemented".to_owned())
+}
+
+fn print_portal_row(_args: &PortalRowArgs) -> Result<(), String> {
+    Err("not implemented".to_owned())
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -1381,5 +1485,198 @@ mod tests {
         assert!((report.gpu_avg_pct - (4.0 + 5.0) / 2.0).abs() < 1e-9);
         assert_eq!(report.gpu_adapter, Some(adapter("0x0_0xB", "Intel(R) UHD Graphics")));
         assert!(dwm_report(&table, &BTreeSet::new(), &adapters).is_none());
+    }
+
+    fn approx(a: f64, b: f64) -> bool {
+        (a - b).abs() < 1e-9
+    }
+
+    /// 100 s sampled every 500 ms: a 20 s warm-up at 100 MB, three 20 s rounds that rise to a peak and fall back to an
+    /// end value, and a 20 s idle window at 118 MB.
+    fn rounds_series() -> Vec<(u64, f64)> {
+        let peaks = [140.0, 150.0, 160.0];
+        let ends = [130.0, 125.0, 120.0];
+        let mut values: Vec<f64> = vec![100.0; 40];
+        for round in 0..3 {
+            for step in 1..=40u32 {
+                let step = f64::from(step);
+                values.push(if step <= 20.0 {
+                    100.0 + (peaks[round] - 100.0) * step / 20.0
+                } else {
+                    peaks[round] + (ends[round] - peaks[round]) * (step - 20.0) / 20.0
+                });
+            }
+        }
+        values.extend(std::iter::repeat_n(118.0, 40));
+        values
+            .into_iter()
+            .enumerate()
+            .map(|(i, v)| ((i as u64 + 1) * 500, v))
+            .collect()
+    }
+
+    fn series_of(points: &[(u64, f64)], build: Option<&str>) -> PortalSeries {
+        PortalSeries {
+            side: "portal".to_owned(),
+            started: "2026-11-24T10:00:00Z".to_owned(),
+            interval_ms: 500,
+            pid: 7,
+            build: build.map(str::to_owned),
+            complete: true,
+            samples: points
+                .iter()
+                .map(|(t, v)| PortalSample {
+                    elapsed_ms: *t,
+                    working_set_mb: *v,
+                    private_mb: v * 2.0,
+                })
+                .collect(),
+        }
+    }
+
+    #[test]
+    fn portal_classify_picks_only_the_portal_executable() {
+        let render = strings(&["sucrose.exe", "--render"]);
+        assert_eq!(classify(Side::Portal, "sucrose-portal.exe", &[]), Some("portal"));
+        assert_eq!(classify(Side::Portal, "Sucrose-Portal.EXE", &[]), Some("portal"));
+        assert_eq!(classify(Side::Portal, "sucrose.exe", &render), None);
+        assert_eq!(classify(Side::Portal, "Sucrose.Portal.exe", &[]), None);
+    }
+
+    #[test]
+    fn portal_args_parse_the_three_modes_and_refuse_bad_values() {
+        let sample = parse_args(&strings(&[
+            "--side",
+            "portal",
+            "--seconds",
+            "10",
+            "--interval-ms",
+            "500",
+            "--out",
+            "p.json",
+        ]))
+        .expect("portal sample args");
+        assert!(matches!(
+            sample,
+            Task::Portal(PortalArgs {
+                seconds: 10,
+                interval_ms: 500,
+                ..
+            })
+        ));
+        let summary = parse_args(&strings(&[
+            "--portal-summary",
+            "p.json",
+            "--warmup",
+            "4",
+            "--rounds",
+            "1",
+            "--idle",
+            "4",
+        ]))
+        .expect("summary args");
+        assert!(matches!(
+            summary,
+            Task::PortalSummary(PortalSummaryArgs {
+                shape: PortalShape {
+                    warmup: 4,
+                    rounds: 1,
+                    idle: 4
+                },
+                ..
+            })
+        ));
+        let row = parse_args(&strings(&["--portal-row", "a.json", "b.json"])).expect("row args");
+        assert!(matches!(
+            row,
+            Task::PortalRow(PortalRowArgs {
+                shape: PortalShape {
+                    warmup: 20,
+                    rounds: 3,
+                    idle: 20
+                },
+                ..
+            })
+        ));
+        assert!(parse_args(&strings(&["--portal-summary", "p.json", "--rounds", "0"])).is_err());
+        assert!(parse_args(&strings(&["--side", "portal", "--interval-ms", "0"])).is_err());
+        assert!(parse_args(&strings(&["--side", "portal", "--seconds", "0"])).is_err());
+        assert!(parse_args(&strings(&["--side", "portal", "--duration", "5"])).is_err());
+        assert!(parse_args(&strings(&["--side", "rust", "--seconds", "5"])).is_err());
+        assert!(parse_args(&strings(&["--side", "portal", "--portal-summary", "p.json"])).is_err());
+    }
+
+    #[test]
+    fn portal_summary_gives_first_page_round_values_peak_and_final() {
+        let summary = portal_summary(&rounds_series(), 20, 3, 20).expect("summary");
+        assert!(approx(summary.first_page, 100.0), "{summary:?}");
+        assert_eq!(summary.round_peak.len(), 3, "{summary:?}");
+        assert_eq!(summary.round_end.len(), 3, "{summary:?}");
+        for (got, want) in summary.round_peak.iter().zip([140.0, 150.0, 160.0]) {
+            assert!(approx(*got, want), "{summary:?}");
+        }
+        for (got, want) in summary.round_end.iter().zip([130.0, 125.0, 120.0]) {
+            assert!(approx(*got, want), "{summary:?}");
+        }
+        assert!(approx(summary.peak, 160.0), "{summary:?}");
+        assert!(approx(summary.final_value, 118.0), "{summary:?}");
+    }
+
+    #[test]
+    fn portal_summary_first_page_is_the_median_of_the_last_ten_seconds_of_the_warm_up() {
+        let mut points = rounds_series();
+        for point in points.iter_mut().take(20) {
+            point.1 = 300.0;
+        }
+        let summary = portal_summary(&points, 20, 3, 20).expect("summary");
+        assert!(approx(summary.first_page, 100.0), "{summary:?}");
+        assert!(approx(summary.peak, 300.0), "{summary:?}");
+    }
+
+    #[test]
+    fn portal_summary_refuses_a_series_without_room_or_samples() {
+        let points = rounds_series();
+        assert!(portal_summary(&points, 20, 0, 20).is_err());
+        assert!(portal_summary(&[], 20, 3, 20).is_err());
+        assert!(portal_summary(&points, 60, 3, 40).is_err());
+        assert!(portal_summary(&points, 20, 3, 0).is_err());
+        assert!(portal_summary(&points, 0, 3, 20).is_err());
+    }
+
+    #[test]
+    fn portal_row_names_both_scenarios_and_the_three_values() {
+        let real = series_of(&rounds_series(), Some("release"));
+        let synth = series_of(&rounds_series(), Some("release"));
+        let shape = PortalShape {
+            warmup: 20,
+            rounds: 3,
+            idle: 20,
+        };
+        let row = portal_row(&real, &synth, &shape).expect("row");
+        assert!(row.starts_with("| 2026-11-24 |"), "{row}");
+        assert!(row.contains("real library"), "{row}");
+        assert!(row.contains("500 synthetic"), "{row}");
+        assert!(row.contains("first page 100 MB"), "{row}");
+        assert!(row.contains("peak 160"), "{row}");
+        assert!(row.contains("final 118"), "{row}");
+        assert!(row.contains("private first page 200 MB"), "{row}");
+        assert!(!row.contains('\n'), "{row}");
+    }
+
+    #[test]
+    fn portal_row_refuses_a_series_that_is_not_a_release_build_or_not_complete() {
+        let shape = PortalShape {
+            warmup: 20,
+            rounds: 3,
+            idle: 20,
+        };
+        let release = series_of(&rounds_series(), Some("release"));
+        let debug = series_of(&rounds_series(), Some("debug"));
+        let unknown = series_of(&rounds_series(), None);
+        assert!(portal_row(&release, &debug, &shape).is_err());
+        assert!(portal_row(&unknown, &release, &shape).is_err());
+        let mut cut = series_of(&rounds_series(), Some("release"));
+        cut.complete = false;
+        assert!(portal_row(&release, &cut, &shape).is_err());
     }
 }
