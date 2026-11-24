@@ -746,11 +746,12 @@ fn a_destination_that_is_not_empty_is_refused_and_nothing_changes() {
     let service = TestService::start("move-refused", &json!({ "Library": { "Move": true } }));
     copy_fixture_library(&service);
     let old = service.dir.join("Library");
+    let inside = old.join("Inner");
+    std::fs::create_dir_all(&inside).expect("a folder inside the library can be created");
     let before = names_in(&old);
     let full = service.dir.join("Full");
     std::fs::create_dir_all(&full).expect("the folder can be created");
     std::fs::write(full.join("mine.txt"), b"mine").expect("the file can be written");
-    let inside = old.join(&before[0]);
     let (mut portal, first) = PortalClient::hello(&service, None);
     assert!(matches!(first, PortalEvent::Welcome { .. }), "{first:?}");
 

@@ -2,6 +2,7 @@
 
 use std::{
     collections::{HashMap, HashSet, hash_map::Entry},
+    path::{Component, Path, PathBuf},
     sync::{
         Arc, Mutex, MutexGuard, PoisonError,
         atomic::{AtomicU64, Ordering},
@@ -25,8 +26,8 @@ use sucrose_core::{
 use sucrose_ipc::{
     Connection, IpcError, Listener,
     portal::{
-        Launch, LaunchReply, MaintainReport, PortalEvent, PortalPage, PortalRequest, RuleState, RuntimeState,
-        SettingChange, UseOutcome, UseRefusal,
+        Launch, LaunchReply, MAX_PATH_TEXT, MaintainReport, MoveOutcome, MoveRefusal, PortalEvent, PortalPage,
+        PortalRequest, RuleState, RuntimeState, SettingChange, UseOutcome, UseRefusal,
     },
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
     service_endpoint,
@@ -40,7 +41,7 @@ use sucrose_core::settings::{FullScreenAction, FullScreenScope, GpuPreference, P
 
 use crate::{
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
-    library_ops::{self, MaintainInput},
+    library_ops::{self, FinishStats, MaintainInput, MoveFailure, MovePlanDone, MoveStats, RealOps},
     lifecycle::{Closing, OPEN_LABEL, exit_label, should_exit, start_actions},
     modules::{
         MEMORY_TIMER, MemoryModule, ModuleAction, PortalEnd, end_portal, module_off, pids_by_slot, start_module,
@@ -110,6 +111,8 @@ enum Event {
     },
     /// The library-ops worker finished a maintenance run.
     LibraryOps(LibraryDone),
+    /// The library-ops worker finished a step of the library move.
+    LibraryMove(MoveStep),
 }
 
 /// What the library-ops worker reports: the counts for the Portal and the showcase names for the settings.
@@ -160,6 +163,387 @@ fn start_library_ops(input: MaintainInput, notifier: &Notifier) -> bool {
             false
         }
     }
+}
+
+/// The loop timer of a library move (1 and 2 belong to the topology debounce, 3 to the fullscreen rule, 4 to the memory
+/// report, 5 to Close Applications): the renderers get this long to leave before the move ends them.
+const MOVE_TIMER: u32 = 6;
+
+/// How long the renderers get to close for a library move before they are ended.
+const MOVE_CLOSE_GRACE_MS: u32 = 4000;
+
+/// What the Portal is told when the service has no library folder to work with.
+const LIBRARY_UNAVAILABLE: &str = "the library folder is not available";
+
+/// A library move that is going on (LIB-09, D-07). The renderers close first so no file is held open, then the content
+/// moves on the library-ops worker, the setting is written on the main thread, the old copy is removed and the
+/// wallpaper starts again from wherever the library is now.
+#[derive(Debug)]
+struct LibraryMove {
+    source: PathBuf,
+    destination: PathBuf,
+    /// Whether the content moves along (`Library.Move`); otherwise only the location changes.
+    carry: bool,
+    stage: MoveStage,
+    /// The renderer slots this move closed: the ones it brings back.
+    closed: Vec<u8>,
+}
+
+/// Where a [`LibraryMove`] waits.
+#[derive(Debug)]
+enum MoveStage {
+    /// For the renderers to end.
+    Closing,
+    /// For the worker to move the content.
+    Copying,
+    /// For the worker to remove the old copy, after the setting was written.
+    Finishing,
+    /// For the worker to put the content back after the setting could not be written.
+    RollingBack { reason: String },
+}
+
+/// What the library-ops worker reports of a move step.
+#[derive(Debug)]
+enum MoveStep {
+    /// The content is in the destination and verified, or why not (and everything is back).
+    Copied(Result<MovePlanDone, MoveFailure>),
+    /// The old copy is removed.
+    Finished { moved: MoveStats, finish: FinishStats },
+    /// The content is back in the old folder, or not entirely.
+    RolledBack { restored: bool },
+}
+
+/// Runs `work` on a `library-ops` thread and reports its step. `on_panic` is reported when it panics. `false` when the
+/// thread cannot start.
+fn spawn_move_step(notifier: &Notifier, on_panic: MoveStep, work: impl FnOnce() -> MoveStep + Send + 'static) -> bool {
+    let notifier = notifier.clone();
+    let started = thread::Builder::new().name("library-ops".to_owned()).spawn(move || {
+        let step = std::panic::catch_unwind(std::panic::AssertUnwindSafe(work)).unwrap_or_else(|_| {
+            tracing::error!("a step of the library move panicked");
+            on_panic
+        });
+        notifier.send(Event::LibraryMove(step));
+    });
+    match started {
+        Ok(_) => true,
+        Err(error) => {
+            tracing::warn!(%error, "cannot start the library-ops thread");
+            false
+        }
+    }
+}
+
+/// The folder a Portal's text names: an absolute path of a sane length without `..` parts. Anything else cannot be a
+/// folder the service moves into (T-03-53).
+fn parse_destination(text: &str) -> Result<PathBuf, MoveOutcome> {
+    let path = Path::new(text);
+    let plain = text.len() <= MAX_PATH_TEXT
+        && !text.contains('\0')
+        && path.is_absolute()
+        && !path.components().any(|part| matches!(part, Component::ParentDir));
+    if plain {
+        Ok(path.to_path_buf())
+    } else {
+        Err(MoveOutcome::Refused(MoveRefusal::Missing))
+    }
+}
+
+/// Everything a step of a library move touches on the main thread.
+struct MoveEnv<'a> {
+    host: &'a mut SettingsHost,
+    fleet: &'a mut Fleet,
+    legacy_root: Option<&'a Path>,
+    ctx: &'a Ctx<'a>,
+    notifier: &'a Notifier,
+    timers: &'a LoopTimers,
+    portals: &'a mut PortalRegistry,
+}
+
+/// What a step of a library move changed for the main loop.
+#[derive(Default)]
+struct MoveProgress {
+    /// The move is over, whatever its outcome.
+    ended: bool,
+    /// The tray status after the wallpaper started again.
+    status: Option<Status>,
+}
+
+impl MoveEnv<'_> {
+    /// Handles the Portal's MoveLibrary: a refusal is answered at once, otherwise the move starts by closing the
+    /// renderers and its answer comes when it ends. `maintenance_running` is a library-ops run that is going.
+    fn begin(&mut self, destination: &str, maintenance_running: bool) {
+        if let Err(outcome) = self.start(destination, maintenance_running) {
+            tracing::info!(?outcome, "library move refused");
+            self.portals.send(PortalEvent::MoveResult(outcome));
+        }
+    }
+
+    fn start(&mut self, destination: &str, maintenance_running: bool) -> Result<(), MoveOutcome> {
+        if self.fleet.library_move.is_some() || maintenance_running {
+            return Err(MoveOutcome::Refused(MoveRefusal::Busy));
+        }
+        let Some(root) = self.legacy_root else {
+            return Err(MoveOutcome::Failed {
+                reason: LIBRARY_UNAVAILABLE.to_owned(),
+            });
+        };
+        let destination = parse_destination(destination)?;
+        let (source, carry) = {
+            let settings = self.host.settings();
+            (settings.library_location(root), settings.library.move_library)
+        };
+        let checked = if carry {
+            library_ops::check_destination(&source, &destination)
+        } else {
+            library_ops::check_location(&source, &destination)
+        };
+        checked.map_err(MoveOutcome::Refused)?;
+        let closed = close_for_move(self.fleet, self.ctx);
+        if !closed.is_empty() {
+            self.timers.set(MOVE_TIMER, MOVE_CLOSE_GRACE_MS);
+        }
+        tracing::info!(carry, renderers = closed.len(), "library move started");
+        self.fleet.library_move = Some(LibraryMove {
+            source,
+            destination,
+            carry,
+            stage: MoveStage::Closing,
+            closed,
+        });
+        Ok(())
+    }
+
+    /// Goes on once every renderer has ended: the content moves, or with `Move` off only the location is written.
+    fn drive(&mut self) -> MoveProgress {
+        let closing = self
+            .fleet
+            .library_move
+            .as_ref()
+            .is_some_and(|flow| matches!(flow.stage, MoveStage::Closing));
+        if !closing || self.fleet.rule_closed.any_awaiting() {
+            return MoveProgress::default();
+        }
+        self.timers.kill(MOVE_TIMER);
+        let Some(flow) = self.fleet.library_move.as_mut() else {
+            return MoveProgress::default();
+        };
+        let (source, destination, carry) = (flow.source.clone(), flow.destination.clone(), flow.carry);
+        if !carry {
+            let location = destination.to_string_lossy().into_owned();
+            let outcome = match self.host.update(|settings| settings.library.location = location) {
+                Ok(()) => MoveOutcome::Changed,
+                Err(reason) => MoveOutcome::Failed { reason },
+            };
+            return self.end(outcome);
+        }
+        flow.stage = MoveStage::Copying;
+        let started = spawn_move_step(
+            self.notifier,
+            MoveStep::Copied(Err(MoveFailure {
+                reason: "the move stopped unexpectedly".to_owned(),
+            })),
+            move || MoveStep::Copied(library_ops::move_library(&source, &destination, &RealOps)),
+        );
+        if started {
+            MoveProgress::default()
+        } else {
+            self.end(MoveOutcome::Failed {
+                reason: "the move could not be started".to_owned(),
+            })
+        }
+    }
+
+    /// Handles what the worker reported.
+    fn step(&mut self, step: MoveStep) -> MoveProgress {
+        match step {
+            MoveStep::Copied(Ok(done)) => self.commit(done),
+            MoveStep::Copied(Err(failure)) => {
+                tracing::warn!(reason = %failure.reason, "the library move failed and was rolled back");
+                self.end(MoveOutcome::Failed { reason: failure.reason })
+            }
+            MoveStep::Finished { moved, finish } => {
+                tracing::info!(
+                    entries = moved.entries,
+                    renamed = moved.renamed,
+                    files = moved.files,
+                    bytes = moved.bytes,
+                    left_behind = finish.failed,
+                    "library moved"
+                );
+                self.end(MoveOutcome::Moved)
+            }
+            MoveStep::RolledBack { restored } => {
+                if !restored {
+                    tracing::warn!("the library move was rolled back only in part");
+                }
+                let reason = match self.fleet.library_move.as_ref().map(|flow| &flow.stage) {
+                    Some(MoveStage::RollingBack { reason }) => reason.clone(),
+                    _ => "the move failed".to_owned(),
+                };
+                self.end(MoveOutcome::Failed { reason })
+            }
+        }
+    }
+
+    /// The content is in the destination and verified: the location is written now, and only after that the old copy
+    /// goes. When the write fails everything is put back.
+    fn commit(&mut self, done: MovePlanDone) -> MoveProgress {
+        let Some(flow) = self.fleet.library_move.as_mut() else {
+            // Nobody waits for this move any more; put the content back rather than leave it where nothing looks.
+            tracing::error!("a library move finished without a move in progress, putting it back");
+            library_ops::rollback_move(done, &RealOps);
+            return MoveProgress::default();
+        };
+        let moved = done.stats();
+        let location = flow.destination.to_string_lossy().into_owned();
+        let shared = Arc::new(Mutex::new(Some(done)));
+        match self.host.update(|settings| settings.library.location = location) {
+            Ok(()) => {
+                flow.stage = MoveStage::Finishing;
+                let worker = Arc::clone(&shared);
+                let started = spawn_move_step(
+                    self.notifier,
+                    MoveStep::Finished {
+                        moved,
+                        finish: FinishStats::default(),
+                    },
+                    move || {
+                        let finish = take_done(&worker).map(|done| library_ops::finish_move(done, &RealOps));
+                        MoveStep::Finished {
+                            moved,
+                            finish: finish.unwrap_or_default(),
+                        }
+                    },
+                );
+                if started {
+                    MoveProgress::default()
+                } else {
+                    // The new location is saved and the content is there: the old copy stays, nothing is lost.
+                    tracing::warn!("the old library folder could not be cleaned up");
+                    self.end(MoveOutcome::Moved)
+                }
+            }
+            Err(reason) => {
+                tracing::warn!(%reason, "the new location cannot be saved, putting the library back");
+                flow.stage = MoveStage::RollingBack { reason: reason.clone() };
+                let worker = Arc::clone(&shared);
+                let started = spawn_move_step(self.notifier, MoveStep::RolledBack { restored: false }, move || {
+                    let restored = take_done(&worker).is_none_or(|done| library_ops::rollback_move(done, &RealOps));
+                    MoveStep::RolledBack { restored }
+                });
+                if started {
+                    MoveProgress::default()
+                } else if let Some(done) = take_done(&shared) {
+                    // The content must not stay where the settings do not look: put it back here.
+                    let restored = library_ops::rollback_move(done, &RealOps);
+                    self.step(MoveStep::RolledBack { restored })
+                } else {
+                    self.end(MoveOutcome::Failed { reason })
+                }
+            }
+        }
+    }
+
+    /// Ends the move: the renderers it closed start again from the library as the settings say now, `library_moving`
+    /// clears and the Portal gets its answer.
+    fn end(&mut self, outcome: MoveOutcome) -> MoveProgress {
+        self.timers.kill(MOVE_TIMER);
+        let closed = self
+            .fleet
+            .library_move
+            .take()
+            .map(|flow| flow.closed)
+            .unwrap_or_default();
+        let status = resume_wallpaper(self.host, self.fleet, self.legacy_root, &closed, self.ctx);
+        self.portals.send(PortalEvent::MoveResult(outcome));
+        MoveProgress { ended: true, status }
+    }
+}
+
+/// The content of `cell`, once.
+fn take_done(cell: &Mutex<Option<MovePlanDone>>) -> Option<MovePlanDone> {
+    cell.lock().unwrap_or_else(PoisonError::into_inner).take()
+}
+
+/// Closes every renderer that runs, so no file of the library is held open, and returns their slots. A renderer the
+/// fullscreen rule closed already is not touched: the rule brings it back, not the move.
+fn close_for_move(fleet: &mut Fleet, ctx: &Ctx<'_>) -> Vec<u8> {
+    let mut closed = Vec::new();
+    for slot in ctx.supervisor.slots() {
+        if fleet.rule_closed.is_closed(slot) {
+            continue;
+        }
+        fleet.rule_closed.close(slot, false);
+        // A renderer that has not connected yet is told at its Hello (catch_up_renderer).
+        send_to(ctx.renderers, slot, &ToRenderer::Close);
+        closed.push(slot);
+    }
+    closed
+}
+
+/// Starts the wallpaper again after a library move, from the library the settings name now: the job is made again for
+/// the selected theme and the renderers the move closed come back. A theme that is not in that library any more leaves
+/// no wallpaper, which the status says. Returns the new tray status when something was closed.
+fn resume_wallpaper(
+    host: &SettingsHost,
+    fleet: &mut Fleet,
+    legacy_root: Option<&Path>,
+    closed: &[u8],
+    ctx: &Ctx<'_>,
+) -> Option<Status> {
+    let root = legacy_root?;
+    let gate = selected_job(host.settings(), root);
+    for slot in closed {
+        fleet.rule_closed.want_back(*slot);
+    }
+    match gate {
+        Ok(job) => {
+            let title = job.title.clone();
+            if fleet.job.is_some() || !closed.is_empty() {
+                fleet.adopt_job(job);
+            }
+            fleet.respawn_closed(ctx);
+            (!closed.is_empty()).then_some(Status::Starting { title })
+        }
+        Err(rejection) => {
+            fleet.job = None;
+            // With no job the slots are forgotten instead of started.
+            fleet.respawn_closed(ctx);
+            (!closed.is_empty()).then(|| Status::NoWallpaper {
+                reason: rejection.to_string(),
+            })
+        }
+    }
+}
+
+/// Folds what a library move step did into the tray status and the exit check.
+fn settle_move(progress: MoveProgress, status: &mut Status, tray: Option<&Tray>, check_exit: &mut bool) {
+    if let Some(next) = progress.status {
+        *status = next;
+        if status.is_failure() {
+            tracing::warn!(status = %status.text(), "no wallpaper, the service waits in the tray");
+        } else {
+            tracing::info!(status = %status.text(), "wallpaper status");
+        }
+        if let Some(tray) = tray {
+            tray.set_tooltip(&status.tooltip());
+        }
+    }
+    if progress.ended {
+        // The service may have been kept alive only by the move.
+        *check_exit = true;
+    }
+}
+
+/// The job for the theme the settings select, in the library the settings name.
+fn selected_job(settings: &Settings, legacy_root: &Path) -> Result<Job, ThemeRejection> {
+    let folder = &settings.library.selected;
+    check_selected(&settings.library_location(legacy_root), folder, &app_version()).and_then(|theme| {
+        job_for(&theme, &settings.engine).map_err(|reason| ThemeRejection::SourceInvalid {
+            folder: folder.clone(),
+            reason,
+        })
+    })
 }
 
 /// Sends events to the main thread and wakes its message loop, so the loop never polls.
@@ -896,6 +1280,21 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                         portals.send(PortalEvent::LibraryMaintained(NOTHING_MAINTAINED));
                                     }
                                 }
+                                PortalRequest::MoveLibrary { destination } => {
+                                    let mut env = MoveEnv {
+                                        host: &mut host,
+                                        fleet: &mut fleet,
+                                        legacy_root: legacy_root.as_deref(),
+                                        ctx: &Ctx {
+                                            supervisor: &supervisor,
+                                            renderers: &renderers,
+                                        },
+                                        notifier: &notifier,
+                                        timers: &timers,
+                                        portals: &mut portals,
+                                    };
+                                    env.begin(&destination, library_job);
+                                }
                                 other => {
                                     tracing::debug!(kind = request_kind(&other), "portal request, nothing handles it yet");
                                 }
@@ -919,6 +1318,22 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                             "library maintained"
                         );
                         portals.send(PortalEvent::LibraryMaintained(done.report));
+                    }
+                    Event::LibraryMove(step) => {
+                        let progress = MoveEnv {
+                            host: &mut host,
+                            fleet: &mut fleet,
+                            legacy_root: legacy_root.as_deref(),
+                            ctx: &Ctx {
+                                supervisor: &supervisor,
+                                renderers: &renderers,
+                            },
+                            notifier: &notifier,
+                            timers: &timers,
+                            portals: &mut portals,
+                        }
+                        .step(step);
+                        settle_move(progress, &mut status, tray.as_ref(), &mut check_exit);
                     }
                     Event::PortalGone { connection } => {
                         if portals.gone(connection) {
@@ -956,6 +1371,9 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                     Event::Tray(TrayAction::Exit) => {
                         if quitting {
                             tracing::debug!("Exit chosen while the service stops, ignored");
+                        } else if fleet.library_move.is_some() {
+                            // Leaving in the middle of a move could leave the library split between two folders.
+                            tracing::info!("Exit chosen while the library moves, ignored");
                         } else if host.settings().general.app_exit {
                             // Close Applications (TRAY-05): the renderers, the Portal, then the service.
                             quitting = true;
@@ -1013,12 +1431,28 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                     }
                 }
             }
+            // A library move goes on once the renderers it closed have ended.
+            let progress = MoveEnv {
+                host: &mut host,
+                fleet: &mut fleet,
+                legacy_root: legacy_root.as_deref(),
+                ctx: &Ctx {
+                    supervisor: &supervisor,
+                    renderers: &renderers,
+                },
+                notifier: &notifier,
+                timers: &timers,
+                portals: &mut portals,
+            }
+            .drive();
+            settle_move(progress, &mut status, tray.as_ref(), &mut check_exit);
             if closing.as_ref().is_some_and(Closing::done) {
                 tracing::info!("the renderers ended and the Portal is gone, the service exits");
                 return Flow::Exit;
             }
             if check_exit
                 && !quitting
+                && fleet.library_move.is_none()
                 && should_exit(
                     tray.is_some(),
                     fleet.wallpaper_wanted(),
@@ -1096,6 +1530,15 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
             }
             Flow::Continue
         }
+        // The renderers did not leave for the library move in time: end the ones that are left.
+        LoopEvent::Timer(MOVE_TIMER) => {
+            timers.kill(MOVE_TIMER);
+            if fleet.library_move.is_some() && fleet.rule_closed.any_awaiting() {
+                tracing::warn!("the renderers did not close for the library move in time, ending them");
+                supervisor.kill_survivors();
+            }
+            Flow::Continue
+        }
         LoopEvent::Timer(MEMORY_TIMER) => {
             let portal = portals.registered_pid();
             if quitting {
@@ -1114,7 +1557,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
         LoopEvent::Timer(FULLSCREEN_TIMER) => {
             if quitting {
                 timers.kill(FULLSCREEN_TIMER);
-            } else {
+            } else if fleet.library_move.is_none() {
                 fleet.fullscreen_tick(
                     platform.as_ref(),
                     &Ctx {
@@ -1141,7 +1584,8 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                 }
             };
             run_timers(&timers, step.timers);
-            if let (Some(monitors), false) = (step.apply, quitting) {
+            // No renderer starts for a monitor while the library moves: it would open files of the old folder.
+            if let (Some(monitors), false) = (step.apply, quitting || fleet.library_move.is_some()) {
                 let applied = fleet.apply_snapshot(
                     monitors,
                     &Ctx {
@@ -1165,7 +1609,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
         }
         // explorer.exe started again: the surfaces have to be replaced, so each monitor gets a new renderer.
         LoopEvent::ShellRestarted => {
-            if !quitting && fleet.job.is_some() {
+            if !quitting && fleet.job.is_some() && fleet.library_move.is_none() {
                 let acted = fleet.shell_restarted(&Ctx {
                     supervisor: &supervisor,
                     renderers: &renderers,
@@ -1939,6 +2383,8 @@ struct Fleet {
     rule_closed: RuleClosed,
     /// The slots whose renderer showed its first frame and is still running: only these can be the master clock.
     playing: HashSet<u8>,
+    /// The library move that is going on, if any (`RuntimeState.library_moving`).
+    library_move: Option<LibraryMove>,
 }
 
 /// The renderers the fullscreen rule closed (FullScreenPerformance = Close) and has to bring back (D-06). A slot is
@@ -1984,6 +2430,11 @@ impl RuleClosed {
         self.closed.contains(&slot) && !self.ended.contains(&slot)
     }
 
+    /// Whether any closed slot's renderer has still to say it ended.
+    fn any_awaiting(&self) -> bool {
+        self.closed.iter().any(|slot| !self.ended.contains(slot))
+    }
+
     fn want_back(&mut self, slot: u8) {
         if self.closed.contains(&slot) {
             self.back.insert(slot);
@@ -2024,6 +2475,7 @@ impl Fleet {
             fullscreen: None,
             rule_closed: RuleClosed::default(),
             playing: HashSet::new(),
+            library_move: None,
         }
     }
 
@@ -2451,8 +2903,7 @@ fn handle_use(
             selected: &settings.library.selected,
             running: fleet.job.is_some() && !ctx.supervisor.pids().is_empty(),
             rule: fleet.rule_state(),
-            // No library move exists before plan 22.
-            moving: false,
+            moving: fleet.library_move.is_some(),
         };
         (decide_use(&input), kind)
     };
@@ -2528,7 +2979,13 @@ fn handle_use(
 /// What the Portal is told the service is doing now.
 fn current_runtime(host: &SettingsHost, fleet: &Fleet, supervisor: &Supervisor, tray_visible: bool) -> RuntimeState {
     let running = fleet.job.is_some() && !supervisor.pids().is_empty();
-    runtime_state(host.settings(), running, fleet.rule_state(), tray_visible)
+    runtime_state(
+        host.settings(),
+        running,
+        fleet.rule_state(),
+        fleet.library_move.is_some(),
+        tray_visible,
+    )
 }
 
 /// Sends the Portal `runtime` when it differs from the last one sent (and remembers it either way, so a Portal that
@@ -4447,5 +4904,47 @@ mod tests {
         // Time for an event that must not exist to show up.
         thread::sleep(Duration::from_millis(100));
         assert_eq!(*written.lock().unwrap_or_else(PoisonError::into_inner), expected);
+    }
+
+    #[test]
+    fn a_destination_text_must_be_an_absolute_path_without_parent_parts() {
+        let absolute = if cfg!(windows) {
+            r"C:\Libraries\New"
+        } else {
+            "/libraries/new"
+        };
+        assert_eq!(parse_destination(absolute), Ok(PathBuf::from(absolute)));
+
+        let relative = parse_destination("New");
+        let parent = parse_destination(&format!(
+            "{absolute}{}..{}x",
+            std::path::MAIN_SEPARATOR,
+            std::path::MAIN_SEPARATOR
+        ));
+        let nul = parse_destination(&format!("{absolute}\0"));
+        let long = parse_destination(&format!("{absolute}{}", "a".repeat(MAX_PATH_TEXT)));
+        for refused in [relative, parent, nul, long] {
+            assert_eq!(refused, Err(MoveOutcome::Refused(MoveRefusal::Missing)));
+        }
+    }
+
+    #[test]
+    fn a_move_waits_for_every_closed_renderer_to_have_ended() {
+        let mut closed = RuleClosed::default();
+        assert!(!closed.any_awaiting(), "nothing closed, nothing to wait for");
+
+        closed.close(1, false);
+        closed.close(2, true);
+        assert!(closed.any_awaiting(), "slot 1 has not ended");
+
+        assert!(closed.note_exit(1));
+        assert!(!closed.any_awaiting());
+
+        closed.close(3, false);
+        closed.forget(3);
+        assert!(
+            !closed.any_awaiting(),
+            "a slot that was forgotten (its monitor went) is not waited for"
+        );
     }
 }

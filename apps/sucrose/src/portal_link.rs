@@ -284,16 +284,22 @@ fn exchange(endpoint: &str) -> Result<LaunchReply, String> {
 }
 
 /// What the service tells the Portal it is doing: the selected theme from the settings, whether a renderer runs, what
-/// the fullscreen rule does to the wallpaper and whether the tray exists. It is never written to Sucrose.json (D-23).
-/// No library move exists yet.
-pub fn runtime_state(settings: &Settings, running: bool, rule: RuleState, tray_visible: bool) -> RuntimeState {
+/// the fullscreen rule does to the wallpaper, whether the library is being moved and whether the tray exists. It is
+/// never written to Sucrose.json (D-23).
+pub fn runtime_state(
+    settings: &Settings,
+    running: bool,
+    rule: RuleState,
+    library_moving: bool,
+    tray_visible: bool,
+) -> RuntimeState {
     RuntimeState {
         selected: Some(settings.library.selected.as_str())
             .filter(|selected| !selected.is_empty())
             .map(clip),
         running,
         rule,
-        library_moving: false,
+        library_moving,
         tray_visible,
     }
 }
@@ -534,17 +540,28 @@ mod tests {
         let mut settings = Settings::default();
         settings.library.selected = "abc".to_owned();
 
-        let runtime = runtime_state(&settings, true, RuleState::None, false);
+        let runtime = runtime_state(&settings, true, RuleState::None, false, false);
 
         assert_eq!(runtime.selected.as_deref(), Some("abc"));
         assert!(runtime.running && !runtime.tray_visible);
     }
 
     #[test]
+    fn the_runtime_state_says_when_the_library_moves() {
+        let settings = Settings::default();
+
+        assert!(runtime_state(&settings, false, RuleState::None, true, false).library_moving);
+        assert!(!runtime_state(&settings, false, RuleState::None, false, false).library_moving);
+    }
+
+    #[test]
     fn no_selected_theme_is_none() {
         let settings = Settings::default();
 
-        assert_eq!(runtime_state(&settings, false, RuleState::None, false).selected, None);
+        assert_eq!(
+            runtime_state(&settings, false, RuleState::None, false, false).selected,
+            None
+        );
     }
 
     #[test]
