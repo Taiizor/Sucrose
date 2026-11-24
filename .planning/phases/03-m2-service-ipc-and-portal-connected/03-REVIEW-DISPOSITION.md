@@ -5,19 +5,19 @@ titles: json
 findings:
   - id: WR-09
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "A corrupt settings file with no backup is overwritten and its content is lost"
   - id: WR-10
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "A quit that arrives during a library move can never finish (service never exits)"
   - id: WR-11
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "The event thread clears `loading` with a plain store and can erase a newer `load_source`"
   - id: WR-12
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "The pixel-area cap bounds one JPEG decode, not memory; three decodes plus the background image can hold about 800 MB"
   - id: IN-02
     severity: info
@@ -131,19 +131,19 @@ findings:
     severity: info
     disposition: deferred
     title: "Timing assertion in the memory integration test is tight"
-open: 11
+open: 6
 total: 32
-recorded: 2026-11-24T19:55:49.793Z
+recorded: 2026-11-24T20:35:32.597Z
 ---
 
 # Phase 03: Code Review Disposition
 
 | Finding | Severity | Disposition | Source |
 |---------|----------|-------------|--------|
-| WR-09 | warning | open | - |
-| WR-10 | warning | open | - |
-| WR-11 | warning | open | - |
-| WR-12 | warning | open | - |
+| WR-09 | warning | fixed | 03-REVIEW-FIX.md |
+| WR-10 | warning | fixed | 03-REVIEW-FIX.md |
+| WR-11 | warning | fixed | 03-REVIEW-FIX.md |
+| WR-12 | warning | fixed | 03-REVIEW-FIX.md |
 | IN-02 | info | deferred | Latent until the Linux service exists (EventLoop::new fails there today); fix before Linux support is enabled |
 | IN-04 | info | deferred | Lint hygiene only, no behavior impact; next Portal cleanup (same finding as the earlier IN-04, re-reported with Origin and narrowed to apps/sucrose-portal/src/main.rs:22; the decision was restored after the ledger tool dropped it on the changed title) |
 | IN-10 | info | deferred | Needs a hand-edited or damaged Version; fix with the next settings format change |
