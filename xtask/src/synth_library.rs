@@ -373,8 +373,26 @@ fn write_pool(pool_dir: &Path, plan: &Plan, pool: &PoolPlan) -> Outcome<PoolFile
     Ok(PoolFiles { thumbnails, previews })
 }
 
-/// Writes the whole synthetic folder, checks it with the library scan and prints the result.
+/// What a run did.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum Generated {
+    /// The folder was written.
+    Written,
+    /// The folder already holds this count and seed and was left as it is.
+    UpToDate,
+}
+
+/// Whether the text of a marker is that of a finished run with this count and seed.
+fn marker_matches(_text: &str, _count: usize, _seed: u64) -> bool {
+    false
+}
+
 fn generate(plan: &Plan) -> Outcome<()> {
+    generate_with(plan, &pool_plan()).map(|_| ())
+}
+
+/// Writes the whole synthetic folder, checks it with the library scan and prints the result.
+fn generate_with(plan: &Plan, pool: &PoolPlan) -> Outcome<Generated> {
     let started = Instant::now();
     let out = std::path::absolute(&plan.out).map_err(io_error("resolve", &plan.out))?;
     if let Some(real) = paths::legacy_data_dir()
@@ -406,7 +424,7 @@ fn generate(plan: &Plan) -> Outcome<()> {
     }
     create_dir(&library_dir)?;
 
-    let PoolFiles { thumbnails, previews } = write_pool(&pool_dir, plan, &pool_plan())?;
+    let PoolFiles { thumbnails, previews } = write_pool(&pool_dir, plan, pool)?;
     let mut names = BTreeSet::new();
     for index in 0..plan.count + CORRUPT {
         if !names.insert(theme_name(plan.seed, index)) {
@@ -490,7 +508,7 @@ fn generate(plan: &Plan) -> Outcome<()> {
         started.elapsed().as_secs_f64(),
         out.display()
     );
-    Ok(())
+    Ok(Generated::Written)
 }
 
 /// Total size of the files under `dir`.
@@ -510,4 +528,175 @@ fn folder_size(dir: &Path) -> u64 {
 
 fn size_text(bytes: u64) -> String {
     format!("{:.1} MB", bytes as f64 / 1_000_000.0)
+}
+
+#[cfg(test)]
+mod tests {
+    use std::time::Duration;
+
+    use super::*;
+
+    fn median(mut sizes: Vec<usize>) -> usize {
+        sizes.sort_unstable();
+        let middle = sizes.len() / 2;
+        if sizes.len() % 2 == 1 {
+            sizes[middle]
+        } else {
+            usize::midpoint(sizes[middle - 1], sizes[middle])
+        }
+    }
+
+    #[test]
+    fn synth_theme_name_is_25_alphanumerics_and_stable() {
+        let name = theme_name(1, 0);
+        assert_eq!(name.len(), NAME_LENGTH);
+        assert!(name.chars().all(|c| c.is_ascii_alphanumeric()));
+        assert_eq!(name, theme_name(1, 0));
+        assert_ne!(name, theme_name(2, 0));
+        let names: BTreeSet<String> = (0..1000).map(|index| theme_name(1, index)).collect();
+        assert_eq!(names.len(), 1000);
+    }
+
+    #[test]
+    fn synth_pool_plan_targets_follow_the_real_library() {
+        let pool = pool_plan();
+        assert_eq!((pool.thumbnails.len(), pool.previews.len()), (12, 8));
+        let thumbnails: Vec<usize> = pool.thumbnails.iter().map(|spec| spec.target_bytes).collect();
+        let previews: Vec<usize> = pool.previews.iter().map(|spec| spec.target_bytes).collect();
+        assert!(thumbnails.iter().min().is_some_and(|size| *size <= 120_000));
+        assert!(
+            thumbnails
+                .iter()
+                .max()
+                .is_some_and(|size| (600_000..=660_000).contains(size))
+        );
+        assert!((150_000..=250_000).contains(&median(thumbnails)));
+        assert!(previews.iter().min().is_some_and(|size| *size <= 250_000));
+        assert!(
+            previews
+                .iter()
+                .max()
+                .is_some_and(|size| (4_500_000..=5_000_000).contains(size))
+        );
+        assert!((1_000_000..=2_000_000).contains(&median(previews)));
+    }
+
+    #[test]
+    fn synth_pool_files_span_the_real_sizes() {
+        let pool = pool_plan();
+        let thumbnails: Vec<usize> = pool
+            .thumbnails
+            .iter()
+            .enumerate()
+            .map(|(index, spec)| make_thumbnail(spec, 1, index).unwrap().len())
+            .collect();
+        let previews: Vec<usize> = pool
+            .previews
+            .iter()
+            .enumerate()
+            .map(|(index, spec)| make_preview(spec, 1, index).unwrap().len())
+            .collect();
+        // About 100 KB to about 640 KB, median near 190 KB (JPEG thumbnails of the real library).
+        assert!(thumbnails.iter().min().is_some_and(|size| *size < 150_000));
+        assert!(
+            thumbnails
+                .iter()
+                .max()
+                .is_some_and(|size| (500_000..=700_000).contains(size))
+        );
+        assert!((140_000..=280_000).contains(&median(thumbnails)));
+        // About 0.2 MB to about 5 MB, median between 1 and 2 MB (GIF previews); the find checks use MiB and KiB.
+        assert!(previews.iter().min().is_some_and(|size| *size < 300 * 1024));
+        assert!(
+            previews
+                .iter()
+                .max()
+                .is_some_and(|size| (4 * 1024 * 1024..=5_200_000).contains(size))
+        );
+        assert!((1_000_000..=2_000_000).contains(&median(previews)));
+    }
+
+    #[test]
+    fn synth_frames_for_reaches_the_target_with_at_least_one_frame() {
+        assert_eq!(frames_for(1_000_000, 100_000), 10);
+        assert_eq!(frames_for(10, 100), 1);
+        assert_eq!(frames_for(250, 100), 3);
+    }
+
+    #[test]
+    fn synth_marker_matches_only_a_finished_run_with_the_same_count_and_seed() {
+        let text = marker_text(40, 7);
+        assert!(marker_matches(&text, 40, 7));
+        assert!(!marker_matches(&text, 41, 7));
+        assert!(!marker_matches(&text, 40, 8));
+        assert!(!marker_matches("incomplete\n", 40, 7));
+    }
+
+    #[test]
+    fn synth_real_data_folder_is_recognised_even_through_dots_and_case() {
+        let real = Path::new("C:/Users/Someone/AppData/Roaming/Sucrose");
+        assert!(is_inside(
+            Path::new("c:/users/someone/appdata/roaming/sucrose/Library"),
+            real
+        ));
+        assert!(is_inside(
+            Path::new("C:/Users/Someone/AppData/Roaming/x/../Sucrose"),
+            real
+        ));
+        assert!(!is_inside(Path::new("C:/Users/Someone/AppData/Roaming/Sucrose2"), real));
+    }
+
+    #[test]
+    fn synth_second_run_is_up_to_date_and_a_new_count_rewrites() {
+        let out = std::env::temp_dir().join(format!("sucrose-synth-test-{}", std::process::id()));
+        let other = out.with_extension("other");
+        let _ = fs::remove_dir_all(&out);
+        let _ = fs::remove_dir_all(&other);
+        let pool = PoolPlan {
+            thumbnails: vec![ThumbSpec {
+                width: 64,
+                height: 36,
+                target_bytes: 3_000,
+            }],
+            previews: vec![PreviewSpec {
+                width: 32,
+                height: 18,
+                target_bytes: 5_000,
+            }],
+        };
+        let plan = Plan {
+            out: out.clone(),
+            count: 3,
+            seed: 7,
+            force: false,
+        };
+        assert_eq!(generate_with(&plan, &pool).unwrap(), Generated::Written);
+        let probe = out.join("Library").join(theme_name(7, 0)).join("SucroseInfo.json");
+        let before = fs::metadata(&probe).unwrap().modified().unwrap();
+        std::thread::sleep(Duration::from_millis(50));
+        assert_eq!(generate_with(&plan, &pool).unwrap(), Generated::UpToDate);
+        assert_eq!(fs::metadata(&probe).unwrap().modified().unwrap(), before);
+
+        let more = Plan {
+            count: 4,
+            ..plan.clone()
+        };
+        assert_eq!(generate_with(&more, &pool).unwrap(), Generated::Written);
+        // Four themes, two corrupt folders and the loose file.
+        assert_eq!(fs::read_dir(out.join("Library")).unwrap().count(), 7);
+
+        // A folder that is not synthetic output is refused without --force and left alone.
+        fs::create_dir_all(&other).unwrap();
+        fs::write(other.join("mine.txt"), b"mine").unwrap();
+        let refused = Plan {
+            out: other.clone(),
+            ..plan.clone()
+        };
+        assert!(generate_with(&refused, &pool).unwrap_err().contains("--force"));
+        assert!(other.join("mine.txt").is_file());
+        assert!(!other.join("Library").exists());
+
+        fs::remove_dir_all(&out).unwrap();
+        fs::remove_dir_all(&other).unwrap();
+    }
 }
