@@ -13,8 +13,8 @@ use sucrose_core::{
 use sucrose_ipc::{
     connect,
     portal::{
-        Launch, LaunchReply, MaintainReport, PortalEvent, PortalPage, PortalRequest, SettingChange, UseOutcome,
-        UseRefusal,
+        Launch, LaunchReply, MaintainReport, MoveOutcome, MoveRefusal, PortalEvent, PortalPage, PortalRequest,
+        SettingChange, UseOutcome, UseRefusal,
     },
     protocol::ToService,
     service_endpoint_for,
@@ -669,4 +669,141 @@ fn showcase_themes_are_copied_once_and_recorded_in_the_settings() {
 
     // The second run finds every name recorded and copies nothing.
     assert_eq!(maintain(&mut portal).showcase_copied, 0);
+}
+
+/// Sends a MoveLibrary and returns the service's answer, skipping the other events (Runtime and the like).
+fn move_library(portal: &mut PortalClient, destination: &std::path::Path) -> MoveOutcome {
+    portal.request(&PortalRequest::MoveLibrary {
+        destination: destination.to_string_lossy().into_owned(),
+    });
+    // Memory events arrive every second, so a bare read loop would never time out.
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(10);
+    while std::time::Instant::now() < deadline {
+        match portal.next_event() {
+            Some(PortalEvent::MoveResult(outcome)) => return outcome,
+            Some(_) => {}
+            None => break,
+        }
+    }
+    panic!("no MoveResult");
+}
+
+/// The names inside `folder`, sorted.
+fn names_in(folder: &std::path::Path) -> Vec<String> {
+    let mut names: Vec<String> = std::fs::read_dir(folder)
+        .expect("the folder can be read")
+        .map(|entry| {
+            entry
+                .expect("the entry can be read")
+                .file_name()
+                .to_string_lossy()
+                .into_owned()
+        })
+        .collect();
+    names.sort();
+    names
+}
+
+#[test]
+fn a_library_moves_to_an_empty_folder_and_the_location_follows() {
+    if !service_runs("a_library_moves_to_an_empty_folder_and_the_location_follows") {
+        return;
+    }
+    let service = TestService::start("move-ok", &json!({ "Library": { "Move": true } }));
+    copy_fixture_library(&service);
+    let old = service.dir.join("Library");
+    let before = names_in(&old);
+    assert!(!before.is_empty(), "the fixture library has content");
+    std::fs::write(old.join("loose.txt"), b"loose").expect("a loose file can be written");
+    let new = service.dir.join("NewLibrary");
+    std::fs::create_dir_all(&new).expect("the new folder can be created");
+    let (mut portal, first) = PortalClient::hello(&service, None);
+    assert!(matches!(first, PortalEvent::Welcome { .. }), "{first:?}");
+
+    let outcome = move_library(&mut portal, &new);
+
+    assert_eq!(outcome, MoveOutcome::Moved);
+    assert_eq!(
+        service.settings_file()["Library"]["Location"],
+        json!(new.to_string_lossy())
+    );
+    assert!(!old.exists(), "the old folder is gone");
+    let mut expected = before;
+    expected.push("loose.txt".to_owned());
+    expected.sort();
+    assert_eq!(names_in(&new), expected, "every entry, themes and loose files, arrived");
+    assert_eq!(
+        std::fs::read(new.join("loose.txt")).ok().as_deref(),
+        Some(b"loose".as_slice())
+    );
+}
+
+#[test]
+fn a_destination_that_is_not_empty_is_refused_and_nothing_changes() {
+    if !service_runs("a_destination_that_is_not_empty_is_refused_and_nothing_changes") {
+        return;
+    }
+    let service = TestService::start("move-refused", &json!({ "Library": { "Move": true } }));
+    copy_fixture_library(&service);
+    let old = service.dir.join("Library");
+    let before = names_in(&old);
+    let full = service.dir.join("Full");
+    std::fs::create_dir_all(&full).expect("the folder can be created");
+    std::fs::write(full.join("mine.txt"), b"mine").expect("the file can be written");
+    let inside = old.join(&before[0]);
+    let (mut portal, first) = PortalClient::hello(&service, None);
+    assert!(matches!(first, PortalEvent::Welcome { .. }), "{first:?}");
+
+    assert_eq!(
+        move_library(&mut portal, &full),
+        MoveOutcome::Refused(MoveRefusal::NotEmpty)
+    );
+    assert_eq!(move_library(&mut portal, &old), MoveOutcome::Refused(MoveRefusal::Same));
+    assert_eq!(
+        move_library(&mut portal, &inside),
+        MoveOutcome::Refused(MoveRefusal::Nested)
+    );
+    assert_eq!(
+        move_library(&mut portal, &service.dir.join("Nowhere")),
+        MoveOutcome::Refused(MoveRefusal::Missing)
+    );
+    assert_eq!(
+        move_library(&mut portal, std::path::Path::new("relative")),
+        MoveOutcome::Refused(MoveRefusal::Missing)
+    );
+
+    assert_eq!(names_in(&old), before, "the library is untouched");
+    assert_eq!(names_in(&full), ["mine.txt"]);
+    assert_eq!(
+        service.settings_file()["Library"]["Location"],
+        json!(old.to_string_lossy()),
+        "the location is unchanged"
+    );
+}
+
+#[test]
+fn with_move_off_only_the_location_changes() {
+    if !service_runs("with_move_off_only_the_location_changes") {
+        return;
+    }
+    let service = TestService::start("move-off", &json!({ "Library": { "Move": false } }));
+    copy_fixture_library(&service);
+    let old = service.dir.join("Library");
+    let before = names_in(&old);
+    // Not empty: with Move off a folder that already holds themes is a fine location (legacy).
+    let other = service.dir.join("Other");
+    std::fs::create_dir_all(&other).expect("the folder can be created");
+    std::fs::write(other.join("theme.txt"), b"t").expect("the file can be written");
+    let (mut portal, first) = PortalClient::hello(&service, None);
+    assert!(matches!(first, PortalEvent::Welcome { .. }), "{first:?}");
+
+    let outcome = move_library(&mut portal, &other);
+
+    assert_eq!(outcome, MoveOutcome::Changed);
+    assert_eq!(names_in(&old), before, "the themes stay in the old folder");
+    assert_eq!(names_in(&other), ["theme.txt"]);
+    assert_eq!(
+        service.settings_file()["Library"]["Location"],
+        json!(other.to_string_lossy())
+    );
 }
