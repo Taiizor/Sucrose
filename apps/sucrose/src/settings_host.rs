@@ -162,10 +162,138 @@ fn view_of(settings: &Settings) -> PortalSettings {
 
 #[cfg(test)]
 mod tests {
+    use std::{fs, path::PathBuf};
+
     use sucrose_core::settings::ThemeMode;
     use sucrose_ipc::portal::MAX_PATH_TEXT;
 
     use super::*;
+
+    /// A settings folder of its own, removed when the test ends.
+    struct Scratch(PathBuf);
+
+    impl Scratch {
+        fn new(name: &str) -> Self {
+            let dir = std::env::temp_dir().join(format!("sucrose-settings-host-{}-{name}", std::process::id()));
+            let _ = fs::remove_dir_all(&dir);
+            Self(dir)
+        }
+    }
+
+    impl Drop for Scratch {
+        fn drop(&mut self) {
+            let _ = fs::remove_dir_all(&self.0);
+        }
+    }
+
+    /// An absolute path with `file_name` that exists on no machine, in the form of this OS.
+    fn absolute(file_name: &str) -> String {
+        std::env::temp_dir().join(file_name).to_string_lossy().into_owned()
+    }
+
+    #[test]
+    fn validate_clamps_numbers_to_the_legacy_ranges() {
+        let cases = [
+            (
+                SettingChange::BackgroundOpacity(150),
+                SettingChange::BackgroundOpacity(100),
+            ),
+            (
+                SettingChange::BackgroundOpacity(40),
+                SettingChange::BackgroundOpacity(40),
+            ),
+            (SettingChange::LibraryPagination(0), SettingChange::LibraryPagination(1)),
+            (
+                SettingChange::LibraryPagination(250),
+                SettingChange::LibraryPagination(100),
+            ),
+            (SettingChange::AdaptiveLayout(101), SettingChange::AdaptiveLayout(100)),
+            (SettingChange::AdaptiveMargin(2), SettingChange::AdaptiveMargin(5)),
+            (SettingChange::AdaptiveMargin(30), SettingChange::AdaptiveMargin(25)),
+            (SettingChange::AdaptiveMargin(12), SettingChange::AdaptiveMargin(12)),
+        ];
+        for (asked, stored) in cases {
+            assert_eq!(validate(asked.clone()), Ok(stored), "{asked:?}");
+        }
+    }
+
+    #[test]
+    fn validate_accepts_no_image_and_an_absolute_image_path_in_any_case() {
+        for path in [
+            "".to_owned(),
+            absolute("wall.PNG"),
+            absolute("wall.jpeg"),
+            absolute("a.WebP"),
+        ] {
+            let change = SettingChange::BackgroundImage(path);
+            assert_eq!(validate(change.clone()), Ok(change));
+        }
+    }
+
+    #[test]
+    fn validate_refuses_a_relative_path_an_unknown_extension_and_a_long_text() {
+        let long = format!("{}.png", absolute(&"a".repeat(MAX_PATH_TEXT)));
+        for path in [
+            "wall.png".to_owned(),
+            "..\\wall.png".to_owned(),
+            absolute("wall.bmp"),
+            absolute("wall"),
+            long,
+        ] {
+            let change = SettingChange::BackgroundImage(path.clone());
+            assert!(validate(change).is_err(), "{path}");
+        }
+    }
+
+    #[test]
+    fn the_same_change_twice_leaves_the_same_file_bytes() {
+        let scratch = Scratch::new("twice");
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+        let file = scratch.0.join("Sucrose.json");
+
+        let first = host.apply(SettingChange::LibraryPagination(33));
+        let after_first = fs::read(&file).expect("the settings file exists");
+        let second = host.apply(SettingChange::LibraryPagination(33));
+        let after_second = fs::read(&file).expect("the settings file exists");
+
+        assert_eq!(first, Ok(SettingChange::LibraryPagination(33)));
+        assert_eq!(second, first);
+        assert_eq!(after_first, after_second);
+    }
+
+    #[test]
+    fn apply_returns_the_clamped_value_and_that_is_what_the_view_shows() {
+        let scratch = Scratch::new("clamped");
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+
+        let stored = host.apply(SettingChange::LibraryPagination(250));
+
+        assert_eq!(stored, Ok(SettingChange::LibraryPagination(100)));
+        assert_eq!(host.view().library_pagination, 100);
+    }
+
+    #[test]
+    fn a_refused_value_changes_nothing() {
+        let scratch = Scratch::new("refused");
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+        let before = host.view();
+
+        let answer = host.apply(SettingChange::BackgroundImage("relative.png".to_owned()));
+
+        assert!(answer.is_err());
+        assert_eq!(host.view(), before);
+    }
+
+    #[test]
+    fn a_host_that_cannot_save_answers_with_the_not_saved_text_and_keeps_the_value() {
+        let mut host = SettingsHost::unsaved(Settings::default());
+        let before = host.view();
+
+        let answer = host.apply(SettingChange::LibraryPagination(7));
+
+        assert_eq!(answer, Err(NOT_SAVED.to_owned()));
+        assert_eq!(host.view(), before);
+    }
 
     #[test]
     fn the_view_carries_the_values_the_portal_shows() {
