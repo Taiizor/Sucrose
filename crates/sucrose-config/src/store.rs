@@ -57,17 +57,62 @@ pub enum StoreError {
 #[derive(Debug)]
 pub struct Store {
     path: PathBuf,
+    backup: PathBuf,
     settings: Settings,
+    /// The format version of a file written by a newer build; the store never writes over such a file.
+    newer: Option<u32>,
+}
+
+/// What reading one of the two files gave.
+enum Read {
+    Missing,
+    Corrupt,
+    /// The parsed settings and the exact bytes they came from.
+    Good(Box<Settings>, Vec<u8>),
 }
 
 impl Store {
-    /// Opens the store in `setting_dir` (created when missing). `legacy` is the legacy `Setting` folder and the C#
-    /// data folder; the legacy files are read, never written, and only when no settings file exists.
+    /// Opens the store in `setting_dir` (created when missing). The load order is the settings file, then its `.bak`,
+    /// then the migration of the legacy files (`legacy`: the legacy `Setting` folder and the C# data folder); the legacy
+    /// files are read, never written, and only when neither settings file can be read. Temporary files a killed writer
+    /// left behind are removed.
     pub fn open(setting_dir: &Path, legacy: Option<(&Path, &Path)>) -> Result<(Self, LoadOutcome), StoreError> {
         fs::create_dir_all(setting_dir)?;
+        remove_stale_temporaries(setting_dir);
         let path = setting_dir.join(SETTINGS_FILE);
-        if let Some(settings) = read_good(&path) {
-            return Ok((Self { path, settings }, LoadOutcome::Loaded));
+        let backup = setting_dir.join(BACKUP_FILE);
+
+        if let Read::Good(settings, _) = read_file(&path) {
+            let newer = newer_version(&settings);
+            let settings = *settings;
+            return Ok((
+                Self {
+                    path,
+                    backup,
+                    settings,
+                    newer,
+                },
+                LoadOutcome::Loaded,
+            ));
+        }
+        if let Read::Good(settings, bytes) = read_file(&backup) {
+            let newer = newer_version(&settings);
+            let settings = *settings;
+            if newer.is_none()
+                && let Err(error) = write_atomic(&path, &bytes)
+            {
+                tracing::warn!(%error, "the settings file cannot be restored from its backup, using the backup in memory");
+            }
+            tracing::info!("the settings file was missing or corrupt and is restored from its backup");
+            return Ok((
+                Self {
+                    path,
+                    backup,
+                    settings,
+                    newer,
+                },
+                LoadOutcome::RestoredFromBackup,
+            ));
         }
         let (settings, outcome) = match legacy {
             Some((legacy_setting_dir, legacy_root)) if legacy_setting_dir.is_dir() => {
@@ -75,7 +120,12 @@ impl Store {
             }
             _ => (Settings::default(), LoadOutcome::Defaults),
         };
-        let store = Self { path, settings };
+        let store = Self {
+            path,
+            backup,
+            settings,
+            newer: None,
+        };
         store.persist()?;
         Ok((store, outcome))
     }
@@ -85,8 +135,12 @@ impl Store {
         &self.settings
     }
 
-    /// Applies `change` and saves the result. When the save fails the previous settings stay in memory.
+    /// Applies `change` and saves the result; the file it replaces becomes the `.bak`. When the save fails the previous
+    /// settings stay in memory, and a file written by a newer build is refused with [`StoreError::NewerVersion`].
     pub fn update(&mut self, change: impl FnOnce(&mut Settings)) -> Result<(), StoreError> {
+        if let Some(found) = self.newer {
+            return Err(StoreError::NewerVersion { found });
+        }
         let previous = self.settings.clone();
         change(&mut self.settings);
         self.settings.version = SETTINGS_VERSION;
@@ -99,25 +153,65 @@ impl Store {
 
     fn persist(&self) -> Result<(), StoreError> {
         let bytes = self.settings.to_bytes().map_err(io::Error::other)?;
+        // The file about to be replaced is kept as the backup, but only when it is good: a corrupt file must not
+        // push out a good backup. A failed backup does not stop the save.
+        if let Read::Good(_, previous) = read_file(&self.path)
+            && let Err(error) = write_atomic(&self.backup, &previous)
+        {
+            tracing::warn!(%error, "the settings backup cannot be written");
+        }
         write_atomic(&self.path, &bytes)?;
         Ok(())
     }
 }
 
-/// The settings in `path` when the file exists and parses.
-fn read_good(path: &Path) -> Option<Settings> {
+/// The version of a file written by a newer build, logged once when the store opens it.
+fn newer_version(settings: &Settings) -> Option<u32> {
+    let found = settings.version;
+    (found > SETTINGS_VERSION).then(|| {
+        tracing::warn!(
+            found,
+            supported = SETTINGS_VERSION,
+            "the settings file is from a newer build and stays unchanged"
+        );
+        found
+    })
+}
+
+fn read_file(path: &Path) -> Read {
     match fs::read(path) {
         Ok(bytes) => match Settings::from_slice(&bytes) {
-            Ok(settings) => Some(settings),
+            Ok(settings) => Read::Good(Box::new(settings), bytes),
             Err(error) => {
-                tracing::warn!(%error, "the settings file is corrupt");
-                None
+                tracing::warn!(%error, "a settings file is corrupt");
+                Read::Corrupt
             }
         },
-        Err(error) if error.kind() == io::ErrorKind::NotFound => None,
+        Err(error) if error.kind() == io::ErrorKind::NotFound => Read::Missing,
         Err(error) => {
-            tracing::warn!(%error, "the settings file cannot be read");
-            None
+            tracing::warn!(%error, "a settings file cannot be read");
+            Read::Corrupt
+        }
+    }
+}
+
+/// Removes the `Sucrose.json.<pid>.tmp` files a killed writer left in `dir`. Best effort: the service is the only
+/// writer, so none of them belongs to a write in progress.
+fn remove_stale_temporaries(dir: &Path) {
+    let Ok(entries) = fs::read_dir(dir) else {
+        return;
+    };
+    let prefix = format!("{SETTINGS_FILE}.");
+    for entry in entries.flatten() {
+        let name = entry.file_name();
+        let Some(name) = name.to_str() else {
+            continue;
+        };
+        if name.starts_with(&prefix) && name.ends_with(".tmp") {
+            match fs::remove_file(entry.path()) {
+                Ok(()) => tracing::debug!("a stale temporary settings file was removed"),
+                Err(error) => tracing::debug!(%error, "a stale temporary settings file cannot be removed"),
+            }
         }
     }
 }

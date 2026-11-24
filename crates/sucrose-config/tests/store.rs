@@ -278,7 +278,6 @@ fn kill_during_write_never_leaves_a_corrupt_file() {
         seed ^= seed << 17;
         seed
     };
-    let mut left_a_temporary_file = 0;
     for round in 0..ROUNDS {
         let _ = fs::remove_file(dir.join("ready"));
         let mut child = Command::new(&exe)
@@ -304,14 +303,10 @@ fn kill_during_write_never_leaves_a_corrupt_file() {
             parses(&main) || (!main.exists() && parses(&backup)),
             "round {round}: {SETTINGS_FILE} is corrupt and there is no good backup"
         );
-        if !temporary_files(&dir).is_empty() {
-            left_a_temporary_file += 1;
-        }
         let (_store, _) = Store::open(&dir, None).expect("the store opens after a kill");
         assert!(
             temporary_files(&dir).is_empty(),
             "round {round}: a stale temporary file survived open"
         );
     }
-    println!("{left_a_temporary_file} of {ROUNDS} kills left a temporary file behind");
 }
