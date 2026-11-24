@@ -53,6 +53,12 @@ pub enum StartupChange {
     Failed,
 }
 
+/// Whether the entry is where the request wanted it after an OS call that reported an error: such a call can fail
+/// half-way, so the state the OS reports decides, not the error.
+fn settled_by_state(wanted_present: bool, after: &AutostartState) -> bool {
+    after.entry_present == wanted_present
+}
+
 /// Applies a request for `mode`: the entry first, then the setting; when the setting cannot be saved the entry goes
 /// back to what it was, so the two never disagree.
 pub fn set_startup(mode: StartupMode, exe: &Path, os: &dyn StartupOs, host: &mut SettingsHost) -> StartupChange {
@@ -64,8 +70,11 @@ pub fn set_startup(mode: StartupMode, exe: &Path, os: &dyn StartupOs, host: &mut
         }
         StartupMode::Normal => {
             if let Err(error) = os.enable(exe) {
-                tracing::warn!(%error, "the startup entry could not be written");
-                return StartupChange::Failed;
+                if !settled_by_state(true, &os.state(exe)) {
+                    tracing::warn!(%error, "the startup entry could not be written");
+                    return StartupChange::Failed;
+                }
+                tracing::warn!(%error, "the OS reported an error but the startup entry is there, so the setting follows it");
             }
             if let Err(reason) = host.update(|settings| settings.general.run_startup = 1) {
                 tracing::warn!(%reason, "the startup setting could not be saved");
@@ -82,8 +91,11 @@ pub fn set_startup(mode: StartupMode, exe: &Path, os: &dyn StartupOs, host: &mut
         }
         StartupMode::None => {
             if let Err(error) = os.disable() {
-                tracing::warn!(%error, "the startup entry could not be removed");
-                return StartupChange::Failed;
+                if !settled_by_state(false, &os.state(exe)) {
+                    tracing::warn!(%error, "the startup entry could not be removed");
+                    return StartupChange::Failed;
+                }
+                tracing::warn!(%error, "the OS reported an error but the startup entry is gone, so the setting follows it");
             }
             if let Err(reason) = host.update(|settings| settings.general.run_startup = 0) {
                 tracing::warn!(%reason, "the startup setting could not be saved");
@@ -284,6 +296,7 @@ mod tests {
             fail_disable: true,
             ..FakeOs::default()
         };
+        *os.present.borrow_mut() = true;
 
         assert_eq!(
             set_startup(StartupMode::None, exe(), &os, &mut host),
