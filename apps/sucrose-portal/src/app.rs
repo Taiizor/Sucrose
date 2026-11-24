@@ -189,6 +189,10 @@ impl PortalApp {
         }
         self.mode = mode;
         self.header.update(cx, |header, cx| header.set_mode(mode, cx));
+        // The General page reads the start entries each time it opens (D-08).
+        if mode == Mode::Settings(SettingsTab::General) {
+            self.general.update(cx, |page, cx| page.on_opened(cx));
+        }
         cx.notify();
     }
 
@@ -301,6 +305,9 @@ impl PortalApp {
                         page.load(&settings, window, cx);
                         page.set_moving(runtime.library_moving, cx);
                     });
+                    if self.mode == Mode::Settings(SettingsTab::General) {
+                        self.general.update(cx, |page, cx| page.on_opened(cx));
+                    }
                     self.settings = Some(settings);
                     self.runtime = Some(runtime);
                     self.apply_theme(window, cx);
@@ -346,6 +353,9 @@ impl PortalApp {
                     self.general
                         .update(cx, |page, cx| page.set_moving(runtime.library_moving, cx));
                     self.runtime = Some(runtime);
+                }
+                PortalEvent::Startup(info) => {
+                    self.general.update(cx, |page, cx| page.on_startup(&info, window, cx));
                 }
                 PortalEvent::MoveResult(outcome) => {
                     let applied = self
@@ -416,7 +426,6 @@ impl PortalApp {
                     tracing::info!("the service is stopping, closing the Portal");
                     cx.quit();
                 }
-                _ => {}
             }
         }
         cx.notify();

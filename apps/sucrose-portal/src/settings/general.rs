@@ -14,7 +14,9 @@ use gpui_kit::component::{
 };
 use gpui_kit::*;
 use sucrose_core::settings::{Backdrop, Stretch, ThemeMode};
-use sucrose_ipc::portal::{MoveOutcome, MoveRefusal, PortalRequest, PortalSettings, SettingChange, StartupMode};
+use sucrose_ipc::portal::{
+    MoveOutcome, MoveRefusal, PortalRequest, PortalSettings, SettingChange, StartupInfo, StartupMode,
+};
 
 use super::row::{
     Choice, ChoiceSelect, ControlState, SELECT_WIDTH, SLIDER_WIDTH, SettingRow, choice_select, control_state,
@@ -228,14 +230,62 @@ fn theme_choices() -> Vec<Choice<ThemeMode>> {
 /// The options of Startup at Application Launch. Priority and Scheduler stay visible but cannot be chosen: they come
 /// with Phase 5 (D-08, TRAY-04).
 pub fn startup_options() -> Vec<Choice<StartupMode>> {
-    Vec::new()
+    const LATER: &str = "Portal.GeneralSettingPage.ApplicationStartup.LaterTip";
+    [
+        (
+            StartupMode::None,
+            "Portal.GeneralSettingPage.ApplicationStartup.Startup.None",
+            false,
+        ),
+        (
+            StartupMode::Normal,
+            "Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal",
+            false,
+        ),
+        (
+            StartupMode::Priority,
+            "Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority",
+            true,
+        ),
+        (
+            StartupMode::Scheduler,
+            "Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler",
+            true,
+        ),
+    ]
+    .into_iter()
+    .map(|(value, key, later)| Choice {
+        value,
+        title: tr(key),
+        reason: later.then(|| tr(LATER)),
+    })
+    .collect()
 }
 
 /// The notes under the Startup row for what the service reported: why a stored mode does nothing, that an entry is
 /// missing or was turned off in Task Manager, and that the C# app also starts. Empty when there is nothing to say.
 pub fn startup_note(mode: StartupMode, entry_present: bool, legacy: bool, disabled: bool) -> String {
-    let _ = (mode, entry_present, legacy, disabled);
-    String::new()
+    let mut notes: Vec<SharedString> = Vec::new();
+    match mode {
+        StartupMode::Priority | StartupMode::Scheduler => {
+            let name = tr(if mode == StartupMode::Priority {
+                "Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority"
+            } else {
+                "Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler"
+            });
+            notes.push(tr_with(
+                "Portal.GeneralSettingPage.ApplicationStartup.NotYet",
+                &[("mode", &name)],
+            ));
+        }
+        StartupMode::Normal if !entry_present => notes.push(tr("Portal.GeneralSettingPage.ApplicationStartup.NoEntry")),
+        StartupMode::Normal if disabled => notes.push(tr("Portal.GeneralSettingPage.ApplicationStartup.DisabledByOs")),
+        StartupMode::Normal | StartupMode::None => {}
+    }
+    if legacy {
+        notes.push(tr("Portal.GeneralSettingPage.ApplicationStartup.LegacyEntry"));
+    }
+    notes.iter().map(|note| &**note).collect::<Vec<&str>>().join(" ")
 }
 
 fn notify_choices() -> Vec<Choice<bool>> {
@@ -284,6 +334,7 @@ pub struct GeneralPage {
     /// The background image layer, whose decode error the Background image row shows.
     background: Entity<BackgroundImage>,
     theme: ChoiceSelect<ThemeMode>,
+    startup: ChoiceSelect<StartupMode>,
     notify: ChoiceSelect<bool>,
     backdrop: ChoiceSelect<Backdrop>,
     stretch: ChoiceSelect<Stretch>,
@@ -294,6 +345,10 @@ pub struct GeneralPage {
     image_error: Option<BackgroundError>,
     /// The folder a MoveLibrary request is on its way for; the answer says what became of it.
     pending_move: Option<String>,
+    /// What the service last reported about the start entry; the notes under the row come from it.
+    startup_info: Option<StartupInfo>,
+    /// The mode a SetStartup request is on its way for; the answer says what became of it.
+    pending_startup: Option<StartupMode>,
     /// The service reports that the library is being moved.
     moving: bool,
     /// Why the folder picked last was turned away; goes by itself after [`NOTE_TIME`].
@@ -314,6 +369,7 @@ impl GeneralPage {
         cx: &mut Context<Self>,
     ) -> Self {
         let theme = choice_select(theme_choices(), None, window, cx);
+        let startup = choice_select(startup_options(), None, window, cx);
         let notify = choice_select(notify_choices(), None, window, cx);
         let backdrop = choice_select(backdrop_choices(window_backdrop), None, window, cx);
         let stretch = choice_select(stretch_choices(), None, window, cx);
@@ -322,6 +378,8 @@ impl GeneralPage {
             on_choice(&theme, window, cx, |this, mode, _, _| {
                 this.send(SettingChange::ThemeMode(mode));
             }),
+            // The select shows the requested value at once; the answer of the service puts the stored one back.
+            on_choice(&startup, window, cx, |this, mode, _, _| this.send_startup(mode)),
             on_choice(&notify, window, cx, |this, visible, _, _| {
                 this.send(SettingChange::AppVisible(visible));
             }),
@@ -348,6 +406,7 @@ impl GeneralPage {
             connected: false,
             background,
             theme,
+            startup,
             notify,
             backdrop,
             stretch,
@@ -355,6 +414,8 @@ impl GeneralPage {
             opacity_rest: None,
             image_error: None,
             pending_move: None,
+            startup_info: None,
+            pending_startup: None,
             moving: false,
             location_note: None,
             note_timer: None,
@@ -369,6 +430,7 @@ impl GeneralPage {
             if !connected {
                 // The answer of a request that was in flight is lost with the connection.
                 self.pending_move = None;
+                self.pending_startup = None;
             }
             cx.notify();
         }
@@ -514,10 +576,38 @@ impl GeneralPage {
     pub fn load(&mut self, settings: &PortalSettings, window: &mut Window, cx: &mut Context<Self>) {
         self.settings = Some(settings.clone());
         show_choice(&self.theme, &settings.theme_mode, window, cx);
+        show_choice(
+            &self.startup,
+            &StartupMode::from_run_startup(settings.run_startup),
+            window,
+            cx,
+        );
         show_choice(&self.notify, &settings.app_visible, window, cx);
         show_choice(&self.backdrop, &settings.backdrop, window, cx);
         show_choice(&self.stretch, &settings.background_stretch, window, cx);
         self.show_opacity(settings.background_opacity, window, cx);
+        cx.notify();
+    }
+
+    /// The page was opened (or the service reported again while it is shown): ask the service about the start entries.
+    /// They are read only now, never polled (D-08).
+    pub fn on_opened(&mut self, cx: &mut Context<Self>) {
+        if self.state() == ControlState::Enabled {
+            self.link.send(PortalRequest::RefreshStartup);
+        }
+        cx.notify();
+    }
+
+    /// The service answered with how Sucrose starts with the OS: the select shows the stored mode, and a request that
+    /// did not end in the mode it asked for says so.
+    pub fn on_startup(&mut self, info: &StartupInfo, window: &mut Window, cx: &mut Context<Self>) {
+        if let Some(asked) = self.pending_startup.take()
+            && asked != info.mode
+        {
+            toast::show_error(tr("Portal.Setting.SaveFailed"), window, cx);
+        }
+        self.startup_info = Some(*info);
+        show_choice(&self.startup, &info.mode, window, cx);
         cx.notify();
     }
 
@@ -547,6 +637,7 @@ impl GeneralPage {
     /// Whether the keyboard is in a select of this page (Escape then belongs to it).
     pub fn field_focused(&self, window: &Window, cx: &App) -> bool {
         self.theme.read(cx).focus_handle(cx).contains_focused(window, cx)
+            || self.startup.read(cx).focus_handle(cx).contains_focused(window, cx)
             || self.notify.read(cx).focus_handle(cx).contains_focused(window, cx)
             || self.backdrop.read(cx).focus_handle(cx).contains_focused(window, cx)
             || self.stretch.read(cx).focus_handle(cx).contains_focused(window, cx)
@@ -560,6 +651,14 @@ impl GeneralPage {
     fn send(&self, change: SettingChange) {
         if self.state() == ControlState::Enabled {
             self.link.send(PortalRequest::Change(change));
+        }
+    }
+
+    /// Asks the service for `mode`; the select already shows it, and the answer decides what stays.
+    fn send_startup(&mut self, mode: StartupMode) {
+        if self.state() == ControlState::Enabled {
+            self.pending_startup = Some(mode);
+            self.link.send(PortalRequest::SetStartup(mode));
         }
     }
 
@@ -675,6 +774,23 @@ impl Render for GeneralPage {
         .control(select_box(&self.theme, disabled), SELECT_WIDTH)
         .state(state)
         .build(cx);
+
+        // The notes are part of the description, so they wrap with it; they wait for the first answer of the service.
+        let description = {
+            let base = tr("Portal.GeneralSettingPage.ApplicationStartup.Description");
+            let note = self.startup_info.map_or_else(String::new, |info| {
+                startup_note(info.mode, info.entry_present, info.legacy_entry, info.disabled_by_os)
+            });
+            if note.is_empty() {
+                base
+            } else {
+                SharedString::from(format!("{base} {note}"))
+            }
+        };
+        let startup = SettingRow::new(tr("Portal.GeneralSettingPage.ApplicationStartup"), Some(description))
+            .control(select_box(&self.startup, disabled), SELECT_WIDTH)
+            .state(state)
+            .build(cx);
 
         let notify = SettingRow::new(
             tr("Portal.GeneralSettingPage.NotifyIcon"),
@@ -836,7 +952,10 @@ impl Render for GeneralPage {
         super::column(
             "settings-general",
             vec![
-                super::group(tr("Portal.SettingsPage.GroupBehavior"), vec![theme, notify, backdrop]),
+                super::group(
+                    tr("Portal.SettingsPage.GroupBehavior"),
+                    vec![theme, startup, notify, backdrop],
+                ),
                 super::group(tr("Portal.SettingsPage.GroupLibrary"), vec![library_row]),
             ],
         )

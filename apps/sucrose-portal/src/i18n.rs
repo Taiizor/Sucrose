@@ -186,6 +186,8 @@ pub const REQUIRED_KEYS: &[&str] = &[
     "Portal.GeneralSettingPage.ApplicationStartup.LegacyEntry",
     "Portal.GeneralSettingPage.ApplicationStartup.NotYet",
     "Portal.GeneralSettingPage.ApplicationStartup.LaterTip",
+    "Portal.GeneralSettingPage.ApplicationStartup.DisabledByOs",
+    "Portal.GeneralSettingPage.ApplicationStartup.NoEntry",
     "Portal.GeneralSettingPage.WindowBackdrop.RequiresWin11",
     "Portal.GeneralSettingPage.WindowBackdrop.Unavailable",
     "Portal.GeneralSettingPage.WindowBackdrop.ImageMissing",

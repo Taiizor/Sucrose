@@ -42,6 +42,8 @@
 "Portal.GeneralSettingPage.ApplicationStartup.LegacyEntry": "The classic Sucrose app is also set to start at sign-in. Both apps will start together."
 "Portal.GeneralSettingPage.ApplicationStartup.NotYet": "%{mode} startup isn't available yet, so Sucrose won't start at sign-in. Choose Normal to turn it on."
 "Portal.GeneralSettingPage.ApplicationStartup.LaterTip": "Available in a later version"
+"Portal.GeneralSettingPage.ApplicationStartup.DisabledByOs": "Task Manager turned off the Sucrose startup entry, so Sucrose won't start at sign-in. Turn it on in Task Manager's Startup apps, or choose None and then Normal."
+"Portal.GeneralSettingPage.ApplicationStartup.NoEntry": "Sucrose isn't set to start at sign-in yet. Choose Normal to turn it on."
 "Portal.GeneralSettingPage.WindowBackdrop.RequiresWin11": "Requires Windows 11"
 "Portal.GeneralSettingPage.WindowBackdrop.Unavailable": "Not available on %{os}"
 "Portal.GeneralSettingPage.WindowBackdrop.ImageMissing": "The background image couldn't be loaded."
