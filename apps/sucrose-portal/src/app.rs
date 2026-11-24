@@ -9,6 +9,7 @@ use sucrose_ipc::portal::UseOutcome;
 
 use crate::{
     banner,
+    header::Header,
     i18n::tr,
     ipc::{ConnectionState, LinkEvent, ServiceLink, next_state},
     library::LibraryView,
@@ -33,8 +34,12 @@ pub struct PortalApp {
     pub link: ServiceLink,
     /// The library page.
     pub library: Entity<LibraryView>,
+    /// The header row: the Library tab and the search box.
+    pub header: Entity<Header>,
     /// The task that awaits the link's events; dropped with the app.
     _events: Task<()>,
+    /// Watches the keyboard for Ctrl+F, which works wherever the focus is.
+    _keys: Subscription,
 }
 
 impl PortalApp {
@@ -62,6 +67,16 @@ impl PortalApp {
             let link = link.clone();
             |cx| LibraryView::new(link, window, cx)
         });
+        let header = cx.new({
+            let library = library.clone();
+            |cx| Header::new(library, window, cx)
+        });
+        // Ctrl+F (Cmd+F on macOS) puts the cursor in the search box from anywhere in the window.
+        let keys = cx.observe_keystrokes(|this, event, window, cx| {
+            if event.keystroke.modifiers.secondary(cx) && event.keystroke.key == "f" {
+                this.header.update(cx, |header, cx| header.focus_search(window, cx));
+            }
+        });
         let mut app = Self {
             state: ConnectionState::Connecting,
             settings: None,
@@ -69,7 +84,9 @@ impl PortalApp {
             page,
             link,
             library,
+            header,
             _events: task,
+            _keys: keys,
         };
         for event in early {
             app.on_link_event(event, window, cx);
@@ -147,6 +164,7 @@ impl Render for PortalApp {
             .bg(cx.theme().background)
             .text_color(cx.theme().foreground)
             .child(TitleBar::new().child(div().text_xs().child(crate::window_title())))
+            .child(self.header.clone())
             .when_some(
                 banner::connection_banner(self.state, cx.listener(|this, _: &ClickEvent, _, _| this.link.retry())),
                 |column, banner| column.child(banner),

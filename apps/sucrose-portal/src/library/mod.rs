@@ -292,7 +292,6 @@ impl LibraryView {
 
     /// The search text changed (already trimmed, lowercased and cut to its length by the header): show what matches, from
     /// page 1. An empty text shows the whole library again.
-    #[allow(dead_code, reason = "the header search of the next commit calls it")]
     pub fn set_query(&mut self, query: &str, cx: &mut Context<Self>) {
         if self.query == query {
             return;
@@ -548,20 +547,37 @@ impl Render for LibraryView {
             Phase::Scanning { skeleton: true } => {
                 grid::skeleton(content_width, settings.margin, settings.adaptive_layout, &self.scroll)
             }
-            Phase::Ready if !self.visible.is_empty() => {
-                let columns = layout::columns(content_width, settings.margin, settings.adaptive_layout);
-                let cards = self.cards(&settings, columns, cx);
-                grid::page(
-                    cards,
-                    content_width,
-                    settings.margin,
-                    settings.adaptive_layout,
-                    &self.scroll,
-                    cx,
-                )
+            Phase::Ready | Phase::Failed => {
+                let state = grid::library_state(
+                    self.phase == Phase::Failed,
+                    self.themes.len(),
+                    &self.query,
+                    self.visible.len(),
+                );
+                match state {
+                    grid::LibraryState::LoadError => {
+                        let this = cx.entity().downgrade();
+                        grid::load_error(move |_, _, cx| {
+                            this.update(cx, |view, cx| view.reload(cx)).ok();
+                        })
+                    }
+                    grid::LibraryState::Empty => grid::empty(),
+                    grid::LibraryState::SearchEmpty => grid::search_empty(),
+                    grid::LibraryState::Grid => {
+                        let columns = layout::columns(content_width, settings.margin, settings.adaptive_layout);
+                        let cards = self.cards(&settings, columns, cx);
+                        grid::page(
+                            cards,
+                            content_width,
+                            settings.margin,
+                            settings.adaptive_layout,
+                            &self.scroll,
+                            cx,
+                        )
+                    }
+                }
             }
-            // The empty, search-empty and error states come with the header and search task.
-            _ => div().size_full().into_any_element(),
+            Phase::Idle | Phase::Scanning { skeleton: false } => div().size_full().into_any_element(),
         };
 
         // The pagination bar sits under the scrolling grid and shows from two pages on.

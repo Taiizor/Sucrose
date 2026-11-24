@@ -6,7 +6,7 @@ use std::borrow::Cow;
 use gpui_kit::{AssetSource, SharedString};
 
 // Add the icon of a new page here (Lucide names as in `gpui_kit::assets::IconName`).
-gpui_kit::assets::icon_assets!(PageIcons, [ImageOff, PackageX]);
+gpui_kit::assets::icon_assets!(PageIcons, [FolderX, ImageOff, Library, LibraryBig, PackageX, SearchX]);
 
 /// The asset source the Portal registers.
 pub struct PortalAssets;

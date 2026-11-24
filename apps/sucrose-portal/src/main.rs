@@ -14,7 +14,6 @@ use sucrose_ipc::portal::{PortalEvent, PortalPage};
 mod app;
 mod assets;
 mod banner;
-#[allow(dead_code, reason = "the header is wired in the next commit")]
 mod header;
 #[allow(dead_code, reason = "the Portal pages of the following plans call these helpers")]
 mod i18n;
