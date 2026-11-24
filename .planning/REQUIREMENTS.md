@@ -21,7 +21,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [x] **ARCH-02**: All Sucrose processes talk over one local-socket IPC, and the same endpoint keeps the service and the Portal single-instance (D-009)
 - [x] **ARCH-03**: An optional service module the user turns off does not start at all: no thread, no polling, no allocations (D-008)
 - [x] **ARCH-04**: Settings use a new versioned format with atomic writes; runtime state (pause/close flags, ports) is never stored in settings, and processes share state over IPC instead of polled files (D-007)
-- [ ] **ARCH-05**: "Use" in the Portal applies the wallpaper through the service, and settings changed in the Portal persist across restarts
+- [x] **ARCH-05**: "Use" in the Portal applies the wallpaper through the service, and settings changed in the Portal persist across restarts
 
 ### Wallpaper types
 
@@ -103,7 +103,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **LIB-01**: Showcase themes are copied on first run and tracked in the new settings (migrated from `Warehouse.json` `Showcase`)
 - [ ] **LIB-02**: The library is scanned with the legacy validity rules and corrupt themes are deleted
 - [x] **LIB-03**: User can sort the library by name, creation or modification date (ascending/descending) and search it
-- [ ] **LIB-04**: The library is paginated with an adaptive layout (margin, max per row)
+- [x] **LIB-04**: The library is paginated with an adaptive layout (margin, max per row)
 - [ ] **LIB-05**: A theme card offers use, review, customize, add/remove from cycling, find, share, delete (with confirmation) and edit
 - [x] **LIB-06**: Theme cards show hover previews, optionally hiding details while previewing
 - [ ] **LIB-07**: User can drag and drop files, `.url` files, archives and URLs onto the library
@@ -128,8 +128,8 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Portal UI (`portal.md` §1, §4, §6)
 
-- [ ] **UI-01**: The Portal has a window backdrop (Mica/Acrylic on Windows) and a background image with stretch and opacity on every OS
-- [ ] **UI-02**: User can pick light or dark, or follow the OS theme
+- [x] **UI-01**: The Portal has a window backdrop (Mica/Acrylic on Windows) and a background image with stretch and opacity on every OS
+- [x] **UI-02**: User can pick light or dark, or follow the OS theme
 - [x] **UI-03**: The Portal has header actions, search, a status bar (memory, quotes with copy) and command-line page arguments
 - [ ] **UI-04**: The settings pages General, Personal, Performance, Wallpaper, System and Other cover every key in `portal.md` §4
 - [x] **UI-05**: Help and About dialogs and the tray hint dialog exist; plain links (wiki, report an issue) stay (D-020)
@@ -233,7 +233,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | ARCH-02 | Phase 3 | Complete |
 | ARCH-03 | Phase 3 | Complete |
 | ARCH-04 | Phase 3 | Complete |
-| ARCH-05 | Phase 3 | Pending |
+| ARCH-05 | Phase 3 | Complete |
 | TYPE-01 | Phase 2 | Complete |
 | TYPE-02 | Phase 4 | Pending |
 | TYPE-03 | Phase 4 | Pending |
@@ -291,7 +291,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | LIB-01 | Phase 3 | Pending |
 | LIB-02 | Phase 3 | Pending |
 | LIB-03 | Phase 3 | Complete |
-| LIB-04 | Phase 3 | Pending |
+| LIB-04 | Phase 3 | Complete |
 | LIB-05 | Phase 5 | Pending |
 | LIB-06 | Phase 3 | Complete |
 | LIB-07 | Phase 5 | Pending |
@@ -307,8 +307,8 @@ Which phases cover which requirements. Filled during roadmap creation.
 | THEM-03 | Phase 5 | Pending |
 | THEM-04 | Phase 5 | Pending |
 | THEM-05 | Phase 5 | Pending |
-| UI-01 | Phase 3 | Pending |
-| UI-02 | Phase 3 | Pending |
+| UI-01 | Phase 3 | Complete |
+| UI-02 | Phase 3 | Complete |
 | UI-03 | Phase 3 | Complete |
 | UI-04 | Phase 5 | Pending |
 | UI-05 | Phase 3 | Complete |

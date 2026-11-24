@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-19-PLAN.md
-last_updated: "2026-11-24T10:02:20.765Z"
+stopped_at: Completed 03-20-PLAN.md
+last_updated: "2026-11-24T10:22:41.022Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: da10e1065ebca0012ba385f7d0e1fbcdc91138a7
+state_head: f91e7b30cd2557ba7a6b66265875661e8bf54aa6
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 55
-  completed_plans: 49
+  completed_plans: 50
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 21 of 26
+Plan: 22 of 26
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -103,6 +103,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P17 | 19 min | 3 tasks | 15 files |
 | Phase 03 P18 | 13 min | 3 tasks | 11 files |
 | Phase 03 P19 | 11 min | 2 tasks | 6 files |
+| Phase 03 P20 | 17 min | 3 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -181,6 +182,7 @@ Recent decisions affecting current work:
 - [Phase 03]: Plan 18: status bar and About show the legacy four-component version text; the tray hint dialog has Escape and backdrop presses off for its whole life (the dialog layer fixes them at open)
 - [Phase 03]: Plan 18: quote hides below 900 px and copyright below 1000 px; Premium address lives in header.rs, other links in dialogs/mod.rs as https constants
 - [Phase 03]: 03-19: a capped preview GIF loops the frames decoded so far; zero or tiny delays play at 100 ms; failed previews are remembered until the next rescan
+- [Phase 03]: Settings pages show only broadcast values; Escape leaves settings only when no dialog is open and no field holds the keyboard
 
 ### Pending Todos
 
@@ -213,6 +215,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T10:02:12.971Z
-Stopped at: Completed 03-19-PLAN.md
+Last session: 2026-11-24T10:22:33.401Z
+Stopped at: Completed 03-20-PLAN.md
 Resume file: None
