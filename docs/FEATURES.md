@@ -89,7 +89,7 @@ Actions Close / Pause / Resume per condition; trigger after 5 consecutive 1 s po
 
 | Feature | Notes | Status |
 |---|---|---|
-| Showcase themes copied on first run | tracked in `Warehouse.json` | ⬜ |
+| Showcase themes copied on first run | tracked in the new settings (migrated from Warehouse.json) | ⬜ |
 | Scan, validity rules, delete corrupt themes | Rust scan (`sucrose_core::library`) keeps the legacy rules and only reads. It reads missing optional SucroseInfo keys leniently, matches Type names in any case like Newtonsoft, and treats a Preview, Thumbnail or Source outside the theme folder as corrupt (new safety rule). | ⬜ |
 | Sorting (name, creation, modification; asc/desc), search index | Ties keep folder-name order. Search lowercases with Unicode lowercase only (no Turkish folding) and orders results by the number of matched words. | ⬜ |
 | Pagination, adaptive layout (margin, max per row) | | ⬜ |
@@ -124,7 +124,7 @@ Actions Close / Pause / Resume per condition; trigger after 5 consecutive 1 s po
 
 | Feature | Notes | Status |
 |---|---|---|
-| Window backdrop (Mica/Acrylic/…), background image with stretch and opacity | Windows backdrops; image works everywhere. | ⬜ |
+| Window backdrop (Mica/Acrylic/…), background image with stretch and opacity | Windows backdrops; image works everywhere. Theme mode (Light/Dark/System) and backdrop (None/Mica/Acrylic/Tabbed) are two settings (D-21): the legacy ThemeType Dark/Light migrates to the mode, BackdropType Auto migrates to System + Mica, the other BackdropType names map one to one, and a fresh install is System + None. | ⬜ |
 | Light/dark, follow OS theme | | ⬜ |
 | Header actions, search, status bar (memory, quotes with copy), command-line page arguments | | ⬜ |
 | Settings pages: General, Personal, Performance, Wallpaper, System, Other (every key in `portal.md` §4) | | ⬜ |

@@ -100,7 +100,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Library (`portal.md` §2)
 
-- [ ] **LIB-01**: Showcase themes are copied on first run and tracked in `Warehouse.json`
+- [ ] **LIB-01**: Showcase themes are copied on first run and tracked in the new settings (migrated from `Warehouse.json` `Showcase`)
 - [ ] **LIB-02**: The library is scanned with the legacy validity rules and corrupt themes are deleted
 - [ ] **LIB-03**: User can sort the library by name, creation or modification date (ascending/descending) and search it
 - [ ] **LIB-04**: The library is paginated with an adaptive layout (margin, max per row)
