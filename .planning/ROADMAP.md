@@ -121,7 +121,7 @@ Plans:
   3. Starting the service or the Portal a second time reuses the running instance, Exit closes every Sucrose process, and a renderer that keeps crashing is restarted a bounded number of times and then stopped, never in a loop.
   4. An optional module the user turns off starts no thread and does no polling, and with "start with the OS" on, Sucrose starts after sign-in and resumes the wallpaper.
   5. The Portal follows light, dark or the OS theme with its Mica/Acrylic backdrop and optional background image, has header actions, search, a status bar and Help/About, and scrolling through a large library keeps its memory bounded (release build, recorded in `docs/MEASUREMENTS.md`).
-**Plans**: 40/40 plans executed
+**Plans**: 40/44 plans executed
 Plans:
 **Wave 1**
 - [x] 03-01-PLAN.md — Settings tracer: Setting/Sucrose.json migrated once, atomic store with .bak and kill test, service reads it (D-032)
@@ -226,6 +226,20 @@ Plans:
 
 **Gap wave 7** *(blocked on gap wave 6)*
 - [x] 03-39-PLAN.md — Record and judge the reruns and their attribution (cause confirmed or named follow-up), close the review ledger, mark LIB-06 and UI-07 on evidence
+
+**Gap closure round 2 (2026-11-25, from 03-UAT.md gaps G-03-5, G-03-6, G-03-8 and the blocked test 10)**
+
+**Gap round 2, wave 1**
+- [ ] 03-41-PLAN.md — G-03-5: clear gpui-component's opaque base Root fill while a backdrop is active, deferred until the Root exists; real-screen None/Acrylic check; GPUI.md lesson
+
+**Gap round 2, wave 2** *(blocked on wave 1)*
+- [ ] 03-42-PLAN.md — G-03-6, G-03-8: thumbnails for the rows in view plus one row ahead (no first-64 cap), wanted thumbnails kept in the bounded cache, grid scrollbar, static placeholder for cards that are not loading
+
+**Gap round 2, wave 3** *(blocked on wave 2)*
+- [ ] 03-43-PLAN.md — Checkpoint: the maintainer checks the backdrop (Acrylic, Mica, Tabbed, None; Light and Dark), the 100-per-page library while scrolling, and hover previews with Library Preview on
+
+**Gap round 2, wave 4** *(blocked on wave 3)*
+- [ ] 03-44-PLAN.md — Checkpoint: D-25 scenario 2 rerun on the in-view thumbnail path (UAT test 10, ready gate, page-log rounds), recorded in MEASUREMENTS.md
 **UI hint**: yes
 **Notes**: `apps/sucrose-portal` is built from scratch; `exp/GPUI/Sucrose.Portal` is not its base. Runtime state (pause/close flags, ports) travels over IPC and is never stored in settings. Only Video themes can play until Phase 4 adds the other engines. The bounded thumbnail cache built here (UI-07) is reused by the store in Phase 5. Normal startup only; the priority and scheduled-task modes are TRAY-04 in Phase 5 (the M2 checklist said "Task Scheduler option later").
 
