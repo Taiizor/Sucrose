@@ -170,7 +170,7 @@ struct PortalGoneEffect {
 /// sequence.
 fn portal_gone_effect(was_registered: bool) -> PortalGoneEffect {
     PortalGoneEffect {
-        check_exit: was_registered,
+        check_exit: true,
         tell_closing: was_registered,
     }
 }
@@ -1514,12 +1514,20 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                         settle_move(progress, &mut status, tray.as_ref(), &mut check_exit);
                     }
                     Event::PortalGone { connection } => {
-                        if portals.gone(connection) {
+                        let was_registered = portals.gone(connection);
+                        let effect = portal_gone_effect(was_registered);
+                        if was_registered {
                             tracing::info!("the portal disconnected");
-                            check_exit = true;
-                            if let Some(closing) = &mut closing {
-                                closing.portal_gone();
-                            }
+                        } else {
+                            tracing::debug!("a portal connection ended that was not the registered one");
+                        }
+                        // A Portal the service dropped (WR-04) or never registered can still be the only thing that
+                        // kept the service alive: the exit rule is checked whichever connection ended.
+                        check_exit |= effect.check_exit;
+                        if effect.tell_closing
+                            && let Some(closing) = &mut closing
+                        {
+                            closing.portal_gone();
                         }
                     }
                     Event::PortalFocus { page } => {

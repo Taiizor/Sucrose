@@ -212,8 +212,9 @@ impl PortalRegistry {
         admission
     }
 
-    /// Sends `event` to the registered Portal. A Portal whose queue is full is stuck: its connection is given up and
-    /// the slot is free for a Portal that reconnects.
+    /// Sends `event` to the registered Portal. A Portal whose queue is full is stuck: its connection is ended, so
+    /// the Portal sees it and reconnects and the service's reader thread for it returns (WR-04), and the slot is free
+    /// for a Portal that reconnects.
     pub fn send(&mut self, event: PortalEvent) {
         let Some(link) = &self.registered else {
             return;
@@ -221,8 +222,9 @@ impl PortalRegistry {
         if link.offer(event) == Offer::Failed {
             tracing::warn!(
                 pid = link.pid(),
-                "the portal does not keep up or is gone, its connection is dropped"
+                "the portal does not keep up or is gone, its connection is ended"
             );
+            link.close();
             self.registered = None;
         }
     }
