@@ -20,23 +20,28 @@ use anyhow::Context as _;
 /// What the command line asks for.
 #[derive(Debug, PartialEq, Eq)]
 enum Mode {
-    /// No argument: the service.
-    Service,
+    /// No argument: the service, which opens the Portal at start. `--no-portal` (given by a Portal that starts the
+    /// service itself, D-12) keeps it from opening another one.
+    Service {
+        /// Whether the service opens the Portal when it starts.
+        open_portal: bool,
+    },
     /// `--render <slot>`: a renderer for that slot.
     Render(u8),
 }
 
-/// Reads the arguments (without the program name). Anything but no argument or `--render <slot>` is an error, so a
-/// typo in a spawn argument cannot silently start a service instead of a renderer.
+/// Reads the arguments (without the program name). Anything but no argument, `--no-portal` or `--render <slot>` is an
+/// error, so a typo in a spawn argument cannot silently start a service instead of a renderer.
 fn parse_mode(args: &[String]) -> Result<Mode, String> {
     match args {
-        [] => Ok(Mode::Service),
+        [] => Ok(Mode::Service { open_portal: true }),
+        [flag] if flag == "--no-portal" => Ok(Mode::Service { open_portal: false }),
         [flag, slot] if flag == "--render" => slot
             .parse()
             .map(Mode::Render)
             .map_err(|_| "the renderer slot must be a number from 0 to 255".to_owned()),
         _ => Err(format!(
-            "unknown arguments ({} given); use no argument or --render <slot>",
+            "unknown arguments ({} given); use no argument, --no-portal or --render <slot>",
             args.len()
         )),
     }
@@ -52,8 +57,10 @@ fn main() -> anyhow::Result<ExitCode> {
             let _log = sucrose_log::init(&format!("Renderer-{slot}"))?;
             render::run(slot)
         }
-        Ok(Mode::Service) => {
+        Ok(Mode::Service { open_portal }) => {
             let _log = sucrose_log::init("Service")?;
+            // Plan 15 acts on the flag; until then the service never opens a Portal itself.
+            tracing::info!(open_portal, "the service is starting");
             service::run().map(|()| ExitCode::SUCCESS)
         }
         Err(message) => {
@@ -75,8 +82,16 @@ mod tests {
 
     #[test]
     fn no_argument_is_the_service_and_a_render_flag_with_a_slot_is_a_renderer() {
-        assert_eq!(parse_mode(&args(&[])), Ok(Mode::Service));
+        assert_eq!(parse_mode(&args(&[])), Ok(Mode::Service { open_portal: true }));
         assert_eq!(parse_mode(&args(&["--render", "3"])), Ok(Mode::Render(3)));
+    }
+
+    #[test]
+    fn no_portal_is_the_service_that_opens_no_portal() {
+        assert_eq!(
+            parse_mode(&args(&["--no-portal"])),
+            Ok(Mode::Service { open_portal: false })
+        );
     }
 
     #[test]
@@ -88,6 +103,10 @@ mod tests {
             &["--render", "x"],
             &["--rendr", "1"],
             &["something"],
+            &["--no-portal", "x"],
+            &["--no-portal", "--no-portal"],
+            &["--no-portal", "--render", "1"],
+            &["--no-porta"],
         ] {
             assert!(parse_mode(&args(bad)).is_err(), "{bad:?}");
         }

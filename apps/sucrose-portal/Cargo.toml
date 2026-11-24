@@ -9,10 +9,14 @@ publish.workspace = true
 
 [dependencies]
 anyhow = { workspace = true }
+async-channel = { workspace = true }
+crossbeam-channel = { workspace = true }
 gpui-kit = { workspace = true }
 rust-i18n = { workspace = true }
 sucrose-core = { workspace = true }
+sucrose-ipc = { workspace = true }
 sucrose-log = { workspace = true }
+sucrose-platform = { workspace = true }
 tracing = { workspace = true }
 
 [lints]

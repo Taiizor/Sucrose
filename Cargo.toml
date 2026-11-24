@@ -21,6 +21,8 @@ sucrose-log = { path = "crates/sucrose-log" }
 sucrose-platform = { path = "crates/sucrose-platform" }
 
 anyhow = "1"
+# Awaitable channel from the Portal's IPC threads to the GPUI thread (crossbeam receivers cannot be awaited); GPUI already depends on it.
+async-channel = "2.5"
 bindgen = "0.73.2"
 crossbeam-channel = "0.5.17"
 dirs = "6"

@@ -6,7 +6,11 @@
 #![allow(unsafe_code)]
 #![warn(clippy::undocumented_unsafe_blocks)]
 
-use std::path::Path;
+use std::{
+    io,
+    path::Path,
+    process::{Child, Command},
+};
 
 #[cfg(target_os = "linux")]
 mod os_linux;
@@ -176,6 +180,13 @@ pub enum DpiAwareness {
 /// any window or engine thread exists: threads inherit the process default.
 pub fn init_dpi_awareness() -> DpiAwareness {
     imp::init_dpi_awareness()
+}
+
+/// Starts a sibling executable that has to outlive the caller, without a console window where the OS would open one.
+/// The Portal uses it to start the service when none runs. The child gets no handle back to the caller: the caller
+/// builds `cmd` from an argument vector, never a shell string.
+pub fn spawn_detached(cmd: &mut Command) -> io::Result<Child> {
+    imp::spawn_detached(cmd)
 }
 
 /// Repaints the desktop after the last wallpaper surface is gone, so no frame of the wallpaper is left behind.

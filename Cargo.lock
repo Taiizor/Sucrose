@@ -6466,10 +6466,14 @@ name = "sucrose-portal"
 version = "26.11.22+1"
 dependencies = [
  "anyhow",
+ "async-channel",
+ "crossbeam-channel",
  "gpui-kit",
  "rust-i18n",
  "sucrose-core",
+ "sucrose-ipc",
  "sucrose-log",
+ "sucrose-platform",
  "tracing",
 ]
 

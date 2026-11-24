@@ -119,6 +119,11 @@ impl RendererJob {
     }
 }
 
+/// A plain spawn: no OS here opens a console window for a child of a GUI process.
+pub(crate) fn spawn_detached(cmd: &mut Command) -> io::Result<Child> {
+    cmd.spawn()
+}
+
 pub(crate) fn init_dpi_awareness() -> DpiAwareness {
     DpiAwareness::NotApplicable
 }

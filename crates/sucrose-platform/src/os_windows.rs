@@ -9,7 +9,13 @@ mod refresh;
 mod surface;
 mod tray;
 
-use std::{path::Path, sync::OnceLock};
+use std::{
+    io,
+    os::windows::process::CommandExt,
+    path::Path,
+    process::{Child, Command},
+    sync::OnceLock,
+};
 
 use windows::{
     Win32::{
@@ -17,7 +23,7 @@ use windows::{
         Security::{Authorization::ConvertSidToStringSidW, GetTokenInformation, TOKEN_QUERY, TOKEN_USER, TokenUser},
         System::{
             Performance::{QueryPerformanceCounter, QueryPerformanceFrequency},
-            Threading::{GetCurrentProcess, OpenProcessToken},
+            Threading::{CREATE_NO_WINDOW, GetCurrentProcess, OpenProcessToken},
         },
     },
     core::PWSTR,
@@ -74,6 +80,12 @@ impl Platform for Current {
     fn default_gpu_adapter(&self) -> Option<GpuAdapter> {
         gpu::default_gpu_adapter()
     }
+}
+
+/// Starts `cmd` without a console window. No job object is involved, so the child keeps running when this process
+/// ends.
+pub(crate) fn spawn_detached(cmd: &mut Command) -> io::Result<Child> {
+    cmd.creation_flags(CREATE_NO_WINDOW.0).spawn()
 }
 
 /// QueryPerformanceCounter scaled to nanoseconds. The counter is system-wide, so the service and its renderers read
