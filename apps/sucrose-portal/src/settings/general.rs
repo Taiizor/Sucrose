@@ -14,7 +14,7 @@ use gpui_kit::component::{
 };
 use gpui_kit::*;
 use sucrose_core::settings::{Backdrop, Stretch, ThemeMode};
-use sucrose_ipc::portal::{MoveOutcome, MoveRefusal, PortalRequest, PortalSettings, SettingChange};
+use sucrose_ipc::portal::{MoveOutcome, MoveRefusal, PortalRequest, PortalSettings, SettingChange, StartupMode};
 
 use super::row::{
     Choice, ChoiceSelect, ControlState, SELECT_WIDTH, SLIDER_WIDTH, SettingRow, choice_select, control_state,
@@ -223,6 +223,19 @@ fn theme_choices() -> Vec<Choice<ThemeMode>> {
     .into_iter()
     .map(|(mode, key)| Choice::new(mode, tr(key)))
     .collect()
+}
+
+/// The options of Startup at Application Launch. Priority and Scheduler stay visible but cannot be chosen: they come
+/// with Phase 5 (D-08, TRAY-04).
+pub fn startup_options() -> Vec<Choice<StartupMode>> {
+    Vec::new()
+}
+
+/// The notes under the Startup row for what the service reported: why a stored mode does nothing, that an entry is
+/// missing or was turned off in Task Manager, and that the C# app also starts. Empty when there is nothing to say.
+pub fn startup_note(mode: StartupMode, entry_present: bool, legacy: bool, disabled: bool) -> String {
+    let _ = (mode, entry_present, legacy, disabled);
+    String::new()
 }
 
 fn notify_choices() -> Vec<Choice<bool>> {
@@ -839,11 +852,11 @@ mod tests {
 
     use sucrose_core::settings::Backdrop;
 
-    use sucrose_ipc::portal::{MoveOutcome, MoveRefusal};
+    use sucrose_ipc::portal::{MoveOutcome, MoveRefusal, StartupMode};
 
     use super::{
         BackdropReason, LocationProblem, MoveEffect, Picked, backdrop_options, image_choice, move_effect,
-        precheck_destination, reason_text, truncate_path,
+        precheck_destination, reason_text, startup_note, startup_options, truncate_path,
     };
     use crate::background::BackgroundError;
 
@@ -1039,6 +1052,82 @@ mod tests {
         assert_eq!(
             &*crate::i18n::tr(LocationProblem::NoAccess.text_key()),
             "Unfortunately, you don't have access to the new location"
+        );
+    }
+
+    const NOT_YET: &str =
+        " startup isn't available yet, so Sucrose won't start at sign-in. Choose Normal to turn it on.";
+    const BOTH_APPS: &str = "The classic Sucrose app is also set to start at sign-in. Both apps will start together.";
+
+    #[test]
+    fn settings_startup_a_stored_scheduler_with_the_c_entry_gets_both_notes() {
+        let note = startup_note(StartupMode::Scheduler, false, true, false);
+
+        assert!(note.contains(&format!("Scheduler{NOT_YET}")), "{note}");
+        assert!(note.contains(BOTH_APPS), "{note}");
+    }
+
+    #[test]
+    fn settings_startup_a_stored_priority_names_priority() {
+        let note = startup_note(StartupMode::Priority, false, false, false);
+
+        assert_eq!(note, format!("Priority{NOT_YET}"));
+    }
+
+    #[test]
+    fn settings_startup_an_entry_task_manager_turned_off_says_so() {
+        let note = startup_note(StartupMode::Normal, true, false, true);
+
+        assert!(note.contains("Task Manager"), "{note}");
+        assert!(!note.contains(BOTH_APPS), "{note}");
+    }
+
+    #[test]
+    fn settings_startup_normal_with_its_entry_and_nothing_else_has_no_note() {
+        assert_eq!(startup_note(StartupMode::Normal, true, false, false), "");
+        assert_eq!(startup_note(StartupMode::None, false, false, false), "");
+    }
+
+    #[test]
+    fn settings_startup_normal_without_an_entry_says_it_will_not_start() {
+        let note = startup_note(StartupMode::Normal, false, false, false);
+
+        assert!(note.contains("isn't set to start at sign-in"), "{note}");
+        assert!(note.contains("Choose Normal"), "{note}");
+    }
+
+    #[test]
+    fn settings_startup_the_c_entry_is_noted_for_every_mode() {
+        for mode in [StartupMode::None, StartupMode::Normal] {
+            assert!(startup_note(mode, true, true, false).contains(BOTH_APPS), "{mode:?}");
+        }
+        assert_eq!(startup_note(StartupMode::None, false, true, false), BOTH_APPS);
+    }
+
+    #[test]
+    fn settings_startup_options_disable_priority_and_scheduler_with_the_later_tip() {
+        let options = startup_options();
+        let titles: Vec<&str> = options.iter().map(|option| &*option.title).collect();
+        assert_eq!(titles, ["None", "Normal", "Priority", "Scheduler"]);
+        let values: Vec<StartupMode> = options.iter().map(|option| option.value).collect();
+        assert_eq!(
+            values,
+            [
+                StartupMode::None,
+                StartupMode::Normal,
+                StartupMode::Priority,
+                StartupMode::Scheduler
+            ]
+        );
+        let reasons: Vec<Option<&str>> = options.iter().map(|option| option.reason.as_deref()).collect();
+        assert_eq!(
+            reasons,
+            [
+                None,
+                None,
+                Some("Available in a later version"),
+                Some("Available in a later version")
+            ]
         );
     }
 }
