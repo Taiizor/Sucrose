@@ -1,55 +1,40 @@
 ---
 phase: 03-m2-service-ipc-and-portal-connected
-reviewed: 2026-11-24T21:02:22Z
+reviewed: 2026-11-24T21:52:06Z
 depth: standard
-files_reviewed: 6
+files_reviewed: 2
 files_reviewed_list:
+  - apps/sucrose-portal/src/background.rs
   - apps/sucrose-portal/src/library/thumbs.rs
-  - apps/sucrose/src/service.rs
-  - crates/sucrose-config/src/store.rs
-  - crates/sucrose-config/tests/store.rs
-  - crates/sucrose-engine-mpv/src/player.rs
-  - docs/ARCHITECTURE.md
 findings:
   critical: 0
-  warning: 1
-  info: 12
-  total: 13
+  warning: 0
+  info: 14
+  total: 14
 status: issues_found
 ---
 
 # Phase 3: Code Review Report
 
-**Reviewed:** 2026-11-24T21:02:22Z
+**Reviewed:** 2026-11-24T21:52:06Z
 **Depth:** standard
-**Files Reviewed:** 6
+**Files Reviewed:** 2
 **Status:** issues_found
 
 ## Summary
 
-Incremental re-review of the fixes for WR-09, WR-10, WR-11 and WR-12 (commits 8a60d6f1, 2a5fde89, 7a334708, a4e650bc), read from `git diff 7895ece1..HEAD` and the surrounding code (the Exited handler and the move driver in service.rs, `SourceSwitch` and the event loop in player.rs, `open`/`persist`/`read_file` in store.rs, `decode_bytes`/`decode_generic` and the background caller for thumbs.rs, and jpeg-decoder 0.3.2 `read_info`/`scale`).
+Incremental re-review of the WR-13 fix (commit 718081ed), read from `git diff 594ec313..HEAD` for `background.rs` and `thumbs.rs`, plus the surrounding code (`decode_budgeted`, `DecodeBudget::acquire`, `DecodePermit`, `decode_jpeg_scaled`, `decode_generic`, both `decode_bytes`, `decode_gif`, and `library/preview.rs`).
 
-- WR-09 holds: a corrupt `Sucrose.json` is renamed to `Sucrose.json.corrupt` on the migration, defaults, restore and later-save paths, and the three tests cover each. Two residual weaknesses are minor (IN-20).
-- WR-10 holds: the exit is recorded in `rule_closed` before the quitting early-return, `drive` can leave `Closing`, `MOVE_TIMER` is not killed by Quit, and `settle_exit` then lets the move finish before the service exits. The new tests cover the predicate and `note_exit_while_quitting` only, not the handler wiring.
-- WR-11 holds: `started_generation` / `load_generation` removes the wipe. One edge case of the failed-load path is IN-19.
-- WR-12 is only partly closed: the decoder buffer limit and the shared budget apply to the scaled JPEG path, but any JPEG the scaled decoder refuses or fails on goes to the unbudgeted generic decoder (WR-13).
-
-No critical issue was found. The ten carried findings (IN-02, IN-04, IN-10, IN-11, IN-13..IN-18) were re-opened in their source files; all are still present and are re-reported below with their ledger ids and titles. The necessity reference (`necessity-review.md`) was not read for this pass, so no `necessity:` count is given.
-
-## Warnings
-
-### WR-13: The JPEG decode budget is bypassed by the generic fallback, so the WR-12 bound does not hold
-
-**File:** `apps/sucrose-portal/src/library/thumbs.rs:313-324` (fallback), `:332-359`; `apps/sucrose-portal/src/background.rs:177`
-**Issue:** `decode_jpeg_scaled` returns `None` for every failure: a file that is not a JPEG, a header over the limit, the decoder's own buffer refusal (`set_max_decoding_buffer_size`), and any decode error after the coefficient buffers were allocated (a truncated or corrupt scan). Both callers then run `decode_generic` (`image` with the zune/JPEG path) on the same bytes. That path holds no `DecodePermit`; it is bounded only per image by `MAX_DECODE_ALLOC` (256 MB), and it decodes at full size (no DCT scaling). A theme thumbnail that jpeg-decoder rejects but `image` accepts, or a truncated 32 Mi pixel JPEG, therefore costs a full-size decode (about 100 MB RGB plus the `thumbnail` copy) outside the budget. With `DECODE_SLOTS` = 3 plus the background task, the stated aim of WR-12 (all JPEG decodes of the Portal about one worst-case decode) is not reached for hostile input, which is the case T-03-25 is about. The fix report names the fallback as unbudgeted but the summary still says the bound is "about one worst-case decode instead of four".
-**Fix:** Take the budget in the shared entry points, not inside the scaled decoder: acquire a `DecodePermit` in `decode_bytes` (thumbs) and in the background `decode_bytes` before either decoder runs, priced from the header size already read (`width * height * 6` for JPEG, `* 4` otherwise), and hold it across the fallback. Alternatively, when the input starts with `FF D8` and `decode_jpeg_scaled` fails, refuse instead of falling back to the full-size decoder.
+- **WR-13 is fixed.** Both entry points (thumbnail `decode_bytes` and background `decode_bytes`) now go through `decode_budgeted`, which takes one permit of the shared `IMAGE_DECODES` budget before either decoder runs and holds it until the `finish` closure (fit/resize/BGRA conversion) has returned. The scaled JPEG decoder and the generic fallback are therefore under the same permit, the two decoders are private so no caller can bypass it, no nested `acquire` exists (no self-deadlock), and the new test pins that the permit is held during `finish` on the fallback path. It is not re-reported. Two remaining gaps in the budget's coverage are new, minor findings (IN-21, IN-22).
+- All twelve carried findings (IN-02, IN-04, IN-10, IN-11, IN-13 to IN-20) were re-opened in their source files and all still hold; they are re-reported below under their ledger ids and titles with line numbers refreshed. None of them was affected by the WR-13 commit.
+- No critical issue and no warning was found. The necessity reference (`necessity-review.md`) was not read for this pass, so no `necessity:` count is given.
 
 ## Info
 
 ### IN-02: Endpoint hardening is Windows-only while Linux gets an abstract socket
 
 **Origin:** carried from the 2026-11-24 review
-**File:** `crates/sucrose-ipc/src/lib.rs:141-148`, `:162-168`
+**File:** `crates/sucrose-ipc/src/lib.rs:141-148`, `:160-168`
 **Issue:** Still present. `GenericNamespaced::is_supported()` is true on Linux, so the endpoint is an abstract Unix socket that any local user can connect to, and `owner_sid` is discarded (`let _ = owner_sid`). Latent until the Linux service exists, as the ledger says.
 **Fix:** As deferred: before Linux support is enabled, use a filesystem socket in a mode 0700 per-user folder, or check peer credentials on accept.
 
@@ -84,7 +69,7 @@ No critical issue was found. The ten carried findings (IN-02, IN-04, IN-10, IN-1
 ### IN-14: A Portal dropped by `send` during Close Applications is not counted as gone
 
 **Origin:** carried from the 2026-11-24 review
-**File:** `apps/sucrose/src/portal_link.rs:218-229`, `apps/sucrose/src/service.rs:1517-1536`, `:168-176`
+**File:** `apps/sucrose/src/portal_link.rs:218-229`, `apps/sucrose/src/service.rs:1517-1533`, `:168-176`
 **Issue:** Still present. `PortalRegistry::send` clears `registered` when the queue is full. During Close Applications `closing` waits for exactly that Portal, but the later `PortalGone` is classed as "not the registered one" (`was_registered` is false), so `closing.portal_gone()` is not called. The service then waits for `CLOSE_TIMER` (2 s) and ends the process, instead of leaving at once. `portal_gone_effect` also returns `check_exit: true` in both cases.
 **Fix:** Remember the pid or connection of the Portal the closing sequence waits for (`closing_portal`) and call `closing.portal_gone()` when a connection of that Portal ends; inline `check_exit = true`.
 
@@ -105,7 +90,7 @@ No critical issue was found. The ten carried findings (IN-02, IN-04, IN-10, IN-1
 ### IN-17: `measure --side portal` reports success when the Portal crashed
 
 **Origin:** carried from the 2026-11-24 review
-**File:** `xtask/src/measure.rs:2143-2163`
+**File:** `xtask/src/measure.rs:2143-2162`
 **Issue:** Still present. `ended_by` is `portal-exit` for any early end, so a crash and the maintainer closing the Portal after the idle window look the same, and the command exits 0 in both cases. The page-log summary accepts such a series; rounds and 20 s idle checks catch most crashed runs but not a crash during the final idle window, which then produces a "final" value from a shortened tail.
 **Fix:** Record the Portal's exit code or ask the maintainer to close it only after the planned time, and keep the non-zero exit when the process ended with a failure code.
 
@@ -118,18 +103,32 @@ No critical issue was found. The ten carried findings (IN-02, IN-04, IN-10, IN-1
 
 ### IN-19: A synchronous `loadfile` failure marks every earlier in-flight request as finished
 
-**File:** `crates/sucrose-engine-mpv/src/player.rs:430-436`, `:225-228`
+**Origin:** carried from the 2026-11-24 review
+**File:** `crates/sucrose-engine-mpv/src/player.rs:429-436`
 **Issue:** `finish_loading` uses `fetch_max`, so `load_source` failing at `self.load(text)` for generation N also finishes any request N-1 whose first frame has not been reported. mpv keeps loading file N-1 (the failed command did not replace it), but `is_loading()` is now false, so `has_started()` is true and the position and first-frame flag are read as belonging to the new file, which is the state the generation counter was added to prevent. It needs two back-to-back loads with the second failing synchronously, so it is rare; the second unit test pins the opposite case only (a newer request after the failed one).
 **Fix:** On a failed command restore the counter instead of finishing it: `self.shared.load_generation.compare_exchange(generation, generation - 1, ..)` (falling back to `finish_loading` only when another request already followed), so an older in-flight request keeps `is_loading()` true. Add a unit test for request 1 pending, request 2 failing.
 
 ### IN-20: A corrupt file is kept in one slot only, and a failed move still lets the write replace it
 
-**File:** `crates/sucrose-config/src/store.rs:195-202`
+**Origin:** carried from the 2026-11-24 review
+**File:** `crates/sucrose-config/src/store.rs:194-202`
 **Issue:** `keep_corrupt_aside` renames onto `Sucrose.json.corrupt`, so a second corruption silently destroys the copy of the first (documented as "replacing an older one", but the first is usually the file the user most wants to fix by hand). When the rename fails for a reason that does not also block the later replace of `Sucrose.json` (a read-only or directory-shaped `.corrupt`, which `is_busy` retries three times as PermissionDenied), the function only logs and `write_atomic` then overwrites the corrupt content, which is the loss WR-09 closed. The new tests cover neither case.
 **Fix:** Pick the next free name (`Sucrose.json.corrupt`, `.corrupt.1`, ... capped at a few) or keep the older copy, and on a failed rename fall back to `fs::copy`; when both fail, return an error from `persist` (as for an unreadable file) instead of writing over the corrupt file.
 
+### IN-21: The GIF paths decode outside the shared decode budget the docs say covers the whole Portal
+
+**File:** `apps/sucrose-portal/src/background.rs:174-176`, `:194-235`; `apps/sucrose-portal/src/library/preview.rs:45-80`; `apps/sucrose-portal/src/library/thumbs.rs:39-42`
+**Issue:** `DECODE_BUDGET` is documented as bounding "the image decodes of the whole Portal (thumbnails and the background image)", but an animated background GIF returns from `decode_bytes` into `decode_gif` before `decode_budgeted` is reached, and the hover preview decodes its GIF with its own `GifDecoder` and no permit. A GIF frame is a full logical-screen RGBA buffer (up to 32 Mi pixels, 128 MB by the declared size), plus the decoder's canvas and the resized copy, so a hostile or large GIF (a theme preview or the chosen background) decodes next to the budgeted thumbnail decodes without being counted. Each decode stays bounded by its own `max_alloc` (and the preview by one live decode), so this is a gap in the documented aggregate bound, not an unbounded allocation.
+**Fix:** Take a permit priced from the GIF's logical screen (`width * height * 4 * 2`) around `decode_gif` and `decode_preview` (export a small `acquire` helper from `thumbs.rs`), or narrow the comment on `DECODE_BUDGET` to say that GIF decodes are outside it.
+
+### IN-22: `OTHER_BYTES_PER_PIXEL` prices 16-bit and float images at a fraction of what they hold
+
+**File:** `apps/sucrose-portal/src/library/thumbs.rs:37-38`, `:338-343`
+**Issue:** Every non-JPEG decode is charged `width * height * 4`, "RGBA, 4 bytes per pixel". The enabled formats include 16-bit PNG (8 bytes per pixel as RGBA16) and TIFF (up to 16 bytes per pixel as RGBA32F), and the `finish` closures then call `into_rgba8`, which copies a non-8-bit image while the source is still alive (12 to 20 bytes per pixel at the peak). A 32 Mi pixel RGBA16 PNG is charged 128 MB but holds about 256 MB plus a 128 MB copy, so the budget admits more concurrent decodes than `DECODE_BUDGET` intends. The price also comes from the header the `image` crate read, while the scaled JPEG path allocates by `jpeg-decoder`'s own header (checked again with `check_dimensions` but not re-priced); the removed code priced from the decoder that allocates. Each decode is still capped by `MAX_DECODE_ALLOC`, so the effect is a weaker aggregate bound, not a new unbounded path.
+**Fix:** Price non-JPEG decodes from the decoder's own `ImageDecoder::total_bytes()` (via `ImageReader::into_decoder`) or from `color_type().bytes_per_pixel()`, and add the `into_rgba8` copy; or use a conservative 12 bytes per pixel for formats other than 8-bit.
+
 ---
 
-_Reviewed: 2026-11-24T21:02:22Z_
+_Reviewed: 2026-11-24T21:52:06Z_
 _Reviewer: Claude (gsd-code-reviewer)_
 _Depth: standard_
