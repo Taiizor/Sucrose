@@ -236,6 +236,33 @@ pub fn disconnect_pipe(handle: std::os::windows::io::BorrowedHandle<'_>) -> Resu
     imp::disconnect_pipe(handle)
 }
 
+/// The parts of a process's own memory, in bytes, that a measurement needs to tell apart (the heap Rust keeps alive, the
+/// heap's committed pages, and the video memory the process uses). A field is `None` where the OS gives no reading:
+/// it is reported, never guessed.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub struct MemoryDetail {
+    /// Bytes the process heap has handed out and not got back (what Rust code keeps alive).
+    pub heap_allocated: Option<u64>,
+    /// Bytes of the process heap the OS has committed, which stay committed after frees until the heap gives them back.
+    pub heap_committed: Option<u64>,
+    /// Video memory this process uses in the adapters' local segment group (dedicated memory), over all adapters.
+    pub gpu_local: Option<u64>,
+    /// Video memory this process uses in the adapters' non-local segment group (shared system memory), over all adapters.
+    pub gpu_non_local: Option<u64>,
+}
+
+/// Reads [`MemoryDetail`] for this process. It is a measurement aid: callers read it only while they log it.
+pub fn memory_detail() -> MemoryDetail {
+    #[cfg(target_os = "windows")]
+    {
+        imp::memory_detail()
+    }
+    #[cfg(not(target_os = "windows"))]
+    {
+        MemoryDetail::default()
+    }
+}
+
 /// Repaints the desktop after the last wallpaper surface is gone, so no frame of the wallpaper is left behind.
 pub fn refresh_desktop() {
     imp::refresh_desktop();
@@ -297,5 +324,11 @@ mod tests {
     #[test]
     fn current_matches_the_build_target() {
         assert_eq!(super::current().name(), std::env::consts::OS);
+    }
+
+    #[cfg(not(target_os = "windows"))]
+    #[test]
+    fn memory_detail_is_empty_where_the_os_has_no_reading() {
+        assert_eq!(super::memory_detail(), super::MemoryDetail::default());
     }
 }
