@@ -1222,6 +1222,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                         // again once it shows its first frame.
                         let was_playing = fleet.playing.remove(&exited.slot);
                         if quitting {
+                            fleet.note_exit_while_quitting(exited.slot);
                             continue;
                         }
                         if was_playing {
@@ -2747,6 +2748,15 @@ impl Fleet {
                     tracing::warn!(%error, slot, "cannot start the renderer after the fullscreen app, will retry")
                 }
             }
+        }
+    }
+
+    /// A renderer ended while the service quits. A library move that closed it still has to see the exit: without it
+    /// the move never leaves `Closing`, and the exit waits for the move forever (WR-10). Nothing else is bookkept
+    /// while quitting.
+    fn note_exit_while_quitting(&mut self, slot: u8) {
+        if self.library_move.is_some() {
+            self.rule_closed.note_exit(slot);
         }
     }
 
@@ -4888,6 +4898,40 @@ mod tests {
             fleet.rule_closed.ready().is_empty(),
             "the slot of a gone monitor is forgotten"
         );
+    }
+
+    #[test]
+    fn a_renderer_exit_while_quitting_still_lets_a_closing_move_go_on() {
+        let (mut fleet, _renderers, _logs) = recording_fleet(&[monitor_at("D1", true, [0, 0, 100, 100])]);
+        fleet.library_move = Some(a_move());
+        fleet.rule_closed.close(1, false);
+        fleet.rule_closed.close(2, false);
+        assert!(fleet.rule_closed.any_awaiting());
+
+        fleet.note_exit_while_quitting(1);
+        assert!(fleet.rule_closed.any_awaiting(), "slot 2 has not ended");
+        fleet.note_exit_while_quitting(2);
+
+        assert!(
+            !fleet.rule_closed.any_awaiting(),
+            "every renderer ended, the move can leave Closing and the service can exit"
+        );
+        assert!(
+            !may_exit(true, true),
+            "the exit still waits until the move itself has ended"
+        );
+        fleet.library_move = None;
+        assert!(may_exit(true, false));
+    }
+
+    #[test]
+    fn a_renderer_exit_while_quitting_without_a_move_changes_nothing() {
+        let (mut fleet, _renderers, _logs) = recording_fleet(&[monitor_at("D1", true, [0, 0, 100, 100])]);
+        fleet.rule_closed.close(1, false);
+
+        fleet.note_exit_while_quitting(1);
+
+        assert!(fleet.rule_closed.awaiting_exit(1), "no move, no bookkeeping");
     }
 
     #[test]
