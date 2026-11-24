@@ -142,7 +142,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **TRAY-02**: The full tray menu offers open, close/reload/change/customize wallpaper, settings, report, updates and exit, with a grayscale icon while paused (Win ✅ · mac ✅ · Linux ⚠️ GNOME needs AppIndicator)
 - [ ] **TRAY-03**: Sucrose can start with the OS (normal startup) (Win ✅ · mac ✅ LaunchAgent · Linux ✅ XDG autostart)
 - [ ] **TRAY-04**: User can choose the priority and scheduled-task startup modes (Win ✅ · mac ? · Linux ?)
-- [ ] **TRAY-05**: Exiting closes all Sucrose apps (Win ✅ · mac ✅ · Linux ✅)
+- [x] **TRAY-05**: Exiting closes all Sucrose apps (Win ✅ · mac ✅ · Linux ✅)
 
 ### Services and integration
 
@@ -318,7 +318,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | TRAY-02 | Phase 5 | Pending |
 | TRAY-03 | Phase 3 | Pending |
 | TRAY-04 | Phase 5 | Pending |
-| TRAY-05 | Phase 3 | Pending |
+| TRAY-05 | Phase 3 | Complete |
 | SVC-01 | Phase 5 | Pending |
 | SVC-02 | Phase 5 | Pending |
 | SVC-03 | Phase 5 | Pending |

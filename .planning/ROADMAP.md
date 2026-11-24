@@ -121,7 +121,7 @@ Plans:
   3. Starting the service or the Portal a second time reuses the running instance, Exit closes every Sucrose process, and a renderer that keeps crashing is restarted a bounded number of times and then stopped, never in a loop.
   4. An optional module the user turns off starts no thread and does no polling, and with "start with the OS" on, Sucrose starts after sign-in and resumes the wallpaper.
   5. The Portal follows light, dark or the OS theme with its Mica/Acrylic backdrop and optional background image, has header actions, search, a status bar and Help/About, and scrolling through a large library keeps its memory bounded (release build, recorded in `docs/MEASUREMENTS.md`).
-**Plans**: 16/26 plans executed
+**Plans**: 17/26 plans executed
 Plans:
 **Wave 1**
 - [x] 03-01-PLAN.md — Settings tracer: Setting/Sucrose.json migrated once, atomic store with .bak and kill test, service reads it (D-032)
@@ -160,7 +160,7 @@ Plans:
 - [x] 03-15-PLAN.md — Lifecycle: second launch opens or focuses the Portal, legacy Launcher start rule, D-13 exit, foreground handoff
 
 **Wave 11** *(blocked on Wave 10 completion)*
-- [ ] 03-16-PLAN.md — Tray menu Open Sucrose and Close Applications/Exit; Close Applications ends every Sucrose process
+- [x] 03-16-PLAN.md — Tray menu Open Sucrose and Close Applications/Exit; Close Applications ends every Sucrose process
 
 **Wave 12** *(blocked on Wave 11 completion)*
 - [ ] 03-17-PLAN.md — Theme mode with toggle and OS following, backdrop by capability, background image layer
@@ -272,7 +272,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 |-------|----------------|--------|-----------|
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
 | 2. M1 — Video wallpaper on the desktop (Windows) | 29/29 | Complete    | 2026-11-23 |
-| 3. M2 — Service, IPC and Portal connected | 16/26 | In Progress | - |
+| 3. M2 — Service, IPC and Portal connected | 17/26 | In Progress | - |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
 | 6. M5 — macOS | 0/TBD | Not started | - |

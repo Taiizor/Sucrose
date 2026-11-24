@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-15-PLAN.md
-last_updated: "2026-11-24T08:46:38.834Z"
+stopped_at: Completed 03-16-PLAN.md
+last_updated: "2026-11-24T09:04:40.859Z"
 last_activity: 2026-11-24
 last_activity_desc: Phase 03 execution started
-state_head: d7fbf2e1de9eb9a0439e01de3ef67c0d13e8771a
+state_head: ec7efbb3f2005cb1ca566781a2774810a4c8692b
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 55
-  completed_plans: 45
+  completed_plans: 46
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 17 of 26
+Plan: 18 of 26
 Status: Ready to execute
 Last activity: 2026-11-24 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -99,6 +99,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P13 | 17 min | 2 tasks | 7 files |
 | Phase 03 P14 | 23 min | 2 tasks | 11 files |
 | Phase 03 P15 | 13 min | 3 tasks | 13 files |
+| Phase 03 P16 | 15 min | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -170,6 +171,8 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-13: modules go through start_module; MemoryModule remembers the last Portal connection so a failed sampler start is logged once per Portal
 - [Phase 03]: Plan 03-14: the legacy pagination bar is composed from Buttons and an Input (gpui-component Pagination has no jump field or nine-slot scheme); the search box limit of 20 characters is an Input validator; an emptied search box applies at once, typed text after 500 ms
 - [Phase 03]: 03-15: the registered Portal is focused only after a second sucrose or Portal passed on the foreground right; a just-spawned Portal counts as connected for the exit rule for 10 s
+- [Phase 03]: 03-16: tray-icon and muda event handlers are set-once per process, so the tray installs them once and routes through a static wiring (a rebuilt tray works)
+- [Phase 03]: 03-16: after the 2 s grace the Portal counts as gone whatever the outcome; only the sibling sucrose-portal executable is ever ended
 
 ### Pending Todos
 
@@ -202,6 +205,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T08:46:31.369Z
-Stopped at: Completed 03-15-PLAN.md
+Last session: 2026-11-24T09:04:34.003Z
+Stopped at: Completed 03-16-PLAN.md
 Resume file: None
