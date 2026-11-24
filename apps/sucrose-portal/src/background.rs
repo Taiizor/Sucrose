@@ -21,7 +21,7 @@ use image::{
 use sucrose_core::settings::Stretch;
 
 use crate::atlas;
-use crate::library::thumbs::{MAX_SIDE, check_dimensions, decode_generic, decode_jpeg_scaled, image_bytes, to_bgra};
+use crate::library::thumbs::{MAX_SIDE, check_dimensions, decode_budgeted, image_bytes, to_bgra};
 
 /// The longest edge, in pixels, a decoded background image may have.
 pub const MAX_LONG_EDGE: u32 = 2560;
@@ -174,16 +174,16 @@ pub fn decode_bytes(bytes: &[u8], window: (u32, u32)) -> Result<Decoded, Backgro
     if format == Some(ImageFormat::Gif) {
         return decode_gif(bytes, target);
     }
-    let image = match decode_jpeg_scaled(bytes, target) {
-        Some(image) => image,
-        None => decode_generic(bytes).map_err(|_| BackgroundError::Unsupported)?,
-    };
-    let image = if (image.width(), image.height()) == target {
-        image
-    } else {
-        image.resize_exact(target.0, target.1, FilterType::Triangle)
-    };
-    let frame = Frame::new(to_bgra(image.into_rgba8()));
+    // The permit of the shared decode budget is held across the decode, the fallback and the resize (WR-13).
+    let frame = decode_budgeted(bytes, (width, height), target, |image| {
+        let image = if (image.width(), image.height()) == target {
+            image
+        } else {
+            image.resize_exact(target.0, target.1, FilterType::Triangle)
+        };
+        Frame::new(to_bgra(image.into_rgba8()))
+    })
+    .map_err(|_| BackgroundError::Unsupported)?;
     Ok(Decoded {
         shown: Arc::new(RenderImage::new(vec![frame])),
         still: None,

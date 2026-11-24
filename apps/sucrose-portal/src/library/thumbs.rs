@@ -34,10 +34,12 @@ const MAX_DECODE_ALLOC: u64 = 256 * 1024 * 1024;
 /// What a JPEG decode is estimated to hold per declared pixel before it is scaled down (a progressive JPEG keeps its
 /// coefficients, about 6 bytes per pixel).
 const JPEG_BYTES_PER_PIXEL: u64 = 6;
-/// The most memory, by that estimate, the JPEG decodes of the whole Portal (thumbnails and the background image) hold
-/// together (WR-12). A decode that would go over waits for the running ones; one that is alone always runs, so a file
-/// within [`MAX_PIXELS`] is never refused for its size alone. Ordinary photos cost a few MB and never wait.
-const JPEG_BUDGET: u64 = 256 * 1024 * 1024;
+/// What a decode of any other format is estimated to hold per declared pixel (RGBA, 4 bytes per pixel).
+const OTHER_BYTES_PER_PIXEL: u64 = 4;
+/// The most memory, by those estimates, the image decodes of the whole Portal (thumbnails and the background image) hold
+/// together (WR-12, WR-13). A decode that would go over waits for the running ones; one that is alone always runs, so a
+/// file within [`MAX_PIXELS`] is never refused for its size alone. Ordinary photos cost a few MB and never wait.
+const DECODE_BUDGET: u64 = 256 * 1024 * 1024;
 
 /// A shared allowance of estimated decode memory: [`DecodeBudget::acquire`] blocks while the running decodes hold too
 /// much, and the returned permit gives its share back when dropped.
@@ -80,8 +82,8 @@ impl Drop for DecodePermit<'_> {
     }
 }
 
-/// The JPEG decodes in progress in this process.
-static JPEG_DECODES: DecodeBudget = DecodeBudget::new();
+/// The image decodes in progress in this process, the scaled JPEG decoder and the generic fallback alike.
+static IMAGE_DECODES: DecodeBudget = DecodeBudget::new();
 
 /// The width a thumbnail is decoded at, chosen from the window scale factor so a resize never decodes again.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -318,31 +320,50 @@ pub fn decode_bytes(bytes: &[u8], bucket: Bucket) -> anyhow::Result<Arc<RenderIm
         .context("the image header cannot be read")?;
     check_dimensions(width, height)?;
     let target = bucket.width();
-    let image = match decode_jpeg_scaled(bytes, (target, target)) {
+    decode_budgeted(bytes, (width, height), (target, target), |image| {
+        to_render_image(fit(image, target))
+    })
+}
+
+/// Decodes `bytes` (declared `size` in its header, already checked with [`check_dimensions`]) at about `target` and
+/// hands the image to `finish`. The scaled JPEG decoder is tried first and the generic decoder takes over when it
+/// refuses the file. One permit of the shared decode budget is held from before either decoder runs until `finish` has
+/// returned, so the fallback and the resize of a full-size image are counted too (WR-13).
+pub fn decode_budgeted<T>(
+    bytes: &[u8],
+    size: (u32, u32),
+    target: (u32, u32),
+    finish: impl FnOnce(DynamicImage) -> T,
+) -> anyhow::Result<T> {
+    let per_pixel = if bytes.starts_with(&[0xFF, 0xD8]) {
+        JPEG_BYTES_PER_PIXEL
+    } else {
+        OTHER_BYTES_PER_PIXEL
+    };
+    let cost = u64::from(size.0) * u64::from(size.1) * per_pixel;
+    let _permit = IMAGE_DECODES.acquire(cost, DECODE_BUDGET);
+    let image = match decode_jpeg_scaled(bytes, target) {
         Some(image) => image,
         None => decode_generic(bytes)?,
     };
-    Ok(to_render_image(fit(image, target)))
+    Ok(finish(image))
 }
 
 /// A JPEG decoded straight at 1/2, 1/4 or 1/8 size of which the result still covers `target` (width, height), so a large
-/// photo never exists in memory at full size. Shared by the thumbnails and the background image; the caller has checked
-/// the declared size with [`check_dimensions`] first. `None` when the file is not a JPEG this decoder handles; the generic
-/// decoder then takes over.
-pub fn decode_jpeg_scaled(bytes: &[u8], target: (u32, u32)) -> Option<DynamicImage> {
+/// photo never exists in memory at full size. The caller holds a permit of the decode budget ([`decode_budgeted`]) and
+/// has checked the declared size with [`check_dimensions`] first. `None` when the file is not a JPEG this decoder
+/// handles; the generic decoder then takes over.
+fn decode_jpeg_scaled(bytes: &[u8], target: (u32, u32)) -> Option<DynamicImage> {
     if !bytes.starts_with(&[0xFF, 0xD8]) {
         return None;
     }
     let mut decoder = jpeg_decoder::Decoder::new(Cursor::new(bytes));
     // The decoder refuses before it allocates more than this for the coefficients of one image (WR-12).
     decoder.set_max_decoding_buffer_size(usize::try_from(MAX_DECODE_ALLOC).ok()?);
-    // The decoder's own reading of the header, which is what it allocates by: it is checked again and it prices the
-    // decode against the budget that all the decodes of the Portal share.
+    // The decoder's own reading of the header, which is what it allocates by: it is checked again before it allocates.
     decoder.read_info().ok()?;
     let info = decoder.info()?;
     check_dimensions(u32::from(info.width), u32::from(info.height)).ok()?;
-    let cost = u64::from(info.width) * u64::from(info.height) * JPEG_BYTES_PER_PIXEL;
-    let _permit = JPEG_DECODES.acquire(cost, JPEG_BUDGET);
     let (width, height) = decoder
         .scale(u16::try_from(target.0).ok()?, u16::try_from(target.1).ok()?)
         .ok()?;
@@ -355,8 +376,9 @@ pub fn decode_jpeg_scaled(bytes: &[u8], target: (u32, u32)) -> Option<DynamicIma
     }
 }
 
-/// Any format the image crate reads, with the size and memory limits of T-03-25.
-pub fn decode_generic(bytes: &[u8]) -> anyhow::Result<DynamicImage> {
+/// Any format the image crate reads, with the size and memory limits of T-03-25. Called under a permit of the decode budget
+/// ([`decode_budgeted`]).
+fn decode_generic(bytes: &[u8]) -> anyhow::Result<DynamicImage> {
     let mut reader = ImageReader::new(Cursor::new(bytes))
         .with_guessed_format()
         .context("the image format is unknown")?;
@@ -726,6 +748,19 @@ mod tests {
         );
         waiting.join().unwrap();
         assert_eq!(*budget.used.lock().unwrap(), 0);
+    }
+
+    #[test]
+    fn the_generic_fallback_decodes_under_a_permit_priced_from_the_header() {
+        // A PNG never reaches the scaled JPEG decoder, so this is the fallback path of WR-13.
+        let bytes = png(200, 100);
+        let held = decode_budgeted(&bytes, (200, 100), (360, 360), |image| {
+            assert_eq!((image.width(), image.height()), (200, 100));
+            // Other tests share the budget, so it holds at least this decode's own share.
+            *IMAGE_DECODES.used.lock().unwrap()
+        })
+        .expect("decodes");
+        assert!(held >= 200 * 100 * OTHER_BYTES_PER_PIXEL, "{held}");
     }
 
     #[test]
