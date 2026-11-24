@@ -7,7 +7,7 @@ use common::{PortalClient, TestService, service_runs};
 use serde_json::json;
 use sucrose_core::settings::ThemeMode;
 use sucrose_ipc::{
-    portal::{PortalEvent, PortalPage},
+    portal::{PortalEvent, PortalPage, PortalRequest, SettingChange},
     protocol::ToService,
 };
 
@@ -99,4 +99,31 @@ fn a_connection_whose_first_frame_is_garbage_is_dropped_and_a_portal_still_gets_
     );
     let (_portal, event) = PortalClient::hello(&service, None);
     assert!(matches!(event, PortalEvent::Welcome { .. }), "{event:?}");
+}
+
+#[test]
+fn a_change_survives_a_restart() {
+    if !service_runs("a_change_survives_a_restart") {
+        return;
+    }
+    let service = TestService::start("restart", &json!({}));
+    let (mut portal, first) = PortalClient::hello(&service, None);
+    assert!(matches!(first, PortalEvent::Welcome { .. }), "{first:?}");
+
+    portal.request(&PortalRequest::Change(SettingChange::LibraryPagination(42)));
+
+    assert_eq!(
+        portal.next_event(),
+        Some(PortalEvent::Changed(SettingChange::LibraryPagination(42)))
+    );
+    assert_eq!(service.settings_file()["Portal"]["LibraryPagination"], 42);
+    drop(portal);
+
+    let service = service.restart();
+    let (_portal, event) = PortalClient::hello(&service, None);
+
+    let PortalEvent::Welcome { settings, .. } = event else {
+        panic!("the first event is not a Welcome: {event:?}");
+    };
+    assert_eq!(settings.library_pagination, 42);
 }

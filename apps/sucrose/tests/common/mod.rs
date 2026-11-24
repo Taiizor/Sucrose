@@ -18,7 +18,7 @@ use std::{
 use serde_json::{Value, json};
 use sucrose_ipc::{
     Connection, connect,
-    portal::{PORTAL_PROTOCOL_VERSION, PortalEvent, PortalPage},
+    portal::{PORTAL_PROTOCOL_VERSION, PortalEvent, PortalPage, PortalRequest},
     protocol::ToService,
     service_endpoint_for,
 };
@@ -71,6 +71,18 @@ impl TestService {
         )
         .expect("the scratch settings can be written");
 
+        Self::spawn_on(dir)
+    }
+
+    /// Stops this service and starts a new one on the same data folder, as a restart of Sucrose would.
+    pub fn restart(self) -> Self {
+        let dir = self.dir.clone();
+        // Dropping kills the process and waits for it, so its endpoint is gone before the next one opens.
+        drop(self);
+        Self::spawn_on(dir)
+    }
+
+    fn spawn_on(dir: PathBuf) -> Self {
         let child = Command::new(env!("CARGO_BIN_EXE_sucrose"))
             .env("SUCROSE_DATA_DIR", &dir)
             .stdin(Stdio::null())
@@ -81,6 +93,12 @@ impl TestService {
         let mut service = Self { dir, child };
         service.wait_for_endpoint();
         service
+    }
+
+    /// The saved settings file as the service wrote it.
+    pub fn settings_file(&self) -> Value {
+        let bytes = fs::read(self.dir.join("Setting").join("Sucrose.json")).expect("the settings file can be read");
+        serde_json::from_slice(&bytes).expect("the settings file is JSON")
     }
 
     fn wait_for_endpoint(&mut self) {
@@ -187,6 +205,11 @@ impl PortalClient {
     /// The next event, or `None` when none arrives within [`EVENT_TIMEOUT`] or the connection ended.
     pub fn next_event(&self) -> Option<PortalEvent> {
         self.events.recv_timeout(EVENT_TIMEOUT).ok()
+    }
+
+    /// Sends one request to the service.
+    pub fn request(&mut self, request: &PortalRequest) {
+        self.connection.send(request).expect("the request is sent");
     }
 
     /// The connection, to send raw bytes or messages on.

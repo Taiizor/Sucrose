@@ -9,6 +9,7 @@ mod fullscreen;
 mod portal_link;
 mod render;
 mod service;
+mod settings_host;
 mod supervisor;
 mod topology;
 

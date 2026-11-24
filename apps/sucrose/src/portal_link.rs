@@ -11,9 +11,7 @@ use crossbeam_channel::Sender;
 use sucrose_config::model::Settings;
 use sucrose_ipc::{
     Connection,
-    portal::{
-        MAX_PATH_TEXT, PORTAL_PROTOCOL_VERSION, PortalEvent, PortalPage, PortalSettings, RuleState, RuntimeState,
-    },
+    portal::{MAX_PATH_TEXT, PORTAL_PROTOCOL_VERSION, PortalEvent, PortalPage, RuleState, RuntimeState},
 };
 
 use crate::service::{OUTGOING_CAPACITY, Offer};
@@ -207,37 +205,12 @@ pub fn request_kind(request: &sucrose_ipc::portal::PortalRequest) -> &'static st
 }
 
 /// `text` cut to [`MAX_PATH_TEXT`] bytes at a character boundary.
-fn clip(text: &str) -> String {
+pub(crate) fn clip(text: &str) -> String {
     let mut end = text.len().min(MAX_PATH_TEXT);
     while !text.is_char_boundary(end) {
         end -= 1;
     }
     text.get(..end).unwrap_or_default().to_owned()
-}
-
-/// The settings the Portal sees: a copy of the values it shows, never the file (D-11).
-pub fn portal_view(settings: &Settings) -> PortalSettings {
-    PortalSettings {
-        app_visible: settings.general.app_visible,
-        app_exit: settings.general.app_exit,
-        run_startup: settings.general.run_startup,
-        theme_mode: settings.portal.theme_mode,
-        backdrop: settings.portal.backdrop,
-        background_image: clip(&settings.portal.background_image),
-        background_stretch: settings.portal.background_stretch,
-        background_opacity: settings.portal.background_opacity,
-        library_pagination: settings.portal.library_pagination,
-        adaptive_layout: settings.portal.adaptive_layout,
-        adaptive_margin: settings.portal.adaptive_margin,
-        library_preview: settings.portal.library_preview,
-        library_preview_hide: settings.portal.library_preview_hide,
-        library_sort_mode: settings.portal.library_sort_mode,
-        library_sort_kind: settings.portal.library_sort_kind,
-        library_location: clip(&settings.library.location),
-        library_move: settings.library.move_library,
-        delete_corrupt: settings.library.delete_corrupt,
-        hint_tray_icon: settings.warehouse.hint_tray_icon,
-    }
 }
 
 /// What the service tells the Portal it is doing: the selected theme from the settings, whether a renderer runs and
@@ -261,7 +234,6 @@ mod tests {
         time::{Duration, Instant},
     };
 
-    use sucrose_core::settings::ThemeMode;
     use sucrose_ipc::portal::MemoryReport;
 
     use super::*;
@@ -485,35 +457,21 @@ mod tests {
     }
 
     #[test]
-    fn the_view_carries_the_values_the_portal_shows() {
+    fn the_runtime_state_names_the_selected_theme() {
         let mut settings = Settings::default();
-        settings.portal.library_pagination = 17;
-        settings.portal.theme_mode = ThemeMode::Dark;
-        settings.general.app_visible = false;
-        settings.library.location = "D:\\Themes".to_owned();
         settings.library.selected = "abc".to_owned();
 
-        let view = portal_view(&settings);
         let runtime = runtime_state(&settings, true, false);
 
-        assert_eq!(view.library_pagination, 17);
-        assert_eq!(view.theme_mode, ThemeMode::Dark);
-        assert!(!view.app_visible);
-        assert_eq!(view.library_location, "D:\\Themes");
         assert_eq!(runtime.selected.as_deref(), Some("abc"));
         assert!(runtime.running && !runtime.tray_visible);
     }
 
     #[test]
-    fn no_selected_theme_is_none_and_long_paths_are_cut_at_a_character() {
-        let mut settings = Settings::default();
-        settings.portal.background_image = "\u{20ac}".repeat(MAX_PATH_TEXT);
-
-        let view = portal_view(&settings);
+    fn no_selected_theme_is_none() {
+        let settings = Settings::default();
 
         assert_eq!(runtime_state(&settings, false, false).selected, None);
-        assert!(view.background_image.len() <= MAX_PATH_TEXT);
-        assert!(view.background_image.chars().all(|c| c == '\u{20ac}'));
     }
 
     #[test]

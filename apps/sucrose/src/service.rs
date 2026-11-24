@@ -15,7 +15,6 @@ use crossbeam_channel::Sender;
 use sucrose_config::{
     migrate::migrate,
     model::{Engine, Settings},
-    store::Store,
 };
 use sucrose_core::{
     APP_LONG_NAME,
@@ -38,7 +37,8 @@ use sucrose_core::settings::{FullScreenAction, GpuPreference, PauseKind, ScreenA
 
 use crate::{
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
-    portal_link::{PortalAdmission, PortalLink, PortalRegistry, portal_view, request_kind, runtime_state},
+    portal_link::{PortalAdmission, PortalLink, PortalRegistry, request_kind, runtime_state},
+    settings_host::{SettingsHost, describe},
     supervisor::{
         Decision, Exhausted, ExitClass, Exited, RestartBudget, START_FAILED, ShellRestart, Supervisor, classify_exit,
         decide_exit,
@@ -370,8 +370,8 @@ pub fn run() -> anyhow::Result<()> {
         dpi = ?awareness,
         "service started"
     );
-    // The store stays alive for the whole run: plan 07 moves it into the settings host.
-    let (plan, settings, settings_store) = plan_wallpapers();
+    // The settings host owns the file for the whole run: it is the only writer (D-11).
+    let (plan, mut host) = plan_wallpapers();
     let assignments = SharedAssignments::default();
     let mut fleet = Fleet::new(plan.job, Arc::clone(&assignments));
     let mut status = plan.status;
@@ -602,12 +602,11 @@ pub fn run() -> anyhow::Result<()> {
                     Event::ShutdownDone => return Flow::Exit,
                     Event::PortalConnected { link, version, page } => {
                         let pid = link.pid();
-                        let current = settings_store.as_ref().map_or(&settings, Store::settings);
                         let running = fleet.job.is_some() && !supervisor.pids().is_empty();
                         let tray_visible = tray.is_some();
                         let admission = portals.admit(link, version, page, quitting, || PortalEvent::Welcome {
-                            settings: portal_view(current),
-                            runtime: runtime_state(current, running, tray_visible),
+                            settings: host.view(),
+                            runtime: runtime_state(host.settings(), running, tray_visible),
                         });
                         match admission {
                             PortalAdmission::Register => tracing::info!(pid, "portal registered"),
@@ -621,10 +620,23 @@ pub fn run() -> anyhow::Result<()> {
                         }
                     }
                     Event::Portal { connection, request } => {
-                        if portals.is_registered(connection) {
-                            tracing::debug!(kind = request_kind(&request), "portal request, nothing handles it yet");
-                        } else {
+                        if !portals.is_registered(connection) {
                             tracing::debug!("ignoring a request of a portal that is not registered");
+                        } else if let PortalRequest::Change(change) = request {
+                            // One request at a time on this thread: the last change wins, and the Portal only
+                            // shows what comes back as Changed.
+                            match host.apply(change.clone()) {
+                                Ok(stored) => {
+                                    tracing::info!(setting = %describe(&stored), "setting changed");
+                                    portals.send(PortalEvent::Changed(stored));
+                                }
+                                Err(reason) => {
+                                    tracing::warn!(setting = %describe(&change), %reason, "setting change refused");
+                                    portals.send(PortalEvent::Rejected { change, reason });
+                                }
+                            }
+                        } else {
+                            tracing::debug!(kind = request_kind(&request), "portal request, nothing handles it yet");
                         }
                     }
                     Event::PortalGone { connection } => {
@@ -1779,8 +1791,8 @@ impl Fleet {
 }
 
 /// Opens the settings file (migrating the legacy files read-only the first time, D-03), logs what the service will
-/// use and returns what they lead to, the settings as loaded and the store that owns the file.
-fn plan_wallpapers() -> (Plan, Settings, Option<Store>) {
+/// use and returns what they lead to and the settings host that owns the file.
+fn plan_wallpapers() -> (Plan, SettingsHost) {
     let (Some(root), Some(legacy_setting)) = (legacy_data_dir(), legacy_setting_dir()) else {
         tracing::warn!("the OS reports no config folder, so the settings cannot be found");
         let plan = Plan {
@@ -1793,31 +1805,28 @@ fn plan_wallpapers() -> (Plan, Settings, Option<Store>) {
             pause: PauseKind::default(),
             gpu: GpuPreference::default(),
         };
-        return (plan, Settings::default(), None);
+        return (plan, SettingsHost::unsaved(Settings::default()));
     };
-    let (settings, store) = load_settings(&root, &legacy_setting);
-    (plan_from(&settings, &root), settings, store)
+    let host = load_settings(&root, &legacy_setting);
+    (plan_from(host.settings(), &root), host)
 }
 
-/// Opens the store. When the folder cannot be opened or written the legacy files are still migrated, in memory only,
-/// so the wallpaper plays.
-fn load_settings(root: &std::path::Path, legacy_setting: &std::path::Path) -> (Settings, Option<Store>) {
-    let opened = match setting_dir() {
-        Some(dir) => Store::open(&dir, Some((legacy_setting, root))).map_err(|error| error.to_string()),
-        None => Err("the OS reports no config folder".to_owned()),
+/// Opens the settings host. When the folder cannot be opened or written the legacy files are still migrated, in
+/// memory only, so the wallpaper plays.
+fn load_settings(root: &std::path::Path, legacy_setting: &std::path::Path) -> SettingsHost {
+    let Some(dir) = setting_dir() else {
+        tracing::error!("the OS reports no config folder; using the legacy settings without saving");
+        let host = SettingsHost::unsaved(migrate(legacy_setting, root));
+        log_settings(host.settings(), &"Unsaved");
+        return host;
     };
-    match opened {
-        Ok((store, outcome)) => {
-            log_settings(store.settings(), &outcome);
-            (store.settings().clone(), Some(store))
-        }
-        Err(error) => {
-            tracing::error!(%error, "the settings file cannot be opened; using the legacy settings without saving");
-            let settings = migrate(legacy_setting, root);
-            log_settings(&settings, &"Unsaved");
-            (settings, None)
-        }
+    let (host, outcome) = SettingsHost::open(&dir, Some((legacy_setting, root)));
+    if host.persists() {
+        log_settings(host.settings(), &outcome);
+    } else {
+        log_settings(host.settings(), &"Unsaved");
     }
+    host
 }
 
 /// Values only: no paths and no theme names (D-08, D-09). The legacy DisplayScreenType and ScreenDevice are not read:
