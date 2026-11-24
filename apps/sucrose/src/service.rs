@@ -9,10 +9,14 @@ use std::{
 
 use anyhow::Context as _;
 use crossbeam_channel::Sender;
-use sucrose_config::legacy::{EngineSettings, LegacySettings};
+use sucrose_config::{
+    migrate::migrate,
+    model::{Engine, Settings},
+    store::Store,
+};
 use sucrose_core::{
     APP_LONG_NAME,
-    paths::{legacy_data_dir, legacy_setting_dir},
+    paths::{legacy_data_dir, legacy_setting_dir, setting_dir},
     theme::{SelectedTheme, check_selected},
     version::app_version,
 };
@@ -366,7 +370,8 @@ pub fn run() -> anyhow::Result<()> {
         dpi = ?awareness,
         "service started"
     );
-    let plan = plan_wallpapers();
+    // The store stays alive for the whole run: plan 07 moves it into the settings host.
+    let (plan, _settings_store) = plan_wallpapers();
     let assignments = SharedAssignments::default();
     let mut fleet = Fleet::new(plan.job, Arc::clone(&assignments));
     let mut status = plan.status;
@@ -1682,12 +1687,12 @@ impl Fleet {
     }
 }
 
-/// Reads the settings of the C# install, read-only from its real folder (D-008), logs what the service will use and
-/// returns what they lead to.
-fn plan_wallpapers() -> Plan {
-    let (Some(root), Some(setting_dir)) = (legacy_data_dir(), legacy_setting_dir()) else {
-        tracing::warn!("the OS reports no config folder, so the C# install cannot be read");
-        return Plan {
+/// Opens the settings file (migrating the legacy files read-only the first time, D-03), logs what the service will
+/// use and returns what they lead to, with the store that owns the file.
+fn plan_wallpapers() -> (Plan, Option<Store>) {
+    let (Some(root), Some(legacy_setting)) = (legacy_data_dir(), legacy_setting_dir()) else {
+        tracing::warn!("the OS reports no config folder, so the settings cannot be found");
+        let plan = Plan {
             job: None,
             status: Status::NoWallpaper {
                 reason: "the OS reports no config folder, so the settings cannot be read".to_owned(),
@@ -1697,11 +1702,38 @@ fn plan_wallpapers() -> Plan {
             pause: PauseKind::default(),
             gpu: GpuPreference::default(),
         };
+        return (plan, None);
     };
-    let settings = LegacySettings::load(&setting_dir, &root);
-    // Values only: no paths and no theme names (D-08, D-09). The legacy DisplayScreenType and ScreenDevice are not
-    // read: every monitor plays the same video (D-01).
+    let (settings, store) = load_settings(&root, &legacy_setting);
+    (plan_from(&settings, &root), store)
+}
+
+/// Opens the store. When the folder cannot be opened or written the legacy files are still migrated, in memory only,
+/// so the wallpaper plays.
+fn load_settings(root: &std::path::Path, legacy_setting: &std::path::Path) -> (Settings, Option<Store>) {
+    let opened = match setting_dir() {
+        Some(dir) => Store::open(&dir, Some((legacy_setting, root))).map_err(|error| error.to_string()),
+        None => Err("the OS reports no config folder".to_owned()),
+    };
+    match opened {
+        Ok((store, outcome)) => {
+            log_settings(store.settings(), &outcome);
+            (store.settings().clone(), Some(store))
+        }
+        Err(error) => {
+            tracing::error!(%error, "the settings file cannot be opened; using the legacy settings without saving");
+            let settings = migrate(legacy_setting, root);
+            log_settings(&settings, &"Unsaved");
+            (settings, None)
+        }
+    }
+}
+
+/// Values only: no paths and no theme names (D-08, D-09). The legacy DisplayScreenType and ScreenDevice are not read:
+/// every monitor plays the same video (D-01).
+fn log_settings(settings: &Settings, outcome: &dyn std::fmt::Debug) {
     tracing::info!(
+        outcome = ?outcome,
         volume = settings.engine.volume,
         looping = settings.engine.looping,
         stretch = ?settings.engine.stretch,
@@ -1711,9 +1743,14 @@ fn plan_wallpapers() -> Plan {
         fullscreen = ?settings.backgroundog.fullscreen,
         pause = ?settings.backgroundog.pause,
         app_visible = settings.general.app_visible,
-        "legacy settings"
+        "settings loaded"
     );
-    let (job, status) = match plan_for(&settings.library.location, &settings.library.selected, &settings.engine) {
+}
+
+/// What the settings and the selected theme lead to; `legacy_root` is the C# data folder, the default library location.
+fn plan_from(settings: &Settings, legacy_root: &std::path::Path) -> Plan {
+    let location = settings.library_location(legacy_root);
+    let (job, status) = match plan_for(&location, &settings.library.selected, &settings.engine) {
         Ok(job) => {
             let status = Status::Starting {
                 title: job.title.clone(),
@@ -1760,7 +1797,7 @@ fn apply_gpu_preference(platform: &dyn sucrose_platform::Platform, preference: G
 
 /// Runs the gate (D-13) on the selected theme and, when it passes, builds what every renderer plays. The error is
 /// one English sentence for the log and the tooltip: the gate's own reason.
-fn plan_for(location: &std::path::Path, selected: &str, engine: &EngineSettings) -> Result<Job, String> {
+fn plan_for(location: &std::path::Path, selected: &str, engine: &Engine) -> Result<Job, String> {
     let theme =
         check_selected(location, selected, &app_version()).map_err(|rejection| printable(&rejection.to_string()))?;
     // Debug formatting for the text a theme or the settings supply: control characters show as escapes.
@@ -1769,7 +1806,7 @@ fn plan_for(location: &std::path::Path, selected: &str, engine: &EngineSettings)
 }
 
 /// What every renderer plays for a theme that passed the gate, with the playback settings of Engine.json.
-fn job_for(theme: &SelectedTheme, engine: &EngineSettings) -> Result<Job, String> {
+fn job_for(theme: &SelectedTheme, engine: &Engine) -> Result<Job, String> {
     let source = theme
         .source_path
         .to_str()
@@ -1783,8 +1820,8 @@ fn job_for(theme: &SelectedTheme, engine: &EngineSettings) -> Result<Job, String
     })
 }
 
-/// The player settings Engine.json leads to.
-fn playback_settings(engine: &EngineSettings) -> PlaybackSettings {
+/// The player settings the Engine section leads to.
+fn playback_settings(engine: &Engine) -> PlaybackSettings {
     PlaybackSettings {
         volume: engine.volume,
         looping: engine.looping,
@@ -2702,9 +2739,13 @@ mod tests {
         let (Some(root), Some(setting_dir)) = (legacy_data_dir(), legacy_setting_dir()) else {
             panic!("the OS reports no config folder");
         };
-        let settings = LegacySettings::load(&setting_dir, &root);
+        let settings = migrate(&setting_dir, &root);
 
-        let selected = check_selected(&settings.library.location, &settings.library.selected, &app_version());
+        let selected = check_selected(
+            &settings.library_location(&root),
+            &settings.library.selected,
+            &app_version(),
+        );
 
         let theme = selected.unwrap_or_else(|rejection| panic!("the real selected theme is refused: {rejection}"));
         assert!(theme.source_path.is_file());
