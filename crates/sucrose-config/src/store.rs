@@ -21,6 +21,9 @@ pub const SETTINGS_FILE: &str = "Sucrose.json";
 /// Name of the copy of the previous settings file; it does not end in `.json`, so the C# Reset, Import and Export
 /// tools that glob `*.json` leave it alone.
 pub const BACKUP_FILE: &str = "Sucrose.json.bak";
+/// Name a corrupt `Sucrose.json` is moved to before the store writes over it, so a typo in a hand-edited file or a
+/// file a build cannot parse is never lost; like the backup it does not end in `.json`.
+pub const CORRUPT_FILE: &str = "Sucrose.json.corrupt";
 
 /// How often a rename or a read is attempted while another program holds the target for a moment.
 const ATTEMPTS: u32 = 3;
@@ -87,7 +90,9 @@ impl Store {
         let path = setting_dir.join(SETTINGS_FILE);
         let backup = setting_dir.join(BACKUP_FILE);
 
-        match read_file(&path) {
+        let main = read_file(&path);
+        let main_corrupt = matches!(main, Read::Corrupt);
+        match main {
             Read::Good(settings, _) => {
                 let newer = newer_version(&settings);
                 let settings = *settings;
@@ -108,10 +113,13 @@ impl Store {
             Read::Good(settings, bytes) => {
                 let newer = newer_version(&settings);
                 let settings = *settings;
-                if newer.is_none()
-                    && let Err(error) = write_atomic(&path, &bytes)
-                {
-                    tracing::warn!(%error, "the settings file cannot be restored from its backup, using the backup in memory");
+                if newer.is_none() {
+                    if main_corrupt {
+                        keep_corrupt_aside(&path);
+                    }
+                    if let Err(error) = write_atomic(&path, &bytes) {
+                        tracing::warn!(%error, "the settings file cannot be restored from its backup, using the backup in memory");
+                    }
                 }
                 tracing::info!("the settings file was missing or corrupt and is restored from its backup");
                 return Ok((
@@ -167,14 +175,29 @@ impl Store {
     fn persist(&self) -> Result<(), StoreError> {
         let bytes = self.settings.to_bytes().map_err(io::Error::other)?;
         // The file about to be replaced is kept as the backup, but only when it is good: a corrupt file must not
-        // push out a good backup. A failed backup does not stop the save.
-        if let Read::Good(_, previous) = read_file(&self.path)
-            && let Err(error) = write_atomic(&self.backup, &previous)
-        {
-            tracing::warn!(%error, "the settings backup cannot be written");
+        // push out a good backup, and is moved aside so the write does not destroy it. A failed backup does not stop
+        // the save.
+        match read_file(&self.path) {
+            Read::Good(_, previous) => {
+                if let Err(error) = write_atomic(&self.backup, &previous) {
+                    tracing::warn!(%error, "the settings backup cannot be written");
+                }
+            }
+            Read::Corrupt => keep_corrupt_aside(&self.path),
+            Read::Missing | Read::Unreadable(_) => {}
         }
         write_atomic(&self.path, &bytes)?;
         Ok(())
+    }
+}
+
+/// Moves a corrupt settings file to [`CORRUPT_FILE`] (replacing an older one) before the store writes over it. Best
+/// effort: when the move fails the save goes on, as the file is unusable for the store anyway.
+fn keep_corrupt_aside(path: &Path) {
+    let aside = path.with_file_name(CORRUPT_FILE);
+    match retry_busy(|| fs::rename(path, &aside)) {
+        Ok(()) => tracing::warn!("the corrupt settings file is kept aside before it is replaced"),
+        Err(error) => tracing::warn!(%error, "the corrupt settings file cannot be kept aside"),
     }
 }
 

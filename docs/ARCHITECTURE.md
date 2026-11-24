@@ -115,7 +115,7 @@ pub trait Engine {
 ## Data and paths
 
 - Settings, cache, logs and showcase live in the same places as the C# app on Windows (`%APPDATA%\Sucrose\…`) and in the platform config directory elsewhere (`dirs::config_dir()/Sucrose`).
-- Settings use a new versioned format with atomic writes (D-007): `Setting/Sucrose.json` with a `Setting/Sucrose.json.bak` restore copy, written only by the service (the Portal sends `SettingChange` messages and shows the value the service broadcasts back, D-032). Runtime state (pause/close flags, ports) is never stored in settings. The nine legacy `Setting/*.json` files that carry settings are migrated key by key on first run, read-only (the C# files are never changed).
+- Settings use a new versioned format with atomic writes (D-007): `Setting/Sucrose.json` with a `Setting/Sucrose.json.bak` restore copy (a corrupt file the store is about to replace is first kept as `Setting/Sucrose.json.corrupt`), written only by the service (the Portal sends `SettingChange` messages and shows the value the service broadcasts back, D-032). Runtime state (pause/close flags, ports) is never stored in settings. The nine legacy `Setting/*.json` files that carry settings are migrated key by key on first run, read-only (the C# files are never changed).
 - The library location comes from the settings (legacy: `Setting/Library.json` → `Location`).
 - File formats: see `FEATURES.md` → "Formats and contracts".
 

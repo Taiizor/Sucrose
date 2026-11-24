@@ -13,7 +13,7 @@ use std::{
 
 use sucrose_config::{
     model::{SETTINGS_VERSION, Settings},
-    store::{BACKUP_FILE, LoadOutcome, SETTINGS_FILE, Store, StoreError},
+    store::{BACKUP_FILE, CORRUPT_FILE, LoadOutcome, SETTINGS_FILE, Store, StoreError},
 };
 
 const ROOT: &str = "legacy-root";
@@ -111,6 +111,49 @@ fn a_corrupt_file_with_a_good_backup_is_restored_not_migrated() {
         read_settings(&setting.join(SETTINGS_FILE)).library.selected,
         "from-backup"
     );
+}
+
+#[test]
+fn a_corrupt_file_without_a_backup_is_kept_aside_byte_for_byte() {
+    let setting = scratch("corrupt-no-backup-setting");
+    let corrupt = b"{\"Version\":1,\"Library\":{\"Sel";
+    fs::write(setting.join(SETTINGS_FILE), corrupt).unwrap();
+
+    let (_store, outcome) = Store::open(&setting, None).unwrap();
+
+    assert_eq!(outcome, LoadOutcome::Defaults);
+    assert_eq!(fs::read(setting.join(CORRUPT_FILE)).unwrap(), corrupt);
+    assert_eq!(read_settings(&setting.join(SETTINGS_FILE)).version, SETTINGS_VERSION);
+}
+
+#[test]
+fn a_corrupt_file_restored_from_its_backup_is_kept_aside_too() {
+    let setting = scratch("corrupt-restore-aside-setting");
+    let corrupt = b"{\"Version\":1,\"Library\":{\"Sel";
+    fs::write(setting.join(SETTINGS_FILE), corrupt).unwrap();
+    write_settings(
+        &setting,
+        BACKUP_FILE,
+        &settings_with(|s| s.library.selected = "from-backup".to_owned()),
+    );
+
+    let (_store, outcome) = Store::open(&setting, None).unwrap();
+
+    assert_eq!(outcome, LoadOutcome::RestoredFromBackup);
+    assert_eq!(fs::read(setting.join(CORRUPT_FILE)).unwrap(), corrupt);
+}
+
+#[test]
+fn a_file_that_turns_corrupt_while_running_is_kept_aside_by_the_next_save() {
+    let setting = scratch("corrupt-running-setting");
+    let (mut store, _) = Store::open(&setting, None).unwrap();
+    let corrupt = b"not json at all";
+    fs::write(setting.join(SETTINGS_FILE), corrupt).unwrap();
+
+    store.update(|s| s.engine.volume = 7).unwrap();
+
+    assert_eq!(fs::read(setting.join(CORRUPT_FILE)).unwrap(), corrupt);
+    assert_eq!(read_settings(&setting.join(SETTINGS_FILE)).engine.volume, 7);
 }
 
 #[test]
