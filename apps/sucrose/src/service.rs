@@ -310,6 +310,30 @@ fn quitting_answer(request: &PortalRequest) -> Option<PortalEvent> {
     }
 }
 
+/// Whether the service may exit: what it waits for is over and no library move runs. Leaving in the middle of a move
+/// could leave the library split between two folders.
+fn may_exit(done: bool, moving: bool) -> bool {
+    done && !moving
+}
+
+/// The exit check of the main loop: [`may_exit`], saying once that the exit waits for a library move.
+fn settle_exit(done: bool, moving: bool, held: &mut bool) -> bool {
+    if may_exit(done, moving) {
+        return true;
+    }
+    if done && !*held {
+        *held = true;
+        tracing::info!("the service waits for the library move before it exits");
+    }
+    false
+}
+
+/// Whether the end of a library move starts the wallpaper again: not while the service closes, the renderers are gone
+/// for good and nothing may start.
+fn resume_after_move(quitting: bool) -> bool {
+    !quitting
+}
+
 /// Everything a step of a library move touches on the main thread.
 struct MoveEnv<'a> {
     host: &'a mut SettingsHost,
@@ -319,6 +343,8 @@ struct MoveEnv<'a> {
     notifier: &'a Notifier,
     timers: &'a LoopTimers,
     portals: &'a mut PortalRegistry,
+    /// The service is closing: the end of the move starts no renderer.
+    quitting: bool,
 }
 
 /// What a step of a library move changed for the main loop.
@@ -516,7 +542,13 @@ impl MoveEnv<'_> {
             .take()
             .map(|flow| flow.closed)
             .unwrap_or_default();
-        let status = resume_wallpaper(self.host, self.fleet, self.legacy_root, &closed, self.ctx);
+        let status = if resume_after_move(self.quitting) {
+            resume_wallpaper(self.host, self.fleet, self.legacy_root, &closed, self.ctx)
+        } else {
+            // The renderers are being closed for good: nothing is kept for later and nothing starts.
+            self.fleet.pending_snapshot = None;
+            None
+        };
         self.portals.send(PortalEvent::MoveResult(outcome));
         MoveProgress { ended: true, status }
     }
@@ -1042,6 +1074,10 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
     // The pid of the Portal that Close Applications told to close, so it can be ended after the grace even when its
     // connection was already given up.
     let mut closing_portal: Option<u32> = None;
+    // The renderers ended on the Quit path, which has no `closing`; the service still waits for a library move.
+    let mut quit_done = false;
+    // Whether the exit waiting for a library move was logged already.
+    let mut exit_held = false;
     // The one Portal that is open, if any; owned by this thread so two that connect together are decided here.
     let mut portals = PortalRegistry::default();
     // When this service last started a Portal that has not registered yet, so a launcher that comes in the meantime
@@ -1232,10 +1268,11 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                             }
                         }
                     }
-                    // The Quit path leaves at once; Close Applications also waits for the Portal.
+                    // The Quit path leaves once nothing else holds it; Close Applications also waits for the Portal. Both
+                    // wait for a library move (the exit check at the end of this pass).
                     Event::ShutdownDone => match &mut closing {
                         Some(closing) => closing.renderers_ended(),
-                        None => return Flow::Exit,
+                        None => quit_done = true,
                     },
                     Event::PortalConnected {
                         link,
@@ -1386,6 +1423,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                         notifier: &notifier,
                                         timers: &timers,
                                         portals: &mut portals,
+                                        quitting,
                                     };
                                     env.begin(&destination, library_job);
                                 }
@@ -1451,6 +1489,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                             notifier: &notifier,
                             timers: &timers,
                             portals: &mut portals,
+                            quitting,
                         }
                         .step(step);
                         settle_move(progress, &mut status, tray.as_ref(), &mut check_exit);
@@ -1563,10 +1602,12 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                 notifier: &notifier,
                 timers: &timers,
                 portals: &mut portals,
+                quitting,
             }
             .drive();
             settle_move(progress, &mut status, tray.as_ref(), &mut check_exit);
-            if closing.as_ref().is_some_and(Closing::done) {
+            let finished = quit_done || closing.as_ref().is_some_and(Closing::done);
+            if settle_exit(finished, fleet.library_move.is_some(), &mut exit_held) {
                 tracing::info!("the renderers ended and the Portal is gone, the service exits");
                 return Flow::Exit;
             }
@@ -1643,7 +1684,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                     // waited for, and one that was ended is gone.
                     closing.portal_gone();
                 }
-                if closing.done() {
+                if settle_exit(closing.done(), fleet.library_move.is_some(), &mut exit_held) {
                     tracing::info!("Close Applications is done, the service exits");
                     return Flow::Exit;
                 }
@@ -5344,5 +5385,19 @@ mod tests {
             "a request that is only dropped has no answer"
         );
         assert_eq!(quitting_answer(&PortalRequest::RefreshStartup), None);
+    }
+
+    #[test]
+    fn quitting_waits_for_the_library_move_before_exit() {
+        assert!(!may_exit(true, true), "a move that runs holds the exit");
+        assert!(may_exit(true, false));
+        assert!(!may_exit(false, false), "nothing is done yet");
+        assert!(!may_exit(false, true));
+    }
+
+    #[test]
+    fn a_move_that_ends_while_quitting_starts_no_renderer() {
+        assert!(!resume_after_move(true));
+        assert!(resume_after_move(false));
     }
 }
