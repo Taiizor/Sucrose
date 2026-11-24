@@ -17,8 +17,8 @@ use crate::{
     header::{Header, HeaderEvent},
     i18n::tr,
     ipc::{ConnectionState, LinkEvent, ServiceLink, next_state},
-    library::LibraryView,
-    settings::{Mode, SettingsTab, personal::PersonalPage},
+    library::{ChangeLocation, LibraryView},
+    settings::{Mode, SettingsTab, general::GeneralPage, personal::PersonalPage},
     status_bar::StatusBar,
     theme, toast,
 };
@@ -43,6 +43,8 @@ pub struct PortalApp {
     pub library: Entity<LibraryView>,
     /// The header row: the Library tab and the search box, or the settings tabs.
     pub header: Entity<Header>,
+    /// The General settings page.
+    pub general: Entity<GeneralPage>,
     /// The Personal settings page.
     pub personal: Entity<PersonalPage>,
     /// The status bar at the bottom: build, memory of the Sucrose processes, quote and copyright.
@@ -53,6 +55,8 @@ pub struct PortalApp {
     _keys: Subscription,
     /// Follows the gear, Back and the settings tabs of the header.
     _header_events: Subscription,
+    /// Follows the library's Change Library Location buttons.
+    _library_events: Subscription,
     /// Follows the OS light/dark setting while the theme mode is System.
     _appearance: Subscription,
     /// Whether this OS can show a window backdrop (read once at start; D-22).
@@ -106,6 +110,9 @@ impl PortalApp {
             let link = link.clone();
             |cx| PersonalPage::new(link, window, cx)
         });
+        let library_events = cx.subscribe_in(&library, window, |this, _, _: &ChangeLocation, window, cx| {
+            this.set_mode(Mode::Settings(SettingsTab::General), window, cx);
+        });
         let header_events = cx.subscribe_in(&header, window, |this, _, event: &HeaderEvent, window, cx| {
             this.set_mode(event.0, window, cx);
         });
@@ -131,6 +138,11 @@ impl PortalApp {
             |this, window, cx| this.apply_theme(window, cx),
         );
         let background = cx.new(|cx| BackgroundImage::new(window, cx));
+        let general = cx.new({
+            let link = link.clone();
+            let background = background.clone();
+            |cx| GeneralPage::new(link, window_backdrop, background, window, cx)
+        });
         let status_bar = cx.new(|_| StatusBar::new());
         let mut app = Self {
             state: ConnectionState::Connecting,
@@ -140,11 +152,13 @@ impl PortalApp {
             link,
             library,
             header,
+            general,
             personal,
             status_bar,
             _events: task,
             _keys: keys,
             _header_events: header_events,
+            _library_events: library_events,
             _appearance: appearance,
             window_backdrop,
             background,
@@ -182,7 +196,8 @@ impl PortalApp {
     fn field_focused(&self, window: &Window, cx: &App) -> bool {
         match self.mode {
             Mode::Settings(SettingsTab::Personal) => self.personal.read(cx).field_focused(window, cx),
-            Mode::Settings(SettingsTab::General) | Mode::Library => false,
+            Mode::Settings(SettingsTab::General) => self.general.read(cx).field_focused(window, cx),
+            Mode::Library => false,
         }
     }
 
@@ -269,6 +284,7 @@ impl PortalApp {
         self.library
             .update(cx, |library, cx| library.set_connected(connected, cx));
         self.personal.update(cx, |page, cx| page.set_connected(connected, cx));
+        self.general.update(cx, |page, cx| page.set_connected(connected, cx));
         if !connected {
             // The memory text shows "—" until the service reports again.
             self.status_bar.update(cx, |bar, cx| bar.set_memory(None, cx));
@@ -281,6 +297,7 @@ impl PortalApp {
                         library.set_runtime(runtime.clone(), cx);
                     });
                     self.personal.update(cx, |page, cx| page.load(&settings, window, cx));
+                    self.general.update(cx, |page, cx| page.load(&settings, window, cx));
                     self.settings = Some(settings);
                     self.runtime = Some(runtime);
                     self.apply_theme(window, cx);
@@ -293,6 +310,8 @@ impl PortalApp {
                         self.library
                             .update(cx, |library, cx| library.update_settings(settings, cx));
                         self.personal
+                            .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
+                        self.general
                             .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
                     }
                     if matches!(change, SettingChange::ThemeMode(_)) {
@@ -339,6 +358,8 @@ impl PortalApp {
                     // The control that sent it shows the broadcast value again.
                     if let Some(settings) = &self.settings {
                         self.personal
+                            .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
+                        self.general
                             .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
                     }
                     if self.closing_after_hint {
@@ -393,8 +414,7 @@ impl Render for PortalApp {
                 .child(v_flex().flex_1().min_h_0().child(match self.mode {
                     Mode::Library => self.library.clone().into_any_element(),
                     Mode::Settings(SettingsTab::Personal) => self.personal.clone().into_any_element(),
-                    // The General page joins in the last task of this plan.
-                    Mode::Settings(SettingsTab::General) => crate::settings::column("settings-general", Vec::new()),
+                    Mode::Settings(SettingsTab::General) => self.general.clone().into_any_element(),
                 }))
                 .child(self.status_bar.clone()),
         )

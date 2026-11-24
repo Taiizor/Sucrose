@@ -73,13 +73,21 @@ fn state(icon: IconName, title: SharedString, body: SharedString, action: Option
         .into_any_element()
 }
 
-/// The library holds no theme at all. The Change Library Location button joins it with the settings pages.
-pub fn empty() -> AnyElement {
+/// The Change Library Location button: it opens Settings > General.
+fn change_location(on_click: impl Fn(&ClickEvent, &mut Window, &mut App) + 'static) -> AnyElement {
+    Button::new("library-change-location")
+        .label(tr("Portal.LibraryPage.ChangeLocation"))
+        .on_click(on_click)
+        .into_any_element()
+}
+
+/// The library holds no theme at all: Change Library Location opens the settings.
+pub fn empty(on_change_location: impl Fn(&ClickEvent, &mut Window, &mut App) + 'static) -> AnyElement {
     state(
         IconName::LibraryBig,
         tr("Portal.EmptyLibraryPage.TitleText"),
         tr("Portal.EmptyLibraryPage.DescriptionText"),
-        None,
+        Some(change_location(on_change_location)),
     )
 }
 
@@ -93,17 +101,24 @@ pub fn search_empty() -> AnyElement {
     )
 }
 
-/// The library folder cannot be read: Try Again scans it again. The Change Library Location button joins it with the
-/// settings pages.
-pub fn load_error(on_retry: impl Fn(&ClickEvent, &mut Window, &mut App) + 'static) -> AnyElement {
+/// The library folder cannot be read: Try Again scans it again, Change Library Location opens the settings.
+pub fn load_error(
+    on_retry: impl Fn(&ClickEvent, &mut Window, &mut App) + 'static,
+    on_change_location: impl Fn(&ClickEvent, &mut Window, &mut App) + 'static,
+) -> AnyElement {
     state(
         IconName::FolderX,
         tr("Portal.LibraryPage.LoadError.Title"),
         tr("Portal.LibraryPage.LoadError.Body"),
         Some(
-            Button::new("library-retry")
-                .label(tr("Portal.LibraryPage.TryAgain"))
-                .on_click(on_retry)
+            h_flex()
+                .gap_2()
+                .child(
+                    Button::new("library-retry")
+                        .label(tr("Portal.LibraryPage.TryAgain"))
+                        .on_click(on_retry),
+                )
+                .child(change_location(on_change_location))
                 .into_any_element(),
         ),
     )

@@ -62,7 +62,6 @@ struct LibrarySettings {
 }
 
 /// The library folder the service reported: its configured location, or the default folder when none is set.
-#[allow(dead_code, reason = "the General page of this plan's last task shows it")]
 pub fn location_of(settings: &PortalSettings) -> PathBuf {
     LibrarySettings::from_portal(settings).location
 }
@@ -146,6 +145,12 @@ fn thumb_key(times: &HashMap<PathBuf, Option<SystemTime>>, theme: &LibraryTheme,
         bucket,
     }
 }
+
+/// The user asked, from an empty or unreadable library, to change where Sucrose looks for themes: the window opens
+/// Settings > General.
+pub struct ChangeLocation;
+
+impl EventEmitter<ChangeLocation> for LibraryView {}
 
 /// The library page: owned by the Portal's root entity, which feeds it the settings the service reports.
 pub struct LibraryView {
@@ -739,11 +744,22 @@ impl Render for LibraryView {
                 match state {
                     grid::LibraryState::LoadError => {
                         let this = cx.entity().downgrade();
-                        grid::load_error(move |_, _, cx| {
-                            this.update(cx, |view, cx| view.reload(cx)).ok();
+                        let change = cx.entity().downgrade();
+                        grid::load_error(
+                            move |_, _, cx| {
+                                this.update(cx, |view, cx| view.reload(cx)).ok();
+                            },
+                            move |_, _, cx| {
+                                change.update(cx, |_, cx| cx.emit(ChangeLocation)).ok();
+                            },
+                        )
+                    }
+                    grid::LibraryState::Empty => {
+                        let change = cx.entity().downgrade();
+                        grid::empty(move |_, _, cx| {
+                            change.update(cx, |_, cx| cx.emit(ChangeLocation)).ok();
                         })
                     }
-                    grid::LibraryState::Empty => grid::empty(),
                     grid::LibraryState::SearchEmpty => grid::search_empty(),
                     grid::LibraryState::Grid => {
                         let columns = layout::columns(content_width, settings.margin, settings.adaptive_layout);

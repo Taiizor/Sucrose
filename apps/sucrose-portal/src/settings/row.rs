@@ -17,7 +17,6 @@ use crate::i18n::tr;
 /// Width of a select (UI-SPEC: settings row controls).
 pub const SELECT_WIDTH: f32 = 200.0;
 /// Width of a slider.
-#[allow(dead_code, reason = "the General page of this plan's last task uses it")]
 pub const SLIDER_WIDTH: f32 = 220.0;
 /// Width of a numeric field.
 pub const NUMBER_WIDTH: f32 = 100.0;
@@ -39,7 +38,6 @@ pub fn commit_number(text: &str, min: u8, max: u8, previous: u8) -> u8 {
 }
 
 /// The percentage a slider value stands for.
-#[allow(dead_code, reason = "the General page of this plan's last task uses it")]
 pub fn slider_percent(value: f32) -> u8 {
     // Clamped to 0..=100 first, so the cast cannot overflow.
     #[allow(clippy::cast_possible_truncation, clippy::cast_sign_loss)]

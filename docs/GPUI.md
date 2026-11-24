@@ -38,6 +38,8 @@ Practical notes for the UI (`gpui-kit`). GPUI documentation is thin; read the so
 
 - Hover preview (library card): `.on_hover(|hovered, window, cx| …)` is a second listener next to `.hover(style)`, and an element takes only one `on_hover`. A multi-frame `RenderImage` in `img()` animates by itself, so the preview is a child above the static thumbnail and costs nothing once it is removed; drop its frames with `cx.drop_image(image, None)` when the hover ends or the page, search or setting changes, because `on_hover(false)` does not fire for a card that leaves the tree. A preview decode shares the thumbnail decode slots (`DecodeQueue::reserve`) and its result is checked against the state machine, so a result for a card the pointer left is released instead of shown. `observe_window_visibility` tells the view to stop when the window hides.
 
+- Settings controls (Portal): a `Select` item can be disabled and still visible through `SelectItem::disabled`; override `SelectItem::render` to give the row an id and a tooltip that says why. `SelectState::set_selected_value`, `SliderState::set_value` and `InputState::set_value` emit no event, so they are safe for showing a broadcast value or reverting a rejected change. `SliderEvent::Change` fires continuously and `SliderEvent::Release` once at the end: send on Release, or after a short rest. `TabBar::on_click` takes `Fn(&usize, &mut Window, &mut App)`, so reach the owning entity through a handle taken beforehand and emit an `EventEmitter` event.
+
 ## Patterns
 
 - State lives in entities; long work runs on `cx.background_executor()`, results come back with `this.update(cx, …)`.

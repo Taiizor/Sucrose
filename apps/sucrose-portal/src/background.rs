@@ -50,7 +50,6 @@ pub enum BackgroundError {
 
 impl BackgroundError {
     /// The locale key of the text the settings row shows for this error.
-    #[allow(dead_code, reason = "the settings page of plan 20 shows the error text")]
     pub fn text_key(self) -> &'static str {
         match self {
             Self::Missing | Self::Unsupported => "Portal.GeneralSettingPage.WindowBackdrop.ImageMissing",
@@ -334,7 +333,6 @@ impl BackgroundImage {
     }
 
     /// Why the image is not shown, for the settings row; `None` while it is fine or not set.
-    #[allow(dead_code, reason = "the settings page of plan 20 shows the error")]
     pub fn error(&self) -> Option<BackgroundError> {
         self.error
     }
