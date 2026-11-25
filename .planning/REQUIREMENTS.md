@@ -128,8 +128,8 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Portal UI (`portal.md` §1, §4, §6)
 
-- [ ] **UI-01**: The Portal has a window backdrop (Mica/Acrylic on Windows) and a background image with stretch and opacity on every OS
-- [ ] **UI-02**: User can pick light or dark, or follow the OS theme
+- [x] **UI-01**: The Portal has a window backdrop (Mica/Acrylic on Windows) and a background image with stretch and opacity on every OS
+- [x] **UI-02**: User can pick light or dark, or follow the OS theme
 - [ ] **UI-03**: The Portal has header actions, search, a status bar (memory, quotes with copy) and command-line page arguments
 - [ ] **UI-04**: The settings pages General, Personal, Performance, Wallpaper, System and Other cover every key in `portal.md` §4
 - [ ] **UI-05**: Help and About dialogs and the tray hint dialog exist; plain links (wiki, report an issue) stay (D-020)
@@ -307,8 +307,8 @@ Which phases cover which requirements. Filled during roadmap creation.
 | THEM-03 | Phase 5 | Pending |
 | THEM-04 | Phase 5 | Pending |
 | THEM-05 | Phase 5 | Pending |
-| UI-01 | Phase 3 | Gaps Found |
-| UI-02 | Phase 3 | Gaps Found |
+| UI-01 | Phase 3 | Complete |
+| UI-02 | Phase 3 | Complete |
 | UI-03 | Phase 3 | Gaps Found |
 | UI-04 | Phase 5 | Pending |
 | UI-05 | Phase 3 | Gaps Found |
