@@ -268,9 +268,9 @@ mod tests {
     use super::scroll_area;
     use gpui_kit::component::v_flex;
     use gpui_kit::{
-        Bounds, Context, InteractiveElement as _, IntoElement, ParentElement as _, Pixels, Render, ScrollDelta,
-        ScrollEvent, ScrollHandle, StatefulInteractiveElement as _, Styled as _, TestAppContext, VisualTestContext,
-        Window, div, point, px, size,
+        Bounds, Context, InteractiveElement as _, IntoElement, Modifiers, ParentElement as _, Pixels, Render,
+        ScrollDelta, ScrollEvent, ScrollHandle, StatefulInteractiveElement as _, Styled as _, TestAppContext,
+        VisualTestContext, Window, div, point, px, size,
     };
     use std::{cell::Cell, rc::Rc};
 
@@ -364,6 +364,63 @@ mod tests {
             before - bounds(window, "last-row").origin.y,
             px(200.),
             "the last row moved up by the wheel step"
+        );
+    }
+
+    #[gpui_kit::test]
+    fn grid_scrollbar_overlay_lets_clicks_reach_the_cards(cx: &mut TestAppContext) {
+        let clicked = Rc::new(Cell::new(false));
+        let window = window_with_rows(cx, 30, clicked.clone());
+        let area = bounds(window, "library-scroll");
+        // Row 0 spans y 16..116 and the 400 px block is centered, so (300, 50) is inside it, far left of the track.
+        let at = point(px(300.), px(50.));
+        assert!(
+            area.right() - at.x >= px(40.),
+            "the click is at least 40 px left of the right edge"
+        );
+
+        window.simulate_click(at, Modifiers::none());
+        draw(window);
+
+        assert!(clicked.get(), "the click went through the overlay to the row's handler");
+    }
+
+    #[gpui_kit::test]
+    fn grid_scrollbar_page_end_and_short_pages_do_not_move(cx: &mut TestAppContext) {
+        {
+            let window = window_with_rows(cx, 30, Rc::default());
+            let area = bounds(window, "library-scroll");
+            // The content is 30 * 100 + 2 * 16 = 3032 px in a 400 px viewport: 2632 px of travel, passed after three steps.
+            for _ in 0..3 {
+                wheel(window, 300., 200., -1000.);
+            }
+            let last = bounds(window, "last-row");
+            assert!(
+                last.bottom() <= area.bottom(),
+                "the last row ends inside the scroll area"
+            );
+            assert!(last.bottom() > area.top(), "the last row is in view");
+            let overlay = bounds(window, "library-scrollbar");
+
+            wheel(window, 300., 200., -200.);
+
+            assert_eq!(
+                bounds(window, "last-row"),
+                last,
+                "scrolled past the end the content stays on its last row"
+            );
+            assert_eq!(bounds(window, "library-scrollbar"), overlay, "the overlay stays too");
+            assert_eq!(bounds(window, "library-scroll"), area);
+        }
+        let window = window_with_rows(cx, 2, Rc::default());
+        let last = bounds(window, "last-row");
+
+        wheel(window, 300., 200., -200.);
+
+        assert_eq!(
+            bounds(window, "last-row"),
+            last,
+            "a page shorter than the viewport does not move"
         );
     }
 }
