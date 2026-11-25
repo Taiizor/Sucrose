@@ -10,6 +10,7 @@ use gpui_kit::component::{
     v_flex,
 };
 use gpui_kit::*;
+use std::ops::Range;
 
 use crate::i18n::tr;
 
@@ -177,6 +178,59 @@ fn scroll_area(scroll: &ScrollHandle, block: impl IntoElement) -> AnyElement {
         .into_any_element()
 }
 
+/// What `visible_rows` read from the scroll handle.
+#[derive(Clone, Copy, PartialEq, Debug)]
+struct ScrollRead {
+    height: Pixels,
+    offset_y: Pixels,
+}
+
+fn read(scroll: &ScrollHandle) -> ScrollRead {
+    ScrollRead {
+        height: scroll.bounds().size.height,
+        offset_y: scroll.offset().y,
+    }
+}
+
+/// The rows of the grid in view, for the thumbnail requests: the rows of the page's `rows` rows (`gap` apart) that meet the
+/// scroll viewport, from the handle's bounds and offset as the previous frame left them. The window's height stands in for
+/// the viewport before the first paint (its bounds are zero then; asking for no row would leave the cards static and never
+/// trigger another frame).
+///
+/// Those reads lag (WR-16): GPUI clamps the offset to the content only in the scroll container's prepaint, after `render`,
+/// and neither that clamp nor a resize notifies the view, while a card left on the static `Idle` fill asks for no frame, so
+/// nothing else would render the view again. The offset is therefore clamped to the content of the same rows
+/// ([`layout::clamped_scroll_top`]), and once the frame is drawn `Window::on_next_frame` notifies the view when the
+/// handle's bounds or offset differ from what this call read. The comparison is an exact one of the raw reads, not of the
+/// clamped value and with no tolerance: the render it causes reads exactly the painted values, so the next check is equal
+/// and a still window draws one extra frame at most.
+pub fn visible_rows<V: 'static>(
+    scroll: &ScrollHandle,
+    gap: f32,
+    rows: usize,
+    window: &Window,
+    cx: &mut Context<V>,
+) -> Range<usize> {
+    let used = read(scroll);
+    let measured = f32::from(used.height);
+    let viewport = if measured > 0.0 {
+        measured
+    } else {
+        f32::from(window.viewport_size().height)
+    };
+    let scroll_top = (-f32::from(used.offset_y)).max(0.0);
+    let scroll_top = layout::clamped_scroll_top(scroll_top, viewport, CONTENT_PADDING, gap, rows);
+    let view = cx.entity().downgrade();
+    let handle = scroll.clone();
+    window.on_next_frame(move |_, cx| {
+        if read(&handle) != used {
+            // A view that is gone has nothing to render.
+            view.update(cx, |_, cx| cx.notify()).ok();
+        }
+    });
+    layout::rows_in_view(scroll_top, viewport, CONTENT_PADDING, gap, rows)
+}
+
 /// The page of `cards`.
 pub fn page(
     cards: Vec<CardData>,
@@ -265,14 +319,14 @@ mod tests {
     }
 
     // Not `use super::*`: the crate root glob-imports GPUI, whose `test` macro would shadow the built-in attribute.
-    use super::scroll_area;
+    use super::{ScrollRead, layout, read, scroll_area, visible_rows};
     use gpui_kit::component::v_flex;
     use gpui_kit::{
-        Bounds, Context, InteractiveElement as _, IntoElement, Modifiers, ParentElement as _, Pixels, Render,
+        Bounds, Context, Entity, InteractiveElement as _, IntoElement, Modifiers, ParentElement as _, Pixels, Render,
         ScrollDelta, ScrollEvent, ScrollHandle, StatefulInteractiveElement as _, Styled as _, TestAppContext,
         VisualTestContext, Window, div, point, px, size,
     };
-    use std::{cell::Cell, rc::Rc};
+    use std::{cell::Cell, ops::Range, rc::Rc};
 
     /// A window root that shows `rows` rows of 100 px (the first one clickable, the last one tagged `last-row`) in
     /// `scroll_area`.
@@ -422,5 +476,112 @@ mod tests {
             last,
             "a page shorter than the viewport does not move"
         );
+    }
+
+    /// A window root that takes its rows in view from `visible_rows` in every render, the way the library view does.
+    struct SettleHost {
+        rows: usize,
+        scroll: ScrollHandle,
+        range: Range<usize>,
+        used: Option<ScrollRead>,
+    }
+
+    impl Render for SettleHost {
+        fn render(&mut self, window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
+            self.used = Some(read(&self.scroll));
+            self.range = visible_rows(&self.scroll, 5.0, self.rows, window, cx);
+            let block = v_flex()
+                .gap(px(5.))
+                .w(px(400.))
+                .children((0..self.rows).map(|_| div().h(px(layout::CARD_HEIGHT)).w(px(400.)).flex_shrink_0()));
+            div().size_full().child(scroll_area(&self.scroll, block))
+        }
+    }
+
+    fn settle_window(cx: &mut TestAppContext, rows: usize) -> (Entity<SettleHost>, &mut VisualTestContext) {
+        cx.update(gpui_kit::init);
+        let (view, window) = cx.add_window_view(|_, _| SettleHost {
+            rows,
+            scroll: ScrollHandle::new(),
+            range: 0..0,
+            used: None,
+        });
+        window.simulate_resize(size(px(600.), px(400.)));
+        window.run_until_parked();
+        (view, window)
+    }
+
+    /// The range of the last render, the read it used and the handle's current read.
+    fn settle_state(
+        window: &mut VisualTestContext,
+        view: &Entity<SettleHost>,
+    ) -> (Range<usize>, Option<ScrollRead>, ScrollRead) {
+        window.update(|_, cx| {
+            let host = view.read(cx);
+            (host.range.clone(), host.used, read(&host.scroll))
+        })
+    }
+
+    /// Delivers the next frame (the only thing that can render the view: nothing draws the window by hand) until the read
+    /// the last render used equals the handle's current read, at most five rounds.
+    fn settle(window: &mut VisualTestContext, view: &Entity<SettleHost>) {
+        for _ in 0..5 {
+            window.update(|window, cx| {
+                window.simulate_next_frame(cx);
+            });
+            window.run_until_parked();
+            let (_, used, now) = settle_state(window, view);
+            if used == Some(now) {
+                return;
+            }
+        }
+    }
+
+    fn assert_settled(window: &mut VisualTestContext, view: &Entity<SettleHost>) {
+        let (_, used, now) = settle_state(window, view);
+        assert_eq!(
+            used,
+            Some(now),
+            "the last render read what is painted, so the next frame notifies nothing"
+        );
+    }
+
+    #[gpui_kit::test]
+    fn grid_request_settles_after_a_content_shrink(cx: &mut TestAppContext) {
+        let (view, window) = settle_window(cx, 30);
+        settle(window, &view);
+        // Scroll to the end of 30 rows (GPUI clamps the offset in prepaint).
+        let scroll = view.read_with(window, |host, _| host.scroll.clone());
+        scroll.set_offset(point(px(0.), px(-100_000.)));
+        view.update(window, |_, cx| cx.notify());
+        settle(window, &view);
+        assert_eq!(settle_state(window, &view).0, 27..30, "the end of 30 rows");
+
+        view.update(window, |host, cx| {
+            host.rows = 12;
+            cx.notify();
+        });
+        settle(window, &view);
+
+        assert_eq!(settle_state(window, &view).0, 9..12, "the last row of 12 is in view");
+        assert_settled(window, &view);
+    }
+
+    #[gpui_kit::test]
+    fn grid_request_settles_after_the_window_grows(cx: &mut TestAppContext) {
+        let (view, window) = settle_window(cx, 30);
+        settle(window, &view);
+        assert_eq!(settle_state(window, &view).0, 0..3, "three rows in 400 px");
+
+        window.simulate_resize(size(px(600.), px(800.)));
+        window.run_until_parked();
+        settle(window, &view);
+
+        assert_eq!(
+            settle_state(window, &view).0,
+            0..5,
+            "five rows in 800 px, no input of any kind"
+        );
+        assert_settled(window, &view);
     }
 }

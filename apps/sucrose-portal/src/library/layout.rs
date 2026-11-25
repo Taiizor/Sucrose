@@ -124,6 +124,31 @@ pub fn rows_in_view(scroll_top: f32, viewport_height: f32, padding: f32, gap: f3
     first..end.min(rows).max(first)
 }
 
+/// The height of the scrolled grid content: `padding` above and below plus `rows` rows of [`CARD_HEIGHT`] with `gap` between
+/// them (twice the padding without rows). A padding or gap that is not finite counts as zero, as in [`rows_in_view`].
+pub fn content_height(rows: usize, padding: f32, gap: f32) -> f32 {
+    let padding = if padding.is_finite() { padding.max(0.0) } else { 0.0 };
+    let gap = if gap.is_finite() { gap.max(0.0) } else { 0.0 };
+    let rows_height = if rows == 0 {
+        0.0
+    } else {
+        rows as f32 * (CARD_HEIGHT + gap) - gap
+    };
+    2.0 * padding + rows_height
+}
+
+/// `scroll_top` limited to what the content of `rows` rows can scroll: 0 through `content_height - viewport_height` (never
+/// below 0). The offset a view reads in `render` is the previous frame's, and GPUI clamps it to the new content only after
+/// `render`, so after the content shrank it can lie past the end and ask for no row at all (WR-16). A scroll top or
+/// viewport that is not finite gives 0.
+pub fn clamped_scroll_top(scroll_top: f32, viewport_height: f32, padding: f32, gap: f32, rows: usize) -> f32 {
+    if !scroll_top.is_finite() || !viewport_height.is_finite() {
+        return 0.0;
+    }
+    let travel = (content_height(rows, padding, gap) - viewport_height).max(0.0);
+    scroll_top.clamp(0.0, travel)
+}
+
 /// The page positions to request thumbnails for, nearest first: the cards of the `visible_rows` top-down, then of up to
 /// `lookahead` rows below them and up to `lookahead` rows above them, nearest row first. The cards are laid out row by row
 /// in `columns` columns, `rows` rows in all, and positions are clipped to `count` cards.
@@ -417,5 +442,34 @@ mod tests {
         assert_eq!(neighbor(2, 3, 1, Arrow::Up), Some(1));
         assert_eq!(neighbor(0, 0, 3, Arrow::Right), None);
         assert_eq!(neighbor(0, 1, 0, Arrow::Down), None, "zero columns count as one");
+    }
+
+    #[test]
+    fn layout_clamped_scroll_top_keeps_the_view_inside_the_content() {
+        assert_eq!(content_height(12, PAD, 5.0), 2007.0);
+        assert_eq!(content_height(0, PAD, 5.0), 32.0);
+        assert_eq!(clamped_scroll_top(3316.0, 440.0, PAD, 5.0, 12), 1567.0);
+        assert_eq!(clamped_scroll_top(100.0, 440.0, PAD, 5.0, 12), 100.0);
+        assert_eq!(clamped_scroll_top(-20.0, 440.0, PAD, 5.0, 12), 0.0);
+        assert_eq!(clamped_scroll_top(f32::NAN, 440.0, PAD, 5.0, 12), 0.0);
+        // Two rows are 357 px of content, shorter than the viewport: nothing to scroll.
+        assert_eq!(content_height(2, PAD, 5.0), 357.0);
+        for top in [0.0, 50.0, 3316.0] {
+            assert_eq!(clamped_scroll_top(top, 440.0, PAD, 5.0, 2), 0.0);
+            assert_eq!(clamped_scroll_top(top, 440.0, PAD, 5.0, 0), 0.0);
+        }
+    }
+
+    #[test]
+    fn layout_stale_offset_past_the_content_still_requests_the_last_rows() {
+        // The offset of row 20 kept after the page shrank to 12 rows asks for nothing...
+        assert!(rows_in_view(3316.0, 440.0, PAD, 5.0, 12).is_empty());
+        // ...while the clamped offset asks for the last rows.
+        let top = clamped_scroll_top(3316.0, 440.0, PAD, 5.0, 12);
+        let in_view = rows_in_view(top, 440.0, PAD, 5.0, 12);
+        assert_eq!(in_view, 9..12);
+        let positions = cards_to_request(in_view, 12, 3, 36, 1);
+        let last_rows: Vec<usize> = (27..36).collect();
+        assert!(positions.starts_with(&last_rows), "{positions:?}");
     }
 }

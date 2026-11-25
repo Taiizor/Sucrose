@@ -557,20 +557,12 @@ impl LibraryView {
     }
 
     /// Requests the thumbnails of the cards in view and the rows next to them when those changed since the last request.
-    /// The scroll position is read here, at render: a wheel step notifies this view and a scrollbar drag redraws the window.
+    /// The rows in view come from `grid::visible_rows`, read at render: a wheel step notifies this view and a scrollbar drag
+    /// redraws the window, and `visible_rows` clamps the stale offset and notifies once more after a resize (WR-16).
     fn request_visible(&mut self, settings: &LibrarySettings, columns: usize, window: &Window, cx: &mut Context<Self>) {
         let count = layout::page_slice(self.visible.len(), self.page, settings.pagination).len();
         let rows = count.div_ceil(columns.max(1));
-        // The viewport has no size before the first paint; the window's height stands in for it, so the first frame still
-        // asks for the cards at the top (asking for none would leave them static and never trigger another frame).
-        let measured = f32::from(self.scroll.bounds().size.height);
-        let viewport = if measured > 0.0 {
-            measured
-        } else {
-            f32::from(window.viewport_size().height)
-        };
-        let scroll_top = (-f32::from(self.scroll.offset().y)).max(0.0);
-        let in_view = layout::rows_in_view(scroll_top, viewport, grid::CONTENT_PADDING, settings.margin, rows);
+        let in_view = grid::visible_rows(&self.scroll, settings.margin, rows, window, cx);
         let positions = layout::cards_to_request(in_view, rows, columns, count, LOOKAHEAD_ROWS);
         if self.requested.as_ref() != Some(&positions) {
             self.request_in_view(positions, cx);
