@@ -87,6 +87,23 @@ pub fn appearance(backdrop: Backdrop, supported: bool) -> WindowBackgroundAppear
     }
 }
 
+/// The appearances to set, in order, to move the window from `previous` to `target`. gpui-pre-windows 0.3.12 applies Opaque,
+/// Transparent and Blurred through the accent policy and Mica/Mica Alt only through the DWM backdrop type, and clears
+/// neither when it sets the other, so every change goes through Opaque first (WR-14). The same appearance again changes
+/// nothing, so a repeated apply does not flash the window; `None` (not known yet) counts as changed.
+pub fn appearance_steps(
+    previous: Option<WindowBackgroundAppearance>,
+    target: WindowBackgroundAppearance,
+) -> Vec<WindowBackgroundAppearance> {
+    if previous == Some(target) {
+        return Vec::new();
+    }
+    if target == WindowBackgroundAppearance::Opaque {
+        return vec![WindowBackgroundAppearance::Opaque];
+    }
+    vec![WindowBackgroundAppearance::Opaque, target]
+}
+
 /// The alpha of the page tint while a backdrop or a background image is active (UI-SPEC Color: dominant).
 const TINT_ALPHA: f32 = 0.78;
 
@@ -158,8 +175,8 @@ mod tests {
     };
 
     use super::{
-        DARK_NAME, LIGHT_NAME, SUCROSE_THEMES, appearance, apply_root_fill, backdrop_active, effective_dark_for,
-        page_alpha, root_fill,
+        DARK_NAME, LIGHT_NAME, SUCROSE_THEMES, appearance, appearance_steps, apply_root_fill, backdrop_active,
+        effective_dark_for, page_alpha, root_fill,
     };
 
     /// A view with nothing in it: the tests look at the Root around it.
@@ -241,6 +258,36 @@ mod tests {
             appearance(Backdrop::Tabbed, true),
             WindowBackgroundAppearance::MicaAltBackdrop
         );
+    }
+
+    #[test]
+    fn theme_appearance_steps_resets_before_a_changed_target() {
+        use WindowBackgroundAppearance::{Blurred, MicaAltBackdrop, MicaBackdrop, Opaque};
+
+        assert_eq!(appearance_steps(Some(Blurred), MicaBackdrop), [Opaque, MicaBackdrop]);
+        assert_eq!(
+            appearance_steps(Some(Blurred), MicaAltBackdrop),
+            [Opaque, MicaAltBackdrop]
+        );
+        assert_eq!(appearance_steps(Some(MicaBackdrop), Blurred), [Opaque, Blurred]);
+        assert_eq!(appearance_steps(Some(Opaque), MicaBackdrop), [Opaque, MicaBackdrop]);
+        assert_eq!(appearance_steps(Some(MicaAltBackdrop), Opaque), [Opaque]);
+    }
+
+    #[test]
+    fn theme_appearance_steps_is_empty_when_nothing_changes() {
+        use WindowBackgroundAppearance::{Blurred, Opaque};
+
+        assert!(appearance_steps(Some(Blurred), Blurred).is_empty());
+        assert!(appearance_steps(Some(Opaque), Opaque).is_empty());
+    }
+
+    #[test]
+    fn theme_appearance_steps_treats_an_unknown_previous_as_changed() {
+        use WindowBackgroundAppearance::{Blurred, Opaque};
+
+        assert_eq!(appearance_steps(None, Blurred), [Opaque, Blurred]);
+        assert_eq!(appearance_steps(None, Opaque), [Opaque]);
     }
 
     #[test]

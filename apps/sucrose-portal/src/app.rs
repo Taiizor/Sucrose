@@ -61,6 +61,9 @@ pub struct PortalApp {
     _appearance: Subscription,
     /// Whether this OS can show a window backdrop (read once at start; D-22).
     window_backdrop: bool,
+    /// The appearance this view last set on the window; None until the first apply. GPUI's Window has no public getter
+    /// for it.
+    applied_appearance: Option<WindowBackgroundAppearance>,
     /// The background image layer, below the page tint.
     pub background: Entity<BackgroundImage>,
     /// The tray hint was shown during this window's life; closing again closes at once.
@@ -161,6 +164,7 @@ impl PortalApp {
             _library_events: library_events,
             _appearance: appearance,
             window_backdrop,
+            applied_appearance: None,
             background,
             tray_hint_shown: false,
             closing_after_hint: false,
@@ -259,9 +263,15 @@ impl PortalApp {
     /// The opaque fill that gpui-component's Root paints under the view is cleared while a backdrop shows (G-03-5). The
     /// Root is mounted only after the view's constructor returns, so the Welcome that arrived before the window existed
     /// finds no Root: the fill is then applied once more at the end of the current effect cycle.
-    fn apply_backdrop(&self, window: &mut Window, cx: &mut Context<Self>) {
+    fn apply_backdrop(&mut self, window: &mut Window, cx: &mut Context<Self>) {
         let appearance = theme::appearance(self.backdrop(), self.window_backdrop);
-        window.set_background_appearance(appearance);
+        // Opaque first when the appearance changes, so the accent policy of an earlier Acrylic is cleared before Mica or
+        // Tabbed is applied (WR-14); the target is always the last appearance set.
+        let steps = theme::appearance_steps(self.applied_appearance, appearance);
+        for step in &steps {
+            window.set_background_appearance(*step);
+        }
+        self.applied_appearance = Some(appearance);
         // Windows 11 draws Mica and Tabbed through the DWM system backdrop type, which GPUI sets without clearing it
         // later (WR-14), so Sucrose sets and resets it itself and logs what the OS answered.
         let dwm_result = self
@@ -277,6 +287,7 @@ impl PortalApp {
             backdrop = ?self.backdrop(),
             supported = self.window_backdrop,
             ?appearance,
+            ?steps,
             root_transparent,
             dwm_result = %dwm_text,
             "backdrop applied"
