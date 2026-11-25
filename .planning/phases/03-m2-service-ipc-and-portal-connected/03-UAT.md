@@ -1,9 +1,9 @@
 ---
-status: diagnosed
+status: complete
 phase: 03-m2-service-ipc-and-portal-connected
 source: [03-VERIFICATION.md]
 started: 2026-11-24T20:01:31.075Z
-updated: 2026-11-25T18:21:26.048Z
+updated: 2026-11-25T18:45:47.755Z
 ---
 
 ## Current Test
@@ -59,36 +59,40 @@ note: "Run together with test 1 (same scenario, release build of 718081ed); the 
 
 ### 10. Release Portal paging after the WR-12 decode budget (a4e650bc): page through the synthetic 500-theme library once and read the working set
 expected: Final working set stays inside the D-25 rule recorded in docs/MEASUREMENTS.md rows 16-17; no visible stall while thumbnails decode
-result: blocked
-blocked_by: other
-reason: "Maintainer chose to block it (answer: 1) until G-03-8 is fixed: thumbnail and hover-preview decoding stalls on the final build (test 8), so a D-25 working-set reading now would be falsely low. Repeat after the gap-closure plans."
+result: pass
+note: "Unblocked: G-03-8 resolved by 03-43. Repeated as one run with test 11 on the release build of 9067953d (target/synth-500, 17 pages of 30, previews on, every page scrolled to its last row), T0 21:35:44 local. Rule: pass, see test 11 and docs/MEASUREMENTS.md (row after row 17). Maintainer, verbatim: \"done\n\nfarksızdı her tur\noynadı\nperformanslıydı\""
 
 ### 11. Re-run UAT test 10 (D-25 scenario 2) on the final build, or record an explicit maintainer decision accepting rows 16-17 as the evidence for UI-07
 expected: Final working set and private bytes inside the D-25 rule (first page + 48 MiB; round 3 end at most round 1 end x 1.05); a new row recorded in docs/MEASUREMENTS.md
-result: [pending]
+result: pass
+note: "Measured (maintainer chose 1). target/measure/portal-synth-4.json, 762 samples / 381 s, rounds from the page log: 21:36:39.8-21:38:24.5, 21:38:27.3-21:39:51.0, 21:39:56.4-21:41:20.3. Working set: first page 118.4, round ends 175/169/177, peak 197.4, final 163.4 (rule: 163 <= 168, 177 <= 184). Private: first page 110.9, round ends 167/162/170, peak 190.2, final 155.4 (155 <= 161, 170 <= 175). Attribution: unattributed, gpu atlas +25.0 of +58.9 MB private. 343 'preview playing', 400 'thumbnails requested'. Portal exit code 0; the log ends with the six close-time 'invalid window handle' ERROR lines already recorded in 03-37/03-38. Row and paragraph added to docs/MEASUREMENTS.md; no cap or code changed."
 
 ### 12. Hover previews with Library Preview switched on on the final build (optional)
 expected: A slowly hovered card animates; thumbnails keep showing with the scrollbar overlay mounted
-result: [pending]
+result: pass
+note: "Covered by the test 10/11 run (release build of 9067953d, LibraryPreview true, 03-46 scrollbar overlay): maintainer reported previews played and thumbnails without a stall; 343 'preview playing' lines. Maintainer answered pass."
 
 ### 13. Start with the OS across a real sign-out and sign-in (optional hardening of UAT test 2)
 expected: Sucrose starts after sign-in and the wallpaper plays
-result: [pending]
+result: pass
+note: "Maintainer exercised a real sign-out and sign-in with start with the OS on Normal and answered pass."
 
 ## Summary
 
 total: 13
-passed: 6
+passed: 10
 issues: 3
-pending: 3
+pending: 0
 skipped: 0
-blocked: 1
+blocked: 0
 
 ## Gaps
 
 - gap_id: G-03-5
   truth: "With the Dark theme and the Acrylic backdrop setting, the Portal window shows the blurred Acrylic backdrop, and changing the backdrop setting changes what the window shows"
-  status: failed
+  status: resolved
+  resolved_by: 03-47-PLAN.md
+  resolved_at: 2026-11-25
   reason: "User reported: 2 backdrop etkisiz. hiç bir şey değişmedi (step 2 of test 5, Acrylic; steps 1, 3, 4, 5 and 6 passed)"
   severity: major
   test: 5
@@ -109,7 +113,9 @@ blocked: 1
 
 - gap_id: G-03-6
   truth: "With Library Pagination at its maximum (250 typed, clamped to 100, stored as LibraryPagination 100), the library page shows a scrollbar, every card scrolled into view with the mouse wheel shows its thumbnail, and hovering such a card plays its preview"
-  status: failed
+  status: resolved
+  resolved_by: 03-47-PLAN.md
+  resolved_at: 2026-11-25
   reason: "User reported: 3 250 yapınca kütüphaneye döndüm kaydırma çubuğu yani scroll bar yok. ayrıca tekerlek ile aşağı inince temaların thumbnaili görünmüyor, üzerine fare tutunca da preview oynamıyor (steps 1 and 2 of test 6 passed; the clamp itself worked, Sucrose.json holds LibraryPagination 100)"
   severity: major
   test: 6
@@ -130,7 +136,9 @@ blocked: 1
 
 - gap_id: G-03-8
   truth: "On the release Portal a slowly hovered card animates and hides its title strip, and a fast sweep starts nothing"
-  status: failed
+  status: resolved
+  resolved_by: 03-43-PLAN.md
+  resolved_at: 2026-11-25
   reason: "User reported: iki durum da çalışmıyor. bu kütüphane sayfasını 250 yapınca başladı sorun galiba. alttaki duvar kağıtlarının thumbnaili bile görünmüyor (maintainer screenshot with LibraryPagination 100: only the first four cards show a thumbnail, from the fifth card on the thumbnail area is empty even on the first screen; status bar shows 854 MB)"
   severity: major
   test: 8
