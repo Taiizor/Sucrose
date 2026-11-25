@@ -3,7 +3,7 @@ status: diagnosed
 phase: 03-m2-service-ipc-and-portal-connected
 source: [03-VERIFICATION.md]
 started: 2026-11-24T20:01:31.075Z
-updated: 2026-11-24T23:09:03.027Z
+updated: 2026-11-25T18:21:26.048Z
 ---
 
 ## Current Test
@@ -63,12 +63,24 @@ result: blocked
 blocked_by: other
 reason: "Maintainer chose to block it (answer: 1) until G-03-8 is fixed: thumbnail and hover-preview decoding stalls on the final build (test 8), so a D-25 working-set reading now would be falsely low. Repeat after the gap-closure plans."
 
+### 11. Re-run UAT test 10 (D-25 scenario 2) on the final build, or record an explicit maintainer decision accepting rows 16-17 as the evidence for UI-07
+expected: Final working set and private bytes inside the D-25 rule (first page + 48 MiB; round 3 end at most round 1 end x 1.05); a new row recorded in docs/MEASUREMENTS.md
+result: [pending]
+
+### 12. Hover previews with Library Preview switched on on the final build (optional)
+expected: A slowly hovered card animates; thumbnails keep showing with the scrollbar overlay mounted
+result: [pending]
+
+### 13. Start with the OS across a real sign-out and sign-in (optional hardening of UAT test 2)
+expected: Sucrose starts after sign-in and the wallpaper plays
+result: [pending]
+
 ## Summary
 
-total: 10
+total: 13
 passed: 6
 issues: 3
-pending: 0
+pending: 3
 skipped: 0
 blocked: 1
 
