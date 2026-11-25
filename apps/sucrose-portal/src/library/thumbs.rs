@@ -191,6 +191,24 @@ impl<T: Release + Clone> ThumbCache<T> {
         Some(value)
     }
 
+    /// The image for `key` without counting it as shown.
+    pub fn peek(&self, _key: &ThumbKey) -> Option<T> {
+        None
+    }
+
+    /// Counts `key` as shown now.
+    pub fn touch(&mut self, _key: &ThumbKey) {}
+
+    /// Like [`Self::insert`], but entries for which `keep` holds are never evicted.
+    pub fn insert_keeping(&mut self, key: ThumbKey, value: T, _keep: impl Fn(&ThumbKey) -> bool) -> Vec<T> {
+        self.insert(key, value)
+    }
+
+    /// Evicts entries that `keep` does not hold until both caps hold.
+    pub fn trim(&mut self, _keep: impl Fn(&ThumbKey) -> bool) -> Vec<T> {
+        Vec::new()
+    }
+
     /// Keeps `value` as the most recently shown image and returns the images that were pushed out. An image that is over
     /// the byte cap on its own is returned at once and not kept; the others stay.
     pub fn insert(&mut self, key: ThumbKey, value: T) -> Vec<T> {
@@ -548,6 +566,177 @@ mod tests {
         );
         assert!(!cache.contains(&key("a")));
         assert_eq!(cache.total_bytes(), CACHE_BYTES);
+    }
+
+    #[test]
+    fn thumbs_cache_peek_does_not_count_as_shown() {
+        let mut cache = ThumbCache::new(2, usize::MAX);
+        cache.insert(key("a"), Pic("a", 1));
+        cache.insert(key("b"), Pic("b", 1));
+        assert_eq!(cache.peek(&key("a")), Some(Pic("a", 1)));
+        assert_eq!(cache.peek(&key("zz")), None);
+        let evicted = cache.insert(key("c"), Pic("c", 1));
+        assert_eq!(names(&evicted), ["a"], "peeking a left it the oldest");
+    }
+
+    #[test]
+    fn thumbs_cache_touch_counts_as_shown() {
+        let mut cache = ThumbCache::new(2, usize::MAX);
+        cache.insert(key("a"), Pic("a", 1));
+        cache.insert(key("b"), Pic("b", 1));
+        cache.touch(&key("a"));
+        cache.touch(&key("zz"));
+        let evicted = cache.insert(key("c"), Pic("c", 1));
+        assert_eq!(names(&evicted), ["b"], "touching a made b the oldest");
+    }
+
+    #[test]
+    fn thumbs_cache_insert_keeping_never_evicts_a_kept_key() {
+        let mut cache = ThumbCache::new(2, usize::MAX);
+        let kept = |k: &ThumbKey| ["a", "b", "c"].iter().any(|name| *k == key(name));
+        assert!(cache.insert_keeping(key("a"), Pic("a", 1), kept).is_empty());
+        assert!(cache.insert_keeping(key("b"), Pic("b", 1), kept).is_empty());
+        assert!(cache.insert_keeping(key("c"), Pic("c", 1), kept).is_empty());
+        assert_eq!(cache.len(), 3, "all three are kept, over the cap of two");
+        let evicted = cache.insert_keeping(key("d"), Pic("d", 1), kept);
+        assert_eq!(
+            names(&evicted),
+            ["d"],
+            "an unkept value that does not fit is returned at once"
+        );
+        assert_eq!(cache.len(), 3);
+        assert!(!cache.contains(&key("d")));
+    }
+
+    #[test]
+    fn thumbs_cache_insert_keeping_evicts_the_oldest_unkept_entry_first() {
+        let mut cache = ThumbCache::new(2, usize::MAX);
+        cache.insert(key("a"), Pic("a", 1));
+        cache.insert(key("b"), Pic("b", 1));
+        let evicted = cache.insert_keeping(key("c"), Pic("c", 1), |k| *k == key("a") || *k == key("c"));
+        assert_eq!(names(&evicted), ["b"], "a is older but kept");
+        assert!(cache.contains(&key("a")) && cache.contains(&key("c")));
+    }
+
+    #[test]
+    fn thumbs_cache_trim_brings_it_back_under_the_caps() {
+        let mut cache = ThumbCache::new(2, usize::MAX);
+        let all = |_: &ThumbKey| true;
+        for name in ["a", "b", "c", "d"] {
+            cache.insert_keeping(key(name), Pic("p", 1), all);
+        }
+        assert_eq!(cache.len(), 4);
+        assert!(cache.trim(all).is_empty(), "everything is wanted, nothing goes");
+        let evicted = cache.trim(|k| *k == key("a") || *k == key("d"));
+        assert_eq!(evicted.len(), 2);
+        assert_eq!(cache.len(), 2);
+        assert!(cache.contains(&key("a")) && cache.contains(&key("d")));
+        // Least recently shown goes first, and only what is not kept: a is the oldest, kept, so b and c are the ones to go.
+        let mut cache = ThumbCache::new(3, usize::MAX);
+        for name in ["a", "b", "c", "d", "e"] {
+            cache.insert_keeping(key(name), Pic("p", 1), all);
+        }
+        cache.trim(|k| *k == key("a"));
+        assert!(cache.contains(&key("a")) && cache.contains(&key("d")) && cache.contains(&key("e")));
+        assert_eq!(cache.len(), 3);
+    }
+
+    #[test]
+    fn thumbs_cache_trim_counts_bytes_too() {
+        let mut cache = ThumbCache::new(100, 100);
+        let all = |_: &ThumbKey| true;
+        for name in ["a", "b", "c"] {
+            cache.insert_keeping(key(name), Pic(name, 60), all);
+        }
+        assert_eq!(cache.total_bytes(), 180);
+        let evicted = cache.trim(|k| *k == key("c"));
+        assert_eq!(names(&evicted), ["a", "b"]);
+        assert_eq!(cache.total_bytes(), 60);
+    }
+
+    /// The thumbnails of a page of `count` cards in `columns` columns, as the grid wants them at `scroll_top`.
+    fn wanted_at(keys: &[ThumbKey], columns: usize, gap: f32, viewport: f32, scroll_top: f32) -> Vec<usize> {
+        use crate::library::layout;
+        let rows = keys.len().div_ceil(columns);
+        let visible = layout::rows_in_view(scroll_top, viewport, 16.0, gap, rows);
+        layout::cards_to_request(visible, rows, columns, keys.len(), 1)
+    }
+
+    #[test]
+    fn thumbs_scrolling_a_100_card_page_keeps_every_wanted_card() {
+        let keys: Vec<ThumbKey> = (0..100).map(|n| key(&format!("card{n}"))).collect();
+        let (columns, gap, viewport) = (3, 5.0_f32, 440.0_f32);
+        let pic = image_bytes(360, 203, 1);
+        let rows = keys.len().div_ceil(columns);
+        let content = 16.0 + rows as f32 * 160.0 + (rows - 1) as f32 * gap + 16.0;
+        let max_top = content - viewport;
+        let mut down: Vec<f32> = (0..)
+            .map(|n| n as f32 * 82.0)
+            .take_while(|top| *top <= max_top)
+            .collect();
+        down.push(max_top);
+        let up: Vec<f32> = down.iter().rev().copied().collect();
+        let mut cache = ThumbCache::new(CACHE_IMAGES, CACHE_BYTES);
+        let mut evictions = 0;
+        for top in down.into_iter().chain(up) {
+            let positions = wanted_at(&keys, columns, gap, viewport, top);
+            assert!(!positions.is_empty(), "something is wanted at {top}");
+            let wanted: HashSet<ThumbKey> = positions.iter().map(|&p| keys[p].clone()).collect();
+            for &p in &positions {
+                if cache.contains(&keys[p]) {
+                    cache.touch(&keys[p]);
+                } else {
+                    evictions += cache
+                        .insert_keeping(keys[p].clone(), Pic("p", pic), |k| wanted.contains(k))
+                        .len();
+                }
+            }
+            evictions += cache.trim(|k| wanted.contains(k)).len();
+            for &p in &positions {
+                assert!(cache.contains(&keys[p]), "card {p} is wanted at {top} but not cached");
+            }
+            assert!(cache.len() <= CACHE_IMAGES, "{} images at {top}", cache.len());
+            assert!(
+                cache.total_bytes() <= CACHE_BYTES,
+                "{} bytes at {top}",
+                cache.total_bytes()
+            );
+        }
+        assert!(
+            evictions > 0,
+            "100 cards do not fit 64 images, so the walk must have evicted"
+        );
+        assert!(wanted_at(&keys, columns, gap, viewport, max_top).contains(&99));
+    }
+
+    #[test]
+    fn thumbs_wanted_cards_over_the_byte_cap_stay_until_they_scroll_away() {
+        let keys: Vec<ThumbKey> = (0..60).map(|n| key(&format!("big{n}"))).collect();
+        let pic = image_bytes(720, 405, 1);
+        assert!(
+            60 * pic > CACHE_BYTES,
+            "sixty W720 images are over the byte cap together"
+        );
+        let wanted: HashSet<ThumbKey> = keys.iter().cloned().collect();
+        let mut cache = ThumbCache::new(CACHE_IMAGES, CACHE_BYTES);
+        for k in &keys {
+            assert!(
+                cache
+                    .insert_keeping(k.clone(), Pic("p", pic), |k| wanted.contains(k))
+                    .is_empty()
+            );
+        }
+        assert!(cache.trim(|k| wanted.contains(k)).is_empty());
+        assert_eq!(cache.len(), 60);
+        assert!(cache.total_bytes() > CACHE_BYTES);
+        // The wanted set moves to other keys.
+        let elsewhere: HashSet<ThumbKey> = (0..5).map(|n| key(&format!("other{n}"))).collect();
+        let evicted = cache.trim(|k| elsewhere.contains(k));
+        assert!(!evicted.is_empty());
+        assert!(cache.total_bytes() <= CACHE_BYTES);
+        assert!(cache.len() <= CACHE_IMAGES);
+        assert!(!cache.contains(&keys[0]), "the oldest went first");
+        assert!(cache.contains(&keys[59]), "the newest stays while the caps hold");
     }
 
     #[test]

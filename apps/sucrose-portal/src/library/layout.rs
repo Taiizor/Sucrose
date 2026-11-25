@@ -94,6 +94,24 @@ pub fn neighbor(position: usize, count: usize, columns: usize, arrow: Arrow) -> 
     }
 }
 
+/// The rows of a grid that meet the scroll viewport: rows are `rows` in number, row `i` starts at `padding + i * (CARD_HEIGHT
+/// + gap)` in content coordinates and is [`CARD_HEIGHT`] tall; the viewport spans `scroll_top` to `scroll_top +
+/// viewport_height`. A viewport that is zero, negative or not finite shows no row.
+pub fn rows_in_view(_scroll_top: f32, _viewport_height: f32, _padding: f32, _gap: f32, _rows: usize) -> Range<usize> {
+    0..0
+}
+
+/// The page positions to request thumbnails for, nearest first.
+pub fn cards_to_request(
+    _visible_rows: Range<usize>,
+    _rows: usize,
+    _columns: usize,
+    _count: usize,
+    _lookahead: usize,
+) -> Vec<usize> {
+    Vec::new()
+}
+
 /// How many pages `count` themes make with `size` themes on a page.
 pub fn page_count(count: usize, size: usize) -> usize {
     if size == 0 { 0 } else { count.div_ceil(size) }
@@ -111,6 +129,116 @@ mod tests {
     use super::*;
 
     const GAPS: [f32; 4] = [0.0, 5.0, 10.0, 25.0];
+
+    const PAD: f32 = 16.0;
+
+    #[test]
+    fn layout_rows_in_view_at_the_top() {
+        assert_eq!(rows_in_view(0.0, 440.0, PAD, 5.0, 34), 0..3);
+    }
+
+    #[test]
+    fn layout_rows_in_view_scrolled_to_the_screenshot() {
+        // Cards 61-69 counted from 1 are the rows 20, 21 and 22 of three columns.
+        let top = PAD + 20.0 * (CARD_HEIGHT + 5.0);
+        assert_eq!(top, 3316.0);
+        assert_eq!(rows_in_view(top, 440.0, PAD, 5.0, 34), 20..23);
+    }
+
+    #[test]
+    fn layout_rows_in_view_counts_a_row_that_is_only_partly_in_view() {
+        // Row 0 spans 16..176: one pixel of it is still in view at a scroll top of 175, none at 176.
+        assert_eq!(rows_in_view(175.0, 100.0, PAD, 5.0, 34), 0..2);
+        assert_eq!(rows_in_view(176.0, 100.0, PAD, 5.0, 34), 1..2);
+        // Row 3 starts at 511: the viewport ending exactly there does not reach it.
+        assert_eq!(rows_in_view(71.0, 440.0, PAD, 5.0, 34), 0..3);
+        assert_eq!(rows_in_view(72.0, 440.0, PAD, 5.0, 34), 0..4);
+    }
+
+    #[test]
+    fn layout_rows_in_view_follows_the_gap() {
+        // Rows 25 + 160 apart: row 2 starts at 16 + 370 = 386.
+        assert_eq!(rows_in_view(0.0, 440.0, PAD, 25.0, 34), 0..3);
+        assert_eq!(rows_in_view(0.0, 370.0, PAD, 25.0, 34), 0..2);
+    }
+
+    #[test]
+    fn layout_rows_in_view_clamps() {
+        assert_eq!(
+            rows_in_view(100_000.0, 440.0, PAD, 5.0, 34),
+            34..34,
+            "past the content ends at rows"
+        );
+        assert_eq!(rows_in_view(0.0, 440.0, PAD, 5.0, 0), 0..0);
+        assert_eq!(
+            rows_in_view(0.0, 10_000.0, PAD, 5.0, 34),
+            0..34,
+            "a tall viewport shows every row"
+        );
+        assert_eq!(
+            rows_in_view(-50.0, 440.0, PAD, 5.0, 34),
+            0..3,
+            "a negative scroll top is the top"
+        );
+        for height in [0.0, -10.0, f32::NAN, f32::INFINITY, f32::NEG_INFINITY] {
+            assert!(
+                rows_in_view(0.0, height, PAD, 5.0, 34).is_empty(),
+                "viewport {height} shows no row"
+            );
+        }
+        assert!(rows_in_view(f32::NAN, 440.0, PAD, 5.0, 34).is_empty());
+    }
+
+    #[test]
+    fn layout_cards_to_request_puts_the_visible_rows_first() {
+        let positions = cards_to_request(20..23, 34, 3, 100, 1);
+        let expected: Vec<usize> = (60..69).chain(69..72).chain(57..60).collect();
+        assert_eq!(positions, expected);
+        assert!(
+            positions.contains(&64) && positions.contains(&71),
+            "positions past the 64th are included"
+        );
+    }
+
+    #[test]
+    fn layout_cards_to_request_stops_at_the_last_card() {
+        // 100 cards in 3 columns: the last row (33) holds the single card 99.
+        let positions = cards_to_request(32..34, 34, 3, 100, 1);
+        let expected: Vec<usize> = (96..100).chain(93..96).collect();
+        assert_eq!(positions, expected);
+        assert_eq!(positions.iter().max(), Some(&99));
+    }
+
+    #[test]
+    fn layout_cards_to_request_at_the_top_has_no_row_above() {
+        let positions = cards_to_request(0..3, 34, 3, 100, 1);
+        let expected: Vec<usize> = (0..9).chain(9..12).collect();
+        assert_eq!(positions, expected);
+    }
+
+    #[test]
+    fn layout_cards_to_request_looks_ahead_nearest_row_first() {
+        let positions = cards_to_request(10..11, 34, 3, 100, 2);
+        let expected: Vec<usize> = (30..33)
+            .chain(33..36)
+            .chain(36..39)
+            .chain(27..30)
+            .chain(24..27)
+            .collect();
+        assert_eq!(positions, expected);
+        assert_eq!(
+            cards_to_request(10..11, 34, 3, 100, 0),
+            vec![30, 31, 32],
+            "no look-ahead, no extra rows"
+        );
+    }
+
+    #[test]
+    fn layout_cards_to_request_wants_nothing_without_rows_in_view() {
+        assert!(cards_to_request(0..0, 34, 3, 100, 1).is_empty());
+        assert!(cards_to_request(0..3, 0, 3, 0, 1).is_empty());
+        assert_eq!(cards_to_request(0..1, 1, 0, 2, 1), vec![0], "zero columns count as one");
+    }
 
     #[test]
     fn layout_columns_follow_the_legacy_formula() {
