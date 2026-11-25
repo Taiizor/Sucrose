@@ -159,6 +159,31 @@ Windows only; macOS and Linux follow in Phases 6–7. Store, theme creation, cyc
 
   The Phase 3 D-17 rule ("Use disabled for non-Video themes") is lifted per type as each slice lands.
 
+### Research resolutions (confirmed by the maintainer on 2026-11-26)
+The research (`04-RESEARCH.md`, Open Questions for the Maintainer) raised five questions. The maintainer chose the recommended option for each:
+- **D-32:** **CEF keeps the `cef` crate (D-013) and delay-loads `libcef.dll`.**
+  - `.claude/rules/cargo.md` gains an explicit exception for `cef` and `webview2-com`.
+  - Every build sets `CEF_PATH` to the `cargo xtask fetch-engines` result, so the crate never downloads CEF itself (D-028 stays true).
+  - `libcef.dll` is delay-loaded, so the service and the mpv renderers never load it.
+  - If the slice-1 spike shows that delay-load does not work, the fallback is a second executable, `sucrose-cef.exe`, as the CEF renderer and subprocess; record that outcome in `docs/DECISIONS.md`.
+  - If the `cef` crate has no working Windows x86 build, CEF is reported as missing on x86 (D-027, D-002).
+  - **Reversibility:** costly — the build setup and the renderer process model depend on it.
+- **D-33:** **Concurrent web wallpapers: the first running web instance per engine uses the persistent profile**, guarded by a lock file. Every other concurrent instance on that engine gets its own ephemeral profile.
+  - localStorage, IndexedDB and cookies therefore persist only for the first instance; volumes stay independent (D-06).
+  - Record it in `docs/FEATURES.md`.
+  - **Reversibility:** costly — which instance keeps its web data is user-visible.
+- **D-34:** **`sucrose-sysinfo` becomes an unsafe-allowed platform-provider crate.**
+  - A new `docs/DECISIONS.md` entry adds it to the D-011 list, with per-OS `cfg` inside it (PDH, WASAPI, GSMTC, ICMP) and a `// SAFETY:` comment on each block.
+  - `sucrose-core` stays free of OS code.
+  - Update the places that list the unsafe-allowed crates (CLAUDE.md non-negotiable 5, `.claude/rules/platform-ffi.md`, `docs/ARCHITECTURE.md`) in the same change.
+- **D-35:** **Persistent web data lives outside `Cache`**: `<data_dir>\Web\WebView2` and `<data_dir>\Web\Cef` (the maintainer's: `%APPDATA%\Sucrose\Web\...`), so the Phase 5 cache cleaning never deletes a wallpaper's localStorage.
+  - The D-33 ephemeral profiles are not kept across runs; where they live is the planner's choice.
+  - **Reversibility:** one-way — every later version reads this folder; moving it needs a migration. **Confirmed by the maintainer on 2026-11-26.**
+- **D-36:** **Remote and Virtual rules (D-23): a spike in slice 6 tries `Win32_ProcessStartTrace` on the maintainer's non-elevated session.**
+  - If the subscription is denied, the fallback is a bounded ToolHelp snapshot every 2 s, taken only while the Remote or Virtual rule is not `Resume` (the legacy cadence at native cost).
+  - Record the outcome in `docs/FEATURES.md`.
+  - This relaxes D-23's "not the legacy 2 s full process scan" only for that fallback.
+
 ### Claude's Discretion
 - Crate layout under `docs/ARCHITECTURE.md`: the `sucrose-engine` trait and one crate per engine (for example `sucrose-engine-web` with WebView2 and CEF backends, `-vlc`, `-gif`, `-mf`), `sucrose-sysinfo` for data collection. Where the performance governor lives (a service module that does not start when off, D-008).
 - IPC messages for engine choice, placement, properties, compatible data and rule state (append-only, `PROTOCOL_VERSION` / `PORTAL_PROTOCOL_VERSION`). Which process writes the property working copy: the service as single writer (Phase 3 D-11 spirit) or the Portal.
