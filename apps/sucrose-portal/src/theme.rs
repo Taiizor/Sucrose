@@ -104,6 +104,20 @@ pub fn page_alpha(backdrop_active: bool, image_active: bool) -> f32 {
     }
 }
 
+/// The fill of the base Root surface under the Portal view: transparent while a backdrop is active, so the DWM
+/// backdrop shows through the page tint; None otherwise, which leaves gpui-component's opaque `tokens.background` fill
+/// in place (an Opaque window clears to white, which would show under a translucent page or a background image).
+pub fn root_fill(_backdrop_active: bool) -> Option<Hsla> {
+    None
+}
+
+/// Applies [`root_fill`] to the base Root that `gpui_kit::open_window` mounts under the Portal view. Returns false when
+/// the window has no base Root yet (it is created after the view's constructor returns); the caller applies it again
+/// later. The theme tokens are never touched: only the Root's own style changes.
+pub fn apply_root_fill(_backdrop_active: bool, _window: &mut Window, _cx: &mut App) -> bool {
+    false
+}
+
 /// Calls `on_change` when the OS switches between light and dark, but only while `is_system` says the stored mode is
 /// System: an explicit Light or Dark ignores the OS. The window reports the change as an event, so nothing polls.
 pub fn follow_os<T: 'static>(
@@ -127,7 +141,30 @@ mod tests {
     use gpui_kit::WindowBackgroundAppearance;
     use sucrose_core::settings::Backdrop;
 
-    use super::{DARK_NAME, LIGHT_NAME, SUCROSE_THEMES, appearance, effective_dark_for, page_alpha};
+    use super::{
+        DARK_NAME, LIGHT_NAME, SUCROSE_THEMES, appearance, backdrop_active, effective_dark_for, page_alpha, root_fill,
+    };
+
+    #[test]
+    fn theme_root_fill_is_transparent_only_while_a_backdrop_shows() {
+        let fill = root_fill(true).expect("a transparent fill while a backdrop shows");
+        assert!(fill.is_transparent());
+        assert_eq!(root_fill(false), None);
+    }
+
+    #[test]
+    fn theme_root_fill_follows_the_backdrop_mapping() {
+        for backdrop in Backdrop::ALL {
+            for supported in [true, false] {
+                let expected = supported && matches!(backdrop, Backdrop::Mica | Backdrop::Acrylic | Backdrop::Tabbed);
+                assert_eq!(
+                    root_fill(backdrop_active(*backdrop, supported)).is_some(),
+                    expected,
+                    "{backdrop:?} supported={supported}"
+                );
+            }
+        }
+    }
 
     #[test]
     fn theme_backdrop_maps_to_the_window_background() {
