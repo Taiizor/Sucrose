@@ -107,15 +107,25 @@ pub fn page_alpha(backdrop_active: bool, image_active: bool) -> f32 {
 /// The fill of the base Root surface under the Portal view: transparent while a backdrop is active, so the DWM
 /// backdrop shows through the page tint; None otherwise, which leaves gpui-component's opaque `tokens.background` fill
 /// in place (an Opaque window clears to white, which would show under a translucent page or a background image).
-pub fn root_fill(_backdrop_active: bool) -> Option<Hsla> {
-    None
+pub fn root_fill(backdrop_active: bool) -> Option<Hsla> {
+    backdrop_active.then(|| hsla(0., 0., 0., 0.))
 }
 
 /// Applies [`root_fill`] to the base Root that `gpui_kit::open_window` mounts under the Portal view. Returns false when
 /// the window has no base Root yet (it is created after the view's constructor returns); the caller applies it again
 /// later. The theme tokens are never touched: only the Root's own style changes.
-pub fn apply_root_fill(_backdrop_active: bool, _window: &mut Window, _cx: &mut App) -> bool {
-    false
+pub fn apply_root_fill(backdrop_active: bool, window: &mut Window, cx: &mut App) -> bool {
+    // `Root::update` panics in a window without a base Root, so the entity is looked up here instead.
+    let Some(root) = window.root::<gpui_kit::base::Root>().flatten() else {
+        return false;
+    };
+    root.update(cx, |root, cx| {
+        // Root's own style is refined after the plugin styles, so this wins over the plugin's opaque fill; None
+        // leaves the plugin fill.
+        root.style().background = root_fill(backdrop_active).map(Into::into);
+        cx.notify();
+    });
+    true
 }
 
 /// Calls `on_change` when the OS switches between light and dark, but only while `is_system` says the stored mode is

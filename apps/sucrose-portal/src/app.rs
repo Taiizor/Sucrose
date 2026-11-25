@@ -255,10 +255,30 @@ impl PortalApp {
 
     /// Tells the window which backdrop to draw. A stored value this OS cannot show is applied as opaque; the setting
     /// itself is never rewritten (D-22).
-    fn apply_backdrop(&self, window: &mut Window) {
+    ///
+    /// The opaque fill that gpui-component's Root paints under the view is cleared while a backdrop shows (G-03-5). The
+    /// Root is mounted only after the view's constructor returns, so the Welcome that arrived before the window existed
+    /// finds no Root: the fill is then applied once more at the end of the current effect cycle.
+    fn apply_backdrop(&self, window: &mut Window, cx: &mut Context<Self>) {
         let appearance = theme::appearance(self.backdrop(), self.window_backdrop);
         window.set_background_appearance(appearance);
-        tracing::info!(backdrop = ?self.backdrop(), supported = self.window_backdrop, ?appearance, "backdrop applied");
+        let root_transparent = theme::backdrop_active(self.backdrop(), self.window_backdrop);
+        let mounted = theme::apply_root_fill(root_transparent, window, cx);
+        tracing::info!(
+            backdrop = ?self.backdrop(),
+            supported = self.window_backdrop,
+            ?appearance,
+            root_transparent,
+            "backdrop applied"
+        );
+        if !mounted {
+            cx.defer_in(window, |this, window, cx| {
+                let active = theme::backdrop_active(this.backdrop(), this.window_backdrop);
+                if !theme::apply_root_fill(active, window, cx) {
+                    tracing::warn!("the window has no base root, the backdrop stays covered");
+                }
+            });
+        }
     }
 
     /// Gives the background layer the stored image, stretch and opacity.
@@ -311,7 +331,7 @@ impl PortalApp {
                     self.settings = Some(settings);
                     self.runtime = Some(runtime);
                     self.apply_theme(window, cx);
-                    self.apply_backdrop(window);
+                    self.apply_backdrop(window, cx);
                     self.apply_background(window, cx);
                 }
                 PortalEvent::Changed(change) => {
@@ -328,7 +348,7 @@ impl PortalApp {
                         self.apply_theme(window, cx);
                     }
                     if matches!(change, SettingChange::Backdrop(_)) {
-                        self.apply_backdrop(window);
+                        self.apply_backdrop(window, cx);
                     }
                     if self.closing_after_hint && matches!(change, SettingChange::HintTrayIcon(_)) {
                         window.remove_window();
