@@ -3,18 +3,6 @@ phase: 03
 review: 03-REVIEW.md
 titles: json
 findings:
-  - id: WR-14
-    severity: warning
-    disposition: open
-    title: "Switching to Mica or Tabbed keeps an earlier Acrylic, and nothing resets the DWM backdrop type"
-  - id: WR-15
-    severity: warning
-    disposition: open
-    title: "The grid scrollbar is a child of the scrolled element and defaults to hover-only on Windows"
-  - id: WR-16
-    severity: warning
-    disposition: open
-    title: "In-view request uses last frame's viewport and an unclamped scroll offset, and nothing renders again afterwards"
   - id: IN-02
     severity: info
     disposition: deferred
@@ -79,6 +67,22 @@ findings:
     severity: info
     disposition: open
     title: "The thumbnail wait and first-frame fallback of `request_visible` depend on an untested GPUI fact"
+  - id: IN-25
+    severity: info
+    disposition: open
+    title: "`crates/sucrose-platform/Cargo.toml` lost its final newline and the new dependency is out of order"
+  - id: WR-14
+    severity: warning
+    disposition: open
+    title: "Switching to Mica or Tabbed keeps an earlier Acrylic, and nothing resets the DWM backdrop type"
+  - id: WR-15
+    severity: warning
+    disposition: open
+    title: "The grid scrollbar is a child of the scrolled element and defaults to hover-only on Windows"
+  - id: WR-16
+    severity: warning
+    disposition: open
+    title: "In-view request uses last frame's viewport and an unclamped scroll offset, and nothing renders again afterwards"
   - id: WR-13
     severity: warning
     disposition: fixed
@@ -171,18 +175,15 @@ findings:
     severity: info
     disposition: deferred
     title: "Timing assertion in the memory integration test is tight"
-open: 15
-total: 42
-recorded: 2026-11-25T15:04:30.219Z
+open: 16
+total: 43
+recorded: 2026-11-25T18:16:26.256Z
 ---
 
 # Phase 03: Code Review Disposition
 
 | Finding | Severity | Disposition | Source |
 |---------|----------|-------------|--------|
-| WR-14 | warning | open | - |
-| WR-15 | warning | open | - |
-| WR-16 | warning | open | - |
 | IN-02 | info | deferred | Latent until the Linux service exists (EventLoop::new fails there today); fix before Linux support is enabled |
 | IN-04 | info | deferred | Lint hygiene only, no behavior impact; next Portal cleanup (same finding as the earlier IN-04, re-reported with Origin and narrowed to apps/sucrose-portal/src/main.rs:22; the decision was restored after the ledger tool dropped it on the changed title) |
 | IN-10 | info | deferred | Needs a hand-edited or damaged Version; fix with the next settings format change |
@@ -199,6 +200,10 @@ recorded: 2026-11-25T15:04:30.219Z
 | IN-22 | info | open | - |
 | IN-23 | info | open | - |
 | IN-24 | info | open | - |
+| IN-25 | info | open | - |
+| WR-14 | warning | open | - (not in the current review) |
+| WR-15 | warning | open | - (not in the current review) |
+| WR-16 | warning | open | - (not in the current review) |
 | WR-13 | warning | fixed | 03-REVIEW-FIX.md (not in the current review) |
 | WR-09 | warning | fixed | 03-REVIEW-FIX.md (not in the current review) |
 | WR-10 | warning | fixed | 03-REVIEW-FIX.md (not in the current review) |
