@@ -36,7 +36,7 @@ created: "2026-11-24"
 
 ## Per-Task Verification Map
 
-Plans 03-11 (T1, T2), 03-24 (T2, T3), 03-28 (T3), 03-37 (T2, T3), 03-38 (T2, T3), 03-43 (T2) and 03-44 (T2, T3) are maintainer-run tasks without an automated command; they are listed under Manual-Only. Plan 03-25 T1 and 03-39 T1 run `cargo xtask measure --portal-summary` as a judgment step. Threat Ref lists the plan's threats with disposition mitigate.
+Plans 03-11 (T1, T2), 03-24 (T2, T3), 03-28 (T3), 03-37 (T2, T3), 03-38 (T2, T3), 03-43 (T2), 03-44 (T2, T3), 03-47 (T2, T3), 03-49 (T2) and 03-50 (T2, T3) are maintainer-run tasks without an automated command; they are listed under Manual-Only. Plan 03-25 T1 and 03-39 T1 run `cargo xtask measure --portal-summary` as a judgment step. Threat Ref lists the plan's threats with disposition mitigate.
 
 | Task ID | Plan | Wave | Requirement | Threat Ref | Secure Behavior | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|------------|-----------------|-----------|-------------------|-------------|--------|
@@ -128,6 +128,16 @@ Plans 03-11 (T1, T2), 03-24 (T2, T3), 03-28 (T3), 03-37 (T2, T3), 03-38 (T2, T3)
 | 03-42-2 | 42 | 2 | LIB-04, LIB-06, UI-07 | T-03-91, T-03-92, T-03-93, T-03-94 | The grid shows its scrollbar and cards that are not loading stop anima | unit | `cargo test -p sucrose-portal && cargo clippy -p sucrose-portal --all-targets -- ` | ✅ | ✅ green |
 | 03-43-1 | 43 | 3 | UI-01, UI-02, LIB-04, LIB-06 | T-03-95 | Prepare the maintainer check and prove it unattended (scratch settings | doc/grep check | `test -f target/uat-gaps/Setting/Sucrose.json && grep -c '"DeleteCorrupt": false'` | ✅ | ✅ green |
 | 03-44-1 | 44 | 4 | UI-07 | T-03-96, T-03-97 | Prepare scenario 2 after 03-42 and prove the pipeline on a short unatt | doc/grep check | `cargo xtask synth-library --out target/synth-500 --count 500 && grep -c '"Librar` | ✅ | ✅ green |
+| 03-45-1 | 45 | 1 | UI-01, UI-02 | T-03-98, T-03-99, T-03-100 | Mica and Tabbed reach DWM through Platform::set_window_backdrop; the H | unit | `cargo test -p sucrose-platform backdrop && cargo test -p sucrose-portal dwm_result` | ✅ | ✅ green |
+| 03-45-2 | 45 | 1 | UI-01, UI-02 | T-03-98, T-03-99, T-03-100 | Opaque is applied before a changed backdrop appearance (Acrylic cleare | unit | `cargo test -p sucrose-portal theme_appearance_steps` | ✅ | ✅ green |
+| 03-46-1 | 46 | 2 | LIB-04, UI-07 | T-03-101, T-03-109 | The grid scrollbar stays on the right edge while the cards scroll (sib | unit | `cargo test -p sucrose-portal grid_scrollbar` | ✅ | ✅ green |
+| 03-46-2 | 46 | 2 | LIB-04, UI-07 | T-03-101, T-03-109 | Cards under the scrollbar stay usable; the page end and short pages st | unit | `cargo test -p sucrose-portal grid_` | ✅ | ✅ green |
+| 03-46-3 | 46 | 2 | LIB-04, UI-07 | T-03-101, T-03-109 | Cards in view after a content shrink or a resize get their thumbnails  | unit | `cargo test -p sucrose-portal -- layout_clamped_scroll_top layout_stale_offset grid_request_settles` | ✅ | ✅ green |
+| 03-47-1 | 47 | 3 | UI-01, UI-02, LIB-04 | T-03-102, T-03-103 | Prepare the maintainer check and prove it unattended (scratch settings | doc/grep check | `test -f target/uat-gaps/Setting/Sucrose.json && grep -c '"DeleteCorrupt": false'` | ✅ | ✅ green |
+| 03-48-1 | 48 | 4 | UI-01 | T-03-98, T-03-104 | The DWM frame is extended only when 03-47 says needed (verdict not-nee | gate check | `grep -q '^frame_extension: needed' 03-47-SUMMARY.md || git diff --quiet HEAD -- crates/sucrose-platform` | ✅ | ✅ green |
+| 03-48-2 | 48 | 4 | UI-01 | T-03-98, T-03-104 | The docs say when the frame is extended (only when Task 1 acted) | gate check | `git diff --quiet HEAD -- crates/sucrose-platform docs/GPUI.md` | ✅ | ✅ green |
+| 03-49-1 | 49 | 5 | UI-01, UI-02 | T-03-105, T-03-106 | Re-check only after a frame extension (03-48 frame_extension_applied:  | gate check | `grep -q '^frame_extension_applied: true' 03-48-SUMMARY.md` (false: not needed) | ✅ | ✅ green |
+| 03-50-1 | 50 | 6 | UI-07 | T-03-107, T-03-108 | Prepare scenario 2 on the current release build and prove the pipelin | doc/grep check | `cargo xtask synth-library --out target/synth-500 --count 500 && grep -c '"LibraryPreview": true'` | ✅ | ✅ green |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 
@@ -149,15 +159,15 @@ Plans 03-11 (T1, T2), 03-24 (T2, T3), 03-28 (T3), 03-37 (T2, T3), 03-38 (T2, T3)
 | LIB-01 | COVERED | library_ops.rs copies_only_the_showcase_folders_that_are_not_listed; portal.rs showcase_themes_are_copied_once_and_recorded_in_the_settings; migrate.rs library_and_warehouse_keep_their_values |
 | LIB-02 | COVERED | sucrose-core tests/library.rs (six fixture themes, corrupt reasons, path escape); library_ops.rs corrupt-to-bin tests |
 | LIB-03 | COVERED | tests/library.rs sort and search tests; header.rs search tests; grid.rs state tests |
-| LIB-04 | COVERED | layout.rs layout_* (10), pagination.rs and library/mod.rs page tests; visual capture is manual; layout.rs rows_in_view and cards_to_request tests (03-42); scrollbar visibility by hand is manual |
+| LIB-04 | COVERED | layout.rs layout_* (10), pagination.rs and library/mod.rs page tests; visual capture is manual; layout.rs rows_in_view and cards_to_request tests (03-42); grid.rs grid_scrollbar_* (3) and grid_request_settles_* (2), layout.rs layout_clamped_scroll_top and layout_stale_offset tests (03-46); scrollbar visibility by hand is manual (confirmed in 03-47 in both OS scrollbar modes) |
 | LIB-06 | COVERED | library/preview.rs preview_* (15 tests), card.rs card_preview_paints_its_second_frame, mod.rs preview_turned_off_*; hover by eye is manual |
 | LIB-08 | COVERED | service.rs decide_use; portal.rs refusal tests; card.rs use_state and tooltip tests |
 | LIB-09 | COVERED | library_ops.rs move, rollback and nesting tests; portal.rs library move tests; service.rs library_move tests and a_renderer_exit_while_quitting_* (WR-10) |
-| UI-01 | COVERED | os_windows.rs#backdrop_needs_windows_11_22h2; theme.rs backdrop test; background.rs tests; general.rs backdrop options test; theme.rs theme_* root fill tests (03-41: root_fill, apply_root_fill clears and restores the Base Root); Mica and Tabbed by eye are manual |
+| UI-01 | COVERED | os_windows.rs#backdrop_needs_windows_11_22h2; theme.rs backdrop test; background.rs tests; general.rs backdrop options test; theme.rs theme_* root fill tests (03-41: root_fill, apply_root_fill clears and restores the Base Root); 03-45 os_windows.rs backdrop_type_maps_every_setting and set_window_backdrop_refuses_a_window_without_a_handle, theme.rs theme_appearance_steps_* (3), app.rs app_dwm_result_text_names_each_outcome; Mica and Tabbed by eye are manual (confirmed in 03-47) |
 | UI-02 | COVERED | theme.rs#theme_system_follows_the_os_appearance; header.rs theme toggle test; settings/mod.rs gear test |
 | UI-03 | COVERED | xtask localize tests, i18n.rs key tests, main.rs argument tests, status_bar.rs, header.rs, ipc.rs state tests; captures are manual |
 | UI-05 | COVERED | i18n.rs coverage tests; dialogs help, about, tray_hint, link tests |
-| UI-07 | COVERED (automated parts) | thumbs.rs cache, queue, decode, pixel-area and decode-budget tests (WR-12; WR-13 the_generic_fallback_decodes_under_a_permit_priced_from_the_header); atlas.rs release tests; xtask measure and synth tests; memory.rs tests. The memory bound itself is judged by D-25 measurements (manual); 03-42 thumbs.rs peek, touch, insert_keeping and trim tests (wanted thumbnails are never evicted) |
+| UI-07 | COVERED (automated parts) | thumbs.rs cache, queue, decode, pixel-area and decode-budget tests (WR-12; WR-13 the_generic_fallback_decodes_under_a_permit_priced_from_the_header); atlas.rs release tests; xtask measure and synth tests; memory.rs tests. The memory bound itself is judged by D-25 measurements (manual); 03-42 thumbs.rs peek, touch, insert_keeping and trim tests (wanted thumbnails are never evicted); 03-46 grid_request_settles_* (rows in view settle after a shrink or resize) |
 
 Counts: 21 requirements, 21 COVERED, 0 PARTIAL, 0 MISSING. A spot check of 220 test-function references from the SUMMARY coverage entries found every function present (one reference, `the_runtime_state_is_published_only_when_it_differs_from_the_last_one_sent` in 03-09, is the shortened name `..._from_the_last_one` in apps/sucrose/src/service.rs).
 
@@ -183,9 +193,9 @@ Existing infrastructure covers all phase requirements.
 | Real HKCU Run key tests | TRAY-03 | Write the maintainer registry; ignored by default | cargo test -p sucrose-platform --test autostart -- --ignored |
 | Real-library migration and scan | FMT-01, LIB-02 | Read the maintainer real data; ignored tests (real_install_migrates, real_library) | cargo test -p sucrose-config --test migrate -- --ignored real_install_migrates; cargo test -p sucrose-core --test library -- --ignored real_library |
 | Real libmpv Video theme playback | ARCH-01 | Needs engine binaries from cargo xtask fetch-engines; ignored tests | cargo xtask fetch-engines && cargo test -p sucrose-engine-mpv -- --ignored |
-| Mica, Tabbed and None look different from Acrylic on the active window, in Light and Dark | UI-01, UI-02 | DWM draws Mica and Tabbed only on an active window, and PrintWindow returns no content with a backdrop; the Root fill logic is unit tested (theme_*) | 03-43 T2 A on the release Portal. 2026-11-25: Acrylic and None as expected; Mica and Tabbed not distinct (stay transparent after Acrylic, opaque after None): open gap |
-| Grid scrollbar visible, and every card past the 64th shows its thumbnail while scrolling by hand at 100 per page | LIB-04, UI-07 | Needs real wheel and scrollbar input, which is never synthesized; rows_in_view and the keep-wanted cache are unit tested | 03-43 T2 B. 2026-11-25: thumbnails yes, scrollbar not visible: open gap |
-| D-25 scenario 2 after the in-view thumbnail requests (03-42): 500-theme synthetic library, paged, scrolled and hovered by hand | UI-07 | Needs the maintainer driving a release Portal for about 12 minutes; judged by `cargo xtask measure --portal-summary` | 03-44 T2 and T3. 2026-11-25: skipped by the maintainer, no measurement; UAT test 10 stays open |
+| Mica, Tabbed and None look different from Acrylic on the active window, in Light and Dark | UI-01, UI-02 | DWM draws Mica and Tabbed only on an active window, and PrintWindow returns no content with a backdrop; the Root fill logic is unit tested (theme_*) | 03-43 T2 A on the release Portal. 2026-11-25: Acrylic and None as expected; Mica and Tabbed not distinct (stay transparent after Acrylic, opaque after None): open gap. 03-47 T2 A1-A7 after the 03-45 fix (2026-11-25): all yes in Dark and Light, every switch logged dwm_result=0x00000000; closed (frame extension not needed) |
+| Grid scrollbar visible, and every card past the 64th shows its thumbnail while scrolling by hand at 100 per page | LIB-04, UI-07 | Needs real wheel and scrollbar input, which is never synthesized; rows_in_view and the keep-wanted cache are unit tested | 03-43 T2 B. 2026-11-25: thumbnails yes, scrollbar not visible: open gap. 03-47 T2 B1 and T3 B2 after the 03-46 fix (2026-11-25): the bar shows at the right edge in auto-hide and always-show modes and stays there while the cards scroll; the cards in view keep their thumbnails after a resize at the page end (WR-16); closed |
+| D-25 scenario 2 after the in-view thumbnail requests (03-42): 500-theme synthetic library, paged, scrolled and hovered by hand | UI-07 | Needs the maintainer driving a release Portal for about 12 minutes; judged by `cargo xtask measure --portal-summary` | 03-44 T2 and T3. 2026-11-25: skipped by the maintainer, no measurement; UAT test 10 stays open. 03-50 T2 on the current release build (2026-11-25): skipped again at the ready gate, no measurement; UAT test 10 stays open |
 
 ---
 
@@ -198,7 +208,7 @@ Existing infrastructure covers all phase requirements.
 - [x] Feedback latency < 180s
 - [x] `nyquist_compliant: true` set in frontmatter
 
-**Approval:** approved 2026-11-24; re-audited after gap plans 03-41..03-44 on 2026-11-25 (no automated gaps)
+**Approval:** approved 2026-11-24; re-audited after gap plans 03-41..03-44 on 2026-11-25 (no automated gaps); re-audited after gap plans 03-45..03-50 on 2026-11-25 (no automated gaps)
 
 ## Validation Audit 2026-11-24
 
