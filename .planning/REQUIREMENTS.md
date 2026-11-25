@@ -17,11 +17,11 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Architecture
 
-- [x] **ARCH-01**: The service runs one renderer process per running wallpaper (per monitor or span); a crashed renderer is restarted with a bounded retry, never in a loop (D-008)
-- [x] **ARCH-02**: All Sucrose processes talk over one local-socket IPC, and the same endpoint keeps the service and the Portal single-instance (D-009)
+- [ ] **ARCH-01**: The service runs one renderer process per running wallpaper (per monitor or span); a crashed renderer is restarted with a bounded retry, never in a loop (D-008)
+- [ ] **ARCH-02**: All Sucrose processes talk over one local-socket IPC, and the same endpoint keeps the service and the Portal single-instance (D-009)
 - [ ] **ARCH-03**: An optional service module the user turns off does not start at all: no thread, no polling, no allocations (D-008)
-- [x] **ARCH-04**: Settings use a new versioned format with atomic writes; runtime state (pause/close flags, ports) is never stored in settings, and processes share state over IPC instead of polled files (D-007)
-- [x] **ARCH-05**: "Use" in the Portal applies the wallpaper through the service, and settings changed in the Portal persist across restarts
+- [ ] **ARCH-04**: Settings use a new versioned format with atomic writes; runtime state (pause/close flags, ports) is never stored in settings, and processes share state over IPC instead of polled files (D-007)
+- [ ] **ARCH-05**: "Use" in the Portal applies the wallpaper through the service, and settings changed in the Portal persist across restarts
 
 ### Wallpaper types
 
@@ -105,10 +105,10 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **LIB-03**: User can sort the library by name, creation or modification date (ascending/descending) and search it
 - [ ] **LIB-04**: The library is paginated with an adaptive layout (margin, max per row)
 - [ ] **LIB-05**: A theme card offers use, review, customize, add/remove from cycling, find, share, delete (with confirmation) and edit
-- [x] **LIB-06**: Theme cards show hover previews, optionally hiding details while previewing
+- [ ] **LIB-06**: Theme cards show hover previews, optionally hiding details while previewing
 - [ ] **LIB-07**: User can drag and drop files, `.url` files, archives and URLs onto the library
 - [ ] **LIB-08**: Themes made for an incompatible version are handled as in the legacy app
-- [x] **LIB-09**: User can change the library location and move the existing themes
+- [ ] **LIB-09**: User can change the library location and move the existing themes
 
 ### Store (`portal.md` §3, `formats.md` §4)
 
@@ -128,21 +128,21 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Portal UI (`portal.md` §1, §4, §6)
 
-- [x] **UI-01**: The Portal has a window backdrop (Mica/Acrylic on Windows) and a background image with stretch and opacity on every OS
+- [ ] **UI-01**: The Portal has a window backdrop (Mica/Acrylic on Windows) and a background image with stretch and opacity on every OS
 - [ ] **UI-02**: User can pick light or dark, or follow the OS theme
 - [ ] **UI-03**: The Portal has header actions, search, a status bar (memory, quotes with copy) and command-line page arguments
 - [ ] **UI-04**: The settings pages General, Personal, Performance, Wallpaper, System and Other cover every key in `portal.md` §4
 - [ ] **UI-05**: Help and About dialogs and the tray hint dialog exist; plain links (wiki, report an issue) stay (D-020)
 - [ ] **UI-06**: The UI is available in the 25 existing languages, converted by `xtask`, with RTL for Arabic and Hebrew and a live language switch (D-015)
-- [x] **UI-07**: Browsing the library and store keeps memory bounded: thumbnails are decoded at card size, the cache is bounded, and images no longer shown are released from GPUI (`docs/GPUI.md`, prototype lesson). Measured as part of MEAS-02
+- [ ] **UI-07**: Browsing the library and store keeps memory bounded: thumbnails are decoded at card size, the cache is bounded, and images no longer shown are released from GPUI (`docs/GPUI.md`, prototype lesson). Measured as part of MEAS-02
 
 ### Tray and app lifecycle (`services.md` §3)
 
 - [x] **TRAY-01**: A tray icon with Quit is available while a wallpaper runs
 - [ ] **TRAY-02**: The full tray menu offers open, close/reload/change/customize wallpaper, settings, report, updates and exit, with a grayscale icon while paused (Win ✅ · mac ✅ · Linux ⚠️ GNOME needs AppIndicator)
-- [x] **TRAY-03**: Sucrose can start with the OS (normal startup) (Win ✅ · mac ✅ LaunchAgent · Linux ✅ XDG autostart)
+- [ ] **TRAY-03**: Sucrose can start with the OS (normal startup) (Win ✅ · mac ✅ LaunchAgent · Linux ✅ XDG autostart)
 - [ ] **TRAY-04**: User can choose the priority and scheduled-task startup modes (Win ✅ · mac ? · Linux ?)
-- [x] **TRAY-05**: Exiting closes all Sucrose apps (Win ✅ · mac ✅ · Linux ✅)
+- [ ] **TRAY-05**: Exiting closes all Sucrose apps (Win ✅ · mac ✅ · Linux ✅)
 
 ### Services and integration
 
@@ -229,11 +229,11 @@ Which phases cover which requirements. Filled during roadmap creation.
 |-------------|-------|--------|
 | FND-01 | Phase 1 | Complete |
 | FND-02 | Phase 1 | Complete |
-| ARCH-01 | Phase 3 | Complete |
-| ARCH-02 | Phase 3 | Complete |
+| ARCH-01 | Phase 3 | Gaps Found |
+| ARCH-02 | Phase 3 | Gaps Found |
 | ARCH-03 | Phase 3 | Gaps Found |
-| ARCH-04 | Phase 3 | Complete |
-| ARCH-05 | Phase 3 | Complete |
+| ARCH-04 | Phase 3 | Gaps Found |
+| ARCH-05 | Phase 3 | Gaps Found |
 | TYPE-01 | Phase 2 | Complete |
 | TYPE-02 | Phase 4 | Pending |
 | TYPE-03 | Phase 4 | Pending |
@@ -293,10 +293,10 @@ Which phases cover which requirements. Filled during roadmap creation.
 | LIB-03 | Phase 3 | Gaps Found |
 | LIB-04 | Phase 3 | Gaps Found |
 | LIB-05 | Phase 5 | Pending |
-| LIB-06 | Phase 3 | Complete |
+| LIB-06 | Phase 3 | Gaps Found |
 | LIB-07 | Phase 5 | Pending |
 | LIB-08 | Phase 3 | Gaps Found |
-| LIB-09 | Phase 3 | Complete |
+| LIB-09 | Phase 3 | Gaps Found |
 | STOR-01 | Phase 5 | Pending |
 | STOR-02 | Phase 5 | Pending |
 | STOR-03 | Phase 5 | Pending |
@@ -307,18 +307,18 @@ Which phases cover which requirements. Filled during roadmap creation.
 | THEM-03 | Phase 5 | Pending |
 | THEM-04 | Phase 5 | Pending |
 | THEM-05 | Phase 5 | Pending |
-| UI-01 | Phase 3 | Complete |
+| UI-01 | Phase 3 | Gaps Found |
 | UI-02 | Phase 3 | Gaps Found |
 | UI-03 | Phase 3 | Gaps Found |
 | UI-04 | Phase 5 | Pending |
 | UI-05 | Phase 3 | Gaps Found |
 | UI-06 | Phase 5 | Pending |
-| UI-07 | Phase 3 | Complete |
+| UI-07 | Phase 3 | Gaps Found |
 | TRAY-01 | Phase 2 | Complete |
 | TRAY-02 | Phase 5 | Pending |
-| TRAY-03 | Phase 3 | Complete |
+| TRAY-03 | Phase 3 | Gaps Found |
 | TRAY-04 | Phase 5 | Pending |
-| TRAY-05 | Phase 3 | Complete |
+| TRAY-05 | Phase 3 | Gaps Found |
 | SVC-01 | Phase 5 | Pending |
 | SVC-02 | Phase 5 | Pending |
 | SVC-03 | Phase 5 | Pending |
