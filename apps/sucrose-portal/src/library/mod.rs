@@ -814,11 +814,11 @@ impl LibraryView {
             let index = self.visible[slot];
             let theme = &self.themes[index];
             let key = thumb_key(&self.thumb_times, theme, self.bucket);
-            let thumb = match self.cache.peek(&key) {
-                Some(image) => Thumb::Ready(image),
-                None if self.failed.contains(&key) => Thumb::Failed,
-                None => Thumb::Loading,
-            };
+            let thumb = thumb_for(
+                self.cache.peek(&key),
+                self.failed.contains(&key),
+                self.wanted.contains(&key),
+            );
             let folder = theme.folder.clone();
             let hover_folder = theme.folder.clone();
             let on_hover_view = this.clone();
@@ -963,6 +963,16 @@ impl Render for LibraryView {
     }
 }
 
+/// What a card shows for its thumbnail: the image when it is cached, the failure when it could not be decoded, the
+/// animated skeleton while a wanted thumbnail waits for its decode, and a static fill for a card nothing was requested for.
+fn thumb_for(cached: Option<Arc<RenderImage>>, failed: bool, _wanted: bool) -> Thumb {
+    match cached {
+        Some(image) => Thumb::Ready(image),
+        None if failed => Thumb::Failed,
+        None => Thumb::Loading,
+    }
+}
+
 /// Whether the settings change from `old` to `new` ends the live preview: `Changed(LibraryPreview(false))`. `LibraryPreviewHide`
 /// only changes how the strip is drawn.
 fn preview_stopped_by(old: &LibrarySettings, new: &LibrarySettings) -> bool {
@@ -994,7 +1004,28 @@ mod tests {
 
     use sucrose_core::settings::{SortKind, SortMode};
 
-    use super::{LibrarySettings, layout, page_after_settings_change, preview_stopped_by};
+    use super::{LibrarySettings, layout, page_after_settings_change, preview_stopped_by, thumb_for};
+    use crate::library::card::Thumb;
+    use gpui_kit::RenderImage;
+    use std::sync::Arc;
+
+    fn image() -> Arc<RenderImage> {
+        let frame = image::Frame::new(image::ImageBuffer::from_pixel(2, 2, image::Rgba([1, 2, 3, 255])));
+        Arc::new(RenderImage::new(vec![frame]))
+    }
+
+    #[test]
+    fn library_thumb_for_picks_ready_failed_loading_or_idle() {
+        assert!(matches!(thumb_for(Some(image()), false, false), Thumb::Ready(_)));
+        assert!(
+            matches!(thumb_for(Some(image()), true, true), Thumb::Ready(_)),
+            "a cached image wins"
+        );
+        assert!(matches!(thumb_for(None, true, false), Thumb::Failed));
+        assert!(matches!(thumb_for(None, true, true), Thumb::Failed));
+        assert!(matches!(thumb_for(None, false, true), Thumb::Loading));
+        assert!(matches!(thumb_for(None, false, false), Thumb::Idle));
+    }
 
     fn settings() -> LibrarySettings {
         LibrarySettings {

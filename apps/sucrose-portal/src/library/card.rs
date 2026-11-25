@@ -23,8 +23,10 @@ const STRIP_HEIGHT: f32 = 56.0;
 pub enum Thumb {
     /// The decoded thumbnail.
     Ready(Arc<RenderImage>),
-    /// Not decoded yet.
+    /// Wanted and waiting for its decode: the animated skeleton.
     Loading,
+    /// Not requested: the card is not near the view; a static fill, so it asks for no animation frames.
+    Idle,
     /// It cannot be decoded.
     Failed,
 }
@@ -191,6 +193,12 @@ pub fn render_card(data: CardData, width: Pixels, cx: &App) -> impl IntoElement 
             .object_fit(ObjectFit::Cover)
             .into_any_element(),
         Thumb::Loading => Skeleton::new().absolute().inset_0().size_full().into_any_element(),
+        Thumb::Idle => div()
+            .absolute()
+            .inset_0()
+            .size_full()
+            .bg(theme.skeleton)
+            .into_any_element(),
         Thumb::Failed => div()
             .absolute()
             .inset_0()
