@@ -37,7 +37,7 @@ created: "2026-11-24"
 | T-03-01 | Denial of Service | crates/sucrose-config/src/store.rs | high | mitigate | crates/sucrose-config/src/store.rs (temp + sync_all + rename, BACKUP_FILE Sucrose.json.bak line 23, load order line 79); test kill_during_write_never_leaves_a_corrupt_file (tests/store.rs:412); 03-01-SUMMARY; WR-09 keep_corrupt_aside keeps a corrupt file as Sucrose.json.corrupt before it is replaced (tests/store.rs a_corrupt_file_*) | closed |
 | T-03-02 | Tampering | legacy Setting/*.json | high | mitigate | crates/sucrose-config/src/migrate.rs:4 (never writes, renames or deletes a legacy file); legacy.rs reader read-only (tests/legacy.rs); 03-01-SUMMARY: SHA-256 of 14 real legacy files matched before and after | closed |
 | T-03-03 | Tampering | Sucrose.json written by a newer build or edited by hand | medium | mitigate | crates/sucrose-config/src/model.rs:79 #[serde(flatten)] extra map; store.rs:49 StoreError::NewerVersion kept unchanged; typed getters in legacy.rs (get_clamped/get_enum) | closed |
-| T-03-SC | Tampering | crates.io dependencies | high | mitigate | Package legitimacy recorded in 03-27-SUMMARY:149 (40 OK); crates pinned in root Cargo.toml [workspace.dependencies] (rust-i18n=4.2.4, trash=5.4.0, gpui =0.3.12); cargo deny job .github/workflows/rust.yml:95-99; no crate added in 03-01/03-04 summaries | closed |
+| T-03-SC | Tampering | crates.io dependencies | high | mitigate | Package legitimacy recorded in 03-27-SUMMARY:149 (40 OK); crates pinned in root Cargo.toml [workspace.dependencies] (rust-i18n=4.2.4, trash=5.4.0, gpui =0.3.12); cargo deny job .github/workflows/rust.yml:95-99; no crate added in 03-01/03-04 summaries; 03-41..03-44 add no crate (Cargo.toml and Cargo.lock unchanged since 214e6dca) | closed |
 | T-03-04 | Information Disclosure | crates/sucrose-core/src/library.rs | high | mitigate | crates/sucrose-core/src/theme.rs:344 (".." rejected), :370 "Source resolves outside the theme folder"; tests/theme.rs | closed |
 | T-03-05 | Denial of Service | crates/sucrose-core/src/library.rs | medium | mitigate | crates/sucrose-core/src/library.rs:69,152 Unreadable distinct from Corrupt; theme.rs:185 ThemeError::Unreadable | closed |
 | T-03-06 | Tampering | SucroseInfo.json parsing | low | accept | accept: documented in 03-02 plan; theme.rs:224 serde_json typed parse, malformed file only makes theme corrupt | closed |
@@ -122,6 +122,16 @@ created: "2026-11-24"
 | T-03-85 | Information disclosure | "page shown" memory fields | low | mitigate | apps/sucrose-portal/src/library/mod.rs:525-539 MiB figures only, gated on the debug filter; 03-40-SUMMARY | closed |
 | T-03-86 | Tampering | os_windows/memory.rs FFI (memory safety) | medium | mitigate | crates/sucrose-platform/src/os_windows/memory.rs:34,43 SAFETY comments, cb set before the call; results checked; 03-40-SUMMARY | closed |
 | T-03-87 | Denial of service | memory_detail on the GPUI thread | low | accept | accept: documented in 03-40 plan; library/mod.rs:525-527 memory_detail only when the debug filter is on | closed |
+| T-03-88 | Information disclosure | screen copies in target/backdrop-check | low | mitigate | D-035 limits per 03-41-SUMMARY (window rectangle only, no activation, no input); `ls target/backdrop-check/*.png` finds none; nothing under target/ is tracked (`git ls-files target` empty) | closed |
+| T-03-89 | Tampering | data touched by the 03-41 e2e runs | low | mitigate | target/backdrop-check/Setting/Sucrose.json has `"DeleteCorrupt": false`; synth-library guard; tasklist empty after the runs (03-41-SUMMARY) | closed |
+| T-03-90 | Information disclosure (readability) | text over a see-through page | low | accept | accept: documented in 03-41 plan; apps/sucrose-portal/src/theme.rs:91 TINT_ALPHA 0.78 floor kept, pinned by theme tests (theme.rs:260-262) | closed |
+| T-03-91 | Denial of service | ThumbCache above its caps while wanted thumbnails are kept | medium | mitigate | apps/sucrose-portal/src/library/thumbs.rs:20,22 caps unchanged (64 images / 48 MiB); insert_keeping (:217) and trim (:239) keep only wanted keys; 03-43 log showed the cache at images=64. The D-25 run on this path (03-44) was skipped by the maintainer, so the bound is unit-tested but not re-measured | closed |
+| T-03-92 | Denial of service | animation frames from placeholders of cards that never load | low | mitigate | apps/sucrose-portal/src/library/card.rs:29,196 Thumb::Idle static fill; library/mod.rs:973 maps a card that is not wanted to Idle | closed |
+| T-03-93 | Information disclosure | "thumbnails requested" debug line | low | mitigate | apps/sucrose-portal/src/library/mod.rs:610 numbers only (first, last, wanted, queued), as the 03-43 smoke log line shows | closed |
+| T-03-94 | Tampering | data touched by the 03-42 release runs | low | mitigate | target/thumbs-check/Setting/Sucrose.json has `"DeleteCorrupt": false`; synthetic library; every started app stopped (03-42-SUMMARY) | closed |
+| T-03-95 | Tampering | maintainer data during the 03-43 check | medium | mitigate | Scratch target/uat-gaps migrated with `--no-portal`; its Sucrose.json has `"DeleteCorrupt": false`; switches edited only there; apps stopped and tasklist empty (03-43-SUMMARY) | closed |
+| T-03-96 | Tampering | data touched by the 03-44 measurement | low | mitigate | target/synth-500/Setting/Sucrose.json has `"DeleteCorrupt": false`; synth-library guard; only the smoke pass ran and its apps were stopped (03-44-SUMMARY) | closed |
+| T-03-97 | Repudiation | the recorded D-25 verdict | low | mitigate | No verdict was recorded: the maintainer skipped the run (03-44-SUMMARY, reply verbatim); docs/MEASUREMENTS.md has no 'after the in-view thumbnail requests' row, so no row exists without a summary behind it | closed |
 
 *Status: open · closed · open — below high threshold (non-blocking)*
 *Severity: critical > high > medium > low — only open threats at or above workflow.security_block_on count toward threats_open*
@@ -147,6 +157,7 @@ created: "2026-11-24"
 | AR-03-10 | T-03-43 | clipboard: Only the quote text the user clicked is copied | plan 03-18 (phase plan author) | 2026-11-24 |
 | AR-03-11 | T-03-56 | startup changes: Each write or removal is logged with the value name; enough on a single-user desktop | plan 03-23 (phase plan author) | 2026-11-24 |
 | AR-03-12 | T-03-87 | memory_detail on the GPUI thread: One heap summary and one DXGI factory per page change, only with the debug filter on; a normal run makes no call | plan 03-40 (phase plan author) | 2026-11-24 |
+| AR-03-13 | T-03-90 | text over a see-through page: The page tint keeps its 0.78 alpha floor (UI-SPEC: muted text keeps 4.5:1 there); 03-41 changes only the layer under the tint | plan 03-41 (phase plan author) | 2026-11-25 |
 
 *Accepted risks do not resurface in future audit runs.*
 
@@ -154,7 +165,7 @@ created: "2026-11-24"
 
 ## Threat Flags (SUMMARY review)
 
-All 27 SUMMARY files with a "Threat Flags" section state "None" or restate planned mitigations; no new threat surfaced.
+All 29 SUMMARY files with a "Threat Flags" section state "None" or restate planned mitigations; no new threat surfaced (03-43 and 03-44 have no such section and changed no code).
 
 ---
 
@@ -163,6 +174,7 @@ All 27 SUMMARY files with a "Threat Flags" section state "None" or restate plann
 | Audit Date | Threats Total | Closed | Open | Run By |
 |------------|---------------|--------|------|--------|
 | 2026-11-24 | 88 | 88 | 0 | gsd-secure-phase (L1 grep audit) |
+| 2026-11-25 | 98 | 98 | 0 | gsd-secure-phase (L1 grep audit, gap plans 03-41..03-44) |
 
 ---
 
@@ -173,7 +185,7 @@ All 27 SUMMARY files with a "Threat Flags" section state "None" or restate plann
 - [x] `threats_open: 0` confirmed
 - [x] `status: verified` set in frontmatter
 
-**Approval:** verified 2026-11-24
+**Approval:** verified 2026-11-24; re-verified 2026-11-25 after gap plans 03-41..03-44
 
 ## Security Audit 2026-11-24
 
@@ -181,4 +193,12 @@ All 27 SUMMARY files with a "Threat Flags" section state "None" or restate plann
 |---|---|
 | Threats found | 88 |
 | Closed | 88 |
+| Open | 0 |
+
+## Security Audit 2026-11-25
+
+| Metric | Count |
+|---|---|
+| Threats found | 98 |
+| Closed | 98 |
 | Open | 0 |
