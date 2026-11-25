@@ -73,15 +73,15 @@ findings:
     title: "`crates/sucrose-platform/Cargo.toml` lost its final newline and the new dependency is out of order"
   - id: WR-14
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "Switching to Mica or Tabbed keeps an earlier Acrylic, and nothing resets the DWM backdrop type"
   - id: WR-15
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "The grid scrollbar is a child of the scrolled element and defaults to hover-only on Windows"
   - id: WR-16
     severity: warning
-    disposition: open
+    disposition: fixed
     title: "In-view request uses last frame's viewport and an unclamped scroll offset, and nothing renders again afterwards"
   - id: WR-13
     severity: warning
@@ -201,9 +201,9 @@ recorded: 2026-11-25T18:16:26.256Z
 | IN-23 | info | open | - |
 | IN-24 | info | open | - |
 | IN-25 | info | open | - |
-| WR-14 | warning | open | - (not in the current review) |
-| WR-15 | warning | open | - (not in the current review) |
-| WR-16 | warning | open | - (not in the current review) |
+| WR-14 | warning | fixed | 03-45; resolved per 03-REVIEW.md (not in the current review) |
+| WR-15 | warning | fixed | 03-46; resolved per 03-REVIEW.md (not in the current review) |
+| WR-16 | warning | fixed | 03-46; resolved per 03-REVIEW.md (not in the current review) |
 | WR-13 | warning | fixed | 03-REVIEW-FIX.md (not in the current review) |
 | WR-09 | warning | fixed | 03-REVIEW-FIX.md (not in the current review) |
 | WR-10 | warning | fixed | 03-REVIEW-FIX.md (not in the current review) |
