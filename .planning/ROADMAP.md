@@ -276,7 +276,69 @@ Plans:
   3. User can show a wallpaper per display, spanned or duplicated, put a different wallpaper on each monitor, and choose the working area or the full display bounds and a stretch mode, with every engine.
   4. Changing a value in the properties editor (all ten control types, texts in the user's language) changes the running wallpaper immediately; the user can restore defaults, turn on developer mode with a remote debugging port, and add, remove or reset web engine arguments.
   5. Each performance condition (lock, sleep, user switch, screen saver, focus, fullscreen, CPU/memory/GPU, network, battery, remote desktop/VM) runs its configured Close, Pause or Resume with the legacy timings; pausing goes through the engine and never suspends processes; volume, loop, shuffle and the two sound rules apply to every engine.
-**Plans**: TBD
+**Plans**: 0/21 plans complete (Round A = D-31 slice 1; Rounds B–E are planned after Round A has executed, 04-CONTEXT D-31 "Planning rounds")
+Plans:
+**Wave 1**
+- [ ] 04-01-PLAN.md — D-32 CEF delay-load spike, part 1: pinned CEF via fetch-engines and CEF_PATH, delay-loaded libcef.dll, CEF subprocess routing, fixture Web library
+- [ ] 04-03-PLAN.md — SucroseProperties.json and SucroseCompatible.json models with real and showcase fixtures (FMT-03)
+
+**Wave 2** *(blocked on Wave 1 completion)*
+- [ ] 04-02-PLAN.md — D-32 gate verdict: a Web theme plays in a windowed CEF browser on the desktop surface; D-036 and the rule exceptions
+
+**Wave 3** *(blocked on Wave 2 completion)*
+- [ ] 04-04-PLAN.md — sucrose-engine: engine identities (D-10), availability, choose_engine with the D-11 fallback order, shared clock follower
+
+**Wave 4** *(blocked on Wave 3 completion)*
+- [ ] 04-05-PLAN.md — Engine trait: mpv and CEF behind one renderer host, Assignment names the engine
+
+**Wave 5** *(blocked on Wave 4 completion)*
+- [ ] 04-06-PLAN.md — Virtual origin https://sucrose.wallpaper.engine/ with one tested resolver, Range, traversal refused (D-14, SEC-02)
+
+**Wave 6** *(blocked on Wave 5 completion)*
+- [ ] 04-07-PLAN.md — Web profiles in <data_dir>/Web/Cef (D-33, D-35), TLS validation by default (D-12), D-037 and D-038
+
+**Wave 7** *(blocked on Wave 6 completion)*
+- [ ] 04-08-PLAN.md — Chromium switches (CefArguments model, Sucrose switches, merge) and developer mode/port/OpenDevTools on CEF (D-17, D-13)
+
+**Wave 8** *(blocked on Wave 7 completion)*
+- [ ] 04-09-PLAN.md — JS API on CEF: PropertyListener calls, filedropdown, non-data compatible keys, Light pause inside the page
+
+**Wave 9** *(blocked on Wave 8 completion)*
+- [ ] 04-10-PLAN.md — On-demand data hub and sucrose-sysinfo (Date), D-24 decoupling, D-039 (D-34)
+
+**Wave 10** *(blocked on Wave 9 completion)*
+- [ ] 04-11-PLAN.md — Memory, Processor, Bios and Motherboard data groups with legacy payloads
+
+**Wave 11** *(blocked on Wave 10 completion)*
+- [ ] 04-12-PLAN.md — Engine detection (files, VC++ Redist), run-only fallback with log, tray and Portal report (ENG-06, ENG-07)
+
+**Wave 12** *(blocked on Wave 11 completion)*
+- [ ] 04-13-PLAN.md — Portal: Web cards usable from the service report; Wallpaper page with engine choice
+
+**Wave 13** *(blocked on Wave 12 completion)*
+- [ ] 04-14-PLAN.md — Portal: Wallpaper group rows (interaction, loop, shuffle, hardware acceleration), live loop/shuffle
+
+**Wave 14** *(blocked on Wave 13 completion)*
+- [ ] 04-15-PLAN.md — Portal: fallback toast with the one-day snooze, row alert, CEF status line, warning colours (D-11, D-16)
+
+**Wave 15** *(blocked on Wave 14 completion)*
+- [ ] 04-16-PLAN.md — Portal: certificate switch, CEF arguments editor with service-owned rules, shared Restart prompt (D-12, D-17)
+
+**Wave 16** *(blocked on Wave 15 completion)*
+- [ ] 04-17-PLAN.md — Portal: Other page Developer group, Open DevTools, developer switch and port (D-13)
+
+**Wave 17** *(blocked on Wave 16 completion)*
+- [ ] 04-18-PLAN.md — Verified prerequisite install: Authenticode, install worker, install dialog (D-15)
+
+**Wave 18** *(blocked on Wave 17 completion)*
+- [ ] 04-19-PLAN.md — Input forwarding to CEF: raw input, legacy messages, cursor and InputType/InputDesktop filters (WAPI-07)
+
+**Wave 19** *(blocked on Wave 18 completion)*
+- [ ] 04-20-PLAN.md — Maintainer checkpoint: 8 Web themes and fixture pages on a release build; marks the Round A completions
+
+**Wave 20** *(blocked on Wave 19 completion)*
+- [ ] 04-21-PLAN.md — Maintainer measurement: CEF against C# CefSharp RAM/CPU into MEASUREMENTS.md
+
 **UI hint**: yes
 **Notes**: Engine binaries ship inside the package (D-028); own `bindgen` bindings loaded with `libloading` (D-013). Legacy bugs are fixed, not ported: CEF path traversal (SEC-02), ping checked first even at threshold 0 (PERF-07), Application wallpapers with fake handles or one process for all screens (TYPE-06), debugger-attach and `NtSuspendProcess` pausing (PLAY-05). Record per-engine RAM/CPU from release builds in `docs/MEASUREMENTS.md`.
 

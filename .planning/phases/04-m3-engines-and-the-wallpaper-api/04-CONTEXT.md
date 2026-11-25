@@ -158,6 +158,21 @@ Windows only; macOS and Linux follow in Phases 6–7. Store, theme creation, cyc
   8. Application wallpapers.
 
   The Phase 3 D-17 rule ("Use disabled for non-Video themes") is lifted per type as each slice lands.
+  - **Planning rounds (maintainer decision on 2026-11-26).** The first planner run returned PHASE SPLIT RECOMMENDED (about 55–65 plans, and slices 2–8 depend on what slice 1 builds and on the D-32 spike). Decimal phases are ruled out (ROADMAP/STATE), so Phase 4 is planned in five rounds that keep the D-31 order. Each round is a separate `/gsd-plan-phase 4` run:
+
+    | Round | D-31 slices |
+    |---|---|
+    | A | 1 |
+    | B | 2 and 3 |
+    | C | 4 and 5 |
+    | D | 6 |
+    | E | 7 and 8 |
+
+    - Round A is planned now. Each later round is planned after the previous round has executed.
+    - Plan numbers and `T-04-NN` threat IDs continue across rounds.
+    - A requirement that spans rounds is marked Complete only in the round that lands its last part.
+    - Requirements and decisions that belong to later rounds are not gaps of an earlier round. The requirement and decision coverage gates of each round report them as deferred to their round.
+    - Phase verification (`human_verify_mode` end-of-phase) runs only after Round E has executed.
 
 ### Research resolutions (confirmed by the maintainer on 2026-11-26)
 The research (`04-RESEARCH.md`, Open Questions for the Maintainer) raised five questions. The maintainer chose the recommended option for each:

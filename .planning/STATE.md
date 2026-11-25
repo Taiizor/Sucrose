@@ -1,17 +1,17 @@
 ---
 gsd_state_version: "1.0"
-current_phase: 4
+current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
-status: planning
-stopped_at: Phase 4 UI-SPEC approved
-last_updated: "2026-11-25T21:25:20.739Z"
+status: executing
+stopped_at: Phase 4 Round A planned
+last_updated: "2026-11-25T23:04:00.163Z"
 last_activity: 2026-11-25
 last_activity_desc: Phase 03 complete, transitioned to Phase 4
-state_head: f384aa14a59d34dffd4c24f5377856f9fbaf7e0a
+state_head: 5861c0a840808af4a2f98883f1f1783100852ab4
 progress:
   total_phases: 8
   completed_phases: 3
-  total_plans: 79
+  total_plans: 100
   completed_plans: 79
   percent: 38
 ---
@@ -27,11 +27,11 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 
 ## Current Position
 
-Phase: 4 — M3 — Engines and the wallpaper API
+Phase: 04 (M3 — Engines and the wallpaper API) — READY TO EXECUTE
 Plan: Not started
-Status: Ready to plan
-Last activity: 2026-11-25 — Phase 03 complete, transitioned to Phase 4
-Next step: Phase 4 (M3 — Engines and the wallpaper API): `/gsd-discuss-phase 4`, or `/gsd-plan-phase 4` to plan directly.
+Status: Ready to execute
+Last activity: 2026-11-26 — Phase 4 Round A planned (21 plans, 04-01..04-21)
+Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
 
 Progress: [████░░░░░░] 38%
 
@@ -247,6 +247,8 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-47: frame_extension not-needed, backdrop_next closed, backdrop_confirmed yes - Mica, Tabbed, Acrylic and None confirmed by eye in Dark and Light; grid scrollbar and WR-16 confirmed in both OS modes
 - [Phase 03]: 03-50: maintainer skipped the D-25 scenario 2 rerun on the final thumbnail and scrollbar path (reply: skip); no measurement, UI-07 stays open
 - [Phase 03]: UAT tests 10/11 (verify-work, 2026-11-25): D-25 scenario 2 on the final thumbnail and scrollbar path passes (working set final 163 against 168 MB, round 3 end 177 against 184; private 155 against 161, 170 against 175); UI-07 Complete, phase 03 closed
+- [Phase 04]: Planned in five rounds along the D-31 slices (maintainer decision 2026-11-26, after the planner returned PHASE SPLIT RECOMMENDED; no decimal phases). Round A = slice 1 = plans 04-01..04-21. Coverage gate override, approved with that choice: the 29 requirements and 20 CONTEXT decisions of slices 2-8 are deferred to Rounds B-E, not dropped; every Round A requirement and decision is covered. Phase verification runs only after Round E has executed.
+- [Phase 04]: Research open questions resolved with the recommended options (2026-11-26): D-32 CEF delay-load with a sucrose-cef.exe fallback, D-33 first web instance per engine keeps the persistent profile, D-34 sucrose-sysinfo unsafe-allowed, D-35 web data in <data_dir>/Web, D-36 process-event spike with a bounded 2 s ToolHelp fallback
 
 ### Pending Todos
 
