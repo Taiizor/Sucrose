@@ -213,6 +213,7 @@ Add `"Wdk_System_SystemServices"` to the `windows` features of `sucrose-platform
 | async-channel | crates.io | 7 yrs | 7.2M/wk | github.com/smol-rs/async-channel | [OK] | Approved (already in tree) |
 | tempfile | crates.io | 11 yrs | 21M/wk | github.com/Stebalien/tempfile | [OK] | Approved (already in tree, dev only) |
 | sysinfo | crates.io | 11 yrs | 5.1M/wk | github.com/GuillaumeGomez/sysinfo | [OK] | Approved (already a workspace dependency) |
+| raw-window-handle | crates.io | 7 yrs (2019-07) | 3.85M/wk | github.com/rust-windowing/raw-window-handle | [OK] | Approved (gap round 3, plan 03-45: already locked at 0.6.2 through GPUI; verdict from the same check, run by the planner 2026-11-25) |
 
 **Packages removed due to [SLOP] verdict:** none
 **Packages flagged as suspicious [SUS]:** none
