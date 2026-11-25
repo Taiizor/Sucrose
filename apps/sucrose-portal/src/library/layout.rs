@@ -94,22 +94,64 @@ pub fn neighbor(position: usize, count: usize, columns: usize, arrow: Arrow) -> 
     }
 }
 
-/// The rows of a grid that meet the scroll viewport: rows are `rows` in number, row `i` starts at `padding + i * (CARD_HEIGHT
-/// + gap)` in content coordinates and is [`CARD_HEIGHT`] tall; the viewport spans `scroll_top` to `scroll_top +
-/// viewport_height`. A viewport that is zero, negative or not finite shows no row.
-pub fn rows_in_view(_scroll_top: f32, _viewport_height: f32, _padding: f32, _gap: f32, _rows: usize) -> Range<usize> {
-    0..0
+/// The rows of a grid that meet the scroll viewport. There are `rows` rows; row `i` starts at `padding + i * stride` in
+/// content coordinates, where the stride is [`CARD_HEIGHT`] plus `gap`, and is [`CARD_HEIGHT`] tall. The viewport spans
+/// from `scroll_top` for `viewport_height`. A viewport that is zero, negative or not finite shows no row; a scroll top
+/// below zero is the top.
+pub fn rows_in_view(scroll_top: f32, viewport_height: f32, padding: f32, gap: f32, rows: usize) -> Range<usize> {
+    if rows == 0 || !(viewport_height.is_finite() && viewport_height > 0.0) || !scroll_top.is_finite() {
+        return 0..0;
+    }
+    let top = scroll_top.max(0.0);
+    let padding = if padding.is_finite() { padding.max(0.0) } else { 0.0 };
+    let gap = if gap.is_finite() { gap.max(0.0) } else { 0.0 };
+    let stride = CARD_HEIGHT + gap;
+    // The first row whose bottom edge is below the top of the viewport, and the first row that starts at or below its bottom
+    // edge (float to usize casts saturate, and the result is clamped to `rows`).
+    let past_top = top - padding - CARD_HEIGHT;
+    let first = if past_top < 0.0 {
+        0
+    } else {
+        (past_top / stride).floor() as usize + 1
+    };
+    let below = top + viewport_height - padding;
+    let end = if below <= 0.0 {
+        0
+    } else {
+        (below / stride).ceil() as usize
+    };
+    let first = first.min(rows);
+    first..end.min(rows).max(first)
 }
 
-/// The page positions to request thumbnails for, nearest first.
+/// The page positions to request thumbnails for, nearest first: the cards of the `visible_rows` top-down, then of up to
+/// `lookahead` rows below them and up to `lookahead` rows above them, nearest row first. The cards are laid out row by row
+/// in `columns` columns, `rows` rows in all, and positions are clipped to `count` cards.
 pub fn cards_to_request(
-    _visible_rows: Range<usize>,
-    _rows: usize,
-    _columns: usize,
-    _count: usize,
-    _lookahead: usize,
+    visible_rows: Range<usize>,
+    rows: usize,
+    columns: usize,
+    count: usize,
+    lookahead: usize,
 ) -> Vec<usize> {
-    Vec::new()
+    if visible_rows.is_empty() {
+        return Vec::new();
+    }
+    let columns = columns.max(1);
+    let row_cards = |row: usize| {
+        let start = row.saturating_mul(columns).min(count);
+        start..start.saturating_add(columns).min(count)
+    };
+    let end = visible_rows.end.min(rows);
+    let below = (1..=lookahead)
+        .map(|step| end.saturating_add(step - 1))
+        .filter(|row| *row < rows);
+    let above = (1..=lookahead).filter_map(|step| visible_rows.start.checked_sub(step));
+    (visible_rows.start..end)
+        .chain(below)
+        .chain(above)
+        .flat_map(row_cards)
+        .collect()
 }
 
 /// How many pages `count` themes make with `size` themes on a page.

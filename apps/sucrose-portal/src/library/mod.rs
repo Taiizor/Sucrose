@@ -42,6 +42,8 @@ use thumbs::{Bucket, CACHE_BYTES, CACHE_IMAGES, DECODE_SLOTS, DecodeQueue, Thumb
 
 /// How long a scan may take before the skeleton grid shows (UI-SPEC E1 loading row).
 const SKELETON_DELAY: Duration = Duration::from_millis(150);
+/// How many rows above and below the rows in view get their thumbnails too, so a slow scroll finds them ready.
+const LOOKAHEAD_ROWS: usize = 1;
 
 /// The settings the page reads, taken from what the service reported.
 #[derive(Debug, Clone, PartialEq)]
@@ -180,6 +182,11 @@ pub struct LibraryView {
     queue: DecodeQueue,
     /// Thumbnails that could not be decoded.
     failed: HashSet<ThumbKey>,
+    /// The thumbnails of the cards in view and the rows next to them: the cache never evicts these.
+    wanted: HashSet<ThumbKey>,
+    /// The page positions `wanted` was computed for; `None` after a page, sort, search or scan change, so the next render
+    /// requests again.
+    requested: Option<Vec<usize>>,
     /// The single live hover preview; its frames never enter `cache` (they are not thumbnails).
     preview: PreviewState<Arc<RenderImage>>,
     /// The dwell timer of the card the pointer rests on; dropping it cancels the wait.
@@ -248,6 +255,8 @@ impl LibraryView {
             cache: ThumbCache::new(CACHE_IMAGES, CACHE_BYTES),
             queue: DecodeQueue::new(DECODE_SLOTS),
             failed: HashSet::new(),
+            wanted: HashSet::new(),
+            requested: None,
             preview: PreviewState::Idle,
             preview_timer: None,
             preview_job: None,
@@ -516,12 +525,12 @@ impl LibraryView {
         cx.notify();
     }
 
-    /// Queues the thumbnails of the page that is shown, first card first.
+    /// A new page is shown (or the cards changed under it): logs it and forgets the previous request. The thumbnails are
+    /// requested by the next render, from the rows in view ([`Self::request_visible`]).
     fn request_page(&mut self, cx: &mut Context<Self>) {
         let Some(settings) = &self.settings else {
             return;
         };
-        let range = layout::page_slice(self.visible.len(), self.page, settings.pagination);
         // The memory reading costs a heap walk and a DXGI query, so only a run that logs it pays (UI-07 diagnosis).
         let memory = if tracing::enabled!(tracing::Level::DEBUG) {
             sucrose_platform::memory_detail()
@@ -541,13 +550,67 @@ impl LibraryView {
             gpu_non_local_mb = mib(memory.gpu_non_local),
             "page shown"
         );
-        let keys: Vec<ThumbKey> = self.visible[range]
+        self.wanted.clear();
+        self.requested = None;
+        self.queue.set_wanted(Vec::new());
+        self.pump(cx);
+    }
+
+    /// Requests the thumbnails of the cards in view and the rows next to them when those changed since the last request.
+    /// The scroll position is read here, at render: a wheel step notifies this view and a scrollbar drag redraws the window.
+    fn request_visible(&mut self, settings: &LibrarySettings, columns: usize, window: &Window, cx: &mut Context<Self>) {
+        let count = layout::page_slice(self.visible.len(), self.page, settings.pagination).len();
+        let rows = count.div_ceil(columns.max(1));
+        // The viewport has no size before the first paint; the window's height stands in for it, so the first frame still
+        // asks for the cards at the top (asking for none would leave them static and never trigger another frame).
+        let measured = f32::from(self.scroll.bounds().size.height);
+        let viewport = if measured > 0.0 {
+            measured
+        } else {
+            f32::from(window.viewport_size().height)
+        };
+        let scroll_top = (-f32::from(self.scroll.offset().y)).max(0.0);
+        let in_view = layout::rows_in_view(scroll_top, viewport, grid::CONTENT_PADDING, settings.margin, rows);
+        let positions = layout::cards_to_request(in_view, rows, columns, count, LOOKAHEAD_ROWS);
+        if self.requested.as_ref() != Some(&positions) {
+            self.request_in_view(positions, cx);
+        }
+    }
+
+    /// Wants the thumbnails at page `positions` (nearest the view first): they are kept in the cache, the ones not decoded
+    /// yet are queued in that order, and whatever else exceeds the cache caps is dropped from the atlas.
+    fn request_in_view(&mut self, positions: Vec<usize>, cx: &mut Context<Self>) {
+        let Some(pagination) = self.settings.as_ref().map(|settings| settings.pagination) else {
+            return;
+        };
+        let range = layout::page_slice(self.visible.len(), self.page, pagination);
+        let page = &self.visible[range];
+        let keys: Vec<ThumbKey> = positions
             .iter()
-            .take(CACHE_IMAGES)
+            .filter_map(|&position| page.get(position))
             .map(|&index| thumb_key(&self.thumb_times, &self.themes[index], self.bucket))
+            .collect();
+        self.wanted = keys.iter().cloned().collect();
+        for key in &keys {
+            self.cache.touch(key);
+        }
+        let queued: Vec<ThumbKey> = keys
+            .into_iter()
             .filter(|key| !self.cache.contains(key) && !self.failed.contains(key))
             .collect();
-        self.queue.set_wanted(keys);
+        let wanted = &self.wanted;
+        let evicted = self.cache.trim(|key| wanted.contains(key));
+        atlas::release_images(cx, evicted);
+        // Numbers only: no path, folder or title reaches the log (T-03-63).
+        tracing::debug!(
+            first = positions.iter().min().copied().unwrap_or_default(),
+            last = positions.iter().max().copied().unwrap_or_default(),
+            wanted = self.wanted.len(),
+            queued = queued.len(),
+            "thumbnails requested"
+        );
+        self.queue.set_wanted(queued);
+        self.requested = Some(positions);
         self.pump(cx);
     }
 
@@ -715,7 +778,9 @@ impl LibraryView {
         self.queue.finish(&key);
         match result {
             Ok(image) => {
-                let evicted = self.cache.insert(key, image);
+                // What is in view stays, whatever the caps say; the rest goes least recently shown first.
+                let wanted = &self.wanted;
+                let evicted = self.cache.insert_keeping(key, image, |key| wanted.contains(key));
                 atlas::release_images(cx, evicted);
             }
             Err(error) => {
@@ -749,7 +814,7 @@ impl LibraryView {
             let index = self.visible[slot];
             let theme = &self.themes[index];
             let key = thumb_key(&self.thumb_times, theme, self.bucket);
-            let thumb = match self.cache.get(&key) {
+            let thumb = match self.cache.peek(&key) {
                 Some(image) => Thumb::Ready(image),
                 None if self.failed.contains(&key) => Thumb::Failed,
                 None => Thumb::Loading,
@@ -852,6 +917,7 @@ impl Render for LibraryView {
                     grid::LibraryState::SearchEmpty => grid::search_empty(),
                     grid::LibraryState::Grid => {
                         let columns = layout::columns(content_width, settings.margin, settings.adaptive_layout);
+                        self.request_visible(&settings, columns, window, cx);
                         let cards = self.cards(&settings, columns, cx);
                         grid::page(
                             cards,

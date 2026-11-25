@@ -146,7 +146,9 @@ impl Release for Arc<RenderImage> {
 }
 
 /// The decoded thumbnails that are kept, at most `max_images` and `max_bytes`; the one shown longest ago goes first.
-/// Inserting returns what had to go, for the caller to release.
+/// Inserting returns what had to go, for the caller to release. The caps bind everything except the entries a caller
+/// keeps ([`ThumbCache::insert_keeping`], [`ThumbCache::trim`]): the thumbnails of the cards on screen are never evicted,
+/// so the cache holds more than the caps only while more cards than that are in view, and trims back when they scroll away.
 pub struct ThumbCache<T: Release> {
     max_images: usize,
     max_bytes: usize,
@@ -182,7 +184,8 @@ impl<T: Release + Clone> ThumbCache<T> {
         self.entries.iter().any(|(kept, _)| kept == key)
     }
 
-    /// The image for `key`; it counts as shown now.
+    /// The image for `key`; it counts as shown now. The page itself reads with [`Self::peek`] and [`Self::touch`].
+    #[cfg(test)]
     pub fn get(&mut self, key: &ThumbKey) -> Option<T> {
         let position = self.entries.iter().position(|(kept, _)| kept == key)?;
         let entry = self.entries.remove(position)?;
@@ -191,27 +194,27 @@ impl<T: Release + Clone> ThumbCache<T> {
         Some(value)
     }
 
-    /// The image for `key` without counting it as shown.
-    pub fn peek(&self, _key: &ThumbKey) -> Option<T> {
-        None
+    /// The image for `key` without counting it as shown (drawing a page must not make its last cards the newest entries).
+    pub fn peek(&self, key: &ThumbKey) -> Option<T> {
+        self.entries
+            .iter()
+            .find(|(kept, _)| kept == key)
+            .map(|(_, value)| value.clone())
     }
 
-    /// Counts `key` as shown now.
-    pub fn touch(&mut self, _key: &ThumbKey) {}
-
-    /// Like [`Self::insert`], but entries for which `keep` holds are never evicted.
-    pub fn insert_keeping(&mut self, key: ThumbKey, value: T, _keep: impl Fn(&ThumbKey) -> bool) -> Vec<T> {
-        self.insert(key, value)
+    /// Counts `key` as shown now; a key that is not kept changes nothing.
+    pub fn touch(&mut self, key: &ThumbKey) {
+        if let Some(position) = self.entries.iter().position(|(kept, _)| kept == key)
+            && let Some(entry) = self.entries.remove(position)
+        {
+            self.entries.push_back(entry);
+        }
     }
 
-    /// Evicts entries that `keep` does not hold until both caps hold.
-    pub fn trim(&mut self, _keep: impl Fn(&ThumbKey) -> bool) -> Vec<T> {
-        Vec::new()
-    }
-
-    /// Keeps `value` as the most recently shown image and returns the images that were pushed out. An image that is over
-    /// the byte cap on its own is returned at once and not kept; the others stay.
-    pub fn insert(&mut self, key: ThumbKey, value: T) -> Vec<T> {
+    /// Like [`Self::insert`], but an entry for which `keep` holds is never evicted: the least recently shown entries that
+    /// `keep` does not hold go first, until both caps hold or only kept entries are left. A new value that `keep` does
+    /// not hold and that does not fit is returned at once.
+    pub fn insert_keeping(&mut self, key: ThumbKey, value: T, keep: impl Fn(&ThumbKey) -> bool) -> Vec<T> {
         let mut evicted = Vec::new();
         if let Some(position) = self.entries.iter().position(|(kept, _)| *kept == key)
             && let Some((_, old)) = self.entries.remove(position)
@@ -226,14 +229,38 @@ impl<T: Release + Clone> ThumbCache<T> {
         }
         self.bytes += size;
         self.entries.push_back((key, value));
+        self.evict_over_caps(&keep, &mut evicted);
+        evicted
+    }
+
+    /// Evicts entries that `keep` does not hold, least recently shown first, until both caps hold or only kept entries are
+    /// left; returns them for the caller to release. This brings the cache back under its caps after kept entries went
+    /// above them.
+    pub fn trim(&mut self, keep: impl Fn(&ThumbKey) -> bool) -> Vec<T> {
+        let mut evicted = Vec::new();
+        self.evict_over_caps(&keep, &mut evicted);
+        evicted
+    }
+
+    fn evict_over_caps(&mut self, keep: &impl Fn(&ThumbKey) -> bool, evicted: &mut Vec<T>) {
         while self.entries.len() > self.max_images || self.bytes > self.max_bytes {
-            let Some((_, oldest)) = self.entries.pop_front() else {
+            let Some(position) = self.entries.iter().position(|(key, _)| !keep(key)) else {
+                break;
+            };
+            let Some((_, oldest)) = self.entries.remove(position) else {
                 break;
             };
             self.bytes -= oldest.bytes();
             evicted.push(oldest);
         }
-        evicted
+    }
+
+    /// Keeps `value` as the most recently shown image and returns the images that were pushed out. An image that is over
+    /// the byte cap on its own is returned at once and not kept; the others stay. The page inserts with
+    /// [`Self::insert_keeping`].
+    #[cfg(test)]
+    pub fn insert(&mut self, key: ThumbKey, value: T) -> Vec<T> {
+        self.insert_keeping(key, value, |_| false)
     }
 }
 
