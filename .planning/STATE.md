@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-45-PLAN.md
-last_updated: "2026-11-25T16:50:20.821Z"
+stopped_at: Completed 03-46-PLAN.md
+last_updated: "2026-11-25T17:08:19.639Z"
 last_activity: 2026-11-25
 last_activity_desc: Phase 03 execution started
-state_head: 22e7c33662cdf57988b1da5709fe37e6df39af80
+state_head: 573017364754ba5f905d7311d3974235872135a8
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 79
-  completed_plans: 74
+  completed_plans: 75
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 46 of 50
+Plan: 47 of 50
 Status: Ready to execute
 Last activity: 2026-11-25 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -128,6 +128,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P43 | 40 min | 2 tasks | 0 files |
 | Phase 03 P44 | 15 min | 1 tasks | 0 files |
 | Phase 03 P45 | 11 min | 2 tasks | 9 files |
+| Phase 03 P46 | 12 min | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -237,6 +238,7 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-43: maintainer check found Mica/Tabbed backdrop and the library scrollbar still failing; recorded as leads, UI-01/UI-02/LIB-04/LIB-06 left open for gap closure
 - [Phase 03]: 03-44: the maintainer skipped the D-25 scenario 2 rerun (UAT test 10 stays open); no measurement taken, UI-07 not marked Complete
 - [Phase 03]: 03-45: Sucrose sets the DWM system backdrop type itself through Platform::set_window_backdrop and applies Opaque before every changed GPUI appearance (theme::appearance_steps), because gpui-pre-windows never clears Acrylic or the DWM type (WR-14)
+- [Phase 03]: 03-46: library scrollbar is a sibling overlay of the scroll area on the grid's own ScrollHandle (vertical_scrollbar on the scrolled element moves with the cards); visible_rows clamps the offset and settles on the painted geometry through Window::on_next_frame with exact raw-read comparison
 
 ### Pending Todos
 
@@ -270,6 +272,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-25T16:50:03.253Z
-Stopped at: Completed 03-45-PLAN.md
+Last session: 2026-11-25T17:08:01.393Z
+Stopped at: Completed 03-46-PLAN.md
 Resume file: None
