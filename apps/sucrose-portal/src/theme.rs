@@ -151,9 +151,62 @@ mod tests {
     use gpui_kit::WindowBackgroundAppearance;
     use sucrose_core::settings::Backdrop;
 
-    use super::{
-        DARK_NAME, LIGHT_NAME, SUCROSE_THEMES, appearance, backdrop_active, effective_dark_for, page_alpha, root_fill,
+    use gpui_kit::base::Root;
+    use gpui_kit::{
+        AppContext as _, Context, Fill, IntoElement, Render, Styled as _, TestAppContext, VisualTestContext, Window,
+        div,
     };
+
+    use super::{
+        DARK_NAME, LIGHT_NAME, SUCROSE_THEMES, appearance, apply_root_fill, backdrop_active, effective_dark_for,
+        page_alpha, root_fill,
+    };
+
+    /// A view with nothing in it: the tests look at the Root around it.
+    struct Blank;
+
+    impl Render for Blank {
+        fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
+            div()
+        }
+    }
+
+    /// Applies the fill the stored `backdrop` calls for and returns the background of the Root's own style.
+    fn apply_for(
+        backdrop: Backdrop,
+        root: &gpui_kit::Entity<Root>,
+        cx: &mut VisualTestContext,
+    ) -> (bool, Option<Fill>) {
+        let applied = cx.update(|window, cx| apply_root_fill(backdrop_active(backdrop, true), window, cx));
+        let background = root.update(cx, |root, _| root.style().background.clone());
+        (applied, background)
+    }
+
+    #[gpui_kit::test]
+    fn theme_apply_root_fill_clears_and_restores_the_base_root(cx: &mut TestAppContext) {
+        let (root, cx) = cx.add_window_view(|window, cx| {
+            let view = cx.new(|_| Blank);
+            Root::new(view, window, cx)
+        });
+        let transparent: Option<Fill> = root_fill(true).map(Into::into);
+        assert!(transparent.is_some());
+
+        // None → Mica: cleared.
+        assert_eq!(apply_for(Backdrop::Mica, &root, cx), (true, transparent.clone()));
+        // Mica → Acrylic: stays cleared.
+        assert_eq!(apply_for(Backdrop::Acrylic, &root, cx), (true, transparent.clone()));
+        // Acrylic → None: the plugin's opaque fill shows again.
+        assert_eq!(apply_for(Backdrop::None, &root, cx), (true, None));
+        // None → Tabbed: cleared once more.
+        assert_eq!(apply_for(Backdrop::Tabbed, &root, cx), (true, transparent));
+    }
+
+    #[gpui_kit::test]
+    fn theme_apply_root_fill_reports_a_window_without_a_base_root(cx: &mut TestAppContext) {
+        let cx = cx.add_empty_window();
+        assert!(!cx.update(|window, cx| apply_root_fill(true, window, cx)));
+        assert!(!cx.update(|window, cx| apply_root_fill(false, window, cx)));
+    }
 
     #[test]
     fn theme_root_fill_is_transparent_only_while_a_backdrop_shows() {
