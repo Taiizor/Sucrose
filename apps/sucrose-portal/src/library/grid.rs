@@ -6,7 +6,7 @@ use gpui_kit::component::{
     button::Button,
     empty::{Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyMediaVariant, EmptyTitle},
     h_flex,
-    scroll::ScrollableElement as _,
+    scroll::{Scrollbar, ScrollbarAxis},
     v_flex,
 };
 use gpui_kit::*;
@@ -143,17 +143,37 @@ fn plan(content_width: f32, gap: f32, max_per_row: usize) -> Plan {
     }
 }
 
-/// The scroll area around `block`: centered, with the content padding. The scrollbar is bound to the same `scroll` handle the
-/// view resets on a page change and reads for the rows in view (`overflow_y_scrollbar` would scroll a handle of its own); it
-/// follows the OS scrollbar mode gpui-component syncs at init.
+/// The scroll area around `block`: centered, with the content padding. The scrollbar is a sibling of the scroll area inside a
+/// non-scrolling relative wrapper, not a child of it: GPUI offsets every child of a scroll container, absolute ones included,
+/// so a bar appended to the scrolled element moves away with the cards (WR-15). Both use the `scroll` handle the view resets
+/// on a page change and reads for the rows in view (`overflow_y_scrollbar` would scroll a handle of its own). The bar follows
+/// `Theme.scrollbar_mode` as gpui-component syncs it from the OS at init (Windows: shown on hover while the OS auto-hides
+/// scrollbars, always with "Always show scrollbars" on).
 fn scroll_area(scroll: &ScrollHandle, block: impl IntoElement) -> AnyElement {
     div()
-        .id("library-scroll")
+        .relative()
         .size_full()
-        .overflow_y_scroll()
-        .track_scroll(scroll)
-        .vertical_scrollbar(scroll)
-        .child(v_flex().items_center().p(px(CONTENT_PADDING)).child(block))
+        .child(
+            div()
+                .id("library-scroll")
+                .size_full()
+                .overflow_y_scroll()
+                .track_scroll(scroll)
+                .debug_selector(|| "library-scroll".to_string())
+                .child(v_flex().items_center().p(px(CONTENT_PADDING)).child(block)),
+        )
+        .child(
+            div()
+                .absolute()
+                .inset_0()
+                .debug_selector(|| "library-scrollbar".to_string())
+                .child(
+                    Scrollbar::new(scroll)
+                        .id("library-scrollbar")
+                        .axis(ScrollbarAxis::Vertical)
+                        .viewport_from_layout(),
+                ),
+        )
         .into_any_element()
 }
 
@@ -242,5 +262,108 @@ mod tests {
     fn one_theme_is_one_card() {
         assert_eq!(library_state(false, 1, "", 1), LibraryState::Grid);
         assert_eq!(library_state(false, 1, "sea", 1), LibraryState::Grid);
+    }
+
+    // Not `use super::*`: the crate root glob-imports GPUI, whose `test` macro would shadow the built-in attribute.
+    use super::scroll_area;
+    use gpui_kit::component::v_flex;
+    use gpui_kit::{
+        Bounds, Context, InteractiveElement as _, IntoElement, ParentElement as _, Pixels, Render, ScrollDelta,
+        ScrollEvent, ScrollHandle, StatefulInteractiveElement as _, Styled as _, TestAppContext, VisualTestContext,
+        Window, div, point, px, size,
+    };
+    use std::{cell::Cell, rc::Rc};
+
+    /// A window root that shows `rows` rows of 100 px (the first one clickable, the last one tagged `last-row`) in
+    /// `scroll_area`.
+    struct ScrollHost {
+        scroll: ScrollHandle,
+        rows: usize,
+        clicked: Rc<Cell<bool>>,
+    }
+
+    impl Render for ScrollHost {
+        fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
+            let last = self.rows.saturating_sub(1);
+            let clicked = self.clicked.clone();
+            let block = v_flex().w(px(400.)).children((0..self.rows).map(|ix| {
+                let row = div().id(("row", ix)).h(px(100.)).w_full().flex_shrink_0();
+                let row = if ix == 0 {
+                    let clicked = clicked.clone();
+                    row.on_click(move |_, _, _| clicked.set(true))
+                } else {
+                    row
+                };
+                if ix == last {
+                    row.debug_selector(|| "last-row".to_string())
+                } else {
+                    row
+                }
+            }));
+            div().size_full().child(scroll_area(&self.scroll, block))
+        }
+    }
+
+    fn draw(window: &mut VisualTestContext) {
+        window.run_until_parked();
+        window.update(|window, cx| {
+            _ = window.draw(cx);
+        });
+    }
+
+    /// One wheel step of `dy` pixels at (`x`, `y`), then a draw.
+    fn wheel(window: &mut VisualTestContext, x: f32, y: f32, dy: f32) {
+        window.simulate_event(ScrollEvent {
+            position: point(px(x), px(y)),
+            delta: ScrollDelta::Pixels(point(px(0.), px(dy))),
+            ..Default::default()
+        });
+        draw(window);
+    }
+
+    /// A 600 x 400 window with `rows` rows, drawn once.
+    fn window_with_rows(cx: &mut TestAppContext, rows: usize, clicked: Rc<Cell<bool>>) -> &mut VisualTestContext {
+        cx.update(gpui_kit::init);
+        let (_, window) = cx.add_window_view(|_, _| ScrollHost {
+            scroll: ScrollHandle::new(),
+            rows,
+            clicked,
+        });
+        window.simulate_resize(size(px(600.), px(400.)));
+        draw(window);
+        window
+    }
+
+    fn bounds(window: &mut VisualTestContext, selector: &'static str) -> Bounds<Pixels> {
+        window
+            .debug_bounds(selector)
+            .unwrap_or_else(|| panic!("no element tagged {selector}"))
+    }
+
+    #[gpui_kit::test]
+    fn grid_scrollbar_stays_on_the_right_edge_while_the_cards_scroll(cx: &mut TestAppContext) {
+        let window = window_with_rows(cx, 30, Rc::default());
+        let overlay = bounds(window, "library-scrollbar");
+        let area = bounds(window, "library-scroll");
+        assert_eq!(overlay, area, "the overlay covers the scroll area");
+        let before = bounds(window, "last-row").origin.y;
+
+        wheel(window, 300., 200., -200.);
+
+        assert_eq!(
+            bounds(window, "library-scrollbar"),
+            overlay,
+            "the overlay keeps its bounds while the cards scroll"
+        );
+        assert_eq!(
+            overlay.right(),
+            area.right(),
+            "the overlay ends at the scroll area's right edge"
+        );
+        assert_eq!(
+            before - bounds(window, "last-row").origin.y,
+            px(200.),
+            "the last row moved up by the wheel step"
+        );
     }
 }
