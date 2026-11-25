@@ -241,16 +241,16 @@ Plans:
 **Gap round 2, wave 4** *(blocked on wave 3)*
 - [x] 03-44-PLAN.md — Checkpoint: D-25 scenario 2 rerun on the in-view thumbnail path (UAT test 10, ready gate, page-log rounds), recorded in MEASUREMENTS.md
 
-**Gap closure round 3 (2026-11-25, from 03-VERIFICATION.md gaps "SC5 backdrop" and "grid scrollbar", the behavior-unverified SC5 memory item, and 03-REVIEW.md WR-14, WR-15)**
+**Gap closure round 3 (2026-11-25, from 03-VERIFICATION.md gaps "SC5 backdrop" and "grid scrollbar", the behavior-unverified SC5 memory item, and 03-REVIEW.md WR-14, WR-15, WR-16)**
 
 **Gap round 3, wave 1**
 - [ ] 03-45-PLAN.md — WR-14: Opaque before a changed backdrop, DWM system backdrop type set and reset through sucrose-platform (Platform::set_window_backdrop) with the HRESULT logged as dwm_result
 
 **Gap round 3, wave 2** *(blocked on wave 1)*
-- [ ] 03-46-PLAN.md — WR-15: grid scrollbar mounted beside the scroll area (GPUI layout tests), docs say it is unconfirmed until 03-47
+- [ ] 03-46-PLAN.md — WR-15: grid scrollbar mounted beside the scroll area (GPUI layout tests), docs say it is unconfirmed until 03-47; WR-16: rows in view from an offset clamped to the content, settled on the next frame after a shrink or resize (layout and GPUI tests), before the D-25 rerun
 
 **Gap round 3, wave 3** *(blocked on wave 2)*
-- [ ] 03-47-PLAN.md — Checkpoint: the maintainer judges Mica, Tabbed, Acrylic and None (both directions, Dark and Light, active window) and the grid scrollbar with "Always show scrollbars" off and on; frame-extension verdict by rule; docs corrected
+- [ ] 03-47-PLAN.md — Checkpoint: the maintainer judges Mica, Tabbed, Acrylic and None (both directions, Dark and Light, active window), the grid scrollbar with "Always show scrollbars" off and on, and the thumbnails after a resize (WR-16); frame-extension verdict by rule with a next step for every verdict (backdrop_next: closed, 03-48 or replan); docs corrected
 
 **Gap round 3, wave 4** *(blocked on wave 3)*
 - [ ] 03-48-PLAN.md — Only when 03-47 records frame_extension: needed: extend the DWM frame into the client area for Mica and Tabbed
