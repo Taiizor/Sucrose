@@ -121,7 +121,7 @@ Plans:
   3. Starting the service or the Portal a second time reuses the running instance, Exit closes every Sucrose process, and a renderer that keeps crashing is restarted a bounded number of times and then stopped, never in a loop.
   4. An optional module the user turns off starts no thread and does no polling, and with "start with the OS" on, Sucrose starts after sign-in and resumes the wallpaper.
   5. The Portal follows light, dark or the OS theme with its Mica/Acrylic backdrop and optional background image, has header actions, search, a status bar and Help/About, and scrolling through a large library keeps its memory bounded (release build, recorded in `docs/MEASUREMENTS.md`).
-**Plans**: 42/44 plans executed
+**Plans**: 43/44 plans executed
 Plans:
 **Wave 1**
 - [x] 03-01-PLAN.md — Settings tracer: Setting/Sucrose.json migrated once, atomic store with .bak and kill test, service reads it (D-032)
@@ -236,7 +236,7 @@ Plans:
 - [x] 03-42-PLAN.md — G-03-6, G-03-8: thumbnails for the rows in view plus one row ahead (no first-64 cap), wanted thumbnails kept in the bounded cache, grid scrollbar, static placeholder for cards that are not loading
 
 **Gap round 2, wave 3** *(blocked on wave 2)*
-- [ ] 03-43-PLAN.md — Checkpoint: the maintainer checks the backdrop (Acrylic, Mica, Tabbed, None; Light and Dark), the 100-per-page library while scrolling, and hover previews with Library Preview on
+- [x] 03-43-PLAN.md — Checkpoint: the maintainer checks the backdrop (Acrylic, Mica, Tabbed, None; Light and Dark), the 100-per-page library while scrolling, and hover previews with Library Preview on
 
 **Gap round 2, wave 4** *(blocked on wave 3)*
 - [ ] 03-44-PLAN.md — Checkpoint: D-25 scenario 2 rerun on the in-view thumbnail path (UAT test 10, ready gate, page-log rounds), recorded in MEASUREMENTS.md
@@ -324,7 +324,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 |-------|----------------|--------|-----------|
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
 | 2. M1 — Video wallpaper on the desktop (Windows) | 29/29 | Complete    | 2026-11-23 |
-| 3. M2 — Service, IPC and Portal connected | 42/44 | In Progress | - |
+| 3. M2 — Service, IPC and Portal connected | 43/44 | In Progress | - |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
 | 6. M5 — macOS | 0/TBD | Not started | - |
