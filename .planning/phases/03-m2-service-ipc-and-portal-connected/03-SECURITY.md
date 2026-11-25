@@ -37,7 +37,7 @@ created: "2026-11-24"
 | T-03-01 | Denial of Service | crates/sucrose-config/src/store.rs | high | mitigate | crates/sucrose-config/src/store.rs (temp + sync_all + rename, BACKUP_FILE Sucrose.json.bak line 23, load order line 79); test kill_during_write_never_leaves_a_corrupt_file (tests/store.rs:412); 03-01-SUMMARY; WR-09 keep_corrupt_aside keeps a corrupt file as Sucrose.json.corrupt before it is replaced (tests/store.rs a_corrupt_file_*) | closed |
 | T-03-02 | Tampering | legacy Setting/*.json | high | mitigate | crates/sucrose-config/src/migrate.rs:4 (never writes, renames or deletes a legacy file); legacy.rs reader read-only (tests/legacy.rs); 03-01-SUMMARY: SHA-256 of 14 real legacy files matched before and after | closed |
 | T-03-03 | Tampering | Sucrose.json written by a newer build or edited by hand | medium | mitigate | crates/sucrose-config/src/model.rs:79 #[serde(flatten)] extra map; store.rs:49 StoreError::NewerVersion kept unchanged; typed getters in legacy.rs (get_clamped/get_enum) | closed |
-| T-03-SC | Tampering | crates.io dependencies | high | mitigate | Package legitimacy recorded in 03-27-SUMMARY:149 (40 OK); crates pinned in root Cargo.toml [workspace.dependencies] (rust-i18n=4.2.4, trash=5.4.0, gpui =0.3.12); cargo deny job .github/workflows/rust.yml:95-99; no crate added in 03-01/03-04 summaries; 03-41..03-44 add no crate (Cargo.toml and Cargo.lock unchanged since 214e6dca) | closed |
+| T-03-SC | Tampering | crates.io dependencies | high | mitigate | Package legitimacy recorded in 03-27-SUMMARY:149 (40 OK); crates pinned in root Cargo.toml [workspace.dependencies] (rust-i18n=4.2.4, trash=5.4.0, gpui =0.3.12); cargo deny job .github/workflows/rust.yml:95-99; no crate added in 03-01/03-04 summaries; 03-41..03-44 add no crate (Cargo.toml and Cargo.lock unchanged since 214e6dca); 03-45 adds the direct dependency raw-window-handle 0.6.2 (legitimacy OK before the plan, pinned at Cargo.toml:40, the version GPUI already locked, so Cargo.lock gains no package); 03-46..03-50 add no crate | closed |
 | T-03-04 | Information Disclosure | crates/sucrose-core/src/library.rs | high | mitigate | crates/sucrose-core/src/theme.rs:344 (".." rejected), :370 "Source resolves outside the theme folder"; tests/theme.rs | closed |
 | T-03-05 | Denial of Service | crates/sucrose-core/src/library.rs | medium | mitigate | crates/sucrose-core/src/library.rs:69,152 Unreadable distinct from Corrupt; theme.rs:185 ThemeError::Unreadable | closed |
 | T-03-06 | Tampering | SucroseInfo.json parsing | low | accept | accept: documented in 03-02 plan; theme.rs:224 serde_json typed parse, malformed file only makes theme corrupt | closed |
@@ -132,6 +132,18 @@ created: "2026-11-24"
 | T-03-95 | Tampering | maintainer data during the 03-43 check | medium | mitigate | Scratch target/uat-gaps migrated with `--no-portal`; its Sucrose.json has `"DeleteCorrupt": false`; switches edited only there; apps stopped and tasklist empty (03-43-SUMMARY) | closed |
 | T-03-96 | Tampering | data touched by the 03-44 measurement | low | mitigate | target/synth-500/Setting/Sucrose.json has `"DeleteCorrupt": false`; synth-library guard; only the smoke pass ran and its apps were stopped (03-44-SUMMARY) | closed |
 | T-03-97 | Repudiation | the recorded D-25 verdict | low | mitigate | No verdict was recorded: the maintainer skipped the run (03-44-SUMMARY, reply verbatim); docs/MEASUREMENTS.md has no 'after the in-view thumbnail requests' row, so no row exists without a summary behind it | closed |
+| T-03-98 | Tampering | os_windows.rs set_window_backdrop (unsafe DwmSetWindowAttribute) | medium | mitigate | crates/sucrose-platform/src/os_windows.rs:234 takes the handle from the live window (:239 only RawWindowHandle::Win32, anything else refused; test set_window_backdrop_refuses_a_window_without_a_handle); one unsafe block with its SAFETY comment at :247-249 passing a local DWM_SYSTEMBACKDROP_TYPE; no unsafe in apps/sucrose-portal/src (D-011) | closed |
+| T-03-99 | Tampering | crates.io dependency raw-window-handle | low | mitigate | Cargo.toml:40 raw-window-handle = "0.6.2" in [workspace.dependencies]; crates/sucrose-platform/Cargo.toml:13 workspace = true; Cargo.lock has one raw-window-handle package (938a28f8 adds one dependency line, no package); legitimacy OK recorded in the 03-45 plan; cargo deny job in CI | closed |
+| T-03-100 | Information disclosure | the "backdrop applied" log line | low | mitigate | apps/sucrose-portal/src/app.rs:293 logs backdrop, supported, appearance, steps, root_transparent and dwm_result only; the 03-47 log lines show no title, path or handle value | closed |
+| T-03-101 | Denial of service | the full-size scrollbar overlay above the cards | low | mitigate | apps/sucrose-portal/src/library/grid.rs:172-174 gpui-kit Scrollbar (ScrollbarAxis::Vertical) as a sibling overlay; grid_scrollbar_overlay_lets_clicks_reach_the_cards (:425) passes; 03-47 log shows hover events reaching the cards through the overlay | closed |
+| T-03-109 | Denial of service | grid::visible_rows next-frame check (WR-16) | low | mitigate | apps/sucrose-portal/src/library/grid.rs:207 visible_rows and :225 Window::on_next_frame notify only when the painted reads differ; grid_request_settles_after_a_content_shrink (:550) and grid_request_settles_after_the_window_grows (:571) pass, including the settled check (no frame loop) | closed |
+| T-03-102 | Tampering | maintainer data and OS settings during the 03-47 check | medium | mitigate | Scratch target/uat-gaps migrated with sucrose.exe --no-portal, "DeleteCorrupt": false, switches edited only in the scratch Sucrose.json (03-47-SUMMARY:89); registry only queried (0x1, 0x0, 0x1; the maintainer switched and restored it); tasklist empty after taskkill (03-47-SUMMARY:100, :245) | closed |
+| T-03-103 | Repudiation | the recorded backdrop and scrollbar verdicts | low | mitigate | 03-47-SUMMARY quotes both replies verbatim next to the 42 'backdrop applied' lines (all dwm_result=0x00000000) and the registry readings; frame_extension: not-needed follows the written rule (03-47-SUMMARY:33, :81) | closed |
+| T-03-104 | Tampering | os_windows.rs DwmExtendFrameIntoClientArea | low | mitigate | Not triggered: 03-47 recorded frame_extension: not-needed, so 03-48 added no unsafe call (no DwmExtendFrameIntoClientArea in crates or apps; 03-48-SUMMARY frame_extension_applied: false) | closed |
+| T-03-105 | Tampering | maintainer data during the 03-49 re-check | medium | mitigate | Not triggered: 03-49's gate stayed closed (03-49-SUMMARY:14 frame_extension_applied: false, :48 nothing was started, no file changed) | closed |
+| T-03-106 | Repudiation | the recorded backdrop verdict (03-49) | low | mitigate | No new verdict: backdrop_confirmed: yes copied from 03-47 with its verbatim replies and log lines (03-49-SUMMARY:8, :34) | closed |
+| T-03-107 | Tampering | data touched by the 03-50 measurement | low | mitigate | Synthetic target/synth-500 (synth-library guard); scratch Sucrose.json "DeleteCorrupt": false (03-50-SUMMARY:81); only the smoke pass ran and its apps were stopped; tasklist empty and target/synth-500/Log absent at close (03-50-SUMMARY:91) | closed |
+| T-03-108 | Repudiation | the recorded D-25 verdict (03-50) | low | mitigate | No verdict was recorded: the maintainer skipped the run at the ready gate (03-50-SUMMARY:56, reply verbatim); docs/MEASUREMENTS.md has no 'in-view thumbnail requests and the grid scrollbar fix' row, so no row exists without a summary behind it | closed |
 
 *Status: open · closed · open — below high threshold (non-blocking)*
 *Severity: critical > high > medium > low — only open threats at or above workflow.security_block_on count toward threats_open*
@@ -165,7 +177,7 @@ created: "2026-11-24"
 
 ## Threat Flags (SUMMARY review)
 
-All 29 SUMMARY files with a "Threat Flags" section state "None" or restate planned mitigations; no new threat surfaced (03-43 and 03-44 have no such section and changed no code).
+All 29 SUMMARY files with a "Threat Flags" section state "None" or restate planned mitigations; no new threat surfaced (03-43 and 03-44 have no such section and changed no code). Gap plans 03-45..03-50: 03-45, 03-47, 03-48 and 03-49 state "None" or restate planned mitigations; 03-46 and 03-50 have no such section; no new threat surfaced.
 
 ---
 
@@ -175,6 +187,7 @@ All 29 SUMMARY files with a "Threat Flags" section state "None" or restate plann
 |------------|---------------|--------|------|--------|
 | 2026-11-24 | 88 | 88 | 0 | gsd-secure-phase (L1 grep audit) |
 | 2026-11-25 | 98 | 98 | 0 | gsd-secure-phase (L1 grep audit, gap plans 03-41..03-44) |
+| 2026-11-25 | 110 | 110 | 0 | gsd-secure-phase (L1 grep audit, gap plans 03-45..03-50) |
 
 ---
 
@@ -185,7 +198,7 @@ All 29 SUMMARY files with a "Threat Flags" section state "None" or restate plann
 - [x] `threats_open: 0` confirmed
 - [x] `status: verified` set in frontmatter
 
-**Approval:** verified 2026-11-24; re-verified 2026-11-25 after gap plans 03-41..03-44
+**Approval:** verified 2026-11-24; re-verified 2026-11-25 after gap plans 03-41..03-44; re-verified 2026-11-25 after gap plans 03-45..03-50
 
 ## Security Audit 2026-11-24
 
@@ -201,4 +214,12 @@ All 29 SUMMARY files with a "Threat Flags" section state "None" or restate plann
 |---|---|
 | Threats found | 98 |
 | Closed | 98 |
+| Open | 0 |
+
+## Security Audit 2026-11-25
+
+| Metric | Count |
+|---|---|
+| Threats found | 110 |
+| Closed | 110 |
 | Open | 0 |
