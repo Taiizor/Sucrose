@@ -185,6 +185,12 @@ When you make or change a decision, add an entry here in the same change.
 - Why: a separate name lets the user keep the C# app's startup while trying Sucrose, and keeps an uninstall of either from removing the other's entry (D-08).
 - Consequences: the Phase 5 updater and uninstaller must find and remove exactly these names; renaming them later means cleaning up the old names too, which is why they were confirmed by the maintainer on 2026-11-24 (03-CONTEXT.md D-08). The LaunchAgent and XDG formats are checked only as text and file locations in CI; they need a real Mac and a Linux desktop for a sign-in test.
 
+## D-035: Automated checks of window backdrops may copy the screen
+- Status: Accepted (2026-11-25), confirmed by the maintainer at the revision of plan 03-41
+- Decision: an automated check of a DWM effect that `PrintWindow` cannot see (a window backdrop such as Acrylic) may copy the screen instead. The copy covers only the window's `DWMWA_EXTENDED_FRAME_BOUNDS` rectangle. The window is kept topmost without activation for the copy (`SetWindowPos` with `HWND_TOPMOST` and `SWP_NOACTIVATE`, then back to `HWND_NOTOPMOST` the same way): no focus change and no synthesized mouse or keyboard input. The images are deleted after they are read and only the numbers measured from them are kept (quoted in the plan's SUMMARY). The copy is made by a throwaway helper written under the gitignored `target/` that is never committed. This is an exception, for this case only, to two CLAUDE.md rules: "capture with `PrintWindow`" and "automation goes into `xtask`"; every other capture still uses `PrintWindow`, and every other automation still goes into `xtask`.
+- Why: `PrintWindow` returns no content for a window with the Acrylic backdrop, so it cannot show whether a backdrop reaches the screen (UAT gap G-03-5, `.planning/debug/portal-backdrop-no-visible-effect.md`); the "backdrop applied" log line was already written while the screen showed no backdrop, so plan 03-41 has to measure the screen (Backdrop None against Acrylic).
+- Consequences: a screen copy holds whatever is on the maintainer's screen inside that rectangle, which is why it is limited to the window's rectangle, kept under `target/` and deleted after reading. CLAUDE.md stays unchanged (kept short); the capture bullet of `docs/GPUI.md` points here (added by plan 03-41). Any other use of a screen copy in an automated check needs a new entry that extends or supersedes this one.
+
 ---
 
 ## Open questions
