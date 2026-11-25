@@ -36,7 +36,7 @@ created: "2026-11-24"
 
 ## Per-Task Verification Map
 
-Plans 03-11 (T1, T2), 03-24 (T2, T3), 03-28 (T3), 03-37 (T2, T3) and 03-38 (T2, T3) are maintainer-run tasks without an automated command; they are listed under Manual-Only. Plan 03-25 T1 and 03-39 T1 run `cargo xtask measure --portal-summary` as a judgment step. Threat Ref lists the plan's threats with disposition mitigate.
+Plans 03-11 (T1, T2), 03-24 (T2, T3), 03-28 (T3), 03-37 (T2, T3), 03-38 (T2, T3), 03-43 (T2) and 03-44 (T2, T3) are maintainer-run tasks without an automated command; they are listed under Manual-Only. Plan 03-25 T1 and 03-39 T1 run `cargo xtask measure --portal-summary` as a judgment step. Threat Ref lists the plan's threats with disposition mitigate.
 
 | Task ID | Plan | Wave | Requirement | Threat Ref | Secure Behavior | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|------------|-----------------|-----------|-------------------|-------------|--------|
@@ -122,6 +122,12 @@ Plans 03-11 (T1, T2), 03-24 (T2, T3), 03-28 (T3), 03-37 (T2, T3) and 03-38 (T2, 
 | 03-39-3 | 39 | 7 | LIB-06, UI-07 | T-03-84 | LIB-06 and UI-07 are marked Complete on evidence | doc/grep check | `grep -c '^- \[x\] \*\*LIB-06\*\*' .planning/REQUIREMENTS.md && grep -c '^- \[x\]` | ✅ | ✅ green |
 | 03-40-1 | 40 | 4 | UI-07 | T-03-85, T-03-86 | The page log carries the Portal's heap and video memory (platform read | unit | `cargo test -p sucrose-platform memory_detail` | ✅ | ✅ green |
 | 03-40-2 | 40 | 4 | UI-07 | T-03-85, T-03-86 | The log-split summary attributes the growth to GPU memory, held heap o | unit | `cargo test -p xtask portal_` | ✅ | ✅ green |
+| 03-41-1 | 41 | 1 | UI-01, UI-02 | T-03-88, T-03-89 | Acrylic shows through: the Base Root fill is cleared while a backdrop  | unit | `cargo test -p sucrose-portal theme_ && grep -c 'flat=true' target/backdrop-check` | ✅ | ✅ green |
+| 03-41-2 | 41 | 1 | UI-01, UI-02 | T-03-88, T-03-89 | The Root fill is pinned by GPUI tests for every backdrop change | unit | `cargo test -p sucrose-portal theme_ && cargo clippy -p sucrose-portal --all-targ` | ✅ | ✅ green |
+| 03-42-1 | 42 | 2 | LIB-04, LIB-06, UI-07 | T-03-91, T-03-92, T-03-93, T-03-94 | Cards past the 64th get thumbnails (rows in view, wanted keys, cache t | unit | `cargo test -p sucrose-portal layout_ && cargo test -p sucrose-portal thumbs_ && ` | ✅ | ✅ green |
+| 03-42-2 | 42 | 2 | LIB-04, LIB-06, UI-07 | T-03-91, T-03-92, T-03-93, T-03-94 | The grid shows its scrollbar and cards that are not loading stop anima | unit | `cargo test -p sucrose-portal && cargo clippy -p sucrose-portal --all-targets -- ` | ✅ | ✅ green |
+| 03-43-1 | 43 | 3 | UI-01, UI-02, LIB-04, LIB-06 | T-03-95 | Prepare the maintainer check and prove it unattended (scratch settings | doc/grep check | `test -f target/uat-gaps/Setting/Sucrose.json && grep -c '"DeleteCorrupt": false'` | ✅ | ✅ green |
+| 03-44-1 | 44 | 4 | UI-07 | T-03-96, T-03-97 | Prepare scenario 2 after 03-42 and prove the pipeline on a short unatt | doc/grep check | `cargo xtask synth-library --out target/synth-500 --count 500 && grep -c '"Librar` | ✅ | ✅ green |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 
@@ -143,15 +149,15 @@ Plans 03-11 (T1, T2), 03-24 (T2, T3), 03-28 (T3), 03-37 (T2, T3) and 03-38 (T2, 
 | LIB-01 | COVERED | library_ops.rs copies_only_the_showcase_folders_that_are_not_listed; portal.rs showcase_themes_are_copied_once_and_recorded_in_the_settings; migrate.rs library_and_warehouse_keep_their_values |
 | LIB-02 | COVERED | sucrose-core tests/library.rs (six fixture themes, corrupt reasons, path escape); library_ops.rs corrupt-to-bin tests |
 | LIB-03 | COVERED | tests/library.rs sort and search tests; header.rs search tests; grid.rs state tests |
-| LIB-04 | COVERED | layout.rs layout_* (10), pagination.rs and library/mod.rs page tests; visual capture is manual |
+| LIB-04 | COVERED | layout.rs layout_* (10), pagination.rs and library/mod.rs page tests; visual capture is manual; layout.rs rows_in_view and cards_to_request tests (03-42); scrollbar visibility by hand is manual |
 | LIB-06 | COVERED | library/preview.rs preview_* (15 tests), card.rs card_preview_paints_its_second_frame, mod.rs preview_turned_off_*; hover by eye is manual |
 | LIB-08 | COVERED | service.rs decide_use; portal.rs refusal tests; card.rs use_state and tooltip tests |
 | LIB-09 | COVERED | library_ops.rs move, rollback and nesting tests; portal.rs library move tests; service.rs library_move tests and a_renderer_exit_while_quitting_* (WR-10) |
-| UI-01 | COVERED | os_windows.rs#backdrop_needs_windows_11_22h2; theme.rs backdrop test; background.rs tests; general.rs backdrop options test |
+| UI-01 | COVERED | os_windows.rs#backdrop_needs_windows_11_22h2; theme.rs backdrop test; background.rs tests; general.rs backdrop options test; theme.rs theme_* root fill tests (03-41: root_fill, apply_root_fill clears and restores the Base Root); Mica and Tabbed by eye are manual |
 | UI-02 | COVERED | theme.rs#theme_system_follows_the_os_appearance; header.rs theme toggle test; settings/mod.rs gear test |
 | UI-03 | COVERED | xtask localize tests, i18n.rs key tests, main.rs argument tests, status_bar.rs, header.rs, ipc.rs state tests; captures are manual |
 | UI-05 | COVERED | i18n.rs coverage tests; dialogs help, about, tray_hint, link tests |
-| UI-07 | COVERED (automated parts) | thumbs.rs cache, queue, decode, pixel-area and decode-budget tests (WR-12; WR-13 the_generic_fallback_decodes_under_a_permit_priced_from_the_header); atlas.rs release tests; xtask measure and synth tests; memory.rs tests. The memory bound itself is judged by D-25 measurements (manual) |
+| UI-07 | COVERED (automated parts) | thumbs.rs cache, queue, decode, pixel-area and decode-budget tests (WR-12; WR-13 the_generic_fallback_decodes_under_a_permit_priced_from_the_header); atlas.rs release tests; xtask measure and synth tests; memory.rs tests. The memory bound itself is judged by D-25 measurements (manual); 03-42 thumbs.rs peek, touch, insert_keeping and trim tests (wanted thumbnails are never evicted) |
 
 Counts: 21 requirements, 21 COVERED, 0 PARTIAL, 0 MISSING. A spot check of 220 test-function references from the SUMMARY coverage entries found every function present (one reference, `the_runtime_state_is_published_only_when_it_differs_from_the_last_one_sent` in 03-09, is the shortened name `..._from_the_last_one` in apps/sucrose/src/service.rs).
 
@@ -169,7 +175,7 @@ Existing infrastructure covers all phase requirements.
 |----------|-------------|------------|-------------------|
 | Exit / Close Applications ends the service, renderers and Portal on a real desktop (SC3) | TRAY-05, ARCH-02 | Needs real processes, tray and desktop; unit tests cover the sequencing rules (lifecycle closing_*, quitting_*) only | Start sucrose.exe on a scratch SUCROSE_DATA_DIR, open the Portal, choose tray Close Applications, confirm no sucrose* process remains |
 | Autostart across a real logon (SC4) | TRAY-03 | Needs a Windows sign-out/sign-in; registry round trip is covered by ignored tests run by hand | Enable Startup in General, sign out and in, confirm the service starts; disable and repeat |
-| Hover preview animates by eye | LIB-06 | Perceived animation needs a human on the release Portal; frame painting is covered by card_preview_paints_its_second_frame | Hover a GIF card for over 200 ms in the release Portal and watch the preview play (03-28 T3) |
+| Hover preview animates by eye | LIB-06 | Perceived animation needs a human on the release Portal; frame painting is covered by card_preview_paints_its_second_frame | Hover a GIF card for over 200 ms in the release Portal and watch the preview play (03-28 T3; re-run with Library Preview on past the 64th card in 03-43 T2 C: yes, 2026-11-25) |
 | D-25 memory and CPU measurements: real library and 500-theme synthetic library, paging and hovering by hand | UI-07 | Needs the maintainer driving a release Portal for minutes; judged by `cargo xtask measure --portal-summary` (03-24, 03-37, 03-38, 03-39; 03-25 D2 failed, then passed after the atlas fix) | Follow the ready gate in 03-37/03-38; run measure with --portal-summary and compare with docs/MEASUREMENTS.md |
 | Release-build Video theme switching and the Use transition choice (D-26) | ARCH-05 | Maintainer watches and chooses (03-11 T1, T2); decide_use is automated | Switch Video themes ten times in the release build and judge the transition |
 | Visual captures: window, dark theme, backdrop, banners, header, status bar, pagination | UI-01, UI-02, UI-03, LIB-04 | PrintWindow captures read by a person on a real desktop; logic behind them is unit tested | Run sucrose-portal.exe --no-focus on a synth-library scratch folder and capture with capture.ps1 |
@@ -177,6 +183,9 @@ Existing infrastructure covers all phase requirements.
 | Real HKCU Run key tests | TRAY-03 | Write the maintainer registry; ignored by default | cargo test -p sucrose-platform --test autostart -- --ignored |
 | Real-library migration and scan | FMT-01, LIB-02 | Read the maintainer real data; ignored tests (real_install_migrates, real_library) | cargo test -p sucrose-config --test migrate -- --ignored real_install_migrates; cargo test -p sucrose-core --test library -- --ignored real_library |
 | Real libmpv Video theme playback | ARCH-01 | Needs engine binaries from cargo xtask fetch-engines; ignored tests | cargo xtask fetch-engines && cargo test -p sucrose-engine-mpv -- --ignored |
+| Mica, Tabbed and None look different from Acrylic on the active window, in Light and Dark | UI-01, UI-02 | DWM draws Mica and Tabbed only on an active window, and PrintWindow returns no content with a backdrop; the Root fill logic is unit tested (theme_*) | 03-43 T2 A on the release Portal. 2026-11-25: Acrylic and None as expected; Mica and Tabbed not distinct (stay transparent after Acrylic, opaque after None): open gap |
+| Grid scrollbar visible, and every card past the 64th shows its thumbnail while scrolling by hand at 100 per page | LIB-04, UI-07 | Needs real wheel and scrollbar input, which is never synthesized; rows_in_view and the keep-wanted cache are unit tested | 03-43 T2 B. 2026-11-25: thumbnails yes, scrollbar not visible: open gap |
+| D-25 scenario 2 after the in-view thumbnail requests (03-42): 500-theme synthetic library, paged, scrolled and hovered by hand | UI-07 | Needs the maintainer driving a release Portal for about 12 minutes; judged by `cargo xtask measure --portal-summary` | 03-44 T2 and T3. 2026-11-25: skipped by the maintainer, no measurement; UAT test 10 stays open |
 
 ---
 
@@ -189,7 +198,7 @@ Existing infrastructure covers all phase requirements.
 - [x] Feedback latency < 180s
 - [x] `nyquist_compliant: true` set in frontmatter
 
-**Approval:** approved 2026-11-24
+**Approval:** approved 2026-11-24; re-audited after gap plans 03-41..03-44 on 2026-11-25 (no automated gaps)
 
 ## Validation Audit 2026-11-24
 
