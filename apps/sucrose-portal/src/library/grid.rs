@@ -5,7 +5,9 @@ use gpui_kit::component::{
     ActiveTheme as _, Icon, Sizable as _,
     button::Button,
     empty::{Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyMediaVariant, EmptyTitle},
-    h_flex, v_flex,
+    h_flex,
+    scroll::ScrollableElement as _,
+    v_flex,
 };
 use gpui_kit::*;
 
@@ -141,13 +143,16 @@ fn plan(content_width: f32, gap: f32, max_per_row: usize) -> Plan {
     }
 }
 
-/// The scroll area around `block`: centered, with the content padding.
+/// The scroll area around `block`: centered, with the content padding. The scrollbar is bound to the same `scroll` handle the
+/// view resets on a page change and reads for the rows in view (`overflow_y_scrollbar` would scroll a handle of its own); it
+/// follows the OS scrollbar mode gpui-component syncs at init.
 fn scroll_area(scroll: &ScrollHandle, block: impl IntoElement) -> AnyElement {
     div()
         .id("library-scroll")
         .size_full()
         .overflow_y_scroll()
         .track_scroll(scroll)
+        .vertical_scrollbar(scroll)
         .child(v_flex().items_center().p(px(CONTENT_PADDING)).child(block))
         .into_any_element()
 }

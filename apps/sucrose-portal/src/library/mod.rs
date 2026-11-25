@@ -965,11 +965,12 @@ impl Render for LibraryView {
 
 /// What a card shows for its thumbnail: the image when it is cached, the failure when it could not be decoded, the
 /// animated skeleton while a wanted thumbnail waits for its decode, and a static fill for a card nothing was requested for.
-fn thumb_for(cached: Option<Arc<RenderImage>>, failed: bool, _wanted: bool) -> Thumb {
+fn thumb_for(cached: Option<Arc<RenderImage>>, failed: bool, wanted: bool) -> Thumb {
     match cached {
         Some(image) => Thumb::Ready(image),
         None if failed => Thumb::Failed,
-        None => Thumb::Loading,
+        None if wanted => Thumb::Loading,
+        None => Thumb::Idle,
     }
 }
 
