@@ -196,6 +196,8 @@ Plans:
 - The 'page shown' lines carry 03-40's heap_allocated_mb, heap_committed_mb, gpu_local_mb and gpu_non_local_mb, and the summary's attribution line (growth of video memory, held heap and allocator retention against the private growth, with its verdict) goes into the SUMMARY with the numbers, so 03-39 can confirm the atlas cause or pick a named follow-up
 - The run uses a scratch data folder; the real settings and library are only read; the preview switch is edited only in the scratch Sucrose.json
 - Afterwards no sucrose.exe or sucrose-portal.exe is left running (taskkill, confirmed with tasklist)
+- The result is judged by the D-25 rule as recorded for rows 16-17 of docs/MEASUREMENTS.md (final at most first page + 48 MiB and round 3 end at most round 1 end x 1.05, on working set and private bytes) and recorded there as a new row with a reading paragraph, pass or FAIL; no cap or code is changed after the run
+- The maintainer reports whether thumbnails appeared without a visible stall while paging and scrolling, and whether the previews animated ('preview playing' count in the SUMMARY and the row)
 
 **Gap closure (2026-11-24, from 03-VERIFICATION.md gaps and 03-REVIEW.md CR-01, CR-02, WR-01..WR-08)**
 
