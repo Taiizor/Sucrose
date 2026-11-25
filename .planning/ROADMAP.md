@@ -12,7 +12,7 @@ Sucrose is rewritten from scratch in Rust on `develop-rust`, Windows first, then
 
 - [x] **Phase 1: M0 — Foundation** - CI is green on Windows, macOS and Linux with stub platform implementations (completed 2026-11-22)
 - [x] **Phase 2: M1 — Video wallpaper on the desktop (Windows)** - The selected video theme plays behind the desktop icons on every monitor on Windows through libmpv (completed 2026-11-23)
-- [ ] **Phase 3: M2 — Service, IPC and Portal connected** - The Portal shows the library and applies wallpapers through a single-instance service; settings migrate and persist
+- [x] **Phase 3: M2 — Service, IPC and Portal connected** - The Portal shows the library and applies wallpapers through a single-instance service; settings migrate and persist (completed 2026-11-25)
 - [ ] **Phase 4: M3 — Engines and the wallpaper API** - Every wallpaper type and engine on Windows, the compatible web wallpaper API, display modes, property editing and all performance rules
 - [ ] **Phase 5: M4 — Product features** - Store, theme authoring, cycling, lock screen, 25 languages, integrations and an own signed installer and updater
 - [ ] **Phase 6: M5 — macOS** - Every feature macOS allows; the rest reported through platform capabilities, never faked
@@ -121,7 +121,7 @@ Plans:
   3. Starting the service or the Portal a second time reuses the running instance, Exit closes every Sucrose process, and a renderer that keeps crashing is restarted a bounded number of times and then stopped, never in a loop.
   4. An optional module the user turns off starts no thread and does no polling, and with "start with the OS" on, Sucrose starts after sign-in and resumes the wallpaper.
   5. The Portal follows light, dark or the OS theme with its Mica/Acrylic backdrop and optional background image, has header actions, search, a status bar and Help/About, and scrolling through a large library keeps its memory bounded (release build, recorded in `docs/MEASUREMENTS.md`).
-**Plans**: 50/50 plans executed
+**Plans**: 50/50 plans complete
 Plans:
 **Wave 1**
 - [x] 03-01-PLAN.md — Settings tracer: Setting/Sucrose.json migrated once, atomic store with .bak and kill test, service reads it (D-032)
@@ -346,7 +346,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 |-------|----------------|--------|-----------|
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
 | 2. M1 — Video wallpaper on the desktop (Windows) | 29/29 | Complete    | 2026-11-23 |
-| 3. M2 — Service, IPC and Portal connected | 50/50 | In Progress | - |
+| 3. M2 — Service, IPC and Portal connected | 50/50 | Complete    | 2026-11-25 |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
 | 6. M5 — macOS | 0/TBD | Not started | - |

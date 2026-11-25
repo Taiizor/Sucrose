@@ -17,11 +17,11 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Architecture
 
-- [ ] **ARCH-01**: The service runs one renderer process per running wallpaper (per monitor or span); a crashed renderer is restarted with a bounded retry, never in a loop (D-008)
-- [ ] **ARCH-02**: All Sucrose processes talk over one local-socket IPC, and the same endpoint keeps the service and the Portal single-instance (D-009)
-- [ ] **ARCH-03**: An optional service module the user turns off does not start at all: no thread, no polling, no allocations (D-008)
-- [ ] **ARCH-04**: Settings use a new versioned format with atomic writes; runtime state (pause/close flags, ports) is never stored in settings, and processes share state over IPC instead of polled files (D-007)
-- [ ] **ARCH-05**: "Use" in the Portal applies the wallpaper through the service, and settings changed in the Portal persist across restarts
+- [x] **ARCH-01**: The service runs one renderer process per running wallpaper (per monitor or span); a crashed renderer is restarted with a bounded retry, never in a loop (D-008)
+- [x] **ARCH-02**: All Sucrose processes talk over one local-socket IPC, and the same endpoint keeps the service and the Portal single-instance (D-009)
+- [x] **ARCH-03**: An optional service module the user turns off does not start at all: no thread, no polling, no allocations (D-008)
+- [x] **ARCH-04**: Settings use a new versioned format with atomic writes; runtime state (pause/close flags, ports) is never stored in settings, and processes share state over IPC instead of polled files (D-007)
+- [x] **ARCH-05**: "Use" in the Portal applies the wallpaper through the service, and settings changed in the Portal persist across restarts
 
 ### Wallpaper types
 
@@ -100,15 +100,15 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Library (`portal.md` §2)
 
-- [ ] **LIB-01**: Showcase themes are copied on first run and tracked in the new settings (migrated from `Warehouse.json` `Showcase`)
-- [ ] **LIB-02**: The library is scanned with the legacy validity rules and corrupt themes are deleted
-- [ ] **LIB-03**: User can sort the library by name, creation or modification date (ascending/descending) and search it
+- [x] **LIB-01**: Showcase themes are copied on first run and tracked in the new settings (migrated from `Warehouse.json` `Showcase`)
+- [x] **LIB-02**: The library is scanned with the legacy validity rules and corrupt themes are deleted
+- [x] **LIB-03**: User can sort the library by name, creation or modification date (ascending/descending) and search it
 - [x] **LIB-04**: The library is paginated with an adaptive layout (margin, max per row)
 - [ ] **LIB-05**: A theme card offers use, review, customize, add/remove from cycling, find, share, delete (with confirmation) and edit
-- [ ] **LIB-06**: Theme cards show hover previews, optionally hiding details while previewing
+- [x] **LIB-06**: Theme cards show hover previews, optionally hiding details while previewing
 - [ ] **LIB-07**: User can drag and drop files, `.url` files, archives and URLs onto the library
-- [ ] **LIB-08**: Themes made for an incompatible version are handled as in the legacy app
-- [ ] **LIB-09**: User can change the library location and move the existing themes
+- [x] **LIB-08**: Themes made for an incompatible version are handled as in the legacy app
+- [x] **LIB-09**: User can change the library location and move the existing themes
 
 ### Store (`portal.md` §3, `formats.md` §4)
 
@@ -130,19 +130,19 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 - [x] **UI-01**: The Portal has a window backdrop (Mica/Acrylic on Windows) and a background image with stretch and opacity on every OS
 - [x] **UI-02**: User can pick light or dark, or follow the OS theme
-- [ ] **UI-03**: The Portal has header actions, search, a status bar (memory, quotes with copy) and command-line page arguments
+- [x] **UI-03**: The Portal has header actions, search, a status bar (memory, quotes with copy) and command-line page arguments
 - [ ] **UI-04**: The settings pages General, Personal, Performance, Wallpaper, System and Other cover every key in `portal.md` §4
-- [ ] **UI-05**: Help and About dialogs and the tray hint dialog exist; plain links (wiki, report an issue) stay (D-020)
+- [x] **UI-05**: Help and About dialogs and the tray hint dialog exist; plain links (wiki, report an issue) stay (D-020)
 - [ ] **UI-06**: The UI is available in the 25 existing languages, converted by `xtask`, with RTL for Arabic and Hebrew and a live language switch (D-015)
-- [ ] **UI-07**: Browsing the library and store keeps memory bounded: thumbnails are decoded at card size, the cache is bounded, and images no longer shown are released from GPUI (`docs/GPUI.md`, prototype lesson). Measured as part of MEAS-02
+- [x] **UI-07**: Browsing the library and store keeps memory bounded: thumbnails are decoded at card size, the cache is bounded, and images no longer shown are released from GPUI (`docs/GPUI.md`, prototype lesson). Measured as part of MEAS-02
 
 ### Tray and app lifecycle (`services.md` §3)
 
 - [x] **TRAY-01**: A tray icon with Quit is available while a wallpaper runs
 - [ ] **TRAY-02**: The full tray menu offers open, close/reload/change/customize wallpaper, settings, report, updates and exit, with a grayscale icon while paused (Win ✅ · mac ✅ · Linux ⚠️ GNOME needs AppIndicator)
-- [ ] **TRAY-03**: Sucrose can start with the OS (normal startup) (Win ✅ · mac ✅ LaunchAgent · Linux ✅ XDG autostart)
+- [x] **TRAY-03**: Sucrose can start with the OS (normal startup) (Win ✅ · mac ✅ LaunchAgent · Linux ✅ XDG autostart)
 - [ ] **TRAY-04**: User can choose the priority and scheduled-task startup modes (Win ✅ · mac ? · Linux ?)
-- [ ] **TRAY-05**: Exiting closes all Sucrose apps (Win ✅ · mac ✅ · Linux ✅)
+- [x] **TRAY-05**: Exiting closes all Sucrose apps (Win ✅ · mac ✅ · Linux ✅)
 
 ### Services and integration
 
@@ -157,12 +157,12 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Formats and contracts (D-007)
 
-- [ ] **FMT-01**: Legacy `Setting/*.json` files (14 files, `Properties` wrapper, enums by name) migrate to the new settings format on first run, `Donate.json` (D-023) and the documented exclusions excluded, proven with fixtures
+- [x] **FMT-01**: Legacy `Setting/*.json` files (14 files, `Properties` wrapper, enums by name) migrate to the new settings format on first run, `Donate.json` (D-023) and the documented exclusions excluded, proven with fixtures
 - [x] **FMT-02**: `SucroseInfo.json` is read and written compatibly, proven with fixtures from real themes
 - [ ] **FMT-03**: `SucroseProperties.json` and `SucroseCompatible.json` are read and written compatibly, proven with fixtures
 - [ ] **FMT-04**: Theme archives are validated with the legacy rules (`formats.md` §3)
 - [ ] **FMT-05**: The store protocol and cache layout stay compatible (D-022, `formats.md` §4)
-- [ ] **FMT-06**: The data folder layout (`Setting`, `Log`, `Cache`, `Library`, `Showcase`) and 25-character theme folder names stay the same (`formats.md` §2)
+- [x] **FMT-06**: The data folder layout (`Setting`, `Log`, `Cache`, `Library`, `Showcase`) and 25-character theme folder names stay the same (`formats.md` §2)
 - [ ] **FMT-07**: The web wallpaper JavaScript API stays compatible (`engines.md` §6), proven with fixture pages
 - [x] **FMT-08**: The selected theme and library location of an existing C# install are read from the legacy `Library.json` and `General.json` (read-only until FMT-01)
 
@@ -229,11 +229,11 @@ Which phases cover which requirements. Filled during roadmap creation.
 |-------------|-------|--------|
 | FND-01 | Phase 1 | Complete |
 | FND-02 | Phase 1 | Complete |
-| ARCH-01 | Phase 3 | Gaps Found |
-| ARCH-02 | Phase 3 | Gaps Found |
-| ARCH-03 | Phase 3 | Gaps Found |
-| ARCH-04 | Phase 3 | Gaps Found |
-| ARCH-05 | Phase 3 | Gaps Found |
+| ARCH-01 | Phase 3 | Complete |
+| ARCH-02 | Phase 3 | Complete |
+| ARCH-03 | Phase 3 | Complete |
+| ARCH-04 | Phase 3 | Complete |
+| ARCH-05 | Phase 3 | Complete |
 | TYPE-01 | Phase 2 | Complete |
 | TYPE-02 | Phase 4 | Pending |
 | TYPE-03 | Phase 4 | Pending |
@@ -288,15 +288,15 @@ Which phases cover which requirements. Filled during roadmap creation.
 | PROP-03 | Phase 4 | Pending |
 | PROP-04 | Phase 4 | Pending |
 | PROP-05 | Phase 4 | Pending |
-| LIB-01 | Phase 3 | Gaps Found |
-| LIB-02 | Phase 3 | Gaps Found |
-| LIB-03 | Phase 3 | Gaps Found |
+| LIB-01 | Phase 3 | Complete |
+| LIB-02 | Phase 3 | Complete |
+| LIB-03 | Phase 3 | Complete |
 | LIB-04 | Phase 3 | Complete |
 | LIB-05 | Phase 5 | Pending |
-| LIB-06 | Phase 3 | Gaps Found |
+| LIB-06 | Phase 3 | Complete |
 | LIB-07 | Phase 5 | Pending |
-| LIB-08 | Phase 3 | Gaps Found |
-| LIB-09 | Phase 3 | Gaps Found |
+| LIB-08 | Phase 3 | Complete |
+| LIB-09 | Phase 3 | Complete |
 | STOR-01 | Phase 5 | Pending |
 | STOR-02 | Phase 5 | Pending |
 | STOR-03 | Phase 5 | Pending |
@@ -309,16 +309,16 @@ Which phases cover which requirements. Filled during roadmap creation.
 | THEM-05 | Phase 5 | Pending |
 | UI-01 | Phase 3 | Complete |
 | UI-02 | Phase 3 | Complete |
-| UI-03 | Phase 3 | Gaps Found |
+| UI-03 | Phase 3 | Complete |
 | UI-04 | Phase 5 | Pending |
-| UI-05 | Phase 3 | Gaps Found |
+| UI-05 | Phase 3 | Complete |
 | UI-06 | Phase 5 | Pending |
-| UI-07 | Phase 3 | Gaps Found |
+| UI-07 | Phase 3 | Complete |
 | TRAY-01 | Phase 2 | Complete |
 | TRAY-02 | Phase 5 | Pending |
-| TRAY-03 | Phase 3 | Gaps Found |
+| TRAY-03 | Phase 3 | Complete |
 | TRAY-04 | Phase 5 | Pending |
-| TRAY-05 | Phase 3 | Gaps Found |
+| TRAY-05 | Phase 3 | Complete |
 | SVC-01 | Phase 5 | Pending |
 | SVC-02 | Phase 5 | Pending |
 | SVC-03 | Phase 5 | Pending |
@@ -327,12 +327,12 @@ Which phases cover which requirements. Filled during roadmap creation.
 | SVC-06 | Phase 5 | Pending |
 | SVC-07 | Phase 5 | Pending |
 | SVC-08 | Phase 5 | Pending |
-| FMT-01 | Phase 3 | Gaps Found |
+| FMT-01 | Phase 3 | Complete |
 | FMT-02 | Phase 2 | Complete |
 | FMT-03 | Phase 4 | Pending |
 | FMT-04 | Phase 5 | Pending |
 | FMT-05 | Phase 5 | Pending |
-| FMT-06 | Phase 3 | Gaps Found |
+| FMT-06 | Phase 3 | Complete |
 | FMT-07 | Phase 4 | Pending |
 | FMT-08 | Phase 2 | Complete |
 | SEC-01 | Phase 5 | Pending |

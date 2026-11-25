@@ -1,44 +1,44 @@
 ---
 gsd_state_version: "1.0"
-current_phase: 03
-current_phase_name: M2 — Service, IPC and Portal connected
-status: verifying
-stopped_at: "Completed 03-50-PLAN.md (halted: maintainer skip)"
-last_updated: "2026-11-25T17:53:28.411Z"
+current_phase: 4
+current_phase_name: M3 — Engines and the wallpaper API
+status: planning
+stopped_at: Phase 03 complete, ready to plan Phase 4
+last_updated: "2026-11-25T18:51:22.044Z"
 last_activity: 2026-11-25
-last_activity_desc: Phase 03 execution started
-state_head: 1b30faaac04a788b9909fc6df5ddc915c4f0f013
+last_activity_desc: Phase 03 complete, transitioned to Phase 4
+state_head: 70723a0c34d43f0716b35a0f7facc50362885b3d
 progress:
   total_phases: 8
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 79
   completed_plans: 79
-  percent: 25
+  percent: 38
 ---
 
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-11-23)
+See: .planning/PROJECT.md (updated 2026-11-25)
 
 **Core value:** An existing user upgrades and loses nothing (themes, store, web wallpapers and their JavaScript API, settings migrated automatically) while the new app uses less memory and CPU than the C# one.
-**Current focus:** Phase 03 — M2 — Service, IPC and Portal connected
+**Current focus:** Phase 4 — M3 — Engines and the wallpaper API
 
 ## Current Position
 
-Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 50 of 50
-Status: Phase complete — ready for verification
-Last activity: 2026-11-25 — Phase 03 execution started
-Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
+Phase: 4 — M3 — Engines and the wallpaper API
+Plan: Not started
+Status: Ready to plan
+Last activity: 2026-11-25 — Phase 03 complete, transitioned to Phase 4
+Next step: Phase 4 (M3 — Engines and the wallpaper API): `/gsd-discuss-phase 4`, or `/gsd-plan-phase 4` to plan directly.
 
-Progress: [███░░░░░░░] 25%
+Progress: [████░░░░░░] 38%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 29
+- Total plans completed: 79
 - Average duration: -
 - Total execution time: -
 
@@ -48,6 +48,7 @@ Progress: [███░░░░░░░] 25%
 |-------|-------|-------|----------|
 | 1 | 0 | - | - |
 | 02 | 29 | - | - |
+| 03 | 50 | - | - |
 
 *Updated after each plan completion*
 **Per-Plan Metrics:**
@@ -245,6 +246,7 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-46: library scrollbar is a sibling overlay of the scroll area on the grid's own ScrollHandle (vertical_scrollbar on the scrolled element moves with the cards); visible_rows clamps the offset and settles on the painted geometry through Window::on_next_frame with exact raw-read comparison
 - [Phase 03]: 03-47: frame_extension not-needed, backdrop_next closed, backdrop_confirmed yes - Mica, Tabbed, Acrylic and None confirmed by eye in Dark and Light; grid scrollbar and WR-16 confirmed in both OS modes
 - [Phase 03]: 03-50: maintainer skipped the D-25 scenario 2 rerun on the final thumbnail and scrollbar path (reply: skip); no measurement, UI-07 stays open
+- [Phase 03]: UAT tests 10/11 (verify-work, 2026-11-25): D-25 scenario 2 on the final thumbnail and scrollbar path passes (working set final 163 against 168 MB, round 3 end 177 against 184; private 155 against 161, 170 against 175); UI-07 Complete, phase 03 closed
 
 ### Pending Todos
 
@@ -254,6 +256,8 @@ None yet.
 
 - [Phase 2]: G-02-7 is an accepted limitation (D-031), not a fix: 02-UAT.md keeps it failed; the cause of the one ~90 s UAT episode is not established
 - [Phase 2]: 7 info-level review findings stay open (IN-19 … IN-23, IN-26, IN-27 in 02-REVIEW-DISPOSITION.md)
+- [Phase 3]: 16 info-level review findings stay open (03-REVIEW-DISPOSITION.md); none touches a success criterion
+- [Phase 3]: the Portal logs six "invalid window handle" ERROR lines (0x80070578 / 0x80040102) when its window closes (first seen in 03-37); not triaged, measurements unaffected
 - [Phase 5]: DESK-10 (lock screen) needs a `docs/DECISIONS.md` entry on the mechanism before it is built (D-026)
 - [Phase 5]: STOR-01 and FMT-05 depend on D-022 (deferred); use the existing v8 endpoints until the API rewrite
 - [Phase 5]: Update signing key scheme still open (Ed25519 proposed, D-019)
@@ -278,6 +282,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-25T17:52:46.398Z
-Stopped at: Completed 03-50-PLAN.md (halted: maintainer skip)
+Last session: 2026-11-25T18:52:27.223Z
+Stopped at: Phase 03 complete, ready to plan Phase 4
 Resume file: None

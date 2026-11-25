@@ -21,10 +21,10 @@ An existing user upgrades and loses nothing (themes, store, web wallpapers and t
 - ✓ `cargo xtask ci` runs the CI checks locally — M0
 - ✓ CI green on Windows x86/x64/ARM64, macOS arm64 (x86_64 checked) and Linux x86_64/aarch64 (runs 44968506512, 44978158638) — Phase 1
 - ✓ A video theme plays behind the desktop icons on every monitor on Windows (libmpv), survives explorer restarts and monitor changes, pauses for fullscreen apps; RAM/CPU measured against the C# MpvPlayer + Backgroundog (final M1 build: 299 MB, 0.43 % CPU, 16.4 % GPU on the RTX 3050) — Phase 2 (M1). Accepted limitation G-02-7 (D-031): after a display change, a monitor outside explorer's desktop window shows the static Windows wallpaper until explorer moves that window
+- ✓ Service with one IPC and single instance, optional modules that do not start when disabled, versioned `Setting/Sucrose.json` with atomic writes and automatic migration of legacy `Setting/*.json` (D-032); the Portal shows the library (sort, search, paging, hover previews, corrupt themes to the bin, library move), applies wallpapers through the service and persists settings; start with the OS (D-034); light, dark or OS theme with Mica, Acrylic or Tabbed backdrop; library memory stays bounded (500-theme D-25 rerun on the final build: working set final 163 MB against 168) — Phase 3 (M2)
 
 ### Active
 
-- [ ] Service with one IPC and single instance, optional modules that do not start when disabled, new versioned settings with atomic writes and automatic migration of legacy `Setting/*.json`; the Portal applies wallpapers and persists settings through the service; autostart — M2
 - [ ] Every engine and wallpaper type: WebView2 and CEF with the compatible JavaScript API, built-in GIF/APNG/WebP and OS video, libVLC; URL, YouTube, Application; system data, audio spectrum, media session, input forwarding; display modes including a different wallpaper per monitor; stretch modes; property editing; engine arguments editor; all performance rules — M3
 - [ ] Product features: store (Soferity), theme create/edit/import/export/share/report/review, wallpaper cycling, lock screen wallpaper (D-026), display preferences, 25 languages with RTL, Discord Rich Presence, crash reporting and telemetry with the existing opt-outs, own signed installer/updater/uninstaller with migration from the C# install — M4
 - [ ] macOS: every `docs/FEATURES.md` row macOS allows; everything else reported through platform capabilities, never faked — M5
@@ -48,7 +48,7 @@ An existing user upgrades and loses nothing (themes, store, web wallpapers and t
 - **Legacy reference:** the C# app in `src/` (read-only). Exact behavior, settings keys, file formats and the JavaScript API are in `docs/legacy/` (`portal.md`, `services.md`, `engines.md`, `formats.md`, `lock-screen.md`). The lock screen exists only on branch `lock-screen-native` (112de37f).
 - **Living docs:** `docs/DECISIONS.md` (decision log, append-only), `docs/FEATURES.md` (parity checklist with per-OS support), `docs/ARCHITECTURE.md` (target processes, crates, traits), `docs/PORTING.md` (porting procedure, NuGet → crate mapping), `docs/GPUI.md` (UI notes). `.planning/` holds the requirements, roadmap and phase work; measurements are in `docs/MEASUREMENTS.md`.
 - **Process model (D-008, D-009):** `sucrose` service (always on while a wallpaper is active), `sucrose --render` (one renderer per wallpaper surface, crash-isolated), `sucrose-portal` (only while its window is open); all talk over one local-socket IPC.
-- **UI:** GPUI via `gpui-kit 0.10` (pins the Zed snapshot `gpui-pre 0.3.12`). Prototype numbers: window in ~0.3 s, ~90 MB on the settings page, ~142 MB with 30 thumbnails; the real Portal needs a bounded thumbnail cache.
+- **UI:** GPUI via `gpui-kit 0.10` (pins the Zed snapshot `gpui-pre 0.3.12`). Prototype numbers: window in ~0.3 s, ~90 MB on the settings page, ~142 MB with 30 thumbnails; the real Portal (Phase 3) decodes thumbnails at card size into a bounded cache (64 images / 48 MiB), releases images from the GPUI atlas and keeps library paging inside the D-25 rule (`docs/MEASUREMENTS.md`).
 - **Environment:** the maintainer works on Windows 11 from WSL2 and PowerShell. `cargo` in WSL is the Windows toolchain; Linux builds run in Docker or CI; macOS builds run in CI and need a real Mac for manual testing.
 - **Open questions:** store and update protocol deferred to the API rewrite, v8 endpoints until then (D-022); update signing key scheme (Ed25519 proposed, D-019/D-025); Linux package formats (M6); Apple Developer ID; lock screen mechanism before the M4 item (D-026).
 
@@ -69,7 +69,7 @@ An existing user upgrades and loses nothing (themes, store, web wallpapers and t
 
 ## Key Decisions
 
-The authoritative, append-only log is `docs/DECISIONS.md` (D-001 … D-031). The ones that shape the roadmap most:
+The authoritative, append-only log is `docs/DECISIONS.md` (D-001 … D-035). The ones that shape the roadmap most:
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
@@ -87,6 +87,10 @@ The authoritative, append-only log is `docs/DECISIONS.md` (D-001 … D-031). The
 | Target architectures: Windows x86, x64 and ARM64; macOS arm64 + x86_64 as one universal binary; Linux x86_64 and aarch64 (D-027) | Keep every Windows architecture the legacy app shipped; add ARM64 Linux and both macOS architectures | — Pending |
 | Roadmap and phase work move to `.planning/` (GSD); Phase 1–8 = M0–M7, each phase title carries its M label (e.g. "Phase 2: M1 — Video wallpaper on the desktop (Windows)"; GSD needs the colon after the phase number) | One planning system; GSD phases may commit | — Pending |
 | Wait for explorer after a display change, no fallback window; G-02-7 is an accepted limitation (D-031) | The 02-26 spike caught 8 of 8 moves and every episode ended in 1.73-2.11 s; a fallback window would cover the static wallpaper but fight explorer | ✓ Accepted at the 02-26 checkpoint (Phase 2) |
+| Settings live in `Setting/Sucrose.json`, versioned, written atomically, with the service as the only writer (D-032) | Legacy files are migrated once and never modified; a kill during a write never corrupts settings | ✓ Phase 3 |
+| The Portal talks to the service over the one endpoint, routed by its first message (D-033) | One IPC and one single-instance mechanism for service, renderers and Portal | ✓ Phase 3 |
+| Sucrose's own start entry is `Sucrose.Service`, separate from the C# entry (D-034) | The C# install keeps its own entry; Sucrose only detects it | ✓ Phase 3 |
+| Automated checks of window backdrops may copy the screen (D-035) | PrintWindow captures no content under Acrylic, so backdrop checks need a real screen capture | ✓ Phase 3 |
 
 ## Evolution
 
@@ -106,4 +110,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-11-23 after Phase 2*
+*Last updated: 2026-11-25 after Phase 3*
