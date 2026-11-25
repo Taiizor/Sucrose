@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-39-PLAN.md
-last_updated: "2026-11-24T22:03:07.095Z"
-last_activity: 2026-11-24
+stopped_at: Completed 03-41-PLAN.md
+last_updated: "2026-11-25T13:36:13.301Z"
+last_activity: 2026-11-25
 last_activity_desc: Phase 03 execution started
-state_head: d33531f2ed117a438f5e394a6ff22ca8208bb719
+state_head: f76da73a017ce9a1805a9b991040dbaaeb17e116
 progress:
   total_phases: 8
   completed_phases: 2
-  total_plans: 69
-  completed_plans: 69
+  total_plans: 73
+  completed_plans: 70
   percent: 25
 ---
 
@@ -28,9 +28,9 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 40 of 40
+Plan: 42 of 44
 Status: Ready to execute
-Last activity: 2026-11-24 — Phase 03 execution started
+Last activity: 2026-11-25 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
 
 Progress: [███░░░░░░░] 25%
@@ -123,6 +123,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P37 | 60min | 3 tasks | 0 files |
 | Phase 03 P38 | 25 min | 3 tasks | 0 files |
 | Phase 03 P39 | 7 min | 3 tasks | 5 files |
+| Phase 03 P41 | 12 min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -227,6 +228,7 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-33: Connection::disconnect ends a connection for every handle (DisconnectNamedPipe in sucrose-platform); PortalRegistry::send ends the link it drops; every ended Portal connection re-checks the exit rule (WR-04)
 - [Phase 03]: [03-40] Attribution verdict order: not recorded first, then within the cap (48 MiB), then the part that is at least half of the private growth, else unattributed
 - [Phase 03]: 03-39: both D-25 reruns pass the rule as written; atlas release (03-27) confirmed as the source of the 500-theme growth; real-library round-3 attribution 'unattributed' recorded as a caveat
+- [Phase 03]: 03-41: the Root fill is transparent only while a backdrop shows; theme tokens stay opaque, one deferral applies it after open_window mounts the Root
 
 ### Pending Todos
 
@@ -260,6 +262,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-24T19:36:14.435Z
-Stopped at: Completed 03-39-PLAN.md
+Last session: 2026-11-25T13:35:54.843Z
+Stopped at: Completed 03-41-PLAN.md
 Resume file: None
