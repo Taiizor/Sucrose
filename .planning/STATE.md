@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 03
 current_phase_name: M2 — Service, IPC and Portal connected
 status: executing
-stopped_at: Completed 03-46-PLAN.md
-last_updated: "2026-11-25T17:08:19.639Z"
+stopped_at: Completed 03-47-PLAN.md
+last_updated: "2026-11-25T17:35:13.935Z"
 last_activity: 2026-11-25
 last_activity_desc: Phase 03 execution started
-state_head: 573017364754ba5f905d7311d3974235872135a8
+state_head: 7050949de69dc44d1d367e4c9c9c40c889cf01a5
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 79
-  completed_plans: 75
+  completed_plans: 76
   percent: 25
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-23)
 ## Current Position
 
 Phase: 03 (M2 — Service, IPC and Portal connected) — EXECUTING
-Plan: 47 of 50
+Plan: 48 of 50
 Status: Ready to execute
 Last activity: 2026-11-25 — Phase 03 execution started
 Next step: Phase 3 (M2 — Service, IPC and Portal connected): `/gsd-discuss-phase 3`, or `/gsd-plan-phase 3` to plan directly.
@@ -129,6 +129,7 @@ Progress: [███░░░░░░░] 25%
 | Phase 03 P44 | 15 min | 1 tasks | 0 files |
 | Phase 03 P45 | 11 min | 2 tasks | 9 files |
 | Phase 03 P46 | 12 min | 3 tasks | 5 files |
+| Phase 03 P47 | 25 min | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -239,6 +240,7 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-44: the maintainer skipped the D-25 scenario 2 rerun (UAT test 10 stays open); no measurement taken, UI-07 not marked Complete
 - [Phase 03]: 03-45: Sucrose sets the DWM system backdrop type itself through Platform::set_window_backdrop and applies Opaque before every changed GPUI appearance (theme::appearance_steps), because gpui-pre-windows never clears Acrylic or the DWM type (WR-14)
 - [Phase 03]: 03-46: library scrollbar is a sibling overlay of the scroll area on the grid's own ScrollHandle (vertical_scrollbar on the scrolled element moves with the cards); visible_rows clamps the offset and settles on the painted geometry through Window::on_next_frame with exact raw-read comparison
+- [Phase 03]: 03-47: frame_extension not-needed, backdrop_next closed, backdrop_confirmed yes - Mica, Tabbed, Acrylic and None confirmed by eye in Dark and Light; grid scrollbar and WR-16 confirmed in both OS modes
 
 ### Pending Todos
 
@@ -272,6 +274,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-25T17:08:01.393Z
-Stopped at: Completed 03-46-PLAN.md
+Last session: 2026-11-25T17:34:55.523Z
+Stopped at: Completed 03-47-PLAN.md
 Resume file: None
