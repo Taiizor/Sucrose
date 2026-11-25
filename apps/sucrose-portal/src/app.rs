@@ -262,6 +262,15 @@ impl PortalApp {
     fn apply_backdrop(&self, window: &mut Window, cx: &mut Context<Self>) {
         let appearance = theme::appearance(self.backdrop(), self.window_backdrop);
         window.set_background_appearance(appearance);
+        // Windows 11 draws Mica and Tabbed through the DWM system backdrop type, which GPUI sets without clearing it
+        // later (WR-14), so Sucrose sets and resets it itself and logs what the OS answered.
+        let dwm_result = self
+            .window_backdrop
+            .then(|| sucrose_platform::current().set_window_backdrop(&*window, self.backdrop()));
+        let dwm_text = dwm_result_text(dwm_result.as_ref());
+        if matches!(dwm_result, Some(Err(_))) {
+            tracing::warn!(dwm_result = %dwm_text, "the OS refused the window backdrop");
+        }
         let root_transparent = theme::backdrop_active(self.backdrop(), self.window_backdrop);
         let mounted = theme::apply_root_fill(root_transparent, window, cx);
         tracing::info!(
@@ -269,6 +278,7 @@ impl PortalApp {
             supported = self.window_backdrop,
             ?appearance,
             root_transparent,
+            dwm_result = %dwm_text,
             "backdrop applied"
         );
         if !mounted {
@@ -452,6 +462,17 @@ impl PortalApp {
     }
 }
 
+/// What the DWM call answered, for the log: "skipped" when it was not made, the HRESULT bits in hex, or the error text.
+fn dwm_result_text(result: Option<&Result<(), sucrose_platform::PlatformError>>) -> String {
+    match result {
+        None => "skipped".to_owned(),
+        Some(Ok(())) => "0x00000000".to_owned(),
+        #[allow(clippy::cast_sign_loss, reason = "the HRESULT is shown as its bit pattern")]
+        Some(Err(sucrose_platform::PlatformError::Os { code, .. })) => format!("{:#010x}", *code as u32),
+        Some(Err(error)) => error.to_string(),
+    }
+}
+
 impl Render for PortalApp {
     fn render(&mut self, _: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
         // The page tint is translucent while a backdrop shows through it (UI-SPEC Color).
@@ -479,5 +500,28 @@ impl Render for PortalApp {
                 }))
                 .child(self.status_bar.clone()),
         )
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use sucrose_platform::PlatformError;
+
+    use super::dwm_result_text;
+
+    #[test]
+    fn app_dwm_result_text_names_each_outcome() {
+        assert_eq!(dwm_result_text(None), "skipped");
+        assert_eq!(dwm_result_text(Some(&Ok(()))), "0x00000000");
+        let refused = Err(PlatformError::Os {
+            context: "x",
+            code: -2_147_024_809,
+        });
+        assert_eq!(dwm_result_text(Some(&refused)), "0x80070057");
+        let unsupported = Err(PlatformError::Unsupported("window backdrop"));
+        assert_eq!(
+            dwm_result_text(Some(&unsupported)),
+            PlatformError::Unsupported("window backdrop").to_string()
+        );
     }
 }

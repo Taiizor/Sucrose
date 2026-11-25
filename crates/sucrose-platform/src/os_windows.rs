@@ -22,10 +22,16 @@ use std::{
     sync::OnceLock,
 };
 
+use raw_window_handle::{HasWindowHandle, RawWindowHandle};
+use sucrose_core::settings::Backdrop;
 use windows::{
     Wdk::System::SystemServices::RtlGetVersion,
     Win32::{
-        Foundation::{CloseHandle, HANDLE, HLOCAL, LocalFree},
+        Foundation::{CloseHandle, HANDLE, HLOCAL, HWND, LocalFree},
+        Graphics::Dwm::{
+            DWM_SYSTEMBACKDROP_TYPE, DWMSBT_MAINWINDOW, DWMSBT_NONE, DWMSBT_TABBEDWINDOW, DWMWA_SYSTEMBACKDROP_TYPE,
+            DwmSetWindowAttribute,
+        },
         Security::{Authorization::ConvertSidToStringSidW, GetTokenInformation, TOKEN_QUERY, TOKEN_USER, TokenUser},
         System::{
             Performance::{QueryPerformanceCounter, QueryPerformanceFrequency},
@@ -85,6 +91,10 @@ impl Platform for Current {
 
     fn set_gpu_preference(&self, exe: &Path, preference: GpuPreference) -> Result<GpuPreferenceChange, PlatformError> {
         gpu::set_gpu_preference(exe, preference)
+    }
+
+    fn set_window_backdrop(&self, window: &dyn HasWindowHandle, backdrop: Backdrop) -> Result<(), PlatformError> {
+        set_window_backdrop(window, backdrop)
     }
 
     fn gpu_adapters(&self) -> Vec<GpuAdapter> {
@@ -209,6 +219,45 @@ fn backdrop_supported(build: u32) -> bool {
     build >= BACKDROP_MIN_BUILD
 }
 
+/// The DWM system backdrop type for `backdrop`. Acrylic is drawn through GPUI's accent policy, so DWM draws nothing
+/// for it, the same as for None. No wildcard: a new setting must be placed here.
+fn system_backdrop_type(backdrop: Backdrop) -> DWM_SYSTEMBACKDROP_TYPE {
+    match backdrop {
+        Backdrop::None | Backdrop::Acrylic => DWMSBT_NONE,
+        Backdrop::Mica => DWMSBT_MAINWINDOW,
+        Backdrop::Tabbed => DWMSBT_TABBEDWINDOW,
+    }
+}
+
+/// Sets the DWM system backdrop type of `window` for `backdrop`. The handle is read first, then the build is checked,
+/// so a window without a handle gives the same answer on every Windows build.
+fn set_window_backdrop(window: &dyn HasWindowHandle, backdrop: Backdrop) -> Result<(), PlatformError> {
+    let handle = window.window_handle().map_err(|error| PlatformError::Failed {
+        context: "window handle",
+        message: error.to_string(),
+    })?;
+    let RawWindowHandle::Win32(handle) = handle.as_raw() else {
+        return Err(PlatformError::Unsupported("window backdrop on a non-Win32 window"));
+    };
+    let hwnd = HWND(handle.hwnd.get() as *mut core::ffi::c_void);
+    if !backdrop_supported(windows_build()) {
+        return Err(PlatformError::Unsupported("window backdrop"));
+    }
+    let kind = system_backdrop_type(backdrop);
+    // SAFETY: `hwnd` comes from the live window borrowed for this call; the pointer refers to a local
+    // DWM_SYSTEMBACKDROP_TYPE that outlives the call and the size passed is exactly its size, as
+    // DWMWA_SYSTEMBACKDROP_TYPE requires; the call keeps no pointer.
+    unsafe {
+        DwmSetWindowAttribute(
+            hwnd,
+            DWMWA_SYSTEMBACKDROP_TYPE,
+            (&raw const kind).cast(),
+            u32::try_from(size_of::<DWM_SYSTEMBACKDROP_TYPE>()).unwrap_or(0),
+        )
+    }
+    .map_err(|error| os_error("setting the window's system backdrop type", &error))
+}
+
 /// The build number of this Windows, or 0 when the OS does not answer. `RtlGetVersion` is the call the window system
 /// itself makes: unlike `GetVersionEx` it is not shimmed by an application manifest.
 fn windows_build() -> u32 {
@@ -224,6 +273,8 @@ fn windows_build() -> u32 {
 
 #[cfg(test)]
 mod tests {
+    use raw_window_handle::{HandleError, WindowHandle};
+
     use super::*;
 
     #[test]
@@ -235,6 +286,39 @@ mod tests {
         assert!(!backdrop_supported(22620));
         assert!(backdrop_supported(22621), "Windows 11 22H2");
         assert!(backdrop_supported(26100), "Windows 11 24H2");
+    }
+
+    /// A window without a native handle, as the headless test platform of GPUI reports.
+    struct NoHandle;
+
+    impl HasWindowHandle for NoHandle {
+        fn window_handle(&self) -> Result<WindowHandle<'_>, HandleError> {
+            Err(HandleError::NotSupported)
+        }
+    }
+
+    #[test]
+    fn backdrop_type_maps_every_setting() {
+        assert_eq!(system_backdrop_type(Backdrop::None), DWMSBT_NONE);
+        assert_eq!(system_backdrop_type(Backdrop::Acrylic), DWMSBT_NONE);
+        assert_eq!(system_backdrop_type(Backdrop::Mica), DWMSBT_MAINWINDOW);
+        assert_eq!(system_backdrop_type(Backdrop::Tabbed), DWMSBT_TABBEDWINDOW);
+    }
+
+    #[test]
+    fn set_window_backdrop_refuses_a_window_without_a_handle() {
+        let result = Current.set_window_backdrop(&NoHandle, Backdrop::Mica);
+
+        assert!(
+            matches!(
+                result,
+                Err(PlatformError::Failed {
+                    context: "window handle",
+                    ..
+                })
+            ),
+            "{result:?}"
+        );
     }
 
     #[test]

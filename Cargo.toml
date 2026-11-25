@@ -36,6 +36,8 @@ interprocess = "2.4.9"
 jpeg-decoder = { version = "0.3.2", default-features = false }
 libloading = "0.9.1"
 postcard = { version = "1.2.0", features = ["use-std"] }
+# The native handle of a GPUI window (gpui Window implements HasWindowHandle) for the DWM backdrop call in sucrose-platform; GPUI already depends on 0.6.2, so no second copy is built.
+raw-window-handle = "0.6.2"
 rust-i18n = "4.2.4"
 serde = { version = "1.0.229", features = ["derive"] }
 serde_json = "1.0.154"

@@ -299,6 +299,19 @@ pub trait Platform: Send + Sync {
         Err(PlatformError::Unsupported("GPU preference"))
     }
 
+    /// Tells the OS which system backdrop material to draw behind `window`: on Windows 11 22H2 and later the DWM system
+    /// backdrop type (Mica: main window, Tabbed: tabbed window; Acrylic and None clear it, because the Portal draws
+    /// Acrylic through GPUI's accent policy). Fails with the OS error (the HRESULT on Windows) when the OS refuses, and
+    /// with [`PlatformError::Unsupported`] where [`Capabilities::window_backdrop`] is false; nothing is changed then.
+    fn set_window_backdrop(
+        &self,
+        window: &dyn raw_window_handle::HasWindowHandle,
+        backdrop: sucrose_core::settings::Backdrop,
+    ) -> Result<(), PlatformError> {
+        let _ = (window, backdrop);
+        Err(PlatformError::Unsupported("window backdrop"))
+    }
+
     /// Every GPU adapter, to name a LUID. The order is the OS's enumeration order and is not evidence of which
     /// adapter a device of this process uses (see [`Platform::default_gpu_adapter`]). Empty where the OS has none to
     /// report.

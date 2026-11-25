@@ -6873,6 +6873,7 @@ dependencies = [
 name = "sucrose-platform"
 version = "26.11.22+1"
 dependencies = [
+ "raw-window-handle",
  "serde",
  "serde_json",
  "sucrose-core",
