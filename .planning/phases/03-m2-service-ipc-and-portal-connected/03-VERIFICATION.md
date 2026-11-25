@@ -1,8 +1,8 @@
 ---
 phase: 03-m2-service-ipc-and-portal-connected
-verified: 2026-11-25T15:10:00Z
-status: gaps_found
-score: 14/17 must-haves verified
+verified: 2026-11-25T18:20:00Z
+status: human_needed
+score: 16/17 must-haves verified
 covered_files:
   - .planning/phases/03-m2-service-ipc-and-portal-connected/03-01-PLAN.md
   - .planning/phases/03-m2-service-ipc-and-portal-connected/03-01-SUMMARY.md
@@ -92,136 +92,118 @@ covered_files:
   - .planning/phases/03-m2-service-ipc-and-portal-connected/03-43-SUMMARY.md
   - .planning/phases/03-m2-service-ipc-and-portal-connected/03-44-PLAN.md
   - .planning/phases/03-m2-service-ipc-and-portal-connected/03-44-SUMMARY.md
+  - .planning/phases/03-m2-service-ipc-and-portal-connected/03-45-PLAN.md
+  - .planning/phases/03-m2-service-ipc-and-portal-connected/03-45-SUMMARY.md
+  - .planning/phases/03-m2-service-ipc-and-portal-connected/03-46-PLAN.md
+  - .planning/phases/03-m2-service-ipc-and-portal-connected/03-46-SUMMARY.md
+  - .planning/phases/03-m2-service-ipc-and-portal-connected/03-47-PLAN.md
+  - .planning/phases/03-m2-service-ipc-and-portal-connected/03-47-SUMMARY.md
+  - .planning/phases/03-m2-service-ipc-and-portal-connected/03-48-PLAN.md
+  - .planning/phases/03-m2-service-ipc-and-portal-connected/03-48-SUMMARY.md
+  - .planning/phases/03-m2-service-ipc-and-portal-connected/03-49-PLAN.md
+  - .planning/phases/03-m2-service-ipc-and-portal-connected/03-49-SUMMARY.md
+  - .planning/phases/03-m2-service-ipc-and-portal-connected/03-50-PLAN.md
+  - .planning/phases/03-m2-service-ipc-and-portal-connected/03-50-SUMMARY.md
+  - Cargo.lock
+  - Cargo.toml
   - apps/sucrose-portal/src/app.rs
-  - apps/sucrose-portal/src/background.rs
-  - apps/sucrose-portal/src/library/card.rs
   - apps/sucrose-portal/src/library/grid.rs
   - apps/sucrose-portal/src/library/layout.rs
   - apps/sucrose-portal/src/library/mod.rs
-  - apps/sucrose-portal/src/library/thumbs.rs
   - apps/sucrose-portal/src/theme.rs
-  - apps/sucrose/src/service.rs
-  - crates/sucrose-config/src/store.rs
+  - crates/sucrose-platform/Cargo.toml
+  - crates/sucrose-platform/src/lib.rs
+  - crates/sucrose-platform/src/os_windows.rs
+  - docs/ARCHITECTURE.md
   - docs/FEATURES.md
   - docs/GPUI.md
-  - docs/MEASUREMENTS.md
-covered_digest: "v4:sha256:c21b2df6a7b55793954da354df5418e22603b11bba95d1acda90d8ab211fb948"
+covered_digest: "v4:sha256:feeef93eaf056d6ba0881d5721932516f1bff9ff04e98b04e1171bb09b9e0b4b"
 behavior_unverified: 1
 overrides_applied: 0
 re_verification:
-  previous_status: human_needed
-  previous_score: 11/13
+  previous_status: gaps_found
+  previous_score: 14/17
   gaps_closed:
-    - "SC1b/G-03-8: hover previews and thumbnails of cards past the 64th (03-42, maintainer check 03-43 answers B-thumbnails and C yes)"
-    - "SC3b: Exit closes every Sucrose process (UAT tests 1 and 9 pass)"
-    - "SC4b: start with the OS (UAT test 2 pass, registry and log evidence)"
-  gaps_remaining:
-    - "SC5: Mica and Tabbed backdrops do not show (G-03-5 only partly closed)"
-    - "Library grid scrollbar not visible (G-03-6 only partly closed)"
+    - "SC5b/UI-01: Mica and Tabbed change the window (03-45 Opaque-first steps and Platform::set_window_backdrop; maintainer eye check A1-A7 yes in 03-47; 42 'backdrop applied' lines with dwm_result=0x00000000)"
+    - "Library grid scrollbar visible (03-46 sibling overlay mount; maintainer B1 b and B2 a-d yes in 03-47, both OS scrollbar modes)"
+    - "WR-16 stale in-view requests after a shrink or resize (03-46 clamp plus next-frame settle; maintainer B1 e yes)"
+  gaps_remaining: []
   regressions: []
-gaps:
-  - truth: "SC5: the Portal shows its Mica/Acrylic backdrop (UI-01, UI-02): choosing Mica or Tabbed changes what the window shows"
-    status: failed
-    reason: "Acrylic and None work (03-41 screen measurement, maintainer 03-43 'acrylic dediğin gibi, none tam opak'). Mica and Tabbed do not: from Acrylic the window stays the same, from None it does not turn transparent. apply_backdrop calls set_background_appearance with the target only; gpui-pre-windows 0.3.12 window.rs 925-941 sends Mica/MicaAlt through DwmSetWindowAttribute and never clears an earlier Acrylic accent policy, and no branch resets DWMWA_SYSTEMBACKDROP_TYPE. The 'backdrop applied' log line reports the requested value only, so it shows success. 03-REVIEW.md WR-14 (open, no disposition fix) records the same cause."
-    artifacts:
-      - path: "apps/sucrose-portal/src/app.rs"
-        issue: "apply_backdrop (lines 263-264) applies the target appearance only; no Opaque reset first, no DWM backdrop type reset, no HRESULT check"
-      - path: "apps/sucrose-portal/src/theme.rs"
-        issue: "appearance() maps Mica and Tabbed to MicaBackdrop and MicaAltBackdrop, which the pinned GPUI backend applies without clearing the Acrylic accent"
-    missing:
-      - "Apply Opaque before the target when the appearance changes, and a sucrose-platform function that sets DWMWA_SYSTEMBACKDROP_TYPE (none/main/tabbed) and returns the HRESULT (WR-14 fix)"
-      - "Maintainer eye check of Mica and Tabbed on the active window, then decide whether DwmExtendFrameIntoClientArea is needed"
-      - "Correct the docs/GPUI.md backdrop bullet once the cause is known"
-  - truth: "The library grid shows a vertical scrollbar that follows the OS setting (plan 03-42 truth, G-03-6, LIB-04; docs/FEATURES.md Pagination row says it exists)"
-    status: failed
-    reason: "Maintainer 03-43: 'scroll bar yok, ya da görünmüyor'. grid.rs scroll_area adds vertical_scrollbar as a child of the scrolled element (it scrolls with the content), and the OS-synced default on Windows is hover-only. 03-REVIEW.md WR-15 (open). Mouse-wheel scrolling and paging work, so the library stays usable; this is a visible-control gap, not a loss of the library."
-    artifacts:
-      - path: "apps/sucrose-portal/src/library/grid.rs"
-        issue: "lines 146-158: scrollbar is a child of the overflow_y_scroll div; not mounted as a sibling of the scroll area"
-    missing:
-      - "Mount the scrollbar as a sibling of the scroll area inside a non-scrolling relative wrapper (WR-15 fix) and confirm it by hand"
-      - "Correct docs/FEATURES.md and docs/GPUI.md until the scrollbar is confirmed visible"
 behavior_unverified_items:
   - truth: "SC5: scrolling through a large library keeps memory bounded (release build, recorded in docs/MEASUREMENTS.md)"
-    test: "Re-run D-25 scenario 2 on the release Portal against target/synth-500 (prepared by plan 03-44): three rounds of paging, scrolling and hovering with the clock started only after 'start'"
-    expected: "Final working set and private bytes inside the D-25 rule of docs/MEASUREMENTS.md rows 16-17 (first page plus 48 MiB, round 3 end at most round 1 end x 1.05); new row recorded"
-    why_human: "Rows 16-17 pre-date plan 03-42, which changed what is decoded and kept: thumbnails now follow the scroll and the cache may exceed its 64 image / 48 MiB caps while more cards are wanted on screen. Unit tests pin the cache invariants (thumbs_wanted_cards_over_the_byte_cap_stay_until_they_scroll_away and others) but no measurement of the new path exists: plan 03-44 was halted when the maintainer skipped it (UAT test 10 still blocked). The only on-path reading is the 03-43 log (cache images=64 bytes=18900000 on a 90-theme page of 100)."
+    test: "Re-run D-25 scenario 2 on the release Portal against target/synth-500 (kept by plan 03-50): three rounds of paging, scrolling and hovering, clock started only after 'start'"
+    expected: "Final working set and private bytes inside the D-25 rule (first page + 48 MiB; round 3 end at most round 1 end x 1.05); a new row recorded in docs/MEASUREMENTS.md"
+    why_human: "The two passing rows (03-37/03-38) pre-date 03-42, which made thumbnails follow the scroll and lets the cache exceed its caps while more cards are wanted, and 03-46, which changed the scrollbar and the in-view request. The re-measurement was skipped by the maintainer twice (03-44, 03-50; UAT test 10 stays blocked). Unit and GPUI tests pin the cache invariants but no memory reading exists for the final path."
 human_verification:
-  - test: "Re-run UAT test 10 (D-25 scenario 2) after the gap closure"
+  - test: "Re-run UAT test 10 (D-25 scenario 2) on the final build, or record an explicit maintainer decision accepting rows 16-17 as the evidence for UI-07"
     expected: "See behavior_unverified_items"
-    why_human: "Real pointer scrolling and a timed working-set series"
-  - test: "Mica, Tabbed, Acrylic and None on the active Portal window, Light and Dark, after the WR-14 fix"
-    expected: "Each backdrop looks different from the others and from None; switching in either direction updates the window"
-    why_human: "Visual judgment on the real desktop (the 03-41 capture measures Acrylic only, and PrintWindow shows no content under a backdrop)"
-  - test: "Grid scrollbar after the WR-15 fix"
-    expected: "A scrollbar appears on the library grid when the pointer is over its edge and while scrolling, and stays on the right edge while the content scrolls"
-    why_human: "Overlay scrollbar visibility depends on the OS scrollbar mode"
+    why_human: "A timed working-set series while the maintainer pages, scrolls and hovers by hand; it cannot be driven without synthesizing input"
+  - test: "Hover previews with Library Preview switched on on the final build (optional)"
+    expected: "A slowly hovered card animates; thumbnails keep showing with the scrollbar overlay mounted"
+    why_human: "03-47 ran with the migrated LibraryPreview=false (256 'preview switched off' lines); the last on-setting confirmation is 03-43, before the 03-46 overlay"
   - test: "Start with the OS across a real sign-out and sign-in (optional hardening of UAT test 2)"
     expected: "Sucrose starts after sign-in and the wallpaper plays"
-    why_human: "UAT test 2 proved the Run value, the no-argument start and the removal from the registry and logs; the maintainer could not sign out, so a real logon is unexercised. macOS and Linux entries are text-tested only."
+    why_human: "UAT test 2 proved the Run value, the no-argument start and the removal from registry and logs; a real logon was not exercised. macOS and Linux entries are text-tested only."
 ---
 
 # Phase 3: M2 - Service, IPC and Portal connected Verification Report
 
 **Phase Goal:** The service and the Portal work as one app: the user picks a theme in the Portal's library, "Use" applies it through the service, settings migrate from the C# install and persist, and Sucrose can start with the OS.
-**Verified:** 2026-11-25T15:10:00Z
-**Status:** gaps_found
-**Re-verification:** Yes. The earlier report (human_needed, 11/13, 2026-11-24T21:55:00Z) predates the maintainer UAT (6 passed, 3 issues, 1 blocked) and gap-closure plans 03-41 to 03-44. Its claim that nothing but two files changed after 594ec313 is stale: `git diff --stat 718081ed..HEAD -- apps crates xtask docs` lists ten files (app.rs, theme.rs and six library files among them). I re-checked those changes against the code, the review and the UAT evidence instead of carrying the old verdict forward.
+**Verified:** 2026-11-25T18:20:00Z
+**Status:** human_needed
+**Re-verification:** Yes. The previous report (gaps_found, 14/17, 15:10Z) predates gap-closure plans 03-45 to 03-50. I re-read the changed code and tests, the 03-47 maintainer replies and logs, and the 03-50 halt; I did not carry the old verdict forward.
 
 ## Goal Achievement
 
-The core of the goal is met and was exercised by the maintainer on the real desktop: the Portal starts the service and shows the library (UAT 3, 7), "Use" plays a video theme through the service (UAT 3), legacy settings migrate and a changed setting persists (UAT 6 steps 1-2, store tests), the second launch reuses the running instance (UAT 4), Exit closes every process (UAT 1, 9), and start with the OS writes, runs and removes its entry (UAT 2). The phase does not pass because two things the roadmap contract names are still broken on the final build, and one is unmeasured:
-
-1. **Success criterion 5 names "its Mica/Acrylic backdrop".** Acrylic works. Mica and Tabbed do not change the window (maintainer, 03-43). The cause is visible in code and open as WR-14.
-2. **The library grid scrollbar** that 03-42 and docs/FEATURES.md claim is not visible (maintainer, 03-43; WR-15 open).
-3. **Bounded memory while scrolling (SC5)** was last measured before 03-42 rewrote the thumbnail path. The re-measurement was skipped (03-44, status halted).
-
-I did not start sucrose.exe or sucrose-portal.exe. I ran `cargo test --workspace --no-fail-fast` once on this HEAD (clean tree): 966 passed, 0 failed, 20 ignored.
+Both gaps of the previous report are closed. Mica, Tabbed, Acrylic and None each reach the window (Opaque first, then the GPUI appearance, then a Sucrose-owned DWM backdrop type call with its HRESULT logged), and the library grid shows its scrollbar on the right edge while the cards scroll. The maintainer confirmed both by eye on the active window in plan 03-47 (A1-A7 all yes, B1 b-e and B2 a-d yes, both OS scrollbar modes). The phase does not pass outright for one reason: the bounded-memory claim of success criterion 5 has no measurement on the final thumbnail path, because the maintainer skipped the D-25 rerun twice. That is recorded as behavior-unverified and routed to the human, not scored as verified.
 
 ### Observable Truths
 
 | # | Truth | Status | Evidence |
 |---|-------|--------|----------|
-| 1 | SC1a: first run shows the library, showcase copied once, corrupt/incompatible themes handled as legacy, sortable, searchable, paged, movable | VERIFIED | Portal and service integration tests pass in this run; UAT 3 (search, Escape, Ctrl+F, sort) and UAT 7 (corrupt themes to the Recycle Bin and restore; library moved away and back, entries=108 renamed=108 left_behind=0) pass |
-| 2 | SC1b: the user sees hover previews | VERIFIED | card.rs paints `img(image).id(..)`, GPUI paint tests pass; 03-43 maintainer answer C yes, 24 'preview playing' log lines. The UAT 8 failure was the maintainer's LibraryPreview=false setting (hover_card 'preview switched off'), not code |
-| 3 | SC1c: "Use" on a video theme plays on the desktop through the service | VERIFIED | `PortalRequest::Use` sent from card.rs 167, handled in service.rs 1379; UAT 3 pass (clicked Video theme plays, Selected pill moves) |
-| 4 | SC1d (G-03-6/G-03-8): every card of a 100-card page shows its thumbnail while scrolling | VERIFIED | 03-42 replaced the first-64 cap with `request_visible` / `rows_in_view` / `insert_keeping`; layout_ and thumbs_ tests pass; maintainer 03-43: thumbnails appear as he scrolls down. WR-16 (open, Warning): offset and viewport are read from the previous frame, so a content shrink or resize can leave visible cards on the Idle fill |
-| 5 | SC2: legacy settings migrate, layout kept, change survives restart, kill during write never corrupts, legacy files never modified | VERIFIED | store.rs `read_retrying` 219, `keep_corrupt_aside` 196; store, migration and kill tests pass in this run; UAT 6 steps 1-2 pass |
-| 6 | SC3a: a second service or Portal start reuses the running instance | VERIFIED | Portal protocol tests pass; UAT 4 pass |
-| 7 | SC3b: Exit closes every Sucrose process | VERIFIED | Closing state machine and quitting tests pass; UAT 1 and 9 pass on the release build of 718081ed (maintainer). The earlier report's behavior-unverified status is superseded by that run |
-| 8 | SC3c: a crashing renderer is restarted a bounded number of times, never in a loop | VERIFIED | `supervisor::tests::three_crashes_in_a_minute_...` passes in this run |
-| 9 | SC4a: an optional module the user turns off starts no thread and does no polling | VERIFIED | `modules` tests and the tray-follows-switch portal test pass |
-| 10 | SC4b: with start with the OS on, Sucrose starts after sign-in and resumes the wallpaper | VERIFIED | UAT 2: Run value Sucrose.Service written with the quoted exe path and no arguments, a no-argument start of that exe played the wallpaper, None removed the value, the C# task unchanged. A real sign-in was not exercised (listed under human verification, optional) |
-| 11 | SC5a: the Portal follows light, dark or the OS theme | VERIFIED | theme tests pass; UAT 5 steps 1, 3-6 pass (toggle, background image, Help/About, Premium, tray hint) |
-| 12 | SC5b: the Portal shows its Mica/Acrylic backdrop; changing the backdrop changes the window | FAILED | Acrylic and None right (03-41 measurement, 03-43). Mica and Tabbed do not change the window; app.rs 263-264 and gpui-pre-windows window.rs 925-941 show why (see gaps) |
-| 13 | SC5c: optional background image, header actions, search, status bar, Help/About exist and work | VERIFIED | UAT 5 steps 3-6 pass; UAT 3 search pass; background.rs keeps `check_dimensions` and the budgeted decode |
-| 14 | SC5d: scrolling a large library keeps memory bounded, recorded in docs/MEASUREMENTS.md | ⚠️ PRESENT_BEHAVIOR_UNVERIFIED | Rows 16-17 exist but pre-date 03-42; the rerun (UAT 10, plan 03-44) was skipped by the maintainer. Cache invariants are unit tested only |
-| 15 | Derived: untrusted theme/background images cannot exhaust memory | VERIFIED | `check_dimensions` on all decode paths, `decode_budgeted` holds one permit across the decode; thumbs:: and background:: tests pass |
-| 16 | Derived: the settings store never overwrites a good Sucrose.json after a transient read error | VERIFIED | CR-02 tests pass in this run |
-| 17 | Derived (03-42 truth): the library grid shows a vertical scrollbar | FAILED | Maintainer 03-43: not visible. grid.rs 146-158 mounts it inside the scrolled element (WR-15, open) |
+| 1 | SC1a: first run shows the library, showcase copied once, corrupt/incompatible themes handled as legacy, sortable, searchable, paged, movable | VERIFIED | Portal and service integration tests pass in this run; UAT 3 and 7 pass (entries=108 renamed=108 left_behind=0) |
+| 2 | SC1b: hover previews | VERIFIED | card.rs paints the preview, GPUI paint tests pass; 03-43 maintainer C yes, 24 'preview playing' lines. Not re-seen with the setting on after 03-46 (optional human item) |
+| 3 | SC1c: "Use" on a video theme plays on the desktop through the service | VERIFIED | `PortalRequest::Use` from card.rs, handled in service.rs; UAT 3 pass |
+| 4 | SC1d: every card of a 100-card page shows its thumbnail while scrolling | VERIFIED | 03-42 `request_visible` / `rows_in_view` / `insert_keeping`; layout_ and thumbs_ tests pass; 03-47 B1 d and e yes, log shows the post-resize request first=51 last=68 queued=0 |
+| 5 | SC2: legacy settings migrate, layout kept, change survives restart, kill during write never corrupts, legacy files never modified | VERIFIED | store, migration and kill tests pass in this run; UAT 6 steps 1-2 |
+| 6 | SC3a: second service or Portal start reuses the running instance | VERIFIED | Portal protocol tests; UAT 4 |
+| 7 | SC3b: Exit closes every Sucrose process | VERIFIED | Closing state machine tests; UAT 1 and 9 pass on the release build |
+| 8 | SC3c: crashing renderer restarted a bounded number of times, never in a loop | VERIFIED | supervisor tests pass in this run |
+| 9 | SC4a: a module the user turns off starts no thread and does no polling | VERIFIED | modules tests and the tray-follows-switch portal test |
+| 10 | SC4b: with start with the OS on, Sucrose starts after sign-in and resumes the wallpaper | VERIFIED | UAT 2 (Run value, no-argument start plays, removal); a real sign-in not exercised (optional human item) |
+| 11 | SC5a: Portal follows light, dark or the OS theme | VERIFIED | theme tests; UAT 5 steps 1, 3-6 |
+| 12 | SC5b: the Portal shows its Mica/Acrylic backdrop; changing the backdrop changes the window | VERIFIED | theme.rs 94-105 `appearance_steps`; app.rs 266-283 applies the steps, remembers the appearance, calls `set_window_backdrop` and logs `dwm_result`; os_windows.rs 222-259 maps every setting (no wildcard) and returns the HRESULT; tests `theme_appearance_steps_*`, `backdrop_type_maps_every_setting`, `set_window_backdrop_refuses_a_window_without_a_handle`, `app_dwm_result_text_names_each_outcome` exist and pass. Maintainer eye check 03-47 A1-A7 yes (Mica and Tabbed differ from None, leaving Acrylic changes the window, Dark and Light, both directions); 42 'backdrop applied' lines all supported=true dwm_result=0x00000000. 03-48 and 03-49 correctly applied no frame extension (not needed) |
+| 13 | SC5c: optional background image, header actions, search, status bar, Help/About | VERIFIED | UAT 5 steps 3-6, UAT 3 search; background.rs budgeted decode |
+| 14 | SC5d: scrolling a large library keeps memory bounded, recorded in docs/MEASUREMENTS.md | ⚠️ PRESENT_BEHAVIOR_UNVERIFIED | Rows 16-17 (03-37/03-38) pass the D-25 rule on 03-27's atlas fix (500-theme library: working set final 165 vs 184, round 3 vs round 1 166 vs 189) but pre-date 03-42 and 03-46. 03-50 prepared target/synth-500 and a 15 s smoke series only; the maintainer replied "skip" at the ready gate. No pass, no FAIL on the final path |
+| 15 | Derived: untrusted theme/background images cannot exhaust memory | VERIFIED | `check_dimensions` and `decode_budgeted` on all decode paths; tests pass |
+| 16 | Derived: settings store never overwrites a good Sucrose.json after a transient read error | VERIFIED | CR-02 tests pass |
+| 17 | Derived (03-42/03-46 truth): the library grid shows a vertical scrollbar | VERIFIED | grid.rs 153-179: `relative()` wrapper with the `overflow_y_scroll().track_scroll(scroll)` area and an `absolute().inset_0()` overlay holding `Scrollbar::new(scroll)` as siblings on one ScrollHandle; tests `grid_scrollbar_stays_on_the_right_edge_while_the_cards_scroll`, `grid_scrollbar_overlay_lets_clicks_reach_the_cards`, `grid_scrollbar_page_end_and_short_pages_do_not_move` exist and pass; maintainer 03-47 B1 b and B2 a-d yes in auto-hide and always-show modes |
 
-**Score:** 14/17 truths verified (1 present, behavior-unverified; 2 failed)
+**Score:** 16/17 truths verified (1 present, behavior-unverified; 0 failed)
+
+(The previous report counted 14/17 with 2 failed; the two failed truths, 12 and 17, are now verified.)
 
 ### Deferred Items
 
-None. I checked phases 4 to 8 in ROADMAP.md: none names the window backdrop, the library scrollbar or the library memory measurement, so no gap is moved.
+None. Phases 4 to 8 do not name the memory measurement of the final library path; nothing is moved.
 
 ### Advisory (New Scope, Unevidenced)
 
-None.
+None. 03-REVIEW.md (re-review of 03-45 and 03-46): 0 critical, 0 warning, 17 info; WR-14, WR-15, WR-16 resolved. The open infos (IN-13 to IN-25) touch no success criterion.
 
 ### Required Artifacts
 
 | Artifact | Expected | Status | Details |
 |----------|----------|--------|---------|
-| `apps/sucrose-portal/src/theme.rs` | root_fill, apply_root_fill, backdrop mapping | VERIFIED (partial effect) | root_fill and apply_root_fill present, tests pass; the Mica/Tabbed mapping reaches a backend that does not clear Acrylic |
-| `apps/sucrose-portal/src/app.rs` | apply_backdrop with Root fill, deferred once | STUB-LEVEL for Mica/Tabbed | applies target only (263-264) |
-| `apps/sucrose-portal/src/library/layout.rs`, `thumbs.rs`, `mod.rs` | in-view requests, keep-wanted cache | VERIFIED | `rows_in_view` 101, `insert_keeping` 217, `request_visible` 561; tests pass |
-| `apps/sucrose-portal/src/library/grid.rs` | visible vertical scrollbar | FAILED | wrong mount point (WR-15) |
-| `apps/sucrose-portal/src/library/card.rs` | Use and hover preview | VERIFIED | `PortalRequest::Use` at 167 |
+| `apps/sucrose-portal/src/theme.rs` | backdrop mapping, `appearance_steps`, root fill | VERIFIED | Opaque-first logic and tests present |
+| `apps/sucrose-portal/src/app.rs` | `apply_backdrop` with steps, DWM call, logged result | VERIFIED | wired, calls `sucrose_platform::current().set_window_backdrop` |
+| `crates/sucrose-platform/src/{lib,os_windows}.rs` | `Platform::set_window_backdrop`, one SAFETY-commented unsafe | VERIFIED | default `Unsupported` on the trait, Windows override real |
+| `apps/sucrose-portal/src/library/grid.rs` | sibling scrollbar overlay, `visible_rows` clamp and settle | VERIFIED | |
+| `apps/sucrose-portal/src/library/layout.rs` | `clamped_scroll_top`, `content_height`, `rows_in_view` | VERIFIED | tests pass |
+| `apps/sucrose-portal/src/library/{mod,thumbs,card}.rs` | in-view requests, keep-wanted cache, Use | VERIFIED | |
 | `crates/sucrose-config/src/store.rs` | atomic store, retried read, corrupt kept aside | VERIFIED | |
-| `apps/sucrose/src/{service,startup,supervisor,modules,portal_link,settings_host}.rs` | service host, lifecycle | VERIFIED | wired; tests pass |
-| `docs/MEASUREMENTS.md` | D-25 rows on the final thumbnail path | PARTIAL | rows 16-17 pre-date 03-42; no new row (03-44 skipped) |
+| `apps/sucrose/src/*` service host, supervisor, modules, startup | lifecycle | VERIFIED | tests pass |
+| `docs/MEASUREMENTS.md` | D-25 rows on the final thumbnail path | PARTIAL | rows pre-date 03-42 and 03-46; no new row |
 
 ### Key Link Verification
 
@@ -229,27 +211,28 @@ None.
 |------|----|-----|--------|---------|
 | card click | service Use | `PortalRequest::Use` | WIRED | UAT 3 |
 | service Use | renderer | `ToRenderer::LoadSource` | WIRED | |
-| Portal settings rows | Sucrose.json | `PortalRequest::Change` -> settings_host -> store | WIRED | |
+| Portal settings rows | Sucrose.json | Change -> settings_host -> store | WIRED | |
 | autostart row | Run value | `startup::set_startup` -> platform | WIRED | UAT 2 |
-| grid scroll offset | thumbnail requests | `request_visible` from render | WIRED | see WR-16 for the stale-frame edge |
-| backdrop setting | window appearance | `apply_backdrop` -> `set_background_appearance` | PARTIAL | Acrylic and None effective; Mica and Tabbed not (WR-14) |
-| grid scroll area | visible scrollbar | `vertical_scrollbar(scroll)` | NOT_WIRED to a visible bar | WR-15 |
+| backdrop setting | window | `apply_backdrop` -> steps -> `set_window_backdrop` | WIRED | 03-47 log and eye check |
+| grid scroll area | visible scrollbar | sibling overlay on the same ScrollHandle | WIRED | 03-47 eye check |
+| grid scroll offset | thumbnail requests | `visible_rows` (clamped, next-frame settle) -> `request_visible` | WIRED | tests and 03-47 B1 e |
 
 ### Data-Flow Trace (Level 4)
 
 | Artifact | Data Variable | Source | Produces Real Data | Status |
 |----------|---------------|--------|--------------------|--------|
-| library grid | `themes` | sucrose-core library scan | Yes | FLOWING |
-| card thumbnail | `Thumb` | `request_visible` -> DecodeQueue | Yes (03-43 log: 104 requests, cache images=64) | FLOWING |
-| window backdrop | `WindowBackgroundAppearance` | settings Backdrop via Changed | Reaches DWM for Acrylic/None only | PARTIAL |
+| library grid | themes | sucrose-core library scan | Yes | FLOWING |
+| card thumbnail | Thumb | `request_visible` -> DecodeQueue | Yes (03-47 log: 276 requests, cache images=64) | FLOWING |
+| window backdrop | WindowBackgroundAppearance and DWM type | settings Backdrop via Changed | Yes, dwm_result=0x00000000 on every line | FLOWING |
 
 ### Behavioral Spot-Checks
 
 | Behavior | Command | Result | Status |
 |----------|---------|--------|--------|
-| Whole workspace | `cargo test --workspace --no-fail-fast` (once, this HEAD) | 966 passed, 0 failed, 20 ignored | PASS |
+| Whole workspace | `cargo test --workspace --no-fail-fast` (clean tree, HEAD 645c77f1) | 979 passed, 0 failed, 20 ignored | PASS |
+| New gap-closure tests exist | grep of the 11 test names of 03-45 and 03-46 | all present | PASS |
 | Debt markers | `grep -rnE "TBD|FIXME|XXX" apps crates xtask --include=*.rs` | no match | PASS |
-| Mica/Tabbed backdrop on screen | needs the real desktop | maintainer reports no change | FAIL (UAT evidence, not rerun by me) |
+| Backdrops and scrollbar on screen | needs the real desktop | not rerun by me; maintainer 03-47 replies plus log | EVIDENCE: UAT |
 
 ### Probe Execution
 
@@ -257,7 +240,7 @@ Step 7c: SKIPPED (no probe scripts declared by the phase plans).
 
 ### Requirements Coverage
 
-All 21 phase IDs appear in the `requirements:` field of at least one PLAN, in ROADMAP.md and in REQUIREMENTS.md. No orphaned IDs (REQUIREMENTS.md maps exactly 21 to Phase 3).
+All 21 phase IDs appear in the `requirements:` field of at least one PLAN (checked per plan) and in ROADMAP.md and REQUIREMENTS.md. No orphans.
 
 | Requirement | Source Plan(s) | Status | Evidence |
 |-------------|----------------|--------|----------|
@@ -273,44 +256,36 @@ All 21 phase IDs appear in the `requirements:` field of at least one PLAN, in RO
 | LIB-01 | 04, 21 | SATISFIED | showcase copy once |
 | LIB-02 | 02, 21 | SATISFIED | scan rules, recycle bin (UAT 7) |
 | LIB-03 | 02, 14 | SATISFIED | UAT 3 |
-| LIB-04 | 10, 14, 20, 42, 43 | PARTIAL | paging and layout work; the grid scrollbar is not visible (truth 17) |
+| LIB-04 | 10, 14, 20, 42, 43, 46, 47 | SATISFIED | paging, layout, visible scrollbar (03-47) |
 | LIB-06 | 19, 28, 39, 42, 43 | SATISFIED | 03-43 C yes |
 | LIB-08 | 02, 09, 12 | SATISFIED | newer-version refusal |
-| LIB-09 | 22, 31 | SATISFIED | UAT 7 move and return |
-| UI-01 | 17, 20, 29, 41, 43 | BLOCKED (partial) | requirement text is "Mica/Acrylic on Windows": Acrylic works, Mica does not (truth 12) |
-| UI-02 | 17, 20, 41, 43 | SATISFIED for light/dark/OS | the backdrop half is under UI-01 |
+| LIB-09 | 22, 31 | SATISFIED | UAT 7 |
+| UI-01 | 17, 20, 29, 41, 43, 45, 47-49 | SATISFIED | Acrylic and Mica and Tabbed all reach the window (03-47) |
+| UI-02 | 17, 20, 41, 43, 45, 47, 49 | SATISFIED | theme tests, UAT 5 |
 | UI-03 | 03, 08, 14, 18 | SATISFIED | UAT 3, 5 |
 | UI-05 | 03, 18 | SATISFIED | UAT 5 |
-| UI-07 | 05, 10, 19, 24, 25, 27, 29, 36-40, 42, 44 | NEEDS HUMAN | decode at card size, bounded cache, release hold; the measurement on the final path is missing (truth 14) |
+| UI-07 | 05, 10, 19, 24, 25, 27, 29, 36-40, 42, 44, 46, 50 | NEEDS HUMAN | decode at card size, bounded cache, atlas release; no measurement on the final path (truth 14) |
 
-**Bookkeeping drift (not a code gap):** `.planning/REQUIREMENTS.md` still shows ARCH-03, FMT-01, FMT-06, LIB-01..04, LIB-08, UI-02, UI-03 and UI-05 unticked ("Gaps Found") from the first verification, while UI-01 (Mica not working), UI-07 (not remeasured) and LIB-04 (no scrollbar) are ticked or complete. Reconcile after the gaps close.
+**Bookkeeping drift (not a code gap):** `.planning/REQUIREMENTS.md` still shows ARCH-01..05, FMT-01, FMT-06, LIB-01..03, LIB-06, LIB-08, LIB-09, UI-03, UI-05, TRAY-03 and TRAY-05 as "Gaps Found" (unticked) from the first verification, while LIB-04, UI-01 and UI-02 are ticked Complete. Reconcile to the verdicts above when this phase closes; UI-07 should stay open until truth 14 is resolved.
 
 ### Anti-Patterns Found
 
 | File | Line | Pattern | Severity | Impact |
 |------|------|---------|----------|--------|
-| `apps/sucrose-portal/src/app.rs` | 263-264 | backdrop applied without clearing the previous one; log reports the request, not the result | Blocker | Mica and Tabbed do nothing (WR-14) |
-| `apps/sucrose-portal/src/library/grid.rs` | 146-158 | scrollbar child of the scrolled element | Warning | scrollbar not visible (WR-15) |
-| `apps/sucrose-portal/src/library/mod.rs` | request_visible | previous-frame offset and viewport, nothing renders again after the clamp | Warning | stale Idle cards after a shrink or resize (WR-16) |
 | (apps, crates, xtask) | - | TBD/FIXME/XXX | none | no match |
-| various | - | IN-02, IN-04, IN-10, IN-11, IN-13 to IN-24 | Info | ledger in 03-REVIEW-DISPOSITION.md; none touches a success criterion |
+| various | - | IN-02, IN-04, IN-10, IN-11, IN-13 to IN-25 | Info | ledger in 03-REVIEW-DISPOSITION.md (16 open, none touches a success criterion) |
 
 ### Human Verification Required
 
-See the frontmatter. With status gaps_found the human items follow the gap closure: re-run UAT test 10, an eye check of all four backdrops on the active window, the scrollbar, and optionally a real sign-in.
+1. **D-25 scenario 2 on the final build (UAT test 10).** Test: run the release Portal against `target/synth-500` (kept by 03-50) with `cargo xtask measure --side portal`, three rounds of paging, scrolling and hovering, clock started after "start". Expected: final at most first page + 48 MiB and round 3 end at most round 1 end x 1.05 on working set and private bytes, recorded as a new row. Why human: real pointer scrolling and a timed series. If the maintainer decides rows 16-17 are enough, that decision should be recorded and UI-07 closed explicitly.
+2. **Hover previews with Library Preview on (optional).** The last confirmation (03-43) predates the 03-46 overlay; 03-47 ran with the setting off. Expected: slow hover animates, thumbnails keep showing.
+3. **Real sign-out and sign-in for start with the OS (optional).** Expected: Sucrose starts after sign-in and the wallpaper plays.
 
 ### Gaps Summary
 
-Two gaps block the goal, both found by the maintainer's UAT and left open by gap closure (03-43 says phase verification cannot pass until they close):
-
-1. **Mica and Tabbed backdrops (SC5, UI-01).** One root cause in two layers: the Portal never clears the Acrylic accent policy before asking for Mica or Tabbed, and nothing resets the DWM system backdrop type. WR-14 gives the fix. "Opaque after None" for Mica/Tabbed is not explained by code I can read; it may be the inactive-window DWM fallback or a missing frame extension, so the eye check on the active window decides if more is needed.
-2. **Library grid scrollbar (LIB-04, 03-42 truth).** WR-15: wrong mount point, and hover-only by default on Windows. Wheel scrolling and paging work.
-
-One truth is present but unproven: bounded memory on the new thumbnail path (UAT test 10 / plan 03-44 skipped by the maintainer). It is recorded in `behavior_unverified_items`, not scored as verified. The open WR-16 (stale viewport after a shrink or resize) is a Warning for the same closure round.
-
-Run `/gsd-plan-phase 3 --gaps` for WR-14 and WR-15 (WR-16 and the D-25 rerun fit the same round).
+No gaps. Everything the roadmap names is implemented, wired and, where it is visual (backdrops, scrollbar), confirmed on the real desktop by the maintainer. One truth stays present but unproven: bounded memory on the final thumbnail path (UI-07, success criterion 5). The earlier D-25 passes were measured on code that 03-42 and 03-46 changed afterwards, and the rerun was skipped twice by the maintainer's choice. Because that is a runtime-memory invariant that tests only pin indirectly, I do not mark it verified; the status is human_needed.
 
 ---
 
-_Verified: 2026-11-25T15:10:00Z_
+_Verified: 2026-11-25T18:20:00Z_
 _Verifier: Claude (gsd-verifier)_
