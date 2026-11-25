@@ -121,7 +121,7 @@ Plans:
   3. Starting the service or the Portal a second time reuses the running instance, Exit closes every Sucrose process, and a renderer that keeps crashing is restarted a bounded number of times and then stopped, never in a loop.
   4. An optional module the user turns off starts no thread and does no polling, and with "start with the OS" on, Sucrose starts after sign-in and resumes the wallpaper.
   5. The Portal follows light, dark or the OS theme with its Mica/Acrylic backdrop and optional background image, has header actions, search, a status bar and Help/About, and scrolling through a large library keeps its memory bounded (release build, recorded in `docs/MEASUREMENTS.md`).
-**Plans**: 44/50 plans executed
+**Plans**: 45/50 plans executed
 Plans:
 **Wave 1**
 - [x] 03-01-PLAN.md — Settings tracer: Setting/Sucrose.json migrated once, atomic store with .bak and kill test, service reads it (D-032)
@@ -246,7 +246,7 @@ Plans:
 **Gap closure round 3 (2026-11-25, from 03-VERIFICATION.md gaps "SC5 backdrop" and "grid scrollbar", the behavior-unverified SC5 memory item, and 03-REVIEW.md WR-14, WR-15, WR-16)**
 
 **Gap round 3, wave 1**
-- [ ] 03-45-PLAN.md — WR-14: Opaque before a changed backdrop, DWM system backdrop type set and reset through sucrose-platform (Platform::set_window_backdrop) with the HRESULT logged as dwm_result
+- [x] 03-45-PLAN.md — WR-14: Opaque before a changed backdrop, DWM system backdrop type set and reset through sucrose-platform (Platform::set_window_backdrop) with the HRESULT logged as dwm_result
 
 **Gap round 3, wave 2** *(blocked on wave 1)*
 - [ ] 03-46-PLAN.md — WR-15: grid scrollbar mounted beside the scroll area (GPUI layout tests), docs say it is unconfirmed until 03-47; WR-16: rows in view from an offset clamped to the content, settled on the next frame after a shrink or resize (layout and GPUI tests), before the D-25 rerun
@@ -346,7 +346,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 |-------|----------------|--------|-----------|
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
 | 2. M1 — Video wallpaper on the desktop (Windows) | 29/29 | Complete    | 2026-11-23 |
-| 3. M2 — Service, IPC and Portal connected | 44/44 | In Progress | - |
+| 3. M2 — Service, IPC and Portal connected | 45/50 | In Progress | - |
 | 4. M3 — Engines and the wallpaper API | 0/TBD | Not started | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
 | 6. M5 — macOS | 0/TBD | Not started | - |
