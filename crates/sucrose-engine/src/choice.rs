@@ -186,10 +186,29 @@ pub fn choose_engine(
     configured: EngineType,
     availability: &dyn Fn(EngineId) -> Availability,
 ) -> Choice {
-    let _ = (kind, configured, availability);
+    // T-04-11: an engine the type does not allow counts as the type's default.
+    let configured = if allowed(kind).contains(&configured) {
+        configured
+    } else {
+        legacy_default(kind)
+    };
+    let wanted = EngineId::from_legacy(configured);
+
+    let report = availability(wanted);
+    if report.is_available() {
+        return Choice {
+            engine: Some(wanted),
+            fell_back_from: None,
+        };
+    }
+    let engine = fallback_order(kind)
+        .iter()
+        .copied()
+        .filter(|candidate| *candidate != wanted)
+        .find(|candidate| availability(*candidate).is_available());
     Choice {
-        engine: None,
-        fell_back_from: None,
+        engine,
+        fell_back_from: Some((wanted, report)),
     }
 }
 
