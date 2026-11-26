@@ -1,0 +1,29 @@
+{
+  "PropertyListener": "L('{0}', {1});",
+  "PropertyList": {
+    "known": {
+      "type": "checkbox",
+      "text": "t",
+      "value": false
+    },
+    "odd": {
+      "type": "spinner",
+      "text": "Spin",
+      "value": 3,
+      "speed": {
+        "fast": true
+      },
+      "labels": [
+        "a",
+        "b"
+      ]
+    }
+  },
+  "Extra": {
+    "keep": [
+      1,
+      2,
+      3
+    ]
+  }
+}

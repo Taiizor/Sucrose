@@ -1,0 +1,225 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "backgroundImage": {
+      "type": "filedropdown",
+      "value": "ivy.png",
+      "title": "loc_backgroundimage_title",
+      "text": "loc_backgroundimage_text",
+      "desc": "loc_backgroundimage_desc",
+      "filter": "*.jpg|*.jpeg|*.png|*.webm",
+      "folder": "media/bg"
+    },
+    "foregroundImage": {
+      "type": "filedropdown",
+      "value": "default.png",
+      "title": "loc_foregroundimage_title",
+      "text": "loc_foregroundimage_text",
+      "desc": "loc_foregroundimage_desc",
+      "filter": "*.jpg|*.jpeg|*.png|*.webm",
+      "folder": "media/fg"
+    }
+  },
+  "PropertyLocalization": {
+    "AR": {
+      "loc_backgroundimage_title": "حدد صورة الخلفية",
+      "loc_backgroundimage_text": "الخلفية (.jpg، .png، .webm)",
+      "loc_backgroundimage_desc": "جميع الصور",
+      "loc_foregroundimage_title": "حدد الصورة الأمامية",
+      "loc_foregroundimage_text": "المقدمة (.jpg، .png، .webm)",
+      "loc_foregroundimage_desc": "جميع الصور"
+    },
+    "CS": {
+      "loc_backgroundimage_title": "Vyberte Obrázek na pozadí",
+      "loc_backgroundimage_text": "Pozadí (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Všechny obrázky",
+      "loc_foregroundimage_title": "Vyberte Obrázek v popředí",
+      "loc_foregroundimage_text": "Popředí (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Všechny obrázky"
+    },
+    "DA": {
+      "loc_backgroundimage_title": "Vælg Baggrundsbillede",
+      "loc_backgroundimage_text": "Baggrund (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Alle billeder",
+      "loc_foregroundimage_title": "Vælg Forgrundsbillede",
+      "loc_foregroundimage_text": "Forgrund (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Alle billeder"
+    },
+    "DE": {
+      "loc_backgroundimage_title": "Wählen Sie Hintergrundbild aus",
+      "loc_backgroundimage_text": "Hintergrund (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Alle Bilder",
+      "loc_foregroundimage_title": "Wählen Sie Vordergrundbild",
+      "loc_foregroundimage_text": "Vordergrund (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Alle Bilder"
+    },
+    "EL": {
+      "loc_backgroundimage_title": "Επιλέξτε Εικόνα φόντου",
+      "loc_backgroundimage_text": "Φόντο (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Όλες οι εικόνες",
+      "loc_foregroundimage_title": "Επιλέξτε Εικόνα προσκηνίου",
+      "loc_foregroundimage_text": "Πρώτο πλάνο (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Όλες οι εικόνες"
+    },
+    "EN": {
+      "loc_backgroundimage_title": "Select Background Image",
+      "loc_backgroundimage_text": "Background (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "All Images",
+      "loc_foregroundimage_title": "Select Foreground Image",
+      "loc_foregroundimage_text": "Foreground (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "All Images"
+    },
+    "ES": {
+      "loc_backgroundimage_title": "Seleccionar imagen de fondo",
+      "loc_backgroundimage_text": "Fondo (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Todas las imágenes",
+      "loc_foregroundimage_title": "Seleccionar imagen de primer plano",
+      "loc_foregroundimage_text": "Primer plano (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Todas las imágenes"
+    },
+    "FR": {
+      "loc_backgroundimage_title": "Sélectionnez l'image d'arrière-plan",
+      "loc_backgroundimage_text": "Arrière-plan (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Toutes les images",
+      "loc_foregroundimage_title": "Sélectionner une image de premier plan",
+      "loc_foregroundimage_text": "Premier plan (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Toutes les images"
+    },
+    "HE": {
+      "loc_backgroundimage_title": "בחר תמונת רקע",
+      "loc_backgroundimage_text": "רקע (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "כל התמונות",
+      "loc_foregroundimage_title": "בחר תמונת חזית",
+      "loc_foregroundimage_text": "חזית (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "כל התמונות"
+    },
+    "HI": {
+      "loc_backgroundimage_title": "पृष्ठभूमि छवि का चयन करें",
+      "loc_backgroundimage_text": "पृष्ठभूमि (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "सभी छवियाँ",
+      "loc_foregroundimage_title": "अग्रभूमि छवि का चयन करें",
+      "loc_foregroundimage_text": "अग्रभूमि (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "सभी छवियाँ"
+    },
+    "ID": {
+      "loc_backgroundimage_title": "Pilih Gambar Latar Belakang",
+      "loc_backgroundimage_text": "Latar Belakang (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Semua Gambar",
+      "loc_foregroundimage_title": "Pilih Gambar Latar Depan",
+      "loc_foregroundimage_text": "Latar depan (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Semua Gambar"
+    },
+    "IT": {
+      "loc_backgroundimage_title": "Seleziona Immagine di sfondo",
+      "loc_backgroundimage_text": "Sfondo (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Tutte le immagini",
+      "loc_foregroundimage_title": "Seleziona Immagine in primo piano",
+      "loc_foregroundimage_text": "Primo piano (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Tutte le immagini"
+    },
+    "JA": {
+      "loc_backgroundimage_title": "背景画像の選択",
+      "loc_backgroundimage_text": "背景 (.jpg、.png、.webm)",
+      "loc_backgroundimage_desc": "すべての画像",
+      "loc_foregroundimage_title": "前景画像の選択",
+      "loc_foregroundimage_text": "前景 (.jpg、.png、.webm)",
+      "loc_foregroundimage_desc": "すべての画像"
+    },
+    "KO": {
+      "loc_backgroundimage_title": "배경 이미지 선택",
+      "loc_backgroundimage_text": "배경(.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "모든 이미지",
+      "loc_foregroundimage_title": "전경 이미지 선택",
+      "loc_foregroundimage_text": "전경(.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "모든 이미지"
+    },
+    "MS": {
+      "loc_backgroundimage_title": "Pilih Imej Latar Belakang",
+      "loc_backgroundimage_text": "Latar belakang (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Semua Imej",
+      "loc_foregroundimage_title": "Pilih Imej Latar Depan",
+      "loc_foregroundimage_text": "Latar Depan (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Semua Imej"
+    },
+    "NB": {
+      "loc_backgroundimage_title": "Velg Bakgrunnsbilde",
+      "loc_backgroundimage_text": "Bakgrunn (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Alle bilder",
+      "loc_foregroundimage_title": "Velg Forgrunnsbilde",
+      "loc_foregroundimage_text": "Forgrunn (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Alle bilder"
+    },
+    "NL": {
+      "loc_backgroundimage_title": "Selecteer Achtergrondafbeelding",
+      "loc_backgroundimage_text": "Achtergrond (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Alle afbeeldingen",
+      "loc_foregroundimage_title": "Selecteer Voorgrondafbeelding",
+      "loc_foregroundimage_text": "Voorgrond (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Alle afbeeldingen"
+    },
+    "PL": {
+      "loc_backgroundimage_title": "Wybierz Obraz tła",
+      "loc_backgroundimage_text": "Tło (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Wszystkie obrazy",
+      "loc_foregroundimage_title": "Wybierz opcję Obraz pierwszego planu",
+      "loc_foregroundimage_text": "Pierwszy plan (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Wszystkie obrazy"
+    },
+    "PT": {
+      "loc_backgroundimage_title": "Selecione a imagem de fundo",
+      "loc_backgroundimage_text": "Plano de fundo (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Todas as imagens",
+      "loc_foregroundimage_title": "Selecione a imagem de primeiro plano",
+      "loc_foregroundimage_text": "Primeiro plano (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Todas as imagens"
+    },
+    "RO": {
+      "loc_backgroundimage_title": "Selectați Imagine de fundal",
+      "loc_backgroundimage_text": "Fundal (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Toate Imaginile",
+      "loc_foregroundimage_title": "Selectați imaginea din prim-plan",
+      "loc_foregroundimage_text": "Prim-plan (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Toate Imaginile"
+    },
+    "RU": {
+      "loc_backgroundimage_title": "Выберите фоновое изображение",
+      "loc_backgroundimage_text": "Фон (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Все изображения",
+      "loc_foregroundimage_title": "Выберите изображение переднего плана",
+      "loc_foregroundimage_text": "Передний план (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Все изображения"
+    },
+    "SV": {
+      "loc_backgroundimage_title": "Välj Bakgrundsbild",
+      "loc_backgroundimage_text": "Bakgrund (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Alla bilder",
+      "loc_foregroundimage_title": "Välj Förgrundsbild",
+      "loc_foregroundimage_text": "Förgrund (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Alla bilder"
+    },
+    "TR": {
+      "loc_backgroundimage_title": "Arka Plan Resmini Seçin",
+      "loc_backgroundimage_text": "Arka plan (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Tüm Görseller",
+      "loc_foregroundimage_title": "Ön Plan Resmini Seçin",
+      "loc_foregroundimage_text": "Ön plan (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Tüm Görseller"
+    },
+    "UK": {
+      "loc_backgroundimage_title": "Виберіть фонове зображення",
+      "loc_backgroundimage_text": "Фон (.jpg, .png, .webm)",
+      "loc_backgroundimage_desc": "Усі зображення",
+      "loc_foregroundimage_title": "Виберіть зображення переднього плану",
+      "loc_foregroundimage_text": "Передній план (.jpg, .png, .webm)",
+      "loc_foregroundimage_desc": "Усі зображення"
+    },
+    "ZH": {
+      "loc_backgroundimage_title": "选择背景图片",
+      "loc_backgroundimage_text": "背景（.jpg、.png、.webm）",
+      "loc_backgroundimage_desc": "所有图片",
+      "loc_foregroundimage_title": "选择前景图像",
+      "loc_foregroundimage_text": "前景（.jpg、.png、.webm）",
+      "loc_foregroundimage_desc": "所有图片"
+    }
+  }
+}

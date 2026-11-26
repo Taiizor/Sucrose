@@ -1,0 +1,186 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "refreshInterval": {
+      "max": 1440,
+      "min": 1,
+      "step": 1,
+      "text": "loc_refreshinterval_text",
+      "help": "loc_refreshinterval_help",
+      "type": "slider",
+      "value": 1
+    },
+    "wallpaperResolution": {
+      "type": "dropdown",
+      "text": "loc_wallpaperresolution_text",
+      "help": "loc_wallpaperresolution_help",
+      "value": 10,
+      "items": [
+        "1366x768",
+        "1600x900",
+        "1920x1080",
+        "1920x1200",
+        "2048x1080",
+        "2048x1152",
+        "2560x1440",
+        "2560x1600",
+        "3440x1440",
+        "3840x1600",
+        "3840x2160",
+        "4096x2160"
+      ]
+    }
+  },
+  "PropertyLocalization": {
+    "AR": {
+      "loc_refreshinterval_text": "تغيير دقائق الخلفية",
+      "loc_refreshinterval_help": "اضبط الفاصل الزمني لتغيير خلفية الشاشة بالدقائق",
+      "loc_wallpaperresolution_text": "دقة ورق الجدران",
+      "loc_wallpaperresolution_help": "حدد دقة صورة الخلفية التي سيتم تنزيلها"
+    },
+    "CS": {
+      "loc_refreshinterval_text": "Změnit minuty tapety",
+      "loc_refreshinterval_help": "Nastavte interval výměny tapety v minutách",
+      "loc_wallpaperresolution_text": "Rozlišení tapety",
+      "loc_wallpaperresolution_help": "Vyberte rozlišení obrázku tapety, který bude stažen"
+    },
+    "DA": {
+      "loc_refreshinterval_text": "Skift tapet minutter",
+      "loc_refreshinterval_help": "Indstil tapetskiftintervallet i minutter",
+      "loc_wallpaperresolution_text": "Tapet opløsning",
+      "loc_wallpaperresolution_help": "Vælg opløsningen for det tapetbillede, der skal downloades"
+    },
+    "DE": {
+      "loc_refreshinterval_text": "Ändern Sie die Hintergrundminuten",
+      "loc_refreshinterval_help": "Stellen Sie das Intervall für den Tapetenwechsel in Minuten ein",
+      "loc_wallpaperresolution_text": "Hintergrundbildauflösung",
+      "loc_wallpaperresolution_help": "Wählen Sie die Auflösung des Hintergrundbilds aus, das heruntergeladen werden soll"
+    },
+    "EL": {
+      "loc_refreshinterval_text": "Αλλαγή λεπτών ταπετσαρίας",
+      "loc_refreshinterval_help": "Ρυθμίστε το διάστημα αλλαγής ταπετσαρίας σε λεπτά",
+      "loc_wallpaperresolution_text": "Ανάλυση ταπετσαρίας",
+      "loc_wallpaperresolution_help": "Επιλέξτε την ανάλυση της εικόνας της ταπετσαρίας που θα ληφθεί"
+    },
+    "EN": {
+      "loc_refreshinterval_text": "Change Wallpaper Minutes",
+      "loc_refreshinterval_help": "Set the wallpaper change interval in minutes",
+      "loc_wallpaperresolution_text": "Wallpaper Resolution",
+      "loc_wallpaperresolution_help": "Select the resolution of the wallpaper image that will be downloaded"
+    },
+    "ES": {
+      "loc_refreshinterval_text": "Cambiar minutos de fondo de pantalla",
+      "loc_refreshinterval_help": "Establecer el intervalo de cambio de fondo de pantalla en minutos",
+      "loc_wallpaperresolution_text": "Resolución del fondo de pantalla",
+      "loc_wallpaperresolution_help": "Seleccione la resolución de la imagen de fondo de pantalla que se descargará"
+    },
+    "FR": {
+      "loc_refreshinterval_text": "Changer les minutes de fond d'écran",
+      "loc_refreshinterval_help": "Définir l'intervalle de changement de fond d'écran en minutes",
+      "loc_wallpaperresolution_text": "Résolution du fond d'écran",
+      "loc_wallpaperresolution_help": "Sélectionnez la résolution de l'image de fond d'écran qui sera téléchargée"
+    },
+    "HE": {
+      "loc_refreshinterval_text": "שנה דקות טפט",
+      "loc_refreshinterval_help": "הגדר את מרווח החלפת הטפט בדקות",
+      "loc_wallpaperresolution_text": "רזולוציית טפט",
+      "loc_wallpaperresolution_help": "בחר את הרזולוציה של תמונת הטפט שתורד"
+    },
+    "HI": {
+      "loc_refreshinterval_text": "वॉलपेपर मिनट बदलें",
+      "loc_refreshinterval_help": "वॉलपेपर परिवर्तन अंतराल को मिनटों में सेट करें",
+      "loc_wallpaperresolution_text": "वॉलपेपर संकल्प",
+      "loc_wallpaperresolution_help": "डाउनलोड की जाने वाली वॉलपेपर छवि का रिज़ॉल्यूशन चुनें"
+    },
+    "ID": {
+      "loc_refreshinterval_text": "Ubah Menit Wallpaper",
+      "loc_refreshinterval_help": "Atur interval penggantian wallpaper dalam hitungan menit",
+      "loc_wallpaperresolution_text": "Resolusi Kertas Dinding",
+      "loc_wallpaperresolution_help": "Pilih resolusi gambar wallpaper yang akan diunduh"
+    },
+    "IT": {
+      "loc_refreshinterval_text": "Cambia minuti dello sfondo",
+      "loc_refreshinterval_help": "Imposta l'intervallo di cambio dello sfondo in minuti",
+      "loc_wallpaperresolution_text": "Risoluzione dello sfondo",
+      "loc_wallpaperresolution_help": "Seleziona la risoluzione dell'immagine di sfondo che verrà scaricata"
+    },
+    "JA": {
+      "loc_refreshinterval_text": "壁紙の変更 (分)",
+      "loc_refreshinterval_help": "壁紙の変更間隔を分単位で設定します",
+      "loc_wallpaperresolution_text": "壁紙の解像度",
+      "loc_wallpaperresolution_help": "ダウンロードする壁紙画像の解像度を選択します"
+    },
+    "KO": {
+      "loc_refreshinterval_text": "배경화면 시간 변경",
+      "loc_refreshinterval_help": "배경화면 변경 간격을 분 단위로 설정하세요.",
+      "loc_wallpaperresolution_text": "배경 화면 해상도",
+      "loc_wallpaperresolution_help": "다운로드할 배경화면 이미지의 해상도를 선택하세요."
+    },
+    "MS": {
+      "loc_refreshinterval_text": "Tukar Minit Kertas Dinding",
+      "loc_refreshinterval_help": "Tetapkan selang pertukaran kertas dinding dalam beberapa minit",
+      "loc_wallpaperresolution_text": "Resolusi Kertas Dinding",
+      "loc_wallpaperresolution_help": "Pilih peleraian imej kertas dinding yang akan dimuat turun"
+    },
+    "NB": {
+      "loc_refreshinterval_text": "Endre bakgrunnsminutter",
+      "loc_refreshinterval_help": "Still inn bakgrunnsbytteintervallet i minutter",
+      "loc_wallpaperresolution_text": "Bakgrunnsoppløsning",
+      "loc_wallpaperresolution_help": "Velg oppløsningen på bakgrunnsbildet som skal lastes ned"
+    },
+    "NL": {
+      "loc_refreshinterval_text": "Wijzig achtergrondminuten",
+      "loc_refreshinterval_help": "Stel het interval voor het vervangen van de achtergrond in minuten in",
+      "loc_wallpaperresolution_text": "Achtergrondresolutie",
+      "loc_wallpaperresolution_help": "Selecteer de resolutie van de achtergrondafbeelding die wordt gedownload"
+    },
+    "PL": {
+      "loc_refreshinterval_text": "Zmień minuty tapety",
+      "loc_refreshinterval_help": "Ustaw interwał zmiany tapety w minutach",
+      "loc_wallpaperresolution_text": "Rozdzielczość tapety",
+      "loc_wallpaperresolution_help": "Wybierz rozdzielczość obrazu tapety, który zostanie pobrany"
+    },
+    "PT": {
+      "loc_refreshinterval_text": "Alterar minutos do papel de parede",
+      "loc_refreshinterval_help": "Defina o intervalo de troca do papel de parede em minutos",
+      "loc_wallpaperresolution_text": "Resolução do papel de parede",
+      "loc_wallpaperresolution_help": "Selecione a resolução da imagem do papel de parede que será baixada"
+    },
+    "RO": {
+      "loc_refreshinterval_text": "Schimbați minutele de fundal",
+      "loc_refreshinterval_help": "Setați intervalul de schimbare a imaginii de fundal în minute",
+      "loc_wallpaperresolution_text": "Rezoluția imaginii de fundal",
+      "loc_wallpaperresolution_help": "Selectați rezoluția imaginii de fundal care va fi descărcată"
+    },
+    "RU": {
+      "loc_refreshinterval_text": "Сменить обои минут",
+      "loc_refreshinterval_help": "Установите интервал смены обоев в минутах.",
+      "loc_wallpaperresolution_text": "Разрешение обоев",
+      "loc_wallpaperresolution_help": "Выберите разрешение изображения обоев, которое будет загружено."
+    },
+    "SV": {
+      "loc_refreshinterval_text": "Ändra Bakgrundsminuter",
+      "loc_refreshinterval_help": "Ställ in tapetbytesintervall i minuter",
+      "loc_wallpaperresolution_text": "Bakgrundsupplösning",
+      "loc_wallpaperresolution_help": "Välj upplösningen för bakgrundsbilden som ska laddas ner"
+    },
+    "TR": {
+      "loc_refreshinterval_text": "Duvar K. Değişim Süresi (Dk)",
+      "loc_refreshinterval_help": "Duvar kağıdı değiştirme aralığını dakika cinsinden ayarlayın",
+      "loc_wallpaperresolution_text": "Duvar Kağıdı Çözünürlüğü",
+      "loc_wallpaperresolution_help": "İndirilecek duvar kağıdı görselinin çözünürlüğünü seçin"
+    },
+    "UK": {
+      "loc_refreshinterval_text": "Змінити шпалери хвилин",
+      "loc_refreshinterval_help": "Встановіть інтервал зміни шпалер у хвилинах",
+      "loc_wallpaperresolution_text": "Роздільна здатність шпалер",
+      "loc_wallpaperresolution_help": "Виберіть роздільність зображення шпалер, яке буде завантажено"
+    },
+    "ZH": {
+      "loc_refreshinterval_text": "更换壁纸分钟",
+      "loc_refreshinterval_help": "设置壁纸更换间隔（以分钟为单位）",
+      "loc_wallpaperresolution_text": "壁纸分辨率",
+      "loc_wallpaperresolution_help": "选择要下载的壁纸图像的分辨率"
+    }
+  }
+}

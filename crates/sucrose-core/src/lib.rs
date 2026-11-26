@@ -4,6 +4,8 @@
 
 pub mod library;
 pub mod paths;
+/// Property lists of themes (`SucroseProperties.json`).
+pub mod properties;
 pub mod settings;
 pub mod theme;
 pub mod version;

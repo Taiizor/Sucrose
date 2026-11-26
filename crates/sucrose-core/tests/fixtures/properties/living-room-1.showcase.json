@@ -1,0 +1,270 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "imgSelect": {
+      "title": "loc_imgselect_title",
+      "type": "filedropdown",
+      "value": "jellyfish.jpg",
+      "text": "loc_imgselect_text",
+      "desc": "loc_imgselect_desc",
+      "filter": "*.jpeg|*.jpg|*.png",
+      "folder": "photos"
+    },
+    "xAngleCamera": {
+      "max": 60,
+      "min": -60,
+      "step": 1,
+      "text": "loc_xanglecamera_text",
+      "type": "slider",
+      "value": -30
+    },
+    "yAngleCamera": {
+      "max": 120,
+      "min": -120,
+      "step": 1,
+      "text": "loc_yanglecamera_text",
+      "type": "slider",
+      "value": 30
+    },
+    "zoomCamera": {
+      "max": 2.5,
+      "min": 0.5,
+      "step": 0.01,
+      "text": "loc_zoomcamera_text",
+      "type": "slider",
+      "value": 1.25
+    },
+    "30fps": {
+      "type": "checkbox",
+      "value": true,
+      "text": "loc_30fps_text"
+    }
+  },
+  "PropertyLocalization": {
+    "AR": {
+      "loc_imgselect_title": "حدد الصورة",
+      "loc_imgselect_text": "إطار الصورة",
+      "loc_imgselect_desc": "ملفات الصور",
+      "loc_xanglecamera_text": "عمودي",
+      "loc_yanglecamera_text": "أفقي",
+      "loc_zoomcamera_text": "تكبير",
+      "loc_30fps_text": "سقف 24 إطارًا في الثانية"
+    },
+    "CS": {
+      "loc_imgselect_title": "Vyberte Obrázek",
+      "loc_imgselect_text": "Rám obrazu",
+      "loc_imgselect_desc": "Soubory obrázků",
+      "loc_xanglecamera_text": "Vertikální",
+      "loc_yanglecamera_text": "Horizontální",
+      "loc_zoomcamera_text": "Přiblížení",
+      "loc_30fps_text": "24 Fps omezení"
+    },
+    "DA": {
+      "loc_imgselect_title": "Vælg Billede",
+      "loc_imgselect_text": "Billedramme",
+      "loc_imgselect_desc": "Billedfiler",
+      "loc_xanglecamera_text": "Lodret",
+      "loc_yanglecamera_text": "Vandret",
+      "loc_zoomcamera_text": "Zoom",
+      "loc_30fps_text": "24 Fps cap"
+    },
+    "DE": {
+      "loc_imgselect_title": "Wählen Sie Bild aus",
+      "loc_imgselect_text": "Bilderrahmen",
+      "loc_imgselect_desc": "Bilddateien",
+      "loc_xanglecamera_text": "Vertikal",
+      "loc_yanglecamera_text": "Horizontal",
+      "loc_zoomcamera_text": "Zoomen",
+      "loc_30fps_text": "24 Fps-Kappe"
+    },
+    "EL": {
+      "loc_imgselect_title": "Επιλέξτε Εικόνα",
+      "loc_imgselect_text": "Κορνίζα",
+      "loc_imgselect_desc": "Αρχεία εικόνας",
+      "loc_xanglecamera_text": "Κάθετη",
+      "loc_yanglecamera_text": "Οριζόντια",
+      "loc_zoomcamera_text": "Ζουμ",
+      "loc_30fps_text": "Κάλυμμα 24 Fps"
+    },
+    "EN": {
+      "loc_imgselect_title": "Select Image",
+      "loc_imgselect_text": "Picture Frame",
+      "loc_imgselect_desc": "Image Files",
+      "loc_xanglecamera_text": "Vertical",
+      "loc_yanglecamera_text": "Horizontal",
+      "loc_zoomcamera_text": "Zoom",
+      "loc_30fps_text": "24 Fps cap"
+    },
+    "ES": {
+      "loc_imgselect_title": "Seleccionar imagen",
+      "loc_imgselect_text": "marco de fotos",
+      "loc_imgselect_desc": "Archivos de imagen",
+      "loc_xanglecamera_text": "verticales",
+      "loc_yanglecamera_text": "Horizontales",
+      "loc_zoomcamera_text": "Ampliar",
+      "loc_30fps_text": "Límite de 24 fps"
+    },
+    "FR": {
+      "loc_imgselect_title": "Sélectionnez une image",
+      "loc_imgselect_text": "Cadre photo",
+      "loc_imgselect_desc": "Fichiers images",
+      "loc_xanglecamera_text": "Verticale",
+      "loc_yanglecamera_text": "Horizontale",
+      "loc_zoomcamera_text": "Zoomer",
+      "loc_30fps_text": "Limite de 24 ips"
+    },
+    "HE": {
+      "loc_imgselect_title": "בחר תמונה",
+      "loc_imgselect_text": "מסגרת תמונה",
+      "loc_imgselect_desc": "קבצי תמונה",
+      "loc_xanglecamera_text": "אנכי",
+      "loc_yanglecamera_text": "אופקי",
+      "loc_zoomcamera_text": "זום",
+      "loc_30fps_text": "מכסה של 24 Fps"
+    },
+    "HI": {
+      "loc_imgselect_title": "छवि का चयन करें",
+      "loc_imgselect_text": "चित्र फ़्रेम",
+      "loc_imgselect_desc": "छवि फ़ाइलें",
+      "loc_xanglecamera_text": "लंबवत",
+      "loc_yanglecamera_text": "क्षैतिज",
+      "loc_zoomcamera_text": "ज़ूम करें",
+      "loc_30fps_text": "24 एफपीएस कैप"
+    },
+    "ID": {
+      "loc_imgselect_title": "Pilih Gambar",
+      "loc_imgselect_text": "Bingkai Foto",
+      "loc_imgselect_desc": "File Gambar",
+      "loc_xanglecamera_text": "Vertikal",
+      "loc_yanglecamera_text": "Horisontal",
+      "loc_zoomcamera_text": "Perbesar",
+      "loc_30fps_text": "Batas 24Fps"
+    },
+    "IT": {
+      "loc_imgselect_title": "Seleziona Immagine",
+      "loc_imgselect_text": "Cornice",
+      "loc_imgselect_desc": "File di immagini",
+      "loc_xanglecamera_text": "Verticale",
+      "loc_yanglecamera_text": "Orizzontale",
+      "loc_zoomcamera_text": "Zoom",
+      "loc_30fps_text": "Limite di 24 fps"
+    },
+    "JA": {
+      "loc_imgselect_title": "画像の選択",
+      "loc_imgselect_text": "額縁",
+      "loc_imgselect_desc": "画像ファイル",
+      "loc_xanglecamera_text": "垂直",
+      "loc_yanglecamera_text": "水平",
+      "loc_zoomcamera_text": "ズーム",
+      "loc_30fps_text": "24 fps の上限"
+    },
+    "KO": {
+      "loc_imgselect_title": "이미지 선택",
+      "loc_imgselect_text": "액자",
+      "loc_imgselect_desc": "이미지 파일",
+      "loc_xanglecamera_text": "수직",
+      "loc_yanglecamera_text": "수평",
+      "loc_zoomcamera_text": "줌",
+      "loc_30fps_text": "24Fps 캡"
+    },
+    "MS": {
+      "loc_imgselect_title": "Pilih Imej",
+      "loc_imgselect_text": "Bingkai Gambar",
+      "loc_imgselect_desc": "Fail Imej",
+      "loc_xanglecamera_text": "Menegak",
+      "loc_yanglecamera_text": "Mendatar",
+      "loc_zoomcamera_text": "Zum",
+      "loc_30fps_text": "Had 24 Fps"
+    },
+    "NB": {
+      "loc_imgselect_title": "Velg Bilde",
+      "loc_imgselect_text": "Bilderamme",
+      "loc_imgselect_desc": "Bildefiler",
+      "loc_xanglecamera_text": "Vertikal",
+      "loc_yanglecamera_text": "Horisontalt",
+      "loc_zoomcamera_text": "Zoom",
+      "loc_30fps_text": "24 Fps cap"
+    },
+    "NL": {
+      "loc_imgselect_title": "Selecteer Afbeelding",
+      "loc_imgselect_text": "Fotolijst",
+      "loc_imgselect_desc": "Afbeeldingsbestanden",
+      "loc_xanglecamera_text": "Verticaal",
+      "loc_yanglecamera_text": "Horizontaal",
+      "loc_zoomcamera_text": "Zoomen",
+      "loc_30fps_text": "Maximaal 24 fps"
+    },
+    "PL": {
+      "loc_imgselect_title": "Wybierz Obraz",
+      "loc_imgselect_text": "Ramka na zdjęcia",
+      "loc_imgselect_desc": "Pliki obrazów",
+      "loc_xanglecamera_text": "Pionowe",
+      "loc_yanglecamera_text": "Poziomy",
+      "loc_zoomcamera_text": "Powiększ",
+      "loc_30fps_text": "Ograniczenie 24 kl./s"
+    },
+    "PT": {
+      "loc_imgselect_title": "Selecione a imagem",
+      "loc_imgselect_text": "Porta-retratos",
+      "loc_imgselect_desc": "Arquivos de imagem",
+      "loc_xanglecamera_text": "Verticais",
+      "loc_yanglecamera_text": "Horizontais",
+      "loc_zoomcamera_text": "Zoom",
+      "loc_30fps_text": "Limite de 24 FPS"
+    },
+    "RO": {
+      "loc_imgselect_title": "Selectați Imagine",
+      "loc_imgselect_text": "Rama de imagine",
+      "loc_imgselect_desc": "Fișiere imagine",
+      "loc_xanglecamera_text": "Pe verticală",
+      "loc_yanglecamera_text": "Orizontală",
+      "loc_zoomcamera_text": "Zoom",
+      "loc_30fps_text": "Limită de 24 fps"
+    },
+    "RU": {
+      "loc_imgselect_title": "Выберите изображение",
+      "loc_imgselect_text": "Рамка для фотографий",
+      "loc_imgselect_desc": "Файлы изображений",
+      "loc_xanglecamera_text": "Вертикальный",
+      "loc_yanglecamera_text": "Горизонтальный",
+      "loc_zoomcamera_text": "Увеличить",
+      "loc_30fps_text": "Ограничение 24 кадра в секунду"
+    },
+    "SV": {
+      "loc_imgselect_title": "Välj Bild",
+      "loc_imgselect_text": "Bildram",
+      "loc_imgselect_desc": "Bildfiler",
+      "loc_xanglecamera_text": "Vertikal",
+      "loc_yanglecamera_text": "Horisontell",
+      "loc_zoomcamera_text": "Zooma",
+      "loc_30fps_text": "24 Fps cap"
+    },
+    "TR": {
+      "loc_imgselect_title": "Resim Seç",
+      "loc_imgselect_text": "Resim Çerçevesi",
+      "loc_imgselect_desc": "Görüntü Dosyaları",
+      "loc_xanglecamera_text": "Dikey",
+      "loc_yanglecamera_text": "Yatay",
+      "loc_zoomcamera_text": "Yakınlaştır",
+      "loc_30fps_text": "24 Fps sınırı"
+    },
+    "UK": {
+      "loc_imgselect_title": "Виберіть Зображення",
+      "loc_imgselect_text": "Фоторамка",
+      "loc_imgselect_desc": "Файли зображень",
+      "loc_xanglecamera_text": "Вертикальний",
+      "loc_yanglecamera_text": "Горизонтальний",
+      "loc_zoomcamera_text": "Збільшити",
+      "loc_30fps_text": "Обмеження 24 кадрів/с"
+    },
+    "ZH": {
+      "loc_imgselect_title": "选择图像",
+      "loc_imgselect_text": "相框",
+      "loc_imgselect_desc": "图像文件",
+      "loc_xanglecamera_text": "垂直",
+      "loc_yanglecamera_text": "卧式",
+      "loc_zoomcamera_text": "变焦",
+      "loc_30fps_text": "24 FPS 上限"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "bgImage": {
+      "title": "Select Background Image",
+      "type": "filedropdown",
+      "value": "sky.jpg",
+      "text": "Background Image",
+      "desc": "Image Files",
+      "filter": "*.jpg|*.jpeg|*.png|*.webp|*.gif",
+      "folder": "assets/img"
+    }
+  }
+}

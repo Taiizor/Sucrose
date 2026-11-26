@@ -1,0 +1,141 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "bgImage": {
+      "title": "loc_bgimage_title",
+      "type": "filedropdown",
+      "value": "sky.jpg",
+      "text": "loc_bgimage_text",
+      "desc": "loc_bgimage_desc",
+      "filter": "*.jpg|*.jpeg|*.png|*.webp|*.gif",
+      "folder": "assets/img"
+    }
+  },
+  "PropertyLocalization": {
+    "AR": {
+      "loc_bgimage_title": "حدد صورة الخلفية",
+      "loc_bgimage_text": "صورة الخلفية",
+      "loc_bgimage_desc": "ملفات الصور"
+    },
+    "CS": {
+      "loc_bgimage_title": "Vyberte Obrázek na pozadí",
+      "loc_bgimage_text": "Obrázek na pozadí",
+      "loc_bgimage_desc": "Soubory obrázků"
+    },
+    "DA": {
+      "loc_bgimage_title": "Vælg Baggrundsbillede",
+      "loc_bgimage_text": "Baggrundsbillede",
+      "loc_bgimage_desc": "Billedfiler"
+    },
+    "DE": {
+      "loc_bgimage_title": "Wählen Sie Hintergrundbild aus",
+      "loc_bgimage_text": "Hintergrundbild",
+      "loc_bgimage_desc": "Bilddateien"
+    },
+    "EL": {
+      "loc_bgimage_title": "Επιλέξτε Εικόνα φόντου",
+      "loc_bgimage_text": "Εικόνα φόντου",
+      "loc_bgimage_desc": "Αρχεία εικόνας"
+    },
+    "EN": {
+      "loc_bgimage_title": "Select Background Image",
+      "loc_bgimage_text": "Background Image",
+      "loc_bgimage_desc": "Image Files"
+    },
+    "ES": {
+      "loc_bgimage_title": "Seleccionar imagen de fondo",
+      "loc_bgimage_text": "Imagen de fondo",
+      "loc_bgimage_desc": "Archivos de imagen"
+    },
+    "FR": {
+      "loc_bgimage_title": "Sélectionnez l'image d'arrière-plan",
+      "loc_bgimage_text": "Image d'arrière-plan",
+      "loc_bgimage_desc": "Fichiers images"
+    },
+    "HE": {
+      "loc_bgimage_title": "בחר תמונת רקע",
+      "loc_bgimage_text": "תמונת רקע",
+      "loc_bgimage_desc": "קבצי תמונה"
+    },
+    "HI": {
+      "loc_bgimage_title": "पृष्ठभूमि छवि का चयन करें",
+      "loc_bgimage_text": "पृष्ठभूमि छवि",
+      "loc_bgimage_desc": "छवि फ़ाइलें"
+    },
+    "ID": {
+      "loc_bgimage_title": "Pilih Gambar Latar Belakang",
+      "loc_bgimage_text": "Gambar Latar Belakang",
+      "loc_bgimage_desc": "File Gambar"
+    },
+    "IT": {
+      "loc_bgimage_title": "Seleziona Immagine di sfondo",
+      "loc_bgimage_text": "Immagine di sfondo",
+      "loc_bgimage_desc": "File di immagini"
+    },
+    "JA": {
+      "loc_bgimage_title": "背景画像の選択",
+      "loc_bgimage_text": "背景画像",
+      "loc_bgimage_desc": "画像ファイル"
+    },
+    "KO": {
+      "loc_bgimage_title": "배경 이미지 선택",
+      "loc_bgimage_text": "배경 이미지",
+      "loc_bgimage_desc": "이미지 파일"
+    },
+    "MS": {
+      "loc_bgimage_title": "Pilih Imej Latar Belakang",
+      "loc_bgimage_text": "Imej Latar Belakang",
+      "loc_bgimage_desc": "Fail Imej"
+    },
+    "NB": {
+      "loc_bgimage_title": "Velg Bakgrunnsbilde",
+      "loc_bgimage_text": "Bakgrunnsbilde",
+      "loc_bgimage_desc": "Bildefiler"
+    },
+    "NL": {
+      "loc_bgimage_title": "Selecteer Achtergrondafbeelding",
+      "loc_bgimage_text": "Achtergrondafbeelding",
+      "loc_bgimage_desc": "Afbeeldingsbestanden"
+    },
+    "PL": {
+      "loc_bgimage_title": "Wybierz Obraz tła",
+      "loc_bgimage_text": "Obraz tła",
+      "loc_bgimage_desc": "Pliki obrazów"
+    },
+    "PT": {
+      "loc_bgimage_title": "Selecione a imagem de fundo",
+      "loc_bgimage_text": "Imagem de fundo",
+      "loc_bgimage_desc": "Arquivos de imagem"
+    },
+    "RO": {
+      "loc_bgimage_title": "Selectați Imagine de fundal",
+      "loc_bgimage_text": "Imagine de fundal",
+      "loc_bgimage_desc": "Fișiere imagine"
+    },
+    "RU": {
+      "loc_bgimage_title": "Выберите фоновое изображение",
+      "loc_bgimage_text": "Фоновое изображение",
+      "loc_bgimage_desc": "Файлы изображений"
+    },
+    "SV": {
+      "loc_bgimage_title": "Välj Bakgrundsbild",
+      "loc_bgimage_text": "Bakgrundsbild",
+      "loc_bgimage_desc": "Bildfiler"
+    },
+    "TR": {
+      "loc_bgimage_title": "Arka Plan Resmini Seçin",
+      "loc_bgimage_text": "Arka Plan Resmi",
+      "loc_bgimage_desc": "Görüntü Dosyaları"
+    },
+    "UK": {
+      "loc_bgimage_title": "Виберіть фонове зображення",
+      "loc_bgimage_text": "Фонове зображення",
+      "loc_bgimage_desc": "Файли зображень"
+    },
+    "ZH": {
+      "loc_bgimage_title": "选择背景图片",
+      "loc_bgimage_text": "背景图片",
+      "loc_bgimage_desc": "图像文件"
+    }
+  }
+}

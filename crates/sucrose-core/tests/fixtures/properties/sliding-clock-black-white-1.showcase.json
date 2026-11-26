@@ -1,0 +1,171 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "themeMode": {
+      "type": "dropdown",
+      "value": 0,
+      "text": "loc_thememode_text",
+      "items": [
+        "loc_thememode_item_0",
+        "loc_thememode_item_1"
+      ]
+    },
+    "themeChange": {
+      "type": "checkbox",
+      "value": false,
+      "text": "loc_themechange_text"
+    }
+  },
+  "PropertyLocalization": {
+    "AR": {
+      "loc_thememode_text": "وضع الموضوع",
+      "loc_thememode_item_0": "الظلام",
+      "loc_thememode_item_1": "ضوء",
+      "loc_themechange_text": "تغيير الموضوع"
+    },
+    "CS": {
+      "loc_thememode_text": "Režim motivu",
+      "loc_thememode_item_0": "Tmavý",
+      "loc_thememode_item_1": "Světlo",
+      "loc_themechange_text": "Změna tématu"
+    },
+    "DA": {
+      "loc_thememode_text": "Tematilstand",
+      "loc_thememode_item_0": "Mørk",
+      "loc_thememode_item_1": "Lys",
+      "loc_themechange_text": "Temaændring"
+    },
+    "DE": {
+      "loc_thememode_text": "Themenmodus",
+      "loc_thememode_item_0": "Dunkel",
+      "loc_thememode_item_1": "Licht",
+      "loc_themechange_text": "Themenwechsel"
+    },
+    "EL": {
+      "loc_thememode_text": "Λειτουργία θέματος",
+      "loc_thememode_item_0": "Σκοτεινό",
+      "loc_thememode_item_1": "Φως",
+      "loc_themechange_text": "Αλλαγή θέματος"
+    },
+    "EN": {
+      "loc_thememode_text": "Theme Mode",
+      "loc_thememode_item_0": "Dark",
+      "loc_thememode_item_1": "Light",
+      "loc_themechange_text": "Theme Change"
+    },
+    "ES": {
+      "loc_thememode_text": "Modo temático",
+      "loc_thememode_item_0": "oscuro",
+      "loc_thememode_item_1": "Luz",
+      "loc_themechange_text": "Cambio de tema"
+    },
+    "FR": {
+      "loc_thememode_text": "Mode Thème",
+      "loc_thememode_item_0": "Sombre",
+      "loc_thememode_item_1": "Lumière",
+      "loc_themechange_text": "Changement de thème"
+    },
+    "HE": {
+      "loc_thememode_text": "מצב ערכת נושא",
+      "loc_thememode_item_0": "כהה",
+      "loc_thememode_item_1": "אור",
+      "loc_themechange_text": "שינוי נושא"
+    },
+    "HI": {
+      "loc_thememode_text": "थीम मोड",
+      "loc_thememode_item_0": "अंधेरा",
+      "loc_thememode_item_1": "रोशनी",
+      "loc_themechange_text": "थीम परिवर्तन"
+    },
+    "ID": {
+      "loc_thememode_text": "Modus Tema",
+      "loc_thememode_item_0": "Gelap",
+      "loc_thememode_item_1": "Ringan",
+      "loc_themechange_text": "Perubahan Tema"
+    },
+    "IT": {
+      "loc_thememode_text": "Modalità tema",
+      "loc_thememode_item_0": "Buio",
+      "loc_thememode_item_1": "Luce",
+      "loc_themechange_text": "Cambio di tema"
+    },
+    "JA": {
+      "loc_thememode_text": "テーマモード",
+      "loc_thememode_item_0": "暗い",
+      "loc_thememode_item_1": "ライト",
+      "loc_themechange_text": "テーマの変更"
+    },
+    "KO": {
+      "loc_thememode_text": "테마 모드",
+      "loc_thememode_item_0": "어둠",
+      "loc_thememode_item_1": "빛",
+      "loc_themechange_text": "테마 변경"
+    },
+    "MS": {
+      "loc_thememode_text": "Mod Tema",
+      "loc_thememode_item_0": "Gelap",
+      "loc_thememode_item_1": "Cahaya",
+      "loc_themechange_text": "Perubahan Tema"
+    },
+    "NB": {
+      "loc_thememode_text": "Temamodus",
+      "loc_thememode_item_0": "Mørkt",
+      "loc_thememode_item_1": "Lys",
+      "loc_themechange_text": "Temaendring"
+    },
+    "NL": {
+      "loc_thememode_text": "Themamodus",
+      "loc_thememode_item_0": "Donker",
+      "loc_thememode_item_1": "Licht",
+      "loc_themechange_text": "Thema verandering"
+    },
+    "PL": {
+      "loc_thememode_text": "Tryb tematyczny",
+      "loc_thememode_item_0": "Ciemny",
+      "loc_thememode_item_1": "Światło",
+      "loc_themechange_text": "Zmiana tematu"
+    },
+    "PT": {
+      "loc_thememode_text": "Modo Tema",
+      "loc_thememode_item_0": "Escuro",
+      "loc_thememode_item_1": "Luz",
+      "loc_themechange_text": "Mudança de tema"
+    },
+    "RO": {
+      "loc_thememode_text": "Modul Temă",
+      "loc_thememode_item_0": "Întuneric",
+      "loc_thememode_item_1": "Lumină",
+      "loc_themechange_text": "Schimbarea temei"
+    },
+    "RU": {
+      "loc_thememode_text": "Тематический режим",
+      "loc_thememode_item_0": "Темный",
+      "loc_thememode_item_1": "Свет",
+      "loc_themechange_text": "Изменение темы"
+    },
+    "SV": {
+      "loc_thememode_text": "Temaläge",
+      "loc_thememode_item_0": "Mörkt",
+      "loc_thememode_item_1": "Ljus",
+      "loc_themechange_text": "Ändring av tema"
+    },
+    "TR": {
+      "loc_thememode_text": "Tema Modu",
+      "loc_thememode_item_0": "Koyu",
+      "loc_thememode_item_1": "Açık",
+      "loc_themechange_text": "Tema Değişikliği"
+    },
+    "UK": {
+      "loc_thememode_text": "Тематичний режим",
+      "loc_thememode_item_0": "Темний",
+      "loc_thememode_item_1": "Світло",
+      "loc_themechange_text": "Зміна теми"
+    },
+    "ZH": {
+      "loc_thememode_text": "主题模式",
+      "loc_thememode_item_0": "黑暗",
+      "loc_thememode_item_1": "光",
+      "loc_themechange_text": "主题变更"
+    }
+  }
+}

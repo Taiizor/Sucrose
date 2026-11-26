@@ -1,0 +1,360 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "label1": {
+      "type": "label",
+      "value": "loc_label1_value"
+    },
+    "meshAmbient": {
+      "text": "loc_meshambient_text",
+      "type": "colorpicker",
+      "value": "#FF000000"
+    },
+    "meshDiffuse": {
+      "text": "loc_meshdiffuse_text",
+      "type": "colorpicker",
+      "value": "#FFC0C0C0"
+    },
+    "meshSlices": {
+      "max": 800,
+      "min": 1,
+      "step": 1,
+      "text": "loc_meshslices_text",
+      "type": "slider",
+      "value": 350
+    },
+    "label2": {
+      "type": "label",
+      "value": "loc_label2_value"
+    },
+    "lightAmbient": {
+      "text": "loc_lightambient_text",
+      "type": "colorpicker",
+      "value": "#FFC0C0C0"
+    },
+    "lightDiffuse": {
+      "text": "loc_lightdiffuse_text",
+      "type": "colorpicker",
+      "value": "#FF808080"
+    },
+    "lightDistance": {
+      "max": 1000,
+      "min": 0,
+      "step": 1,
+      "text": "loc_lightdistance_text",
+      "type": "slider",
+      "value": 135
+    },
+    "label3": {
+      "type": "label",
+      "value": "loc_label3_value"
+    },
+    "keyboardControls": {
+      "text": "loc_keyboardcontrols_text",
+      "type": "checkbox",
+      "value": false
+    }
+  },
+  "PropertyLocalization": {
+    "AR": {
+      "loc_label1_value": "مش",
+      "loc_meshambient_text": "المحيطة",
+      "loc_meshdiffuse_text": "منتشر",
+      "loc_meshslices_text": "شرائح",
+      "loc_label2_value": "ضوء",
+      "loc_lightambient_text": "المحيطة",
+      "loc_lightdiffuse_text": "منتشر",
+      "loc_lightdistance_text": "المسافة",
+      "loc_label3_value": "التحكم",
+      "loc_keyboardcontrols_text": "التحكم عبر لوحة المفاتيح"
+    },
+    "CS": {
+      "loc_label1_value": "Síťovina",
+      "loc_meshambient_text": "Okolní",
+      "loc_meshdiffuse_text": "Difuzní",
+      "loc_meshslices_text": "Plátky",
+      "loc_label2_value": "Světlo",
+      "loc_lightambient_text": "Okolní",
+      "loc_lightdiffuse_text": "Difuzní",
+      "loc_lightdistance_text": "Vzdálenost",
+      "loc_label3_value": "Ovládání",
+      "loc_keyboardcontrols_text": "Ovládání klávesnicí"
+    },
+    "DA": {
+      "loc_label1_value": "Mesh",
+      "loc_meshambient_text": "Ambient",
+      "loc_meshdiffuse_text": "Diffus",
+      "loc_meshslices_text": "Skiver",
+      "loc_label2_value": "Lys",
+      "loc_lightambient_text": "Ambient",
+      "loc_lightdiffuse_text": "Diffus",
+      "loc_lightdistance_text": "Afstand",
+      "loc_label3_value": "Styring",
+      "loc_keyboardcontrols_text": "Tastaturstyring"
+    },
+    "DE": {
+      "loc_label1_value": "Netz",
+      "loc_meshambient_text": "Ambiente",
+      "loc_meshdiffuse_text": "Diffus",
+      "loc_meshslices_text": "Scheiben",
+      "loc_label2_value": "Licht",
+      "loc_lightambient_text": "Ambiente",
+      "loc_lightdiffuse_text": "Diffus",
+      "loc_lightdistance_text": "Entfernung",
+      "loc_label3_value": "Steuerung",
+      "loc_keyboardcontrols_text": "Tastatursteuerung"
+    },
+    "EL": {
+      "loc_label1_value": "Πλέγμα",
+      "loc_meshambient_text": "Περιβάλλον",
+      "loc_meshdiffuse_text": "Διάχυτος",
+      "loc_meshslices_text": "Φέτες",
+      "loc_label2_value": "Φως",
+      "loc_lightambient_text": "Περιβάλλον",
+      "loc_lightdiffuse_text": "Διάχυτος",
+      "loc_lightdistance_text": "Απόσταση",
+      "loc_label3_value": "Έλεγχος",
+      "loc_keyboardcontrols_text": "Έλεγχος πληκτρολογίου"
+    },
+    "EN": {
+      "loc_label1_value": "Mesh",
+      "loc_meshambient_text": "Ambient",
+      "loc_meshdiffuse_text": "Diffuse",
+      "loc_meshslices_text": "Slices",
+      "loc_label2_value": "Light",
+      "loc_lightambient_text": "Ambient",
+      "loc_lightdiffuse_text": "Diffuse",
+      "loc_lightdistance_text": "Distance",
+      "loc_label3_value": "Controls",
+      "loc_keyboardcontrols_text": "Keyboard Controls"
+    },
+    "ES": {
+      "loc_label1_value": "Malla",
+      "loc_meshambient_text": "ambiente",
+      "loc_meshdiffuse_text": "difuso",
+      "loc_meshslices_text": "Rebanadas",
+      "loc_label2_value": "Luz",
+      "loc_lightambient_text": "ambiente",
+      "loc_lightdiffuse_text": "difuso",
+      "loc_lightdistance_text": "Distancia",
+      "loc_label3_value": "Controles",
+      "loc_keyboardcontrols_text": "Controles de teclado"
+    },
+    "FR": {
+      "loc_label1_value": "Maille",
+      "loc_meshambient_text": "Ambiante",
+      "loc_meshdiffuse_text": "Diffusez",
+      "loc_meshslices_text": "Tranches",
+      "loc_label2_value": "Lumière",
+      "loc_lightambient_text": "Ambiante",
+      "loc_lightdiffuse_text": "Diffusez",
+      "loc_lightdistance_text": "Distance",
+      "loc_label3_value": "Contrôles",
+      "loc_keyboardcontrols_text": "Commandes au clavier"
+    },
+    "HE": {
+      "loc_label1_value": "רשת",
+      "loc_meshambient_text": "אווירה",
+      "loc_meshdiffuse_text": "מפוזר",
+      "loc_meshslices_text": "פרוסות",
+      "loc_label2_value": "אור",
+      "loc_lightambient_text": "אווירה",
+      "loc_lightdiffuse_text": "מפוזר",
+      "loc_lightdistance_text": "מרחק",
+      "loc_label3_value": "פקדים",
+      "loc_keyboardcontrols_text": "מקשי שליטה"
+    },
+    "HI": {
+      "loc_label1_value": "जाल",
+      "loc_meshambient_text": "परिवेश",
+      "loc_meshdiffuse_text": "फैलाना",
+      "loc_meshslices_text": "टुकड़े",
+      "loc_label2_value": "रोशनी",
+      "loc_lightambient_text": "परिवेश",
+      "loc_lightdiffuse_text": "फैलाना",
+      "loc_lightdistance_text": "दूरी",
+      "loc_label3_value": "नियंत्रण",
+      "loc_keyboardcontrols_text": "कीबोर्ड नियंत्रण"
+    },
+    "ID": {
+      "loc_label1_value": "Jala",
+      "loc_meshambient_text": "Ambien",
+      "loc_meshdiffuse_text": "Menyebar",
+      "loc_meshslices_text": "Irisan",
+      "loc_label2_value": "Ringan",
+      "loc_lightambient_text": "Ambien",
+      "loc_lightdiffuse_text": "Menyebar",
+      "loc_lightdistance_text": "Jarak",
+      "loc_label3_value": "Kontrol",
+      "loc_keyboardcontrols_text": "Kontrol Papan Ketik"
+    },
+    "IT": {
+      "loc_label1_value": "Maglia",
+      "loc_meshambient_text": "Ambiente",
+      "loc_meshdiffuse_text": "Diffuso",
+      "loc_meshslices_text": "Fette",
+      "loc_label2_value": "Luce",
+      "loc_lightambient_text": "Ambiente",
+      "loc_lightdiffuse_text": "Diffuso",
+      "loc_lightdistance_text": "Distanza",
+      "loc_label3_value": "Controlli",
+      "loc_keyboardcontrols_text": "Controlli da tastiera"
+    },
+    "JA": {
+      "loc_label1_value": "メッシュ",
+      "loc_meshambient_text": "アンビエント",
+      "loc_meshdiffuse_text": "拡散する",
+      "loc_meshslices_text": "スライス",
+      "loc_label2_value": "ライト",
+      "loc_lightambient_text": "アンビエント",
+      "loc_lightdiffuse_text": "拡散する",
+      "loc_lightdistance_text": "距離",
+      "loc_label3_value": "コントロール",
+      "loc_keyboardcontrols_text": "キーボード操作"
+    },
+    "KO": {
+      "loc_label1_value": "메쉬",
+      "loc_meshambient_text": "주변",
+      "loc_meshdiffuse_text": "확산",
+      "loc_meshslices_text": "조각",
+      "loc_label2_value": "빛",
+      "loc_lightambient_text": "주변",
+      "loc_lightdiffuse_text": "확산",
+      "loc_lightdistance_text": "거리",
+      "loc_label3_value": "컨트롤",
+      "loc_keyboardcontrols_text": "키보드 제어"
+    },
+    "MS": {
+      "loc_label1_value": "Mesh",
+      "loc_meshambient_text": "Ambien",
+      "loc_meshdiffuse_text": "Meresap",
+      "loc_meshslices_text": "hirisan",
+      "loc_label2_value": "Cahaya",
+      "loc_lightambient_text": "Ambien",
+      "loc_lightdiffuse_text": "Meresap",
+      "loc_lightdistance_text": "Jarak",
+      "loc_label3_value": "Kawalan",
+      "loc_keyboardcontrols_text": "Kawalan Papan Kekunci"
+    },
+    "NB": {
+      "loc_label1_value": "Mesh",
+      "loc_meshambient_text": "Ambient",
+      "loc_meshdiffuse_text": "Diffus",
+      "loc_meshslices_text": "Skiver",
+      "loc_label2_value": "Lys",
+      "loc_lightambient_text": "Ambient",
+      "loc_lightdiffuse_text": "Diffus",
+      "loc_lightdistance_text": "Avstand",
+      "loc_label3_value": "Kontroller",
+      "loc_keyboardcontrols_text": "Tastaturkontroller"
+    },
+    "NL": {
+      "loc_label1_value": "Gaas",
+      "loc_meshambient_text": "Omgeving",
+      "loc_meshdiffuse_text": "Verspreiden",
+      "loc_meshslices_text": "Plakjes",
+      "loc_label2_value": "Licht",
+      "loc_lightambient_text": "Omgeving",
+      "loc_lightdiffuse_text": "Verspreiden",
+      "loc_lightdistance_text": "Afstand",
+      "loc_label3_value": "Bediening",
+      "loc_keyboardcontrols_text": "Toetsenbordbediening"
+    },
+    "PL": {
+      "loc_label1_value": "Siatka",
+      "loc_meshambient_text": "Otoczenie",
+      "loc_meshdiffuse_text": "Rozproszone",
+      "loc_meshslices_text": "Plasterki",
+      "loc_label2_value": "Światło",
+      "loc_lightambient_text": "Otoczenie",
+      "loc_lightdiffuse_text": "Rozproszone",
+      "loc_lightdistance_text": "Odległość",
+      "loc_label3_value": "Sterowanie",
+      "loc_keyboardcontrols_text": "Sterowanie klawiaturą"
+    },
+    "PT": {
+      "loc_label1_value": "Malha",
+      "loc_meshambient_text": "Ambiente",
+      "loc_meshdiffuse_text": "Difuso",
+      "loc_meshslices_text": "Fatias",
+      "loc_label2_value": "Luz",
+      "loc_lightambient_text": "Ambiente",
+      "loc_lightdiffuse_text": "Difuso",
+      "loc_lightdistance_text": "Distância",
+      "loc_label3_value": "Controles",
+      "loc_keyboardcontrols_text": "Controles do teclado"
+    },
+    "RO": {
+      "loc_label1_value": "Mesh",
+      "loc_meshambient_text": "Ambient",
+      "loc_meshdiffuse_text": "Difuz",
+      "loc_meshslices_text": "felii",
+      "loc_label2_value": "Lumină",
+      "loc_lightambient_text": "Ambient",
+      "loc_lightdiffuse_text": "Difuz",
+      "loc_lightdistance_text": "Distanța",
+      "loc_label3_value": "Comenzi",
+      "loc_keyboardcontrols_text": "Comenzi tastatură"
+    },
+    "RU": {
+      "loc_label1_value": "Сетка",
+      "loc_meshambient_text": "Эмбиент",
+      "loc_meshdiffuse_text": "Диффузный",
+      "loc_meshslices_text": "Ломтики",
+      "loc_label2_value": "Свет",
+      "loc_lightambient_text": "Эмбиент",
+      "loc_lightdiffuse_text": "Диффузный",
+      "loc_lightdistance_text": "Расстояние",
+      "loc_label3_value": "Управление",
+      "loc_keyboardcontrols_text": "Управление клавиатурой"
+    },
+    "SV": {
+      "loc_label1_value": "Mesh",
+      "loc_meshambient_text": "Ambient",
+      "loc_meshdiffuse_text": "Diffus",
+      "loc_meshslices_text": "Skivor",
+      "loc_label2_value": "Ljus",
+      "loc_lightambient_text": "Ambient",
+      "loc_lightdiffuse_text": "Diffus",
+      "loc_lightdistance_text": "Avstånd",
+      "loc_label3_value": "Kontroller",
+      "loc_keyboardcontrols_text": "Tangentbordskontroller"
+    },
+    "TR": {
+      "loc_label1_value": "Ağ",
+      "loc_meshambient_text": "Ortam",
+      "loc_meshdiffuse_text": "Dağılan",
+      "loc_meshslices_text": "Dilimler",
+      "loc_label2_value": "Işık",
+      "loc_lightambient_text": "Ortam",
+      "loc_lightdiffuse_text": "Dağılan",
+      "loc_lightdistance_text": "Mesafe",
+      "loc_label3_value": "Kontroller",
+      "loc_keyboardcontrols_text": "Klavye Kontrolleri"
+    },
+    "UK": {
+      "loc_label1_value": "Сітка",
+      "loc_meshambient_text": "Ембіент",
+      "loc_meshdiffuse_text": "дифузний",
+      "loc_meshslices_text": "Скибочки",
+      "loc_label2_value": "світло",
+      "loc_lightambient_text": "Ембіент",
+      "loc_lightdiffuse_text": "дифузний",
+      "loc_lightdistance_text": "Відстань",
+      "loc_label3_value": "Керування",
+      "loc_keyboardcontrols_text": "Керування клавіатурою"
+    },
+    "ZH": {
+      "loc_label1_value": "网格",
+      "loc_meshambient_text": "环境",
+      "loc_meshdiffuse_text": "漫射",
+      "loc_meshslices_text": "切片",
+      "loc_label2_value": "光",
+      "loc_lightambient_text": "环境",
+      "loc_lightdiffuse_text": "漫射",
+      "loc_lightdistance_text": "距离",
+      "loc_label3_value": "控制",
+      "loc_keyboardcontrols_text": "键盘控制"
+    }
+  }
+}

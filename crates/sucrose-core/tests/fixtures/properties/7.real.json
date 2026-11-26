@@ -1,0 +1,41 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "weatherApiKey": {
+      "text": "loc_api_key",
+      "type": "textbox",
+      "value": ""
+    },
+    "cityLocation": {
+      "text": "loc_city",
+      "type": "textbox",
+      "value": "New York"
+    }
+  },
+  "PropertyLocalization": {
+    "EN": {
+      "loc_api_key": "API Key",
+      "loc_city": "City Name"
+    },
+    "TR": {
+      "loc_api_key": "API Anahtarı",
+      "loc_city": "Şehir Adı"
+    },
+    "DE": {
+      "loc_api_key": "API-Schlüssel",
+      "loc_city": "Stadtname"
+    },
+    "ES": {
+      "loc_api_key": "Clave API",
+      "loc_city": "Nombre de Ciudad"
+    },
+    "FR": {
+      "loc_api_key": "Clé API",
+      "loc_city": "Nom de la Ville"
+    },
+    "PL": {
+      "loc_api_key": "Klucz API",
+      "loc_city": "Nazwa Miasta"
+    }
+  }
+}

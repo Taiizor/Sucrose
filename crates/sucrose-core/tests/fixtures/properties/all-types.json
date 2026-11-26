@@ -1,0 +1,86 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "zeta": {
+      "type": "label",
+      "value": "loc_zeta"
+    },
+    "alpha": {
+      "type": "slider",
+      "text": "loc_alpha",
+      "help": "loc_alpha_help",
+      "min": -5,
+      "max": 5,
+      "step": 0.5,
+      "value": 0
+    },
+    "button1": {
+      "type": "button",
+      "text": "loc_button",
+      "value": "Go"
+    },
+    "name": {
+      "type": "textbox",
+      "text": "loc_name",
+      "value": "Sucrose"
+    },
+    "enabled": {
+      "type": "checkbox",
+      "text": "loc_enabled",
+      "value": true
+    },
+    "mode": {
+      "type": "dropdown",
+      "text": "loc_mode",
+      "value": 1,
+      "items": [
+        "Flat",
+        "Vertical",
+        "Horizontal"
+      ],
+      "valuetext": "stale"
+    },
+    "amount": {
+      "type": "numberbox",
+      "text": "loc_amount",
+      "min": 0,
+      "max": 10,
+      "places": 2,
+      "value": 2.5
+    },
+    "secret": {
+      "type": "passwordbox",
+      "text": "loc_secret",
+      "value": "hunter2"
+    },
+    "picture": {
+      "type": "filedropdown",
+      "text": "loc_picture",
+      "desc": "Images",
+      "value": "a.png",
+      "title": "Pick",
+      "folder": "assets/img",
+      "filter": "*.png|*.jpg",
+      "files": [
+        "a.png",
+        "b.jpg"
+      ]
+    },
+    "tint": {
+      "type": "colorpicker",
+      "text": "loc_tint",
+      "value": "#FF00FF00",
+      "unit": "argb"
+    }
+  },
+  "PropertyLocalization": {
+    "EN": {
+      "loc_alpha": "Alpha",
+      "loc_zeta": "Zeta"
+    },
+    "TR": {
+      "loc_alpha": "Alfa"
+    }
+  },
+  "Note": "kept"
+}

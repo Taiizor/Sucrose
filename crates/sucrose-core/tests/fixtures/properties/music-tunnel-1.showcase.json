@@ -1,0 +1,360 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "isSquare": {
+      "type": "checkbox",
+      "value": true,
+      "text": "loc_issquare_text"
+    },
+    "speed": {
+      "max": 1,
+      "min": 0,
+      "step": 0.01,
+      "text": "loc_speed_text",
+      "type": "slider",
+      "value": 0.1
+    },
+    "colorRadius": {
+      "max": 2,
+      "min": 0,
+      "step": 0.01,
+      "text": "loc_colorradius_text",
+      "help": "loc_colorradius_help",
+      "type": "slider",
+      "value": 1
+    },
+    "blurIntensity": {
+      "max": 10,
+      "min": 0,
+      "step": 0.1,
+      "text": "loc_blurintensity_text",
+      "type": "slider",
+      "value": 5
+    },
+    "parallaxIntensity": {
+      "max": 5,
+      "min": 0,
+      "step": 0.1,
+      "text": "loc_parallaxintensity_text",
+      "type": "slider",
+      "value": 1
+    },
+    "displayScaling": {
+      "max": 1,
+      "min": 0.1,
+      "step": 0.01,
+      "text": "loc_displayscaling_text",
+      "type": "slider",
+      "help": "loc_displayscaling_help",
+      "value": 1
+    },
+    "fpsLock": {
+      "type": "checkbox",
+      "value": false,
+      "help": "loc_fpslock_help",
+      "text": "loc_fpslock_text"
+    }
+  },
+  "PropertyLocalization": {
+    "AR": {
+      "loc_issquare_text": "مربع",
+      "loc_speed_text": "السرعة",
+      "loc_colorradius_text": "خلفية الألبوم",
+      "loc_colorradius_help": "يحسن الرؤية",
+      "loc_blurintensity_text": "طمس",
+      "loc_parallaxintensity_text": "المنظر",
+      "loc_displayscaling_text": "التحجيم",
+      "loc_displayscaling_help": "تعمل القيم المنخفضة على تحسين الأداء",
+      "loc_fpslock_help": "يحسن الأداء",
+      "loc_fpslock_text": "تثبيت 30 إطار/ث"
+    },
+    "CS": {
+      "loc_issquare_text": "náměstí",
+      "loc_speed_text": "Rychlost",
+      "loc_colorradius_text": "Pozadí alba",
+      "loc_colorradius_help": "Zlepšuje viditelnost",
+      "loc_blurintensity_text": "Rozostření",
+      "loc_parallaxintensity_text": "Paralaxa",
+      "loc_displayscaling_text": "Měřítko",
+      "loc_displayscaling_help": "Nižší hodnoty zlepšují výkon",
+      "loc_fpslock_help": "Zlepšuje výkon",
+      "loc_fpslock_text": "Zámek 30 FPS"
+    },
+    "DA": {
+      "loc_issquare_text": "Firkantet",
+      "loc_speed_text": "Hastighed",
+      "loc_colorradius_text": "Album baggrund",
+      "loc_colorradius_help": "Forbedrer synlighed",
+      "loc_blurintensity_text": "Slør",
+      "loc_parallaxintensity_text": "Parallaxe",
+      "loc_displayscaling_text": "Skalering",
+      "loc_displayscaling_help": "Lavere værdier forbedrer ydeevnen",
+      "loc_fpslock_help": "Forbedrer ydeevnen",
+      "loc_fpslock_text": "30FPS lås"
+    },
+    "DE": {
+      "loc_issquare_text": "Quadratisch",
+      "loc_speed_text": "Geschwindigkeit",
+      "loc_colorradius_text": "Album-Hintergrund",
+      "loc_colorradius_help": "Verbessert die Sichtbarkeit",
+      "loc_blurintensity_text": "Unschärfe",
+      "loc_parallaxintensity_text": "Parallaxe",
+      "loc_displayscaling_text": "Skalierung",
+      "loc_displayscaling_help": "Niedrigere Werte verbessern die Leistung",
+      "loc_fpslock_help": "Verbessert die Leistung",
+      "loc_fpslock_text": "30FPS-Sperre"
+    },
+    "EL": {
+      "loc_issquare_text": "Πλατεία",
+      "loc_speed_text": "Ταχύτητα",
+      "loc_colorradius_text": "Φόντο άλμπουμ",
+      "loc_colorradius_help": "Βελτιώνει την ορατότητα",
+      "loc_blurintensity_text": "Θάμπωμα",
+      "loc_parallaxintensity_text": "Παράλλαξ",
+      "loc_displayscaling_text": "Κλιμάκωση",
+      "loc_displayscaling_help": "Οι χαμηλότερες τιμές βελτιώνουν την απόδοση",
+      "loc_fpslock_help": "Βελτιώνει την απόδοση",
+      "loc_fpslock_text": "Κλείδωμα 30 FPS"
+    },
+    "EN": {
+      "loc_issquare_text": "Square",
+      "loc_speed_text": "Speed",
+      "loc_colorradius_text": "Album Backdrop",
+      "loc_colorradius_help": "Improves visibility",
+      "loc_blurintensity_text": "Blur",
+      "loc_parallaxintensity_text": "Parallax",
+      "loc_displayscaling_text": "Scaling",
+      "loc_displayscaling_help": "Lower values improve performance",
+      "loc_fpslock_help": "Improves performance",
+      "loc_fpslock_text": "30FPS Lock"
+    },
+    "ES": {
+      "loc_issquare_text": "cuadrado",
+      "loc_speed_text": "Velocidad",
+      "loc_colorradius_text": "Fondo del álbum",
+      "loc_colorradius_help": "Mejora la visibilidad",
+      "loc_blurintensity_text": "Desenfoque",
+      "loc_parallaxintensity_text": "Paralaje",
+      "loc_displayscaling_text": "Escalado",
+      "loc_displayscaling_help": "Los valores más bajos mejoran el rendimiento",
+      "loc_fpslock_help": "Mejora el rendimiento",
+      "loc_fpslock_text": "Bloqueo de 30 FPS"
+    },
+    "FR": {
+      "loc_issquare_text": "Carré",
+      "loc_speed_text": "Vitesse",
+      "loc_colorradius_text": "Toile de fond de l'album",
+      "loc_colorradius_help": "Améliore la visibilité",
+      "loc_blurintensity_text": "Flou",
+      "loc_parallaxintensity_text": "Parallaxe",
+      "loc_displayscaling_text": "Mise à l'échelle",
+      "loc_displayscaling_help": "Des valeurs inférieures améliorent les performances",
+      "loc_fpslock_help": "Améliore les performances",
+      "loc_fpslock_text": "Verrouillage 30FPS"
+    },
+    "HE": {
+      "loc_issquare_text": "ריבוע",
+      "loc_speed_text": "מהירות",
+      "loc_colorradius_text": "רקע אלבום",
+      "loc_colorradius_help": "משפר את הנראות",
+      "loc_blurintensity_text": "טשטוש",
+      "loc_parallaxintensity_text": "פרלקסה",
+      "loc_displayscaling_text": "קנה מידה",
+      "loc_displayscaling_help": "ערכים נמוכים משפרים את הביצועים",
+      "loc_fpslock_help": "משפר ביצועים",
+      "loc_fpslock_text": "נעילת 30FPS"
+    },
+    "HI": {
+      "loc_issquare_text": "चौकोर",
+      "loc_speed_text": "गति",
+      "loc_colorradius_text": "एल्बम पृष्ठभूमि",
+      "loc_colorradius_help": "दृश्यता में सुधार करता है",
+      "loc_blurintensity_text": "धुंधला",
+      "loc_parallaxintensity_text": "लंबन",
+      "loc_displayscaling_text": "स्केलिंग",
+      "loc_displayscaling_help": "निम्न मान प्रदर्शन में सुधार करते हैं",
+      "loc_fpslock_help": "प्रदर्शन में सुधार करता है",
+      "loc_fpslock_text": "30एफपीएस लॉक"
+    },
+    "ID": {
+      "loc_issquare_text": "Persegi",
+      "loc_speed_text": "Kecepatan",
+      "loc_colorradius_text": "Latar Belakang Album",
+      "loc_colorradius_help": "Meningkatkan visibilitas",
+      "loc_blurintensity_text": "Kabur",
+      "loc_parallaxintensity_text": "Paralaks",
+      "loc_displayscaling_text": "Penskalaan",
+      "loc_displayscaling_help": "Nilai yang lebih rendah meningkatkan kinerja",
+      "loc_fpslock_help": "Meningkatkan kinerja",
+      "loc_fpslock_text": "Kunci 30FPS"
+    },
+    "IT": {
+      "loc_issquare_text": "Quadrato",
+      "loc_speed_text": "Velocità",
+      "loc_colorradius_text": "Sfondo dell'album",
+      "loc_colorradius_help": "Migliora la visibilità",
+      "loc_blurintensity_text": "Sfocatura",
+      "loc_parallaxintensity_text": "Parallasse",
+      "loc_displayscaling_text": "Ridimensionamento",
+      "loc_displayscaling_help": "Valori più bassi migliorano le prestazioni",
+      "loc_fpslock_help": "Migliora le prestazioni",
+      "loc_fpslock_text": "Blocco 30FPS"
+    },
+    "JA": {
+      "loc_issquare_text": "正方形",
+      "loc_speed_text": "速度",
+      "loc_colorradius_text": "アルバムの背景",
+      "loc_colorradius_help": "視認性の向上",
+      "loc_blurintensity_text": "ぼかし",
+      "loc_parallaxintensity_text": "視差",
+      "loc_displayscaling_text": "スケーリング",
+      "loc_displayscaling_help": "値を低くするとパフォーマンスが向上します",
+      "loc_fpslock_help": "パフォーマンスの向上",
+      "loc_fpslock_text": "30FPSロック"
+    },
+    "KO": {
+      "loc_issquare_text": "광장",
+      "loc_speed_text": "속도",
+      "loc_colorradius_text": "앨범 배경화면",
+      "loc_colorradius_help": "가시성 향상",
+      "loc_blurintensity_text": "흐림",
+      "loc_parallaxintensity_text": "시차",
+      "loc_displayscaling_text": "스케일링",
+      "loc_displayscaling_help": "값이 낮을수록 성능이 향상됩니다.",
+      "loc_fpslock_help": "성능 향상",
+      "loc_fpslock_text": "30FPS 잠금"
+    },
+    "MS": {
+      "loc_issquare_text": "Segi empat",
+      "loc_speed_text": "Kelajuan",
+      "loc_colorradius_text": "Tirai Latar Album",
+      "loc_colorradius_help": "Meningkatkan keterlihatan",
+      "loc_blurintensity_text": "Kabur",
+      "loc_parallaxintensity_text": "Paralaks",
+      "loc_displayscaling_text": "Penskalaan",
+      "loc_displayscaling_help": "Nilai yang lebih rendah meningkatkan prestasi",
+      "loc_fpslock_help": "Meningkatkan prestasi",
+      "loc_fpslock_text": "Kunci 30FPS"
+    },
+    "NB": {
+      "loc_issquare_text": "Square",
+      "loc_speed_text": "Hastighet",
+      "loc_colorradius_text": "Album Bakteppe",
+      "loc_colorradius_help": "Forbedrer synlighet",
+      "loc_blurintensity_text": "Uskarphet",
+      "loc_parallaxintensity_text": "Parallaxe",
+      "loc_displayscaling_text": "Skalering",
+      "loc_displayscaling_help": "Lavere verdier forbedrer ytelsen",
+      "loc_fpslock_help": "Forbedrer ytelsen",
+      "loc_fpslock_text": "30FPS lås"
+    },
+    "NL": {
+      "loc_issquare_text": "Vierkant",
+      "loc_speed_text": "Snelheid",
+      "loc_colorradius_text": "Albumachtergrond",
+      "loc_colorradius_help": "Verbetert de zichtbaarheid",
+      "loc_blurintensity_text": "Vervagen",
+      "loc_parallaxintensity_text": "Parallax",
+      "loc_displayscaling_text": "Schalen",
+      "loc_displayscaling_help": "Lagere waarden verbeteren de prestaties",
+      "loc_fpslock_help": "Verbetert de prestaties",
+      "loc_fpslock_text": "30FPS-vergrendeling"
+    },
+    "PL": {
+      "loc_issquare_text": "Kwadrat",
+      "loc_speed_text": "Prędkość",
+      "loc_colorradius_text": "Tło albumu",
+      "loc_colorradius_help": "Poprawia widoczność",
+      "loc_blurintensity_text": "Rozmycie",
+      "loc_parallaxintensity_text": "Paralaksa",
+      "loc_displayscaling_text": "Skalowanie",
+      "loc_displayscaling_help": "Niższe wartości poprawiają wydajność",
+      "loc_fpslock_help": "Poprawia wydajność",
+      "loc_fpslock_text": "Blokada 30 klatek na sekundę"
+    },
+    "PT": {
+      "loc_issquare_text": "Quadrado",
+      "loc_speed_text": "Velocidade",
+      "loc_colorradius_text": "Pano de fundo do álbum",
+      "loc_colorradius_help": "Melhora a visibilidade",
+      "loc_blurintensity_text": "Desfoque",
+      "loc_parallaxintensity_text": "Paralaxe",
+      "loc_displayscaling_text": "Dimensionamento",
+      "loc_displayscaling_help": "Valores mais baixos melhoram o desempenho",
+      "loc_fpslock_help": "Melhora o desempenho",
+      "loc_fpslock_text": "Bloqueio de 30FPS"
+    },
+    "RO": {
+      "loc_issquare_text": "pătrat",
+      "loc_speed_text": "Viteza",
+      "loc_colorradius_text": "Fundalul albumului",
+      "loc_colorradius_help": "Îmbunătățește vizibilitatea",
+      "loc_blurintensity_text": "Estompare",
+      "loc_parallaxintensity_text": "Paralaxă",
+      "loc_displayscaling_text": "Scalare",
+      "loc_displayscaling_help": "Valorile mai mici îmbunătățesc performanța",
+      "loc_fpslock_help": "Îmbunătățește performanța",
+      "loc_fpslock_text": "Blocare 30FPS"
+    },
+    "RU": {
+      "loc_issquare_text": "Площадь",
+      "loc_speed_text": "Скорость",
+      "loc_colorradius_text": "Фон альбома",
+      "loc_colorradius_help": "Улучшает видимость",
+      "loc_blurintensity_text": "Размытие",
+      "loc_parallaxintensity_text": "Параллакс",
+      "loc_displayscaling_text": "Масштабирование",
+      "loc_displayscaling_help": "Более низкие значения улучшают производительность",
+      "loc_fpslock_help": "Улучшает производительность",
+      "loc_fpslock_text": "Блокировка 30 кадров в секунду"
+    },
+    "SV": {
+      "loc_issquare_text": "Square",
+      "loc_speed_text": "Hastighet",
+      "loc_colorradius_text": "Album bakgrund",
+      "loc_colorradius_help": "Förbättrar sikten",
+      "loc_blurintensity_text": "Oskärpa",
+      "loc_parallaxintensity_text": "Parallax",
+      "loc_displayscaling_text": "Skalning",
+      "loc_displayscaling_help": "Lägre värden förbättrar prestandan",
+      "loc_fpslock_help": "Förbättrar prestandan",
+      "loc_fpslock_text": "30FPS lås"
+    },
+    "TR": {
+      "loc_issquare_text": "Kare",
+      "loc_speed_text": "Hız",
+      "loc_colorradius_text": "Albüm Arka Planı",
+      "loc_colorradius_help": "Görünürlüğü artırır",
+      "loc_blurintensity_text": "Bulanıklaştırma",
+      "loc_parallaxintensity_text": "Paralaks",
+      "loc_displayscaling_text": "Ölçeklendirme",
+      "loc_displayscaling_help": "Daha düşük değerler performansı artırır",
+      "loc_fpslock_help": "Performansı artırır",
+      "loc_fpslock_text": "30FPS Kilidi"
+    },
+    "UK": {
+      "loc_issquare_text": "Квадратний",
+      "loc_speed_text": "швидкість",
+      "loc_colorradius_text": "Фон альбому",
+      "loc_colorradius_help": "Покращує видимість",
+      "loc_blurintensity_text": "Розмиття",
+      "loc_parallaxintensity_text": "Паралакс",
+      "loc_displayscaling_text": "Масштабування",
+      "loc_displayscaling_help": "Нижчі значення покращують продуктивність",
+      "loc_fpslock_help": "Покращує продуктивність",
+      "loc_fpslock_text": "Блокування 30 FPS"
+    },
+    "ZH": {
+      "loc_issquare_text": "广场",
+      "loc_speed_text": "速度",
+      "loc_colorradius_text": "专辑背景",
+      "loc_colorradius_help": "提高能见度",
+      "loc_blurintensity_text": "模糊",
+      "loc_parallaxintensity_text": "视差",
+      "loc_displayscaling_text": "缩放",
+      "loc_displayscaling_help": "较低的值可提高性能",
+      "loc_fpslock_help": "提高性能",
+      "loc_fpslock_text": "30FPS锁定"
+    }
+  }
+}
