@@ -41,6 +41,10 @@ pub enum RestartSetting {
     Certificates,
     /// Hardware Acceleration; every engine reads it.
     HardwareAcceleration,
+    /// Default Developer Tools; both web engines read it.
+    DeveloperMode,
+    /// The debugging port; both web engines read it.
+    DeveloperPort,
 }
 
 impl RestartSetting {
@@ -48,7 +52,9 @@ impl RestartSetting {
     pub fn read_by(self, engine: EngineType) -> bool {
         match self {
             Self::Arguments(own) => engine == own,
-            Self::Certificates => matches!(engine, EngineType::WebViewLive | EngineType::CefSharpLive),
+            Self::Certificates | Self::DeveloperMode | Self::DeveloperPort => {
+                matches!(engine, EngineType::WebViewLive | EngineType::CefSharpLive)
+            }
             Self::HardwareAcceleration => true,
         }
     }
@@ -59,6 +65,8 @@ impl RestartSetting {
             Self::Arguments(_) => "Portal.RestartPrompt.Setting.Arguments",
             Self::Certificates => "Portal.RestartPrompt.Setting.Certificates",
             Self::HardwareAcceleration => "Portal.RestartPrompt.Setting.HardwareAcceleration",
+            Self::DeveloperMode => "Portal.RestartPrompt.Setting.DeveloperMode",
+            Self::DeveloperPort => "Portal.RestartPrompt.Setting.DeveloperPort",
         }
     }
 }
@@ -238,6 +246,35 @@ mod tests {
             &vec![1],
             &vec![1],
             &running
+        ));
+    }
+
+    #[test]
+    fn restart_the_developer_settings_prompt_only_while_a_web_engine_wallpaper_runs() {
+        for setting in [RestartSetting::DeveloperMode, RestartSetting::DeveloperPort] {
+            assert!(should_prompt(setting, &true, &false, &[CefSharpLive]), "{setting:?}");
+            assert!(should_prompt(setting, &true, &false, &[WebViewLive]), "{setting:?}");
+            assert!(
+                !should_prompt(setting, &true, &false, &[MpvPlayerLive, NebulaLive]),
+                "{setting:?}: a player has no developer tools"
+            );
+            assert!(!should_prompt(setting, &true, &false, &[]), "{setting:?}: nothing runs");
+            assert!(
+                !should_prompt(setting, &true, &true, &[CefSharpLive]),
+                "{setting:?}: an unchanged value raises nothing"
+            );
+        }
+        assert!(should_prompt(
+            RestartSetting::DeveloperPort,
+            &9222_u16,
+            &0,
+            &[CefSharpLive]
+        ));
+        assert!(!should_prompt(
+            RestartSetting::DeveloperPort,
+            &9222_u16,
+            &9222,
+            &[CefSharpLive]
         ));
     }
 }

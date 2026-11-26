@@ -39,6 +39,20 @@ pub fn commit_number(text: &str, min: u8, max: u8, previous: u8) -> u8 {
     u8::try_from(clamped).unwrap_or(max)
 }
 
+/// The most a debugging port can be.
+pub const PORT_MAX: u16 = 65535;
+
+/// The port a port field commits: its text clamped to `0..=65535`; an empty or non-numeric text keeps `previous`.
+pub fn commit_port(text: &str, previous: u16) -> u16 {
+    let text = text.trim();
+    if text.is_empty() || !text.bytes().all(|byte| byte.is_ascii_digit()) {
+        return previous;
+    }
+    // A text of only digits that is too long for a number is simply too large.
+    let value = text.parse::<u64>().unwrap_or(u64::MAX);
+    u16::try_from(value.min(u64::from(PORT_MAX))).unwrap_or(PORT_MAX)
+}
+
 /// The percentage a slider value stands for.
 pub fn slider_percent(value: f32) -> u8 {
     // Clamped to 0..=100 first, so the cast cannot overflow.
@@ -373,9 +387,70 @@ impl NumberField {
     }
 }
 
+/// A numeric field for a port: digits only, at most five, committed with [`commit_port`].
+pub struct PortField {
+    /// The text box.
+    pub state: Entity<InputState>,
+}
+
+impl PortField {
+    /// An empty port field.
+    pub fn new<V: 'static>(window: &mut Window, cx: &mut Context<V>) -> Self {
+        let state = cx.new(|cx| {
+            InputState::new(window, cx)
+                .validate(|text, _| text.len() <= 5 && text.bytes().all(|byte| byte.is_ascii_digit()))
+        });
+        Self { state }
+    }
+
+    /// Shows `value` without raising a change.
+    pub fn show(&self, value: u16, window: &mut Window, cx: &mut App) {
+        let text = SharedString::from(value.to_string());
+        self.state.update(cx, |state, cx| state.set_value(text, window, cx));
+    }
+
+    /// Commits the text: the field shows the clamped value (an empty one reverts) and the value is returned when it
+    /// differs from `previous`.
+    pub fn commit(&self, previous: u16, window: &mut Window, cx: &mut App) -> Option<u16> {
+        let text = self.state.read(cx).value();
+        let value = commit_port(&text, previous);
+        if text.as_ref() != value.to_string() {
+            self.show(value, window, cx);
+        }
+        (value != previous).then_some(value)
+    }
+
+    /// Whether the cursor is in the field.
+    pub fn focused(&self, window: &Window, cx: &App) -> bool {
+        self.state.read(cx).focus_handle(cx).contains_focused(window, cx)
+    }
+}
+
 #[cfg(test)]
 mod tests {
-    use super::{ControlState, commit_number, control_state, label_text, slider_percent};
+    use super::{ControlState, commit_number, commit_port, control_state, label_text, slider_percent};
+
+    #[test]
+    fn settings_port_inside_the_range_is_kept() {
+        assert_eq!(commit_port("0", 9222), 0);
+        assert_eq!(commit_port("9222", 0), 9222);
+        assert_eq!(commit_port(" 65535 ", 0), 65535);
+    }
+
+    #[test]
+    fn settings_port_above_the_range_is_cut_to_65535() {
+        assert_eq!(commit_port("65536", 9222), 65535);
+        assert_eq!(commit_port("99999", 9222), 65535);
+        assert_eq!(commit_port("99999999999999999999", 9222), 65535);
+    }
+
+    #[test]
+    fn settings_port_empty_or_not_a_number_reverts_to_the_previous_value() {
+        assert_eq!(commit_port("", 9222), 9222);
+        assert_eq!(commit_port("   ", 9222), 9222);
+        assert_eq!(commit_port("92a2", 9222), 9222);
+        assert_eq!(commit_port("-1", 9222), 9222);
+    }
 
     #[test]
     fn settings_number_empty_text_keeps_the_previous_value() {

@@ -386,7 +386,7 @@ impl PortalApp {
                     }
                     self.wallpaper.update(cx, |page, cx| page.set_runtime(&runtime, cx));
                     self.other.update(cx, |page, cx| {
-                        page.load(&settings, cx);
+                        page.load(&settings, window, cx);
                         page.set_runtime(&runtime, window, cx);
                     });
                     self.settings = Some(settings);
@@ -405,6 +405,8 @@ impl PortalApp {
                         self.general
                             .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
                         self.wallpaper
+                            .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
+                        self.other
                             .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
                     }
                     // The switches are not part of the settings view: the editor takes the stored list.
@@ -495,6 +497,8 @@ impl PortalApp {
                         self.general
                             .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
                         self.wallpaper
+                            .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
+                        self.other
                             .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
                     }
                     if self.closing_after_hint {

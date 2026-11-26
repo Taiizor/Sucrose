@@ -338,6 +338,8 @@ fn write(settings: &mut Settings, change: &SettingChange) {
         SettingChange::InputDesktop(value) => settings.engine.input_desktop = *value,
         SettingChange::AllowInvalidCertificates(value) => settings.engine.allow_invalid_certificates = *value,
         SettingChange::CefArguments(list) => settings.engine.cef_arguments = args::to_cef_map(&to_switches(list)),
+        SettingChange::DeveloperMode(value) => settings.engine.developer_mode = *value,
+        SettingChange::DeveloperPort(value) => settings.engine.developer_port = *value,
     }
 }
 
@@ -385,6 +387,8 @@ fn view_of(settings: &Settings) -> PortalSettings {
         input_module_type: settings.engine.input_module_type,
         input_desktop: settings.engine.input_desktop,
         allow_invalid_certificates: settings.engine.allow_invalid_certificates,
+        developer_mode: settings.engine.developer_mode,
+        developer_port: settings.engine.developer_port,
     }
 }
 
@@ -711,6 +715,45 @@ mod tests {
         let file = fs::read(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).expect("the settings file exists");
         let json: serde_json::Value = serde_json::from_slice(&file).expect("the file is JSON");
         assert_eq!(json["Engine"]["AllowInvalidCertificates"], true);
+    }
+
+    #[test]
+    fn settings_host_validate_accepts_the_whole_port_range_and_both_developer_changes() {
+        for change in [
+            SettingChange::DeveloperPort(0),
+            SettingChange::DeveloperPort(1024),
+            SettingChange::DeveloperPort(65535),
+            SettingChange::DeveloperMode(true),
+            SettingChange::DeveloperMode(false),
+        ] {
+            assert_eq!(validate(change.clone()), Ok(change));
+        }
+    }
+
+    #[test]
+    fn settings_host_developer_mode_and_port_are_written_to_the_engine_section_and_shown() {
+        let scratch = Scratch::new("developer");
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+        let defaults = host.view();
+        assert!(!defaults.developer_mode, "developer tools are off by default");
+        assert_eq!(defaults.developer_port, 0, "0 means no debugging port");
+
+        assert_eq!(
+            host.apply(SettingChange::DeveloperMode(true)),
+            Ok(SettingChange::DeveloperMode(true))
+        );
+        assert_eq!(
+            host.apply(SettingChange::DeveloperPort(9222)),
+            Ok(SettingChange::DeveloperPort(9222))
+        );
+
+        let view = host.view();
+        assert!(view.developer_mode);
+        assert_eq!(view.developer_port, 9222);
+        let file = fs::read(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).expect("the settings file exists");
+        let json: serde_json::Value = serde_json::from_slice(&file).expect("the file is JSON");
+        assert_eq!(json["Engine"]["DeveloperMode"], true);
+        assert_eq!(json["Engine"]["DeveloperPort"], 9222);
     }
 
     #[test]

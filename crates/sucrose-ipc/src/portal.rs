@@ -15,7 +15,7 @@ use sucrose_core::{
 };
 
 /// Version of the Portal protocol, sent in `PortalHello` so the service can refuse a Portal it cannot talk to.
-pub const PORTAL_PROTOCOL_VERSION: u16 = 5;
+pub const PORTAL_PROTOCOL_VERSION: u16 = 6;
 
 /// The longest path text, in bytes, the service accepts from a Portal and puts into a message it sends. It keeps the
 /// largest possible [`PortalEvent::Welcome`] far below [`crate::frame::MAX_FRAME`].
@@ -385,6 +385,12 @@ pub enum SettingChange {
     /// time a CEF wallpaper starts. Unlike the other changes it has no field in [`PortalSettings`]: the Portal asks
     /// for the list with [`PortalRequest::GetArguments`].
     CefArguments(Vec<SwitchView>),
+    /// Whether developer mode is on: the wallpaper's context menu has Inspect and F12 opens the developer tools (D-13);
+    /// applies the next time a web wallpaper starts.
+    DeveloperMode(bool),
+    /// The debugging port of the web engines, 0..=65535, 0 for none; each renderer listens on this port plus its slot.
+    /// Applies the next time a web wallpaper starts.
+    DeveloperPort(u16),
 }
 
 /// The settings the Portal shows: a view of the service's settings, never the file (D-11).
@@ -454,6 +460,10 @@ pub struct PortalSettings {
     pub input_desktop: bool,
     /// Whether the web engines accept invalid TLS certificates.
     pub allow_invalid_certificates: bool,
+    /// Whether developer mode is on.
+    pub developer_mode: bool,
+    /// The debugging port, 0 for none.
+    pub developer_port: u16,
 }
 
 impl PortalSettings {
@@ -492,6 +502,8 @@ impl PortalSettings {
             SettingChange::AllowInvalidCertificates(value) => self.allow_invalid_certificates = *value,
             // The switches are not part of the view: the Portal asks for them.
             SettingChange::CefArguments(_) => {}
+            SettingChange::DeveloperMode(value) => self.developer_mode = *value,
+            SettingChange::DeveloperPort(value) => self.developer_port = *value,
         }
     }
 }
@@ -700,6 +712,8 @@ mod tests {
             input_module_type: InputModuleType::RawInput,
             input_desktop: false,
             allow_invalid_certificates: false,
+            developer_mode: false,
+            developer_port: 0,
         }
     }
 
@@ -736,8 +750,8 @@ mod tests {
     }
 
     #[test]
-    fn the_portal_protocol_is_at_version_five_since_the_runtime_names_the_engines_that_run() {
-        assert_eq!(PORTAL_PROTOCOL_VERSION, 5);
+    fn the_portal_protocol_is_at_version_six_since_the_settings_view_carries_the_developer_settings() {
+        assert_eq!(PORTAL_PROTOCOL_VERSION, 6);
     }
 
     #[test]
@@ -907,6 +921,8 @@ mod tests {
             SettingChange::InputDesktop(false),
             SettingChange::AllowInvalidCertificates(false),
             SettingChange::CefArguments(Vec::new()),
+            SettingChange::DeveloperMode(false),
+            SettingChange::DeveloperPort(0),
         ];
         for (expected, change) in changes.iter().enumerate() {
             assert_eq!(usize::from(index(change)), expected, "{change:?}");
@@ -1141,6 +1157,20 @@ mod tests {
                 SettingChange::AllowInvalidCertificates(true),
                 PortalSettings {
                     allow_invalid_certificates: true,
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::DeveloperMode(true),
+                PortalSettings {
+                    developer_mode: true,
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::DeveloperPort(9222),
+                PortalSettings {
+                    developer_port: 9222,
                     ..view()
                 },
             ),

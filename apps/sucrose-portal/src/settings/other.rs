@@ -2,15 +2,30 @@
 //! open the developer tools of a running web wallpaper; nothing else ever opens them (D-13). The page shows only what
 //! the service reported: the monitors that play a wallpaper on a web engine come from the runtime state.
 
-use gpui_kit::component::{Disableable as _, button::Button, h_flex, tooltip::Tooltip};
+use gpui_kit::component::{
+    ActiveTheme as _, Disableable as _,
+    button::Button,
+    h_flex,
+    input::{Input, InputEvent},
+    switch::Switch,
+    tooltip::Tooltip,
+};
 use gpui_kit::*;
 use sucrose_core::settings::EngineType;
-use sucrose_ipc::portal::{PortalRequest, PortalSettings, RuntimeState};
+use sucrose_ipc::portal::{PortalRequest, PortalSettings, RuntimeState, SettingChange};
 
-use super::row::{
-    Choice, ChoiceSelect, ControlState, SettingRow, choice_select, control_state, footer_line, on_choice, select_box,
+use super::{
+    row::{
+        Choice, ChoiceSelect, ControlState, NUMBER_WIDTH, PortField, SettingRow, choice_select, control_state,
+        footer_line, label_text, on_choice, select_box, show_choice,
+    },
+    wallpaper::info_alert,
 };
-use crate::{i18n::tr, ipc::ServiceLink};
+use crate::{
+    dialogs::restart::{RestartSetting, affected_engines, open_restart_prompt, should_prompt},
+    i18n::tr,
+    ipc::ServiceLink,
+};
 
 /// What the Open DevTools button can do for the wallpapers that run now (UI-SPEC E10: empty and partial).
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -55,7 +70,36 @@ pub struct OtherPage {
     screens: ChoiceSelect<String>,
     /// The monitor the Screen select chose.
     chosen: Option<String>,
+    /// The Debugging Port field.
+    port: PortField,
     _subscriptions: Vec<Subscription>,
+}
+
+/// The restart prompt a committed developer setting raises, with the committed value and the stored one as text for
+/// the comparison; `None` for every other change. Both web engines read these settings when a wallpaper starts.
+pub fn restart_trigger(
+    change: &SettingChange,
+    previous: &PortalSettings,
+    now: &PortalSettings,
+) -> Option<(RestartSetting, String, String)> {
+    match change {
+        SettingChange::DeveloperMode(_) => Some((
+            RestartSetting::DeveloperMode,
+            now.developer_mode.to_string(),
+            previous.developer_mode.to_string(),
+        )),
+        SettingChange::DeveloperPort(_) => Some((
+            RestartSetting::DeveloperPort,
+            now.developer_port.to_string(),
+            previous.developer_port.to_string(),
+        )),
+        _ => None,
+    }
+}
+
+/// The legacy hint with the debugging port in its address.
+pub fn hint_text(port: u16) -> SharedString {
+    SharedString::from(tr("Portal.OtherSettingPage.Developer.DeveloperHint").replace("{0}", &port.to_string()))
 }
 
 impl OtherPage {
@@ -66,6 +110,13 @@ impl OtherPage {
             this.chosen = Some(monitor);
             cx.notify();
         });
+        let port = PortField::new(window, cx);
+        // Enter and leaving the field commit what was typed (UI-SPEC: not per keystroke).
+        let port_commit = cx.subscribe_in(&port.state, window, |this, _, event: &InputEvent, window, cx| {
+            if matches!(event, InputEvent::PressEnter { .. } | InputEvent::Blur) {
+                this.commit_port(window, cx);
+            }
+        });
         Self {
             link,
             settings: None,
@@ -73,7 +124,8 @@ impl OtherPage {
             running: Vec::new(),
             screens,
             chosen: None,
-            _subscriptions: vec![subscription],
+            port,
+            _subscriptions: vec![subscription, port_commit],
         }
     }
 
@@ -85,10 +137,52 @@ impl OtherPage {
         }
     }
 
-    /// The service reported every setting (Welcome).
-    pub fn load(&mut self, settings: &PortalSettings, cx: &mut Context<Self>) {
+    /// The service reported every setting (Welcome): the port field shows the stored port.
+    pub fn load(&mut self, settings: &PortalSettings, window: &mut Window, cx: &mut Context<Self>) {
         self.settings = Some(settings.clone());
+        self.port.show(settings.developer_port, window, cx);
         cx.notify();
+    }
+
+    /// A setting changed or its change was refused. The switch is drawn from the settings and the port field shows the
+    /// broadcast port again; a committed change is saved before the restart prompt opens, whatever the answer, and a
+    /// refused one leaves the settings as they were, so it never prompts (UI-SPEC E12).
+    pub fn on_setting(
+        &mut self,
+        settings: &PortalSettings,
+        change: &SettingChange,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
+        let previous = self.settings.replace(settings.clone());
+        if let Some(previous) = previous
+            && let Some((setting, committed, stored)) = restart_trigger(change, &previous, settings)
+        {
+            let running: Vec<EngineType> = self.running.iter().map(|(_, engine)| *engine).collect();
+            if should_prompt(setting, &committed, &stored, &running) {
+                let engines = affected_engines(setting, &running);
+                open_restart_prompt(setting, engines, self.link.clone(), window, cx);
+            }
+        }
+        if matches!(change, SettingChange::DeveloperPort(_)) {
+            self.port.show(settings.developer_port, window, cx);
+        }
+        cx.notify();
+    }
+
+    /// Commits the port field: the clamped value is shown and sent when it differs from the stored one; an empty
+    /// field reverts.
+    fn commit_port(&mut self, window: &mut Window, cx: &mut Context<Self>) {
+        let Some(settings) = &self.settings else { return };
+        let previous = settings.developer_port;
+        if self.state() != ControlState::Enabled {
+            self.port.show(previous, window, cx);
+            return;
+        }
+        if let Some(port) = self.port.commit(previous, window, cx) {
+            self.link
+                .send(PortalRequest::Change(SettingChange::DeveloperPort(port)));
+        }
     }
 
     /// The service reported what runs (Welcome and Runtime): the Screen select lists the monitors of the web wallpapers.
@@ -104,7 +198,7 @@ impl OtherPage {
                 .collect();
             self.screens.update(cx, |state, cx| state.set_items(items, window, cx));
             if let Some(chosen) = &self.chosen {
-                super::row::show_choice(&self.screens, chosen, window, cx);
+                show_choice(&self.screens, chosen, window, cx);
             }
         }
         cx.notify();
@@ -112,7 +206,7 @@ impl OtherPage {
 
     /// Whether the keyboard is in a select of this page (Escape then belongs to the select).
     pub fn field_focused(&self, window: &Window, cx: &App) -> bool {
-        self.screens.read(cx).focus_handle(cx).contains_focused(window, cx)
+        self.screens.read(cx).focus_handle(cx).contains_focused(window, cx) || self.port.focused(window, cx)
     }
 
     fn state(&self) -> ControlState {
@@ -174,11 +268,45 @@ impl OtherPage {
         lines
     }
 
-    /// The Developer group: the Developer Tools row.
+    /// The Default Developer Tools switch.
+    fn developer_mode_switch(&self, cx: &mut Context<Self>) -> Switch {
+        let on = self.settings.as_ref().is_some_and(|settings| settings.developer_mode);
+        Switch::new("developer-mode")
+            .checked(on)
+            .disabled(self.state().disabled())
+            .accessibility_label(label_text("Portal.OtherSettingPage.Developer.DeveloperMode"))
+            .on_click(cx.listener(|this, value: &bool, _, _| {
+                if this.state() == ControlState::Enabled {
+                    this.link
+                        .send(PortalRequest::Change(SettingChange::DeveloperMode(*value)));
+                }
+            }))
+    }
+
+    /// The Developer group: the Developer Tools row with the developer-mode switch, the debugging port, the legacy hint,
+    /// the note that DevTools never open by themselves and the Open DevTools button.
     fn developer_group(&self, cx: &mut Context<Self>) -> AnyElement {
+        let port = self.settings.as_ref().map_or(0, |settings| settings.developer_port);
         let mut row = SettingRow::new(
             tr("Portal.OtherSettingPage.Developer"),
             Some(tr("Portal.OtherSettingPage.Developer.Description")),
+        )
+        .footer(footer_line(
+            tr("Portal.OtherSettingPage.Developer.DeveloperMode"),
+            self.developer_mode_switch(cx),
+        ))
+        .footer(footer_line(
+            tr("Portal.OtherSettingPage.Developer.DeveloperPort"),
+            div()
+                .w(px(NUMBER_WIDTH))
+                .child(Input::new(&self.port.state).disabled(self.state().disabled())),
+        ))
+        .footer(info_alert(hint_text(port), cx))
+        .footer(
+            div()
+                .text_xs()
+                .text_color(cx.theme().muted_foreground)
+                .child(tr("Portal.OtherSettingPage.Developer.OpenDevTools.Note")),
         )
         .state(self.state());
         for line in self.open_devtools_lines(cx) {
@@ -198,7 +326,10 @@ impl Render for OtherPage {
 mod tests {
     use sucrose_core::settings::EngineType::{CefSharpLive, MpvPlayerLive, WebViewLive};
 
-    use super::{DevToolsState, open_devtools_state, screen_label};
+    use sucrose_ipc::portal::{PortalSettings, SettingChange};
+
+    use super::{DevToolsState, hint_text, open_devtools_state, restart_trigger, screen_label};
+    use crate::dialogs::restart::RestartSetting;
 
     fn running(
         list: &[(&str, sucrose_core::settings::EngineType)],
@@ -247,5 +378,70 @@ mod tests {
     fn other_screen_label_drops_the_windows_device_prefix() {
         assert_eq!(&*screen_label(r"\\.\DISPLAY1"), "DISPLAY1");
         assert_eq!(&*screen_label("DP-1"), "DP-1");
+    }
+
+    fn settings() -> PortalSettings {
+        PortalSettings {
+            app_visible: true,
+            app_exit: false,
+            run_startup: 0,
+            theme_mode: sucrose_core::settings::ThemeMode::default(),
+            backdrop: sucrose_core::settings::Backdrop::default(),
+            background_image: String::new(),
+            background_stretch: sucrose_core::settings::Stretch::default(),
+            background_opacity: 0,
+            library_pagination: 1,
+            adaptive_layout: 0,
+            adaptive_margin: 5,
+            library_preview: false,
+            library_preview_hide: false,
+            library_sort_mode: sucrose_core::settings::SortMode::default(),
+            library_sort_kind: sucrose_core::settings::SortKind::default(),
+            library_location: String::new(),
+            library_move: false,
+            delete_corrupt: false,
+            hint_tray_icon: false,
+            gif_engine: sucrose_core::settings::EngineType::default(),
+            url_engine: sucrose_core::settings::EngineType::default(),
+            web_engine: sucrose_core::settings::EngineType::default(),
+            video_engine: sucrose_core::settings::EngineType::default(),
+            youtube_engine: sucrose_core::settings::EngineType::default(),
+            application_engine: sucrose_core::settings::EngineType::default(),
+            wallpaper_loop: true,
+            wallpaper_shuffle: true,
+            hardware_acceleration: true,
+            input_type: sucrose_core::settings::InputType::default(),
+            input_module_type: sucrose_core::settings::InputModuleType::default(),
+            input_desktop: false,
+            allow_invalid_certificates: false,
+            developer_mode: false,
+            developer_port: 0,
+        }
+    }
+
+    #[test]
+    fn other_a_committed_developer_setting_names_its_restart_prompt() {
+        let previous = settings();
+        let mut now = settings();
+        now.developer_mode = true;
+        now.developer_port = 9222;
+
+        assert_eq!(
+            restart_trigger(&SettingChange::DeveloperMode(true), &previous, &now),
+            Some((RestartSetting::DeveloperMode, "true".to_owned(), "false".to_owned()))
+        );
+        assert_eq!(
+            restart_trigger(&SettingChange::DeveloperPort(9222), &previous, &now),
+            Some((RestartSetting::DeveloperPort, "9222".to_owned(), "0".to_owned()))
+        );
+        assert_eq!(restart_trigger(&SettingChange::AppExit(true), &previous, &now), None);
+    }
+
+    #[test]
+    fn other_the_legacy_hint_names_the_debugging_port() {
+        let hint = hint_text(9222);
+
+        assert!(hint.contains("http://localhost:9222"), "{hint}");
+        assert!(!hint.contains("{0}"), "{hint}");
     }
 }

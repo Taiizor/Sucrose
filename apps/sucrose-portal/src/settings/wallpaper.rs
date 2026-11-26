@@ -739,7 +739,7 @@ fn warning_alert(row: EngineRow, text: SharedString, cx: &App) -> AnyElement {
 }
 
 /// An info alert: the info icon and the text on a quiet fill (UI-SPEC "alert style, info").
-fn info_alert(text: SharedString, cx: &App) -> AnyElement {
+pub(super) fn info_alert(text: SharedString, cx: &App) -> AnyElement {
     let theme = cx.theme();
     h_flex()
         .id("info-alert")
@@ -916,6 +916,8 @@ mod tests {
             input_module_type: InputModuleType::RawInput,
             input_desktop: false,
             allow_invalid_certificates: false,
+            developer_mode: false,
+            developer_port: 0,
         }
     }
 
