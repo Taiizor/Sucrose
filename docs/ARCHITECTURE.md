@@ -46,7 +46,7 @@ crates/
   sucrose-ipc/          # messages + local-socket transport + single instance
   sucrose-platform/     # Platform trait + windows/, macos/, linux-x11/, linux-wayland/
   sucrose-engine/       # Engine identities, availability report, per-type engine choice (choose_engine), shared clock follower, the Engine/EngineClock/SurfacePump traits
-  sucrose-engine-web/   # Pure web core: virtual origin resolver (SEC-02), Range math, MIME table, profile rule, Chromium switches model (D-17); no OS code; sucrose-ipc carries its Switch type
+  sucrose-engine-web/   # Pure web core: virtual origin resolver (SEC-02), Range math, MIME table, profile rule, Chromium switches model (D-17), the legacy-exact JavaScript API strings (`js`: property and compatible calls, filedropdown lists, in-page pause); no OS code; sucrose-ipc carries its Switch type
   sucrose-engine-*/     # mpv, vlc, webview2, cef, wkwebview, webkitgtk, builtin (gif + OS video)
   sucrose-sysinfo/      # CPU/RAM/GPU/network/battery/audio spectrum/media session providers
   sucrose-store/        # store protocol, cache, downloads
