@@ -7,6 +7,7 @@
 
 pub mod about;
 pub mod help;
+pub mod install;
 pub mod move_library;
 pub mod restart;
 pub mod tray_hint;

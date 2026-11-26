@@ -6,16 +6,18 @@
 
 use gpui_kit::assets::IconName;
 use gpui_kit::component::{
-    ActiveTheme as _, Disableable as _, Icon, Sizable as _, checkbox::Checkbox, h_flex, spinner::Spinner,
-    switch::Switch,
+    ActiveTheme as _, Disableable as _, Icon, Sizable as _, button::Button, checkbox::Checkbox, h_flex,
+    spinner::Spinner, switch::Switch,
 };
+use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
 use sucrose_core::{
     settings::{EngineType, InputModuleType, InputType},
     theme::WallpaperType,
 };
 use sucrose_ipc::portal::{
-    EngineReportView, EngineState, HintView, PortalRequest, PortalSettings, RuntimeState, SettingChange, SwitchView,
+    EngineReportView, EngineState, HintView, PortalRequest, PortalSettings, PrerequisiteView, RuntimeState,
+    SettingChange, SwitchView,
 };
 
 use super::arguments::ArgumentsEditor;
@@ -24,7 +26,10 @@ use super::row::{
     label_text, on_choice, select_box, show_choice,
 };
 use crate::{
-    dialogs::restart::{RestartSetting, affected_engines, open_restart_prompt, should_prompt},
+    dialogs::{
+        install::open_install_dialog,
+        restart::{RestartSetting, affected_engines, open_restart_prompt, should_prompt},
+    },
     i18n::{tr, tr_with},
     ipc::ServiceLink,
     theme,
@@ -381,6 +386,66 @@ pub fn row_alert(row: EngineRow, settings: &PortalSettings, report: Option<&Engi
     Some(alert_text(row.kind(), chosen, fallback, state))
 }
 
+/// What the Install or Repair button of an engine alert or fallback toast does (UI-SPEC E3).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct InstallAction {
+    /// The part the install dialog installs.
+    pub prerequisite: PrerequisiteView,
+    /// `true` when the part is there but outdated, so the button says Repair instead of Install.
+    pub repair: bool,
+}
+
+/// The install action of an engine in `state`, only when the service says it can install the missing part itself
+/// (the VC++ Redistributable in Round A, the WebView2 Runtime in Round B). A missing file of the engine itself has no
+/// button: it shows the reinstall hint alone (UI-SPEC E3 partial).
+pub fn install_action(state: Option<&EngineState>) -> Option<InstallAction> {
+    let EngineState::Missing {
+        hint,
+        installable: true,
+    } = state?
+    else {
+        return None;
+    };
+    match hint {
+        HintView::VcRedistMissing { .. } => Some(InstallAction {
+            prerequisite: PrerequisiteView::VcRedist,
+            repair: false,
+        }),
+        HintView::RuntimeMissing => Some(InstallAction {
+            prerequisite: PrerequisiteView::WebView2Runtime,
+            repair: false,
+        }),
+        HintView::RuntimeOutdated { .. } => Some(InstallAction {
+            prerequisite: PrerequisiteView::WebView2Runtime,
+            repair: true,
+        }),
+        HintView::FilesMissing => None,
+    }
+}
+
+/// The install action of `engine` in the service's report.
+pub fn engine_install_action(report: Option<&EngineReportView>, engine: EngineType) -> Option<InstallAction> {
+    install_action(state_of(report, engine))
+}
+
+/// The install action under the row of `row`: the one of the engine the settings chose, when that engine cannot be used.
+pub fn row_install_action(
+    row: EngineRow,
+    settings: &PortalSettings,
+    report: Option<&EngineReportView>,
+) -> Option<InstallAction> {
+    engine_install_action(report, row.value(settings))
+}
+
+/// The label of an Install or Repair button.
+pub fn install_label(action: InstallAction) -> SharedString {
+    tr(if action.repair {
+        "Portal.WallpaperSettingPage.Engine.Repair"
+    } else {
+        "Portal.WallpaperSettingPage.Engine.Install"
+    })
+}
+
 /// Whether a change moves a select of this page, so the selects must show the broadcast value again (the switches are
 /// drawn from the settings and need nothing).
 fn needs_refresh(change: &SettingChange) -> bool {
@@ -659,7 +724,16 @@ impl WallpaperPage {
             .as_ref()
             .and_then(|settings| row_alert(row, settings, self.engines.as_ref()));
         if let Some(text) = alert {
-            built = built.footer(warning_alert(row, text, cx));
+            let action = self
+                .settings
+                .as_ref()
+                .and_then(|settings| row_install_action(row, settings, self.engines.as_ref()));
+            built = built.footer(warning_alert(
+                row,
+                text,
+                action.map(|action| (action, self.link.clone())),
+                cx,
+            ));
         }
         built.build(cx)
     }
@@ -703,7 +777,13 @@ impl WallpaperPage {
 }
 
 /// The Warning alert of an engine row: the warning icon and the text on the warning fill (UI-SPEC E1).
-fn warning_alert(row: EngineRow, text: SharedString, cx: &App) -> AnyElement {
+/// With an install `action` it ends in the Install or Repair button, which opens the install dialog.
+fn warning_alert(
+    row: EngineRow,
+    text: SharedString,
+    action: Option<(InstallAction, ServiceLink)>,
+    cx: &App,
+) -> AnyElement {
     let colors = theme::warning_colors(cx);
     let id = match row {
         EngineRow::Video => "engine-alert-video",
@@ -735,6 +815,22 @@ fn warning_alert(row: EngineRow, text: SharedString, cx: &App) -> AnyElement {
                 .text_color(cx.theme().foreground)
                 .child(text),
         )
+        .when_some(action, |alert, (action, link)| {
+            alert.child(
+                div().flex_none().child(
+                    Button::new(match row {
+                        EngineRow::Video => "engine-install-video",
+                        EngineRow::Web => "engine-install-web",
+                    })
+                    .small()
+                    .outline()
+                    .label(install_label(action))
+                    .on_click(move |_, window, cx| {
+                        open_install_dialog(action.prerequisite, link.clone(), window, cx);
+                    }),
+                ),
+            )
+        })
         .into_any_element()
 }
 
@@ -1212,6 +1308,72 @@ mod tests {
                 &files
             ),
             "mpv isn't available, so Video wallpapers play with libVLC for now. The mpv files are missing or can't be loaded. Reinstall Sucrose to repair them."
+        );
+    }
+
+    #[test]
+    fn wallpaper_install_a_missing_vc_redist_the_service_can_install_gets_an_install_button() {
+        let action = super::install_action(Some(&vc_missing()));
+
+        assert_eq!(
+            action,
+            Some(super::InstallAction {
+                prerequisite: sucrose_ipc::portal::PrerequisiteView::VcRedist,
+                repair: false
+            })
+        );
+        assert_eq!(super::install_label(action.expect("an action")).as_ref(), "Install");
+    }
+
+    #[test]
+    fn wallpaper_install_an_outdated_runtime_says_repair_and_missing_files_have_no_button() {
+        let outdated = EngineState::Missing {
+            hint: HintView::RuntimeOutdated {
+                found: "1".to_owned(),
+                needed: "2".to_owned(),
+            },
+            installable: true,
+        };
+        let action = super::install_action(Some(&outdated)).expect("an action");
+
+        assert!(action.repair);
+        assert_eq!(super::install_label(action).as_ref(), "Repair");
+        assert_eq!(
+            super::install_action(Some(&missing())),
+            None,
+            "FilesMissing: hint alone"
+        );
+        let files_but_installable = EngineState::Missing {
+            hint: HintView::FilesMissing,
+            installable: true,
+        };
+        assert_eq!(super::install_action(Some(&files_but_installable)), None);
+    }
+
+    #[test]
+    fn wallpaper_install_nothing_is_offered_for_a_ready_engine_an_unsupported_one_or_no_report() {
+        assert_eq!(super::install_action(Some(&ready())), None);
+        assert_eq!(
+            super::install_action(Some(&EngineState::Unsupported { architecture: false })),
+            None
+        );
+        assert_eq!(super::install_action(None), None);
+        let not_installable = EngineState::Missing {
+            hint: HintView::VcRedistMissing { needed: String::new() },
+            installable: false,
+        };
+        assert_eq!(super::install_action(Some(&not_installable)), None);
+    }
+
+    #[test]
+    fn wallpaper_install_the_row_follows_the_engine_the_settings_chose() {
+        let mut report = round_a();
+        report.engines[1] = state(EngineType::CefSharpLive, vc_missing());
+
+        assert!(super::engine_install_action(Some(&report), EngineType::CefSharpLive).is_some());
+        assert_eq!(
+            super::engine_install_action(Some(&report), EngineType::MpvPlayerLive),
+            None
         );
     }
 

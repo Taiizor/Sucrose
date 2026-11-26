@@ -13,7 +13,10 @@ use sucrose_ipc::portal::UseOutcome;
 use crate::{
     background::BackgroundImage,
     banner,
-    dialogs::tray_hint::{self, TrayHint, should_hint},
+    dialogs::{
+        install::{self, open_install_dialog},
+        tray_hint::{self, TrayHint, should_hint},
+    },
     header::{Header, HeaderEvent},
     i18n::{tr, tr_count_with, tr_with},
     ipc::{ConnectionState, LinkEvent, ServiceLink, next_state},
@@ -23,7 +26,7 @@ use crate::{
         general::GeneralPage,
         other::OtherPage,
         personal::PersonalPage,
-        wallpaper::{WallpaperPage, engine_label_key},
+        wallpaper::{WallpaperPage, engine_install_action, engine_label_key},
     },
     status_bar::StatusBar,
     theme, toast,
@@ -507,6 +510,7 @@ impl PortalApp {
                     }
                     toast::show_error(tr("Portal.Setting.SaveFailed"), window, cx);
                 }
+                PortalEvent::InstallProgress(stage) => install::on_progress(stage, window, cx),
                 PortalEvent::RestartFailed { reason } => {
                     // The saved change stays and applies at the next start of a wallpaper.
                     tracing::warn!(%reason, "the service could not restart the wallpapers");
@@ -558,17 +562,34 @@ impl PortalApp {
                     for fallback in toast::fresh_fallbacks(&report.fallbacks, &mut self.announced_fallbacks) {
                         let engine = fallback.configured;
                         let link = self.link.clone();
+                        let engine_name = tr(engine_label_key(engine));
+                        let mut actions = Vec::new();
+                        // Install or Repair only when the service can install the missing part itself (UI-SPEC E3).
+                        if let Some(action) = engine_install_action(Some(&report), engine) {
+                            let link = link.clone();
+                            let key = if action.repair {
+                                "Portal.FallbackToast.Repair"
+                            } else {
+                                "Portal.FallbackToast.Install"
+                            };
+                            actions.push(toast::ToastAction::new(
+                                tr_with(key, &[("engine", &engine_name)]),
+                                move |window, cx| open_install_dialog(action.prerequisite, link.clone(), window, cx),
+                            ));
+                        }
+                        actions.push(toast::ToastAction::new(
+                            tr("Portal.FallbackToast.Snooze"),
+                            move |_, _| {
+                                link.send(PortalRequest::SnoozeFallback { engine });
+                            },
+                        ));
                         toast::show_warning(
-                            tr_with(
-                                "Portal.FallbackToast.Title",
-                                &[("engine", &tr(engine_label_key(engine)))],
-                            ),
+                            tr_with("Portal.FallbackToast.Title", &[("engine", &engine_name)]),
                             tr_with(
                                 "Portal.FallbackToast.Body",
                                 &[("fallback", &tr(engine_label_key(fallback.playing)))],
                             ),
-                            tr("Portal.FallbackToast.Snooze"),
-                            move |_, _| link.send(PortalRequest::SnoozeFallback { engine }),
+                            actions,
                             window,
                             cx,
                         );

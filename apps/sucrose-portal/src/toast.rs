@@ -7,6 +7,7 @@ use std::{collections::VecDeque, time::Duration};
 use gpui_kit::component::{
     Sizable as _, Theme, WindowExt as _,
     button::{Button, ButtonVariants as _},
+    h_flex,
     notification::Notification,
 };
 use gpui_kit::*;
@@ -91,35 +92,50 @@ pub fn show_error(text: impl Into<SharedString>, window: &mut Window, cx: &mut A
     show(Kind::Error, Notification::error(text.into()), window, cx);
 }
 
-/// Shows a warning toast (UI-SPEC E3): 12 s, with the close button and a ghost action that runs `on_action` and closes the
-/// toast.
+/// What a toast button runs.
+type ToastHandler = std::rc::Rc<dyn Fn(&mut Window, &mut App)>;
+
+/// One ghost button of a warning toast: it runs `run` and closes the toast.
+#[derive(Clone)]
+pub struct ToastAction {
+    label: SharedString,
+    run: ToastHandler,
+}
+
+impl ToastAction {
+    /// A button labelled `label` that runs `run` when pressed.
+    pub fn new(label: impl Into<SharedString>, run: impl Fn(&mut Window, &mut App) + 'static) -> Self {
+        Self {
+            label: label.into(),
+            run: std::rc::Rc::new(run),
+        }
+    }
+}
+
+/// Shows a warning toast (UI-SPEC E3): 12 s, with the close button and ghost actions (Install or Repair, then the
+/// snooze) that each run their handler and close the toast.
 pub fn show_warning(
     title: impl Into<SharedString>,
     body: impl Into<SharedString>,
-    action_label: impl Into<SharedString>,
-    on_action: impl Fn(&mut Window, &mut App) + 'static,
+    actions: Vec<ToastAction>,
     window: &mut Window,
     cx: &mut App,
 ) {
-    let label: SharedString = action_label.into();
-    let on_action = std::rc::Rc::new(on_action);
     let note = Notification::warning(body.into())
         .title(title.into())
         .content(move |_, _, cx| {
-            let on_action = on_action.clone();
-            div()
-                .mt_2()
-                .child(
-                    Button::new("toast-action")
-                        .ghost()
-                        .small()
-                        .label(label.clone())
-                        .on_click(cx.listener(move |this, _, window, cx| {
-                            on_action(window, cx);
-                            this.dismiss(window, cx);
-                        })),
-                )
-                .into_any_element()
+            let buttons = actions.iter().enumerate().map(|(index, action)| {
+                let run = action.run.clone();
+                Button::new(("toast-action", index))
+                    .ghost()
+                    .small()
+                    .label(action.label.clone())
+                    .on_click(cx.listener(move |this, _, window, cx| {
+                        run(window, cx);
+                        this.dismiss(window, cx);
+                    }))
+            });
+            h_flex().mt_2().gap_2().children(buttons).into_any_element()
         });
     show(Kind::Warning, note, window, cx);
 }
