@@ -527,8 +527,19 @@ fn wait_for_close(
                     return;
                 }
             }
-            // Stub: the GREEN step applies Loop Mode and Shuffle Mode.
-            Ok(ToRenderer::SetLoop(_) | ToRenderer::SetShuffle(_)) => {}
+            // Loop Mode: the follower's wrap detection and the engine follow at once (PLAY-01).
+            Ok(ToRenderer::SetLoop(looping)) => {
+                sync.looping.store(looping, Ordering::SeqCst);
+                match engine.set_loop(looping) {
+                    Ok(()) => tracing::info!(looping, "loop changed"),
+                    Err(error) => tracing::warn!(%error, looping, "cannot change the loop mode"),
+                }
+            }
+            // Shuffle Mode: only a web page has a call for it; the other engines ignore it.
+            Ok(ToRenderer::SetShuffle(shuffle)) => {
+                engine.set_shuffle(shuffle);
+                tracing::info!(shuffle, "shuffle changed");
+            }
             // A second assignment is not part of this plan; later plans act on it.
             Ok(ToRenderer::Assign(_)) => tracing::warn!("ignoring an unexpected second assignment"),
             Err(IpcError::Closed) => {

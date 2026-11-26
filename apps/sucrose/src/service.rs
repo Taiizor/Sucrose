@@ -1474,6 +1474,12 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                                 );
                                                 last_engines = None;
                                             }
+                                            // Loop Mode and Shuffle Mode reach the playing wallpapers at once; the other
+                                            // Wallpaper settings are read when the next wallpaper starts.
+                                            if let Some(message) = live_message(&stored) {
+                                                let told = fleet.apply_live(&message, &renderers);
+                                                tracing::info!(renderers = told.len(), "a live setting was sent to the renderers");
+                                            }
                                             portals.send(PortalEvent::Changed(stored));
                                         }
                                         Err(reason) => {
@@ -3504,9 +3510,23 @@ impl Fleet {
     }
 
     /// Applies a live setting `message` (loop or shuffle) to what plays: the job and the shared assignments, so a renderer
-    /// started or restarted later gets it too, and every connected renderer. Returns the slots that were told. Stub.
-    fn apply_live(&mut self, _message: &ToRenderer, _renderers: &SharedRenderers) -> Vec<u8> {
-        Vec::new()
+    /// started or restarted later gets it too, and every connected renderer. It is no Use: nothing restarts and the
+    /// restart budgets stay. Returns the slots that were told.
+    fn apply_live(&mut self, message: &ToRenderer, renderers: &SharedRenderers) -> Vec<u8> {
+        {
+            let mut assignments = lock_assignments(&self.assignments);
+            for assignment in assignments.values_mut() {
+                put_live(&mut assignment.settings, &mut assignment.web, message);
+            }
+        }
+        if let Some(job) = self.job.as_mut() {
+            put_live(&mut job.settings, &mut job.web, message);
+        }
+        self.slots
+            .active_slots()
+            .into_iter()
+            .filter(|slot| send_to(renderers, *slot, message))
+            .collect()
     }
 
     /// Switches the running renderers to `job` without restarting them (D-26): the assignments are updated first,
@@ -3721,9 +3741,24 @@ fn engine_change_kind(change: &SettingChange) -> Option<WallpaperType> {
 }
 
 /// The message a saved setting sends to the running renderers at once, `None` for a setting that is read when the next
-/// wallpaper starts (PLAY-01). Stub: the GREEN step maps Loop Mode and Shuffle Mode.
-fn live_message(_change: &SettingChange) -> Option<ToRenderer> {
-    None
+/// wallpaper starts (PLAY-01): Loop Mode and Shuffle Mode reach what plays, while Hardware Acceleration and the
+/// interaction settings are read by the next renderer that starts.
+fn live_message(change: &SettingChange) -> Option<ToRenderer> {
+    match change {
+        SettingChange::WallpaperLoop(looping) => Some(ToRenderer::SetLoop(*looping)),
+        SettingChange::WallpaperShuffle(shuffle) => Some(ToRenderer::SetShuffle(*shuffle)),
+        _ => None,
+    }
+}
+
+/// Puts the value of a live setting `message` (loop or shuffle) into the playback settings and web options a job or an
+/// assignment carries; every other message changes nothing.
+fn put_live(settings: &mut PlaybackSettings, web: &mut WebOptions, message: &ToRenderer) {
+    match message {
+        ToRenderer::SetLoop(looping) => settings.looping = *looping,
+        ToRenderer::SetShuffle(shuffle) => web.shuffle = *shuffle,
+        _ => {}
+    }
 }
 
 /// Whether a changed engine of type `changed` restarts the wallpaper that plays now (of type `running`, if any): only a

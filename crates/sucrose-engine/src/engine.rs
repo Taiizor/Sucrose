@@ -79,6 +79,9 @@ pub trait Engine: Send + Sync {
     fn set_volume(&self, volume: u8) -> Result<(), EngineError>;
     /// Sets whether the wallpaper loops (PLAY-01).
     fn set_loop(&self, looping: bool) -> Result<(), EngineError>;
+    /// Sets the value of the `ShuffleMode` call of a web page (PLAY-01). Only a web engine has such a call; every other
+    /// engine ignores it.
+    fn set_shuffle(&self, _shuffle: bool) {}
     /// Sets how the wallpaper is fitted to the surface (DESK-05).
     fn set_stretch(&self, stretch: Stretch) -> Result<(), EngineError>;
     /// Turns audio output on or off; only the master clock plays audio (D-02). Engines without audio ignore it.

@@ -12,7 +12,7 @@ use sucrose_config::{
     model::Settings,
     store::{LoadOutcome, Store},
 };
-use sucrose_core::settings::{EngineType, InputModuleType, InputType};
+use sucrose_core::settings::EngineType;
 use sucrose_ipc::portal::{MAX_PATH_TEXT, PortalSettings, SettingChange};
 
 use crate::portal_link::clip;
@@ -189,13 +189,12 @@ fn write(settings: &mut Settings, change: &SettingChange) {
         SettingChange::VideoEngine(value) => settings.engine.video = *value,
         SettingChange::YouTubeEngine(value) => settings.engine.youtube = *value,
         SettingChange::ApplicationEngine(value) => settings.engine.application = *value,
-        // Stub: the Wallpaper group is stored in the GREEN step.
-        SettingChange::WallpaperLoop(_)
-        | SettingChange::WallpaperShuffle(_)
-        | SettingChange::HardwareAcceleration(_)
-        | SettingChange::InputType(_)
-        | SettingChange::InputModuleType(_)
-        | SettingChange::InputDesktop(_) => {}
+        SettingChange::WallpaperLoop(value) => settings.engine.looping = *value,
+        SettingChange::WallpaperShuffle(value) => settings.engine.wallpaper_shuffle = *value,
+        SettingChange::HardwareAcceleration(value) => settings.engine.hardware_acceleration = *value,
+        SettingChange::InputType(value) => settings.engine.input_type = *value,
+        SettingChange::InputModuleType(value) => settings.engine.input_module_type = *value,
+        SettingChange::InputDesktop(value) => settings.engine.input_desktop = *value,
     }
 }
 
@@ -249,7 +248,7 @@ fn view_of(settings: &Settings) -> PortalSettings {
 mod tests {
     use std::{fs, path::PathBuf};
 
-    use sucrose_core::settings::{EngineType, ThemeMode};
+    use sucrose_core::settings::{EngineType, InputModuleType, InputType, ThemeMode};
     use sucrose_ipc::portal::MAX_PATH_TEXT;
 
     use super::*;
