@@ -10,11 +10,15 @@ use std::{
     sync::Arc,
 };
 
-use sucrose_engine_web::serve::Reply;
+use sucrose_engine_web::{js::PageCall, serve::Reply};
 
 /// Called on the surface thread after every completed main-frame navigation, with its URL and HTTP status (0 when the
 /// navigation failed).
 pub type LoadedHook = Arc<dyn Fn(&str, i32) + Send + Sync>;
+
+/// Called on the surface thread at the end of every main-frame navigation, before [`LoadedHook`], with the URL and the
+/// HTTP status (0 when the navigation failed). The scripts it returns run in that page in order (WAPI-01, WAPI-02).
+pub type PageCallsHook = Arc<dyn Fn(&str, i32) -> Vec<PageCall> + Send + Sync>;
 
 /// What the host needs to start, besides the surface and the page.
 pub struct HostStart {
@@ -24,6 +28,8 @@ pub struct HostStart {
     pub user_data_folder: PathBuf,
     /// `Engine.DeveloperMode`: the page gets its context menu and the developer tools (D-13).
     pub developer_mode: bool,
+    /// The scripts a page gets after every completed main-frame navigation: they run before `on_loaded`.
+    pub page_calls: PageCallsHook,
     /// Called after every completed main-frame navigation.
     pub on_loaded: LoadedHook,
 }
@@ -121,7 +127,7 @@ mod imp {
     };
     use webview2_com::{
         CoreWebView2EnvironmentOptions, CreateCoreWebView2ControllerCompletedHandler,
-        CreateCoreWebView2EnvironmentCompletedHandler, DownloadStartingEventHandler,
+        CreateCoreWebView2EnvironmentCompletedHandler, DownloadStartingEventHandler, ExecuteScriptCompletedHandler,
         Microsoft::Web::WebView2::Win32::{
             COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS, COREWEBVIEW2_COLOR, COREWEBVIEW2_WEB_RESOURCE_CONTEXT_ALL,
             CreateCoreWebView2EnvironmentWithOptions, ICoreWebView2, ICoreWebView2_4, ICoreWebView2Controller,
@@ -587,8 +593,9 @@ mod imp {
                 self.tokens.resource = Some(token);
 
                 let on_loaded = Arc::clone(&start.on_loaded);
+                let page_calls = Arc::clone(&start.page_calls);
                 let handler = NavigationCompletedEventHandler::create(Box::new(move |sender, args| {
-                    let url = sender.map_or_else(String::new, |webview| {
+                    let url = sender.as_ref().map_or_else(String::new, |webview| {
                         let mut source = PWSTR::null();
                         // The string is freed by `take_pwstr`; a failed call leaves it null, which reads empty.
                         let _ = webview.Source(&mut source);
@@ -596,6 +603,14 @@ mod imp {
                     });
                     let status = args.map_or(0, |args| completed_status(&args));
                     tracing::info!(url = ?url, status, "page loaded");
+                    // The page calls run in the order the planner gave them: ExecuteScript keeps the order it is
+                    // called in on this thread.
+                    if let Some(webview) = &sender {
+                        for call in page_calls(&url, status) {
+                            tracing::debug!(kind = call.kind, key = ?call.key, "page call");
+                            run_script(webview, &call.script, call.kind);
+                        }
+                    }
                     on_loaded(&url, status);
                     Ok(())
                 }));
@@ -652,6 +667,14 @@ mod imp {
             }
         }
 
+        /// Runs a script in the main frame, as the page calls do (the in-page pause). The page gets no host object and no
+        /// message channel; the script's result is not read.
+        pub fn execute_script(&self, script: &str) {
+            if let Some(webview) = &self.webview {
+                run_script(webview, script, "script");
+            }
+        }
+
         /// Closes the controller, then releases the webview, the controller and the environment in that order. Call it
         /// before the surface is dropped. Nothing is posted to any window: the controller is a child of the desktop
         /// surface, and a close message to its top-level ancestor would reach the shell (the Round A CEF lesson).
@@ -704,6 +727,23 @@ mod imp {
         }
     }
 
+    /// Starts `script` in the main frame of `webview`. WebView2 runs scripts in the order they were started on this
+    /// thread; a failure to start or to run one is logged at debug with what the script was for, never its text.
+    fn run_script(webview: &ICoreWebView2, script: &str, what: &'static str) {
+        let source = wide(script);
+        let handler = ExecuteScriptCompletedHandler::create(Box::new(move |code, _result| {
+            if let Err(error) = code {
+                tracing::debug!(%error, what, "a page script failed");
+            }
+            Ok(())
+        }));
+        // SAFETY: `source` is NUL-terminated and outlives the call, which copies it; the handler is a COM object the
+        // call keeps its own reference to; the webview belongs to this thread.
+        if let Err(error) = unsafe { webview.ExecuteScript(PCWSTR(source.as_ptr()), &handler) } {
+            tracing::warn!(%error, what, "a page script could not be started");
+        }
+    }
+
     /// The HTTP status of a completed navigation: 0 when it failed or when WebView2 does not say.
     fn completed_status(args: &ICoreWebView2NavigationCompletedEventArgs) -> i32 {
         let mut success = BOOL(0);
@@ -744,6 +784,9 @@ mod stub {
         pub fn set_rect(&self, _rect: [i32; 4]) -> Result<(), HostError> {
             Ok(())
         }
+
+        /// Nothing to run a script in.
+        pub fn execute_script(&self, _script: &str) {}
 
         /// Nothing to close.
         pub fn close(self) {}
