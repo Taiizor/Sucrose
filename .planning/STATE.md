@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-10-PLAN.md
-last_updated: "2026-11-26T04:40:39.289Z"
+stopped_at: Completed 04-11-PLAN.md
+last_updated: "2026-11-26T05:16:06.919Z"
 last_activity: 2026-11-26
 last_activity_desc: Phase 04 execution resumed (wave continue)
-state_head: c3e3a99a4c8b2a0f902729c8b7b3e3ca8113f8a5
+state_head: f91255c0bcaa9ba5cba8e9cfa779f075b388ef8a
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 100
-  completed_plans: 89
+  completed_plans: 90
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 11 of 21
+Plan: 12 of 21
 Status: Ready to execute
 Last activity: 2026-11-26 — Phase 04 execution resumed (wave continue)
 Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
@@ -144,6 +144,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P08 | 16 min | 2 tasks | 17 files |
 | Phase 04 P09 | 22 min | 2 tasks | 18 files |
 | Phase 04 P10 | 19 min | 2 tasks | 22 files |
+| Phase 04 P11 | 31 min | 2 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -280,6 +281,9 @@ Recent decisions affecting current work:
 - [Phase 04]: Plan 04-09: a CEF page that finishes loading while paused is paused again after its calls
 - [Phase 04]: D-039: sucrose-sysinfo is an unsafe-allowed provider crate (D-34)
 - [Phase 04]: The data hub exists only while a running page needs data and never reads PerformanceCounter (D-24 behaviour change)
+- [Phase 04]: Bios and Motherboard are asked for every 10th tick (sampler caches the WMI read) so a page that starts later gets them within a second
+- [Phase 04]: CoresMin and CoresMax keep the legacy per-core-loop quirk; the legacy behaviour is kept and recorded in FEATURES
+- [Phase 04]: Processor State is true only when the WMI static read worked, as in the legacy code; a failing source gives the legacy default with State false and one log line, retried after 60 s
 
 ### Pending Todos
 
@@ -316,6 +320,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T04:40:15.490Z
-Stopped at: Completed 04-10-PLAN.md
+Last session: 2026-11-26T05:15:48.881Z
+Stopped at: Completed 04-11-PLAN.md
 Resume file: None
