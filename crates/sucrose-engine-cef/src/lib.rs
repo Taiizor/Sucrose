@@ -9,6 +9,7 @@
 
 pub mod browser;
 pub mod engine;
+pub mod scheme;
 
 use std::ffi::OsString;
 

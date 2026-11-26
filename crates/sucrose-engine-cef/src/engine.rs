@@ -4,7 +4,7 @@
 //! function is called from another thread.
 
 use std::{
-    path::Path,
+    path::{Path, PathBuf},
     sync::{
         Arc, Mutex, PoisonError,
         atomic::{AtomicBool, AtomicU8, Ordering},
@@ -17,6 +17,7 @@ use sucrose_engine::{
     PauseLevel,
     engine::{Engine, EngineClock, EngineError, Started, SurfacePump},
 };
+use sucrose_engine_web::origin;
 use sucrose_ipc::protocol::{Assignment, PlaybackSettings};
 use sucrose_platform::{LoopProxy, LoopTimers};
 
@@ -81,23 +82,6 @@ pub struct CefPump {
     timers: LoopTimers,
 }
 
-/// The `file:///` URL of an absolute Windows path, percent-encoding everything but unreserved characters and the path
-/// separators. This transport only lasts until the virtual origin (D-14, plan 04-06) replaces it.
-#[must_use]
-pub fn file_url(path: &str) -> String {
-    let path = path.strip_prefix("\\\\?\\").unwrap_or(path).replace('\\', "/");
-    let mut url = String::from("file:///");
-    for byte in path.bytes() {
-        match byte {
-            b'A'..=b'Z' | b'a'..=b'z' | b'0'..=b'9' | b'-' | b'.' | b'_' | b'~' | b'/' | b':' => {
-                url.push(char::from(byte));
-            }
-            other => url.push_str(&format!("%{other:02X}")),
-        }
-    }
-    url
-}
-
 /// Why CEF did not start, as the engine failure the renderer reports.
 fn start_failure(error: &CefError) -> EngineError {
     match error {
@@ -122,6 +106,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
     let told = AtomicBool::new(false);
     let wake_proxy = proxy.clone();
     let engine_proxy = proxy;
+    let theme_dir = PathBuf::from(&assignment.theme_dir);
     let start = CefStart {
         log_file: sucrose_core::paths::log_dir()
             .unwrap_or_else(std::env::temp_dir)
@@ -130,6 +115,13 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             reason: format!("cannot find this program's path: {error}"),
         })?,
         wake: Arc::new(move || wake_proxy.wake()),
+        roots: [
+            Some(theme_dir.clone()),
+            sucrose_core::paths::cache_dir().map(|dir| dir.join("Content")),
+        ]
+        .into_iter()
+        .flatten()
+        .collect(),
         // The first finished main-frame load is the first frame the user can see.
         on_loaded: Arc::new(move |_url, _status| {
             if !told.swap(true, Ordering::SeqCst) {
@@ -137,8 +129,8 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             }
         }),
     };
-    // A transport that plan 04-06 replaces with https://sucrose.wallpaper.engine/ (D-14) without changing the rest.
-    let url = file_url(&assignment.source);
+    // The page comes from the virtual origin (D-14): the theme folder first, then the generated content.
+    let url = origin::page_url(&theme_dir, &assignment.source);
     let host = CefHost::start(wid, assignment.rect, &url, &start).map_err(|error| {
         tracing::error!(%error, "cannot start CEF");
         start_failure(&error)
@@ -294,16 +286,6 @@ impl SurfacePump for CefPump {
 #[cfg(test)]
 mod tests {
     use super::*;
-
-    #[test]
-    fn a_windows_path_becomes_a_file_url_with_escaped_characters() {
-        assert_eq!(
-            file_url("C:\\themes\\My Page\\index.html"),
-            "file:///C:/themes/My%20Page/index.html"
-        );
-        assert_eq!(file_url("\\\\?\\D:\\a\\b.html"), "file:///D:/a/b.html");
-        assert_eq!(file_url("C:\\t\\ü#.html"), "file:///C:/t/%C3%BC%23.html");
-    }
 
     #[test]
     fn a_missing_cef_is_a_missing_engine_and_other_failures_are_start_failures() {

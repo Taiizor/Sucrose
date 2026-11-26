@@ -7068,6 +7068,7 @@ dependencies = [
  "crossbeam-channel",
  "sucrose-core",
  "sucrose-engine",
+ "sucrose-engine-web",
  "sucrose-ipc",
  "sucrose-platform",
  "thiserror 2.0.21",

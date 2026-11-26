@@ -47,6 +47,8 @@ pub struct CefStart {
     pub wake: Arc<dyn Fn() + Send + Sync>,
     /// Called on the surface thread with the address and HTTP status each time the main frame finishes loading.
     pub on_loaded: LoadedCallback,
+    /// The folders the virtual origin serves, in lookup order: the theme folder, then the generated-content folder.
+    pub roots: Vec<PathBuf>,
 }
 
 impl std::fmt::Debug for CefStart {
@@ -341,6 +343,13 @@ mod imp {
             );
             if initialised != 1 {
                 return Err(CefError::Initialize(format!("initialize returned {initialised}")));
+            }
+            // The virtual origin must exist before the first navigation, or the page request goes to the network.
+            if !crate::scheme::register(start.roots.clone()) {
+                cef::shutdown();
+                return Err(CefError::Initialize(
+                    "the scheme handler of the virtual origin could not be registered".to_owned(),
+                ));
             }
             let (width, height) = browser_size(rect);
             // SAFETY-free: the handle is only an identifier CEF passes to Win32.

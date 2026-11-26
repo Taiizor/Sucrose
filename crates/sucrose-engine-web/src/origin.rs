@@ -4,7 +4,17 @@
 //! generated-content folder second (the legacy lookup order). [`resolve`] is pure in the sense that matters for
 //! security: it holds no state and opens no file, so parallel requests resolve independently.
 
-use std::path::{Path, PathBuf};
+use std::{
+    fs, io,
+    path::{Path, PathBuf},
+};
+
+use percent_encoding::{AsciiSet, NON_ALPHANUMERIC, percent_decode_str, utf8_percent_encode};
+
+use crate::mime;
+
+/// What a path segment keeps unescaped: the unreserved characters.
+const SEGMENT: &AsciiSet = &NON_ALPHANUMERIC.remove(b'-').remove(b'.').remove(b'_').remove(b'~');
 
 /// The one origin every web wallpaper is served from; its storage (localStorage, IndexedDB, cookies) is bound to it.
 pub const ORIGIN: &str = "https://sucrose.wallpaper.engine/";
@@ -92,24 +102,146 @@ pub enum ByteRange {
 }
 
 /// Maps a request path to a file under one of `roots` (the theme folder, then the generated-content folder).
+///
+/// Only the URL path counts: the query and fragment are dropped, the rest is decoded once. A NUL, backslash, colon,
+/// leading `//` or `..` segment is refused, and so is an escape that decodes to another escape. The candidate is
+/// then canonicalized and must lie under the canonical root, so a junction or link that leads out is refused, and a
+/// folder is not a file. The function holds no state and never opens a file.
 pub fn resolve(url_path: &str, roots: &[&Path]) -> Result<ResolvedFile, Reject> {
-    let _ = (url_path, roots);
-    Err(Reject::Io)
+    let path = url_path.split(['?', '#']).next().unwrap_or_default();
+    if path.is_empty() {
+        return Err(Reject::Empty);
+    }
+    if path.len() > MAX_PATH_BYTES {
+        return Err(Reject::TooLong);
+    }
+    let decoded = percent_decode_str(path).decode_utf8().map_err(|_| Reject::BadUtf8)?;
+    // A second decode that changes the text means the escape was itself escaped: refuse, never decode twice.
+    if percent_decode_str(&decoded).decode_utf8_lossy() != decoded {
+        return Err(Reject::DoubleEncoded);
+    }
+    if decoded.contains('\0') {
+        return Err(Reject::Nul);
+    }
+    if decoded.contains('\\') {
+        return Err(Reject::Backslash);
+    }
+    if decoded.starts_with("//") {
+        return Err(Reject::Unc);
+    }
+    let relative = decoded.trim_start_matches('/');
+    if relative.is_empty() {
+        return Err(Reject::Empty);
+    }
+    if relative.contains(':') {
+        return Err(Reject::DriveOrColon);
+    }
+    if relative.split('/').any(is_dots_segment) {
+        return Err(Reject::Dots);
+    }
+
+    let mut outside = false;
+    let mut failed = false;
+    for (index, root) in roots.iter().enumerate() {
+        let Ok(root) = root.canonicalize() else {
+            // A root that does not exist (no generated content yet) serves nothing.
+            continue;
+        };
+        let canonical = match root.join(relative).canonicalize() {
+            Ok(canonical) => canonical,
+            Err(error) if error.kind() == io::ErrorKind::NotFound => continue,
+            Err(_) => {
+                failed = true;
+                continue;
+            }
+        };
+        if !canonical.starts_with(&root) {
+            outside = true;
+            continue;
+        }
+        let Ok(metadata) = fs::metadata(&canonical) else {
+            failed = true;
+            continue;
+        };
+        if !metadata.is_file() {
+            continue;
+        }
+        let mime = canonical
+            .extension()
+            .and_then(|ext| ext.to_str())
+            .map_or(mime::DEFAULT, mime::mime_for);
+        return Ok(ResolvedFile {
+            path: canonical,
+            len: metadata.len(),
+            mime,
+            root: index,
+        });
+    }
+    Err(if outside {
+        Reject::Outside
+    } else if failed {
+        Reject::Io
+    } else {
+        Reject::NotAFile
+    })
+}
+
+/// A `..` segment, or one that Windows would treat as such because it is only dots and spaces.
+fn is_dots_segment(segment: &str) -> bool {
+    segment == ".." || (segment.len() >= 2 && segment.chars().all(|c| c == '.' || c == ' '))
 }
 
 /// The path (with query and fragment) of an address on the virtual host, or `None` for any other address.
 #[must_use]
 pub fn url_path(url: &str) -> Option<&str> {
-    let _ = url;
-    None
+    let (scheme, rest) = url.split_once("://")?;
+    if !scheme.eq_ignore_ascii_case("https") {
+        return None;
+    }
+    let host = rest.get(..HOST.len())?;
+    if !host.eq_ignore_ascii_case(HOST) {
+        return None;
+    }
+    let tail = &rest[HOST.len()..];
+    // The host must end here: `sucrose.wallpaper.engine.evil.example` is another host.
+    match tail.chars().next() {
+        None | Some('/' | '?' | '#') => Some(tail),
+        Some(_) => None,
+    }
 }
 
 /// The address of a theme's page: the origin plus the path of `source` (absolute under `theme_dir`, or already
 /// relative) with every segment percent-encoded.
 #[must_use]
 pub fn page_url(theme_dir: &Path, source: &str) -> String {
-    let _ = (theme_dir, source);
-    String::new()
+    let source = slashes(source);
+    let theme = slashes(&theme_dir.to_string_lossy());
+    let relative = match source.get(..theme.len()) {
+        Some(head)
+            if !theme.is_empty() && head.eq_ignore_ascii_case(&theme) && source[theme.len()..].starts_with('/') =>
+        {
+            &source[theme.len()..]
+        }
+        _ => &source,
+    };
+    let mut url = String::from(ORIGIN.trim_end_matches('/'));
+    for segment in relative
+        .split('/')
+        .filter(|segment| !segment.is_empty() && *segment != ".")
+    {
+        url.push('/');
+        url.extend(utf8_percent_encode(segment, SEGMENT));
+    }
+    if url.len() == ORIGIN.len() - 1 {
+        url.push('/');
+    }
+    url
+}
+
+/// A path with forward slashes and without the verbatim prefix, for comparing and encoding.
+fn slashes(path: &str) -> String {
+    let path = path.replace('\\', "/");
+    path.strip_prefix("//?/").map_or(path.clone(), str::to_owned)
 }
 
 /// Reads a `Range` request header against a file of `len` bytes.
