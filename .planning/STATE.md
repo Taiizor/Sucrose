@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-24-PLAN.md
-last_updated: "2026-11-26T23:25:27.023Z"
+stopped_at: Completed 04-25-PLAN.md
+last_updated: "2026-11-26T23:46:41.102Z"
 last_activity: 2026-11-27
 last_activity_desc: Phase 04 execution started
-state_head: 568c8c1acd0b168a20dfe3d2e3b659757382e435
+state_head: 17bd94e2dc468ee08a8c22baae0d43cd28425d93
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 117
-  completed_plans: 103
+  completed_plans: 104
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 25 of 38
+Plan: 26 of 38
 Status: Ready to execute
 Last activity: 2026-11-27 — Phase 04 execution started
 Next step: /gsd-debug for the in-page Web theme failures and the CEF GPU process crash (04-37 names their fixes as its precondition), then `/gsd-execute-phase 4` runs Round B.
@@ -158,6 +158,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P22 | 30 min | 2 tasks | 18 files |
 | Phase 04 P23 | 14 min | 2 tasks | 8 files |
 | Phase 04 P24 | 14 min | 2 tasks | 8 files |
+| Phase 04 P25 | 15 min | 3 tasks | 11 files |
 
 ## Accumulated Context
 
@@ -322,6 +323,7 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-23: a WebView2 range body is a memory stream of at most 4 MiB (serve::MAX_RANGE_BODY) whose Content-Range names the bytes sent; whole files stream from disk
 - [Phase 04]: 04-24: PageState owns data snapshot JSON parsing (store_data); CEF keeps its own State only for coalesced mouse moves
 - [Phase 04]: 04-24: WebView2 runs page calls inside NavigationCompleted before the loaded hook, so DataWanted follows the page and its calls as on CEF
+- [Phase 04]: 04-25: the WebView2 browser arguments are planned in sucrose-engine-web (plan_webview2_command_line, browser_arguments) and the legacy key table is shared as sucrose_engine_web::keys; DevTools stay enabled but closed unless asked (D-13)
 
 ### Pending Todos
 
@@ -360,6 +362,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T23:25:06.350Z
-Stopped at: Completed 04-24-PLAN.md
+Last session: 2026-11-26T23:46:00.284Z
+Stopped at: Completed 04-25-PLAN.md
 Resume file: None
