@@ -162,6 +162,7 @@ pub const REQUIRED_KEYS: &[&str] = &[
     "Portal.Connection.Unavailable",
     "Portal.LibraryCard.UseFailed",
     "Portal.LibraryCard.UnsupportedType",
+    "Portal.LibraryCard.NoEngine",
     "Portal.StatusBar.Copied",
     "Portal.StatusBar.CopyFailed",
     "Portal.StatusBar.MemoryTotal",

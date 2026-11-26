@@ -6,7 +6,7 @@ use gpui_kit::component::{ActiveTheme, TitleBar, WindowExt as _, v_flex};
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
 use sucrose_core::settings::{Backdrop, ThemeMode};
-use sucrose_ipc::portal::{PortalEvent, PortalSettings, RuntimeState, SettingChange};
+use sucrose_ipc::portal::{EngineReportView, PortalEvent, PortalSettings, RuntimeState, SettingChange};
 
 use sucrose_ipc::portal::UseOutcome;
 
@@ -35,6 +35,8 @@ pub struct PortalApp {
     pub settings: Option<PortalSettings>,
     /// What the service is doing.
     pub runtime: Option<RuntimeState>,
+    /// What the service detected about the engines; the Wallpaper settings page and the cards read it.
+    pub engines: Option<EngineReportView>,
     /// What the window shows: the library or a settings page.
     pub mode: Mode,
     /// Sends requests to the service.
@@ -151,6 +153,7 @@ impl PortalApp {
             state: ConnectionState::Connecting,
             settings: None,
             runtime: None,
+            engines: None,
             mode,
             link,
             library,
@@ -467,13 +470,15 @@ impl PortalApp {
                     tracing::info!("the service is stopping, closing the Portal");
                     cx.quit();
                 }
-                // The Engine rows and the fallback notice that show it come with the Engine settings plans.
                 PortalEvent::Engines(report) => {
                     tracing::debug!(
                         engines = report.engines.len(),
                         fallbacks = report.fallbacks.len(),
                         "the service sent the engine report"
                     );
+                    self.library
+                        .update(cx, |library, cx| library.set_engines(report.clone(), cx));
+                    self.engines = Some(report);
                 }
             }
         }

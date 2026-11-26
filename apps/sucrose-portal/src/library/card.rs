@@ -7,10 +7,7 @@ use gpui_kit::component::{ActiveTheme, Icon, Sizable, skeleton::Skeleton, spinne
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
 
-use sucrose_core::{
-    library::{Compatibility, LibraryTheme},
-    theme::WallpaperType,
-};
+use sucrose_core::library::{Compatibility, LibraryTheme};
 use sucrose_ipc::portal::{EngineReportView, PortalRequest, RuleState, RuntimeState};
 
 use super::layout::{Arrow, CARD_HEIGHT};
@@ -136,15 +133,15 @@ impl CardUse {
     }
 }
 
-/// Whether Use works on `theme` now, in the priority of the UI-SPEC: no connection, a library move, a newer theme, a type this build does
-/// not play, the theme that plays already, then a fullscreen rule. A selected theme that does not run can be used again.
+/// Whether Use works on `theme` now, in the priority of the UI-SPEC: no connection, a library move, a newer theme, a type the
+/// service's `engines` report does not support, a supported type no installed engine plays, the theme that plays already,
+/// then a fullscreen rule. Until the report arrives nothing can be used. A selected theme that does not run can be used again.
 pub fn use_state(
     theme: &LibraryTheme,
     runtime: Option<&RuntimeState>,
     engines: Option<&EngineReportView>,
     connected: bool,
 ) -> CardUse {
-    let _ = engines;
     if !connected {
         return CardUse::Disabled(DisabledReason::Unavailable);
     }
@@ -155,8 +152,15 @@ pub fn use_state(
     if matches!(theme.compatibility, Compatibility::NeedsNewerApp { .. }) {
         return CardUse::Disabled(DisabledReason::NewerVersion);
     }
-    if theme.info.kind != WallpaperType::Video {
+    // Which types play is the service's word, never the Portal's (UI-SPEC: never hard-codes what is playable).
+    let Some(engines) = engines else {
+        return CardUse::Disabled(DisabledReason::Unavailable);
+    };
+    if !engines.supported.contains(&theme.info.kind) {
         return CardUse::Disabled(DisabledReason::UnsupportedType);
+    }
+    if !engines.playable.contains(&theme.info.kind) {
+        return CardUse::Disabled(DisabledReason::NoEngine);
     }
     let Some(runtime) = runtime else {
         return CardUse::Enabled;

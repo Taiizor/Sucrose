@@ -31,7 +31,7 @@ use sucrose_core::{
     settings::{SortKind, SortMode},
     version::app_version,
 };
-use sucrose_ipc::portal::{MaintainReport, PortalRequest, PortalSettings, RuntimeState, UseOutcome};
+use sucrose_ipc::portal::{EngineReportView, MaintainReport, PortalRequest, PortalSettings, RuntimeState, UseOutcome};
 
 use card::{CardData, Thumb};
 use preview::{Finish, HOVER_DWELL, PreviewState, load_preview};
@@ -205,6 +205,8 @@ pub struct LibraryView {
     link: ServiceLink,
     /// What the service is doing, as it last reported.
     runtime: Option<RuntimeState>,
+    /// What the service detected about the engines, as it last reported: which types a card can play.
+    engines: Option<EngineReportView>,
     /// Whether the Portal is registered with the service.
     connected: bool,
     /// Whether this connection already asked the service to maintain the library (once per connection, after the first
@@ -268,6 +270,7 @@ impl LibraryView {
             skeleton_task: None,
             link,
             runtime: None,
+            engines: None,
             connected: false,
             maintain_sent: false,
             preparing: false,
@@ -287,6 +290,12 @@ impl LibraryView {
         cx.notify();
     }
 
+    /// The service reported the engines: the cards enable or disable Use by what it says plays.
+    pub fn set_engines(&mut self, engines: EngineReportView, cx: &mut Context<Self>) {
+        self.engines = Some(engines);
+        cx.notify();
+    }
+
     /// The connection to the service came up or went down. A request that was in flight is lost with the connection.
     pub fn set_connected(&mut self, connected: bool, cx: &mut Context<Self>) {
         if self.connected == connected {
@@ -294,6 +303,8 @@ impl LibraryView {
         }
         self.connected = connected;
         if !connected {
+            // The next connection brings a new report.
+            self.engines = None;
             self.pending_use = None;
             // The next connection asks again; a report that was on its way is lost with this one.
             self.maintain_sent = false;
@@ -327,7 +338,7 @@ impl LibraryView {
         let Some(theme) = self.themes.iter().find(|theme| theme.folder == folder) else {
             return;
         };
-        if !card::use_state(theme, self.runtime.as_ref(), None, self.connected).is_enabled() {
+        if !card::use_state(theme, self.runtime.as_ref(), self.engines.as_ref(), self.connected).is_enabled() {
             return;
         }
         // The request of this folder is in flight already; a click on another card replaces it (the last click wins).
@@ -843,7 +854,7 @@ impl LibraryView {
                 needs_newer_app: matches!(theme.compatibility, library::Compatibility::NeedsNewerApp { .. }),
                 selected,
                 pending: self.pending_use.as_deref() == Some(&theme.folder),
-                state: card::use_state(theme, self.runtime.as_ref(), None, self.connected),
+                state: card::use_state(theme, self.runtime.as_ref(), self.engines.as_ref(), self.connected),
                 focus: handles[position].clone(),
                 on_use,
                 on_arrow,
