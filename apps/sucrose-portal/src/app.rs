@@ -5,8 +5,8 @@ use std::time::Duration;
 use gpui_kit::component::{ActiveTheme, TitleBar, WindowExt as _, v_flex};
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
-use sucrose_core::settings::{Backdrop, ThemeMode};
-use sucrose_ipc::portal::{EngineReportView, PortalEvent, PortalSettings, RuntimeState, SettingChange};
+use sucrose_core::settings::{Backdrop, EngineType, ThemeMode};
+use sucrose_ipc::portal::{EngineReportView, PortalEvent, PortalRequest, PortalSettings, RuntimeState, SettingChange};
 
 use sucrose_ipc::portal::UseOutcome;
 
@@ -15,10 +15,15 @@ use crate::{
     banner,
     dialogs::tray_hint::{self, TrayHint, should_hint},
     header::{Header, HeaderEvent},
-    i18n::{tr, tr_count_with},
+    i18n::{tr, tr_count_with, tr_with},
     ipc::{ConnectionState, LinkEvent, ServiceLink, next_state},
     library::{ChangeLocation, LibraryView, bin_name},
-    settings::{Mode, SettingsTab, general::GeneralPage, personal::PersonalPage, wallpaper::WallpaperPage},
+    settings::{
+        Mode, SettingsTab,
+        general::GeneralPage,
+        personal::PersonalPage,
+        wallpaper::{WallpaperPage, engine_label_key},
+    },
     status_bar::StatusBar,
     theme, toast,
 };
@@ -37,6 +42,8 @@ pub struct PortalApp {
     pub runtime: Option<RuntimeState>,
     /// What the service detected about the engines; the Wallpaper settings page and the cards read it.
     pub engines: Option<EngineReportView>,
+    /// The engines whose fallback toast was raised in this run (UI-SPEC E3: once per run per engine).
+    announced_fallbacks: Vec<EngineType>,
     /// What the window shows: the library or a settings page.
     pub mode: Mode,
     /// Sends requests to the service.
@@ -160,6 +167,7 @@ impl PortalApp {
             settings: None,
             runtime: None,
             engines: None,
+            announced_fallbacks: Vec::new(),
             mode,
             link,
             library,
@@ -498,6 +506,25 @@ impl PortalApp {
                         .update(cx, |library, cx| library.set_engines(report.clone(), cx));
                     self.wallpaper
                         .update(cx, |page, cx| page.set_engines(&report, window, cx));
+                    // A fallback the user was not told about yet and did not snooze raises one warning toast (D-16).
+                    for fallback in toast::fresh_fallbacks(&report.fallbacks, &mut self.announced_fallbacks) {
+                        let engine = fallback.configured;
+                        let link = self.link.clone();
+                        toast::show_warning(
+                            tr_with(
+                                "Portal.FallbackToast.Title",
+                                &[("engine", &tr(engine_label_key(engine)))],
+                            ),
+                            tr_with(
+                                "Portal.FallbackToast.Body",
+                                &[("fallback", &tr(engine_label_key(fallback.playing)))],
+                            ),
+                            tr("Portal.FallbackToast.Snooze"),
+                            move |_, _| link.send(PortalRequest::SnoozeFallback { engine }),
+                            window,
+                            cx,
+                        );
+                    }
                     self.engines = Some(report);
                 }
             }

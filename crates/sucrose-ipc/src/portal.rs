@@ -15,7 +15,7 @@ use sucrose_core::{
 };
 
 /// Version of the Portal protocol, sent in `PortalHello` so the service can refuse a Portal it cannot talk to.
-pub const PORTAL_PROTOCOL_VERSION: u16 = 3;
+pub const PORTAL_PROTOCOL_VERSION: u16 = 4;
 
 /// The longest path text, in bytes, the service accepts from a Portal and puts into a message it sends. It keeps the
 /// largest possible [`PortalEvent::Welcome`] far below [`crate::frame::MAX_FRAME`].
@@ -89,6 +89,12 @@ pub enum PortalRequest {
     },
     /// Look at the engines again and send the report.
     DetectEngines,
+    /// "Don't remind me for a day" on the fallback toast of this engine: the service stores the time until which the
+    /// toast stays quiet (D-16). Only the engines with a Warehouse field (CEF, WebView2) store anything.
+    SnoozeFallback {
+        /// The engine the settings ask for and that is not available.
+        engine: EngineType,
+    },
 }
 
 /// Messages from the service to the Portal.
@@ -216,6 +222,9 @@ pub struct FallbackView {
     pub configured: EngineType,
     /// The engine that plays instead.
     pub playing: EngineType,
+    /// Whether the Portal raises its warning toast for this fallback: false while the one-day snooze of the configured
+    /// engine runs (D-16). The row alert ignores it, it is never snoozed.
+    pub notify: bool,
 }
 
 /// The engines the Portal offers for one wallpaper type: the ones whose slice is part of this build, installed or not.
@@ -629,6 +638,7 @@ mod tests {
                 kind: WallpaperType::Web,
                 configured: EngineType::WebViewLive,
                 playing: EngineType::CefSharpLive,
+                notify: true,
             }],
         }
     }
@@ -644,8 +654,8 @@ mod tests {
     }
 
     #[test]
-    fn the_portal_protocol_is_at_version_three_since_the_settings_view_gained_the_wallpaper_group() {
-        assert_eq!(PORTAL_PROTOCOL_VERSION, 3);
+    fn the_portal_protocol_is_at_version_four_since_a_fallback_says_whether_to_notify() {
+        assert_eq!(PORTAL_PROTOCOL_VERSION, 4);
     }
 
     #[test]
@@ -659,6 +669,9 @@ mod tests {
             PortalRequest::MaintainLibrary,
             PortalRequest::MoveLibrary { destination: folder },
             PortalRequest::DetectEngines,
+            PortalRequest::SnoozeFallback {
+                engine: EngineType::WebViewLive,
+            },
         ];
         for (expected, request) in requests.iter().enumerate() {
             assert_eq!(usize::from(index(request)), expected, "{request:?}");

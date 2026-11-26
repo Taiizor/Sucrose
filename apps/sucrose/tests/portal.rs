@@ -17,8 +17,8 @@ use sucrose_core::{
 use sucrose_ipc::{
     connect,
     portal::{
-        EngineReportView, EngineState, Launch, LaunchReply, MaintainReport, MoveOutcome, MoveRefusal, PortalEvent,
-        PortalPage, PortalRequest, SettingChange, StartupInfo, StartupMode, UseOutcome, UseRefusal,
+        EngineReportView, EngineState, FallbackView, Launch, LaunchReply, MaintainReport, MoveOutcome, MoveRefusal,
+        PortalEvent, PortalPage, PortalRequest, SettingChange, StartupInfo, StartupMode, UseOutcome, UseRefusal,
     },
     protocol::ToService,
     service_endpoint_for,
@@ -733,6 +733,80 @@ fn an_engine_change_restarts_the_running_wallpaper_of_that_type() {
     assert_eq!(fallback.configured, EngineType::WebViewLive);
     assert_eq!(fallback.playing, EngineType::CefSharpLive);
     started(2);
+}
+
+/// Waits for an engine report whose first fallback satisfies `wanted`, skipping the other events.
+fn wait_for_fallback(portal: &PortalClient, wanted: impl Fn(&FallbackView) -> bool) -> FallbackView {
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(15);
+    while std::time::Instant::now() < deadline {
+        match portal.next_event_any() {
+            Some(PortalEvent::Engines(report)) => {
+                if let Some(fallback) = report.fallbacks.iter().find(|fallback| wanted(fallback)) {
+                    return *fallback;
+                }
+            }
+            Some(_) => {}
+            None => break,
+        }
+    }
+    panic!("no engine report with the expected fallback");
+}
+
+/// "Don't remind me for a day" (D-16): a Web wallpaper whose configured engine is WebView2 plays with CEF, the Portal is
+/// told to notify; after SnoozeFallback the Warehouse field holds a quiet time and the report says notify false, also
+/// after a restart. It plays a real wallpaper, so it runs on purpose and skips where CEF is not installed.
+#[test]
+#[ignore = "plays a Web wallpaper on the desktop from a scratch data folder; plan 15 runs it"]
+fn a_snoozed_fallback_is_not_announced_again() {
+    if !service_runs("a_snoozed_fallback_is_not_announced_again") {
+        return;
+    }
+    let service = TestService::start("snooze", &json!({ "Engine": { "Web": "WebViewLive" } }));
+    copy_web_fixture(&service, "hello");
+    let (mut portal, _) = PortalClient::hello(&service, None);
+    let report = wait_for_engines(&portal);
+    if !report.playable.contains(&WallpaperType::Web) {
+        skipped(
+            "a_snoozed_fallback_is_not_announced_again",
+            "CEF is not installed next to the executable",
+        );
+        return;
+    }
+    assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
+    // `use_theme` skips the engine reports that came with the Use, so ask for the current one.
+    portal.request(&PortalRequest::DetectEngines);
+    let fallback = wait_for_fallback(&portal, |_| true);
+    assert_eq!(fallback.configured, EngineType::WebViewLive);
+    assert!(fallback.notify, "nothing was snoozed yet");
+
+    portal.request(&PortalRequest::SnoozeFallback {
+        engine: EngineType::WebViewLive,
+    });
+
+    let fallback = wait_for_fallback(&portal, |fallback| !fallback.notify);
+    assert_eq!(fallback.playing, EngineType::CefSharpLive, "the fallback itself stays");
+    let stored = service.settings_file()["Warehouse"]["WebViewTime"]
+        .as_str()
+        .unwrap_or_default()
+        .to_owned();
+    assert!(
+        !stored.is_empty() && !stored.starts_with("0001"),
+        "the quiet time is stored: {stored:?}"
+    );
+    assert_eq!(
+        service.settings_file()["Warehouse"]["CefSharpTime"],
+        "0001-01-01T00:00:00",
+        "the other engine's field is untouched"
+    );
+    drop(portal);
+
+    let service = service.restart();
+    let (mut portal, _) = PortalClient::hello(&service, None);
+    assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
+    portal.request(&PortalRequest::DetectEngines);
+    let fallback = wait_for_fallback(&portal, |_| true);
+    assert_eq!(fallback.configured, EngineType::WebViewLive);
+    assert!(!fallback.notify, "the snooze survives a restart");
 }
 
 #[test]

@@ -9,6 +9,7 @@ use std::{
     path::{Path, PathBuf},
 };
 
+use sucrose_config::model::Warehouse;
 use sucrose_core::{settings::EngineType, theme::WallpaperType};
 use sucrose_engine::{
     Availability, EngineId, Hint, Unsupported, VC_REDIST_MIN, choose_engine, fallback_order, version_at_least,
@@ -96,7 +97,13 @@ impl EngineReport {
 impl EngineReport {
     /// What the Portal is told (ENG-06, ENG-07): every engine with its state, the types of `kinds` some available
     /// engine can play, and the fallbacks that run now.
-    pub fn view(&self, kinds: &[WallpaperType], fallbacks: &Fallbacks) -> EngineReportView {
+    pub fn view(
+        &self,
+        kinds: &[WallpaperType],
+        fallbacks: &Fallbacks,
+        warehouse: &Warehouse,
+        now: i64,
+    ) -> EngineReportView {
         EngineReportView {
             engines: ALL
                 .iter()
@@ -141,10 +148,144 @@ impl EngineReport {
                     kind: note.kind,
                     configured: note.configured.to_legacy(),
                     playing: note.playing.to_legacy(),
+                    notify: !snoozed(warehouse, note.configured, now),
                 })
                 .collect(),
         }
     }
+}
+
+/// How long "Don't remind me for a day" keeps the fallback toast of an engine quiet (D-16).
+pub const SNOOZE_SECS: i64 = 86_400;
+
+/// The Warehouse field that holds the snooze of an engine's fallback toast: the legacy `CefSharpTime` and `WebViewTime`
+/// (D-16). Every other engine has none (its snooze lasts until the Portal restarts, UI-SPEC E3).
+fn snooze_field(warehouse: &mut Warehouse, engine: EngineId) -> Option<&mut String> {
+    match engine {
+        EngineId::Cef => Some(&mut warehouse.cef_sharp_time),
+        EngineId::WebView2 => Some(&mut warehouse.web_view_time),
+        _ => None,
+    }
+}
+
+/// Seconds since the Unix epoch.
+pub fn unix_now() -> i64 {
+    std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .map_or(0, |since| i64::try_from(since.as_secs()).unwrap_or(i64::MAX))
+}
+
+/// Whether the toast of `engine`'s fallback is snoozed at `now`. Like the legacy apps the field holds the time until
+/// which to stay quiet (`DateTime.Now.AddDays(1)`), so a migrated value counts. A time in the past, one more than a
+/// day ahead (a changed clock must not silence a fallback for good), an empty or an unparsable text is no snooze.
+fn snoozed(warehouse: &Warehouse, engine: EngineId, now: i64) -> bool {
+    let text = match engine {
+        EngineId::Cef => &warehouse.cef_sharp_time,
+        EngineId::WebView2 => &warehouse.web_view_time,
+        _ => return false,
+    };
+    parse_time(text).is_some_and(|until| until > now && until <= now + SNOOZE_SECS + 60)
+}
+
+/// Whether `engine` has a Warehouse field to keep a snooze in (T-04-34): only CEF and WebView2 do.
+pub fn can_snooze(engine: EngineId) -> bool {
+    matches!(engine, EngineId::Cef | EngineId::WebView2)
+}
+
+/// Starts the snooze of `engine` at `now`: the quiet time is written into its Warehouse field in the legacy text format.
+/// Returns whether the engine has a field to write.
+pub fn snooze(warehouse: &mut Warehouse, engine: EngineId, now: i64) -> bool {
+    match snooze_field(warehouse, engine) {
+        Some(field) => {
+            *field = format_time(now + SNOOZE_SECS);
+            true
+        }
+        None => false,
+    }
+}
+
+/// Days since 1970-01-01 of a civil date (Howard Hinnant's algorithm).
+fn days_from_civil(year: i64, month: i64, day: i64) -> i64 {
+    let year = year - i64::from(month <= 2);
+    let era = year.div_euclid(400);
+    let year_of_era = year.rem_euclid(400);
+    let day_of_year = (153 * (month + if month > 2 { -3 } else { 9 }) + 2) / 5 + day - 1;
+    let day_of_era = year_of_era * 365 + year_of_era / 4 - year_of_era / 100 + day_of_year;
+    era * 146_097 + day_of_era - 719_468
+}
+
+/// The civil date (year, month, day) of a day count since 1970-01-01.
+fn civil_from_days(days: i64) -> (i64, i64, i64) {
+    let shifted = days + 719_468;
+    let era = shifted.div_euclid(146_097);
+    let day_of_era = shifted.rem_euclid(146_097);
+    let year_of_era = (day_of_era - day_of_era / 1_460 + day_of_era / 36_524 - day_of_era / 146_096) / 365;
+    let day_of_year = day_of_era - (365 * year_of_era + year_of_era / 4 - year_of_era / 100);
+    let month_part = (5 * day_of_year + 2) / 153;
+    let day = day_of_year - (153 * month_part + 2) / 5 + 1;
+    let month = if month_part < 10 {
+        month_part + 3
+    } else {
+        month_part - 9
+    };
+    (year_of_era + era * 400 + i64::from(month <= 2), month, day)
+}
+
+/// Writes `unix` seconds as the legacy date-time text (`2026-11-22T01:02:03.0000000+00:00`): UTC with an explicit
+/// offset, which .NET reads as the same instant (the local offset would need OS code outside `sucrose-platform`).
+fn format_time(unix: i64) -> String {
+    let (days, rest) = (unix.div_euclid(86_400), unix.rem_euclid(86_400));
+    let (year, month, day) = civil_from_days(days);
+    format!(
+        "{year:04}-{month:02}-{day:02}T{:02}:{:02}:{:02}.0000000+00:00",
+        rest / 3_600,
+        rest % 3_600 / 60,
+        rest % 60
+    )
+}
+
+/// Reads the legacy date-time text (`YYYY-MM-DDTHH:MM:SS`, optional fraction, optional `Z` or `±HH:MM`) as Unix seconds.
+/// A text without an offset is taken as UTC; a different text gives `None`.
+fn parse_time(text: &str) -> Option<i64> {
+    let text = text.trim();
+    let (date, time) = text.split_once('T')?;
+    let mut date = date.split('-');
+    let (year, month, day) = (date.next()?, date.next()?, date.next()?);
+    if date.next().is_some() {
+        return None;
+    }
+    let (year, month, day): (i64, i64, i64) = (year.parse().ok()?, month.parse().ok()?, day.parse().ok()?);
+    if !(1..=12).contains(&month) || !(1..=31).contains(&day) {
+        return None;
+    }
+    // The clock part ends where the offset starts: `Z`, `+` or `-`.
+    let (clock, offset) = match time.find(['Z', '+', '-']) {
+        Some(index) => time.split_at(index),
+        None => (time, ""),
+    };
+    let clock = clock.split_once('.').map_or(clock, |(whole, _)| whole);
+    let mut clock = clock.split(':');
+    let (hour, minute, second) = (clock.next()?, clock.next()?, clock.next()?);
+    if clock.next().is_some() {
+        return None;
+    }
+    let (hour, minute, second): (i64, i64, i64) = (hour.parse().ok()?, minute.parse().ok()?, second.parse().ok()?);
+    if hour > 23 || minute > 59 || second > 60 {
+        return None;
+    }
+    let offset_secs = match offset {
+        "" | "Z" => 0,
+        signed => {
+            let sign = if signed.starts_with('-') { -1 } else { 1 };
+            let (hours, minutes) = signed.get(1..)?.split_once(':')?;
+            let (hours, minutes): (i64, i64) = (hours.parse().ok()?, minutes.parse().ok()?);
+            if hours > 14 || minutes > 59 {
+                return None;
+            }
+            sign * (hours * 3_600 + minutes * 60)
+        }
+    };
+    Some(days_from_civil(year, month, day) * 86_400 + hour * 3_600 + minute * 60 + second - offset_secs)
 }
 
 /// The Portal's form of a hint.
@@ -423,6 +564,9 @@ fn log_fallback(note: &FallbackNote) {
 mod tests {
     use super::*;
 
+    /// 2026-11-26T12:00:00Z.
+    const NOW: i64 = 1_795_694_400;
+
     fn nothing_there(_: &Path) -> bool {
         false
     }
@@ -570,7 +714,12 @@ mod tests {
             }),
         );
 
-        let view = report.view(&[WallpaperType::Video, WallpaperType::Web], &fallbacks);
+        let view = report.view(
+            &[WallpaperType::Video, WallpaperType::Web],
+            &fallbacks,
+            &Warehouse::default(),
+            NOW,
+        );
 
         assert_eq!(view.engines.len(), ALL.len());
         assert_eq!(view.engines[0].engine, EngineType::MpvPlayerLive);
@@ -597,7 +746,8 @@ mod tests {
             [FallbackView {
                 kind: WallpaperType::Web,
                 configured: EngineType::WebViewLive,
-                playing: EngineType::CefSharpLive
+                playing: EngineType::CefSharpLive,
+                notify: true
             }]
         );
     }
@@ -614,7 +764,12 @@ mod tests {
             },
         });
 
-        let view = report.view(&[WallpaperType::Video, WallpaperType::Web], &Fallbacks::default());
+        let view = report.view(
+            &[WallpaperType::Video, WallpaperType::Web],
+            &Fallbacks::default(),
+            &Warehouse::default(),
+            NOW,
+        );
 
         assert_eq!(
             view.offered,
@@ -630,6 +785,104 @@ mod tests {
             ],
             "CEF plays no video yet, so Video does not offer it; WebView2 is not in this build"
         );
+    }
+
+    #[test]
+    fn the_legacy_date_time_text_reads_and_writes_as_the_same_instant() {
+        assert_eq!(parse_time("2026-11-26T12:00:00"), Some(NOW));
+        assert_eq!(parse_time("2026-11-26T12:00:00Z"), Some(NOW));
+        assert_eq!(parse_time("2026-11-26T15:00:00.1234567+03:00"), Some(NOW));
+        assert_eq!(parse_time("2026-11-26T09:00:00-03:00"), Some(NOW));
+        assert_eq!(parse_time("1970-01-01T00:00:00Z"), Some(0));
+        assert_eq!(parse_time(&format_time(NOW)), Some(NOW));
+        assert_eq!(format_time(NOW), "2026-11-26T12:00:00.0000000+00:00");
+    }
+
+    #[test]
+    fn a_text_that_is_not_a_date_time_does_not_parse() {
+        for text in [
+            "",
+            "yesterday",
+            "2026-13-01T00:00:00",
+            "2026-11-26",
+            "2026-11-26T25:00:00",
+            "2026-11-26T12:00",
+        ] {
+            assert_eq!(parse_time(text), None, "{text:?}");
+        }
+    }
+
+    #[test]
+    fn a_fallback_is_announced_unless_its_engine_is_snoozed_for_now() {
+        let mut warehouse = Warehouse::default();
+        assert!(
+            !snoozed(&warehouse, EngineId::WebView2, NOW),
+            "the default is the minimum date"
+        );
+
+        warehouse.web_view_time = format_time(NOW + 3_600);
+        assert!(snoozed(&warehouse, EngineId::WebView2, NOW), "the quiet time is ahead");
+        assert!(
+            !snoozed(&warehouse, EngineId::Cef, NOW),
+            "the other engine has its own field"
+        );
+        assert!(
+            !snoozed(&warehouse, EngineId::WebView2, NOW + 3_601),
+            "the quiet time passed"
+        );
+
+        warehouse.web_view_time = format_time(NOW + 10 * SNOOZE_SECS);
+        assert!(
+            !snoozed(&warehouse, EngineId::WebView2, NOW),
+            "a time far ahead is no snooze"
+        );
+        warehouse.web_view_time = "not a time".to_owned();
+        assert!(
+            !snoozed(&warehouse, EngineId::WebView2, NOW),
+            "an unparsable text is no snooze"
+        );
+    }
+
+    #[test]
+    fn a_legacy_value_is_honoured_and_a_snooze_writes_the_field_of_its_engine_only() {
+        let mut warehouse = Warehouse {
+            cef_sharp_time: "2026-11-27T01:02:03.1234567+03:00".to_owned(),
+            ..Warehouse::default()
+        };
+        assert!(snoozed(&warehouse, EngineId::Cef, NOW), "C# stored now plus a day");
+
+        assert!(snooze(&mut warehouse, EngineId::WebView2, NOW));
+        assert_eq!(warehouse.web_view_time, "2026-11-27T12:00:00.0000000+00:00");
+        assert!(snoozed(&warehouse, EngineId::WebView2, NOW));
+        let before = warehouse.clone();
+        assert!(!snooze(&mut warehouse, EngineId::Mpv, NOW), "mpv has no field");
+        assert!(!can_snooze(EngineId::Mpv) && can_snooze(EngineId::Cef));
+        assert_eq!(warehouse, before, "nothing changes for an engine without a field");
+    }
+
+    #[test]
+    fn the_view_does_not_notify_for_a_snoozed_engine() {
+        let report = EngineReport::from_fn(|_| Availability::Unsupported {
+            why: Unsupported::NotInThisBuild,
+        });
+        let mut fallbacks = Fallbacks::default();
+        fallbacks.set(
+            WallpaperType::Web,
+            Some(FallbackNote {
+                kind: WallpaperType::Web,
+                configured: EngineId::WebView2,
+                playing: EngineId::Cef,
+                reason: "x".to_owned(),
+            }),
+        );
+        let mut warehouse = Warehouse::default();
+        snooze(&mut warehouse, EngineId::WebView2, NOW);
+
+        let view = report.view(&[WallpaperType::Web], &fallbacks, &warehouse, NOW);
+
+        assert!(!view.fallbacks[0].notify);
+        let fresh = report.view(&[WallpaperType::Web], &fallbacks, &Warehouse::default(), NOW);
+        assert!(fresh.fallbacks[0].notify);
     }
 
     #[test]

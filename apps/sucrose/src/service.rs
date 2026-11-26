@@ -15,7 +15,7 @@ use anyhow::Context as _;
 use crossbeam_channel::Sender;
 use sucrose_config::{
     migrate::migrate,
-    model::{Engine, Settings},
+    model::{Engine, Settings, Warehouse},
 };
 use sucrose_core::{
     APP_LONG_NAME,
@@ -1525,6 +1525,24 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                     fleet.engines = engines::detect(&engines::exe_dir(), platform.as_ref());
                                     last_engines = None;
                                 }
+                                PortalRequest::SnoozeFallback { engine } => {
+                                    // "Don't remind me for a day" (D-16): the quiet time goes into the Warehouse field of
+                                    // that engine, by this thread, the only writer. Any other engine changes nothing on disk
+                                    // (T-04-34); the report is sent again at the end of this pass with notify false.
+                                    let engine = EngineId::from_legacy(engine);
+                                    if engines::can_snooze(engine) {
+                                        let now = engines::unix_now();
+                                        match host.update(|settings| {
+                                            engines::snooze(&mut settings.warehouse, engine, now);
+                                        }) {
+                                            Ok(()) => {
+                                                tracing::info!(engine = engines::label(engine), "fallback toast snoozed for a day");
+                                            }
+                                            Err(reason) => tracing::warn!(%reason, "the snooze could not be saved"),
+                                        }
+                                    }
+                                    last_engines = None;
+                                }
                                 PortalRequest::MaintainLibrary => {
                                     match maintenance_decision(library_job, fleet.library_move.is_some()) {
                                         MaintenanceDecision::Wait => {
@@ -1783,7 +1801,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
             }
             // Whatever the events changed (a Use, an exit, a first frame, a setting) reaches the Portal once.
             announce_runtime(&mut portals, &mut last_runtime, &host, &fleet, &supervisor, tray.is_some());
-            publish_engines(&mut portals, &mut last_engines, fleet.engine_view());
+            publish_engines(&mut portals, &mut last_engines, fleet.engine_view(&host.settings().warehouse));
             Flow::Continue
         }
         LoopEvent::Quit => {
@@ -3460,8 +3478,9 @@ fn announce_runtime(
 
 impl Fleet {
     /// What the Portal is told about the engines: their states, the types that can play and the fallbacks that run.
-    fn engine_view(&self) -> EngineReportView {
-        self.engines.view(PLAYABLE, &self.fallbacks)
+    fn engine_view(&self, warehouse: &Warehouse) -> EngineReportView {
+        self.engines
+            .view(PLAYABLE, &self.fallbacks, warehouse, engines::unix_now())
     }
 
     /// Whether a wallpaper is still wanted: a theme is selected and at least one monitor's renderer runs, is about to
