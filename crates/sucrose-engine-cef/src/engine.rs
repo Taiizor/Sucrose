@@ -20,11 +20,11 @@ use sucrose_engine::{
 };
 use sucrose_engine_web::{
     args::{self, SucroseInputs, WebEngine},
-    js::{self, PageCall},
+    js::{self, CompatibleState, PageCall},
     origin,
     profile::{self, ProfileLease},
 };
-use sucrose_ipc::protocol::{Assignment, PlaybackSettings};
+use sucrose_ipc::protocol::{Assignment, PlaybackSettings, WebOptions};
 use sucrose_platform::{LoopProxy, LoopTimers};
 
 use crate::browser::{CefError, CefHost, CefStart};
@@ -68,6 +68,42 @@ struct State {
     volume: AtomicU8,
     looping: AtomicBool,
     stretch: Mutex<Stretch>,
+    /// `Engine.WallpaperShuffle`, fixed for the life of the renderer (the value of the `ShuffleMode` call).
+    shuffle: bool,
+    /// The legacy `ThemeType` name the `ThemeType` and `SystemTheme` calls carry, fixed for the life of the renderer.
+    theme_type: String,
+}
+
+impl State {
+    /// The state a renderer starts with: not paused, the playback settings and the web options of its assignment.
+    fn new(settings: &PlaybackSettings, web: &WebOptions) -> Self {
+        Self {
+            paused: AtomicBool::new(false),
+            volume: AtomicU8::new(settings.volume.min(100)),
+            looping: AtomicBool::new(settings.looping),
+            stretch: Mutex::new(settings.stretch),
+            shuffle: web.shuffle,
+            theme_type: web.theme_type.clone(),
+        }
+    }
+
+    /// What the non-data compatible calls are built from, as the engine was last told (WAPI-02).
+    fn compatible(&self) -> CompatibleState {
+        CompatibleState {
+            looping: self.looping.load(Ordering::SeqCst),
+            shuffle: self.shuffle,
+            stretch: *self.stretch.lock().unwrap_or_else(PoisonError::into_inner),
+            theme_type: self.theme_type.clone(),
+            volume: self.volume.load(Ordering::SeqCst),
+        }
+    }
+}
+
+/// Which theme files were already reported as unusable, so each is logged once per renderer.
+#[derive(Debug, Default)]
+struct Complaints {
+    properties: AtomicBool,
+    compatible: AtomicBool,
 }
 
 /// The thread-safe handle of a CEF renderer.
@@ -148,24 +184,38 @@ fn describe(error: &PropertiesError) -> String {
     }
 }
 
-/// The scripts a page gets after its main frame loaded, in the order they must run: the property calls of
-/// `SucroseProperties.json`, one per control in file order (WAPI-01). Only a loaded page (HTTP 200) gets them; a theme
-/// without the file or with an empty list gets none, and a file that cannot be used is logged once per renderer
-/// (`logged`) while the page still plays. A reload runs this again, so every key is sent again after its load end.
-fn page_calls(theme_dir: &Path, status: i32, logged: &AtomicBool) -> Vec<PageCall> {
+/// The scripts a page gets after its main frame loaded, in the order they must run (WAPI-01, WAPI-02): the property
+/// calls of `SucroseProperties.json`, one per control in file order; then the non-data compatible calls of
+/// `SucroseCompatible.json` in the legacy run order, so they come after every property call and before the first data
+/// push; then, when the renderer was paused before the page finished loading, the pause. Only a loaded page (HTTP 200)
+/// gets them; a theme without a file or with nothing in it gets none, and a file that cannot be used is logged once
+/// per renderer (`complaints`) while the page still plays. A reload runs this again, so every key is sent again.
+fn page_calls(theme_dir: &Path, status: i32, state: &State, complaints: &Complaints) -> Vec<PageCall> {
     if status != 200 {
         tracing::debug!(status, "no page calls: the main frame did not load with status 200");
         return Vec::new();
     }
-    match js::property_calls(theme_dir) {
+    let mut calls = match js::property_calls(theme_dir) {
         Ok(calls) => calls,
         Err(error) => {
-            if !logged.swap(true, Ordering::SeqCst) {
+            if !complaints.properties.swap(true, Ordering::SeqCst) {
                 tracing::warn!(reason = %describe(&error), "SucroseProperties.json cannot be used, the page gets no property calls");
             }
             Vec::new()
         }
+    };
+    match js::compatible_calls(theme_dir, &state.compatible()) {
+        Ok(compatible) => calls.extend(compatible),
+        Err(error) => {
+            if !complaints.compatible.swap(true, Ordering::SeqCst) {
+                tracing::warn!(reason = %describe(&error), "SucroseCompatible.json cannot be used, the page gets no compatible calls");
+            }
+        }
     }
+    if state.paused.load(Ordering::SeqCst) {
+        calls.push(js::pause_call(true));
+    }
+    calls
 }
 
 /// Starts CEF on the calling thread, which must be the one that owns the surface `wid` and runs its message loop,
@@ -177,12 +227,14 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         on_playing,
     } = hooks;
     let told = AtomicBool::new(false);
-    let property_problem = AtomicBool::new(false);
+    let complaints = Complaints::default();
     let wake_proxy = proxy.clone();
     let engine_proxy = proxy;
     let theme_dir = PathBuf::from(&assignment.theme_dir);
     let calls_dir = theme_dir.clone();
     let web = &assignment.web;
+    let state = Arc::new(State::new(&assignment.settings, web));
+    let calls_state = Arc::clone(&state);
     let debugging_port = debugging_port(web.developer_port, assignment.slot);
     if let Some(port) = debugging_port {
         tracing::info!(port, slot = assignment.slot, "remote debugging");
@@ -202,7 +254,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         .into_iter()
         .flatten()
         .collect(),
-        page_calls: Arc::new(move |_url, status| page_calls(&calls_dir, status, &property_problem)),
+        page_calls: Arc::new(move |_url, status| page_calls(&calls_dir, status, &calls_state, &complaints)),
         // The first finished main-frame load is the first frame the user can see.
         on_loaded: Arc::new(move |_url, _status| {
             if !told.swap(true, Ordering::SeqCst) {
@@ -229,13 +281,6 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
     timers.set(CEF_PUMP_TIMER, host.do_work());
 
     let (sender, receiver) = bounded(QUEUE_CAPACITY);
-    let settings = &assignment.settings;
-    let state = Arc::new(State {
-        paused: AtomicBool::new(false),
-        volume: AtomicU8::new(settings.volume),
-        looping: AtomicBool::new(settings.looping),
-        stretch: Mutex::new(settings.stretch),
-    });
     Ok(Started {
         engine: Arc::new(CefEngine {
             commands: sender,
@@ -338,13 +383,20 @@ impl Engine for CefEngine {
 }
 
 impl CefPump {
-    /// Applies what the IPC threads queued. The values are kept for the page calls of plan 04-09; until then CEF
-    /// itself has nothing to apply, and a command is only noted.
+    /// Applies what the IPC threads queued. A pause or resume runs inside the page (PLAY-05, D-22): Light and Heavy are
+    /// alike until Round D adds the process suspension, and no process is suspended here. The volume, loop and stretch
+    /// values were kept by the handle; the pages get them with the compatible calls, so there is nothing to apply.
     fn drain(&self) {
         while let Ok(command) = self.commands.try_recv() {
             tracing::debug!(?command, "queued command reached the CEF thread");
-            if command == Command::OpenDevTools {
-                self.host.open_devtools();
+            match command {
+                Command::OpenDevTools => self.host.open_devtools(),
+                Command::Pause { paused, .. } => {
+                    let call = js::pause_call(paused);
+                    tracing::debug!(kind = call.kind, key = ?call.key, "page call");
+                    self.host.execute_script(&call.script);
+                }
+                Command::Volume(_) | Command::Loop(_) | Command::Stretch(_) => {}
             }
         }
     }
@@ -415,12 +467,7 @@ mod tests {
             wake: Arc::new(move || {
                 counter.fetch_add(1, Ordering::SeqCst);
             }),
-            state: Arc::new(State {
-                paused: AtomicBool::new(false),
-                volume: AtomicU8::new(100),
-                looping: AtomicBool::new(true),
-                stretch: Mutex::new(Stretch::default()),
-            }),
+            state: Arc::new(State::new(&PlaybackSettings::default(), &WebOptions::default())),
         };
         (engine, receiver, wakes)
     }
@@ -507,11 +554,12 @@ mod tests {
         assert!(engine.set_volume(5).is_ok());
     }
 
-    /// A scratch theme folder with the given `SucroseProperties.json` text (none: no file), removed on drop.
+    /// A scratch theme folder with the given `SucroseProperties.json` and `SucroseCompatible.json` texts (none: no
+    /// file), removed on drop.
     struct Theme(PathBuf);
 
     impl Theme {
-        fn new(properties: Option<&str>) -> Self {
+        fn new(properties: Option<&str>, compatible: Option<&str>) -> Self {
             static NEXT: std::sync::atomic::AtomicU32 = std::sync::atomic::AtomicU32::new(0);
             let dir = std::env::temp_dir().join(format!(
                 "sucrose-cef-calls-{}-{}",
@@ -520,8 +568,13 @@ mod tests {
             ));
             let _ = std::fs::remove_dir_all(&dir);
             std::fs::create_dir_all(&dir).expect("create scratch theme");
-            if let Some(text) = properties {
-                std::fs::write(dir.join("SucroseProperties.json"), text).expect("write properties");
+            for (name, text) in [
+                ("SucroseProperties.json", properties),
+                ("SucroseCompatible.json", compatible),
+            ] {
+                if let Some(text) = text {
+                    std::fs::write(dir.join(name), text).expect("write theme file");
+                }
             }
             Self(dir)
         }
@@ -534,56 +587,137 @@ mod tests {
     }
 
     const TWO_PROPERTIES: &str = r#"{"PropertyListener":"f('{0}', {1});","PropertyList":{"b":{"type":"checkbox","value":true},"a":{"type":"textbox","value":"x"}}}"#;
+    const COMPATIBLE: &str =
+        r#"{"VolumeLevel":"V({0});","SystemMemory":"M({0});","LoopMode":"L('{0}');","StretchMode":"S('{0}');"}"#;
+
+    fn fresh_state() -> State {
+        State::new(&PlaybackSettings::default(), &WebOptions::default())
+    }
+
+    fn keys(calls: &[PageCall]) -> Vec<String> {
+        calls.iter().map(|call| format!("{}:{}", call.kind, call.key)).collect()
+    }
 
     #[test]
     fn a_loaded_page_gets_its_property_calls_in_file_order_and_a_failed_load_gets_none() {
-        let theme = Theme::new(Some(TWO_PROPERTIES));
-        let logged = AtomicBool::new(false);
+        let theme = Theme::new(Some(TWO_PROPERTIES), None);
+        let (state, complaints) = (fresh_state(), Complaints::default());
 
-        let calls = page_calls(&theme.0, 200, &logged);
-        let failed = page_calls(&theme.0, 404, &logged);
+        let calls = page_calls(&theme.0, 200, &state, &complaints);
+        let failed = page_calls(&theme.0, 404, &state, &complaints);
+
+        assert_eq!(keys(&calls), ["property:b", "property:a"]);
+        assert!(failed.is_empty(), "only a page that loaded with status 200 gets calls");
+        assert!(!complaints.properties.load(Ordering::SeqCst));
+    }
+
+    #[test]
+    fn the_compatible_calls_follow_every_property_call_in_the_legacy_order_without_the_data_keys() {
+        let theme = Theme::new(Some(TWO_PROPERTIES), Some(COMPATIBLE));
+        let (state, complaints) = (fresh_state(), Complaints::default());
+
+        let calls = page_calls(&theme.0, 200, &state, &complaints);
 
         assert_eq!(
-            calls.iter().map(|call| call.key.as_str()).collect::<Vec<_>>(),
-            ["b", "a"]
+            keys(&calls),
+            [
+                "property:b",
+                "property:a",
+                "compatible:LoopMode",
+                "compatible:StretchMode",
+                "compatible:VolumeLevel"
+            ]
         );
-        assert!(calls.iter().all(|call| call.kind == "property"));
-        assert!(failed.is_empty(), "only a page that loaded with status 200 gets calls");
-        assert!(!logged.load(Ordering::SeqCst));
+        let scripts: Vec<&str> = calls.iter().skip(2).map(|call| call.script.as_str()).collect();
+        assert_eq!(scripts, ["L('True');", "S('UniformToFill');", "V(100);"]);
+    }
+
+    #[test]
+    fn the_compatible_calls_use_the_values_the_engine_was_last_told() {
+        let theme = Theme::new(None, Some(COMPATIBLE));
+        let state = fresh_state();
+        *state.stretch.lock().expect("lock") = Stretch::Fill;
+        state.looping.store(false, Ordering::SeqCst);
+        state.volume.store(40, Ordering::SeqCst);
+
+        let calls = page_calls(&theme.0, 200, &state, &Complaints::default());
+
+        let scripts: Vec<&str> = calls.iter().map(|call| call.script.as_str()).collect();
+        assert_eq!(scripts, ["L('False');", "S('Fill');", "V(40);"]);
     }
 
     #[test]
     fn a_reload_sends_every_key_again() {
-        let theme = Theme::new(Some(TWO_PROPERTIES));
-        let logged = AtomicBool::new(false);
+        let theme = Theme::new(Some(TWO_PROPERTIES), Some(COMPATIBLE));
+        let (state, complaints) = (fresh_state(), Complaints::default());
 
-        let first = page_calls(&theme.0, 200, &logged);
-        let reload = page_calls(&theme.0, 200, &logged);
+        let first = page_calls(&theme.0, 200, &state, &complaints);
+        let reload = page_calls(&theme.0, 200, &state, &complaints);
 
         assert_eq!(first, reload);
-        assert_eq!(reload.len(), 2);
+        assert_eq!(reload.len(), 5);
     }
 
     #[test]
-    fn a_theme_without_properties_gets_no_calls_and_no_complaint() {
-        let theme = Theme::new(None);
-        let logged = AtomicBool::new(false);
+    fn a_page_that_loads_while_paused_is_paused_after_its_calls() {
+        let theme = Theme::new(Some(TWO_PROPERTIES), None);
+        let state = fresh_state();
+        state.paused.store(true, Ordering::SeqCst);
 
-        assert!(page_calls(&theme.0, 200, &logged).is_empty());
-        assert!(!logged.load(Ordering::SeqCst), "a missing file is normal");
+        let calls = page_calls(&theme.0, 200, &state, &Complaints::default());
+
+        assert_eq!(keys(&calls), ["property:b", "property:a", "pause:pause"]);
+        assert_eq!(calls[2].script, js::pause_script(true));
     }
 
     #[test]
-    fn an_unparsable_properties_file_gives_no_calls_and_is_reported_once() {
-        let theme = Theme::new(Some("{ nope"));
-        let logged = AtomicBool::new(false);
+    fn a_theme_without_files_gets_no_calls_and_no_complaint() {
+        let theme = Theme::new(None, None);
+        let (state, complaints) = (fresh_state(), Complaints::default());
 
-        assert!(page_calls(&theme.0, 200, &logged).is_empty());
+        assert!(page_calls(&theme.0, 200, &state, &complaints).is_empty());
+        assert!(!complaints.properties.load(Ordering::SeqCst) && !complaints.compatible.load(Ordering::SeqCst));
+    }
+
+    #[test]
+    fn an_unparsable_file_gives_no_calls_for_it_and_is_reported_once_while_the_other_still_runs() {
+        let theme = Theme::new(Some("{ nope"), Some(COMPATIBLE));
+        let (state, complaints) = (fresh_state(), Complaints::default());
+
+        let calls = page_calls(&theme.0, 200, &state, &complaints);
+
+        assert_eq!(
+            keys(&calls),
+            [
+                "compatible:LoopMode",
+                "compatible:StretchMode",
+                "compatible:VolumeLevel"
+            ],
+            "the page keeps playing and gets the other file's calls"
+        );
         assert!(
-            logged.load(Ordering::SeqCst),
+            complaints.properties.load(Ordering::SeqCst),
             "the first failure is the one that is logged"
         );
-        assert!(page_calls(&theme.0, 200, &logged).is_empty(), "the page keeps playing");
+        assert!(!complaints.compatible.load(Ordering::SeqCst));
+        assert_eq!(page_calls(&theme.0, 200, &state, &complaints).len(), 3);
+    }
+
+    #[test]
+    fn the_state_starts_from_the_assignment_and_reports_the_legacy_theme_name() {
+        let web = WebOptions {
+            shuffle: false,
+            theme_type: "Light".to_owned(),
+            ..WebOptions::default()
+        };
+        let state = State::new(&PlaybackSettings::default(), &web);
+
+        let compatible = state.compatible();
+
+        assert!(!compatible.shuffle);
+        assert_eq!(compatible.theme_type, "Light");
+        assert!(compatible.looping);
+        assert_eq!(compatible.volume, 100);
     }
 
     #[test]

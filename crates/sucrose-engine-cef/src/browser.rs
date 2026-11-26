@@ -736,6 +736,18 @@ mod imp {
             show_devtools(&self.browser, None);
         }
 
+        /// Runs a script in the main frame, as the page calls do (the in-page pause). The page gets no host object and no
+        /// message channel: the script string is all it receives.
+        pub fn execute_script(&self, script: &str) {
+            if let Some(frame) = self.browser.main_frame() {
+                frame.execute_java_script(
+                    Some(&CefString::from(script)),
+                    Some(&CefString::from("sucrose://page-call")),
+                    0,
+                );
+            }
+        }
+
         /// Shows another address in the same browser (the Portal's Use between two Web themes).
         pub fn navigate(&self, url: &str) {
             if let Some(frame) = self.browser.main_frame() {
@@ -798,6 +810,9 @@ mod imp {
 
         /// Does nothing.
         pub fn open_devtools(&self) {}
+
+        /// Does nothing.
+        pub fn execute_script(&self, _script: &str) {}
 
         /// Does nothing.
         pub fn navigate(&self, _url: &str) {}

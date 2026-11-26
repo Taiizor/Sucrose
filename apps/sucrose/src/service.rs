@@ -37,7 +37,9 @@ use sucrose_platform::{
     RectPx, Tray, TrayAction, TrayLabels,
 };
 // ScreenArea is read below to choose the surface rectangle.
-use sucrose_core::settings::{EngineType, FullScreenAction, FullScreenScope, GpuPreference, PauseKind, ScreenArea};
+use sucrose_core::settings::{
+    EngineType, FullScreenAction, FullScreenScope, GpuPreference, PauseKind, ScreenArea, ThemeMode,
+};
 use sucrose_engine::{Availability, EngineId, Unsupported, choose_engine};
 use sucrose_engine_web::args;
 
@@ -663,7 +665,13 @@ fn selected_job(settings: &Settings, legacy_root: &Path) -> Result<Job, ThemeRej
         PLAYABLE,
     )
     .and_then(|theme| {
-        job_for(&theme, &settings.engine, settings.backgroundog.pause).map_err(|reason| ThemeRejection::SourceInvalid {
+        job_for(
+            &theme,
+            &settings.engine,
+            settings.backgroundog.pause,
+            settings.portal.theme_mode,
+        )
+        .map_err(|reason| ThemeRejection::SourceInvalid {
             folder: folder.clone(),
             reason,
         })
@@ -3172,11 +3180,15 @@ fn handle_use(
         let theme = check_selected(&settings.library_location(root), folder, &app_version(), PLAYABLE);
         let kind = theme.as_ref().ok().map(|theme| theme.info.kind);
         let gate = theme.and_then(|theme| {
-            job_for(&theme, &settings.engine, settings.backgroundog.pause).map_err(|reason| {
-                ThemeRejection::SourceInvalid {
-                    folder: folder.to_owned(),
-                    reason,
-                }
+            job_for(
+                &theme,
+                &settings.engine,
+                settings.backgroundog.pause,
+                settings.portal.theme_mode,
+            )
+            .map_err(|reason| ThemeRejection::SourceInvalid {
+                folder: folder.to_owned(),
+                reason,
             })
         });
         let input = UseInput {
@@ -3464,6 +3476,7 @@ fn plan_from(settings: &Settings, legacy_root: &std::path::Path) -> Plan {
         &settings.library.selected,
         &settings.engine,
         settings.backgroundog.pause,
+        settings.portal.theme_mode,
     ) {
         Ok(job) => {
             let status = Status::Starting {
@@ -3521,12 +3534,18 @@ fn apply_gpu_preference(platform: &dyn sucrose_platform::Platform, preference: G
 
 /// Runs the gate (D-13) on the selected theme and, when it passes, builds what every renderer plays. The error is
 /// one English sentence for the log and the tooltip: the gate's own reason.
-fn plan_for(location: &std::path::Path, selected: &str, engine: &Engine, pause: PauseKind) -> Result<Job, String> {
+fn plan_for(
+    location: &std::path::Path,
+    selected: &str,
+    engine: &Engine,
+    pause: PauseKind,
+    theme_mode: ThemeMode,
+) -> Result<Job, String> {
     let theme = check_selected(location, selected, &app_version(), PLAYABLE)
         .map_err(|rejection| printable(&rejection.to_string()))?;
     // Debug formatting for the text a theme or the settings supply: control characters show as escapes.
     tracing::info!(theme = ?selected, kind = ?theme.info.kind, source = ?theme.info.source, "selected theme");
-    job_for(&theme, engine, pause)
+    job_for(&theme, engine, pause, theme_mode)
 }
 
 /// The engine the Engine section configures for a wallpaper type.
@@ -3560,7 +3579,7 @@ fn built_availability(kind: WallpaperType) -> impl Fn(EngineId) -> Availability 
 /// What every renderer plays for a theme that passed the gate, with the playback settings of Engine.json. The engine
 /// is chosen here, with its fallback (D-11, ENG-07): the configured one when this build can play the type with it,
 /// else the first that can. The setting itself is never changed.
-fn job_for(theme: &SelectedTheme, engine: &Engine, pause: PauseKind) -> Result<Job, String> {
+fn job_for(theme: &SelectedTheme, engine: &Engine, pause: PauseKind, theme_mode: ThemeMode) -> Result<Job, String> {
     let source = theme
         .source_path
         .to_str()
@@ -3592,8 +3611,22 @@ fn job_for(theme: &SelectedTheme, engine: &Engine, pause: PauseKind) -> Result<J
         kind,
         engine: chosen.to_legacy(),
         theme_dir,
-        web: web_options(engine, chosen),
+        web: WebOptions {
+            theme_type: legacy_theme_type(theme_mode).to_owned(),
+            ..web_options(engine, chosen)
+        },
     })
+}
+
+/// The legacy `ThemeType` name the compatible calls `ThemeType` and `SystemTheme` carry for the migrated theme mode.
+/// The legacy app stored Dark or Light and, with nothing stored, asked the OS for the app theme through a package that
+/// is not part of this repository; reading the OS theme is not done yet, so `System` is the legacy default name
+/// `Dark` until it is (docs/FEATURES.md).
+fn legacy_theme_type(mode: ThemeMode) -> &'static str {
+    match mode {
+        ThemeMode::Light => "Light",
+        ThemeMode::Dark | ThemeMode::System => "Dark",
+    }
 }
 
 /// The web engine options the Engine section leads to: certificates are validated unless the user allowed invalid ones,
@@ -3614,6 +3647,8 @@ fn web_options(engine: &Engine, chosen: EngineId) -> WebOptions {
         hardware_acceleration: engine.hardware_acceleration,
         developer_mode: engine.developer_mode,
         developer_port: engine.developer_port,
+        shuffle: engine.wallpaper_shuffle,
+        theme_type: WebOptions::default().theme_type,
     }
 }
 
@@ -3634,6 +3669,26 @@ mod tests {
 
     use super::*;
     use crate::supervisor::ENGINE_MISSING;
+
+    #[test]
+    fn the_compatible_calls_get_the_shuffle_setting_and_the_legacy_theme_name() {
+        let mut engine = Engine::default();
+        assert!(
+            web_options(&engine, EngineId::Cef).shuffle,
+            "WallpaperShuffle defaults to on"
+        );
+
+        engine.wallpaper_shuffle = false;
+
+        assert!(!web_options(&engine, EngineId::Cef).shuffle);
+        assert_eq!(legacy_theme_type(ThemeMode::Light), "Light");
+        assert_eq!(legacy_theme_type(ThemeMode::Dark), "Dark");
+        assert_eq!(
+            legacy_theme_type(ThemeMode::System),
+            "Dark",
+            "the OS theme is not read yet, so System is the legacy default name"
+        );
+    }
 
     #[test]
     fn web_jobs_validate_certificates_unless_the_engine_section_allows_invalid_ones() {

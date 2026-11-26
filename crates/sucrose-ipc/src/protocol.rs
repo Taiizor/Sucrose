@@ -15,7 +15,7 @@ use sucrose_engine_web::args::Switch;
 use crate::portal::{Launch, PortalPage};
 
 /// Version of this protocol, sent in [`ToService::Hello`] so the service can refuse a renderer it cannot talk to.
-pub const PROTOCOL_VERSION: u16 = 7;
+pub const PROTOCOL_VERSION: u16 = 8;
 
 /// Messages from a renderer to the service.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
@@ -142,7 +142,7 @@ impl Default for PlaybackSettings {
 }
 
 /// How the web engines are configured for a renderer, taken from the Engine section (D-12).
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Default)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct WebOptions {
     /// Whether the web engine accepts invalid TLS certificates (`Engine.AllowInvalidCertificates`). Off by default: the
     /// engine validates certificates and rejects the rest.
@@ -157,6 +157,27 @@ pub struct WebOptions {
     pub developer_mode: bool,
     /// `Engine.DeveloperPort`: 0 for none; otherwise the renderer of slot N listens on this port plus N (Pitfall 11).
     pub developer_port: u16,
+    /// `Engine.WallpaperShuffle`: the value of the `ShuffleMode` compatible call (WAPI-02, PLAY-01).
+    pub shuffle: bool,
+    /// The legacy `ThemeType` name (`Dark` or `Light`) the `ThemeType` and `SystemTheme` compatible calls carry: the
+    /// migrated `Portal.ThemeMode`, with `System` resolved by the service (WAPI-02).
+    pub theme_type: String,
+}
+
+impl Default for WebOptions {
+    /// Validation on, no switches, no developer tools, and the legacy defaults of the compatible calls: shuffle on and
+    /// the `Dark` theme name.
+    fn default() -> Self {
+        Self {
+            allow_invalid_certificates: false,
+            arguments: Vec::new(),
+            hardware_acceleration: false,
+            developer_mode: false,
+            developer_port: 0,
+            shuffle: true,
+            theme_type: "Dark".to_owned(),
+        }
+    }
 }
 
 /// One wallpaper job for a renderer: a monitor and the file or page to show on it.
@@ -362,6 +383,8 @@ mod tests {
                 hardware_acceleration: true,
                 developer_mode: true,
                 developer_port: 9222,
+                shuffle: false,
+                theme_type: "Light".to_owned(),
             },
         });
 
@@ -391,6 +414,14 @@ mod tests {
         assert!(options.arguments.is_empty());
         assert!(!options.developer_mode);
         assert_eq!(options.developer_port, 0, "0 means no debugging port");
+    }
+
+    #[test]
+    fn web_options_carry_the_legacy_defaults_of_the_compatible_calls() {
+        let options = WebOptions::default();
+
+        assert!(options.shuffle, "WallpaperShuffle defaults to on");
+        assert_eq!(options.theme_type, "Dark");
     }
 
     #[test]

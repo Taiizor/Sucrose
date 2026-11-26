@@ -8,9 +8,11 @@ use std::{
 };
 
 use serde_json::json;
+use sucrose_core::{compatible::CompatibleKey, settings::Stretch};
 use sucrose_engine_web::js::{
-    FormatError, KIND_PROPERTY, csharp_format, filedropdown_files, indented_json, property_call, property_calls,
-    try_csharp_format,
+    CompatibleState, CompatibleValue, FormatError, KIND_COMPATIBLE, KIND_PAUSE, KIND_PROPERTY, LEGACY_RUN_ORDER,
+    compatible_call, compatible_calls, csharp_format, filedropdown_files, indented_json, non_data_calls, pause_call,
+    pause_script, property_call, property_calls, try_csharp_format,
 };
 
 /// A scratch theme folder under the temp folder, removed on drop.
@@ -354,4 +356,256 @@ fn every_renderer_of_a_theme_gets_its_own_complete_sequence() {
         "reading is repeatable: a reload or a second renderer sends every key again"
     );
     assert_eq!(first.len(), 10);
+}
+
+fn state() -> CompatibleState {
+    CompatibleState {
+        looping: true,
+        shuffle: false,
+        stretch: Stretch::UniformToFill,
+        theme_type: "Dark".to_owned(),
+        volume: 40,
+    }
+}
+
+#[test]
+fn compatible_call_writes_bools_as_csharp_does_and_enums_by_name() {
+    assert_eq!(
+        compatible_call("SucroseLoopMode('{0}');", &CompatibleValue::Bool(true)),
+        "SucroseLoopMode('True');"
+    );
+    assert_eq!(
+        compatible_call("SucroseLoopMode('{0}');", &CompatibleValue::Bool(false)),
+        "SucroseLoopMode('False');"
+    );
+    assert_eq!(
+        compatible_call(
+            "SucroseStretchMode('{0}');",
+            &CompatibleValue::Name("UniformToFill".to_owned())
+        ),
+        "SucroseStretchMode('UniformToFill');"
+    );
+    assert_eq!(
+        compatible_call("SucroseVolumeLevel({0});", &CompatibleValue::Int(40)),
+        "SucroseVolumeLevel(40);"
+    );
+    assert_eq!(
+        compatible_call(
+            "SucroseMemoryData({0});",
+            &CompatibleValue::Json(json!({"MemoryLoad": 41.5, "Name": "RAM"}))
+        ),
+        crlf("SucroseMemoryData({\n  \"MemoryLoad\": 41.5,\n  \"Name\": \"RAM\"\n});")
+    );
+    assert_eq!(
+        compatible_call("{0", &CompatibleValue::Int(1)),
+        "",
+        "a template that cannot be formatted runs nothing"
+    );
+}
+
+#[test]
+fn the_non_data_calls_come_out_in_the_legacy_run_order_whatever_the_file_order() {
+    let theme = Theme::new("order");
+    theme.file(
+        "SucroseCompatible.json",
+        r#"{
+  "VolumeLevel": "SucroseVolumeLevel({0});",
+  "SystemMemory": "SucroseMemoryData({0});",
+  "StretchMode": "SucroseStretchMode('{0}');",
+  "ShuffleMode": "SucroseShuffleMode('{0}');",
+  "SystemTheme": "SucroseSystemTheme('{0}');",
+  "ThemeType": "SucroseThemeType('{0}');",
+  "SystemDate": "SucroseDateData({0});",
+  "LoopMode": "SucroseLoopMode('{0}');"
+}"#,
+    );
+
+    let calls = compatible_calls(theme.path(), &state()).expect("valid");
+
+    assert!(calls.iter().all(|call| call.kind == KIND_COMPATIBLE));
+    assert_eq!(
+        calls.iter().map(|call| call.key.as_str()).collect::<Vec<_>>(),
+        [
+            "LoopMode",
+            "ThemeType",
+            "SystemTheme",
+            "ShuffleMode",
+            "StretchMode",
+            "VolumeLevel"
+        ],
+        "the data keys are left to the data pushes"
+    );
+    assert_eq!(
+        calls.iter().map(|call| call.script.as_str()).collect::<Vec<_>>(),
+        [
+            "SucroseLoopMode('True');",
+            "SucroseThemeType('Dark');",
+            "SucroseSystemTheme('Dark');",
+            "SucroseShuffleMode('False');",
+            "SucroseStretchMode('UniformToFill');",
+            "SucroseVolumeLevel(40);",
+        ]
+    );
+}
+
+#[test]
+fn the_legacy_run_order_lists_each_key_once_and_puts_system_theme_before_shuffle() {
+    let mut sorted: Vec<&str> = LEGACY_RUN_ORDER.iter().map(|key| key.name()).collect();
+    sorted.sort_unstable();
+    sorted.dedup();
+    let mut all: Vec<&str> = CompatibleKey::ALL.iter().map(|key| key.name()).collect();
+    all.sort_unstable();
+
+    assert_eq!(sorted, all, "the same sixteen keys as the table");
+    let position = |wanted: CompatibleKey| LEGACY_RUN_ORDER.iter().position(|key| *key == wanted).expect("listed");
+    assert!(position(CompatibleKey::SystemTheme) < position(CompatibleKey::ShuffleMode));
+    assert!(position(CompatibleKey::StretchMode) < position(CompatibleKey::VolumeLevel));
+}
+
+#[test]
+fn an_empty_or_unformattable_template_and_a_missing_file_give_no_call() {
+    let theme = Theme::new("empty-template");
+    theme.file(
+        "SucroseCompatible.json",
+        r#"{"LoopMode":"","ThemeType":null,"ShuffleMode":"{0","StretchMode":"S('{0}');"}"#,
+    );
+    let missing = Theme::new("no-compatible");
+
+    let calls = compatible_calls(theme.path(), &state()).expect("valid");
+
+    assert_eq!(
+        calls.iter().map(|call| call.key.as_str()).collect::<Vec<_>>(),
+        ["StretchMode"]
+    );
+    assert_eq!(compatible_calls(missing.path(), &state()).expect("not an error"), []);
+}
+
+#[test]
+fn an_unparsable_compatible_file_is_an_error_and_stays_untouched() {
+    let theme = Theme::new("broken-compatible");
+    theme.file("SucroseCompatible.json", "[1, 2");
+
+    assert!(compatible_calls(theme.path(), &state()).is_err());
+    assert_eq!(
+        fs::read_to_string(theme.path().join("SucroseCompatible.json")).expect("still there"),
+        "[1, 2"
+    );
+}
+
+#[test]
+fn the_state_gives_each_non_data_key_its_value_and_leaves_the_data_keys_alone() {
+    let mut state = state();
+    state.stretch = Stretch::Fill;
+    state.theme_type = "Light".to_owned();
+    state.looping = false;
+    state.shuffle = true;
+
+    assert_eq!(state.value(CompatibleKey::LoopMode), Some(CompatibleValue::Bool(false)));
+    assert_eq!(
+        state.value(CompatibleKey::ShuffleMode),
+        Some(CompatibleValue::Bool(true))
+    );
+    assert_eq!(
+        state.value(CompatibleKey::StretchMode),
+        Some(CompatibleValue::Name("Fill".to_owned()))
+    );
+    assert_eq!(
+        state.value(CompatibleKey::ThemeType),
+        Some(CompatibleValue::Name("Light".to_owned()))
+    );
+    assert_eq!(
+        state.value(CompatibleKey::SystemTheme),
+        Some(CompatibleValue::Name("Light".to_owned()))
+    );
+    assert_eq!(state.value(CompatibleKey::VolumeLevel), Some(CompatibleValue::Int(40)));
+    for key in [
+        CompatibleKey::SystemBios,
+        CompatibleKey::SystemDate,
+        CompatibleKey::SystemAudio,
+        CompatibleKey::SystemMemory,
+        CompatibleKey::SystemBattery,
+        CompatibleKey::SystemGraphic,
+        CompatibleKey::SystemNetwork,
+        CompatibleKey::SystemStorage,
+        CompatibleKey::SystemProcessor,
+        CompatibleKey::SystemMotherboard,
+    ] {
+        assert_eq!(state.value(key), None, "{}", key.name());
+    }
+}
+
+#[test]
+fn every_stretch_has_its_legacy_name_in_the_call() {
+    let template = [(CompatibleKey::StretchMode, "S('{0}');")];
+    let names: Vec<String> = Stretch::ALL
+        .iter()
+        .map(|stretch| {
+            let state = CompatibleState {
+                stretch: *stretch,
+                ..state()
+            };
+            non_data_calls(&template, &state).remove(0).script
+        })
+        .collect();
+
+    assert_eq!(
+        names,
+        ["S('None');", "S('Fill');", "S('Uniform');", "S('UniformToFill');"]
+    );
+}
+
+#[test]
+fn the_pause_script_pauses_playing_media_hides_the_page_and_calls_sucrose_pause() {
+    let script = pause_script(true);
+
+    assert!(script.contains(".pause()"), "playing media pause");
+    assert!(
+        script.contains("element.paused"),
+        "only media that plays is paused, and remembered"
+    );
+    assert!(
+        script.contains("visibilityState") && script.contains("\"hidden\""),
+        "the page is hidden"
+    );
+    assert!(script.contains("visibilitychange"), "the page is told");
+    assert!(
+        script.contains("typeof SucrosePause === \"function\""),
+        "SucrosePause only when the page defines it"
+    );
+    assert!(!script.contains("SucrosePlay"));
+}
+
+#[test]
+fn the_resume_script_restores_what_the_pause_changed_and_calls_sucrose_play() {
+    let script = pause_script(false);
+
+    assert!(script.contains(".play()"), "the remembered media play again");
+    assert!(script.contains("delete document.visibilityState") && script.contains("delete document.hidden"));
+    assert!(script.contains("visibilitychange"));
+    assert!(
+        script.contains("typeof SucrosePlay === \"function\""),
+        "SucrosePlay only when the page defines it"
+    );
+    assert!(!script.contains("SucrosePause"));
+    assert_ne!(pause_script(true), pause_script(false));
+}
+
+#[test]
+fn the_pause_call_is_logged_as_pause_or_resume_and_gives_the_page_no_host_object() {
+    let pause = pause_call(true);
+    let resume = pause_call(false);
+
+    assert_eq!((pause.kind, pause.key.as_str()), (KIND_PAUSE, "pause"));
+    assert_eq!((resume.kind, resume.key.as_str()), (KIND_PAUSE, "resume"));
+    for script in [pause.script, resume.script] {
+        for forbidden in [
+            "chrome.webview",
+            "postMessage",
+            "addHostObject",
+            "cefQuery",
+            "window.external",
+        ] {
+            assert!(!script.contains(forbidden), "{forbidden}");
+        }
+    }
 }

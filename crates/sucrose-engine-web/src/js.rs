@@ -11,7 +11,11 @@ use std::{
 };
 
 use serde_json::Value;
-use sucrose_core::properties::{Control, ControlKind, PROPERTIES_FILE, PropertiesError, read_properties};
+use sucrose_core::{
+    compatible::{COMPATIBLE_FILE, CompatibleError, CompatibleKey, read_compatible},
+    properties::{Control, ControlKind, PROPERTIES_FILE, PropertiesError, read_properties},
+    settings::Stretch,
+};
 
 /// Why a format string could not be applied: the cases where .NET throws a `FormatException`.
 #[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
@@ -103,8 +107,12 @@ pub fn property_call(listener: &str, key: &str, control: &Value) -> String {
     csharp_format(listener, &[key, &indented_json(control)])
 }
 
-/// What a page call is, for the log and the call report of the fixture pages.
+/// The kind of a property call (see [`PageCall::kind`]).
 pub const KIND_PROPERTY: &str = "property";
+/// The kind of a compatible call.
+pub const KIND_COMPATIBLE: &str = "compatible";
+/// The kind of the in-page pause and resume calls.
+pub const KIND_PAUSE: &str = "pause";
 
 /// One script to run in the main frame of a page, with what it is for (the log shows `kind` and `key`).
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -209,4 +217,193 @@ pub fn property_calls(theme_dir: &Path) -> Result<Vec<PageCall>, PropertiesError
             })
         })
         .collect())
+}
+
+/// The value a compatible template is formatted with, written as C# writes it into `string.Format`.
+#[derive(Debug, Clone, PartialEq)]
+pub enum CompatibleValue {
+    /// A C# bool: `True` or `False`, capitalised.
+    Bool(bool),
+    /// An enum, written by its legacy name (`UniformToFill`, `Dark`).
+    Name(String),
+    /// A whole number (`VolumeLevel`).
+    Int(i64),
+    /// A data payload, written as Newtonsoft's indented JSON (the system data of the data hub).
+    Json(Value),
+}
+
+impl CompatibleValue {
+    /// The text the template's `{0}` becomes.
+    #[must_use]
+    pub fn render(&self) -> String {
+        match self {
+            Self::Bool(true) => "True".to_owned(),
+            Self::Bool(false) => "False".to_owned(),
+            Self::Name(name) => name.clone(),
+            Self::Int(number) => number.to_string(),
+            Self::Json(value) => indented_json(value),
+        }
+    }
+}
+
+/// The script of one compatible call: the template with `{0}` replaced by the value; empty when the template cannot
+/// be formatted (the legacy engine skips such a call).
+#[must_use]
+pub fn compatible_call(template: &str, value: &CompatibleValue) -> String {
+    csharp_format(template, &[&value.render()])
+}
+
+/// The order the legacy engine runs the compatible templates in (`Helper/Compatible.cs` of the legacy engine). It is
+/// not the order of the table in docs/legacy/engines.md and of `CompatibleKey::ALL`: the code runs `SystemAudio`
+/// before `SystemTheme` and `SystemTheme` before `ShuffleMode`, `StretchMode` and `VolumeLevel`.
+pub const LEGACY_RUN_ORDER: [CompatibleKey; 16] = [
+    CompatibleKey::LoopMode,
+    CompatibleKey::ThemeType,
+    CompatibleKey::SystemBios,
+    CompatibleKey::SystemDate,
+    CompatibleKey::SystemAudio,
+    CompatibleKey::SystemTheme,
+    CompatibleKey::ShuffleMode,
+    CompatibleKey::StretchMode,
+    CompatibleKey::VolumeLevel,
+    CompatibleKey::SystemMemory,
+    CompatibleKey::SystemBattery,
+    CompatibleKey::SystemGraphic,
+    CompatibleKey::SystemNetwork,
+    CompatibleKey::SystemStorage,
+    CompatibleKey::SystemProcessor,
+    CompatibleKey::SystemMotherboard,
+];
+
+/// What the engine itself knows for the non-data compatible keys: the values behind `LoopMode`, `ThemeType`,
+/// `SystemTheme`, `ShuffleMode`, `StretchMode` and `VolumeLevel` (the sound rules of Round D adjust the volume later).
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct CompatibleState {
+    /// `Engine.WallpaperLoop`.
+    pub looping: bool,
+    /// `Engine.WallpaperShuffle`.
+    pub shuffle: bool,
+    /// `Engine.StretchType`, written by its legacy name.
+    pub stretch: Stretch,
+    /// The legacy `ThemeType` name (`Dark` or `Light`), the value of both `ThemeType` and `SystemTheme`.
+    pub theme_type: String,
+    /// The volume, 0..=100.
+    pub volume: u8,
+}
+
+impl CompatibleState {
+    /// The value of `key`; `None` for the system data keys, which the data hub fills.
+    #[must_use]
+    pub fn value(&self, key: CompatibleKey) -> Option<CompatibleValue> {
+        match key {
+            CompatibleKey::LoopMode => Some(CompatibleValue::Bool(self.looping)),
+            CompatibleKey::ShuffleMode => Some(CompatibleValue::Bool(self.shuffle)),
+            CompatibleKey::StretchMode => Some(CompatibleValue::Name(self.stretch.legacy_name().to_owned())),
+            CompatibleKey::ThemeType | CompatibleKey::SystemTheme => {
+                Some(CompatibleValue::Name(self.theme_type.clone()))
+            }
+            CompatibleKey::VolumeLevel => Some(CompatibleValue::Int(i64::from(self.volume))),
+            CompatibleKey::SystemBios
+            | CompatibleKey::SystemDate
+            | CompatibleKey::SystemAudio
+            | CompatibleKey::SystemMemory
+            | CompatibleKey::SystemBattery
+            | CompatibleKey::SystemGraphic
+            | CompatibleKey::SystemNetwork
+            | CompatibleKey::SystemStorage
+            | CompatibleKey::SystemProcessor
+            | CompatibleKey::SystemMotherboard => None,
+        }
+    }
+}
+
+/// The calls of the non-data templates in [`LEGACY_RUN_ORDER`], whatever the order of the file: `templates` are the
+/// non-empty templates of a theme (`SucroseCompatible::templates`), and a template that cannot be formatted is left
+/// out. The data keys are not here: they run with every data push.
+#[must_use]
+pub fn non_data_calls(templates: &[(CompatibleKey, &str)], state: &CompatibleState) -> Vec<PageCall> {
+    LEGACY_RUN_ORDER
+        .iter()
+        .filter_map(|key| {
+            let value = state.value(*key)?;
+            let (_, template) = templates.iter().find(|(candidate, _)| candidate == key)?;
+            let script = compatible_call(template, &value);
+            (!script.is_empty()).then(|| PageCall {
+                kind: KIND_COMPATIBLE,
+                key: key.name().to_owned(),
+                script,
+            })
+        })
+        .collect()
+}
+
+/// The non-data compatible calls of a theme for `state`. A theme without a `SucroseCompatible.json` has none.
+///
+/// # Errors
+/// The read error of a file that exists but cannot be used; the page then gets no compatible calls.
+pub fn compatible_calls(theme_dir: &Path, state: &CompatibleState) -> Result<Vec<PageCall>, CompatibleError> {
+    let compatible = match read_compatible(&theme_dir.join(COMPATIBLE_FILE)) {
+        Ok(compatible) => compatible,
+        Err(PropertiesError::Missing(_)) => return Ok(Vec::new()),
+        Err(error) => return Err(error),
+    };
+    Ok(non_data_calls(&compatible.templates(), state))
+}
+
+const PAUSE_SCRIPT: &str = r#"(function () {
+  try {
+    var state = window.__sucroseLight || (window.__sucroseLight = { media: [], hidden: false });
+    if (!state.hidden) {
+      state.media = [];
+      Array.prototype.forEach.call(document.querySelectorAll("video, audio"), function (element) {
+        if (!element.paused) {
+          state.media.push(element);
+          element.pause();
+        }
+      });
+      Object.defineProperty(document, "visibilityState", { configurable: true, get: function () { return "hidden"; } });
+      Object.defineProperty(document, "hidden", { configurable: true, get: function () { return true; } });
+      state.hidden = true;
+      document.dispatchEvent(new Event("visibilitychange"));
+    }
+    if (typeof SucrosePause === "function") { SucrosePause(); }
+  } catch (error) { }
+})();"#;
+
+const RESUME_SCRIPT: &str = r#"(function () {
+  try {
+    var state = window.__sucroseLight || (window.__sucroseLight = { media: [], hidden: false });
+    if (state.hidden) {
+      delete document.visibilityState;
+      delete document.hidden;
+      state.hidden = false;
+      document.dispatchEvent(new Event("visibilitychange"));
+      state.media.forEach(function (element) {
+        var started = element.play();
+        if (started && started.catch) { started.catch(function () { }); }
+      });
+      state.media = [];
+    }
+    if (typeof SucrosePlay === "function") { SucrosePlay(); }
+  } catch (error) { }
+})();"#;
+
+/// The script of the Light pause inside the page (PLAY-05, D-22): playing media elements are paused and remembered, the
+/// page is told it is hidden (`document.visibilityState` and a `visibilitychange` event) and `SucrosePause` runs when
+/// the page defines it. `false` undoes exactly that: the remembered media play again, the visibility is restored and
+/// `SucrosePlay` runs when defined. No process is suspended and the page gets no host object. Running either twice
+/// in a row is harmless.
+#[must_use]
+pub fn pause_script(paused: bool) -> &'static str {
+    if paused { PAUSE_SCRIPT } else { RESUME_SCRIPT }
+}
+
+/// The pause or resume of the page as a call to run.
+#[must_use]
+pub fn pause_call(paused: bool) -> PageCall {
+    PageCall {
+        kind: KIND_PAUSE,
+        key: if paused { "pause" } else { "resume" }.to_owned(),
+        script: pause_script(paused).to_owned(),
+    }
 }

@@ -1,0 +1,18 @@
+{
+  "LoopMode": "SucroseLoopMode('{0}');",
+  "ThemeType": "SucroseThemeType('{0}');",
+  "SystemBios": "SucroseBiosData({0});",
+  "SystemDate": "SucroseDateData({0});",
+  "ShuffleMode": "SucroseShuffleMode('{0}');",
+  "StretchMode": "SucroseStretchMode('{0}');",
+  "SystemAudio": "",
+  "SystemTheme": "SucroseSystemTheme('{0}');",
+  "VolumeLevel": "SucroseVolumeLevel({0});",
+  "SystemMemory": "SucroseMemoryData({0});",
+  "SystemBattery": "",
+  "SystemGraphic": "",
+  "SystemNetwork": "",
+  "SystemStorage": "",
+  "SystemProcessor": "SucroseProcessorData({0});",
+  "SystemMotherboard": "SucroseMotherboardData({0});"
+}
