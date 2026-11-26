@@ -433,7 +433,9 @@ fn judge_hello_reply(reply: Result<ToRenderer, IpcError>) -> anyhow::Result<Hell
             | ToRenderer::Clock(_)
             | ToRenderer::LoadSource { .. }
             | ToRenderer::OpenDevTools
-            | ToRenderer::Data(_),
+            | ToRenderer::Data(_)
+            | ToRenderer::SetLoop(_)
+            | ToRenderer::SetShuffle(_),
         ) => {
             tracing::warn!("ignoring a control message that arrived before the assignment");
             Ok(HelloReply::Skip)
@@ -525,6 +527,8 @@ fn wait_for_close(
                     return;
                 }
             }
+            // Stub: the GREEN step applies Loop Mode and Shuffle Mode.
+            Ok(ToRenderer::SetLoop(_) | ToRenderer::SetShuffle(_)) => {}
             // A second assignment is not part of this plan; later plans act on it.
             Ok(ToRenderer::Assign(_)) => tracing::warn!("ignoring an unexpected second assignment"),
             Err(IpcError::Closed) => {
@@ -884,6 +888,13 @@ mod tests {
             judge_hello_reply(Ok(ToRenderer::Pause(true))),
             Ok(HelloReply::Skip)
         ));
+    }
+
+    #[test]
+    fn a_loop_or_shuffle_change_before_the_assignment_waits_on_like_any_control_message() {
+        for message in [ToRenderer::SetLoop(false), ToRenderer::SetShuffle(true)] {
+            assert!(matches!(judge_hello_reply(Ok(message)), Ok(HelloReply::Skip)));
+        }
     }
 
     #[test]

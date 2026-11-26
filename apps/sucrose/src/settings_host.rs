@@ -12,7 +12,7 @@ use sucrose_config::{
     model::Settings,
     store::{LoadOutcome, Store},
 };
-use sucrose_core::settings::EngineType;
+use sucrose_core::settings::{EngineType, InputModuleType, InputType};
 use sucrose_ipc::portal::{MAX_PATH_TEXT, PortalSettings, SettingChange};
 
 use crate::portal_link::clip;
@@ -189,6 +189,13 @@ fn write(settings: &mut Settings, change: &SettingChange) {
         SettingChange::VideoEngine(value) => settings.engine.video = *value,
         SettingChange::YouTubeEngine(value) => settings.engine.youtube = *value,
         SettingChange::ApplicationEngine(value) => settings.engine.application = *value,
+        // Stub: the Wallpaper group is stored in the GREEN step.
+        SettingChange::WallpaperLoop(_)
+        | SettingChange::WallpaperShuffle(_)
+        | SettingChange::HardwareAcceleration(_)
+        | SettingChange::InputType(_)
+        | SettingChange::InputModuleType(_)
+        | SettingChange::InputDesktop(_) => {}
     }
 }
 
@@ -229,6 +236,12 @@ fn view_of(settings: &Settings) -> PortalSettings {
         video_engine: settings.engine.video,
         youtube_engine: settings.engine.youtube,
         application_engine: settings.engine.application,
+        wallpaper_loop: settings.engine.looping,
+        wallpaper_shuffle: settings.engine.wallpaper_shuffle,
+        hardware_acceleration: settings.engine.hardware_acceleration,
+        input_type: settings.engine.input_type,
+        input_module_type: settings.engine.input_module_type,
+        input_desktop: settings.engine.input_desktop,
     }
 }
 
@@ -340,6 +353,69 @@ mod tests {
         let file = fs::read(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).expect("the settings file exists");
         let json: serde_json::Value = serde_json::from_slice(&file).expect("the file is JSON");
         assert_eq!(json["Engine"]["Web"], "WebViewLive");
+    }
+
+    #[test]
+    fn validate_accepts_every_change_of_the_wallpaper_group() {
+        for change in [
+            SettingChange::WallpaperLoop(false),
+            SettingChange::WallpaperShuffle(false),
+            SettingChange::HardwareAcceleration(false),
+            SettingChange::InputType(InputType::Close),
+            SettingChange::InputType(InputType::OnlyMouse),
+            SettingChange::InputType(InputType::OnlyKeyboard),
+            SettingChange::InputType(InputType::MouseKeyboard),
+            SettingChange::InputModuleType(InputModuleType::RawInput),
+            SettingChange::InputDesktop(true),
+        ] {
+            assert_eq!(validate(change.clone()), Ok(change));
+        }
+    }
+
+    #[test]
+    fn a_wallpaper_group_change_is_written_to_the_engine_section_and_shown() {
+        let scratch = Scratch::new("wallpaper-group");
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+        let defaults = host.view();
+        assert!(defaults.wallpaper_loop && defaults.wallpaper_shuffle && defaults.hardware_acceleration);
+        assert_eq!(defaults.input_type, InputType::MouseKeyboard);
+        assert!(!defaults.input_desktop);
+
+        for change in [
+            SettingChange::WallpaperLoop(false),
+            SettingChange::WallpaperShuffle(false),
+            SettingChange::HardwareAcceleration(false),
+            SettingChange::InputType(InputType::OnlyKeyboard),
+            SettingChange::InputModuleType(InputModuleType::RawInput),
+            SettingChange::InputDesktop(true),
+        ] {
+            assert_eq!(host.apply(change.clone()), Ok(change));
+        }
+
+        let view = host.view();
+        assert!(!view.wallpaper_loop && !view.wallpaper_shuffle && !view.hardware_acceleration);
+        assert_eq!(view.input_type, InputType::OnlyKeyboard);
+        assert_eq!(view.input_module_type, InputModuleType::RawInput);
+        assert!(view.input_desktop);
+        let file = fs::read(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).expect("the settings file exists");
+        let json: serde_json::Value = serde_json::from_slice(&file).expect("the file is JSON");
+        assert_eq!(json["Engine"]["WallpaperLoop"], false);
+        assert_eq!(json["Engine"]["WallpaperShuffle"], false);
+        assert_eq!(json["Engine"]["HardwareAcceleration"], false);
+        assert_eq!(json["Engine"]["InputType"], "OnlyKeyboard");
+        assert_eq!(json["Engine"]["InputModuleType"], "RawInput");
+        assert_eq!(json["Engine"]["InputDesktop"], true);
+    }
+
+    #[test]
+    fn a_host_that_cannot_save_refuses_a_wallpaper_group_change_and_keeps_the_value() {
+        let mut host = SettingsHost::unsaved(Settings::default());
+        let before = host.view();
+
+        let answer = host.apply(SettingChange::WallpaperLoop(false));
+
+        assert_eq!(answer, Err(NOT_SAVED.to_owned()));
+        assert_eq!(host.view(), before);
     }
 
     #[test]

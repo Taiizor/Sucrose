@@ -80,6 +80,18 @@ impl TestService {
         Self::spawn_on(dir)
     }
 
+    /// Starts the service on `<target tmp>/portal/<name>` with no settings file at all, so it migrates the legacy
+    /// settings of this machine (read only) and plays the Video theme they select. It plays a real wallpaper on the
+    /// desktop: only an ignored test that says so may use it.
+    pub fn start_migrated(name: &str) -> Self {
+        let dir = PathBuf::from(env!("CARGO_TARGET_TMPDIR")).join("portal").join(name);
+        if dir.exists() {
+            fs::remove_dir_all(&dir).expect("the scratch folder of an earlier run can be removed");
+        }
+        fs::create_dir_all(&dir).expect("the scratch folder can be created");
+        Self::spawn_on(dir)
+    }
+
     /// Stops this service and starts a new one on the same data folder, as a restart of Sucrose would.
     pub fn restart(self) -> Self {
         let dir = self.dir.clone();

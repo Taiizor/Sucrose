@@ -10,12 +10,12 @@
 
 use serde::{Deserialize, Serialize};
 use sucrose_core::{
-    settings::{Backdrop, EngineType, SortKind, SortMode, Stretch, ThemeMode},
+    settings::{Backdrop, EngineType, InputModuleType, InputType, SortKind, SortMode, Stretch, ThemeMode},
     theme::WallpaperType,
 };
 
 /// Version of the Portal protocol, sent in `PortalHello` so the service can refuse a Portal it cannot talk to.
-pub const PORTAL_PROTOCOL_VERSION: u16 = 2;
+pub const PORTAL_PROTOCOL_VERSION: u16 = 3;
 
 /// The longest path text, in bytes, the service accepts from a Portal and puts into a message it sends. It keeps the
 /// largest possible [`PortalEvent::Welcome`] far below [`crate::frame::MAX_FRAME`].
@@ -292,6 +292,18 @@ pub enum SettingChange {
     YouTubeEngine(EngineType),
     /// The engine that plays Application wallpapers.
     ApplicationEngine(EngineType),
+    /// Whether wallpapers loop; running wallpapers follow at once (PLAY-01).
+    WallpaperLoop(bool),
+    /// Whether the `ShuffleMode` call of web wallpapers says shuffle; running pages follow at once (PLAY-01).
+    WallpaperShuffle(bool),
+    /// Whether the engines may use the GPU; applies the next time a wallpaper starts.
+    HardwareAcceleration(bool),
+    /// Which input is forwarded to web wallpapers; applies the next time a wallpaper starts.
+    InputType(InputType),
+    /// How input is read; applies the next time a wallpaper starts.
+    InputModuleType(InputModuleType),
+    /// Whether input is processed only while the desktop is focused; applies the next time a wallpaper starts.
+    InputDesktop(bool),
 }
 
 /// The settings the Portal shows: a view of the service's settings, never the file (D-11).
@@ -347,6 +359,18 @@ pub struct PortalSettings {
     pub youtube_engine: EngineType,
     /// The engine that plays Application wallpapers.
     pub application_engine: EngineType,
+    /// Whether wallpapers loop.
+    pub wallpaper_loop: bool,
+    /// Whether the `ShuffleMode` call of web wallpapers says shuffle.
+    pub wallpaper_shuffle: bool,
+    /// Whether the engines may use the GPU.
+    pub hardware_acceleration: bool,
+    /// Which input is forwarded to web wallpapers.
+    pub input_type: InputType,
+    /// How input is read.
+    pub input_module_type: InputModuleType,
+    /// Whether input is processed only while the desktop is focused.
+    pub input_desktop: bool,
 }
 
 impl PortalSettings {
@@ -376,6 +400,12 @@ impl PortalSettings {
             SettingChange::VideoEngine(value) => self.video_engine = *value,
             SettingChange::YouTubeEngine(value) => self.youtube_engine = *value,
             SettingChange::ApplicationEngine(value) => self.application_engine = *value,
+            SettingChange::WallpaperLoop(value) => self.wallpaper_loop = *value,
+            SettingChange::WallpaperShuffle(value) => self.wallpaper_shuffle = *value,
+            SettingChange::HardwareAcceleration(value) => self.hardware_acceleration = *value,
+            SettingChange::InputType(value) => self.input_type = *value,
+            SettingChange::InputModuleType(value) => self.input_module_type = *value,
+            SettingChange::InputDesktop(value) => self.input_desktop = *value,
         }
     }
 }
@@ -574,6 +604,12 @@ mod tests {
             video_engine: EngineType::MpvPlayerLive,
             youtube_engine: EngineType::CefSharpLive,
             application_engine: EngineType::AuroraLive,
+            wallpaper_loop: true,
+            wallpaper_shuffle: true,
+            hardware_acceleration: true,
+            input_type: InputType::MouseKeyboard,
+            input_module_type: InputModuleType::RawInput,
+            input_desktop: false,
         }
     }
 
@@ -608,8 +644,8 @@ mod tests {
     }
 
     #[test]
-    fn the_portal_protocol_is_at_version_two_since_the_settings_view_gained_the_engines() {
-        assert_eq!(PORTAL_PROTOCOL_VERSION, 2);
+    fn the_portal_protocol_is_at_version_three_since_the_settings_view_gained_the_wallpaper_group() {
+        assert_eq!(PORTAL_PROTOCOL_VERSION, 3);
     }
 
     #[test]
@@ -753,6 +789,12 @@ mod tests {
             SettingChange::VideoEngine(EngineType::default()),
             SettingChange::YouTubeEngine(EngineType::default()),
             SettingChange::ApplicationEngine(EngineType::default()),
+            SettingChange::WallpaperLoop(false),
+            SettingChange::WallpaperShuffle(false),
+            SettingChange::HardwareAcceleration(false),
+            SettingChange::InputType(InputType::default()),
+            SettingChange::InputModuleType(InputModuleType::default()),
+            SettingChange::InputDesktop(false),
         ];
         for (expected, change) in changes.iter().enumerate() {
             assert_eq!(usize::from(index(change)), expected, "{change:?}");
@@ -862,7 +904,7 @@ mod tests {
     #[test]
     fn apply_sets_exactly_the_field_a_change_names() {
         let base = view();
-        let cases: [(SettingChange, PortalSettings); 12] = [
+        let cases: [(SettingChange, PortalSettings); 17] = [
             (
                 SettingChange::GifEngine(EngineType::VlcPlayerLive),
                 PortalSettings {
@@ -944,6 +986,41 @@ mod tests {
                 SettingChange::AdaptiveMargin(25),
                 PortalSettings {
                     adaptive_margin: 25,
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::WallpaperLoop(false),
+                PortalSettings {
+                    wallpaper_loop: false,
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::WallpaperShuffle(false),
+                PortalSettings {
+                    wallpaper_shuffle: false,
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::HardwareAcceleration(false),
+                PortalSettings {
+                    hardware_acceleration: false,
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::InputType(InputType::OnlyMouse),
+                PortalSettings {
+                    input_type: InputType::OnlyMouse,
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::InputDesktop(true),
+                PortalSettings {
+                    input_desktop: true,
                     ..view()
                 },
             ),

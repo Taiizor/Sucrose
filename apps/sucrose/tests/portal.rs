@@ -581,6 +581,64 @@ fn use_plays_a_web_theme() {
     assert!(started.contains("Cef"), "the engine that started is CEF: {started}");
 }
 
+/// Turning Loop Mode off in the Portal reaches the playing wallpaper (PLAY-01): the switch's change is saved, comes back
+/// as Changed, and the renderer logs `loop changed` with `looping=false`. The scratch folder has no settings file, so the
+/// service migrates the maintainer's legacy settings read-only and plays the Video theme they select; that opens a real
+/// wallpaper on the desktop, so the test only runs when asked for (`--include-ignored`) and the service is stopped
+/// when it ends.
+#[test]
+#[ignore = "plays the maintainer's selected Video theme on the desktop from a scratch data folder; plan 14 runs it"]
+fn a_loop_change_reaches_the_running_renderer() {
+    if !service_runs("a_loop_change_reaches_the_running_renderer") {
+        return;
+    }
+    let service = TestService::start_migrated("loop-live");
+    let (mut portal, first) = PortalClient::hello(&service, None);
+    assert!(matches!(first, PortalEvent::Welcome { .. }), "{first:?}");
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+    loop {
+        let logs = renderer_logs(&service);
+        if logs.contains("engine started") {
+            break;
+        }
+        assert!(
+            std::time::Instant::now() < deadline,
+            "no renderer started: the legacy settings of this machine select no playable Video theme? {logs}"
+        );
+        std::thread::sleep(std::time::Duration::from_millis(250));
+    }
+
+    portal.request(&PortalRequest::Change(SettingChange::WallpaperLoop(false)));
+
+    let mut answered = false;
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(10);
+    while std::time::Instant::now() < deadline && !answered {
+        match portal.next_event() {
+            Some(PortalEvent::Changed(SettingChange::WallpaperLoop(false))) => answered = true,
+            Some(PortalEvent::Rejected { change, reason }) => panic!("{change:?} was rejected: {reason}"),
+            Some(_) => {}
+            None => break,
+        }
+    }
+    assert!(answered, "the change came back as Changed");
+    assert_eq!(service.settings_file()["Engine"]["WallpaperLoop"], false);
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(10);
+    loop {
+        let logs = renderer_logs(&service);
+        if logs
+            .lines()
+            .any(|line| line.contains("loop changed") && line.contains("looping=false"))
+        {
+            break;
+        }
+        assert!(
+            std::time::Instant::now() < deadline,
+            "the renderer never logged the loop change: {logs}"
+        );
+        std::thread::sleep(std::time::Duration::from_millis(100));
+    }
+}
+
 #[test]
 fn an_engine_choice_is_saved_and_broadcast_and_one_outside_the_list_of_the_type_is_rejected() {
     if !service_runs("an_engine_choice_is_saved_and_broadcast_and_one_outside_the_list_of_the_type_is_rejected") {

@@ -3503,6 +3503,12 @@ impl Fleet {
         self.job = Some(job);
     }
 
+    /// Applies a live setting `message` (loop or shuffle) to what plays: the job and the shared assignments, so a renderer
+    /// started or restarted later gets it too, and every connected renderer. Returns the slots that were told. Stub.
+    fn apply_live(&mut self, _message: &ToRenderer, _renderers: &SharedRenderers) -> Vec<u8> {
+        Vec::new()
+    }
+
     /// Switches the running renderers to `job` without restarting them (D-26): the assignments are updated first,
     /// then every connected renderer is sent LoadSource. A renderer that has not connected yet reads the new
     /// assignment at its Hello. Returns the slots that were told.
@@ -3714,6 +3720,12 @@ fn engine_change_kind(change: &SettingChange) -> Option<WallpaperType> {
     }
 }
 
+/// The message a saved setting sends to the running renderers at once, `None` for a setting that is read when the next
+/// wallpaper starts (PLAY-01). Stub: the GREEN step maps Loop Mode and Shuffle Mode.
+fn live_message(_change: &SettingChange) -> Option<ToRenderer> {
+    None
+}
+
 /// Whether a changed engine of type `changed` restarts the wallpaper that plays now (of type `running`, if any): only a
 /// wallpaper of the changed type does (T-04-32).
 fn engine_restart_wanted(running: Option<WallpaperType>, changed: WallpaperType) -> bool {
@@ -3869,7 +3881,10 @@ fn playback_settings(engine: &Engine, pause: PauseKind) -> PlaybackSettings {
 
 #[cfg(test)]
 mod tests {
-    use sucrose_core::theme::ThemeRejection;
+    use sucrose_core::{
+        settings::{InputModuleType, InputType},
+        theme::ThemeRejection,
+    };
 
     use super::*;
     use crate::supervisor::ENGINE_MISSING;
@@ -5858,6 +5873,92 @@ mod tests {
             fleet.job.as_ref().map(|job| job.source.as_str()),
             Some("C:/themes/new/video.mp4")
         );
+    }
+
+    #[test]
+    fn live_message_maps_loop_and_shuffle_and_nothing_else() {
+        assert_eq!(
+            live_message(&SettingChange::WallpaperLoop(false)),
+            Some(ToRenderer::SetLoop(false))
+        );
+        assert_eq!(
+            live_message(&SettingChange::WallpaperShuffle(true)),
+            Some(ToRenderer::SetShuffle(true))
+        );
+        for change in [
+            SettingChange::HardwareAcceleration(false),
+            SettingChange::InputType(InputType::Close),
+            SettingChange::InputModuleType(InputModuleType::RawInput),
+            SettingChange::InputDesktop(true),
+            SettingChange::LibraryPagination(5),
+            SettingChange::VideoEngine(EngineType::MpvPlayerLive),
+        ] {
+            assert_eq!(live_message(&change), None, "{change:?}");
+        }
+    }
+
+    #[test]
+    fn a_loop_change_reaches_every_connected_renderer_and_the_assignments_without_a_restart() {
+        let monitors = [
+            monitor_at("D1", true, [0, 0, 100, 100]),
+            monitor_at("D2", false, [100, 0, 200, 100]),
+        ];
+        let (mut fleet, renderers, logs) = recording_fleet(&monitors);
+        for slot in fleet.slots.active_slots() {
+            fleet.budgets.insert(slot, RestartBudget::default());
+        }
+
+        let told = fleet.apply_live(&ToRenderer::SetLoop(false), &renderers);
+
+        assert_eq!(told, fleet.slots.active_slots());
+        for slot in fleet.slots.active_slots() {
+            assert_eq!(
+                sent_to(&renderers, &logs, slot),
+                vec![ToRenderer::SetLoop(false)],
+                "slot {slot}"
+            );
+            assert!(
+                !lock_assignments(&fleet.assignments)[&slot].settings.looping,
+                "a renderer that restarts later keeps the new value, slot {slot}"
+            );
+        }
+        assert!(!fleet.job.as_ref().expect("a job").settings.looping);
+        assert_eq!(
+            fleet.budgets.len(),
+            fleet.slots.active_slots().len(),
+            "a live setting is no Use: the restart budgets stay"
+        );
+    }
+
+    #[test]
+    fn a_shuffle_change_reaches_the_renderers_and_the_web_options_of_the_job() {
+        let monitors = [monitor_at("D1", true, [0, 0, 100, 100])];
+        let (mut fleet, renderers, logs) = recording_fleet(&monitors);
+        let slot = fleet.slots.slot_of("D1").expect("a slot");
+        assert!(
+            fleet.job.as_ref().expect("a job").web.shuffle,
+            "shuffle is on by default"
+        );
+
+        let told = fleet.apply_live(&ToRenderer::SetShuffle(false), &renderers);
+
+        assert_eq!(told, vec![slot]);
+        assert_eq!(sent_to(&renderers, &logs, slot), vec![ToRenderer::SetShuffle(false)]);
+        assert!(!lock_assignments(&fleet.assignments)[&slot].web.shuffle);
+        assert!(!fleet.job.as_ref().expect("a job").web.shuffle);
+    }
+
+    #[test]
+    fn a_live_setting_with_no_connected_renderer_still_updates_the_assignments() {
+        let monitors = [monitor_at("D1", true, [0, 0, 100, 100])];
+        let (mut fleet, renderers, _logs) = recording_fleet(&monitors);
+        let slot = fleet.slots.slot_of("D1").expect("a slot");
+        lock(&renderers).connections.remove(&slot);
+
+        let told = fleet.apply_live(&ToRenderer::SetLoop(false), &renderers);
+
+        assert!(told.is_empty(), "nobody is connected to be told");
+        assert!(!lock_assignments(&fleet.assignments)[&slot].settings.looping);
     }
 
     #[test]

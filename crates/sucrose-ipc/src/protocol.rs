@@ -95,6 +95,11 @@ pub enum ToRenderer {
     /// About ten a second while the renderer's page needs data; a renderer that is behind misses a snapshot and gets
     /// the next one.
     Data(Vec<(DataGroup, String)>),
+    /// Loop (`true`) or stop at the end (`false`): the Portal's Loop Mode switch, applied to the playing wallpaper
+    /// without restarting it (PLAY-01).
+    SetLoop(bool),
+    /// The value of the `ShuffleMode` compatible call of a web page: the Portal's Shuffle Mode switch (PLAY-01).
+    SetShuffle(bool),
 }
 
 /// What a renderer does when several monitors show the same wallpaper (D-02).
@@ -428,6 +433,22 @@ mod tests {
         let bytes = postcard::to_stdvec(&data).expect("encode");
         assert_eq!(bytes[0], 9);
         assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), data);
+    }
+
+    #[test]
+    fn set_loop_and_set_shuffle_keep_their_wire_index_and_survive_the_wire() {
+        for (message, index) in [
+            (ToRenderer::SetLoop(false), 10),
+            (ToRenderer::SetLoop(true), 10),
+            (ToRenderer::SetShuffle(false), 11),
+            (ToRenderer::SetShuffle(true), 11),
+        ] {
+            let bytes = postcard::to_stdvec(&message).expect("encode");
+
+            // Appended after Close (0) .. OpenDevTools (8) and Data (9).
+            assert_eq!(bytes[0], index, "{message:?}");
+            assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
+        }
     }
 
     #[test]
