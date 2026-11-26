@@ -391,13 +391,18 @@ mod imp {
         }
     }
 
-    /// Logs what is sent for a served request (this adapter's own line: the planner's debug line belongs to another log
-    /// target): the status and, for a range, the `Content-Range` of the bytes actually sent.
+    /// Logs what is sent for a request (this adapter's own lines: the planner logs under another target, so a run that
+    /// enables only this engine's target still sees every request the handler got): a served file with its status and,
+    /// for a range, the `Content-Range` of the bytes actually sent, a refusal at debug.
     fn log_served(uri: &str, reply: &serve::Reply) {
+        let path: String = origin::url_path(uri).unwrap_or_default().chars().take(200).collect();
+        if reply.status == 404 {
+            tracing::debug!(%path, status = 404, "origin request rejected");
+            return;
+        }
         if !(200..300).contains(&reply.status) {
             return;
         }
-        let path: String = origin::url_path(uri).unwrap_or_default().chars().take(200).collect();
         match reply.headers.iter().find(|(name, _)| *name == "Content-Range") {
             Some((_, content_range)) => {
                 tracing::debug!(%path, status = reply.status, content_range = %content_range, "origin request served");
