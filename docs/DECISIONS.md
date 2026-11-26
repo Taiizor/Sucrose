@@ -193,6 +193,16 @@ When you make or change a decision, add an entry here in the same change.
 
 ---
 
+## D-036: CEF is built against the pinned dist and delay-loaded
+- Status: Accepted (2026-11-26), the maintainer's answer to research open question 1 (04-CONTEXT D-32)
+- Decision: the `cef` crate stays (D-013) and is built against the pinned CEF dist: `.cargo/config.toml` sets `CEF_PATH` to `target/engines/cef`, which is filled only by `cargo xtask fetch-engines --engine cef` from the SHA256 pins in `xtask/engines.toml`, so D-028 stays true and no build downloads CEF. `libcef.dll` is a delay-loaded import of `sucrose.exe`: the service and the mpv renderers never call CEF, so they never map it. CEF subprocesses are this same executable, routed by their `--type=` switch before any Sucrose code runs (`run_if_subprocess`); no `sucrose-cef.exe` exists, because the fallback of D-32 was not needed. A renderer that shows a Web theme hosts CEF on its surface thread: a windowed browser that is a child of the desktop surface, pumped through CEF's external message pump (`OnScheduleMessagePumpWork` wakes the loop, `do_message_loop_work` runs on that wake and on a timer of at most 33 ms), no sandbox (the legacy default, T-04-06) and an in-memory profile until the profile rule of plan 04-07. Build machines need MSVC, CMake and Ninja.
+- Why: CEF is about 430 MB unpacked and its DLL must not weigh on the service, which is always on (D-008). Delay-loading keeps it out of every process that does not show a web page, with one executable and one package, and the first CEF call happens only in a renderer for a Web theme or in a CEF subprocess.
+- Evidence: `tasklist /m libcef.dll` of plan 04-01 (service and mpv renderer map none) and of plan 04-02 Task 1 on a Web theme (fixture `hello`): the service (pid 33212) maps no `libcef.dll`; the `sucrose.exe` processes of the renderer and its CEF subprocesses (six in the first run) do. The renderer logs `engine started engine="Cef"` and `page loaded` with status 200 for the theme's page.
+- x86: not built. The Windows x86 archive is pinned and its hashes verified, but the `i686-pc-windows-msvc` Rust target was not installed (04-01, assumption A3), so `cef` is compiled only for x86_64 and aarch64 and CEF is reported unsupported on Windows x86 (D-027, D-002). ARM64 is pinned and verified but only builds in CI.
+- Consequences: the unpacked dist is 426 MB for x64 (`du -sh target/engines/cef/156.0.31/cef_windows_x86_64`; the downloaded archives are 168 MB x64, 163 MB ARM64 and 147 MB x86). A missing or unloadable `libcef.dll` is probed before the first CEF call and reported as `ENGINE_MISSING` with a repair hint (a delay-load failure would raise an exception instead). Pages are loaded from their `file://` path until the virtual origin (D-14) replaces it in plan 04-06. On the maintainer's machine the first page load showed the GPU process of CEF exiting three times with code 0x80000003 right after the page loaded, after which Chromium composited in software and the page rendered; the cause is not known yet (the virtual display adapter or the layered desktop surface are candidates) and is looked at again at the plan 04-20 checkpoint.
+
+---
+
 ## Open questions
 
 - Store and update protocol: see D-022.
