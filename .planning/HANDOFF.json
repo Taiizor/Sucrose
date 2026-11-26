@@ -1,0 +1,189 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-11-26T07:00:01.348Z",
+  "phase": "04",
+  "phase_name": "M3 — Engines and the wallpaper API",
+  "phase_dir": ".planning/phases/04-m3-engines-and-the-wallpaper-api",
+  "plan": 15,
+  "task": 1,
+  "total_tasks": 2,
+  "status": "paused",
+  "completed_tasks": [
+    {
+      "id": "04-01",
+      "name": "Plan 04-01",
+      "status": "done",
+      "commit": "d9620024"
+    },
+    {
+      "id": "04-02",
+      "name": "Plan 04-02",
+      "status": "done",
+      "commit": "fa463748"
+    },
+    {
+      "id": "04-03",
+      "name": "Plan 04-03",
+      "status": "done",
+      "commit": "5b742f22"
+    },
+    {
+      "id": "04-04",
+      "name": "Plan 04-04",
+      "status": "done",
+      "commit": "451877d7"
+    },
+    {
+      "id": "04-05",
+      "name": "Plan 04-05",
+      "status": "done",
+      "commit": "780f7446"
+    },
+    {
+      "id": "04-06",
+      "name": "Plan 04-06",
+      "status": "done",
+      "commit": "8f0a6433"
+    },
+    {
+      "id": "04-07",
+      "name": "Plan 04-07",
+      "status": "done",
+      "commit": "fa581ee8"
+    },
+    {
+      "id": "04-08",
+      "name": "Plan 04-08",
+      "status": "done",
+      "commit": "64dca7e5"
+    },
+    {
+      "id": "04-09",
+      "name": "Plan 04-09",
+      "status": "done",
+      "commit": "40940eac"
+    },
+    {
+      "id": "04-10",
+      "name": "Plan 04-10",
+      "status": "done",
+      "commit": "71d79351"
+    },
+    {
+      "id": "04-11",
+      "name": "Plan 04-11",
+      "status": "done",
+      "commit": "4c888541"
+    },
+    {
+      "id": "04-12",
+      "name": "Plan 04-12",
+      "status": "done",
+      "commit": "4d21886c"
+    },
+    {
+      "id": "04-13",
+      "name": "Plan 04-13",
+      "status": "done",
+      "commit": "034182fd"
+    },
+    {
+      "id": "04-14",
+      "name": "Plan 04-14",
+      "status": "done",
+      "commit": "7d0f9081"
+    }
+  ],
+  "remaining_tasks": [
+    {
+      "id": "04-15",
+      "name": "Plan 04-15",
+      "status": "not_started"
+    },
+    {
+      "id": "04-16",
+      "name": "Plan 04-16",
+      "status": "not_started"
+    },
+    {
+      "id": "04-17",
+      "name": "Plan 04-17",
+      "status": "not_started"
+    },
+    {
+      "id": "04-18",
+      "name": "Plan 04-18",
+      "status": "not_started"
+    },
+    {
+      "id": "04-19",
+      "name": "Plan 04-19",
+      "status": "not_started"
+    },
+    {
+      "id": "04-20",
+      "name": "Plan 04-20",
+      "status": "not_started"
+    },
+    {
+      "id": "04-21",
+      "name": "Plan 04-21",
+      "status": "not_started"
+    }
+  ],
+  "blockers": [
+    {
+      "description": "CEF's GPU process exited three times (0x80000003) right after page load on the maintainer's machine (04-02); Chromium fell back to software compositing and kept rendering. Cause unknown (virtual display adapter or layered Progman surface). Recorded in D-036 and as a STATE blocker for the 04-20 checkpoint.",
+      "type": "technical",
+      "workaround": "Software compositing keeps the page rendering; investigate at 04-20."
+    },
+    {
+      "description": "Flaky tests seen by executors under build load: two timing tests in apps/sucrose/tests/portal.rs (04-05), sucrose-platform os_windows::memory::tests::memory_detail_counts_live_heap_blocks (04-13), and an os error 5 in the cef-dll-sys build script (04-14). Each passed on rerun; the orchestrator's cargo build/test gates passed after every plan through 04-13.",
+      "type": "technical",
+      "workaround": "Rerun before treating as a failure; consider a /gsd-debug pass on the memory test."
+    }
+  ],
+  "async_jobs": [],
+  "human_actions_pending": [
+    {
+      "action": "04-20 checkpoint: maintainer run of a release build with the 8 Web themes and the fixture themes (closes TYPE-03, ENG-07, WAPI-04 and other Round A partials).",
+      "context": "Plan 04-20 is autonomous: false. Prepare first and start any clock only after the maintainer replies \"start\" (memory: gsd-timed-checkpoint-ready-gate, gsd-checkpoint-app-lifetime).",
+      "blocking": true
+    },
+    {
+      "action": "04-21 checkpoint: measure one Web theme on the Rust CEF engine against the C# CefSharp engine with cargo xtask measure.",
+      "context": "Plan 04-21 is autonomous: false; take T0 when the sampler prints `sampling ...`.",
+      "blocking": true
+    },
+    {
+      "action": "Human-judgment items left by executors for 04-20 or the verifier: DevTools window opening (04-08), Portal reverting a rejected engine select (04-13), bad-certificate page with the switch off/on and Ephemeral profile on a second monitor (04-07), Light pause behind a fullscreen app (04-09), the calls fixture page tables (04-11), the tray tooltip (04-12), a foreign https request answered by CEF networking (04-06).",
+      "context": "Listed in each plan SUMMARY as human_judgment or not proven live.",
+      "blocking": false
+    }
+  ],
+  "decisions": [
+    {
+      "decision": "Executors run sequentially on the main working tree (ISOLATION=none).",
+      "rationale": "worktree.base-check degraded: HEAD is ahead of origin/HEAD (develop-rust unpushed); parallelization is off in config anyway.",
+      "phase": "04"
+    },
+    {
+      "decision": "Every executor prompt from 04-13 on carries an orchestrator note on line endings (record git ls-files --eol before editing, restore CRLF before commit on files that were w/crlf).",
+      "rationale": "04-12 left CRLF files as LF after cargo fmt through the Windows wrapper.",
+      "phase": "04"
+    },
+    {
+      "decision": "Restored CRLF on apps/sucrose/src/main.rs and apps/sucrose/src/service.rs after 04-12; other 04-12 files left as they are.",
+      "rationale": "Only those two had evidence of a CRLF pre-state (stat-only M entries with w/crlf before 04-12); guessing the rest from neighbours is unsafe.",
+      "phase": "04"
+    },
+    {
+      "decision": "Took the two maintainer commits to .cargo/config.toml (221396c1, 3ee00410: rust-lld linker, dependency dev profile line-tables-only + opt-level 1) as deliberate.",
+      "rationale": "Made by the maintainer during 04-14; not reverted.",
+      "phase": "04"
+    }
+  ],
+  "uncommitted_files": [],
+  "next_action": "Run /gsd-execute-phase 04. It skips 04-01..04-14 (SUMMARYs present) and dispatches 04-15. Before dispatching, run the post-plan gates that were not run for 04-14 (cargo build, cargo test, and the execute:wave:post gates), and add the line-ending orchestrator note to every executor prompt.",
+  "context_notes": "Round A of Phase 4 (D-31 slice 1, plans 04-01..04-21). 14/21 plans are done, each committed with a SUMMARY; the tracking in STATE.md/ROADMAP.md was written by the sequential executors. The orchestrator built each executor prompt in the REPL (execute-plan.md, summary template, checkpoints.md, tdd.md when applicable, worktree-path-safety.md and executor-examples.md inlined; a project_root_pin bound to the repo root), recorded a plan-scoped dispatch-isolation none, and after each plan ran: spot-check, cargo build (300 s), cargo test, then the verify-schema-drift, verify-codebase-drift and ui-safety-gate checks. All passed for 04-01..04-13. After Round A, Phase verification does not run until Round E: the next step is /gsd-plan-phase 4 (Round B, \"Add more plans\"). The 04-14 run was interrupted by the maintainer only after its SUMMARY commit had landed."
+}
