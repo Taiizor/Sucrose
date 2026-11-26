@@ -1,6 +1,9 @@
 //! The traversal vectors of the virtual origin (SEC-02, D-14): every spelling of a way out of the theme folder must be
 //! refused with its own reason, and a link that leads out must not be followed.
 
+// A test that cannot run on this OS says so on stderr instead of passing silently.
+#![allow(clippy::print_stderr)]
+
 use std::{
     fs,
     path::{Path, PathBuf},

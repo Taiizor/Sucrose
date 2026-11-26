@@ -1,0 +1,16 @@
+{
+  "AppVersion": "26.6.19.0",
+  "Version": "1.0.0.0",
+  "Title": "Sucrose fixture: seek",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "A fixture Web theme for engine runs: seeks inside a local video through Range requests and draws the time reached. Needs a clip.mp4 beside the page, which the verify run copies in. Not a real theme.",
+  "Author": "Sucrose",
+  "Contact": "https://example.com/web",
+  "Type": 2,
+  "Source": "index.html",
+  "Tags": [
+    "fixture"
+  ],
+  "Arguments": null
+}

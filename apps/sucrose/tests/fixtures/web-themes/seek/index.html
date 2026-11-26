@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sucrose fixture: seek</title>
+<style>
+  html, body { margin: 0; width: 100%; height: 100%; background: #101418; color: #e6edf3; overflow: hidden; }
+  body { font-family: "Segoe UI", sans-serif; padding: 1.5vw; box-sizing: border-box; }
+  h1 { font-size: 2.4vw; margin: 0 0 1vw; }
+  video { width: 30vw; background: #000; }
+  div { font-size: 2vw; font-variant-numeric: tabular-nums; margin-top: 0.6vw; }
+</style>
+</head>
+<body>
+<h1>Sucrose fixture: seek</h1>
+<video id="clip" src="clip.mp4" muted loop autoplay></video>
+<div id="range">range: ...</div>
+<div id="seek">seek: ...</div>
+<script>
+  // A Range request for the first ten bytes must be a 206 with Content-Range, and a video must seek to its middle.
+  const rangeLabel = document.getElementById("range");
+  const seekLabel = document.getElementById("seek");
+  fetch("clip.mp4", { headers: { Range: "bytes=0-9" }, cache: "no-store" })
+    .then((response) => {
+      rangeLabel.textContent = "range: " + response.status + " " + response.headers.get("Content-Range") +
+        " accept-ranges=" + response.headers.get("Accept-Ranges");
+      console.log("seek-fixture " + rangeLabel.textContent);
+    })
+    .catch(() => { rangeLabel.textContent = "range: error"; });
+  const clip = document.getElementById("clip");
+  clip.addEventListener("loadedmetadata", () => {
+    const middle = clip.duration / 2;
+    clip.currentTime = middle;
+    seekLabel.textContent = "seek: asked " + middle.toFixed(2) + " of " + clip.duration.toFixed(2);
+  });
+  clip.addEventListener("seeked", () => {
+    seekLabel.textContent = "seek: reached " + clip.currentTime.toFixed(2) + " of " + clip.duration.toFixed(2);
+    console.log("seek-fixture " + seekLabel.textContent);
+  });
+  clip.addEventListener("error", () => { seekLabel.textContent = "seek: video error"; });
+</script>
+</body>
+</html>

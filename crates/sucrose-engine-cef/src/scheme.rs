@@ -7,7 +7,7 @@
 
 use std::path::{Path, PathBuf};
 
-use sucrose_engine_web::origin;
+use sucrose_engine_web::origin::{self, ByteRange};
 
 /// The legacy CORS headers of the Watson server, kept for parity (every page is on the same origin, so they add nothing).
 const CORS: [(&str, &str); 3] = [
@@ -27,10 +27,12 @@ const LOGGED_PATH_CHARS: usize = 200;
 pub enum Content {
     /// A short text.
     Text(&'static str),
-    /// `len` bytes of a file.
+    /// `len` bytes of a file, from byte `start`.
     File {
         /// The canonical path.
         path: PathBuf,
+        /// The first byte to send.
+        start: u64,
         /// How many bytes to send.
         len: u64,
     },
@@ -73,25 +75,50 @@ fn shown(path: &str) -> String {
     path.chars().take(LOGGED_PATH_CHARS).collect()
 }
 
-/// Decides the answer to a request for `url` over the `roots` (the theme folder, then the generated-content folder),
-/// and logs it: a served file at debug, a traversal-class refusal at info, a file that is just not there at debug.
+/// Decides the answer to a request for `url` (with its `Range` header, if any) over the `roots` (the theme folder,
+/// then the generated-content folder), and logs it: a served file at debug, a traversal-class refusal at info, a file
+/// that is just not there at debug. A single range is answered with 206, a range past the end with 416, anything else
+/// with the whole file.
 #[must_use]
-pub fn plan(url: &str, roots: &[&Path]) -> Reply {
+pub fn plan(url: &str, range: Option<&str>, roots: &[&Path]) -> Reply {
     let Some(path) = origin::url_path(url) else {
         tracing::info!(url = %shown(url), "origin request rejected: not an address of the virtual host");
         return Reply::not_found();
     };
     match origin::resolve(path, roots) {
         Ok(file) => {
-            tracing::debug!(path = %shown(path), root = file.root, status = 200, "origin request served");
+            let mut headers = cors();
+            headers.push(("Accept-Ranges", "bytes".to_owned()));
+            let (status, status_text, start, len) = match range
+                .map_or(ByteRange::Full, |header| origin::byte_range(header, file.len))
+            {
+                ByteRange::Full => (200, "OK", 0, file.len),
+                ByteRange::Partial { start, end } => {
+                    headers.push(("Content-Range", format!("bytes {start}-{end}/{}", file.len)));
+                    (206, "Partial Content", start, end - start + 1)
+                }
+                ByteRange::Unsatisfiable => {
+                    headers.push(("Content-Range", format!("bytes */{}", file.len)));
+                    tracing::debug!(path = %shown(path), root = file.root, status = 416, "origin request not satisfiable");
+                    return Reply {
+                        status: 416,
+                        status_text: "Range Not Satisfiable",
+                        mime: "text/plain",
+                        headers,
+                        content: Content::Text(""),
+                    };
+                }
+            };
+            tracing::debug!(path = %shown(path), root = file.root, status, "origin request served");
             Reply {
-                status: 200,
-                status_text: "OK",
+                status,
+                status_text,
                 mime: file.mime,
-                headers: cors(),
+                headers,
                 content: Content::File {
                     path: file.path,
-                    len: file.len,
+                    start,
+                    len,
                 },
             }
         }
@@ -110,7 +137,7 @@ pub fn plan(url: &str, roots: &[&Path]) -> Reply {
 mod imp {
     use std::{
         fs::File,
-        io::Read,
+        io::{Read, Seek, SeekFrom},
         path::{Path, PathBuf},
         sync::{Arc, Mutex, PoisonError},
     };
@@ -139,12 +166,15 @@ mod imp {
     }
 
     /// Plans the request and opens its file; a file that cannot be opened is a 404.
-    fn open_stream(url: &str, roots: &[PathBuf]) -> Stream {
+    fn open_stream(url: &str, range: Option<&str>, roots: &[PathBuf]) -> Stream {
         let roots: Vec<&Path> = roots.iter().map(PathBuf::as_path).collect();
-        let reply = plan(url, &roots);
+        let reply = plan(url, range, &roots);
         match &reply.content {
             Content::Text(_) => Stream::Text { reply, sent: 0 },
-            Content::File { path, len } => match File::open(path) {
+            Content::File { path, start, len } => match File::open(path).and_then(|mut file| {
+                file.seek(SeekFrom::Start(*start))?;
+                Ok(file)
+            }) {
                 Ok(file) => {
                     let remaining = *len;
                     Stream::File { reply, file, remaining }
@@ -173,10 +203,15 @@ mod imp {
                 handle_request: Option<&mut ::std::os::raw::c_int>,
                 _callback: Option<&mut Callback>,
             ) -> ::std::os::raw::c_int {
-                let url = request
-                    .map(|request| CefString::from(&request.url()).to_string())
-                    .unwrap_or_default();
-                *self.stream.lock().unwrap_or_else(PoisonError::into_inner) = open_stream(&url, &self.roots);
+                let (url, range) = request.map_or_else(Default::default, |request| {
+                    let range = CefString::from(&request.header_by_name(Some(&CefString::from("Range")))).to_string();
+                    (
+                        CefString::from(&request.url()).to_string(),
+                        Some(range).filter(|range| !range.is_empty()),
+                    )
+                });
+                *self.stream.lock().unwrap_or_else(PoisonError::into_inner) =
+                    open_stream(&url, range.as_deref(), &self.roots);
                 // Answer now: opening a file does not wait for anything.
                 if let Some(handle_request) = handle_request {
                     *handle_request = 1;
@@ -358,10 +393,11 @@ mod tests {
         let theme = Scratch::new("theme");
         fs::write(theme.0.join("index.html"), "<html>").expect("write");
 
-        let reply = plan("https://sucrose.wallpaper.engine/index.html?x=1", &[&theme.0]);
+        let reply = plan("https://sucrose.wallpaper.engine/index.html?x=1", None, &[&theme.0]);
 
         assert_eq!((reply.status, reply.mime), (200, "text/html"));
-        assert!(matches!(reply.content, Content::File { len: 6, .. }));
+        assert!(matches!(reply.content, Content::File { start: 0, len: 6, .. }));
+        assert!(reply.headers.contains(&("Accept-Ranges", "bytes".to_owned())));
         assert!(reply.headers.contains(&("Access-Control-Allow-Origin", "*".to_owned())));
     }
 
@@ -375,10 +411,76 @@ mod tests {
             "https://sucrose.wallpaper.engine/",
             "https://example.com/index.html",
         ] {
-            let reply = plan(url, &[&theme.0]);
+            let reply = plan(url, None, &[&theme.0]);
             assert_eq!(reply.status, 404, "{url}");
             assert_eq!(reply.content, Content::Text(NOT_FOUND_BODY), "{url}");
         }
+    }
+
+    #[test]
+    fn a_single_range_is_a_206_with_content_range() {
+        let theme = Scratch::new("range");
+        fs::write(theme.0.join("clip.mp4"), vec![7u8; 1000]).expect("write");
+        let url = "https://sucrose.wallpaper.engine/clip.mp4";
+
+        let reply = plan(url, Some("bytes=100-199"), &[&theme.0]);
+
+        assert_eq!((reply.status, reply.status_text), (206, "Partial Content"));
+        assert!(matches!(
+            reply.content,
+            Content::File {
+                start: 100,
+                len: 100,
+                ..
+            }
+        ));
+        assert!(
+            reply
+                .headers
+                .contains(&("Content-Range", "bytes 100-199/1000".to_owned()))
+        );
+        assert!(reply.headers.contains(&("Accept-Ranges", "bytes".to_owned())));
+
+        let tail = plan(url, Some("bytes=900-"), &[&theme.0]);
+        assert!(matches!(
+            tail.content,
+            Content::File {
+                start: 900,
+                len: 100,
+                ..
+            }
+        ));
+        assert!(
+            tail.headers
+                .contains(&("Content-Range", "bytes 900-999/1000".to_owned()))
+        );
+    }
+
+    #[test]
+    fn a_range_past_the_end_is_a_416_and_several_ranges_are_the_whole_file() {
+        let theme = Scratch::new("range416");
+        fs::write(theme.0.join("clip.mp4"), vec![7u8; 1000]).expect("write");
+        let url = "https://sucrose.wallpaper.engine/clip.mp4";
+
+        let unsatisfiable = plan(url, Some("bytes=1000-"), &[&theme.0]);
+        assert_eq!(unsatisfiable.status, 416);
+        assert_eq!(unsatisfiable.content, Content::Text(""));
+        assert!(
+            unsatisfiable
+                .headers
+                .contains(&("Content-Range", "bytes */1000".to_owned()))
+        );
+
+        let several = plan(url, Some("bytes=0-9,20-29"), &[&theme.0]);
+        assert_eq!(several.status, 200);
+        assert!(matches!(
+            several.content,
+            Content::File {
+                start: 0,
+                len: 1000,
+                ..
+            }
+        ));
     }
 
     #[test]

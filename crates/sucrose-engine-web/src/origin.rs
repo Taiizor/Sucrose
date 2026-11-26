@@ -247,8 +247,62 @@ fn slashes(path: &str) -> String {
 /// Reads a `Range` request header against a file of `len` bytes.
 #[must_use]
 pub fn byte_range(header: &str, len: u64) -> ByteRange {
-    let _ = (header, len);
-    ByteRange::Full
+    let Some(spec) = header.trim().strip_prefix("bytes=") else {
+        return ByteRange::Full;
+    };
+    // One range only: several ranges are answered with the whole file, which a client always has to accept.
+    let spec = spec.trim();
+    let Some((first, last)) = spec.split_once('-') else {
+        return ByteRange::Full;
+    };
+    let (first, last) = (first.trim(), last.trim());
+    let number = |text: &str| -> Option<u64> {
+        if text.bytes().all(|byte| byte.is_ascii_digit()) {
+            text.parse().ok()
+        } else {
+            None
+        }
+    };
+    let Some(last_byte) = len.checked_sub(1) else {
+        // An empty file has no byte to ask for, but only a readable range may be refused.
+        let readable = (!first.is_empty() && number(first).is_some()) || (first.is_empty() && number(last).is_some());
+        return if readable {
+            ByteRange::Unsatisfiable
+        } else {
+            ByteRange::Full
+        };
+    };
+    match (first.is_empty(), last.is_empty()) {
+        (true, true) => ByteRange::Full,
+        // `-n`: the last n bytes.
+        (true, false) => match number(last) {
+            None => ByteRange::Full,
+            Some(0) => ByteRange::Unsatisfiable,
+            Some(count) => ByteRange::Partial {
+                start: len.saturating_sub(count),
+                end: last_byte,
+            },
+        },
+        // `a-` and `a-b`.
+        (false, _) => {
+            let Some(start) = number(first) else {
+                return ByteRange::Full;
+            };
+            let end = if last.is_empty() {
+                last_byte
+            } else {
+                match number(last) {
+                    Some(end) if end >= start => end.min(last_byte),
+                    _ => return ByteRange::Full,
+                }
+            };
+            if start > last_byte {
+                ByteRange::Unsatisfiable
+            } else {
+                ByteRange::Partial { start, end }
+            }
+        }
+    }
 }
 
 #[cfg(test)]

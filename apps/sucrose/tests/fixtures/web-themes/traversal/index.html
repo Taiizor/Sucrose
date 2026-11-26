@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sucrose fixture: traversal</title>
+<style>
+  html, body { margin: 0; width: 100%; height: 100%; background: #101418; color: #e6edf3; overflow: hidden; }
+  body { font-family: "Segoe UI", sans-serif; padding: 1.5vw; box-sizing: border-box; }
+  h1 { font-size: 2.4vw; margin: 0 0 1vw; }
+  table { border-collapse: collapse; font-size: 1.5vw; font-variant-numeric: tabular-nums; }
+  td { padding: 0.2vw 1vw; border-bottom: 1px solid #2a3139; }
+  .refused { color: #7ee787; }
+  .leak { color: #ff7b72; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>Sucrose fixture: traversal</h1>
+<div id="summary">requesting...</div>
+<table id="grid"></table>
+<script>
+  // Requests every path-traversal vector as a raw path of this origin and draws the status of each. The origin must
+  // answer 404 to all of them; /outside/secret.txt is behind a junction the verify run creates in this theme folder.
+  // The browser normalises some dot segments before the request leaves, which is also a refusal; the resolver tests
+  // cover the spellings that never reach it.
+  const vectors = [
+    "/../x",
+    "/%2e%2e/x",
+    "/%2E%2E/x",
+    "/%252e%252e/x",
+    "/..%5cx",
+    "/a/../../x",
+    "/%5c%5cserver%5cshare",
+    "//server/share",
+    "/C:/Windows/win.ini",
+    "/c%3a/Windows/win.ini",
+    "/%00",
+    "/a%00.html",
+    "/" + "a".repeat(5000),
+    "/",
+    "/outside",
+    "/outside/secret.txt",
+  ];
+  const grid = document.getElementById("grid");
+  const summary = document.getElementById("summary");
+  async function run() {
+    let refused = 0;
+    let leaked = 0;
+    for (const vector of vectors) {
+      let status;
+      try {
+        const response = await fetch(location.origin + vector, { cache: "no-store" });
+        status = response.status;
+      } catch (error) {
+        status = "error";
+      }
+      const ok = status === 404 || status === "error";
+      if (ok) { refused += 1; } else { leaked += 1; }
+      const row = document.createElement("tr");
+      const label = document.createElement("td");
+      label.textContent = vector.length > 60 ? vector.slice(0, 60) + "... (" + vector.length + ")" : vector;
+      const result = document.createElement("td");
+      result.textContent = status;
+      result.className = ok ? "refused" : "leak";
+      row.append(label, result);
+      grid.append(row);
+    }
+    summary.textContent = "refused: " + refused + " of " + vectors.length + (leaked ? "  LEAKED: " + leaked : "");
+    console.log("traversal-fixture " + summary.textContent);
+  }
+  run();
+</script>
+</body>
+</html>
