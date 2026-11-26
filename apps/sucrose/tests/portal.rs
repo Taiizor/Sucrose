@@ -677,62 +677,110 @@ fn an_engine_choice_is_saved_and_broadcast_and_one_outside_the_list_of_the_type_
     assert_ne!(file["Engine"]["Video"], "AuroraLive");
 }
 
-/// A running Web wallpaper restarts on the engine just chosen: WebView2 is not in this build, so the new choice falls back
-/// to CEF, the renderer starts a second time and the Portal is told about the fallback. It plays a real wallpaper, so
-/// it skips where CEF is not installed.
+/// Whether the engine report lists WebView2 as ready (its runtime is installed and new enough).
+fn webview2_is_ready(report: &EngineReportView) -> bool {
+    report
+        .engines
+        .iter()
+        .any(|engine| engine.engine == EngineType::WebViewLive && matches!(engine.state, EngineState::Ready { .. }))
+}
+
+/// Waits until the renderer logs have at least `count` `engine started` lines.
+fn wait_for_engine_starts(service: &TestService, count: usize) -> String {
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+    loop {
+        let logs = renderer_logs(service);
+        if logs.matches("engine started").count() >= count {
+            return logs;
+        }
+        assert!(
+            std::time::Instant::now() < deadline,
+            "the renderer did not start {count} time(s): {logs}"
+        );
+        std::thread::sleep(std::time::Duration::from_millis(250));
+    }
+}
+
+/// A running Web wallpaper restarts on the engine just chosen: with WebView2 installed, choosing it ends the CEF renderer
+/// and starts a new one on WebView2, so nothing falls back. (The fallback itself is covered where an engine is missing:
+/// `engines::tests::a_missing_configured_engine_falls_back_for_this_run_and_says_why`.) It plays a real wallpaper, so
+/// it skips where CEF or WebView2 is not available.
 #[test]
-fn an_engine_change_restarts_the_running_wallpaper_of_that_type() {
-    if !service_runs("an_engine_change_restarts_the_running_wallpaper_of_that_type") {
+fn an_engine_change_restarts_the_running_wallpaper_on_the_engine_chosen() {
+    if !service_runs("an_engine_change_restarts_the_running_wallpaper_on_the_engine_chosen") {
         return;
     }
     let service = TestService::start("engine-restart", &json!({}));
     copy_web_fixture(&service, "hello");
     let (mut portal, _) = PortalClient::hello(&service, None);
     let report = wait_for_engines(&portal);
-    if !report.playable.contains(&WallpaperType::Web) {
+    if !report.playable.contains(&WallpaperType::Web) || !webview2_is_ready(&report) {
         skipped(
-            "an_engine_change_restarts_the_running_wallpaper_of_that_type",
-            "CEF is not installed next to the executable",
+            "an_engine_change_restarts_the_running_wallpaper_on_the_engine_chosen",
+            "CEF is not installed next to the executable or the WebView2 Runtime is missing",
         );
         return;
     }
     assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
-    let started = |count: usize| {
-        let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
-        loop {
-            let logs = renderer_logs(&service);
-            if logs.matches("engine started").count() >= count {
-                return;
-            }
-            assert!(
-                std::time::Instant::now() < deadline,
-                "the renderer did not start {count} time(s): {logs}"
-            );
-            std::thread::sleep(std::time::Duration::from_millis(250));
-        }
-    };
-    started(1);
+    let first = wait_for_engine_starts(&service, 1);
+    assert!(first.contains("engine=\"Cef\""), "the default engine is CEF: {first}");
 
     portal.request(&PortalRequest::Change(SettingChange::WebEngine(
         EngineType::WebViewLive,
     )));
 
-    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(10);
-    let fallback = loop {
-        assert!(
-            std::time::Instant::now() < deadline,
-            "no engine report with the fallback"
+    let logs = wait_for_engine_starts(&service, 2);
+    assert!(
+        logs.lines()
+            .any(|line| line.contains("engine started") && line.contains("engine=\"WebView2\"")),
+        "the second renderer plays on WebView2: {logs}"
+    );
+}
+
+/// Two theme switches in a row on WebView2 (the Round A CEF close lesson): the renderer of each theme closes its
+/// controller before the surface goes, the service starts the next one, and the logs show the close and no WARN. It plays
+/// real wallpapers, so it skips where CEF or WebView2 is not available.
+#[test]
+fn switching_web_themes_on_webview2_closes_each_renderer_cleanly() {
+    if !service_runs("switching_web_themes_on_webview2_closes_each_renderer_cleanly") {
+        return;
+    }
+    let service = TestService::start("webview2-switch", &json!({ "Engine": { "Web": "WebViewLive" } }));
+    copy_web_fixture(&service, "hello");
+    copy_web_fixture(&service, "storage");
+    let (mut portal, _) = PortalClient::hello(&service, None);
+    let report = wait_for_engines(&portal);
+    if !report.playable.contains(&WallpaperType::Web) || !webview2_is_ready(&report) {
+        skipped(
+            "switching_web_themes_on_webview2_closes_each_renderer_cleanly",
+            "the WebView2 Runtime is missing",
         );
-        match portal.next_event_any() {
-            Some(PortalEvent::Engines(report)) if !report.fallbacks.is_empty() => break report.fallbacks[0],
-            Some(_) => {}
-            None => panic!("no engine report with the fallback"),
-        }
+        return;
+    }
+    assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
+    wait_for_engine_starts(&service, 1);
+    assert_eq!(use_theme(&mut portal, "storage"), UseOutcome::Applied);
+    wait_for_engine_starts(&service, 2);
+    assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
+
+    let logs = wait_for_engine_starts(&service, 3);
+
+    let closed = logs.matches("webview2 closed").count();
+    assert!(
+        closed >= 2,
+        "the first two renderers logged their close ({closed}): {logs}"
+    );
+    let started = |engine: &str| {
+        logs.lines()
+            .filter(|line| line.contains("engine started") && line.contains(engine))
+            .count()
     };
-    assert_eq!(fallback.kind, WallpaperType::Web);
-    assert_eq!(fallback.configured, EngineType::WebViewLive);
-    assert_eq!(fallback.playing, EngineType::CefSharpLive);
-    started(2);
+    assert_eq!(
+        started("engine=\"WebView2\""),
+        started(""),
+        "every renderer plays on WebView2: {logs}"
+    );
+    assert!(!logs.contains(" WARN "), "no renderer warned: {logs}");
 }
 
 /// The restart prompt's "Restart now" (D-17): with a Web wallpaper running on CEF, turning Allow invalid certificates on
