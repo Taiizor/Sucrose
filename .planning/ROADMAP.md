@@ -276,7 +276,7 @@ Plans:
   3. User can show a wallpaper per display, spanned or duplicated, put a different wallpaper on each monitor, and choose the working area or the full display bounds and a stretch mode, with every engine.
   4. Changing a value in the properties editor (all ten control types, texts in the user's language) changes the running wallpaper immediately; the user can restore defaults, turn on developer mode with a remote debugging port, and add, remove or reset web engine arguments.
   5. Each performance condition (lock, sleep, user switch, screen saver, focus, fullscreen, CPU/memory/GPU, network, battery, remote desktop/VM) runs its configured Close, Pause or Resume with the legacy timings; pausing goes through the engine and never suspends processes; volume, loop, shuffle and the two sound rules apply to every engine.
-**Plans**: 9/21 plans executed (Round A = D-31 slice 1; Rounds B–E are planned after Round A has executed, 04-CONTEXT D-31 "Planning rounds")
+**Plans**: 10/21 plans executed (Round A = D-31 slice 1; Rounds B–E are planned after Round A has executed, 04-CONTEXT D-31 "Planning rounds")
 Plans:
 **Wave 1**
 - [x] 04-01-PLAN.md — D-32 CEF delay-load spike, part 1: pinned CEF via fetch-engines and CEF_PATH, delay-loaded libcef.dll, CEF subprocess routing, fixture Web library
@@ -304,7 +304,7 @@ Plans:
 - [x] 04-09-PLAN.md — JS API on CEF: PropertyListener calls, filedropdown, non-data compatible keys, Light pause inside the page
 
 **Wave 9** *(blocked on Wave 8 completion)*
-- [ ] 04-10-PLAN.md — On-demand data hub and sucrose-sysinfo (Date), D-24 decoupling, D-039 (D-34)
+- [x] 04-10-PLAN.md — On-demand data hub and sucrose-sysinfo (Date), D-24 decoupling, D-039 (D-34)
 
 **Wave 10** *(blocked on Wave 9 completion)*
 - [ ] 04-11-PLAN.md — Memory, Processor, Bios and Motherboard data groups with legacy payloads
@@ -409,7 +409,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
 | 2. M1 — Video wallpaper on the desktop (Windows) | 29/29 | Complete    | 2026-11-23 |
 | 3. M2 — Service, IPC and Portal connected | 50/50 | Complete    | 2026-11-25 |
-| 4. M3 — Engines and the wallpaper API | 9/21 | In Progress | - |
+| 4. M3 — Engines and the wallpaper API | 10/21 | In Progress | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
 | 6. M5 — macOS | 0/TBD | Not started | - |
 | 7. M6 — Linux (X11, then Wayland compositors) | 0/TBD | Not started | - |
