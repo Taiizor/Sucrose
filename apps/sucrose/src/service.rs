@@ -39,6 +39,7 @@ use sucrose_platform::{
 // ScreenArea is read below to choose the surface rectangle.
 use sucrose_core::settings::{EngineType, FullScreenAction, FullScreenScope, GpuPreference, PauseKind, ScreenArea};
 use sucrose_engine::{Availability, EngineId, Unsupported, choose_engine};
+use sucrose_engine_web::args;
 
 use crate::{
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
@@ -2539,7 +2540,7 @@ impl Job {
             kind: self.kind,
             engine: self.engine,
             theme_dir: self.theme_dir.clone(),
-            web: self.web,
+            web: self.web.clone(),
         }
     }
 }
@@ -3591,14 +3592,28 @@ fn job_for(theme: &SelectedTheme, engine: &Engine, pause: PauseKind) -> Result<J
         kind,
         engine: chosen.to_legacy(),
         theme_dir,
-        web: web_options(engine),
+        web: web_options(engine, chosen),
     })
 }
 
-/// The web engine options the Engine section leads to: certificates are validated unless the user allowed invalid ones.
-fn web_options(engine: &Engine) -> WebOptions {
+/// The web engine options the Engine section leads to: certificates are validated unless the user allowed invalid ones,
+/// the switches are the user's for the chosen web engine (an empty list means the legacy defaults, as in the legacy
+/// app; D-17), and the developer settings follow `DeveloperMode` and `DeveloperPort` (D-13). Read when the job is
+/// made, so a change saved while a renderer runs applies at its next start (WAPI-10).
+fn web_options(engine: &Engine, chosen: EngineId) -> WebOptions {
+    let arguments = match chosen {
+        EngineId::Cef if engine.cef_arguments.is_empty() => args::from_cef_map(&args::legacy_defaults_cef()),
+        EngineId::Cef => args::from_cef_map(&engine.cef_arguments),
+        EngineId::WebView2 if engine.web_arguments.is_empty() => args::from_web_list(&args::legacy_defaults_web()),
+        EngineId::WebView2 => args::from_web_list(&engine.web_arguments),
+        _ => Vec::new(),
+    };
     WebOptions {
         allow_invalid_certificates: engine.allow_invalid_certificates,
+        arguments,
+        hardware_acceleration: engine.hardware_acceleration,
+        developer_mode: engine.developer_mode,
+        developer_port: engine.developer_port,
     }
 }
 
@@ -3624,13 +3639,68 @@ mod tests {
     fn web_jobs_validate_certificates_unless_the_engine_section_allows_invalid_ones() {
         let mut engine = Engine::default();
         assert!(
-            !web_options(&engine).allow_invalid_certificates,
+            !web_options(&engine, EngineId::Cef).allow_invalid_certificates,
             "D-12: validation is the default"
         );
 
         engine.allow_invalid_certificates = true;
 
-        assert!(web_options(&engine).allow_invalid_certificates);
+        assert!(web_options(&engine, EngineId::Cef).allow_invalid_certificates);
+    }
+
+    #[test]
+    fn web_jobs_carry_the_users_cef_switches_or_the_legacy_defaults_when_there_are_none() {
+        let defaults = web_options(&Engine::default(), EngineId::Cef);
+        let engine = Engine {
+            cef_arguments: std::collections::BTreeMap::from([("no-sandbox".to_owned(), String::new())]),
+            ..Engine::default()
+        };
+        let custom = web_options(&engine, EngineId::Cef);
+
+        assert_eq!(
+            args::to_cef_map(&defaults.arguments),
+            args::legacy_defaults_cef(),
+            "an empty dictionary means the legacy defaults"
+        );
+        assert_eq!(custom.arguments, [args::Switch::flag("no-sandbox")]);
+    }
+
+    #[test]
+    fn web_jobs_carry_the_web_list_for_webview_and_nothing_for_a_player() {
+        let engine = Engine {
+            web_arguments: vec!["--no-sandbox".to_owned()],
+            ..Engine::default()
+        };
+
+        assert_eq!(
+            web_options(&engine, EngineId::WebView2).arguments,
+            [args::Switch::flag("no-sandbox")]
+        );
+        assert!(web_options(&engine, EngineId::Mpv).arguments.is_empty());
+        assert_eq!(
+            args::to_web_list(&web_options(&Engine::default(), EngineId::WebView2).arguments),
+            args::legacy_defaults_web()
+        );
+    }
+
+    #[test]
+    fn web_jobs_carry_the_developer_settings_and_hardware_acceleration() {
+        let engine = Engine {
+            developer_mode: true,
+            developer_port: 9222,
+            hardware_acceleration: false,
+            ..Engine::default()
+        };
+
+        let options = web_options(&engine, EngineId::Cef);
+
+        assert!(options.developer_mode);
+        assert_eq!(options.developer_port, 9222);
+        assert!(!options.hardware_acceleration);
+        assert!(
+            !web_options(&Engine::default(), EngineId::Cef).developer_mode,
+            "off by default"
+        );
     }
 
     fn hello(protocol_version: u16, pid: u32, slot: u8) -> ToService {

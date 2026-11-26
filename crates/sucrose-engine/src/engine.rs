@@ -91,6 +91,13 @@ pub trait Engine: Send + Sync {
     fn load_source(&self, source: &std::path::Path, settings: &PlaybackSettings) -> Result<(), EngineError>;
     /// The engine's clock, when it plays on a timeline.
     fn clock(&self) -> Option<&dyn EngineClock>;
+    /// Shows the developer tools of the page this engine plays (D-13). Only a web engine with developer tools does;
+    /// every other engine answers [`EngineError::Unsupported`], which the renderer logs.
+    fn open_devtools(&self) -> Result<(), EngineError> {
+        Err(EngineError::Unsupported {
+            what: "Developer tools".to_owned(),
+        })
+    }
 }
 
 /// The part of an engine that must run on the thread that owns the desktop surface (for CEF the thread that pumps its

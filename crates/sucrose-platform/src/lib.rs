@@ -263,6 +263,20 @@ pub fn memory_detail() -> MemoryDetail {
     }
 }
 
+/// The build number of this Windows (22631 for Windows 11 23H2, 26100 for 24H2), or 0 where the OS does not answer or
+/// this is not Windows. Engine switches that differ from Windows 11 24H2 on read it.
+#[must_use]
+pub fn os_build() -> u32 {
+    #[cfg(target_os = "windows")]
+    {
+        imp::windows_build()
+    }
+    #[cfg(not(target_os = "windows"))]
+    {
+        0
+    }
+}
+
 /// Repaints the desktop after the last wallpaper surface is gone, so no frame of the wallpaper is left behind.
 pub fn refresh_desktop() {
     imp::refresh_desktop();

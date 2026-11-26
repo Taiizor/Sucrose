@@ -18,6 +18,7 @@ use sucrose_engine::{
     engine::{Engine, EngineClock, EngineError, Started, SurfacePump},
 };
 use sucrose_engine_web::{
+    args::{self, SucroseInputs, WebEngine},
     origin,
     profile::{self, ProfileLease},
 };
@@ -47,10 +48,15 @@ pub struct SurfaceHooks {
 /// A command the IPC threads queue for the surface thread.
 #[derive(Debug, Clone, Copy, PartialEq)]
 enum Command {
-    Pause { paused: bool, level: PauseLevel },
+    Pause {
+        paused: bool,
+        level: PauseLevel,
+    },
     Volume(u8),
     Loop(bool),
     Stretch(Stretch),
+    /// Show DevTools: the Portal's Open DevTools button (D-13).
+    OpenDevTools,
 }
 
 /// The newest value of each setting, for the page calls of plan 04-09 and for anyone asking what the engine was told.
@@ -119,6 +125,18 @@ fn acquire_profile(slot: u8) -> Option<Arc<ProfileLease>> {
     }
 }
 
+/// The debugging port of the renderer of `slot`: the configured `DeveloperPort` plus the slot, so two renderers never
+/// bind the same port (Pitfall 11). A port outside the range CEF accepts is logged and left off, never wrapped around.
+fn debugging_port(developer_port: u16, slot: u8) -> Option<u16> {
+    match args::debugging_port(developer_port, slot) {
+        Ok(port) => port,
+        Err(error) => {
+            tracing::warn!(%error, slot, "no remote debugging port for this renderer");
+            None
+        }
+    }
+}
+
 /// Starts CEF on the calling thread, which must be the one that owns the surface `wid` and runs its message loop,
 /// showing the page of the assignment. Returns the thread-safe handle and the pump the loop drives.
 pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<Started, EngineError> {
@@ -131,6 +149,11 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
     let wake_proxy = proxy.clone();
     let engine_proxy = proxy;
     let theme_dir = PathBuf::from(&assignment.theme_dir);
+    let web = &assignment.web;
+    let debugging_port = debugging_port(web.developer_port, assignment.slot);
+    if let Some(port) = debugging_port {
+        tracing::info!(port, slot = assignment.slot, "remote debugging");
+    }
     let start = CefStart {
         log_file: sucrose_core::paths::log_dir()
             .unwrap_or_else(std::env::temp_dir)
@@ -153,7 +176,15 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             }
         }),
         profile: acquire_profile(assignment.slot),
-        allow_invalid_certificates: assignment.web.allow_invalid_certificates,
+        allow_invalid_certificates: web.allow_invalid_certificates,
+        arguments: web.arguments.clone(),
+        sucrose: SucroseInputs {
+            hardware_acceleration: web.hardware_acceleration,
+            debugging_port,
+            windows_build: sucrose_platform::os_build(),
+            engine: WebEngine::Cef,
+        },
+        developer_mode: web.developer_mode,
     };
     // The page comes from the virtual origin (D-14): the theme folder first, then the generated content.
     let url = origin::page_url(&theme_dir, &assignment.source);
@@ -264,6 +295,12 @@ impl Engine for CefEngine {
     fn clock(&self) -> Option<&dyn EngineClock> {
         None
     }
+
+    /// DevTools open in a window of their own on the surface thread, only when asked (D-13).
+    fn open_devtools(&self) -> Result<(), EngineError> {
+        self.queue(Command::OpenDevTools);
+        Ok(())
+    }
 }
 
 impl CefPump {
@@ -272,6 +309,9 @@ impl CefPump {
     fn drain(&self) {
         while let Ok(command) = self.commands.try_recv() {
             tracing::debug!(?command, "queued command reached the CEF thread");
+            if command == Command::OpenDevTools {
+                self.host.open_devtools();
+            }
         }
     }
 
@@ -401,6 +441,28 @@ mod tests {
         assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::Volume(10)]);
         assert_eq!(wakes.load(Ordering::SeqCst), 1, "a dropped command wakes nothing");
         assert_eq!(engine.volume(), 20, "the state still holds the newest value");
+    }
+
+    #[test]
+    fn open_devtools_queues_a_command_for_the_surface_thread_and_wakes_it() {
+        let (engine, queue, wakes) = handle(4);
+
+        engine.open_devtools().expect("open devtools");
+
+        assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::OpenDevTools]);
+        assert_eq!(wakes.load(Ordering::SeqCst), 1);
+    }
+
+    #[test]
+    fn each_renderer_slot_gets_its_own_debugging_port_and_zero_means_none() {
+        assert_eq!(debugging_port(0, 5), None, "DeveloperPort 0 is no debugging at all");
+        assert_eq!(debugging_port(9222, 0), Some(9222));
+        assert_eq!(debugging_port(9222, 1), Some(9223));
+        assert_eq!(
+            debugging_port(65535, 1),
+            None,
+            "a sum above 65535 is refused, not wrapped"
+        );
     }
 
     #[test]

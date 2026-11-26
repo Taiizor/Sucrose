@@ -10,7 +10,10 @@ use std::{
     sync::{Arc, Mutex, PoisonError},
 };
 
-use sucrose_engine_web::profile::ProfileLease;
+use sucrose_engine_web::{
+    args::{SucroseInputs, Switch},
+    profile::ProfileLease,
+};
 
 /// The longest the pump timer waits between two pump calls (about 30 Hz): CEF's own sample's safety net for work it
 /// forgot to announce.
@@ -56,6 +59,14 @@ pub struct CefStart {
     pub profile: Option<Arc<ProfileLease>>,
     /// Whether the user allowed invalid TLS certificates (D-12, `Engine.AllowInvalidCertificates`); off by default.
     pub allow_invalid_certificates: bool,
+    /// The user's Chromium switches (D-17); Sucrose's own are computed from [`CefStart::sucrose`] and merged in.
+    pub arguments: Vec<Switch>,
+    /// What Sucrose's own switches are computed from: hardware acceleration, the debugging port of this renderer and the
+    /// Windows build.
+    pub sucrose: SucroseInputs,
+    /// Whether developer mode is on (D-13): the context menu has Inspect, and F12 and Ctrl+Shift+I open DevTools. Off,
+    /// the menu is empty and the DevTools shortcuts are swallowed. DevTools never open by themselves.
+    pub developer_mode: bool,
 }
 
 impl std::fmt::Debug for CefStart {
@@ -132,6 +143,64 @@ pub fn next_pump_delay_ms(requested: Option<i64>) -> u32 {
     }
 }
 
+/// The command id of the context menu's Inspect item: the first id CEF leaves to applications (`MENU_ID_USER_FIRST`).
+pub const INSPECT_COMMAND_ID: i32 = 26500;
+
+/// What a key press in the wallpaper does (D-13, legacy keyboard handler).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum KeyAction {
+    /// The page gets the key as usual.
+    Pass,
+    /// The key is swallowed: a wallpaper is not a browser, so refresh, find, zoom and the DevTools shortcuts do nothing.
+    Swallow,
+    /// The key opens DevTools (developer mode only).
+    DevTools,
+}
+
+/// The Windows virtual-key codes the keyboard rules use.
+mod vk {
+    pub const ZERO: i32 = 0x30;
+    pub const C: i32 = 0x43;
+    pub const F: i32 = 0x46;
+    pub const I: i32 = 0x49;
+    pub const J: i32 = 0x4A;
+    pub const R: i32 = 0x52;
+    pub const NUMPAD0: i32 = 0x60;
+    pub const ADD: i32 = 0x6B;
+    pub const SUBTRACT: i32 = 0x6D;
+    pub const F5: i32 = 0x74;
+    pub const F12: i32 = 0x7B;
+    pub const OEM_PLUS: i32 = 0xBB;
+    pub const OEM_MINUS: i32 = 0xBD;
+}
+
+/// What the key with the Windows virtual-key code `code` does, given the modifiers. With developer mode on, F12 and
+/// Ctrl+Shift+I open DevTools and everything else passes. With it off, the legacy blocked keys (Ctrl+F, Ctrl+R, F5,
+/// Ctrl with plus, minus or zero, F12) and the DevTools shortcuts (Ctrl+Shift+I, J and C) are swallowed, so no
+/// DevTools exist (D-13).
+#[must_use]
+pub fn key_action(developer_mode: bool, code: i32, ctrl: bool, shift: bool) -> KeyAction {
+    let devtools_chord = ctrl && shift && code == vk::I;
+    if developer_mode {
+        return if code == vk::F12 || devtools_chord {
+            KeyAction::DevTools
+        } else {
+            KeyAction::Pass
+        };
+    }
+    let page_chord = ctrl
+        && matches!(
+            code,
+            vk::F | vk::R | vk::ZERO | vk::NUMPAD0 | vk::ADD | vk::SUBTRACT | vk::OEM_PLUS | vk::OEM_MINUS
+        );
+    let devtools_chord = ctrl && shift && matches!(code, vk::I | vk::J | vk::C);
+    if code == vk::F5 || code == vk::F12 || page_chord || devtools_chord {
+        KeyAction::Swallow
+    } else {
+        KeyAction::Pass
+    }
+}
+
 /// The pump requests CEF made, kept until the surface thread serves them.
 struct Pump {
     requested: Mutex<Option<i64>>,
@@ -176,10 +245,16 @@ mod imp {
         UI::WindowsAndMessaging::{SWP_NOACTIVATE, SWP_NOZORDER, SetWindowPos},
     };
 
+    use sucrose_engine_web::args::{Switch, plan_cef_command_line};
+
     use super::{
-        CefError, CefStart, IGNORE_CERTIFICATE_ERRORS_SWITCH, LoadedCallback, ProfileLease, Pump, browser_size,
-        next_pump_delay_ms, settings_values,
+        CefError, CefStart, IGNORE_CERTIFICATE_ERRORS_SWITCH, INSPECT_COMMAND_ID, KeyAction, LoadedCallback,
+        ProfileLease, Pump, browser_size, key_action, next_pump_delay_ms, settings_values,
     };
+
+    /// `EVENTFLAG_SHIFT_DOWN` and `EVENTFLAG_CONTROL_DOWN` of a CEF key event's modifiers.
+    const SHIFT_DOWN: u32 = 1 << 1;
+    const CONTROL_DOWN: u32 = 1 << 2;
 
     /// How long `close` pumps for the browser to go away before it gives up and shuts CEF down anyway.
     const CLOSE_TIMEOUT: Duration = Duration::from_secs(5);
@@ -206,6 +281,7 @@ mod imp {
         struct HostApp {
             handler: BrowserProcessHandler,
             ignore_certificate_errors: bool,
+            switches: Vec<Switch>,
         }
 
         impl App {
@@ -213,19 +289,31 @@ mod imp {
                 Some(self.handler.clone())
             }
 
-            // CEF's settings have no field for accepting invalid certificates, so the browser process adds Chromium's
-            // switch itself, and only when the user allowed it (D-12): there is no OnCertificateError override, so
-            // everything else is rejected.
+            // The browser process gets the user's switches merged with Sucrose's own (D-17); the subprocesses inherit the
+            // browser's command line. CEF's settings have no field for accepting invalid certificates, so the browser
+            // process also adds Chromium's switch itself, and only when the user allowed it (D-12): there is no
+            // OnCertificateError override, so everything else is rejected. Switches go in one by one through the
+            // command line API, never through a shell (T-04-20).
             fn on_before_command_line_processing(
                 &self,
                 process_type: Option<&CefString>,
                 command_line: Option<&mut CommandLine>,
             ) {
                 let browser_process = process_type.is_none_or(|kind| kind.to_string().is_empty());
-                if !(self.ignore_certificate_errors && browser_process) {
+                let Some(command_line) = command_line else { return };
+                if !browser_process {
                     return;
                 }
-                if let Some(command_line) = command_line {
+                for switch in &self.switches {
+                    let name = CefString::from(switch.name.as_str());
+                    match &switch.value {
+                        Some(value) => {
+                            command_line.append_switch_with_value(Some(&name), Some(&CefString::from(value.as_str())));
+                        }
+                        None => command_line.append_switch(Some(&name)),
+                    }
+                }
+                if self.ignore_certificate_errors {
                     command_line.append_switch(Some(&CefString::from(IGNORE_CERTIFICATE_ERRORS_SWITCH)));
                 }
             }
@@ -297,11 +385,26 @@ mod imp {
         }
     }
 
+    /// Shows DevTools for `browser` in a window of its own, on top of nothing (never as a child of the wallpaper), at
+    /// the page point `inspect_at` when given. Only ever called for a user action (D-13).
+    fn show_devtools(browser: &Browser, inspect_at: Option<&Point>) {
+        let Some(host) = browser.host() else { return };
+        let window_info = WindowInfo {
+            runtime_style: RuntimeStyle::ALLOY,
+            ..WindowInfo::default()
+        }
+        .set_as_popup(cef::sys::HWND(std::ptr::null_mut()), "Sucrose DevTools");
+        host.show_dev_tools(Some(&window_info), None, None, inspect_at);
+    }
+
     wrap_context_menu_handler! {
-        struct NoMenu;
+        struct PageMenu {
+            developer_mode: bool,
+        }
 
         impl ContextMenuHandler {
-            // The legacy host has no context menu; until the menu work of a later plan it stays empty.
+            // The legacy host has no context menu, so it is cleared; in developer mode it keeps one item, Inspect
+            // (D-13), which is the user's own action.
             fn on_before_context_menu(
                 &self,
                 _browser: Option<&mut Browser>,
@@ -311,6 +414,64 @@ mod imp {
             ) {
                 if let Some(model) = model {
                     model.clear();
+                    if self.developer_mode {
+                        model.add_item(INSPECT_COMMAND_ID, Some(&CefString::from("Inspect")));
+                    }
+                }
+            }
+
+            fn on_context_menu_command(
+                &self,
+                browser: Option<&mut Browser>,
+                _frame: Option<&mut Frame>,
+                params: Option<&mut ContextMenuParams>,
+                command_id: ::std::os::raw::c_int,
+                _event_flags: EventFlags,
+            ) -> ::std::os::raw::c_int {
+                if command_id != INSPECT_COMMAND_ID || !self.developer_mode {
+                    return 0;
+                }
+                if let Some(browser) = browser {
+                    let at = params.map(|params| Point {
+                        x: params.xcoord(),
+                        y: params.ycoord(),
+                    });
+                    show_devtools(browser, at.as_ref());
+                }
+                1
+            }
+        }
+    }
+
+    wrap_keyboard_handler! {
+        struct PageKeys {
+            developer_mode: bool,
+        }
+
+        impl KeyboardHandler {
+            // F12 and Ctrl+Shift+I open DevTools in developer mode; with it off the legacy blocked keys and the DevTools
+            // shortcuts are swallowed (D-13). See `key_action`.
+            fn on_pre_key_event(
+                &self,
+                browser: Option<&mut Browser>,
+                event: Option<&KeyEvent>,
+                _os_event: Option<&mut cef::sys::MSG>,
+                _is_keyboard_shortcut: Option<&mut ::std::os::raw::c_int>,
+            ) -> ::std::os::raw::c_int {
+                let Some(event) = event else { return 0 };
+                let ctrl = event.modifiers & CONTROL_DOWN != 0;
+                let shift = event.modifiers & SHIFT_DOWN != 0;
+                match key_action(self.developer_mode, event.windows_key_code, ctrl, shift) {
+                    KeyAction::Pass => 0,
+                    KeyAction::Swallow => 1,
+                    KeyAction::DevTools => {
+                        if event.type_ == KeyEventType::RAWKEYDOWN
+                            && let Some(browser) = browser
+                        {
+                            show_devtools(browser, None);
+                        }
+                        1
+                    }
                 }
             }
         }
@@ -322,6 +483,7 @@ mod imp {
             load: LoadHandler,
             download: DownloadHandler,
             menu: ContextMenuHandler,
+            keys: KeyboardHandler,
         }
 
         impl Client {
@@ -339,6 +501,10 @@ mod imp {
 
             fn context_menu_handler(&self) -> Option<ContextMenuHandler> {
                 Some(self.menu.clone())
+            }
+
+            fn keyboard_handler(&self) -> Option<KeyboardHandler> {
+                Some(self.keys.clone())
             }
         }
     }
@@ -405,7 +571,24 @@ mod imp {
                 start.profile.as_deref().map(|lease| lease.path.as_path()),
                 start.allow_invalid_certificates,
             )?;
-            let mut app = HostApp::new(PumpHandler::new(Arc::clone(&pump)), values.ignore_certificate_errors);
+            // The user's switches merged with Sucrose's own: setting keys CEF does not take and names that are not switch
+            // names are left out and logged; everything else passes, unknown switches included (D-17).
+            let plan = plan_cef_command_line(&start.arguments, &start.sucrose);
+            for key in &plan.skipped_settings {
+                tracing::info!(key = %key, "cef setting key skipped");
+            }
+            for (name, error) in &plan.invalid {
+                tracing::warn!(name = %name, %error, "a switch name is not valid, the switch is left out");
+            }
+            tracing::info!(
+                switches = %plan.applied.iter().map(Switch::render).collect::<Vec<_>>().join(" "),
+                "chromium switches"
+            );
+            let mut app = HostApp::new(
+                PumpHandler::new(Arc::clone(&pump)),
+                values.ignore_certificate_errors,
+                plan.applied,
+            );
             let settings = Settings {
                 no_sandbox: 1,
                 external_message_pump: 1,
@@ -418,6 +601,8 @@ mod imp {
                 cache_path: CefString::from(values.cache_path.as_str()),
                 // The legacy host's PersistSessionCookies; it only takes effect with a cache path.
                 persist_session_cookies: 1,
+                // 0 leaves the debugging port off (D-13); a port is only set from a DeveloperPort above 0.
+                remote_debugging_port: start.sucrose.debugging_port.map_or(0, i32::from),
                 ..Settings::default()
             };
             let args = Args::new();
@@ -463,7 +648,8 @@ mod imp {
                 SpanHandler::new(Arc::clone(&shared)),
                 PageLoadHandler::new(Arc::clone(&shared)),
                 NoDownloads::new(),
-                NoMenu::new(),
+                PageMenu::new(start.developer_mode),
+                PageKeys::new(start.developer_mode),
             );
             let browser = browser_host_create_browser_sync(
                 Some(&window_info),
@@ -525,6 +711,11 @@ mod imp {
             .map_err(|error| CefError::Window(error.to_string()))
         }
 
+        /// Shows DevTools for this browser in a window of its own: the Portal's Open DevTools button (D-13).
+        pub fn open_devtools(&self) {
+            show_devtools(&self.browser, None);
+        }
+
         /// Shows another address in the same browser (the Portal's Use between two Web themes).
         pub fn navigate(&self, url: &str) {
             if let Some(frame) = self.browser.main_frame() {
@@ -584,6 +775,9 @@ mod imp {
         pub fn set_rect(&self, _rect: [i32; 4]) -> Result<(), CefError> {
             Err(CefError::Unsupported)
         }
+
+        /// Does nothing.
+        pub fn open_devtools(&self) {}
 
         /// Does nothing.
         pub fn navigate(&self, _url: &str) {}
@@ -648,6 +842,55 @@ mod tests {
 
         assert!(Path::new(&root).is_absolute(), "{root}");
         assert!(Path::new(&root).ends_with(Path::new("Web").join("Cef")), "{root}");
+    }
+
+    #[test]
+    fn developer_mode_opens_devtools_only_from_f12_and_ctrl_shift_i() {
+        assert_eq!(key_action(true, 0x7B, false, false), KeyAction::DevTools, "F12");
+        assert_eq!(key_action(true, 0x49, true, true), KeyAction::DevTools, "Ctrl+Shift+I");
+        assert_eq!(key_action(true, 0x49, false, false), KeyAction::Pass, "a plain I");
+        assert_eq!(
+            key_action(true, 0x74, false, false),
+            KeyAction::Pass,
+            "F5 is not blocked in developer mode"
+        );
+        assert_eq!(
+            key_action(true, 0x52, true, false),
+            KeyAction::Pass,
+            "Ctrl+R is not blocked in developer mode"
+        );
+    }
+
+    #[test]
+    fn without_developer_mode_the_browser_keys_and_the_devtools_shortcuts_are_swallowed() {
+        for (code, ctrl, shift, what) in [
+            (0x7B, false, false, "F12"),
+            (0x74, false, false, "F5"),
+            (0x46, true, false, "Ctrl+F"),
+            (0x52, true, false, "Ctrl+R"),
+            (0x30, true, false, "Ctrl+0"),
+            (0xBB, true, false, "Ctrl+plus"),
+            (0xBD, true, false, "Ctrl+minus"),
+            (0x49, true, true, "Ctrl+Shift+I"),
+            (0x4A, true, true, "Ctrl+Shift+J"),
+        ] {
+            assert_eq!(key_action(false, code, ctrl, shift), KeyAction::Swallow, "{what}");
+        }
+        assert_eq!(
+            key_action(false, 0x41, false, false),
+            KeyAction::Pass,
+            "a plain A reaches the page"
+        );
+        assert_eq!(
+            key_action(false, 0x46, false, false),
+            KeyAction::Pass,
+            "a plain F reaches the page"
+        );
+    }
+
+    #[test]
+    fn the_inspect_item_uses_the_first_application_menu_id() {
+        assert_eq!(INSPECT_COMMAND_ID, 26500);
     }
 
     #[test]

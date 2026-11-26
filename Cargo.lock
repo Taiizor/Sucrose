@@ -7023,6 +7023,7 @@ dependencies = [
  "sucrose-engine",
  "sucrose-engine-cef",
  "sucrose-engine-mpv",
+ "sucrose-engine-web",
  "sucrose-ipc",
  "sucrose-log",
  "sucrose-platform",
@@ -7094,7 +7095,9 @@ name = "sucrose-engine-web"
 version = "26.11.22+1"
 dependencies = [
  "percent-encoding",
+ "serde",
  "thiserror 2.0.21",
+ "tracing",
 ]
 
 [[package]]
@@ -7105,6 +7108,7 @@ dependencies = [
  "postcard",
  "serde",
  "sucrose-core",
+ "sucrose-engine-web",
  "sucrose-platform",
  "thiserror 2.0.21",
  "widestring",

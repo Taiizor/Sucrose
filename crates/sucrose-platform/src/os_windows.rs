@@ -260,7 +260,7 @@ fn set_window_backdrop(window: &dyn HasWindowHandle, backdrop: Backdrop) -> Resu
 
 /// The build number of this Windows, or 0 when the OS does not answer. `RtlGetVersion` is the call the window system
 /// itself makes: unlike `GetVersionEx` it is not shimmed by an application manifest.
-fn windows_build() -> u32 {
+pub(crate) fn windows_build() -> u32 {
     let mut info = OSVERSIONINFOW {
         dwOSVersionInfoSize: u32::try_from(size_of::<OSVERSIONINFOW>()).unwrap_or(0),
         ..OSVERSIONINFOW::default()

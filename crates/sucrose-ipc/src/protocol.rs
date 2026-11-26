@@ -10,11 +10,12 @@ use sucrose_core::{
     settings::{EngineType, PauseKind, Stretch},
     theme::WallpaperType,
 };
+use sucrose_engine_web::args::Switch;
 
 use crate::portal::{Launch, PortalPage};
 
 /// Version of this protocol, sent in [`ToService::Hello`] so the service can refuse a renderer it cannot talk to.
-pub const PROTOCOL_VERSION: u16 = 6;
+pub const PROTOCOL_VERSION: u16 = 7;
 
 /// Messages from a renderer to the service.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
@@ -83,6 +84,9 @@ pub enum ToRenderer {
         /// How to play it.
         settings: PlaybackSettings,
     },
+    /// Show the developer tools (DevTools) of the web wallpaper this renderer plays: the Portal's Open DevTools button
+    /// (D-13). A renderer whose engine has no developer tools answers in its log and does nothing else.
+    OpenDevTools,
 }
 
 /// What a renderer does when several monitors show the same wallpaper (D-02).
@@ -138,11 +142,21 @@ impl Default for PlaybackSettings {
 }
 
 /// How the web engines are configured for a renderer, taken from the Engine section (D-12).
-#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Default)]
 pub struct WebOptions {
     /// Whether the web engine accepts invalid TLS certificates (`Engine.AllowInvalidCertificates`). Off by default: the
     /// engine validates certificates and rejects the rest.
     pub allow_invalid_certificates: bool,
+    /// The user's Chromium switches for this engine (`Engine.CefArguments` or `Engine.WebArguments`, or the legacy
+    /// defaults when the user's list is empty), read once when the renderer starts (D-17). Sucrose's own switches are
+    /// not in here: the renderer computes them from the fields below.
+    pub arguments: Vec<Switch>,
+    /// `Engine.HardwareAcceleration`: decides the GPU switches of the web engine.
+    pub hardware_acceleration: bool,
+    /// `Engine.DeveloperMode`: the wallpaper's context menu has Inspect and F12 opens the developer tools (D-13).
+    pub developer_mode: bool,
+    /// `Engine.DeveloperPort`: 0 for none; otherwise the renderer of slot N listens on this port plus N (Pitfall 11).
+    pub developer_port: u16,
 }
 
 /// One wallpaper job for a renderer: a monitor and the file or page to show on it.
@@ -341,6 +355,13 @@ mod tests {
             theme_dir: "C:\\themes\\hello".to_owned(),
             web: WebOptions {
                 allow_invalid_certificates: true,
+                arguments: vec![
+                    Switch::with_value("autoplay-policy", "no-user-gesture-required"),
+                    Switch::flag("no-sandbox"),
+                ],
+                hardware_acceleration: true,
+                developer_mode: true,
+                developer_port: 9222,
             },
         });
 
@@ -348,6 +369,28 @@ mod tests {
 
         assert_eq!(bytes[0], 1);
         assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
+    }
+
+    #[test]
+    fn open_dev_tools_keeps_its_wire_index_and_survives_the_wire() {
+        let bytes = postcard::to_stdvec(&ToRenderer::OpenDevTools).expect("encode");
+
+        // Appended after Close (0), Assign (1), Pause (2), SetVolume (3), SetRect (4), SetRole (5), Clock (6) and
+        // LoadSource (7).
+        assert_eq!(bytes, [8]);
+        assert_eq!(
+            postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"),
+            ToRenderer::OpenDevTools
+        );
+    }
+
+    #[test]
+    fn web_options_have_no_switches_and_no_developer_tools_by_default() {
+        let options = WebOptions::default();
+
+        assert!(options.arguments.is_empty());
+        assert!(!options.developer_mode);
+        assert_eq!(options.developer_port, 0, "0 means no debugging port");
     }
 
     #[test]

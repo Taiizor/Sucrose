@@ -421,7 +421,8 @@ fn judge_hello_reply(reply: Result<ToRenderer, IpcError>) -> anyhow::Result<Hell
             | ToRenderer::SetRect(_)
             | ToRenderer::SetRole(_)
             | ToRenderer::Clock(_)
-            | ToRenderer::LoadSource { .. },
+            | ToRenderer::LoadSource { .. }
+            | ToRenderer::OpenDevTools,
         ) => {
             tracing::warn!("ignoring a control message that arrived before the assignment");
             Ok(HelloReply::Skip)
@@ -482,6 +483,11 @@ fn wait_for_close(
                 *pending_rect.lock().unwrap_or_else(PoisonError::into_inner) = Some(rect);
                 proxy.wake();
             }
+            Ok(ToRenderer::OpenDevTools) => match engine.open_devtools() {
+                Ok(()) => tracing::info!(engine = engine.name(), "developer tools requested"),
+                // An engine without developer tools answers here; nothing else changes (D-13).
+                Err(error) => tracing::info!(engine = engine.name(), %error, "no developer tools to open"),
+            },
             Ok(ToRenderer::SetRole(role)) => {
                 apply_role(role, engine, sync);
                 following.reset(engine.clock().map_or(1.0, EngineClock::speed));
