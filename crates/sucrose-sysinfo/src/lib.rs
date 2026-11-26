@@ -11,10 +11,21 @@
 mod date;
 mod memory;
 mod processor;
+mod wmi_info;
+
+use serde_json::Value;
 
 pub use date::date_snapshot;
 pub use memory::{memory_snapshot, memory_unavailable};
 pub use processor::{ProcessorSampler, processor_unavailable};
+
+/// A single-precision figure as a JSON number. The legacy payload holds C# `float` values, which Newtonsoft writes as the
+/// shortest text that reads back as the same float (`12.345678`, not the `f64` expansion of it); a figure that is not
+/// finite becomes 0, because JSON has no such number.
+pub(crate) fn float(value: f32) -> Value {
+    let shortest: f64 = value.to_string().parse().unwrap_or(0.0);
+    Value::from(if shortest.is_finite() { shortest } else { 0.0 })
+}
 
 /// Why a group of system data could not be read.
 #[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]

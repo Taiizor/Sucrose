@@ -11,8 +11,10 @@ use std::{
 };
 
 use crossbeam_channel::{Receiver, RecvTimeoutError, Sender, bounded};
+use serde_json::Value;
 use sucrose_core::compatible::DataGroup;
 use sucrose_platform::PlatformError;
+use sucrose_sysinfo::{ProcessorSampler, SysInfoError};
 
 use crate::modules::{module_off, start_module};
 
@@ -36,6 +38,10 @@ pub type Sampler = Arc<dyn Fn(DataGroup) -> Option<String> + Send + Sync>;
 
 /// Offers the snapshots of one tick to the renderer of a slot.
 pub type Deliver = Arc<dyn Fn(u8, Vec<(DataGroup, String)>) -> Delivery + Send + Sync>;
+
+/// Tells the sampler that no running page wants `group` any more, so it can let go of what it holds for it (an open
+/// performance-counter query, a cached read).
+pub type Release = Arc<dyn Fn(DataGroup) + Send + Sync>;
 
 /// How many ticks pass between two readings of `group`: the legacy rates (Date every tick, the performance groups once
 /// a second, the battery every two seconds). Bios and Motherboard are read once and cached by their providers, so they
@@ -169,6 +175,10 @@ pub struct DataModule {
     hub: Option<DataHub>,
     sample: Sampler,
     deliver: Deliver,
+    /// Called for a group when the last page that wanted it is gone, and for every group when the hub stops.
+    release: Option<Release>,
+    /// The groups some renderer wanted at the last change, to see which ones were dropped.
+    held: HashSet<DataGroup>,
 }
 
 impl DataModule {
@@ -180,7 +190,16 @@ impl DataModule {
             hub: None,
             sample,
             deliver,
+            release: None,
+            held: HashSet::new(),
         }
+    }
+
+    /// Sets what is told when a group is no longer wanted.
+    #[must_use]
+    pub fn with_release(mut self, release: Release) -> Self {
+        self.release = Some(release);
+        self
     }
 
     /// The renderer `pid` of `slot` needs `groups` (an empty list needs nothing). Starts the hub when it is the first.
@@ -224,7 +243,11 @@ impl DataModule {
 
     /// Starts or stops the hub to match whether any renderer wants data.
     fn follow(&mut self) {
-        let any_wanted = !lock(&self.wanted).is_empty();
+        let wanted_groups: HashSet<DataGroup> = lock(&self.wanted)
+            .values()
+            .flat_map(|entry| entry.groups.iter().copied())
+            .collect();
+        let any_wanted = !wanted_groups.is_empty();
         match (any_wanted, self.hub.is_some()) {
             (true, false) => {
                 let (wanted, sample, deliver) = (
@@ -240,31 +263,172 @@ impl DataModule {
                 });
             }
             (false, true) => {
+                // Dropping the hub joins its worker, so nothing samples while the groups are let go below.
                 self.hub = None;
                 module_off("data hub");
+                self.release_groups(DataGroup::ALL);
+                self.held.clear();
             }
             _ => {}
+        }
+        // A group whose last page went while the hub goes on (a page that needed only the date stays): the sampler lets
+        // go of it now. A pass that began before this change can still read it once more; the release when the hub
+        // stops catches that.
+        let dropped: Vec<DataGroup> = self.held.difference(&wanted_groups).copied().collect();
+        self.release_groups(dropped);
+        self.held = wanted_groups;
+    }
+
+    fn release_groups(&self, groups: impl IntoIterator<Item = DataGroup>) {
+        if let Some(release) = &self.release {
+            for group in groups {
+                release(group);
+            }
         }
     }
 }
 
-/// The sampler of this build: the groups `sucrose-sysinfo` provides, as the JSON text the legacy payload holds. The
-/// other groups follow with plan 04-11.
-#[must_use]
-pub fn system_sampler() -> Sampler {
-    Arc::new(|group| {
-        let snapshot = match group {
-            DataGroup::Date => sucrose_sysinfo::date_snapshot(),
-            _ => return None,
-        };
+/// How long a source that failed (WMI unavailable, a counter missing) is left alone before the next attempt.
+const RETRY_AFTER: Duration = Duration::from_secs(60);
+
+/// What the sampler holds for one group that needs more than a single call.
+enum Held<T> {
+    /// Nothing yet: the next reading creates it.
+    Empty,
+    Ready(T),
+    /// The source failed at this time; the group reports its legacy default until the retry.
+    Failed(Instant),
+}
+
+impl<T> Held<T> {
+    /// Whether a reading may try the source now.
+    fn may_try(&self) -> bool {
+        match self {
+            Self::Empty => true,
+            Self::Ready(_) => false,
+            Self::Failed(at) => at.elapsed() >= RETRY_AFTER,
+        }
+    }
+}
+
+/// What the system sampler keeps between readings: the processor counters (open while a page wants the Processor group),
+/// and which groups already logged a failure.
+struct SystemState {
+    processor: Held<ProcessorSampler>,
+    logged: HashSet<DataGroup>,
+}
+
+impl SystemState {
+    fn new() -> Self {
+        Self {
+            processor: Held::Empty,
+            logged: HashSet::new(),
+        }
+    }
+
+    /// Logs the first failure of `group` and stays quiet about the repeats; the group then reports its default.
+    fn failed(&mut self, group: DataGroup, error: &SysInfoError) {
+        if self.logged.insert(group) {
+            tracing::warn!(?group, %error, "the data group cannot be read, a page gets its empty default");
+        }
+    }
+
+    /// Reads `group`. `None` when this build has no provider for it; a provider that fails gives the group's legacy
+    /// default (`State` false and empty values) and is logged once.
+    fn read(&mut self, group: DataGroup) -> Option<Value> {
+        match group {
+            DataGroup::Date => self.plain(group, sucrose_sysinfo::date_snapshot(), None),
+            DataGroup::Memory => self.plain(
+                group,
+                sucrose_sysinfo::memory_snapshot(),
+                Some(sucrose_sysinfo::memory_unavailable()),
+            ),
+            DataGroup::Processor => self.processor(),
+            _ => None,
+        }
+    }
+
+    /// A group read by one call every time. `default` is what a page gets when the call fails; without one the group
+    /// is skipped.
+    fn plain(
+        &mut self,
+        group: DataGroup,
+        snapshot: Result<Value, SysInfoError>,
+        default: Option<Value>,
+    ) -> Option<Value> {
         match snapshot {
-            Ok(value) => serde_json::to_string(&value).ok(),
-            Err(error) => {
-                tracing::debug!(?group, %error, "the data group cannot be read");
+            Ok(value) => Some(value),
+            Err(SysInfoError::Unsupported(what)) => {
+                tracing::debug!(?group, what, "the data group has no provider on this OS");
                 None
             }
+            Err(error) => {
+                self.failed(group, &error);
+                default
+            }
         }
-    })
+    }
+
+    /// The Processor group: the counters are opened by the first reading and kept until the group is released.
+    fn processor(&mut self) -> Option<Value> {
+        if self.processor.may_try() {
+            match ProcessorSampler::new() {
+                Ok(mut sampler) => {
+                    if let Some(error) = sampler.info_error() {
+                        self.failed(DataGroup::Processor, &error);
+                    }
+                    self.processor = Held::Ready(sampler);
+                }
+                Err(SysInfoError::Unsupported(what)) => {
+                    tracing::debug!(group = ?DataGroup::Processor, what, "the data group has no provider on this OS");
+                    return None;
+                }
+                Err(error) => {
+                    self.failed(DataGroup::Processor, &error);
+                    self.processor = Held::Failed(Instant::now());
+                }
+            }
+        }
+        match &mut self.processor {
+            Held::Ready(sampler) => Some(sampler.sample()),
+            _ => Some(sucrose_sysinfo::processor_unavailable()),
+        }
+    }
+
+    /// No running page wants `group` any more: whatever is held for it goes (the counters close, a cached read is
+    /// dropped, so a later page reads it afresh) and a failure may be logged again.
+    fn release(&mut self, group: DataGroup) {
+        if group == DataGroup::Processor {
+            self.processor = Held::Empty;
+        }
+        self.logged.remove(&group);
+    }
+}
+
+/// The sampler of this build and the release that goes with it: the groups `sucrose-sysinfo` provides, as the JSON text
+/// the legacy payload holds. Everything the sampler holds sits behind one lock, so a release from the service thread
+/// waits for a reading in progress on the hub thread.
+#[must_use]
+pub fn system_sampling() -> (Sampler, Release) {
+    let state = Arc::new(Mutex::new(SystemState::new()));
+    let sample: Sampler = {
+        let state = Arc::clone(&state);
+        Arc::new(move |group| {
+            let value = state.lock().unwrap_or_else(PoisonError::into_inner).read(group)?;
+            serde_json::to_string(&value).ok()
+        })
+    };
+    let release: Release = Arc::new(move |group| {
+        state.lock().unwrap_or_else(PoisonError::into_inner).release(group);
+    });
+    (sample, release)
+}
+
+/// The sampler of [`system_sampling`] without its release.
+#[cfg(test)]
+#[must_use]
+pub fn system_sampler() -> Sampler {
+    system_sampling().0
 }
 
 #[cfg(test)]
@@ -493,5 +657,82 @@ mod tests {
     #[test]
     fn the_date_is_asked_for_every_tick() {
         assert_eq!(every_ticks(DataGroup::Date), 1);
+    }
+
+    #[test]
+    fn memory_and_processor_are_asked_for_once_a_second() {
+        assert_eq!(every_ticks(DataGroup::Memory), 10);
+        assert_eq!(every_ticks(DataGroup::Processor), 10);
+    }
+
+    /// A release that records the groups it was called for.
+    fn recording_release() -> (Release, Arc<Mutex<Vec<DataGroup>>>) {
+        let released = Arc::new(Mutex::new(Vec::new()));
+        let kept = Arc::clone(&released);
+        let release: Release = Arc::new(move |group| kept.lock().expect("released").push(group));
+        (release, released)
+    }
+
+    #[test]
+    fn a_group_is_released_when_its_last_renderer_stops_wanting_it_while_the_hub_goes_on() {
+        let (sample, _reads) = counting_sampler();
+        let (deliver, _log) = recording_deliver(|_| Delivery::Sent);
+        let (release, released) = recording_release();
+        let mut module = DataModule::new(sample, deliver).with_release(release);
+
+        module.want(0, 10, &[DataGroup::Date, DataGroup::Processor]);
+        module.want(1, 11, &[DataGroup::Processor]);
+        module.want(0, 10, &[DataGroup::Date]);
+        assert!(
+            released.lock().expect("released").is_empty(),
+            "renderer 1 still wants the processor"
+        );
+        module.release(1, None);
+
+        assert!(module.running(), "renderer 0 still wants the date");
+        assert_eq!(*released.lock().expect("released"), [DataGroup::Processor]);
+    }
+
+    #[test]
+    fn every_group_is_released_when_the_hub_stops() {
+        let (sample, _reads) = counting_sampler();
+        let (deliver, _log) = recording_deliver(|_| Delivery::Sent);
+        let (release, released) = recording_release();
+        let mut module = DataModule::new(sample, deliver).with_release(release);
+        module.want(0, 10, &[DataGroup::Memory]);
+
+        module.release(0, None);
+
+        assert!(!module.running());
+        let released = released.lock().expect("released");
+        assert!(
+            DataGroup::ALL.iter().all(|group| released.contains(group)),
+            "{released:?}"
+        );
+    }
+
+    #[cfg(windows)]
+    #[test]
+    fn the_system_sampler_reads_memory_and_processor_and_releases_the_counters() {
+        let (sample, release) = system_sampling();
+
+        let memory: serde_json::Value =
+            serde_json::from_str(&sample(DataGroup::Memory).expect("memory reads")).expect("JSON");
+        assert_eq!(memory["State"], true);
+        assert!(memory["MemoryLoad"].as_f64().is_some());
+        let first: serde_json::Value =
+            serde_json::from_str(&sample(DataGroup::Processor).expect("processor reads")).expect("JSON");
+        assert!(first["Cores"].is_array());
+        thread::sleep(Duration::from_millis(1100));
+        let second: serde_json::Value =
+            serde_json::from_str(&sample(DataGroup::Processor).expect("processor reads")).expect("JSON");
+        assert_eq!(
+            second["Type"], "Timer100NsInverse",
+            "the second reading has real figures"
+        );
+
+        release(DataGroup::Processor);
+        let again = sample(DataGroup::Processor).expect("a later page opens the counters afresh");
+        assert!(again.contains("\"Cores\""));
     }
 }

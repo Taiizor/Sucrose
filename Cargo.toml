@@ -71,6 +71,8 @@ ureq = "3.5.2"
 # Same version interprocess 2.4.9 already depends on, so no second copy is built.
 widestring = "1.2.1"
 windows = "0.62.2"
+# D-039: system data from WMI queries (Win32_Processor, Win32_BIOS, Win32_BaseBoard) behind sucrose-sysinfo, Windows only; verdict OK in the 04-RESEARCH package audit.
+wmi = "0.18.4"
 
 [workspace.lints.rust]
 # D-011, D-039: only sucrose-platform, sucrose-sysinfo and engine/FFI crates may opt out with #![allow(unsafe_code)].

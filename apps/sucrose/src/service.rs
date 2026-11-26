@@ -45,7 +45,7 @@ use sucrose_engine::{Availability, EngineId, Unsupported, choose_engine};
 use sucrose_engine_web::args;
 
 use crate::{
-    data_hub::{DataModule, Delivery, system_sampler},
+    data_hub::{DataModule, Delivery, system_sampling},
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
     library_ops::{self, FinishStats, MaintainInput, MoveFailure, MovePlanDone, MoveStats, RealOps},
     lifecycle::{Closing, OPEN_LABEL, exit_label, should_exit, start_actions},
@@ -1143,10 +1143,12 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
     let mut memory = MemoryModule::default();
     module_off("memory");
     // The data hub exists only while a running page needs system data (D-24): nothing runs until one asks.
-    let mut data = DataModule::new(system_sampler(), {
+    let (data_sample, data_release) = system_sampling();
+    let mut data = DataModule::new(data_sample, {
         let renderers = Arc::clone(&renderers);
         Arc::new(move |slot, batch| deliver_data(&renderers, slot, batch))
-    });
+    })
+    .with_release(data_release);
     if start_fullscreen(&mut fleet, plan.fullscreen, plan.scope, plan.pause) {
         timers.set(FULLSCREEN_TIMER, FULLSCREEN_POLL_MS);
     }
