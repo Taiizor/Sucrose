@@ -91,6 +91,35 @@ pub fn profile_paths(profile: Option<&Path>) -> Result<(String, String), CefErro
     Ok((text.clone(), text))
 }
 
+/// The Chromium switch that makes the browser accept every invalid TLS certificate. CEF no longer has a settings field
+/// for it, so the browser process appends this switch itself, and only when the user allowed invalid certificates.
+pub const IGNORE_CERTIFICATE_ERRORS_SWITCH: &str = "ignore-certificate-errors";
+
+/// The profile and certificate values of the CEF settings, decided before CEF is touched so they can be tested.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct SettingsValues {
+    /// `root_cache_path`, see [`profile_paths`].
+    pub root_cache_path: String,
+    /// `cache_path`, see [`profile_paths`].
+    pub cache_path: String,
+    /// Whether invalid TLS certificates are accepted (D-12): only when the user allowed it, never by default.
+    pub ignore_certificate_errors: bool,
+}
+
+/// The settings values for a profile folder and the user's Allow invalid certificates choice (D-12).
+///
+/// # Errors
+/// See [`profile_paths`].
+pub fn settings_values(profile: Option<&Path>, allow_invalid_certificates: bool) -> Result<SettingsValues, CefError> {
+    let (root_cache_path, cache_path) = profile_paths(profile)?;
+    let _ = allow_invalid_certificates;
+    Ok(SettingsValues {
+        root_cache_path,
+        cache_path,
+        ignore_certificate_errors: false,
+    })
+}
+
 /// How long the pump timer waits after a pump call, given the delay CEF last asked for: asap becomes 1 ms, nothing
 /// asked becomes [`MAX_PUMP_DELAY_MS`], and no delay is longer than that.
 #[must_use]
@@ -565,6 +594,30 @@ mod tests {
         assert_eq!(root, cache);
         assert_eq!(Path::new(&root), folder);
         assert_eq!(none, (String::new(), String::new()), "empty paths are in-memory caches");
+    }
+
+    #[test]
+    fn certificate_errors_are_ignored_only_when_invalid_certificates_are_allowed() {
+        let folder = std::env::temp_dir().join("sucrose-certificate-settings");
+
+        let validating = settings_values(Some(&folder), false).expect("validating");
+        let allowing = settings_values(Some(&folder), true).expect("allowing");
+        let in_memory = settings_values(None, false).expect("in memory");
+
+        assert!(
+            !validating.ignore_certificate_errors,
+            "certificates are validated by default (D-12)"
+        );
+        assert!(
+            allowing.ignore_certificate_errors,
+            "Allow invalid certificates turns the switch on"
+        );
+        assert!(!in_memory.ignore_certificate_errors);
+        assert_eq!(
+            allowing.root_cache_path, validating.root_cache_path,
+            "the choice does not move the profile"
+        );
+        assert_eq!(IGNORE_CERTIFICATE_ERRORS_SWITCH, "ignore-certificate-errors");
     }
 
     #[test]

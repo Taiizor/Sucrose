@@ -326,6 +326,11 @@ pub struct Engine {
     /// Whether the system is kept awake while a wallpaper plays (`StayAwake`).
     #[serde(rename = "StayAwake")]
     pub stay_awake: bool,
+    /// Whether the web engines accept invalid TLS certificates (new, D-12, `AllowInvalidCertificates`). Off validates
+    /// certificates; on restores the legacy accept-all behavior for both web engines. The legacy app accepted every
+    /// certificate and a migration leaves this off all the same: D-12 makes validation the default.
+    #[serde(rename = "AllowInvalidCertificates")]
+    pub allow_invalid_certificates: bool,
     /// Keys of the section this build does not know.
     #[serde(flatten)]
     pub extra: Map<String, Value>,
@@ -609,6 +614,7 @@ impl Default for Engine {
             library_start: true,
             store_start: true,
             stay_awake: false,
+            allow_invalid_certificates: false,
             extra: Map::new(),
         }
     }
@@ -856,6 +862,11 @@ impl Settings {
                 library_start: engine.boolean("LibraryStart", true),
                 store_start: engine.boolean("StoreStart", true),
                 stay_awake: engine.boolean("StayAwake", false),
+                allow_invalid_certificates: {
+                    // RED stub: the value is read but not used yet.
+                    let _ = engine.boolean("AllowInvalidCertificates", false);
+                    false
+                },
                 extra: engine.rest(),
             },
             backgroundog: Backgroundog {
@@ -1187,6 +1198,41 @@ mod tests {
         assert_eq!(value["Engine"]["GraphicPreference"], "HighPerformance");
         assert_eq!(value["Backgroundog"]["FullScreenPerformance"], "Resume");
         assert_eq!(value["Backgroundog"]["PausePerformanceType"], "Light");
+    }
+
+    #[test]
+    fn allow_invalid_certificates_defaults_to_off_and_survives_a_round_trip() {
+        let missing = Settings::from_slice(br#"{"Engine":{"WallpaperVolume":7}}"#).unwrap();
+        assert!(
+            !missing.engine.allow_invalid_certificates,
+            "a file without the key validates certificates"
+        );
+        let written = serde_json::to_value(&missing).unwrap();
+        assert_eq!(
+            written["Engine"]["AllowInvalidCertificates"], false,
+            "the key is written back as false"
+        );
+
+        let on = Settings::from_slice(br#"{"Engine":{"AllowInvalidCertificates":true}}"#).unwrap();
+        assert!(on.engine.allow_invalid_certificates);
+        let again = Settings::from_slice(&on.to_bytes().unwrap()).unwrap();
+        assert!(again.engine.allow_invalid_certificates, "true survives a round trip");
+        assert_eq!(
+            serde_json::to_value(&again).unwrap()["Engine"]["AllowInvalidCertificates"],
+            true
+        );
+    }
+
+    #[test]
+    fn a_non_boolean_allow_invalid_certificates_reads_off() {
+        for text in [
+            r#"{"Engine":{"AllowInvalidCertificates":"yes"}}"#,
+            r#"{"Engine":{"AllowInvalidCertificates":1}}"#,
+            r#"{"Engine":{"AllowInvalidCertificates":null}}"#,
+        ] {
+            let settings = Settings::from_slice(text.as_bytes()).unwrap();
+            assert!(!settings.engine.allow_invalid_certificates, "{text}");
+        }
     }
 
     #[test]

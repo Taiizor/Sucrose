@@ -435,6 +435,8 @@ fn the_real_engine_file_migrates_every_key() {
     assert_eq!(engine["DuplicateScreenType"], "Default");
     assert_eq!(engine["ExpandScreenType"], "Default");
     assert_eq!(engine["DisplayScreenType"], "PerDisplay");
+    // New in the rewrite (D-12): a migrated file validates certificates although the legacy app accepted every one.
+    assert_eq!(engine["AllowInvalidCertificates"], false);
     assert_eq!(engine["ScreenType"], "DisplayBound");
     assert_eq!(engine["ScreenDevice"], "\\\\.\\DISPLAY1");
     assert_eq!(engine["InputType"], "MouseKeyboard");
