@@ -29,8 +29,10 @@ pub struct HostStart {
     /// The text of `AdditionalBrowserArguments`: the user's switches merged with Sucrose's own (D-17, WAPI-10). The
     /// environment is created with it, so it cannot change while the renderer runs.
     pub browser_arguments: String,
-    /// `Engine.DeveloperMode`: the page gets its context menu and the developer tools (D-13).
+    /// `Engine.DeveloperMode`: the page gets its context menu and the F12 / Ctrl+Shift+I shortcuts (D-13).
     pub developer_mode: bool,
+    /// `Engine.AllowInvalidCertificates`: certificate errors are allowed instead of refused (D-12). Off by default.
+    pub allow_invalid_certificates: bool,
     /// The scripts a page gets after every completed main-frame navigation: they run before `on_loaded`.
     pub page_calls: PageCallsHook,
     /// Called after every completed main-frame navigation.
@@ -115,6 +117,45 @@ pub fn stream_path(path: &Path) -> PathBuf {
     }
 }
 
+/// What the host sets on the page's settings and which handlers it registers, from the two settings that decide them.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ViewSettings {
+    /// The developer tools exist in the page. Always true: the Portal's Open DevTools button needs them, and nothing opens
+    /// them by itself (D-13); the keys and the menu are what keep them closed.
+    pub devtools_enabled: bool,
+    /// The default context menu (with Inspect) shows only in developer mode.
+    pub context_menus: bool,
+    /// The browser accelerator keys stay on so the key table sees them (it swallows the blocked ones).
+    pub accelerator_keys: bool,
+    /// A certificate error handler is registered that allows every error: only with Allow invalid certificates (D-12).
+    /// Without it nothing is registered, so Chromium rejects an invalid certificate.
+    pub allow_invalid_certificates: bool,
+}
+
+/// The view settings for developer mode and the certificate switch (D-12, D-13).
+#[must_use]
+pub fn view_settings(developer_mode: bool, allow_invalid_certificates: bool) -> ViewSettings {
+    ViewSettings {
+        devtools_enabled: true,
+        context_menus: developer_mode,
+        accelerator_keys: true,
+        allow_invalid_certificates,
+    }
+}
+
+/// The host name of `uri` for a log line: what follows `://` up to the first `/`, `?`, `#` or `:` (a user name before
+/// an `@` is dropped). Never the path or the query, which can carry secrets.
+#[must_use]
+pub fn uri_host(uri: &str) -> &str {
+    let rest = uri.split_once("://").map_or(uri, |(_, rest)| rest);
+    let authority = rest.split(['/', '?', '#']).next().unwrap_or_default();
+    let host = authority.rsplit_once('@').map_or(authority, |(_, host)| host);
+    if let Some(bracketed) = host.strip_prefix('[') {
+        return bracketed.split_once(']').map_or(bracketed, |(inside, _)| inside);
+    }
+    host.split(':').next().unwrap_or_default()
+}
+
 #[cfg(windows)]
 mod imp {
     use std::{
@@ -125,21 +166,25 @@ mod imp {
     };
 
     use sucrose_engine_web::{
+        keys::{KeyAction, key_action},
         origin,
         serve::{self, Content},
     };
     use webview2_com::{
-        CoreWebView2EnvironmentOptions, CreateCoreWebView2ControllerCompletedHandler,
-        CreateCoreWebView2EnvironmentCompletedHandler, DownloadStartingEventHandler, ExecuteScriptCompletedHandler,
+        AcceleratorKeyPressedEventHandler, CoreWebView2EnvironmentOptions,
+        CreateCoreWebView2ControllerCompletedHandler, CreateCoreWebView2EnvironmentCompletedHandler,
+        DownloadStartingEventHandler, ExecuteScriptCompletedHandler,
         Microsoft::Web::WebView2::Win32::{
-            COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS, COREWEBVIEW2_COLOR, COREWEBVIEW2_WEB_RESOURCE_CONTEXT_ALL,
-            CreateCoreWebView2EnvironmentWithOptions, ICoreWebView2, ICoreWebView2_4, ICoreWebView2Controller,
-            ICoreWebView2Controller2, ICoreWebView2Controller3, ICoreWebView2Environment,
-            ICoreWebView2EnvironmentOptions, ICoreWebView2NavigationCompletedEventArgs,
-            ICoreWebView2NavigationCompletedEventArgs2, ICoreWebView2WebResourceRequest,
-            ICoreWebView2WebResourceRequestedEventArgs,
+            COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS, COREWEBVIEW2_COLOR, COREWEBVIEW2_KEY_EVENT_KIND_KEY_DOWN,
+            COREWEBVIEW2_KEY_EVENT_KIND_SYSTEM_KEY_DOWN, COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_ALWAYS_ALLOW,
+            COREWEBVIEW2_WEB_RESOURCE_CONTEXT_ALL, CreateCoreWebView2EnvironmentWithOptions, ICoreWebView2,
+            ICoreWebView2_4, ICoreWebView2_14, ICoreWebView2Controller, ICoreWebView2Controller2,
+            ICoreWebView2Controller3, ICoreWebView2Environment, ICoreWebView2EnvironmentOptions,
+            ICoreWebView2NavigationCompletedEventArgs, ICoreWebView2NavigationCompletedEventArgs2,
+            ICoreWebView2Settings3, ICoreWebView2WebResourceRequest, ICoreWebView2WebResourceRequestedEventArgs,
         },
-        NavigationCompletedEventHandler, WebResourceRequestedEventHandler, take_pwstr,
+        NavigationCompletedEventHandler, ServerCertificateErrorDetectedEventHandler, WebResourceRequestedEventHandler,
+        take_pwstr,
     };
     use windows::{
         Win32::{
@@ -150,6 +195,7 @@ mod imp {
             },
             UI::{
                 HiDpi::{GetDpiForMonitor, MDT_EFFECTIVE_DPI},
+                Input::KeyboardAndMouse::{GetKeyState, VK_CONTROL, VK_SHIFT},
                 Shell::{SHCreateMemStream, SHCreateStreamOnFileEx},
                 WindowsAndMessaging::{
                     DispatchMessageW, MSG, MsgWaitForMultipleObjects, PM_REMOVE, PeekMessageW, PostQuitMessage,
@@ -160,7 +206,10 @@ mod imp {
         core::{BOOL, Interface, PCWSTR, PWSTR},
     };
 
-    use super::{HostError, HostStart, bounds_size, header_block, ranged_reply, scale_for_dpi, stream_path};
+    use super::{
+        HostError, HostStart, bounds_size, header_block, ranged_reply, scale_for_dpi, stream_path, uri_host,
+        view_settings,
+    };
 
     /// How long the environment and the controller get to come up.
     const CREATE_TIMEOUT: Duration = Duration::from_secs(30);
@@ -485,6 +534,8 @@ mod imp {
         resource: Option<i64>,
         completed: Option<i64>,
         download: Option<i64>,
+        certificate: Option<i64>,
+        accelerator: Option<i64>,
     }
 
     impl Host {
@@ -563,16 +614,80 @@ mod imp {
                     .map_err(setup)?;
                 controller.SetIsVisible(true).map_err(setup)?;
 
-                // The page gets no host object and no message channel (T-04-51); menus and developer tools only in
-                // developer mode (D-13).
+                // The page gets no host object and no message channel (T-04-51). The developer tools exist but never
+                // open by themselves: the context menu shows only in developer mode and the key table below swallows the
+                // shortcuts unless developer mode is on; the Portal's button opens them (D-13).
+                let view = view_settings(start.developer_mode, start.allow_invalid_certificates);
                 let settings = webview.Settings().map_err(setup)?;
                 settings.SetIsWebMessageEnabled(false).map_err(setup)?;
                 settings.SetAreHostObjectsAllowed(false).map_err(setup)?;
                 settings.SetIsStatusBarEnabled(false).map_err(setup)?;
-                settings.SetAreDevToolsEnabled(start.developer_mode).map_err(setup)?;
+                settings.SetAreDevToolsEnabled(view.devtools_enabled).map_err(setup)?;
                 settings
-                    .SetAreDefaultContextMenusEnabled(start.developer_mode)
+                    .SetAreDefaultContextMenusEnabled(view.context_menus)
                     .map_err(setup)?;
+                if let Ok(third) = settings.cast::<ICoreWebView2Settings3>() {
+                    third
+                        .SetAreBrowserAcceleratorKeysEnabled(view.accelerator_keys)
+                        .map_err(setup)?;
+                }
+
+                // The legacy blocked keys and the DevTools shortcuts go through the table CEF uses (D-13).
+                let keys_webview = webview.clone();
+                let developer_mode = start.developer_mode;
+                let handler = AcceleratorKeyPressedEventHandler::create(Box::new(move |_sender, args| {
+                    let Some(args) = args else {
+                        return Ok(());
+                    };
+                    let mut code = 0_u32;
+                    args.VirtualKey(&mut code)?;
+                    let mut kind = COREWEBVIEW2_KEY_EVENT_KIND_KEY_DOWN;
+                    args.KeyEventKind(&mut kind)?;
+                    // The high bit of GetKeyState is "down". The keys are never logged (T-04-45).
+                    let ctrl = GetKeyState(i32::from(VK_CONTROL.0)) < 0;
+                    let shift = GetKeyState(i32::from(VK_SHIFT.0)) < 0;
+                    match key_action(developer_mode, i32::try_from(code).unwrap_or(0), ctrl, shift) {
+                        KeyAction::Pass => {}
+                        KeyAction::Swallow => args.SetHandled(true)?,
+                        KeyAction::DevTools => {
+                            // The user pressed the shortcut: that is asking for the tools (D-13).
+                            if kind == COREWEBVIEW2_KEY_EVENT_KIND_KEY_DOWN
+                                || kind == COREWEBVIEW2_KEY_EVENT_KIND_SYSTEM_KEY_DOWN
+                            {
+                                let _ = keys_webview.OpenDevToolsWindow();
+                            }
+                            args.SetHandled(true)?;
+                        }
+                    }
+                    Ok(())
+                }));
+                let mut token = 0;
+                controller
+                    .add_AcceleratorKeyPressed(&handler, &mut token)
+                    .map_err(setup)?;
+                self.tokens.accelerator = Some(token);
+
+                // Chromium refuses an invalid certificate unless the user allowed them (D-12): nothing is registered
+                // without the switch.
+                if view.allow_invalid_certificates {
+                    let fourteenth: ICoreWebView2_14 = webview.cast().map_err(setup)?;
+                    let handler = ServerCertificateErrorDetectedEventHandler::create(Box::new(|_sender, args| {
+                        if let Some(args) = args {
+                            let mut uri = PWSTR::null();
+                            // The string is freed by `take_pwstr`; a failed call leaves it null, which reads empty.
+                            let _ = args.RequestUri(&mut uri);
+                            let uri = take_pwstr(uri);
+                            args.SetAction(COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_ALWAYS_ALLOW)?;
+                            tracing::info!(host = %uri_host(&uri), "certificate error allowed");
+                        }
+                        Ok(())
+                    }));
+                    let mut token = 0;
+                    fourteenth
+                        .add_ServerCertificateErrorDetected(&handler, &mut token)
+                        .map_err(setup)?;
+                    self.tokens.certificate = Some(token);
+                }
 
                 // Every request of the virtual origin goes through the shared planner.
                 let filter = wide(&format!("{}*", origin::ORIGIN));
@@ -670,6 +785,16 @@ mod imp {
             }
         }
 
+        /// Shows the developer tools in a window of their own: the Portal's Open DevTools button (D-13). Nothing else
+        /// calls it but the developer-mode shortcuts.
+        pub fn open_devtools(&self) -> Result<(), HostError> {
+            let Some(webview) = &self.webview else {
+                return Err(HostError::Setup("the page is closed".to_owned()));
+            };
+            // SAFETY: the webview belongs to this thread.
+            unsafe { webview.OpenDevToolsWindow() }.map_err(|error| HostError::Setup(error.to_string()))
+        }
+
         /// Runs a script in the main frame, as the page calls do (the in-page pause). The page gets no host object and no
         /// message channel; the script's result is not read.
         pub fn execute_script(&self, script: &str) {
@@ -700,7 +825,16 @@ mod imp {
                     {
                         let _ = fourth.remove_DownloadStarting(token);
                     }
+                    if let (Some(token), Ok(fourteenth)) =
+                        (self.tokens.certificate.take(), webview.cast::<ICoreWebView2_14>())
+                    {
+                        let _ = fourteenth.remove_ServerCertificateErrorDetected(token);
+                    }
                 }
+            }
+            if let (Some(controller), Some(token)) = (&self.controller, self.tokens.accelerator.take()) {
+                // SAFETY: the token came from this controller's registration; a failure only means it is gone.
+                let _ = unsafe { controller.remove_AcceleratorKeyPressed(token) };
             }
             if let Some(controller) = &self.controller {
                 // SAFETY: the controller belongs to this thread; closing twice is harmless, the second answer is an
@@ -788,6 +922,11 @@ mod stub {
             Ok(())
         }
 
+        /// Nothing to show the tools of.
+        pub fn open_devtools(&self) -> Result<(), HostError> {
+            Err(HostError::Unsupported)
+        }
+
         /// Nothing to run a script in.
         pub fn execute_script(&self, _script: &str) {}
 
@@ -864,6 +1003,38 @@ mod tests {
                 .contains(&("Content-Range", "bytes 0-4194303/10485760".to_owned()))
         );
         assert!(ranged.headers.contains(&("Accept-Ranges", "bytes".to_owned())));
+    }
+
+    #[test]
+    fn the_developer_tools_exist_in_both_modes_but_the_menu_and_the_certificate_handler_follow_the_settings() {
+        let closed = view_settings(false, false);
+        let developer = view_settings(true, false);
+
+        assert!(
+            closed.devtools_enabled && developer.devtools_enabled,
+            "Open DevTools needs them"
+        );
+        assert!(!closed.context_menus, "no context menu without developer mode");
+        assert!(developer.context_menus, "Inspect in developer mode");
+        assert!(closed.accelerator_keys && developer.accelerator_keys);
+        assert!(!closed.allow_invalid_certificates, "D-12: validation is the default");
+        assert!(
+            !developer.allow_invalid_certificates,
+            "developer mode does not allow bad certificates"
+        );
+        assert!(view_settings(false, true).allow_invalid_certificates);
+    }
+
+    #[test]
+    fn the_log_host_of_a_uri_has_no_path_query_port_or_user() {
+        assert_eq!(uri_host("https://expired.badssl.com/"), "expired.badssl.com");
+        assert_eq!(
+            uri_host("https://user:pw@example.com:8443/a/b?token=1#x"),
+            "example.com"
+        );
+        assert_eq!(uri_host("https://[::1]:9000/"), "::1");
+        assert_eq!(uri_host("example.org/path"), "example.org");
+        assert_eq!(uri_host(""), "");
     }
 
     #[test]

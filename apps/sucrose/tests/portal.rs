@@ -6,7 +6,7 @@ mod common;
 use std::path::PathBuf;
 
 use common::{PortalClient, TestService, copy_fixture_library, copy_web_fixture, service_runs, skipped};
-use serde_json::json;
+use serde_json::{Value, json};
 use sucrose_core::{
     library::scan,
     paths::legacy_data_dir,
@@ -892,18 +892,40 @@ fn restart_now_restarts_only_the_affected_wallpapers() {
 #[test]
 #[ignore = "plays a Web wallpaper and opens DevTools on the desktop from a scratch data folder; plan 17 runs it"]
 fn open_devtools_reaches_the_web_renderer() {
-    if !service_runs("open_devtools_reaches_the_web_renderer") {
+    open_devtools_roundtrip(
+        "open_devtools_reaches_the_web_renderer",
+        "open-devtools",
+        &json!({}),
+        None,
+    );
+}
+
+/// The same steps with the web engine WebView2 (plan 25, D-13): skipped when WebView2 cannot play Web here (the service
+/// then plays it with CEF, which the first test covers). Closing what it started is stopping the service, never input.
+#[test]
+#[ignore = "plays a Web wallpaper and opens DevTools on the desktop from a scratch data folder; plan 25 runs it"]
+fn open_devtools_reaches_the_webview2_renderer() {
+    open_devtools_roundtrip(
+        "open_devtools_reaches_the_webview2_renderer",
+        "open-devtools-webview2",
+        &json!({ "Engine": { "Web": "WebViewLive" } }),
+        Some("WebView2"),
+    );
+}
+
+/// Plays the `hello` Web fixture on a scratch service with `overrides`, asks an unknown monitor and the real one to open
+/// the developer tools and checks the answers and the renderer log. `engine` names the engine the renderer has to start;
+/// the run is skipped when another one starts.
+fn open_devtools_roundtrip(test: &str, scratch: &str, overrides: &Value, engine: Option<&str>) {
+    if !service_runs(test) {
         return;
     }
-    let service = TestService::start("open-devtools", &json!({}));
+    let service = TestService::start(scratch, overrides);
     copy_web_fixture(&service, "hello");
     let (mut portal, _) = PortalClient::hello(&service, None);
     let report = wait_for_engines(&portal);
     if !report.playable.contains(&WallpaperType::Web) {
-        skipped(
-            "open_devtools_reaches_the_web_renderer",
-            "CEF is not installed next to the executable",
-        );
+        skipped(test, "no web engine is installed next to the executable");
         return;
     }
     assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
@@ -915,6 +937,15 @@ fn open_devtools_reaches_the_web_renderer() {
             renderer_logs(&service)
         );
         std::thread::sleep(std::time::Duration::from_millis(250));
+    }
+    if let Some(engine) = engine
+        && !renderer_logs(&service).contains(&format!("engine started engine=\"{engine}\""))
+    {
+        skipped(
+            test,
+            &format!("{engine} did not start the wallpaper here (the service fell back to another engine)"),
+        );
+        return;
     }
     assert!(
         !renderer_logs(&service).contains("devtools opened"),

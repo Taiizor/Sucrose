@@ -51,6 +51,8 @@ enum Command {
     Stretch(Stretch),
     /// A data snapshot arrived: run the templates with the newest values (kept in the [`PageState`]).
     Data,
+    /// The Portal's Open DevTools button (D-13).
+    OpenDevTools,
 }
 
 /// The state a renderer starts with: not paused, the playback settings and the web options of its assignment.
@@ -221,6 +223,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         user_data_folder,
         browser_arguments,
         developer_mode: web.developer_mode,
+        allow_invalid_certificates: web.allow_invalid_certificates,
         page_calls: Arc::new(move |_url, status| page::page_calls(&calls_dir, status, &calls_state, &complaints)),
         // The first finished main-frame load is the first frame the user can see.
         on_loaded: Arc::new(move |_url, status| {
@@ -360,6 +363,12 @@ impl Engine for WebView2Engine {
         None
     }
 
+    /// DevTools open in a window of their own on the surface thread, only when asked (D-13).
+    fn open_devtools(&self) -> Result<(), EngineError> {
+        self.queue(Command::OpenDevTools);
+        Ok(())
+    }
+
     /// Keeps the newest snapshot of each group and queues one push for the surface thread. A text that is not JSON is
     /// dropped with a log line and the group keeps its last value.
     fn push_data(&self, data: Vec<(DataGroup, String)>) {
@@ -384,6 +393,11 @@ impl WebView2Pump {
             tracing::debug!(?command, "queued command reached the WebView2 thread");
             match command {
                 Command::Data | Command::Volume(_) | Command::Stretch(_) => {}
+                Command::OpenDevTools => {
+                    if let Err(error) = self.host.open_devtools() {
+                        tracing::warn!(%error, "cannot open the WebView2 developer tools");
+                    }
+                }
                 Command::Pause { paused, .. } => {
                     let call = js::pause_call(paused);
                     tracing::debug!(kind = call.kind, key = ?call.key, "page call");
@@ -515,6 +529,16 @@ mod tests {
         assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::Volume(10)]);
         assert_eq!(wakes.load(Ordering::SeqCst), 1);
         assert_eq!(engine.volume(), 70);
+    }
+
+    #[test]
+    fn open_devtools_queues_a_command_for_the_surface_thread_and_wakes_it() {
+        let (engine, queue, wakes) = handle(4);
+
+        assert!(engine.open_devtools().is_ok());
+
+        assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::OpenDevTools]);
+        assert_eq!(wakes.load(Ordering::SeqCst), 1);
     }
 
     #[test]
