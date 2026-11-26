@@ -1,2 +1,7 @@
 [alias]
 xtask = "run --package xtask --"
+
+[env]
+# D-32: every build reads the pinned, hash-checked CEF dist from here, so no build script ever downloads CEF.
+# Fill it with: cargo xtask fetch-engines --engine cef
+CEF_PATH = { value = "target/engines/cef", relative = true }

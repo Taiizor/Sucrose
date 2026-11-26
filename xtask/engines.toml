@@ -1,8 +1,12 @@
-# Pinned engine archives for `cargo xtask fetch-engines` (D-016, D-028).
+# Pinned engine archives for `cargo xtask fetch-engines` (D-016, D-028, D-32).
 # Every archive is verified against its sha256 before it is opened; a mismatch deletes it and fails.
-# Binaries are never committed: they are downloaded into target/engines/<arch>/ and copied next to the dev exe.
+# Binaries are never committed. libmpv (7z, one DLL and one header) is downloaded into target/engines/<arch>/ and the
+# DLL is copied next to the dev exe. CEF (tar.bz2, layout = "tree") is extracted whole into
+# target/engines/cef/<cef_version>/<os_arch>/, the folder cef-dll-sys reads through CEF_PATH (.cargo/config.toml).
 # `url` may later point at a mirror (the upstream release disappears after a few weeks); the hash never changes.
 # When the pinned client.h changes, regenerate crates/sucrose-engine-mpv/src/sys.rs with cargo xtask bindgen-mpv.
+# CEF rows: the CEF index publishes only SHA1 (upstream_sha1, compared by hand once when pinning); sha256 comes from
+# `cargo xtask fetch-engines --engine cef --arch <arch> --print-sha256`.
 
 [[engine]]
 name = "libmpv"
@@ -48,3 +52,36 @@ upstream_commit = "bcde6b93cc"
 mpv_version = "v0.42.0-38-gbcde6b93c"
 client_api = "2.6"
 license = "GPL-2.0-or-later"
+
+[[engine]]
+name = "cef"
+arch = "x86_64"
+url = "https://cef-builds.spotifycdn.com/cef_binary_156.0.31%2Bge603d97%2Bchromium-156.0.8078.100_windows64_minimal.tar.bz2"
+sha256 = "c691636862b5f6bab05e76d77bd1b57799659552a25a5bc8b7eaa365de6e63fd"
+size = 175156160
+version = "156.0.31+ge603d97+chromium-156.0.8078.100"
+upstream_sha1 = "d179fb251141d6c30992a1775db80a6a879852ba"
+layout = "tree"
+license = "BSD-3-Clause"
+
+[[engine]]
+name = "cef"
+arch = "i686"
+url = "https://cef-builds.spotifycdn.com/cef_binary_156.0.31%2Bge603d97%2Bchromium-156.0.8078.100_windows32_minimal.tar.bz2"
+sha256 = "44842ff664dacf7172f4bb6cf9b1bef5bca75364290d7ba70ff7043967ffac64"
+size = 153578723
+version = "156.0.31+ge603d97+chromium-156.0.8078.100"
+upstream_sha1 = "cba6c57226f4d72dddbdf8fab18440da69573214"
+layout = "tree"
+license = "BSD-3-Clause"
+
+[[engine]]
+name = "cef"
+arch = "aarch64"
+url = "https://cef-builds.spotifycdn.com/cef_binary_156.0.31%2Bge603d97%2Bchromium-156.0.8078.100_windowsarm64_minimal.tar.bz2"
+sha256 = "2aa778651c3720e9ee1a53e568540d65cabfe94cc371a5cb6b64f5c3ec5b51bc"
+size = 170159472
+version = "156.0.31+ge603d97+chromium-156.0.8078.100"
+upstream_sha1 = "0d1a346ac91fef15ad32e81db68a19a0c547e2b0"
+layout = "tree"
+license = "BSD-3-Clause"

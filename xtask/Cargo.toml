@@ -9,6 +9,7 @@ publish.workspace = true
 
 [dependencies]
 bindgen = { workspace = true, optional = true }
+bzip2 = { workspace = true }
 image = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
@@ -18,6 +19,7 @@ sucrose-config = { workspace = true }
 sucrose-core = { workspace = true }
 sucrose-platform = { workspace = true }
 sysinfo = { workspace = true }
+tar = { workspace = true }
 toml = { workspace = true }
 ureq = { workspace = true }
 

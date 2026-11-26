@@ -15,6 +15,7 @@ publish = false
 [workspace.dependencies]
 sucrose-config = { path = "crates/sucrose-config" }
 sucrose-core = { path = "crates/sucrose-core" }
+sucrose-engine-cef = { path = "crates/sucrose-engine-cef" }
 sucrose-engine-mpv = { path = "crates/sucrose-engine-mpv" }
 sucrose-ipc = { path = "crates/sucrose-ipc" }
 sucrose-log = { path = "crates/sucrose-log" }
@@ -24,6 +25,10 @@ anyhow = "1"
 # Awaitable channel from the Portal's IPC threads to the GPUI thread (crossbeam receivers cannot be awaited); GPUI already depends on it.
 async-channel = "2.5"
 bindgen = "0.73.2"
+# xtask only: decodes the pinned CEF tar.bz2 archive.
+bzip2 = "0.6.1"
+# D-013, D-32: the CEF Rust bindings (crate 156.7.0 carries CEF 156.0.31 as build metadata; cargo ignores metadata in requirements), built against the pinned dist through CEF_PATH (never downloads); libcef.dll is delay-loaded by the binaries that host CEF.
+cef = { version = "=156.7.0", default-features = false }
 crossbeam-channel = "0.5.17"
 dirs = "6"
 gpui-kit = "=0.10.0"
@@ -45,6 +50,8 @@ sevenz-rust2 = "0.25.0"
 sha2 = "0.11.1"
 # Only the process/system part: no rayon, disks, networks or components (xtask measure reads process statistics).
 sysinfo = { version = "0.40.4", default-features = false, features = ["system"] }
+# xtask only: reads the pinned CEF tar.bz2 archive entry by entry.
+tar = "0.4.46"
 thiserror = "2"
 toml = "1.2.2"
 # Recycle bin / trash on every OS, behind sucrose-platform (D-09): corrupt themes are moved there, never deleted.
