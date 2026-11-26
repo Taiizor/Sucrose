@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-22-PLAN.md
-last_updated: "2026-11-26T22:44:57.190Z"
+stopped_at: Completed 04-23-PLAN.md
+last_updated: "2026-11-26T23:05:52.912Z"
 last_activity: 2026-11-27
 last_activity_desc: Phase 04 execution started
-state_head: ae474433794215f8472573d098530992bef1674b
+state_head: 200619f71d0a3c2554a444d4d9f4257ec127ad68
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 117
-  completed_plans: 101
+  completed_plans: 102
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 23 of 38
+Plan: 24 of 38
 Status: Ready to execute
 Last activity: 2026-11-27 — Phase 04 execution started
 Next step: /gsd-debug for the in-page Web theme failures and the CEF GPU process crash (04-37 names their fixes as its precondition), then `/gsd-execute-phase 4` runs Round B.
@@ -156,6 +156,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P20 | 30 min | 3 tasks | 2 files |
 | Phase 04 P21 | 30 min | 3 tasks | 2 files |
 | Phase 04 P22 | 30 min | 2 tasks | 18 files |
+| Phase 04 P23 | 14 min | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -317,6 +318,7 @@ Recent decisions affecting current work:
 - [Phase 04]: Round B coverage gate override (approved deferral, 04-CONTEXT D-31): the 21 requirements of Rounds C–E (TYPE-06, ENG-04, ENG-05, DESK-02..04, PLAY-02..04, PERF-01..04, PERF-06..09, PROP-01..04) and their 16 CONTEXT decisions (D-01, D-03, D-05, D-07, D-08, D-18..D-21, D-23, D-25, D-27..D-30, D-36) are deferred to their round, not dropped; every Round B requirement is covered.
 - [Phase 04]: 04-22: WebView2 answers the virtual origin through sucrose_engine_web::serve::plan (shared with CEF); a Range request gets the whole file and 200 until 04-23
 - [Phase 04]: 04-22: the WebView2 page gets no host object and no message channel; environment creation retries once after 2 s with a 30 s capped message pump
+- [Phase 04]: 04-23: a WebView2 range body is a memory stream of at most 4 MiB (serve::MAX_RANGE_BODY) whose Content-Range names the bytes sent; whole files stream from disk
 
 ### Pending Todos
 
@@ -355,6 +357,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T22:44:33.024Z
-Stopped at: Completed 04-22-PLAN.md
+Last session: 2026-11-26T23:05:30.472Z
+Stopped at: Completed 04-23-PLAN.md
 Resume file: None
