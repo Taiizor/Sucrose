@@ -10,7 +10,10 @@ use std::{
     time::{Duration, Instant},
 };
 
-use sucrose_engine_web::profile::{ProfileKind, acquire};
+use sucrose_engine_web::{
+    profile::{ProfileKind, acquire},
+    serve::{Content, plan},
+};
 
 /// A scratch folder under the temp folder, removed on drop.
 struct Scratch(PathBuf);
@@ -128,6 +131,9 @@ fn profile_engine_name_cannot_leave_the_web_folder() {
 /// The environment variable that turns [`profile_holder_child`] into a lock holder.
 const HOLD_ENV: &str = "SUCROSE_PROFILE_HOLD_DIR";
 
+/// The engine name the lock holder takes the profile of; `Cef` when it is not set.
+const HOLD_ENGINE_ENV: &str = "SUCROSE_PROFILE_HOLD_ENGINE";
+
 /// Not a test of its own: when the parent test starts this binary with [`HOLD_ENV`] set it takes the persistent
 /// profile, says so with a marker file and holds it until it is killed (or a minute passed, so it never lingers).
 #[test]
@@ -136,7 +142,8 @@ fn profile_holder_child() {
         return;
     };
     let dir = PathBuf::from(dir);
-    let lease = acquire(&dir.join("Web"), "Cef", &dir.join("Cache").join("WebEphemeral"), 0).expect("child acquire");
+    let engine = std::env::var(HOLD_ENGINE_ENV).unwrap_or_else(|_| "Cef".to_owned());
+    let lease = acquire(&dir.join("Web"), &engine, &dir.join("Cache").join("WebEphemeral"), 0).expect("child acquire");
     assert_eq!(
         lease.kind,
         ProfileKind::Persistent,
@@ -181,4 +188,75 @@ fn profile_lock_held_by_another_process_makes_acquire_ephemeral_until_it_dies() 
         ProfileKind::Persistent,
         "a dead process's lock is released with it"
     );
+}
+
+/// Two WebView2 instances never share the persistent profile (ENG-02, D-33): while one process holds it a second
+/// instance gets an emptied ephemeral folder of its own slot, two instances beside the holder do not collide with each
+/// other, and the holder's death releases the lock for the next start.
+#[test]
+fn concurrent_webview2_instances_never_share_the_persistent_profile() {
+    let scratch = Scratch::new("webview2");
+    let exe = std::env::current_exe().expect("the test binary has a path");
+    let mut child = Command::new(exe)
+        .args(["--exact", "profile_holder_child", "--nocapture", "--test-threads=1"])
+        .env(HOLD_ENV, &scratch.0)
+        .env(HOLD_ENGINE_ENV, "WebView2")
+        .spawn()
+        .expect("start the holder process");
+    wait_for(&scratch.0.join("ready"));
+
+    let beside = acquire(&scratch.web(), "WebView2", &scratch.ephemeral(), 1).expect("beside the holder");
+    let further = acquire(&scratch.web(), "WebView2", &scratch.ephemeral(), 2).expect("further beside the holder");
+    let cef = acquire(&scratch.web(), "Cef", &scratch.ephemeral(), 0).expect("cef beside the WebView2 holder");
+    let (beside_kind, beside_path) = (beside.kind, beside.path.clone());
+    let (further_kind, further_path) = (further.kind, further.path.clone());
+    child.kill().expect("kill the holder");
+    child.wait().expect("reap the holder");
+    drop((beside, further));
+    let after = acquire(&scratch.web(), "WebView2", &scratch.ephemeral(), 1).expect("after the holder died");
+
+    assert_eq!(beside_kind, ProfileKind::Ephemeral);
+    assert_eq!(beside_path, scratch.ephemeral().join("WebView2").join("1"));
+    assert_eq!(further_kind, ProfileKind::Ephemeral);
+    assert_eq!(further_path, scratch.ephemeral().join("WebView2").join("2"));
+    assert_ne!(beside_path, further_path, "no two instances share a folder");
+    assert_eq!(
+        cef.kind,
+        ProfileKind::Persistent,
+        "the engines keep their own persistent folder and lock"
+    );
+    assert_eq!(
+        after.kind,
+        ProfileKind::Persistent,
+        "a killed holder's lock is released for the next start"
+    );
+    assert_eq!(after.path, scratch.web().join("WebView2"));
+}
+
+/// The reply planner holds no state (ENG-02): two instances planning at once for different theme folders each get the
+/// answer for their own root, never the other's.
+#[test]
+fn concurrent_instances_planning_origin_replies_get_their_own_answers() {
+    let first = Scratch::new("plan-first");
+    let second = Scratch::new("plan-second");
+    fs::write(first.0.join("index.html"), "1").expect("first page");
+    fs::write(second.0.join("index.html"), "22").expect("second page");
+    let url = "https://sucrose.wallpaper.engine/index.html";
+
+    thread::scope(|scope| {
+        for (root, expected) in [(&first.0, 1_u64), (&second.0, 2_u64)] {
+            for _ in 0..4 {
+                scope.spawn(move || {
+                    for _ in 0..200 {
+                        let reply = plan(url, None, &[root.as_path()]);
+                        assert_eq!(reply.status, 200);
+                        let Content::File { len, .. } = reply.content else {
+                            panic!("a theme page is served from its file");
+                        };
+                        assert_eq!(len, expected, "the answer belongs to this instance's root");
+                    }
+                });
+            }
+        }
+    });
 }

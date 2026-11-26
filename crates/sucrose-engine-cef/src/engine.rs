@@ -7,15 +7,13 @@ use std::{
     path::{Path, PathBuf},
     sync::{
         Arc, Mutex, PoisonError,
-        atomic::{AtomicBool, AtomicU8, Ordering},
+        atomic::{AtomicBool, Ordering},
     },
 };
 
 use crossbeam_channel::{Receiver, Sender, TrySendError, bounded};
-use serde_json::Value;
 use sucrose_core::{
-    compatible::{COMPATIBLE_FILE, CompatibleKey, DataGroup, read_compatible},
-    properties::PropertiesError,
+    compatible::{CompatibleKey, DataGroup},
     settings::Stretch,
 };
 use sucrose_engine::{
@@ -24,8 +22,8 @@ use sucrose_engine::{
 };
 use sucrose_engine_web::{
     args::{self, SucroseInputs, WebEngine},
-    js::{self, CompatibleState, PageCall},
-    origin,
+    js, origin,
+    page::{self, Complaints, PageState},
     profile::{self, ProfileLease},
 };
 use sucrose_ipc::protocol::{Assignment, PlaybackSettings, WebOptions};
@@ -62,7 +60,7 @@ enum Command {
     Stretch(Stretch),
     /// Show DevTools: the Portal's Open DevTools button (D-13).
     OpenDevTools,
-    /// A data snapshot arrived: run the templates with the newest values (kept in [`State::data`]).
+    /// A data snapshot arrived: run the templates with the newest values (kept in the [`PageState`]).
     Data,
     /// A mouse move is waiting in [`State::pending_move`]; one marker covers a whole burst of moves.
     MouseMove,
@@ -70,20 +68,13 @@ enum Command {
     Input(InputEvent),
 }
 
-/// The newest value of each setting, for the page calls and for anyone asking what the engine was told.
+/// What the engine of a renderer keeps: the page state both web engines share and the newest mouse move not yet
+/// handed to the page.
 #[derive(Debug)]
 struct State {
-    paused: AtomicBool,
-    volume: AtomicU8,
-    looping: AtomicBool,
-    stretch: Mutex<Stretch>,
-    /// `Engine.WallpaperShuffle`: the value of the `ShuffleMode` call, as the assignment set it and the Portal's Shuffle
-    /// Mode switch changed it since.
-    shuffle: AtomicBool,
-    /// The legacy `ThemeType` name the `ThemeType` and `SystemTheme` calls carry, fixed for the life of the renderer.
-    theme_type: String,
-    /// The newest snapshot of each system data group the service pushed.
-    data: Mutex<Vec<(DataGroup, Value)>>,
+    /// The newest value of each setting and system data group, for the page calls and for anyone asking what the engine
+    /// was told.
+    page: PageState,
     /// The newest mouse move not yet handed to the page: a mouse moves a thousand times a second, so moves are
     /// coalesced here instead of filling the command queue.
     pending_move: Mutex<Option<InputEvent>>,
@@ -93,34 +84,17 @@ impl State {
     /// The state a renderer starts with: not paused, the playback settings and the web options of its assignment.
     fn new(settings: &PlaybackSettings, web: &WebOptions) -> Self {
         Self {
-            paused: AtomicBool::new(false),
-            volume: AtomicU8::new(settings.volume.min(100)),
-            looping: AtomicBool::new(settings.looping),
-            stretch: Mutex::new(settings.stretch),
-            shuffle: AtomicBool::new(web.shuffle),
-            theme_type: web.theme_type.clone(),
-            data: Mutex::new(Vec::new()),
+            page: PageState::new(
+                false,
+                settings.volume,
+                settings.looping,
+                web.shuffle,
+                settings.stretch,
+                web.theme_type.clone(),
+            ),
             pending_move: Mutex::new(None),
         }
     }
-
-    /// What the non-data compatible calls are built from, as the engine was last told (WAPI-02).
-    fn compatible(&self) -> CompatibleState {
-        CompatibleState {
-            looping: self.looping.load(Ordering::SeqCst),
-            shuffle: self.shuffle.load(Ordering::SeqCst),
-            stretch: *self.stretch.lock().unwrap_or_else(PoisonError::into_inner),
-            theme_type: self.theme_type.clone(),
-            volume: self.volume.load(Ordering::SeqCst),
-        }
-    }
-}
-
-/// Which theme files were already reported as unusable, so each is logged once per renderer.
-#[derive(Debug, Default)]
-struct Complaints {
-    properties: AtomicBool,
-    compatible: AtomicBool,
 }
 
 /// The thread-safe handle of a CEF renderer.
@@ -198,81 +172,6 @@ fn debugging_port(developer_port: u16, slot: u8) -> Option<u16> {
     }
 }
 
-/// A reason for a log line that names what is wrong with a theme file without its path or its text (D-08).
-fn describe(error: &PropertiesError) -> String {
-    match error {
-        PropertiesError::Missing(_) => "the file is missing".to_owned(),
-        PropertiesError::Unreadable { source, .. } => format!("the file cannot be read ({:?})", source.kind()),
-        PropertiesError::Invalid { reason, .. } => reason.clone(),
-    }
-}
-
-/// The scripts a page gets after its main frame loaded, in the order they must run (WAPI-01, WAPI-02): the property
-/// calls of `SucroseProperties.json`, one per control in file order; then the non-data compatible calls of
-/// `SucroseCompatible.json` in the legacy run order, so they come after every property call and before the first data
-/// push; then, when the renderer was paused before the page finished loading, the pause. Only a loaded page (HTTP 200)
-/// gets them; a theme without a file or with nothing in it gets none, and a file that cannot be used is logged once
-/// per renderer (`complaints`) while the page still plays. A reload runs this again, so every key is sent again.
-fn page_calls(theme_dir: &Path, status: i32, state: &State, complaints: &Complaints) -> Vec<PageCall> {
-    if status != 200 {
-        tracing::debug!(status, "no page calls: the main frame did not load with status 200");
-        return Vec::new();
-    }
-    let mut calls = match js::property_calls(theme_dir) {
-        Ok(calls) => calls,
-        Err(error) => {
-            if !complaints.properties.swap(true, Ordering::SeqCst) {
-                tracing::warn!(reason = %describe(&error), "SucroseProperties.json cannot be used, the page gets no property calls");
-            }
-            Vec::new()
-        }
-    };
-    match js::compatible_calls(theme_dir, &state.compatible()) {
-        Ok(compatible) => calls.extend(compatible),
-        Err(error) => {
-            if !complaints.compatible.swap(true, Ordering::SeqCst) {
-                tracing::warn!(reason = %describe(&error), "SucroseCompatible.json cannot be used, the page gets no compatible calls");
-            }
-        }
-    }
-    if state.paused.load(Ordering::SeqCst) {
-        calls.push(js::pause_call(true));
-    }
-    calls
-}
-
-/// The system data groups the theme's `SucroseCompatible.json` asks for, in the legacy payload order; empty for a theme
-/// without the file, with nothing in it or with a file that cannot be used (`page_calls` reports that), and for a page
-/// that did not load with status 200.
-fn wanted_groups(theme_dir: &Path, status: i32) -> Vec<DataGroup> {
-    if status != 200 {
-        return Vec::new();
-    }
-    read_compatible(&theme_dir.join(COMPATIBLE_FILE)).map_or_else(|_| Vec::new(), |compatible| compatible.data_groups())
-}
-
-/// The non-empty templates of the theme's `SucroseCompatible.json`; none when the file is missing or unusable.
-fn load_templates(theme_dir: &Path) -> Vec<(CompatibleKey, String)> {
-    read_compatible(&theme_dir.join(COMPATIBLE_FILE)).map_or_else(
-        |_| Vec::new(),
-        |compatible| {
-            compatible
-                .templates()
-                .into_iter()
-                .map(|(key, template)| (key, template.to_owned()))
-                .collect()
-        },
-    )
-}
-
-/// The calls of one data push: the templates run in the legacy order with the newest value of everything (the legacy
-/// engine runs all of them for every message it receives).
-fn push_calls(templates: &[(CompatibleKey, String)], state: &State) -> Vec<PageCall> {
-    let templates: Vec<(CompatibleKey, &str)> = templates.iter().map(|(key, text)| (*key, text.as_str())).collect();
-    let data = state.data.lock().unwrap_or_else(PoisonError::into_inner).clone();
-    js::push_calls(&templates, &state.compatible(), &data)
-}
-
 /// Starts CEF on the calling thread, which must be the one that owns the surface `wid` and runs its message loop,
 /// showing the page of the assignment. Returns the thread-safe handle and the pump the loop drives.
 pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<Started, EngineError> {
@@ -312,7 +211,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         .into_iter()
         .flatten()
         .collect(),
-        page_calls: Arc::new(move |_url, status| page_calls(&calls_dir, status, &calls_state, &complaints)),
+        page_calls: Arc::new(move |_url, status| page::page_calls(&calls_dir, status, &calls_state.page, &complaints)),
         // The first finished main-frame load is the first frame the user can see.
         on_loaded: Arc::new(move |_url, status| {
             if !told.swap(true, Ordering::SeqCst) {
@@ -320,7 +219,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             }
             // Once per renderer, after the page and its calls: a reload keeps the data it already asked for.
             if status == 200 && !asked.swap(true, Ordering::SeqCst) {
-                let groups = wanted_groups(&wanted_dir, status);
+                let groups = page::wanted_groups(&wanted_dir, status);
                 if !groups.is_empty() {
                     tracing::info!(groups = ?groups, "data wanted");
                     on_data_wanted(groups);
@@ -385,31 +284,31 @@ impl CefEngine {
     /// Whether the last pause command paused.
     #[must_use]
     pub fn paused(&self) -> bool {
-        self.state.paused.load(Ordering::SeqCst)
+        self.state.page.paused()
     }
 
     /// The last volume the engine was given, 0..=100.
     #[must_use]
     pub fn volume(&self) -> u8 {
-        self.state.volume.load(Ordering::SeqCst)
+        self.state.page.volume()
     }
 
     /// Whether the wallpaper loops, as last set.
     #[must_use]
     pub fn looping(&self) -> bool {
-        self.state.looping.load(Ordering::SeqCst)
+        self.state.page.looping()
     }
 
     /// The value of the `ShuffleMode` call, as last set.
     #[must_use]
     pub fn shuffle(&self) -> bool {
-        self.state.shuffle.load(Ordering::SeqCst)
+        self.state.page.shuffle()
     }
 
     /// How the wallpaper is fitted, as last set.
     #[must_use]
     pub fn stretch(&self) -> Stretch {
-        *self.state.stretch.lock().unwrap_or_else(PoisonError::into_inner)
+        self.state.page.stretch()
     }
 }
 
@@ -419,32 +318,32 @@ impl Engine for CefEngine {
     }
 
     fn set_paused(&self, paused: bool, level: PauseLevel) -> Result<(), EngineError> {
-        self.state.paused.store(paused, Ordering::SeqCst);
+        self.state.page.set_paused(paused);
         self.queue(Command::Pause { paused, level });
         Ok(())
     }
 
     fn set_volume(&self, volume: u8) -> Result<(), EngineError> {
         let volume = volume.min(100);
-        self.state.volume.store(volume, Ordering::SeqCst);
+        self.state.page.set_volume(volume);
         self.queue(Command::Volume(volume));
         Ok(())
     }
 
     fn set_loop(&self, looping: bool) -> Result<(), EngineError> {
-        self.state.looping.store(looping, Ordering::SeqCst);
+        self.state.page.set_looping(looping);
         self.queue(Command::Loop(looping));
         Ok(())
     }
 
     /// The page's `ShuffleMode` call follows with the next compatible push, which the command triggers.
     fn set_shuffle(&self, shuffle: bool) {
-        self.state.shuffle.store(shuffle, Ordering::SeqCst);
+        self.state.page.set_shuffle(shuffle);
         self.queue(Command::Shuffle(shuffle));
     }
 
     fn set_stretch(&self, stretch: Stretch) -> Result<(), EngineError> {
-        *self.state.stretch.lock().unwrap_or_else(PoisonError::into_inner) = stretch;
+        self.state.page.set_stretch(stretch);
         self.queue(Command::Stretch(stretch));
         Ok(())
     }
@@ -502,22 +401,7 @@ impl Engine for CefEngine {
     /// Keeps the newest snapshot of each group and queues one push for the surface thread. A text that is not JSON is
     /// dropped with a log line and the group keeps its last value.
     fn push_data(&self, data: Vec<(DataGroup, String)>) {
-        {
-            let mut stored = self.state.data.lock().unwrap_or_else(PoisonError::into_inner);
-            for (group, text) in data {
-                let value = match serde_json::from_str::<Value>(&text) {
-                    Ok(value) => value,
-                    Err(error) => {
-                        tracing::warn!(?group, %error, "a data snapshot is not valid JSON and is dropped");
-                        continue;
-                    }
-                };
-                match stored.iter_mut().find(|(known, _)| *known == group) {
-                    Some(slot) => slot.1 = value,
-                    None => stored.push((group, value)),
-                }
-            }
-        }
+        self.state.page.store_data(data);
         self.queue(Command::Data);
     }
 }
@@ -599,8 +483,10 @@ impl CefPump {
 
     /// Runs the templates with the newest data in the page: the non-data keys again and each data key that has a snapshot.
     fn push_data(&mut self) {
-        let templates = self.templates.get_or_insert_with(|| load_templates(&self.theme_dir));
-        for call in push_calls(templates, &self.state) {
+        let templates = self
+            .templates
+            .get_or_insert_with(|| page::load_templates(&self.theme_dir));
+        for call in page::push_calls(templates, &self.state.page) {
             self.host.execute_script(&call.script);
         }
     }
@@ -642,6 +528,8 @@ impl SurfacePump for CefPump {
 
 #[cfg(test)]
 mod tests {
+    use std::sync::atomic::AtomicU8;
+
     use super::*;
 
     #[test]
@@ -746,21 +634,9 @@ mod tests {
         assert_eq!(wakes.load(Ordering::SeqCst), 1);
         assert!(!engine.shuffle());
         assert!(
-            !engine.state.compatible().shuffle,
+            !engine.state.page.compatible().shuffle,
             "the ShuffleMode call carries the new value"
         );
-    }
-
-    #[test]
-    fn a_page_gets_the_new_shuffle_value_with_the_next_compatible_push() {
-        let theme = Theme::new(None, Some(r#"{"ShuffleMode":"S('{0}');"}"#));
-        let (engine, _queue, _wakes) = handle(8);
-        let templates = load_templates(&theme.0);
-        assert_eq!(push_calls(&templates, &engine.state)[0].script, "S('True');");
-
-        engine.set_shuffle(false);
-
-        assert_eq!(push_calls(&templates, &engine.state)[0].script, "S('False');");
     }
 
     #[test]
@@ -820,216 +696,8 @@ mod tests {
         assert!(engine.set_volume(5).is_ok());
     }
 
-    /// A scratch theme folder with the given `SucroseProperties.json` and `SucroseCompatible.json` texts (none: no
-    /// file), removed on drop.
-    struct Theme(PathBuf);
-
-    impl Theme {
-        fn new(properties: Option<&str>, compatible: Option<&str>) -> Self {
-            static NEXT: std::sync::atomic::AtomicU32 = std::sync::atomic::AtomicU32::new(0);
-            let dir = std::env::temp_dir().join(format!(
-                "sucrose-cef-calls-{}-{}",
-                std::process::id(),
-                NEXT.fetch_add(1, Ordering::SeqCst)
-            ));
-            let _ = std::fs::remove_dir_all(&dir);
-            std::fs::create_dir_all(&dir).expect("create scratch theme");
-            for (name, text) in [
-                ("SucroseProperties.json", properties),
-                ("SucroseCompatible.json", compatible),
-            ] {
-                if let Some(text) = text {
-                    std::fs::write(dir.join(name), text).expect("write theme file");
-                }
-            }
-            Self(dir)
-        }
-    }
-
-    impl Drop for Theme {
-        fn drop(&mut self) {
-            let _ = std::fs::remove_dir_all(&self.0);
-        }
-    }
-
-    const TWO_PROPERTIES: &str = r#"{"PropertyListener":"f('{0}', {1});","PropertyList":{"b":{"type":"checkbox","value":true},"a":{"type":"textbox","value":"x"}}}"#;
-    const COMPATIBLE: &str =
-        r#"{"VolumeLevel":"V({0});","SystemMemory":"M({0});","LoopMode":"L('{0}');","StretchMode":"S('{0}');"}"#;
-
-    fn fresh_state() -> State {
-        State::new(&PlaybackSettings::default(), &WebOptions::default())
-    }
-
-    fn keys(calls: &[PageCall]) -> Vec<String> {
-        calls.iter().map(|call| format!("{}:{}", call.kind, call.key)).collect()
-    }
-
     #[test]
-    fn a_loaded_page_gets_its_property_calls_in_file_order_and_a_failed_load_gets_none() {
-        let theme = Theme::new(Some(TWO_PROPERTIES), None);
-        let (state, complaints) = (fresh_state(), Complaints::default());
-
-        let calls = page_calls(&theme.0, 200, &state, &complaints);
-        let failed = page_calls(&theme.0, 404, &state, &complaints);
-
-        assert_eq!(keys(&calls), ["property:b", "property:a"]);
-        assert!(failed.is_empty(), "only a page that loaded with status 200 gets calls");
-        assert!(!complaints.properties.load(Ordering::SeqCst));
-    }
-
-    #[test]
-    fn the_compatible_calls_follow_every_property_call_in_the_legacy_order_without_the_data_keys() {
-        let theme = Theme::new(Some(TWO_PROPERTIES), Some(COMPATIBLE));
-        let (state, complaints) = (fresh_state(), Complaints::default());
-
-        let calls = page_calls(&theme.0, 200, &state, &complaints);
-
-        assert_eq!(
-            keys(&calls),
-            [
-                "property:b",
-                "property:a",
-                "compatible:LoopMode",
-                "compatible:StretchMode",
-                "compatible:VolumeLevel"
-            ]
-        );
-        let scripts: Vec<&str> = calls.iter().skip(2).map(|call| call.script.as_str()).collect();
-        assert_eq!(scripts, ["L('True');", "S('UniformToFill');", "V(100);"]);
-    }
-
-    #[test]
-    fn the_compatible_calls_use_the_values_the_engine_was_last_told() {
-        let theme = Theme::new(None, Some(COMPATIBLE));
-        let state = fresh_state();
-        *state.stretch.lock().expect("lock") = Stretch::Fill;
-        state.looping.store(false, Ordering::SeqCst);
-        state.volume.store(40, Ordering::SeqCst);
-
-        let calls = page_calls(&theme.0, 200, &state, &Complaints::default());
-
-        let scripts: Vec<&str> = calls.iter().map(|call| call.script.as_str()).collect();
-        assert_eq!(scripts, ["L('False');", "S('Fill');", "V(40);"]);
-    }
-
-    #[test]
-    fn a_reload_sends_every_key_again() {
-        let theme = Theme::new(Some(TWO_PROPERTIES), Some(COMPATIBLE));
-        let (state, complaints) = (fresh_state(), Complaints::default());
-
-        let first = page_calls(&theme.0, 200, &state, &complaints);
-        let reload = page_calls(&theme.0, 200, &state, &complaints);
-
-        assert_eq!(first, reload);
-        assert_eq!(reload.len(), 5);
-    }
-
-    #[test]
-    fn a_page_that_loads_while_paused_is_paused_after_its_calls() {
-        let theme = Theme::new(Some(TWO_PROPERTIES), None);
-        let state = fresh_state();
-        state.paused.store(true, Ordering::SeqCst);
-
-        let calls = page_calls(&theme.0, 200, &state, &Complaints::default());
-
-        assert_eq!(keys(&calls), ["property:b", "property:a", "pause:pause"]);
-        assert_eq!(calls[2].script, js::pause_script(true));
-    }
-
-    #[test]
-    fn a_theme_without_files_gets_no_calls_and_no_complaint() {
-        let theme = Theme::new(None, None);
-        let (state, complaints) = (fresh_state(), Complaints::default());
-
-        assert!(page_calls(&theme.0, 200, &state, &complaints).is_empty());
-        assert!(!complaints.properties.load(Ordering::SeqCst) && !complaints.compatible.load(Ordering::SeqCst));
-    }
-
-    #[test]
-    fn an_unparsable_file_gives_no_calls_for_it_and_is_reported_once_while_the_other_still_runs() {
-        let theme = Theme::new(Some("{ nope"), Some(COMPATIBLE));
-        let (state, complaints) = (fresh_state(), Complaints::default());
-
-        let calls = page_calls(&theme.0, 200, &state, &complaints);
-
-        assert_eq!(
-            keys(&calls),
-            [
-                "compatible:LoopMode",
-                "compatible:StretchMode",
-                "compatible:VolumeLevel"
-            ],
-            "the page keeps playing and gets the other file's calls"
-        );
-        assert!(
-            complaints.properties.load(Ordering::SeqCst),
-            "the first failure is the one that is logged"
-        );
-        assert!(!complaints.compatible.load(Ordering::SeqCst));
-        assert_eq!(page_calls(&theme.0, 200, &state, &complaints).len(), 3);
-    }
-
-    #[test]
-    fn the_state_starts_from_the_assignment_and_reports_the_legacy_theme_name() {
-        let web = WebOptions {
-            shuffle: false,
-            theme_type: "Light".to_owned(),
-            ..WebOptions::default()
-        };
-        let state = State::new(&PlaybackSettings::default(), &web);
-
-        let compatible = state.compatible();
-
-        assert!(!compatible.shuffle);
-        assert_eq!(compatible.theme_type, "Light");
-        assert!(compatible.looping);
-        assert_eq!(compatible.volume, 100);
-    }
-
-    #[test]
-    fn the_log_reason_names_the_problem_without_a_path() {
-        let missing = describe(&PropertiesError::Missing(PathBuf::from("C:/secret/x.json")));
-        let invalid = describe(&PropertiesError::Invalid {
-            path: PathBuf::from("C:/secret/x.json"),
-            reason: "invalid JSON at line 1 column 3".to_owned(),
-        });
-
-        assert!(!missing.contains("secret") && !invalid.contains("secret"));
-        assert!(invalid.contains("line 1"));
-    }
-
-    const WITH_DATA: &str =
-        r#"{"LoopMode":"L('{0}');","SystemDate":"D({0});","SystemMemory":"M({0});","SystemBattery":""}"#;
-
-    #[test]
-    fn the_wanted_groups_are_the_data_templates_of_a_page_that_loaded() {
-        let theme = Theme::new(None, Some(WITH_DATA));
-
-        assert_eq!(wanted_groups(&theme.0, 200), [DataGroup::Date, DataGroup::Memory]);
-        assert!(
-            wanted_groups(&theme.0, 404).is_empty(),
-            "a page that did not load wants nothing"
-        );
-        assert!(
-            wanted_groups(
-                &Theme::new(None, Some(COMPATIBLE.replace("SystemMemory", "Nope").as_str())).0,
-                200
-            )
-            .is_empty()
-        );
-        assert!(
-            wanted_groups(&Theme::new(Some(TWO_PROPERTIES), None).0, 200).is_empty(),
-            "no file, no data"
-        );
-        assert!(
-            wanted_groups(&Theme::new(None, Some("{ nope")).0, 200).is_empty(),
-            "an unusable file wants nothing"
-        );
-    }
-
-    #[test]
-    fn a_data_push_runs_every_template_in_the_legacy_order_with_the_newest_snapshots() {
-        let theme = Theme::new(None, Some(WITH_DATA));
+    fn a_data_push_keeps_the_newest_snapshot_and_queues_one_marker_each() {
         let (engine, queue, wakes) = handle(8);
 
         engine.push_data(vec![(DataGroup::Date, r#"{"Day":1}"#.to_owned())]);
@@ -1037,29 +705,11 @@ mod tests {
 
         assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::Data, Command::Data]);
         assert_eq!(wakes.load(Ordering::SeqCst), 2);
-        let templates = load_templates(&theme.0);
-        let calls = push_calls(&templates, &engine.state);
         assert_eq!(
-            keys(&calls),
-            ["compatible:LoopMode", "compatible:SystemDate"],
-            "Memory has no snapshot yet"
-        );
-        assert_eq!(calls[0].script, "L('True');");
-        assert_eq!(
-            calls[1].script, "D({\r\n  \"Day\": 2\r\n});",
+            engine.state.page.data(),
+            [(DataGroup::Date, serde_json::json!({"Day": 2}))],
             "the newest snapshot of the group"
         );
-    }
-
-    #[test]
-    fn a_snapshot_that_is_not_json_is_dropped_and_the_group_keeps_its_last_value() {
-        let (engine, _queue, _wakes) = handle(8);
-        engine.push_data(vec![(DataGroup::Date, r#"{"Day":1}"#.to_owned())]);
-
-        engine.push_data(vec![(DataGroup::Date, "not json".to_owned())]);
-
-        let stored = engine.state.data.lock().expect("lock").clone();
-        assert_eq!(stored, [(DataGroup::Date, serde_json::json!({"Day": 1}))]);
     }
 
     #[test]
@@ -1070,8 +720,10 @@ mod tests {
         engine.push_data(vec![(DataGroup::Date, r#"{"Day":2}"#.to_owned())]);
 
         assert_eq!(queue.try_iter().count(), 1, "the second marker was dropped");
-        let stored = engine.state.data.lock().expect("lock").clone();
-        assert_eq!(stored, [(DataGroup::Date, serde_json::json!({"Day": 2}))]);
+        assert_eq!(
+            engine.state.page.data(),
+            [(DataGroup::Date, serde_json::json!({"Day": 2}))]
+        );
     }
 
     #[test]
