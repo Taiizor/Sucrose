@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sucrose fixture: certs</title>
+<style>
+  html, body { margin: 0; width: 100%; height: 100%; background: #101418; color: #e6edf3; overflow: hidden; }
+  body { font-family: "Segoe UI", sans-serif; padding: 1.5vw; box-sizing: border-box; }
+  h1 { font-size: 2.4vw; margin: 0 0 1vw; }
+  p { font-size: 1.6vw; margin: 0.4vw 0; }
+  iframe { position: fixed; left: 1.5vw; right: 1.5vw; bottom: 1.5vw; top: 14vw; width: calc(100% - 3vw); height: calc(100% - 15.5vw); border: 2px solid #30363d; background: #ffffff; }
+</style>
+</head>
+<body>
+<h1>Sucrose fixture: certs</h1>
+<p>The frame below loads https://expired.badssl.com/, a site whose certificate has expired.</p>
+<p>Allow invalid certificates off (the default): the frame stays empty or shows a refusal, the page itself is unaffected.</p>
+<p>Allow invalid certificates on, after Restart now: the frame shows the badssl.com page with a red background.</p>
+<iframe id="site" src="https://expired.badssl.com/" title="expired certificate"></iframe>
+</body>
+</html>

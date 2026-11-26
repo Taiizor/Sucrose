@@ -1,0 +1,16 @@
+{
+  "AppVersion": "26.6.19.0",
+  "Version": "1.0.0.0",
+  "Title": "Sucrose fixture: certs",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "A fixture Web theme for engine runs: a page that loads a site with an expired certificate in a frame. Not a real theme.",
+  "Author": "Sucrose",
+  "Contact": "https://example.com/web",
+  "Type": 2,
+  "Source": "index.html",
+  "Tags": [
+    "fixture"
+  ],
+  "Arguments": null
+}
