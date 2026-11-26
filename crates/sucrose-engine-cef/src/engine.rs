@@ -63,6 +63,8 @@ enum Command {
     },
     Volume(u8),
     Loop(bool),
+    /// The value of the `ShuffleMode` call changed (PLAY-01).
+    Shuffle(bool),
     Stretch(Stretch),
     /// Show DevTools: the Portal's Open DevTools button (D-13).
     OpenDevTools,
@@ -77,8 +79,9 @@ struct State {
     volume: AtomicU8,
     looping: AtomicBool,
     stretch: Mutex<Stretch>,
-    /// `Engine.WallpaperShuffle`, fixed for the life of the renderer (the value of the `ShuffleMode` call).
-    shuffle: bool,
+    /// `Engine.WallpaperShuffle`: the value of the `ShuffleMode` call, as the assignment set it and the Portal's Shuffle
+    /// Mode switch changed it since.
+    shuffle: AtomicBool,
     /// The legacy `ThemeType` name the `ThemeType` and `SystemTheme` calls carry, fixed for the life of the renderer.
     theme_type: String,
     /// The newest snapshot of each system data group the service pushed.
@@ -93,7 +96,7 @@ impl State {
             volume: AtomicU8::new(settings.volume.min(100)),
             looping: AtomicBool::new(settings.looping),
             stretch: Mutex::new(settings.stretch),
-            shuffle: web.shuffle,
+            shuffle: AtomicBool::new(web.shuffle),
             theme_type: web.theme_type.clone(),
             data: Mutex::new(Vec::new()),
         }
@@ -103,7 +106,7 @@ impl State {
     fn compatible(&self) -> CompatibleState {
         CompatibleState {
             looping: self.looping.load(Ordering::SeqCst),
-            shuffle: self.shuffle,
+            shuffle: self.shuffle.load(Ordering::SeqCst),
             stretch: *self.stretch.lock().unwrap_or_else(PoisonError::into_inner),
             theme_type: self.theme_type.clone(),
             volume: self.volume.load(Ordering::SeqCst),
@@ -392,6 +395,12 @@ impl CefEngine {
         self.state.looping.load(Ordering::SeqCst)
     }
 
+    /// The value of the `ShuffleMode` call, as last set.
+    #[must_use]
+    pub fn shuffle(&self) -> bool {
+        self.state.shuffle.load(Ordering::SeqCst)
+    }
+
     /// How the wallpaper is fitted, as last set.
     #[must_use]
     pub fn stretch(&self) -> Stretch {
@@ -421,6 +430,12 @@ impl Engine for CefEngine {
         self.state.looping.store(looping, Ordering::SeqCst);
         self.queue(Command::Loop(looping));
         Ok(())
+    }
+
+    /// The page's `ShuffleMode` call follows with the next compatible push, which the command triggers.
+    fn set_shuffle(&self, shuffle: bool) {
+        self.state.shuffle.store(shuffle, Ordering::SeqCst);
+        self.queue(Command::Shuffle(shuffle));
     }
 
     fn set_stretch(&self, stretch: Stretch) -> Result<(), EngineError> {
@@ -472,8 +487,9 @@ impl Engine for CefEngine {
 
 impl CefPump {
     /// Applies what the IPC threads queued. A pause or resume runs inside the page (PLAY-05, D-22): Light and Heavy are
-    /// alike until Round D adds the process suspension, and no process is suspended here. The volume, loop and stretch
-    /// values were kept by the handle; the pages get them with the compatible calls, so there is nothing to apply.
+    /// alike until Round D adds the process suspension, and no process is suspended here. The volume, loop, shuffle and
+    /// stretch values were kept by the handle and the pages get them with the compatible calls. A changed loop or shuffle
+    /// value runs those calls again at once (PLAY-01), the same push a data snapshot triggers.
     fn drain(&mut self) {
         // Several data markers in one wake run once: the state holds the newest snapshot of each group.
         let mut data_pushed = false;
@@ -491,7 +507,8 @@ impl CefPump {
                     tracing::debug!(kind = call.kind, key = ?call.key, "page call");
                     self.host.execute_script(&call.script);
                 }
-                Command::Volume(_) | Command::Loop(_) | Command::Stretch(_) => {}
+                Command::Loop(_) | Command::Shuffle(_) => data_pushed = true,
+                Command::Volume(_) | Command::Stretch(_) => {}
             }
         }
         if data_pushed {
@@ -601,6 +618,34 @@ mod tests {
             ]
         );
         assert_eq!(wakes.load(Ordering::SeqCst), 4);
+    }
+
+    #[test]
+    fn a_shuffle_change_is_kept_by_the_engine_queued_for_the_surface_thread_and_part_of_the_compatible_state() {
+        let (engine, queue, wakes) = handle(8);
+        assert!(engine.shuffle(), "the legacy default is on");
+
+        engine.set_shuffle(false);
+
+        assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::Shuffle(false)]);
+        assert_eq!(wakes.load(Ordering::SeqCst), 1);
+        assert!(!engine.shuffle());
+        assert!(
+            !engine.state.compatible().shuffle,
+            "the ShuffleMode call carries the new value"
+        );
+    }
+
+    #[test]
+    fn a_page_gets_the_new_shuffle_value_with_the_next_compatible_push() {
+        let theme = Theme::new(None, Some(r#"{"ShuffleMode":"S('{0}');"}"#));
+        let (engine, _queue, _wakes) = handle(8);
+        let templates = load_templates(&theme.0);
+        assert_eq!(push_calls(&templates, &engine.state)[0].script, "S('True');");
+
+        engine.set_shuffle(false);
+
+        assert_eq!(push_calls(&templates, &engine.state)[0].script, "S('False');");
     }
 
     #[test]
