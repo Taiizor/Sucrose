@@ -7024,6 +7024,7 @@ dependencies = [
  "sucrose-engine-cef",
  "sucrose-engine-mpv",
  "sucrose-engine-web",
+ "sucrose-engine-webview2",
  "sucrose-ipc",
  "sucrose-log",
  "sucrose-platform",
@@ -7104,6 +7105,22 @@ dependencies = [
  "sucrose-core",
  "thiserror 2.0.21",
  "tracing",
+]
+
+[[package]]
+name = "sucrose-engine-webview2"
+version = "26.11.22+1"
+dependencies = [
+ "crossbeam-channel",
+ "sucrose-core",
+ "sucrose-engine",
+ "sucrose-engine-web",
+ "sucrose-ipc",
+ "sucrose-platform",
+ "thiserror 2.0.21",
+ "tracing",
+ "webview2-com",
+ "windows 0.62.2",
 ]
 
 [[package]]
@@ -8422,6 +8439,40 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7265c9301c16a8711c992c2d8da90ee77ef54b1ed51482d6dfeb00dc756b1297"
 dependencies = [
  "rustls-pki-types",
+]
+
+[[package]]
+name = "webview2-com"
+version = "0.39.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3f89fca7a704cee10dcb3654c1dbb8941d1783132f1917358af75bec37a7d7e6"
+dependencies = [
+ "webview2-com-macros",
+ "webview2-com-sys",
+ "windows 0.62.2",
+ "windows-core 0.62.2",
+]
+
+[[package]]
+name = "webview2-com-macros"
+version = "0.8.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "67a921c1b6914c367b2b823cd4cde6f96beec77d30a939c8199bb377cf9b9b54"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.119",
+]
+
+[[package]]
+name = "webview2-com-sys"
+version = "0.39.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b3a07132775117d6065853d9d1178157b8c90e228de47129d6bce2c7edebedfb"
+dependencies = [
+ "thiserror 2.0.21",
+ "windows 0.62.2",
+ "windows-core 0.62.2",
 ]
 
 [[package]]

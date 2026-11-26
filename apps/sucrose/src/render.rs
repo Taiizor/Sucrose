@@ -15,11 +15,11 @@ use std::{
 use anyhow::{Context as _, bail};
 use sucrose_core::compatible::DataGroup;
 use sucrose_core::settings::InputType;
+use sucrose_engine::engine::SurfaceHooks;
 use sucrose_engine::{
     Engine, EngineClock, EngineError, EngineId, PauseLevel, Started,
     sync::{Follower, SyncAction, drift_s},
 };
-use sucrose_engine_cef::engine::SurfaceHooks;
 use sucrose_ipc::{
     Connection, IpcError, connect,
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
@@ -466,6 +466,7 @@ fn start_engine(
     match id {
         EngineId::Mpv => sucrose_engine_mpv::engine::start(wid, assignment),
         EngineId::Cef => sucrose_engine_cef::engine::start(wid, assignment, hooks()),
+        EngineId::WebView2 => sucrose_engine_webview2::engine::start(wid, assignment, hooks()),
         other => Err(EngineError::Unsupported {
             what: format!("The {other:?} engine"),
         }),
@@ -962,7 +963,7 @@ mod tests {
         };
 
         let error = start_engine(EngineId::Vlc, 0, &assignment, || {
-            unreachable!("only the CEF engine takes the surface hooks")
+            unreachable!("only the web engines take the surface hooks")
         })
         .expect_err("libVLC is not in this build");
 

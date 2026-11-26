@@ -6,7 +6,7 @@ use std::{sync::Arc, time::Duration};
 
 use sucrose_core::{compatible::DataGroup, settings::Stretch};
 use sucrose_ipc::protocol::PlaybackSettings;
-use sucrose_platform::input::InputEvent;
+use sucrose_platform::{LoopProxy, LoopTimers, input::InputEvent};
 
 use crate::PauseLevel;
 
@@ -34,6 +34,19 @@ pub enum EngineError {
         /// What was asked for.
         what: String,
     },
+}
+
+/// What the renderer gives the engine of the surface thread it runs on.
+pub struct SurfaceHooks {
+    /// Wakes the renderer's message loop; the engine calls it after it queued a command.
+    pub proxy: LoopProxy,
+    /// The loop's timers; the pump arms its timer through them.
+    pub timers: LoopTimers,
+    /// Called once, from the surface thread, when the first page finished loading: the first frame the user can see.
+    pub on_playing: Arc<dyn Fn() + Send + Sync>,
+    /// Called once, from the surface thread, after the first page loaded with the system data groups its
+    /// `SucroseCompatible.json` needs; never called with an empty list (D-24).
+    pub on_data_wanted: Arc<dyn Fn(Vec<DataGroup>) + Send + Sync>,
 }
 
 /// What the clock thread and the follower read from an engine that plays on a timeline (a video). Engines without a

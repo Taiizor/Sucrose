@@ -18,6 +18,7 @@ sucrose-core = { path = "crates/sucrose-core" }
 sucrose-engine = { path = "crates/sucrose-engine" }
 sucrose-engine-cef = { path = "crates/sucrose-engine-cef" }
 sucrose-engine-mpv = { path = "crates/sucrose-engine-mpv" }
+sucrose-engine-webview2 = { path = "crates/sucrose-engine-webview2" }
 sucrose-engine-web = { path = "crates/sucrose-engine-web" }
 sucrose-ipc = { path = "crates/sucrose-ipc" }
 sucrose-log = { path = "crates/sucrose-log" }
@@ -68,6 +69,8 @@ tracing = "0.1"
 tracing-appender = "0.2"
 tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
 ureq = "3.5.2"
+# D-013: the WebView2 bindings (COM wrappers and event handlers) for the WebView2 engine; verdict OK in the 04-RESEARCH package audit. Its windows requirement matches the workspace copy, so no second windows build; the loader is linked statically by webview2-com-sys.
+webview2-com = "0.39.1"
 # Same version interprocess 2.4.9 already depends on, so no second copy is built.
 widestring = "1.2.1"
 windows = "0.62.2"

@@ -30,7 +30,7 @@ use sucrose_engine_web::{
 };
 use sucrose_ipc::protocol::{Assignment, PlaybackSettings, WebOptions};
 use sucrose_platform::{
-    LoopProxy, LoopTimers,
+    LoopTimers,
     input::{InputEvent, focus_click_messages, key_message, mouse_message},
 };
 
@@ -44,18 +44,9 @@ pub const CEF_PUMP_TIMER: u32 = 1;
 /// thread never blocks (T-04-13); the engine's state values below always hold the latest of each.
 const QUEUE_CAPACITY: usize = 64;
 
-/// What the renderer gives the engine of the surface thread it runs on.
-pub struct SurfaceHooks {
-    /// Wakes the renderer's message loop; the engine calls it after it queued a command.
-    pub proxy: LoopProxy,
-    /// The loop's timers; the pump arms its timer through them.
-    pub timers: LoopTimers,
-    /// Called once, from the surface thread, when the first page finished loading: the first frame the user can see.
-    pub on_playing: Arc<dyn Fn() + Send + Sync>,
-    /// Called once, from the surface thread, after the first page loaded with the system data groups its
-    /// `SucroseCompatible.json` needs; never called with an empty list (D-24).
-    pub on_data_wanted: Arc<dyn Fn(Vec<DataGroup>) + Send + Sync>,
-}
+/// What the renderer gives the engine of the surface thread it runs on: it moved to `sucrose_engine` so every engine that
+/// runs on the surface thread takes the same hooks.
+pub use sucrose_engine::engine::SurfaceHooks;
 
 /// A command the IPC threads queue for the surface thread.
 #[derive(Debug, Clone, Copy, PartialEq)]

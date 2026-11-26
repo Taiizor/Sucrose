@@ -8,7 +8,7 @@ pub mod prereq;
 pub mod sync;
 
 pub use choice::{Availability, Choice, EngineId, Hint, Unsupported, choose_engine, fallback_order};
-pub use engine::{Engine, EngineClock, EngineError, Started, SurfacePump};
+pub use engine::{Engine, EngineClock, EngineError, Started, SurfaceHooks, SurfacePump};
 pub use prereq::{VC_REDIST_MIN, WEBVIEW2_FLOOR, version_at_least, version_newer_than};
 
 /// How far a paused wallpaper is put to rest (D-22). Light resumes instantly; Heavy also frees resources (hidden

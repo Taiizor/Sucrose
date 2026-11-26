@@ -12,7 +12,8 @@ use std::{
 use sucrose_config::model::Warehouse;
 use sucrose_core::{settings::EngineType, theme::WallpaperType};
 use sucrose_engine::{
-    Availability, EngineId, Hint, Unsupported, VC_REDIST_MIN, choose_engine, fallback_order, version_at_least,
+    Availability, EngineId, Hint, Unsupported, VC_REDIST_MIN, WEBVIEW2_FLOOR, choose_engine, fallback_order,
+    version_at_least, version_newer_than,
 };
 use sucrose_ipc::portal::{EngineReportView, EngineState, EngineStateView, FallbackView, HintView, OfferedView};
 use sucrose_platform::{Arch, Platform, VcRedist};
@@ -81,11 +82,11 @@ impl EngineReport {
         )
     }
 
-    /// What `engine` can play a wallpaper of `kind` with in this build: the engine's own state, except that CEF
-    /// plays only Web themes until its generated pages for GIF and video themes arrive in a later round, so a type
-    /// it cannot play yet counts as not in this build.
+    /// What `engine` can play a wallpaper of `kind` with in this build: the engine's own state, except that the web
+    /// engines (CEF and WebView2) play only Web themes until their generated pages for GIF, video, URL and YouTube
+    /// themes arrive in a later round, so a type they cannot play yet counts as not in this build.
     pub fn availability_for(&self, kind: WallpaperType, engine: EngineId) -> Availability {
-        if engine == EngineId::Cef && kind != WallpaperType::Web {
+        if matches!(engine, EngineId::Cef | EngineId::WebView2) && kind != WallpaperType::Web {
             return Availability::Unsupported {
                 why: Unsupported::NotInThisBuild,
             };
@@ -327,8 +328,8 @@ fn state_view(availability: &Availability) -> EngineState {
 }
 
 /// Builds the report for this machine from files and the registry, without loading anything (D-028): libmpv next to
-/// the executable or on an absolute `PATH` entry, CEF with its files next to the executable, and every other engine
-/// as not in this build.
+/// the executable or on an absolute `PATH` entry, CEF with its files next to the executable, WebView2 from the version of
+/// the installed runtime, and every other engine as not in this build.
 pub fn detect(exe_dir: &Path, platform: &dyn Platform) -> EngineReport {
     let found = platform.vc_redist(Arch::current());
     tracing::info!(
@@ -337,15 +338,24 @@ pub fn detect(exe_dir: &Path, platform: &dyn Platform) -> EngineReport {
         arch = ?Arch::current(),
         "Visual C++ Redistributable"
     );
+    // The loader reads the installed runtime's version; no WebView is created in the service (D-008, D-028).
+    let webview2 = sucrose_engine_webview2::runtime_version();
+    tracing::info!(
+        version = webview2.as_deref(),
+        floor = WEBVIEW2_FLOOR,
+        "WebView2 Runtime"
+    );
     let report = detect_with(
         exe_dir,
         std::env::var_os("PATH").as_deref(),
         &|path| path.exists(),
         vc_missing(found.as_ref()),
+        webview2.as_deref(),
     );
     tracing::info!(
         mpv = ?report.availability(EngineId::Mpv),
         cef = ?report.availability(EngineId::Cef),
+        webview2 = ?report.availability(EngineId::WebView2),
         "engines detected"
     );
     report
@@ -370,12 +380,14 @@ pub fn vc_is_fine(found: Option<&VcRedist>) -> bool {
 }
 
 /// [`detect`] with the machine's answers given: `exists` says whether a file or folder is there, and
-/// `vc_missing` is the repair hint when the Visual C++ Redistributable CEF needs is missing or too old.
+/// `vc_missing` is the repair hint when the Visual C++ Redistributable CEF needs is missing or too old, and
+/// `webview2_version` is the version of the installed WebView2 Runtime, `None` when there is none.
 fn detect_with(
     exe_dir: &Path,
     path_var: Option<&OsStr>,
     exists: &dyn Fn(&Path) -> bool,
     vc_missing: Option<Hint>,
+    webview2_version: Option<&str>,
 ) -> EngineReport {
     EngineReport::from_fn(|engine| match engine {
         EngineId::Mpv => match sucrose_engine_mpv::loader::locate(exe_dir, path_var) {
@@ -385,6 +397,7 @@ fn detect_with(
             },
         },
         EngineId::Cef => cef_state(exe_dir, exists, vc_missing.clone()),
+        EngineId::WebView2 => webview2_state(sucrose_engine_webview2::BUILT, webview2_version),
         _ => Availability::Unsupported {
             why: Unsupported::NotInThisBuild,
         },
@@ -413,6 +426,31 @@ fn cef_state(exe_dir: &Path, exists: &dyn Fn(&Path) -> bool, vc_missing: Option<
     }
     Availability::Installed {
         version: Some(sucrose_engine_cef::CEF_VERSION.to_owned()),
+    }
+}
+
+/// WebView2: built for this system and a runtime installed that is newer than the legacy floor (D-15, ENG-06). The
+/// runtime is the user's, so there are no files of ours to check; a runtime at the floor or older is outdated, and the
+/// hint names what was found.
+fn webview2_state(built: bool, runtime: Option<&str>) -> Availability {
+    if !built {
+        return Availability::Unsupported {
+            why: Unsupported::NotInThisBuild,
+        };
+    }
+    match runtime {
+        None => Availability::Missing {
+            hint: Hint::RuntimeMissing,
+        },
+        Some(found) if version_newer_than(found, WEBVIEW2_FLOOR) => Availability::Installed {
+            version: Some(found.to_owned()),
+        },
+        Some(found) => Availability::Missing {
+            hint: Hint::RuntimeOutdated {
+                found: found.to_owned(),
+                needed: WEBVIEW2_FLOOR.to_owned(),
+            },
+        },
     }
 }
 
@@ -609,7 +647,7 @@ mod tests {
     fn engines_next_to_the_executable_are_found_without_loading_anything() {
         let folder = Folder::with(&[mpv_name()]);
 
-        let report = detect_with(&folder.0, None, &everything_there, None);
+        let report = detect_with(&folder.0, None, &everything_there, None, None);
 
         assert_eq!(
             report.availability(EngineId::Mpv),
@@ -621,7 +659,7 @@ mod tests {
     fn a_missing_mpv_library_is_reported_with_the_repair_hint() {
         let folder = Folder::with(&[]);
 
-        let report = detect_with(&folder.0, Some(OsStr::new("")), &nothing_there, None);
+        let report = detect_with(&folder.0, Some(OsStr::new("")), &nothing_there, None, None);
 
         assert_eq!(
             report.availability(EngineId::Mpv),
@@ -635,9 +673,9 @@ mod tests {
     fn cef_needs_every_file_next_to_the_executable() {
         let folder = Folder::with(&[]);
 
-        let whole = detect_with(&folder.0, None, &everything_there, None).availability(EngineId::Cef);
+        let whole = detect_with(&folder.0, None, &everything_there, None, None).availability(EngineId::Cef);
         let torn =
-            detect_with(&folder.0, None, &|path| !path.ends_with("icudtl.dat"), None).availability(EngineId::Cef);
+            detect_with(&folder.0, None, &|path| !path.ends_with("icudtl.dat"), None, None).availability(EngineId::Cef);
 
         if sucrose_engine_cef::BUILT {
             assert!(
@@ -899,11 +937,10 @@ mod tests {
 
     #[test]
     fn engines_that_are_not_built_report_not_in_this_build() {
-        let report = detect_with(Path::new("."), None, &everything_there, None);
+        let report = detect_with(Path::new("."), None, &everything_there, None, None);
 
         for engine in [
             EngineId::Vlc,
-            EngineId::WebView2,
             EngineId::BuiltInGif,
             EngineId::BuiltInVideo,
             EngineId::AppEmbedder,
@@ -919,19 +956,95 @@ mod tests {
     }
 
     #[test]
-    fn cef_does_not_play_a_video_until_its_generated_pages_exist() {
+    fn the_web_engines_do_not_play_a_video_until_their_generated_pages_exist() {
         let report = EngineReport::from_fn(|_| Availability::Installed { version: None });
 
-        assert!(
-            report
-                .availability_for(WallpaperType::Web, EngineId::Cef)
-                .is_available()
+        for engine in [EngineId::Cef, EngineId::WebView2] {
+            assert!(
+                report.availability_for(WallpaperType::Web, engine).is_available(),
+                "{engine:?}"
+            );
+            for kind in [
+                WallpaperType::Gif,
+                WallpaperType::Video,
+                WallpaperType::Url,
+                WallpaperType::YouTube,
+            ] {
+                assert_eq!(
+                    report.availability_for(kind, engine),
+                    Availability::Unsupported {
+                        why: Unsupported::NotInThisBuild
+                    },
+                    "{engine:?} {kind:?}"
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn webview2_is_installed_with_the_version_of_a_runtime_newer_than_the_floor() {
+        assert_eq!(
+            webview2_state(true, Some("158.0.4370.33")),
+            Availability::Installed {
+                version: Some("158.0.4370.33".to_owned())
+            }
         );
-        assert!(
-            !report
-                .availability_for(WallpaperType::Video, EngineId::Cef)
-                .is_available()
+        assert_eq!(
+            webview2_state(true, Some("131.0.2903.71")),
+            Availability::Installed {
+                version: Some("131.0.2903.71".to_owned())
+            }
         );
+    }
+
+    #[test]
+    fn webview2_at_the_floor_or_older_is_outdated_and_the_hint_says_what_was_found() {
+        for found in ["131.0.2903.70", "131.0.2903.69", "100.0.1185.29"] {
+            assert_eq!(
+                webview2_state(true, Some(found)),
+                Availability::Missing {
+                    hint: Hint::RuntimeOutdated {
+                        found: found.to_owned(),
+                        needed: "131.0.2903.70".to_owned()
+                    }
+                },
+                "{found}"
+            );
+        }
+    }
+
+    #[test]
+    fn webview2_without_a_runtime_is_missing_and_without_the_engine_it_is_not_in_this_build() {
+        assert_eq!(
+            webview2_state(true, None),
+            Availability::Missing {
+                hint: Hint::RuntimeMissing
+            }
+        );
+        assert_eq!(
+            webview2_state(false, Some("158.0.4370.33")),
+            Availability::Unsupported {
+                why: Unsupported::NotInThisBuild
+            }
+        );
+    }
+
+    #[test]
+    fn detect_asks_the_runtime_version_through_the_webview2_state() {
+        let report = detect_with(Path::new("."), None, &everything_there, None, Some("158.0.4370.33"));
+
+        let state = report.availability(EngineId::WebView2);
+
+        if sucrose_engine_webview2::BUILT {
+            assert_eq!(
+                state,
+                Availability::Installed {
+                    version: Some("158.0.4370.33".to_owned())
+                }
+            );
+        } else {
+            assert!(matches!(state, Availability::Unsupported { .. }), "{state:?}");
+        }
     }
 
     fn only(available: &'static [EngineId]) -> EngineReport {

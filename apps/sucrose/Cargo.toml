@@ -16,6 +16,7 @@ sucrose-core = { workspace = true }
 sucrose-engine = { workspace = true }
 sucrose-engine-cef = { workspace = true }
 sucrose-engine-mpv = { workspace = true }
+sucrose-engine-webview2 = { workspace = true }
 sucrose-engine-web = { workspace = true }
 sucrose-ipc = { workspace = true }
 sucrose-log = { workspace = true }
