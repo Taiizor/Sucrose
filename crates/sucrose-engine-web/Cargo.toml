@@ -1,0 +1,15 @@
+[package]
+name = "sucrose-engine-web"
+description = "Web wallpaper core: the virtual origin resolver (D-14, SEC-02), Range math and the MIME table"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+percent-encoding = { workspace = true }
+thiserror = { workspace = true }
+
+[lints]
+workspace = true

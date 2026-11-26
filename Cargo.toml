@@ -18,6 +18,7 @@ sucrose-core = { path = "crates/sucrose-core" }
 sucrose-engine = { path = "crates/sucrose-engine" }
 sucrose-engine-cef = { path = "crates/sucrose-engine-cef" }
 sucrose-engine-mpv = { path = "crates/sucrose-engine-mpv" }
+sucrose-engine-web = { path = "crates/sucrose-engine-web" }
 sucrose-ipc = { path = "crates/sucrose-ipc" }
 sucrose-log = { path = "crates/sucrose-log" }
 sucrose-platform = { path = "crates/sucrose-platform" }
@@ -41,6 +42,8 @@ interprocess = "2.4.9"
 # JPEG decoding with DCT scaling (a thumbnail never exists at full size); default features off drops rayon.
 jpeg-decoder = { version = "0.3.2", default-features = false }
 libloading = "0.9.1"
+# Decodes request paths once in the web origin resolver (D-14, SEC-02); the same crate the url crate uses.
+percent-encoding = "2.3.2"
 postcard = { version = "1.2.0", features = ["use-std"] }
 # The native handle of a GPUI window (gpui Window implements HasWindowHandle) for the DWM backdrop call in sucrose-platform; GPUI already depends on 0.6.2, so no second copy is built.
 raw-window-handle = "0.6.2"
