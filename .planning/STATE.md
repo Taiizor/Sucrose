@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-17-PLAN.md
-last_updated: "2026-11-26T16:36:12.639Z"
+stopped_at: Completed 04-18-PLAN.md
+last_updated: "2026-11-26T17:10:04.663Z"
 last_activity: 2026-11-26
 last_activity_desc: Phase 04 execution started
-state_head: a199962b41d6f29ab362124e68755b11cabe9e89
+state_head: 9ec3e6a081134366a07a6d2e6198bbbb224b8219
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 100
-  completed_plans: 96
+  completed_plans: 97
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 18 of 21
+Plan: 19 of 21
 Status: Ready to execute
 Last activity: 2026-11-26 — Phase 04 execution started
 Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
@@ -151,6 +151,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P15 | 21 min | 2 tasks | 14 files |
 | Phase 04 P16 | 27 min | 2 tasks | 18 files |
 | Phase 04 P17 | 17 min | 2 tasks | 20 files |
+| Phase 04 P18 | 28 min | 3 tasks | 20 files |
 
 ## Accumulated Context
 
@@ -302,6 +303,7 @@ Recent decisions affecting current work:
 - [Phase 04]: Plan 04-16: the service owns the CEF switch rules and storage; GetArguments answers an empty stored dictionary with the legacy defaults, so an empty list cannot be stored as no switches; limits 64 switches, 64-byte names, 512-byte values keep the answer inside one IPC frame
 - [Phase 04]: 04-17: the renderer confirms Open DevTools with an appended ToService::DevToolsOpened(bool); the service answers the Portal on it or after 5 s as failed
 - [Phase 04]: 04-17: the Portal enables Open DevTools by web engine; the service refuses wallpapers that are not Web, Url or YouTube (a Video on a web engine ends in the error toast)
+- [Phase 04]: 04-18: the Microsoft root policy runs with the application-root flag; revocation soft-fails only when no source answers; a Cancelled stage ends a stopped install
 
 ### Pending Todos
 
@@ -338,6 +340,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T16:35:50.080Z
-Stopped at: Completed 04-17-PLAN.md
+Last session: 2026-11-26T17:09:40.050Z
+Stopped at: Completed 04-18-PLAN.md
 Resume file: None
