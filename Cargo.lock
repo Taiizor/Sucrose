@@ -7020,6 +7020,7 @@ dependencies = [
  "serde_json",
  "sucrose-config",
  "sucrose-core",
+ "sucrose-engine",
  "sucrose-engine-cef",
  "sucrose-engine-mpv",
  "sucrose-ipc",
@@ -7056,6 +7057,7 @@ version = "26.11.22+1"
 dependencies = [
  "sucrose-core",
  "sucrose-ipc",
+ "thiserror 2.0.21",
 ]
 
 [[package]]

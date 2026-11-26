@@ -312,6 +312,7 @@ mod tests {
                     looping,
                     stretch: *stretch,
                     hardware_decoding,
+                    ..PlaybackSettings::default()
                 }));
                 for (name, _) in all {
                     assert!(ALLOWED_OPTIONS.contains(&name), "{name} is not on the allow-list");

@@ -6,12 +6,15 @@
 //! change that appending cannot express.
 
 use serde::{Deserialize, Serialize};
-use sucrose_core::{settings::Stretch, theme::WallpaperType};
+use sucrose_core::{
+    settings::{EngineType, PauseKind, Stretch},
+    theme::WallpaperType,
+};
 
 use crate::portal::{Launch, PortalPage};
 
 /// Version of this protocol, sent in [`ToService::Hello`] so the service can refuse a renderer it cannot talk to.
-pub const PROTOCOL_VERSION: u16 = 4;
+pub const PROTOCOL_VERSION: u16 = 5;
 
 /// Messages from a renderer to the service.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
@@ -117,6 +120,8 @@ pub struct PlaybackSettings {
     pub stretch: Stretch,
     /// Whether the player may decode on the GPU.
     pub hardware_decoding: bool,
+    /// How a pause is carried out (the migrated `PausePerformanceType`): the level every engine's pause receives.
+    pub pause: PauseKind,
 }
 
 impl Default for PlaybackSettings {
@@ -127,6 +132,7 @@ impl Default for PlaybackSettings {
             looping: true,
             stretch: Stretch::default(),
             hardware_decoding: true,
+            pause: PauseKind::default(),
         }
     }
 }
@@ -144,8 +150,11 @@ pub struct Assignment {
     pub source: String,
     /// How to play it.
     pub settings: PlaybackSettings,
-    /// The wallpaper type, which decides the engine the renderer starts (Video: mpv, Web: CEF).
+    /// The wallpaper type the engine plays.
     pub kind: WallpaperType,
+    /// The canonical legacy name of the engine that plays this wallpaper, chosen by the service (D-11). The renderer
+    /// maps it with `EngineId::from_legacy` and starts that engine, or refuses one its build does not contain.
+    pub engine: EngineType,
     /// The absolute path of the theme folder; a Web theme's page and its assets live under it.
     pub theme_dir: String,
 }
@@ -165,6 +174,7 @@ mod tests {
             source: "a.mp4".to_owned(),
             settings: PlaybackSettings::default(),
             kind: WallpaperType::Video,
+            engine: EngineType::MpvPlayerLive,
             theme_dir: "C:\\themes\\a".to_owned(),
         }))
         .expect("encode Assign");
@@ -297,6 +307,7 @@ mod tests {
             source: "C:\\themes\\clip.mp4".to_owned(),
             settings: PlaybackSettings::default(),
             kind: WallpaperType::Video,
+            engine: EngineType::MpvPlayerLive,
             theme_dir: "C:\\themes".to_owned(),
         });
 
@@ -314,6 +325,7 @@ mod tests {
             source: "C:\\themes\\hello\\index.html".to_owned(),
             settings: PlaybackSettings::default(),
             kind: WallpaperType::Web,
+            engine: EngineType::CefSharpLive,
             theme_dir: "C:\\themes\\hello".to_owned(),
         });
 

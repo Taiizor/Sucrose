@@ -7,6 +7,7 @@
 #![allow(unsafe_code)]
 
 pub mod config;
+pub mod engine;
 pub mod loader;
 pub mod player;
 // The clock follower moved to `sucrose-engine` in Phase 4 so every time-based engine shares it (research Pattern 5);

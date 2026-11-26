@@ -132,6 +132,7 @@ fn every_generated_option_is_accepted_by_the_pinned_libmpv() {
                         looping,
                         stretch: *stretch,
                         hardware_decoding,
+                        ..PlaybackSettings::default()
                     };
                     let mut options = generated_options(&settings, &shader_cache());
                     options.extend(embedding_options());

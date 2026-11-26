@@ -2,29 +2,22 @@
 //! behind the desktop icons until it is told to stop.
 
 use std::{
-    path::{Path, PathBuf},
+    path::Path,
     process::ExitCode,
     sync::{
         Arc, Mutex, PoisonError,
         atomic::{AtomicBool, AtomicU8, Ordering},
-        mpsc::{Receiver, RecvTimeoutError},
     },
     thread,
     time::{Duration, Instant},
 };
 
 use anyhow::{Context as _, bail};
-use sucrose_core::{
-    paths::{cache_dir, legacy_mpv_cache_dir},
-    theme::WallpaperType,
+use sucrose_engine::{
+    Engine, EngineClock, EngineError, EngineId, PauseLevel, Started,
+    sync::{Follower, SyncAction, drift_s},
 };
 use sucrose_engine_cef::browser::{CefError, CefHost, CefStart};
-use sucrose_engine_mpv::{
-    config::{embedding_options, generated_options, shader_cache_options, user_config_path},
-    loader::{self, LoadError},
-    player::{OpenOptions, Player, PlayerError, PlayerEvent},
-    sync::{Follower, SyncAction, drift_s, frame_period},
-};
 use sucrose_ipc::{
     Connection, IpcError, connect,
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
@@ -133,24 +126,25 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
 
     log_video_adapter();
 
-    // A Web theme is shown by CEF; everything else keeps the mpv path below.
-    if assignment.kind == WallpaperType::Web {
+    // The service names the engine; the renderer starts it or refuses one its build does not contain (T-04-12).
+    let id = EngineId::from_legacy(assignment.engine);
+    // Until the CEF host moves behind the trait (plan 04-05 task 2) a CEF renderer keeps its own loop.
+    if id == EngineId::Cef {
         return run_cef(connection, event_loop, surface, &assignment);
     }
 
-    // Opened here, on the thread that pumps the surface's messages: mpv hooks that thread to resize its child.
-    let player = match start_engine(surface.native_handle(), &assignment) {
-        Ok(player) => {
-            tracing::info!(engine = "Mpv", "engine started");
-            Arc::new(player)
-        }
+    // Started here, on the thread that pumps the surface's messages: mpv hooks that thread to resize its child.
+    let Started { engine, pump } = match start_engine(id, surface.native_handle(), &assignment) {
+        Ok(started) => started,
         Err(error) => {
-            error.log();
-            let (reason, hint) = error.report();
+            let (reason, hint, code) = engine_failure(&error);
+            tracing::error!(%error, "cannot start the engine");
             report_failure(&mut connection, reason, hint);
-            return Ok(ExitCode::from(error.exit_code()));
+            return Ok(ExitCode::from(code));
         }
     };
+    tracing::info!(engine = engine.name(), "engine started");
+    let mut pump = pump;
     let sync = Arc::new(SyncState {
         master: AtomicBool::new(false),
         volume: AtomicU8::new(assignment.settings.volume),
@@ -161,18 +155,20 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     });
     let proxy = event_loop.proxy();
     // The clock thread tells the service the wallpaper plays once the first frame is shown, and publishes the master's
-    // clock. It is started before the connection moves into the reader thread, and joined before the player is
-    // dropped, so the player still ends before the surface it is embedded in.
+    // clock. It is started before the connection moves into the reader thread, and joined before the engine is
+    // dropped, so the engine still ends before the surface it is embedded in. An engine without a clock reports
+    // its own first frame and has no clock thread.
+    let has_clock = engine.clock().is_some();
     let clock_stop = Arc::new(AtomicBool::new(false));
     let clock_thread = match connection.try_clone() {
-        Ok(writer) => {
-            let clock_player = Arc::clone(&player);
+        Ok(writer) if has_clock => {
+            let clock_engine = Arc::clone(&engine);
             let clock_sync = Arc::clone(&sync);
             let stop = Arc::clone(&clock_stop);
             let clock_proxy = proxy.clone();
             let spawned = thread::Builder::new()
                 .name("clock".to_owned())
-                .spawn(move || publish_clock(writer, &clock_player, &clock_sync, &stop, &clock_proxy));
+                .spawn(move || publish_clock(writer, clock_engine.as_ref(), &clock_sync, &stop, &clock_proxy));
             match spawned {
                 Ok(handle) => Some(handle),
                 Err(error) => {
@@ -181,52 +177,68 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
                 }
             }
         }
+        Ok(_) => None,
         Err(error) => {
             tracing::warn!(%error, "cannot keep a write handle for the clock, this renderer cannot be the master");
             None
         }
     };
-    if clock_thread.is_none() {
+    if has_clock && clock_thread.is_none() {
         // Nobody else will announce it: without a clock thread the wallpaper is reported as playing right away.
         tell_playing(&mut connection);
     }
     // The reader thread only waits for the end of the session; the loop below must stay on this thread because the
     // surface was created here.
     let pending_rect = PendingRect::default();
-    let reader_player = Arc::clone(&player);
+    let reader_engine = Arc::clone(&engine);
     let reader_rect = Arc::clone(&pending_rect);
     let reader_proxy = proxy.clone();
     let reader_sync = Arc::clone(&sync);
+    let pause_level = PauseLevel::from(assignment.settings.pause);
     thread::Builder::new()
         .name("ipc-reader".to_owned())
         .spawn(move || {
             wait_for_close(
                 &mut connection,
-                &reader_player,
+                reader_engine.as_ref(),
                 &reader_rect,
                 &reader_proxy,
                 &reader_sync,
+                pause_level,
             );
             // Released before the loop is told to stop, so that the main thread drops the last handle and the
-            // player ends before the surface it is embedded in.
-            drop(reader_player);
+            // engine ends before the surface it is embedded in.
+            drop(reader_engine);
             proxy.quit();
         })
         .context("cannot start the reader thread")?;
-    // A wake means a new rectangle: the surface is moved here because only this thread may touch it. The loop ends
-    // when the reader thread asks for it, or when Windows destroys the surface (the surface posts the quit itself).
-    // A killed explorer.exe sends no such message; the service replaces the renderers on TaskbarCreated instead.
+    // A wake means a new rectangle or, for an engine with a pump, queued commands: the surface is moved here because
+    // only this thread may touch it, and the pump is the only thing that calls an engine bound to this thread. The
+    // loop ends when the reader thread asks for it, or when Windows destroys the surface (the surface posts the quit
+    // itself). A killed explorer.exe sends no such message; the service replaces the renderers on TaskbarCreated.
     let loop_end = event_loop.run(|event| match event {
         LoopEvent::Wake => {
             let rect = pending_rect.lock().unwrap_or_else(PoisonError::into_inner).take();
             if let Some(rect) = rect {
                 move_surface(&surface, rect);
+                if let Some(pump) = pump.as_mut() {
+                    pump.set_rect([rect.left, rect.top, rect.right, rect.bottom]);
+                }
+            }
+            if let Some(pump) = pump.as_mut() {
+                pump.on_wake();
+            }
+            Flow::Continue
+        }
+        LoopEvent::Timer(id) => {
+            if let Some(pump) = pump.as_mut() {
+                pump.on_timer(id);
             }
             Flow::Continue
         }
         LoopEvent::Quit => Flow::Exit,
         // The service watches the monitors and the shell; a renderer learns about both through its own surface.
-        LoopEvent::DisplayChanged | LoopEvent::ShellRestarted | LoopEvent::Timer(_) => Flow::Continue,
+        LoopEvent::DisplayChanged | LoopEvent::ShellRestarted => Flow::Continue,
     });
     let surface_lost = surface.destroyed_externally();
     clock_stop.store(true, Ordering::SeqCst);
@@ -235,8 +247,11 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     {
         tracing::warn!("the clock thread panicked");
     }
-    // The player first: its child window lives inside the surface.
-    drop(player);
+    // The engine first: its window lives inside the surface.
+    if let Some(pump) = pump {
+        pump.close();
+    }
+    drop(engine);
     drop(surface);
     if sync.start_failed.load(Ordering::SeqCst) {
         tracing::error!("the video could not be played, the renderer exits as a failed start");
@@ -478,48 +493,17 @@ fn wait_for_close_cef(connection: &mut Connection, pending: &Mutex<CefPending>, 
     }
 }
 
-/// Why the engine did not start. Every variant is a value with one log line and one exit code, never a panic (D-20).
-#[derive(Debug)]
-enum EngineError {
-    /// libmpv is missing or cannot be loaded.
-    Load(LoadError),
-    /// libmpv loaded but the player could not be created or could not start the file.
-    Player(PlayerError),
-}
-
-impl EngineError {
-    /// The exit code the service reads as the reason the renderer ended.
-    fn exit_code(&self) -> u8 {
-        match self {
-            Self::Load(_) => EXIT_ENGINE_MISSING,
-            Self::Player(_) => EXIT_START_FAILURE,
-        }
-    }
-
-    /// The reason and the repair hint the service shows the user (the tray tooltip) and logs.
-    fn report(&self) -> (String, String) {
-        match self {
-            // The full search list is in the log; the user only needs to know the file is missing.
-            Self::Load(LoadError::NotFound { .. }) => ("libmpv was not found.".to_owned(), self.hint()),
-            Self::Load(error) => (error.to_string(), self.hint()),
-            Self::Player(error) => (error.to_string(), self.hint()),
-        }
-    }
-
-    /// The repair hint: the loader's own for a library problem, else a pointer to the log.
-    fn hint(&self) -> String {
-        match self {
-            Self::Load(error) => error.hint().to_owned(),
-            Self::Player(_) => CHECK_THE_LOG.to_owned(),
-        }
-    }
-
-    /// Logs the failure once, at error level, with the repair hint when there is one.
-    fn log(&self) {
-        match self {
-            Self::Load(error) => tracing::error!(%error, hint = error.hint(), "libmpv cannot be loaded"),
-            Self::Player(error) => tracing::error!(%error, "cannot start the player"),
-        }
+/// The reason and the repair hint the service shows the user (the tray tooltip) and logs for an engine that did not
+/// start, and the exit code it reads as the cause: a missing engine, or a failed start (D-20).
+fn engine_failure(error: &EngineError) -> (String, String, u8) {
+    match error {
+        EngineError::Missing { reason, hint } => (reason.clone(), hint.clone(), EXIT_ENGINE_MISSING),
+        EngineError::Start { reason } => (reason.clone(), CHECK_THE_LOG.to_owned(), EXIT_START_FAILURE),
+        EngineError::Unsupported { what } => (
+            format!("{what} is not supported by this build."),
+            "Choose another engine in Wallpaper settings.".to_owned(),
+            EXIT_START_FAILURE,
+        ),
     }
 }
 
@@ -555,34 +539,15 @@ fn log_video_adapter() {
     }
 }
 
-/// Loads the bundled libmpv (only the renderer does, D-17) and starts the player embedded in the window `wid`, with
-/// the options the assignment's settings lead to, or the user's own mpv config when there is one (D-10).
-fn start_engine(wid: u64, assignment: &Assignment) -> Result<Player, EngineError> {
-    let mpv = Arc::new(loader::load_default().map_err(EngineError::Load)?);
-    let shader_cache = shader_cache_dir();
-    // The shader cache is always redirected, so that a user config cannot send it into the C# app's MpvPlayer folder.
-    let mut embedding = embedding_options();
-    embedding.extend(shader_cache_options(&shader_cache));
-    // No audio is decoded until the service names this renderer the master clock (D-02): followers never play it.
-    embedding.push(("aid", "no".to_owned()));
-    let generated = generated_options(&assignment.settings, &shader_cache);
-    // Only the path is taken from the C# app's folder; mpv reads the file and nothing is written there (D-08).
-    let user_config = legacy_mpv_cache_dir().and_then(|dir| user_config_path(&dir));
-    let options = OpenOptions {
-        embedding: &embedding,
-        generated: &generated,
-        user_config: user_config.as_deref(),
-    };
-    Player::open(mpv, wid, Path::new(&assignment.source), &options).map_err(EngineError::Player)
-}
-
-/// The folder for mpv's shader cache, inside Sucrose's own data (SUCROSE_DATA_DIR when set), created when missing.
-fn shader_cache_dir() -> PathBuf {
-    let dir = cache_dir().unwrap_or_else(std::env::temp_dir).join("mpv-shaders");
-    if let Err(error) = std::fs::create_dir_all(&dir) {
-        tracing::warn!(%error, path = %dir.display(), "cannot create the shader cache folder");
+/// Starts the engine `id` on the surface window `wid`. An engine this build does not contain is refused, never
+/// replaced by another one (T-04-12).
+fn start_engine(id: EngineId, wid: u64, assignment: &Assignment) -> Result<Started, EngineError> {
+    match id {
+        EngineId::Mpv => sucrose_engine_mpv::engine::start(wid, assignment),
+        other => Err(EngineError::Unsupported {
+            what: format!("The {other:?} engine"),
+        }),
     }
-    dir
 }
 
 /// What one reply of the service to the Hello leads to.
@@ -636,14 +601,16 @@ fn wait_for_assignment(connection: &mut Connection) -> anyhow::Result<Option<Ass
     }
 }
 
-/// Applies the service's pause and volume commands to `player` until the service asks the renderer to stop or the
-/// connection ends. A new rectangle is handed to the main thread through `pending_rect` and `proxy`.
+/// Applies the service's pause and volume commands to `engine` until the service asks the renderer to stop or the
+/// connection ends. A new rectangle is handed to the main thread through `pending_rect` and `proxy`. `pause_level` is
+/// the level every pause is carried out at; a new source brings the level of its own settings.
 fn wait_for_close(
     connection: &mut Connection,
-    player: &Player,
+    engine: &dyn Engine,
     pending_rect: &PendingRect,
     proxy: &LoopProxy,
     sync: &SyncState,
+    mut pause_level: PauseLevel,
 ) {
     let mut following = FollowState::default();
     loop {
@@ -653,13 +620,13 @@ fn wait_for_close(
                 return;
             }
             Ok(ToRenderer::Pause(paused)) => {
-                if let Err(error) = player.set_paused(paused) {
+                if let Err(error) = engine.set_paused(paused, pause_level) {
                     tracing::warn!(%error, paused, "cannot change the pause state");
                 }
             }
             Ok(ToRenderer::SetVolume(volume)) => {
                 sync.volume.store(volume, Ordering::SeqCst);
-                if let Err(error) = player.set_volume(volume) {
+                if let Err(error) = engine.set_volume(volume) {
                     tracing::warn!(%error, volume, "cannot change the volume");
                 }
             }
@@ -675,12 +642,17 @@ fn wait_for_close(
                 proxy.wake();
             }
             Ok(ToRenderer::SetRole(role)) => {
-                apply_role(role, player, sync);
-                following.reset(player.speed());
+                apply_role(role, engine, sync);
+                following.reset(engine.clock().map_or(1.0, EngineClock::speed));
             }
-            Ok(ToRenderer::Clock(tick)) => follow_clock(&tick, player, sync, &mut following),
+            Ok(ToRenderer::Clock(tick)) => {
+                if let Some(clock) = engine.clock() {
+                    follow_clock(&tick, clock, sync, &mut following);
+                }
+            }
             Ok(ToRenderer::LoadSource { source, settings }) => {
-                if let Err(error) = switch_source(&source, &settings, player, sync, &mut following) {
+                pause_level = PauseLevel::from(settings.pause);
+                if let Err(error) = switch_source(&source, &settings, engine, sync, &mut following) {
                     // The supervisor and its restart budget take over, as for any failed start (Phase 2 D-13).
                     tracing::error!(%error, "the new source cannot be loaded, the renderer exits as a failed start");
                     report_failure(
@@ -713,16 +685,18 @@ fn wait_for_close(
 fn switch_source(
     source: &str,
     settings: &PlaybackSettings,
-    player: &Player,
+    engine: &dyn Engine,
     sync: &SyncState,
     following: &mut FollowState,
-) -> Result<(), PlayerError> {
+) -> Result<(), EngineError> {
     // The audio switch the role chose (aid) is a player option and carries over to the next file by itself; only a
     // speed the drift correction left behind has to be put back.
-    if let Err(error) = player.set_speed(1.0) {
+    if let Some(clock) = engine.clock()
+        && let Err(error) = clock.set_speed(1.0)
+    {
         tracing::warn!(%error, "cannot restore the normal speed for the new source");
     }
-    player.load_source(Path::new(source), settings)?;
+    engine.load_source(Path::new(source), settings)?;
     sync.volume.store(settings.volume, Ordering::SeqCst);
     sync.looping.store(settings.looping, Ordering::SeqCst);
     *following = FollowState::default();
@@ -734,19 +708,21 @@ fn switch_source(
 
 /// Takes on the role the service chose: the master plays the audio at the configured volume and publishes its clock,
 /// a follower plays none (D-02).
-fn apply_role(role: Role, player: &Player, sync: &SyncState) {
+fn apply_role(role: Role, engine: &dyn Engine, sync: &SyncState) {
     let master = role == Role::Master;
     sync.master.store(master, Ordering::SeqCst);
-    if let Err(error) = player.set_audio(master) {
+    if let Err(error) = engine.set_audio(master) {
         tracing::warn!(%error, ?role, "cannot switch the audio for the new role");
     }
     if master {
         // A promoted follower may be running at a corrected speed; the clock itself plays at normal speed.
-        if let Err(error) = player.set_speed(1.0) {
+        if let Some(clock) = engine.clock()
+            && let Err(error) = clock.set_speed(1.0)
+        {
             tracing::warn!(%error, "cannot restore the normal speed for the master");
         }
         let volume = sync.volume.load(Ordering::SeqCst);
-        if let Err(error) = player.set_volume(volume) {
+        if let Err(error) = engine.set_volume(volume) {
             tracing::warn!(%error, volume, "cannot set the master's volume");
         }
         // Followers should not wait a whole period for the first reading of a new master.
@@ -780,27 +756,13 @@ impl FollowState {
     }
 }
 
-/// One frame of the playing video in seconds: from its container frame rate, else mpv's estimate, else a default.
-/// The flag says whether the value is final, which only the container's frame rate is.
-fn video_frame_period(player: &Player) -> (f64, bool) {
-    let read = |name: &str| {
-        player
-            .get_property_string(name)
-            .and_then(|value| value.trim().parse::<f64>().ok())
-            .filter(|fps| fps.is_finite() && *fps > 0.0)
-    };
-    let container = read("container-fps");
-    let fps = container.or_else(|| read("estimated-vf-fps"));
-    (frame_period(fps), container.is_some())
-}
-
 /// The frame period for this follower: the container's once known, else the best current guess, read again on each
 /// reading and logged when it changes.
-fn current_frame_period(player: &Player, state: &mut FollowState) -> f64 {
+fn current_frame_period(clock: &dyn EngineClock, state: &mut FollowState) -> f64 {
     if let (true, Some(period)) = (state.frame_final, state.frame_s) {
         return period;
     }
-    let (period, is_final) = video_frame_period(player);
+    let (period, is_final) = clock.frame_period();
     if state.frame_s.is_none_or(|known| (known - period).abs() > known * 0.01) {
         tracing::info!(frame_period_s = period, is_final, "frame period");
     }
@@ -810,22 +772,22 @@ fn current_frame_period(player: &Player, state: &mut FollowState) -> f64 {
 }
 
 /// Corrects this follower's drift against the master's `tick` and logs its drift summary every [SUMMARY_TICKS].
-fn follow_clock(tick: &ClockTick, player: &Player, sync: &SyncState, state: &mut FollowState) {
+fn follow_clock(tick: &ClockTick, clock: &dyn EngineClock, sync: &SyncState, state: &mut FollowState) {
     // A paused follower (the fullscreen rule on this monitor alone) has nothing to correct until it plays again; the
     // next reading after that realigns it.
     // Before its first frame this player has no position to compare either.
-    if sync.master.load(Ordering::SeqCst) || player.is_paused() || !player.has_started() {
+    if sync.master.load(Ordering::SeqCst) || clock.is_paused() || !clock.has_started() {
         return;
     }
-    let Some(local) = player.time_pos() else {
+    let Some(local) = clock.position_s() else {
         return;
     };
     let duration = if sync.looping.load(Ordering::SeqCst) {
-        player.duration()
+        clock.duration_s()
     } else {
         None
     };
-    let frame_s = current_frame_period(player, state);
+    let frame_s = current_frame_period(clock, state);
     let now_ns = monotonic_ns();
     let action = state.follower.step(tick, now_ns, local, duration, frame_s);
     let applied = match action {
@@ -836,16 +798,16 @@ fn follow_clock(tick: &ClockTick, player: &Player, sync: &SyncState, state: &mut
                 drift_s = drift_s(tick, now_ns, local, duration),
                 "follower speed"
             );
-            let result = player.set_speed(speed);
+            let result = clock.set_speed(speed);
             if result.is_err() {
                 // The controller must not take the speed for sent: the next reading sends it again.
-                state.follower.speed_failed(player.speed());
+                state.follower.speed_failed(clock.speed());
             }
             result
         }
         SyncAction::Seek(position) => {
             tracing::info!(local, position, "drift beyond half a second, seeking");
-            player.seek_exact(position)
+            clock.seek_exact(position)
         }
     };
     if let Err(error) = applied {
@@ -868,15 +830,15 @@ fn follow_clock(tick: &ClockTick, player: &Player, sync: &SyncState, state: &mut
 }
 
 /// One reading of this player's clock, or None while it has no position yet or the OS clock fails.
-fn read_tick(player: &Player) -> Option<ClockTick> {
-    let position_s = player.time_pos()?;
+fn read_tick(clock: &dyn EngineClock) -> Option<ClockTick> {
+    let position_s = clock.position_s()?;
     let stamp_ns = monotonic_ns();
     (stamp_ns > 0).then(|| ClockTick {
         position_s,
         stamp_ns,
-        speed: player.speed(),
-        paused: player.is_paused(),
-        loop_gen: player.loop_gen(),
+        speed: clock.speed(),
+        paused: clock.is_paused(),
+        loop_gen: clock.loop_gen(),
     })
 }
 
@@ -892,8 +854,16 @@ fn tell_playing(connection: &mut Connection) {
 /// then publishes the master's clock about once per period, and at once after a seek, loop wrap, pause, resume or a
 /// promotion. Does nothing while this renderer is a follower or has not shown its first frame. When the video cannot
 /// be played it reports that, stops the message loop through `proxy` and ends. Runs until `stop` is set.
-fn publish_clock(mut connection: Connection, player: &Player, sync: &SyncState, stop: &AtomicBool, proxy: &LoopProxy) {
-    let events: Option<Receiver<PlayerEvent>> = player.take_events();
+fn publish_clock(
+    mut connection: Connection,
+    engine: &dyn Engine,
+    sync: &SyncState,
+    stop: &AtomicBool,
+    proxy: &LoopProxy,
+) {
+    let Some(clock) = engine.clock() else {
+        return;
+    };
     let mut last = Instant::now();
     let mut sent_once = false;
     let mut announced = false;
@@ -904,20 +874,12 @@ fn publish_clock(mut connection: Connection, player: &Player, sync: &SyncState, 
             sent_once = false;
         }
         let mut due = sync.kick.swap(false, Ordering::SeqCst);
-        match &events {
-            Some(events) => match events.recv_timeout(CLOCK_POLL) {
-                Ok(_) => {
-                    while events.try_recv().is_ok() {}
-                    due = true;
-                }
-                Err(RecvTimeoutError::Timeout) => {}
-                Err(RecvTimeoutError::Disconnected) => thread::sleep(CLOCK_POLL),
-            },
-            None => thread::sleep(CLOCK_POLL),
+        if clock.wait_event(CLOCK_POLL) {
+            due = true;
         }
         // A file that mpv cannot open or decode never shows a frame: say why and end the renderer, so that the
         // tray does not wait for a wallpaper that will not come (the restart budget applies like any failed start).
-        if let Some(error) = player.start_failure() {
+        if let Some(error) = clock.start_failure() {
             tracing::error!(%error, "the video cannot be played");
             report_failure(
                 &mut connection,
@@ -929,7 +891,7 @@ fn publish_clock(mut connection: Connection, player: &Player, sync: &SyncState, 
             return;
         }
         // The Started event can come before this thread took the receiver, so the flag is looked at as well.
-        if !player.has_started() {
+        if !clock.has_started() {
             continue;
         }
         if !announced {
@@ -943,7 +905,7 @@ fn publish_clock(mut connection: Connection, player: &Player, sync: &SyncState, 
         if !(due || !sent_once || last.elapsed() >= CLOCK_PERIOD) {
             continue;
         }
-        let Some(tick) = read_tick(player) else {
+        let Some(tick) = read_tick(clock) else {
             continue;
         };
         if let Err(error) = connection.send(&ToService::Clock(tick)) {
@@ -973,38 +935,66 @@ fn connect_with_retry(endpoint: &str) -> Result<Connection, IpcError> {
 
 #[cfg(test)]
 mod tests {
+    use sucrose_core::theme::WallpaperType;
+
     use super::*;
 
     #[test]
     fn a_missing_engine_exits_with_code_2() {
-        let error = EngineError::Load(LoadError::NotFound { searched: Vec::new() });
-        assert_eq!(error.exit_code(), EXIT_ENGINE_MISSING);
-        assert_eq!(error.exit_code(), 2);
-    }
+        let error = EngineError::Missing {
+            reason: "libmpv was not found.".to_owned(),
+            hint: "Reinstall Sucrose.".to_owned(),
+        };
 
-    #[test]
-    fn a_player_failure_exits_with_code_4() {
-        let error = EngineError::Player(PlayerError::CreateFailed);
-        assert_eq!(error.exit_code(), EXIT_START_FAILURE);
-        assert_eq!(error.exit_code(), 4);
-    }
+        let (reason, hint, code) = engine_failure(&error);
 
-    #[test]
-    fn a_missing_engine_reports_its_reason_and_repair_hint() {
-        let error = EngineError::Load(LoadError::NotFound { searched: Vec::new() });
-
-        let (reason, hint) = error.report();
-
+        assert_eq!(code, EXIT_ENGINE_MISSING);
+        assert_eq!(code, 2);
         assert_eq!(reason, "libmpv was not found.");
-        assert!(hint.contains("fetch-engines") || hint.contains("reinstall"), "{hint}");
+        assert_eq!(hint, "Reinstall Sucrose.");
     }
 
     #[test]
-    fn a_player_failure_points_to_the_log() {
-        let (reason, hint) = EngineError::Player(PlayerError::CreateFailed).report();
+    fn a_failed_start_exits_with_code_4_and_points_to_the_log() {
+        let error = EngineError::Start {
+            reason: "the player could not be created".to_owned(),
+        };
 
+        let (reason, hint, code) = engine_failure(&error);
+
+        assert_eq!(code, EXIT_START_FAILURE);
+        assert_eq!(code, 4);
         assert!(!reason.is_empty());
         assert_eq!(hint, CHECK_THE_LOG);
+    }
+
+    #[test]
+    fn an_engine_the_build_does_not_contain_is_refused_with_a_hint_to_the_settings() {
+        let (reason, hint, code) = engine_failure(&EngineError::Unsupported {
+            what: "The Vlc engine".to_owned(),
+        });
+
+        assert_eq!(code, EXIT_START_FAILURE);
+        assert!(reason.contains("Vlc"), "{reason}");
+        assert!(hint.contains("Wallpaper settings"), "{hint}");
+    }
+
+    #[test]
+    fn the_factory_refuses_an_engine_it_does_not_start_instead_of_guessing() {
+        let assignment = Assignment {
+            slot: 0,
+            monitor: "M".to_owned(),
+            rect: [0, 0, 10, 10],
+            source: "C:/a.mp4".to_owned(),
+            settings: PlaybackSettings::default(),
+            kind: WallpaperType::Video,
+            engine: sucrose_core::settings::EngineType::VlcPlayerLive,
+            theme_dir: "C:/".to_owned(),
+        };
+
+        let error = start_engine(EngineId::Vlc, 0, &assignment).expect_err("libVLC is not in this build");
+
+        assert!(matches!(error, EngineError::Unsupported { .. }), "{error:?}");
     }
 
     #[test]
@@ -1031,12 +1021,6 @@ mod tests {
         }));
 
         assert!(matches!(reply, Ok(HelloReply::Skip)));
-    }
-
-    #[test]
-    fn logging_a_failure_does_not_panic() {
-        EngineError::Load(LoadError::NotFound { searched: Vec::new() }).log();
-        EngineError::Player(PlayerError::CreateFailed).log();
     }
 }
 

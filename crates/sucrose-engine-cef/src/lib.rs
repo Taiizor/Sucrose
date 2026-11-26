@@ -11,6 +11,10 @@ pub mod browser;
 
 use std::ffi::OsString;
 
+/// Whether this build contains CEF: only Windows on x86_64 and aarch64 has a pinned dist (D-028), so the service
+/// offers CEF on those targets only.
+pub const BUILT: bool = cfg!(all(windows, any(target_arch = "x86_64", target_arch = "aarch64")));
+
 /// The CEF version of the pinned dist (`xtask/engines.toml`), without the commit and Chromium suffix.
 pub const CEF_VERSION: &str = "156.0.31";
 

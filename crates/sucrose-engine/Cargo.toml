@@ -10,6 +10,7 @@ publish.workspace = true
 [dependencies]
 sucrose-core = { workspace = true }
 sucrose-ipc = { workspace = true }
+thiserror = { workspace = true }
 
 [lints]
 workspace = true

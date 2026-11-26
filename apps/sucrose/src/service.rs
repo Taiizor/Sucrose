@@ -37,7 +37,8 @@ use sucrose_platform::{
     RectPx, Tray, TrayAction, TrayLabels,
 };
 // ScreenArea is read below to choose the surface rectangle.
-use sucrose_core::settings::{FullScreenAction, FullScreenScope, GpuPreference, PauseKind, ScreenArea};
+use sucrose_core::settings::{EngineType, FullScreenAction, FullScreenScope, GpuPreference, PauseKind, ScreenArea};
+use sucrose_engine::{Availability, EngineId, Unsupported, choose_engine};
 
 use crate::{
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
@@ -661,7 +662,7 @@ fn selected_job(settings: &Settings, legacy_root: &Path) -> Result<Job, ThemeRej
         PLAYABLE,
     )
     .and_then(|theme| {
-        job_for(&theme, &settings.engine).map_err(|reason| ThemeRejection::SourceInvalid {
+        job_for(&theme, &settings.engine, settings.backgroundog.pause).map_err(|reason| ThemeRejection::SourceInvalid {
             folder: folder.clone(),
             reason,
         })
@@ -2497,7 +2498,9 @@ struct Plan {
 const PLAYABLE: &[WallpaperType] = &[WallpaperType::Video, WallpaperType::Web];
 
 /// Whether a wallpaper type is shown by CEF; every other playable type is played by mpv. Two types on different
-/// engines need new renderers on a Use, because a renderer is one process with one engine.
+/// engines need new renderers on a Use, because a renderer is one process with one engine; and a CEF renderer cannot
+/// switch to another page in place (its `load_source` is unsupported until the page calls of 04-09), so a Use while
+/// one runs starts a new renderer.
 fn uses_cef(kind: WallpaperType) -> bool {
     kind == WallpaperType::Web
 }
@@ -2513,8 +2516,10 @@ struct Job {
     settings: PlaybackSettings,
     /// Whether a surface covers its whole monitor or only the work area (Engine.json ScreenType).
     screen: ScreenArea,
-    /// The theme's wallpaper type, which decides the engine a renderer starts.
+    /// The theme's wallpaper type.
     kind: WallpaperType,
+    /// The canonical legacy name of the engine that plays it, chosen by `choose_engine` (D-11).
+    engine: EngineType,
     /// The absolute path of the theme folder.
     theme_dir: String,
 }
@@ -2530,6 +2535,7 @@ impl Job {
             source: self.source.clone(),
             settings: self.settings,
             kind: self.kind,
+            engine: self.engine,
             theme_dir: self.theme_dir.clone(),
         }
     }
@@ -3094,9 +3100,10 @@ fn decide_use(input: &UseInput<'_>) -> UseDecision {
         return UseDecision::AlreadyApplied;
     }
     if input.running {
+        // A new renderer when the engine changes, and whenever the running one is CEF (it cannot load another page).
         if input
             .running_kind
-            .is_some_and(|kind| uses_cef(kind) != uses_cef(job.kind))
+            .is_some_and(|kind| uses_cef(kind) || uses_cef(job.kind))
         {
             UseDecision::Restart(job.clone())
         } else {
@@ -3161,9 +3168,11 @@ fn handle_use(
         let theme = check_selected(&settings.library_location(root), folder, &app_version(), PLAYABLE);
         let kind = theme.as_ref().ok().map(|theme| theme.info.kind);
         let gate = theme.and_then(|theme| {
-            job_for(&theme, &settings.engine).map_err(|reason| ThemeRejection::SourceInvalid {
-                folder: folder.to_owned(),
-                reason,
+            job_for(&theme, &settings.engine, settings.backgroundog.pause).map_err(|reason| {
+                ThemeRejection::SourceInvalid {
+                    folder: folder.to_owned(),
+                    reason,
+                }
             })
         });
         let input = UseInput {
@@ -3446,7 +3455,12 @@ fn log_settings(settings: &Settings, outcome: &dyn std::fmt::Debug) {
 /// What the settings and the selected theme lead to; `legacy_root` is the C# data folder, the default library location.
 fn plan_from(settings: &Settings, legacy_root: &std::path::Path) -> Plan {
     let location = settings.library_location(legacy_root);
-    let (job, status) = match plan_for(&location, &settings.library.selected, &settings.engine) {
+    let (job, status) = match plan_for(
+        &location,
+        &settings.library.selected,
+        &settings.engine,
+        settings.backgroundog.pause,
+    ) {
         Ok(job) => {
             let status = Status::Starting {
                 title: job.title.clone(),
@@ -3503,16 +3517,46 @@ fn apply_gpu_preference(platform: &dyn sucrose_platform::Platform, preference: G
 
 /// Runs the gate (D-13) on the selected theme and, when it passes, builds what every renderer plays. The error is
 /// one English sentence for the log and the tooltip: the gate's own reason.
-fn plan_for(location: &std::path::Path, selected: &str, engine: &Engine) -> Result<Job, String> {
+fn plan_for(location: &std::path::Path, selected: &str, engine: &Engine, pause: PauseKind) -> Result<Job, String> {
     let theme = check_selected(location, selected, &app_version(), PLAYABLE)
         .map_err(|rejection| printable(&rejection.to_string()))?;
     // Debug formatting for the text a theme or the settings supply: control characters show as escapes.
     tracing::info!(theme = ?selected, kind = ?theme.info.kind, source = ?theme.info.source, "selected theme");
-    job_for(&theme, engine)
+    job_for(&theme, engine, pause)
 }
 
-/// What every renderer plays for a theme that passed the gate, with the playback settings of Engine.json.
-fn job_for(theme: &SelectedTheme, engine: &Engine) -> Result<Job, String> {
+/// The engine the Engine section configures for a wallpaper type.
+fn configured_engine(engine: &Engine, kind: WallpaperType) -> EngineType {
+    match kind {
+        WallpaperType::Gif => engine.gif,
+        WallpaperType::Url => engine.url,
+        WallpaperType::Web => engine.web,
+        WallpaperType::Video => engine.video,
+        WallpaperType::YouTube => engine.youtube,
+        WallpaperType::Application => engine.application,
+    }
+}
+
+/// What this build can play a wallpaper of `kind` with, until detection (plan 04-12, D-11) replaces this static
+/// report: mpv plays every type the service accepts; CEF is compiled in on Windows and plays Web themes (its generated
+/// pages for GIF and video themes come in a later round, so it is not offered for them, and a user who configured CEF
+/// for videos keeps mpv); every other engine is not in this build.
+fn built_availability(kind: WallpaperType) -> impl Fn(EngineId) -> Availability {
+    move |engine| match engine {
+        EngineId::Mpv => Availability::Installed { version: None },
+        EngineId::Cef if kind == WallpaperType::Web && sucrose_engine_cef::BUILT => {
+            Availability::Installed { version: None }
+        }
+        _ => Availability::Unsupported {
+            why: Unsupported::NotInThisBuild,
+        },
+    }
+}
+
+/// What every renderer plays for a theme that passed the gate, with the playback settings of Engine.json. The engine
+/// is chosen here, with its fallback (D-11, ENG-07): the configured one when this build can play the type with it,
+/// else the first that can. The setting itself is never changed.
+fn job_for(theme: &SelectedTheme, engine: &Engine, pause: PauseKind) -> Result<Job, String> {
     let source = theme
         .source_path
         .to_str()
@@ -3523,23 +3567,38 @@ fn job_for(theme: &SelectedTheme, engine: &Engine) -> Result<Job, String> {
         .to_str()
         .ok_or_else(|| "the theme folder path is not valid UTF-8".to_owned())?
         .to_owned();
+    let kind = theme.info.kind;
+    let configured = configured_engine(engine, kind);
+    let choice = choose_engine(kind, configured, &built_availability(kind));
+    let Some(chosen) = choice.engine else {
+        return Err("no installed engine can play this wallpaper".to_owned());
+    };
+    tracing::info!(
+        kind = ?kind,
+        configured = ?configured,
+        engine = ?chosen,
+        fell_back = choice.fell_back_from.is_some(),
+        "engine chosen"
+    );
     Ok(Job {
         title: printable(&theme.info.title),
         source,
-        settings: playback_settings(engine),
+        settings: playback_settings(engine, pause),
         screen: engine.screen,
-        kind: theme.info.kind,
+        kind,
+        engine: chosen.to_legacy(),
         theme_dir,
     })
 }
 
 /// The player settings the Engine section leads to.
-fn playback_settings(engine: &Engine) -> PlaybackSettings {
+fn playback_settings(engine: &Engine, pause: PauseKind) -> PlaybackSettings {
     PlaybackSettings {
         volume: engine.volume,
         looping: engine.looping,
         stretch: engine.stretch,
         hardware_decoding: engine.hardware_acceleration,
+        pause,
     }
 }
 
@@ -4512,6 +4571,7 @@ mod tests {
             settings: PlaybackSettings::default(),
             screen: ScreenArea::default(),
             kind: WallpaperType::Video,
+            engine: EngineType::MpvPlayerLive,
             theme_dir: "C:/".to_owned(),
         };
         Fleet::new(Some(job), SharedAssignments::default())
@@ -4854,6 +4914,7 @@ mod tests {
             settings: PlaybackSettings::default(),
             screen: ScreenArea::default(),
             kind: WallpaperType::Video,
+            engine: EngineType::MpvPlayerLive,
             theme_dir: "C:/themes/new".to_owned(),
         }
     }
@@ -4861,6 +4922,7 @@ mod tests {
     fn web_job() -> Job {
         Job {
             kind: WallpaperType::Web,
+            engine: EngineType::CefSharpLive,
             theme_dir: "C:/themes/page".to_owned(),
             ..use_job("C:/themes/page/index.html")
         }
@@ -5094,14 +5156,18 @@ mod tests {
         }
 
         #[test]
-        fn keeps_the_load_source_path_between_themes_of_the_same_engine() {
+        fn restarts_between_web_themes_because_cef_cannot_load_another_page_in_place() {
             let web_to_web = decide_use(&UseInput {
                 gate: Ok(web_job()),
                 running_kind: Some(WallpaperType::Web),
+                folder: "other",
                 ..use_input()
             });
-            assert!(matches!(web_to_web, UseDecision::Load(_)), "{web_to_web:?}");
+            assert!(matches!(web_to_web, UseDecision::Restart(_)), "{web_to_web:?}");
+        }
 
+        #[test]
+        fn keeps_the_load_source_path_between_themes_of_the_same_engine() {
             let video_to_video = decide_use(&use_input());
             assert!(matches!(video_to_video, UseDecision::Load(_)), "{video_to_video:?}");
         }

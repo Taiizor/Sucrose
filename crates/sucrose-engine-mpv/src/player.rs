@@ -166,12 +166,7 @@ fn classify_restart(anchor: Option<Anchor>, now: Instant, position: f64, duratio
 /// The properties that follow the playback settings while a file plays: volume, looping and the stretch. They use the
 /// values of the generated options of [`crate::config`], so a switch looks like a fresh start with those settings.
 fn runtime_properties(settings: &PlaybackSettings) -> Vec<(&'static str, String)> {
-    let (panscan, keepaspect, unscaled) = match settings.stretch {
-        Stretch::UniformToFill => ("1.0", "yes", "no"),
-        Stretch::Fill => ("0.0", "no", "no"),
-        Stretch::None => ("0.0", "yes", "yes"),
-        Stretch::Uniform => ("0.0", "yes", "no"),
-    };
+    let (panscan, keepaspect, unscaled) = stretch_values(settings.stretch);
     vec![
         ("volume", settings.volume.min(100).to_string()),
         ("loop-file", if settings.looping { "inf" } else { "no" }.to_owned()),
@@ -179,6 +174,16 @@ fn runtime_properties(settings: &PlaybackSettings) -> Vec<(&'static str, String)
         ("keepaspect", keepaspect.to_owned()),
         ("video-unscaled", unscaled.to_owned()),
     ]
+}
+
+/// The values of `panscan`, `keepaspect` and `video-unscaled` that fit the video the way `stretch` says.
+fn stretch_values(stretch: Stretch) -> (&'static str, &'static str, &'static str) {
+    match stretch {
+        Stretch::UniformToFill => ("1.0", "yes", "no"),
+        Stretch::Fill => ("0.0", "no", "no"),
+        Stretch::None => ("0.0", "yes", "yes"),
+        Stretch::Uniform => ("0.0", "yes", "no"),
+    }
 }
 
 /// State the event thread keeps for the thread that drives the player.
@@ -439,6 +444,25 @@ impl Player {
     /// Pauses (true) or resumes (false) playback.
     pub fn set_paused(&self, paused: bool) -> Result<(), PlayerError> {
         self.set_property("pause", if paused { "yes" } else { "no" })
+    }
+
+    /// Sets whether the file restarts when it ends. The user's own mpv config wins when it is loaded (D-10).
+    pub fn set_looping(&self, looping: bool) -> Result<(), PlayerError> {
+        if self.user_config_loaded {
+            return Ok(());
+        }
+        self.set_property("loop-file", if looping { "inf" } else { "no" })
+    }
+
+    /// Sets how the video is fitted to the surface. The user's own mpv config wins when it is loaded (D-10).
+    pub fn set_stretch(&self, stretch: Stretch) -> Result<(), PlayerError> {
+        if self.user_config_loaded {
+            return Ok(());
+        }
+        let (panscan, keepaspect, unscaled) = stretch_values(stretch);
+        self.set_property("panscan", panscan)?;
+        self.set_property("keepaspect", keepaspect)?;
+        self.set_property("video-unscaled", unscaled)
     }
 
     /// Sets the playback volume; values above 100 are treated as 100 (volume-max is 100).
