@@ -79,6 +79,27 @@ jobs:
             echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
           fi
       - uses: Swatinem/rust-cache@v2
+      # D-32: every build reads the pinned CEF dist through CEF_PATH (.cargo/config.toml); no build script downloads CEF.
+      - name: Check CMake and Ninja (cef-dll-sys builds the CEF wrapper with them)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          foreach ($tool in 'cmake', 'ninja') {
+            if (-not (Get-Command $tool -ErrorAction SilentlyContinue)) {
+              Write-Error "$tool is not on PATH: cef-dll-sys needs CMake and the Ninja generator to build the CEF wrapper (D-32)."
+              exit 1
+            }
+          }
+          cmake --version
+          ninja --version
+      - uses: actions/cache@v4
+        if: runner.os == 'Windows'
+        with:
+          path: target/engines/cef
+          key: cef-${{ runner.arch }}-${{ hashFiles('xtask/engines.toml') }}
+      - name: Fetch the pinned CEF
+        if: runner.os == 'Windows'
+        run: cargo xtask fetch-engines --engine cef
       - run: cargo clippy --workspace --all-targets -- -D warnings
       - run: cargo test --workspace
       - run: rustup target add i686-pc-windows-msvc

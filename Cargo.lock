@@ -7020,6 +7020,7 @@ dependencies = [
  "serde_json",
  "sucrose-config",
  "sucrose-core",
+ "sucrose-engine-cef",
  "sucrose-engine-mpv",
  "sucrose-ipc",
  "sucrose-log",

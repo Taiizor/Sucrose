@@ -497,6 +497,27 @@ fn cef_dist_dir(pin: &Pin, target_dir: &Path) -> PathBuf {
         .join(pin.cef_os_arch())
 }
 
+/// Whether the pinned CEF dist of this host is in `target/engines/cef`. A host that does not build CEF counts as
+/// fetched. `cargo xtask ci` asks it first, so the local gate never lets `cef-dll-sys` download CEF.
+pub fn cef_fetched(target_dir: &Path) -> bool {
+    if !cfg!(windows) {
+        return true;
+    }
+    host_arch().is_none_or(|arch| dist_fetched(target_dir, arch))
+}
+
+fn dist_fetched(target_dir: &Path, arch: &str) -> bool {
+    // The architectures the cef dependency is enabled for (crates/sucrose-engine-cef/Cargo.toml).
+    if !matches!(arch, "x86_64" | "aarch64") {
+        return true;
+    }
+    parse_manifest(MANIFEST).is_ok_and(|pins| {
+        pins.iter()
+            .filter(|pin| pin.is_cef() && pin.arch == arch)
+            .all(|pin| cef_dist_dir(pin, target_dir).join("archive.json").is_file())
+    })
+}
+
 /// Fetches, verifies and extracts the pinned CEF dist. The runtime files (DLLs, paks, `icudtl.dat`, `locales/`) are
 /// not placed here: `cef-dll-sys` copies them next to the built executables.
 fn fetch_cef(pin: &Pin, from: Option<&Path>, target_dir: &Path) -> Result<(), String> {
@@ -1243,6 +1264,23 @@ mod tests {
         let error = install_cef(&archive, &pin, &dist).expect_err("no libcef.dll inside");
         assert!(error.contains("libcef.dll"), "{error}");
         assert!(!dist.exists());
+    }
+
+    #[test]
+    fn ci_knows_whether_the_cef_dist_of_the_host_is_fetched() {
+        let scratch = Scratch::new("cef-fetched");
+        assert!(!dist_fetched(&scratch.0, "x86_64"));
+        assert!(!dist_fetched(&scratch.0, "aarch64"));
+        assert!(dist_fetched(&scratch.0, "i686"), "x86 builds no CEF");
+        let dist = cef_dist_dir(&cef_pin("x86_64"), &scratch.0);
+        fs::create_dir_all(&dist).expect("create");
+        assert!(
+            !dist_fetched(&scratch.0, "x86_64"),
+            "a folder without archive.json is not a dist"
+        );
+        fs::write(dist.join("archive.json"), b"{}").expect("write");
+        assert!(dist_fetched(&scratch.0, "x86_64"));
+        assert!(!dist_fetched(&scratch.0, "aarch64"));
     }
 
     #[test]

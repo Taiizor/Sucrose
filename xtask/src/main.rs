@@ -16,7 +16,7 @@ const USAGE: &str = "usage: cargo xtask <task>
 tasks:
   bindgen-mpv    regenerate the libmpv bindings from client.h (needs --features bindgen)
   ci             run the checks CI runs: fmt, clippy, test
-  fetch-engines  download, verify and place pinned engine binaries (xtask/engines.toml)
+  fetch-engines  download, verify and place pinned engine binaries (xtask/engines.toml; --engine libmpv|cef|all, --arch, --from, --print-sha256)
   localize       convert the legacy XAML strings to the Portal's rust-i18n YAML (--lang EN, --check)
   measure        sample RAM, CPU and GPU of the running wallpaper processes (--side rust|csharp|portal, --row, --portal-summary, --portal-row, --portal-log; the log-split summary attributes the growth)
   synth-library  write a synthetic library and prepared settings for UI runs (--out, --count, --seed, --force)
@@ -40,6 +40,11 @@ fn main() -> ExitCode {
 
 /// Runs the same checks as `.github/workflows/rust.yml`, stopping at the first failure.
 fn ci() -> ExitCode {
+    // Every build reads CEF from CEF_PATH (.cargo/config.toml); without the dist cef-dll-sys would download CEF itself.
+    if !fetch_engines::cef_fetched(&target_dir()) {
+        eprintln!("CEF is not fetched: run cargo xtask fetch-engines --engine cef");
+        return ExitCode::FAILURE;
+    }
     let steps: [&[&str]; 3] = [
         &["fmt", "--all", "--check"],
         &["clippy", "--workspace", "--all-targets", "--", "-D", "warnings"],
