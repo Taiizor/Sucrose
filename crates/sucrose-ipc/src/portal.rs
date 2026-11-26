@@ -1033,7 +1033,7 @@ mod tests {
     #[test]
     fn apply_sets_exactly_the_field_a_change_names() {
         let base = view();
-        let cases: [(SettingChange, PortalSettings); 18] = [
+        let cases: [(SettingChange, PortalSettings); 20] = [
             (
                 SettingChange::GifEngine(EngineType::VlcPlayerLive),
                 PortalSettings {
