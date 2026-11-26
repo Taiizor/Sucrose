@@ -276,7 +276,7 @@ Plans:
   3. User can show a wallpaper per display, spanned or duplicated, put a different wallpaper on each monitor, and choose the working area or the full display bounds and a stretch mode, with every engine.
   4. Changing a value in the properties editor (all ten control types, texts in the user's language) changes the running wallpaper immediately; the user can restore defaults, turn on developer mode with a remote debugging port, and add, remove or reset web engine arguments.
   5. Each performance condition (lock, sleep, user switch, screen saver, focus, fullscreen, CPU/memory/GPU, network, battery, remote desktop/VM) runs its configured Close, Pause or Resume with the legacy timings; pausing goes through the engine and never suspends processes; volume, loop, shuffle and the two sound rules apply to every engine.
-**Plans**: 21/38 plans executed (Round A = D-31 slice 1, 04-01..04-21, executed; Round B = D-31 slices 2 and 3, 04-22..04-38, planned; Rounds C–E are planned after the previous round has executed, 04-CONTEXT D-31 "Planning rounds")
+**Plans**: 22/38 plans executed (Round A = D-31 slice 1, 04-01..04-21, executed; Round B = D-31 slices 2 and 3, 04-22..04-38, planned; Rounds C–E are planned after the previous round has executed, 04-CONTEXT D-31 "Planning rounds")
 Plans:
 **Wave 1**
 - [x] 04-01-PLAN.md — D-32 CEF delay-load spike, part 1: pinned CEF via fetch-engines and CEF_PATH, delay-loaded libcef.dll, CEF subprocess routing, fixture Web library
@@ -340,7 +340,7 @@ Plans:
 - [x] 04-21-PLAN.md — Maintainer measurement: CEF against C# CefSharp RAM/CPU into MEASUREMENTS.md
 
 **Wave 21** *(blocked on Wave 20 completion)*
-- [ ] 04-22-PLAN.md — WebView2 plays a Web theme from the virtual origin: engine crate, runtime detection, shared reply planner (ENG-02, D-14)
+- [x] 04-22-PLAN.md — WebView2 plays a Web theme from the virtual origin: engine crate, runtime detection, shared reply planner (ENG-02, D-14)
 
 **Wave 22** *(blocked on Wave 21 completion)*
 - [ ] 04-23-PLAN.md — WebView2 serves the origin like CEF: range replies, traversal and seek fixtures, synth-library --engine (SEC-02 kept)
@@ -460,7 +460,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
 | 2. M1 — Video wallpaper on the desktop (Windows) | 29/29 | Complete    | 2026-11-23 |
 | 3. M2 — Service, IPC and Portal connected | 50/50 | Complete    | 2026-11-25 |
-| 4. M3 — Engines and the wallpaper API | 21/21 | In Progress | - |
+| 4. M3 — Engines and the wallpaper API | 22/38 | In Progress | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
 | 6. M5 — macOS | 0/TBD | Not started | - |
 | 7. M6 — Linux (X11, then Wayland compositors) | 0/TBD | Not started | - |

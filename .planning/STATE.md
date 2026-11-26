@@ -1,18 +1,18 @@
 ---
 gsd_state_version: "1.0"
-current_phase: 4
+current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-21-PLAN.md
-last_updated: "2026-11-26T21:59:33.698Z"
-last_activity: 2026-11-26
-last_activity_desc: Phase 04 Round A executed (04-01..04-21)
-state_head: 47153a63af0d68fbd539a8274ce71a06b94ca799
+stopped_at: Completed 04-22-PLAN.md
+last_updated: "2026-11-26T22:44:57.190Z"
+last_activity: 2026-11-27
+last_activity_desc: Phase 04 execution started
+state_head: ae474433794215f8472573d098530992bef1674b
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 117
-  completed_plans: 100
+  completed_plans: 101
   percent: 38
 ---
 
@@ -27,10 +27,10 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 
 ## Current Position
 
-Phase: 4 (M3 — Engines and the wallpaper API) — READY TO EXECUTE
-Plan: 21 of 38
-Status: Round A executed (plans 04-01..04-21); Round B planned (04-22..04-38, D-31 slices 2 and 3) and ready to execute; Rounds C–E not planned yet, so phase verification waits (it runs after Round E)
-Last activity: 2026-11-26 — Round B planned: 17 plans (04-22..04-38), plan checker passed after three iterations and three maintainer-approved follow-ups on 04-37
+Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
+Plan: 23 of 38
+Status: Ready to execute
+Last activity: 2026-11-27 — Phase 04 execution started
 Next step: /gsd-debug for the in-page Web theme failures and the CEF GPU process crash (04-37 names their fixes as its precondition), then `/gsd-execute-phase 4` runs Round B.
 
 Progress: [████░░░░░░] 38%
@@ -155,6 +155,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P19 | 20 min | 2 tasks | 20 files |
 | Phase 04 P20 | 30 min | 3 tasks | 2 files |
 | Phase 04 P21 | 30 min | 3 tasks | 2 files |
+| Phase 04 P22 | 30 min | 2 tasks | 18 files |
 
 ## Accumulated Context
 
@@ -314,6 +315,8 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-21: M3 CEF row records Rust alone because --row refused the pair (no Rust GPU adapter, G-02-6); C# CefSharp numbers in the paragraph; Rust RAM lower and CPU higher recorded as found, not tuned
 - [Phase 04]: Round B planned (2026-11-26): 04-22..04-38 for D-31 slices 2 and 3 (WebView2; built-in GIF/APNG/WebP, generated pages, URL, YouTube), threat IDs T-04-50..T-04-81. Maintainer decisions: add plans and leave Round A unchanged; the final checkpoint 04-37 reruns the failed or skipped 04-20 steps on CEF and WebView2 and can mark TYPE-03, ENG-07, WAPI-01, WAPI-02, WAPI-04 and FMT-07; the open 04-20 defects go to /gsd-debug and are its precondition; step B6 (two monitors with DISPLAY9) is a required ENG-02 proof.
 - [Phase 04]: Round B coverage gate override (approved deferral, 04-CONTEXT D-31): the 21 requirements of Rounds C–E (TYPE-06, ENG-04, ENG-05, DESK-02..04, PLAY-02..04, PERF-01..04, PERF-06..09, PROP-01..04) and their 16 CONTEXT decisions (D-01, D-03, D-05, D-07, D-08, D-18..D-21, D-23, D-25, D-27..D-30, D-36) are deferred to their round, not dropped; every Round B requirement is covered.
+- [Phase 04]: 04-22: WebView2 answers the virtual origin through sucrose_engine_web::serve::plan (shared with CEF); a Range request gets the whole file and 200 until 04-23
+- [Phase 04]: 04-22: the WebView2 page gets no host object and no message channel; environment creation retries once after 2 s with a 30 s capped message pump
 
 ### Pending Todos
 
@@ -352,6 +355,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T20:06:25.285Z
-Stopped at: Completed 04-21-PLAN.md
+Last session: 2026-11-26T22:44:33.024Z
+Stopped at: Completed 04-22-PLAN.md
 Resume file: None

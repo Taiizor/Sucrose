@@ -1,10 +1,10 @@
 ---
 schema_version: 1
-open_count: 4
+open_count: 6
 waived_count: 0
 fixed_count: 0
-total_count: 4
-last_updated: 2026-11-26T04:16:32.376Z
+total_count: 6
+last_updated: 2026-11-26T22:42:41.123Z
 ---
 
 # Broken Windows Ledger
@@ -19,6 +19,8 @@ last_updated: 2026-11-26T04:16:32.376Z
 | 2 | 03 | unrun-verify | apps/sucrose-portal/src/dialogs/move_library.rs |  | Plan 22 human-check: move a synthetic library from the release Portal (confirmation, progress text, reload, non-empty refusal) is left for the end of the phase | open |  | 2026-11-24T11:28:21.457Z |  |
 | 3 | 04 | unrun-verify | crates/sucrose-engine-cef/src/browser.rs |  | DevTools window from Inspect, F12, Ctrl+Shift+I and OpenDevTools not seen live (needs input or the 04-17 Portal button); covered by key_action and queue tests | open |  | 2026-11-26T03:43:51.646Z |  |
 | 4 | 04 | deviation | crates/sucrose-engine-web/src/js.rs |  | Compatible calls follow the legacy code run order, not CompatibleKey::ALL; ThemeType System is sent as Dark until the OS theme is read | open |  | 2026-11-26T04:16:32.376Z |  |
+| 5 | 4 | stub | crates/sucrose-engine-webview2/src/engine.rs |  | WebView2 pump only logs pause, volume, loop, shuffle and stretch commands until 04-24 applies them | open |  | 2026-11-26T22:42:40.983Z |  |
+| 6 | 4 | stub | crates/sucrose-engine-webview2/src/host.rs |  | WebView2 answers a Range request with the whole file and 200 until 04-23 adds partial replies | open |  | 2026-11-26T22:42:41.123Z |  |
 
 ````json
 [
@@ -71,6 +73,32 @@ last_updated: 2026-11-26T04:16:32.376Z
     "status": "open",
     "reason": "",
     "recorded_at": "2026-11-26T04:16:32.376Z",
+    "resolved_at": null,
+    "milestone": null
+  },
+  {
+    "id": 5,
+    "kind": "stub",
+    "phase": "4",
+    "file": "crates/sucrose-engine-webview2/src/engine.rs",
+    "line": null,
+    "description": "WebView2 pump only logs pause, volume, loop, shuffle and stretch commands until 04-24 applies them",
+    "status": "open",
+    "reason": "",
+    "recorded_at": "2026-11-26T22:42:40.983Z",
+    "resolved_at": null,
+    "milestone": null
+  },
+  {
+    "id": 6,
+    "kind": "stub",
+    "phase": "4",
+    "file": "crates/sucrose-engine-webview2/src/host.rs",
+    "line": null,
+    "description": "WebView2 answers a Range request with the whole file and 200 until 04-23 adds partial replies",
+    "status": "open",
+    "reason": "",
+    "recorded_at": "2026-11-26T22:42:41.123Z",
     "resolved_at": null,
     "milestone": null
   }
