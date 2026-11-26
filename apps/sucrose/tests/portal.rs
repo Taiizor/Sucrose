@@ -836,6 +836,79 @@ fn restart_now_restarts_only_the_affected_wallpapers() {
     );
 }
 
+/// Open DevTools (D-13): with a Web wallpaper running on CEF, the Portal's `OpenDevTools` for its monitor reaches that
+/// monitor's renderer, which opens the developer tools, logs `devtools opened` and confirms, so the answer is `opened: true`.
+/// A monitor without a wallpaper is answered `opened: false` and nothing opens. Nothing opens the developer tools before
+/// the request. It plays a real wallpaper and opens a real DevTools window, so it runs on purpose and skips where CEF is
+/// not installed; the service and its renderers are stopped when the test ends, which closes the window.
+#[test]
+#[ignore = "plays a Web wallpaper and opens DevTools on the desktop from a scratch data folder; plan 17 runs it"]
+fn open_devtools_reaches_the_web_renderer() {
+    if !service_runs("open_devtools_reaches_the_web_renderer") {
+        return;
+    }
+    let service = TestService::start("open-devtools", &json!({}));
+    copy_web_fixture(&service, "hello");
+    let (mut portal, _) = PortalClient::hello(&service, None);
+    let report = wait_for_engines(&portal);
+    if !report.playable.contains(&WallpaperType::Web) {
+        skipped(
+            "open_devtools_reaches_the_web_renderer",
+            "CEF is not installed next to the executable",
+        );
+        return;
+    }
+    assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+    while !renderer_logs(&service).contains("engine started") {
+        assert!(
+            std::time::Instant::now() < deadline,
+            "the renderer did not start its engine: {}",
+            renderer_logs(&service)
+        );
+        std::thread::sleep(std::time::Duration::from_millis(250));
+    }
+    assert!(
+        !renderer_logs(&service).contains("devtools opened"),
+        "nothing opens the developer tools by itself (D-13)"
+    );
+    // The monitor the wallpaper plays on, from the runtime state.
+    let monitor = loop {
+        match portal.next_event_any() {
+            Some(PortalEvent::Runtime(runtime)) if !runtime.running_engines.is_empty() => {
+                break runtime.running_engines[0].0.clone();
+            }
+            Some(_) => {}
+            None => panic!("no runtime state with the running engine"),
+        }
+    };
+    let answer = |portal: &mut PortalClient| loop {
+        match portal.next_event_any() {
+            Some(PortalEvent::DevToolsResult { opened }) => return opened,
+            Some(_) => {}
+            None => panic!("no DevToolsResult"),
+        }
+    };
+
+    // A monitor without a wallpaper has nothing to open.
+    portal.request(&PortalRequest::OpenDevTools {
+        monitor: "NO-SUCH-MONITOR".to_owned(),
+    });
+    assert!(!answer(&mut portal), "an unknown monitor opens nothing");
+    assert!(!renderer_logs(&service).contains("devtools opened"));
+
+    portal.request(&PortalRequest::OpenDevTools { monitor });
+    assert!(
+        answer(&mut portal),
+        "the web renderer confirms that it opened the developer tools"
+    );
+    assert!(
+        renderer_logs(&service).contains("devtools opened"),
+        "the renderer logs it: {}",
+        renderer_logs(&service)
+    );
+}
+
 /// Waits for an engine report whose first fallback satisfies `wanted`, skipping the other events.
 fn wait_for_fallback(portal: &PortalClient, wanted: impl Fn(&FallbackView) -> bool) -> FallbackView {
     let deadline = std::time::Instant::now() + std::time::Duration::from_secs(15);

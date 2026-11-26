@@ -58,6 +58,9 @@ pub enum ToService {
     /// The groups of system data the renderer's page needs, sent once after the page loaded (D-24). The service
     /// samples a group only while a running page wants it, and answers with [`ToRenderer::Data`] snapshots.
     DataWanted(Vec<DataGroup>),
+    /// The answer to a [`ToRenderer::OpenDevTools`]: whether the engine showed its developer tools. The service turns it
+    /// into the Portal's [`crate::portal::PortalEvent::DevToolsResult`].
+    DevToolsOpened(bool),
 }
 
 /// Messages from the service to a renderer.
@@ -433,6 +436,18 @@ mod tests {
         let bytes = postcard::to_stdvec(&data).expect("encode");
         assert_eq!(bytes[0], 9);
         assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), data);
+    }
+
+    #[test]
+    fn dev_tools_opened_keeps_its_wire_index_and_survives_the_wire() {
+        for opened in [false, true] {
+            let message = ToService::DevToolsOpened(opened);
+            let bytes = postcard::to_stdvec(&message).expect("encode");
+
+            // Appended after Hello (0) .. DataWanted (6).
+            assert_eq!(bytes[0], 7);
+            assert_eq!(postcard::from_bytes::<ToService>(&bytes).expect("decode"), message);
+        }
     }
 
     #[test]

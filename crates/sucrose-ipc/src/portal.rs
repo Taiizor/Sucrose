@@ -32,6 +32,8 @@ pub enum PortalPage {
     Personal,
     /// The wallpaper settings: the engine per wallpaper type and the other wallpaper rows.
     Wallpaper,
+    /// The other settings: the Developer group in this phase.
+    Other,
 }
 
 /// What a launcher asks of the service (the first message of a connection that is neither a renderer nor a Portal).
@@ -107,6 +109,13 @@ pub enum PortalRequest {
         /// The engines whose wallpapers restart.
         engines: Vec<EngineType>,
     },
+    /// Open the developer tools (DevTools) of the web wallpaper that plays on this monitor: the Portal's Open DevTools
+    /// button (D-13). The service routes it to that monitor's renderer only when it plays on a web engine; the answer is
+    /// [`PortalEvent::DevToolsResult`]. Nothing else ever opens DevTools.
+    OpenDevTools {
+        /// The device name of the monitor, as in [`RuntimeState::running_engines`].
+        monitor: String,
+    },
 }
 
 /// Messages from the service to the Portal.
@@ -181,6 +190,12 @@ pub enum PortalEvent {
     RestartFailed {
         /// One sentence saying why.
         reason: String,
+    },
+    /// The answer to a [`PortalRequest::OpenDevTools`]: whether the renderer opened the developer tools.
+    DevToolsResult {
+        /// `false` when no web wallpaper plays on that monitor, the engine has no developer tools or the renderer did not
+        /// confirm in time.
+        opened: bool,
     },
 }
 
@@ -745,6 +760,7 @@ mod tests {
             PortalRequest::RestartWallpapers {
                 engines: vec![EngineType::CefSharpLive],
             },
+            PortalRequest::OpenDevTools { monitor: String::new() },
         ];
         for (expected, request) in requests.iter().enumerate() {
             assert_eq!(usize::from(index(request)), expected, "{request:?}");
@@ -798,6 +814,7 @@ mod tests {
                 defaults: Vec::new(),
             },
             PortalEvent::RestartFailed { reason: String::new() },
+            PortalEvent::DevToolsResult { opened: true },
         ];
         for (expected, event) in events.iter().enumerate() {
             assert_eq!(usize::from(index(event)), expected, "{event:?}");
@@ -912,10 +929,11 @@ mod tests {
                 PortalPage::Library,
                 PortalPage::General,
                 PortalPage::Personal,
-                PortalPage::Wallpaper
+                PortalPage::Wallpaper,
+                PortalPage::Other
             ]
             .map(|page| index(&page)),
-            [0, 1, 2, 3]
+            [0, 1, 2, 3, 4]
         );
         assert_eq!(
             [RuleState::None, RuleState::Paused, RuleState::Closed].map(|state| index(&state)),

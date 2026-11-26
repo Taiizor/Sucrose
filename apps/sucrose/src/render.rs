@@ -496,11 +496,23 @@ fn wait_for_close(
                 *pending_rect.lock().unwrap_or_else(PoisonError::into_inner) = Some(rect);
                 proxy.wake();
             }
-            Ok(ToRenderer::OpenDevTools) => match engine.open_devtools() {
-                Ok(()) => tracing::info!(engine = engine.name(), "developer tools requested"),
-                // An engine without developer tools answers here; nothing else changes (D-13).
-                Err(error) => tracing::info!(engine = engine.name(), %error, "no developer tools to open"),
-            },
+            Ok(ToRenderer::OpenDevTools) => {
+                // Only the Portal's Open DevTools button sends this (D-13); the service hears how it went.
+                let opened = match engine.open_devtools() {
+                    Ok(()) => {
+                        tracing::info!(engine = engine.name(), "devtools opened");
+                        true
+                    }
+                    // An engine without developer tools answers here; nothing else changes (D-13).
+                    Err(error) => {
+                        tracing::info!(engine = engine.name(), %error, "no developer tools to open");
+                        false
+                    }
+                };
+                if let Err(error) = connection.send(&ToService::DevToolsOpened(opened)) {
+                    tracing::warn!(%error, "the service cannot be told how opening the developer tools went");
+                }
+            }
             // Handed to the engine as it is; an engine without a page ignores it.
             Ok(ToRenderer::Data(data)) => engine.push_data(data),
             Ok(ToRenderer::SetRole(role)) => {

@@ -266,6 +266,7 @@ pub fn portal_args(page: Option<PortalPage>) -> Vec<&'static str> {
     match page {
         Some(PortalPage::General) => vec!["GeneralSetting"],
         Some(PortalPage::Wallpaper) => vec!["WallpaperSetting"],
+        Some(PortalPage::Other) => vec!["OtherSetting"],
         Some(PortalPage::Library | PortalPage::Personal) | None => Vec::new(),
     }
 }
@@ -364,6 +365,7 @@ mod tests {
         assert_eq!(portal_args(Some(PortalPage::Library)), Vec::<&str>::new());
         assert_eq!(portal_args(Some(PortalPage::General)), ["GeneralSetting"]);
         assert_eq!(portal_args(Some(PortalPage::Wallpaper)), ["WallpaperSetting"]);
+        assert_eq!(portal_args(Some(PortalPage::Other)), ["OtherSetting"]);
     }
 
     fn recording_link(connection: u64, pid: u32) -> (PortalLink, Arc<Mutex<Vec<PortalEvent>>>) {

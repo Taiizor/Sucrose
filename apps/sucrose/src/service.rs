@@ -245,6 +245,13 @@ const MOVE_TIMER: u32 = 6;
 /// How long the renderers get to close for a library move before they are ended.
 const MOVE_CLOSE_GRACE_MS: u32 = 4000;
 
+/// The loop timer that ends the wait for a renderer's answer to Open DevTools (7; 1 to 6 are taken above).
+const DEVTOOLS_TIMER: u32 = 7;
+
+/// How long the Portal's Open DevTools waits for the renderer to say that the developer tools are open; later it is
+/// answered as failed.
+const DEVTOOLS_WAIT_MS: u32 = 5000;
+
 /// What the Portal is told when the service has no library folder to work with.
 const LIBRARY_UNAVAILABLE: &str = "the library folder is not available";
 
@@ -957,7 +964,8 @@ impl Status {
             | ToService::Clock(_)
             | ToService::PortalHello { .. }
             | ToService::Launch(_)
-            | ToService::DataWanted(_) => None,
+            | ToService::DataWanted(_)
+            | ToService::DevToolsOpened(_) => None,
         }
     }
 }
@@ -1177,6 +1185,8 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
             Err(error) => tracing::warn!(%error, "cannot open the Portal at start"),
         }
     }
+    // The slot whose renderer was asked to open its developer tools and has not answered yet (Open DevTools, D-13).
+    let mut devtools_pending: Option<u8> = None;
     // The runtime state last offered to the Portal, so that only a change is sent (D-23).
     let mut last_runtime: Option<RuntimeState> = None;
     // The engine report last offered to the Portal, so that only a change is sent; reset when a Portal registers or asks.
@@ -1227,6 +1237,25 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                             data.want(slot, pid, &groups);
                         } else {
                             tracing::debug!(slot, pid, "ignoring a data request of a renderer that is gone or replaced");
+                        }
+                    }
+                    Event::Renderer {
+                        slot,
+                        pid,
+                        message: ToService::DevToolsOpened(opened),
+                    } => {
+                        // Only the renderer that was asked counts; a late answer after the timeout is dropped.
+                        let holds = lock(&renderers)
+                            .connections
+                            .get(&slot)
+                            .is_some_and(|link| link.pid == pid);
+                        if holds && devtools_pending == Some(slot) {
+                            devtools_pending = None;
+                            timers.kill(DEVTOOLS_TIMER);
+                            tracing::info!(slot, opened, "the renderer answered Open DevTools");
+                            portals.send(PortalEvent::DevToolsResult { opened });
+                        } else {
+                            tracing::debug!(slot, pid, "ignoring an answer to Open DevTools that nobody waits for");
                         }
                     }
                     Event::Renderer { slot, pid, message } => {
@@ -1608,6 +1637,28 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                     // Portal gets the lists ready to show.
                                     portals.send(arguments_answer(engine, host.settings(), sucrose_platform::os_build()));
                                 }
+                                PortalRequest::OpenDevTools { monitor } => {
+                                    // Only this button opens DevTools (D-13): the renderer of that monitor, and only when
+                                    // it plays a web wallpaper on a web engine (T-04-39).
+                                    let running = supervisor.slots();
+                                    let job = fleet.job.as_ref().map(|job| (job.kind, job.engine));
+                                    let target = devtools_slot(job, &fleet.slots, &running, &monitor);
+                                    match target {
+                                        // A second click while the renderer is still answering waits for the same answer.
+                                        Some(slot) if devtools_pending == Some(slot) => {
+                                            tracing::debug!(slot, "Open DevTools is already on its way to this renderer");
+                                        }
+                                        Some(slot) if devtools_pending.is_none() && send_to(&renderers, slot, &ToRenderer::OpenDevTools) => {
+                                            devtools_pending = Some(slot);
+                                            timers.set(DEVTOOLS_TIMER, DEVTOOLS_WAIT_MS);
+                                            tracing::info!(slot, "Open DevTools was sent to the renderer");
+                                        }
+                                        _ => {
+                                            tracing::info!(%monitor, "Open DevTools has no web wallpaper to open");
+                                            portals.send(PortalEvent::DevToolsResult { opened: false });
+                                        }
+                                    }
+                                }
                                 PortalRequest::RestartWallpapers { engines } => {
                                     // "Restart now" of the restart prompt: only the wallpapers on the listed engines
                                     // restart, with the settings as saved now (T-04-38).
@@ -1919,6 +1970,15 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                 );
             }
             announce_runtime(&mut portals, &mut last_runtime, &host, &fleet, &supervisor, tray.is_some());
+            Flow::Continue
+        }
+        LoopEvent::Timer(DEVTOOLS_TIMER) => {
+            timers.kill(DEVTOOLS_TIMER);
+            // The renderer did not confirm in time: the Portal is told it failed instead of waiting for ever.
+            if devtools_pending.take().is_some() {
+                tracing::warn!("a renderer did not answer Open DevTools in time");
+                portals.send(PortalEvent::DevToolsResult { opened: false });
+            }
             Flow::Continue
         }
         LoopEvent::Timer(id) => {
@@ -3480,6 +3540,28 @@ fn engines_running(job: Option<&Job>, slots: &SlotMap, running: &[u8]) -> Vec<(S
         .iter()
         .filter_map(|slot| slots.monitor_of(*slot).map(|monitor| (monitor.to_owned(), job.engine)))
         .collect()
+}
+
+/// Whether a wallpaper of `kind` on `engine` has developer tools to open: a Web, Url or YouTube wallpaper on a web engine.
+fn has_developer_tools(kind: WallpaperType, engine: EngineType) -> bool {
+    matches!(kind, WallpaperType::Web | WallpaperType::Url | WallpaperType::YouTube)
+        && matches!(engine, EngineType::WebViewLive | EngineType::CefSharpLive)
+}
+
+/// The slot whose renderer Open DevTools goes to: the renderer that runs on `monitor` while the job is a wallpaper with
+/// developer tools (see [`has_developer_tools`]). `None` for a monitor without a running renderer, another kind of
+/// wallpaper or no wallpaper at all.
+fn devtools_slot(
+    job: Option<(WallpaperType, EngineType)>,
+    slots: &SlotMap,
+    running: &[u8],
+    monitor: &str,
+) -> Option<u8> {
+    let (kind, engine) = job?;
+    if !has_developer_tools(kind, engine) {
+        return None;
+    }
+    slots.slot_of(monitor).filter(|slot| running.contains(slot))
 }
 
 /// Whether a restart asked for the engines `listed` touches the wallpaper that plays on `running`: only a wallpaper on
@@ -6204,6 +6286,40 @@ mod tests {
         );
         assert!(engines_running(None, &fleet.slots, &[slot_of("D1")]).is_empty());
         assert!(engines_running(fleet.job.as_ref(), &fleet.slots, &[]).is_empty());
+    }
+
+    #[test]
+    fn open_devtools_goes_only_to_a_running_web_wallpaper_on_a_web_engine() {
+        let mut slots = SlotMap::default();
+        let d1 = slots.assign("D1").expect("a slot");
+        let d3 = slots.assign("D3").expect("a slot");
+        let web = Some((WallpaperType::Web, EngineType::CefSharpLive));
+
+        assert_eq!(devtools_slot(web, &slots, &[d1, d3], "D3"), Some(d3));
+        for kind in [WallpaperType::Url, WallpaperType::YouTube] {
+            assert_eq!(
+                devtools_slot(Some((kind, EngineType::WebViewLive)), &slots, &[d1], "D1"),
+                Some(d1),
+                "{kind:?} is a web wallpaper too"
+            );
+        }
+        assert_eq!(devtools_slot(web, &slots, &[d1], "D3"), None, "no renderer runs on D3");
+        assert_eq!(devtools_slot(web, &slots, &[d1], "D9"), None, "an unknown monitor");
+        assert_eq!(devtools_slot(None, &slots, &[d1], "D1"), None, "nothing plays");
+        let video = Some((WallpaperType::Video, EngineType::MpvPlayerLive));
+        assert_eq!(
+            devtools_slot(video, &slots, &[d1], "D1"),
+            None,
+            "a video has no developer tools"
+        );
+        let video_on_cef = Some((WallpaperType::Video, EngineType::CefSharpLive));
+        assert_eq!(
+            devtools_slot(video_on_cef, &slots, &[d1], "D1"),
+            None,
+            "only web wallpapers count"
+        );
+        let gif = Some((WallpaperType::Gif, EngineType::VexanaLive));
+        assert_eq!(devtools_slot(gif, &slots, &[d1], "D1"), None);
     }
 
     #[test]

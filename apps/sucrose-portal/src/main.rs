@@ -41,9 +41,9 @@ struct Args {
     no_focus: bool,
 }
 
-/// Reads the arguments (without the program name). Only `--no-focus`, `GeneralSetting`, `SystemSetting` and
-/// `WallpaperSetting` are accepted, one page at most and each flag once; `SystemSetting` opens General too until the
-/// System page exists (UI-03).
+/// Reads the arguments (without the program name). Only `--no-focus`, `GeneralSetting`, `SystemSetting`,
+/// `WallpaperSetting` and `OtherSetting` are accepted, one page at most and each flag once; `SystemSetting` opens General
+/// too until the System page exists (UI-03).
 fn parse_args(args: &[String]) -> Result<Args, String> {
     let mut page = None;
     let mut no_focus = false;
@@ -52,12 +52,13 @@ fn parse_args(args: &[String]) -> Result<Args, String> {
             "--no-focus" if !no_focus => no_focus = true,
             "GeneralSetting" | "SystemSetting" if page.is_none() => page = Some(PortalPage::General),
             "WallpaperSetting" if page.is_none() => page = Some(PortalPage::Wallpaper),
-            "--no-focus" | "GeneralSetting" | "SystemSetting" | "WallpaperSetting" => {
+            "OtherSetting" if page.is_none() => page = Some(PortalPage::Other),
+            "--no-focus" | "GeneralSetting" | "SystemSetting" | "WallpaperSetting" | "OtherSetting" => {
                 return Err(format!("{arg} is given more than once"));
             }
             _ => {
                 return Err(format!(
-                    "unknown argument {arg:?}; use --no-focus, GeneralSetting, SystemSetting or WallpaperSetting"
+                    "unknown argument {arg:?}; use --no-focus, GeneralSetting, SystemSetting, WallpaperSetting or OtherSetting"
                 ));
             }
         }
@@ -227,6 +228,26 @@ mod tests {
         );
         assert!(parse_args(&args(&["WallpaperSetting", "GeneralSetting"])).is_err());
         assert!(parse_args(&args(&["wallpapersetting"])).is_err());
+    }
+
+    #[test]
+    fn other_setting_opens_the_other_page() {
+        assert_eq!(
+            parse_args(&args(&["OtherSetting"])),
+            Ok(Args {
+                page: PortalPage::Other,
+                no_focus: false
+            })
+        );
+        assert_eq!(
+            parse_args(&args(&["--no-focus", "OtherSetting"])),
+            Ok(Args {
+                page: PortalPage::Other,
+                no_focus: true
+            })
+        );
+        assert!(parse_args(&args(&["OtherSetting", "WallpaperSetting"])).is_err());
+        assert!(parse_args(&args(&["othersetting"])).is_err());
     }
 
     #[test]

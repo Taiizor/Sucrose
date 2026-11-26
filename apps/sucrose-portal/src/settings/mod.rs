@@ -2,6 +2,7 @@
 
 pub mod arguments;
 pub mod general;
+pub mod other;
 pub mod personal;
 pub mod row;
 pub mod wallpaper;
@@ -19,12 +20,14 @@ pub enum SettingsTab {
     Personal,
     /// The Wallpaper page.
     Wallpaper,
+    /// The Other page.
+    Other,
 }
 
 impl SettingsTab {
-    /// Every tab in the order of the header (the legacy order: General, Personal, Wallpaper; Performance and Other follow
-    /// in later plans).
-    pub const ALL: [Self; 3] = [Self::General, Self::Personal, Self::Wallpaper];
+    /// Every tab in the order of the header (the legacy order: General, Personal, Wallpaper, Other; Performance follows
+    /// in a later plan).
+    pub const ALL: [Self; 4] = [Self::General, Self::Personal, Self::Wallpaper, Self::Other];
 
     /// The position of the tab in the header.
     pub fn index(self) -> usize {
@@ -54,6 +57,7 @@ impl Mode {
             PortalPage::General => Self::Settings(SettingsTab::General),
             PortalPage::Personal => Self::Settings(SettingsTab::Personal),
             PortalPage::Wallpaper => Self::Settings(SettingsTab::Wallpaper),
+            PortalPage::Other => Self::Settings(SettingsTab::Other),
         }
     }
 
@@ -119,10 +123,15 @@ mod tests {
     use super::{Mode, SettingsTab};
 
     #[test]
-    fn settings_tabs_follow_the_legacy_order_with_wallpaper_after_personal() {
+    fn settings_tabs_follow_the_legacy_order_with_wallpaper_after_personal_and_other_last() {
         assert_eq!(
             SettingsTab::ALL,
-            [SettingsTab::General, SettingsTab::Personal, SettingsTab::Wallpaper]
+            [
+                SettingsTab::General,
+                SettingsTab::Personal,
+                SettingsTab::Wallpaper,
+                SettingsTab::Other
+            ]
         );
         for (index, tab) in SettingsTab::ALL.into_iter().enumerate() {
             assert_eq!(tab.index(), index);
@@ -137,6 +146,11 @@ mod tests {
             Mode::from_page(PortalPage::Wallpaper),
             Mode::Settings(SettingsTab::Wallpaper)
         );
+    }
+
+    #[test]
+    fn settings_other_page_is_asked_for_like_the_others() {
+        assert_eq!(Mode::from_page(PortalPage::Other), Mode::Settings(SettingsTab::Other));
     }
 
     #[test]

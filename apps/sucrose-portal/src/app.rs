@@ -21,6 +21,7 @@ use crate::{
     settings::{
         Mode, SettingsTab,
         general::GeneralPage,
+        other::OtherPage,
         personal::PersonalPage,
         wallpaper::{WallpaperPage, engine_label_key},
     },
@@ -58,6 +59,8 @@ pub struct PortalApp {
     pub personal: Entity<PersonalPage>,
     /// The Wallpaper settings page.
     pub wallpaper: Entity<WallpaperPage>,
+    /// The Other settings page.
+    pub other: Entity<OtherPage>,
     /// The status bar at the bottom: build, memory of the Sucrose processes, quote and copyright.
     pub status_bar: Entity<StatusBar>,
     /// The task that awaits the link's events; dropped with the app.
@@ -128,6 +131,10 @@ impl PortalApp {
             let link = link.clone();
             |cx| WallpaperPage::new(link, window, cx)
         });
+        let other = cx.new({
+            let link = link.clone();
+            |cx| OtherPage::new(link, window, cx)
+        });
         let library_events = cx.subscribe_in(&library, window, |this, _, _: &ChangeLocation, window, cx| {
             this.set_mode(Mode::Settings(SettingsTab::General), window, cx);
         });
@@ -175,6 +182,7 @@ impl PortalApp {
             general,
             personal,
             wallpaper,
+            other,
             status_bar,
             _events: task,
             _keys: keys,
@@ -228,6 +236,7 @@ impl PortalApp {
             Mode::Settings(SettingsTab::Personal) => self.personal.read(cx).field_focused(window, cx),
             Mode::Settings(SettingsTab::General) => self.general.read(cx).field_focused(window, cx),
             Mode::Settings(SettingsTab::Wallpaper) => self.wallpaper.read(cx).field_focused(window, cx),
+            Mode::Settings(SettingsTab::Other) => self.other.read(cx).field_focused(window, cx),
             Mode::Library => false,
         }
     }
@@ -354,6 +363,7 @@ impl PortalApp {
         self.personal.update(cx, |page, cx| page.set_connected(connected, cx));
         self.general.update(cx, |page, cx| page.set_connected(connected, cx));
         self.wallpaper.update(cx, |page, cx| page.set_connected(connected, cx));
+        self.other.update(cx, |page, cx| page.set_connected(connected, cx));
         if !connected {
             // The memory text shows "—" until the service reports again.
             self.status_bar.update(cx, |bar, cx| bar.set_memory(None, cx));
@@ -375,6 +385,10 @@ impl PortalApp {
                         self.general.update(cx, |page, cx| page.on_opened(cx));
                     }
                     self.wallpaper.update(cx, |page, cx| page.set_runtime(&runtime, cx));
+                    self.other.update(cx, |page, cx| {
+                        page.load(&settings, cx);
+                        page.set_runtime(&runtime, window, cx);
+                    });
                     self.settings = Some(settings);
                     self.runtime = Some(runtime);
                     self.apply_theme(window, cx);
@@ -427,6 +441,7 @@ impl PortalApp {
                     self.general
                         .update(cx, |page, cx| page.set_moving(runtime.library_moving, cx));
                     self.wallpaper.update(cx, |page, cx| page.set_runtime(&runtime, cx));
+                    self.other.update(cx, |page, cx| page.set_runtime(&runtime, window, cx));
                     self.runtime = Some(runtime);
                 }
                 PortalEvent::Startup(info) => {
@@ -492,6 +507,12 @@ impl PortalApp {
                     // The saved change stays and applies at the next start of a wallpaper.
                     tracing::warn!(%reason, "the service could not restart the wallpapers");
                     toast::show_error(tr("Portal.RestartPrompt.Failed"), window, cx);
+                }
+                PortalEvent::DevToolsResult { opened } => {
+                    // Open DevTools was the user's click; a failure is the only thing they need to hear (D-13).
+                    if !opened {
+                        toast::show_error(tr("Portal.OtherSettingPage.Developer.OpenDevTools.Failed"), window, cx);
+                    }
                 }
                 PortalEvent::Arguments {
                     engine,
@@ -592,6 +613,7 @@ impl Render for PortalApp {
                     Mode::Settings(SettingsTab::Personal) => self.personal.clone().into_any_element(),
                     Mode::Settings(SettingsTab::General) => self.general.clone().into_any_element(),
                     Mode::Settings(SettingsTab::Wallpaper) => self.wallpaper.clone().into_any_element(),
+                    Mode::Settings(SettingsTab::Other) => self.other.clone().into_any_element(),
                 }))
                 .child(self.status_bar.clone()),
         )
