@@ -110,8 +110,29 @@ pub fn engine_choices(
     report: Option<&EngineReportView>,
     stored: EngineType,
 ) -> Vec<Choice<EngineType>> {
-    let _ = (row, report, stored);
-    Vec::new()
+    let offered: &[EngineType] = report
+        .and_then(|report| report.offered.iter().find(|offered| offered.kind == row.kind()))
+        .map_or(&[], |offered| offered.engines.as_slice());
+    row.allowed()
+        .iter()
+        .copied()
+        .filter(|engine| offered.contains(engine) || *engine == stored)
+        .map(|engine| {
+            let choice = Choice::new(engine, tr(engine_label_key(engine)));
+            // Without a report nothing is known to be missing.
+            let installed = report.is_none_or(|report| {
+                report
+                    .engines
+                    .iter()
+                    .any(|known| known.engine == engine && matches!(known.state, EngineState::Ready { .. }))
+            });
+            if installed {
+                choice
+            } else {
+                choice.with_suffix(tr("Portal.WallpaperSettingPage.Engine.NotInstalled"))
+            }
+        })
+        .collect()
 }
 
 /// The Wallpaper settings page.

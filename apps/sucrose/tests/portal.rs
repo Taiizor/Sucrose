@@ -5,7 +5,7 @@ mod common;
 
 use std::path::PathBuf;
 
-use common::{PortalClient, TestService, copy_fixture_library, copy_web_fixture, service_runs};
+use common::{PortalClient, TestService, copy_fixture_library, copy_web_fixture, service_runs, skipped};
 use serde_json::json;
 use sucrose_core::{
     library::scan,
@@ -555,7 +555,10 @@ fn use_plays_a_web_theme() {
     let report = wait_for_engines(&portal);
     assert!(report.supported.contains(&WallpaperType::Web), "{report:?}");
     if !report.playable.contains(&WallpaperType::Web) {
-        eprintln!("use_plays_a_web_theme: skipped, CEF is not installed next to the executable: {report:?}");
+        skipped(
+            "use_plays_a_web_theme",
+            &format!("CEF is not installed next to the executable: {report:?}"),
+        );
         return;
     }
 
@@ -629,7 +632,10 @@ fn an_engine_change_restarts_the_running_wallpaper_of_that_type() {
     let (mut portal, _) = PortalClient::hello(&service, None);
     let report = wait_for_engines(&portal);
     if !report.playable.contains(&WallpaperType::Web) {
-        eprintln!("an_engine_change_restarts_the_running_wallpaper_of_that_type: skipped, CEF is not installed");
+        skipped(
+            "an_engine_change_restarts_the_running_wallpaper_of_that_type",
+            "CEF is not installed next to the executable",
+        );
         return;
     }
     assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);

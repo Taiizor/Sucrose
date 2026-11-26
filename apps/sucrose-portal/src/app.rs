@@ -18,7 +18,7 @@ use crate::{
     i18n::{tr, tr_count_with},
     ipc::{ConnectionState, LinkEvent, ServiceLink, next_state},
     library::{ChangeLocation, LibraryView, bin_name},
-    settings::{Mode, SettingsTab, general::GeneralPage, personal::PersonalPage},
+    settings::{Mode, SettingsTab, general::GeneralPage, personal::PersonalPage, wallpaper::WallpaperPage},
     status_bar::StatusBar,
     theme, toast,
 };
@@ -49,6 +49,8 @@ pub struct PortalApp {
     pub general: Entity<GeneralPage>,
     /// The Personal settings page.
     pub personal: Entity<PersonalPage>,
+    /// The Wallpaper settings page.
+    pub wallpaper: Entity<WallpaperPage>,
     /// The status bar at the bottom: build, memory of the Sucrose processes, quote and copyright.
     pub status_bar: Entity<StatusBar>,
     /// The task that awaits the link's events; dropped with the app.
@@ -115,6 +117,10 @@ impl PortalApp {
             let link = link.clone();
             |cx| PersonalPage::new(link, window, cx)
         });
+        let wallpaper = cx.new({
+            let link = link.clone();
+            |cx| WallpaperPage::new(link, window, cx)
+        });
         let library_events = cx.subscribe_in(&library, window, |this, _, _: &ChangeLocation, window, cx| {
             this.set_mode(Mode::Settings(SettingsTab::General), window, cx);
         });
@@ -160,6 +166,7 @@ impl PortalApp {
             header,
             general,
             personal,
+            wallpaper,
             status_bar,
             _events: task,
             _keys: keys,
@@ -200,6 +207,10 @@ impl PortalApp {
         if mode == Mode::Settings(SettingsTab::General) {
             self.general.update(cx, |page, cx| page.on_opened(cx));
         }
+        // The Wallpaper page looks at the engines again each time it opens, so an installed engine shows as installed.
+        if mode == Mode::Settings(SettingsTab::Wallpaper) {
+            self.wallpaper.read(cx).on_opened();
+        }
         cx.notify();
     }
 
@@ -208,7 +219,8 @@ impl PortalApp {
         match self.mode {
             Mode::Settings(SettingsTab::Personal) => self.personal.read(cx).field_focused(window, cx),
             Mode::Settings(SettingsTab::General) => self.general.read(cx).field_focused(window, cx),
-            Mode::Settings(SettingsTab::Wallpaper) | Mode::Library => false,
+            Mode::Settings(SettingsTab::Wallpaper) => self.wallpaper.read(cx).field_focused(window, cx),
+            Mode::Library => false,
         }
     }
 
@@ -333,6 +345,7 @@ impl PortalApp {
             .update(cx, |library, cx| library.set_connected(connected, cx));
         self.personal.update(cx, |page, cx| page.set_connected(connected, cx));
         self.general.update(cx, |page, cx| page.set_connected(connected, cx));
+        self.wallpaper.update(cx, |page, cx| page.set_connected(connected, cx));
         if !connected {
             // The memory text shows "—" until the service reports again.
             self.status_bar.update(cx, |bar, cx| bar.set_memory(None, cx));
@@ -345,6 +358,7 @@ impl PortalApp {
                         library.set_runtime(runtime.clone(), cx);
                     });
                     self.personal.update(cx, |page, cx| page.load(&settings, window, cx));
+                    self.wallpaper.update(cx, |page, cx| page.load(&settings, window, cx));
                     self.general.update(cx, |page, cx| {
                         page.load(&settings, window, cx);
                         page.set_moving(runtime.library_moving, cx);
@@ -366,6 +380,8 @@ impl PortalApp {
                         self.personal
                             .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
                         self.general
+                            .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
+                        self.wallpaper
                             .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
                     }
                     if matches!(change, SettingChange::ThemeMode(_)) {
@@ -447,6 +463,8 @@ impl PortalApp {
                             .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
                         self.general
                             .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
+                        self.wallpaper
+                            .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
                     }
                     if self.closing_after_hint {
                         // The hint stays on and shows again next time; the user asked to close.
@@ -478,6 +496,8 @@ impl PortalApp {
                     );
                     self.library
                         .update(cx, |library, cx| library.set_engines(report.clone(), cx));
+                    self.wallpaper
+                        .update(cx, |page, cx| page.set_engines(&report, window, cx));
                     self.engines = Some(report);
                 }
             }
@@ -521,7 +541,7 @@ impl Render for PortalApp {
                     Mode::Library => self.library.clone().into_any_element(),
                     Mode::Settings(SettingsTab::Personal) => self.personal.clone().into_any_element(),
                     Mode::Settings(SettingsTab::General) => self.general.clone().into_any_element(),
-                    Mode::Settings(SettingsTab::Wallpaper) => self.personal.clone().into_any_element(),
+                    Mode::Settings(SettingsTab::Wallpaper) => self.wallpaper.clone().into_any_element(),
                 }))
                 .child(self.status_bar.clone()),
         )

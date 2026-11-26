@@ -40,6 +40,12 @@ pub fn service_runs(test: &str) -> bool {
     supported
 }
 
+/// Says on stderr that a test returned early and why, so a skipped run is visible in the output.
+#[allow(clippy::print_stderr)]
+pub fn skipped(test: &str, why: &str) {
+    eprintln!("{test}: skipped, {why}");
+}
+
 /// A running service on its own data folder; killed when dropped.
 pub struct TestService {
     /// The data folder the service runs on.
