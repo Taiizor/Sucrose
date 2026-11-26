@@ -91,9 +91,12 @@ pub(super) fn decode(lparam: LPARAM, emit: impl FnMut(InputEvent)) {
         // SAFETY: the header says this is a mouse record, so the `mouse` member of the union is the initialized one.
         let mouse = unsafe { record.data.mouse };
         // SAFETY: both members of this union overlay the same 32 bits, which are initialized.
-        let flags = unsafe { mouse.Anonymous.Anonymous.usButtonFlags };
+        let (flags, data) = unsafe {
+            let buttons = mouse.Anonymous.Anonymous;
+            (buttons.usButtonFlags, buttons.usButtonData)
+        };
         if let Some(position) = cursor_position() {
-            mouse_events(flags, position, emit);
+            mouse_events(flags, data, position, emit);
         }
     }
 }

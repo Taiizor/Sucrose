@@ -63,6 +63,29 @@ pub enum InputEvent {
         /// Cursor y on the virtual screen.
         y: i32,
     },
+    /// The wheel turned; `delta` is the raw amount (120 per notch, positive away from the user).
+    Wheel {
+        /// The raw wheel amount.
+        delta: i32,
+        /// Cursor x on the virtual screen.
+        x: i32,
+        /// Cursor y on the virtual screen.
+        y: i32,
+    },
+    /// A key went down or up.
+    Key {
+        /// The Windows virtual-key code.
+        vk: u16,
+        /// The scan code.
+        scan: u16,
+        /// `true` for down, `false` for up.
+        down: bool,
+        /// Whether the key is an extended key (the `E0` prefix).
+        extended: bool,
+    },
+    /// The one click a keyboard-only wallpaper needs before its first key, so the page has the keyboard focus. The
+    /// renderer makes it itself; it never comes from the OS.
+    FocusClick,
 }
 
 impl InputEvent {
@@ -70,7 +93,8 @@ impl InputEvent {
     #[must_use]
     pub fn position(&self) -> Option<(i32, i32)> {
         match *self {
-            Self::MouseMove { x, y } | Self::Button { x, y, .. } => Some((x, y)),
+            Self::MouseMove { x, y } | Self::Button { x, y, .. } | Self::Wheel { x, y, .. } => Some((x, y)),
+            Self::Key { .. } | Self::FocusClick => None,
         }
     }
 }
@@ -118,7 +142,46 @@ pub fn mouse_message(event: &InputEvent, origin: (i32, i32)) -> Option<(u32, usi
                 mouse_lparam(x.saturating_sub(origin.0), y.saturating_sub(origin.1)),
             ))
         }
+        InputEvent::Wheel { .. } | InputEvent::Key { .. } | InputEvent::FocusClick => None,
     }
+}
+
+/// The legacy lParam of a key message: repeat count 1, the scan code in bits 16 to 23, the extended-key bit always set
+/// (as the legacy app does) and, for a key up, the previous-state and transition bits (`3 << 30`). The context
+/// (Alt) bit is never set: Alt combinations are not promised, as in the legacy app.
+#[must_use]
+pub fn key_lparam(scan: u16, down: bool) -> isize {
+    let _ = (scan, down);
+    unimplemented!("key_lparam")
+}
+
+/// Whether the result of `MapVirtualKey(vk, MAPVK_VK_TO_CHAR)` marks a dead key (its high bit).
+#[must_use]
+pub fn is_dead_key(mapped: u32) -> bool {
+    let _ = mapped;
+    unimplemented!("is_dead_key")
+}
+
+/// The key event of one raw keyboard record, or `None` for a dead key, which the legacy app skips. `flags` is
+/// `RAWKEYBOARD.Flags` (bit 0 break, bit 1 `E0`) and `mapped_char` the `MapVirtualKey` result for `vk`.
+#[must_use]
+pub fn key_event(vk: u16, scan: u16, flags: u16, mapped_char: u32) -> Option<InputEvent> {
+    let _ = (vk, scan, flags, mapped_char);
+    unimplemented!("key_event")
+}
+
+/// The two messages of the legacy one-time click at (99999, 99999), far outside the page, that gives it the keyboard
+/// focus: left button down, then up.
+#[must_use]
+pub fn focus_click_messages() -> [(u32, usize, isize); 2] {
+    unimplemented!("focus_click_messages")
+}
+
+/// Whether the foreground window class is the desktop: `WorkerW`, `SHELLDLL_DefView` or `Progman` (`InputDesktop`).
+#[must_use]
+pub fn is_desktop_class(class_name: &str) -> bool {
+    let _ = class_name;
+    unimplemented!("is_desktop_class")
 }
 
 /// The devices raw input has to be registered for under `input_type`: `(mouse, keyboard)`. `Close` registers nothing.
@@ -151,7 +214,8 @@ mod ri {
 
 /// Turns the button flags of one raw mouse record into events at the cursor position `(x, y)`: a record without any
 /// button flag is a movement (the legacy app sends a move only for those), each button flag is one press or release.
-pub fn mouse_events(button_flags: u16, (x, y): (i32, i32), mut emit: impl FnMut(InputEvent)) {
+pub fn mouse_events(button_flags: u16, button_data: u16, (x, y): (i32, i32), mut emit: impl FnMut(InputEvent)) {
+    let _ = button_data;
     let buttons = [
         (ri::LEFT_DOWN, MouseButton::Left, true),
         (ri::LEFT_UP, MouseButton::Left, false),
@@ -177,7 +241,8 @@ pub fn mouse_events(button_flags: u16, (x, y): (i32, i32), mut emit: impl FnMut(
 pub fn should_forward(filter: &InputFilter, event: &InputEvent, cursor_inside: bool, desktop_foreground: bool) -> bool {
     let _ = (filter, desktop_foreground);
     match event {
-        InputEvent::MouseMove { .. } | InputEvent::Button { .. } => cursor_inside,
+        InputEvent::MouseMove { .. } | InputEvent::Button { .. } | InputEvent::Wheel { .. } => cursor_inside,
+        InputEvent::Key { .. } | InputEvent::FocusClick => unimplemented!("keys"),
     }
 }
 
@@ -235,7 +300,7 @@ mod tests {
     fn a_raw_record_without_button_flags_is_a_move_and_each_button_flag_is_one_event() {
         let collect = |flags| {
             let mut events = Vec::new();
-            mouse_events(flags, (7, 8), |event| events.push(event));
+            mouse_events(flags, 0, (7, 8), |event| events.push(event));
             events
         };
 
@@ -259,6 +324,111 @@ mod tests {
             }]
         );
         assert_eq!(collect(0x0004 | 0x0002).len(), 2);
+    }
+
+    const ALL_OFF: InputFilter = InputFilter {
+        input_type: InputType::Close,
+        desktop_only: false,
+    };
+    const MOUSE_EVENT: InputEvent = InputEvent::MouseMove { x: 1, y: 1 };
+    const WHEEL_EVENT: InputEvent = InputEvent::Wheel { delta: 120, x: 1, y: 1 };
+    const KEY_EVENT: InputEvent = InputEvent::Key { vk: 0x41, scan: 0x1E, down: true, extended: false };
+
+    fn filter(input_type: InputType, desktop_only: bool) -> InputFilter {
+        InputFilter { input_type, desktop_only }
+    }
+
+    #[test]
+    fn closed_forwards_nothing_and_the_two_single_device_types_drop_the_other_device() {
+        for event in [MOUSE_EVENT, WHEEL_EVENT, KEY_EVENT, InputEvent::FocusClick] {
+            assert!(!should_forward(&ALL_OFF, &event, true, true), "{event:?}");
+        }
+        let only_mouse = filter(InputType::OnlyMouse, false);
+        assert!(should_forward(&only_mouse, &MOUSE_EVENT, true, true));
+        assert!(should_forward(&only_mouse, &WHEEL_EVENT, true, true));
+        assert!(!should_forward(&only_mouse, &KEY_EVENT, true, true));
+        let only_keyboard = filter(InputType::OnlyKeyboard, false);
+        assert!(should_forward(&only_keyboard, &KEY_EVENT, true, true));
+        assert!(!should_forward(&only_keyboard, &MOUSE_EVENT, true, true));
+        assert!(!should_forward(&only_keyboard, &WHEEL_EVENT, true, true));
+        for event in [MOUSE_EVENT, WHEEL_EVENT, KEY_EVENT] {
+            assert!(should_forward(&MOUSE_KEYBOARD, &event, true, true), "{event:?}");
+        }
+    }
+
+    #[test]
+    fn keys_follow_the_cursor_rule_like_the_mouse() {
+        assert!(!should_forward(&MOUSE_KEYBOARD, &KEY_EVENT, false, true));
+        assert!(!should_forward(&MOUSE_KEYBOARD, &WHEEL_EVENT, false, true));
+    }
+
+    #[test]
+    fn with_input_desktop_on_nothing_is_forwarded_unless_the_desktop_is_in_front() {
+        let desktop_only = filter(InputType::MouseKeyboard, true);
+
+        for event in [MOUSE_EVENT, WHEEL_EVENT, KEY_EVENT] {
+            assert!(!should_forward(&desktop_only, &event, true, false), "{event:?}");
+            assert!(should_forward(&desktop_only, &event, true, true), "{event:?}");
+        }
+    }
+
+    #[test]
+    fn the_key_lparam_is_the_legacy_value() {
+        assert_eq!(key_lparam(0x1E, true), 0x011E_0001);
+        assert_eq!(key_lparam(0x1E, false), (0x011E_0001_u32 | 0xC000_0000) as usize as isize);
+        assert_eq!(key_lparam(0xFF, true) >> 16 & 0xFF, 0xFF, "the scan code is bits 16 to 23");
+    }
+
+    #[test]
+    fn a_dead_key_is_not_forwarded_and_a_live_key_keeps_its_flags() {
+        assert!(is_dead_key(0x8000_005E));
+        assert!(!is_dead_key(0x41));
+        assert_eq!(key_event(0xDE, 0x28, 0, 0x8000_0027), None);
+        assert_eq!(
+            key_event(0x41, 0x1E, 0, 0x41),
+            Some(InputEvent::Key { vk: 0x41, scan: 0x1E, down: true, extended: false })
+        );
+        assert_eq!(
+            key_event(0x25, 0x4B, 0x1 | 0x2, 0),
+            Some(InputEvent::Key { vk: 0x25, scan: 0x4B, down: false, extended: true })
+        );
+    }
+
+    #[test]
+    fn the_focus_click_is_a_left_click_far_outside_the_page() {
+        let [down, up] = focus_click_messages();
+
+        assert_eq!(down, (WM_LBUTTONDOWN, 0x1, 0x869F_869F_u32 as usize as isize));
+        assert_eq!(up, (WM_LBUTTONUP, 0x1, 0x869F_869F_u32 as usize as isize));
+    }
+
+    #[test]
+    fn the_wheel_flag_gives_a_signed_delta_at_the_cursor() {
+        let collect = |data| {
+            let mut events = Vec::new();
+            mouse_events(0x0400, data, (7, 8), |event| events.push(event));
+            events
+        };
+
+        assert_eq!(collect(120), [InputEvent::Wheel { delta: 120, x: 7, y: 8 }]);
+        assert_eq!(collect(0xFF88), [InputEvent::Wheel { delta: -120, x: 7, y: 8 }]);
+    }
+
+    #[test]
+    fn the_desktop_is_progman_workerw_or_the_icons_window() {
+        assert!(is_desktop_class("Progman"));
+        assert!(is_desktop_class("WorkerW"));
+        assert!(is_desktop_class("SHELLDLL_DefView"));
+        assert!(!is_desktop_class("Chrome_WidgetWin_1"));
+        assert!(!is_desktop_class(""));
+    }
+
+    #[test]
+    fn a_key_event_never_shows_which_key_it_was_when_printed() {
+        let text = format!("{KEY_EVENT:?}");
+
+        assert!(!text.contains("65") && !text.contains("30") && !text.contains("0x"), "{text}");
+        assert!(text.contains("Key"), "{text}");
     }
 
     #[test]
