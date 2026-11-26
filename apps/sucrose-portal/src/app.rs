@@ -217,7 +217,7 @@ impl PortalApp {
         }
         // The Wallpaper page looks at the engines again each time it opens, so an installed engine shows as installed.
         if mode == Mode::Settings(SettingsTab::Wallpaper) {
-            self.wallpaper.read(cx).on_opened();
+            self.wallpaper.read(cx).on_opened(cx);
         }
         cx.notify();
     }
@@ -374,7 +374,7 @@ impl PortalApp {
                     if self.mode == Mode::Settings(SettingsTab::General) {
                         self.general.update(cx, |page, cx| page.on_opened(cx));
                     }
-                    self.wallpaper.update(cx, |page, _| page.set_runtime(&runtime));
+                    self.wallpaper.update(cx, |page, cx| page.set_runtime(&runtime, cx));
                     self.settings = Some(settings);
                     self.runtime = Some(runtime);
                     self.apply_theme(window, cx);
@@ -392,6 +392,11 @@ impl PortalApp {
                             .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
                         self.wallpaper
                             .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
+                    }
+                    // The switches are not part of the settings view: the editor takes the stored list.
+                    if let SettingChange::CefArguments(list) = &change {
+                        self.wallpaper
+                            .update(cx, |page, cx| page.on_arguments_saved(list, window, cx));
                     }
                     if matches!(change, SettingChange::ThemeMode(_)) {
                         self.apply_theme(window, cx);
@@ -421,7 +426,7 @@ impl PortalApp {
                         .update(cx, |library, cx| library.set_runtime(runtime.clone(), cx));
                     self.general
                         .update(cx, |page, cx| page.set_moving(runtime.library_moving, cx));
-                    self.wallpaper.update(cx, |page, _| page.set_runtime(&runtime));
+                    self.wallpaper.update(cx, |page, cx| page.set_runtime(&runtime, cx));
                     self.runtime = Some(runtime);
                 }
                 PortalEvent::Startup(info) => {
@@ -467,6 +472,7 @@ impl PortalApp {
                 }
                 PortalEvent::Rejected { reason, change } => {
                     tracing::warn!(%reason, "the service did not apply a setting");
+                    self.wallpaper.update(cx, |page, cx| page.on_rejected(&change, cx));
                     // The control that sent it shows the broadcast value again.
                     if let Some(settings) = &self.settings {
                         self.personal
@@ -487,7 +493,16 @@ impl PortalApp {
                     tracing::warn!(%reason, "the service could not restart the wallpapers");
                     toast::show_error(tr("Portal.RestartPrompt.Failed"), window, cx);
                 }
-                PortalEvent::Arguments { .. } => {}
+                PortalEvent::Arguments {
+                    engine,
+                    user,
+                    sucrose,
+                    defaults,
+                } => {
+                    self.wallpaper.update(cx, |page, cx| {
+                        page.on_arguments(engine, [user, sucrose, defaults], window, cx)
+                    });
+                }
                 PortalEvent::AlreadyOpen { existing_pid } => {
                     tracing::info!(existing_pid, "already open");
                     cx.quit();

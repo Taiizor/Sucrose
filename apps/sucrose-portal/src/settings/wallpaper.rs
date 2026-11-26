@@ -15,9 +15,10 @@ use sucrose_core::{
     theme::WallpaperType,
 };
 use sucrose_ipc::portal::{
-    EngineReportView, EngineState, HintView, PortalRequest, PortalSettings, RuntimeState, SettingChange,
+    EngineReportView, EngineState, HintView, PortalRequest, PortalSettings, RuntimeState, SettingChange, SwitchView,
 };
 
+use super::arguments::ArgumentsEditor;
 use super::row::{
     Choice, ChoiceSelect, ControlState, SELECT_WIDTH, SettingRow, choice_select, control_state, footer_line,
     label_text, on_choice, select_box, show_choice,
@@ -415,6 +416,8 @@ pub struct WallpaperPage {
     engines: Option<EngineReportView>,
     /// The engine of each wallpaper that runs now, as the service last reported: which settings need the restart prompt.
     running: Vec<EngineType>,
+    /// The Arguments editor in the CEF row's footer.
+    arguments: Entity<ArgumentsEditor>,
     connected: bool,
     /// One select per [`EngineRow`], in the order of [`EngineRow::ALL`].
     selects: [ChoiceSelect<EngineType>; 2],
@@ -429,6 +432,10 @@ impl WallpaperPage {
     /// A page that shows skeletons until the service reports the settings.
     pub fn new(link: ServiceLink, window: &mut Window, cx: &mut Context<Self>) -> Self {
         let selects = EngineRow::ALL.map(|_| choice_select(Vec::new(), None, window, cx));
+        let arguments = {
+            let link = link.clone();
+            cx.new(|_| ArgumentsEditor::new(link, EngineType::CefSharpLive))
+        };
         let input_type = choice_select(input_type_choices(), None, window, cx);
         let input_module = choice_select(input_module_choices(), None, window, cx);
         let mut subscriptions: Vec<Subscription> = EngineRow::ALL
@@ -450,6 +457,7 @@ impl WallpaperPage {
             settings: None,
             engines: None,
             running: Vec::new(),
+            arguments,
             connected: false,
             selects,
             input_type,
@@ -462,18 +470,52 @@ impl WallpaperPage {
     pub fn set_connected(&mut self, connected: bool, cx: &mut Context<Self>) {
         if self.connected != connected {
             self.connected = connected;
+            self.arguments
+                .update(cx, |editor, cx| editor.set_connected(connected, cx));
             cx.notify();
         }
     }
 
     /// The service reported what runs (Welcome and Runtime): the engines whose wallpapers a restart prompt may name.
-    pub fn set_runtime(&mut self, runtime: &RuntimeState) {
+    pub fn set_runtime(&mut self, runtime: &RuntimeState, cx: &mut Context<Self>) {
         self.running = runtime.running_engines.iter().map(|(_, engine)| *engine).collect();
+        let running = self.running.clone();
+        self.arguments.update(cx, |editor, _| editor.set_running(running));
+    }
+
+    /// The service sent the switches of an engine: the editor of that engine shows them.
+    pub fn on_arguments(
+        &mut self,
+        engine: EngineType,
+        lists: [Vec<SwitchView>; 3],
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
+        let [user, sucrose, defaults] = lists;
+        if engine == EngineType::CefSharpLive {
+            self.arguments.update(cx, |editor, cx| {
+                editor.on_arguments(user, sucrose, defaults, window, cx)
+            });
+        }
+    }
+
+    /// The service stored a list of CEF switches (Changed): the draft shows it and the restart prompt may follow.
+    pub fn on_arguments_saved(&mut self, list: &[SwitchView], window: &mut Window, cx: &mut Context<Self>) {
+        self.arguments
+            .update(cx, |editor, cx| editor.on_saved(list, window, cx));
+    }
+
+    /// The service refused a change: a list of switches that was sent stays in the draft.
+    pub fn on_rejected(&mut self, change: &SettingChange, cx: &mut Context<Self>) {
+        if matches!(change, SettingChange::CefArguments(_)) {
+            self.arguments.update(cx, |editor, cx| editor.on_rejected(cx));
+        }
     }
 
     /// The service reported every setting (Welcome): every select shows its engine.
     pub fn load(&mut self, settings: &PortalSettings, window: &mut Window, cx: &mut Context<Self>) {
         self.settings = Some(settings.clone());
+        self.arguments.update(cx, |editor, _| editor.request());
         self.refresh(window, cx);
         cx.notify();
     }
@@ -499,6 +541,10 @@ impl WallpaperPage {
         if needs_refresh(change) {
             self.refresh(window, cx);
         }
+        // Sucrose's own switches follow Hardware Acceleration (the read-only rows of the editor).
+        if matches!(change, SettingChange::HardwareAcceleration(_)) {
+            self.arguments.update(cx, |editor, _| editor.request());
+        }
         // The switches and the checkbox are drawn from `settings`, so they show the broadcast value again by themselves.
         cx.notify();
     }
@@ -511,9 +557,10 @@ impl WallpaperPage {
     }
 
     /// The page was opened: look at the engines again, so an engine installed meanwhile shows as installed.
-    pub fn on_opened(&self) {
+    pub fn on_opened(&self, cx: &App) {
         if self.state() == ControlState::Enabled {
             self.link.send(PortalRequest::DetectEngines);
+            self.arguments.read(cx).request();
         }
     }
 
@@ -524,6 +571,7 @@ impl WallpaperPage {
             .any(|select| select.read(cx).focus_handle(cx).contains_focused(window, cx))
             || self.input_type.read(cx).focus_handle(cx).contains_focused(window, cx)
             || self.input_module.read(cx).focus_handle(cx).contains_focused(window, cx)
+            || self.arguments.read(cx).focused(window, cx)
     }
 
     /// Puts the choices and the broadcast engine into every select, without telling anyone.
@@ -647,6 +695,7 @@ impl WallpaperPage {
         let certificates = self.certificates_row(cx);
         let row = SettingRow::new(tr(engine_label_key(engine)), None)
             .status(status_view(&line, cx))
+            .footer(self.arguments.clone())
             .state(self.state())
             .build(cx);
         super::group(tr("Portal.WallpaperSettingPage.WebEngines"), vec![certificates, row])

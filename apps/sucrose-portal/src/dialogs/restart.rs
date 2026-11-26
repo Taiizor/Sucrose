@@ -35,7 +35,6 @@ const ENGINE_ORDER: [EngineType; 8] = [
 /// A setting that raises the prompt: one a renderer reads when it starts.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum RestartSetting {
-    #[allow(dead_code, reason = "raised by the arguments editor of the next task")]
     /// The user's switches of one web engine; only wallpapers on that engine read them.
     Arguments(EngineType),
     /// Allow invalid certificates; both web engines read it.

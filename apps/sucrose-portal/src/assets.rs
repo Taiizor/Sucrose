@@ -27,16 +27,19 @@ gpui_kit::assets::icon_assets!(
         LayoutGrid,
         Library,
         LibraryBig,
+        Lock,
         MessagesSquare,
         Moon,
         NotebookText,
         PackageX,
+        Plus,
         SearchX,
         Settings,
         Shield,
         Sun,
         TriangleAlert,
-        Users
+        Users,
+        X
     ]
 );
 

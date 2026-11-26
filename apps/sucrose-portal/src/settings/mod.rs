@@ -1,5 +1,6 @@
 //! The settings mode: the General and Personal pages, the mode the Portal window is in and the shared column layout.
 
+pub mod arguments;
 pub mod general;
 pub mod personal;
 pub mod row;
