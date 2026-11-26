@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sucrose fixture: storage</title>
+<style>
+  html, body { margin: 0; width: 100%; height: 100%; background: #101418; color: #e6edf3; overflow: hidden; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: "Segoe UI", sans-serif; }
+  h1 { font-size: 4vw; margin: 0 0 1vw; }
+  #count { font-size: 14vw; font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+<h1>Sucrose fixture: storage</h1>
+<div id="count">starts: ...</div>
+<script>
+  // Counts how often this page started on the same browser profile. A persistent profile keeps the number across runs,
+  // an ephemeral one starts at 1 every time. The page asks the origin for /__storage/<n> once; the origin answers 404
+  // and the renderer log records the path, which is how a run proves the number without a host object or a channel.
+  let count = 1;
+  try {
+    count = (parseInt(window.localStorage.getItem("sucrose-fixture-starts"), 10) || 0) + 1;
+    window.localStorage.setItem("sucrose-fixture-starts", String(count));
+  } catch (error) {
+    console.log("storage-fixture localStorage unavailable " + error);
+  }
+  document.getElementById("count").textContent = "starts: " + count;
+  fetch("/__storage/" + count, { cache: "no-store" }).catch(() => {});
+</script>
+</body>
+</html>

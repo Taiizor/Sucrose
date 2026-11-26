@@ -17,7 +17,10 @@ use sucrose_engine::{
     PauseLevel,
     engine::{Engine, EngineClock, EngineError, Started, SurfacePump},
 };
-use sucrose_engine_web::origin;
+use sucrose_engine_web::{
+    origin,
+    profile::{self, ProfileLease},
+};
 use sucrose_ipc::protocol::{Assignment, PlaybackSettings};
 use sucrose_platform::{LoopProxy, LoopTimers};
 
@@ -95,6 +98,27 @@ fn start_failure(error: &CefError) -> EngineError {
     }
 }
 
+/// The engine name of CEF's web data folders (`<data_dir>/Web/Cef`, D-35) and of its profile lock.
+const PROFILE_ENGINE: &str = "Cef";
+
+/// The profile this renderer runs on (D-33): the persistent `<data_dir>/Web/Cef` when no other running CEF renderer holds
+/// it, otherwise an emptied ephemeral folder of this slot. A failure to get any folder is logged and leaves the
+/// renderer on in-memory caches, so the wallpaper still plays; it just keeps nothing.
+fn acquire_profile(slot: u8) -> Option<Arc<ProfileLease>> {
+    let web = sucrose_core::paths::web_dir()?;
+    let ephemeral = sucrose_core::paths::cache_dir()?.join("WebEphemeral");
+    match profile::acquire(&web, PROFILE_ENGINE, &ephemeral, slot) {
+        Ok(lease) => {
+            tracing::info!(kind = ?lease.kind, engine = PROFILE_ENGINE, path = ?lease.path, slot, "web profile");
+            Some(Arc::new(lease))
+        }
+        Err(error) => {
+            tracing::warn!(%error, engine = PROFILE_ENGINE, slot, "no web profile folder; the page keeps nothing");
+            None
+        }
+    }
+}
+
 /// Starts CEF on the calling thread, which must be the one that owns the surface `wid` and runs its message loop,
 /// showing the page of the assignment. Returns the thread-safe handle and the pump the loop drives.
 pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<Started, EngineError> {
@@ -128,6 +152,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
                 on_playing();
             }
         }),
+        profile: acquire_profile(assignment.slot),
     };
     // The page comes from the virtual origin (D-14): the theme folder first, then the generated content.
     let url = origin::page_url(&theme_dir, &assignment.source);

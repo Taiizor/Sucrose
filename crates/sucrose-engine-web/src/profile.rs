@@ -6,7 +6,7 @@
 //! emptied when it is acquired and never kept across runs. A crashed renderer's lock goes with its process.
 
 use std::{
-    fs::File,
+    fs::{self, File, OpenOptions, TryLockError},
     io,
     path::{Path, PathBuf},
 };
@@ -40,10 +40,44 @@ pub struct ProfileLease {
 /// Any I/O error of creating, locking or emptying the folders, and `InvalidInput` for an engine name that is empty or
 /// contains a path separator.
 pub fn acquire(web_dir: &Path, engine: &str, ephemeral_root: &Path, slot: u8) -> io::Result<ProfileLease> {
-    let _ = (web_dir, engine, slot);
+    if engine.is_empty() || engine == ".." || engine == "." || engine.contains(['/', '\\']) {
+        return Err(io::Error::new(
+            io::ErrorKind::InvalidInput,
+            "the engine name of a profile is a single folder name",
+        ));
+    }
+    let persistent = web_dir.join(engine);
+    fs::create_dir_all(&persistent)?;
+    // The OS releases the lock when the handle closes, which includes the end of a crashed process, so no stale lock
+    // can keep the persistent profile away from the next start.
+    let lock = OpenOptions::new()
+        .read(true)
+        .write(true)
+        .create(true)
+        .truncate(false)
+        .open(persistent.join(LOCK_FILE))?;
+    match lock.try_lock() {
+        Ok(()) => {
+            return Ok(ProfileLease {
+                kind: ProfileKind::Persistent,
+                path: persistent,
+                _lock: Some(lock),
+            });
+        }
+        Err(TryLockError::WouldBlock) => {}
+        Err(TryLockError::Error(error)) => return Err(error),
+    }
+    drop(lock);
+    let path = ephemeral_root.join(engine).join(slot.to_string());
+    match fs::remove_dir_all(&path) {
+        Ok(()) => {}
+        Err(error) if error.kind() == io::ErrorKind::NotFound => {}
+        Err(error) => return Err(error),
+    }
+    fs::create_dir_all(&path)?;
     Ok(ProfileLease {
         kind: ProfileKind::Ephemeral,
-        path: ephemeral_root.to_path_buf(),
+        path,
         _lock: None,
     })
 }

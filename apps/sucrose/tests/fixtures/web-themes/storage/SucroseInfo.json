@@ -1,0 +1,16 @@
+{
+  "AppVersion": "26.6.19.0",
+  "Version": "1.0.0.0",
+  "Title": "Sucrose fixture: storage",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "A fixture Web theme for engine runs: counts its own starts in localStorage and shows the count. Not a real theme.",
+  "Author": "Sucrose",
+  "Contact": "https://example.com/web",
+  "Type": 2,
+  "Source": "index.html",
+  "Tags": [
+    "fixture"
+  ],
+  "Arguments": null
+}

@@ -6,9 +6,11 @@
 //! multi-threaded message loop. Every method of [`CefHost`] must be called on that one thread.
 
 use std::{
-    path::PathBuf,
+    path::{Path, PathBuf},
     sync::{Arc, Mutex, PoisonError},
 };
+
+use sucrose_engine_web::profile::ProfileLease;
 
 /// The longest the pump timer waits between two pump calls (about 30 Hz): CEF's own sample's safety net for work it
 /// forgot to announce.
@@ -49,6 +51,9 @@ pub struct CefStart {
     pub on_loaded: LoadedCallback,
     /// The folders the virtual origin serves, in lookup order: the theme folder, then the generated-content folder.
     pub roots: Vec<PathBuf>,
+    /// The browser profile this instance runs on (D-33, D-35); `None` runs on in-memory caches, which keep nothing.
+    /// The host keeps the lease until CEF has shut down, so the folder stays this instance's all that time.
+    pub profile: Option<Arc<ProfileLease>>,
 }
 
 impl std::fmt::Debug for CefStart {
@@ -65,6 +70,25 @@ impl std::fmt::Debug for CefStart {
 pub fn browser_size(rect: [i32; 4]) -> (i32, i32) {
     let [left, top, right, bottom] = rect;
     (right.saturating_sub(left).max(1), bottom.saturating_sub(top).max(1))
+}
+
+/// The `root_cache_path` and `cache_path` CEF gets for a profile folder: both are that folder, made absolute (CEF
+/// requires it), so the persistent profile of the first instance is exactly `<data_dir>/Web/Cef` (D-35). No profile
+/// gives two empty paths, which CEF reads as in-memory caches (nothing is kept).
+///
+/// # Errors
+/// `CefError::Initialize` for a folder that cannot be made absolute or is not valid UTF-8.
+pub fn profile_paths(profile: Option<&Path>) -> Result<(String, String), CefError> {
+    let Some(folder) = profile else {
+        return Ok((String::new(), String::new()));
+    };
+    let absolute = std::path::absolute(folder)
+        .map_err(|error| CefError::Initialize(format!("the profile folder path cannot be made absolute: {error}")))?;
+    let text = absolute
+        .to_str()
+        .ok_or_else(|| CefError::Initialize("the profile folder path is not valid UTF-8".to_owned()))?
+        .to_owned();
+    Ok((text.clone(), text))
 }
 
 /// How long the pump timer waits after a pump call, given the delay CEF last asked for: asap becomes 1 ms, nothing
@@ -122,7 +146,9 @@ mod imp {
         UI::WindowsAndMessaging::{SWP_NOACTIVATE, SWP_NOZORDER, SetWindowPos},
     };
 
-    use super::{CefError, CefStart, LoadedCallback, Pump, browser_size, next_pump_delay_ms};
+    use super::{
+        CefError, CefStart, LoadedCallback, ProfileLease, Pump, browser_size, next_pump_delay_ms, profile_paths,
+    };
 
     /// How long `close` pumps for the browser to go away before it gives up and shuts CEF down anyway.
     const CLOSE_TIMEOUT: Duration = Duration::from_secs(5);
@@ -274,6 +300,8 @@ mod imp {
         pump: Arc<Pump>,
         shared: Arc<Shared>,
         thread: ThreadId,
+        /// Held until CEF has shut down: the profile folder is this instance's for as long as CEF may touch it.
+        profile: Option<Arc<ProfileLease>>,
     }
 
     impl std::fmt::Debug for CefHost {
@@ -323,6 +351,10 @@ mod imp {
                 on_loaded: Arc::clone(&start.on_loaded),
             });
             let mut app = HostApp::new(PumpHandler::new(Arc::clone(&pump)));
+            // The persistent profile of the first instance or an ephemeral one (D-33); both paths name the same folder, so
+            // CEF's process singleton lock and the profile never meet another running instance's.
+            let (root_cache_path, cache_path) =
+                profile_paths(start.profile.as_deref().map(|lease| lease.path.as_path()))?;
             let settings = Settings {
                 no_sandbox: 1,
                 external_message_pump: 1,
@@ -331,6 +363,10 @@ mod imp {
                 browser_subprocess_path: CefString::from(utf8(&start.subprocess_path, "subprocess")?.as_str()),
                 log_file: CefString::from(utf8(&start.log_file, "log file")?.as_str()),
                 locale: CefString::from("en-US"),
+                root_cache_path: CefString::from(root_cache_path.as_str()),
+                cache_path: CefString::from(cache_path.as_str()),
+                // The legacy host's PersistSessionCookies; it only takes effect with a cache path.
+                persist_session_cookies: 1,
                 ..Settings::default()
             };
             let args = Args::new();
@@ -395,6 +431,7 @@ mod imp {
                 pump,
                 shared,
                 thread: thread::current().id(),
+                profile: start.profile.clone(),
             })
         }
 
@@ -446,7 +483,12 @@ mod imp {
 
         /// Closes the browser, pumps until it is gone and shuts CEF down. Call it before the surface is dropped.
         pub fn close(self) {
-            let Self { browser, shared, .. } = self;
+            let Self {
+                browser,
+                shared,
+                profile,
+                ..
+            } = self;
             if let Some(host) = browser.host() {
                 host.close_browser(1);
             }
@@ -461,6 +503,8 @@ mod imp {
             // Every CEF reference goes before shutdown.
             drop(browser);
             cef::shutdown();
+            // The profile folder is free for the next instance only once CEF no longer writes to it.
+            drop(profile);
         }
     }
 }
@@ -509,6 +553,26 @@ mod tests {
         assert_eq!(browser_size([-1920, 0, 0, 1080]), (1920, 1080));
         assert_eq!(browser_size([10, 10, 10, 10]), (1, 1));
         assert_eq!(browser_size([5, 5, 0, 0]), (1, 1));
+    }
+
+    #[test]
+    fn profile_folder_is_both_cache_roots_and_no_profile_is_in_memory() {
+        let folder = std::env::temp_dir().join("sucrose-profile-paths");
+
+        let (root, cache) = profile_paths(Some(&folder)).expect("an absolute folder");
+        let none = profile_paths(None).expect("no folder");
+
+        assert_eq!(root, cache);
+        assert_eq!(Path::new(&root), folder);
+        assert_eq!(none, (String::new(), String::new()), "empty paths are in-memory caches");
+    }
+
+    #[test]
+    fn profile_folder_is_made_absolute_for_cef() {
+        let (root, _) = profile_paths(Some(Path::new("Web").join("Cef").as_path())).expect("a relative folder");
+
+        assert!(Path::new(&root).is_absolute(), "{root}");
+        assert!(Path::new(&root).ends_with(Path::new("Web").join("Cef")), "{root}");
     }
 
     #[test]
