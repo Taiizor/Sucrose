@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-07-PLAN.md
-last_updated: "2026-11-26T03:24:28.366Z"
+stopped_at: Completed 04-08-PLAN.md
+last_updated: "2026-11-26T03:45:29.595Z"
 last_activity: 2026-11-26
 last_activity_desc: Phase 04 execution resumed (wave continue)
-state_head: c8b28369e0a9412b9b39f6e604c056993a46a758
+state_head: 7ad94c647eef998df3a5ca6edf4891ac95826189
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 100
-  completed_plans: 86
+  completed_plans: 87
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 8 of 21
+Plan: 9 of 21
 Status: Ready to execute
 Last activity: 2026-11-26 — Phase 04 execution resumed (wave continue)
 Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
@@ -141,6 +141,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P05 | 19 min | 2 tasks | 17 files |
 | Phase 04 P06 | 24 min | 2 tasks | 18 files |
 | Phase 04 P07 | 18 min | 3 tasks | 15 files |
+| Phase 04 P08 | 16 min | 2 tasks | 17 files |
 
 ## Accumulated Context
 
@@ -270,6 +271,7 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-06: the CEF scheme handler is registered in CefHost::start between initialize and browser creation, so the first navigation already goes through the virtual origin
 - [Phase 04]: CEF 156 has no ignore_certificate_errors settings field; the browser process appends Chromium ignore-certificate-errors only when Allow invalid certificates is on (D-037)
 - [Phase 04]: A failed profile acquisition leaves a CEF renderer on in-memory caches with a warning instead of failing the wallpaper (D-038)
+- [Phase 04]: 04-08: sucrose-ipc depends on sucrose-engine-web for the Switch type; an empty CefArguments/WebArguments means the legacy defaults at job creation; Sucrose's switch wins over the user's same-name switch; debugging port sums below 1024 are refused
 
 ### Pending Todos
 
@@ -306,6 +308,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T03:24:08.542Z
-Stopped at: Completed 04-07-PLAN.md
+Last session: 2026-11-26T03:45:11.779Z
+Stopped at: Completed 04-08-PLAN.md
 Resume file: None
