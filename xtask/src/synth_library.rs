@@ -7,6 +7,10 @@
 //! holds or lies inside the real Sucrose data folder or the data folder in effect (`SUCROSE_DATA_DIR`), however the
 //! path is spelled (links, junctions, 8.3 names and the verbatim prefix are resolved first); `--force` never bypasses
 //! it, so run the tool without `SUCROSE_DATA_DIR` set.
+//!
+//! `--web-fixtures` also copies the fixture Web themes of `apps/sucrose/tests/fixtures/web-themes` into the library
+//! (a Thumbnail and a Preview they do not carry are written from the pool), and `--select <folder>` selects one of the
+//! themes the run wrote, so an engine run needs neither the maintainer's library nor his settings.
 
 use std::{
     collections::BTreeSet,
@@ -63,15 +67,21 @@ pub struct Plan {
     pub seed: u64,
     /// Allows a non-empty `--out` that is not synthetic output.
     pub force: bool,
+    /// Also copies the fixture Web themes into the library.
+    pub web_fixtures: bool,
+    /// Folder name of a theme this run writes, selected in the prepared settings.
+    pub select: Option<String>,
 }
 
 impl Plan {
-    /// Reads `--out <dir> --count <n> [--seed <u64>] [--force]`.
+    /// Reads `--out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] [--select <folder>]`.
     fn parse(args: &[String]) -> Outcome<Self> {
         let mut out = None;
         let mut count = None;
         let mut seed = DEFAULT_SEED;
         let mut force = false;
+        let mut web_fixtures = false;
+        let mut select = None;
         let mut it = args.iter();
         while let Some(arg) = it.next() {
             let mut value = |flag: &str| it.next().ok_or_else(|| format!("{flag} needs a value"));
@@ -93,6 +103,8 @@ impl Plan {
                         .map_err(|_| format!("--seed must be a whole number, not '{text}'"))?;
                 }
                 "--force" => force = true,
+                "--web-fixtures" => web_fixtures = true,
+                "--select" => select = Some(value("--select")?.clone()),
                 other => return Err(format!("unknown argument '{other}'")),
             }
         }
@@ -101,18 +113,23 @@ impl Plan {
             count: count.ok_or("give --count <n>")?,
             seed,
             force,
+            web_fixtures,
+            select,
         })
     }
 }
 
-/// `cargo xtask synth-library --out <dir> --count <n> [--seed <u64>] [--force]`
+/// `cargo xtask synth-library --out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] [--select <folder>]`
 pub fn run(args: &[String]) -> ExitCode {
     let result = Plan::parse(args).and_then(|plan| generate(&plan));
     match result {
         Ok(()) => ExitCode::SUCCESS,
         Err(message) => {
             eprintln!("synth-library: {message}");
-            eprintln!("usage: cargo xtask synth-library --out <dir> --count <n> [--seed <u64>] [--force]");
+            eprintln!(
+                "usage: cargo xtask synth-library --out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] \
+                 [--select <folder>]"
+            );
             ExitCode::FAILURE
         }
     }
@@ -426,6 +443,79 @@ fn marker_text(count: usize, seed: u64) -> String {
     format!("count={count}\nseed={seed}\n")
 }
 
+/// The marker of a finished run of this plan: the count and seed, and the selected theme when there is one.
+fn marker_for(plan: &Plan) -> String {
+    let mut text = marker_text(plan.count, plan.seed);
+    if let Some(select) = &plan.select {
+        text.push_str(&format!("select={select}\n"));
+    }
+    text
+}
+
+/// The fixture Web themes (`--web-fixtures`), resolved from the workspace root and never from the current directory.
+fn web_fixtures_dir() -> PathBuf {
+    crate::workspace_root().join("apps/sucrose/tests/fixtures/web-themes")
+}
+
+/// The folder names under the fixtures folder, sorted. A missing or empty folder is an error: `--web-fixtures` was asked
+/// for, so a run that silently copies nothing would hide a wrong checkout.
+fn fixture_folders(dir: &Path) -> Outcome<Vec<String>> {
+    let mut names = Vec::new();
+    for entry in fs::read_dir(dir).map_err(io_error("read", dir))? {
+        let entry = entry.map_err(io_error("read", dir))?;
+        if entry.file_type().map_err(io_error("read", dir))?.is_dir() {
+            names.push(entry.file_name().to_string_lossy().into_owned());
+        }
+    }
+    names.sort();
+    if names.is_empty() {
+        return Err(format!("no fixture theme folders under {}", dir.display()));
+    }
+    Ok(names)
+}
+
+/// Copies a folder tree of plain files and folders; a link is refused.
+fn copy_tree(from: &Path, to: &Path) -> Outcome<()> {
+    create_dir(to)?;
+    for entry in fs::read_dir(from).map_err(io_error("read", from))? {
+        let entry = entry.map_err(io_error("read", from))?;
+        let kind = entry.file_type().map_err(io_error("read", from))?;
+        let target = to.join(entry.file_name());
+        if kind.is_dir() {
+            copy_tree(&entry.path(), &target)?;
+        } else if kind.is_file() {
+            fs::copy(entry.path(), &target).map_err(io_error("copy", &entry.path()))?;
+        } else {
+            return Err(format!(
+                "{} is a link; fixtures hold plain files only",
+                entry.path().display()
+            ));
+        }
+    }
+    Ok(())
+}
+
+/// Writes the Thumbnail and Preview a fixture theme names in its `SucroseInfo.json` but does not carry, from the pool,
+/// so the library scan accepts it and the repository holds no binary fixture. A name that is not a plain file name is
+/// left alone: the folder then shows up as corrupt, which is what the fixture says.
+fn fill_missing_images(dir: &Path, thumbnail: &[u8], preview: &[u8]) -> Outcome<()> {
+    let path = dir.join("SucroseInfo.json");
+    let text = fs::read_to_string(&path).map_err(io_error("read", &path))?;
+    let info: serde_json::Value =
+        serde_json::from_str(&text).map_err(|error| format!("{}: {error}", path.display()))?;
+    for (key, bytes) in [("Thumbnail", thumbnail), ("Preview", preview)] {
+        let Some(name) = info.get(key).and_then(serde_json::Value::as_str) else {
+            continue;
+        };
+        let plain = Path::new(name).components().count() == 1
+            && matches!(Path::new(name).components().next(), Some(Component::Normal(_)));
+        if plain && !dir.join(name).exists() {
+            write_file(&dir.join(name), bytes)?;
+        }
+    }
+    Ok(())
+}
+
 /// The theme description of theme `index`.
 fn theme_info(index: usize, kind: WallpaperType, source: &str, app_version: &str) -> Outcome<SucroseInfo> {
     let version = |text: &str| LegacyVersion::parse(text).map_err(|error| format!("bad version {text}: {error}"));
@@ -479,14 +569,16 @@ enum Generated {
     UpToDate,
 }
 
-/// Whether the text of a marker is that of a finished run with this count and seed.
-fn marker_matches(text: &str, count: usize, seed: u64) -> bool {
-    text == marker_text(count, seed)
+/// Whether the text of a marker is that of a finished run of this plan: same count and seed, same selection.
+fn marker_matches(text: &str, plan: &Plan) -> bool {
+    text == marker_for(plan)
 }
 
-/// Whether `out` already holds a finished run with this count and seed whose library and settings are still there.
+/// Whether `out` already holds a finished run of this plan whose library and settings are still there. A run with
+/// `--web-fixtures` is never up to date: the fixture files may have changed since.
 fn is_up_to_date(out: &Path, plan: &Plan) -> bool {
-    let marked = fs::read_to_string(out.join(MARKER)).is_ok_and(|text| marker_matches(&text, plan.count, plan.seed));
+    let marked =
+        !plan.web_fixtures && fs::read_to_string(out.join(MARKER)).is_ok_and(|text| marker_matches(&text, plan));
     marked
         && out.join("Setting").join(SETTINGS_FILE).is_file()
         && library::scan(&out.join("Library"), &app_version())
@@ -499,6 +591,11 @@ fn generate(plan: &Plan) -> Outcome<()> {
 
 /// Writes the whole synthetic folder, checks it with the library scan and prints the result.
 fn generate_with(plan: &Plan, pool: &PoolPlan) -> Outcome<Generated> {
+    generate_full(plan, pool, &web_fixtures_dir())
+}
+
+/// `generate_with` with the fixtures folder given, so tests can use their own.
+fn generate_full(plan: &Plan, pool: &PoolPlan, fixtures_dir: &Path) -> Outcome<Generated> {
     let started = Instant::now();
     let out = std::path::absolute(&plan.out).map_err(io_error("resolve", &plan.out))?;
     for (kind, folder) in guarded_folders() {
@@ -507,6 +604,26 @@ fn generate_with(plan: &Plan, pool: &PoolPlan) -> Outcome<Generated> {
                 "{} is, holds or lies inside {kind}; the generator never writes there and --force does not change that \
                  (run it without SUCROSE_DATA_DIR set)",
                 out.display()
+            ));
+        }
+    }
+    // Everything that can be refused is refused before the first write: the fixtures are listed and --select is checked
+    // against the themes this run will write.
+    let fixtures = if plan.web_fixtures {
+        fixture_folders(fixtures_dir)?
+    } else {
+        Vec::new()
+    };
+    if let Some(select) = &plan.select {
+        let synthetic = (0..plan.count).any(|index| theme_name(plan.seed, index) == *select);
+        if !synthetic && !fixtures.contains(select) {
+            return Err(format!(
+                "--select {select}: this run writes no theme with that folder name (fixtures: {}; use --web-fixtures)",
+                if fixtures.is_empty() {
+                    "none".to_owned()
+                } else {
+                    fixtures.join(", ")
+                }
             ));
         }
     }
@@ -547,6 +664,13 @@ fn generate_with(plan: &Plan, pool: &PoolPlan) -> Outcome<Generated> {
             return Err("two themes got the same folder name; use another --seed".to_owned());
         }
     }
+    for fixture in &fixtures {
+        if names.contains(fixture) {
+            return Err(format!(
+                "the fixture folder '{fixture}' has the name of a synthetic theme; use another --seed"
+            ));
+        }
+    }
     let placeholder_gif = encode_gif(32, 18, 2, plan.seed, 20)?;
     for index in 0..plan.count {
         let dir = library_dir.join(theme_name(plan.seed, index));
@@ -574,6 +698,12 @@ fn generate_with(plan: &Plan, pool: &PoolPlan) -> Outcome<Generated> {
         }
     }
 
+    for fixture in &fixtures {
+        let dir = library_dir.join(fixture);
+        copy_tree(&fixtures_dir.join(fixture), &dir)?;
+        fill_missing_images(&dir, &thumbnails[0], &previews[0])?;
+    }
+
     // Corrupt folder one: valid description, thumbnail and source, but no Preview.gif.
     let no_preview = library_dir.join(theme_name(plan.seed, plan.count));
     create_dir(&no_preview)?;
@@ -593,7 +723,7 @@ fn generate_with(plan: &Plan, pool: &PoolPlan) -> Outcome<Generated> {
     create_dir(&setting_dir)?;
     let mut settings = Settings::default();
     settings.library.location = library_dir.to_string_lossy().into_owned();
-    settings.library.selected = String::new();
+    settings.library.selected = plan.select.clone().unwrap_or_default();
     settings.library.delete_corrupt = false;
     settings.general.app_visible = false;
     settings.warehouse.hint_tray_icon = false;
@@ -603,15 +733,15 @@ fn generate_with(plan: &Plan, pool: &PoolPlan) -> Outcome<Generated> {
     write_atomic(&setting_dir.join(SETTINGS_FILE), &bytes).map_err(io_error("write", &setting_dir))?;
 
     let scan = library::scan(&library_dir, &app_version()).map_err(io_error("scan", &library_dir))?;
-    if scan.themes.len() != plan.count || scan.corrupt.len() != CORRUPT {
+    let expected = plan.count + fixtures.len();
+    if scan.themes.len() != expected || scan.corrupt.len() != CORRUPT {
         return Err(format!(
-            "the library scan found {} themes and {} corrupt folders, expected {} and {CORRUPT}",
+            "the library scan found {} themes and {} corrupt folders, expected {expected} and {CORRUPT}",
             scan.themes.len(),
             scan.corrupt.len(),
-            plan.count
         ));
     }
-    write_file(&out.join(MARKER), marker_text(plan.count, plan.seed).as_bytes())?;
+    write_file(&out.join(MARKER), marker_for(plan).as_bytes())?;
     println!(
         "synth library: {} themes, {} corrupt, {} ignored",
         scan.themes.len(),
@@ -741,11 +871,27 @@ mod tests {
 
     #[test]
     fn synth_marker_matches_only_a_finished_run_with_the_same_count_and_seed() {
+        let plan = |count, seed, select: Option<&str>| Plan {
+            out: PathBuf::from("x"),
+            count,
+            seed,
+            force: false,
+            web_fixtures: false,
+            select: select.map(str::to_owned),
+        };
         let text = marker_text(40, 7);
-        assert!(marker_matches(&text, 40, 7));
-        assert!(!marker_matches(&text, 41, 7));
-        assert!(!marker_matches(&text, 40, 8));
-        assert!(!marker_matches("incomplete\n", 40, 7));
+        assert!(marker_matches(&text, &plan(40, 7, None)));
+        assert!(!marker_matches(&text, &plan(41, 7, None)));
+        assert!(!marker_matches(&text, &plan(40, 8, None)));
+        assert!(!marker_matches("incomplete\n", &plan(40, 7, None)));
+        assert!(
+            !marker_matches(&text, &plan(40, 7, Some("hello"))),
+            "a selection the marker does not record"
+        );
+        assert!(marker_matches(
+            &marker_for(&plan(40, 7, Some("hello"))),
+            &plan(40, 7, Some("hello"))
+        ));
     }
 
     #[test]
@@ -785,6 +931,8 @@ mod tests {
             count: 3,
             seed: 7,
             force: false,
+            web_fixtures: false,
+            select: None,
         };
         assert_eq!(generate_with(&plan, &pool).unwrap(), Generated::Written);
         let probe = out.join("Library").join(theme_name(7, 0)).join("SucroseInfo.json");
@@ -926,6 +1074,8 @@ mod tests {
             count: 1,
             seed: 1,
             force: true,
+            web_fixtures: false,
+            select: None,
         };
         // The real data folder of this machine is guarded by name, so a plan inside it is refused whatever else is true.
         if let Some(real) = paths::legacy_data_dir() {
@@ -936,7 +1086,170 @@ mod tests {
             let error = generate_with(&inside, &pool).unwrap_err();
             assert!(error.contains("real Sucrose data folder"), "{error}");
             assert!(!inside.out.exists());
+            // The new flags do not open the guard either.
+            let with_flags = Plan {
+                out: real.join("synth-guard-test"),
+                web_fixtures: true,
+                select: Some("hello".to_owned()),
+                ..plan.clone()
+            };
+            let error = generate_with(&with_flags, &pool).unwrap_err();
+            assert!(error.contains("real Sucrose data folder"), "{error}");
+            assert!(!with_flags.out.exists());
         }
         fs::remove_dir_all(&guarded).unwrap();
+    }
+
+    fn tiny_pool() -> PoolPlan {
+        PoolPlan {
+            thumbnails: vec![ThumbSpec {
+                width: 64,
+                height: 36,
+                target_bytes: 3_000,
+            }],
+            previews: vec![PreviewSpec {
+                width: 32,
+                height: 18,
+                target_bytes: 5_000,
+            }],
+        }
+    }
+
+    fn strings(list: &[&str]) -> Vec<String> {
+        list.iter().map(|text| (*text).to_owned()).collect()
+    }
+
+    /// A scratch fixtures folder with one Web theme that carries no Thumbnail or Preview, like the committed one.
+    fn scratch_fixtures(tag: &str) -> PathBuf {
+        let dir = temp_folder(tag);
+        let hello = dir.join("hello");
+        fs::create_dir_all(&hello).unwrap();
+        fs::write(
+            hello.join("SucroseInfo.json"),
+            br#"{"AppVersion":"26.6.19.0","Version":"1.0.0.0","Title":"hello","Thumbnail":"thumbnail.jpg","Preview":"preview.gif","Description":"d","Author":"a","Contact":"c","Type":2,"Source":"index.html"}"#,
+        )
+        .unwrap();
+        fs::write(hello.join("index.html"), b"<!doctype html><title>hello</title>").unwrap();
+        dir
+    }
+
+    fn plan_for(out: &Path, web_fixtures: bool, select: Option<&str>) -> Plan {
+        Plan {
+            out: out.to_path_buf(),
+            count: 2,
+            seed: 5,
+            force: false,
+            web_fixtures,
+            select: select.map(str::to_owned),
+        }
+    }
+
+    #[test]
+    fn synth_parse_reads_web_fixtures_and_select() {
+        let plan = Plan::parse(&strings(&[
+            "--out",
+            "x",
+            "--count",
+            "2",
+            "--web-fixtures",
+            "--select",
+            "hello",
+        ]))
+        .unwrap();
+        assert!(plan.web_fixtures);
+        assert_eq!(plan.select.as_deref(), Some("hello"));
+        let plain = Plan::parse(&strings(&["--out", "x", "--count", "2"])).unwrap();
+        assert!(!plain.web_fixtures);
+        assert_eq!(plain.select, None);
+        assert!(Plan::parse(&strings(&["--out", "x", "--count", "2", "--select"])).is_err());
+    }
+
+    #[test]
+    fn synth_web_fixtures_are_copied_next_to_the_synthetic_themes_and_selected() {
+        let fixtures = scratch_fixtures("fixtures-copy");
+        let out = temp_folder("fixtures-copy-out");
+        let plan = plan_for(&out, true, Some("hello"));
+        assert_eq!(
+            generate_full(&plan, &tiny_pool(), &fixtures).unwrap(),
+            Generated::Written
+        );
+
+        let hello = out.join("Library").join("hello");
+        assert!(hello.join("index.html").is_file());
+        assert!(
+            hello.join("thumbnail.jpg").is_file(),
+            "the missing Thumbnail is written from the pool"
+        );
+        assert!(
+            hello.join("preview.gif").is_file(),
+            "the missing Preview is written from the pool"
+        );
+        let scan = library::scan(&out.join("Library"), &app_version()).unwrap();
+        assert_eq!(scan.themes.len(), 3, "two synthetic themes and the fixture");
+        assert_eq!(scan.corrupt.len(), CORRUPT);
+        let settings = fs::read_to_string(out.join("Setting").join(SETTINGS_FILE)).unwrap();
+        assert!(settings.contains("\"Selected\": \"hello\""), "{settings}");
+        // A run with --web-fixtures is never "up to date", so a changed fixture is copied again.
+        assert_eq!(
+            generate_full(&plan, &tiny_pool(), &fixtures).unwrap(),
+            Generated::Written
+        );
+        fs::remove_dir_all(&fixtures).unwrap();
+        fs::remove_dir_all(&out).unwrap();
+    }
+
+    #[test]
+    fn synth_select_must_name_a_theme_the_run_wrote_and_writes_nothing_otherwise() {
+        let fixtures = scratch_fixtures("fixtures-select");
+        let base = temp_folder("fixtures-select-out");
+        for (label, plan) in [
+            ("unknown folder", plan_for(&base.join("a"), true, Some("nope"))),
+            (
+                "fixture without --web-fixtures",
+                plan_for(&base.join("b"), false, Some("hello")),
+            ),
+            (
+                "a corrupt folder",
+                plan_for(&base.join("c"), true, Some(&theme_name(5, 2))),
+            ),
+        ] {
+            let error = generate_full(&plan, &tiny_pool(), &fixtures).unwrap_err();
+            assert!(error.contains("--select"), "{label}: {error}");
+            assert!(!plan.out.exists(), "{label}: nothing is written");
+        }
+        // A synthetic theme can be selected without fixtures.
+        let name = theme_name(5, 1);
+        let ok = plan_for(&base.join("d"), false, Some(&name));
+        generate_full(&ok, &tiny_pool(), &fixtures).unwrap();
+        let settings = fs::read_to_string(base.join("d").join("Setting").join(SETTINGS_FILE)).unwrap();
+        assert!(settings.contains(&format!("\"Selected\": \"{name}\"")), "{settings}");
+        // The same run again is up to date (the marker records the selection); another selection rewrites.
+        assert_eq!(
+            generate_full(&ok, &tiny_pool(), &fixtures).unwrap(),
+            Generated::UpToDate
+        );
+        let other = plan_for(&base.join("d"), false, Some(&theme_name(5, 0)));
+        assert_eq!(
+            generate_full(&other, &tiny_pool(), &fixtures).unwrap(),
+            Generated::Written
+        );
+        fs::remove_dir_all(&fixtures).unwrap();
+        fs::remove_dir_all(&base).unwrap();
+    }
+
+    #[test]
+    fn synth_the_committed_fixture_theme_hello_is_a_valid_web_theme() {
+        let out = temp_folder("fixtures-committed");
+        let plan = plan_for(&out, true, Some("hello"));
+        generate_with(&plan, &tiny_pool()).unwrap();
+        let scan = library::scan(&out.join("Library"), &app_version()).unwrap();
+        let hello = scan
+            .themes
+            .iter()
+            .find(|theme| theme.folder == "hello")
+            .expect("hello is a valid theme");
+        assert_eq!(hello.info.kind, WallpaperType::Web);
+        assert_eq!(hello.info.source, "index.html");
+        fs::remove_dir_all(&out).unwrap();
     }
 }

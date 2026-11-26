@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sucrose fixture: hello</title>
+<style>
+  html, body { margin: 0; width: 100%; height: 100%; background: #101418; color: #e6edf3; overflow: hidden; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: "Segoe UI", sans-serif; }
+  h1 { font-size: 4vw; margin: 0 0 1vw; }
+  #frames { font-size: 3vw; font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+<h1>Sucrose fixture: hello</h1>
+<div id="frames">frames: 0</div>
+<script>
+  // Counts animation frames on screen; no network access.
+  let frames = 0;
+  const label = document.getElementById("frames");
+  function tick() {
+    frames += 1;
+    label.textContent = "frames: " + frames;
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+</script>
+</body>
+</html>
