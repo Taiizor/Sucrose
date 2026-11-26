@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-01-PLAN.md
-last_updated: "2026-11-26T01:10:49.662Z"
+stopped_at: Completed 04-03-PLAN.md
+last_updated: "2026-11-26T01:25:34.058Z"
 last_activity: 2026-11-26
 last_activity_desc: Phase 04 execution resumed (wave continue)
-state_head: 95247e34c20c5c181ef7f95e0886737a268337cc
+state_head: f58be6cc2fabf3830b6f56053fa7cd112c54facc
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 100
-  completed_plans: 80
+  completed_plans: 81
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 2 of 21
+Plan: 3 of 21
 Status: Ready to execute
 Last activity: 2026-11-26 — Phase 04 execution resumed (wave continue)
 Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
@@ -135,6 +135,7 @@ Progress: [████░░░░░░] 38%
 | Phase 03 P49 | 2 min | 2 tasks | 0 files |
 | Phase 03 P50 | 10 min | 1 tasks | 0 files |
 | Phase 04 P01 | 32 min | 3 tasks | 18 files |
+| Phase 04 P03 | 11 min | 2 tasks | 43 files |
 
 ## Accumulated Context
 
@@ -252,6 +253,8 @@ Recent decisions affecting current work:
 - [Phase 04]: Research open questions resolved with the recommended options (2026-11-26): D-32 CEF delay-load with a sucrose-cef.exe fallback, D-33 first web instance per engine keeps the persistent profile, D-34 sucrose-sysinfo unsafe-allowed, D-35 web data in <data_dir>/Web, D-36 process-event spike with a bounded 2 s ToolHelp fallback
 - [Phase 04]: D-32 holds: libcef.dll is delay-loaded into sucrose.exe, the service and mpv renderers run without it; no sucrose-cef.exe fallback
 - [Phase 04]: CEF on Windows x86 is left out of the cef cfg: the i686 Rust target was not installed, so it could not be built (A3); 04-12 reports CEF unsupported on x86
+- [Phase 04]: 04-03: ordered JSON objects are read through a map visitor into Vec pairs; unknown control types keep their raw object, unknown keys survive a write
+- [Phase 04]: 04-03: dropdown valuetext is computed from items and value as in the legacy model; Control::to_json_value gives the legacy page form (empty text, null help)
 
 ### Pending Todos
 
@@ -287,6 +290,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T01:10:31.443Z
-Stopped at: Completed 04-01-PLAN.md
+Last session: 2026-11-26T01:25:17.309Z
+Stopped at: Completed 04-03-PLAN.md
 Resume file: None
