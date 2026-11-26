@@ -13,7 +13,11 @@ use sucrose_config::{
     store::{LoadOutcome, Store},
 };
 use sucrose_core::settings::EngineType;
-use sucrose_ipc::portal::{MAX_PATH_TEXT, PortalSettings, SettingChange};
+use sucrose_engine_web::args::{self, SucroseInputs, Switch, WebEngine};
+use sucrose_ipc::portal::{
+    MAX_PATH_TEXT, MAX_SWITCH_NAME, MAX_SWITCH_VALUE, MAX_SWITCHES, PortalEvent, PortalSettings, SettingChange,
+    SwitchView,
+};
 
 use crate::portal_link::clip;
 
@@ -102,8 +106,8 @@ impl SettingsHost {
 }
 
 /// Checks `change` and returns the value to store: numbers are clamped to the ranges of the legacy Portal, a
-/// background image must be empty or an absolute path of an image type the legacy picker offers, and an engine must be
-/// one the legacy list of its wallpaper type allows.
+/// background image must be empty or an absolute path of an image type the legacy picker offers, an engine must be
+/// one the legacy list of its wallpaper type allows, and a list of CEF switches must hold valid, distinct names (D-17).
 pub fn validate(change: SettingChange) -> Result<SettingChange, String> {
     Ok(match change {
         SettingChange::BackgroundOpacity(value) => SettingChange::BackgroundOpacity(value.min(100)),
@@ -124,8 +128,145 @@ pub fn validate(change: SettingChange) -> Result<SettingChange, String> {
         SettingChange::ApplicationEngine(engine) => {
             SettingChange::ApplicationEngine(allowed_engine(engine, EngineType::APPLICATION)?)
         }
+        SettingChange::CefArguments(list) => SettingChange::CefArguments(check_switches(list)?),
         other => other,
     })
+}
+
+/// What the Portal is told when a switch name is not letters, digits and dashes (UI-SPEC E4).
+pub const SWITCH_NAME_INVALID: &str = "Use letters, digits and dashes only.";
+
+/// What the Portal is told when a switch name occurs twice (UI-SPEC E4).
+pub const SWITCH_NAME_REPEATED: &str = "This switch is already in the list.";
+
+/// The switches Sucrose knows: the legacy defaults and the ones it adds itself. Any other valid name is stored all the
+/// same and only logged (D-17, D-021).
+fn is_known_switch(name: &str) -> bool {
+    const SUCROSE_OWN: [&str; 5] = [
+        "enable-gpu",
+        "enable-gpu-vsync",
+        "disable-gpu",
+        "disable-gpu-vsync",
+        "remote-allow-origins",
+    ];
+    SUCROSE_OWN.contains(&name) || args::legacy_defaults_cef().contains_key(name)
+}
+
+/// Checks a list of switches from the Portal and returns what is stored: names trimmed and without leading dashes,
+/// values trimmed with an empty one meaning none. A name must be letters, digits and dashes, must not repeat, and the
+/// list and its texts stay within the limits that keep the answer of `GetArguments` inside one frame. Unknown but valid
+/// switches pass and are logged by name (D-17); a value is never logged.
+fn check_switches(list: Vec<SwitchView>) -> Result<Vec<SwitchView>, String> {
+    if list.len() > MAX_SWITCHES {
+        return Err(format!("At most {MAX_SWITCHES} arguments can be saved."));
+    }
+    let mut checked = Vec::with_capacity(list.len());
+    for switch in list {
+        let name = switch.name.trim().trim_start_matches('-').to_owned();
+        if name.len() > MAX_SWITCH_NAME || args::validate_name(&name).is_err() {
+            return Err(SWITCH_NAME_INVALID.to_owned());
+        }
+        let value = switch
+            .value
+            .map(|value| value.trim().to_owned())
+            .filter(|value| !value.is_empty());
+        if value.as_ref().is_some_and(|value| value.len() > MAX_SWITCH_VALUE) {
+            return Err("An argument value is too long.".to_owned());
+        }
+        checked.push(SwitchView { name, value });
+    }
+    let as_switches = to_switches(&checked);
+    if !args::repeated_names(&as_switches).is_empty() {
+        return Err(SWITCH_NAME_REPEATED.to_owned());
+    }
+    for switch in &checked {
+        if !is_known_switch(&switch.name) {
+            tracing::info!(name = %switch.name, "an unknown switch is stored");
+        }
+    }
+    Ok(checked)
+}
+
+/// The switches of the engine crate for the views of the wire.
+fn to_switches(views: &[SwitchView]) -> Vec<Switch> {
+    views
+        .iter()
+        .map(|view| Switch {
+            name: view.name.clone(),
+            value: view.value.clone(),
+        })
+        .collect()
+}
+
+/// The wire views of switches, cut to what one frame holds (a stored list from a legacy file has no limit).
+fn views(switches: Vec<Switch>) -> Vec<SwitchView> {
+    switches
+        .into_iter()
+        .take(MAX_SWITCHES)
+        .map(|switch| SwitchView {
+            name: clip_to(&switch.name, MAX_SWITCH_NAME),
+            value: switch.value.map(|value| clip_to(&value, MAX_SWITCH_VALUE)),
+        })
+        .collect()
+}
+
+/// `text` cut to at most `max` bytes at a character boundary.
+fn clip_to(text: &str, max: usize) -> String {
+    if text.len() <= max {
+        return text.to_owned();
+    }
+    let mut end = max;
+    while !text.is_char_boundary(end) {
+        end -= 1;
+    }
+    text[..end].to_owned()
+}
+
+/// The answer to a `GetArguments` for `engine`: the user's switches as the engine reads them (an empty stored list
+/// means the legacy defaults, as in the classic app), the ones Sucrose adds from `settings` (read-only in the editor)
+/// and the legacy defaults for Reset. An engine without switches gets three empty lists.
+pub fn arguments_answer(engine: EngineType, settings: &Settings, windows_build: u32) -> PortalEvent {
+    let stored = &settings.engine;
+    let (web_engine, user, defaults) = match engine {
+        EngineType::CefSharpLive => {
+            let defaults = args::from_cef_map(&args::legacy_defaults_cef());
+            let user = if stored.cef_arguments.is_empty() {
+                defaults.clone()
+            } else {
+                args::from_cef_map(&stored.cef_arguments)
+            };
+            (WebEngine::Cef, user, defaults)
+        }
+        EngineType::WebViewLive => {
+            let defaults = args::from_web_list(&args::legacy_defaults_web());
+            let user = if stored.web_arguments.is_empty() {
+                defaults.clone()
+            } else {
+                args::from_web_list(&stored.web_arguments)
+            };
+            (WebEngine::WebView2, user, defaults)
+        }
+        _ => {
+            return PortalEvent::Arguments {
+                engine,
+                user: Vec::new(),
+                sucrose: Vec::new(),
+                defaults: Vec::new(),
+            };
+        }
+    };
+    let sucrose = args::sucrose_switches(&SucroseInputs {
+        hardware_acceleration: stored.hardware_acceleration,
+        debugging_port: args::debugging_port(stored.developer_port, 0).ok().flatten(),
+        windows_build,
+        engine: web_engine,
+    });
+    PortalEvent::Arguments {
+        engine,
+        user: views(user),
+        sucrose: views(sucrose),
+        defaults: views(defaults),
+    }
 }
 
 /// `engine` when the legacy list of the wallpaper type (`allowed`) holds it (D-11, T-04-31). An engine that is not
@@ -195,6 +336,8 @@ fn write(settings: &mut Settings, change: &SettingChange) {
         SettingChange::InputType(value) => settings.engine.input_type = *value,
         SettingChange::InputModuleType(value) => settings.engine.input_module_type = *value,
         SettingChange::InputDesktop(value) => settings.engine.input_desktop = *value,
+        SettingChange::AllowInvalidCertificates(value) => settings.engine.allow_invalid_certificates = *value,
+        SettingChange::CefArguments(list) => settings.engine.cef_arguments = args::to_cef_map(&to_switches(list)),
     }
 }
 
@@ -241,6 +384,7 @@ fn view_of(settings: &Settings) -> PortalSettings {
         input_type: settings.engine.input_type,
         input_module_type: settings.engine.input_module_type,
         input_desktop: settings.engine.input_desktop,
+        allow_invalid_certificates: settings.engine.allow_invalid_certificates,
     }
 }
 
@@ -545,5 +689,165 @@ mod tests {
 
         assert!(view.background_image.len() <= MAX_PATH_TEXT);
         assert!(view.background_image.chars().all(|c| c == '\u{20ac}'));
+    }
+
+    fn switch(name: &str, value: Option<&str>) -> SwitchView {
+        SwitchView {
+            name: name.to_owned(),
+            value: value.map(str::to_owned),
+        }
+    }
+
+    #[test]
+    fn the_certificate_switch_is_written_to_the_engine_section_and_shown() {
+        let scratch = Scratch::new("certificates");
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+        assert!(!host.view().allow_invalid_certificates, "off by default (D-12)");
+
+        let stored = host.apply(SettingChange::AllowInvalidCertificates(true));
+
+        assert_eq!(stored, Ok(SettingChange::AllowInvalidCertificates(true)));
+        assert!(host.view().allow_invalid_certificates);
+        let file = fs::read(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).expect("the settings file exists");
+        let json: serde_json::Value = serde_json::from_slice(&file).expect("the file is JSON");
+        assert_eq!(json["Engine"]["AllowInvalidCertificates"], true);
+    }
+
+    #[test]
+    fn a_cef_argument_list_is_cleaned_and_stored_as_the_legacy_dictionary() {
+        let scratch = Scratch::new("cef-arguments");
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+
+        let stored = host.apply(SettingChange::CefArguments(vec![
+            switch(" --disable-extensions ", None),
+            switch("autoplay-policy", Some(" no-user-gesture-required ")),
+            switch("my-own-switch", Some("  ")),
+        ]));
+
+        assert_eq!(
+            stored,
+            Ok(SettingChange::CefArguments(vec![
+                switch("disable-extensions", None),
+                switch("autoplay-policy", Some("no-user-gesture-required")),
+                switch("my-own-switch", None),
+            ])),
+            "dashes and blanks are removed, an unknown switch is stored"
+        );
+        let file = fs::read(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).expect("the settings file exists");
+        let json: serde_json::Value = serde_json::from_slice(&file).expect("the file is JSON");
+        let map = &json["Engine"]["CefArguments"];
+        assert_eq!(map["disable-extensions"], "");
+        assert_eq!(map["autoplay-policy"], "no-user-gesture-required");
+        assert_eq!(map["my-own-switch"], "");
+        assert_eq!(map.as_object().map(|map| map.len()), Some(3));
+    }
+
+    #[test]
+    fn a_cef_argument_list_with_a_bad_or_repeated_name_is_refused_and_nothing_is_stored() {
+        let scratch = Scratch::new("cef-arguments-refused");
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+        let before = host.settings().engine.cef_arguments.clone();
+
+        for (list, reason) in [
+            (vec![switch("has space", None)], SWITCH_NAME_INVALID),
+            (vec![switch("", Some("x"))], SWITCH_NAME_INVALID),
+            (vec![switch("a=b", None)], SWITCH_NAME_INVALID),
+            (vec![switch("--", None)], SWITCH_NAME_INVALID),
+            (
+                vec![switch("same", None), switch("--same", Some("1"))],
+                SWITCH_NAME_REPEATED,
+            ),
+        ] {
+            let answer = host.apply(SettingChange::CefArguments(list.clone()));
+            assert_eq!(answer, Err(reason.to_owned()), "{list:?}");
+        }
+        assert_eq!(host.settings().engine.cef_arguments, before);
+    }
+
+    #[test]
+    fn a_cef_argument_list_over_the_limits_is_refused() {
+        let too_many: Vec<SwitchView> = (0..=MAX_SWITCHES)
+            .map(|index| switch(&format!("s{index}"), None))
+            .collect();
+        assert!(validate(SettingChange::CefArguments(too_many)).is_err());
+        let long_name = "n".repeat(MAX_SWITCH_NAME + 1);
+        assert!(validate(SettingChange::CefArguments(vec![switch(&long_name, None)])).is_err());
+        let long_value = "v".repeat(MAX_SWITCH_VALUE + 1);
+        assert!(validate(SettingChange::CefArguments(vec![switch("x", Some(&long_value))])).is_err());
+        let longest = "v".repeat(MAX_SWITCH_VALUE);
+        assert!(validate(SettingChange::CefArguments(vec![switch("x", Some(&longest))])).is_ok());
+    }
+
+    #[test]
+    fn the_arguments_answer_gives_the_stored_switches_sucrose_own_and_the_legacy_defaults() {
+        let mut settings = Settings::default();
+        settings.engine.cef_arguments = args::to_cef_map(&[Switch::flag("my-own-switch")]);
+        settings.engine.hardware_acceleration = true;
+
+        let PortalEvent::Arguments {
+            engine,
+            user,
+            sucrose,
+            defaults,
+        } = arguments_answer(EngineType::CefSharpLive, &settings, 22631)
+        else {
+            panic!("an Arguments event");
+        };
+
+        assert_eq!(engine, EngineType::CefSharpLive);
+        assert_eq!(user, vec![switch("my-own-switch", None)]);
+        assert_eq!(
+            sucrose.iter().map(|switch| switch.name.as_str()).collect::<Vec<_>>(),
+            ["enable-gpu", "enable-gpu-vsync"]
+        );
+        assert_eq!(defaults.len(), args::legacy_defaults_cef().len());
+        assert!(defaults.iter().any(|switch| switch.name == "autoplay-policy"));
+    }
+
+    #[test]
+    fn an_empty_stored_list_reads_as_the_legacy_defaults_and_an_engine_without_switches_as_nothing() {
+        let settings = Settings::default();
+        let mut with_defaults = settings.clone();
+        with_defaults.engine.cef_arguments.clear();
+
+        let PortalEvent::Arguments { user, defaults, .. } =
+            arguments_answer(EngineType::CefSharpLive, &with_defaults, 0)
+        else {
+            panic!("an Arguments event");
+        };
+        assert_eq!(
+            user, defaults,
+            "an empty dictionary means the defaults, as in the classic app"
+        );
+        assert!(!user.is_empty());
+
+        let PortalEvent::Arguments {
+            user: none,
+            sucrose,
+            defaults: nothing,
+            ..
+        } = arguments_answer(EngineType::MpvPlayerLive, &settings, 0)
+        else {
+            panic!("an Arguments event");
+        };
+        assert!(none.is_empty() && sucrose.is_empty() && nothing.is_empty());
+    }
+
+    #[test]
+    fn the_arguments_answer_stays_inside_the_limits_of_one_frame() {
+        let mut settings = Settings::default();
+        settings.engine.cef_arguments = (0..200)
+            .map(|index| (format!("switch-{index}"), "v".repeat(5000)))
+            .collect();
+
+        let PortalEvent::Arguments { user, .. } = arguments_answer(EngineType::CefSharpLive, &settings, 0) else {
+            panic!("an Arguments event");
+        };
+
+        assert_eq!(user.len(), MAX_SWITCHES);
+        assert!(
+            user.iter()
+                .all(|switch| switch.value.as_ref().is_some_and(|v| v.len() <= MAX_SWITCH_VALUE))
+        );
     }
 }

@@ -15,7 +15,7 @@ use sucrose_core::{
 };
 
 /// Version of the Portal protocol, sent in `PortalHello` so the service can refuse a Portal it cannot talk to.
-pub const PORTAL_PROTOCOL_VERSION: u16 = 4;
+pub const PORTAL_PROTOCOL_VERSION: u16 = 5;
 
 /// The longest path text, in bytes, the service accepts from a Portal and puts into a message it sends. It keeps the
 /// largest possible [`PortalEvent::Welcome`] far below [`crate::frame::MAX_FRAME`].
@@ -95,6 +95,18 @@ pub enum PortalRequest {
         /// The engine the settings ask for and that is not available.
         engine: EngineType,
     },
+    /// Ask for the command line switches of a web engine: the stored ones, the ones Sucrose adds itself and the legacy
+    /// defaults. The answer is [`PortalEvent::Arguments`].
+    GetArguments {
+        /// The web engine whose switches are wanted.
+        engine: EngineType,
+    },
+    /// Restart the running wallpapers that play on one of these engines, so a saved setting that is read when a wallpaper
+    /// starts applies now (the "Restart now" of the restart prompt). Wallpapers on other engines are left alone.
+    RestartWallpapers {
+        /// The engines whose wallpapers restart.
+        engines: Vec<EngineType>,
+    },
 }
 
 /// Messages from the service to the Portal.
@@ -152,7 +164,46 @@ pub enum PortalEvent {
     Close,
     /// What the service detected about the engines and which fallbacks run.
     Engines(EngineReportView),
+    /// The answer to a [`PortalRequest::GetArguments`]: the switches of one web engine.
+    Arguments {
+        /// The engine the switches are for.
+        engine: EngineType,
+        /// The user's switches as the engine reads them (an empty stored list reads as the legacy defaults, as in the
+        /// classic app).
+        user: Vec<SwitchView>,
+        /// The switches Sucrose adds from the settings; read-only in the editor, never stored.
+        sucrose: Vec<SwitchView>,
+        /// What Reset to Defaults puts into the editor: the legacy default switches.
+        defaults: Vec<SwitchView>,
+    },
+    /// A [`PortalRequest::RestartWallpapers`] could not be carried out; the saved setting stays and applies at the next
+    /// start of a wallpaper.
+    RestartFailed {
+        /// One sentence saying why.
+        reason: String,
+    },
 }
+
+/// One command line switch of a web engine as the Portal shows it: a name without leading dashes and, optionally, a
+/// value. The rules for names and the storage format are the service's (D-17); the Portal links no engine crate.
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
+pub struct SwitchView {
+    /// The name without leading dashes, as in `autoplay-policy`.
+    pub name: String,
+    /// The value after the equals sign; `None` for a switch that stands alone.
+    pub value: Option<String>,
+}
+
+/// The most switches the service accepts in one list from a Portal. With the two limits below it keeps the largest
+/// [`PortalEvent::Arguments`] under [`crate::frame::MAX_FRAME`].
+pub const MAX_SWITCHES: usize = 64;
+
+/// The longest switch name, in bytes, the service accepts.
+pub const MAX_SWITCH_NAME: usize = 64;
+
+/// The longest switch value, in bytes, the service accepts (the legacy default `disable-features` is the longest known
+/// value, at under 300 bytes).
+pub const MAX_SWITCH_VALUE: usize = 512;
 
 /// What the user can do about an engine that is not usable (ENG-06), as the Portal shows it.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
@@ -313,6 +364,12 @@ pub enum SettingChange {
     InputModuleType(InputModuleType),
     /// Whether input is processed only while the desktop is focused; applies the next time a wallpaper starts.
     InputDesktop(bool),
+    /// Whether the web engines accept invalid TLS certificates (D-12); applies the next time a web wallpaper starts.
+    AllowInvalidCertificates(bool),
+    /// The user's switches of the CEF engine, stored by the service in the legacy dictionary (D-17); applies the next
+    /// time a CEF wallpaper starts. Unlike the other changes it has no field in [`PortalSettings`]: the Portal asks
+    /// for the list with [`PortalRequest::GetArguments`].
+    CefArguments(Vec<SwitchView>),
 }
 
 /// The settings the Portal shows: a view of the service's settings, never the file (D-11).
@@ -380,6 +437,8 @@ pub struct PortalSettings {
     pub input_module_type: InputModuleType,
     /// Whether input is processed only while the desktop is focused.
     pub input_desktop: bool,
+    /// Whether the web engines accept invalid TLS certificates.
+    pub allow_invalid_certificates: bool,
 }
 
 impl PortalSettings {
@@ -415,6 +474,9 @@ impl PortalSettings {
             SettingChange::InputType(value) => self.input_type = *value,
             SettingChange::InputModuleType(value) => self.input_module_type = *value,
             SettingChange::InputDesktop(value) => self.input_desktop = *value,
+            SettingChange::AllowInvalidCertificates(value) => self.allow_invalid_certificates = *value,
+            // The switches are not part of the view: the Portal asks for them.
+            SettingChange::CefArguments(_) => {}
         }
     }
 }
@@ -432,6 +494,9 @@ pub struct RuntimeState {
     pub library_moving: bool,
     /// Whether the tray icon exists.
     pub tray_visible: bool,
+    /// The monitor and the engine of each wallpaper that runs now, by monitor in the service's slot order. The Portal
+    /// reads it to decide whether a changed setting needs the restart prompt (D-17).
+    pub running_engines: Vec<(String, EngineType)>,
 }
 
 /// What a performance rule does to the wallpaper.
@@ -619,6 +684,7 @@ mod tests {
             input_type: InputType::MouseKeyboard,
             input_module_type: InputModuleType::RawInput,
             input_desktop: false,
+            allow_invalid_certificates: false,
         }
     }
 
@@ -650,12 +716,13 @@ mod tests {
             rule: RuleState::None,
             library_moving: false,
             tray_visible: false,
+            running_engines: Vec::new(),
         }
     }
 
     #[test]
-    fn the_portal_protocol_is_at_version_four_since_a_fallback_says_whether_to_notify() {
-        assert_eq!(PORTAL_PROTOCOL_VERSION, 4);
+    fn the_portal_protocol_is_at_version_five_since_the_runtime_names_the_engines_that_run() {
+        assert_eq!(PORTAL_PROTOCOL_VERSION, 5);
     }
 
     #[test]
@@ -671,6 +738,12 @@ mod tests {
             PortalRequest::DetectEngines,
             PortalRequest::SnoozeFallback {
                 engine: EngineType::WebViewLive,
+            },
+            PortalRequest::GetArguments {
+                engine: EngineType::CefSharpLive,
+            },
+            PortalRequest::RestartWallpapers {
+                engines: vec![EngineType::CefSharpLive],
             },
         ];
         for (expected, request) in requests.iter().enumerate() {
@@ -718,6 +791,13 @@ mod tests {
             PortalEvent::Focus { page: None },
             PortalEvent::Close,
             PortalEvent::Engines(engine_report()),
+            PortalEvent::Arguments {
+                engine: EngineType::CefSharpLive,
+                user: Vec::new(),
+                sucrose: Vec::new(),
+                defaults: Vec::new(),
+            },
+            PortalEvent::RestartFailed { reason: String::new() },
         ];
         for (expected, event) in events.iter().enumerate() {
             assert_eq!(usize::from(index(event)), expected, "{event:?}");
@@ -808,6 +888,8 @@ mod tests {
             SettingChange::InputType(InputType::default()),
             SettingChange::InputModuleType(InputModuleType::default()),
             SettingChange::InputDesktop(false),
+            SettingChange::AllowInvalidCertificates(false),
+            SettingChange::CefArguments(Vec::new()),
         ];
         for (expected, change) in changes.iter().enumerate() {
             assert_eq!(usize::from(index(change)), expected, "{change:?}");
@@ -917,7 +999,7 @@ mod tests {
     #[test]
     fn apply_sets_exactly_the_field_a_change_names() {
         let base = view();
-        let cases: [(SettingChange, PortalSettings); 17] = [
+        let cases: [(SettingChange, PortalSettings); 18] = [
             (
                 SettingChange::GifEngine(EngineType::VlcPlayerLive),
                 PortalSettings {
@@ -1037,6 +1119,13 @@ mod tests {
                     ..view()
                 },
             ),
+            (
+                SettingChange::AllowInvalidCertificates(true),
+                PortalSettings {
+                    allow_invalid_certificates: true,
+                    ..view()
+                },
+            ),
         ];
         for (change, expected) in cases {
             let mut settings = base.clone();
@@ -1080,6 +1169,60 @@ mod tests {
         for value in 4..=10 {
             assert_eq!(StartupMode::from_run_startup(value), StartupMode::None, "{value}");
         }
+    }
+
+    #[test]
+    fn the_arguments_of_an_engine_and_a_cef_change_survive_the_wire() {
+        let switch = |name: &str, value: Option<&str>| SwitchView {
+            name: name.to_owned(),
+            value: value.map(str::to_owned),
+        };
+        let event = PortalEvent::Arguments {
+            engine: EngineType::CefSharpLive,
+            user: vec![
+                switch("disable-gpu-compositing", None),
+                switch("autoplay-policy", Some("a")),
+            ],
+            sucrose: vec![switch("enable-gpu", Some("1"))],
+            defaults: vec![switch("no-sandbox", None)],
+        };
+        let change = PortalRequest::Change(SettingChange::CefArguments(vec![switch("x", Some("y"))]));
+
+        let bytes = postcard::to_stdvec(&event).expect("encode");
+        assert_eq!(postcard::from_bytes::<PortalEvent>(&bytes).expect("decode"), event);
+        let bytes = postcard::to_stdvec(&change).expect("encode");
+        assert_eq!(postcard::from_bytes::<PortalRequest>(&bytes).expect("decode"), change);
+    }
+
+    #[test]
+    fn a_cef_argument_change_leaves_the_settings_view_alone() {
+        let mut settings = view();
+        settings.apply(&SettingChange::CefArguments(vec![SwitchView {
+            name: "x".to_owned(),
+            value: None,
+        }]));
+        assert_eq!(settings, view());
+    }
+
+    #[test]
+    fn the_largest_arguments_answer_encodes_below_the_frame_limit() {
+        let switch = SwitchView {
+            name: "n".repeat(MAX_SWITCH_NAME),
+            value: Some("v".repeat(MAX_SWITCH_VALUE)),
+        };
+        let event = PortalEvent::Arguments {
+            engine: EngineType::CefSharpLive,
+            user: vec![switch.clone(); MAX_SWITCHES],
+            sucrose: vec![switch.clone(); 4],
+            // The legacy defaults are 35 short switches and one long list.
+            defaults: vec![switch; 4],
+        };
+
+        let bytes = postcard::to_stdvec(&event).expect("encode");
+
+        // Room is left for the real defaults, about 2 KiB.
+        let limit = usize::try_from(MAX_FRAME).expect("the limit fits") - 4096;
+        assert!(bytes.len() < limit, "{} bytes", bytes.len());
     }
 
     #[test]

@@ -438,6 +438,7 @@ mod tests {
             rule,
             library_moving: false,
             tray_visible: true,
+            running_engines: Vec::new(),
         }
     }
 

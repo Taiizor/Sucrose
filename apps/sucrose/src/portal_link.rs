@@ -11,6 +11,7 @@ use std::time::{Duration, Instant};
 
 use crossbeam_channel::Sender;
 use sucrose_config::model::Settings;
+use sucrose_core::settings::EngineType;
 use sucrose_ipc::{
     Connection, connect,
     portal::{
@@ -321,6 +322,7 @@ pub fn runtime_state(
     rule: RuleState,
     library_moving: bool,
     tray_visible: bool,
+    running_engines: Vec<(String, EngineType)>,
 ) -> RuntimeState {
     RuntimeState {
         selected: Some(settings.library.selected.as_str())
@@ -330,6 +332,7 @@ pub fn runtime_state(
         rule,
         library_moving,
         tray_visible,
+        running_engines,
     }
 }
 
@@ -653,18 +656,28 @@ mod tests {
         let mut settings = Settings::default();
         settings.library.selected = "abc".to_owned();
 
-        let runtime = runtime_state(&settings, true, RuleState::None, false, false);
+        let runtime = runtime_state(&settings, true, RuleState::None, false, false, Vec::new());
 
         assert_eq!(runtime.selected.as_deref(), Some("abc"));
         assert!(runtime.running && !runtime.tray_visible);
     }
 
     #[test]
+    fn the_runtime_state_carries_the_engines_that_run() {
+        let settings = Settings::default();
+        let running = vec![("DISPLAY1".to_owned(), EngineType::CefSharpLive)];
+
+        let runtime = runtime_state(&settings, true, RuleState::None, false, false, running.clone());
+
+        assert_eq!(runtime.running_engines, running);
+    }
+
+    #[test]
     fn the_runtime_state_says_when_the_library_moves() {
         let settings = Settings::default();
 
-        assert!(runtime_state(&settings, false, RuleState::None, true, false).library_moving);
-        assert!(!runtime_state(&settings, false, RuleState::None, false, false).library_moving);
+        assert!(runtime_state(&settings, false, RuleState::None, true, false, Vec::new()).library_moving);
+        assert!(!runtime_state(&settings, false, RuleState::None, false, false, Vec::new()).library_moving);
     }
 
     #[test]
@@ -672,7 +685,7 @@ mod tests {
         let settings = Settings::default();
 
         assert_eq!(
-            runtime_state(&settings, false, RuleState::None, false, false).selected,
+            runtime_state(&settings, false, RuleState::None, false, false, Vec::new()).selected,
             None
         );
     }

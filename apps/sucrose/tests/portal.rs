@@ -735,6 +735,107 @@ fn an_engine_change_restarts_the_running_wallpaper_of_that_type() {
     started(2);
 }
 
+/// The restart prompt's "Restart now" (D-17): with a Web wallpaper running on CEF, turning Allow invalid certificates on
+/// is saved and broadcast, the runtime state names CEF among the engines that run, and RestartWallpapers for CEF ends that
+/// renderer and starts a new one that reads the switch (its log says so). A restart asked for another engine leaves the
+/// renderer alone. It plays a real wallpaper, so it runs on purpose and skips where CEF is not installed.
+#[test]
+#[ignore = "plays a Web wallpaper on the desktop from a scratch data folder; plan 16 runs it"]
+fn restart_now_restarts_only_the_affected_wallpapers() {
+    if !service_runs("restart_now_restarts_only_the_affected_wallpapers") {
+        return;
+    }
+    let service = TestService::start("restart-now", &json!({}));
+    copy_web_fixture(&service, "hello");
+    let (mut portal, _) = PortalClient::hello(&service, None);
+    let report = wait_for_engines(&portal);
+    if !report.playable.contains(&WallpaperType::Web) {
+        skipped(
+            "restart_now_restarts_only_the_affected_wallpapers",
+            "CEF is not installed next to the executable",
+        );
+        return;
+    }
+    assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
+    let started = |count: usize| {
+        let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+        loop {
+            let logs = renderer_logs(&service);
+            if logs.matches("engine started").count() >= count {
+                return logs;
+            }
+            assert!(
+                std::time::Instant::now() < deadline,
+                "the renderer did not start {count} time(s): {logs}"
+            );
+            std::thread::sleep(std::time::Duration::from_millis(250));
+        }
+    };
+    let first = started(1);
+    assert!(
+        first.contains("allow_invalid_certificates=false"),
+        "certificates are validated by default: {first}"
+    );
+    // The runtime state names the engine of the wallpaper that runs, once its renderer is up.
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(10);
+    loop {
+        assert!(
+            std::time::Instant::now() < deadline,
+            "no runtime state with the running engine"
+        );
+        match portal.next_event_any() {
+            Some(PortalEvent::Runtime(runtime)) if !runtime.running_engines.is_empty() => {
+                assert!(
+                    runtime
+                        .running_engines
+                        .iter()
+                        .all(|(_, engine)| *engine == EngineType::CefSharpLive),
+                    "{runtime:?}"
+                );
+                break;
+            }
+            Some(_) => {}
+            None => panic!("no runtime state with the running engine"),
+        }
+    }
+
+    // Saved first: the change comes back as Changed, whatever happens to the wallpaper.
+    portal.request(&PortalRequest::Change(SettingChange::AllowInvalidCertificates(true)));
+    loop {
+        match portal.next_event_any() {
+            Some(PortalEvent::Changed(SettingChange::AllowInvalidCertificates(true))) => break,
+            Some(_) => {}
+            None => panic!("the certificate switch was not broadcast"),
+        }
+    }
+    assert_eq!(service.settings_file()["Engine"]["AllowInvalidCertificates"], true);
+    assert_eq!(
+        renderer_logs(&service).matches("engine started").count(),
+        1,
+        "a saved setting never restarts the wallpaper by itself"
+    );
+
+    // Another engine's restart changes nothing.
+    portal.request(&PortalRequest::RestartWallpapers {
+        engines: vec![EngineType::MpvPlayerLive],
+    });
+    std::thread::sleep(std::time::Duration::from_secs(2));
+    assert_eq!(
+        renderer_logs(&service).matches("engine started").count(),
+        1,
+        "a restart of mpv leaves the CEF renderer alone"
+    );
+
+    portal.request(&PortalRequest::RestartWallpapers {
+        engines: vec![EngineType::CefSharpLive],
+    });
+    let logs = started(2);
+    assert!(
+        logs.contains("allow_invalid_certificates=true"),
+        "the new renderer reads the switch: {logs}"
+    );
+}
+
 /// Waits for an engine report whose first fallback satisfies `wanted`, skipping the other events.
 fn wait_for_fallback(portal: &PortalClient, wanted: impl Fn(&FallbackView) -> bool) -> FallbackView {
     let deadline = std::time::Instant::now() + std::time::Duration::from_secs(15);

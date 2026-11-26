@@ -8,6 +8,7 @@
 pub mod about;
 pub mod help;
 pub mod move_library;
+pub mod restart;
 pub mod tray_hint;
 
 use gpui_kit::assets::IconName;

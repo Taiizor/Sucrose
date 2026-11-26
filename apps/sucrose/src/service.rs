@@ -58,7 +58,7 @@ use crate::{
         PortalAdmission, PortalLink, PortalRegistry, ask_service_to_open_portal, portal_args, runtime_state,
         spawn_pending,
     },
-    settings_host::{SettingsHost, describe},
+    settings_host::{SettingsHost, arguments_answer, describe},
     startup::{SystemStartup, set_startup, startup_info},
     supervisor::{
         Decision, Exhausted, ExitClass, Exited, RestartBudget, START_FAILED, ShellRestart, Supervisor, classify_exit,
@@ -1601,6 +1601,32 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                             &SystemStartup,
                                             legacy_startup,
                                         )));
+                                    }
+                                }
+                                PortalRequest::GetArguments { engine } => {
+                                    // The rules and the storage format of the switches are this service's (D-17): the
+                                    // Portal gets the lists ready to show.
+                                    portals.send(arguments_answer(engine, host.settings(), sucrose_platform::os_build()));
+                                }
+                                PortalRequest::RestartWallpapers { engines } => {
+                                    // "Restart now" of the restart prompt: only the wallpapers on the listed engines
+                                    // restart, with the settings as saved now (T-04-38).
+                                    match restart_wallpapers(
+                                        &engines,
+                                        &host,
+                                        &mut fleet,
+                                        legacy_root.as_deref(),
+                                        &renderers,
+                                    ) {
+                                        Ok(closed) => tracing::info!(
+                                            ?engines,
+                                            renderers = closed,
+                                            "wallpapers restart to apply a saved setting"
+                                        ),
+                                        Err(reason) => {
+                                            tracing::warn!(?engines, %reason, "the wallpapers could not be restarted");
+                                            portals.send(PortalEvent::RestartFailed { reason });
+                                        }
                                     }
                                 }
                             }
@@ -3439,7 +3465,62 @@ fn current_runtime(host: &SettingsHost, fleet: &Fleet, supervisor: &Supervisor, 
         fleet.rule_state(),
         fleet.library_move.is_some(),
         tray_visible,
+        engines_running(fleet.job.as_ref(), &fleet.slots, &supervisor.slots()),
     )
+}
+
+/// The monitor and the engine of each wallpaper that runs: the slots with a running renderer, by monitor, on the engine
+/// of the job (one job plays on every monitor, D-01). The Portal reads it to know whether a saved setting needs the
+/// restart prompt.
+fn engines_running(job: Option<&Job>, slots: &SlotMap, running: &[u8]) -> Vec<(String, EngineType)> {
+    let Some(job) = job else {
+        return Vec::new();
+    };
+    running
+        .iter()
+        .filter_map(|slot| slots.monitor_of(*slot).map(|monitor| (monitor.to_owned(), job.engine)))
+        .collect()
+}
+
+/// Whether a restart asked for the engines `listed` touches the wallpaper that plays on `running`: only a wallpaper on
+/// a listed engine restarts.
+fn restart_affects(running: Option<EngineType>, listed: &[EngineType]) -> bool {
+    running.is_some_and(|engine| listed.contains(&engine))
+}
+
+/// What the Portal is told when a restart is asked for while the library moves.
+const RESTART_BUSY: &str = "Another change is still running. Try again in a moment.";
+
+/// The restart of the Portal's prompt: when the wallpaper plays on one of `engines` its job is built again from the
+/// settings as saved now (so the new certificate switch, arguments or hardware acceleration are read) and the renderers
+/// restart on it, through the path of the engine change. Wallpapers on other engines and no wallpaper at all restart
+/// nothing. Returns how many renderers were closed to come back.
+fn restart_wallpapers(
+    engines: &[EngineType],
+    host: &SettingsHost,
+    fleet: &mut Fleet,
+    legacy_root: Option<&Path>,
+    renderers: &SharedRenderers,
+) -> Result<usize, String> {
+    if !restart_affects(fleet.job.as_ref().map(|job| job.engine), engines) {
+        return Ok(0);
+    }
+    if fleet.library_move.is_some() {
+        return Err(RESTART_BUSY.to_owned());
+    }
+    let Some(root) = legacy_root else {
+        return Err("the library folder cannot be found".to_owned());
+    };
+    let settings = host.settings();
+    let job = plan_for(
+        &settings.library_location(root),
+        &settings.library.selected,
+        &settings.engine,
+        settings.backgroundog.pause,
+        settings.portal.theme_mode,
+        &fleet.engines,
+    )?;
+    Ok(fleet.restart_with(job, renderers).len())
 }
 
 /// Sends the Portal `runtime` when it differs from the last one sent (and remembers it either way, so a Portal that
@@ -3521,6 +3602,10 @@ impl Fleet {
                 assignment.settings = job.settings;
                 assignment.kind = job.kind;
                 assignment.theme_dir.clone_from(&job.theme_dir);
+                // A restart reads the engine and the web options as saved now: the certificate switch, the switches and
+                // hardware acceleration apply when the renderer starts again (D-17, WAPI-10).
+                assignment.engine = job.engine;
+                assignment.web.clone_from(&job.web);
             }
         }
         self.budgets.clear();
@@ -6083,6 +6168,81 @@ mod tests {
     }
 
     #[test]
+    fn a_restart_hands_the_new_engine_and_web_options_to_the_assignments_of_every_slot() {
+        let monitors = [monitor_at("D1", true, [0, 0, 100, 100])];
+        let (mut fleet, renderers, _logs) = recording_fleet(&monitors);
+        let mut job = web_job();
+        job.web.allow_invalid_certificates = true;
+        job.web.hardware_acceleration = false;
+
+        fleet.restart_with(job, &renderers);
+
+        let slot = fleet.slots.slot_of("D1").expect("a slot");
+        let assignment = lock_assignments(&fleet.assignments)[&slot].clone();
+        assert_eq!(assignment.engine, EngineType::CefSharpLive);
+        assert!(
+            assignment.web.allow_invalid_certificates,
+            "a restarted renderer reads the saved switch"
+        );
+        assert!(!assignment.web.hardware_acceleration);
+    }
+
+    #[test]
+    fn engines_running_pairs_each_running_slot_with_its_monitor_and_the_engine_of_the_job() {
+        let fleet = fleet_of(&[("D1", true), ("D2", false), ("D3", false)], &[]);
+        let slot_of = |id: &str| fleet.slots.slot_of(id).expect("a slot");
+
+        let running = engines_running(fleet.job.as_ref(), &fleet.slots, &[slot_of("D1"), slot_of("D3"), 99]);
+
+        assert_eq!(
+            running,
+            vec![
+                ("D1".to_owned(), EngineType::MpvPlayerLive),
+                ("D3".to_owned(), EngineType::MpvPlayerLive)
+            ],
+            "a slot without a monitor is left out"
+        );
+        assert!(engines_running(None, &fleet.slots, &[slot_of("D1")]).is_empty());
+        assert!(engines_running(fleet.job.as_ref(), &fleet.slots, &[]).is_empty());
+    }
+
+    #[test]
+    fn a_restart_touches_only_the_wallpaper_on_a_listed_engine() {
+        let cef = Some(EngineType::CefSharpLive);
+
+        assert!(restart_affects(cef, &[EngineType::CefSharpLive]));
+        assert!(restart_affects(
+            cef,
+            &[EngineType::WebViewLive, EngineType::CefSharpLive]
+        ));
+        assert!(!restart_affects(cef, &[EngineType::MpvPlayerLive]));
+        assert!(!restart_affects(cef, &[]));
+        assert!(!restart_affects(None, &[EngineType::CefSharpLive]));
+    }
+
+    #[test]
+    fn a_restart_of_another_engine_closes_nothing_and_one_during_a_library_move_is_refused() {
+        let monitors = [monitor_at("D1", true, [0, 0, 100, 100])];
+        let (mut fleet, renderers, logs) = recording_fleet(&monitors);
+        let host = SettingsHost::unsaved(Settings::default());
+
+        // The job plays on mpv: a restart of the CEF wallpapers leaves it alone.
+        let untouched = restart_wallpapers(&[EngineType::CefSharpLive], &host, &mut fleet, None, &renderers);
+        assert_eq!(untouched, Ok(0));
+        let slot = fleet.slots.slot_of("D1").expect("a slot");
+        assert!(
+            sent_to(&renderers, &logs, slot).is_empty(),
+            "nothing was sent to the renderer"
+        );
+        assert!(!fleet.rule_closed.is_closed(slot));
+
+        // Listed, but the library has no folder to build the job from.
+        let no_library = restart_wallpapers(&[EngineType::MpvPlayerLive], &host, &mut fleet, None, &renderers);
+        assert!(no_library.is_err());
+        assert!(sent_to(&renderers, &logs, slot).is_empty());
+    }
+
+    #[test]
     fn the_use_transition_is_the_one_that_keeps_the_renderers_running() {
         assert_eq!(USE_TRANSITION, UseTransition::LoadSource);
     }
@@ -6166,6 +6326,7 @@ mod tests {
             rule,
             library_moving: false,
             tray_visible: false,
+            running_engines: Vec::new(),
         }
     }
 

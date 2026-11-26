@@ -14,13 +14,16 @@ use sucrose_core::{
     settings::{EngineType, InputModuleType, InputType},
     theme::WallpaperType,
 };
-use sucrose_ipc::portal::{EngineReportView, EngineState, HintView, PortalRequest, PortalSettings, SettingChange};
+use sucrose_ipc::portal::{
+    EngineReportView, EngineState, HintView, PortalRequest, PortalSettings, RuntimeState, SettingChange,
+};
 
 use super::row::{
     Choice, ChoiceSelect, ControlState, SELECT_WIDTH, SettingRow, choice_select, control_state, footer_line,
     label_text, on_choice, select_box, show_choice,
 };
 use crate::{
+    dialogs::restart::{RestartSetting, affected_engines, open_restart_prompt, should_prompt},
     i18n::{tr, tr_with},
     ipc::ServiceLink,
     theme,
@@ -377,11 +380,32 @@ pub fn row_alert(row: EngineRow, settings: &PortalSettings, report: Option<&Engi
     Some(alert_text(row.kind(), chosen, fallback, state))
 }
 
-/// Whether a change moves a select of this page,
 /// Whether a change moves a select of this page, so the selects must show the broadcast value again (the switches are
 /// drawn from the settings and need nothing).
 fn needs_refresh(change: &SettingChange) -> bool {
     EngineRow::of(change).is_some() || matches!(change, SettingChange::InputType(_) | SettingChange::InputModuleType(_))
+}
+
+/// The setting a committed change belongs to when a renderer reads it only when it starts, with the committed value and the
+/// value that was stored before; `None` for every other change. The restart prompt follows from these (E12).
+pub fn restart_trigger(
+    change: &SettingChange,
+    previous: &PortalSettings,
+    now: &PortalSettings,
+) -> Option<(RestartSetting, bool, bool)> {
+    match change {
+        SettingChange::AllowInvalidCertificates(_) => Some((
+            RestartSetting::Certificates,
+            now.allow_invalid_certificates,
+            previous.allow_invalid_certificates,
+        )),
+        SettingChange::HardwareAcceleration(_) => Some((
+            RestartSetting::HardwareAcceleration,
+            now.hardware_acceleration,
+            previous.hardware_acceleration,
+        )),
+        _ => None,
+    }
 }
 
 /// The Wallpaper settings page.
@@ -389,6 +413,8 @@ pub struct WallpaperPage {
     link: ServiceLink,
     settings: Option<PortalSettings>,
     engines: Option<EngineReportView>,
+    /// The engine of each wallpaper that runs now, as the service last reported: which settings need the restart prompt.
+    running: Vec<EngineType>,
     connected: bool,
     /// One select per [`EngineRow`], in the order of [`EngineRow::ALL`].
     selects: [ChoiceSelect<EngineType>; 2],
@@ -423,6 +449,7 @@ impl WallpaperPage {
             link,
             settings: None,
             engines: None,
+            running: Vec::new(),
             connected: false,
             selects,
             input_type,
@@ -437,6 +464,11 @@ impl WallpaperPage {
             self.connected = connected;
             cx.notify();
         }
+    }
+
+    /// The service reported what runs (Welcome and Runtime): the engines whose wallpapers a restart prompt may name.
+    pub fn set_runtime(&mut self, runtime: &RuntimeState) {
+        self.running = runtime.running_engines.iter().map(|(_, engine)| *engine).collect();
     }
 
     /// The service reported every setting (Welcome): every select shows its engine.
@@ -454,7 +486,16 @@ impl WallpaperPage {
         window: &mut Window,
         cx: &mut Context<Self>,
     ) {
-        self.settings = Some(settings.clone());
+        let previous = self.settings.replace(settings.clone());
+        // The change is saved before the prompt opens, whatever the answer (UI-SPEC). A refused change leaves the
+        // settings as they were, so it never prompts.
+        if let Some(previous) = previous
+            && let Some((setting, committed, stored)) = restart_trigger(change, &previous, settings)
+            && should_prompt(setting, &committed, &stored, &self.running)
+        {
+            let engines = affected_engines(setting, &self.running);
+            open_restart_prompt(setting, engines, self.link.clone(), window, cx);
+        }
         if needs_refresh(change) {
             self.refresh(window, cx);
         }
@@ -575,16 +616,40 @@ impl WallpaperPage {
         built.build(cx)
     }
 
-    /// The Web Engine Settings group: the CEF row with its status line (the WebView2 row and the arguments arrive with
-    /// later plans).
-    fn web_engines_group(&self, cx: &App) -> AnyElement {
+    /// The Allow invalid certificates row: one global switch for both web engines, off by default, with the info hint
+    /// that turning it on matches the classic app and is less secure (D-12). The service saves it; the restart prompt
+    /// follows the broadcast.
+    fn certificates_row(&self, cx: &mut Context<Self>) -> AnyElement {
+        let state = self.state();
+        let on = self.settings.as_ref().is_some_and(|s| s.allow_invalid_certificates);
+        let switch = Switch::new("web-certificates")
+            .checked(on)
+            .disabled(state.disabled())
+            .accessibility_label(tr("Portal.WallpaperSettingPage.Certificates"))
+            .on_click(cx.listener(|this, value: &bool, _, _| {
+                this.send(SettingChange::AllowInvalidCertificates(*value));
+            }));
+        SettingRow::new(
+            tr("Portal.WallpaperSettingPage.Certificates"),
+            Some(tr("Portal.WallpaperSettingPage.Certificates.Description")),
+        )
+        .control(switch, 40.)
+        .footer(info_alert(tr("Portal.WallpaperSettingPage.Certificates.Hint"), cx))
+        .state(state)
+        .build(cx)
+    }
+
+    /// The Web Engine Settings group: the certificate switch, then the CEF row with its status line (the WebView2 row
+    /// arrives with Round B).
+    fn web_engines_group(&self, cx: &mut Context<Self>) -> AnyElement {
         let engine = EngineType::CefSharpLive;
         let line = status_line(engine, state_of(self.engines.as_ref(), engine));
+        let certificates = self.certificates_row(cx);
         let row = SettingRow::new(tr(engine_label_key(engine)), None)
             .status(status_view(&line, cx))
             .state(self.state())
             .build(cx);
-        super::group(tr("Portal.WallpaperSettingPage.WebEngines"), vec![row])
+        super::group(tr("Portal.WallpaperSettingPage.WebEngines"), vec![certificates, row])
     }
 }
 
@@ -619,6 +684,36 @@ fn warning_alert(row: EngineRow, text: SharedString, cx: &App) -> AnyElement {
                 .min_w_0()
                 .text_sm()
                 .text_color(cx.theme().foreground)
+                .child(text),
+        )
+        .into_any_element()
+}
+
+/// An info alert: the info icon and the text on a quiet fill (UI-SPEC "alert style, info").
+fn info_alert(text: SharedString, cx: &App) -> AnyElement {
+    let theme = cx.theme();
+    h_flex()
+        .id("info-alert")
+        .w_full()
+        .gap_2()
+        .items_start()
+        .px_3()
+        .py_2()
+        .rounded(px(6.))
+        .border_1()
+        .border_color(theme.border)
+        .bg(theme.secondary)
+        .child(
+            div()
+                .flex_none()
+                .child(Icon::new(IconName::Info).with_size(px(16.)).text_color(theme.info)),
+        )
+        .child(
+            div()
+                .flex_1()
+                .min_w_0()
+                .text_sm()
+                .text_color(theme.foreground)
                 .child(text),
         )
         .into_any_element()
@@ -683,8 +778,8 @@ mod tests {
     use sucrose_ipc::portal::PortalSettings;
 
     use super::{
-        EngineRow, Flag, StatusLine, alert_text, engine_choices, hint_text, input_module_choices, input_type_choices,
-        needs_refresh, row_alert, status_line,
+        EngineRow, Flag, RestartSetting, StatusLine, alert_text, engine_choices, hint_text, input_module_choices,
+        input_type_choices, needs_refresh, restart_trigger, row_alert, should_prompt, status_line,
     };
     use sucrose_ipc::portal::{FallbackView, HintView};
 
@@ -771,7 +866,47 @@ mod tests {
             input_type: InputType::MouseKeyboard,
             input_module_type: InputModuleType::RawInput,
             input_desktop: false,
+            allow_invalid_certificates: false,
         }
+    }
+
+    #[test]
+    fn restart_trigger_names_the_setting_and_both_values_of_a_committed_switch() {
+        let before = settings();
+        let mut after = settings();
+        after.allow_invalid_certificates = true;
+        after.hardware_acceleration = false;
+
+        assert_eq!(
+            restart_trigger(&SettingChange::AllowInvalidCertificates(true), &before, &after),
+            Some((RestartSetting::Certificates, true, false))
+        );
+        assert_eq!(
+            restart_trigger(&SettingChange::HardwareAcceleration(false), &before, &after),
+            Some((RestartSetting::HardwareAcceleration, false, true))
+        );
+        assert_eq!(
+            restart_trigger(&SettingChange::WallpaperLoop(false), &before, &after),
+            None
+        );
+        assert_eq!(
+            restart_trigger(&SettingChange::WebEngine(EngineType::CefSharpLive), &before, &after),
+            None
+        );
+    }
+
+    #[test]
+    fn restart_trigger_of_a_refused_change_carries_equal_values_so_nothing_prompts() {
+        let same = settings();
+        let (setting, committed, stored) =
+            restart_trigger(&SettingChange::AllowInvalidCertificates(true), &same, &same).expect("a trigger");
+
+        assert!(!should_prompt(
+            setting,
+            &committed,
+            &stored,
+            &[EngineType::CefSharpLive]
+        ));
     }
 
     #[test]

@@ -602,6 +602,7 @@ mod imp {
             }
             tracing::info!(
                 switches = %plan.applied.iter().map(Switch::render).collect::<Vec<_>>().join(" "),
+                allow_invalid_certificates = values.ignore_certificate_errors,
                 "chromium switches"
             );
             let mut app = HostApp::new(

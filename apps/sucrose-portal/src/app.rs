@@ -374,6 +374,7 @@ impl PortalApp {
                     if self.mode == Mode::Settings(SettingsTab::General) {
                         self.general.update(cx, |page, cx| page.on_opened(cx));
                     }
+                    self.wallpaper.update(cx, |page, _| page.set_runtime(&runtime));
                     self.settings = Some(settings);
                     self.runtime = Some(runtime);
                     self.apply_theme(window, cx);
@@ -420,6 +421,7 @@ impl PortalApp {
                         .update(cx, |library, cx| library.set_runtime(runtime.clone(), cx));
                     self.general
                         .update(cx, |page, cx| page.set_moving(runtime.library_moving, cx));
+                    self.wallpaper.update(cx, |page, _| page.set_runtime(&runtime));
                     self.runtime = Some(runtime);
                 }
                 PortalEvent::Startup(info) => {
@@ -480,6 +482,12 @@ impl PortalApp {
                     }
                     toast::show_error(tr("Portal.Setting.SaveFailed"), window, cx);
                 }
+                PortalEvent::RestartFailed { reason } => {
+                    // The saved change stays and applies at the next start of a wallpaper.
+                    tracing::warn!(%reason, "the service could not restart the wallpapers");
+                    toast::show_error(tr("Portal.RestartPrompt.Failed"), window, cx);
+                }
+                PortalEvent::Arguments { .. } => {}
                 PortalEvent::AlreadyOpen { existing_pid } => {
                     tracing::info!(existing_pid, "already open");
                     cx.quit();
