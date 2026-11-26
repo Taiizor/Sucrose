@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-04-PLAN.md
-last_updated: "2026-11-26T02:09:41.218Z"
+stopped_at: Completed 04-05-PLAN.md
+last_updated: "2026-11-26T02:33:29.285Z"
 last_activity: 2026-11-26
 last_activity_desc: Phase 04 execution resumed (wave continue)
-state_head: b1a74877364c5c20aa04844e075b8dca7c08a6aa
+state_head: db798f2481b4064d94da03a28783609b40c5689f
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 100
-  completed_plans: 83
+  completed_plans: 84
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 5 of 21
+Plan: 6 of 21
 Status: Ready to execute
 Last activity: 2026-11-26 — Phase 04 execution resumed (wave continue)
 Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
@@ -138,6 +138,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P03 | 11 min | 2 tasks | 43 files |
 | Phase 04 P02 | 21 min | 2 tasks | 14 files |
 | Phase 04 P04 | 10 min | 2 tasks | 9 files |
+| Phase 04 P05 | 19 min | 2 tasks | 17 files |
 
 ## Accumulated Context
 
@@ -260,6 +261,9 @@ Recent decisions affecting current work:
 - [Phase 04]: D-036: CEF is built against the pinned dist and delay-loaded; CEF subprocesses are sucrose.exe, no sucrose-cef.exe fallback
 - [Phase 04]: A CEF renderer answers LoadSource by navigating its browser; Use between a Video and a Web theme restarts the renderers (UseDecision::Restart)
 - [Phase 04]: 04-04: choose_engine tries CEF before WebView2 wherever a web engine stands in; a configured engine outside the type's allowed list counts as the type's default; Choice.fell_back_from is also set when no engine is available
+- [Phase 04]: 04-05: EngineClock and Engine carry what the renderer really calls (wait_event, start_failure, loop_gen, set_audio, name); the pause level travels in PlaybackSettings.pause
+- [Phase 04]: 04-05: the service offers CEF through its static availability report only for Web themes, so a video configured for CEF keeps mpv until generated pages exist
+- [Phase 04]: 04-05: CefEngine.load_source is Unsupported; a Use that involves a Web theme starts a new renderer
 
 ### Pending Todos
 
@@ -296,6 +300,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T02:09:04.467Z
-Stopped at: Completed 04-04-PLAN.md
+Last session: 2026-11-26T02:33:11.351Z
+Stopped at: Completed 04-05-PLAN.md
 Resume file: None
