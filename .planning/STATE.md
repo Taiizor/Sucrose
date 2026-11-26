@@ -2,17 +2,17 @@
 gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
-status: executing
-stopped_at: Completed 04-20-PLAN.md
-last_updated: "2026-11-26T18:10:16.823Z"
+status: verifying
+stopped_at: Completed 04-21-PLAN.md
+last_updated: "2026-11-26T20:06:49.422Z"
 last_activity: 2026-11-26
 last_activity_desc: Phase 04 execution started
-state_head: 59dca42a6bc58c500476cb5459c5332ce68539a3
+state_head: 2187bcd0ab931590b8de8b6af58ee354099b1ee3
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 100
-  completed_plans: 99
+  completed_plans: 100
   percent: 38
 ---
 
@@ -29,7 +29,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
 Plan: 21 of 21
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-11-26 — Phase 04 execution started
 Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
 
@@ -154,6 +154,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P18 | 28 min | 3 tasks | 20 files |
 | Phase 04 P19 | 20 min | 2 tasks | 20 files |
 | Phase 04 P20 | 30 min | 3 tasks | 2 files |
+| Phase 04 P21 | 30 min | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -310,6 +311,7 @@ Recent decisions affecting current work:
 - [Phase 04]: The legacy key lParam is kept exactly, extended-key bit always set; the OnlyKeyboard focus click is an InputEvent::FocusClick made by the renderer
 - [Phase 04]: Forwarded positions are relative to the renderer rectangle; InputEvent Debug never shows which key it was (T-04-45)
 - [Phase 04]: 04-20: Complete rule case 2: step 1 failed and steps 5, 6, 8 were skipped, so requirements-completed is empty and no requirement is marked Complete; the Shut Down Windows dialog defect is a blocker for /gsd-debug
+- [Phase 04]: 04-21: M3 CEF row records Rust alone because --row refused the pair (no Rust GPU adapter, G-02-6); C# CefSharp numbers in the paragraph; Rust RAM lower and CPU higher recorded as found, not tuned
 
 ### Pending Todos
 
@@ -348,6 +350,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T18:09:57.669Z
-Stopped at: Completed 04-20-PLAN.md
+Last session: 2026-11-26T20:06:25.285Z
+Stopped at: Completed 04-21-PLAN.md
 Resume file: None
