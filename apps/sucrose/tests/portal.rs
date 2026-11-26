@@ -884,6 +884,106 @@ fn restart_now_restarts_only_the_affected_wallpapers() {
     );
 }
 
+/// WebView2 switches saved from a Portal client reach the next renderer (D-17, WAPI-10): with a Web wallpaper on
+/// WebView2, the legacy defaults plus `Translate` in `disable-features` are saved through `WebArguments`, stored in the
+/// legacy list form, and `RestartWallpapers` for WebView2 starts a renderer whose `chromium switches` line has the
+/// merged value, while the first renderer did not have it. It plays a real wallpaper, so it runs on purpose and skips
+/// where WebView2 cannot play Web here.
+#[test]
+#[ignore = "plays a Web wallpaper on the desktop from a scratch data folder; plan 26 runs it"]
+fn saved_webview2_arguments_reach_the_restarted_renderer() {
+    const TEST: &str = "saved_webview2_arguments_reach_the_restarted_renderer";
+    if !service_runs(TEST) {
+        return;
+    }
+    let service = TestService::start("webview2-arguments", &json!({ "Engine": { "Web": "WebViewLive" } }));
+    copy_web_fixture(&service, "hello");
+    let (mut portal, _) = PortalClient::hello(&service, None);
+    let report = wait_for_engines(&portal);
+    if !report.playable.contains(&WallpaperType::Web) || !webview2_is_ready(&report) {
+        skipped(TEST, "the WebView2 Runtime is missing");
+        return;
+    }
+    assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
+    let first = wait_for_engine_starts(&service, 1);
+    if !first.contains("engine started engine=\"WebView2\"") {
+        skipped(
+            TEST,
+            "WebView2 did not start the wallpaper here (the service fell back to another engine)",
+        );
+        return;
+    }
+    assert!(
+        !first.contains("Translate"),
+        "the legacy defaults do not name Translate: {first}"
+    );
+
+    // The list the editor would start from: the legacy defaults, with Translate added to disable-features.
+    portal.request(&PortalRequest::GetArguments {
+        engine: EngineType::WebViewLive,
+    });
+    let mut list = loop {
+        match portal.next_event_any() {
+            Some(PortalEvent::Arguments {
+                engine: EngineType::WebViewLive,
+                user,
+                ..
+            }) => break user,
+            Some(_) => {}
+            None => panic!("no Arguments answer for WebView2"),
+        }
+    };
+    let disabled = list
+        .iter_mut()
+        .find(|switch| switch.name == "disable-features")
+        .expect("the legacy defaults carry disable-features");
+    let merged = format!("{},Translate", disabled.value.as_deref().unwrap_or_default());
+    disabled.value = Some(merged);
+
+    portal.request(&PortalRequest::Change(SettingChange::WebArguments(list.clone())));
+    loop {
+        match portal.next_event_any() {
+            Some(PortalEvent::Changed(SettingChange::WebArguments(stored))) => {
+                assert_eq!(stored, list, "the service stores what it was sent");
+                break;
+            }
+            Some(PortalEvent::Rejected { reason, .. }) => panic!("the list was refused: {reason}"),
+            Some(_) => {}
+            None => panic!("the WebView2 switches were not broadcast"),
+        }
+    }
+    let stored = &service.settings_file()["Engine"]["WebArguments"];
+    let stored = stored.as_array().expect("WebArguments is the legacy list");
+    assert!(
+        stored.iter().any(|entry| entry == "--disable-web-security"),
+        "a flag is stored as --name: {stored:?}"
+    );
+    assert!(
+        stored
+            .iter()
+            .filter_map(Value::as_str)
+            .any(|entry| entry.starts_with("--disable-features=") && entry.ends_with(",Translate")),
+        "a valued switch is stored as --name=value: {stored:?}"
+    );
+    assert_eq!(
+        renderer_logs(&service).matches("engine started").count(),
+        1,
+        "a saved setting never restarts the wallpaper by itself"
+    );
+
+    portal.request(&PortalRequest::RestartWallpapers {
+        engines: vec![EngineType::WebViewLive],
+    });
+    let logs = wait_for_engine_starts(&service, 2);
+    let switches: Vec<&str> = logs.lines().filter(|line| line.contains("chromium switches")).collect();
+    assert_eq!(switches.len(), 2, "two renderers logged their switches: {logs}");
+    let second = switches
+        .iter()
+        .find(|line| line.contains("Translate"))
+        .unwrap_or_else(|| panic!("the second renderer has the saved switch: {logs}"));
+    assert!(second.contains("disable-features="), "{second}");
+}
+
 /// Open DevTools (D-13): with a Web wallpaper running on CEF, the Portal's `OpenDevTools` for its monitor reaches that
 /// monitor's renderer, which opens the developer tools, logs `devtools opened` and confirms, so the answer is `opened: true`.
 /// A monitor without a wallpaper is answered `opened: false` and nothing opens. Nothing opens the developer tools before

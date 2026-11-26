@@ -107,7 +107,7 @@ impl SettingsHost {
 
 /// Checks `change` and returns the value to store: numbers are clamped to the ranges of the legacy Portal, a
 /// background image must be empty or an absolute path of an image type the legacy picker offers, an engine must be
-/// one the legacy list of its wallpaper type allows, and a list of CEF switches must hold valid, distinct names (D-17).
+/// one the legacy list of its wallpaper type allows, and a list of CEF or WebView2 switches must hold valid, distinct names (D-17).
 pub fn validate(change: SettingChange) -> Result<SettingChange, String> {
     Ok(match change {
         SettingChange::BackgroundOpacity(value) => SettingChange::BackgroundOpacity(value.min(100)),
@@ -129,6 +129,7 @@ pub fn validate(change: SettingChange) -> Result<SettingChange, String> {
             SettingChange::ApplicationEngine(allowed_engine(engine, EngineType::APPLICATION)?)
         }
         SettingChange::CefArguments(list) => SettingChange::CefArguments(check_switches(list)?),
+        SettingChange::WebArguments(list) => SettingChange::WebArguments(check_switches(list)?),
         other => other,
     })
 }
@@ -338,6 +339,7 @@ fn write(settings: &mut Settings, change: &SettingChange) {
         SettingChange::InputDesktop(value) => settings.engine.input_desktop = *value,
         SettingChange::AllowInvalidCertificates(value) => settings.engine.allow_invalid_certificates = *value,
         SettingChange::CefArguments(list) => settings.engine.cef_arguments = args::to_cef_map(&to_switches(list)),
+        SettingChange::WebArguments(list) => settings.engine.web_arguments = args::to_web_list(&to_switches(list)),
         SettingChange::DeveloperMode(value) => settings.engine.developer_mode = *value,
         SettingChange::DeveloperPort(value) => settings.engine.developer_port = *value,
     }
@@ -819,6 +821,97 @@ mod tests {
         assert!(validate(SettingChange::CefArguments(vec![switch("x", Some(&long_value))])).is_err());
         let longest = "v".repeat(MAX_SWITCH_VALUE);
         assert!(validate(SettingChange::CefArguments(vec![switch("x", Some(&longest))])).is_ok());
+    }
+
+    #[test]
+    fn a_webview2_argument_list_is_cleaned_and_stored_as_the_legacy_list() {
+        let scratch = Scratch::new("web-arguments");
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+
+        let stored = host.apply(SettingChange::WebArguments(vec![
+            switch("disable-web-security", None),
+            switch(" --autoplay-policy ", Some(" no-user-gesture-required ")),
+        ]));
+
+        assert_eq!(
+            stored,
+            Ok(SettingChange::WebArguments(vec![
+                switch("disable-web-security", None),
+                switch("autoplay-policy", Some("no-user-gesture-required")),
+            ]))
+        );
+        assert_eq!(
+            host.settings().engine.web_arguments,
+            vec![
+                "--disable-web-security".to_owned(),
+                "--autoplay-policy=no-user-gesture-required".to_owned()
+            ]
+        );
+        let file = fs::read(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).expect("the settings file exists");
+        let json: serde_json::Value = serde_json::from_slice(&file).expect("the file is JSON");
+        assert_eq!(
+            json["Engine"]["WebArguments"],
+            serde_json::json!(["--disable-web-security", "--autoplay-policy=no-user-gesture-required"])
+        );
+        assert!(
+            host.settings().engine.cef_arguments.is_empty(),
+            "the CEF list is untouched"
+        );
+    }
+
+    #[test]
+    fn a_webview2_argument_list_that_is_bad_repeated_or_too_long_is_refused_and_nothing_is_stored() {
+        let scratch = Scratch::new("web-arguments-refused");
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+        let before = host.settings().engine.web_arguments.clone();
+
+        for (list, reason) in [
+            (vec![switch("has space", None)], SWITCH_NAME_INVALID),
+            (
+                vec![switch("same", None), switch("--same", Some("1"))],
+                SWITCH_NAME_REPEATED,
+            ),
+        ] {
+            let answer = host.apply(SettingChange::WebArguments(list.clone()));
+            assert_eq!(answer, Err(reason.to_owned()), "{list:?}");
+        }
+        let too_many: Vec<SwitchView> = (0..=MAX_SWITCHES)
+            .map(|index| switch(&format!("s{index}"), None))
+            .collect();
+        assert!(host.apply(SettingChange::WebArguments(too_many)).is_err());
+        let long_name = "n".repeat(MAX_SWITCH_NAME + 1);
+        assert!(
+            host.apply(SettingChange::WebArguments(vec![switch(&long_name, None)]))
+                .is_err()
+        );
+        let long_value = "v".repeat(MAX_SWITCH_VALUE + 1);
+        assert!(
+            host.apply(SettingChange::WebArguments(vec![switch("x", Some(&long_value))]))
+                .is_err()
+        );
+        assert_eq!(host.settings().engine.web_arguments, before);
+    }
+
+    #[test]
+    fn the_webview2_arguments_answer_is_the_stored_list_or_the_legacy_defaults_when_it_is_empty() {
+        let mut settings = Settings::default();
+        let PortalEvent::Arguments { user, defaults, .. } = arguments_answer(EngineType::WebViewLive, &settings, 22631)
+        else {
+            panic!("not an Arguments answer");
+        };
+        assert_eq!(user, defaults, "an empty stored list means the legacy defaults");
+        assert!(!defaults.is_empty());
+        assert!(
+            defaults
+                .iter()
+                .all(|switch| switch.name != "off-screen-rendering-enabled")
+        );
+
+        settings.engine.web_arguments = vec!["--my-own-switch".to_owned(), "--x=1".to_owned()];
+        let PortalEvent::Arguments { user, .. } = arguments_answer(EngineType::WebViewLive, &settings, 22631) else {
+            panic!("not an Arguments answer");
+        };
+        assert_eq!(user, vec![switch("my-own-switch", None), switch("x", Some("1"))]);
     }
 
     #[test]

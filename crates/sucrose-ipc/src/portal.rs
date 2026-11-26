@@ -15,7 +15,7 @@ use sucrose_core::{
 };
 
 /// Version of the Portal protocol, sent in `PortalHello` so the service can refuse a Portal it cannot talk to.
-pub const PORTAL_PROTOCOL_VERSION: u16 = 6;
+pub const PORTAL_PROTOCOL_VERSION: u16 = 7;
 
 /// The longest path text, in bytes, the service accepts from a Portal and puts into a message it sends. It keeps the
 /// largest possible [`PortalEvent::Welcome`] far below [`crate::frame::MAX_FRAME`].
@@ -447,6 +447,10 @@ pub enum SettingChange {
     /// The debugging port of the web engines, 0..=65535, 0 for none; each renderer listens on this port plus its slot.
     /// Applies the next time a web wallpaper starts.
     DeveloperPort(u16),
+    /// The user's switches of the WebView2 engine, stored by the service in the legacy list (`"--name"` or
+    /// `"--name=value"`, D-17); applies the next time a WebView2 wallpaper starts. Like [`SettingChange::CefArguments`] it
+    /// has no field in [`PortalSettings`]: the Portal asks for the list with [`PortalRequest::GetArguments`].
+    WebArguments(Vec<SwitchView>),
 }
 
 /// The settings the Portal shows: a view of the service's settings, never the file (D-11).
@@ -557,7 +561,7 @@ impl PortalSettings {
             SettingChange::InputDesktop(value) => self.input_desktop = *value,
             SettingChange::AllowInvalidCertificates(value) => self.allow_invalid_certificates = *value,
             // The switches are not part of the view: the Portal asks for them.
-            SettingChange::CefArguments(_) => {}
+            SettingChange::CefArguments(_) | SettingChange::WebArguments(_) => {}
             SettingChange::DeveloperMode(value) => self.developer_mode = *value,
             SettingChange::DeveloperPort(value) => self.developer_port = *value,
         }
@@ -806,8 +810,8 @@ mod tests {
     }
 
     #[test]
-    fn the_portal_protocol_is_at_version_six_since_the_settings_view_carries_the_developer_settings() {
-        assert_eq!(PORTAL_PROTOCOL_VERSION, 6);
+    fn the_portal_protocol_is_at_version_seven_since_webview2_has_its_own_argument_change() {
+        assert_eq!(PORTAL_PROTOCOL_VERSION, 7);
     }
 
     #[test]
@@ -984,6 +988,7 @@ mod tests {
             SettingChange::CefArguments(Vec::new()),
             SettingChange::DeveloperMode(false),
             SettingChange::DeveloperPort(0),
+            SettingChange::WebArguments(Vec::new()),
         ];
         for (expected, change) in changes.iter().enumerate() {
             assert_eq!(usize::from(index(change)), expected, "{change:?}");
@@ -1299,6 +1304,21 @@ mod tests {
 
         let bytes = postcard::to_stdvec(&event).expect("encode");
         assert_eq!(postcard::from_bytes::<PortalEvent>(&bytes).expect("decode"), event);
+        let bytes = postcard::to_stdvec(&change).expect("encode");
+        assert_eq!(postcard::from_bytes::<PortalRequest>(&bytes).expect("decode"), change);
+    }
+
+    #[test]
+    fn a_web_argument_change_leaves_the_settings_view_alone_and_round_trips() {
+        let list = vec![SwitchView {
+            name: "x".to_owned(),
+            value: Some("y".to_owned()),
+        }];
+        let mut settings = view();
+        settings.apply(&SettingChange::WebArguments(list.clone()));
+        assert_eq!(settings, view());
+
+        let change = PortalRequest::Change(SettingChange::WebArguments(list));
         let bytes = postcard::to_stdvec(&change).expect("encode");
         assert_eq!(postcard::from_bytes::<PortalRequest>(&bytes).expect("decode"), change);
     }
