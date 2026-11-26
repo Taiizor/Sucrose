@@ -9,7 +9,10 @@
 //! [`ToService::PortalHello`]: crate::protocol::ToService::PortalHello
 
 use serde::{Deserialize, Serialize};
-use sucrose_core::settings::{Backdrop, SortKind, SortMode, Stretch, ThemeMode};
+use sucrose_core::{
+    settings::{Backdrop, EngineType, SortKind, SortMode, Stretch, ThemeMode},
+    theme::WallpaperType,
+};
 
 /// Version of the Portal protocol, sent in `PortalHello` so the service can refuse a Portal it cannot talk to.
 pub const PORTAL_PROTOCOL_VERSION: u16 = 1;
@@ -82,6 +85,8 @@ pub enum PortalRequest {
         /// The absolute path of the new folder.
         destination: String,
     },
+    /// Look at the engines again and send the report.
+    DetectEngines,
 }
 
 /// Messages from the service to the Portal.
@@ -137,6 +142,90 @@ pub enum PortalEvent {
     },
     /// Close the Portal: the service is stopping.
     Close,
+    /// What the service detected about the engines and which fallbacks run.
+    Engines(EngineReportView),
+}
+
+/// What the user can do about an engine that is not usable (ENG-06), as the Portal shows it.
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
+pub enum HintView {
+    /// The engine's files are not next to the executable: reinstall or repair Sucrose.
+    FilesMissing,
+    /// The Visual C++ Redistributable is missing or too old; `needed` is the version to install.
+    VcRedistMissing {
+        /// The version the engine needs.
+        needed: String,
+    },
+    /// A user-installed runtime (WebView2) is not installed.
+    RuntimeMissing,
+    /// A user-installed runtime is older than the engine needs.
+    RuntimeOutdated {
+        /// The version found.
+        found: String,
+        /// The version needed.
+        needed: String,
+    },
+}
+
+/// What the machine can run of one engine.
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
+pub enum EngineState {
+    /// Present and ready.
+    Ready {
+        /// The version, when the engine reports one without being loaded.
+        version: Option<String>,
+    },
+    /// Not present.
+    Missing {
+        /// How to get it.
+        hint: HintView,
+        /// Whether Sucrose can install the missing part itself (a prerequisite) rather than only advise a repair.
+        installable: bool,
+    },
+    /// Present but it cannot be loaded.
+    NotLoadable {
+        /// The loader's reason.
+        reason: String,
+        /// How to repair it.
+        hint: HintView,
+    },
+    /// No build exists for this machine or this Sucrose build.
+    Unsupported {
+        /// `true` when the cause is the processor architecture, `false` when this build does not include the engine.
+        architecture: bool,
+    },
+}
+
+/// One engine and its state, named by the legacy engine name Sucrose writes for it.
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
+pub struct EngineStateView {
+    /// The engine.
+    pub engine: EngineType,
+    /// What the machine can run of it.
+    pub state: EngineState,
+}
+
+/// A wallpaper type that plays with another engine than the configured one, for this run only (D-11).
+#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq)]
+pub struct FallbackView {
+    /// The wallpaper type.
+    pub kind: WallpaperType,
+    /// The engine the settings ask for.
+    pub configured: EngineType,
+    /// The engine that plays instead.
+    pub playing: EngineType,
+}
+
+/// What the service detected about the engines (ENG-06, ENG-07): sent after the Welcome, on request and when a
+/// fallback starts or ends.
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
+pub struct EngineReportView {
+    /// Every engine with its state.
+    pub engines: Vec<EngineStateView>,
+    /// The wallpaper types some available engine can play now.
+    pub playable: Vec<WallpaperType>,
+    /// The fallbacks that run now.
+    pub fallbacks: Vec<FallbackView>,
 }
 
 /// One setting the Portal can change, with its new value.
@@ -437,6 +526,21 @@ mod tests {
         }
     }
 
+    fn engine_report() -> EngineReportView {
+        EngineReportView {
+            engines: vec![EngineStateView {
+                engine: EngineType::MpvPlayerLive,
+                state: EngineState::Ready { version: None },
+            }],
+            playable: vec![WallpaperType::Video],
+            fallbacks: vec![FallbackView {
+                kind: WallpaperType::Web,
+                configured: EngineType::WebViewLive,
+                playing: EngineType::CefSharpLive,
+            }],
+        }
+    }
+
     fn runtime() -> RuntimeState {
         RuntimeState {
             selected: None,
@@ -462,6 +566,7 @@ mod tests {
             PortalRequest::RefreshStartup,
             PortalRequest::MaintainLibrary,
             PortalRequest::MoveLibrary { destination: folder },
+            PortalRequest::DetectEngines,
         ];
         for (expected, request) in requests.iter().enumerate() {
             assert_eq!(usize::from(index(request)), expected, "{request:?}");
@@ -507,10 +612,63 @@ mod tests {
             }),
             PortalEvent::Focus { page: None },
             PortalEvent::Close,
+            PortalEvent::Engines(engine_report()),
         ];
         for (expected, event) in events.iter().enumerate() {
             assert_eq!(usize::from(index(event)), expected, "{event:?}");
         }
+    }
+
+    #[test]
+    fn engine_states_and_hints_keep_their_wire_index() {
+        let hint = HintView::FilesMissing;
+        let states = [
+            EngineState::Ready { version: None },
+            EngineState::Missing {
+                hint: hint.clone(),
+                installable: false,
+            },
+            EngineState::NotLoadable {
+                reason: String::new(),
+                hint,
+            },
+            EngineState::Unsupported { architecture: true },
+        ];
+        for (expected, state) in states.iter().enumerate() {
+            assert_eq!(usize::from(index(state)), expected, "{state:?}");
+        }
+        let hints = [
+            HintView::FilesMissing,
+            HintView::VcRedistMissing { needed: String::new() },
+            HintView::RuntimeMissing,
+            HintView::RuntimeOutdated {
+                found: String::new(),
+                needed: String::new(),
+            },
+        ];
+        for (expected, hint) in hints.iter().enumerate() {
+            assert_eq!(usize::from(index(hint)), expected, "{hint:?}");
+        }
+    }
+
+    #[test]
+    fn an_engine_report_survives_the_wire() {
+        let event = PortalEvent::Engines(EngineReportView {
+            engines: vec![EngineStateView {
+                engine: EngineType::CefSharpLive,
+                state: EngineState::Missing {
+                    hint: HintView::VcRedistMissing {
+                        needed: "14.40.33816.0".to_owned(),
+                    },
+                    installable: true,
+                },
+            }],
+            ..engine_report()
+        });
+
+        let bytes = postcard::to_stdvec(&event).expect("encode");
+
+        assert_eq!(postcard::from_bytes::<PortalEvent>(&bytes).expect("decode"), event);
     }
 
     #[test]

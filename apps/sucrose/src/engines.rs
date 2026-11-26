@@ -10,7 +10,10 @@ use std::{
 };
 
 use sucrose_core::{settings::EngineType, theme::WallpaperType};
-use sucrose_engine::{Availability, EngineId, Hint, Unsupported, VC_REDIST_MIN, choose_engine, version_at_least};
+use sucrose_engine::{
+    Availability, EngineId, Hint, Unsupported, VC_REDIST_MIN, choose_engine, fallback_order, version_at_least,
+};
+use sucrose_ipc::portal::{EngineReportView, EngineState, EngineStateView, FallbackView, HintView};
 use sucrose_platform::{Arch, Platform, VcRedist};
 
 /// Every engine the report covers, in the order the Portal lists them.
@@ -87,6 +90,78 @@ impl EngineReport {
             };
         }
         self.availability(engine)
+    }
+}
+
+impl EngineReport {
+    /// What the Portal is told (ENG-06, ENG-07): every engine with its state, the types of `kinds` some available
+    /// engine can play, and the fallbacks that run now.
+    pub fn view(&self, kinds: &[WallpaperType], fallbacks: &Fallbacks) -> EngineReportView {
+        EngineReportView {
+            engines: ALL
+                .iter()
+                .map(|engine| EngineStateView {
+                    engine: engine.to_legacy(),
+                    state: state_view(&self.availability(*engine)),
+                })
+                .collect(),
+            playable: kinds
+                .iter()
+                .copied()
+                .filter(|kind| {
+                    fallback_order(*kind)
+                        .iter()
+                        .any(|engine| self.availability_for(*kind, *engine).is_available())
+                })
+                .collect(),
+            fallbacks: fallbacks
+                .notes()
+                .iter()
+                .map(|note| FallbackView {
+                    kind: note.kind,
+                    configured: note.configured.to_legacy(),
+                    playing: note.playing.to_legacy(),
+                })
+                .collect(),
+        }
+    }
+}
+
+/// The Portal's form of a hint.
+fn hint_view(hint: &Hint) -> HintView {
+    match hint {
+        Hint::FilesMissing => HintView::FilesMissing,
+        Hint::VcRedistMissing { needed } => HintView::VcRedistMissing { needed: needed.clone() },
+        Hint::RuntimeMissing => HintView::RuntimeMissing,
+        Hint::RuntimeOutdated { found, needed } => HintView::RuntimeOutdated {
+            found: found.clone(),
+            needed: needed.clone(),
+        },
+    }
+}
+
+/// Whether Sucrose can fix a missing part itself: a prerequisite it can download and run (04-18), not its own files.
+fn installable(hint: &Hint) -> bool {
+    !matches!(hint, Hint::FilesMissing)
+}
+
+/// The Portal's form of an availability.
+fn state_view(availability: &Availability) -> EngineState {
+    match availability {
+        Availability::Installed { version } => EngineState::Ready {
+            version: version.clone(),
+        },
+        Availability::Missing { hint } => EngineState::Missing {
+            hint: hint_view(hint),
+            installable: installable(hint),
+        },
+        Availability::NotLoadable { reason, hint } => EngineState::NotLoadable {
+            reason: reason.clone(),
+            hint: hint_view(hint),
+        },
+        Availability::Unsupported { why } => EngineState::Unsupported {
+            architecture: *why == Unsupported::Architecture,
+        },
     }
 }
 
@@ -308,10 +383,6 @@ impl Fallbacks {
     }
 
     /// The fallbacks that run now.
-    #[cfg_attr(
-        not(test),
-        expect(dead_code, reason = "the Portal view reads it in the same plan's last task")
-    )]
     pub fn notes(&self) -> &[FallbackNote] {
         &self.notes
     }
@@ -451,6 +522,69 @@ mod tests {
                 "{refused:?}"
             );
         }
+    }
+
+    #[test]
+    fn the_view_lists_every_engine_the_playable_types_and_the_fallbacks() {
+        let report = EngineReport::from_fn(|engine| match engine {
+            EngineId::Mpv => Availability::Installed {
+                version: Some("0.40".to_owned()),
+            },
+            EngineId::Cef => Availability::Missing {
+                hint: Hint::VcRedistMissing {
+                    needed: "14.40.33816.0".to_owned(),
+                },
+            },
+            _ => Availability::Unsupported {
+                why: Unsupported::Architecture,
+            },
+        });
+        let mut fallbacks = Fallbacks::default();
+        fallbacks.set(
+            WallpaperType::Web,
+            Some(FallbackNote {
+                kind: WallpaperType::Web,
+                configured: EngineId::WebView2,
+                playing: EngineId::Cef,
+                reason: "x".to_owned(),
+            }),
+        );
+
+        let view = report.view(&[WallpaperType::Video, WallpaperType::Web], &fallbacks);
+
+        assert_eq!(view.engines.len(), ALL.len());
+        assert_eq!(view.engines[0].engine, EngineType::MpvPlayerLive);
+        assert_eq!(
+            view.engines[0].state,
+            EngineState::Ready {
+                version: Some("0.40".to_owned())
+            }
+        );
+        assert_eq!(
+            view.engines[2].state,
+            EngineState::Missing {
+                hint: HintView::VcRedistMissing {
+                    needed: "14.40.33816.0".to_owned()
+                },
+                installable: true
+            }
+        );
+        assert_eq!(view.engines[3].state, EngineState::Unsupported { architecture: true });
+        assert_eq!(view.playable, [WallpaperType::Video]);
+        assert_eq!(
+            view.fallbacks,
+            [FallbackView {
+                kind: WallpaperType::Web,
+                configured: EngineType::WebViewLive,
+                playing: EngineType::CefSharpLive
+            }]
+        );
+    }
+
+    #[test]
+    fn missing_engine_files_are_not_installable_by_sucrose() {
+        assert!(!installable(&Hint::FilesMissing));
+        assert!(installable(&Hint::RuntimeMissing));
     }
 
     #[test]

@@ -467,6 +467,14 @@ impl PortalApp {
                     tracing::info!("the service is stopping, closing the Portal");
                     cx.quit();
                 }
+                // The Engine rows and the fallback notice that show it come with the Engine settings plans.
+                PortalEvent::Engines(report) => {
+                    tracing::debug!(
+                        engines = report.engines.len(),
+                        fallbacks = report.fallbacks.len(),
+                        "the service sent the engine report"
+                    );
+                }
             }
         }
         cx.notify();

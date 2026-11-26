@@ -260,8 +260,20 @@ impl PortalClient {
         Self { connection, events }
     }
 
-    /// The next event, or `None` when none arrives within [`EVENT_TIMEOUT`] or the connection ended.
+    /// The next event, or `None` when none arrives within [`EVENT_TIMEOUT`] or the connection ended. The engine report
+    /// the service sends after the Welcome is skipped, so a test sees the events its own requests lead to; read it with
+    /// [`PortalClient::next_event_any`].
     pub fn next_event(&self) -> Option<PortalEvent> {
+        loop {
+            match self.next_event_any()? {
+                PortalEvent::Engines(_) => {}
+                event => return Some(event),
+            }
+        }
+    }
+
+    /// The next event of any kind, or `None` when none arrives within [`EVENT_TIMEOUT`] or the connection ended.
+    pub fn next_event_any(&self) -> Option<PortalEvent> {
         self.events.recv_timeout(EVENT_TIMEOUT).ok()
     }
 

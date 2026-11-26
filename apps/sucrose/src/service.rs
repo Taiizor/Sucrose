@@ -27,8 +27,8 @@ use sucrose_core::{
 use sucrose_ipc::{
     Connection, IpcError, Listener,
     portal::{
-        Launch, LaunchReply, MAX_PATH_TEXT, MaintainReport, MoveOutcome, MoveRefusal, PortalEvent, PortalPage,
-        PortalRequest, RuleState, RuntimeState, SettingChange, UseOutcome, UseRefusal,
+        EngineReportView, Launch, LaunchReply, MAX_PATH_TEXT, MaintainReport, MoveOutcome, MoveRefusal, PortalEvent,
+        PortalPage, PortalRequest, RuleState, RuntimeState, SettingChange, UseOutcome, UseRefusal,
     },
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService, WebOptions},
     service_endpoint,
@@ -1179,6 +1179,8 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
     }
     // The runtime state last offered to the Portal, so that only a change is sent (D-23).
     let mut last_runtime: Option<RuntimeState> = None;
+    // The engine report last offered to the Portal, so that only a change is sent; reset when a Portal registers or asks.
+    let mut last_engines: Option<EngineReportView> = None;
     let legacy_root = legacy_data_dir();
     let timers = event_loop.timers();
     // The memory report exists only while a Portal is connected (D-19): nothing runs until one registers.
@@ -1401,6 +1403,8 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                             PortalAdmission::Register => {
                                 // The Welcome carries this state, so it is what the Portal knows.
                                 last_runtime = Some(runtime);
+                                // The engine report follows the Welcome (announced at the end of this pass).
+                                last_engines = None;
                                 portal_spawned = None;
                                 tracing::info!(pid, "portal registered");
                             }
@@ -1496,6 +1500,12 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                         folder,
                                         outcome: done.outcome,
                                     });
+                                }
+                                PortalRequest::DetectEngines => {
+                                    // Look again: an engine installed or repaired meanwhile is used from the next start of
+                                    // a wallpaper (D-11); the answer is sent at the end of this pass.
+                                    fleet.engines = engines::detect(&engines::exe_dir(), platform.as_ref());
+                                    last_engines = None;
                                 }
                                 PortalRequest::MaintainLibrary => {
                                     match maintenance_decision(library_job, fleet.library_move.is_some()) {
@@ -1755,6 +1765,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
             }
             // Whatever the events changed (a Use, an exit, a first frame, a setting) reaches the Portal once.
             announce_runtime(&mut portals, &mut last_runtime, &host, &fleet, &supervisor, tray.is_some());
+            publish_engines(&mut portals, &mut last_engines, fleet.engine_view());
             Flow::Continue
         }
         LoopEvent::Quit => {
@@ -3407,6 +3418,16 @@ fn publish_runtime(portals: &mut PortalRegistry, last: &mut Option<RuntimeState>
     true
 }
 
+/// Sends the Portal the engine report when it differs from the last one sent (D-11, ENG-06). `true` when it was offered.
+fn publish_engines(portals: &mut PortalRegistry, last: &mut Option<EngineReportView>, view: EngineReportView) -> bool {
+    if last.as_ref() == Some(&view) {
+        return false;
+    }
+    portals.send(PortalEvent::Engines(view.clone()));
+    *last = Some(view);
+    true
+}
+
 /// Offers the Portal the current runtime state when it changed since the last offer.
 fn announce_runtime(
     portals: &mut PortalRegistry,
@@ -3420,6 +3441,11 @@ fn announce_runtime(
 }
 
 impl Fleet {
+    /// What the Portal is told about the engines: their states, the types that can play and the fallbacks that run.
+    fn engine_view(&self) -> EngineReportView {
+        self.engines.view(PLAYABLE, &self.fallbacks)
+    }
+
     /// Whether a wallpaper is still wanted: a theme is selected and at least one monitor's renderer runs, is about to
     /// start, or waits for the fullscreen rule to bring it back. A renderer that ended for good does not count.
     fn wallpaper_wanted(&self) -> bool {

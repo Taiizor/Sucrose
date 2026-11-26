@@ -10,15 +10,15 @@ use serde_json::json;
 use sucrose_core::{
     library::scan,
     paths::legacy_data_dir,
-    settings::ThemeMode,
+    settings::{EngineType, ThemeMode},
     theme::{WallpaperType, check_selected},
     version::app_version,
 };
 use sucrose_ipc::{
     connect,
     portal::{
-        Launch, LaunchReply, MaintainReport, MoveOutcome, MoveRefusal, PortalEvent, PortalPage, PortalRequest,
-        SettingChange, StartupInfo, StartupMode, UseOutcome, UseRefusal,
+        EngineReportView, EngineState, Launch, LaunchReply, MaintainReport, MoveOutcome, MoveRefusal, PortalEvent,
+        PortalPage, PortalRequest, SettingChange, StartupInfo, StartupMode, UseOutcome, UseRefusal,
     },
     protocol::ToService,
     service_endpoint_for,
@@ -45,6 +45,46 @@ fn welcome_carries_the_settings_view() {
     assert_eq!(runtime.selected, None);
     assert!(!runtime.running);
     assert!(!runtime.tray_visible);
+}
+
+/// Reads events until the engine report arrives, skipping the others (Memory and the like).
+fn wait_for_engines(portal: &PortalClient) -> EngineReportView {
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+    while std::time::Instant::now() < deadline {
+        match portal.next_event_any() {
+            Some(PortalEvent::Engines(report)) => return report,
+            Some(_) => {}
+            None => break,
+        }
+    }
+    panic!("no engine report arrived");
+}
+
+#[test]
+fn the_engine_report_follows_the_welcome_and_comes_again_on_request() {
+    if !service_runs("the_engine_report_follows_the_welcome_and_comes_again_on_request") {
+        return;
+    }
+    let service = TestService::start("engines", &json!({}));
+    let (mut portal, first) = PortalClient::hello(&service, None);
+    assert!(matches!(first, PortalEvent::Welcome { .. }), "{first:?}");
+
+    let report = wait_for_engines(&portal);
+
+    assert_eq!(report.engines.len(), 7, "{report:?}");
+    assert!(
+        report
+            .engines
+            .iter()
+            .any(|engine| engine.engine == EngineType::VlcPlayerLive
+                && engine.state == EngineState::Unsupported { architecture: false }),
+        "libVLC is not in this build: {report:?}"
+    );
+    assert!(report.fallbacks.is_empty(), "nothing plays, so no fallback: {report:?}");
+
+    portal.request(&PortalRequest::DetectEngines);
+
+    assert_eq!(wait_for_engines(&portal), report);
 }
 
 #[test]
