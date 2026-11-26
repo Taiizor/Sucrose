@@ -35,8 +35,10 @@ const USAGE: &str = "usage:
   cargo xtask measure --portal-row <real.json> <synth.json> [--warmup <s>] [--rounds <n>] [--idle <s>]
   cargo xtask measure --portal-row <real.json> <synth.json> --portal-logs <real.log> <synth.log> [--rounds <n>]
 
-  --side      rust: every sucrose.exe (service and --render renderers); csharp: Sucrose.Launcher,
-              Sucrose.Live.MpvPlayer and Sucrose.Backgroundog; portal: the sucrose-portal.exe process
+  --side      rust: every sucrose.exe (roles service, renderer for --render, cef for a CEF subprocess with
+              --type=); csharp: Sucrose.Launcher, Sucrose.Live.MpvPlayer, Sucrose.Live.CefSharp (cefsharp),
+              CefSharp.BrowserSubprocess (cefsharp-subprocess) and Sucrose.Backgroundog; portal: the
+              sucrose-portal.exe process
   --warmup    seconds to wait before sampling (default 60); with --portal-summary/--portal-row the
               warm-up window of the run (default 20)
   --duration  seconds to sample, once per second (default 300)
@@ -91,8 +93,13 @@ const GPU_SHARED_COUNTER: &str = r"\GPU Process Memory(*)\Shared Usage";
 const DWM_IMAGE: &str = "dwm.exe";
 /// Name used when a LUID is not in the platform adapter list.
 const UNKNOWN_ADAPTER: &str = "unknown adapter";
-/// C# roles that make up the "MpvPlayer + Backgroundog" subtotal (D-27).
-const CSHARP_SUBTOTAL_ROLES: [&str; 2] = ["mpv-player", "backgroundog"];
+/// C# roles that make up the subtotal (D-27): the wallpaper engine process(es) of the run plus Backgroundog. A video
+/// run has the MpvPlayer, a CEF Web run has Sucrose.Live.CefSharp and its CefSharp.BrowserSubprocess children.
+const CSHARP_SUBTOTAL_ROLES: [&str; 4] = ["mpv-player", "cefsharp", "cefsharp-subprocess", "backgroundog"];
+/// Rust roles of a CEF wallpaper that sit next to the service and the renderer (CEF subprocesses, `--type=`).
+const RUST_CEF_ROLE: &str = "cef";
+/// The two C# CefSharp roles.
+const CSHARP_CEF_ROLES: [&str; 2] = ["cefsharp", "cefsharp-subprocess"];
 
 /// Which application's processes are measured.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -371,12 +378,22 @@ pub fn classify(side: Side, name: &str, cmd: &[String]) -> Option<&'static str> 
     let stem = lower.strip_suffix(".exe").unwrap_or(&lower);
     match side {
         Side::Rust if stem == "sucrose" => {
+            // CEF starts its subprocesses (GPU, utility, renderer, ...) from the renderer's own image with `--type=`.
+            let cef_subprocess = cmd.iter().any(|a| a.starts_with("--type="));
             let renderer = cmd.iter().any(|a| a == "--render" || a.starts_with("--render="));
-            Some(if renderer { "renderer" } else { "service" })
+            Some(if cef_subprocess {
+                RUST_CEF_ROLE
+            } else if renderer {
+                "renderer"
+            } else {
+                "service"
+            })
         }
         Side::Csharp => match stem {
             "sucrose.launcher" => Some("launcher"),
             "sucrose.live.mpvplayer" => Some("mpv-player"),
+            "sucrose.live.cefsharp" => Some("cefsharp"),
+            "cefsharp.browsersubprocess" => Some("cefsharp-subprocess"),
             "sucrose.backgroundog" => Some("backgroundog"),
             _ => None,
         },
@@ -1001,8 +1018,9 @@ fn sample(args: &SampleArgs) -> Result<(), String> {
             .filter(|f| CSHARP_SUBTOTAL_ROLES.contains(&f.role))
             .map(|f| series[&f.pid].as_slice())
             .collect();
+        let present: Vec<&str> = found.iter().map(|f| f.role).collect();
         Subtotal {
-            label: "MpvPlayer + Backgroundog".to_owned(),
+            label: subtotal_label(&present),
             roles: CSHARP_SUBTOTAL_ROLES.iter().map(|r| (*r).to_owned()).collect(),
             metrics: metrics(&group),
         }
@@ -1160,23 +1178,82 @@ fn count_role(report: &Report, role: &str) -> usize {
     report.processes.iter().filter(|p| p.role == role).count()
 }
 
-/// The C# cell: the total of the measured processes and the MpvPlayer + Backgroundog subtotal (D-27).
+/// The C# subtotal label: the wallpaper engine process(es) present in the run plus Backgroundog (D-27).
+pub fn subtotal_label(present: &[&str]) -> String {
+    let mut parts = Vec::new();
+    if present.contains(&"mpv-player") {
+        parts.push("MpvPlayer");
+    }
+    if present.iter().any(|r| CSHARP_CEF_ROLES.contains(r)) {
+        parts.push("CefSharp");
+    }
+    if present.contains(&"backgroundog") {
+        parts.push("Backgroundog");
+    }
+    if parts.is_empty() {
+        "MpvPlayer + Backgroundog".to_owned()
+    } else {
+        parts.join(" + ")
+    }
+}
+
+/// Per-role totals of the roles present, as the sum of the processes' averages (RAM and CPU), so a CEF wallpaper's
+/// service, renderer and subprocess shares are visible next to the grand total.
+pub fn role_breakdown(report: &Report, roles: &[&str]) -> String {
+    roles
+        .iter()
+        .filter_map(|role| {
+            let of_role: Vec<&ProcessReport> = report.processes.iter().filter(|p| p.role == *role).collect();
+            if of_role.is_empty() {
+                return None;
+            }
+            let ram: f64 = of_role.iter().map(|p| p.metrics.ws_avg_mb).sum();
+            let cpu: f64 = of_role.iter().map(|p| p.metrics.cpu_avg_pct).sum();
+            Some(format!("{role} x{}: RAM {ram:.0} MB, CPU {cpu:.2}%", of_role.len()))
+        })
+        .collect::<Vec<_>>()
+        .join(", ")
+}
+
+/// The C# cell: the total of the measured processes and the engine + Backgroundog subtotal (D-27); a CefSharp run
+/// adds the per-role totals.
 pub fn csharp_cell(report: &Report) -> String {
     let mut cell = format!("{} processes: {}", report.processes.len(), cell_metrics(&report.total));
     if let Some(sub) = &report.subtotal {
         let _ = write!(cell, "; {}: {}", sub.label, cell_metrics(&sub.metrics));
     }
+    if CSHARP_CEF_ROLES.iter().any(|r| count_role(report, r) > 0) {
+        let _ = write!(
+            cell,
+            "; by role (sum of averages): {}",
+            role_breakdown(report, &["launcher", "cefsharp", "cefsharp-subprocess", "backgroundog"])
+        );
+    }
     cell
 }
 
-/// The Rust cell: the service plus every renderer.
+/// The Rust cell: the service plus every renderer, plus the CEF subprocesses of a CEF wallpaper with the per-role totals.
 pub fn rust_cell(report: &Report) -> String {
     let renderers = count_role(report, "renderer");
-    format!(
-        "service + {renderers} renderer{}: {}",
+    let cef = count_role(report, RUST_CEF_ROLE);
+    let mut cell = format!(
+        "service + {renderers} renderer{}{}: {}",
         if renderers == 1 { "" } else { "s" },
+        if cef == 0 {
+            String::new()
+        } else {
+            format!(" + {cef} cef process{}", if cef == 1 { "" } else { "es" })
+        },
         cell_metrics(&report.total)
-    )
+    );
+    if cef > 0 {
+        let _ = write!(
+            cell,
+            "; by role (sum of averages): {}",
+            role_breakdown(report, &["service", "renderer", RUST_CEF_ROLE])
+        );
+    }
+    cell
 }
 
 fn clean_cell(text: &str) -> String {
@@ -1217,11 +1294,37 @@ fn role_adapters<'a>(report: &'a Report, role: &str, who: &str) -> Result<Vec<&'
         .collect()
 }
 
+/// The adapters of the processes of the given roles that used a GPU. A CEF process tree has many processes and most
+/// of them (utility, network, renderer children) use none, so only the GPU users count; Err when none of them has one.
+fn any_role_adapters<'a>(report: &'a Report, roles: &[&str], who: &str) -> Result<Vec<&'a AdapterRef>, String> {
+    let adapters: Vec<&AdapterRef> = report
+        .processes
+        .iter()
+        .filter(|p| roles.contains(&p.role.as_str()))
+        .filter_map(|p| p.gpu_adapter.as_ref())
+        .collect();
+    if adapters.is_empty() {
+        return Err(format!(
+            "no {who} {} process has a GPU adapter, so its GPU adapter is unknown; the comparison is not valid, measure again",
+            roles.join("/")
+        ));
+    }
+    Ok(adapters)
+}
+
 /// The adapter both sides ran on: the C# MpvPlayer and every Rust renderer must share one LUID. Err names both adapters
 /// when they differ and when a result has no adapter, so a cross-GPU comparison can never be recorded (G-02-6).
 pub fn same_adapter(csharp: &Report, rust: &Report) -> Result<AdapterRef, String> {
-    let c = role_adapters(csharp, "mpv-player", "C#")?;
-    let r = role_adapters(rust, "renderer", "Rust")?;
+    let c = if CSHARP_CEF_ROLES.iter().any(|r| count_role(csharp, r) > 0) {
+        any_role_adapters(csharp, &CSHARP_CEF_ROLES, "C#")?
+    } else {
+        role_adapters(csharp, "mpv-player", "C#")?
+    };
+    let r = if count_role(rust, RUST_CEF_ROLE) > 0 {
+        any_role_adapters(rust, &["renderer", RUST_CEF_ROLE], "Rust")?
+    } else {
+        role_adapters(rust, "renderer", "Rust")?
+    };
     let first = c[0];
     if c.iter().chain(r.iter()).all(|a| a.luid == first.luid) {
         return Ok(first.clone());
@@ -2290,6 +2393,41 @@ mod tests {
     }
 
     #[test]
+    fn classify_sees_the_cef_process_tree_on_both_sides() {
+        let sub = strings(&["sucrose.exe", "--type=renderer", "--lang=en-US"]);
+        assert_eq!(classify(Side::Rust, "sucrose.exe", &sub), Some("cef"));
+        let gpu = strings(&["sucrose.exe", "--type=gpu-process"]);
+        assert_eq!(classify(Side::Rust, "Sucrose.exe", &gpu), Some("cef"));
+        // The renderer and the service keep their roles.
+        let render = strings(&["sucrose.exe", "--render", "0"]);
+        assert_eq!(classify(Side::Rust, "sucrose.exe", &render), Some("renderer"));
+        assert_eq!(classify(Side::Rust, "sucrose.exe", &[]), Some("service"));
+        assert_eq!(classify(Side::Portal, "sucrose.exe", &sub), None);
+        assert_eq!(
+            classify(Side::Csharp, "Sucrose.Live.CefSharp.exe", &[]),
+            Some("cefsharp")
+        );
+        assert_eq!(
+            classify(Side::Csharp, "CefSharp.BrowserSubprocess.exe", &[]),
+            Some("cefsharp-subprocess")
+        );
+        assert_eq!(classify(Side::Rust, "CefSharp.BrowserSubprocess.exe", &[]), None);
+    }
+
+    #[test]
+    fn subtotal_label_names_the_engine_processes_present() {
+        assert_eq!(
+            subtotal_label(&["launcher", "mpv-player", "backgroundog"]),
+            "MpvPlayer + Backgroundog"
+        );
+        assert_eq!(
+            subtotal_label(&["launcher", "cefsharp", "cefsharp-subprocess", "backgroundog"]),
+            "CefSharp + Backgroundog"
+        );
+        assert_eq!(subtotal_label(&["launcher"]), "MpvPlayer + Backgroundog");
+    }
+
+    #[test]
     fn metrics_sum_present_processes_per_tick() {
         let a = vec![point(100.0, 1.0, Some(10.0)), point(120.0, 3.0, Some(20.0))];
         let b = vec![point(50.0, 0.5, None), None];
@@ -2425,6 +2563,66 @@ mod tests {
         assert!(row.contains("; MpvPlayer + Backgroundog: RAM 100 MB"));
         assert!(row.contains("| service + 1 renderer: RAM 100 MB"));
         assert!(row.ends_with("| a b |"));
+    }
+
+    #[test]
+    fn row_prints_the_cef_totals_per_role_on_both_sides() {
+        let csharp = report(
+            "csharp",
+            &[
+                "launcher",
+                "cefsharp",
+                "cefsharp-subprocess",
+                "cefsharp-subprocess",
+                "backgroundog",
+            ],
+            true,
+        );
+        let rust = report("rust", &["service", "renderer", "cef", "cef", "cef"], false);
+        let row = format_row(&csharp, &rust, "s", "n");
+        assert!(row.contains("5 processes: RAM 100 MB"), "{row}");
+        assert!(
+            row.contains("by role (sum of averages): launcher x1: RAM 100 MB"),
+            "{row}"
+        );
+        assert!(row.contains("cefsharp x1: RAM 100 MB, CPU 1.00%"), "{row}");
+        assert!(row.contains("cefsharp-subprocess x2: RAM 200 MB, CPU 2.00%"), "{row}");
+        assert!(
+            row.contains("| service + 1 renderer + 3 cef processes: RAM 100 MB"),
+            "{row}"
+        );
+        assert!(
+            row.contains("service x1: RAM 100 MB, CPU 1.00%, renderer x1: RAM 100 MB, CPU 1.00%, cef x3: RAM 300 MB"),
+            "{row}"
+        );
+        // Without CEF processes the cells keep their earlier shape.
+        let plain = format_row(
+            &report("csharp", &["mpv-player"], true),
+            &report("rust", &["service", "renderer"], false),
+            "s",
+            "n",
+        );
+        assert!(!plain.contains("by role"), "{plain}");
+    }
+
+    #[test]
+    fn cef_pair_shares_an_adapter_when_the_gpu_users_agree() {
+        let nvidia = adapter("0x0_0xA", "NVIDIA GeForce RTX 3050 Laptop GPU");
+        let intel = adapter("0x0_0xB", "Intel(R) UHD Graphics");
+        let mut csharp = report(
+            "csharp",
+            &["launcher", "cefsharp", "cefsharp-subprocess", "cefsharp-subprocess"],
+            true,
+        );
+        csharp.processes[3].gpu_adapter = Some(nvidia.clone());
+        let mut rust = report("rust", &["service", "renderer", "cef", "cef"], false);
+        rust.processes[3].gpu_adapter = Some(nvidia.clone());
+        assert_eq!(same_adapter(&csharp, &rust), Ok(nvidia));
+        // A CEF GPU process on another adapter is refused; no GPU user at all is refused too.
+        rust.processes[2].gpu_adapter = Some(intel);
+        assert!(same_adapter(&csharp, &rust).is_err());
+        let none = report("rust", &["service", "renderer", "cef"], false);
+        assert!(same_adapter(&csharp, &none).is_err());
     }
 
     #[test]
