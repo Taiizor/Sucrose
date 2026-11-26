@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-15-PLAN.md
-last_updated: "2026-11-26T15:42:37.254Z"
+stopped_at: Completed 04-16-PLAN.md
+last_updated: "2026-11-26T16:13:56.428Z"
 last_activity: 2026-11-26
 last_activity_desc: Phase 04 execution started
-state_head: 84788f6419435d4dda531d8da386a75c1b3815ca
+state_head: 2f249af30abd0d1ceaf612142736a5e3847c5c7b
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 100
-  completed_plans: 94
+  completed_plans: 95
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 16 of 21
+Plan: 17 of 21
 Status: Ready to execute
 Last activity: 2026-11-26 — Phase 04 execution started
 Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
@@ -149,6 +149,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P13 | 29 min | 2 tasks | 21 files |
 | Phase 04 P14 | 25 min | 2 tasks | 11 files |
 | Phase 04 P15 | 21 min | 2 tasks | 14 files |
+| Phase 04 P16 | 27 min | 2 tasks | 18 files |
 
 ## Accumulated Context
 
@@ -296,6 +297,8 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-14: Loop and Shuffle Mode apply live through appended SetLoop/SetShuffle renderer messages and also update the job and shared assignments; Hardware Acceleration and interaction settings are read at the next wallpaper start
 - [Phase 04]: 04-15: the Warehouse snooze fields hold the quiet-until time (C# DateTime.Now.AddDays(1)); SnoozeFallback writes now plus 24 h as UTC with an offset and notify is false only while it is ahead
 - [Phase 04]: 04-15: the row alert names the running fallback, else the first installed engine the report offers for the type
+- [Phase 04]: Plan 04-16: a restart rebuilds the job from the saved settings and hands the engine and web options to every slot's assignment, so restarted renderers read the new certificate switch, switches and hardware acceleration
+- [Phase 04]: Plan 04-16: the service owns the CEF switch rules and storage; GetArguments answers an empty stored dictionary with the legacy defaults, so an empty list cannot be stored as no switches; limits 64 switches, 64-byte names, 512-byte values keep the answer inside one IPC frame
 
 ### Pending Todos
 
@@ -332,6 +335,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T15:42:14.499Z
-Stopped at: Completed 04-15-PLAN.md
+Last session: 2026-11-26T16:13:37.462Z
+Stopped at: Completed 04-16-PLAN.md
 Resume file: None
