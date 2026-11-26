@@ -169,7 +169,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 ### Security
 
 - [ ] **SEC-01**: TLS certificate validation stays on for every connection, with SSL2/SSL3 disabled (D-017)
-- [ ] **SEC-02**: Local file serving for web wallpapers rejects paths outside the theme folder (D-017)
+- [x] **SEC-02**: Local file serving for web wallpapers rejects paths outside the theme folder (D-017)
 
 ### Measurements
 
@@ -336,7 +336,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | FMT-07 | Phase 4 | Pending |
 | FMT-08 | Phase 2 | Complete |
 | SEC-01 | Phase 5 | Pending |
-| SEC-02 | Phase 4 | Pending |
+| SEC-02 | Phase 4 | Complete |
 | MEAS-01 | Phase 2 | Complete |
 | MEAS-02 | Phase 8 | Pending |
 | MAC-01 | Phase 6 | Pending |

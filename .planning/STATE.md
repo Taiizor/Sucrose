@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-05-PLAN.md
-last_updated: "2026-11-26T02:33:29.285Z"
+stopped_at: Completed 04-06-PLAN.md
+last_updated: "2026-11-26T03:00:32.774Z"
 last_activity: 2026-11-26
 last_activity_desc: Phase 04 execution resumed (wave continue)
-state_head: db798f2481b4064d94da03a28783609b40c5689f
+state_head: 9d04f185eeeb824479035c526369c9c20c6d8f2b
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 100
-  completed_plans: 84
+  completed_plans: 85
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 6 of 21
+Plan: 7 of 21
 Status: Ready to execute
 Last activity: 2026-11-26 — Phase 04 execution resumed (wave continue)
 Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
@@ -139,6 +139,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P02 | 21 min | 2 tasks | 14 files |
 | Phase 04 P04 | 10 min | 2 tasks | 9 files |
 | Phase 04 P05 | 19 min | 2 tasks | 17 files |
+| Phase 04 P06 | 24 min | 2 tasks | 18 files |
 
 ## Accumulated Context
 
@@ -264,6 +265,8 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-05: EngineClock and Engine carry what the renderer really calls (wait_event, start_failure, loop_gen, set_audio, name); the pause level travels in PlaybackSettings.pause
 - [Phase 04]: 04-05: the service offers CEF through its static availability report only for Web themes, so a video configured for CEF keeps mpv until generated pages exist
 - [Phase 04]: 04-05: CefEngine.load_source is Unsupported; a Use that involves a Web theme starts a new renderer
+- [Phase 04]: 04-06: Reject gains TooLong and BadUtf8 and ResolvedFile carries its root index; a link out of one root is Outside unless a later root serves the name from inside itself
+- [Phase 04]: 04-06: the CEF scheme handler is registered in CefHost::start between initialize and browser creation, so the first navigation already goes through the virtual origin
 
 ### Pending Todos
 
@@ -300,6 +303,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T02:33:11.351Z
-Stopped at: Completed 04-05-PLAN.md
+Last session: 2026-11-26T03:00:13.366Z
+Stopped at: Completed 04-06-PLAN.md
 Resume file: None
