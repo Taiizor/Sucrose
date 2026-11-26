@@ -447,6 +447,7 @@ mod tests {
             engines: Vec::new(),
             supported: vec![WallpaperType::Video, WallpaperType::Web],
             playable: vec![WallpaperType::Video, WallpaperType::Web],
+            offered: Vec::new(),
             fallbacks: Vec::new(),
         }
     }

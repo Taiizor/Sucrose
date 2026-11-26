@@ -218,6 +218,15 @@ pub struct FallbackView {
     pub playing: EngineType,
 }
 
+/// The engines the Portal offers for one wallpaper type: the ones whose slice is part of this build, installed or not.
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
+pub struct OfferedView {
+    /// The wallpaper type.
+    pub kind: WallpaperType,
+    /// The engines that can play it in this build, in the order of the service's list.
+    pub engines: Vec<EngineType>,
+}
+
 /// What the service detected about the engines (ENG-06, ENG-07): sent after the Welcome, on request and when a
 /// fallback starts or ends.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
@@ -228,6 +237,8 @@ pub struct EngineReportView {
     pub supported: Vec<WallpaperType>,
     /// The wallpaper types some available engine can play now (a subset of `supported`).
     pub playable: Vec<WallpaperType>,
+    /// Per supported type, the engines the settings may offer (D-26): the Portal never decides which engines exist.
+    pub offered: Vec<OfferedView>,
     /// The fallbacks that run now.
     pub fallbacks: Vec<FallbackView>,
 }
@@ -574,6 +585,10 @@ mod tests {
             }],
             supported: vec![WallpaperType::Video, WallpaperType::Web],
             playable: vec![WallpaperType::Video],
+            offered: vec![OfferedView {
+                kind: WallpaperType::Video,
+                engines: vec![EngineType::MpvPlayerLive],
+            }],
             fallbacks: vec![FallbackView {
                 kind: WallpaperType::Web,
                 configured: EngineType::WebViewLive,

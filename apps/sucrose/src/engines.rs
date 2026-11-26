@@ -13,7 +13,7 @@ use sucrose_core::{settings::EngineType, theme::WallpaperType};
 use sucrose_engine::{
     Availability, EngineId, Hint, Unsupported, VC_REDIST_MIN, choose_engine, fallback_order, version_at_least,
 };
-use sucrose_ipc::portal::{EngineReportView, EngineState, EngineStateView, FallbackView, HintView};
+use sucrose_ipc::portal::{EngineReportView, EngineState, EngineStateView, FallbackView, HintView, OfferedView};
 use sucrose_platform::{Arch, Platform, VcRedist};
 
 /// Every engine the report covers, in the order the Portal lists them.
@@ -106,6 +106,7 @@ impl EngineReport {
                 })
                 .collect(),
             supported: kinds.to_vec(),
+            offered: Vec::new(),
             playable: kinds
                 .iter()
                 .copied()
@@ -580,6 +581,36 @@ mod tests {
                 configured: EngineType::WebViewLive,
                 playing: EngineType::CefSharpLive
             }]
+        );
+    }
+
+    #[test]
+    fn the_view_offers_each_type_the_engines_whose_slice_landed_for_it_installed_or_not() {
+        let report = EngineReport::from_fn(|engine| match engine {
+            EngineId::Mpv => Availability::Installed { version: None },
+            EngineId::Cef => Availability::Missing {
+                hint: Hint::FilesMissing,
+            },
+            _ => Availability::Unsupported {
+                why: Unsupported::NotInThisBuild,
+            },
+        });
+
+        let view = report.view(&[WallpaperType::Video, WallpaperType::Web], &Fallbacks::default());
+
+        assert_eq!(
+            view.offered,
+            [
+                OfferedView {
+                    kind: WallpaperType::Video,
+                    engines: vec![EngineType::MpvPlayerLive],
+                },
+                OfferedView {
+                    kind: WallpaperType::Web,
+                    engines: vec![EngineType::CefSharpLive],
+                },
+            ],
+            "CEF plays no video yet, so Video does not offer it; WebView2 is not in this build"
         );
     }
 
