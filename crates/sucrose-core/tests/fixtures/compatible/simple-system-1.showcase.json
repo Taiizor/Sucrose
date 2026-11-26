@@ -1,0 +1,6 @@
+{
+  "SystemMemory": "SucroseMemoryData({0});",
+  "SystemGraphic": "SucroseGraphicData({0});",
+  "SystemNetwork": "SucroseNetworkData({0});",
+  "SystemProcessor": "SucroseProcessorData({0});"
+}

@@ -1,0 +1,8 @@
+{
+  "StretchMode": "S('{0}');",
+  "Custom": {
+    "a": 1
+  },
+  "SystemDate": "D({0});",
+  "loopmode": "L('{0}');"
+}

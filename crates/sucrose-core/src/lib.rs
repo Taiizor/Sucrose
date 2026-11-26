@@ -2,6 +2,8 @@
 //!
 //! This crate must not contain OS-specific code (see `docs/ARCHITECTURE.md`).
 
+/// Live-data templates of themes (`SucroseCompatible.json`).
+pub mod compatible;
 pub mod library;
 pub mod paths;
 /// Property lists of themes (`SucroseProperties.json`).
