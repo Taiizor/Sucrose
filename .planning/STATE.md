@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-14-PLAN.md
-last_updated: "2026-11-26T06:59:32.679Z"
+stopped_at: Completed 04-15-PLAN.md
+last_updated: "2026-11-26T15:42:37.254Z"
 last_activity: 2026-11-26
-last_activity_desc: Phase 04 execution resumed (wave continue)
-state_head: 3ee004108c4d8300f14e1bfb8a70c9c953929cd5
+last_activity_desc: Phase 04 execution started
+state_head: 84788f6419435d4dda531d8da386a75c1b3815ca
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 100
-  completed_plans: 93
+  completed_plans: 94
   percent: 38
 ---
 
@@ -28,9 +28,9 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 15 of 21
+Plan: 16 of 21
 Status: Ready to execute
-Last activity: 2026-11-26 — Phase 04 execution resumed (wave continue)
+Last activity: 2026-11-26 — Phase 04 execution started
 Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
 
 Progress: [████░░░░░░] 38%
@@ -148,6 +148,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P12 | 27 min | 3 tasks | 14 files |
 | Phase 04 P13 | 29 min | 2 tasks | 21 files |
 | Phase 04 P14 | 25 min | 2 tasks | 11 files |
+| Phase 04 P15 | 21 min | 2 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -293,6 +294,8 @@ Recent decisions affecting current work:
 - [Phase 04]: A Portal card waits for the engine report: with none it is Disabled(Unavailable) (04-13)
 - [Phase 04]: A saved engine that cannot be used now leaves the running wallpaper as it is; the setting is kept (D-11, 04-13)
 - [Phase 04]: 04-14: Loop and Shuffle Mode apply live through appended SetLoop/SetShuffle renderer messages and also update the job and shared assignments; Hardware Acceleration and interaction settings are read at the next wallpaper start
+- [Phase 04]: 04-15: the Warehouse snooze fields hold the quiet-until time (C# DateTime.Now.AddDays(1)); SnoozeFallback writes now plus 24 h as UTC with an offset and notify is false only while it is ahead
+- [Phase 04]: 04-15: the row alert names the running fallback, else the first installed engine the report offers for the type
 
 ### Pending Todos
 
@@ -329,6 +332,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T06:59:12.188Z
-Stopped at: Completed 04-14-PLAN.md
+Last session: 2026-11-26T15:42:14.499Z
+Stopped at: Completed 04-15-PLAN.md
 Resume file: None
