@@ -328,7 +328,8 @@ None yet.
 - [Phase 7]: Linux package formats are decided in Phase 7
 - [All phases]: Measure RAM/CPU of user-visible changes in release builds; record notable numbers in `docs/MEASUREMENTS.md`
 - CEF GPU process crashes 3 times at the start of a Web wallpaper on the maintainer machine (software fallback renders); look at it at the 04-20 checkpoint
-- [Phase 4]: 04-20 maintainer run: the Windows "Shut Down Windows" dialog opens after every theme switch (all 12 CEF browser closes time out after 5 s; hypothesis, not verified: WM_CLOSE reaches Progman through the browser root window). One click on OK shuts the PC down; needs /gsd-debug and gap closure. Also web themes (e.g. Test Sucrose API) fail inside the page with a CORS-like error although every page loads with status 200.
+- [Phase 4]: RESOLVED 2026-11-26 (/gsd-debug, `.planning/debug/resolved/cef-close-shutdown-dialog.md`): the Windows "Shut Down Windows" dialog after every CEF theme switch (04-20 run). Cause: our CEF life span handler kept the default DoClose, so CEF posted WM_CLOSE to the browser's top-level ancestor, which under the desktop surface is Progman; the close then timed out after 5 s and the renderer crashed in cef::shutdown (0xffff7003). Fix: DoClose answers 1 for the wallpaper browser and the renderer destroys the browser window itself. Maintainer run 2026-11-26: no dialog, 14 of 14 CEF closes in 4-28 ms, every CEF renderer exit code 0. The 04-20 slice-1 check still needs its gap-closure re-run.
+- [Phase 4]: 04-20 maintainer run: web themes (e.g. Test Sucrose API) fail inside the page with a CORS-like error although every page loads with status 200; not triaged yet.
 
 ### Quick Tasks Completed
 

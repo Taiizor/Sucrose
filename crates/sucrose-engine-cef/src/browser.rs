@@ -8,6 +8,7 @@
 use std::{
     path::{Path, PathBuf},
     sync::{Arc, Mutex, PoisonError},
+    time::Duration,
 };
 
 use sucrose_engine_web::{
@@ -152,6 +153,52 @@ pub fn next_pump_delay_ms(requested: Option<i64>) -> u32 {
     }
 }
 
+/// How long [`CefHost::close`] pumps for the browser to go away before it gives up and shuts CEF down anyway.
+pub const CLOSE_TIMEOUT: Duration = Duration::from_secs(5);
+
+/// How long [`CefHost::close`] waits for CEF to be ready to close the browser (`DoClose`) before it destroys the
+/// browser window anyway: a page whose unload handlers hang must not keep the window alive until CEF shuts down.
+pub const FORCED_TEAR_DOWN_AFTER: Duration = Duration::from_secs(3);
+
+/// What one turn of the close loop of [`CefHost::close`] does.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum CloseStep {
+    /// `OnBeforeClose` came: the browser is gone and CEF can shut down.
+    Done,
+    /// Destroy the browser window, which completes the close: CEF is ready (`DoClose` came) or never got ready in
+    /// time.
+    TearDown,
+    /// Pump CEF and look again.
+    Pump,
+    /// The time is up: CEF shuts down with the browser still open.
+    GiveUp,
+}
+
+/// The next step of the close loop, given whether the browser is closed, whether CEF is ready to close it, whether its
+/// window was already destroyed and how long the close has taken.
+#[must_use]
+pub fn close_step(closed: bool, ready: bool, torn_down: bool, elapsed: Duration) -> CloseStep {
+    if closed {
+        CloseStep::Done
+    } else if elapsed >= CLOSE_TIMEOUT {
+        CloseStep::GiveUp
+    } else if !torn_down && (ready || elapsed >= FORCED_TEAR_DOWN_AFTER) {
+        CloseStep::TearDown
+    } else {
+        CloseStep::Pump
+    }
+}
+
+/// What the life span handler answers to CEF's `DoClose` for a browser. For a windowed browser CEF's default (0) posts
+/// `WM_CLOSE` to the browser's top-level ancestor; the wallpaper browser is a child of the desktop surface, so that
+/// ancestor is the shell's Progman (or its `WorkerW`), and `WM_CLOSE` to Progman opens the Shut Down Windows dialog.
+/// So the wallpaper browser answers 1 and Sucrose completes the close itself by destroying the browser window. A popup
+/// a page opened (`window.open`) is a top-level window of its own and keeps CEF's default, which closes that popup.
+#[must_use]
+pub fn do_close_answer(popup: bool) -> i32 {
+    i32::from(!popup)
+}
+
 /// The command id of the context menu's Inspect item: the first id CEF leaves to applications (`MENU_ID_USER_FIRST`).
 pub const INSPECT_COMMAND_ID: i32 = 26500;
 
@@ -252,27 +299,32 @@ mod imp {
     use windows::Win32::{
         Foundation::{HWND, LPARAM, WPARAM},
         System::LibraryLoader::LoadLibraryW,
-        UI::WindowsAndMessaging::{FindWindowExW, PostMessageW, SWP_NOACTIVATE, SWP_NOZORDER, SetWindowPos},
+        UI::WindowsAndMessaging::{
+            DestroyWindow, FindWindowExW, PostMessageW, SWP_NOACTIVATE, SWP_NOZORDER, SetWindowPos,
+        },
     };
     use windows::core::{PCWSTR, w};
 
     use sucrose_engine_web::args::{Switch, plan_cef_command_line};
 
     use super::{
-        CefError, CefStart, IGNORE_CERTIFICATE_ERRORS_SWITCH, INSPECT_COMMAND_ID, KeyAction, LoadedCallback,
-        PageCallsCallback, ProfileLease, Pump, browser_size, key_action, next_pump_delay_ms, settings_values,
+        CefError, CefStart, CloseStep, IGNORE_CERTIFICATE_ERRORS_SWITCH, INSPECT_COMMAND_ID, KeyAction, LoadedCallback,
+        PageCallsCallback, ProfileLease, Pump, browser_size, close_step, do_close_answer, key_action,
+        next_pump_delay_ms, settings_values,
     };
 
     /// `EVENTFLAG_SHIFT_DOWN` and `EVENTFLAG_CONTROL_DOWN` of a CEF key event's modifiers.
     const SHIFT_DOWN: u32 = 1 << 1;
     const CONTROL_DOWN: u32 = 1 << 2;
 
-    /// How long `close` pumps for the browser to go away before it gives up and shuts CEF down anyway.
-    const CLOSE_TIMEOUT: Duration = Duration::from_secs(5);
-
     /// What the handlers share with the host.
     struct Shared {
+        /// `OnBeforeClose` came for the wallpaper browser.
         closed: AtomicBool,
+        /// `close` has started: a `DoClose` now answers Sucrose's own `CloseBrowser`.
+        closing: AtomicBool,
+        /// `DoClose` came while closing: CEF waits for Sucrose to destroy the browser window.
+        ready_to_close: AtomicBool,
         on_loaded: LoadedCallback,
         page_calls: PageCallsCallback,
     }
@@ -338,7 +390,27 @@ mod imp {
         }
 
         impl LifeSpanHandler {
-            fn on_before_close(&self, _browser: Option<&mut Browser>) {
+            // CEF's default answer would post WM_CLOSE to the browser's top-level ancestor, which for the wallpaper
+            // browser is the shell's Progman: the Shut Down Windows dialog (see `do_close_answer`). The wallpaper
+            // browser answers 1, so nothing reaches the shell; `CefHost::close` then destroys the browser window, and
+            // a window.close() from the page is ignored: a wallpaper is not a browser tab, it stays open.
+            fn do_close(&self, browser: Option<&mut Browser>) -> ::std::os::raw::c_int {
+                let popup = browser.is_some_and(|browser| browser.is_popup() == 1);
+                if !popup {
+                    if self.shared.closing.load(Ordering::SeqCst) {
+                        self.shared.ready_to_close.store(true, Ordering::SeqCst);
+                    } else {
+                        tracing::warn!("the page asked to close its window, the wallpaper stays open");
+                    }
+                }
+                do_close_answer(popup)
+            }
+
+            // A popup the page opened ends on its own; only the end of the wallpaper browser counts.
+            fn on_before_close(&self, browser: Option<&mut Browser>) {
+                if browser.is_some_and(|browser| browser.is_popup() == 1) {
+                    return;
+                }
                 self.shared.closed.store(true, Ordering::SeqCst);
             }
         }
@@ -403,6 +475,19 @@ mod imp {
             ) -> ::std::os::raw::c_int {
                 0
             }
+        }
+    }
+
+    /// Destroys the browser's own window, a child of the desktop surface. With `DoClose` answered 1 this is what
+    /// completes the close: CEF sees the window go, destroys the browser and calls `OnBeforeClose`.
+    fn tear_down(browser: &Browser) {
+        let Some(host) = browser.host() else { return };
+        let window = HWND(host.window_handle().0.cast());
+        // SAFETY: the window is this browser's own window, which CEF created on this thread (the thread that runs CEF
+        // with the external message pump), so DestroyWindow may destroy it here; it validates the handle and fails for
+        // a window that is gone, which only means the close already happened.
+        if let Err(error) = unsafe { DestroyWindow(window) } {
+            tracing::debug!(%error, "the browser window is already gone");
         }
     }
 
@@ -588,6 +673,8 @@ mod imp {
             });
             let shared = Arc::new(Shared {
                 closed: AtomicBool::new(false),
+                closing: AtomicBool::new(false),
+                ready_to_close: AtomicBool::new(false),
                 on_loaded: Arc::clone(&start.on_loaded),
                 page_calls: Arc::clone(&start.page_calls),
             });
@@ -822,6 +909,10 @@ mod imp {
         }
 
         /// Closes the browser, pumps until it is gone and shuts CEF down. Call it before the surface is dropped.
+        ///
+        /// CEF never gets to send its own close message (see `do_close_answer`): once it is ready (`DoClose`), or
+        /// after [`super::FORCED_TEAR_DOWN_AFTER`] without that, the browser window is destroyed here, and CEF ends
+        /// the browser with `OnBeforeClose`.
         pub fn close(self) {
             let Self {
                 browser,
@@ -829,22 +920,93 @@ mod imp {
                 profile,
                 ..
             } = self;
+            // Before CloseBrowser: CEF may ask DoClose from inside it.
+            shared.closing.store(true, Ordering::SeqCst);
             if let Some(host) = browser.host() {
                 host.close_browser(1);
             }
-            let deadline = Instant::now() + CLOSE_TIMEOUT;
-            while !shared.closed.load(Ordering::SeqCst) && Instant::now() < deadline {
-                cef::do_message_loop_work();
-                thread::sleep(Duration::from_millis(10));
-            }
-            if !shared.closed.load(Ordering::SeqCst) {
-                tracing::warn!("the CEF browser did not close in time, CEF shuts down anyway");
+            let started = Instant::now();
+            let mut torn_down = false;
+            loop {
+                let ready = shared.ready_to_close.load(Ordering::SeqCst);
+                match close_step(
+                    shared.closed.load(Ordering::SeqCst),
+                    ready,
+                    torn_down,
+                    started.elapsed(),
+                ) {
+                    CloseStep::Done => {
+                        tracing::info!(elapsed_ms = started.elapsed().as_millis(), "the CEF browser closed");
+                        break;
+                    }
+                    CloseStep::GiveUp => {
+                        tracing::warn!("the CEF browser did not close in time, CEF shuts down anyway");
+                        break;
+                    }
+                    CloseStep::TearDown => {
+                        if !ready {
+                            tracing::warn!("CEF was not ready to close the browser in time, its window is destroyed");
+                        }
+                        tear_down(&browser);
+                        torn_down = true;
+                    }
+                    CloseStep::Pump => {
+                        cef::do_message_loop_work();
+                        thread::sleep(Duration::from_millis(10));
+                    }
+                }
             }
             // Every CEF reference goes before shutdown.
             drop(browser);
             cef::shutdown();
             // The profile folder is free for the next instance only once CEF no longer writes to it.
             drop(profile);
+        }
+    }
+
+    #[cfg(test)]
+    mod tests {
+        use super::*;
+
+        fn shared() -> Arc<Shared> {
+            Arc::new(Shared {
+                closed: AtomicBool::new(false),
+                closing: AtomicBool::new(false),
+                ready_to_close: AtomicBool::new(false),
+                on_loaded: Arc::new(|_, _| {}),
+                page_calls: Arc::new(|_, _| Vec::new()),
+            })
+        }
+
+        // Called through the handler's C function table, as CEF calls it; no CEF code runs.
+        #[test]
+        fn the_life_span_handler_never_lets_cef_close_the_desktop_window() {
+            let shared = shared();
+            let handler = SpanHandler::new(Arc::clone(&shared));
+
+            assert_eq!(
+                handler.do_close(None),
+                1,
+                "a window.close() from the page sends nothing to the shell"
+            );
+            assert!(
+                !shared.ready_to_close.load(Ordering::SeqCst),
+                "and the wallpaper stays open"
+            );
+
+            shared.closing.store(true, Ordering::SeqCst);
+            assert_eq!(
+                handler.do_close(None),
+                1,
+                "Sucrose's own close sends nothing to the shell either"
+            );
+            assert!(
+                shared.ready_to_close.load(Ordering::SeqCst),
+                "the close loop may destroy the browser window now"
+            );
+
+            handler.on_before_close(None);
+            assert!(shared.closed.load(Ordering::SeqCst));
         }
     }
 }
@@ -995,6 +1157,59 @@ mod tests {
             KeyAction::Pass,
             "a plain F reaches the page"
         );
+    }
+
+    #[test]
+    fn the_wallpaper_browser_never_lets_cef_send_its_close_message() {
+        assert_eq!(
+            do_close_answer(false),
+            1,
+            "CEF's default would post WM_CLOSE to Progman (Shut Down Windows)"
+        );
+        assert_eq!(
+            do_close_answer(true),
+            0,
+            "a popup of the page is a top-level window of its own and closes the standard way"
+        );
+    }
+
+    #[test]
+    fn the_close_destroys_the_browser_window_once_cef_is_ready() {
+        let soon = Duration::from_millis(20);
+        assert_eq!(close_step(false, true, false, soon), CloseStep::TearDown);
+        assert_eq!(
+            close_step(false, true, true, soon),
+            CloseStep::Pump,
+            "the window goes once"
+        );
+        assert_eq!(
+            close_step(false, false, false, soon),
+            CloseStep::Pump,
+            "CEF is not ready yet"
+        );
+        assert_eq!(close_step(true, true, true, soon), CloseStep::Done);
+        assert_eq!(
+            close_step(true, false, false, Duration::ZERO),
+            CloseStep::Done,
+            "a browser already gone needs nothing"
+        );
+    }
+
+    #[test]
+    fn the_close_destroys_the_window_anyway_when_cef_never_gets_ready_and_gives_up_at_the_timeout() {
+        let just_before = FORCED_TEAR_DOWN_AFTER - Duration::from_millis(1);
+        assert_eq!(close_step(false, false, false, just_before), CloseStep::Pump);
+        assert_eq!(
+            close_step(false, false, false, FORCED_TEAR_DOWN_AFTER),
+            CloseStep::TearDown
+        );
+        assert_eq!(
+            close_step(false, false, true, CLOSE_TIMEOUT - Duration::from_millis(1)),
+            CloseStep::Pump
+        );
+        assert_eq!(close_step(false, false, true, CLOSE_TIMEOUT), CloseStep::GiveUp);
+        assert_eq!(close_step(false, true, false, CLOSE_TIMEOUT), CloseStep::GiveUp);
+        assert_eq!(close_step(true, false, true, CLOSE_TIMEOUT), CloseStep::Done);
     }
 
     #[test]
