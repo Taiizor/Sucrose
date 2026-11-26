@@ -34,6 +34,14 @@ pub fn cache_dir() -> Option<PathBuf> {
     data_dir().map(|dir| dir.join("Cache"))
 }
 
+/// Folder for the persistent web data of the web engines (`Web/Cef`, later `Web/WebView2`; D-35).
+///
+/// It sits beside [`cache_dir`], not inside it, so cleaning the cache never deletes a wallpaper's localStorage. The C#
+/// app's `Cache/CefSharp` and `Cache/WebView2` folders are never read.
+pub fn web_dir() -> Option<PathBuf> {
+    data_dir().map(|dir| dir.join("Web"))
+}
+
 /// Folder with the themes shipped for first use; each is copied into the library once (D-10).
 pub fn showcase_dir() -> Option<PathBuf> {
     data_dir().map(|dir| dir.join("Showcase"))
@@ -75,6 +83,11 @@ mod tests {
         assert_eq!(setting_dir().unwrap(), root.join("Setting"));
         assert_eq!(cache_dir().unwrap(), root.join("Cache"));
         assert_eq!(showcase_dir().unwrap(), root.join("Showcase"));
+        assert_eq!(web_dir().unwrap(), root.join("Web"));
+        assert!(
+            !web_dir().unwrap().starts_with(cache_dir().unwrap()),
+            "web data lives outside Cache (D-35)"
+        );
         assert_eq!(properties_cache_dir().unwrap(), root.join("Cache").join("Properties"));
     }
 
