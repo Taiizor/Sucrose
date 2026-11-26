@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-16-PLAN.md
-last_updated: "2026-11-26T16:13:56.428Z"
+stopped_at: Completed 04-17-PLAN.md
+last_updated: "2026-11-26T16:36:12.639Z"
 last_activity: 2026-11-26
 last_activity_desc: Phase 04 execution started
-state_head: 2f249af30abd0d1ceaf612142736a5e3847c5c7b
+state_head: a199962b41d6f29ab362124e68755b11cabe9e89
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 100
-  completed_plans: 95
+  completed_plans: 96
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 17 of 21
+Plan: 18 of 21
 Status: Ready to execute
 Last activity: 2026-11-26 — Phase 04 execution started
 Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
@@ -150,6 +150,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P14 | 25 min | 2 tasks | 11 files |
 | Phase 04 P15 | 21 min | 2 tasks | 14 files |
 | Phase 04 P16 | 27 min | 2 tasks | 18 files |
+| Phase 04 P17 | 17 min | 2 tasks | 20 files |
 
 ## Accumulated Context
 
@@ -299,6 +300,8 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-15: the row alert names the running fallback, else the first installed engine the report offers for the type
 - [Phase 04]: Plan 04-16: a restart rebuilds the job from the saved settings and hands the engine and web options to every slot's assignment, so restarted renderers read the new certificate switch, switches and hardware acceleration
 - [Phase 04]: Plan 04-16: the service owns the CEF switch rules and storage; GetArguments answers an empty stored dictionary with the legacy defaults, so an empty list cannot be stored as no switches; limits 64 switches, 64-byte names, 512-byte values keep the answer inside one IPC frame
+- [Phase 04]: 04-17: the renderer confirms Open DevTools with an appended ToService::DevToolsOpened(bool); the service answers the Portal on it or after 5 s as failed
+- [Phase 04]: 04-17: the Portal enables Open DevTools by web engine; the service refuses wallpapers that are not Web, Url or YouTube (a Video on a web engine ends in the error toast)
 
 ### Pending Todos
 
@@ -335,6 +338,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T16:13:37.462Z
-Stopped at: Completed 04-16-PLAN.md
+Last session: 2026-11-26T16:35:50.080Z
+Stopped at: Completed 04-17-PLAN.md
 Resume file: None
