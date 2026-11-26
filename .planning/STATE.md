@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-03-PLAN.md
-last_updated: "2026-11-26T01:25:34.058Z"
+stopped_at: Completed 04-02-PLAN.md
+last_updated: "2026-11-26T01:53:39.813Z"
 last_activity: 2026-11-26
 last_activity_desc: Phase 04 execution resumed (wave continue)
-state_head: f58be6cc2fabf3830b6f56053fa7cd112c54facc
+state_head: b155688904b369266b305577904c5b92969172b4
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 100
-  completed_plans: 81
+  completed_plans: 82
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 3 of 21
+Plan: 4 of 21
 Status: Ready to execute
 Last activity: 2026-11-26 — Phase 04 execution resumed (wave continue)
 Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
@@ -136,6 +136,7 @@ Progress: [████░░░░░░] 38%
 | Phase 03 P50 | 10 min | 1 tasks | 0 files |
 | Phase 04 P01 | 32 min | 3 tasks | 18 files |
 | Phase 04 P03 | 11 min | 2 tasks | 43 files |
+| Phase 04 P02 | 21 min | 2 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -255,6 +256,8 @@ Recent decisions affecting current work:
 - [Phase 04]: CEF on Windows x86 is left out of the cef cfg: the i686 Rust target was not installed, so it could not be built (A3); 04-12 reports CEF unsupported on x86
 - [Phase 04]: 04-03: ordered JSON objects are read through a map visitor into Vec pairs; unknown control types keep their raw object, unknown keys survive a write
 - [Phase 04]: 04-03: dropdown valuetext is computed from items and value as in the legacy model; Control::to_json_value gives the legacy page form (empty text, null help)
+- [Phase 04]: D-036: CEF is built against the pinned dist and delay-loaded; CEF subprocesses are sucrose.exe, no sucrose-cef.exe fallback
+- [Phase 04]: A CEF renderer answers LoadSource by navigating its browser; Use between a Video and a Web theme restarts the renderers (UseDecision::Restart)
 
 ### Pending Todos
 
@@ -264,7 +267,7 @@ None yet.
 
 - [Phase 2]: G-02-7 is an accepted limitation (D-031), not a fix: 02-UAT.md keeps it failed; the cause of the one ~90 s UAT episode is not established
 - [Phase 2]: 7 info-level review findings stay open (IN-19 … IN-23, IN-26, IN-27 in 02-REVIEW-DISPOSITION.md)
-- [Phase 3]: 16 info-level review findings stay open (03-REVIEW-DISPOSITION.md); none touches a success criterion
+- [Phase 3]: 16 info-level review findings stay open (03-REVIEW-DISPOSITION.md); touches a success criterion
 - [Phase 3]: the Portal logs six "invalid window handle" ERROR lines (0x80070578 / 0x80040102) when its window closes (first seen in 03-37); not triaged, measurements unaffected
 - [Phase 5]: DESK-10 (lock screen) needs a `docs/DECISIONS.md` entry on the mechanism before it is built (D-026)
 - [Phase 5]: STOR-01 and FMT-05 depend on D-022 (deferred); use the existing v8 endpoints until the API rewrite
@@ -272,6 +275,7 @@ None yet.
 - [Phase 6]: No Apple Developer ID yet (D-025); macOS packages stay unsigned, manual tests need a real Mac
 - [Phase 7]: Linux package formats are decided in Phase 7
 - [All phases]: Measure RAM/CPU of user-visible changes in release builds; record notable numbers in `docs/MEASUREMENTS.md`
+- CEF GPU process crashes 3 times at the start of a Web wallpaper on the maintainer machine (software fallback renders); look at it at the 04-20 checkpoint
 
 ### Quick Tasks Completed
 
@@ -290,6 +294,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T01:25:17.309Z
-Stopped at: Completed 04-03-PLAN.md
+Last session: 2026-11-26T01:53:20.619Z
+Stopped at: Completed 04-02-PLAN.md
 Resume file: None
