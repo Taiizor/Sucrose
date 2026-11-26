@@ -44,15 +44,21 @@ pub type Deliver = Arc<dyn Fn(u8, Vec<(DataGroup, String)>) -> Delivery + Send +
 pub type Release = Arc<dyn Fn(DataGroup) + Send + Sync>;
 
 /// How many ticks pass between two readings of `group`: the legacy rates (Date every tick, the performance groups once
-/// a second, the battery every two seconds). Bios and Motherboard are read once and cached by their providers, so they
-/// are asked for once a minute at most.
+/// a second, the battery every two seconds). Bios and Motherboard are read from WMI once and kept by the sampler, so
+/// asking for them every second costs a copy of a cached text; asking less often would make a page that starts later
+/// wait for them.
 #[must_use]
 pub fn every_ticks(group: DataGroup) -> u64 {
     match group {
         DataGroup::Date | DataGroup::Audio => 1,
-        DataGroup::Memory | DataGroup::Processor | DataGroup::Graphic | DataGroup::Network | DataGroup::Storage => 10,
+        DataGroup::Memory
+        | DataGroup::Processor
+        | DataGroup::Graphic
+        | DataGroup::Network
+        | DataGroup::Storage
+        | DataGroup::Bios
+        | DataGroup::Motherboard => 10,
         DataGroup::Battery => 20,
-        DataGroup::Bios | DataGroup::Motherboard => 600,
     }
 }
 
@@ -312,9 +318,11 @@ impl<T> Held<T> {
 }
 
 /// What the system sampler keeps between readings: the processor counters (open while a page wants the Processor group),
-/// and which groups already logged a failure.
+/// the BIOS and motherboard texts (read once from WMI) and which groups already logged a failure.
 struct SystemState {
     processor: Held<ProcessorSampler>,
+    bios: Held<Value>,
+    motherboard: Held<Value>,
     logged: HashSet<DataGroup>,
 }
 
@@ -322,6 +330,8 @@ impl SystemState {
     fn new() -> Self {
         Self {
             processor: Held::Empty,
+            bios: Held::Empty,
+            motherboard: Held::Empty,
             logged: HashSet::new(),
         }
     }
@@ -344,6 +354,28 @@ impl SystemState {
                 Some(sucrose_sysinfo::memory_unavailable()),
             ),
             DataGroup::Processor => self.processor(),
+            DataGroup::Bios => {
+                let mut held = std::mem::replace(&mut self.bios, Held::Empty);
+                let value = self.once(
+                    group,
+                    &mut held,
+                    sucrose_sysinfo::bios_snapshot,
+                    sucrose_sysinfo::bios_unavailable,
+                );
+                self.bios = held;
+                value
+            }
+            DataGroup::Motherboard => {
+                let mut held = std::mem::replace(&mut self.motherboard, Held::Empty);
+                let value = self.once(
+                    group,
+                    &mut held,
+                    sucrose_sysinfo::motherboard_snapshot,
+                    sucrose_sysinfo::motherboard_unavailable,
+                );
+                self.motherboard = held;
+                value
+            }
             _ => None,
         }
     }
@@ -366,6 +398,33 @@ impl SystemState {
                 self.failed(group, &error);
                 default
             }
+        }
+    }
+
+    /// A group read from WMI once and kept: a success is kept for the life of the hub, a failure for [`RETRY_AFTER`].
+    fn once(
+        &mut self,
+        group: DataGroup,
+        held: &mut Held<Value>,
+        read: fn() -> Result<Value, SysInfoError>,
+        unavailable: fn() -> Value,
+    ) -> Option<Value> {
+        if held.may_try() {
+            match read() {
+                Ok(value) => *held = Held::Ready(value),
+                Err(SysInfoError::Unsupported(what)) => {
+                    tracing::debug!(?group, what, "the data group has no provider on this OS");
+                    return None;
+                }
+                Err(error) => {
+                    self.failed(group, &error);
+                    *held = Held::Failed(Instant::now());
+                }
+            }
+        }
+        match held {
+            Held::Ready(value) => Some(value.clone()),
+            _ => Some(unavailable()),
         }
     }
 
@@ -398,8 +457,11 @@ impl SystemState {
     /// No running page wants `group` any more: whatever is held for it goes (the counters close, a cached read is
     /// dropped, so a later page reads it afresh) and a failure may be logged again.
     fn release(&mut self, group: DataGroup) {
-        if group == DataGroup::Processor {
-            self.processor = Held::Empty;
+        match group {
+            DataGroup::Processor => self.processor = Held::Empty,
+            DataGroup::Bios => self.bios = Held::Empty,
+            DataGroup::Motherboard => self.motherboard = Held::Empty,
+            _ => {}
         }
         self.logged.remove(&group);
     }
@@ -660,9 +722,15 @@ mod tests {
     }
 
     #[test]
-    fn memory_and_processor_are_asked_for_once_a_second() {
-        assert_eq!(every_ticks(DataGroup::Memory), 10);
-        assert_eq!(every_ticks(DataGroup::Processor), 10);
+    fn memory_processor_bios_and_motherboard_are_asked_for_once_a_second() {
+        for group in [
+            DataGroup::Memory,
+            DataGroup::Processor,
+            DataGroup::Bios,
+            DataGroup::Motherboard,
+        ] {
+            assert_eq!(every_ticks(group), 10, "{group:?}");
+        }
     }
 
     /// A release that records the groups it was called for.
@@ -709,6 +777,53 @@ mod tests {
             DataGroup::ALL.iter().all(|group| released.contains(group)),
             "{released:?}"
         );
+    }
+
+    #[cfg(windows)]
+    #[test]
+    fn the_system_sampler_reads_bios_and_motherboard_once_and_keeps_them_until_released() {
+        let (sample, release) = system_sampling();
+
+        for group in [DataGroup::Bios, DataGroup::Motherboard] {
+            let first: serde_json::Value =
+                serde_json::from_str(&sample(group).expect("WMI group reads")).expect("JSON");
+            assert_eq!(first["State"], true, "{group:?}");
+            let again: serde_json::Value =
+                serde_json::from_str(&sample(group).expect("kept group reads")).expect("JSON");
+            assert_eq!(first, again, "{group:?} is read once and kept");
+            release(group);
+            assert!(sample(group).is_some(), "{group:?} is read afresh after the release");
+        }
+    }
+
+    #[test]
+    fn a_failed_one_time_read_gives_the_legacy_default_and_is_not_retried_at_once() {
+        use std::sync::atomic::{AtomicUsize, Ordering};
+        static ATTEMPTS: AtomicUsize = AtomicUsize::new(0);
+        fn failing() -> Result<serde_json::Value, SysInfoError> {
+            ATTEMPTS.fetch_add(1, Ordering::SeqCst);
+            Err(SysInfoError::Os {
+                call: "WMI query",
+                message: "no WMI".to_owned(),
+            })
+        }
+        let mut state = SystemState::new();
+        let mut held = Held::Empty;
+
+        let first = state.once(DataGroup::Bios, &mut held, failing, sucrose_sysinfo::bios_unavailable);
+        let second = state.once(DataGroup::Bios, &mut held, failing, sucrose_sysinfo::bios_unavailable);
+
+        assert_eq!(
+            first.as_ref().map(|value| &value["State"]),
+            Some(&serde_json::json!(false))
+        );
+        assert_eq!(first, second);
+        assert_eq!(
+            ATTEMPTS.load(Ordering::SeqCst),
+            1,
+            "the failure is kept for the retry delay"
+        );
+        assert!(state.logged.contains(&DataGroup::Bios), "the failure was logged once");
     }
 
     #[cfg(windows)]

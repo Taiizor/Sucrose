@@ -12,11 +12,17 @@
   li.property { color: #a5d6a7; }
   li.compatible { color: #ffcc80; }
   li.lifecycle { color: #f48fb1; }
+  #system { display: flex; flex-wrap: wrap; gap: 1vw; margin: 1vw 0; }
+  #system table { border-collapse: collapse; font-size: 1vw; background: #1a2027; }
+  #system caption { text-align: left; color: #ffcc80; font-weight: bold; padding: 0.2vw 0.4vw; }
+  #system td { border-top: 1px solid #2d3640; padding: 0.1vw 0.4vw; max-width: 22vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #system td:first-child { color: #8ab4f8; }
 </style>
 </head>
 <body>
 <h1>Sucrose fixture: calls</h1>
 <div id="state">state: playing</div>
+<div id="system"></div>
 <ol id="calls"></ol>
 <script>
   // Records every call the engine makes, shows it, and reports it with fetch('/__calls/' + kind + '/' + key): the
@@ -24,12 +30,42 @@
   // object or a message channel. Keys are plain names, so the path has no colon and no percent-encoding.
   window.__calls = [];
   var list = document.getElementById("calls");
+  var system = document.getElementById("system");
+  var tables = {};
+  var listed = {};
+
+  // The system data groups (SystemMemory, SystemProcessor, SystemBios, ...) arrive with every tick: each shows as a small
+  // key/value table that is replaced in place, so the page stays readable; the Cores array shows as a count.
+  function showSystem(key, data) {
+    var table = tables[key];
+    if (!table) {
+      table = tables[key] = document.createElement("table");
+      table.appendChild(document.createElement("caption")).textContent = key;
+      table.appendChild(document.createElement("tbody"));
+      system.appendChild(table);
+    }
+    var body = table.tBodies[0];
+    body.textContent = "";
+    Object.keys(data).forEach(function (name) {
+      var value = data[name];
+      var row = body.insertRow();
+      row.insertCell().textContent = name;
+      row.insertCell().textContent = Array.isArray(value) ? "[" + value.length + " entries]" : String(value);
+    });
+  }
+
   function report(kind, key, payload) {
     window.__calls.push({ kind: kind, key: key, payload: payload });
-    var item = document.createElement("li");
-    item.className = kind;
-    item.textContent = kind + " " + key + " " + JSON.stringify(payload);
-    list.appendChild(item);
+    var data = kind === "compatible" && key.indexOf("System") === 0 && payload && typeof payload === "object";
+    if (data) showSystem(key, payload);
+    // A system group repeats on every tick: only its first call is listed.
+    if (!data || !listed[key]) {
+      listed[key] = true;
+      var item = document.createElement("li");
+      item.className = kind;
+      item.textContent = kind + " " + key + " " + JSON.stringify(payload);
+      list.appendChild(item);
+    }
     fetch("/__calls/" + kind + "/" + key, { cache: "no-store" }).catch(function () {});
   }
 
