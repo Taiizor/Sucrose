@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-18-PLAN.md
-last_updated: "2026-11-26T17:10:04.663Z"
+stopped_at: Completed 04-19-PLAN.md
+last_updated: "2026-11-26T17:38:20.187Z"
 last_activity: 2026-11-26
 last_activity_desc: Phase 04 execution started
-state_head: 9ec3e6a081134366a07a6d2e6198bbbb224b8219
+state_head: 353649b46548461b54e04cce5a2528298eac7b32
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 100
-  completed_plans: 97
+  completed_plans: 98
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 19 of 21
+Plan: 20 of 21
 Status: Ready to execute
 Last activity: 2026-11-26 — Phase 04 execution started
 Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
@@ -152,6 +152,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P16 | 27 min | 2 tasks | 18 files |
 | Phase 04 P17 | 17 min | 2 tasks | 20 files |
 | Phase 04 P18 | 28 min | 3 tasks | 20 files |
+| Phase 04 P19 | 20 min | 2 tasks | 20 files |
 
 ## Accumulated Context
 
@@ -304,6 +305,9 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-17: the renderer confirms Open DevTools with an appended ToService::DevToolsOpened(bool); the service answers the Portal on it or after 5 s as failed
 - [Phase 04]: 04-17: the Portal enables Open DevTools by web engine; the service refuses wallpapers that are not Web, Url or YouTube (a Video on a web engine ends in the error toast)
 - [Phase 04]: 04-18: the Microsoft root policy runs with the application-root flag; revocation soft-fails only when no source answers; a Cancelled stage ends a stopped install
+- [Phase 04]: Keys follow the per-monitor cursor rule like the mouse: only the renderer whose rectangle holds the cursor forwards keystrokes
+- [Phase 04]: The legacy key lParam is kept exactly, extended-key bit always set; the OnlyKeyboard focus click is an InputEvent::FocusClick made by the renderer
+- [Phase 04]: Forwarded positions are relative to the renderer rectangle; InputEvent Debug never shows which key it was (T-04-45)
 
 ### Pending Todos
 
@@ -340,6 +344,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T17:09:40.050Z
-Stopped at: Completed 04-18-PLAN.md
+Last session: 2026-11-26T17:37:58.064Z
+Stopped at: Completed 04-19-PLAN.md
 Resume file: None
