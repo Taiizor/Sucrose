@@ -12,6 +12,7 @@ gpui_kit::assets::icon_assets!(
         ArrowLeft,
         BookOpen,
         Bug,
+        CircleCheck,
         ClipboardList,
         Code,
         Crown,
@@ -34,6 +35,7 @@ gpui_kit::assets::icon_assets!(
         Settings,
         Shield,
         Sun,
+        TriangleAlert,
         Users
     ]
 );

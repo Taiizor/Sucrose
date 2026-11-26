@@ -5,7 +5,7 @@
 //! direct edit does not reach the components that read semantic tokens (docs/GPUI.md). There is no theme folder and
 //! no watcher (D-008): the file is parsed once at start.
 
-use gpui_kit::component::{Theme, ThemeMode as ThemeShade, ThemeRegistry};
+use gpui_kit::component::{ActiveTheme as _, Theme, ThemeMode as ThemeShade, ThemeRegistry};
 use gpui_kit::*;
 use sucrose_core::settings::{Backdrop, ThemeMode};
 
@@ -104,6 +104,40 @@ pub fn appearance_steps(
     vec![WindowBackgroundAppearance::Opaque, target]
 }
 
+/// The colors of the Warning alert and of the fallback toast's icon (UI-SPEC Color: Warning). The text on the alert
+/// stays the theme's foreground.
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub struct WarningColors {
+    /// The alert's fill.
+    pub background: Hsla,
+    /// The alert's border.
+    pub border: Hsla,
+    /// The warning icon.
+    pub icon: Hsla,
+}
+
+/// The warning icon on the dark theme (UI-SPEC Color: Warning).
+const WARNING_ICON_DARK: u32 = 0x00FA_CC15;
+/// The warning icon on the light theme (UI-SPEC Color: Warning).
+const WARNING_ICON_LIGHT: u32 = 0x008A_6500;
+
+/// The warning colors of the theme on screen: the fill and border are the `warning.background` and `warning.border` of the
+/// theme file's editor-style group (light and dark), the icon is one of two fixed values. Every use reads them here.
+pub fn warning_colors(cx: &App) -> WarningColors {
+    let theme = cx.theme();
+    let status = &theme.highlight_theme.style.status;
+    let icon = if theme.is_dark() {
+        WARNING_ICON_DARK
+    } else {
+        WARNING_ICON_LIGHT
+    };
+    WarningColors {
+        background: status.warning_background(cx),
+        border: status.warning_border(cx),
+        icon: rgb(icon).into(),
+    }
+}
+
 /// The alpha of the page tint while a backdrop or a background image is active (UI-SPEC Color: dominant).
 const TINT_ALPHA: f32 = 0.78;
 
@@ -175,8 +209,8 @@ mod tests {
     };
 
     use super::{
-        DARK_NAME, LIGHT_NAME, SUCROSE_THEMES, appearance, appearance_steps, apply_root_fill, backdrop_active,
-        effective_dark_for, page_alpha, root_fill,
+        DARK_NAME, LIGHT_NAME, SUCROSE_THEMES, WARNING_ICON_DARK, WARNING_ICON_LIGHT, appearance, appearance_steps,
+        apply_root_fill, backdrop_active, effective_dark_for, page_alpha, root_fill,
     };
 
     /// A view with nothing in it: the tests look at the Root around it.
@@ -337,6 +371,68 @@ mod tests {
             find(LIGHT_NAME).expect("light theme")["colors"]["background"],
             "#F3F3F3"
         );
+    }
+
+    /// The relative luminance of a `#RRGGBB` color (WCAG 2.x).
+    fn luminance(hex: &str) -> f64 {
+        let value = u32::from_str_radix(hex.trim_start_matches('#'), 16).expect("a six digit hex color");
+        let channel = |shift: u32| {
+            let srgb = f64::from((value >> shift) & 0xFF) / 255.0;
+            if srgb <= 0.039_28 {
+                srgb / 12.92
+            } else {
+                ((srgb + 0.055) / 1.055).powf(2.4)
+            }
+        };
+        0.2126 * channel(16) + 0.7152 * channel(8) + 0.0722 * channel(0)
+    }
+
+    /// The contrast ratio of two `#RRGGBB` colors.
+    fn contrast(one: &str, other: &str) -> f64 {
+        let (a, b) = (luminance(one), luminance(other));
+        (a.max(b) + 0.05) / (a.min(b) + 0.05)
+    }
+
+    /// The text color, the warning fill and border of a theme of the embedded file.
+    fn warning_hexes(name: &str) -> (String, String, String) {
+        let set: serde_json::Value = serde_json::from_str(SUCROSE_THEMES).expect("the embedded theme file is JSON");
+        let theme = set["themes"]
+            .as_array()
+            .and_then(|themes| themes.iter().find(|theme| theme["name"] == name))
+            .expect("the theme exists");
+        let text = |value: &serde_json::Value| value.as_str().expect("a hex color").to_owned();
+        (
+            text(&theme["colors"]["foreground"]),
+            text(&theme["highlight"]["warning.background"]),
+            text(&theme["highlight"]["warning.border"]),
+        )
+    }
+
+    #[test]
+    fn theme_warning_text_has_at_least_4_5_to_1_on_the_warning_fill_in_both_themes() {
+        for (name, icon) in [(LIGHT_NAME, WARNING_ICON_LIGHT), (DARK_NAME, WARNING_ICON_DARK)] {
+            let (foreground, background, _) = warning_hexes(name);
+            assert!(
+                contrast(&foreground, &background) >= 4.5,
+                "{name}: text {foreground} on {background} is {:.2}:1",
+                contrast(&foreground, &background)
+            );
+            let icon = format!("#{icon:06X}");
+            assert!(
+                contrast(&icon, &background) >= 3.0,
+                "{name}: icon {icon} on {background} is {:.2}:1",
+                contrast(&icon, &background)
+            );
+        }
+    }
+
+    #[test]
+    fn theme_warning_fill_and_border_are_the_ui_spec_values() {
+        assert_eq!(warning_hexes(LIGHT_NAME).1, "#FBF3D6");
+        assert_eq!(warning_hexes(LIGHT_NAME).2, "#C99401");
+        assert_eq!(warning_hexes(DARK_NAME).1, "#3A310E");
+        assert_eq!(warning_hexes(DARK_NAME).2, "#7B6508");
+        assert_eq!((WARNING_ICON_DARK, WARNING_ICON_LIGHT), (0x00FA_CC15, 0x008A_6500));
     }
 
     #[test]

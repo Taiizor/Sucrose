@@ -4,19 +4,27 @@
 //! Every control sends a SettingChange and shows only what the service broadcast; the engine choices come from the
 //! engine report (the Portal never decides which engines exist), plus the stored engine when the report does not offer it.
 
-use gpui_kit::component::{Disableable as _, checkbox::Checkbox, switch::Switch};
+use gpui_kit::assets::IconName;
+use gpui_kit::component::{
+    ActiveTheme as _, Disableable as _, Icon, Sizable as _, checkbox::Checkbox, h_flex, spinner::Spinner,
+    switch::Switch,
+};
 use gpui_kit::*;
 use sucrose_core::{
     settings::{EngineType, InputModuleType, InputType},
     theme::WallpaperType,
 };
-use sucrose_ipc::portal::{EngineReportView, EngineState, PortalRequest, PortalSettings, SettingChange};
+use sucrose_ipc::portal::{EngineReportView, EngineState, HintView, PortalRequest, PortalSettings, SettingChange};
 
 use super::row::{
     Choice, ChoiceSelect, ControlState, SELECT_WIDTH, SettingRow, choice_select, control_state, footer_line,
     label_text, on_choice, select_box, show_choice,
 };
-use crate::{i18n::tr, ipc::ServiceLink};
+use crate::{
+    i18n::{tr, tr_with},
+    ipc::ServiceLink,
+    theme,
+};
 
 /// The engine rows of the page, in the order they are drawn.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -226,6 +234,150 @@ pub fn engine_choices(
         .collect()
 }
 
+/// The key of a wallpaper type's name in the engine alert.
+pub fn type_label_key(kind: WallpaperType) -> &'static str {
+    match kind {
+        WallpaperType::Gif => "Portal.WallpaperSettingPage.Type.Gif",
+        WallpaperType::Url => "Portal.WallpaperSettingPage.Type.Url",
+        WallpaperType::Web => "Portal.WallpaperSettingPage.Type.Web",
+        WallpaperType::Video => "Portal.WallpaperSettingPage.Type.Video",
+        WallpaperType::YouTube => "Portal.WallpaperSettingPage.Type.YouTube",
+        WallpaperType::Application => "Portal.WallpaperSettingPage.Type.Application",
+    }
+}
+
+/// What the user can do about an engine that cannot be used (UI-SPEC Copywriting: Hints). An engine this build does not
+/// include has no hint.
+pub fn hint_text(engine: EngineType, state: &EngineState) -> Option<SharedString> {
+    let hint = match state {
+        EngineState::Missing { hint, .. } | EngineState::NotLoadable { hint, .. } => hint,
+        EngineState::Ready { .. } | EngineState::Unsupported { .. } => return None,
+    };
+    let name = tr(engine_label_key(engine));
+    Some(match hint {
+        HintView::FilesMissing => tr_with(
+            "Portal.WallpaperSettingPage.Engine.Hint.FilesMissing",
+            &[("engine", &name)],
+        ),
+        HintView::VcRedistMissing { needed } => tr_with(
+            "Portal.WallpaperSettingPage.Engine.Hint.VcMissing",
+            &[("needed", needed)],
+        ),
+        HintView::RuntimeMissing => tr("Portal.WallpaperSettingPage.Engine.Hint.RuntimeMissing"),
+        HintView::RuntimeOutdated { found, needed } => tr_with(
+            "Portal.WallpaperSettingPage.Engine.Hint.RuntimeOutdated",
+            &[("found", found), ("needed", needed)],
+        ),
+    })
+}
+
+/// The persistent warning under the row of a type whose chosen engine cannot be used (UI-SPEC E1, E3): which engine,
+/// what plays instead (when something can) and the hint.
+pub fn alert_text(
+    kind: WallpaperType,
+    engine: EngineType,
+    fallback: Option<EngineType>,
+    state: &EngineState,
+) -> SharedString {
+    let engine_name = tr(engine_label_key(engine));
+    let type_name = tr(type_label_key(kind));
+    let sentence = match fallback {
+        Some(fallback) => tr_with(
+            "Portal.WallpaperSettingPage.Engine.Fallback",
+            &[
+                ("engine", &engine_name),
+                ("type", &type_name),
+                ("fallback", &tr(engine_label_key(fallback))),
+            ],
+        ),
+        None => tr_with(
+            "Portal.WallpaperSettingPage.Engine.NoFallback",
+            &[("engine", &engine_name), ("type", &type_name)],
+        ),
+    };
+    match hint_text(engine, state) {
+        Some(hint) => SharedString::from(format!("{sentence} {hint}")),
+        None => sentence,
+    }
+}
+
+/// What the status line of a web-engine row shows (UI-SPEC E2).
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum StatusLine {
+    /// The service has not reported yet.
+    Checking,
+    /// The engine can be used.
+    Ready {
+        /// "CEF is ready."
+        text: String,
+        /// The version, when the report carries one.
+        version: Option<String>,
+    },
+    /// The engine cannot be used: the hint, or the plain sentence when there is none.
+    Warning {
+        /// What the user reads.
+        text: String,
+    },
+}
+
+/// The status line of `engine` from its state in the report (`None` until the first report).
+pub fn status_line(engine: EngineType, state: Option<&EngineState>) -> StatusLine {
+    let name = tr(engine_label_key(engine));
+    match state {
+        None => StatusLine::Checking,
+        Some(EngineState::Ready { version }) => StatusLine::Ready {
+            text: tr_with("Portal.WallpaperSettingPage.Engine.Ready", &[("engine", &name)]).to_string(),
+            version: version.as_deref().map(|version| {
+                tr_with("Portal.WallpaperSettingPage.Engine.Version", &[("version", version)]).to_string()
+            }),
+        },
+        Some(state) => StatusLine::Warning {
+            text: hint_text(engine, state)
+                .unwrap_or_else(|| tr_with("Portal.FallbackToast.Title", &[("engine", &name)]))
+                .to_string(),
+        },
+    }
+}
+
+/// The state of `engine` in the report, when the report lists it.
+fn state_of(report: Option<&EngineReportView>, engine: EngineType) -> Option<&EngineState> {
+    report?
+        .engines
+        .iter()
+        .find(|known| known.engine == engine)
+        .map(|known| &known.state)
+}
+
+/// What plays `kind` while its engine `chosen` cannot be used: the fallback the service runs now, else the first
+/// installed engine of those the report offers for the type, in the service's order.
+fn fallback_engine(report: &EngineReportView, kind: WallpaperType, chosen: EngineType) -> Option<EngineType> {
+    if let Some(running) = report.fallbacks.iter().find(|fallback| fallback.kind == kind) {
+        return Some(running.playing);
+    }
+    report
+        .offered
+        .iter()
+        .find(|offered| offered.kind == kind)?
+        .engines
+        .iter()
+        .copied()
+        .find(|engine| *engine != chosen && matches!(state_of(Some(report), *engine), Some(EngineState::Ready { .. })))
+}
+
+/// The alert under the row of `row`, when the engine the settings chose for its type cannot be used. It has no snooze:
+/// it stays until the engine is available (D-16). Nothing shows before the report arrives or for an engine it does not
+/// list.
+pub fn row_alert(row: EngineRow, settings: &PortalSettings, report: Option<&EngineReportView>) -> Option<SharedString> {
+    let chosen = row.value(settings);
+    let state = state_of(report, chosen)?;
+    if matches!(state, EngineState::Ready { .. }) {
+        return None;
+    }
+    let fallback = report.and_then(|report| fallback_engine(report, row.kind(), chosen));
+    Some(alert_text(row.kind(), chosen, fallback, state))
+}
+
+/// Whether a change moves a select of this page,
 /// Whether a change moves a select of this page, so the selects must show the broadcast value again (the switches are
 /// drawn from the settings and need nothing).
 fn needs_refresh(change: &SettingChange) -> bool {
@@ -405,14 +557,103 @@ impl WallpaperPage {
         super::group(tr("Portal.SettingsPage.GroupWallpaper"), rows)
     }
 
-    /// The row of `row`: title, description and the engine select.
+    /// The row of `row`: title, description and the engine select; when the chosen engine cannot be used the footer
+    /// opens by itself with the Warning alert.
     fn engine_row(&self, row: EngineRow, cx: &App) -> AnyElement {
         let state = self.state();
         let (title, description) = row.keys();
-        SettingRow::new(tr(title), Some(tr(description)))
+        let mut built = SettingRow::new(tr(title), Some(tr(description)))
             .control(select_box(&self.selects[row.index()], state.disabled()), SELECT_WIDTH)
-            .state(state)
-            .build(cx)
+            .state(state);
+        let alert = self
+            .settings
+            .as_ref()
+            .and_then(|settings| row_alert(row, settings, self.engines.as_ref()));
+        if let Some(text) = alert {
+            built = built.footer(warning_alert(row, text, cx));
+        }
+        built.build(cx)
+    }
+
+    /// The Web Engine Settings group: the CEF row with its status line (the WebView2 row and the arguments arrive with
+    /// later plans).
+    fn web_engines_group(&self, cx: &App) -> AnyElement {
+        let engine = EngineType::CefSharpLive;
+        let line = status_line(engine, state_of(self.engines.as_ref(), engine));
+        let row = SettingRow::new(tr(engine_label_key(engine)), None)
+            .status(status_view(&line, cx))
+            .state(self.state())
+            .build(cx);
+        super::group(tr("Portal.WallpaperSettingPage.WebEngines"), vec![row])
+    }
+}
+
+/// The Warning alert of an engine row: the warning icon and the text on the warning fill (UI-SPEC E1).
+fn warning_alert(row: EngineRow, text: SharedString, cx: &App) -> AnyElement {
+    let colors = theme::warning_colors(cx);
+    let id = match row {
+        EngineRow::Video => "engine-alert-video",
+        EngineRow::Web => "engine-alert-web",
+    };
+    h_flex()
+        .id(id)
+        .w_full()
+        .gap_2()
+        .items_start()
+        .px_3()
+        .py_2()
+        .rounded(px(6.))
+        .border_1()
+        .border_color(colors.border)
+        .bg(colors.background)
+        .child(
+            div().flex_none().child(
+                Icon::new(IconName::TriangleAlert)
+                    .with_size(px(16.))
+                    .text_color(colors.icon),
+            ),
+        )
+        .child(
+            div()
+                .flex_1()
+                .min_w_0()
+                .text_sm()
+                .text_color(cx.theme().foreground)
+                .child(text),
+        )
+        .into_any_element()
+}
+
+/// The status line under a web-engine row title: icon and text, with the version muted (UI-SPEC E2).
+fn status_view(line: &StatusLine, cx: &App) -> AnyElement {
+    let theme = cx.theme();
+    let row = h_flex()
+        .gap_2()
+        .items_center()
+        .text_xs()
+        .text_color(theme.muted_foreground);
+    match line {
+        StatusLine::Checking => row
+            .child(Spinner::new().with_size(px(16.)).color(theme.primary))
+            .child(tr("Portal.WallpaperSettingPage.Engine.Checking"))
+            .into_any_element(),
+        StatusLine::Ready { text, version } => row
+            .child(
+                Icon::new(IconName::CircleCheck)
+                    .with_size(px(16.))
+                    .text_color(theme.success),
+            )
+            .child(div().text_color(theme.foreground).child(text.clone()))
+            .children(version.clone())
+            .into_any_element(),
+        StatusLine::Warning { text } => row
+            .child(
+                Icon::new(IconName::TriangleAlert)
+                    .with_size(px(16.))
+                    .text_color(theme::warning_colors(cx).icon),
+            )
+            .child(div().flex_1().min_w_0().child(text.clone()))
+            .into_any_element(),
     }
 }
 
@@ -427,6 +668,7 @@ impl Render for WallpaperPage {
                     vec![self.engine_row(EngineRow::Video, cx)],
                 ),
                 super::group(tr("Portal.Area.Engines"), vec![self.engine_row(EngineRow::Web, cx)]),
+                self.web_engines_group(cx),
             ],
         )
     }
@@ -440,7 +682,11 @@ mod tests {
     use sucrose_core::settings::{InputModuleType, InputType};
     use sucrose_ipc::portal::PortalSettings;
 
-    use super::{EngineRow, Flag, engine_choices, input_module_choices, input_type_choices, needs_refresh};
+    use super::{
+        EngineRow, Flag, StatusLine, alert_text, engine_choices, hint_text, input_module_choices, input_type_choices,
+        needs_refresh, row_alert, status_line,
+    };
+    use sucrose_ipc::portal::{FallbackView, HintView};
 
     fn state(engine: EngineType, state: EngineState) -> EngineStateView {
         EngineStateView { engine, state }
@@ -681,5 +927,160 @@ mod tests {
         let choices = engine_choices(EngineRow::Web, Some(&round_a()), EngineType::MpvPlayerLive);
 
         assert_eq!(shown(&choices), [(EngineType::CefSharpLive, "CEF".to_owned(), false)]);
+    }
+
+    fn vc_missing() -> EngineState {
+        EngineState::Missing {
+            hint: HintView::VcRedistMissing {
+                needed: "14.40.33816.0".to_owned(),
+            },
+            installable: true,
+        }
+    }
+
+    #[test]
+    fn wallpaper_alert_a_type_set_to_an_engine_this_build_lacks_names_the_fallback_and_has_no_hint() {
+        let mut settings = settings();
+        settings.web_engine = EngineType::WebViewLive;
+
+        let alert = row_alert(EngineRow::Web, &settings, Some(&round_a()));
+
+        assert_eq!(
+            alert.as_deref(),
+            Some("WebView2 isn't available, so Web wallpapers play with CEF for now.")
+        );
+    }
+
+    #[test]
+    fn wallpaper_alert_the_running_fallback_wins_over_the_guess() {
+        let mut settings = settings();
+        settings.web_engine = EngineType::WebViewLive;
+        let mut report = round_a();
+        report.engines.push(state(EngineType::VlcPlayerLive, ready()));
+        report.offered[1].engines = vec![EngineType::VlcPlayerLive, EngineType::CefSharpLive];
+        report.fallbacks = vec![FallbackView {
+            kind: WallpaperType::Web,
+            configured: EngineType::WebViewLive,
+            playing: EngineType::CefSharpLive,
+            notify: true,
+        }];
+
+        let alert = row_alert(EngineRow::Web, &settings, Some(&report));
+
+        assert_eq!(
+            alert.as_deref(),
+            Some("WebView2 isn't available, so Web wallpapers play with CEF for now.")
+        );
+    }
+
+    #[test]
+    fn wallpaper_alert_a_missing_prerequisite_adds_its_hint_and_nothing_plays_instead() {
+        let mut report = round_a();
+        report.engines[1].state = vc_missing();
+        let settings = settings();
+
+        let alert = row_alert(EngineRow::Web, &settings, Some(&report));
+
+        assert_eq!(
+            alert.as_deref(),
+            Some(
+                "CEF isn't available, and no installed engine can play Web wallpapers for now. CEF needs the Microsoft Visual C++ Redistributable 14.40.33816.0 or newer. Install it to use CEF."
+            )
+        );
+    }
+
+    #[test]
+    fn wallpaper_alert_the_texts_of_the_other_hints() {
+        let files = EngineState::NotLoadable {
+            reason: "x".to_owned(),
+            hint: HintView::FilesMissing,
+        };
+        assert_eq!(
+            hint_text(EngineType::MpvPlayerLive, &files).as_deref(),
+            Some("The mpv files are missing or can't be loaded. Reinstall Sucrose to repair them.")
+        );
+        let outdated = EngineState::Missing {
+            hint: HintView::RuntimeOutdated {
+                found: "100.0".to_owned(),
+                needed: "120.0".to_owned(),
+            },
+            installable: true,
+        };
+        assert_eq!(
+            hint_text(EngineType::WebViewLive, &outdated).as_deref(),
+            Some("The WebView2 Runtime 100.0 is older than the required 120.0. Update it to use WebView2.")
+        );
+        assert_eq!(hint_text(EngineType::CefSharpLive, &ready()), None);
+        assert_eq!(
+            hint_text(
+                EngineType::WebViewLive,
+                &EngineState::Unsupported { architecture: false }
+            ),
+            None
+        );
+        assert_eq!(
+            alert_text(
+                WallpaperType::Video,
+                EngineType::MpvPlayerLive,
+                Some(EngineType::VlcPlayerLive),
+                &files
+            ),
+            "mpv isn't available, so Video wallpapers play with libVLC for now. The mpv files are missing or can't be loaded. Reinstall Sucrose to repair them."
+        );
+    }
+
+    #[test]
+    fn wallpaper_alert_is_gone_when_the_engine_is_ready_and_absent_before_the_report() {
+        let settings = settings();
+
+        assert_eq!(row_alert(EngineRow::Web, &settings, Some(&round_a())), None);
+        assert_eq!(row_alert(EngineRow::Web, &settings, None), None);
+        let mut other = settings.clone();
+        other.web_engine = EngineType::VlcPlayerLive;
+        assert_eq!(
+            row_alert(EngineRow::Web, &other, Some(&round_a())),
+            None,
+            "an engine the report does not list is not claimed missing"
+        );
+    }
+
+    #[test]
+    fn wallpaper_status_line_is_checking_until_the_report_then_ready_with_the_version_or_the_hint() {
+        let cef = EngineType::CefSharpLive;
+
+        assert_eq!(status_line(cef, None), StatusLine::Checking);
+        assert_eq!(
+            status_line(
+                cef,
+                Some(&EngineState::Ready {
+                    version: Some("156.0".to_owned())
+                })
+            ),
+            StatusLine::Ready {
+                text: "CEF is ready.".to_owned(),
+                version: Some("Version 156.0".to_owned())
+            }
+        );
+        assert_eq!(
+            status_line(cef, Some(&ready())),
+            StatusLine::Ready {
+                text: "CEF is ready.".to_owned(),
+                version: None
+            }
+        );
+        assert_eq!(
+            status_line(cef, Some(&vc_missing())),
+            StatusLine::Warning {
+                text:
+                    "CEF needs the Microsoft Visual C++ Redistributable 14.40.33816.0 or newer. Install it to use CEF."
+                        .to_owned()
+            }
+        );
+        assert_eq!(
+            status_line(cef, Some(&EngineState::Unsupported { architecture: true })),
+            StatusLine::Warning {
+                text: "CEF isn't available.".to_owned()
+            }
+        );
     }
 }

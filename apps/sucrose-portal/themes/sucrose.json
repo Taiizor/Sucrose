@@ -126,6 +126,8 @@
         "modified": "#ca8a04",
         "predictive": "#A4ABB6",
         "warning": "#C99401",
+        "warning.background": "#FBF3D6",
+        "warning.border": "#C99401",
         "syntax": {
           "attribute": {
             "color": "#957931"

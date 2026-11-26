@@ -86,6 +86,7 @@ impl ControlState {
 pub struct SettingRow {
     title: SharedString,
     description: Option<SharedString>,
+    status: Option<AnyElement>,
     control: Option<AnyElement>,
     control_width: f32,
     footer: Vec<AnyElement>,
@@ -98,11 +99,18 @@ impl SettingRow {
         Self {
             title,
             description,
+            status: None,
             control: None,
             control_width: SELECT_WIDTH,
             footer: Vec::new(),
             state: ControlState::Enabled,
         }
+    }
+
+    /// A status line under the title, in place of nothing: an icon and a muted text (the engine rows, UI-SPEC E2).
+    pub fn status(mut self, line: impl IntoElement) -> Self {
+        self.status = Some(line.into_any_element());
+        self
     }
 
     /// The control at the end of the row, `width` wide while its skeleton stands in.
@@ -135,6 +143,9 @@ impl SettingRow {
         if let Some(description) = self.description {
             // A description wraps.
             texts = texts.child(div().text_xs().text_color(theme.muted_foreground).child(description));
+        }
+        if let Some(status) = self.status {
+            texts = texts.child(status);
         }
         let mut top = h_flex().w_full().gap_4().items_center().child(texts);
         if loading {
