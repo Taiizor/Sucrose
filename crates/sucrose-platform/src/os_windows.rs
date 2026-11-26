@@ -5,12 +5,14 @@ mod display;
 mod event_loop;
 mod foreground;
 mod gpu;
+mod installer;
 mod job;
 mod memory;
 mod prereq;
 mod refresh;
 mod surface;
 mod tray;
+mod trust;
 
 use std::{
     io,
@@ -46,7 +48,7 @@ use windows::{
 
 use crate::{
     Arch, Capabilities, ForegroundWindow, GpuAdapter, GpuPreference, GpuPreferenceChange, MonitorInfo, Platform,
-    PlatformError, VcRedist,
+    PlatformError, SignerInfo, TrustError, VcRedist,
 };
 
 pub(crate) use autostart::{autostart_state, disable_autostart, enable_autostart, legacy_entry};
@@ -108,6 +110,14 @@ impl Platform for Current {
 
     fn vc_redist(&self, arch: Arch) -> Option<VcRedist> {
         prereq::vc_redist(arch)
+    }
+
+    fn verify_microsoft_signature(&self, path: &Path) -> Result<SignerInfo, TrustError> {
+        trust::verify_microsoft_signature(path)
+    }
+
+    fn run_installer(&self, path: &Path, args: &str) -> Result<i32, PlatformError> {
+        installer::run_installer(path, args)
     }
 }
 

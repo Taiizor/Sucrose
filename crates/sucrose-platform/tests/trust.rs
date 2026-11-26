@@ -3,6 +3,8 @@
 //! downloaded `vc_redist.x64.exe` (the tests that need it say so and return when it is unset).
 
 #![cfg(windows)]
+// The skip message of the sample tests has to reach the test output (the plan's verify step greps for it).
+#![allow(clippy::print_stdout)]
 
 use std::path::{Path, PathBuf};
 
@@ -33,7 +35,11 @@ fn sample() -> Option<PathBuf> {
         return None;
     };
     let path = PathBuf::from(path);
-    assert!(path.is_file(), "SUCROSE_TRUST_SAMPLE does not name a file: {}", path.display());
+    assert!(
+        path.is_file(),
+        "SUCROSE_TRUST_SAMPLE does not name a file: {}",
+        path.display()
+    );
     Some(path)
 }
 
