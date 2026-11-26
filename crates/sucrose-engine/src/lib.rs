@@ -3,6 +3,7 @@
 //! engine trait itself lands with the first two engines that implement it.
 
 pub mod choice;
+pub mod sync;
 
 pub use choice::{Availability, Choice, EngineId, Hint, Unsupported, choose_engine, fallback_order};
 
