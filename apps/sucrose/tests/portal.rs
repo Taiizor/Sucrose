@@ -579,6 +579,99 @@ fn use_plays_a_web_theme() {
 }
 
 #[test]
+fn an_engine_choice_is_saved_and_broadcast_and_one_outside_the_list_of_the_type_is_rejected() {
+    if !service_runs("an_engine_choice_is_saved_and_broadcast_and_one_outside_the_list_of_the_type_is_rejected") {
+        return;
+    }
+    let service = TestService::start("engine-choice", &json!({}));
+    let (mut portal, first) = PortalClient::hello(&service, None);
+    let PortalEvent::Welcome { settings, .. } = first else {
+        panic!("the first event is not a Welcome: {first:?}");
+    };
+    assert_eq!(settings.web_engine, EngineType::CefSharpLive, "the legacy default");
+
+    portal.request(&PortalRequest::Change(SettingChange::WebEngine(
+        EngineType::WebViewLive,
+    )));
+    let change = SettingChange::VideoEngine(EngineType::AuroraLive);
+    portal.request(&PortalRequest::Change(change.clone()));
+
+    let mut changed = false;
+    let mut rejected = false;
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+    while !(changed && rejected) {
+        assert!(
+            std::time::Instant::now() < deadline,
+            "changed {changed}, rejected {rejected}"
+        );
+        match portal.next_event() {
+            Some(PortalEvent::Changed(SettingChange::WebEngine(EngineType::WebViewLive))) => changed = true,
+            Some(PortalEvent::Rejected { change: refused, .. }) if refused == change => rejected = true,
+            Some(_) => {}
+            None => panic!("changed {changed}, rejected {rejected}"),
+        }
+    }
+    let file = service.settings_file();
+    assert_eq!(file["Engine"]["Web"], "WebViewLive");
+    assert_ne!(file["Engine"]["Video"], "AuroraLive");
+}
+
+/// A running Web wallpaper restarts on the engine just chosen: WebView2 is not in this build, so the new choice falls back
+/// to CEF, the renderer starts a second time and the Portal is told about the fallback. It plays a real wallpaper, so
+/// it skips where CEF is not installed.
+#[test]
+fn an_engine_change_restarts_the_running_wallpaper_of_that_type() {
+    if !service_runs("an_engine_change_restarts_the_running_wallpaper_of_that_type") {
+        return;
+    }
+    let service = TestService::start("engine-restart", &json!({}));
+    copy_web_fixture(&service, "hello");
+    let (mut portal, _) = PortalClient::hello(&service, None);
+    let report = wait_for_engines(&portal);
+    if !report.playable.contains(&WallpaperType::Web) {
+        eprintln!("an_engine_change_restarts_the_running_wallpaper_of_that_type: skipped, CEF is not installed");
+        return;
+    }
+    assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
+    let started = |count: usize| {
+        let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+        loop {
+            let logs = renderer_logs(&service);
+            if logs.matches("engine started").count() >= count {
+                return;
+            }
+            assert!(
+                std::time::Instant::now() < deadline,
+                "the renderer did not start {count} time(s): {logs}"
+            );
+            std::thread::sleep(std::time::Duration::from_millis(250));
+        }
+    };
+    started(1);
+
+    portal.request(&PortalRequest::Change(SettingChange::WebEngine(
+        EngineType::WebViewLive,
+    )));
+
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(10);
+    let fallback = loop {
+        assert!(
+            std::time::Instant::now() < deadline,
+            "no engine report with the fallback"
+        );
+        match portal.next_event_any() {
+            Some(PortalEvent::Engines(report)) if !report.fallbacks.is_empty() => break report.fallbacks[0],
+            Some(_) => {}
+            None => panic!("no engine report with the fallback"),
+        }
+    };
+    assert_eq!(fallback.kind, WallpaperType::Web);
+    assert_eq!(fallback.configured, EngineType::WebViewLive);
+    assert_eq!(fallback.playing, EngineType::CefSharpLive);
+    started(2);
+}
+
+#[test]
 fn use_of_a_theme_for_a_newer_sucrose_is_refused_and_the_selection_is_unchanged() {
     if !service_runs("use_of_a_theme_for_a_newer_sucrose_is_refused_and_the_selection_is_unchanged") {
         return;

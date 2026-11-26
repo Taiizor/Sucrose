@@ -264,7 +264,7 @@ pub fn spawn_pending(spawned: Option<Instant>, now: Instant) -> bool {
 pub fn portal_args(page: Option<PortalPage>) -> Vec<&'static str> {
     match page {
         Some(PortalPage::General) => vec!["GeneralSetting"],
-        Some(PortalPage::Library | PortalPage::Personal) | None => Vec::new(),
+        Some(PortalPage::Library | PortalPage::Personal | PortalPage::Wallpaper) | None => Vec::new(),
     }
 }
 
@@ -359,6 +359,7 @@ mod tests {
         assert_eq!(portal_args(None), Vec::<&str>::new());
         assert_eq!(portal_args(Some(PortalPage::Library)), Vec::<&str>::new());
         assert_eq!(portal_args(Some(PortalPage::General)), ["GeneralSetting"]);
+        assert_eq!(portal_args(Some(PortalPage::Wallpaper)), ["WallpaperSetting"]);
     }
 
     fn recording_link(connection: u64, pid: u32) -> (PortalLink, Arc<Mutex<Vec<PortalEvent>>>) {

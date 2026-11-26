@@ -3689,6 +3689,19 @@ fn plan_for(
     job_for(&theme, engine, pause, theme_mode, engines)
 }
 
+/// The wallpaper type whose engine `change` sets, `None` for every other setting.
+fn engine_change_kind(change: &SettingChange) -> Option<WallpaperType> {
+    let _ = change;
+    None
+}
+
+/// Whether a changed engine of type `changed` restarts the wallpaper that plays now (of type `running`, if any): only a
+/// wallpaper of the changed type does (T-04-32).
+fn engine_restart_wanted(running: Option<WallpaperType>, changed: WallpaperType) -> bool {
+    let _ = (running, changed);
+    false
+}
+
 /// The engine the Engine section configures for a wallpaper type.
 fn configured_engine(engine: &Engine, kind: WallpaperType) -> EngineType {
     match kind {
@@ -3864,6 +3877,39 @@ mod tests {
         });
 
         assert!(fleet.fallbacks.notes().is_empty());
+    }
+
+    #[test]
+    fn an_engine_setting_names_the_wallpaper_type_it_is_for() {
+        let cases = [
+            (SettingChange::GifEngine(EngineType::MpvPlayerLive), WallpaperType::Gif),
+            (SettingChange::UrlEngine(EngineType::CefSharpLive), WallpaperType::Url),
+            (SettingChange::WebEngine(EngineType::CefSharpLive), WallpaperType::Web),
+            (
+                SettingChange::VideoEngine(EngineType::MpvPlayerLive),
+                WallpaperType::Video,
+            ),
+            (
+                SettingChange::YouTubeEngine(EngineType::CefSharpLive),
+                WallpaperType::YouTube,
+            ),
+            (
+                SettingChange::ApplicationEngine(EngineType::AuroraLive),
+                WallpaperType::Application,
+            ),
+        ];
+        for (change, kind) in cases {
+            assert_eq!(engine_change_kind(&change), Some(kind), "{change:?}");
+        }
+        assert_eq!(engine_change_kind(&SettingChange::AppVisible(true)), None);
+        assert_eq!(engine_change_kind(&SettingChange::LibraryPagination(5)), None);
+    }
+
+    #[test]
+    fn only_a_wallpaper_of_the_changed_type_restarts_on_an_engine_change() {
+        assert!(engine_restart_wanted(Some(WallpaperType::Web), WallpaperType::Web));
+        assert!(!engine_restart_wanted(Some(WallpaperType::Video), WallpaperType::Web));
+        assert!(!engine_restart_wanted(None, WallpaperType::Web));
     }
 
     #[test]

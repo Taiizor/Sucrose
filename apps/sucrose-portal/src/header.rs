@@ -160,6 +160,7 @@ impl Header {
         let selected = match tab {
             SettingsTab::General => 0,
             SettingsTab::Personal => 1,
+            SettingsTab::Wallpaper => 2,
         };
         h_flex()
             .w_full()

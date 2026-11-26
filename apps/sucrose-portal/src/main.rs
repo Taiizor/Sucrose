@@ -208,6 +208,26 @@ mod tests {
     }
 
     #[test]
+    fn wallpaper_setting_opens_the_wallpaper_page() {
+        assert_eq!(
+            parse_args(&args(&["WallpaperSetting"])),
+            Ok(Args {
+                page: PortalPage::Wallpaper,
+                no_focus: false
+            })
+        );
+        assert_eq!(
+            parse_args(&args(&["--no-focus", "WallpaperSetting"])),
+            Ok(Args {
+                page: PortalPage::Wallpaper,
+                no_focus: true
+            })
+        );
+        assert!(parse_args(&args(&["WallpaperSetting", "GeneralSetting"])).is_err());
+        assert!(parse_args(&args(&["wallpapersetting"])).is_err());
+    }
+
+    #[test]
     fn no_focus_keeps_both_flags_in_either_order() {
         let expected = Ok(Args {
             page: PortalPage::General,

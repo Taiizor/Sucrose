@@ -15,7 +15,7 @@ use sucrose_core::{
 };
 
 /// Version of the Portal protocol, sent in `PortalHello` so the service can refuse a Portal it cannot talk to.
-pub const PORTAL_PROTOCOL_VERSION: u16 = 1;
+pub const PORTAL_PROTOCOL_VERSION: u16 = 2;
 
 /// The longest path text, in bytes, the service accepts from a Portal and puts into a message it sends. It keeps the
 /// largest possible [`PortalEvent::Welcome`] far below [`crate::frame::MAX_FRAME`].
@@ -30,6 +30,8 @@ pub enum PortalPage {
     General,
     /// The personalization settings.
     Personal,
+    /// The wallpaper settings: the engine per wallpaper type and the other wallpaper rows.
+    Wallpaper,
 }
 
 /// What a launcher asks of the service (the first message of a connection that is neither a renderer nor a Portal).
@@ -267,6 +269,18 @@ pub enum SettingChange {
     AppExit(bool),
     /// Whether the hint about the notification area icon is still shown.
     HintTrayIcon(bool),
+    /// The engine that plays Gif wallpapers.
+    GifEngine(EngineType),
+    /// The engine that plays Url wallpapers.
+    UrlEngine(EngineType),
+    /// The engine that plays Web wallpapers.
+    WebEngine(EngineType),
+    /// The engine that plays Video wallpapers.
+    VideoEngine(EngineType),
+    /// The engine that plays YouTube wallpapers.
+    YouTubeEngine(EngineType),
+    /// The engine that plays Application wallpapers.
+    ApplicationEngine(EngineType),
 }
 
 /// The settings the Portal shows: a view of the service's settings, never the file (D-11).
@@ -310,6 +324,18 @@ pub struct PortalSettings {
     pub delete_corrupt: bool,
     /// Whether the hint about the notification area icon is still shown.
     pub hint_tray_icon: bool,
+    /// The engine that plays Gif wallpapers.
+    pub gif_engine: EngineType,
+    /// The engine that plays Url wallpapers.
+    pub url_engine: EngineType,
+    /// The engine that plays Web wallpapers.
+    pub web_engine: EngineType,
+    /// The engine that plays Video wallpapers.
+    pub video_engine: EngineType,
+    /// The engine that plays YouTube wallpapers.
+    pub youtube_engine: EngineType,
+    /// The engine that plays Application wallpapers.
+    pub application_engine: EngineType,
 }
 
 impl PortalSettings {
@@ -333,6 +359,12 @@ impl PortalSettings {
             SettingChange::AppVisible(value) => self.app_visible = *value,
             SettingChange::AppExit(value) => self.app_exit = *value,
             SettingChange::HintTrayIcon(value) => self.hint_tray_icon = *value,
+            SettingChange::GifEngine(value) => self.gif_engine = *value,
+            SettingChange::UrlEngine(value) => self.url_engine = *value,
+            SettingChange::WebEngine(value) => self.web_engine = *value,
+            SettingChange::VideoEngine(value) => self.video_engine = *value,
+            SettingChange::YouTubeEngine(value) => self.youtube_engine = *value,
+            SettingChange::ApplicationEngine(value) => self.application_engine = *value,
         }
     }
 }
@@ -525,6 +557,12 @@ mod tests {
             library_move: true,
             delete_corrupt: false,
             hint_tray_icon: true,
+            gif_engine: EngineType::MpvPlayerLive,
+            url_engine: EngineType::CefSharpLive,
+            web_engine: EngineType::CefSharpLive,
+            video_engine: EngineType::MpvPlayerLive,
+            youtube_engine: EngineType::CefSharpLive,
+            application_engine: EngineType::AuroraLive,
         }
     }
 
@@ -555,8 +593,8 @@ mod tests {
     }
 
     #[test]
-    fn the_portal_protocol_starts_at_version_one() {
-        assert_eq!(PORTAL_PROTOCOL_VERSION, 1);
+    fn the_portal_protocol_is_at_version_two_since_the_settings_view_gained_the_engines() {
+        assert_eq!(PORTAL_PROTOCOL_VERSION, 2);
     }
 
     #[test]
@@ -694,6 +732,12 @@ mod tests {
             SettingChange::AppVisible(false),
             SettingChange::AppExit(false),
             SettingChange::HintTrayIcon(false),
+            SettingChange::GifEngine(EngineType::default()),
+            SettingChange::UrlEngine(EngineType::default()),
+            SettingChange::WebEngine(EngineType::default()),
+            SettingChange::VideoEngine(EngineType::default()),
+            SettingChange::YouTubeEngine(EngineType::default()),
+            SettingChange::ApplicationEngine(EngineType::default()),
         ];
         for (expected, change) in changes.iter().enumerate() {
             assert_eq!(usize::from(index(change)), expected, "{change:?}");
@@ -712,8 +756,14 @@ mod tests {
     #[test]
     fn portal_page_and_rule_state_keep_their_wire_index() {
         assert_eq!(
-            [PortalPage::Library, PortalPage::General, PortalPage::Personal].map(|page| index(&page)),
-            [0, 1, 2]
+            [
+                PortalPage::Library,
+                PortalPage::General,
+                PortalPage::Personal,
+                PortalPage::Wallpaper
+            ]
+            .map(|page| index(&page)),
+            [0, 1, 2, 3]
         );
         assert_eq!(
             [RuleState::None, RuleState::Paused, RuleState::Closed].map(|state| index(&state)),
@@ -797,7 +847,49 @@ mod tests {
     #[test]
     fn apply_sets_exactly_the_field_a_change_names() {
         let base = view();
-        let cases: [(SettingChange, PortalSettings); 6] = [
+        let cases: [(SettingChange, PortalSettings); 12] = [
+            (
+                SettingChange::GifEngine(EngineType::VlcPlayerLive),
+                PortalSettings {
+                    gif_engine: EngineType::VlcPlayerLive,
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::UrlEngine(EngineType::WebViewLive),
+                PortalSettings {
+                    url_engine: EngineType::WebViewLive,
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::WebEngine(EngineType::WebViewLive),
+                PortalSettings {
+                    web_engine: EngineType::WebViewLive,
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::VideoEngine(EngineType::NebulaLive),
+                PortalSettings {
+                    video_engine: EngineType::NebulaLive,
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::YouTubeEngine(EngineType::WebViewLive),
+                PortalSettings {
+                    youtube_engine: EngineType::WebViewLive,
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::ApplicationEngine(EngineType::AuroraLive),
+                PortalSettings {
+                    application_engine: EngineType::AuroraLive,
+                    ..view()
+                },
+            ),
             (
                 SettingChange::LibraryPagination(17),
                 PortalSettings {

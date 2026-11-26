@@ -208,7 +208,7 @@ impl PortalApp {
         match self.mode {
             Mode::Settings(SettingsTab::Personal) => self.personal.read(cx).field_focused(window, cx),
             Mode::Settings(SettingsTab::General) => self.general.read(cx).field_focused(window, cx),
-            Mode::Library => false,
+            Mode::Settings(SettingsTab::Wallpaper) | Mode::Library => false,
         }
     }
 
@@ -521,6 +521,7 @@ impl Render for PortalApp {
                     Mode::Library => self.library.clone().into_any_element(),
                     Mode::Settings(SettingsTab::Personal) => self.personal.clone().into_any_element(),
                     Mode::Settings(SettingsTab::General) => self.general.clone().into_any_element(),
+                    Mode::Settings(SettingsTab::Wallpaper) => self.personal.clone().into_any_element(),
                 }))
                 .child(self.status_bar.clone()),
         )

@@ -15,6 +15,8 @@ pub enum SettingsTab {
     General,
     /// The Personal page.
     Personal,
+    /// The Wallpaper page.
+    Wallpaper,
 }
 
 /// What the Portal window shows: the library, or one of the settings pages.
@@ -33,6 +35,7 @@ impl Mode {
             PortalPage::Library => Self::Library,
             PortalPage::General => Self::Settings(SettingsTab::General),
             PortalPage::Personal => Self::Settings(SettingsTab::Personal),
+            PortalPage::Wallpaper => Self::Settings(SettingsTab::Wallpaper),
         }
     }
 

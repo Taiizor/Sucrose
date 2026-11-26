@@ -161,6 +161,12 @@ fn write(settings: &mut Settings, change: &SettingChange) {
         SettingChange::AppVisible(value) => settings.general.app_visible = *value,
         SettingChange::AppExit(value) => settings.general.app_exit = *value,
         SettingChange::HintTrayIcon(value) => settings.warehouse.hint_tray_icon = *value,
+        SettingChange::GifEngine(value) => settings.engine.gif = *value,
+        SettingChange::UrlEngine(value) => settings.engine.url = *value,
+        SettingChange::WebEngine(value) => settings.engine.web = *value,
+        SettingChange::VideoEngine(value) => settings.engine.video = *value,
+        SettingChange::YouTubeEngine(value) => settings.engine.youtube = *value,
+        SettingChange::ApplicationEngine(value) => settings.engine.application = *value,
     }
 }
 
@@ -195,6 +201,12 @@ fn view_of(settings: &Settings) -> PortalSettings {
         library_move: settings.library.move_library,
         delete_corrupt: settings.library.delete_corrupt,
         hint_tray_icon: settings.warehouse.hint_tray_icon,
+        gif_engine: settings.engine.gif,
+        url_engine: settings.engine.url,
+        web_engine: settings.engine.web,
+        video_engine: settings.engine.video,
+        youtube_engine: settings.engine.youtube,
+        application_engine: settings.engine.application,
     }
 }
 
@@ -202,7 +214,7 @@ fn view_of(settings: &Settings) -> PortalSettings {
 mod tests {
     use std::{fs, path::PathBuf};
 
-    use sucrose_core::settings::ThemeMode;
+    use sucrose_core::settings::{EngineType, ThemeMode};
     use sucrose_ipc::portal::MAX_PATH_TEXT;
 
     use super::*;
@@ -253,6 +265,59 @@ mod tests {
         for (asked, stored) in cases {
             assert_eq!(validate(asked.clone()), Ok(stored), "{asked:?}");
         }
+    }
+
+    #[test]
+    fn validate_accepts_the_engines_the_legacy_list_of_the_type_allows() {
+        for change in [
+            SettingChange::WebEngine(EngineType::CefSharpLive),
+            SettingChange::WebEngine(EngineType::WebViewLive),
+            SettingChange::UrlEngine(EngineType::CefSharpLive),
+            SettingChange::YouTubeEngine(EngineType::WebViewLive),
+            SettingChange::VideoEngine(EngineType::MpvPlayerLive),
+            SettingChange::VideoEngine(EngineType::NebulaLive),
+            SettingChange::GifEngine(EngineType::VexanaLive),
+            SettingChange::ApplicationEngine(EngineType::AuroraLive),
+        ] {
+            assert_eq!(validate(change.clone()), Ok(change));
+        }
+    }
+
+    #[test]
+    fn validate_refuses_an_engine_outside_the_legacy_list_of_the_type() {
+        for change in [
+            SettingChange::WebEngine(EngineType::MpvPlayerLive),
+            SettingChange::WebEngine(EngineType::AuroraLive),
+            SettingChange::UrlEngine(EngineType::VlcPlayerLive),
+            SettingChange::YouTubeEngine(EngineType::MpvPlayerLive),
+            SettingChange::VideoEngine(EngineType::AuroraLive),
+            SettingChange::GifEngine(EngineType::NebulaLive),
+            SettingChange::ApplicationEngine(EngineType::CefSharpLive),
+        ] {
+            assert!(validate(change.clone()).is_err(), "{change:?}");
+        }
+    }
+
+    #[test]
+    fn an_accepted_engine_is_written_and_shown_and_a_refused_one_changes_nothing() {
+        let scratch = Scratch::new("engine");
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+
+        let stored = host.apply(SettingChange::WebEngine(EngineType::WebViewLive));
+        let refused = host.apply(SettingChange::VideoEngine(EngineType::AuroraLive));
+
+        assert_eq!(stored, Ok(SettingChange::WebEngine(EngineType::WebViewLive)));
+        assert!(refused.is_err());
+        let view = host.view();
+        assert_eq!(view.web_engine, EngineType::WebViewLive);
+        assert_eq!(
+            view.video_engine,
+            EngineType::MpvPlayerLive,
+            "the refused change left the default"
+        );
+        let file = fs::read(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).expect("the settings file exists");
+        let json: serde_json::Value = serde_json::from_slice(&file).expect("the file is JSON");
+        assert_eq!(json["Engine"]["Web"], "WebViewLive");
     }
 
     #[test]
