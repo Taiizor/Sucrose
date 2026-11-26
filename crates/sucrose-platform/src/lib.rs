@@ -35,6 +35,7 @@ compile_error!("Sucrose supports Windows, macOS and Linux only");
 pub mod autostart;
 pub mod geometry;
 pub mod icon;
+pub mod input;
 pub mod layout;
 
 pub use autostart::{AutostartState, autostart_state, disable_autostart, enable_autostart, legacy_entry};
