@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-19-PLAN.md
-last_updated: "2026-11-26T17:38:20.187Z"
+stopped_at: Completed 04-20-PLAN.md
+last_updated: "2026-11-26T18:10:16.823Z"
 last_activity: 2026-11-26
 last_activity_desc: Phase 04 execution started
-state_head: 353649b46548461b54e04cce5a2528298eac7b32
+state_head: 59dca42a6bc58c500476cb5459c5332ce68539a3
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 100
-  completed_plans: 98
+  completed_plans: 99
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 20 of 21
+Plan: 21 of 21
 Status: Ready to execute
 Last activity: 2026-11-26 — Phase 04 execution started
 Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
@@ -153,6 +153,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P17 | 17 min | 2 tasks | 20 files |
 | Phase 04 P18 | 28 min | 3 tasks | 20 files |
 | Phase 04 P19 | 20 min | 2 tasks | 20 files |
+| Phase 04 P20 | 30 min | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -308,6 +309,7 @@ Recent decisions affecting current work:
 - [Phase 04]: Keys follow the per-monitor cursor rule like the mouse: only the renderer whose rectangle holds the cursor forwards keystrokes
 - [Phase 04]: The legacy key lParam is kept exactly, extended-key bit always set; the OnlyKeyboard focus click is an InputEvent::FocusClick made by the renderer
 - [Phase 04]: Forwarded positions are relative to the renderer rectangle; InputEvent Debug never shows which key it was (T-04-45)
+- [Phase 04]: 04-20: Complete rule case 2: step 1 failed and steps 5, 6, 8 were skipped, so requirements-completed is empty and no requirement is marked Complete; the Shut Down Windows dialog defect is a blocker for /gsd-debug
 
 ### Pending Todos
 
@@ -326,6 +328,7 @@ None yet.
 - [Phase 7]: Linux package formats are decided in Phase 7
 - [All phases]: Measure RAM/CPU of user-visible changes in release builds; record notable numbers in `docs/MEASUREMENTS.md`
 - CEF GPU process crashes 3 times at the start of a Web wallpaper on the maintainer machine (software fallback renders); look at it at the 04-20 checkpoint
+- [Phase 4]: 04-20 maintainer run: the Windows "Shut Down Windows" dialog opens after every theme switch (all 12 CEF browser closes time out after 5 s; hypothesis, not verified: WM_CLOSE reaches Progman through the browser root window). One click on OK shuts the PC down; needs /gsd-debug and gap closure. Also web themes (e.g. Test Sucrose API) fail inside the page with a CORS-like error although every page loads with status 200.
 
 ### Quick Tasks Completed
 
@@ -344,6 +347,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T17:37:58.064Z
-Stopped at: Completed 04-19-PLAN.md
+Last session: 2026-11-26T18:09:57.669Z
+Stopped at: Completed 04-20-PLAN.md
 Resume file: None
