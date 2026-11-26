@@ -7030,6 +7030,7 @@ dependencies = [
  "sucrose-sysinfo",
  "sysinfo 0.40.4",
  "tracing",
+ "ureq",
 ]
 
 [[package]]

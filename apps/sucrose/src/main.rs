@@ -12,6 +12,7 @@
 mod data_hub;
 mod engines;
 mod fullscreen;
+mod install;
 mod library_ops;
 mod lifecycle;
 mod modules;

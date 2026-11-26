@@ -116,6 +116,15 @@ pub enum PortalRequest {
         /// The device name of the monitor, as in [`RuntimeState::running_engines`].
         monitor: String,
     },
+    /// The user confirmed the install dialog: download the Microsoft installer of this prerequisite, check that it is
+    /// signed by Microsoft, run it and look again (D-15). The service reports every stage as
+    /// [`PortalEvent::InstallProgress`]. Nothing is downloaded before this request.
+    InstallPrerequisite {
+        /// The part to install.
+        prerequisite: PrerequisiteView,
+    },
+    /// Stop the running download ("Stop Download"). Once the installer has started it cannot be stopped from here.
+    CancelInstall,
 }
 
 /// Messages from the service to the Portal.
@@ -197,6 +206,53 @@ pub enum PortalEvent {
         /// confirm in time.
         opened: bool,
     },
+    /// Where the install the Portal asked for is. Every stage is sent as it starts; `Done`, `Failed` and `Cancelled` are
+    /// the last, and a new engine report follows `Done`.
+    InstallProgress(InstallStageView),
+}
+
+/// A part of the machine the service can install for an engine (D-15).
+#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq)]
+pub enum PrerequisiteView {
+    /// The Visual C++ Redistributable CEF needs.
+    VcRedist,
+    /// The WebView2 Runtime (installable from Round B on).
+    WebView2Runtime,
+}
+
+/// Why an install did not finish, as the Portal words it.
+#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq)]
+pub enum InstallFailureView {
+    /// The installer could not be downloaded.
+    Download,
+    /// The installer is not signed by Microsoft; it was not run and nothing was installed.
+    Signature,
+    /// The installer did not finish, or the part is still missing afterwards.
+    Installer,
+}
+
+/// Where an install is, as the Portal shows it.
+#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq)]
+pub enum InstallStageView {
+    /// The installer is being downloaded.
+    Downloading {
+        /// Bytes received so far.
+        received: u64,
+        /// Bytes expected, when the server said.
+        total: Option<u64>,
+    },
+    /// The signature is being checked.
+    Verifying,
+    /// The installer runs; Windows may ask for permission.
+    Installing,
+    /// The part is being looked for again.
+    Rechecking,
+    /// Installed.
+    Done,
+    /// Stopped with this reason.
+    Failed(InstallFailureView),
+    /// The user stopped the download.
+    Cancelled,
 }
 
 /// One command line switch of a web engine as the Portal shows it: a name without leading dashes and, optionally, a
@@ -775,6 +831,10 @@ mod tests {
                 engines: vec![EngineType::CefSharpLive],
             },
             PortalRequest::OpenDevTools { monitor: String::new() },
+            PortalRequest::InstallPrerequisite {
+                prerequisite: PrerequisiteView::VcRedist,
+            },
+            PortalRequest::CancelInstall,
         ];
         for (expected, request) in requests.iter().enumerate() {
             assert_eq!(usize::from(index(request)), expected, "{request:?}");
@@ -829,6 +889,7 @@ mod tests {
             },
             PortalEvent::RestartFailed { reason: String::new() },
             PortalEvent::DevToolsResult { opened: true },
+            PortalEvent::InstallProgress(InstallStageView::Verifying),
         ];
         for (expected, event) in events.iter().enumerate() {
             assert_eq!(usize::from(index(event)), expected, "{event:?}");
@@ -1271,6 +1332,43 @@ mod tests {
         // Room is left for the real defaults, about 2 KiB.
         let limit = usize::try_from(MAX_FRAME).expect("the limit fits") - 4096;
         assert!(bytes.len() < limit, "{} bytes", bytes.len());
+    }
+
+    #[test]
+    fn install_messages_survive_the_wire() {
+        let request = PortalRequest::InstallPrerequisite {
+            prerequisite: PrerequisiteView::VcRedist,
+        };
+        let bytes = postcard::to_stdvec(&request).expect("encode");
+        assert_eq!(postcard::from_bytes::<PortalRequest>(&bytes).expect("decode"), request);
+        let bytes = postcard::to_stdvec(&PortalRequest::CancelInstall).expect("encode");
+        assert_eq!(
+            postcard::from_bytes::<PortalRequest>(&bytes).expect("decode"),
+            PortalRequest::CancelInstall
+        );
+
+        for stage in [
+            InstallStageView::Downloading {
+                received: 1_234_567,
+                total: Some(25_000_000),
+            },
+            InstallStageView::Downloading {
+                received: 0,
+                total: None,
+            },
+            InstallStageView::Verifying,
+            InstallStageView::Installing,
+            InstallStageView::Rechecking,
+            InstallStageView::Done,
+            InstallStageView::Failed(InstallFailureView::Download),
+            InstallStageView::Failed(InstallFailureView::Signature),
+            InstallStageView::Failed(InstallFailureView::Installer),
+            InstallStageView::Cancelled,
+        ] {
+            let event = PortalEvent::InstallProgress(stage);
+            let bytes = postcard::to_stdvec(&event).expect("encode");
+            assert_eq!(postcard::from_bytes::<PortalEvent>(&bytes).expect("decode"), event);
+        }
     }
 
     #[test]

@@ -23,6 +23,7 @@ sucrose-platform = { workspace = true }
 sucrose-sysinfo = { workspace = true }
 sysinfo = { workspace = true }
 tracing = { workspace = true }
+ureq = { workspace = true }
 
 [lints]
 workspace = true

@@ -48,6 +48,7 @@ use crate::{
     data_hub::{DataModule, Delivery, system_sampling},
     engines::{self, EngineReport, FallbackNote, Fallbacks},
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
+    install::{InstallStage, InstallWorker, Prerequisite, SystemSteps},
     library_ops::{self, FinishStats, MaintainInput, MoveFailure, MovePlanDone, MoveStats, RealOps},
     lifecycle::{Closing, OPEN_LABEL, exit_label, should_exit, start_actions},
     modules::{
@@ -123,6 +124,8 @@ enum Event {
     LibraryMove(MoveStep),
     /// The startup worker found out whether the C# app has a start entry.
     StartupLegacy(bool),
+    /// The install worker reached a stage of the install the Portal asked for.
+    Install(InstallStage),
 }
 
 /// What the library-ops worker reports: the counts for the Portal and the showcase names for the settings.
@@ -1175,6 +1178,10 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
     let mut portal_spawned: Option<Instant> = None;
     // Whether the library-ops worker runs; one maintenance at a time.
     let mut library_job = false;
+    // The prerequisite install the Portal asked for, while it runs: one at a time (T-04-44), and the stage it reached,
+    // so a second request is answered with where the running one is.
+    let mut install: Option<InstallWorker> = None;
+    let mut install_stage: Option<InstallStage> = None;
     // The legacy Launcher rule (D-12): what the service itself starts besides the wallpaper that the plan already
     // started above.
     let start = start_actions(plan.selected_exists, plan.app_visible, portal_wanted);
@@ -1554,6 +1561,43 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                     fleet.engines = engines::detect(&engines::exe_dir(), platform.as_ref());
                                     last_engines = None;
                                 }
+                                PortalRequest::InstallPrerequisite { prerequisite } => {
+                                    // The user confirmed in the install dialog (D-15). One install runs at a time: a
+                                    // second request is told where the running one is.
+                                    if install.is_some() {
+                                        if let Some(stage) = install_stage {
+                                            portals.send(PortalEvent::InstallProgress(stage.view()));
+                                        }
+                                    } else if let Some(root) = sucrose_core::paths::cache_dir() {
+                                        let prerequisite = Prerequisite::from_view(prerequisite);
+                                        let reporter = notifier.clone();
+                                        match InstallWorker::start(prerequisite, Arc::new(SystemSteps), root, move |stage| {
+                                            reporter.send(Event::Install(stage));
+                                        }) {
+                                            Ok(worker) => {
+                                                tracing::info!(?prerequisite, "install started");
+                                                install = Some(worker);
+                                                install_stage = None;
+                                            }
+                                            Err(error) => {
+                                                tracing::warn!(%error, "cannot start the install thread");
+                                                portals.send(PortalEvent::InstallProgress(
+                                                    InstallStage::Failed(crate::install::InstallFailure::Installer).view(),
+                                                ));
+                                            }
+                                        }
+                                    } else {
+                                        tracing::warn!("no data folder, so no installer can be downloaded");
+                                        portals.send(PortalEvent::InstallProgress(
+                                            InstallStage::Failed(crate::install::InstallFailure::Download).view(),
+                                        ));
+                                    }
+                                }
+                                PortalRequest::CancelInstall => {
+                                    if let Some(worker) = &install {
+                                        worker.cancel();
+                                    }
+                                }
                                 PortalRequest::SnoozeFallback { engine } => {
                                     // "Don't remind me for a day" (D-16): the quiet time goes into the Warehouse field of
                                     // that engine, by this thread, the only writer. Any other engine changes nothing on disk
@@ -1701,6 +1745,21 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                         );
                         portals.send(PortalEvent::LibraryMaintained(done.report));
                     }
+                    Event::Install(stage) => {
+                        portals.send(PortalEvent::InstallProgress(stage.view()));
+                        if stage.is_final() {
+                            install = None;
+                            install_stage = None;
+                            if stage == InstallStage::Done {
+                                // Look again: the engine is used from the next start of a wallpaper (D-11); the new
+                                // report is sent at the end of this pass.
+                                fleet.engines = engines::detect(&engines::exe_dir(), platform.as_ref());
+                                last_engines = None;
+                            }
+                        } else {
+                            install_stage = Some(stage);
+                        }
+                    }
                     Event::StartupLegacy(legacy) => {
                         legacy_startup = legacy;
                         portals.send(PortalEvent::Startup(startup_info(
@@ -1777,6 +1836,9 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                         } else if host.settings().general.app_exit {
                             // Close Applications (TRAY-05): the renderers, the Portal, then the service.
                             quitting = true;
+                            if let Some(worker) = &install {
+                                worker.cancel();
+                            }
                             tracing::info!("Close Applications chosen, closing the renderers and the Portal");
                             for id in [TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, FULLSCREEN_TIMER, MEMORY_TIMER] {
                                 timers.kill(id);
@@ -1884,6 +1946,9 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
         LoopEvent::Quit => {
             if !quitting {
                 quitting = true;
+                if let Some(worker) = &install {
+                    worker.cancel();
+                }
                 tracing::info!("Quit chosen, closing the renderers");
                 // No monitor change is applied while the renderers are being closed.
                 for id in [TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, FULLSCREEN_TIMER, MEMORY_TIMER] {

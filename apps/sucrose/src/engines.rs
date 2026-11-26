@@ -363,6 +363,12 @@ fn vc_missing(found: Option<&VcRedist>) -> Option<Hint> {
     })
 }
 
+/// Whether the Visual C++ Redistributable is installed and new enough now (or the OS has no such prerequisite): the rule
+/// [`detect`] applies, asked again after an install.
+pub fn vc_is_fine(found: Option<&VcRedist>) -> bool {
+    vc_missing(found).is_none()
+}
+
 /// [`detect`] with the machine's answers given: `exists` says whether a file or folder is there, and
 /// `vc_missing` is the repair hint when the Visual C++ Redistributable CEF needs is missing or too old.
 fn detect_with(
