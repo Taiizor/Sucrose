@@ -25,13 +25,13 @@ Sucrose is an open-source live wallpaper engine (GIF, URL, Web, Video, YouTube a
 2. **Compatibility (D-007).** Themes (`SucroseInfo.json`, `SucroseProperties.json`, `SucroseCompatible.json`, archives) and the web wallpaper JavaScript API stay compatible; legacy `Setting/*.json` files are migrated automatically to the new settings format. Prove it with fixture tests.
 3. **No web runtime in the core (D-004).** The UI is GPUI via `gpui-kit`. Engine binaries (libmpv now; libVLC and CEF later) ship inside the Sucrose package, pinned and hash-verified by `cargo xtask fetch-engines`, and are loaded at runtime (D-028, D-013); the WebView2 Runtime and the VC++ Redist stay user-installed prerequisites with download hints.
 4. **Cross-platform from day one (D-002).** OS-specific code lives only in `sucrose-platform` and engine crates. Anything an OS cannot do is reported through platform capabilities, never faked. CI builds Windows, macOS and Linux.
-5. **unsafe is isolated (D-011).** Only in `sucrose-platform` and engine/FFI crates, each block with a `// SAFETY:` comment.
+5. **unsafe is isolated (D-011, D-039).** Only in `sucrose-platform`, `sucrose-sysinfo` and engine/FFI crates, each block with a `// SAFETY:` comment.
 6. **Low resource use is a feature.** Optional service modules must not start when the user disables them (D-008). For user-visible changes, measure RAM/CPU (release build) and record notable numbers in `docs/MEASUREMENTS.md`.
 7. **Decisions are written down.** Follow `docs/DECISIONS.md`. Do not reopen Accepted entries; confirm Proposed ones with the maintainer before expensive or hard-to-undo work.
 
 ## Workspace (see `docs/ARCHITECTURE.md`)
 
-`crates/` (exists: sucrose-core, sucrose-log, sucrose-platform; planned: -config, -ipc, -engine, -engine-*, -sysinfo, -store, -update), `apps/` (sucrose service/renderer, sucrose-portal UI; planned: sucrose-setup), `xtask/` (automation), `docs/`, `src/` (legacy, excluded from the workspace), `exp/` (experiments, excluded).
+`crates/` (exists: sucrose-core, sucrose-log, sucrose-platform, -config, -ipc, -engine, -engine-web, -engine-cef, -engine-mpv, -sysinfo; planned: -engine-* for the other engines, -store, -update), `apps/` (sucrose service/renderer, sucrose-portal UI; planned: sucrose-setup), `xtask/` (automation), `docs/`, `src/` (legacy, excluded from the workspace), `exp/` (experiments, excluded).
 
 ## Commands
 
