@@ -228,6 +228,53 @@ pub enum PlatformError {
     },
 }
 
+/// Who signed a file whose signature [`Platform::verify_microsoft_signature`] accepted.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct SignerInfo {
+    /// The common name of the leaf signing certificate (`Microsoft Corporation` for an accepted file).
+    pub subject: String,
+}
+
+/// Why a file's signature was not accepted (D-15, D-019). Every variant means: do not run the file.
+#[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
+pub enum TrustError {
+    /// The file could not be opened or read.
+    #[error("the file could not be read: {0}")]
+    Io(String),
+    /// The file carries no signature.
+    #[error("the file is not signed")]
+    NotSigned,
+    /// The file was changed after it was signed, or its signature is damaged.
+    #[error("the signature does not match the file")]
+    BadSignature,
+    /// The signature does not chain to a trusted root, or the chain is expired or otherwise invalid.
+    #[error("the signature is not trusted (code {code:#x})")]
+    Untrusted {
+        /// The OS verdict (the HRESULT-style code WinVerifyTrust returned).
+        code: i32,
+    },
+    /// The signing certificate was revoked.
+    #[error("the signing certificate was revoked")]
+    Revoked,
+    /// The signature is valid, but the signer is not Microsoft or the chain does not end in a Microsoft root.
+    #[error("the file is not signed by Microsoft (signer: {signer})")]
+    NotMicrosoft {
+        /// The signer's common name, empty when it has none.
+        signer: String,
+    },
+    /// This OS has no signature check.
+    #[error("signature checks are not supported on this OS")]
+    Unsupported,
+    /// An OS call failed while the signer was read.
+    #[error("{context} failed with OS error {code}")]
+    Os {
+        /// What was being done.
+        context: &'static str,
+        /// The OS error code.
+        code: i32,
+    },
+}
+
 /// The DPI awareness a thread of this process runs with.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum DpiAwareness {
@@ -383,6 +430,23 @@ pub trait Platform: Send + Sync {
     fn vc_redist(&self, arch: Arch) -> Option<VcRedist> {
         let _ = arch;
         None
+    }
+
+    /// Checks that the executable at `path` carries an Authenticode signature that verifies, whose leaf signer is
+    /// `Microsoft Corporation` and whose chain ends in a Microsoft root (D-15, D-019). The check is the only authority
+    /// for running a downloaded installer: where it cannot be made the answer is [`TrustError::Unsupported`], never a
+    /// pass.
+    fn verify_microsoft_signature(&self, path: &Path) -> Result<SignerInfo, TrustError> {
+        let _ = path;
+        Err(TrustError::Unsupported)
+    }
+
+    /// Runs the installer at `path` with `args` through the OS shell, so the OS shows its own elevation prompt where
+    /// the installer asks for one (Sucrose never elevates itself), waits for it to end and returns its exit code. A
+    /// refused prompt or a launch failure is a [`PlatformError::Os`].
+    fn run_installer(&self, path: &Path, args: &str) -> Result<i32, PlatformError> {
+        let _ = (path, args);
+        Err(PlatformError::Unsupported("installer launch"))
     }
 }
 
