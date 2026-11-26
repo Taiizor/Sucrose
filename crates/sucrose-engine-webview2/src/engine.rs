@@ -21,11 +21,12 @@ use sucrose_engine::{
     engine::{Engine, EngineClock, EngineError, Started, SurfaceHooks, SurfacePump},
 };
 use sucrose_engine_web::{
+    args::{self, SucroseInputs, WebEngine},
     js, origin,
     page::{self, Complaints, PageState},
     profile::{self, ProfileLease},
 };
-use sucrose_ipc::protocol::{Assignment, PlaybackSettings};
+use sucrose_ipc::protocol::{Assignment, PlaybackSettings, WebOptions};
 
 use crate::host::{Host, HostError, HostStart};
 
@@ -129,6 +130,36 @@ fn acquire_profile(slot: u8) -> Option<Arc<ProfileLease>> {
     }
 }
 
+/// The debugging port of the renderer of `slot`: the configured `DeveloperPort` plus the slot, so two renderers never
+/// bind the same port (Pitfall 11). A port outside the range Chromium accepts is logged and left off, never wrapped
+/// around.
+fn debugging_port(developer_port: u16, slot: u8) -> Option<u16> {
+    match args::debugging_port(developer_port, slot) {
+        Ok(port) => port,
+        Err(error) => {
+            tracing::warn!(%error, slot, "no remote debugging port for this renderer");
+            None
+        }
+    }
+}
+
+/// The `AdditionalBrowserArguments` text of a renderer: the user's `WebArguments` (the service already put the legacy
+/// defaults there for an empty list) merged with Sucrose's own switches, never stored (D-17, WAPI-10). Names that are
+/// not switch names are left out and logged.
+fn browser_arguments(web: &WebOptions, port: Option<u16>) -> String {
+    let inputs = SucroseInputs {
+        hardware_acceleration: web.hardware_acceleration,
+        debugging_port: port,
+        windows_build: sucrose_platform::os_build(),
+        engine: WebEngine::WebView2,
+    };
+    let plan = args::plan_webview2_command_line(&web.arguments, &inputs);
+    for (name, error) in &plan.invalid {
+        tracing::warn!(name = %name, %error, "a switch name is not valid, the switch is left out");
+    }
+    args::browser_arguments(&plan.applied)
+}
+
 /// Starts WebView2 on the calling thread, which must be the one that owns the surface `wid` and runs its message loop,
 /// showing the page of the assignment. Returns the thread-safe handle and the pump the loop drives.
 ///
@@ -151,6 +182,16 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
     let web = &assignment.web;
     let state = Arc::new(initial_state(&assignment.settings, &web.theme_type, web.shuffle));
     let calls_state = Arc::clone(&state);
+    let port = debugging_port(web.developer_port, assignment.slot);
+    if let Some(port) = port {
+        tracing::info!(port, slot = assignment.slot, "remote debugging");
+    }
+    let browser_arguments = browser_arguments(web, port);
+    tracing::info!(
+        switches = %browser_arguments,
+        allow_invalid_certificates = web.allow_invalid_certificates,
+        "chromium switches"
+    );
 
     let profile = acquire_profile(assignment.slot);
     let scratch = profile.is_none().then(|| {
@@ -178,6 +219,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         .flatten()
         .collect(),
         user_data_folder,
+        browser_arguments,
         developer_mode: web.developer_mode,
         page_calls: Arc::new(move |_url, status| page::page_calls(&calls_dir, status, &calls_state, &complaints)),
         // The first finished main-frame load is the first frame the user can see.
@@ -515,6 +557,47 @@ mod tests {
 
         assert_eq!(queue.try_iter().count(), 1, "the second marker was dropped");
         assert_eq!(snapshots(&engine), [(DataGroup::Date, r#"{"Day":2}"#.to_owned())]);
+    }
+
+    #[test]
+    fn the_browser_arguments_are_the_users_switches_and_sucroses_own_on_one_line() {
+        let web = WebOptions {
+            arguments: args::from_web_list(&args::legacy_defaults_web()),
+            hardware_acceleration: true,
+            ..WebOptions::default()
+        };
+
+        let text = browser_arguments(&web, None);
+
+        assert!(text.contains("--autoplay-policy=no-user-gesture-required"), "{text}");
+        assert!(text.contains("--disable-web-security"), "{text}");
+        assert!(text.contains("--enable-gpu"), "{text}");
+        assert!(!text.contains("remote-debugging-port"), "{text}");
+        assert!(!text.contains('\n'));
+    }
+
+    #[test]
+    fn a_debugging_port_adds_the_port_and_the_one_merged_feature_switch() {
+        let web = WebOptions::default();
+
+        let text = browser_arguments(&web, debugging_port(9222, 1));
+
+        assert!(text.contains("--remote-debugging-port=9223"), "{text}");
+        assert!(text.contains("--remote-allow-origins=*"), "{text}");
+        assert_eq!(text.matches("--enable-features=").count(), 1, "{text}");
+        assert!(text.contains("msEdgeDevToolsWdpRemoteDebugging"), "{text}");
+    }
+
+    #[test]
+    fn each_renderer_slot_gets_its_own_debugging_port_and_zero_means_none() {
+        assert_eq!(debugging_port(0, 5), None, "DeveloperPort 0 is no debugging at all");
+        assert_eq!(debugging_port(9222, 0), Some(9222));
+        assert_eq!(debugging_port(9222, 1), Some(9223));
+        assert_eq!(
+            debugging_port(65535, 1),
+            None,
+            "a sum above 65535 is refused, not wrapped"
+        );
     }
 
     #[test]

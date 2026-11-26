@@ -26,6 +26,9 @@ pub struct HostStart {
     pub roots: Vec<PathBuf>,
     /// The WebView2 user data folder: the leased profile (D-33, D-35).
     pub user_data_folder: PathBuf,
+    /// The text of `AdditionalBrowserArguments`: the user's switches merged with Sucrose's own (D-17, WAPI-10). The
+    /// environment is created with it, so it cannot change while the renderer runs.
+    pub browser_arguments: String,
     /// `Engine.DeveloperMode`: the page gets its context menu and the developer tools (D-13).
     pub developer_mode: bool,
     /// The scripts a page gets after every completed main-frame navigation: they run before `on_loaded`.
@@ -221,16 +224,16 @@ mod imp {
     }
 
     /// One attempt at the environment on `folder`.
-    fn try_environment(folder: &Path) -> Result<ICoreWebView2Environment, HostError> {
+    fn try_environment(folder: &Path, arguments: &str) -> Result<ICoreWebView2Environment, HostError> {
         let (sender, receiver) = mpsc::channel();
         let options = CoreWebView2EnvironmentOptions::default();
         // SAFETY: the options object is not shared with COM yet, so nothing else reads these fields. Language stays
-        // empty (the OS default), extensions and custom crash reporting stay off, and Sucrose's switches arrive with
-        // plan 04-25.
+        // empty (the OS default), extensions and custom crash reporting stay off, and the browser arguments are the
+        // user's switches merged with Sucrose's own (D-17).
         unsafe {
             options.set_are_browser_extensions_enabled(false);
             options.set_is_custom_crash_reporting_enabled(false);
-            options.set_additional_browser_arguments(String::new());
+            options.set_additional_browser_arguments(arguments.to_owned());
         }
         let options: ICoreWebView2EnvironmentOptions = options.into();
         let handler = CreateCoreWebView2EnvironmentCompletedHandler::create(Box::new(move |code, environment| {
@@ -250,12 +253,12 @@ mod imp {
     }
 
     /// The environment, with one retry after [`RETRY_DELAY`] when the first attempt failed (not when it timed out).
-    fn create_environment(folder: &Path) -> Result<ICoreWebView2Environment, HostError> {
-        match try_environment(folder) {
+    fn create_environment(folder: &Path, arguments: &str) -> Result<ICoreWebView2Environment, HostError> {
+        match try_environment(folder, arguments) {
             Err(HostError::Environment(first)) => {
                 tracing::warn!(error = %first, "the WebView2 environment failed, trying once more");
                 std::thread::sleep(RETRY_DELAY);
-                try_environment(folder)
+                try_environment(folder, arguments)
             }
             other => other,
         }
@@ -515,7 +518,7 @@ mod imp {
         /// `self`, which the caller drops.
         fn open(&mut self, parent: u64, rect: [i32; 4], url: &str, start: &HostStart) -> Result<(), HostError> {
             let setup = |error: windows::core::Error| HostError::Setup(error.to_string());
-            let environment = create_environment(&start.user_data_folder)?;
+            let environment = create_environment(&start.user_data_folder, &start.browser_arguments)?;
             self.environment = Some(environment.clone());
             let window = HWND(parent as usize as *mut std::ffi::c_void);
             let controller = create_controller(&environment, window)?;

@@ -4,9 +4,10 @@
 use std::{collections::BTreeMap, fs, path::Path};
 
 use sucrose_engine_web::args::{
-    ArgError, CEF_SETTING_KEYS, SucroseInputs, Switch, WebEngine, debugging_port, effective_switches, from_cef_map,
-    from_web_list, legacy_defaults_cef, legacy_defaults_web, merge, plan_cef_command_line, repeated_names,
-    sucrose_switches, to_cef_map, to_web_list, validate_name,
+    ArgError, CEF_SETTING_KEYS, SucroseInputs, Switch, WebEngine, browser_arguments, debugging_port,
+    effective_switches, from_cef_map, from_web_list, legacy_defaults_cef, legacy_defaults_web, merge,
+    plan_cef_command_line, plan_webview2_command_line, repeated_names, sucrose_switches, to_cef_map, to_web_list,
+    validate_name,
 };
 
 fn inputs(hardware_acceleration: bool, windows_build: u32, engine: WebEngine) -> SucroseInputs {
@@ -290,4 +291,72 @@ fn args_windows_11_24h2_drops_the_users_gpu_compositing_switch_for_cef_only() {
     assert!(!names(&new).contains(&"disable-gpu-compositing"));
     assert!(names(&old).contains(&"disable-gpu-compositing"));
     assert!(names(&web).contains(&"disable-gpu-compositing"));
+}
+
+fn text_of(user: &[&str], hardware_acceleration: bool, port: Option<u16>) -> String {
+    let user = from_web_list(&user.iter().map(|entry| (*entry).to_owned()).collect::<Vec<_>>());
+    let mut inputs = inputs(hardware_acceleration, 26100, WebEngine::WebView2);
+    inputs.debugging_port = port;
+    browser_arguments(&plan_webview2_command_line(&user, &inputs).applied)
+}
+
+#[test]
+fn args_the_webview2_text_is_one_line_of_the_user_switches_and_sucroses_own() {
+    let text = text_of(
+        &["--autoplay-policy=no-user-gesture-required", "--disable-web-security"],
+        true,
+        None,
+    );
+
+    assert_eq!(
+        text,
+        "--autoplay-policy=no-user-gesture-required --disable-web-security --enable-gpu --enable-gpu-vsync"
+    );
+}
+
+#[test]
+fn args_the_webview2_text_merges_the_feature_lists_into_one_switch_with_a_port() {
+    let text = text_of(&["--enable-features=Foo,Bar"], false, Some(9223));
+
+    assert_eq!(
+        text,
+        "--enable-features=Foo,Bar,msEdgeDevToolsWdpRemoteDebugging --disable-gpu --disable-gpu-vsync \
+         --remote-debugging-port=9223 --remote-allow-origins=*"
+    );
+    assert_eq!(text.matches("enable-features").count(), 1);
+}
+
+#[test]
+fn args_a_webview2_value_with_a_blank_is_quoted_and_a_quote_inside_is_escaped() {
+    let switches = [
+        Switch::with_value("user-agent", "My Agent 1.0"),
+        Switch::with_value("note", "say \"hi\" now"),
+        Switch::with_value("path", "C:\\a b\\"),
+        Switch::with_value("plain", "x"),
+        Switch::flag("flag"),
+    ];
+
+    assert_eq!(
+        browser_arguments(&switches),
+        r#"--user-agent="My Agent 1.0" --note="say \"hi\" now" --path="C:\a b\\" --plain=x --flag"#
+    );
+    assert_eq!(browser_arguments(&[]), "");
+}
+
+#[test]
+fn args_the_webview2_plan_leaves_out_invalid_names() {
+    let user = [Switch::flag("good"), Switch::flag("bad name --evil"), Switch::flag("")];
+    let plan = plan_webview2_command_line(&user, &inputs(true, 0, WebEngine::WebView2));
+
+    assert_eq!(names(&plan.applied), ["good", "enable-gpu", "enable-gpu-vsync"]);
+    assert_eq!(plan.invalid.len(), 2);
+    assert!(!browser_arguments(&plan.applied).contains("evil"));
+}
+
+#[test]
+fn args_the_webview2_debugging_port_is_the_base_plus_the_slot_and_out_of_range_leaves_it_off() {
+    assert_eq!(debugging_port(9222, 1), Ok(Some(9223)));
+    assert!(debugging_port(65535, 1).is_err());
+    assert!(debugging_port(1000, 0).is_err());
+    assert_eq!(debugging_port(0, 3), Ok(None));
 }

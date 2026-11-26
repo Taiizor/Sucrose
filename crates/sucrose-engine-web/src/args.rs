@@ -427,6 +427,79 @@ pub fn effective_switches(user: &[Switch], inputs: &SucroseInputs) -> Vec<Switch
     merge(&kept, &sucrose_switches(inputs))
 }
 
+/// The result of preparing the browser arguments of a WebView2 environment.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct WebView2Plan {
+    /// The switches to pass, in order.
+    pub applied: Vec<Switch>,
+    /// The entries whose names are not valid switch names, and why; they are left out.
+    pub invalid: Vec<(String, ArgError)>,
+}
+
+/// The text of `AdditionalBrowserArguments` for `switches`: one space separated line of `--name` and `--name=value`.
+/// A value with a blank or a quote is wrapped in quotes (a quote inside is escaped with a backslash, as the Windows
+/// command line parser reads it), so it stays one argument; nothing is passed through a shell.
+#[must_use]
+pub fn browser_arguments(switches: &[Switch]) -> String {
+    switches
+        .iter()
+        .map(|switch| match &switch.value {
+            Some(value) => format!("--{}={}", switch.name, quote_value(value)),
+            None => format!("--{}", switch.name),
+        })
+        .collect::<Vec<_>>()
+        .join(" ")
+}
+
+/// `value` as one command line argument part: unchanged when it has no blank and no quote, else wrapped in quotes with
+/// the quotes inside escaped and the backslashes before a quote (or before the closing one) doubled, the rules the
+/// Windows command line parser reads back.
+fn quote_value(value: &str) -> String {
+    if !value.chars().any(|c| c.is_whitespace() || c == '"') {
+        return value.to_owned();
+    }
+    let mut quoted = String::with_capacity(value.len() + 2);
+    quoted.push('"');
+    let mut backslashes = 0_usize;
+    for c in value.chars() {
+        match c {
+            '\\' => backslashes += 1,
+            '"' => {
+                quoted.extend(std::iter::repeat_n('\\', backslashes * 2 + 1));
+                quoted.push('"');
+                backslashes = 0;
+            }
+            other => {
+                quoted.extend(std::iter::repeat_n('\\', backslashes));
+                quoted.push(other);
+                backslashes = 0;
+            }
+        }
+    }
+    quoted.extend(std::iter::repeat_n('\\', backslashes * 2));
+    quoted.push('"');
+    quoted
+}
+
+/// Prepares the browser arguments of a WebView2 environment: [`effective_switches`] without the names that are not
+/// switch names (reported in `invalid`). Nothing else is blocked: an unknown switch with a valid name passes through
+/// (D-17).
+#[must_use]
+pub fn plan_webview2_command_line(user: &[Switch], inputs: &SucroseInputs) -> WebView2Plan {
+    let mut plan = WebView2Plan {
+        applied: Vec::new(),
+        invalid: Vec::new(),
+    };
+    for switch in effective_switches(user, inputs) {
+        if let Err(error) = validate_name(&switch.name) {
+            plan.invalid.push((switch.name, error));
+        } else {
+            plan.applied.push(switch);
+        }
+    }
+    plan
+}
+
 /// Prepares the command line of the CEF browser process: [`effective_switches`] without the CEF setting keys (reported
 /// in `skipped_settings`) and without names that are not switch names (reported in `invalid`). Nothing else is blocked:
 /// an unknown switch with a valid name passes through (D-17).
