@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-11-PLAN.md
-last_updated: "2026-11-26T05:16:06.919Z"
+stopped_at: Completed 04-12-PLAN.md
+last_updated: "2026-11-26T05:52:32.421Z"
 last_activity: 2026-11-26
 last_activity_desc: Phase 04 execution resumed (wave continue)
-state_head: f91255c0bcaa9ba5cba8e9cfa779f075b388ef8a
+state_head: 39f69654d84da48b117710e0ac91f64db24f2efc
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 100
-  completed_plans: 90
+  completed_plans: 91
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 12 of 21
+Plan: 13 of 21
 Status: Ready to execute
 Last activity: 2026-11-26 — Phase 04 execution resumed (wave continue)
 Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
@@ -145,6 +145,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P09 | 22 min | 2 tasks | 18 files |
 | Phase 04 P10 | 19 min | 2 tasks | 22 files |
 | Phase 04 P11 | 31 min | 2 tasks | 12 files |
+| Phase 04 P12 | 27 min | 3 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -284,6 +285,8 @@ Recent decisions affecting current work:
 - [Phase 04]: Bios and Motherboard are asked for every 10th tick (sampler caches the WMI read) so a page that starts later gets them within a second
 - [Phase 04]: CoresMin and CoresMax keep the legacy per-core-loop quirk; the legacy behaviour is kept and recorded in FEATURES
 - [Phase 04]: Processor State is true only when the WMI static read worked, as in the legacy code; a failing source gives the legacy default with State false and one log line, retried after 60 s
+- [Phase 04]: 04-12: EngineReport.availability_for adds the build rule that CEF plays Web themes only until its generated GIF/video pages exist
+- [Phase 04]: 04-12: a type no engine can play is refused with UseRefusal::NoEngine (appended) and the configured engine's repair hint
 
 ### Pending Todos
 
@@ -320,6 +323,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-26T05:15:48.881Z
-Stopped at: Completed 04-11-PLAN.md
+Last session: 2026-11-26T05:51:54.143Z
+Stopped at: Completed 04-12-PLAN.md
 Resume file: None
