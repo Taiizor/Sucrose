@@ -6,7 +6,13 @@ xtask = "run --package xtask --"
 # Fill it with: cargo xtask fetch-engines --engine cef
 CEF_PATH = { value = "target/engines/cef", relative = true }
 
-# Dependencies (CEF bindings etc.) get line tables only: backtraces keep file:line,
-# but dev builds compile and link faster. Workspace crates keep full debug info.
+# rust-lld ships with Rust and links much faster than MSVC's link.exe, which pays off with large deps like CEF.
+[target.x86_64-pc-windows-msvc]
+linker = "rust-lld.exe"
+
+# Dependencies (CEF bindings etc.): line tables only, so backtraces keep file:line while dev builds
+# compile and link faster; opt-level 1 keeps them reasonably fast at runtime. Cached after the first build.
+# Workspace crates keep the default dev profile (full debug info, no optimization).
 [profile.dev.package."*"]
 debug = "line-tables-only"
+opt-level = 1
