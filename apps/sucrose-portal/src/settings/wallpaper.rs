@@ -20,7 +20,7 @@ use sucrose_ipc::portal::{
     SettingChange, SwitchView,
 };
 
-use super::arguments::ArgumentsEditor;
+use super::arguments::{ArgumentsEditor, saved_list};
 use super::row::{
     Choice, ChoiceSelect, ControlState, SELECT_WIDTH, SettingRow, choice_select, control_state, footer_line,
     label_text, on_choice, select_box, show_choice,
@@ -483,6 +483,8 @@ pub struct WallpaperPage {
     running: Vec<EngineType>,
     /// The Arguments editor in the CEF row's footer.
     arguments: Entity<ArgumentsEditor>,
+    /// The Arguments editor in the WebView2 row's footer.
+    web_arguments: Entity<ArgumentsEditor>,
     connected: bool,
     /// One select per [`EngineRow`], in the order of [`EngineRow::ALL`].
     selects: [ChoiceSelect<EngineType>; 2],
@@ -500,6 +502,10 @@ impl WallpaperPage {
         let arguments = {
             let link = link.clone();
             cx.new(|_| ArgumentsEditor::new(link, EngineType::CefSharpLive))
+        };
+        let web_arguments = {
+            let link = link.clone();
+            cx.new(|_| ArgumentsEditor::new(link, EngineType::WebViewLive))
         };
         let input_type = choice_select(input_type_choices(), None, window, cx);
         let input_module = choice_select(input_module_choices(), None, window, cx);
@@ -523,6 +529,7 @@ impl WallpaperPage {
             engines: None,
             running: Vec::new(),
             arguments,
+            web_arguments,
             connected: false,
             selects,
             input_type,
@@ -535,8 +542,9 @@ impl WallpaperPage {
     pub fn set_connected(&mut self, connected: bool, cx: &mut Context<Self>) {
         if self.connected != connected {
             self.connected = connected;
-            self.arguments
-                .update(cx, |editor, cx| editor.set_connected(connected, cx));
+            for editor in self.editors() {
+                editor.update(cx, |editor, cx| editor.set_connected(connected, cx));
+            }
             cx.notify();
         }
     }
@@ -544,8 +552,24 @@ impl WallpaperPage {
     /// The service reported what runs (Welcome and Runtime): the engines whose wallpapers a restart prompt may name.
     pub fn set_runtime(&mut self, runtime: &RuntimeState, cx: &mut Context<Self>) {
         self.running = runtime.running_engines.iter().map(|(_, engine)| *engine).collect();
-        let running = self.running.clone();
-        self.arguments.update(cx, |editor, _| editor.set_running(running));
+        for editor in self.editors() {
+            let running = self.running.clone();
+            editor.update(cx, |editor, _| editor.set_running(running));
+        }
+    }
+
+    /// The Arguments editors of the page: CEF's, then WebView2's.
+    fn editors(&self) -> [&Entity<ArgumentsEditor>; 2] {
+        [&self.arguments, &self.web_arguments]
+    }
+
+    /// The editor of the switches of `engine`, when the engine has one.
+    fn editor_of(&self, engine: EngineType) -> Option<&Entity<ArgumentsEditor>> {
+        match engine {
+            EngineType::CefSharpLive => Some(&self.arguments),
+            EngineType::WebViewLive => Some(&self.web_arguments),
+            _ => None,
+        }
     }
 
     /// The service sent the switches of an engine: the editor of that engine shows them.
@@ -557,30 +581,41 @@ impl WallpaperPage {
         cx: &mut Context<Self>,
     ) {
         let [user, sucrose, defaults] = lists;
-        if engine == EngineType::CefSharpLive {
-            self.arguments.update(cx, |editor, cx| {
+        if let Some(editor) = self.editor_of(engine) {
+            editor.update(cx, |editor, cx| {
                 editor.on_arguments(user, sucrose, defaults, window, cx)
             });
         }
     }
 
-    /// The service stored a list of CEF switches (Changed): the draft shows it and the restart prompt may follow.
-    pub fn on_arguments_saved(&mut self, list: &[SwitchView], window: &mut Window, cx: &mut Context<Self>) {
-        self.arguments
-            .update(cx, |editor, cx| editor.on_saved(list, window, cx));
+    /// The service stored a list of switches of `engine` (Changed): its draft shows it and the restart prompt may follow.
+    pub fn on_arguments_saved(
+        &mut self,
+        engine: EngineType,
+        list: &[SwitchView],
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
+        if let Some(editor) = self.editor_of(engine) {
+            editor.update(cx, |editor, cx| editor.on_saved(list, window, cx));
+        }
     }
 
     /// The service refused a change: a list of switches that was sent stays in the draft.
     pub fn on_rejected(&mut self, change: &SettingChange, cx: &mut Context<Self>) {
-        if matches!(change, SettingChange::CefArguments(_)) {
-            self.arguments.update(cx, |editor, cx| editor.on_rejected(cx));
+        if let Some((engine, _)) = saved_list(change)
+            && let Some(editor) = self.editor_of(engine)
+        {
+            editor.update(cx, |editor, cx| editor.on_rejected(cx));
         }
     }
 
     /// The service reported every setting (Welcome): every select shows its engine.
     pub fn load(&mut self, settings: &PortalSettings, window: &mut Window, cx: &mut Context<Self>) {
         self.settings = Some(settings.clone());
-        self.arguments.update(cx, |editor, _| editor.request());
+        for editor in self.editors() {
+            editor.update(cx, |editor, _| editor.request());
+        }
         self.refresh(window, cx);
         cx.notify();
     }
@@ -608,7 +643,9 @@ impl WallpaperPage {
         }
         // Sucrose's own switches follow Hardware Acceleration (the read-only rows of the editor).
         if matches!(change, SettingChange::HardwareAcceleration(_)) {
-            self.arguments.update(cx, |editor, _| editor.request());
+            for editor in self.editors() {
+                editor.update(cx, |editor, _| editor.request());
+            }
         }
         // The switches and the checkbox are drawn from `settings`, so they show the broadcast value again by themselves.
         cx.notify();
@@ -625,7 +662,9 @@ impl WallpaperPage {
     pub fn on_opened(&self, cx: &App) {
         if self.state() == ControlState::Enabled {
             self.link.send(PortalRequest::DetectEngines);
-            self.arguments.read(cx).request();
+            for editor in self.editors() {
+                editor.read(cx).request();
+            }
         }
     }
 
@@ -636,7 +675,7 @@ impl WallpaperPage {
             .any(|select| select.read(cx).focus_handle(cx).contains_focused(window, cx))
             || self.input_type.read(cx).focus_handle(cx).contains_focused(window, cx)
             || self.input_module.read(cx).focus_handle(cx).contains_focused(window, cx)
-            || self.arguments.read(cx).focused(window, cx)
+            || self.editors().iter().any(|editor| editor.read(cx).focused(window, cx))
     }
 
     /// Puts the choices and the broadcast engine into every select, without telling anyone.
@@ -761,18 +800,26 @@ impl WallpaperPage {
         .build(cx)
     }
 
-    /// The Web Engine Settings group: the certificate switch, then the CEF row with its status line (the WebView2 row
-    /// arrives with Round B).
-    fn web_engines_group(&self, cx: &mut Context<Self>) -> AnyElement {
-        let engine = EngineType::CefSharpLive;
+    /// The row of one web engine: its title, its status line and its Arguments editor (UI-SPEC E2, E4).
+    fn web_engine_row(&self, engine: EngineType, editor: &Entity<ArgumentsEditor>, cx: &App) -> AnyElement {
         let line = status_line(engine, state_of(self.engines.as_ref(), engine));
-        let certificates = self.certificates_row(cx);
-        let row = SettingRow::new(tr(engine_label_key(engine)), None)
+        SettingRow::new(tr(engine_label_key(engine)), None)
             .status(status_view(&line, cx))
-            .footer(self.arguments.clone())
+            .footer(editor.clone())
             .state(self.state())
-            .build(cx);
-        super::group(tr("Portal.WallpaperSettingPage.WebEngines"), vec![certificates, row])
+            .build(cx)
+    }
+
+    /// The Web Engine Settings group: the certificate switch, then the WebView2 row and the CEF row, each with its
+    /// status line and its own Arguments editor.
+    fn web_engines_group(&self, cx: &mut Context<Self>) -> AnyElement {
+        let certificates = self.certificates_row(cx);
+        let webview2 = self.web_engine_row(EngineType::WebViewLive, &self.web_arguments, cx);
+        let cef = self.web_engine_row(EngineType::CefSharpLive, &self.arguments, cx);
+        super::group(
+            tr("Portal.WallpaperSettingPage.WebEngines"),
+            vec![certificates, webview2, cef],
+        )
     }
 }
 
@@ -1390,6 +1437,50 @@ mod tests {
             None,
             "an engine the report does not list is not claimed missing"
         );
+    }
+
+    #[test]
+    fn wallpaper_webview2_status_line_names_the_runtime_version_or_the_hint() {
+        let web = EngineType::WebViewLive;
+
+        assert_eq!(status_line(web, None), StatusLine::Checking);
+        assert_eq!(
+            status_line(
+                web,
+                Some(&EngineState::Ready {
+                    version: Some("158.0.4370.33".to_owned())
+                })
+            ),
+            StatusLine::Ready {
+                text: "WebView2 is ready.".to_owned(),
+                version: Some("Version 158.0.4370.33".to_owned())
+            }
+        );
+        assert_eq!(
+            status_line(
+                web,
+                Some(&EngineState::Missing {
+                    hint: HintView::RuntimeMissing,
+                    installable: false
+                })
+            ),
+            StatusLine::Warning {
+                text: "Install the WebView2 Runtime to use WebView2.".to_owned()
+            }
+        );
+        let StatusLine::Warning { text } = status_line(
+            web,
+            Some(&EngineState::Missing {
+                hint: HintView::RuntimeOutdated {
+                    found: "100.0".to_owned(),
+                    needed: "120.0".to_owned(),
+                },
+                installable: true,
+            }),
+        ) else {
+            panic!("an outdated runtime is a warning");
+        };
+        assert!(text.contains("100.0") && text.contains("120.0"), "{text}");
     }
 
     #[test]

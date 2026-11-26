@@ -23,6 +23,7 @@ use crate::{
     library::{ChangeLocation, LibraryView, bin_name},
     settings::{
         Mode, SettingsTab,
+        arguments::saved_list,
         general::GeneralPage,
         other::OtherPage,
         personal::PersonalPage,
@@ -413,9 +414,9 @@ impl PortalApp {
                             .update(cx, |page, cx| page.on_setting(settings, &change, window, cx));
                     }
                     // The switches are not part of the settings view: the editor takes the stored list.
-                    if let SettingChange::CefArguments(list) = &change {
+                    if let Some((engine, list)) = saved_list(&change) {
                         self.wallpaper
-                            .update(cx, |page, cx| page.on_arguments_saved(list, window, cx));
+                            .update(cx, |page, cx| page.on_arguments_saved(engine, list, window, cx));
                     }
                     if matches!(change, SettingChange::ThemeMode(_)) {
                         self.apply_theme(window, cx);

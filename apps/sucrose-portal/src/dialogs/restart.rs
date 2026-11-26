@@ -219,6 +219,38 @@ mod tests {
     }
 
     #[test]
+    fn restart_webview2_arguments_name_only_the_webview2_wallpapers() {
+        let running = [CefSharpLive, WebViewLive, MpvPlayerLive];
+
+        assert_eq!(
+            affected_engines(RestartSetting::Arguments(WebViewLive), &running),
+            [WebViewLive]
+        );
+        assert_eq!(
+            prompt_text(RestartSetting::Arguments(WebViewLive), &[WebViewLive]),
+            "The new arguments applies when the WebView2 wallpapers restart."
+        );
+        assert_eq!(engines_text(&[WebViewLive]), "WebView2");
+        assert_eq!(engines_text(&[CefSharpLive]), "CEF");
+        assert_eq!(engines_text(&[WebViewLive, CefSharpLive]), "WebView2 and CEF");
+        assert!(should_prompt(
+            RestartSetting::Arguments(WebViewLive),
+            &vec![1],
+            &vec![2],
+            &running
+        ));
+        assert!(
+            !should_prompt(
+                RestartSetting::Arguments(WebViewLive),
+                &vec![1],
+                &vec![2],
+                &[CefSharpLive, MpvPlayerLive]
+            ),
+            "no WebView2 wallpaper runs: no prompt, the change applies at the next start"
+        );
+    }
+
+    #[test]
     fn restart_the_prompt_needs_a_changed_value_and_a_running_wallpaper_that_reads_it() {
         let running = [CefSharpLive];
 

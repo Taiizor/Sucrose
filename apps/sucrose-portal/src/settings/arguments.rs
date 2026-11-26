@@ -1,5 +1,5 @@
-//! The Arguments editor of the CEF row (UI-SPEC "Arguments editor", E4, D-17, WAPI-10): the command line switches Chromium
-//! starts with. The service owns the rules and the storage format: it sends the stored switches, the read-only ones Sucrose
+//! The Arguments editor of a web engine row, CEF or WebView2 (UI-SPEC "Arguments editor", E4, D-17, WAPI-10): the command
+//! line switches Chromium starts with. The service owns the rules and the storage format: it sends the stored switches, the read-only ones Sucrose
 //! adds from the settings and the legacy defaults, and it validates a saved list (the Portal links no engine crate). The
 //! editor edits a draft that nothing stores until Save Arguments; the draft survives page switches until the Portal closes.
 //! The pure [`ArgumentsDraft`] is tested apart from the view.
@@ -230,6 +230,24 @@ struct Loaded {
     draft: ArgumentsDraft,
     /// The switches Sucrose adds, read-only.
     sucrose: Vec<Fields>,
+}
+
+/// The change that saves `list` as the switches of `engine`: WebView2 has its own list, every other engine (CEF) the
+/// dictionary.
+pub fn save_change(engine: EngineType, list: Vec<SwitchView>) -> SettingChange {
+    match engine {
+        EngineType::WebViewLive => SettingChange::WebArguments(list),
+        _ => SettingChange::CefArguments(list),
+    }
+}
+
+/// The engine and the list of a change that stores switches; `None` for every other change.
+pub fn saved_list(change: &SettingChange) -> Option<(EngineType, &[SwitchView])> {
+    match change {
+        SettingChange::CefArguments(list) => Some((EngineType::CefSharpLive, list)),
+        SettingChange::WebArguments(list) => Some((EngineType::WebViewLive, list)),
+        _ => None,
+    }
 }
 
 /// The editor of one web engine's switches.
@@ -650,7 +668,8 @@ impl Render for ArgumentsEditor {
                         }
                         let list = loaded.draft.to_switches();
                         this.saving = true;
-                        this.link.send(PortalRequest::Change(SettingChange::CefArguments(list)));
+                        let change = save_change(this.engine, list);
+                        this.link.send(PortalRequest::Change(change));
                         cx.notify();
                     })),
             );
@@ -662,7 +681,10 @@ impl Render for ArgumentsEditor {
 mod tests {
     use sucrose_ipc::portal::{MAX_SWITCHES, SwitchView};
 
-    use super::{ArgumentsDraft, RowError, normalize_name};
+    use sucrose_core::settings::EngineType;
+    use sucrose_ipc::portal::SettingChange;
+
+    use super::{ArgumentsDraft, RowError, normalize_name, save_change, saved_list};
 
     fn flag(name: &str) -> SwitchView {
         SwitchView {
@@ -689,6 +711,29 @@ mod tests {
                 with("autoplay-policy", "document-user-activation-required"),
             ],
         )
+    }
+
+    #[test]
+    fn arguments_the_editor_of_each_engine_saves_its_own_change() {
+        let list = vec![flag("disable-extensions")];
+
+        assert_eq!(
+            save_change(EngineType::WebViewLive, list.clone()),
+            SettingChange::WebArguments(list.clone())
+        );
+        assert_eq!(
+            save_change(EngineType::CefSharpLive, list.clone()),
+            SettingChange::CefArguments(list.clone())
+        );
+        assert_eq!(
+            saved_list(&SettingChange::WebArguments(list.clone())),
+            Some((EngineType::WebViewLive, list.as_slice()))
+        );
+        assert_eq!(
+            saved_list(&SettingChange::CefArguments(list.clone())),
+            Some((EngineType::CefSharpLive, list.as_slice()))
+        );
+        assert_eq!(saved_list(&SettingChange::DeveloperMode(true)), None);
     }
 
     #[test]
