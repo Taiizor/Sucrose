@@ -2,7 +2,40 @@
 //! Motherboard follow in the same module. Each query asks for the first instance only, as the legacy
 //! `foreach … break` does, and a property WMI does not give is an empty text or a zero (`SSSHM.Check` with a default).
 
+use serde_json::{Value, json};
+
 use crate::SysInfoError;
+
+/// The Bios group of the legacy default: `State` false and empty texts.
+#[must_use]
+pub fn bios_unavailable() -> Value {
+    json!({
+        "Name": "", "State": false, "Caption": "", "Version": "", "Description": "", "ReleaseDate": "",
+        "Manufacturer": "", "SerialNumber": "", "CurrentLanguage": ""
+    })
+}
+
+/// The Motherboard group of the legacy default: `State` false and empty texts.
+#[must_use]
+pub fn motherboard_unavailable() -> Value {
+    json!({ "Name": "", "State": false, "Product": "", "Version": "", "Manufacturer": "" })
+}
+
+/// The Bios group.
+///
+/// # Errors
+/// Not implemented yet.
+pub fn bios_snapshot() -> Result<Value, SysInfoError> {
+    Err(SysInfoError::Unsupported("the BIOS data"))
+}
+
+/// The Motherboard group.
+///
+/// # Errors
+/// Not implemented yet.
+pub fn motherboard_snapshot() -> Result<Value, SysInfoError> {
+    Err(SysInfoError::Unsupported("the motherboard data"))
+}
 
 /// The fields of the first `Win32_Processor` that the Processor group carries.
 #[derive(Debug, Clone, PartialEq, Eq, Default)]

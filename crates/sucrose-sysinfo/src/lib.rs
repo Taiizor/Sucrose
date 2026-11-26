@@ -18,6 +18,7 @@ use serde_json::Value;
 pub use date::date_snapshot;
 pub use memory::{memory_snapshot, memory_unavailable};
 pub use processor::{ProcessorSampler, processor_unavailable};
+pub use wmi_info::{bios_snapshot, bios_unavailable, motherboard_snapshot, motherboard_unavailable};
 
 /// A single-precision figure as a JSON number. The legacy payload holds C# `float` values, which Newtonsoft writes as the
 /// shortest text that reads back as the same float (`12.345678`, not the `f64` expansion of it); a figure that is not

@@ -5,7 +5,10 @@
 use std::{thread, time::Duration};
 
 use serde_json::Value;
-use sucrose_sysinfo::{ProcessorSampler, memory_snapshot, memory_unavailable, processor_unavailable};
+use sucrose_sysinfo::{
+    ProcessorSampler, bios_snapshot, bios_unavailable, memory_snapshot, memory_unavailable, motherboard_snapshot,
+    motherboard_unavailable, processor_unavailable,
+};
 
 /// The keys of the legacy `Data.cs` objects, in the order it writes them.
 const MEMORY_KEYS: [&str; 9] = [
@@ -34,6 +37,18 @@ const PROCESSOR_KEYS: [&str; 13] = [
     "CoresNow",
     "ProcessorCount",
 ];
+const BIOS_KEYS: [&str; 9] = [
+    "Name",
+    "State",
+    "Caption",
+    "Version",
+    "Description",
+    "ReleaseDate",
+    "Manufacturer",
+    "SerialNumber",
+    "CurrentLanguage",
+];
+const MOTHERBOARD_KEYS: [&str; 5] = ["Name", "State", "Product", "Version", "Manufacturer"];
 /// The fields of the legacy `CoreSensor` struct, in declaration order (Newtonsoft writes fields that way).
 const CORE_KEYS: [&str; 7] = ["Index", "IsMax", "IsMin", "Now", "Name", "TypeText", "Type"];
 
@@ -77,6 +92,66 @@ fn the_unavailable_processor_group_is_the_legacy_default() {
     assert_eq!(value["Max"].as_f64(), Some(0.0));
     assert_eq!(value["Min"].as_f64(), Some(100.0), "the legacy minimum starts at 100");
     assert_eq!(value["CoresMin"].as_f64(), Some(100.0));
+}
+
+#[test]
+fn the_unavailable_bios_and_motherboard_groups_are_the_legacy_default() {
+    let bios = bios_unavailable();
+    let board = motherboard_unavailable();
+
+    assert_eq!(keys(&bios), BIOS_KEYS);
+    assert_eq!(bios["State"], false);
+    assert!(
+        BIOS_KEYS
+            .iter()
+            .filter(|key| **key != "State")
+            .all(|key| bios[*key] == "")
+    );
+    assert_eq!(keys(&board), MOTHERBOARD_KEYS);
+    assert_eq!(board["State"], false);
+    assert!(
+        MOTHERBOARD_KEYS
+            .iter()
+            .filter(|key| **key != "State")
+            .all(|key| board[*key] == "")
+    );
+}
+
+#[cfg(windows)]
+#[test]
+fn the_bios_group_has_the_legacy_keys_and_texts() {
+    let value = bios_snapshot().expect("WMI gives the BIOS");
+
+    assert_eq!(keys(&value), BIOS_KEYS);
+    assert_eq!(value["State"], true);
+    for key in BIOS_KEYS.iter().filter(|key| **key != "State") {
+        assert!(value[*key].is_string(), "{key} is a text: {}", value[*key]);
+    }
+    assert!(
+        value["Manufacturer"].as_str().is_some_and(|text| !text.is_empty()),
+        "WMI knows the BIOS manufacturer"
+    );
+}
+
+#[cfg(windows)]
+#[test]
+fn the_motherboard_group_has_the_legacy_keys_and_the_joined_name() {
+    let value = motherboard_snapshot().expect("WMI gives the base board");
+
+    assert_eq!(keys(&value), MOTHERBOARD_KEYS);
+    assert_eq!(value["State"], true);
+    for key in MOTHERBOARD_KEYS.iter().filter(|key| **key != "State") {
+        assert!(value[*key].is_string(), "{key} is a text: {}", value[*key]);
+    }
+    let name = format!(
+        "{} {}",
+        value["Manufacturer"].as_str().expect("a text"),
+        value["Product"].as_str().expect("a text")
+    );
+    assert_eq!(
+        value["Name"], name,
+        "Name is the manufacturer and the product, as the legacy code builds it"
+    );
 }
 
 #[cfg(windows)]
@@ -157,6 +232,19 @@ fn a_processor_sampler_can_be_created_twice_in_one_process() {
         assert_eq!(keys(&value), PROCESSOR_KEYS);
         // The sampler is dropped here, which must release its PDH query.
     }
+}
+
+#[cfg(not(windows))]
+#[test]
+fn other_systems_report_bios_and_motherboard_as_unsupported() {
+    assert!(matches!(
+        bios_snapshot(),
+        Err(sucrose_sysinfo::SysInfoError::Unsupported(_))
+    ));
+    assert!(matches!(
+        motherboard_snapshot(),
+        Err(sucrose_sysinfo::SysInfoError::Unsupported(_))
+    ));
 }
 
 #[cfg(not(windows))]
