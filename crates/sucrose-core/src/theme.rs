@@ -16,7 +16,7 @@ use crate::version::LegacyVersion;
 pub const INFO_FILE: &str = "SucroseInfo.json";
 
 /// Kind of wallpaper a theme contains, with the legacy ordinals (0 Gif .. 5 Application).
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum WallpaperType {
     /// Animated GIF.
     Gif,
@@ -260,8 +260,8 @@ pub enum ThemeRejection {
         /// The problem.
         reason: String,
     },
-    /// The theme is not a video wallpaper.
-    NotVideo {
+    /// The theme's type is one this build does not play yet.
+    TypeNotPlayable {
         /// Folder name as selected.
         folder: String,
         /// The type it has.
@@ -296,10 +296,10 @@ impl fmt::Display for ThemeRejection {
                     "The selected theme {folder} has no usable SucroseInfo.json: {reason}."
                 )
             }
-            Self::NotVideo { folder, found } => {
+            Self::TypeNotPlayable { folder, found } => {
                 write!(
                     f,
-                    "The selected theme {folder} is a {found:?} wallpaper; only Video plays in this build."
+                    "The selected theme {folder} is a {found:?} wallpaper, which this build does not play yet."
                 )
             }
             Self::SourceInvalid { folder, reason } => {
@@ -326,7 +326,7 @@ pub struct SelectedTheme {
     pub dir: PathBuf,
     /// Its `SucroseInfo.json`.
     pub info: SucroseInfo,
-    /// Absolute path of the video file, verified to be a regular file inside `dir`.
+    /// Absolute path of the video file or web page, verified to be a regular file inside `dir`.
     pub source_path: PathBuf,
 }
 
@@ -373,11 +373,16 @@ fn verified_source(theme_dir: &Path, source: &str) -> Result<PathBuf, &'static s
 }
 
 /// Decides whether the theme selected in the library may start: a folder that exists, a readable `SucroseInfo.json`, a
-/// Video type and a `Source` that is a regular file inside the folder. Every failure is its own
-/// [`ThemeRejection`]; nothing is started or written.
+/// type listed in `playable` and a `Source` that is a regular file inside the folder (a video file, or the page of a
+/// Web theme). Every failure is its own [`ThemeRejection`]; nothing is started or written.
 ///
 /// A theme whose `AppVersion` is newer than `app` is refused too (needs a newer app); the same version is accepted.
-pub fn check_selected(location: &Path, selected: &str, app: &LegacyVersion) -> Result<SelectedTheme, ThemeRejection> {
+pub fn check_selected(
+    location: &Path,
+    selected: &str,
+    app: &LegacyVersion,
+    playable: &[WallpaperType],
+) -> Result<SelectedTheme, ThemeRejection> {
     if selected.is_empty() {
         return Err(ThemeRejection::NothingSelected);
     }
@@ -400,8 +405,8 @@ pub fn check_selected(location: &Path, selected: &str, app: &LegacyVersion) -> R
             ThemeError::Invalid { reason, .. } => reason,
         },
     })?;
-    if info.kind != WallpaperType::Video {
-        return Err(ThemeRejection::NotVideo {
+    if !playable.contains(&info.kind) {
+        return Err(ThemeRejection::TypeNotPlayable {
             folder,
             found: info.kind,
         });

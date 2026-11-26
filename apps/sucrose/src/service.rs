@@ -20,7 +20,7 @@ use sucrose_config::{
 use sucrose_core::{
     APP_LONG_NAME,
     paths::{legacy_data_dir, legacy_setting_dir, setting_dir},
-    theme::{SelectedTheme, ThemeRejection, check_selected},
+    theme::{SelectedTheme, ThemeRejection, WallpaperType, check_selected},
     version::app_version,
 };
 use sucrose_ipc::{
@@ -654,7 +654,13 @@ fn settle_move(progress: MoveProgress, status: &mut Status, tray: Option<&Tray>,
 /// The job for the theme the settings select, in the library the settings name.
 fn selected_job(settings: &Settings, legacy_root: &Path) -> Result<Job, ThemeRejection> {
     let folder = &settings.library.selected;
-    check_selected(&settings.library_location(legacy_root), folder, &app_version()).and_then(|theme| {
+    check_selected(
+        &settings.library_location(legacy_root),
+        folder,
+        &app_version(),
+        PLAYABLE,
+    )
+    .and_then(|theme| {
         job_for(&theme, &settings.engine).map_err(|reason| ThemeRejection::SourceInvalid {
             folder: folder.clone(),
             reason,
@@ -2487,17 +2493,30 @@ struct Plan {
     gpu: GpuPreference,
 }
 
-/// What every renderer plays: the same video with the same settings on each monitor (D-01).
+/// The wallpaper types the service plays in this build (D-31 slice 1); later slices extend it.
+const PLAYABLE: &[WallpaperType] = &[WallpaperType::Video, WallpaperType::Web];
+
+/// Whether a wallpaper type is shown by CEF; every other playable type is played by mpv. Two types on different
+/// engines need new renderers on a Use, because a renderer is one process with one engine.
+fn uses_cef(kind: WallpaperType) -> bool {
+    kind == WallpaperType::Web
+}
+
+/// What every renderer plays: the same video or web page with the same settings on each monitor (D-01).
 #[derive(Debug, Clone)]
 struct Job {
     /// The theme's title, for the tooltip.
     title: String,
-    /// The absolute path of the video.
+    /// The absolute path of the video, or of the page of a Web theme.
     source: String,
     /// How it is played.
     settings: PlaybackSettings,
     /// Whether a surface covers its whole monitor or only the work area (Engine.json ScreenType).
     screen: ScreenArea,
+    /// The theme's wallpaper type, which decides the engine a renderer starts.
+    kind: WallpaperType,
+    /// The absolute path of the theme folder.
+    theme_dir: String,
 }
 
 impl Job {
@@ -2510,6 +2529,8 @@ impl Job {
             rect: [area.left, area.top, area.right, area.bottom],
             source: self.source.clone(),
             settings: self.settings,
+            kind: self.kind,
+            theme_dir: self.theme_dir.clone(),
         }
     }
 }
@@ -3021,6 +3042,8 @@ struct UseInput<'a> {
     selected: &'a str,
     /// Whether renderers run.
     running: bool,
+    /// The type of the theme the renderers play now, when the fleet has a job.
+    running_kind: Option<WallpaperType>,
     /// What the fullscreen rule does to the wallpaper now.
     rule: RuleState,
     /// Whether the library is being moved.
@@ -3036,6 +3059,8 @@ enum UseDecision {
     AlreadyApplied,
     /// Renderers run: they switch to this job.
     Load(Job),
+    /// Renderers run on another engine than this job needs: they are closed and new ones start for it.
+    Restart(Job),
     /// No renderer runs: the fleet starts for this job.
     Start(Job),
 }
@@ -3044,7 +3069,7 @@ enum UseDecision {
 fn refusal_of(rejection: &ThemeRejection) -> UseRefusal {
     match rejection {
         ThemeRejection::NothingSelected | ThemeRejection::FolderMissing { .. } => UseRefusal::NotFound,
-        ThemeRejection::NotVideo { .. } => UseRefusal::NotVideo,
+        ThemeRejection::TypeNotPlayable { .. } => UseRefusal::NotVideo,
         ThemeRejection::NeedsNewerApp { .. } => UseRefusal::NewerVersion,
         ThemeRejection::InfoUnreadable { .. } | ThemeRejection::SourceInvalid { .. } => UseRefusal::Corrupt,
     }
@@ -3069,7 +3094,14 @@ fn decide_use(input: &UseInput<'_>) -> UseDecision {
         return UseDecision::AlreadyApplied;
     }
     if input.running {
-        UseDecision::Load(job.clone())
+        if input
+            .running_kind
+            .is_some_and(|kind| uses_cef(kind) != uses_cef(job.kind))
+        {
+            UseDecision::Restart(job.clone())
+        } else {
+            UseDecision::Load(job.clone())
+        }
     } else {
         UseDecision::Start(job.clone())
     }
@@ -3126,7 +3158,7 @@ fn handle_use(
     };
     let (decision, kind) = {
         let settings = host.settings();
-        let theme = check_selected(&settings.library_location(root), folder, &app_version());
+        let theme = check_selected(&settings.library_location(root), folder, &app_version(), PLAYABLE);
         let kind = theme.as_ref().ok().map(|theme| theme.info.kind);
         let gate = theme.and_then(|theme| {
             job_for(&theme, &settings.engine).map_err(|reason| ThemeRejection::SourceInvalid {
@@ -3139,12 +3171,13 @@ fn handle_use(
             gate,
             selected: &settings.library.selected,
             running: fleet.job.is_some() && !ctx.supervisor.pids().is_empty(),
+            running_kind: fleet.job.as_ref().map(|job| job.kind),
             rule: fleet.rule_state(),
             moving: fleet.library_move.is_some(),
         };
         (decide_use(&input), kind)
     };
-    let (job, starting) = match decision {
+    let (job, starting, transition) = match decision {
         UseDecision::Refuse(reason) => {
             tracing::info!(?reason, "use refused");
             return UseDone::refused(reason);
@@ -3153,8 +3186,9 @@ fn handle_use(
             tracing::debug!("the theme is already in use, nothing is reloaded");
             return UseDone::applied(None);
         }
-        UseDecision::Load(job) => (job, false),
-        UseDecision::Start(job) => (job, true),
+        UseDecision::Load(job) => (job, false, USE_TRANSITION),
+        UseDecision::Restart(job) => (job, false, UseTransition::Restart),
+        UseDecision::Start(job) => (job, true, USE_TRANSITION),
     };
     // Looked at before anything changes: a Use that cannot show anything is refused, not half applied.
     let monitors = if starting {
@@ -3173,12 +3207,12 @@ fn handle_use(
     }
     let title = job.title.clone();
     if !starting {
-        let reached = match USE_TRANSITION {
+        let reached = match transition {
             UseTransition::LoadSource => fleet.load_source(job, ctx.renderers),
             UseTransition::Restart => fleet.restart_with(job, ctx.renderers),
         };
         fleet.revive_stopped(ctx.supervisor);
-        tracing::info!(?kind, transition = ?USE_TRANSITION, renderers = reached.len(), "theme used");
+        tracing::info!(?kind, ?transition, renderers = reached.len(), "theme used");
         return UseDone::applied(Some(Status::Starting { title }));
     }
     apply_gpu_preference(platform, host.settings().engine.gpu_preference);
@@ -3286,6 +3320,8 @@ impl Fleet {
             for assignment in assignments.values_mut() {
                 assignment.source.clone_from(&job.source);
                 assignment.settings = job.settings;
+                assignment.kind = job.kind;
+                assignment.theme_dir.clone_from(&job.theme_dir);
             }
         }
         self.budgets.clear();
@@ -3468,8 +3504,8 @@ fn apply_gpu_preference(platform: &dyn sucrose_platform::Platform, preference: G
 /// Runs the gate (D-13) on the selected theme and, when it passes, builds what every renderer plays. The error is
 /// one English sentence for the log and the tooltip: the gate's own reason.
 fn plan_for(location: &std::path::Path, selected: &str, engine: &Engine) -> Result<Job, String> {
-    let theme =
-        check_selected(location, selected, &app_version()).map_err(|rejection| printable(&rejection.to_string()))?;
+    let theme = check_selected(location, selected, &app_version(), PLAYABLE)
+        .map_err(|rejection| printable(&rejection.to_string()))?;
     // Debug formatting for the text a theme or the settings supply: control characters show as escapes.
     tracing::info!(theme = ?selected, kind = ?theme.info.kind, source = ?theme.info.source, "selected theme");
     job_for(&theme, engine)
@@ -3480,13 +3516,20 @@ fn job_for(theme: &SelectedTheme, engine: &Engine) -> Result<Job, String> {
     let source = theme
         .source_path
         .to_str()
-        .ok_or_else(|| "the video path is not valid UTF-8".to_owned())?
+        .ok_or_else(|| "the Source path is not valid UTF-8".to_owned())?
+        .to_owned();
+    let theme_dir = std::path::absolute(&theme.dir)
+        .map_err(|_| "the theme folder path cannot be made absolute".to_owned())?
+        .to_str()
+        .ok_or_else(|| "the theme folder path is not valid UTF-8".to_owned())?
         .to_owned();
     Ok(Job {
         title: printable(&theme.info.title),
         source,
         settings: playback_settings(engine),
         screen: engine.screen,
+        kind: theme.info.kind,
+        theme_dir,
     })
 }
 
@@ -4455,6 +4498,7 @@ mod tests {
             &settings.library_location(&root),
             &settings.library.selected,
             &app_version(),
+            PLAYABLE,
         );
 
         let theme = selected.unwrap_or_else(|rejection| panic!("the real selected theme is refused: {rejection}"));
@@ -4467,6 +4511,8 @@ mod tests {
             source: "C:/wallpaper.mp4".to_owned(),
             settings: PlaybackSettings::default(),
             screen: ScreenArea::default(),
+            kind: WallpaperType::Video,
+            theme_dir: "C:/".to_owned(),
         };
         Fleet::new(Some(job), SharedAssignments::default())
     }
@@ -4807,6 +4853,16 @@ mod tests {
             source: source.to_owned(),
             settings: PlaybackSettings::default(),
             screen: ScreenArea::default(),
+            kind: WallpaperType::Video,
+            theme_dir: "C:/themes/new".to_owned(),
+        }
+    }
+
+    fn web_job() -> Job {
+        Job {
+            kind: WallpaperType::Web,
+            theme_dir: "C:/themes/page".to_owned(),
+            ..use_job("C:/themes/page/index.html")
         }
     }
 
@@ -4817,6 +4873,7 @@ mod tests {
             gate: Ok(use_job("C:/themes/new/video.mp4")),
             selected: "old",
             running: true,
+            running_kind: Some(WallpaperType::Video),
             rule: RuleState::None,
             moving: false,
         }
@@ -5018,6 +5075,50 @@ mod tests {
         }
 
         #[test]
+        fn decide_use_restarts_when_the_engine_changes() {
+            // Video -> Web and Web -> Video switch engines; a renderer is one process with one engine.
+            let to_web = decide_use(&UseInput {
+                gate: Ok(web_job()),
+                ..use_input()
+            });
+            let UseDecision::Restart(job) = to_web else {
+                panic!("Video to Web is not a Restart: {to_web:?}");
+            };
+            assert_eq!(job.kind, WallpaperType::Web);
+
+            let to_video = decide_use(&UseInput {
+                running_kind: Some(WallpaperType::Web),
+                ..use_input()
+            });
+            assert!(matches!(to_video, UseDecision::Restart(_)), "{to_video:?}");
+        }
+
+        #[test]
+        fn keeps_the_load_source_path_between_themes_of_the_same_engine() {
+            let web_to_web = decide_use(&UseInput {
+                gate: Ok(web_job()),
+                running_kind: Some(WallpaperType::Web),
+                ..use_input()
+            });
+            assert!(matches!(web_to_web, UseDecision::Load(_)), "{web_to_web:?}");
+
+            let video_to_video = decide_use(&use_input());
+            assert!(matches!(video_to_video, UseDecision::Load(_)), "{video_to_video:?}");
+        }
+
+        #[test]
+        fn of_the_playing_web_theme_changes_nothing() {
+            let decision = decide_use(&UseInput {
+                folder: "old",
+                gate: Ok(web_job()),
+                running_kind: Some(WallpaperType::Web),
+                ..use_input()
+            });
+
+            assert!(matches!(decision, UseDecision::AlreadyApplied), "{decision:?}");
+        }
+
+        #[test]
         fn starts_the_fleet_when_nothing_runs() {
             let decision = decide_use(&UseInput {
                 running: false,
@@ -5072,7 +5173,7 @@ mod tests {
 
         #[test]
         fn refuses_a_theme_that_is_not_a_video() {
-            let decision = decide_use(&rejected(ThemeRejection::NotVideo {
+            let decision = decide_use(&rejected(ThemeRejection::TypeNotPlayable {
                 folder: "new".to_owned(),
                 found: sucrose_core::theme::WallpaperType::Web,
             }));
@@ -5161,11 +5262,12 @@ mod tests {
                 ("a\\b", UseRefusal::NotFound),
                 ("", UseRefusal::NotFound),
                 ("no-such-folder", UseRefusal::NotFound),
-                ("web", UseRefusal::NotVideo),
+                ("gif", UseRefusal::NotVideo),
                 ("newer-version", UseRefusal::NewerVersion),
                 ("broken-json", UseRefusal::Corrupt),
             ] {
-                let gate = check_selected(&library, folder, &app_version()).map(|_| use_job("C:/themes/new/video.mp4"));
+                let gate = check_selected(&library, folder, &app_version(), PLAYABLE)
+                    .map(|_| use_job("C:/themes/new/video.mp4"));
                 let decision = decide_use(&UseInput {
                     folder,
                     gate,

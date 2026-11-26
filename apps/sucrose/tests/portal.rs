@@ -8,7 +8,11 @@ use std::path::PathBuf;
 use common::{PortalClient, TestService, copy_fixture_library, service_runs};
 use serde_json::json;
 use sucrose_core::{
-    library::scan, paths::legacy_data_dir, settings::ThemeMode, theme::check_selected, version::app_version,
+    library::scan,
+    paths::legacy_data_dir,
+    settings::ThemeMode,
+    theme::{WallpaperType, check_selected},
+    version::app_version,
 };
 use sucrose_ipc::{
     connect,
@@ -471,15 +475,15 @@ fn use_theme(portal: &mut PortalClient, folder: &str) -> UseOutcome {
 }
 
 #[test]
-fn use_of_a_web_theme_is_refused_and_the_selection_is_unchanged() {
-    if !service_runs("use_of_a_web_theme_is_refused_and_the_selection_is_unchanged") {
+fn use_of_a_gif_theme_is_refused_and_the_selection_is_unchanged() {
+    if !service_runs("use_of_a_gif_theme_is_refused_and_the_selection_is_unchanged") {
         return;
     }
-    let service = TestService::start("use-web", &json!({}));
+    let service = TestService::start("use-gif", &json!({}));
     copy_fixture_library(&service);
     let (mut portal, _) = PortalClient::hello(&service, None);
 
-    let outcome = use_theme(&mut portal, "web");
+    let outcome = use_theme(&mut portal, "gif");
 
     assert_eq!(outcome, UseOutcome::Refused(UseRefusal::NotVideo));
     assert_eq!(service.settings_file()["Library"]["Selected"], "");
@@ -561,7 +565,7 @@ fn use_switches_between_video_themes() {
     let mut playable: Vec<String> = scan
         .themes
         .iter()
-        .filter(|theme| check_selected(&location, &theme.folder, &version).is_ok())
+        .filter(|theme| check_selected(&location, &theme.folder, &version, &[WallpaperType::Video]).is_ok())
         .map(|theme| theme.folder.clone())
         .collect();
     // The current selection first, when it is one of them.

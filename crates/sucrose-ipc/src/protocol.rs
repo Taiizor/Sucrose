@@ -6,12 +6,12 @@
 //! change that appending cannot express.
 
 use serde::{Deserialize, Serialize};
-use sucrose_core::settings::Stretch;
+use sucrose_core::{settings::Stretch, theme::WallpaperType};
 
 use crate::portal::{Launch, PortalPage};
 
 /// Version of this protocol, sent in [`ToService::Hello`] so the service can refuse a renderer it cannot talk to.
-pub const PROTOCOL_VERSION: u16 = 3;
+pub const PROTOCOL_VERSION: u16 = 4;
 
 /// Messages from a renderer to the service.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
@@ -131,7 +131,7 @@ impl Default for PlaybackSettings {
     }
 }
 
-/// One wallpaper job for a renderer: a monitor and the file to play on it.
+/// One wallpaper job for a renderer: a monitor and the file or page to show on it.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Assignment {
     /// The renderer slot this job is for, as in [`ToService::Hello`].
@@ -140,10 +140,14 @@ pub struct Assignment {
     pub monitor: String,
     /// The surface rectangle in physical pixels: left, top, right, bottom (the monitor or its work area).
     pub rect: [i32; 4],
-    /// The absolute path of the file to play.
+    /// The absolute path of the file to play, or of the page of a Web theme.
     pub source: String,
     /// How to play it.
     pub settings: PlaybackSettings,
+    /// The wallpaper type, which decides the engine the renderer starts (Video: mpv, Web: CEF).
+    pub kind: WallpaperType,
+    /// The absolute path of the theme folder; a Web theme's page and its assets live under it.
+    pub theme_dir: String,
 }
 
 #[cfg(test)]
@@ -160,6 +164,8 @@ mod tests {
             rect: [0, 0, 10, 20],
             source: "a.mp4".to_owned(),
             settings: PlaybackSettings::default(),
+            kind: WallpaperType::Video,
+            theme_dir: "C:\\themes\\a".to_owned(),
         }))
         .expect("encode Assign");
 
@@ -290,10 +296,30 @@ mod tests {
             rect: [-1920, 0, 0, 1080],
             source: "C:\\themes\\clip.mp4".to_owned(),
             settings: PlaybackSettings::default(),
+            kind: WallpaperType::Video,
+            theme_dir: "C:\\themes".to_owned(),
         });
 
         let bytes = postcard::to_stdvec(&message).expect("encode");
 
+        assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
+    }
+
+    #[test]
+    fn a_web_assignment_survives_the_wire() {
+        let message = ToRenderer::Assign(Assignment {
+            slot: 1,
+            monitor: "\\\\.\\DISPLAY9".to_owned(),
+            rect: [0, 0, 1920, 1080],
+            source: "C:\\themes\\hello\\index.html".to_owned(),
+            settings: PlaybackSettings::default(),
+            kind: WallpaperType::Web,
+            theme_dir: "C:\\themes\\hello".to_owned(),
+        });
+
+        let bytes = postcard::to_stdvec(&message).expect("encode");
+
+        assert_eq!(bytes[0], 1);
         assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
     }
 }

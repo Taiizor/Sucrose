@@ -11,6 +11,9 @@ use sucrose_core::{
     version::{LegacyVersion, app_version},
 };
 
+/// The types the service plays in this build (D-31 slice 1), as in `apps/sucrose`.
+const PLAYABLE: &[WallpaperType] = &[WallpaperType::Video, WallpaperType::Web];
+
 /// The version this build reports; every gate test runs against it.
 fn app() -> LegacyVersion {
     app_version()
@@ -64,7 +67,7 @@ fn with_source(source: &str) -> SucroseInfo {
 fn rejection_for(name: &str, info: &SucroseInfo) -> ThemeRejection {
     let scratch = Scratch::new(name);
     let library = scratch.library_with(info);
-    check_selected(library, "t", &app()).expect_err("the gate must refuse this theme")
+    check_selected(library, "t", &app(), PLAYABLE).expect_err("the gate must refuse this theme")
 }
 
 #[test]
@@ -176,14 +179,14 @@ fn the_gate_accepts_a_playable_video_theme() {
     let scratch = Scratch::new("ok");
     let library = scratch.library_with(&fixture("SucroseInfo.video.json"));
 
-    let selected = check_selected(library, "t", &app()).expect("playable");
+    let selected = check_selected(library, "t", &app(), PLAYABLE).expect("playable");
 
     assert!(selected.source_path.is_absolute() && selected.source_path.ends_with("video.mp4"));
     assert_eq!(selected.dir, library.join("t"));
 
     let nested = Scratch::new("ok-nested");
     let library = nested.library_with(&with_source("sub/deep.mp4"));
-    assert!(check_selected(library, "t", &app()).is_ok());
+    assert!(check_selected(library, "t", &app(), PLAYABLE).is_ok());
 }
 
 #[test]
@@ -192,17 +195,17 @@ fn nothing_selected_and_a_missing_folder_are_their_own_reasons() {
     let library = scratch.library_with(&fixture("SucroseInfo.video.json"));
 
     assert_eq!(
-        check_selected(library, "", &app()).unwrap_err(),
+        check_selected(library, "", &app(), PLAYABLE).unwrap_err(),
         ThemeRejection::NothingSelected
     );
     assert!(matches!(
-        check_selected(library, "nope", &app()).unwrap_err(),
+        check_selected(library, "nope", &app(), PLAYABLE).unwrap_err(),
         ThemeRejection::FolderMissing { .. }
     ));
     for escape in ["..", "t/..", "t\\..", "/t", "sub/x"] {
         assert!(
             matches!(
-                check_selected(library, escape, &app()).unwrap_err(),
+                check_selected(library, escape, &app(), PLAYABLE).unwrap_err(),
                 ThemeRejection::FolderMissing { .. }
             ),
             "{escape:?} is not a folder name"
@@ -218,12 +221,12 @@ fn a_missing_or_invalid_info_file_is_unreadable() {
 
     fs::write(&info_path, "{ \"Title\": \"half").expect("truncate");
     assert!(matches!(
-        check_selected(library, "t", &app()).unwrap_err(),
+        check_selected(library, "t", &app(), PLAYABLE).unwrap_err(),
         ThemeRejection::InfoUnreadable { .. }
     ));
 
     fs::remove_file(&info_path).expect("remove");
-    let rejection = check_selected(library, "t", &app()).unwrap_err();
+    let rejection = check_selected(library, "t", &app(), PLAYABLE).unwrap_err();
     assert!(
         matches!(rejection, ThemeRejection::InfoUnreadable { .. }),
         "{rejection}"
@@ -232,14 +235,19 @@ fn a_missing_or_invalid_info_file_is_unreadable() {
 
 #[test]
 fn other_wallpaper_types_are_refused() {
-    for kind in [WallpaperType::Gif, WallpaperType::Web, WallpaperType::YouTube] {
+    for kind in [
+        WallpaperType::Gif,
+        WallpaperType::Url,
+        WallpaperType::YouTube,
+        WallpaperType::Application,
+    ] {
         let info = SucroseInfo {
             kind,
             ..fixture("SucroseInfo.video.json")
         };
         assert!(matches!(
             rejection_for("type", &info),
-            ThemeRejection::NotVideo { found, .. } if found == kind
+            ThemeRejection::TypeNotPlayable { found, .. } if found == kind
         ));
     }
 }
@@ -279,7 +287,7 @@ fn an_absolute_path_to_a_real_file_is_still_refused() {
     let library = scratch.library_with(&with_source(&outside.to_string_lossy()));
 
     assert!(matches!(
-        check_selected(library, "t", &app()).unwrap_err(),
+        check_selected(library, "t", &app(), PLAYABLE).unwrap_err(),
         ThemeRejection::SourceInvalid { .. }
     ));
 }
@@ -309,7 +317,7 @@ fn rejection_with_app_version(name: &str, required: LegacyVersion) -> Result<(),
         ..fixture("SucroseInfo.video.json")
     };
     let library = scratch.library_with(&info);
-    check_selected(library, "t", &app()).map(|_| ())
+    check_selected(library, "t", &app(), PLAYABLE).map(|_| ())
 }
 
 #[test]
@@ -343,5 +351,63 @@ fn the_maintainers_theme_passes_with_the_date_based_version() {
     let scratch = Scratch::new("maintainer");
     let library = scratch.library_with(&info);
 
-    assert!(check_selected(library, "t", &app()).is_ok());
+    assert!(check_selected(library, "t", &app(), PLAYABLE).is_ok());
+}
+
+/// A Web theme whose page is `index.html`, with `source` as its Source.
+fn web_info(source: &str) -> SucroseInfo {
+    SucroseInfo {
+        kind: WallpaperType::Web,
+        source: source.to_owned(),
+        ..fixture("SucroseInfo.video.json")
+    }
+}
+
+#[test]
+fn the_gate_accepts_a_web_theme_and_returns_its_page() {
+    let scratch = Scratch::new("web-ok");
+    let library = scratch.library_with(&web_info("index.html"));
+    fs::write(library.join("t").join("index.html"), b"<html></html>").expect("write page");
+
+    let selected = check_selected(library, "t", &app(), PLAYABLE).expect("playable");
+
+    assert_eq!(selected.info.kind, WallpaperType::Web);
+    assert!(selected.source_path.is_absolute() && selected.source_path.ends_with("index.html"));
+}
+
+#[test]
+fn a_web_theme_is_refused_when_the_build_plays_only_video() {
+    let scratch = Scratch::new("web-not-playable");
+    let library = scratch.library_with(&web_info("video.mp4"));
+
+    let rejection = check_selected(library, "t", &app(), &[WallpaperType::Video]).unwrap_err();
+
+    assert!(matches!(
+        rejection,
+        ThemeRejection::TypeNotPlayable {
+            found: WallpaperType::Web,
+            ..
+        }
+    ));
+    assert!(rejection.to_string().contains("does not play yet"));
+}
+
+#[test]
+fn a_web_theme_whose_source_is_empty_missing_a_folder_outside_or_an_address_is_refused() {
+    for source in [
+        "",
+        "missing.html",
+        "sub",
+        "../outside.mp4",
+        "https://example.com/index.html",
+        "http://example.com/",
+    ] {
+        let scratch = Scratch::new("web-source");
+        let library = scratch.library_with(&web_info(source));
+        let rejection = check_selected(library, "t", &app(), PLAYABLE).unwrap_err();
+        assert!(
+            matches!(rejection, ThemeRejection::SourceInvalid { .. }),
+            "{source:?}: {rejection}"
+        );
+    }
 }

@@ -7,6 +7,8 @@
 // Engine/FFI crate: allowed to opt out of the workspace `unsafe_code` lint (D-011).
 #![allow(unsafe_code)]
 
+pub mod browser;
+
 use std::ffi::OsString;
 
 /// The CEF version of the pinned dist (`xtask/engines.toml`), without the commit and Chromium suffix.

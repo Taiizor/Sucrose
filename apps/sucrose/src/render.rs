@@ -14,7 +14,11 @@ use std::{
 };
 
 use anyhow::{Context as _, bail};
-use sucrose_core::paths::{cache_dir, legacy_mpv_cache_dir};
+use sucrose_core::{
+    paths::{cache_dir, legacy_mpv_cache_dir},
+    theme::WallpaperType,
+};
+use sucrose_engine_cef::browser::{CefError, CefHost, CefStart};
 use sucrose_engine_mpv::{
     config::{embedding_options, generated_options, shader_cache_options, user_config_path},
     loader::{self, LoadError},
@@ -129,9 +133,17 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
 
     log_video_adapter();
 
+    // A Web theme is shown by CEF; everything else keeps the mpv path below.
+    if assignment.kind == WallpaperType::Web {
+        return run_cef(connection, event_loop, surface, &assignment);
+    }
+
     // Opened here, on the thread that pumps the surface's messages: mpv hooks that thread to resize its child.
     let player = match start_engine(surface.native_handle(), &assignment) {
-        Ok(player) => Arc::new(player),
+        Ok(player) => {
+            tracing::info!(engine = "Mpv", "engine started");
+            Arc::new(player)
+        }
         Err(error) => {
             error.log();
             let (reason, hint) = error.report();
@@ -208,32 +220,7 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         LoopEvent::Wake => {
             let rect = pending_rect.lock().unwrap_or_else(PoisonError::into_inner).take();
             if let Some(rect) = rect {
-                match surface.set_rect(rect) {
-                    Ok(placement) => {
-                        tracing::info!(
-                            target = ?placement.target,
-                            local = ?placement.local,
-                            parent = ?placement.parent,
-                            verdict = ?placement.verdict,
-                            "surface moved"
-                        );
-                        match placement.verdict {
-                            PlacementVerdict::Shown => {}
-                            PlacementVerdict::Misplaced => tracing::warn!(
-                                target = ?placement.target,
-                                actual = ?placement.actual,
-                                "the surface did not land on its target"
-                            ),
-                            PlacementVerdict::PartlyHidden { .. } | PlacementVerdict::Hidden => tracing::warn!(
-                                target = ?placement.target,
-                                parent = ?placement.parent,
-                                virtual_screen = ?placement.virtual_screen,
-                                "the surface lies outside the desktop window"
-                            ),
-                        }
-                    }
-                    Err(error) => tracing::warn!(%error, ?rect, "cannot move the surface"),
-                }
+                move_surface(&surface, rect);
             }
             Flow::Continue
         }
@@ -267,6 +254,228 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     }
     tracing::info!("the renderer stopped");
     Ok(ExitCode::SUCCESS)
+}
+
+/// Moves the surface onto `rect` and logs where it landed.
+fn move_surface(surface: &DesktopSurface, rect: RectPx) {
+    match surface.set_rect(rect) {
+        Ok(placement) => {
+            tracing::info!(
+                target = ?placement.target,
+                local = ?placement.local,
+                parent = ?placement.parent,
+                verdict = ?placement.verdict,
+                "surface moved"
+            );
+            match placement.verdict {
+                PlacementVerdict::Shown => {}
+                PlacementVerdict::Misplaced => tracing::warn!(
+                    target = ?placement.target,
+                    actual = ?placement.actual,
+                    "the surface did not land on its target"
+                ),
+                PlacementVerdict::PartlyHidden { .. } | PlacementVerdict::Hidden => tracing::warn!(
+                    target = ?placement.target,
+                    parent = ?placement.parent,
+                    virtual_screen = ?placement.virtual_screen,
+                    "the surface lies outside the desktop window"
+                ),
+            }
+        }
+        Err(error) => tracing::warn!(%error, ?rect, "cannot move the surface"),
+    }
+}
+
+/// The timer id of the CEF message pump (D-036): the only timer a renderer sets, armed with the delay
+/// `CefHost::do_work` returns after each pump call.
+const CEF_PUMP_TIMER: u32 = 1;
+
+/// What the reader thread of a CEF renderer hands to the thread that owns the surface and the browser.
+#[derive(Default)]
+struct CefPending {
+    /// The newest rectangle the service asked for.
+    rect: Option<RectPx>,
+    /// The newest page the service asked to show (Use between two Web themes).
+    url: Option<String>,
+}
+
+/// The `file:///` URL of an absolute Windows path, percent-encoding everything but unreserved characters and the
+/// path separators. This transport only lasts until the virtual origin (D-14, plan 04-06) replaces it.
+fn file_url(path: &str) -> String {
+    let path = path.strip_prefix("\\\\?\\").unwrap_or(path).replace('\\', "/");
+    let mut url = String::from("file:///");
+    for byte in path.bytes() {
+        match byte {
+            b'A'..=b'Z' | b'a'..=b'z' | b'0'..=b'9' | b'-' | b'.' | b'_' | b'~' | b'/' | b':' => {
+                url.push(char::from(byte))
+            }
+            other => url.push_str(&format!("%{other:02X}")),
+        }
+    }
+    url
+}
+
+/// Why CEF did not start, as the failure the service shows and the exit code it counts.
+fn cef_failure(error: &CefError) -> (String, String, u8) {
+    match error {
+        CefError::Load(_) => (
+            "CEF was not found.".to_owned(),
+            "The CEF files are missing or can't be loaded. Reinstall Sucrose to repair them.".to_owned(),
+            EXIT_ENGINE_MISSING,
+        ),
+        other => (other.to_string(), CHECK_THE_LOG.to_owned(), EXIT_START_FAILURE),
+    }
+}
+
+/// The renderer of a Web theme: a windowed CEF browser that is a child of the desktop surface, pumped on this thread
+/// (the surface's) through the external message pump (D-036). Pause, volume, role and clock messages are logged and
+/// ignored until the plans that wire them (04-05, 04-09).
+fn run_cef(
+    mut connection: Connection,
+    event_loop: EventLoop,
+    surface: DesktopSurface,
+    assignment: &Assignment,
+) -> anyhow::Result<ExitCode> {
+    let proxy = event_loop.proxy();
+    let timers = event_loop.timers();
+    let writer = match connection.try_clone() {
+        Ok(writer) => Mutex::new(writer),
+        Err(error) => {
+            tracing::error!(%error, "cannot keep a write handle for the playing report");
+            report_failure(
+                &mut connection,
+                "the renderer could not prepare its connection".to_owned(),
+                CHECK_THE_LOG,
+            );
+            return Ok(ExitCode::from(EXIT_START_FAILURE));
+        }
+    };
+    let told = AtomicBool::new(false);
+    let wake_proxy = proxy.clone();
+    let start = CefStart {
+        log_file: sucrose_core::paths::log_dir()
+            .unwrap_or_else(std::env::temp_dir)
+            .join(format!("CefRenderer-{}.log", assignment.slot)),
+        subprocess_path: std::env::current_exe().context("cannot find this program's path")?,
+        wake: Arc::new(move || wake_proxy.wake()),
+        // The first finished main-frame load is the first frame the user can see.
+        on_loaded: Arc::new(move |_url, _status| {
+            if !told.swap(true, Ordering::SeqCst) {
+                tell_playing(&mut writer.lock().unwrap_or_else(PoisonError::into_inner));
+            }
+        }),
+    };
+    // A transport that plan 04-06 replaces with https://sucrose.wallpaper.engine/ (D-14) without changing the rest.
+    let url = file_url(&assignment.source);
+    let host = match CefHost::start(surface.native_handle(), assignment.rect, &url, &start) {
+        Ok(host) => host,
+        Err(error) => {
+            tracing::error!(%error, "cannot start CEF");
+            let (reason, hint, code) = cef_failure(&error);
+            report_failure(&mut connection, reason, hint);
+            return Ok(ExitCode::from(code));
+        }
+    };
+    tracing::info!(engine = "Cef", "engine started");
+    timers.set(CEF_PUMP_TIMER, host.do_work());
+
+    let pending = Arc::new(Mutex::new(CefPending::default()));
+    let reader_pending = Arc::clone(&pending);
+    let reader_proxy = proxy.clone();
+    thread::Builder::new()
+        .name("ipc-reader".to_owned())
+        .spawn(move || {
+            wait_for_close_cef(&mut connection, &reader_pending, &reader_proxy);
+            reader_proxy.quit();
+        })
+        .context("cannot start the reader thread")?;
+
+    let loop_end = event_loop.run(|event| {
+        match event {
+            LoopEvent::Wake => {
+                let (rect, url) = {
+                    let mut pending = pending.lock().unwrap_or_else(PoisonError::into_inner);
+                    (pending.rect.take(), pending.url.take())
+                };
+                if let Some(rect) = rect {
+                    move_surface(&surface, rect);
+                    if let Err(error) = host.set_rect([rect.left, rect.top, rect.right, rect.bottom]) {
+                        tracing::warn!(%error, "cannot move the browser window");
+                    }
+                }
+                if let Some(url) = url {
+                    host.navigate(&url);
+                }
+            }
+            LoopEvent::Quit => return Flow::Exit,
+            LoopEvent::Timer(CEF_PUMP_TIMER) => {}
+            LoopEvent::DisplayChanged | LoopEvent::ShellRestarted | LoopEvent::Timer(_) => return Flow::Continue,
+        }
+        // A wake (CEF asked to be pumped, or a message arrived) and the pump timer both pump CEF.
+        timers.set(CEF_PUMP_TIMER, host.do_work());
+        Flow::Continue
+    });
+    let surface_lost = surface.destroyed_externally();
+    timers.kill(CEF_PUMP_TIMER);
+    // The browser first: its window is a child of the surface.
+    host.close();
+    drop(surface);
+    if loop_end == LoopEnd::Failed {
+        tracing::error!("the message loop failed, the renderer exits so that the service starts a new one");
+        return Ok(ExitCode::from(EXIT_LOOP_FAILED));
+    }
+    if surface_lost {
+        tracing::info!("Windows destroyed the desktop surface, the service starts a new renderer");
+        return Ok(ExitCode::from(EXIT_SURFACE_LOST));
+    }
+    tracing::info!("the renderer stopped");
+    Ok(ExitCode::SUCCESS)
+}
+
+/// Reads the service's messages for a CEF renderer until it is asked to stop or the connection ends. A rectangle or a
+/// new page is handed to the surface thread through `pending` and a wake.
+fn wait_for_close_cef(connection: &mut Connection, pending: &Mutex<CefPending>, proxy: &LoopProxy) {
+    loop {
+        match connection.recv::<ToRenderer>() {
+            Ok(ToRenderer::Close) => {
+                tracing::info!("the service asked this renderer to close");
+                return;
+            }
+            Ok(ToRenderer::SetRect([left, top, right, bottom])) => {
+                let rect = RectPx {
+                    left,
+                    top,
+                    right,
+                    bottom,
+                };
+                pending.lock().unwrap_or_else(PoisonError::into_inner).rect = Some(rect);
+                proxy.wake();
+            }
+            Ok(ToRenderer::LoadSource { source, .. }) => {
+                // Between two Web themes the same browser shows the other page; the path is not logged.
+                pending.lock().unwrap_or_else(PoisonError::into_inner).url = Some(file_url(&source));
+                proxy.wake();
+            }
+            Ok(ToRenderer::Assign(_)) => tracing::warn!("ignoring an unexpected second assignment"),
+            Ok(
+                message @ (ToRenderer::Pause(_)
+                | ToRenderer::SetVolume(_)
+                | ToRenderer::SetRole(_)
+                | ToRenderer::Clock(_)),
+            ) => {
+                // Wired by 04-05 (pause) and 04-09 (audio and role); until then a CEF renderer has nothing to apply.
+                tracing::debug!(?message, "ignored by a CEF renderer");
+            }
+            Err(IpcError::Closed) => {
+                tracing::info!("the service closed the connection");
+                return;
+            }
+            Err(error) => {
+                tracing::warn!(%error, "the service channel failed");
+                return;
+            }
+        }
+    }
 }
 
 /// Why the engine did not start. Every variant is a value with one log line and one exit code, never a panic (D-20).
@@ -828,5 +1037,29 @@ mod tests {
     fn logging_a_failure_does_not_panic() {
         EngineError::Load(LoadError::NotFound { searched: Vec::new() }).log();
         EngineError::Player(PlayerError::CreateFailed).log();
+    }
+}
+
+#[cfg(test)]
+mod cef_tests {
+    use super::*;
+
+    #[test]
+    fn a_windows_path_becomes_a_file_url_with_escaped_characters() {
+        assert_eq!(
+            file_url("C:\\themes\\My Page\\index.html"),
+            "file:///C:/themes/My%20Page/index.html"
+        );
+        assert_eq!(file_url("\\\\?\\D:\\a\\b.html"), "file:///D:/a/b.html");
+        assert_eq!(file_url("C:\\t\\ü#.html"), "file:///C:/t/%C3%BC%23.html");
+    }
+
+    #[test]
+    fn a_missing_cef_is_an_engine_missing_exit_and_other_failures_are_start_failures() {
+        let (_, hint, code) = cef_failure(&CefError::Load("x".to_owned()));
+        assert_eq!(code, EXIT_ENGINE_MISSING);
+        assert!(hint.contains("Reinstall Sucrose"));
+        assert_eq!(cef_failure(&CefError::CreateBrowser).2, EXIT_START_FAILURE);
+        assert_eq!(cef_failure(&CefError::Unsupported).2, EXIT_START_FAILURE);
     }
 }
