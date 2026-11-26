@@ -3205,7 +3205,7 @@ enum UseDecision {
 fn refusal_of(rejection: &ThemeRejection) -> UseRefusal {
     match rejection {
         ThemeRejection::NothingSelected | ThemeRejection::FolderMissing { .. } => UseRefusal::NotFound,
-        ThemeRejection::TypeNotPlayable { .. } => UseRefusal::NotVideo,
+        ThemeRejection::TypeNotPlayable { .. } => UseRefusal::TypeNotPlayable,
         ThemeRejection::NeedsNewerApp { .. } => UseRefusal::NewerVersion,
         // No available engine for the type is not a damaged theme (UI-SPEC, Use-disabled reason 4).
         ThemeRejection::SourceInvalid { reason, .. } if reason.starts_with(engines::NO_ENGINE) => UseRefusal::NoEngine,
@@ -5621,7 +5621,7 @@ mod tests {
                 found: sucrose_core::theme::WallpaperType::Web,
             }));
 
-            assert_eq!(refused(decision), UseRefusal::NotVideo);
+            assert_eq!(refused(decision), UseRefusal::TypeNotPlayable);
         }
 
         #[test]
@@ -5705,7 +5705,7 @@ mod tests {
                 ("a\\b", UseRefusal::NotFound),
                 ("", UseRefusal::NotFound),
                 ("no-such-folder", UseRefusal::NotFound),
-                ("gif", UseRefusal::NotVideo),
+                ("gif", UseRefusal::TypeNotPlayable),
                 ("newer-version", UseRefusal::NewerVersion),
                 ("broken-json", UseRefusal::Corrupt),
             ] {

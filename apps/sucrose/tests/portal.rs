@@ -5,7 +5,7 @@ mod common;
 
 use std::path::PathBuf;
 
-use common::{PortalClient, TestService, copy_fixture_library, service_runs};
+use common::{PortalClient, TestService, copy_fixture_library, copy_web_fixture, service_runs};
 use serde_json::json;
 use sucrose_core::{
     library::scan,
@@ -525,8 +525,57 @@ fn use_of_a_gif_theme_is_refused_and_the_selection_is_unchanged() {
 
     let outcome = use_theme(&mut portal, "gif");
 
-    assert_eq!(outcome, UseOutcome::Refused(UseRefusal::NotVideo));
+    assert_eq!(outcome, UseOutcome::Refused(UseRefusal::TypeNotPlayable));
     assert_eq!(service.settings_file()["Library"]["Selected"], "");
+}
+
+/// The text of the renderer logs of `service` (`<data>/Log/Renderer-*.log`), empty when there are none yet.
+fn renderer_logs(service: &TestService) -> String {
+    let Ok(entries) = std::fs::read_dir(service.dir.join("Log")) else {
+        return String::new();
+    };
+    entries
+        .filter_map(Result::ok)
+        .filter(|entry| entry.file_name().to_string_lossy().starts_with("Renderer"))
+        .filter_map(|entry| std::fs::read_to_string(entry.path()).ok())
+        .collect()
+}
+
+/// The whole chain of a Web theme: the engine report says Web plays, Use of the `hello` fixture is applied, the settings
+/// select it and its renderer starts CEF. It plays a real wallpaper, so it skips where CEF is not installed next to
+/// the executable (the report then lists Web as not playable), and it closes what it started.
+#[test]
+fn use_plays_a_web_theme() {
+    if !service_runs("use_plays_a_web_theme") {
+        return;
+    }
+    let service = TestService::start("use-web", &json!({}));
+    copy_web_fixture(&service, "hello");
+    let (mut portal, _) = PortalClient::hello(&service, None);
+    let report = wait_for_engines(&portal);
+    assert!(report.supported.contains(&WallpaperType::Web), "{report:?}");
+    if !report.playable.contains(&WallpaperType::Web) {
+        eprintln!("use_plays_a_web_theme: skipped, CEF is not installed next to the executable: {report:?}");
+        return;
+    }
+
+    let outcome = use_theme(&mut portal, "hello");
+
+    assert_eq!(outcome, UseOutcome::Applied);
+    assert_eq!(service.settings_file()["Library"]["Selected"], "hello");
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+    let started = loop {
+        let logs = renderer_logs(&service);
+        if logs.contains("engine started") {
+            break logs;
+        }
+        assert!(
+            std::time::Instant::now() < deadline,
+            "no renderer started its engine: {logs}"
+        );
+        std::thread::sleep(std::time::Duration::from_millis(250));
+    };
+    assert!(started.contains("Cef"), "the engine that started is CEF: {started}");
 }
 
 #[test]

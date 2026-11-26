@@ -11,7 +11,7 @@ use sucrose_core::{
     library::{Compatibility, LibraryTheme},
     theme::WallpaperType,
 };
-use sucrose_ipc::portal::{PortalRequest, RuleState, RuntimeState};
+use sucrose_ipc::portal::{EngineReportView, PortalRequest, RuleState, RuntimeState};
 
 use super::layout::{Arrow, CARD_HEIGHT};
 use crate::{i18n::tr, ipc::ServiceLink};
@@ -85,8 +85,10 @@ pub enum DisabledReason {
     Unavailable,
     /// The theme was made for a newer Sucrose (LIB-08, D-18).
     NewerVersion,
-    /// This build plays only Video themes (D-17).
+    /// No slice of this build plays the theme's type yet (D-31): the service's report does not list it as supported.
     UnsupportedType,
+    /// The type is supported but no installed engine can play it now (UI-SPEC reason 4).
+    NoEngine,
     /// The theme is the selected one and the wallpaper plays.
     Selected,
     /// A fullscreen rule paused the wallpaper (D-23).
@@ -104,6 +106,7 @@ impl DisabledReason {
             Self::Unavailable => use_with("Portal.Connection.Unavailable"),
             Self::NewerVersion => tr("Portal.LibraryCard.VersionTip"),
             Self::UnsupportedType => tr("Portal.LibraryCard.UnsupportedType"),
+            Self::NoEngine => tr("Portal.LibraryCard.NoEngine"),
             Self::Selected => use_with("Portal.LibraryCard.Selected"),
             Self::Paused => use_with("Portal.LibraryCard.Paused"),
             Self::Closed => use_with("Portal.LibraryCard.Closed"),
@@ -135,7 +138,13 @@ impl CardUse {
 
 /// Whether Use works on `theme` now, in the priority of the UI-SPEC: no connection, a library move, a newer theme, a type this build does
 /// not play, the theme that plays already, then a fullscreen rule. A selected theme that does not run can be used again.
-pub fn use_state(theme: &LibraryTheme, runtime: Option<&RuntimeState>, connected: bool) -> CardUse {
+pub fn use_state(
+    theme: &LibraryTheme,
+    runtime: Option<&RuntimeState>,
+    engines: Option<&EngineReportView>,
+    connected: bool,
+) -> CardUse {
+    let _ = engines;
     if !connected {
         return CardUse::Disabled(DisabledReason::Unavailable);
     }
@@ -373,7 +382,7 @@ mod tests {
         theme::{SucroseInfo, WallpaperType},
         version::LegacyVersion,
     };
-    use sucrose_ipc::portal::{RuleState, RuntimeState};
+    use sucrose_ipc::portal::{EngineReportView, RuleState, RuntimeState};
 
     fn theme(kind: WallpaperType, compatibility: Compatibility) -> LibraryTheme {
         LibraryTheme {
@@ -428,8 +437,18 @@ mod tests {
         }
     }
 
+    /// The report of a machine where mpv and CEF are installed: Video and Web play.
+    fn ready() -> EngineReportView {
+        EngineReportView {
+            engines: Vec::new(),
+            supported: vec![WallpaperType::Video, WallpaperType::Web],
+            playable: vec![WallpaperType::Video, WallpaperType::Web],
+            fallbacks: Vec::new(),
+        }
+    }
+
     fn state(theme: &LibraryTheme, runtime: &RuntimeState, connected: bool) -> CardUse {
-        use_state(theme, Some(runtime), connected)
+        use_state(theme, Some(runtime), Some(&ready()), connected)
     }
 
     #[test]
@@ -437,9 +456,62 @@ mod tests {
         let idle = runtime(None, false, RuleState::None);
         assert_eq!(state(&video(), &idle, true), CardUse::Enabled);
         assert_eq!(
-            use_state(&video(), None, true),
+            use_state(&video(), None, Some(&ready()), true),
             CardUse::Enabled,
             "no runtime report yet is not a reason"
+        );
+    }
+
+    #[test]
+    fn a_web_theme_can_be_used_when_the_service_reports_web_as_playable() {
+        let idle = runtime(None, false, RuleState::None);
+        let web = theme(WallpaperType::Web, Compatibility::Compatible);
+        assert_eq!(state(&web, &idle, true), CardUse::Enabled);
+    }
+
+    #[test]
+    fn a_supported_type_no_installed_engine_plays_has_its_own_reason() {
+        let idle = runtime(None, false, RuleState::None);
+        let web = theme(WallpaperType::Web, Compatibility::Compatible);
+        let no_cef = EngineReportView {
+            playable: vec![WallpaperType::Video],
+            ..ready()
+        };
+        assert_eq!(
+            use_state(&web, Some(&idle), Some(&no_cef), true),
+            CardUse::Disabled(DisabledReason::NoEngine)
+        );
+        assert_eq!(
+            use_state(&video(), Some(&idle), Some(&no_cef), true),
+            CardUse::Enabled,
+            "the type that plays is not affected"
+        );
+    }
+
+    #[test]
+    fn the_card_waits_for_the_engine_report_before_it_allows_use() {
+        let idle = runtime(None, false, RuleState::None);
+        assert_eq!(
+            use_state(&video(), Some(&idle), None, true),
+            CardUse::Disabled(DisabledReason::Unavailable)
+        );
+    }
+
+    #[test]
+    fn the_engine_reasons_come_after_the_newer_theme_and_before_the_selection_and_the_rule() {
+        let paused = runtime(Some("Rain"), true, RuleState::Paused);
+        let none = EngineReportView {
+            playable: Vec::new(),
+            ..ready()
+        };
+        let web = theme(WallpaperType::Web, Compatibility::Compatible);
+        assert_eq!(
+            use_state(&newer(WallpaperType::Web), Some(&paused), Some(&none), true),
+            CardUse::Disabled(DisabledReason::NewerVersion)
+        );
+        assert_eq!(
+            use_state(&web, Some(&paused), Some(&none), true),
+            CardUse::Disabled(DisabledReason::NoEngine)
         );
     }
 
@@ -461,12 +533,11 @@ mod tests {
     }
 
     #[test]
-    fn every_type_but_video_is_not_supported_yet() {
+    fn a_type_the_service_does_not_report_as_supported_is_not_supported_yet() {
         let idle = runtime(None, false, RuleState::None);
         for kind in [
             WallpaperType::Gif,
             WallpaperType::Url,
-            WallpaperType::Web,
             WallpaperType::YouTube,
             WallpaperType::Application,
         ] {
@@ -538,6 +609,10 @@ mod tests {
         assert_eq!(
             &*DisabledReason::UnsupportedType.tooltip(),
             "This wallpaper type is not supported yet."
+        );
+        assert_eq!(
+            &*DisabledReason::NoEngine.tooltip(),
+            "No installed engine can play this wallpaper. Check Wallpaper settings."
         );
         assert_eq!(&*DisabledReason::Selected.tooltip(), "Use (Selected)");
         assert_eq!(&*DisabledReason::Paused.tooltip(), "Use (Paused)");

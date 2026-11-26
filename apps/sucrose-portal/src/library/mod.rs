@@ -327,7 +327,7 @@ impl LibraryView {
         let Some(theme) = self.themes.iter().find(|theme| theme.folder == folder) else {
             return;
         };
-        if !card::use_state(theme, self.runtime.as_ref(), self.connected).is_enabled() {
+        if !card::use_state(theme, self.runtime.as_ref(), None, self.connected).is_enabled() {
             return;
         }
         // The request of this folder is in flight already; a click on another card replaces it (the last click wins).
@@ -843,7 +843,7 @@ impl LibraryView {
                 needs_newer_app: matches!(theme.compatibility, library::Compatibility::NeedsNewerApp { .. }),
                 selected,
                 pending: self.pending_use.as_deref() == Some(&theme.folder),
-                state: card::use_state(theme, self.runtime.as_ref(), self.connected),
+                state: card::use_state(theme, self.runtime.as_ref(), None, self.connected),
                 focus: handles[position].clone(),
                 on_use,
                 on_arrow,

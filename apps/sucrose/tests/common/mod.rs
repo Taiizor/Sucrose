@@ -164,6 +164,16 @@ pub fn copy_fixture_library(service: &TestService) {
     copy_tree(&from, &service.dir.join("Library"));
 }
 
+/// Copies the fixture Web theme `name` of `apps/sucrose/tests/fixtures/web-themes` into the scratch library of `service`.
+pub fn copy_web_fixture(service: &TestService, name: &str) {
+    let from = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("tests")
+        .join("fixtures")
+        .join("web-themes")
+        .join(name);
+    copy_tree(&from, &service.dir.join("Library").join(name));
+}
+
 fn copy_tree(from: &Path, to: &Path) {
     fs::create_dir_all(to).expect("the destination folder can be created");
     for entry in fs::read_dir(from).expect("the fixture folder can be read") {

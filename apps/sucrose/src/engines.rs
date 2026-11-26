@@ -105,6 +105,7 @@ impl EngineReport {
                     state: state_view(&self.availability(*engine)),
                 })
                 .collect(),
+            supported: kinds.to_vec(),
             playable: kinds
                 .iter()
                 .copied()
@@ -570,6 +571,7 @@ mod tests {
             }
         );
         assert_eq!(view.engines[3].state, EngineState::Unsupported { architecture: true });
+        assert_eq!(view.supported, [WallpaperType::Video, WallpaperType::Web]);
         assert_eq!(view.playable, [WallpaperType::Video]);
         assert_eq!(
             view.fallbacks,

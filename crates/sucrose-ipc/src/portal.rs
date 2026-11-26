@@ -222,7 +222,9 @@ pub struct FallbackView {
 pub struct EngineReportView {
     /// Every engine with its state.
     pub engines: Vec<EngineStateView>,
-    /// The wallpaper types some available engine can play now.
+    /// The wallpaper types this build plays once an engine for them is installed.
+    pub supported: Vec<WallpaperType>,
+    /// The wallpaper types some available engine can play now (a subset of `supported`).
     pub playable: Vec<WallpaperType>,
     /// The fallbacks that run now.
     pub fallbacks: Vec<FallbackView>,
@@ -382,8 +384,8 @@ pub enum UseRefusal {
     NotFound,
     /// The theme's files are damaged.
     Corrupt,
-    /// The theme is not a video, and this build plays only videos.
-    NotVideo,
+    /// The theme's type is one this build does not play yet.
+    TypeNotPlayable,
     /// The theme needs a newer Sucrose.
     NewerVersion,
     /// A performance rule paused the wallpaper.
@@ -532,6 +534,7 @@ mod tests {
                 engine: EngineType::MpvPlayerLive,
                 state: EngineState::Ready { version: None },
             }],
+            supported: vec![WallpaperType::Video, WallpaperType::Web],
             playable: vec![WallpaperType::Video],
             fallbacks: vec![FallbackView {
                 kind: WallpaperType::Web,
@@ -726,7 +729,7 @@ mod tests {
         let refusals = [
             UseRefusal::NotFound,
             UseRefusal::Corrupt,
-            UseRefusal::NotVideo,
+            UseRefusal::TypeNotPlayable,
             UseRefusal::NewerVersion,
             UseRefusal::RulePaused,
             UseRefusal::RuleClosed,
