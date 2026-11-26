@@ -19,7 +19,7 @@ tasks:
   fetch-engines  download, verify and place pinned engine binaries (xtask/engines.toml; --engine libmpv|cef|all, --arch, --from, --print-sha256)
   localize       convert the legacy XAML strings to the Portal's rust-i18n YAML (--lang EN, --check)
   measure        sample RAM, CPU and GPU of the running wallpaper processes (--side rust|csharp|portal, --row, --portal-summary, --portal-row, --portal-log; the log-split summary attributes the growth)
-  synth-library  write a synthetic library and prepared settings for UI runs (--out, --count, --seed, --force)
+  synth-library  write a synthetic library and prepared settings for UI runs (--out, --count, --seed, --force, --web-fixtures, --select, --engine <Type>=<EngineType>)
 ";
 
 fn main() -> ExitCode {

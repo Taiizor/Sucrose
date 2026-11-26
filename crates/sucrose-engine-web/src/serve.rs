@@ -5,7 +5,11 @@
 //! handler, WebView2's WebResourceRequested handler) only streams what the plan says and decides nothing itself, so the
 //! containment rules of SEC-02 exist once.
 
-use std::path::{Path, PathBuf};
+use std::{
+    fs::File,
+    io::{self, Read, Seek, SeekFrom},
+    path::{Path, PathBuf},
+};
 
 use crate::origin::{self, ByteRange};
 
@@ -110,7 +114,16 @@ pub fn plan(url: &str, range: Option<&str>, roots: &[&Path]) -> Reply {
                     };
                 }
             };
-            tracing::debug!(path = %shown(path), root = file.root, status, "origin request served");
+            match headers.iter().find(|(name, _)| *name == "Content-Range") {
+                Some((_, content_range)) => tracing::debug!(
+                    path = %shown(path),
+                    root = file.root,
+                    status,
+                    content_range = %content_range,
+                    "origin request served"
+                ),
+                None => tracing::debug!(path = %shown(path), root = file.root, status, "origin request served"),
+            }
             Reply {
                 status,
                 status_text,
@@ -132,6 +145,72 @@ pub fn plan(url: &str, range: Option<&str>, roots: &[&Path]) -> Reply {
             Reply::not_found()
         }
     }
+}
+
+/// The most bytes of one partial reply an adapter that has to hold the body in memory (WebView2) sends: 4 MiB. A
+/// browser asks for `bytes=0-` of a long video and takes a shorter 206, then asks again from where it ended, so the cap
+/// costs round trips and never correctness. CEF streams a range from the file and does not use it.
+pub const MAX_RANGE_BODY: u64 = 4 * 1024 * 1024;
+
+/// The part of a partial reply an in-memory adapter sends: where to read, how much, and the `Content-Range` that names
+/// exactly those bytes.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct RangeBody {
+    /// The first byte to read.
+    pub offset: u64,
+    /// How many bytes to read: the planned length, at most [`MAX_RANGE_BODY`].
+    pub len: u64,
+    /// The length of the whole file.
+    pub total: u64,
+    /// The `Content-Range` value for these bytes.
+    pub content_range: String,
+}
+
+/// The `Content-Range` value for `len` (at least one) bytes from `start` of a file of `total` bytes.
+#[must_use]
+pub fn content_range_text(start: u64, len: u64, total: u64) -> String {
+    format!("bytes {start}-{}/{total}", start + len.max(1) - 1)
+}
+
+/// What an adapter that holds a range in memory sends for a 206 `reply`: the planned range cut to [`MAX_RANGE_BODY`]
+/// and its `Content-Range`. `None` for anything that is not a partial file reply.
+#[must_use]
+pub fn range_body(reply: &Reply) -> Option<RangeBody> {
+    if reply.status != 206 {
+        return None;
+    }
+    let Content::File { start, len, .. } = &reply.content else {
+        return None;
+    };
+    let total: u64 = reply
+        .headers
+        .iter()
+        .find(|(name, _)| *name == "Content-Range")
+        .and_then(|(_, value)| value.rsplit_once('/'))
+        .and_then(|(_, total)| total.parse().ok())?;
+    let len = (*len).min(MAX_RANGE_BODY);
+    if len == 0 {
+        return None;
+    }
+    Some(RangeBody {
+        offset: *start,
+        len,
+        total,
+        content_range: content_range_text(*start, len, total),
+    })
+}
+
+/// Reads up to `len` bytes of `path` from `offset`: fewer when the file ended (or shrank) in between.
+///
+/// # Errors
+///
+/// The file cannot be opened or read.
+pub fn read_range(path: &Path, offset: u64, len: u64) -> io::Result<Vec<u8>> {
+    let mut file = File::open(path)?;
+    file.seek(SeekFrom::Start(offset))?;
+    let mut bytes = Vec::new();
+    file.take(len).read_to_end(&mut bytes)?;
+    Ok(bytes)
 }
 
 #[cfg(test)]
@@ -259,6 +338,86 @@ mod tests {
                 ..
             }
         ));
+    }
+
+    /// A file of `len` zero bytes (sparse where the file system allows it).
+    fn sized_file(dir: &Path, name: &str, len: u64) -> PathBuf {
+        let path = dir.join(name);
+        let file = fs::File::create(&path).expect("create");
+        file.set_len(len).expect("set length");
+        path
+    }
+
+    #[test]
+    fn an_open_range_of_a_long_file_is_cut_to_the_cap_with_a_content_range_that_names_the_cut() {
+        let theme = Scratch::new("cap");
+        sized_file(&theme.0, "long.mp4", 10 * 1024 * 1024);
+        let url = "https://sucrose.wallpaper.engine/long.mp4";
+
+        let from_start = range_body(&plan(url, Some("bytes=0-"), &[&theme.0])).expect("a partial reply");
+        assert_eq!(from_start.offset, 0);
+        assert_eq!(from_start.len, MAX_RANGE_BODY);
+        assert_eq!(from_start.total, 10_485_760);
+        assert_eq!(from_start.content_range, "bytes 0-4194303/10485760");
+
+        let from_middle = range_body(&plan(url, Some("bytes=5242880-"), &[&theme.0])).expect("a partial reply");
+        assert_eq!((from_middle.offset, from_middle.len), (5_242_880, MAX_RANGE_BODY));
+        assert_eq!(from_middle.content_range, "bytes 5242880-9437183/10485760");
+
+        let tail = range_body(&plan(url, Some("bytes=-100"), &[&theme.0])).expect("a partial reply");
+        assert_eq!((tail.offset, tail.len), (10_485_660, 100));
+        assert_eq!(tail.content_range, "bytes 10485660-10485759/10485760");
+    }
+
+    #[test]
+    fn a_range_under_the_cap_keeps_its_bytes() {
+        let theme = Scratch::new("small");
+        sized_file(&theme.0, "clip.mp4", 12_701);
+
+        let reply = plan(
+            "https://sucrose.wallpaper.engine/clip.mp4",
+            Some("bytes=0-9"),
+            &[&theme.0],
+        );
+        let body = range_body(&reply).expect("a partial reply");
+
+        assert_eq!((body.offset, body.len, body.total), (0, 10, 12_701));
+        assert_eq!(body.content_range, "bytes 0-9/12701");
+    }
+
+    #[test]
+    fn only_a_partial_file_reply_has_a_range_body() {
+        let theme = Scratch::new("none");
+        sized_file(&theme.0, "clip.mp4", 1000);
+        let url = "https://sucrose.wallpaper.engine/clip.mp4";
+
+        assert_eq!(range_body(&plan(url, None, &[&theme.0])), None, "a whole file");
+        assert_eq!(range_body(&plan(url, Some("bytes=1000-"), &[&theme.0])), None, "a 416");
+        assert_eq!(
+            range_body(&plan(url, Some("bytes=0-1,5-6"), &[&theme.0])),
+            None,
+            "several ranges"
+        );
+        assert_eq!(range_body(&Reply::not_found()), None, "a refusal");
+    }
+
+    #[test]
+    fn content_range_text_names_the_inclusive_end() {
+        assert_eq!(content_range_text(0, 1, 1), "bytes 0-0/1");
+        assert_eq!(content_range_text(100, 100, 1000), "bytes 100-199/1000");
+    }
+
+    #[test]
+    fn read_range_reads_exactly_the_bytes_asked_and_fewer_at_the_end() {
+        let theme = Scratch::new("read");
+        let data: Vec<u8> = (0..=255).collect();
+        fs::write(theme.0.join("data.bin"), &data).expect("write");
+        let path = theme.0.join("data.bin");
+
+        assert_eq!(read_range(&path, 10, 5).expect("read"), &data[10..15]);
+        assert_eq!(read_range(&path, 250, 100).expect("read"), &data[250..]);
+        assert_eq!(read_range(&path, 256, 10).expect("read"), Vec::<u8>::new());
+        assert!(read_range(&theme.0.join("missing.bin"), 0, 1).is_err());
     }
 
     #[test]

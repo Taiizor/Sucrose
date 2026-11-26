@@ -85,6 +85,16 @@ pub fn header_block(reply: &Reply) -> String {
     block
 }
 
+/// `reply` with its `Content-Range` replaced by `content_range`: the reply of a range cut to the in-memory cap names the
+/// bytes it carries, not the range the planner first decided.
+#[must_use]
+pub fn ranged_reply(reply: &Reply, content_range: &str) -> Reply {
+    let mut ranged = reply.clone();
+    ranged.headers.retain(|(name, _)| *name != "Content-Range");
+    ranged.headers.push(("Content-Range", content_range.to_owned()));
+    ranged
+}
+
 /// The path to open a served file with: the canonical form Windows gives (`\\?\C:\...`) without its verbatim prefix,
 /// which the shell stream API does not take. A UNC path keeps its prefix.
 #[must_use]
@@ -117,7 +127,8 @@ mod imp {
             CreateCoreWebView2EnvironmentWithOptions, ICoreWebView2, ICoreWebView2_4, ICoreWebView2Controller,
             ICoreWebView2Controller2, ICoreWebView2Controller3, ICoreWebView2Environment,
             ICoreWebView2EnvironmentOptions, ICoreWebView2NavigationCompletedEventArgs,
-            ICoreWebView2NavigationCompletedEventArgs2, ICoreWebView2WebResourceRequestedEventArgs,
+            ICoreWebView2NavigationCompletedEventArgs2, ICoreWebView2WebResourceRequest,
+            ICoreWebView2WebResourceRequestedEventArgs,
         },
         NavigationCompletedEventHandler, WebResourceRequestedEventHandler, take_pwstr,
     };
@@ -130,7 +141,7 @@ mod imp {
             },
             UI::{
                 HiDpi::{GetDpiForMonitor, MDT_EFFECTIVE_DPI},
-                Shell::SHCreateStreamOnFileEx,
+                Shell::{SHCreateMemStream, SHCreateStreamOnFileEx},
                 WindowsAndMessaging::{
                     DispatchMessageW, MSG, MsgWaitForMultipleObjects, PM_REMOVE, PeekMessageW, PostQuitMessage,
                     QS_ALLINPUT, TranslateMessage, WM_QUIT,
@@ -140,7 +151,7 @@ mod imp {
         core::{BOOL, Interface, PCWSTR, PWSTR},
     };
 
-    use super::{HostError, HostStart, bounds_size, header_block, scale_for_dpi, stream_path};
+    use super::{HostError, HostStart, bounds_size, header_block, ranged_reply, scale_for_dpi, stream_path};
 
     /// How long the environment and the controller get to come up.
     const CREATE_TIMEOUT: Duration = Duration::from_secs(30);
@@ -296,33 +307,127 @@ mod imp {
         }
     }
 
-    /// Answers one request of the virtual origin from `serve::plan`: a whole file as a stream, an empty body for every
-    /// refusal. A Range request gets the whole file with 200 until plan 04-23 adds partial replies, which HTTP allows.
+    /// A memory stream holding a copy of `bytes` (at most [`serve::MAX_RANGE_BODY`] of them, so it fits the length the
+    /// call takes).
+    fn memory_stream(bytes: &[u8]) -> Option<IStream> {
+        // SAFETY: the slice is valid for the call, which copies it into the stream.
+        unsafe { SHCreateMemStream(Some(bytes)) }
+    }
+
+    /// The value of the request header `name`, when the request has it.
+    fn request_header(request: &ICoreWebView2WebResourceRequest, name: &str) -> Option<String> {
+        let name = wide(name);
+        // SAFETY: the request and its headers belong to this event; `name` is NUL-terminated and outlives the calls;
+        // the returned string is freed by `take_pwstr`.
+        unsafe {
+            let headers = request.Headers().ok()?;
+            let mut present = BOOL(0);
+            headers.Contains(PCWSTR(name.as_ptr()), &mut present).ok()?;
+            if !present.as_bool() {
+                return None;
+            }
+            let mut value = PWSTR::null();
+            headers.GetHeader(PCWSTR(name.as_ptr()), &mut value).ok()?;
+            Some(take_pwstr(value))
+        }
+    }
+
+    /// The reply to send and its body for a planned `reply`: a range as a memory stream of at most
+    /// [`serve::MAX_RANGE_BODY`] bytes whose `Content-Range` names exactly what it carries, a whole file as a stream
+    /// from disk, a refusal as it is. A `HEAD` request gets the headers and no body.
+    fn prepare(reply: serve::Reply, head: bool) -> (serve::Reply, Option<IStream>) {
+        let Content::File { path, .. } = &reply.content else {
+            return (reply, None);
+        };
+        let path = path.clone();
+        if reply.status == 206 {
+            let Some(body) = serve::range_body(&reply) else {
+                tracing::info!("origin request rejected: the planned range cannot be cut");
+                return (serve::Reply::not_found(), None);
+            };
+            if head {
+                let content_range = body.content_range.clone();
+                return (ranged_reply(&reply, &content_range), None);
+            }
+            return match serve::read_range(&path, body.offset, body.len) {
+                Ok(bytes) if !bytes.is_empty() => {
+                    // The file may have shrunk since the plan: the header names the bytes actually read.
+                    let sent = u64::try_from(bytes.len()).unwrap_or(u64::MAX);
+                    let content_range = serve::content_range_text(body.offset, sent, body.total);
+                    let planned = match &reply.content {
+                        Content::File { len, .. } => *len,
+                        Content::Text(_) => sent,
+                    };
+                    if sent < planned {
+                        tracing::debug!(content_range = %content_range, "origin range cut to what fits in memory");
+                    }
+                    match memory_stream(&bytes) {
+                        Some(stream) => (ranged_reply(&reply, &content_range), Some(stream)),
+                        None => {
+                            tracing::info!("origin request rejected: no memory stream for the range");
+                            (serve::Reply::not_found(), None)
+                        }
+                    }
+                }
+                Ok(_) => {
+                    tracing::info!("origin request rejected: the range is empty now");
+                    (serve::Reply::not_found(), None)
+                }
+                Err(error) => {
+                    tracing::info!(%error, "origin request rejected: the file cannot be read");
+                    (serve::Reply::not_found(), None)
+                }
+            };
+        }
+        if head {
+            return (reply, None);
+        }
+        match open_stream(&path) {
+            Ok(stream) => (reply, Some(stream)),
+            Err(error) => {
+                tracing::info!(%error, "origin request rejected: the file cannot be opened");
+                (serve::Reply::not_found(), None)
+            }
+        }
+    }
+
+    /// Logs what is sent for a served request (this adapter's own line: the planner's debug line belongs to another log
+    /// target): the status and, for a range, the `Content-Range` of the bytes actually sent.
+    fn log_served(uri: &str, reply: &serve::Reply) {
+        if !(200..300).contains(&reply.status) {
+            return;
+        }
+        let path: String = origin::url_path(uri).unwrap_or_default().chars().take(200).collect();
+        match reply.headers.iter().find(|(name, _)| *name == "Content-Range") {
+            Some((_, content_range)) => {
+                tracing::debug!(%path, status = reply.status, content_range = %content_range, "origin request served");
+            }
+            None => tracing::debug!(%path, status = reply.status, "origin request served"),
+        }
+    }
+
+    /// Answers one request of the virtual origin from `serve::plan`: a range as a capped memory stream, a whole file
+    /// as a stream from disk, an empty body for every refusal.
     fn answer(
         environment: &ICoreWebView2Environment,
         roots: &[PathBuf],
         args: &ICoreWebView2WebResourceRequestedEventArgs,
     ) -> windows::core::Result<()> {
-        // SAFETY: the request and its URI belong to this event; the returned string is freed by `take_pwstr`.
-        let uri = unsafe {
+        // SAFETY: the request, its URI and its method belong to this event; each returned string is freed by
+        // `take_pwstr` (a failed call leaves it null, which reads empty).
+        let (uri, range, head) = unsafe {
             let request = args.Request()?;
             let mut uri = PWSTR::null();
             request.Uri(&mut uri)?;
-            take_pwstr(uri)
+            let uri = take_pwstr(uri);
+            let mut method = PWSTR::null();
+            let _ = request.Method(&mut method);
+            let head = take_pwstr(method).eq_ignore_ascii_case("HEAD");
+            (uri, request_header(&request, "Range"), head)
         };
         let roots: Vec<&Path> = roots.iter().map(PathBuf::as_path).collect();
-        let mut reply = serve::plan(&uri, None, &roots);
-        let stream = match &reply.content {
-            Content::File { path, .. } => match open_stream(path) {
-                Ok(stream) => Some(stream),
-                Err(error) => {
-                    tracing::info!(%error, "origin request rejected: the file cannot be opened");
-                    reply = serve::Reply::not_found();
-                    None
-                }
-            },
-            Content::Text(_) => None,
-        };
+        let (reply, stream) = prepare(serve::plan(&uri, range.as_deref(), &roots), head);
+        log_served(&uri, &reply);
         respond(environment, args, &reply, stream.as_ref())
     }
 
@@ -676,6 +781,38 @@ mod tests {
             header_block(&reply),
             "Content-Type: text/html\r\nAccept-Ranges: bytes\r\n"
         );
+    }
+
+    #[test]
+    fn a_ranged_reply_carries_the_content_range_of_the_cut_and_nothing_else_changes() {
+        let reply = Reply {
+            status: 206,
+            status_text: "Partial Content",
+            mime: "video/mp4",
+            headers: vec![
+                ("Accept-Ranges", "bytes".to_owned()),
+                ("Content-Range", "bytes 0-10485759/10485760".to_owned()),
+            ],
+            content: sucrose_engine_web::serve::Content::Text(""),
+        };
+
+        let ranged = ranged_reply(&reply, "bytes 0-4194303/10485760");
+
+        assert_eq!(ranged.status, 206);
+        assert_eq!(
+            ranged
+                .headers
+                .iter()
+                .filter(|(name, _)| *name == "Content-Range")
+                .count(),
+            1
+        );
+        assert!(
+            ranged
+                .headers
+                .contains(&("Content-Range", "bytes 0-4194303/10485760".to_owned()))
+        );
+        assert!(ranged.headers.contains(&("Accept-Ranges", "bytes".to_owned())));
     }
 
     #[test]

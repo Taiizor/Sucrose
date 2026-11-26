@@ -10,7 +10,9 @@
 //!
 //! `--web-fixtures` also copies the fixture Web themes of `apps/sucrose/tests/fixtures/web-themes` into the library
 //! (a Thumbnail and a Preview they do not carry are written from the pool), and `--select <folder>` selects one of the
-//! themes the run wrote, so an engine run needs neither the maintainer's library nor his settings.
+//! themes the run wrote, so an engine run needs neither the maintainer's library nor his settings. `--engine
+//! <Type>=<EngineType>` (repeatable, legacy names) sets the engine of a wallpaper type in those settings; an engine the
+//! type does not allow, or an unknown type, is refused before anything is written.
 
 use std::{
     collections::BTreeSet,
@@ -30,6 +32,7 @@ use sucrose_config::{
 };
 use sucrose_core::{
     library, paths,
+    settings::EngineType,
     theme::{SucroseInfo, WallpaperType},
     version::{LegacyVersion, app_version},
 };
@@ -71,10 +74,61 @@ pub struct Plan {
     pub web_fixtures: bool,
     /// Folder name of a theme this run writes, selected in the prepared settings.
     pub select: Option<String>,
+    /// The engine of a wallpaper type in the prepared settings (`--engine <Type>=<EngineType>`), in the order given.
+    pub engines: Vec<(WallpaperType, EngineType)>,
+}
+
+/// The engines the legacy app allows for a wallpaper type.
+fn allowed_engines(kind: WallpaperType) -> &'static [EngineType] {
+    match kind {
+        WallpaperType::Gif => EngineType::GIF,
+        WallpaperType::Url => EngineType::URL,
+        WallpaperType::Web => EngineType::WEB,
+        WallpaperType::Video => EngineType::VIDEO,
+        WallpaperType::YouTube => EngineType::YOUTUBE,
+        WallpaperType::Application => EngineType::APPLICATION,
+    }
+}
+
+/// Reads one `--engine` value, `<Type>=<EngineType>`, both legacy names: the engine must be one the type allows.
+fn parse_engine(text: &str) -> Outcome<(WallpaperType, EngineType)> {
+    let (kind_text, engine_text) = text
+        .split_once('=')
+        .ok_or_else(|| format!("--engine must look like <Type>=<EngineType>, not '{text}'"))?;
+    let kind = WallpaperType::from_legacy_name(kind_text).ok_or_else(|| {
+        format!("--engine {text}: '{kind_text}' is not a wallpaper type (Gif, Url, Web, Video, YouTube, Application)")
+    })?;
+    let engine = EngineType::from_legacy_name(engine_text)
+        .ok_or_else(|| format!("--engine {text}: '{engine_text}' is not an engine name"))?;
+    if !allowed_engines(kind).contains(&engine) {
+        let allowed: Vec<&str> = allowed_engines(kind)
+            .iter()
+            .map(|allowed| allowed.legacy_name())
+            .collect();
+        return Err(format!(
+            "--engine {text}: {kind_text} wallpapers allow {} only",
+            allowed.join(", ")
+        ));
+    }
+    Ok((kind, engine))
+}
+
+/// Sets the engine of `kind` in `settings`.
+fn set_engine(settings: &mut Settings, kind: WallpaperType, engine: EngineType) {
+    let engines = &mut settings.engine;
+    match kind {
+        WallpaperType::Gif => engines.gif = engine,
+        WallpaperType::Url => engines.url = engine,
+        WallpaperType::Web => engines.web = engine,
+        WallpaperType::Video => engines.video = engine,
+        WallpaperType::YouTube => engines.youtube = engine,
+        WallpaperType::Application => engines.application = engine,
+    }
 }
 
 impl Plan {
-    /// Reads `--out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] [--select <folder>]`.
+    /// Reads `--out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] [--select <folder>] [--engine
+    /// <Type>=<EngineType>]...`.
     fn parse(args: &[String]) -> Outcome<Self> {
         let mut out = None;
         let mut count = None;
@@ -82,6 +136,7 @@ impl Plan {
         let mut force = false;
         let mut web_fixtures = false;
         let mut select = None;
+        let mut engines = Vec::new();
         let mut it = args.iter();
         while let Some(arg) = it.next() {
             let mut value = |flag: &str| it.next().ok_or_else(|| format!("{flag} needs a value"));
@@ -105,6 +160,7 @@ impl Plan {
                 "--force" => force = true,
                 "--web-fixtures" => web_fixtures = true,
                 "--select" => select = Some(value("--select")?.clone()),
+                "--engine" => engines.push(parse_engine(value("--engine")?)?),
                 other => return Err(format!("unknown argument '{other}'")),
             }
         }
@@ -115,11 +171,13 @@ impl Plan {
             force,
             web_fixtures,
             select,
+            engines,
         })
     }
 }
 
-/// `cargo xtask synth-library --out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] [--select <folder>]`
+/// `cargo xtask synth-library --out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] [--select <folder>]
+/// [--engine <Type>=<EngineType>]...`
 pub fn run(args: &[String]) -> ExitCode {
     let result = Plan::parse(args).and_then(|plan| generate(&plan));
     match result {
@@ -128,7 +186,7 @@ pub fn run(args: &[String]) -> ExitCode {
             eprintln!("synth-library: {message}");
             eprintln!(
                 "usage: cargo xtask synth-library --out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] \
-                 [--select <folder>]"
+                 [--select <folder>] [--engine <Type>=<EngineType>]..."
             );
             ExitCode::FAILURE
         }
@@ -449,6 +507,9 @@ fn marker_for(plan: &Plan) -> String {
     if let Some(select) = &plan.select {
         text.push_str(&format!("select={select}\n"));
     }
+    for (kind, engine) in &plan.engines {
+        text.push_str(&format!("engine={kind:?}={}\n", engine.legacy_name()));
+    }
     text
 }
 
@@ -724,6 +785,9 @@ fn generate_full(plan: &Plan, pool: &PoolPlan, fixtures_dir: &Path) -> Outcome<G
     let mut settings = Settings::default();
     settings.library.location = library_dir.to_string_lossy().into_owned();
     settings.library.selected = plan.select.clone().unwrap_or_default();
+    for (kind, engine) in &plan.engines {
+        set_engine(&mut settings, *kind, *engine);
+    }
     settings.library.delete_corrupt = false;
     settings.general.app_visible = false;
     settings.warehouse.hint_tray_icon = false;
@@ -878,6 +942,7 @@ mod tests {
             force: false,
             web_fixtures: false,
             select: select.map(str::to_owned),
+            engines: Vec::new(),
         };
         let text = marker_text(40, 7);
         assert!(marker_matches(&text, &plan(40, 7, None)));
@@ -933,6 +998,7 @@ mod tests {
             force: false,
             web_fixtures: false,
             select: None,
+            engines: Vec::new(),
         };
         assert_eq!(generate_with(&plan, &pool).unwrap(), Generated::Written);
         let probe = out.join("Library").join(theme_name(7, 0)).join("SucroseInfo.json");
@@ -1076,6 +1142,7 @@ mod tests {
             force: true,
             web_fixtures: false,
             select: None,
+            engines: Vec::new(),
         };
         // The real data folder of this machine is guarded by name, so a plan inside it is refused whatever else is true.
         if let Some(real) = paths::legacy_data_dir() {
@@ -1141,6 +1208,7 @@ mod tests {
             force: false,
             web_fixtures,
             select: select.map(str::to_owned),
+            engines: Vec::new(),
         }
     }
 
@@ -1233,6 +1301,88 @@ mod tests {
             generate_full(&other, &tiny_pool(), &fixtures).unwrap(),
             Generated::Written
         );
+        fs::remove_dir_all(&fixtures).unwrap();
+        fs::remove_dir_all(&base).unwrap();
+    }
+
+    #[test]
+    fn synth_parse_reads_repeatable_engine_options() {
+        let plan = Plan::parse(&strings(&[
+            "--out",
+            "x",
+            "--count",
+            "2",
+            "--engine",
+            "Web=WebViewLive",
+            "--engine",
+            "Video=MpvPlayerLive",
+        ]))
+        .unwrap();
+        assert_eq!(
+            plan.engines,
+            vec![
+                (WallpaperType::Web, EngineType::WebViewLive),
+                (WallpaperType::Video, EngineType::MpvPlayerLive)
+            ]
+        );
+        let plain = Plan::parse(&strings(&["--out", "x", "--count", "2"])).unwrap();
+        assert!(plain.engines.is_empty());
+    }
+
+    #[test]
+    fn synth_engine_outside_the_legacy_list_or_an_unknown_name_is_an_error() {
+        for value in [
+            "Web=MpvPlayerLive",
+            "Foo=CefSharpLive",
+            "Web=Nope",
+            "Web",
+            "Application=WebViewLive",
+            "web=WebViewLive",
+        ] {
+            let error = Plan::parse(&strings(&["--out", "x", "--count", "2", "--engine", value])).unwrap_err();
+            assert!(error.contains("--engine"), "{value}: {error}");
+        }
+        assert!(Plan::parse(&strings(&["--out", "x", "--count", "2", "--engine"])).is_err());
+    }
+
+    #[test]
+    fn synth_engine_is_written_to_the_settings_and_a_bad_one_writes_nothing() {
+        let fixtures = scratch_fixtures("fixtures-engine");
+        let base = temp_folder("fixtures-engine-out");
+        let args = |out: &Path, engine: &str| {
+            strings(&[
+                "--out",
+                &out.to_string_lossy(),
+                "--count",
+                "2",
+                "--seed",
+                "5",
+                "--engine",
+                engine,
+            ])
+        };
+        // A refused option stops at the parse: nothing is created.
+        let refused = base.join("refused");
+        assert!(Plan::parse(&args(&refused, "Web=MpvPlayerLive")).is_err());
+        assert!(!refused.exists());
+
+        let out = base.join("ok");
+        let plan = Plan::parse(&args(&out, "Web=WebViewLive")).unwrap();
+        generate_full(&plan, &tiny_pool(), &fixtures).unwrap();
+        let settings = fs::read_to_string(out.join("Setting").join(SETTINGS_FILE)).unwrap();
+        assert!(settings.contains("\"Web\": \"WebViewLive\""), "{settings}");
+        // The marker records the engine: the same run is up to date, another engine rewrites.
+        assert_eq!(
+            generate_full(&plan, &tiny_pool(), &fixtures).unwrap(),
+            Generated::UpToDate
+        );
+        let other = Plan::parse(&args(&out, "Web=CefSharpLive")).unwrap();
+        assert_eq!(
+            generate_full(&other, &tiny_pool(), &fixtures).unwrap(),
+            Generated::Written
+        );
+        let settings = fs::read_to_string(out.join("Setting").join(SETTINGS_FILE)).unwrap();
+        assert!(settings.contains("\"Web\": \"CefSharpLive\""), "{settings}");
         fs::remove_dir_all(&fixtures).unwrap();
         fs::remove_dir_all(&base).unwrap();
     }
