@@ -7051,6 +7051,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "sucrose-engine"
+version = "26.11.22+1"
+dependencies = [
+ "sucrose-core",
+ "sucrose-ipc",
+]
+
+[[package]]
 name = "sucrose-engine-cef"
 version = "26.11.22+1"
 dependencies = [

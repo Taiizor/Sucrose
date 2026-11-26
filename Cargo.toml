@@ -15,6 +15,7 @@ publish = false
 [workspace.dependencies]
 sucrose-config = { path = "crates/sucrose-config" }
 sucrose-core = { path = "crates/sucrose-core" }
+sucrose-engine = { path = "crates/sucrose-engine" }
 sucrose-engine-cef = { path = "crates/sucrose-engine-cef" }
 sucrose-engine-mpv = { path = "crates/sucrose-engine-mpv" }
 sucrose-ipc = { path = "crates/sucrose-ipc" }

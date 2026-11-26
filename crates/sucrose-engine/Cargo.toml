@@ -1,0 +1,15 @@
+[package]
+name = "sucrose-engine"
+description = "Engine identities, availability and the choice of the engine that plays a wallpaper"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+sucrose-core = { workspace = true }
+sucrose-ipc = { workspace = true }
+
+[lints]
+workspace = true
