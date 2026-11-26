@@ -2,11 +2,11 @@
 gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
-status: verifying
+status: executing
 stopped_at: Completed 04-21-PLAN.md
 last_updated: "2026-11-26T20:06:49.422Z"
 last_activity: 2026-11-26
-last_activity_desc: Phase 04 execution started
+last_activity_desc: Phase 04 Round A executed (04-01..04-21)
 state_head: 2187bcd0ab931590b8de8b6af58ee354099b1ee3
 progress:
   total_phases: 8
@@ -29,9 +29,9 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
 Plan: 21 of 21
-Status: Phase complete — ready for verification
-Last activity: 2026-11-26 — Phase 04 execution started
-Next step: `/gsd-execute-phase 4` runs Round A (D-31 slice 1); after it has executed, `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
+Status: Round A executed (plans 04-01..04-21); Rounds B–E not planned yet, so phase verification waits (it runs after Round E)
+Last activity: 2026-11-26 — 04-21 CEF vs CefSharp measurement recorded in docs/MEASUREMENTS.md
+Next step: decide whether the 04-20 slice-1 checks need a rerun now that the CEF close fix is in, then `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
 
 Progress: [████░░░░░░] 38%
 
