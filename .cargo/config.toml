@@ -5,3 +5,8 @@ xtask = "run --package xtask --"
 # D-32: every build reads the pinned, hash-checked CEF dist from here, so no build script ever downloads CEF.
 # Fill it with: cargo xtask fetch-engines --engine cef
 CEF_PATH = { value = "target/engines/cef", relative = true }
+
+# Dependencies (CEF bindings etc.) get line tables only: backtraces keep file:line,
+# but dev builds compile and link faster. Workspace crates keep full debug info.
+[profile.dev.package."*"]
+debug = "line-tables-only"
