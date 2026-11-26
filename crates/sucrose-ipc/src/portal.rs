@@ -305,6 +305,8 @@ pub enum UseRefusal {
     Moving,
     /// The wallpaper cannot be shown now (no monitor, no player).
     Unavailable,
+    /// No installed engine can play the theme's type (D-11).
+    NoEngine,
 }
 
 /// What the library maintenance did.
@@ -572,6 +574,7 @@ mod tests {
             UseRefusal::RuleClosed,
             UseRefusal::Moving,
             UseRefusal::Unavailable,
+            UseRefusal::NoEngine,
         ];
         for (expected, refusal) in refusals.iter().enumerate() {
             assert_eq!(usize::from(index(refusal)), expected, "{refusal:?}");

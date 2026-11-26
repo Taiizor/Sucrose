@@ -17,6 +17,11 @@ use std::ffi::OsString;
 /// offers CEF on those targets only.
 pub const BUILT: bool = cfg!(all(windows, any(target_arch = "x86_64", target_arch = "aarch64")));
 
+/// Whether this is a Windows target without a CEF build (x86): the availability report calls that a missing
+/// architecture, while the other systems simply do not include CEF yet.
+pub const NO_BUILD_FOR_ARCHITECTURE: bool =
+    cfg!(all(windows, not(any(target_arch = "x86_64", target_arch = "aarch64"))));
+
 /// The CEF version of the pinned dist (`xtask/engines.toml`), without the commit and Chromium suffix.
 pub const CEF_VERSION: &str = "156.0.31";
 

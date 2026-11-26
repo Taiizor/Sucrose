@@ -41,11 +41,12 @@ use sucrose_platform::{
 use sucrose_core::settings::{
     EngineType, FullScreenAction, FullScreenScope, GpuPreference, PauseKind, ScreenArea, ThemeMode,
 };
-use sucrose_engine::{Availability, EngineId, Unsupported, choose_engine};
+use sucrose_engine::EngineId;
 use sucrose_engine_web::args;
 
 use crate::{
     data_hub::{DataModule, Delivery, system_sampling},
+    engines::{self, EngineReport, FallbackNote, Fallbacks},
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
     library_ops::{self, FinishStats, MaintainInput, MoveFailure, MovePlanDone, MoveStats, RealOps},
     lifecycle::{Closing, OPEN_LABEL, exit_label, should_exit, start_actions},
@@ -611,13 +612,13 @@ fn resume_wallpaper(
     ctx: &Ctx<'_>,
 ) -> Option<Status> {
     let root = legacy_root?;
-    let gate = selected_job(host.settings(), root);
+    let gate = selected_job(host.settings(), root, &fleet.engines);
     for slot in closed {
         fleet.rule_closed.want_back(*slot);
     }
     let (title, no_wallpaper) = match gate {
         Ok(job) => {
-            let title = job.title.clone();
+            let title = (job.title.clone(), job.fallback.clone());
             if fleet.job.is_some() || !closed.is_empty() {
                 fleet.adopt_job(job);
             }
@@ -625,6 +626,7 @@ fn resume_wallpaper(
         }
         Err(rejection) => {
             fleet.job = None;
+            fleet.fallbacks.clear();
             (None, Some(rejection.to_string()))
         }
     };
@@ -632,7 +634,9 @@ fn resume_wallpaper(
     // no job they are forgotten instead of started).
     let applied = fleet.finish_move(ctx);
     match (title, no_wallpaper) {
-        (Some(title), _) if !closed.is_empty() || applied.started > 0 => Some(Status::Starting { title }),
+        (Some((title, fallback)), _) if !closed.is_empty() || applied.started > 0 => {
+            Some(Status::Starting { title, fallback })
+        }
         (None, Some(reason)) if !closed.is_empty() => Some(Status::NoWallpaper { reason }),
         _ => None,
     }
@@ -658,7 +662,7 @@ fn settle_move(progress: MoveProgress, status: &mut Status, tray: Option<&Tray>,
 }
 
 /// The job for the theme the settings select, in the library the settings name.
-fn selected_job(settings: &Settings, legacy_root: &Path) -> Result<Job, ThemeRejection> {
+fn selected_job(settings: &Settings, legacy_root: &Path, engines: &EngineReport) -> Result<Job, ThemeRejection> {
     let folder = &settings.library.selected;
     check_selected(
         &settings.library_location(legacy_root),
@@ -672,6 +676,7 @@ fn selected_job(settings: &Settings, legacy_root: &Path) -> Result<Job, ThemeRej
             &settings.engine,
             settings.backgroundog.pause,
             settings.portal.theme_mode,
+            engines,
         )
         .map_err(|reason| ThemeRejection::SourceInvalid {
             folder: folder.clone(),
@@ -810,13 +815,27 @@ const CHECK_THE_LOG: &str = "Check the log for details.";
 /// The longest reason or hint taken from a renderer, so a misbehaving renderer cannot flood the log (T-02-19).
 const MAX_REPORT_CHARS: usize = 300;
 
+/// The theme that plays now, as the status transitions need it: its title and the fallback it plays with.
+#[derive(Debug, Clone, Copy)]
+struct Current<'a> {
+    title: &'a str,
+    fallback: Option<&'a FallbackNote>,
+}
+
 /// What the service tells the user about the wallpaper: one value, shown in the tray tooltip and written to the log.
 #[derive(Debug, Clone, PartialEq, Eq)]
 enum Status {
-    /// A renderer was started for this theme and has not reported playback yet.
-    Starting { title: String },
-    /// The wallpaper plays.
-    Playing { title: String },
+    /// A renderer was started for this theme and has not reported playback yet. `fallback` is set when another engine
+    /// than the configured one plays it (D-11).
+    Starting {
+        title: String,
+        fallback: Option<FallbackNote>,
+    },
+    /// The wallpaper plays, with the fallback engine when `fallback` is set.
+    Playing {
+        title: String,
+        fallback: Option<FallbackNote>,
+    },
     /// No renderer was started: the theme is rejected (D-13) or no monitor can be used.
     NoWallpaper { reason: String },
     /// The renderer could not start its wallpaper, for example because libmpv is missing (D-20).
@@ -832,7 +851,7 @@ impl Status {
     fn text(&self) -> String {
         match self {
             Self::Starting { .. } => APP_LONG_NAME.to_owned(),
-            Self::Playing { title } => format!("Sucrose — playing {}", printable(title)),
+            Self::Playing { title, .. } => format!("Sucrose — playing {}", printable(title)),
             Self::NoWallpaper { reason } => format!("Sucrose — no wallpaper: {}", printable(reason)),
             Self::Failed { reason, hint } => {
                 format!("Sucrose — no wallpaper: {} {}", printable(reason), printable(hint))
@@ -847,9 +866,22 @@ impl Status {
         }
     }
 
-    /// The tray tooltip: the same sentence, cut to what the notification area keeps.
+    /// The tray tooltip: the same sentence, cut to what the notification area keeps. While another engine than the
+    /// configured one plays, it says so instead (D-11); the theme title is left out, so nothing important is cut.
     fn tooltip(&self) -> String {
-        sucrose_platform::truncate_tooltip(&self.text())
+        match self {
+            Self::Starting {
+                fallback: Some(note), ..
+            }
+            | Self::Playing {
+                fallback: Some(note), ..
+            } => sucrose_platform::truncate_tooltip(&format!(
+                "Playing with {} ({} isn't available)",
+                engines::label(note.playing),
+                engines::label(note.configured)
+            )),
+            _ => sucrose_platform::truncate_tooltip(&self.text()),
+        }
     }
 
     /// Whether no renderer runs only because no monitor was connected.
@@ -868,11 +900,15 @@ impl Status {
     /// The status while a crashed renderer is started again: a playing wallpaper is starting once more, and so is
     /// one that failed (the new renderer may well start). `title` is the selected theme's, which a failure does not
     /// carry.
-    fn restarting(&self, title: Option<&str>) -> Option<Self> {
+    fn restarting(&self, current: Option<Current<'_>>) -> Option<Self> {
         match self {
-            Self::Playing { title } => Some(Self::Starting { title: title.clone() }),
-            Self::Failed { .. } => title.map(|title| Self::Starting {
-                title: title.to_owned(),
+            Self::Playing { title, fallback } => Some(Self::Starting {
+                title: title.clone(),
+                fallback: fallback.clone(),
+            }),
+            Self::Failed { .. } => current.map(|current| Self::Starting {
+                title: current.title.to_owned(),
+                fallback: current.fallback.cloned(),
             }),
             _ => None,
         }
@@ -880,11 +916,11 @@ impl Status {
 
     /// The status while the renderer that ended with `class` is started again. A failed start keeps its failure: the
     /// reason the renderer reported is what the user needs, and the restart may fail the same way (WR-17).
-    fn restarting_after(&self, class: ExitClass, title: Option<&str>) -> Option<Self> {
+    fn restarting_after(&self, class: ExitClass, current: Option<Current<'_>>) -> Option<Self> {
         if class == ExitClass::StartFailed && matches!(self, Self::Failed { .. }) {
             return None;
         }
-        self.restarting(title)
+        self.restarting(current)
     }
 
     /// Why the monitor's renderer is not started again once its budget is spent: the reason of the last failed start
@@ -900,12 +936,16 @@ impl Status {
     /// The status a renderer message leads to, or `None` when it changes nothing. A renderer that plays replaces a
     /// failure too: after a restart, or while another monitor's renderer failed, the wallpaper does play. Only a
     /// status that says no renderer was wanted ([`Status::NoWallpaper`]) stays.
-    fn after(&self, message: &ToService, title: Option<&str>) -> Option<Self> {
+    fn after(&self, message: &ToService, current: Option<Current<'_>>) -> Option<Self> {
         match message {
-            ToService::Playing => match (self, title) {
-                (Self::Starting { title }, _) => Some(Self::Playing { title: title.clone() }),
-                (Self::Failed { .. } | Self::RendererStopped { .. }, Some(title)) => Some(Self::Playing {
-                    title: title.to_owned(),
+            ToService::Playing => match (self, current) {
+                (Self::Starting { title, fallback }, _) => Some(Self::Playing {
+                    title: title.clone(),
+                    fallback: fallback.clone(),
+                }),
+                (Self::Failed { .. } | Self::RendererStopped { .. }, Some(current)) => Some(Self::Playing {
+                    title: current.title.to_owned(),
+                    fallback: current.fallback.cloned(),
                 }),
                 _ => None,
             },
@@ -1034,9 +1074,11 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
         "service started"
     );
     // The settings host owns the file for the whole run: it is the only writer (D-11).
-    let (plan, mut host) = plan_wallpapers();
+    // What can play, from files and the registry only: no engine is loaded here (D-028).
+    let engines = engines::detect(&engines::exe_dir(), &*platform);
+    let (plan, mut host) = plan_wallpapers(&engines);
     let assignments = SharedAssignments::default();
-    let mut fleet = Fleet::new(plan.job, Arc::clone(&assignments));
+    let mut fleet = Fleet::new(plan.job, Arc::clone(&assignments), engines);
     let mut status = plan.status;
 
     // The main thread only pumps messages and drains the channel (D-012): IPC reads and child waits run on threads
@@ -1202,7 +1244,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                             slot,
                             pid,
                             &message,
-                            fleet.job.as_ref().map(|job| job.title.as_str()),
+                            fleet.job.as_ref().map(Job::current),
                         ) else {
                             tracing::debug!(
                                 slot,
@@ -1323,7 +1365,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                             &status,
                             decision,
                             class,
-                            fleet.job.as_ref().map(|job| job.title.as_str()),
+                            fleet.job.as_ref().map(Job::current),
                             monitor,
                         );
                         if let (Some(next), Decision::GiveUp(_)) = (&next, decision) {
@@ -1836,6 +1878,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                     if let Some(job) = &fleet.job {
                         status = Status::Starting {
                             title: job.title.clone(),
+                            fallback: job.fallback.clone(),
                         };
                     }
                     if let Some(tray) = &tray {
@@ -1853,7 +1896,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                     supervisor: &supervisor,
                     renderers: &renderers,
                 });
-                if acted && let Some(next) = status.restarting(fleet.job.as_ref().map(|job| job.title.as_str())) {
+                if acted && let Some(next) = status.restarting(fleet.job.as_ref().map(Job::current)) {
                     status = next;
                     if let Some(tray) = &tray {
                         tray.set_tooltip(&status.tooltip());
@@ -2392,7 +2435,7 @@ fn handle_report(
     slot: u8,
     pid: u32,
     message: &ToService,
-    title: Option<&str>,
+    current: Option<Current<'_>>,
 ) -> Option<ReportEffect> {
     let replaced = holder.link_pid.is_some_and(|current| current != pid)
         || exit_is_stale(holder.running, slot, pid)
@@ -2406,7 +2449,7 @@ fn handle_report(
     let kept = late && matches!(message, ToService::Failed { .. }) && matches!(status, Status::RendererStopped { .. });
     Some(ReportEffect {
         first_frame: matches!(message, ToService::Playing),
-        status: if kept { None } else { status.after(message, title) },
+        status: if kept { None } else { status.after(message, current) },
     })
 }
 
@@ -2416,12 +2459,12 @@ fn status_after_exit(
     status: &Status,
     decision: Decision,
     class: ExitClass,
-    title: Option<&str>,
+    current: Option<Current<'_>>,
     monitor: String,
 ) -> Option<Status> {
     match decision {
         Decision::Leave => None,
-        Decision::Restart(_) => status.restarting_after(class, title),
+        Decision::Restart(_) => status.restarting_after(class, current),
         Decision::GiveUp(exhausted) => Some(Status::RendererStopped {
             monitor,
             reason: status.stopped_reason(exhausted),
@@ -2561,6 +2604,8 @@ struct Job {
     kind: WallpaperType,
     /// The canonical legacy name of the engine that plays it, chosen by `choose_engine` (D-11).
     engine: EngineType,
+    /// Set when another engine than the configured one plays it, for this run only (D-11).
+    fallback: Option<FallbackNote>,
     /// The absolute path of the theme folder.
     theme_dir: String,
     /// How the web engines behave for this job (D-12).
@@ -2568,6 +2613,14 @@ struct Job {
 }
 
 impl Job {
+    /// The title and fallback the status transitions need.
+    fn current(&self) -> Current<'_> {
+        Current {
+            title: &self.title,
+            fallback: self.fallback.as_ref(),
+        }
+    }
+
     /// The assignment of the renderer `slot` for `monitor`, whose rectangle is already the area to cover.
     fn assignment(&self, slot: u8, monitor: &MonitorInfo) -> Assignment {
         let area = monitor.rect;
@@ -2640,6 +2693,10 @@ struct Applied {
 struct Fleet {
     /// `None` when no renderer is wanted (the theme is rejected).
     job: Option<Job>,
+    /// What the machine can play with, as detected at the start or when a Portal last asked (ENG-06).
+    engines: EngineReport,
+    /// The fallbacks that run now (D-11); nothing is stored.
+    fallbacks: Fallbacks,
     slots: SlotMap,
     /// The monitors the renderers follow, as last applied, with the rectangle of the area they cover.
     monitors: Vec<MonitorInfo>,
@@ -2738,9 +2795,15 @@ impl Fleet {
         self.slots.monitor_of(slot).is_some() && !self.rule_closed.is_closed(slot)
     }
 
-    fn new(job: Option<Job>, assignments: SharedAssignments) -> Self {
+    fn new(job: Option<Job>, assignments: SharedAssignments, engines: EngineReport) -> Self {
+        let mut fallbacks = Fallbacks::default();
+        if let Some(job) = &job {
+            fallbacks.set(job.kind, job.fallback.clone());
+        }
         Self {
             job,
+            engines,
+            fallbacks,
             slots: SlotMap::default(),
             monitors: Vec::new(),
             assignments,
@@ -3133,6 +3196,8 @@ fn refusal_of(rejection: &ThemeRejection) -> UseRefusal {
         ThemeRejection::NothingSelected | ThemeRejection::FolderMissing { .. } => UseRefusal::NotFound,
         ThemeRejection::TypeNotPlayable { .. } => UseRefusal::NotVideo,
         ThemeRejection::NeedsNewerApp { .. } => UseRefusal::NewerVersion,
+        // No available engine for the type is not a damaged theme (UI-SPEC, Use-disabled reason 4).
+        ThemeRejection::SourceInvalid { reason, .. } if reason.starts_with(engines::NO_ENGINE) => UseRefusal::NoEngine,
         ThemeRejection::InfoUnreadable { .. } | ThemeRejection::SourceInvalid { .. } => UseRefusal::Corrupt,
     }
 }
@@ -3229,6 +3294,7 @@ fn handle_use(
                 &settings.engine,
                 settings.backgroundog.pause,
                 settings.portal.theme_mode,
+                &fleet.engines,
             )
             .map_err(|reason| ThemeRejection::SourceInvalid {
                 folder: folder.to_owned(),
@@ -3275,6 +3341,7 @@ fn handle_use(
         return UseDone::failed(reason);
     }
     let title = job.title.clone();
+    let fallback = job.fallback.clone();
     if !starting {
         let reached = match transition {
             UseTransition::LoadSource => fleet.load_source(job, ctx.renderers),
@@ -3282,7 +3349,7 @@ fn handle_use(
         };
         fleet.revive_stopped(ctx.supervisor);
         tracing::info!(?kind, ?transition, renderers = reached.len(), "theme used");
-        return UseDone::applied(Some(Status::Starting { title }));
+        return UseDone::applied(Some(Status::Starting { title, fallback }));
     }
     apply_gpu_preference(platform, host.settings().engine.gpu_preference);
     fleet.adopt_job(job);
@@ -3312,7 +3379,7 @@ fn handle_use(
     }
     UseDone {
         arm_fullscreen,
-        ..UseDone::applied(Some(Status::Starting { title }))
+        ..UseDone::applied(Some(Status::Starting { title, fallback }))
     }
 }
 
@@ -3394,6 +3461,7 @@ impl Fleet {
             }
         }
         self.budgets.clear();
+        self.fallbacks.set(job.kind, job.fallback.clone());
         self.job = Some(job);
     }
 
@@ -3455,7 +3523,7 @@ impl Fleet {
 
 /// Opens the settings file (migrating the legacy files read-only the first time, D-03), logs what the service will
 /// use and returns what they lead to and the settings host that owns the file.
-fn plan_wallpapers() -> (Plan, SettingsHost) {
+fn plan_wallpapers(engines: &EngineReport) -> (Plan, SettingsHost) {
     let (Some(root), Some(legacy_setting)) = (legacy_data_dir(), legacy_setting_dir()) else {
         tracing::warn!("the OS reports no config folder, so the settings cannot be found");
         let plan = Plan {
@@ -3473,7 +3541,7 @@ fn plan_wallpapers() -> (Plan, SettingsHost) {
         return (plan, SettingsHost::unsaved(Settings::default()));
     };
     let host = load_settings(&root, &legacy_setting);
-    (plan_from(host.settings(), &root), host)
+    (plan_from(host.settings(), &root, engines), host)
 }
 
 /// Opens the settings host. When the folder cannot be opened or written the legacy files are still migrated, in
@@ -3513,7 +3581,7 @@ fn log_settings(settings: &Settings, outcome: &dyn std::fmt::Debug) {
 }
 
 /// What the settings and the selected theme lead to; `legacy_root` is the C# data folder, the default library location.
-fn plan_from(settings: &Settings, legacy_root: &std::path::Path) -> Plan {
+fn plan_from(settings: &Settings, legacy_root: &std::path::Path, engines: &EngineReport) -> Plan {
     let location = settings.library_location(legacy_root);
     let (job, status) = match plan_for(
         &location,
@@ -3521,10 +3589,12 @@ fn plan_from(settings: &Settings, legacy_root: &std::path::Path) -> Plan {
         &settings.engine,
         settings.backgroundog.pause,
         settings.portal.theme_mode,
+        engines,
     ) {
         Ok(job) => {
             let status = Status::Starting {
                 title: job.title.clone(),
+                fallback: job.fallback.clone(),
             };
             (Some(job), status)
         }
@@ -3584,12 +3654,13 @@ fn plan_for(
     engine: &Engine,
     pause: PauseKind,
     theme_mode: ThemeMode,
+    engines: &EngineReport,
 ) -> Result<Job, String> {
     let theme = check_selected(location, selected, &app_version(), PLAYABLE)
         .map_err(|rejection| printable(&rejection.to_string()))?;
     // Debug formatting for the text a theme or the settings supply: control characters show as escapes.
     tracing::info!(theme = ?selected, kind = ?theme.info.kind, source = ?theme.info.source, "selected theme");
-    job_for(&theme, engine, pause, theme_mode)
+    job_for(&theme, engine, pause, theme_mode, engines)
 }
 
 /// The engine the Engine section configures for a wallpaper type.
@@ -3604,26 +3675,16 @@ fn configured_engine(engine: &Engine, kind: WallpaperType) -> EngineType {
     }
 }
 
-/// What this build can play a wallpaper of `kind` with, until detection (plan 04-12, D-11) replaces this static
-/// report: mpv plays every type the service accepts; CEF is compiled in on Windows and plays Web themes (its generated
-/// pages for GIF and video themes come in a later round, so it is not offered for them, and a user who configured CEF
-/// for videos keeps mpv); every other engine is not in this build.
-fn built_availability(kind: WallpaperType) -> impl Fn(EngineId) -> Availability {
-    move |engine| match engine {
-        EngineId::Mpv => Availability::Installed { version: None },
-        EngineId::Cef if kind == WallpaperType::Web && sucrose_engine_cef::BUILT => {
-            Availability::Installed { version: None }
-        }
-        _ => Availability::Unsupported {
-            why: Unsupported::NotInThisBuild,
-        },
-    }
-}
-
 /// What every renderer plays for a theme that passed the gate, with the playback settings of Engine.json. The engine
-/// is chosen here, with its fallback (D-11, ENG-07): the configured one when this build can play the type with it,
-/// else the first that can. The setting itself is never changed.
-fn job_for(theme: &SelectedTheme, engine: &Engine, pause: PauseKind, theme_mode: ThemeMode) -> Result<Job, String> {
+/// is chosen here from the detected engines, with its fallback (D-11, ENG-07): the configured one when it is available,
+/// else the first that is. The setting itself is never changed.
+fn job_for(
+    theme: &SelectedTheme,
+    engine: &Engine,
+    pause: PauseKind,
+    theme_mode: ThemeMode,
+    engines: &EngineReport,
+) -> Result<Job, String> {
     let source = theme
         .source_path
         .to_str()
@@ -3636,15 +3697,13 @@ fn job_for(theme: &SelectedTheme, engine: &Engine, pause: PauseKind, theme_mode:
         .to_owned();
     let kind = theme.info.kind;
     let configured = configured_engine(engine, kind);
-    let choice = choose_engine(kind, configured, &built_availability(kind));
-    let Some(chosen) = choice.engine else {
-        return Err("no installed engine can play this wallpaper".to_owned());
-    };
+    let picked = engines::pick(engines, kind, configured)?;
+    let chosen = picked.engine;
     tracing::info!(
         kind = ?kind,
         configured = ?configured,
         engine = ?chosen,
-        fell_back = choice.fell_back_from.is_some(),
+        fell_back = picked.fallback.is_some(),
         "engine chosen"
     );
     Ok(Job {
@@ -3654,6 +3713,7 @@ fn job_for(theme: &SelectedTheme, engine: &Engine, pause: PauseKind, theme_mode:
         screen: engine.screen,
         kind,
         engine: chosen.to_legacy(),
+        fallback: picked.fallback,
         theme_dir,
         web: WebOptions {
             theme_type: legacy_theme_type(theme_mode).to_owned(),
@@ -3713,6 +3773,87 @@ mod tests {
 
     use super::*;
     use crate::supervisor::ENGINE_MISSING;
+    use sucrose_engine::Availability;
+
+    /// A report in which every engine is installed, so a test is not at the mercy of the machine it runs on.
+    fn installed_engines() -> EngineReport {
+        EngineReport::from_fn(|_| Availability::Installed { version: None })
+    }
+
+    fn fallback_note() -> FallbackNote {
+        FallbackNote {
+            kind: WallpaperType::Web,
+            configured: EngineId::WebView2,
+            playing: EngineId::Cef,
+            reason: "this build of Sucrose does not play this wallpaper with WebView2".to_owned(),
+        }
+    }
+
+    #[test]
+    fn the_tooltip_of_a_fallback_names_the_engine_that_plays_and_the_one_that_is_missing() {
+        let playing = Status::Playing {
+            title: "Cyber Samurai".to_owned(),
+            fallback: Some(fallback_note()),
+        };
+
+        assert_eq!(playing.tooltip(), "Playing with CEF (WebView2 isn't available)");
+        assert!(playing.tooltip().chars().count() <= 127);
+        assert_eq!(playing.text(), "Sucrose — playing Cyber Samurai");
+    }
+
+    #[test]
+    fn a_status_without_a_fallback_keeps_its_own_tooltip() {
+        assert_eq!(starting().tooltip(), APP_LONG_NAME);
+    }
+
+    #[test]
+    fn the_fallback_survives_the_start_the_first_frame_and_a_restart() {
+        let starting = Status::Starting {
+            title: "Cyber Samurai".to_owned(),
+            fallback: Some(fallback_note()),
+        };
+
+        let playing = starting.after(&ToService::Playing, None).expect("a status change");
+        let restarting = playing.restarting(None).expect("a status change");
+
+        assert_eq!(playing.tooltip(), restarting.tooltip());
+        assert!(restarting.tooltip().starts_with("Playing with CEF"));
+    }
+
+    #[test]
+    fn a_fleet_remembers_the_fallback_of_its_job_for_this_run_only() {
+        let mut fleet = fleet_with_a_job();
+        assert!(fleet.fallbacks.notes().is_empty());
+        let job = Job {
+            kind: WallpaperType::Web,
+            fallback: Some(fallback_note()),
+            ..use_job("C:/themes/page/index.html")
+        };
+
+        fleet.adopt_job(job);
+        assert_eq!(fleet.fallbacks.notes(), [fallback_note()]);
+        fleet.adopt_job(Job {
+            kind: WallpaperType::Web,
+            ..use_job("C:/themes/page/index.html")
+        });
+
+        assert!(fleet.fallbacks.notes().is_empty());
+    }
+
+    #[test]
+    fn a_use_without_an_engine_is_refused_for_that_reason_and_not_as_a_damaged_theme() {
+        let rejection = ThemeRejection::SourceInvalid {
+            folder: "new".to_owned(),
+            reason: format!("{} {}", engines::NO_ENGINE, "The files of mpv are missing."),
+        };
+
+        assert_eq!(refusal_of(&rejection), UseRefusal::NoEngine);
+        let damaged = ThemeRejection::SourceInvalid {
+            folder: "new".to_owned(),
+            reason: "the Source path is not valid UTF-8".to_owned(),
+        };
+        assert_eq!(refusal_of(&damaged), UseRefusal::Corrupt);
+    }
 
     #[test]
     fn the_compatible_calls_get_the_shuffle_setting_and_the_legacy_theme_name() {
@@ -3870,7 +4011,8 @@ mod tests {
         assert_eq!(
             playing.status,
             Some(Status::Playing {
-                title: "Cyber Samurai".to_owned()
+                title: "Cyber Samurai".to_owned(),
+                fallback: None,
             })
         );
         assert!(
@@ -4259,11 +4401,15 @@ mod tests {
         assert!(clock_targets(None, 0, [0, 1]).is_empty());
     }
 
-    const TITLE: Option<&str> = Some("Cyber Samurai");
+    const TITLE: Option<Current<'static>> = Some(Current {
+        title: "Cyber Samurai",
+        fallback: None,
+    });
 
     fn starting() -> Status {
         Status::Starting {
             title: "Cyber Samurai".to_owned(),
+            fallback: None,
         }
     }
 
@@ -4445,9 +4591,11 @@ mod tests {
         let statuses = [
             Status::Playing {
                 title: dirty.to_owned(),
+                fallback: None,
             },
             Status::Starting {
                 title: dirty.to_owned(),
+                fallback: None,
             },
             Status::Failed {
                 reason: dirty.to_owned(),
@@ -4765,10 +4913,11 @@ mod tests {
             screen: ScreenArea::default(),
             kind: WallpaperType::Video,
             engine: EngineType::MpvPlayerLive,
+            fallback: None,
             theme_dir: "C:/".to_owned(),
             web: WebOptions::default(),
         };
-        Fleet::new(Some(job), SharedAssignments::default())
+        Fleet::new(Some(job), SharedAssignments::default(), installed_engines())
     }
 
     /// A fleet whose monitors each have a slot; `playing` names the monitors whose renderer shows its first frame.
@@ -4998,7 +5147,7 @@ mod tests {
 
     #[test]
     fn enable_fullscreen_without_a_job_stays_off() {
-        let mut fleet = Fleet::new(None, SharedAssignments::default());
+        let mut fleet = Fleet::new(None, SharedAssignments::default(), installed_engines());
 
         assert!(!fleet.enable_fullscreen(FullScreenAction::Pause, ActionScope::AllMonitors, PauseKind::Light));
         assert!(fleet.fullscreen.is_none());
@@ -5009,10 +5158,16 @@ mod tests {
         let mut settings = Settings::default();
         let root = std::path::Path::new("no-such-legacy-root");
 
-        assert_eq!(plan_from(&settings, root).scope, ActionScope::AllMonitors);
+        assert_eq!(
+            plan_from(&settings, root, &installed_engines()).scope,
+            ActionScope::AllMonitors
+        );
 
         settings.backgroundog.full_screen_scope = FullScreenScope::AffectedMonitor;
-        assert_eq!(plan_from(&settings, root).scope, ActionScope::AffectedMonitor);
+        assert_eq!(
+            plan_from(&settings, root, &installed_engines()).scope,
+            ActionScope::AffectedMonitor
+        );
     }
 
     /// A Platform that records every GPU preference write and answers with a configured capability and result.
@@ -5109,6 +5264,7 @@ mod tests {
             screen: ScreenArea::default(),
             kind: WallpaperType::Video,
             engine: EngineType::MpvPlayerLive,
+            fallback: None,
             theme_dir: "C:/themes/new".to_owned(),
             web: WebOptions::default(),
         }
