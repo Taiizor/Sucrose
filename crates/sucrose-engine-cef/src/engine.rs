@@ -31,7 +31,7 @@ use sucrose_engine_web::{
 use sucrose_ipc::protocol::{Assignment, PlaybackSettings, WebOptions};
 use sucrose_platform::{
     LoopProxy, LoopTimers,
-    input::{InputEvent, mouse_message},
+    input::{InputEvent, focus_click_messages, key_message, mouse_message},
 };
 
 use crate::browser::{CefError, CefHost, CefStart};
@@ -585,8 +585,24 @@ impl CefPump {
     /// Hands one input event to the page: the legacy message to the Chromium widget, positions relative to the
     /// surface.
     fn post_input(&mut self, event: &InputEvent) {
-        if let Some((message, wparam, lparam)) = mouse_message(event, self.origin) {
-            self.host.post_to_widget(message, wparam, lparam);
+        match *event {
+            // The wheel goes through the browser host, as in the legacy CefSharp engine.
+            InputEvent::Wheel { delta, x, y } => {
+                self.host
+                    .send_mouse_wheel(x.saturating_sub(self.origin.0), y.saturating_sub(self.origin.1), delta);
+            }
+            InputEvent::FocusClick => {
+                for (message, wparam, lparam) in focus_click_messages() {
+                    self.host.post_to_widget(message, wparam, lparam);
+                }
+            }
+            _ => {
+                if let Some((message, wparam, lparam)) =
+                    mouse_message(event, self.origin).or_else(|| key_message(event))
+                {
+                    self.host.post_to_widget(message, wparam, lparam);
+                }
+            }
         }
     }
 

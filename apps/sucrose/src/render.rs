@@ -25,8 +25,8 @@ use sucrose_ipc::{
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
 };
 use sucrose_platform::{
-    DesktopSurface, DpiAwareness, EventLoop, Flow, LoopEnd, LoopEvent, LoopProxy, PlacementVerdict, RectPx,
-    input::{InputFilter, cursor_inside, devices, should_forward},
+    DesktopSurface, DpiAwareness, EventLoop, Flow, LoopEnd, LoopEvent, LoopProxy, PlacementVerdict, Platform, RectPx,
+    input::{InputEvent, InputFilter, cursor_inside, devices, is_desktop_class, should_forward},
     monotonic_ns,
 };
 
@@ -254,8 +254,8 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     // Raw input only for an engine whose page uses it and only for the devices the InputType leaves on: a renderer that
     // plays a video registers nothing (D-008).
     let input_filter = InputFilter {
-        input_type: InputType::MouseKeyboard,
-        desktop_only: false,
+        input_type: assignment.input.input_type,
+        desktop_only: assignment.input.desktop_only,
     };
     let (want_mouse, want_keyboard) = devices(input_filter.input_type);
     let forwards_input = engine.takes_input() && (want_mouse || want_keyboard);
@@ -266,6 +266,9 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         }
     }
     let mut current_rect = assignment.rect;
+    let mut desktop_focus = DesktopFocus::new();
+    // A keyboard-only wallpaper gets one click before its first key so the page has the keyboard focus (legacy).
+    let mut focus_click_due = input_filter.input_type == InputType::OnlyKeyboard;
     // A wake means a new rectangle or, for an engine with a pump, queued commands: the surface is moved here because
     // only this thread may touch it, and the pump is the only thing that calls an engine bound to this thread. The
     // loop ends when the reader thread asks for it, or when Windows destroys the surface (the surface posts the quit
@@ -297,7 +300,13 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
             if forwards_input {
                 let position = event.position().or_else(sucrose_platform::cursor_position);
                 let inside = position.is_some_and(|position| cursor_inside(current_rect, position));
-                if should_forward(&input_filter, &event, inside, true) {
+                // Only looked up while InputDesktop is on, and at most once a second.
+                let desktop = !input_filter.desktop_only || desktop_focus.is_desktop();
+                if should_forward(&input_filter, &event, inside, desktop) {
+                    if focus_click_due && matches!(event, InputEvent::Key { .. }) {
+                        focus_click_due = false;
+                        engine.forward_input(&InputEvent::FocusClick);
+                    }
                     engine.forward_input(&event);
                 }
             }
@@ -335,6 +344,39 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     }
     tracing::info!("the renderer stopped");
     Ok(ExitCode::SUCCESS)
+}
+
+/// How long the answer to "is the desktop in front" is kept, as in the legacy app (it re-checks every second).
+const DESKTOP_RECHECK: Duration = Duration::from_secs(1);
+
+/// Whether the desktop is the foreground window, for `InputDesktop`. A lookup reads the foreground window's class, so
+/// the answer is kept for [`DESKTOP_RECHECK`] instead of being asked for every mouse movement.
+struct DesktopFocus {
+    platform: Box<dyn Platform>,
+    last: Option<(Instant, bool)>,
+}
+
+impl DesktopFocus {
+    fn new() -> Self {
+        Self {
+            platform: sucrose_platform::current(),
+            last: None,
+        }
+    }
+
+    fn is_desktop(&mut self) -> bool {
+        if let Some((at, answer)) = self.last
+            && at.elapsed() < DESKTOP_RECHECK
+        {
+            return answer;
+        }
+        let answer = self
+            .platform
+            .foreground_window()
+            .is_some_and(|window| is_desktop_class(&window.class_name));
+        self.last = Some((Instant::now(), answer));
+        answer
+    }
 }
 
 /// Moves the surface onto `rect` and logs where it landed.
@@ -860,7 +902,7 @@ fn connect_with_retry(endpoint: &str) -> Result<Connection, IpcError> {
 #[cfg(test)]
 mod tests {
     use sucrose_core::theme::WallpaperType;
-    use sucrose_ipc::protocol::WebOptions;
+    use sucrose_ipc::protocol::{InputSettings, WebOptions};
 
     use super::*;
 
@@ -916,6 +958,7 @@ mod tests {
             engine: sucrose_core::settings::EngineType::VlcPlayerLive,
             theme_dir: "C:/".to_owned(),
             web: WebOptions::default(),
+            input: InputSettings::default(),
         };
 
         let error = start_engine(EngineId::Vlc, 0, &assignment, || {

@@ -30,7 +30,10 @@ use sucrose_ipc::{
         EngineReportView, Launch, LaunchReply, MAX_PATH_TEXT, MaintainReport, MoveOutcome, MoveRefusal, PortalEvent,
         PortalPage, PortalRequest, RuleState, RuntimeState, SettingChange, UseOutcome, UseRefusal,
     },
-    protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService, WebOptions},
+    protocol::{
+        Assignment, ClockTick, InputSettings, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService,
+        WebOptions,
+    },
     service_endpoint,
 };
 use sucrose_platform::{
@@ -2810,6 +2813,8 @@ struct Job {
     theme_dir: String,
     /// How the web engines behave for this job (D-12).
     web: WebOptions,
+    /// Which input a web wallpaper gets (WAPI-07).
+    input: InputSettings,
 }
 
 impl Job {
@@ -2834,6 +2839,7 @@ impl Job {
             engine: self.engine,
             theme_dir: self.theme_dir.clone(),
             web: self.web.clone(),
+            input: self.input,
         }
     }
 }
@@ -4119,6 +4125,7 @@ fn job_for(
             theme_type: legacy_theme_type(theme_mode).to_owned(),
             ..web_options(engine, chosen)
         },
+        input: input_settings(engine),
     })
 }
 
@@ -4153,6 +4160,15 @@ fn web_options(engine: &Engine, chosen: EngineId) -> WebOptions {
         developer_port: engine.developer_port,
         shuffle: engine.wallpaper_shuffle,
         theme_type: WebOptions::default().theme_type,
+    }
+}
+
+/// The input forwarding settings the Engine section leads to (WAPI-07): read when the job is made, so a change saved
+/// while a renderer runs applies at its next start.
+fn input_settings(engine: &Engine) -> InputSettings {
+    InputSettings {
+        input_type: engine.input_type,
+        desktop_only: engine.input_desktop,
     }
 }
 
@@ -4376,6 +4392,28 @@ mod tests {
         assert!(
             !web_options(&Engine::default(), EngineId::Cef).developer_mode,
             "off by default"
+        );
+    }
+
+    #[test]
+    fn the_input_settings_of_a_job_follow_the_engine_section() {
+        let engine = Engine {
+            input_type: sucrose_core::settings::InputType::OnlyMouse,
+            input_desktop: true,
+            ..Engine::default()
+        };
+
+        assert_eq!(
+            input_settings(&engine),
+            InputSettings {
+                input_type: sucrose_core::settings::InputType::OnlyMouse,
+                desktop_only: true
+            }
+        );
+        assert_eq!(
+            input_settings(&Engine::default()),
+            InputSettings::default(),
+            "the legacy defaults: mouse and keyboard, desktop or not"
         );
     }
 
@@ -5352,6 +5390,7 @@ mod tests {
             fallback: None,
             theme_dir: "C:/".to_owned(),
             web: WebOptions::default(),
+            input: InputSettings::default(),
         };
         Fleet::new(Some(job), SharedAssignments::default(), installed_engines())
     }
@@ -5703,6 +5742,7 @@ mod tests {
             fallback: None,
             theme_dir: "C:/themes/new".to_owned(),
             web: WebOptions::default(),
+            input: InputSettings::default(),
         }
     }
 

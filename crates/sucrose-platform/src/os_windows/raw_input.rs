@@ -11,8 +11,10 @@ use windows::Win32::{
     Foundation::{HWND, LPARAM, POINT},
     UI::{
         Input::{
-            GetRawInputData, HRAWINPUT, RAWINPUT, RAWINPUTDEVICE, RAWINPUTHEADER, RID_INPUT, RIDEV_INPUTSINK,
-            RIM_TYPEMOUSE, RegisterRawInputDevices,
+            GetRawInputData, HRAWINPUT,
+            KeyboardAndMouse::{MAPVK_VK_TO_CHAR, MapVirtualKeyW},
+            RAWINPUT, RAWINPUTDEVICE, RAWINPUTHEADER, RID_INPUT, RIDEV_INPUTSINK, RIM_TYPEKEYBOARD, RIM_TYPEMOUSE,
+            RegisterRawInputDevices,
         },
         WindowsAndMessaging::GetCursorPos,
     },
@@ -21,7 +23,7 @@ use windows::Win32::{
 use super::os_error;
 use crate::{
     PlatformError,
-    input::{InputEvent, mouse_events},
+    input::{InputEvent, key_event, mouse_events},
 };
 
 /// HID usage page of generic desktop controls.
@@ -65,7 +67,7 @@ pub(super) fn register(hwnd: HWND, mouse: bool, keyboard: bool) -> Result<(), Pl
 
 /// Reads the raw input record `lparam` of a `WM_INPUT` message and hands the events it stands for to `emit`. A record
 /// that cannot be read, or that is neither mouse nor keyboard, gives no event.
-pub(super) fn decode(lparam: LPARAM, emit: impl FnMut(InputEvent)) {
+pub(super) fn decode(lparam: LPARAM, mut emit: impl FnMut(InputEvent)) {
     // RAWINPUT is 48 bytes for a mouse or keyboard record on 64-bit Windows; u64 elements keep the buffer aligned.
     let mut buffer = [0_u64; 16];
     let mut size = size_of_val(&buffer) as u32;
@@ -97,6 +99,14 @@ pub(super) fn decode(lparam: LPARAM, emit: impl FnMut(InputEvent)) {
         };
         if let Some(position) = cursor_position() {
             mouse_events(flags, data, position, emit);
+        }
+    } else if record.header.dwType == RIM_TYPEKEYBOARD.0 {
+        // SAFETY: the header says this is a keyboard record, so the `keyboard` member of the union is the initialized one.
+        let key = unsafe { record.data.keyboard };
+        // SAFETY: a plain lookup by value; it reads the keyboard layout and keeps no pointer.
+        let mapped = unsafe { MapVirtualKeyW(u32::from(key.VKey), MAPVK_VK_TO_CHAR) };
+        if let Some(event) = key_event(key.VKey, key.MakeCode, key.Flags, mapped) {
+            emit(event);
         }
     }
 }

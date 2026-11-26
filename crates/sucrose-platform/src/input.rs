@@ -21,6 +21,19 @@ pub const WM_MBUTTONDOWN: u32 = 0x0207;
 /// `WM_MBUTTONUP`.
 pub const WM_MBUTTONUP: u32 = 0x0208;
 
+/// `WM_KEYDOWN`.
+pub const WM_KEYDOWN: u32 = 0x0100;
+/// `WM_KEYUP`.
+pub const WM_KEYUP: u32 = 0x0101;
+
+/// `RAWKEYBOARD.Flags`: the key was released.
+const RI_KEY_BREAK: u16 = 0x1;
+/// `RAWKEYBOARD.Flags`: the scan code has the `E0` prefix (an extended key).
+const RI_KEY_E0: u16 = 0x2;
+
+/// Both coordinates of the legacy focus click: far outside any page.
+const FOCUS_CLICK_AT: i32 = 99999;
+
 /// The wParam the legacy app sends with a mouse move.
 pub const MOVE_WPARAM: usize = 0x20;
 /// The wParam the legacy app sends with the left button messages.
@@ -43,7 +56,7 @@ pub enum MouseButton {
 
 /// One input event from the OS. Coordinates are physical pixels on the virtual screen (the cursor position when the
 /// event arrived), not relative to any wallpaper.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum InputEvent {
     /// The cursor moved.
     MouseMove {
@@ -86,6 +99,30 @@ pub enum InputEvent {
     /// The one click a keyboard-only wallpaper needs before its first key, so the page has the keyboard focus. The
     /// renderer makes it itself; it never comes from the OS.
     FocusClick,
+}
+
+/// A key event prints only whether it was a press or a release, never which key it was: a log or a panic message must not
+/// carry what the user types (T-04-45).
+impl std::fmt::Debug for InputEvent {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match *self {
+            Self::MouseMove { x, y } => f.debug_struct("MouseMove").field("x", &x).field("y", &y).finish(),
+            Self::Button { button, down, x, y } => f
+                .debug_struct("Button")
+                .field("button", &button)
+                .field("down", &down)
+                .field("x", &x)
+                .field("y", &y)
+                .finish(),
+            Self::Wheel { x, y, .. } => f
+                .debug_struct("Wheel")
+                .field("x", &x)
+                .field("y", &y)
+                .finish_non_exhaustive(),
+            Self::Key { down, .. } => f.debug_struct("Key").field("down", &down).finish_non_exhaustive(),
+            Self::FocusClick => f.write_str("FocusClick"),
+        }
+    }
 }
 
 impl InputEvent {
@@ -151,37 +188,63 @@ pub fn mouse_message(event: &InputEvent, origin: (i32, i32)) -> Option<(u32, usi
 /// (Alt) bit is never set: Alt combinations are not promised, as in the legacy app.
 #[must_use]
 pub fn key_lparam(scan: u16, down: bool) -> isize {
-    let _ = (scan, down);
-    unimplemented!("key_lparam")
+    let mut lparam = 1_u32 | (u32::from(scan & 0xFF) << 16) | (1 << 24);
+    if !down {
+        lparam |= 3 << 30;
+    }
+    lparam as usize as isize
+}
+
+/// The legacy message of a key event, as `(message, wParam, lParam)`: `WM_KEYDOWN` or `WM_KEYUP` with the virtual-key
+/// code as wParam. `None` for any other event.
+#[must_use]
+pub fn key_message(event: &InputEvent) -> Option<(u32, usize, isize)> {
+    match *event {
+        InputEvent::Key { vk, scan, down, .. } => Some((
+            if down { WM_KEYDOWN } else { WM_KEYUP },
+            usize::from(vk),
+            key_lparam(scan, down),
+        )),
+        _ => None,
+    }
 }
 
 /// Whether the result of `MapVirtualKey(vk, MAPVK_VK_TO_CHAR)` marks a dead key (its high bit).
 #[must_use]
 pub fn is_dead_key(mapped: u32) -> bool {
-    let _ = mapped;
-    unimplemented!("is_dead_key")
+    mapped & 0x8000_0000 != 0
 }
 
 /// The key event of one raw keyboard record, or `None` for a dead key, which the legacy app skips. `flags` is
 /// `RAWKEYBOARD.Flags` (bit 0 break, bit 1 `E0`) and `mapped_char` the `MapVirtualKey` result for `vk`.
 #[must_use]
 pub fn key_event(vk: u16, scan: u16, flags: u16, mapped_char: u32) -> Option<InputEvent> {
-    let _ = (vk, scan, flags, mapped_char);
-    unimplemented!("key_event")
+    if is_dead_key(mapped_char) {
+        return None;
+    }
+    Some(InputEvent::Key {
+        vk,
+        scan,
+        down: flags & RI_KEY_BREAK == 0,
+        extended: flags & RI_KEY_E0 != 0,
+    })
 }
 
 /// The two messages of the legacy one-time click at (99999, 99999), far outside the page, that gives it the keyboard
 /// focus: left button down, then up.
 #[must_use]
 pub fn focus_click_messages() -> [(u32, usize, isize); 2] {
-    unimplemented!("focus_click_messages")
+    let lparam = mouse_lparam(FOCUS_CLICK_AT, FOCUS_CLICK_AT);
+    [
+        (WM_LBUTTONDOWN, LEFT_WPARAM, lparam),
+        (WM_LBUTTONUP, LEFT_WPARAM, lparam),
+    ]
 }
 
 /// Whether the foreground window class is the desktop: `WorkerW`, `SHELLDLL_DefView` or `Progman` (`InputDesktop`).
 #[must_use]
 pub fn is_desktop_class(class_name: &str) -> bool {
-    let _ = class_name;
-    unimplemented!("is_desktop_class")
+    matches!(class_name, "Progman" | "WorkerW" | "SHELLDLL_DefView")
 }
 
 /// The devices raw input has to be registered for under `input_type`: `(mouse, keyboard)`. `Close` registers nothing.
@@ -210,12 +273,12 @@ mod ri {
     pub const RIGHT_UP: u16 = 0x0008;
     pub const MIDDLE_DOWN: u16 = 0x0010;
     pub const MIDDLE_UP: u16 = 0x0020;
+    pub const WHEEL: u16 = 0x0400;
 }
 
 /// Turns the button flags of one raw mouse record into events at the cursor position `(x, y)`: a record without any
 /// button flag is a movement (the legacy app sends a move only for those), each button flag is one press or release.
 pub fn mouse_events(button_flags: u16, button_data: u16, (x, y): (i32, i32), mut emit: impl FnMut(InputEvent)) {
-    let _ = button_data;
     let buttons = [
         (ri::LEFT_DOWN, MouseButton::Left, true),
         (ri::LEFT_UP, MouseButton::Left, false),
@@ -233,17 +296,29 @@ pub fn mouse_events(button_flags: u16, button_data: u16, (x, y): (i32, i32), mut
             emit(InputEvent::Button { button, down, x, y });
         }
     }
+    if button_flags & ri::WHEEL != 0 {
+        // The wheel amount is a signed 16-bit value stored in an unsigned field.
+        emit(InputEvent::Wheel {
+            delta: i32::from(button_data as i16),
+            x,
+            y,
+        });
+    }
 }
 
 /// Whether a renderer forwards `event`: `cursor_inside` is whether the cursor is inside this renderer's rectangle,
 /// `desktop_foreground` whether the desktop is the foreground window.
 #[must_use]
 pub fn should_forward(filter: &InputFilter, event: &InputEvent, cursor_inside: bool, desktop_foreground: bool) -> bool {
-    let _ = (filter, desktop_foreground);
-    match event {
-        InputEvent::MouseMove { .. } | InputEvent::Button { .. } | InputEvent::Wheel { .. } => cursor_inside,
-        InputEvent::Key { .. } | InputEvent::FocusClick => unimplemented!("keys"),
+    if filter.desktop_only && !desktop_foreground {
+        return false;
     }
+    let (mouse, keyboard) = devices(filter.input_type);
+    let device_on = match event {
+        InputEvent::MouseMove { .. } | InputEvent::Button { .. } | InputEvent::Wheel { .. } => mouse,
+        InputEvent::Key { .. } | InputEvent::FocusClick => keyboard,
+    };
+    device_on && cursor_inside
 }
 
 #[cfg(test)]
@@ -332,10 +407,18 @@ mod tests {
     };
     const MOUSE_EVENT: InputEvent = InputEvent::MouseMove { x: 1, y: 1 };
     const WHEEL_EVENT: InputEvent = InputEvent::Wheel { delta: 120, x: 1, y: 1 };
-    const KEY_EVENT: InputEvent = InputEvent::Key { vk: 0x41, scan: 0x1E, down: true, extended: false };
+    const KEY_EVENT: InputEvent = InputEvent::Key {
+        vk: 0x41,
+        scan: 0x1E,
+        down: true,
+        extended: false,
+    };
 
     fn filter(input_type: InputType, desktop_only: bool) -> InputFilter {
-        InputFilter { input_type, desktop_only }
+        InputFilter {
+            input_type,
+            desktop_only,
+        }
     }
 
     #[test]
@@ -375,8 +458,15 @@ mod tests {
     #[test]
     fn the_key_lparam_is_the_legacy_value() {
         assert_eq!(key_lparam(0x1E, true), 0x011E_0001);
-        assert_eq!(key_lparam(0x1E, false), (0x011E_0001_u32 | 0xC000_0000) as usize as isize);
-        assert_eq!(key_lparam(0xFF, true) >> 16 & 0xFF, 0xFF, "the scan code is bits 16 to 23");
+        assert_eq!(
+            key_lparam(0x1E, false),
+            (0x011E_0001_u32 | 0xC000_0000) as usize as isize
+        );
+        assert_eq!(
+            key_lparam(0xFF, true) >> 16 & 0xFF,
+            0xFF,
+            "the scan code is bits 16 to 23"
+        );
     }
 
     #[test]
@@ -386,12 +476,45 @@ mod tests {
         assert_eq!(key_event(0xDE, 0x28, 0, 0x8000_0027), None);
         assert_eq!(
             key_event(0x41, 0x1E, 0, 0x41),
-            Some(InputEvent::Key { vk: 0x41, scan: 0x1E, down: true, extended: false })
+            Some(InputEvent::Key {
+                vk: 0x41,
+                scan: 0x1E,
+                down: true,
+                extended: false
+            })
         );
         assert_eq!(
             key_event(0x25, 0x4B, 0x1 | 0x2, 0),
-            Some(InputEvent::Key { vk: 0x25, scan: 0x4B, down: false, extended: true })
+            Some(InputEvent::Key {
+                vk: 0x25,
+                scan: 0x4B,
+                down: false,
+                extended: true
+            })
         );
+    }
+
+    #[test]
+    fn a_key_event_becomes_wm_keydown_or_wm_keyup_with_the_virtual_key_as_wparam() {
+        let down = InputEvent::Key {
+            vk: 0x41,
+            scan: 0x1E,
+            down: true,
+            extended: false,
+        };
+        let up = InputEvent::Key {
+            vk: 0x41,
+            scan: 0x1E,
+            down: false,
+            extended: false,
+        };
+
+        assert_eq!(key_message(&down), Some((WM_KEYDOWN, 0x41, 0x011E_0001)));
+        assert_eq!(
+            key_message(&up).map(|(message, wparam, _)| (message, wparam)),
+            Some((WM_KEYUP, 0x41))
+        );
+        assert_eq!(key_message(&InputEvent::MouseMove { x: 0, y: 0 }), None);
     }
 
     #[test]
@@ -411,7 +534,14 @@ mod tests {
         };
 
         assert_eq!(collect(120), [InputEvent::Wheel { delta: 120, x: 7, y: 8 }]);
-        assert_eq!(collect(0xFF88), [InputEvent::Wheel { delta: -120, x: 7, y: 8 }]);
+        assert_eq!(
+            collect(0xFF88),
+            [InputEvent::Wheel {
+                delta: -120,
+                x: 7,
+                y: 8
+            }]
+        );
     }
 
     #[test]
@@ -427,7 +557,10 @@ mod tests {
     fn a_key_event_never_shows_which_key_it_was_when_printed() {
         let text = format!("{KEY_EVENT:?}");
 
-        assert!(!text.contains("65") && !text.contains("30") && !text.contains("0x"), "{text}");
+        assert!(
+            !text.contains("65") && !text.contains("30") && !text.contains("0x"),
+            "{text}"
+        );
         assert!(text.contains("Key"), "{text}");
     }
 

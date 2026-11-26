@@ -790,6 +790,13 @@ mod imp {
             posted.is_ok()
         }
 
+        /// Turns the mouse wheel by `delta` (120 per notch) at `(x, y)` of the page, through the browser host.
+        pub fn send_mouse_wheel(&self, x: i32, y: i32, delta: i32) {
+            if let Some(host) = self.browser.host() {
+                host.send_mouse_wheel_event(Some(&MouseEvent { x, y, modifiers: 0 }), 0, delta);
+            }
+        }
+
         /// Shows DevTools for this browser in a window of its own: the Portal's Open DevTools button (D-13).
         pub fn open_devtools(&self) {
             show_devtools(&self.browser, None);
@@ -869,6 +876,9 @@ mod imp {
 
         /// Does nothing.
         pub fn open_devtools(&self) {}
+
+        /// Does nothing: there is no browser.
+        pub fn send_mouse_wheel(&self, _x: i32, _y: i32, _delta: i32) {}
 
         /// Does nothing: there is no browser window.
         pub fn post_to_widget(&self, _message: u32, _wparam: usize, _lparam: isize) -> bool {

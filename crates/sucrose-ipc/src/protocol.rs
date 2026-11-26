@@ -8,7 +8,7 @@
 use serde::{Deserialize, Serialize};
 use sucrose_core::{
     compatible::DataGroup,
-    settings::{EngineType, PauseKind, Stretch},
+    settings::{EngineType, InputType, PauseKind, Stretch},
     theme::WallpaperType,
 };
 use sucrose_engine_web::args::Switch;
@@ -16,7 +16,7 @@ use sucrose_engine_web::args::Switch;
 use crate::portal::{Launch, PortalPage};
 
 /// Version of this protocol, sent in [`ToService::Hello`] so the service can refuse a renderer it cannot talk to.
-pub const PROTOCOL_VERSION: u16 = 8;
+pub const PROTOCOL_VERSION: u16 = 9;
 
 /// Messages from a renderer to the service.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
@@ -196,6 +196,26 @@ impl Default for WebOptions {
     }
 }
 
+/// How input is forwarded to a web wallpaper, taken from the Engine section (WAPI-07). Read when the job is made, so a
+/// change applies at the next start (04-14).
+#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq)]
+pub struct InputSettings {
+    /// `Engine.InputType`: which devices are forwarded.
+    pub input_type: InputType,
+    /// `Engine.InputDesktop`: forward only while the desktop is the foreground window.
+    pub desktop_only: bool,
+}
+
+impl Default for InputSettings {
+    /// The legacy defaults: mouse and keyboard, also while another window is in front.
+    fn default() -> Self {
+        Self {
+            input_type: InputType::default(),
+            desktop_only: false,
+        }
+    }
+}
+
 /// One wallpaper job for a renderer: a monitor and the file or page to show on it.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Assignment {
@@ -218,6 +238,8 @@ pub struct Assignment {
     pub theme_dir: String,
     /// How the web engines behave for this job; the other engines ignore it.
     pub web: WebOptions,
+    /// Which input a web wallpaper gets.
+    pub input: InputSettings,
 }
 
 #[cfg(test)]
@@ -238,6 +260,7 @@ mod tests {
             engine: EngineType::MpvPlayerLive,
             theme_dir: "C:\\themes\\a".to_owned(),
             web: WebOptions::default(),
+            input: InputSettings::default(),
         }))
         .expect("encode Assign");
 
@@ -372,6 +395,7 @@ mod tests {
             engine: EngineType::MpvPlayerLive,
             theme_dir: "C:\\themes".to_owned(),
             web: WebOptions::default(),
+            input: InputSettings::default(),
         });
 
         let bytes = postcard::to_stdvec(&message).expect("encode");
@@ -401,6 +425,10 @@ mod tests {
                 developer_port: 9222,
                 shuffle: false,
                 theme_type: "Light".to_owned(),
+            },
+            input: InputSettings {
+                input_type: InputType::OnlyKeyboard,
+                desktop_only: true,
             },
         });
 
@@ -469,8 +497,8 @@ mod tests {
     #[test]
     fn the_protocol_version_stays_when_messages_are_only_appended() {
         assert_eq!(
-            PROTOCOL_VERSION, 8,
-            "DataWanted and Data are appended variants, so the version stays"
+            PROTOCOL_VERSION, 9,
+            "Assignment.input is a new field, which appending a variant cannot express"
         );
     }
 
