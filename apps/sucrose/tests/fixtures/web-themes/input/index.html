@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sucrose fixture: input</title>
+<style>
+  html, body { margin: 0; width: 100%; height: 100%; background: #101418; color: #e6edf3; overflow: hidden; }
+  body { font-family: "Segoe UI", sans-serif; padding: 1.5vw; box-sizing: border-box; }
+  h1 { font-size: 2.4vw; margin: 0 0 1vw; }
+  div.row { font-size: 2vw; font-variant-numeric: tabular-nums; margin-top: 0.6vw; }
+  #dot { position: fixed; width: 28px; height: 28px; margin: -14px 0 0 -14px; border-radius: 50%; background: #3fb950; left: -100px; top: -100px; pointer-events: none; }
+  .buttons span { display: inline-block; padding: 0.4vw 1.2vw; margin-right: 1vw; border: 2px solid #30363d; border-radius: 6px; }
+  .buttons span.on { background: #1f6feb; border-color: #58a6ff; }
+</style>
+</head>
+<body>
+<h1>Sucrose fixture: input</h1>
+<div class="row buttons"><span id="b0">left</span><span id="b2">right</span><span id="b1">middle</span></div>
+<div class="row" id="pos">mouse: ...</div>
+<div class="row" id="key">key: ...</div>
+<div class="row" id="wheel">wheel: 0</div>
+<div id="dot"></div>
+<script>
+  // The wallpaper gets the legacy messages posted to its Chromium widget: moves, buttons, keys; the wheel comes through
+  // the browser host. Each event shows up here, so a person can see what reached the page.
+  const dot = document.getElementById("dot");
+  const pos = document.getElementById("pos");
+  const key = document.getElementById("key");
+  const wheelLabel = document.getElementById("wheel");
+  let wheel = 0;
+  window.addEventListener("mousemove", (event) => {
+    dot.style.left = event.clientX + "px";
+    dot.style.top = event.clientY + "px";
+    pos.textContent = "mouse: " + event.clientX + ", " + event.clientY;
+  });
+  const light = (event, on) => {
+    const button = document.getElementById("b" + event.button);
+    if (button) { button.classList.toggle("on", on); }
+  };
+  window.addEventListener("mousedown", (event) => light(event, true));
+  window.addEventListener("mouseup", (event) => light(event, false));
+  window.addEventListener("keydown", (event) => { key.textContent = "key: " + event.key + " (down)"; });
+  window.addEventListener("keyup", (event) => { key.textContent = "key: " + event.key + " (up)"; });
+  window.addEventListener("wheel", (event) => {
+    wheel += event.deltaY;
+    wheelLabel.textContent = "wheel: " + wheel;
+  });
+  window.addEventListener("contextmenu", (event) => event.preventDefault());
+</script>
+</body>
+</html>

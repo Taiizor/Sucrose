@@ -14,6 +14,7 @@ use std::{
 
 use anyhow::{Context as _, bail};
 use sucrose_core::compatible::DataGroup;
+use sucrose_core::settings::InputType;
 use sucrose_engine::{
     Engine, EngineClock, EngineError, EngineId, PauseLevel, Started,
     sync::{Follower, SyncAction, drift_s},
@@ -25,6 +26,7 @@ use sucrose_ipc::{
 };
 use sucrose_platform::{
     DesktopSurface, DpiAwareness, EventLoop, Flow, LoopEnd, LoopEvent, LoopProxy, PlacementVerdict, RectPx,
+    input::{InputFilter, cursor_inside, devices, should_forward},
     monotonic_ns,
 };
 
@@ -249,6 +251,21 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
             proxy.quit();
         })
         .context("cannot start the reader thread")?;
+    // Raw input only for an engine whose page uses it and only for the devices the InputType leaves on: a renderer that
+    // plays a video registers nothing (D-008).
+    let input_filter = InputFilter {
+        input_type: InputType::MouseKeyboard,
+        desktop_only: false,
+    };
+    let (want_mouse, want_keyboard) = devices(input_filter.input_type);
+    let forwards_input = engine.takes_input() && (want_mouse || want_keyboard);
+    if forwards_input {
+        match event_loop.register_raw_input(want_mouse, want_keyboard) {
+            Ok(()) => tracing::info!(mouse = want_mouse, keyboard = want_keyboard, "raw input registered"),
+            Err(error) => tracing::warn!(%error, "cannot register raw input, the page gets no mouse or keyboard"),
+        }
+    }
+    let mut current_rect = assignment.rect;
     // A wake means a new rectangle or, for an engine with a pump, queued commands: the surface is moved here because
     // only this thread may touch it, and the pump is the only thing that calls an engine bound to this thread. The
     // loop ends when the reader thread asks for it, or when Windows destroys the surface (the surface posts the quit
@@ -257,6 +274,7 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         LoopEvent::Wake => {
             let rect = pending_rect.lock().unwrap_or_else(PoisonError::into_inner).take();
             if let Some(rect) = rect {
+                current_rect = [rect.left, rect.top, rect.right, rect.bottom];
                 move_surface(&surface, rect);
                 if let Some(pump) = pump.as_mut() {
                     pump.set_rect([rect.left, rect.top, rect.right, rect.bottom]);
@@ -274,6 +292,17 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
             Flow::Continue
         }
         LoopEvent::Quit => Flow::Exit,
+        // Only this renderer's own monitor gets input: the cursor must be inside its rectangle (WAPI-07).
+        LoopEvent::Input(event) => {
+            if forwards_input {
+                let position = event.position().or_else(sucrose_platform::cursor_position);
+                let inside = position.is_some_and(|position| cursor_inside(current_rect, position));
+                if should_forward(&input_filter, &event, inside, true) {
+                    engine.forward_input(&event);
+                }
+            }
+            Flow::Continue
+        }
         // The service watches the monitors and the shell; a renderer learns about both through its own surface.
         LoopEvent::DisplayChanged | LoopEvent::ShellRestarted => Flow::Continue,
     });

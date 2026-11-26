@@ -62,6 +62,16 @@ impl EventLoop {
     pub fn timers(&self) -> LoopTimers {
         LoopTimers
     }
+
+    /// Always fails on this OS: nothing delivers raw input.
+    pub fn register_raw_input(&self, _mouse: bool, _keyboard: bool) -> Result<(), PlatformError> {
+        Err(PlatformError::Unsupported("raw input"))
+    }
+}
+
+/// The cursor position. Not available on this OS.
+pub(crate) fn cursor_position() -> Option<(i32, i32)> {
+    None
 }
 
 /// Starts and stops the timers of an [`EventLoop`]. Not available on this OS.

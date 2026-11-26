@@ -2087,6 +2087,8 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
             announce_runtime(&mut portals, &mut last_runtime, &host, &fleet, &supervisor, tray.is_some());
             Flow::Continue
         }
+        // Only a renderer registers for raw input; the service never does.
+        LoopEvent::Input(_) => Flow::Continue,
         // explorer.exe started again: the surfaces have to be replaced, so each monitor gets a new renderer.
         LoopEvent::ShellRestarted => {
             if !quitting && fleet.job.is_some() && fleet.library_move.is_none() {

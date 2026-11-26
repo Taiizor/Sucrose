@@ -26,14 +26,14 @@ use windows::{
             ChangeWindowMessageFilterEx, CreateWindowExW, DefWindowProcW, DestroyWindow, DispatchMessageW, GetMessageW,
             KillTimer, MSG, MSGFLT_ALLOW, MsgWaitForMultipleObjects, PM_REMOVE, PeekMessageW, PostMessageW,
             PostQuitMessage, QS_ALLINPUT, RegisterClassExW, RegisterWindowMessageW, SPI_SETWORKAREA, SetTimer,
-            TranslateMessage, WM_APP, WM_DISPLAYCHANGE, WM_DPICHANGED, WM_QUIT, WM_SETTINGCHANGE, WM_TIMER,
+            TranslateMessage, WM_APP, WM_DISPLAYCHANGE, WM_DPICHANGED, WM_INPUT, WM_QUIT, WM_SETTINGCHANGE, WM_TIMER,
             WNDCLASSEXW, WS_EX_TOOLWINDOW, WS_POPUP,
         },
     },
     core::{HRESULT, PCWSTR, w},
 };
 
-use super::os_error;
+use super::{os_error, raw_input};
 use crate::{Flow, LoopEnd, LoopEvent, PlatformError};
 
 /// Posted by [`LoopProxy::wake`].
@@ -91,6 +91,16 @@ fn request_drain(hwnd: HWND) {
 }
 
 unsafe extern "system" fn loop_proc(hwnd: HWND, message: u32, wparam: WPARAM, lparam: LPARAM) -> LRESULT {
+    if message == WM_INPUT {
+        // Posted, not sent: `GetMessageW` returns for it and `run` drains right after. Only a window that registered for
+        // raw input (see [`EventLoop::register_raw_input`]) ever gets this message.
+        raw_input::decode(lparam, |event| {
+            PENDING.with(|pending| pending.borrow_mut().push_back(LoopEvent::Input(event)));
+        });
+        // SAFETY: forwards the arguments the OS gave this window procedure, unchanged; background raw input needs the
+        // default procedure to clean the record up.
+        return unsafe { DefWindowProcW(hwnd, message, wparam, lparam) };
+    }
     let taskbar_created = TASKBAR_CREATED.load(Ordering::Relaxed);
     // The second field says whether the message was sent (not posted) and so needs a drain post to be noticed.
     let event = match message {
@@ -255,6 +265,13 @@ impl EventLoop {
     /// milliseconds until [`LoopTimers::kill`]) that the handler can use while [`EventLoop::run`] owns the loop.
     pub fn timers(&self) -> LoopTimers {
         LoopTimers { hwnd: self.hwnd }
+    }
+
+    /// Registers this loop's window for raw input, also while another window is in front (`RIDEV_INPUTSINK`): the
+    /// mouse when `mouse` is set, the keyboard when `keyboard` is set. What arrives is handed to the handler as
+    /// [`LoopEvent::Input`]. Nothing is registered, and no cost paid, when neither is set.
+    pub fn register_raw_input(&self, mouse: bool, keyboard: bool) -> Result<(), PlatformError> {
+        raw_input::register(self.hwnd, mouse, keyboard)
     }
 
     /// A handle that wakes or stops this loop from any thread.

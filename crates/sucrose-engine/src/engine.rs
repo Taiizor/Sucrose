@@ -6,6 +6,7 @@ use std::{sync::Arc, time::Duration};
 
 use sucrose_core::{compatible::DataGroup, settings::Stretch};
 use sucrose_ipc::protocol::PlaybackSettings;
+use sucrose_platform::input::InputEvent;
 
 use crate::PauseLevel;
 
@@ -104,6 +105,15 @@ pub trait Engine: Send + Sync {
     /// Hands the engine a snapshot of the system data its page asked for, each group with its JSON text (D-24). Only a
     /// web engine has a page to give it to; every other engine ignores it.
     fn push_data(&self, _data: Vec<(DataGroup, String)>) {}
+    /// Whether this engine's page can use mouse and keyboard input (WAPI-07); the renderer registers raw input only for
+    /// an engine that does (D-008).
+    fn takes_input(&self) -> bool {
+        false
+    }
+    /// Hands the engine one input event the renderer's filters let through (positions are on the virtual screen). Only
+    /// a web engine has a page to give it to; every other engine ignores it. It never blocks and never logs the event
+    /// (T-04-45).
+    fn forward_input(&self, _event: &InputEvent) {}
 }
 
 /// The part of an engine that must run on the thread that owns the desktop surface (for CEF the thread that pumps its

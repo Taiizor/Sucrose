@@ -7060,6 +7060,7 @@ version = "26.11.22+1"
 dependencies = [
  "sucrose-core",
  "sucrose-ipc",
+ "sucrose-platform",
  "thiserror 2.0.21",
 ]
 

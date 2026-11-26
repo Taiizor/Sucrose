@@ -84,21 +84,101 @@ pub struct InputFilter {
     pub desktop_only: bool,
 }
 
+/// The legacy mouse lParam: the y coordinate in the high word, the x coordinate in the low word (`(Y << 16) | X`).
+/// Each coordinate is cut to 16 bits, as the message format has no room for more.
+#[must_use]
+pub fn mouse_lparam(x: i32, y: i32) -> isize {
+    let packed = ((y as u32 & 0xFFFF) << 16) | (x as u32 & 0xFFFF);
+    packed as usize as isize
+}
+
 /// The legacy message for a mouse event, as `(message, wParam, lParam)`, with the position made relative to
 /// `origin` (the left and top of the wallpaper's rectangle on the virtual screen). `None` for an event that is not a
 /// plain mouse message.
 #[must_use]
 pub fn mouse_message(event: &InputEvent, origin: (i32, i32)) -> Option<(u32, usize, isize)> {
-    let _ = (event, origin);
-    unimplemented!("mouse_message")
+    match *event {
+        InputEvent::MouseMove { x, y } => Some((
+            WM_MOUSEMOVE,
+            MOVE_WPARAM,
+            mouse_lparam(x.saturating_sub(origin.0), y.saturating_sub(origin.1)),
+        )),
+        InputEvent::Button { button, down, x, y } => {
+            let (message, wparam) = match (button, down) {
+                (MouseButton::Left, true) => (WM_LBUTTONDOWN, LEFT_WPARAM),
+                (MouseButton::Left, false) => (WM_LBUTTONUP, LEFT_WPARAM),
+                (MouseButton::Right, true) => (WM_RBUTTONDOWN, RIGHT_WPARAM),
+                (MouseButton::Right, false) => (WM_RBUTTONUP, RIGHT_WPARAM),
+                (MouseButton::Middle, true) => (WM_MBUTTONDOWN, MIDDLE_WPARAM),
+                (MouseButton::Middle, false) => (WM_MBUTTONUP, MIDDLE_WPARAM),
+            };
+            Some((
+                message,
+                wparam,
+                mouse_lparam(x.saturating_sub(origin.0), y.saturating_sub(origin.1)),
+            ))
+        }
+    }
+}
+
+/// The devices raw input has to be registered for under `input_type`: `(mouse, keyboard)`. `Close` registers nothing.
+#[must_use]
+pub fn devices(input_type: InputType) -> (bool, bool) {
+    match input_type {
+        InputType::Close => (false, false),
+        InputType::OnlyMouse => (true, false),
+        InputType::OnlyKeyboard => (false, true),
+        InputType::MouseKeyboard => (true, true),
+    }
+}
+
+/// Whether the cursor at `(x, y)` is inside `rect` (left, top, right, bottom; the right and bottom edges are outside).
+#[must_use]
+pub fn cursor_inside(rect: [i32; 4], (x, y): (i32, i32)) -> bool {
+    let [left, top, right, bottom] = rect;
+    x >= left && x < right && y >= top && y < bottom
+}
+
+/// The raw mouse button flags (`RAWMOUSE.usButtonFlags`) the legacy app reacts to.
+mod ri {
+    pub const LEFT_DOWN: u16 = 0x0001;
+    pub const LEFT_UP: u16 = 0x0002;
+    pub const RIGHT_DOWN: u16 = 0x0004;
+    pub const RIGHT_UP: u16 = 0x0008;
+    pub const MIDDLE_DOWN: u16 = 0x0010;
+    pub const MIDDLE_UP: u16 = 0x0020;
+}
+
+/// Turns the button flags of one raw mouse record into events at the cursor position `(x, y)`: a record without any
+/// button flag is a movement (the legacy app sends a move only for those), each button flag is one press or release.
+pub fn mouse_events(button_flags: u16, (x, y): (i32, i32), mut emit: impl FnMut(InputEvent)) {
+    let buttons = [
+        (ri::LEFT_DOWN, MouseButton::Left, true),
+        (ri::LEFT_UP, MouseButton::Left, false),
+        (ri::RIGHT_DOWN, MouseButton::Right, true),
+        (ri::RIGHT_UP, MouseButton::Right, false),
+        (ri::MIDDLE_DOWN, MouseButton::Middle, true),
+        (ri::MIDDLE_UP, MouseButton::Middle, false),
+    ];
+    if button_flags == 0 {
+        emit(InputEvent::MouseMove { x, y });
+        return;
+    }
+    for (flag, button, down) in buttons {
+        if button_flags & flag != 0 {
+            emit(InputEvent::Button { button, down, x, y });
+        }
+    }
 }
 
 /// Whether a renderer forwards `event`: `cursor_inside` is whether the cursor is inside this renderer's rectangle,
 /// `desktop_foreground` whether the desktop is the foreground window.
 #[must_use]
 pub fn should_forward(filter: &InputFilter, event: &InputEvent, cursor_inside: bool, desktop_foreground: bool) -> bool {
-    let _ = (filter, event, cursor_inside, desktop_foreground);
-    unimplemented!("should_forward")
+    let _ = (filter, desktop_foreground);
+    match event {
+        InputEvent::MouseMove { .. } | InputEvent::Button { .. } => cursor_inside,
+    }
 }
 
 #[cfg(test)]
@@ -119,7 +199,17 @@ mod tests {
 
     #[test]
     fn the_buttons_map_to_the_legacy_messages_and_wparams() {
-        let button = |button, down| mouse_message(&InputEvent::Button { button, down, x: 10, y: 20 }, (0, 0));
+        let button = |button, down| {
+            mouse_message(
+                &InputEvent::Button {
+                    button,
+                    down,
+                    x: 10,
+                    y: 20,
+                },
+                (0, 0),
+            )
+        };
         let lparam = (20 << 16) | 10;
 
         assert_eq!(button(MouseButton::Left, true), Some((WM_LBUTTONDOWN, 0x1, lparam)));
@@ -128,6 +218,55 @@ mod tests {
         assert_eq!(button(MouseButton::Right, false), Some((WM_RBUTTONUP, 0x2, lparam)));
         assert_eq!(button(MouseButton::Middle, true), Some((WM_MBUTTONDOWN, 0x10, lparam)));
         assert_eq!(button(MouseButton::Middle, false), Some((WM_MBUTTONUP, 0x10, lparam)));
+    }
+
+    #[test]
+    fn the_cursor_rule_takes_the_left_and_top_edges_in_and_the_right_and_bottom_edges_out() {
+        let rect = [1920, 0, 3840, 1080];
+
+        assert!(cursor_inside(rect, (1920, 0)));
+        assert!(cursor_inside(rect, (3839, 1079)));
+        assert!(!cursor_inside(rect, (1919, 500)));
+        assert!(!cursor_inside(rect, (3840, 500)));
+        assert!(!cursor_inside(rect, (2000, 1080)));
+    }
+
+    #[test]
+    fn a_raw_record_without_button_flags_is_a_move_and_each_button_flag_is_one_event() {
+        let collect = |flags| {
+            let mut events = Vec::new();
+            mouse_events(flags, (7, 8), |event| events.push(event));
+            events
+        };
+
+        assert_eq!(collect(0), [InputEvent::MouseMove { x: 7, y: 8 }]);
+        assert_eq!(
+            collect(0x0001),
+            [InputEvent::Button {
+                button: MouseButton::Left,
+                down: true,
+                x: 7,
+                y: 8
+            }]
+        );
+        assert_eq!(
+            collect(0x0020),
+            [InputEvent::Button {
+                button: MouseButton::Middle,
+                down: false,
+                x: 7,
+                y: 8
+            }]
+        );
+        assert_eq!(collect(0x0004 | 0x0002).len(), 2);
+    }
+
+    #[test]
+    fn raw_input_is_registered_only_for_the_devices_the_input_type_leaves_on() {
+        assert_eq!(devices(InputType::Close), (false, false));
+        assert_eq!(devices(InputType::OnlyMouse), (true, false));
+        assert_eq!(devices(InputType::OnlyKeyboard), (false, true));
+        assert_eq!(devices(InputType::MouseKeyboard), (true, true));
     }
 
     #[test]

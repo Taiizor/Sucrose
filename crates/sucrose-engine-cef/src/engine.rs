@@ -29,7 +29,10 @@ use sucrose_engine_web::{
     profile::{self, ProfileLease},
 };
 use sucrose_ipc::protocol::{Assignment, PlaybackSettings, WebOptions};
-use sucrose_platform::{LoopProxy, LoopTimers};
+use sucrose_platform::{
+    LoopProxy, LoopTimers,
+    input::{InputEvent, mouse_message},
+};
 
 use crate::browser::{CefError, CefHost, CefStart};
 
@@ -70,6 +73,10 @@ enum Command {
     OpenDevTools,
     /// A data snapshot arrived: run the templates with the newest values (kept in [`State::data`]).
     Data,
+    /// A mouse move is waiting in [`State::pending_move`]; one marker covers a whole burst of moves.
+    MouseMove,
+    /// A button, wheel or key event to hand to the page.
+    Input(InputEvent),
 }
 
 /// The newest value of each setting, for the page calls and for anyone asking what the engine was told.
@@ -86,6 +93,9 @@ struct State {
     theme_type: String,
     /// The newest snapshot of each system data group the service pushed.
     data: Mutex<Vec<(DataGroup, Value)>>,
+    /// The newest mouse move not yet handed to the page: a mouse moves a thousand times a second, so moves are
+    /// coalesced here instead of filling the command queue.
+    pending_move: Mutex<Option<InputEvent>>,
 }
 
 impl State {
@@ -99,6 +109,7 @@ impl State {
             shuffle: AtomicBool::new(web.shuffle),
             theme_type: web.theme_type.clone(),
             data: Mutex::new(Vec::new()),
+            pending_move: Mutex::new(None),
         }
     }
 
@@ -146,6 +157,8 @@ pub struct CefPump {
     theme_dir: PathBuf,
     /// The non-empty templates of the theme, read when the first snapshot arrives.
     templates: Option<Vec<(CompatibleKey, String)>>,
+    /// The left and top of the surface on the virtual screen: forwarded positions are made relative to it.
+    origin: (i32, i32),
 }
 
 /// Why CEF did not start, as the engine failure the renderer reports.
@@ -356,6 +369,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             state,
             theme_dir,
             templates: None,
+            origin: (assignment.rect[0], assignment.rect[1]),
         })),
     })
 }
@@ -462,6 +476,38 @@ impl Engine for CefEngine {
         Ok(())
     }
 
+    fn takes_input(&self) -> bool {
+        true
+    }
+
+    /// Keeps the newest mouse move and queues one marker for a burst of them; every other event is queued as it is. A
+    /// full queue drops the event without a word about its content (T-04-45).
+    fn forward_input(&self, event: &InputEvent) {
+        if let InputEvent::MouseMove { .. } = event {
+            let first = self
+                .state
+                .pending_move
+                .lock()
+                .unwrap_or_else(PoisonError::into_inner)
+                .replace(*event)
+                .is_none();
+            if first {
+                match self.commands.try_send(Command::MouseMove) {
+                    Ok(()) => (self.wake)(),
+                    Err(_) => {
+                        // Nobody will take it: the next move must queue a marker again.
+                        *self.state.pending_move.lock().unwrap_or_else(PoisonError::into_inner) = None;
+                    }
+                }
+            }
+            return;
+        }
+        match self.commands.try_send(Command::Input(*event)) {
+            Ok(()) => (self.wake)(),
+            Err(_) => tracing::debug!("the CEF command queue is full or closed, an input event is dropped"),
+        }
+    }
+
     /// Keeps the newest snapshot of each group and queues one push for the surface thread. A text that is not JSON is
     /// dropped with a log line and the group keeps its last value.
     fn push_data(&self, data: Vec<(DataGroup, String)>) {
@@ -498,9 +544,29 @@ impl CefPump {
                 data_pushed = true;
                 continue;
             }
+            // Input is never logged: it is what the user types and moves (T-04-45).
+            match command {
+                Command::MouseMove => {
+                    let moved = self
+                        .state
+                        .pending_move
+                        .lock()
+                        .unwrap_or_else(PoisonError::into_inner)
+                        .take();
+                    if let Some(event) = moved {
+                        self.post_input(&event);
+                    }
+                    continue;
+                }
+                Command::Input(event) => {
+                    self.post_input(&event);
+                    continue;
+                }
+                _ => {}
+            }
             tracing::debug!(?command, "queued command reached the CEF thread");
             match command {
-                Command::Data => {}
+                Command::Data | Command::MouseMove | Command::Input(_) => {}
                 Command::OpenDevTools => self.host.open_devtools(),
                 Command::Pause { paused, .. } => {
                     let call = js::pause_call(paused);
@@ -513,6 +579,14 @@ impl CefPump {
         }
         if data_pushed {
             self.push_data();
+        }
+    }
+
+    /// Hands one input event to the page: the legacy message to the Chromium widget, positions relative to the
+    /// surface.
+    fn post_input(&mut self, event: &InputEvent) {
+        if let Some((message, wparam, lparam)) = mouse_message(event, self.origin) {
+            self.host.post_to_widget(message, wparam, lparam);
         }
     }
 
@@ -546,6 +620,7 @@ impl SurfacePump for CefPump {
     }
 
     fn set_rect(&mut self, rect: [i32; 4]) {
+        self.origin = (rect[0], rect[1]);
         if let Err(error) = self.host.set_rect(rect) {
             tracing::warn!(%error, "cannot move the browser window");
         }
@@ -593,6 +668,39 @@ mod tests {
             state: Arc::new(State::new(&PlaybackSettings::default(), &WebOptions::default())),
         };
         (engine, receiver, wakes)
+    }
+
+    #[test]
+    fn a_burst_of_mouse_moves_queues_one_marker_and_keeps_the_newest_position() {
+        let (engine, queue, wakes) = handle(4);
+
+        for step in 0..100 {
+            engine.forward_input(&InputEvent::MouseMove { x: step, y: 2 * step });
+        }
+
+        assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::MouseMove]);
+        assert_eq!(wakes.load(Ordering::SeqCst), 1);
+        assert_eq!(
+            *engine.state.pending_move.lock().expect("lock"),
+            Some(InputEvent::MouseMove { x: 99, y: 198 })
+        );
+    }
+
+    #[test]
+    fn a_move_that_found_the_queue_full_does_not_block_later_moves() {
+        let (engine, queue, _) = handle(1);
+        engine.queue(Command::Volume(1));
+
+        engine.forward_input(&InputEvent::MouseMove { x: 1, y: 1 });
+        assert_eq!(
+            *engine.state.pending_move.lock().expect("lock"),
+            None,
+            "nothing will take it"
+        );
+
+        queue.try_iter().for_each(drop);
+        engine.forward_input(&InputEvent::MouseMove { x: 2, y: 2 });
+        assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::MouseMove]);
     }
 
     #[test]

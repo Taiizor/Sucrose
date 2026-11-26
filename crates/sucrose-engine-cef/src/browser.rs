@@ -238,6 +238,7 @@ impl Pump {
 #[cfg(all(windows, any(target_arch = "x86_64", target_arch = "aarch64")))]
 mod imp {
     use std::{
+        cell::Cell,
         path::Path,
         sync::{
             Arc, Mutex,
@@ -249,10 +250,11 @@ mod imp {
 
     use cef::{args::Args, *};
     use windows::Win32::{
-        Foundation::HWND,
+        Foundation::{HWND, LPARAM, WPARAM},
         System::LibraryLoader::LoadLibraryW,
-        UI::WindowsAndMessaging::{SWP_NOACTIVATE, SWP_NOZORDER, SetWindowPos},
+        UI::WindowsAndMessaging::{FindWindowExW, PostMessageW, SWP_NOACTIVATE, SWP_NOZORDER, SetWindowPos},
     };
+    use windows::core::{PCWSTR, w};
 
     use sucrose_engine_web::args::{Switch, plan_cef_command_line};
 
@@ -536,6 +538,10 @@ mod imp {
         thread: ThreadId,
         /// Held until CEF has shut down: the profile folder is this instance's for as long as CEF may touch it.
         profile: Option<Arc<ProfileLease>>,
+        /// The Chromium widget window that gets the forwarded input messages (0 until found).
+        target: Cell<isize>,
+        /// Whether the missing widget was already reported.
+        target_missing_logged: Cell<bool>,
     }
 
     impl std::fmt::Debug for CefHost {
@@ -690,6 +696,8 @@ mod imp {
                 shared,
                 thread: thread::current().id(),
                 profile: start.profile.clone(),
+                target: Cell::new(0),
+                target_missing_logged: Cell::new(false),
             })
         }
 
@@ -730,6 +738,56 @@ mod imp {
                 )
             }
             .map_err(|error| CefError::Window(error.to_string()))
+        }
+
+        /// The Chromium widget of this browser: the child `Chrome_WidgetWin_0` of the browser window, else
+        /// `Chrome_WidgetWin_1`, as the legacy app finds it. Only this browser's own window is searched (T-04-46).
+        fn input_target(&self) -> Option<isize> {
+            let cached = self.target.get();
+            if cached != 0 {
+                return Some(cached);
+            }
+            let host = self.browser.host()?;
+            let browser = HWND(host.window_handle().0.cast());
+            for (name, class) in [
+                ("Chrome_WidgetWin_0", w!("Chrome_WidgetWin_0")),
+                ("Chrome_WidgetWin_1", w!("Chrome_WidgetWin_1")),
+            ] {
+                // SAFETY: `browser` is the window of this thread's browser and the class is a valid NUL-terminated
+                // literal; FindWindowExW only reads the window tree and fails for a window that is gone.
+                if let Ok(child) = unsafe { FindWindowExW(Some(browser), None, class, PCWSTR::null()) } {
+                    tracing::debug!(class = name, "input target found");
+                    self.target.set(child.0 as isize);
+                    return Some(child.0 as isize);
+                }
+            }
+            if !self.target_missing_logged.replace(true) {
+                tracing::warn!("the browser has no Chromium widget window yet, input is not forwarded until it has");
+            }
+            None
+        }
+
+        /// Posts one legacy input message to the Chromium widget of this browser; `false` when there is no such window
+        /// (yet) or the post failed.
+        pub fn post_to_widget(&self, message: u32, wparam: usize, lparam: isize) -> bool {
+            let Some(target) = self.input_target() else {
+                return false;
+            };
+            // SAFETY: plain integers and a window handle of this browser; PostMessageW validates the handle and fails
+            // for a window that is gone, which is handled below.
+            let posted = unsafe {
+                PostMessageW(
+                    Some(HWND(target as *mut core::ffi::c_void)),
+                    message,
+                    WPARAM(wparam),
+                    LPARAM(lparam),
+                )
+            };
+            if posted.is_err() {
+                // The widget may have been recreated: look for it again next time.
+                self.target.set(0);
+            }
+            posted.is_ok()
         }
 
         /// Shows DevTools for this browser in a window of its own: the Portal's Open DevTools button (D-13).
@@ -811,6 +869,11 @@ mod imp {
 
         /// Does nothing.
         pub fn open_devtools(&self) {}
+
+        /// Does nothing: there is no browser window.
+        pub fn post_to_widget(&self, _message: u32, _wparam: usize, _lparam: isize) -> bool {
+            false
+        }
 
         /// Does nothing.
         pub fn execute_script(&self, _script: &str) {}

@@ -86,6 +86,8 @@ pub enum LoopEvent {
     ShellRestarted,
     /// The timer with this id (see [`LoopTimers::set`]) fired.
     Timer(u32),
+    /// A raw mouse or keyboard event arrived on the loop's window (see [`EventLoop::register_raw_input`]).
+    Input(input::InputEvent),
 }
 
 /// The window the user is working in, as the OS reports it. Only what the fullscreen rule needs; the title is never
@@ -361,6 +363,13 @@ pub fn os_build() -> u32 {
     {
         0
     }
+}
+
+/// The cursor position in physical pixels on the virtual screen, or `None` where the OS cannot tell (another OS, a locked
+/// session).
+#[must_use]
+pub fn cursor_position() -> Option<(i32, i32)> {
+    imp::cursor_position()
 }
 
 /// Repaints the desktop after the last wallpaper surface is gone, so no frame of the wallpaper is left behind.
