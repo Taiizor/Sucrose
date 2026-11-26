@@ -7065,6 +7065,11 @@ name = "sucrose-engine-cef"
 version = "26.11.22+1"
 dependencies = [
  "cef",
+ "crossbeam-channel",
+ "sucrose-core",
+ "sucrose-engine",
+ "sucrose-ipc",
+ "sucrose-platform",
  "thiserror 2.0.21",
  "tracing",
  "windows 0.62.2",

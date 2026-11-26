@@ -17,7 +17,7 @@ use sucrose_engine::{
     Engine, EngineClock, EngineError, EngineId, PauseLevel, Started,
     sync::{Follower, SyncAction, drift_s},
 };
-use sucrose_engine_cef::browser::{CefError, CefHost, CefStart};
+use sucrose_engine_cef::engine::SurfaceHooks;
 use sucrose_ipc::{
     Connection, IpcError, connect,
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
@@ -128,13 +128,27 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
 
     // The service names the engine; the renderer starts it or refuses one its build does not contain (T-04-12).
     let id = EngineId::from_legacy(assignment.engine);
-    // Until the CEF host moves behind the trait (plan 04-05 task 2) a CEF renderer keeps its own loop.
-    if id == EngineId::Cef {
-        return run_cef(connection, event_loop, surface, &assignment);
-    }
+    let proxy = event_loop.proxy();
+    // An engine without a clock (a page) reports its own first frame, from the thread that owns the surface, through
+    // its own handle on the connection.
+    let playing_writer = connection.try_clone().ok().map(|writer| Arc::new(Mutex::new(writer)));
+    let on_playing: Arc<dyn Fn() + Send + Sync> = {
+        let writer = playing_writer.clone();
+        Arc::new(move || {
+            if let Some(writer) = &writer {
+                tell_playing(&mut writer.lock().unwrap_or_else(PoisonError::into_inner));
+            }
+        })
+    };
+    let hooks = || SurfaceHooks {
+        proxy: proxy.clone(),
+        timers: event_loop.timers(),
+        on_playing,
+    };
 
-    // Started here, on the thread that pumps the surface's messages: mpv hooks that thread to resize its child.
-    let Started { engine, pump } = match start_engine(id, surface.native_handle(), &assignment) {
+    // Started here, on the thread that pumps the surface's messages: mpv hooks that thread to resize its child, and
+    // CEF is bound to it.
+    let Started { engine, pump } = match start_engine(id, surface.native_handle(), &assignment, hooks) {
         Ok(started) => started,
         Err(error) => {
             let (reason, hint, code) = engine_failure(&error);
@@ -144,6 +158,20 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         }
     };
     tracing::info!(engine = engine.name(), "engine started");
+    if engine.clock().is_none() && playing_writer.is_none() {
+        // Nothing would ever tell the service that this wallpaper plays.
+        tracing::error!("cannot keep a write handle for the playing report");
+        if let Some(pump) = pump {
+            pump.close();
+        }
+        report_failure(
+            &mut connection,
+            "the renderer could not prepare its connection".to_owned(),
+            CHECK_THE_LOG,
+        );
+        return Ok(ExitCode::from(EXIT_START_FAILURE));
+    }
+    drop(playing_writer);
     let mut pump = pump;
     let sync = Arc::new(SyncState {
         master: AtomicBool::new(false),
@@ -153,7 +181,6 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         reloaded: AtomicBool::new(false),
         start_failed: AtomicBool::new(false),
     });
-    let proxy = event_loop.proxy();
     // The clock thread tells the service the wallpaper plays once the first frame is shown, and publishes the master's
     // clock. It is started before the connection moves into the reader thread, and joined before the engine is
     // dropped, so the engine still ends before the surface it is embedded in. An engine without a clock reports
@@ -301,198 +328,6 @@ fn move_surface(surface: &DesktopSurface, rect: RectPx) {
     }
 }
 
-/// The timer id of the CEF message pump (D-036): the only timer a renderer sets, armed with the delay
-/// `CefHost::do_work` returns after each pump call.
-const CEF_PUMP_TIMER: u32 = 1;
-
-/// What the reader thread of a CEF renderer hands to the thread that owns the surface and the browser.
-#[derive(Default)]
-struct CefPending {
-    /// The newest rectangle the service asked for.
-    rect: Option<RectPx>,
-    /// The newest page the service asked to show (Use between two Web themes).
-    url: Option<String>,
-}
-
-/// The `file:///` URL of an absolute Windows path, percent-encoding everything but unreserved characters and the
-/// path separators. This transport only lasts until the virtual origin (D-14, plan 04-06) replaces it.
-fn file_url(path: &str) -> String {
-    let path = path.strip_prefix("\\\\?\\").unwrap_or(path).replace('\\', "/");
-    let mut url = String::from("file:///");
-    for byte in path.bytes() {
-        match byte {
-            b'A'..=b'Z' | b'a'..=b'z' | b'0'..=b'9' | b'-' | b'.' | b'_' | b'~' | b'/' | b':' => {
-                url.push(char::from(byte))
-            }
-            other => url.push_str(&format!("%{other:02X}")),
-        }
-    }
-    url
-}
-
-/// Why CEF did not start, as the failure the service shows and the exit code it counts.
-fn cef_failure(error: &CefError) -> (String, String, u8) {
-    match error {
-        CefError::Load(_) => (
-            "CEF was not found.".to_owned(),
-            "The CEF files are missing or can't be loaded. Reinstall Sucrose to repair them.".to_owned(),
-            EXIT_ENGINE_MISSING,
-        ),
-        other => (other.to_string(), CHECK_THE_LOG.to_owned(), EXIT_START_FAILURE),
-    }
-}
-
-/// The renderer of a Web theme: a windowed CEF browser that is a child of the desktop surface, pumped on this thread
-/// (the surface's) through the external message pump (D-036). Pause, volume, role and clock messages are logged and
-/// ignored until the plans that wire them (04-05, 04-09).
-fn run_cef(
-    mut connection: Connection,
-    event_loop: EventLoop,
-    surface: DesktopSurface,
-    assignment: &Assignment,
-) -> anyhow::Result<ExitCode> {
-    let proxy = event_loop.proxy();
-    let timers = event_loop.timers();
-    let writer = match connection.try_clone() {
-        Ok(writer) => Mutex::new(writer),
-        Err(error) => {
-            tracing::error!(%error, "cannot keep a write handle for the playing report");
-            report_failure(
-                &mut connection,
-                "the renderer could not prepare its connection".to_owned(),
-                CHECK_THE_LOG,
-            );
-            return Ok(ExitCode::from(EXIT_START_FAILURE));
-        }
-    };
-    let told = AtomicBool::new(false);
-    let wake_proxy = proxy.clone();
-    let start = CefStart {
-        log_file: sucrose_core::paths::log_dir()
-            .unwrap_or_else(std::env::temp_dir)
-            .join(format!("CefRenderer-{}.log", assignment.slot)),
-        subprocess_path: std::env::current_exe().context("cannot find this program's path")?,
-        wake: Arc::new(move || wake_proxy.wake()),
-        // The first finished main-frame load is the first frame the user can see.
-        on_loaded: Arc::new(move |_url, _status| {
-            if !told.swap(true, Ordering::SeqCst) {
-                tell_playing(&mut writer.lock().unwrap_or_else(PoisonError::into_inner));
-            }
-        }),
-    };
-    // A transport that plan 04-06 replaces with https://sucrose.wallpaper.engine/ (D-14) without changing the rest.
-    let url = file_url(&assignment.source);
-    let host = match CefHost::start(surface.native_handle(), assignment.rect, &url, &start) {
-        Ok(host) => host,
-        Err(error) => {
-            tracing::error!(%error, "cannot start CEF");
-            let (reason, hint, code) = cef_failure(&error);
-            report_failure(&mut connection, reason, hint);
-            return Ok(ExitCode::from(code));
-        }
-    };
-    tracing::info!(engine = "Cef", "engine started");
-    timers.set(CEF_PUMP_TIMER, host.do_work());
-
-    let pending = Arc::new(Mutex::new(CefPending::default()));
-    let reader_pending = Arc::clone(&pending);
-    let reader_proxy = proxy.clone();
-    thread::Builder::new()
-        .name("ipc-reader".to_owned())
-        .spawn(move || {
-            wait_for_close_cef(&mut connection, &reader_pending, &reader_proxy);
-            reader_proxy.quit();
-        })
-        .context("cannot start the reader thread")?;
-
-    let loop_end = event_loop.run(|event| {
-        match event {
-            LoopEvent::Wake => {
-                let (rect, url) = {
-                    let mut pending = pending.lock().unwrap_or_else(PoisonError::into_inner);
-                    (pending.rect.take(), pending.url.take())
-                };
-                if let Some(rect) = rect {
-                    move_surface(&surface, rect);
-                    if let Err(error) = host.set_rect([rect.left, rect.top, rect.right, rect.bottom]) {
-                        tracing::warn!(%error, "cannot move the browser window");
-                    }
-                }
-                if let Some(url) = url {
-                    host.navigate(&url);
-                }
-            }
-            LoopEvent::Quit => return Flow::Exit,
-            LoopEvent::Timer(CEF_PUMP_TIMER) => {}
-            LoopEvent::DisplayChanged | LoopEvent::ShellRestarted | LoopEvent::Timer(_) => return Flow::Continue,
-        }
-        // A wake (CEF asked to be pumped, or a message arrived) and the pump timer both pump CEF.
-        timers.set(CEF_PUMP_TIMER, host.do_work());
-        Flow::Continue
-    });
-    let surface_lost = surface.destroyed_externally();
-    timers.kill(CEF_PUMP_TIMER);
-    // The browser first: its window is a child of the surface.
-    host.close();
-    drop(surface);
-    if loop_end == LoopEnd::Failed {
-        tracing::error!("the message loop failed, the renderer exits so that the service starts a new one");
-        return Ok(ExitCode::from(EXIT_LOOP_FAILED));
-    }
-    if surface_lost {
-        tracing::info!("Windows destroyed the desktop surface, the service starts a new renderer");
-        return Ok(ExitCode::from(EXIT_SURFACE_LOST));
-    }
-    tracing::info!("the renderer stopped");
-    Ok(ExitCode::SUCCESS)
-}
-
-/// Reads the service's messages for a CEF renderer until it is asked to stop or the connection ends. A rectangle or a
-/// new page is handed to the surface thread through `pending` and a wake.
-fn wait_for_close_cef(connection: &mut Connection, pending: &Mutex<CefPending>, proxy: &LoopProxy) {
-    loop {
-        match connection.recv::<ToRenderer>() {
-            Ok(ToRenderer::Close) => {
-                tracing::info!("the service asked this renderer to close");
-                return;
-            }
-            Ok(ToRenderer::SetRect([left, top, right, bottom])) => {
-                let rect = RectPx {
-                    left,
-                    top,
-                    right,
-                    bottom,
-                };
-                pending.lock().unwrap_or_else(PoisonError::into_inner).rect = Some(rect);
-                proxy.wake();
-            }
-            Ok(ToRenderer::LoadSource { source, .. }) => {
-                // Between two Web themes the same browser shows the other page; the path is not logged.
-                pending.lock().unwrap_or_else(PoisonError::into_inner).url = Some(file_url(&source));
-                proxy.wake();
-            }
-            Ok(ToRenderer::Assign(_)) => tracing::warn!("ignoring an unexpected second assignment"),
-            Ok(
-                message @ (ToRenderer::Pause(_)
-                | ToRenderer::SetVolume(_)
-                | ToRenderer::SetRole(_)
-                | ToRenderer::Clock(_)),
-            ) => {
-                // Wired by 04-05 (pause) and 04-09 (audio and role); until then a CEF renderer has nothing to apply.
-                tracing::debug!(?message, "ignored by a CEF renderer");
-            }
-            Err(IpcError::Closed) => {
-                tracing::info!("the service closed the connection");
-                return;
-            }
-            Err(error) => {
-                tracing::warn!(%error, "the service channel failed");
-                return;
-            }
-        }
-    }
-}
-
 /// The reason and the repair hint the service shows the user (the tray tooltip) and logs for an engine that did not
 /// start, and the exit code it reads as the cause: a missing engine, or a failed start (D-20).
 fn engine_failure(error: &EngineError) -> (String, String, u8) {
@@ -541,9 +376,15 @@ fn log_video_adapter() {
 
 /// Starts the engine `id` on the surface window `wid`. An engine this build does not contain is refused, never
 /// replaced by another one (T-04-12).
-fn start_engine(id: EngineId, wid: u64, assignment: &Assignment) -> Result<Started, EngineError> {
+fn start_engine(
+    id: EngineId,
+    wid: u64,
+    assignment: &Assignment,
+    hooks: impl FnOnce() -> SurfaceHooks,
+) -> Result<Started, EngineError> {
     match id {
         EngineId::Mpv => sucrose_engine_mpv::engine::start(wid, assignment),
+        EngineId::Cef => sucrose_engine_cef::engine::start(wid, assignment, hooks()),
         other => Err(EngineError::Unsupported {
             what: format!("The {other:?} engine"),
         }),
@@ -992,7 +833,10 @@ mod tests {
             theme_dir: "C:/".to_owned(),
         };
 
-        let error = start_engine(EngineId::Vlc, 0, &assignment).expect_err("libVLC is not in this build");
+        let error = start_engine(EngineId::Vlc, 0, &assignment, || {
+            unreachable!("only the CEF engine takes the surface hooks")
+        })
+        .expect_err("libVLC is not in this build");
 
         assert!(matches!(error, EngineError::Unsupported { .. }), "{error:?}");
     }
@@ -1021,29 +865,5 @@ mod tests {
         }));
 
         assert!(matches!(reply, Ok(HelloReply::Skip)));
-    }
-}
-
-#[cfg(test)]
-mod cef_tests {
-    use super::*;
-
-    #[test]
-    fn a_windows_path_becomes_a_file_url_with_escaped_characters() {
-        assert_eq!(
-            file_url("C:\\themes\\My Page\\index.html"),
-            "file:///C:/themes/My%20Page/index.html"
-        );
-        assert_eq!(file_url("\\\\?\\D:\\a\\b.html"), "file:///D:/a/b.html");
-        assert_eq!(file_url("C:\\t\\ü#.html"), "file:///C:/t/%C3%BC%23.html");
-    }
-
-    #[test]
-    fn a_missing_cef_is_an_engine_missing_exit_and_other_failures_are_start_failures() {
-        let (_, hint, code) = cef_failure(&CefError::Load("x".to_owned()));
-        assert_eq!(code, EXIT_ENGINE_MISSING);
-        assert!(hint.contains("Reinstall Sucrose"));
-        assert_eq!(cef_failure(&CefError::CreateBrowser).2, EXIT_START_FAILURE);
-        assert_eq!(cef_failure(&CefError::Unsupported).2, EXIT_START_FAILURE);
     }
 }

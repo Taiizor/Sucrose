@@ -8,6 +8,7 @@
 #![allow(unsafe_code)]
 
 pub mod browser;
+pub mod engine;
 
 use std::ffi::OsString;
 
