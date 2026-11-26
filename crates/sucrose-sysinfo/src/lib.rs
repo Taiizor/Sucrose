@@ -9,8 +9,12 @@
 #![warn(clippy::undocumented_unsafe_blocks)]
 
 mod date;
+mod memory;
+mod processor;
 
 pub use date::date_snapshot;
+pub use memory::{memory_snapshot, memory_unavailable};
+pub use processor::{ProcessorSampler, processor_unavailable};
 
 /// Why a group of system data could not be read.
 #[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
