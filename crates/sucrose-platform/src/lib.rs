@@ -145,6 +145,44 @@ pub struct Capabilities {
     pub recycle_bin: bool,
 }
 
+/// A processor architecture Sucrose is built for, as the prerequisites of the engines name it.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Arch {
+    /// 32-bit x86.
+    X86,
+    /// 64-bit x86.
+    X64,
+    /// 64-bit ARM.
+    Arm64,
+    /// A processor no prerequisite is defined for.
+    Other,
+}
+
+impl Arch {
+    /// The architecture this build runs on.
+    #[must_use]
+    pub fn current() -> Self {
+        if cfg!(target_arch = "x86") {
+            Self::X86
+        } else if cfg!(target_arch = "x86_64") {
+            Self::X64
+        } else if cfg!(target_arch = "aarch64") {
+            Self::Arm64
+        } else {
+            Self::Other
+        }
+    }
+}
+
+/// What the OS says about the Visual C++ Redistributable of one architecture (D-15).
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct VcRedist {
+    /// The OS lists the runtime as installed.
+    pub installed: bool,
+    /// The version it reports, in the OS's own spelling (empty when it reports none).
+    pub version: String,
+}
+
 /// A GPU adapter of this machine.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct GpuAdapter {
@@ -337,6 +375,13 @@ pub trait Platform: Send + Sync {
     /// it reflects the OS GPU preference. While no `d3d11-adapter` is set this is the adapter libmpv's video device
     /// uses. `None` where it cannot be determined.
     fn default_gpu_adapter(&self) -> Option<GpuAdapter> {
+        None
+    }
+
+    /// The Visual C++ Redistributable of `arch` as the OS lists it, or `None` where the OS has no such prerequisite
+    /// (only Windows needs it). A Windows machine without the runtime answers `Some` with `installed` false.
+    fn vc_redist(&self, arch: Arch) -> Option<VcRedist> {
+        let _ = arch;
         None
     }
 }

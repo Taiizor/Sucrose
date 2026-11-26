@@ -7,6 +7,7 @@ mod foreground;
 mod gpu;
 mod job;
 mod memory;
+mod prereq;
 mod refresh;
 mod surface;
 mod tray;
@@ -44,8 +45,8 @@ use windows::{
 };
 
 use crate::{
-    Capabilities, ForegroundWindow, GpuAdapter, GpuPreference, GpuPreferenceChange, MonitorInfo, Platform,
-    PlatformError,
+    Arch, Capabilities, ForegroundWindow, GpuAdapter, GpuPreference, GpuPreferenceChange, MonitorInfo, Platform,
+    PlatformError, VcRedist,
 };
 
 pub(crate) use autostart::{autostart_state, disable_autostart, enable_autostart, legacy_entry};
@@ -103,6 +104,10 @@ impl Platform for Current {
 
     fn default_gpu_adapter(&self) -> Option<GpuAdapter> {
         gpu::default_gpu_adapter()
+    }
+
+    fn vc_redist(&self, arch: Arch) -> Option<VcRedist> {
+        prereq::vc_redist(arch)
     }
 }
 

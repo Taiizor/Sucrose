@@ -10,8 +10,8 @@ use std::{
 };
 
 use sucrose_core::{settings::EngineType, theme::WallpaperType};
-use sucrose_engine::{Availability, EngineId, Hint, Unsupported, choose_engine};
-use sucrose_platform::Platform;
+use sucrose_engine::{Availability, EngineId, Hint, Unsupported, VC_REDIST_MIN, choose_engine, version_at_least};
+use sucrose_platform::{Arch, Platform, VcRedist};
 
 /// Every engine the report covers, in the order the Portal lists them.
 pub const ALL: [EngineId; 7] = [
@@ -94,12 +94,18 @@ impl EngineReport {
 /// the executable or on an absolute `PATH` entry, CEF with its files next to the executable, and every other engine
 /// as not in this build.
 pub fn detect(exe_dir: &Path, platform: &dyn Platform) -> EngineReport {
-    let _ = platform;
+    let found = platform.vc_redist(Arch::current());
+    tracing::info!(
+        installed = found.as_ref().map(|found| found.installed),
+        version = found.as_ref().map(|found| found.version.as_str()),
+        arch = ?Arch::current(),
+        "Visual C++ Redistributable"
+    );
     let report = detect_with(
         exe_dir,
         std::env::var_os("PATH").as_deref(),
         &|path| path.exists(),
-        None,
+        vc_missing(found.as_ref()),
     );
     tracing::info!(
         mpv = ?report.availability(EngineId::Mpv),
@@ -107,6 +113,18 @@ pub fn detect(exe_dir: &Path, platform: &dyn Platform) -> EngineReport {
         "engines detected"
     );
     report
+}
+
+/// The repair hint when the Visual C++ Redistributable is missing or older than CEF accepts (D-15); `None` when it is
+/// fine or the OS has no such prerequisite (`found` is `None`).
+fn vc_missing(found: Option<&VcRedist>) -> Option<Hint> {
+    let found = found?;
+    if found.installed && version_at_least(&found.version, VC_REDIST_MIN) {
+        return None;
+    }
+    Some(Hint::VcRedistMissing {
+        needed: VC_REDIST_MIN.to_owned(),
+    })
 }
 
 /// [`detect`] with the machine's answers given: `exists` says whether a file or folder is there, and
@@ -406,6 +424,32 @@ mod tests {
 
         if sucrose_engine_cef::BUILT {
             assert_eq!(state, Availability::Missing { hint });
+        }
+    }
+
+    #[test]
+    fn the_redistributable_must_be_installed_and_at_least_the_legacy_version() {
+        let redist = |installed, version: &str| VcRedist {
+            installed,
+            version: version.to_owned(),
+        };
+
+        assert_eq!(vc_missing(None), None);
+        assert_eq!(vc_missing(Some(&redist(true, "v14.44.35211.00"))), None);
+        assert_eq!(vc_missing(Some(&redist(true, "v14.40.33816.00"))), None);
+        for refused in [
+            redist(false, "v14.44.35211.00"),
+            redist(true, "v14.38.33135.00"),
+            redist(true, ""),
+            redist(false, ""),
+        ] {
+            assert_eq!(
+                vc_missing(Some(&refused)),
+                Some(Hint::VcRedistMissing {
+                    needed: "14.40.33816.0".to_owned()
+                }),
+                "{refused:?}"
+            );
         }
     }
 

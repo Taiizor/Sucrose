@@ -1,22 +1,52 @@
 //! The legacy prerequisite thresholds and how a found version is compared with them (D-15, ENG-06). Pure text
 //! comparison, the same on every OS: reading the registry or asking a runtime for its version is the platform's job.
 
+use std::cmp::Ordering;
+
 /// The oldest Visual C++ Redistributable CEF accepts, as the legacy app required (`engines.md` §9).
 pub const VC_REDIST_MIN: &str = "14.40.33816.0";
 
 /// The WebView2 Runtime has to be newer than this (legacy threshold, `engines.md` §9).
 pub const WEBVIEW2_FLOOR: &str = "131.0.2903.70";
 
-/// Whether `found` is `needed` or newer.
-pub fn version_at_least(found: &str, needed: &str) -> bool {
-    let _ = (found, needed);
-    false
+/// The numeric components of a version: a leading `v` (the registry's spelling) is ignored and every component has
+/// to be digits, otherwise the text is not a version.
+fn components(version: &str) -> Option<Vec<u64>> {
+    let text = version.trim();
+    let text = text.strip_prefix(['v', 'V']).unwrap_or(text);
+    text.split('.')
+        .map(|part| {
+            if part.is_empty() || !part.bytes().all(|byte| byte.is_ascii_digit()) {
+                return None;
+            }
+            part.parse::<u64>().ok()
+        })
+        .collect()
 }
 
-/// Whether `found` is newer than `floor` (equal does not count).
+/// How `found` compares with `other`, component by component with missing components counting as 0; `None` when
+/// either is not a version.
+fn compare(found: &str, other: &str) -> Option<Ordering> {
+    let (found, other) = (components(found)?, components(other)?);
+    for index in 0..found.len().max(other.len()) {
+        let left = found.get(index).copied().unwrap_or(0);
+        let right = other.get(index).copied().unwrap_or(0);
+        match left.cmp(&right) {
+            Ordering::Equal => {}
+            decided => return Some(decided),
+        }
+    }
+    Some(Ordering::Equal)
+}
+
+/// Whether `found` is `needed` or newer. Text that is not a version is never enough.
+pub fn version_at_least(found: &str, needed: &str) -> bool {
+    matches!(compare(found, needed), Some(Ordering::Equal | Ordering::Greater))
+}
+
+/// Whether `found` is newer than `floor` (equal does not count). Text that is not a version is never newer.
 pub fn version_newer_than(found: &str, floor: &str) -> bool {
-    let _ = (found, floor);
-    false
+    compare(found, floor) == Some(Ordering::Greater)
 }
 
 #[cfg(test)]
