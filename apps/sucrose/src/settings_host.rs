@@ -12,6 +12,7 @@ use sucrose_config::{
     model::Settings,
     store::{LoadOutcome, Store},
 };
+use sucrose_core::settings::EngineType;
 use sucrose_ipc::portal::{MAX_PATH_TEXT, PortalSettings, SettingChange};
 
 use crate::portal_link::clip;
@@ -101,7 +102,8 @@ impl SettingsHost {
 }
 
 /// Checks `change` and returns the value to store: numbers are clamped to the ranges of the legacy Portal, a
-/// background image must be empty or an absolute path of an image type the legacy picker offers.
+/// background image must be empty or an absolute path of an image type the legacy picker offers, and an engine must be
+/// one the legacy list of its wallpaper type allows.
 pub fn validate(change: SettingChange) -> Result<SettingChange, String> {
     Ok(match change {
         SettingChange::BackgroundOpacity(value) => SettingChange::BackgroundOpacity(value.min(100)),
@@ -112,8 +114,28 @@ pub fn validate(change: SettingChange) -> Result<SettingChange, String> {
             check_image(&path)?;
             SettingChange::BackgroundImage(path)
         }
+        SettingChange::GifEngine(engine) => SettingChange::GifEngine(allowed_engine(engine, EngineType::GIF)?),
+        SettingChange::UrlEngine(engine) => SettingChange::UrlEngine(allowed_engine(engine, EngineType::URL)?),
+        SettingChange::WebEngine(engine) => SettingChange::WebEngine(allowed_engine(engine, EngineType::WEB)?),
+        SettingChange::VideoEngine(engine) => SettingChange::VideoEngine(allowed_engine(engine, EngineType::VIDEO)?),
+        SettingChange::YouTubeEngine(engine) => {
+            SettingChange::YouTubeEngine(allowed_engine(engine, EngineType::YOUTUBE)?)
+        }
+        SettingChange::ApplicationEngine(engine) => {
+            SettingChange::ApplicationEngine(allowed_engine(engine, EngineType::APPLICATION)?)
+        }
         other => other,
     })
+}
+
+/// `engine` when the legacy list of the wallpaper type (`allowed`) holds it (D-11, T-04-31). An engine that is not
+/// installed is allowed: it stays the setting and a fallback plays instead.
+fn allowed_engine(engine: EngineType, allowed: &[EngineType]) -> Result<EngineType, String> {
+    if allowed.contains(&engine) {
+        Ok(engine)
+    } else {
+        Err("This engine cannot play this type of wallpaper.".to_owned())
+    }
 }
 
 /// A background image is no image (empty), or an absolute path of at most [`MAX_PATH_TEXT`] bytes that ends in one of

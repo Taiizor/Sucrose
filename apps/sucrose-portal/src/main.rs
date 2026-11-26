@@ -41,8 +41,9 @@ struct Args {
     no_focus: bool,
 }
 
-/// Reads the arguments (without the program name). Only `--no-focus`, `GeneralSetting` and `SystemSetting` are
-/// accepted, each at most once; `SystemSetting` opens General too until the settings pages exist (UI-03).
+/// Reads the arguments (without the program name). Only `--no-focus`, `GeneralSetting`, `SystemSetting` and
+/// `WallpaperSetting` are accepted, one page at most and each flag once; `SystemSetting` opens General too until the
+/// System page exists (UI-03).
 fn parse_args(args: &[String]) -> Result<Args, String> {
     let mut page = None;
     let mut no_focus = false;
@@ -50,12 +51,13 @@ fn parse_args(args: &[String]) -> Result<Args, String> {
         match arg.as_str() {
             "--no-focus" if !no_focus => no_focus = true,
             "GeneralSetting" | "SystemSetting" if page.is_none() => page = Some(PortalPage::General),
-            "--no-focus" | "GeneralSetting" | "SystemSetting" => {
+            "WallpaperSetting" if page.is_none() => page = Some(PortalPage::Wallpaper),
+            "--no-focus" | "GeneralSetting" | "SystemSetting" | "WallpaperSetting" => {
                 return Err(format!("{arg} is given more than once"));
             }
             _ => {
                 return Err(format!(
-                    "unknown argument {arg:?}; use --no-focus, GeneralSetting or SystemSetting"
+                    "unknown argument {arg:?}; use --no-focus, GeneralSetting, SystemSetting or WallpaperSetting"
                 ));
             }
         }

@@ -1462,6 +1462,18 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                             {
                                                 tray.set_exit_label(exit_label(*app_exit));
                                             }
+                                            // The wallpaper of that type restarts on the new engine, and the report
+                                            // (fallbacks) is sent again at the end of this pass.
+                                            if let Some(kind) = engine_change_kind(&stored) {
+                                                restart_for_engine(
+                                                    kind,
+                                                    &host,
+                                                    &mut fleet,
+                                                    legacy_root.as_deref(),
+                                                    &renderers,
+                                                );
+                                                last_engines = None;
+                                            }
                                             portals.send(PortalEvent::Changed(stored));
                                         }
                                         Err(reason) => {
@@ -3691,15 +3703,64 @@ fn plan_for(
 
 /// The wallpaper type whose engine `change` sets, `None` for every other setting.
 fn engine_change_kind(change: &SettingChange) -> Option<WallpaperType> {
-    let _ = change;
-    None
+    match change {
+        SettingChange::GifEngine(_) => Some(WallpaperType::Gif),
+        SettingChange::UrlEngine(_) => Some(WallpaperType::Url),
+        SettingChange::WebEngine(_) => Some(WallpaperType::Web),
+        SettingChange::VideoEngine(_) => Some(WallpaperType::Video),
+        SettingChange::YouTubeEngine(_) => Some(WallpaperType::YouTube),
+        SettingChange::ApplicationEngine(_) => Some(WallpaperType::Application),
+        _ => None,
+    }
 }
 
 /// Whether a changed engine of type `changed` restarts the wallpaper that plays now (of type `running`, if any): only a
 /// wallpaper of the changed type does (T-04-32).
 fn engine_restart_wanted(running: Option<WallpaperType>, changed: WallpaperType) -> bool {
-    let _ = (running, changed);
-    false
+    running == Some(changed)
+}
+
+/// An engine of type `kind` was just saved: when a wallpaper of that type plays, its renderers restart on the engine now
+/// chosen, with no prompt (UI-SPEC Engine select). The job is built again from the selected theme, so the engine and
+/// its fallback follow the new setting. A wallpaper of another type is left alone. `true` when the job was replaced.
+fn restart_for_engine(
+    kind: WallpaperType,
+    host: &SettingsHost,
+    fleet: &mut Fleet,
+    legacy_root: Option<&Path>,
+    renderers: &SharedRenderers,
+) -> bool {
+    if !engine_restart_wanted(fleet.job.as_ref().map(|job| job.kind), kind) {
+        return false;
+    }
+    let Some(root) = legacy_root else {
+        return false;
+    };
+    let settings = host.settings();
+    let job = match plan_for(
+        &settings.library_location(root),
+        &settings.library.selected,
+        &settings.engine,
+        settings.backgroundog.pause,
+        settings.portal.theme_mode,
+        &fleet.engines,
+    ) {
+        Ok(job) => job,
+        Err(reason) => {
+            // The setting is saved; what plays keeps playing until a start can use the new choice.
+            tracing::warn!(?kind, %reason, "the wallpaper keeps its engine, the new choice cannot be used now");
+            return false;
+        }
+    };
+    let engine = job.engine;
+    let closed = fleet.restart_with(job, renderers);
+    tracing::info!(
+        ?kind,
+        ?engine,
+        renderers = closed.len(),
+        "engine changed, the wallpaper restarts"
+    );
+    true
 }
 
 /// The engine the Engine section configures for a wallpaper type.

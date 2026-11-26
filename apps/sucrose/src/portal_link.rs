@@ -264,7 +264,8 @@ pub fn spawn_pending(spawned: Option<Instant>, now: Instant) -> bool {
 pub fn portal_args(page: Option<PortalPage>) -> Vec<&'static str> {
     match page {
         Some(PortalPage::General) => vec!["GeneralSetting"],
-        Some(PortalPage::Library | PortalPage::Personal | PortalPage::Wallpaper) | None => Vec::new(),
+        Some(PortalPage::Wallpaper) => vec!["WallpaperSetting"],
+        Some(PortalPage::Library | PortalPage::Personal) | None => Vec::new(),
     }
 }
 

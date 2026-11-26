@@ -106,7 +106,25 @@ impl EngineReport {
                 })
                 .collect(),
             supported: kinds.to_vec(),
-            offered: Vec::new(),
+            offered: kinds
+                .iter()
+                .map(|kind| OfferedView {
+                    kind: *kind,
+                    engines: ALL
+                        .iter()
+                        .filter(|engine| {
+                            engine.supports(*kind)
+                                && !matches!(
+                                    self.availability_for(*kind, **engine),
+                                    Availability::Unsupported {
+                                        why: Unsupported::NotInThisBuild
+                                    }
+                                )
+                        })
+                        .map(|engine| engine.to_legacy())
+                        .collect(),
+                })
+                .collect(),
             playable: kinds
                 .iter()
                 .copied()
