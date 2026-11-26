@@ -19,6 +19,7 @@ use sucrose_config::{
 };
 use sucrose_core::{
     APP_LONG_NAME,
+    compatible::DataGroup,
     paths::{legacy_data_dir, legacy_setting_dir, setting_dir},
     theme::{SelectedTheme, ThemeRejection, WallpaperType, check_selected},
     version::app_version,
@@ -44,6 +45,7 @@ use sucrose_engine::{Availability, EngineId, Unsupported, choose_engine};
 use sucrose_engine_web::args;
 
 use crate::{
+    data_hub::{DataModule, Delivery, system_sampler},
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
     library_ops::{self, FinishStats, MaintainInput, MoveFailure, MovePlanDone, MoveStats, RealOps},
     lifecycle::{Closing, OPEN_LABEL, exit_label, should_exit, start_actions},
@@ -755,10 +757,11 @@ impl Link {
         })
     }
 
-    /// Queues `message` without ever waiting. A clock reading that finds the queue full is dropped; any other message
+    /// Queues `message` without ever waiting. A clock reading or data snapshot that finds the queue full is dropped; any other message
     /// that does is a failure, because losing it would leave the renderer in a wrong state.
     fn offer(&self, message: ToRenderer) -> Offer {
-        let skippable = matches!(message, ToRenderer::Clock(_));
+        // A clock reading or a data snapshot that finds the queue full is replaced by the next one anyway.
+        let skippable = matches!(message, ToRenderer::Clock(_) | ToRenderer::Data(_));
         match self.queue.try_send(message) {
             Ok(()) => Offer::Queued,
             Err(crossbeam_channel::TrySendError::Full(_)) if skippable => Offer::Dropped,
@@ -910,9 +913,11 @@ impl Status {
                 reason: limit(reason),
                 hint: limit(hint),
             }),
-            ToService::Hello { .. } | ToService::Clock(_) | ToService::PortalHello { .. } | ToService::Launch(_) => {
-                None
-            }
+            ToService::Hello { .. }
+            | ToService::Clock(_)
+            | ToService::PortalHello { .. }
+            | ToService::Launch(_)
+            | ToService::DataWanted(_) => None,
         }
     }
 }
@@ -1137,6 +1142,11 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
     // The memory report exists only while a Portal is connected (D-19): nothing runs until one registers.
     let mut memory = MemoryModule::default();
     module_off("memory");
+    // The data hub exists only while a running page needs system data (D-24): nothing runs until one asks.
+    let mut data = DataModule::new(system_sampler(), {
+        let renderers = Arc::clone(&renderers);
+        Arc::new(move |slot, batch| deliver_data(&renderers, slot, batch))
+    });
     if start_fullscreen(&mut fleet, plan.fullscreen, plan.scope, plan.pause) {
         timers.set(FULLSCREEN_TIMER, FULLSCREEN_POLL_MS);
     }
@@ -1153,7 +1163,25 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                         ..
                     } => {
                         tracing::info!(pid, slot, "renderer connected");
+                        // A renderer that reconnects asks for its data again once its page has loaded.
+                        data.release(slot, None);
                         fleet.catch_up_renderer(slot, &renderers);
+                    }
+                    Event::Renderer {
+                        slot,
+                        pid,
+                        message: ToService::DataWanted(groups),
+                    } => {
+                        // Only the renderer that holds the slot counts, and not while the service quits.
+                        let holds = lock(&renderers)
+                            .connections
+                            .get(&slot)
+                            .is_some_and(|link| link.pid == pid);
+                        if holds && !quitting {
+                            data.want(slot, pid, &groups);
+                        } else {
+                            tracing::debug!(slot, pid, "ignoring a data request of a renderer that is gone or replaced");
+                        }
                     }
                     Event::Renderer { slot, pid, message } => {
                         let link_pid = lock(&renderers).connections.get(&slot).map(|link| link.pid);
@@ -1204,6 +1232,8 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                     }
                     Event::Exited(exited) => {
                         check_exit = true;
+                        // Its data is no longer wanted; the hub stops with the last renderer that wanted any.
+                        data.release(exited.slot, Some(exited.pid));
                         let old_link_removed = {
                             let mut state = lock(&renderers);
                             let is_old = state
@@ -2550,6 +2580,18 @@ impl Job {
             theme_dir: self.theme_dir.clone(),
             web: self.web.clone(),
         }
+    }
+}
+
+/// Offers a data snapshot to the renderer of `slot` through its writer queue, never waiting for it (T-04-24).
+fn deliver_data(renderers: &Mutex<Renderers>, slot: u8, batch: Vec<(DataGroup, String)>) -> Delivery {
+    match lock(renderers).connections.get(&slot) {
+        Some(link) => match link.offer(ToRenderer::Data(batch)) {
+            Offer::Queued => Delivery::Sent,
+            Offer::Dropped => Delivery::Dropped,
+            Offer::Failed => Delivery::Gone,
+        },
+        None => Delivery::Gone,
     }
 }
 

@@ -12,8 +12,12 @@ use std::{
 };
 
 use crossbeam_channel::{Receiver, Sender, TrySendError, bounded};
-use sucrose_core::properties::PropertiesError;
-use sucrose_core::settings::Stretch;
+use serde_json::Value;
+use sucrose_core::{
+    compatible::{COMPATIBLE_FILE, CompatibleKey, DataGroup, read_compatible},
+    properties::PropertiesError,
+    settings::Stretch,
+};
 use sucrose_engine::{
     PauseLevel,
     engine::{Engine, EngineClock, EngineError, Started, SurfacePump},
@@ -45,6 +49,9 @@ pub struct SurfaceHooks {
     pub timers: LoopTimers,
     /// Called once, from the surface thread, when the first page finished loading: the first frame the user can see.
     pub on_playing: Arc<dyn Fn() + Send + Sync>,
+    /// Called once, from the surface thread, after the first page loaded with the system data groups its
+    /// `SucroseCompatible.json` needs; never called with an empty list (D-24).
+    pub on_data_wanted: Arc<dyn Fn(Vec<DataGroup>) + Send + Sync>,
 }
 
 /// A command the IPC threads queue for the surface thread.
@@ -59,6 +66,8 @@ enum Command {
     Stretch(Stretch),
     /// Show DevTools: the Portal's Open DevTools button (D-13).
     OpenDevTools,
+    /// A data snapshot arrived: run the templates with the newest values (kept in [`State::data`]).
+    Data,
 }
 
 /// The newest value of each setting, for the page calls and for anyone asking what the engine was told.
@@ -72,6 +81,8 @@ struct State {
     shuffle: bool,
     /// The legacy `ThemeType` name the `ThemeType` and `SystemTheme` calls carry, fixed for the life of the renderer.
     theme_type: String,
+    /// The newest snapshot of each system data group the service pushed.
+    data: Mutex<Vec<(DataGroup, Value)>>,
 }
 
 impl State {
@@ -84,6 +95,7 @@ impl State {
             stretch: Mutex::new(settings.stretch),
             shuffle: web.shuffle,
             theme_type: web.theme_type.clone(),
+            data: Mutex::new(Vec::new()),
         }
     }
 
@@ -127,6 +139,10 @@ pub struct CefPump {
     host: CefHost,
     commands: Receiver<Command>,
     timers: LoopTimers,
+    state: Arc<State>,
+    theme_dir: PathBuf,
+    /// The non-empty templates of the theme, read when the first snapshot arrives.
+    templates: Option<Vec<(CompatibleKey, String)>>,
 }
 
 /// Why CEF did not start, as the engine failure the renderer reports.
@@ -218,6 +234,38 @@ fn page_calls(theme_dir: &Path, status: i32, state: &State, complaints: &Complai
     calls
 }
 
+/// The system data groups the theme's `SucroseCompatible.json` asks for, in the legacy payload order; empty for a theme
+/// without the file, with nothing in it or with a file that cannot be used (`page_calls` reports that), and for a page
+/// that did not load with status 200.
+fn wanted_groups(theme_dir: &Path, status: i32) -> Vec<DataGroup> {
+    if status != 200 {
+        return Vec::new();
+    }
+    read_compatible(&theme_dir.join(COMPATIBLE_FILE)).map_or_else(|_| Vec::new(), |compatible| compatible.data_groups())
+}
+
+/// The non-empty templates of the theme's `SucroseCompatible.json`; none when the file is missing or unusable.
+fn load_templates(theme_dir: &Path) -> Vec<(CompatibleKey, String)> {
+    read_compatible(&theme_dir.join(COMPATIBLE_FILE)).map_or_else(
+        |_| Vec::new(),
+        |compatible| {
+            compatible
+                .templates()
+                .into_iter()
+                .map(|(key, template)| (key, template.to_owned()))
+                .collect()
+        },
+    )
+}
+
+/// The calls of one data push: the templates run in the legacy order with the newest value of everything (the legacy
+/// engine runs all of them for every message it receives).
+fn push_calls(templates: &[(CompatibleKey, String)], state: &State) -> Vec<PageCall> {
+    let templates: Vec<(CompatibleKey, &str)> = templates.iter().map(|(key, text)| (*key, text.as_str())).collect();
+    let data = state.data.lock().unwrap_or_else(PoisonError::into_inner).clone();
+    js::push_calls(&templates, &state.compatible(), &data)
+}
+
 /// Starts CEF on the calling thread, which must be the one that owns the surface `wid` and runs its message loop,
 /// showing the page of the assignment. Returns the thread-safe handle and the pump the loop drives.
 pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<Started, EngineError> {
@@ -225,13 +273,16 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         proxy,
         timers,
         on_playing,
+        on_data_wanted,
     } = hooks;
     let told = AtomicBool::new(false);
+    let asked = AtomicBool::new(false);
     let complaints = Complaints::default();
     let wake_proxy = proxy.clone();
     let engine_proxy = proxy;
     let theme_dir = PathBuf::from(&assignment.theme_dir);
     let calls_dir = theme_dir.clone();
+    let wanted_dir = theme_dir.clone();
     let web = &assignment.web;
     let state = Arc::new(State::new(&assignment.settings, web));
     let calls_state = Arc::clone(&state);
@@ -256,9 +307,17 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         .collect(),
         page_calls: Arc::new(move |_url, status| page_calls(&calls_dir, status, &calls_state, &complaints)),
         // The first finished main-frame load is the first frame the user can see.
-        on_loaded: Arc::new(move |_url, _status| {
+        on_loaded: Arc::new(move |_url, status| {
             if !told.swap(true, Ordering::SeqCst) {
                 on_playing();
+            }
+            // Once per renderer, after the page and its calls: a reload keeps the data it already asked for.
+            if status == 200 && !asked.swap(true, Ordering::SeqCst) {
+                let groups = wanted_groups(&wanted_dir, status);
+                if !groups.is_empty() {
+                    tracing::info!(groups = ?groups, "data wanted");
+                    on_data_wanted(groups);
+                }
             }
         }),
         profile: acquire_profile(assignment.slot),
@@ -285,12 +344,15 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         engine: Arc::new(CefEngine {
             commands: sender,
             wake: Arc::new(move || engine_proxy.wake()),
-            state,
+            state: Arc::clone(&state),
         }),
         pump: Some(Box::new(CefPump {
             host,
             commands: receiver,
             timers,
+            state,
+            theme_dir,
+            templates: None,
         })),
     })
 }
@@ -300,6 +362,10 @@ impl CefEngine {
     fn queue(&self, command: Command) {
         match self.commands.try_send(command) {
             Ok(()) => (self.wake)(),
+            // The snapshot itself is kept in the state, so a dropped marker loses nothing: the next one runs it.
+            Err(TrySendError::Full(Command::Data)) => {
+                tracing::debug!("the CEF command queue is full, a data push waits")
+            }
             Err(TrySendError::Full(command)) => {
                 tracing::warn!(?command, "the CEF command queue is full, the command is dropped");
             }
@@ -380,16 +446,45 @@ impl Engine for CefEngine {
         self.queue(Command::OpenDevTools);
         Ok(())
     }
+
+    /// Keeps the newest snapshot of each group and queues one push for the surface thread. A text that is not JSON is
+    /// dropped with a log line and the group keeps its last value.
+    fn push_data(&self, data: Vec<(DataGroup, String)>) {
+        {
+            let mut stored = self.state.data.lock().unwrap_or_else(PoisonError::into_inner);
+            for (group, text) in data {
+                let value = match serde_json::from_str::<Value>(&text) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        tracing::warn!(?group, %error, "a data snapshot is not valid JSON and is dropped");
+                        continue;
+                    }
+                };
+                match stored.iter_mut().find(|(known, _)| *known == group) {
+                    Some(slot) => slot.1 = value,
+                    None => stored.push((group, value)),
+                }
+            }
+        }
+        self.queue(Command::Data);
+    }
 }
 
 impl CefPump {
     /// Applies what the IPC threads queued. A pause or resume runs inside the page (PLAY-05, D-22): Light and Heavy are
     /// alike until Round D adds the process suspension, and no process is suspended here. The volume, loop and stretch
     /// values were kept by the handle; the pages get them with the compatible calls, so there is nothing to apply.
-    fn drain(&self) {
+    fn drain(&mut self) {
+        // Several data markers in one wake run once: the state holds the newest snapshot of each group.
+        let mut data_pushed = false;
         while let Ok(command) = self.commands.try_recv() {
+            if command == Command::Data {
+                data_pushed = true;
+                continue;
+            }
             tracing::debug!(?command, "queued command reached the CEF thread");
             match command {
+                Command::Data => {}
                 Command::OpenDevTools => self.host.open_devtools(),
                 Command::Pause { paused, .. } => {
                     let call = js::pause_call(paused);
@@ -398,6 +493,17 @@ impl CefPump {
                 }
                 Command::Volume(_) | Command::Loop(_) | Command::Stretch(_) => {}
             }
+        }
+        if data_pushed {
+            self.push_data();
+        }
+    }
+
+    /// Runs the templates with the newest data in the page: the non-data keys again and each data key that has a snapshot.
+    fn push_data(&mut self) {
+        let templates = self.templates.get_or_insert_with(|| load_templates(&self.theme_dir));
+        for call in push_calls(templates, &self.state) {
+            self.host.execute_script(&call.script);
         }
     }
 
@@ -730,6 +836,82 @@ mod tests {
 
         assert!(!missing.contains("secret") && !invalid.contains("secret"));
         assert!(invalid.contains("line 1"));
+    }
+
+    const WITH_DATA: &str =
+        r#"{"LoopMode":"L('{0}');","SystemDate":"D({0});","SystemMemory":"M({0});","SystemBattery":""}"#;
+
+    #[test]
+    fn the_wanted_groups_are_the_data_templates_of_a_page_that_loaded() {
+        let theme = Theme::new(None, Some(WITH_DATA));
+
+        assert_eq!(wanted_groups(&theme.0, 200), [DataGroup::Date, DataGroup::Memory]);
+        assert!(
+            wanted_groups(&theme.0, 404).is_empty(),
+            "a page that did not load wants nothing"
+        );
+        assert!(
+            wanted_groups(
+                &Theme::new(None, Some(COMPATIBLE.replace("SystemMemory", "Nope").as_str())).0,
+                200
+            )
+            .is_empty()
+        );
+        assert!(
+            wanted_groups(&Theme::new(Some(TWO_PROPERTIES), None).0, 200).is_empty(),
+            "no file, no data"
+        );
+        assert!(
+            wanted_groups(&Theme::new(None, Some("{ nope")).0, 200).is_empty(),
+            "an unusable file wants nothing"
+        );
+    }
+
+    #[test]
+    fn a_data_push_runs_every_template_in_the_legacy_order_with_the_newest_snapshots() {
+        let theme = Theme::new(None, Some(WITH_DATA));
+        let (engine, queue, wakes) = handle(8);
+
+        engine.push_data(vec![(DataGroup::Date, r#"{"Day":1}"#.to_owned())]);
+        engine.push_data(vec![(DataGroup::Date, r#"{"Day":2}"#.to_owned())]);
+
+        assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::Data, Command::Data]);
+        assert_eq!(wakes.load(Ordering::SeqCst), 2);
+        let templates = load_templates(&theme.0);
+        let calls = push_calls(&templates, &engine.state);
+        assert_eq!(
+            keys(&calls),
+            ["compatible:LoopMode", "compatible:SystemDate"],
+            "Memory has no snapshot yet"
+        );
+        assert_eq!(calls[0].script, "L('True');");
+        assert_eq!(
+            calls[1].script, "D({\r\n  \"Day\": 2\r\n});",
+            "the newest snapshot of the group"
+        );
+    }
+
+    #[test]
+    fn a_snapshot_that_is_not_json_is_dropped_and_the_group_keeps_its_last_value() {
+        let (engine, _queue, _wakes) = handle(8);
+        engine.push_data(vec![(DataGroup::Date, r#"{"Day":1}"#.to_owned())]);
+
+        engine.push_data(vec![(DataGroup::Date, "not json".to_owned())]);
+
+        let stored = engine.state.data.lock().expect("lock").clone();
+        assert_eq!(stored, [(DataGroup::Date, serde_json::json!({"Day": 1}))]);
+    }
+
+    #[test]
+    fn a_full_queue_does_not_lose_the_newest_snapshot() {
+        let (engine, queue, _wakes) = handle(1);
+
+        engine.push_data(vec![(DataGroup::Date, r#"{"Day":1}"#.to_owned())]);
+        engine.push_data(vec![(DataGroup::Date, r#"{"Day":2}"#.to_owned())]);
+
+        assert_eq!(queue.try_iter().count(), 1, "the second marker was dropped");
+        let stored = engine.state.data.lock().expect("lock").clone();
+        assert_eq!(stored, [(DataGroup::Date, serde_json::json!({"Day": 2}))]);
     }
 
     #[test]

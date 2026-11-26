@@ -8,11 +8,14 @@ use std::{
 };
 
 use serde_json::json;
-use sucrose_core::{compatible::CompatibleKey, settings::Stretch};
+use sucrose_core::{
+    compatible::{CompatibleKey, DataGroup},
+    settings::Stretch,
+};
 use sucrose_engine_web::js::{
     CompatibleState, CompatibleValue, FormatError, KIND_COMPATIBLE, KIND_PAUSE, KIND_PROPERTY, LEGACY_RUN_ORDER,
     compatible_call, compatible_calls, csharp_format, filedropdown_files, indented_json, non_data_calls, pause_call,
-    pause_script, property_call, property_calls, try_csharp_format,
+    pause_script, property_call, property_calls, push_calls, try_csharp_format,
 };
 
 /// A scratch theme folder under the temp folder, removed on drop.
@@ -608,4 +611,48 @@ fn the_pause_call_is_logged_as_pause_or_resume_and_gives_the_page_no_host_object
             assert!(!script.contains(forbidden), "{forbidden}");
         }
     }
+}
+
+#[test]
+fn a_data_push_runs_the_non_data_keys_and_the_date_template_in_the_legacy_order() {
+    let templates = [
+        (CompatibleKey::VolumeLevel, "V({0});"),
+        (CompatibleKey::SystemDate, "D({0});"),
+        (CompatibleKey::LoopMode, "L('{0}');"),
+        (CompatibleKey::SystemMemory, "M({0});"),
+    ];
+    let state = CompatibleState {
+        looping: true,
+        shuffle: true,
+        stretch: Stretch::UniformToFill,
+        theme_type: "Dark".to_owned(),
+        volume: 70,
+    };
+    let data = [(DataGroup::Date, json!({"Day": 26, "State": true}))];
+
+    let calls = push_calls(&templates, &state, &data);
+
+    let keys: Vec<&str> = calls.iter().map(|call| call.key.as_str()).collect();
+    assert_eq!(
+        keys,
+        ["LoopMode", "SystemDate", "VolumeLevel"],
+        "Memory has no snapshot yet and is left out"
+    );
+    assert_eq!(calls[1].script, "D({\r\n  \"Day\": 26,\r\n  \"State\": true\r\n});");
+    assert!(calls.iter().all(|call| call.kind == KIND_COMPATIBLE));
+}
+
+#[test]
+fn a_data_push_uses_the_newest_state_and_skips_an_empty_template_list() {
+    let state = CompatibleState {
+        looping: false,
+        shuffle: true,
+        stretch: Stretch::Fill,
+        theme_type: "Light".to_owned(),
+        volume: 5,
+    };
+
+    assert!(push_calls(&[], &state, &[(DataGroup::Date, json!({}))]).is_empty());
+    let calls = push_calls(&[(CompatibleKey::LoopMode, "L('{0}');")], &state, &[]);
+    assert_eq!(calls[0].script, "L('False');");
 }

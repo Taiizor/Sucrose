@@ -1,0 +1,22 @@
+[package]
+name = "sucrose-sysinfo"
+description = "System data for web wallpapers: the legacy payload groups, sampled only on demand (D-24, D-39)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+serde_json = { workspace = true }
+sucrose-core = { workspace = true }
+thiserror = { workspace = true }
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true, features = [
+    "Win32_Foundation",
+    "Win32_System_SystemInformation",
+] }
+
+[lints]
+workspace = true

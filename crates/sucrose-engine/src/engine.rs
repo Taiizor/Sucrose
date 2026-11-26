@@ -4,7 +4,7 @@
 
 use std::{sync::Arc, time::Duration};
 
-use sucrose_core::settings::Stretch;
+use sucrose_core::{compatible::DataGroup, settings::Stretch};
 use sucrose_ipc::protocol::PlaybackSettings;
 
 use crate::PauseLevel;
@@ -98,6 +98,9 @@ pub trait Engine: Send + Sync {
             what: "Developer tools".to_owned(),
         })
     }
+    /// Hands the engine a snapshot of the system data its page asked for, each group with its JSON text (D-24). Only a
+    /// web engine has a page to give it to; every other engine ignores it.
+    fn push_data(&self, _data: Vec<(DataGroup, String)>) {}
 }
 
 /// The part of an engine that must run on the thread that owns the desktop surface (for CEF the thread that pumps its

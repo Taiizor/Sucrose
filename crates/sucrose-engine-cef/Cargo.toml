@@ -9,6 +9,7 @@ publish.workspace = true
 
 [dependencies]
 crossbeam-channel = { workspace = true }
+serde_json = { workspace = true }
 sucrose-core = { workspace = true }
 sucrose-engine = { workspace = true }
 sucrose-engine-web = { workspace = true }

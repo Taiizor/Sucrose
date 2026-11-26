@@ -13,6 +13,7 @@ use std::{
 };
 
 use anyhow::{Context as _, bail};
+use sucrose_core::compatible::DataGroup;
 use sucrose_engine::{
     Engine, EngineClock, EngineError, EngineId, PauseLevel, Started,
     sync::{Follower, SyncAction, drift_s},
@@ -140,10 +141,19 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
             }
         })
     };
+    let on_data_wanted: Arc<dyn Fn(Vec<DataGroup>) + Send + Sync> = {
+        let writer = playing_writer.clone();
+        Arc::new(move |groups| {
+            if let Some(writer) = &writer {
+                tell_data_wanted(&mut writer.lock().unwrap_or_else(PoisonError::into_inner), groups);
+            }
+        })
+    };
     let hooks = || SurfaceHooks {
         proxy: proxy.clone(),
         timers: event_loop.timers(),
         on_playing,
+        on_data_wanted,
     };
 
     // Started here, on the thread that pumps the surface's messages: mpv hooks that thread to resize its child, and
@@ -422,7 +432,8 @@ fn judge_hello_reply(reply: Result<ToRenderer, IpcError>) -> anyhow::Result<Hell
             | ToRenderer::SetRole(_)
             | ToRenderer::Clock(_)
             | ToRenderer::LoadSource { .. }
-            | ToRenderer::OpenDevTools,
+            | ToRenderer::OpenDevTools
+            | ToRenderer::Data(_),
         ) => {
             tracing::warn!("ignoring a control message that arrived before the assignment");
             Ok(HelloReply::Skip)
@@ -488,6 +499,8 @@ fn wait_for_close(
                 // An engine without developer tools answers here; nothing else changes (D-13).
                 Err(error) => tracing::info!(engine = engine.name(), %error, "no developer tools to open"),
             },
+            // Handed to the engine as it is; an engine without a page ignores it.
+            Ok(ToRenderer::Data(data)) => engine.push_data(data),
             Ok(ToRenderer::SetRole(role)) => {
                 apply_role(role, engine, sync);
                 following.reset(engine.clock().map_or(1.0, EngineClock::speed));
@@ -694,6 +707,14 @@ fn read_tick(clock: &dyn EngineClock) -> Option<ClockTick> {
 fn tell_playing(connection: &mut Connection) {
     if let Err(error) = connection.send(&ToService::Playing) {
         tracing::warn!(%error, "cannot tell the service that the wallpaper is playing");
+    }
+}
+
+/// Tells the service which system data groups the page needs (D-24). A failed send only means the page gets no data,
+/// so it is logged and nothing else.
+fn tell_data_wanted(connection: &mut Connection, groups: Vec<DataGroup>) {
+    if let Err(error) = connection.send(&ToService::DataWanted(groups)) {
+        tracing::warn!(%error, "cannot tell the service which data the page needs");
     }
 }
 

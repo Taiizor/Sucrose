@@ -7027,6 +7027,7 @@ dependencies = [
  "sucrose-ipc",
  "sucrose-log",
  "sucrose-platform",
+ "sucrose-sysinfo",
  "sysinfo 0.40.4",
  "tracing",
 ]
@@ -7067,6 +7068,7 @@ version = "26.11.22+1"
 dependencies = [
  "cef",
  "crossbeam-channel",
+ "serde_json",
  "sucrose-core",
  "sucrose-engine",
  "sucrose-engine-web",
@@ -7160,6 +7162,16 @@ dependencies = [
  "sucrose-log",
  "sucrose-platform",
  "tracing",
+]
+
+[[package]]
+name = "sucrose-sysinfo"
+version = "26.11.22+1"
+dependencies = [
+ "serde_json",
+ "sucrose-core",
+ "thiserror 2.0.21",
+ "windows 0.62.2",
 ]
 
 [[package]]

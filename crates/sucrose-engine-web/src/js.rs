@@ -12,7 +12,7 @@ use std::{
 
 use serde_json::Value;
 use sucrose_core::{
-    compatible::{COMPATIBLE_FILE, CompatibleError, CompatibleKey, read_compatible},
+    compatible::{COMPATIBLE_FILE, CompatibleError, CompatibleKey, DataGroup, read_compatible},
     properties::{Control, ControlKind, PROPERTIES_FILE, PropertiesError, read_properties},
     settings::Stretch,
 };
@@ -327,6 +327,37 @@ pub fn non_data_calls(templates: &[(CompatibleKey, &str)], state: &CompatibleSta
         .filter_map(|key| {
             let value = state.value(*key)?;
             let (_, template) = templates.iter().find(|(candidate, _)| candidate == key)?;
+            let script = compatible_call(template, &value);
+            (!script.is_empty()).then(|| PageCall {
+                kind: KIND_COMPATIBLE,
+                key: key.name().to_owned(),
+                script,
+            })
+        })
+        .collect()
+}
+
+/// The calls of one data push, as the legacy engine makes them for every message it receives: every non-empty template
+/// in [`LEGACY_RUN_ORDER`], the non-data keys again from `state` and each system data key from the latest snapshot of
+/// its group in `data`, written as indented JSON. A data key whose group has no snapshot yet is left out, and so is a
+/// template that cannot be formatted.
+#[must_use]
+pub fn push_calls(
+    templates: &[(CompatibleKey, &str)],
+    state: &CompatibleState,
+    data: &[(DataGroup, Value)],
+) -> Vec<PageCall> {
+    LEGACY_RUN_ORDER
+        .iter()
+        .filter_map(|key| {
+            let (_, template) = templates.iter().find(|(candidate, _)| candidate == key)?;
+            let value = match key.data_group() {
+                Some(group) => {
+                    let (_, snapshot) = data.iter().find(|(candidate, _)| *candidate == group)?;
+                    CompatibleValue::Json(snapshot.clone())
+                }
+                None => state.value(*key)?,
+            };
             let script = compatible_call(template, &value);
             (!script.is_empty()).then(|| PageCall {
                 kind: KIND_COMPATIBLE,

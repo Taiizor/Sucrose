@@ -9,6 +9,7 @@
 
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod data_hub;
 mod fullscreen;
 mod library_ops;
 mod lifecycle;

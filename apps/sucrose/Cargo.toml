@@ -10,6 +10,7 @@ publish.workspace = true
 [dependencies]
 anyhow = { workspace = true }
 crossbeam-channel = { workspace = true }
+serde_json = { workspace = true }
 sucrose-config = { workspace = true }
 sucrose-core = { workspace = true }
 sucrose-engine = { workspace = true }
@@ -19,11 +20,9 @@ sucrose-engine-web = { workspace = true }
 sucrose-ipc = { workspace = true }
 sucrose-log = { workspace = true }
 sucrose-platform = { workspace = true }
+sucrose-sysinfo = { workspace = true }
 sysinfo = { workspace = true }
 tracing = { workspace = true }
-
-[dev-dependencies]
-serde_json = { workspace = true }
 
 [lints]
 workspace = true

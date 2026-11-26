@@ -7,6 +7,7 @@
 
 use serde::{Deserialize, Serialize};
 use sucrose_core::{
+    compatible::DataGroup,
     settings::{EngineType, PauseKind, Stretch},
     theme::WallpaperType,
 };
@@ -54,6 +55,9 @@ pub enum ToService {
     },
     /// First message of a launcher's connection: what it asks of the service.
     Launch(Launch),
+    /// The groups of system data the renderer's page needs, sent once after the page loaded (D-24). The service
+    /// samples a group only while a running page wants it, and answers with [`ToRenderer::Data`] snapshots.
+    DataWanted(Vec<DataGroup>),
 }
 
 /// Messages from the service to a renderer.
@@ -87,6 +91,10 @@ pub enum ToRenderer {
     /// Show the developer tools (DevTools) of the web wallpaper this renderer plays: the Portal's Open DevTools button
     /// (D-13). A renderer whose engine has no developer tools answers in its log and does nothing else.
     OpenDevTools,
+    /// A snapshot of the groups the renderer asked for with [`ToService::DataWanted`]: each group with its JSON text.
+    /// About ten a second while the renderer's page needs data; a renderer that is behind misses a snapshot and gets
+    /// the next one.
+    Data(Vec<(DataGroup, String)>),
 }
 
 /// What a renderer does when several monitors show the same wallpaper (D-02).
@@ -404,6 +412,29 @@ mod tests {
         assert_eq!(
             postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"),
             ToRenderer::OpenDevTools
+        );
+    }
+
+    #[test]
+    fn data_wanted_and_data_keep_their_wire_index_and_survive_the_wire() {
+        let wanted = ToService::DataWanted(vec![DataGroup::Date, DataGroup::Processor]);
+        let data = ToRenderer::Data(vec![(DataGroup::Date, "{\"Day\":1}".to_owned())]);
+
+        // Appended after Hello (0), Failed (1), Playing (2), Clock (3), PortalHello (4) and Launch (5), and after
+        // Close (0) .. OpenDevTools (8).
+        let bytes = postcard::to_stdvec(&wanted).expect("encode");
+        assert_eq!(bytes[0], 6);
+        assert_eq!(postcard::from_bytes::<ToService>(&bytes).expect("decode"), wanted);
+        let bytes = postcard::to_stdvec(&data).expect("encode");
+        assert_eq!(bytes[0], 9);
+        assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), data);
+    }
+
+    #[test]
+    fn the_protocol_version_stays_when_messages_are_only_appended() {
+        assert_eq!(
+            PROTOCOL_VERSION, 8,
+            "DataWanted and Data are appended variants, so the version stays"
         );
     }
 

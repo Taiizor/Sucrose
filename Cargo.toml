@@ -22,6 +22,7 @@ sucrose-engine-web = { path = "crates/sucrose-engine-web" }
 sucrose-ipc = { path = "crates/sucrose-ipc" }
 sucrose-log = { path = "crates/sucrose-log" }
 sucrose-platform = { path = "crates/sucrose-platform" }
+sucrose-sysinfo = { path = "crates/sucrose-sysinfo" }
 
 anyhow = "1"
 # Awaitable channel from the Portal's IPC threads to the GPUI thread (crossbeam receivers cannot be awaited); GPUI already depends on it.
@@ -72,7 +73,7 @@ widestring = "1.2.1"
 windows = "0.62.2"
 
 [workspace.lints.rust]
-# D-011: only sucrose-platform and engine/FFI crates may opt out with #![allow(unsafe_code)].
+# D-011, D-039: only sucrose-platform, sucrose-sysinfo and engine/FFI crates may opt out with #![allow(unsafe_code)].
 unsafe_code = "deny"
 
 [workspace.lints.clippy]

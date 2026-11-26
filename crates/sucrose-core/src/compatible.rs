@@ -6,7 +6,7 @@
 
 use std::{fs, io, path::Path};
 
-use serde::{Serialize, Serializer, ser::SerializeMap};
+use serde::{Deserialize, Serialize, Serializer, ser::SerializeMap};
 use serde_json::Value;
 
 use crate::properties::{Ordered, PropertiesError, describe_json_error, read_text};
@@ -54,8 +54,9 @@ pub enum CompatibleKey {
     SystemMotherboard,
 }
 
-/// A group of system data the data hub samples (D-24), named like the legacy payload objects.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+/// A group of system data the data hub samples (D-24), named like the legacy payload objects. It travels between a
+/// renderer and the service (`DataWanted`, `Data`), so it keeps its variant order on the wire.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum DataGroup {
     /// BIOS.
     Bios,
