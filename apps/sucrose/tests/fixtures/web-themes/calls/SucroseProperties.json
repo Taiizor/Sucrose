@@ -1,0 +1,71 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "title": {
+      "type": "label",
+      "text": "Calls fixture",
+      "value": "Calls fixture"
+    },
+    "press": {
+      "type": "button",
+      "text": "Press",
+      "help": "A button",
+      "value": "Go"
+    },
+    "amount": {
+      "type": "slider",
+      "text": "Amount",
+      "min": -5,
+      "max": 5,
+      "step": 0.5,
+      "value": 0
+    },
+    "name": {
+      "type": "textbox",
+      "text": "Name",
+      "value": "Sucrose"
+    },
+    "enabled": {
+      "type": "checkbox",
+      "text": "Enabled",
+      "value": true
+    },
+    "mode": {
+      "type": "dropdown",
+      "text": "Mode",
+      "value": 1,
+      "items": [
+        "Flat",
+        "Vertical",
+        "Horizontal"
+      ]
+    },
+    "count": {
+      "type": "numberbox",
+      "text": "Count",
+      "min": 0,
+      "max": 10,
+      "places": 2,
+      "value": 2.5
+    },
+    "secret": {
+      "type": "passwordbox",
+      "text": "Secret",
+      "value": "hunter2"
+    },
+    "picture": {
+      "type": "filedropdown",
+      "text": "Media",
+      "desc": "Text and images",
+      "value": "one.txt",
+      "title": "Pick a file",
+      "folder": "media",
+      "filter": "*.txt|*.png"
+    },
+    "tint": {
+      "type": "colorpicker",
+      "text": "Tint",
+      "value": "#FF00FF00"
+    }
+  }
+}

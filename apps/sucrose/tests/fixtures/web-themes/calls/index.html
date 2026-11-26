@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sucrose fixture: calls</title>
+<style>
+  html, body { margin: 0; width: 100%; height: 100%; background: #101418; color: #e6edf3; overflow: hidden; }
+  body { font-family: "Segoe UI", sans-serif; padding: 2vw; box-sizing: border-box; }
+  h1 { font-size: 3vw; margin: 0 0 1vw; }
+  #state { font-size: 2vw; color: #8ab4f8; margin-bottom: 1vw; }
+  ol { margin: 0; padding-left: 3vw; font-size: 1.4vw; line-height: 1.5; columns: 2; }
+  li.property { color: #a5d6a7; }
+  li.compatible { color: #ffcc80; }
+  li.lifecycle { color: #f48fb1; }
+</style>
+</head>
+<body>
+<h1>Sucrose fixture: calls</h1>
+<div id="state">state: playing</div>
+<ol id="calls"></ol>
+<script>
+  // Records every call the engine makes, shows it, and reports it with fetch('/__calls/' + kind + '/' + key): the
+  // origin answers 404 and the renderer log records the path, which is how a run proves the calls without a host
+  // object or a message channel. Keys are plain names, so the path has no colon and no percent-encoding.
+  window.__calls = [];
+  var list = document.getElementById("calls");
+  function report(kind, key, payload) {
+    window.__calls.push({ kind: kind, key: key, payload: payload });
+    var item = document.createElement("li");
+    item.className = kind;
+    item.textContent = kind + " " + key + " " + JSON.stringify(payload);
+    list.appendChild(item);
+    fetch("/__calls/" + kind + "/" + key, { cache: "no-store" }).catch(function () {});
+  }
+
+  // The property listener of SucroseProperties.json.
+  function SucrosePropertyListener(key, control) { report("property", key, control); }
+
+  // The compatible functions of SucroseCompatible.json (the showcase names).
+  function SucroseLoopMode(value) { report("compatible", "LoopMode", value); }
+  function SucroseThemeType(value) { report("compatible", "ThemeType", value); }
+  function SucroseSystemTheme(value) { report("compatible", "SystemTheme", value); }
+  function SucroseShuffleMode(value) { report("compatible", "ShuffleMode", value); }
+  function SucroseStretchMode(value) { report("compatible", "StretchMode", value); }
+  function SucroseVolumeLevel(value) { report("compatible", "VolumeLevel", value); }
+  function SucroseDateData(data) { report("compatible", "SystemDate", data); }
+  function SucroseMemoryData(data) { report("compatible", "SystemMemory", data); }
+  function SucroseProcessorData(data) { report("compatible", "SystemProcessor", data); }
+  function SucroseBiosData(data) { report("compatible", "SystemBios", data); }
+  function SucroseMotherboardData(data) { report("compatible", "SystemMotherboard", data); }
+
+  // The pause hooks of the Light pause inside the page (PLAY-05): the page is told, nothing is suspended.
+  var state = document.getElementById("state");
+  function SucrosePause() { state.textContent = "state: paused"; report("lifecycle", "pause", "paused"); }
+  function SucrosePlay() { state.textContent = "state: playing"; report("lifecycle", "play", "playing"); }
+  document.addEventListener("visibilitychange", function () {
+    report("lifecycle", "visibility-" + document.visibilityState, document.visibilityState);
+  });
+</script>
+</body>
+</html>

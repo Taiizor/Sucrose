@@ -12,6 +12,7 @@ use std::{
 
 use sucrose_engine_web::{
     args::{SucroseInputs, Switch},
+    js::PageCall,
     profile::ProfileLease,
 };
 
@@ -42,6 +43,10 @@ pub enum CefError {
 /// What a page-load report callback looks like: the address and the HTTP status of the main frame.
 pub type LoadedCallback = Arc<dyn Fn(&str, i32) + Send + Sync>;
 
+/// What the page-calls callback looks like: given the address and HTTP status of a main frame that finished loading, the
+/// scripts to run in it, in order (WAPI-01, WAPI-02).
+pub type PageCallsCallback = Arc<dyn Fn(&str, i32) -> Vec<PageCall> + Send + Sync>;
+
 /// What the renderer hands to [`CefHost::start`].
 pub struct CefStart {
     /// The CEF log file of this renderer (`CefRenderer-<slot>.log`).
@@ -52,6 +57,10 @@ pub struct CefStart {
     pub wake: Arc<dyn Fn() + Send + Sync>,
     /// Called on the surface thread with the address and HTTP status each time the main frame finishes loading.
     pub on_loaded: LoadedCallback,
+    /// Asked on the surface thread each time the main frame finishes loading, before [`CefStart::on_loaded`]: the
+    /// scripts it returns run in that frame in order, each logged as a `page call` at debug. The page gets no host
+    /// object and no message channel; a call is a one-way script string (legacy parity).
+    pub page_calls: PageCallsCallback,
     /// The folders the virtual origin serves, in lookup order: the theme folder, then the generated-content folder.
     pub roots: Vec<PathBuf>,
     /// The browser profile this instance runs on (D-33, D-35); `None` runs on in-memory caches, which keep nothing.
@@ -249,7 +258,7 @@ mod imp {
 
     use super::{
         CefError, CefStart, IGNORE_CERTIFICATE_ERRORS_SWITCH, INSPECT_COMMAND_ID, KeyAction, LoadedCallback,
-        ProfileLease, Pump, browser_size, key_action, next_pump_delay_ms, settings_values,
+        PageCallsCallback, ProfileLease, Pump, browser_size, key_action, next_pump_delay_ms, settings_values,
     };
 
     /// `EVENTFLAG_SHIFT_DOWN` and `EVENTFLAG_CONTROL_DOWN` of a CEF key event's modifiers.
@@ -263,6 +272,7 @@ mod imp {
     struct Shared {
         closed: AtomicBool,
         on_loaded: LoadedCallback,
+        page_calls: PageCallsCallback,
     }
 
     wrap_browser_process_handler! {
@@ -345,6 +355,15 @@ mod imp {
                 }
                 let url = CefString::from(&frame.url()).to_string();
                 tracing::info!(url = ?url, status = http_status_code, "page loaded");
+                // The page's own scripts have run by now: the calls go in before the first frame is reported.
+                for call in (self.shared.page_calls)(&url, http_status_code) {
+                    tracing::debug!(kind = call.kind, key = ?call.key, "page call");
+                    frame.execute_java_script(
+                        Some(&CefString::from(call.script.as_str())),
+                        Some(&CefString::from(url.as_str())),
+                        0,
+                    );
+                }
                 (self.shared.on_loaded)(&url, http_status_code);
             }
 
@@ -564,6 +583,7 @@ mod imp {
             let shared = Arc::new(Shared {
                 closed: AtomicBool::new(false),
                 on_loaded: Arc::clone(&start.on_loaded),
+                page_calls: Arc::clone(&start.page_calls),
             });
             // The persistent profile of the first instance or an ephemeral one (D-33); both paths name the same folder, so
             // CEF's process singleton lock and the profile never meet another running instance's.

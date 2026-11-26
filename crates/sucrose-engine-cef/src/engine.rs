@@ -12,6 +12,7 @@ use std::{
 };
 
 use crossbeam_channel::{Receiver, Sender, TrySendError, bounded};
+use sucrose_core::properties::PropertiesError;
 use sucrose_core::settings::Stretch;
 use sucrose_engine::{
     PauseLevel,
@@ -19,6 +20,7 @@ use sucrose_engine::{
 };
 use sucrose_engine_web::{
     args::{self, SucroseInputs, WebEngine},
+    js::{self, PageCall},
     origin,
     profile::{self, ProfileLease},
 };
@@ -59,7 +61,7 @@ enum Command {
     OpenDevTools,
 }
 
-/// The newest value of each setting, for the page calls of plan 04-09 and for anyone asking what the engine was told.
+/// The newest value of each setting, for the page calls and for anyone asking what the engine was told.
 #[derive(Debug)]
 struct State {
     paused: AtomicBool,
@@ -137,6 +139,35 @@ fn debugging_port(developer_port: u16, slot: u8) -> Option<u16> {
     }
 }
 
+/// A reason for a log line that names what is wrong with a theme file without its path or its text (D-08).
+fn describe(error: &PropertiesError) -> String {
+    match error {
+        PropertiesError::Missing(_) => "the file is missing".to_owned(),
+        PropertiesError::Unreadable { source, .. } => format!("the file cannot be read ({:?})", source.kind()),
+        PropertiesError::Invalid { reason, .. } => reason.clone(),
+    }
+}
+
+/// The scripts a page gets after its main frame loaded, in the order they must run: the property calls of
+/// `SucroseProperties.json`, one per control in file order (WAPI-01). Only a loaded page (HTTP 200) gets them; a theme
+/// without the file or with an empty list gets none, and a file that cannot be used is logged once per renderer
+/// (`logged`) while the page still plays. A reload runs this again, so every key is sent again after its load end.
+fn page_calls(theme_dir: &Path, status: i32, logged: &AtomicBool) -> Vec<PageCall> {
+    if status != 200 {
+        tracing::debug!(status, "no page calls: the main frame did not load with status 200");
+        return Vec::new();
+    }
+    match js::property_calls(theme_dir) {
+        Ok(calls) => calls,
+        Err(error) => {
+            if !logged.swap(true, Ordering::SeqCst) {
+                tracing::warn!(reason = %describe(&error), "SucroseProperties.json cannot be used, the page gets no property calls");
+            }
+            Vec::new()
+        }
+    }
+}
+
 /// Starts CEF on the calling thread, which must be the one that owns the surface `wid` and runs its message loop,
 /// showing the page of the assignment. Returns the thread-safe handle and the pump the loop drives.
 pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<Started, EngineError> {
@@ -146,9 +177,11 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         on_playing,
     } = hooks;
     let told = AtomicBool::new(false);
+    let property_problem = AtomicBool::new(false);
     let wake_proxy = proxy.clone();
     let engine_proxy = proxy;
     let theme_dir = PathBuf::from(&assignment.theme_dir);
+    let calls_dir = theme_dir.clone();
     let web = &assignment.web;
     let debugging_port = debugging_port(web.developer_port, assignment.slot);
     if let Some(port) = debugging_port {
@@ -169,6 +202,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         .into_iter()
         .flatten()
         .collect(),
+        page_calls: Arc::new(move |_url, status| page_calls(&calls_dir, status, &property_problem)),
         // The first finished main-frame load is the first frame the user can see.
         on_loaded: Arc::new(move |_url, _status| {
             if !told.swap(true, Ordering::SeqCst) {
@@ -471,6 +505,97 @@ mod tests {
         drop(queue);
 
         assert!(engine.set_volume(5).is_ok());
+    }
+
+    /// A scratch theme folder with the given `SucroseProperties.json` text (none: no file), removed on drop.
+    struct Theme(PathBuf);
+
+    impl Theme {
+        fn new(properties: Option<&str>) -> Self {
+            static NEXT: std::sync::atomic::AtomicU32 = std::sync::atomic::AtomicU32::new(0);
+            let dir = std::env::temp_dir().join(format!(
+                "sucrose-cef-calls-{}-{}",
+                std::process::id(),
+                NEXT.fetch_add(1, Ordering::SeqCst)
+            ));
+            let _ = std::fs::remove_dir_all(&dir);
+            std::fs::create_dir_all(&dir).expect("create scratch theme");
+            if let Some(text) = properties {
+                std::fs::write(dir.join("SucroseProperties.json"), text).expect("write properties");
+            }
+            Self(dir)
+        }
+    }
+
+    impl Drop for Theme {
+        fn drop(&mut self) {
+            let _ = std::fs::remove_dir_all(&self.0);
+        }
+    }
+
+    const TWO_PROPERTIES: &str = r#"{"PropertyListener":"f('{0}', {1});","PropertyList":{"b":{"type":"checkbox","value":true},"a":{"type":"textbox","value":"x"}}}"#;
+
+    #[test]
+    fn a_loaded_page_gets_its_property_calls_in_file_order_and_a_failed_load_gets_none() {
+        let theme = Theme::new(Some(TWO_PROPERTIES));
+        let logged = AtomicBool::new(false);
+
+        let calls = page_calls(&theme.0, 200, &logged);
+        let failed = page_calls(&theme.0, 404, &logged);
+
+        assert_eq!(
+            calls.iter().map(|call| call.key.as_str()).collect::<Vec<_>>(),
+            ["b", "a"]
+        );
+        assert!(calls.iter().all(|call| call.kind == "property"));
+        assert!(failed.is_empty(), "only a page that loaded with status 200 gets calls");
+        assert!(!logged.load(Ordering::SeqCst));
+    }
+
+    #[test]
+    fn a_reload_sends_every_key_again() {
+        let theme = Theme::new(Some(TWO_PROPERTIES));
+        let logged = AtomicBool::new(false);
+
+        let first = page_calls(&theme.0, 200, &logged);
+        let reload = page_calls(&theme.0, 200, &logged);
+
+        assert_eq!(first, reload);
+        assert_eq!(reload.len(), 2);
+    }
+
+    #[test]
+    fn a_theme_without_properties_gets_no_calls_and_no_complaint() {
+        let theme = Theme::new(None);
+        let logged = AtomicBool::new(false);
+
+        assert!(page_calls(&theme.0, 200, &logged).is_empty());
+        assert!(!logged.load(Ordering::SeqCst), "a missing file is normal");
+    }
+
+    #[test]
+    fn an_unparsable_properties_file_gives_no_calls_and_is_reported_once() {
+        let theme = Theme::new(Some("{ nope"));
+        let logged = AtomicBool::new(false);
+
+        assert!(page_calls(&theme.0, 200, &logged).is_empty());
+        assert!(
+            logged.load(Ordering::SeqCst),
+            "the first failure is the one that is logged"
+        );
+        assert!(page_calls(&theme.0, 200, &logged).is_empty(), "the page keeps playing");
+    }
+
+    #[test]
+    fn the_log_reason_names_the_problem_without_a_path() {
+        let missing = describe(&PropertiesError::Missing(PathBuf::from("C:/secret/x.json")));
+        let invalid = describe(&PropertiesError::Invalid {
+            path: PathBuf::from("C:/secret/x.json"),
+            reason: "invalid JSON at line 1 column 3".to_owned(),
+        });
+
+        assert!(!missing.contains("secret") && !invalid.contains("secret"));
+        assert!(invalid.contains("line 1"));
     }
 
     #[test]
