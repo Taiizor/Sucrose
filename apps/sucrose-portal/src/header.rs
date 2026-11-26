@@ -153,15 +153,11 @@ impl Render for Header {
 }
 
 impl Header {
-    /// The row of the settings mode (UI-SPEC E4): Back, then the General and Personal tabs; no search, no actions.
+    /// The row of the settings mode (UI-SPEC E4): Back, then the General, Personal and Wallpaper tabs; no search, no actions.
     fn settings_row(&self, tab: SettingsTab, cx: &mut Context<Self>) -> AnyElement {
         let back_tip = tr("Portal.MainWindow.MenuBackTip");
         let header = cx.entity();
-        let selected = match tab {
-            SettingsTab::General => 0,
-            SettingsTab::Personal => 1,
-            SettingsTab::Wallpaper => 2,
-        };
+        let selected = tab.index();
         h_flex()
             .w_full()
             .h(px(HEADER_HEIGHT))
@@ -182,15 +178,12 @@ impl Header {
                     .underline()
                     .selected_index(selected)
                     .on_click(move |index, _, cx| {
-                        let tab = if *index == 1 {
-                            SettingsTab::Personal
-                        } else {
-                            SettingsTab::General
-                        };
+                        let tab = SettingsTab::at(*index);
                         header.update(cx, |_, cx| cx.emit(HeaderEvent(Mode::Settings(tab))));
                     })
                     .child(Tab::new().label(tr("Portal.MainWindow.MenuGeneral")))
-                    .child(Tab::new().label(tr("Portal.MainWindow.MenuPersonal"))),
+                    .child(Tab::new().label(tr("Portal.MainWindow.MenuPersonal")))
+                    .child(Tab::new().label(tr("Portal.MainWindow.MenuWallpaper"))),
             )
             .into_any_element()
     }

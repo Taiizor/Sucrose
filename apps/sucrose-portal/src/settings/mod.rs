@@ -3,6 +3,7 @@
 pub mod general;
 pub mod personal;
 pub mod row;
+pub mod wallpaper;
 
 use gpui_kit::component::{StyledExt as _, v_flex};
 use gpui_kit::*;
@@ -17,6 +18,22 @@ pub enum SettingsTab {
     Personal,
     /// The Wallpaper page.
     Wallpaper,
+}
+
+impl SettingsTab {
+    /// Every tab in the order of the header (the legacy order: General, Personal, Wallpaper; Performance and Other follow
+    /// in later plans).
+    pub const ALL: [Self; 3] = [Self::General, Self::Personal, Self::Wallpaper];
+
+    /// The position of the tab in the header.
+    pub fn index(self) -> usize {
+        Self::ALL.iter().position(|tab| *tab == self).unwrap_or_default()
+    }
+
+    /// The tab at `index` in the header; the first one for an index past the last.
+    pub fn at(index: usize) -> Self {
+        Self::ALL.get(index).copied().unwrap_or(Self::ALL[0])
+    }
 }
 
 /// What the Portal window shows: the library, or one of the settings pages.
@@ -99,6 +116,27 @@ mod tests {
     use sucrose_ipc::portal::PortalPage;
 
     use super::{Mode, SettingsTab};
+
+    #[test]
+    fn settings_tabs_follow_the_legacy_order_with_wallpaper_after_personal() {
+        assert_eq!(
+            SettingsTab::ALL,
+            [SettingsTab::General, SettingsTab::Personal, SettingsTab::Wallpaper]
+        );
+        for (index, tab) in SettingsTab::ALL.into_iter().enumerate() {
+            assert_eq!(tab.index(), index);
+            assert_eq!(SettingsTab::at(index), tab);
+        }
+        assert_eq!(SettingsTab::at(9), SettingsTab::General);
+    }
+
+    #[test]
+    fn settings_wallpaper_page_is_asked_for_like_the_others() {
+        assert_eq!(
+            Mode::from_page(PortalPage::Wallpaper),
+            Mode::Settings(SettingsTab::Wallpaper)
+        );
+    }
 
     #[test]
     fn settings_mode_follows_the_page_that_was_asked_for() {

@@ -24,6 +24,8 @@ pub const NUMBER_WIDTH: f32 = 100.0;
 const ROW_RADIUS: f32 = 8.0;
 /// Opacity of the row's surface over the page (UI-SPEC: alpha 0.55).
 const ROW_ALPHA: f32 = 0.55;
+/// Opacity of the muted suffix of a choice (the select list has no theme at hand to take a muted color from).
+const SUFFIX_OPACITY: f32 = 0.6;
 
 /// The number a numeric field commits: its text clamped to `min..=max`; an empty or non-numeric text keeps `previous`.
 pub fn commit_number(text: &str, min: u8, max: u8, previous: u8) -> u8 {
@@ -193,6 +195,8 @@ pub struct Choice<T: Clone + PartialEq + 'static> {
     pub title: SharedString,
     /// Why the option cannot be chosen, if it cannot.
     pub reason: Option<SharedString>,
+    /// A muted note after the title that does not stop the option from being chosen ("Not installed").
+    pub suffix: Option<SharedString>,
 }
 
 impl<T: Clone + PartialEq + 'static> Choice<T> {
@@ -202,6 +206,25 @@ impl<T: Clone + PartialEq + 'static> Choice<T> {
             value,
             title,
             reason: None,
+            suffix: None,
+        }
+    }
+
+    /// The same option with a muted `suffix` after its title.
+    pub fn with_suffix(mut self, suffix: SharedString) -> Self {
+        self.suffix = Some(suffix);
+        self
+    }
+
+    /// The title and its muted suffix as one element, for the trigger and the list.
+    fn titled(&self) -> AnyElement {
+        match &self.suffix {
+            None => div().child(self.title.clone()).into_any_element(),
+            Some(suffix) => h_flex()
+                .gap_1()
+                .child(self.title.clone())
+                .child(div().opacity(SUFFIX_OPACITY).child(suffix.clone()))
+                .into_any_element(),
         }
     }
 }
@@ -210,7 +233,15 @@ impl<T: Clone + PartialEq + 'static> SelectItem for Choice<T> {
     type Value = T;
 
     fn title(&self) -> SharedString {
-        self.title.clone()
+        // The text a listener hears: the suffix is part of the meaning.
+        match &self.suffix {
+            None => self.title.clone(),
+            Some(suffix) => SharedString::from(format!("{} ({suffix})", self.title)),
+        }
+    }
+
+    fn display_title(&self) -> Option<AnyElement> {
+        self.suffix.is_some().then(|| self.titled())
     }
 
     fn value(&self) -> &T {
@@ -223,12 +254,12 @@ impl<T: Clone + PartialEq + 'static> SelectItem for Choice<T> {
 
     fn render(&self, _: &mut Window, _: &mut App) -> impl IntoElement {
         match &self.reason {
-            None => div().child(self.title.clone()).into_any_element(),
+            None => self.titled(),
             Some(reason) => {
                 let reason = reason.clone();
                 div()
                     .id(self.title.clone())
-                    .child(self.title.clone())
+                    .child(self.titled())
                     .tooltip(move |window, cx| Tooltip::new(reason.clone()).build(window, cx))
                     .into_any_element()
             }

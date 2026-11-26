@@ -258,6 +258,7 @@ pub fn startup_options() -> Vec<Choice<StartupMode>> {
         value,
         title: tr(key),
         reason: later.then(|| tr(LATER)),
+        suffix: None,
     })
     .collect()
 }
@@ -309,6 +310,7 @@ fn backdrop_choices(supported: bool) -> Vec<Choice<Backdrop>> {
                 value: option.value,
                 title: tr(key),
                 reason: option.reason.as_ref().map(reason_text),
+                suffix: None,
             }
         })
         .collect()
