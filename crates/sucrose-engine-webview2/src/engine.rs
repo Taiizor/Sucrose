@@ -6,7 +6,7 @@
 use std::{
     path::{Path, PathBuf},
     sync::{
-        Arc,
+        Arc, Mutex, PoisonError,
         atomic::{AtomicBool, Ordering},
     },
 };
@@ -27,6 +27,7 @@ use sucrose_engine_web::{
     profile::{self, ProfileLease},
 };
 use sucrose_ipc::protocol::{Assignment, PlaybackSettings, WebOptions};
+use sucrose_platform::input::{InputEvent, focus_click_messages, key_message, mouse_message};
 
 use crate::host::{Host, HostError, HostStart};
 
@@ -53,7 +54,15 @@ enum Command {
     Data,
     /// The Portal's Open DevTools button (D-13).
     OpenDevTools,
+    /// A mouse move is waiting in the shared pending slot; one marker covers a whole burst of moves.
+    MouseMove,
+    /// One input event the renderer's filters let through.
+    Input(InputEvent),
 }
+
+/// The newest mouse move not yet handed to the page: a mouse moves a thousand times a second, so moves are coalesced in
+/// this slot instead of filling the command queue.
+type PendingMove = Arc<Mutex<Option<InputEvent>>>;
 
 /// The state a renderer starts with: not paused, the playback settings and the web options of its assignment.
 fn initial_state(settings: &PlaybackSettings, theme_type: &str, shuffle: bool) -> PageState {
@@ -73,6 +82,7 @@ pub struct WebView2Engine {
     /// Wakes the surface thread's message loop; callable from any thread.
     wake: Arc<dyn Fn() + Send + Sync>,
     state: Arc<PageState>,
+    pending_move: PendingMove,
 }
 
 impl std::fmt::Debug for WebView2Engine {
@@ -88,6 +98,9 @@ pub struct WebView2Pump {
     host: Host,
     commands: Receiver<Command>,
     state: Arc<PageState>,
+    pending_move: PendingMove,
+    /// The top left corner of the surface on the virtual screen: input positions are made relative to it.
+    origin: (i32, i32),
     theme_dir: PathBuf,
     /// The non-empty templates of the theme, read when the first snapshot arrives.
     templates: Option<Vec<(CompatibleKey, String)>>,
@@ -249,16 +262,20 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
     })?;
 
     let (sender, receiver) = bounded(QUEUE_CAPACITY);
+    let pending_move = PendingMove::default();
     Ok(Started {
         engine: Arc::new(WebView2Engine {
             commands: sender,
             wake: Arc::new(move || proxy.wake()),
             state: Arc::clone(&state),
+            pending_move: Arc::clone(&pending_move),
         }),
         pump: Some(Box::new(WebView2Pump {
             host,
             commands: receiver,
             state,
+            pending_move,
+            origin: (assignment.rect[0], assignment.rect[1]),
             theme_dir,
             templates: None,
             profile,
@@ -369,6 +386,37 @@ impl Engine for WebView2Engine {
         Ok(())
     }
 
+    fn takes_input(&self) -> bool {
+        true
+    }
+
+    /// Keeps the newest mouse move and queues one marker for a burst of them; every other event is queued as it is. A
+    /// full queue drops the event without a word about its content (T-04-45).
+    fn forward_input(&self, event: &InputEvent) {
+        if let InputEvent::MouseMove { .. } = event {
+            let first = self
+                .pending_move
+                .lock()
+                .unwrap_or_else(PoisonError::into_inner)
+                .replace(*event)
+                .is_none();
+            if first {
+                match self.commands.try_send(Command::MouseMove) {
+                    Ok(()) => (self.wake)(),
+                    Err(_) => {
+                        // Nobody will take it: the next move must queue a marker again.
+                        *self.pending_move.lock().unwrap_or_else(PoisonError::into_inner) = None;
+                    }
+                }
+            }
+            return;
+        }
+        match self.commands.try_send(Command::Input(*event)) {
+            Ok(()) => (self.wake)(),
+            Err(_) => tracing::debug!("the WebView2 command queue is full or closed, an input event is dropped"),
+        }
+    }
+
     /// Keeps the newest snapshot of each group and queues one push for the surface thread. A text that is not JSON is
     /// dropped with a log line and the group keeps its last value.
     fn push_data(&self, data: Vec<(DataGroup, String)>) {
@@ -390,9 +438,24 @@ impl WebView2Pump {
                 data_pushed = true;
                 continue;
             }
+            // Input is never logged: it is what the user types and moves (T-04-45).
+            match command {
+                Command::MouseMove => {
+                    let moved = self.pending_move.lock().unwrap_or_else(PoisonError::into_inner).take();
+                    if let Some(event) = moved {
+                        self.post_input(&event);
+                    }
+                    continue;
+                }
+                Command::Input(event) => {
+                    self.post_input(&event);
+                    continue;
+                }
+                _ => {}
+            }
             tracing::debug!(?command, "queued command reached the WebView2 thread");
             match command {
-                Command::Data | Command::Volume(_) | Command::Stretch(_) => {}
+                Command::Data | Command::Volume(_) | Command::Stretch(_) | Command::MouseMove | Command::Input(_) => {}
                 Command::OpenDevTools => {
                     if let Err(error) = self.host.open_devtools() {
                         tracing::warn!(%error, "cannot open the WebView2 developer tools");
@@ -408,6 +471,29 @@ impl WebView2Pump {
         }
         if data_pushed {
             self.push_data();
+        }
+    }
+
+    /// Hands one input event to the page: the legacy message to the Chromium widget, positions relative to the surface;
+    /// the wheel goes through the DevTools protocol, as in the legacy WebView engine.
+    fn post_input(&mut self, event: &InputEvent) {
+        match *event {
+            InputEvent::Wheel { delta, x, y } => {
+                self.host
+                    .send_mouse_wheel(x.saturating_sub(self.origin.0), y.saturating_sub(self.origin.1), delta);
+            }
+            InputEvent::FocusClick => {
+                for (message, wparam, lparam) in focus_click_messages() {
+                    self.host.post_to_widget(message, wparam, lparam);
+                }
+            }
+            _ => {
+                if let Some((message, wparam, lparam)) =
+                    mouse_message(event, self.origin).or_else(|| key_message(event))
+                {
+                    self.host.post_to_widget(message, wparam, lparam);
+                }
+            }
         }
     }
 
@@ -433,6 +519,7 @@ impl SurfacePump for WebView2Pump {
     }
 
     fn set_rect(&mut self, rect: [i32; 4]) {
+        self.origin = (rect[0], rect[1]);
         if let Err(error) = self.host.set_rect(rect) {
             tracing::warn!(%error, "cannot move the WebView2 controller");
         }
@@ -470,6 +557,7 @@ mod tests {
                 counter.fetch_add(1, Ordering::SeqCst);
             }),
             state: Arc::new(initial_state(&PlaybackSettings::default(), "Dark", true)),
+            pending_move: PendingMove::default(),
         };
         (engine, receiver, wakes)
     }
@@ -529,6 +617,57 @@ mod tests {
         assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::Volume(10)]);
         assert_eq!(wakes.load(Ordering::SeqCst), 1);
         assert_eq!(engine.volume(), 70);
+    }
+
+    #[test]
+    fn a_web_page_takes_input() {
+        let (engine, _queue, _) = handle(1);
+
+        assert!(engine.takes_input());
+    }
+
+    #[test]
+    fn a_burst_of_moves_queues_one_marker_and_keeps_the_newest_move() {
+        let (engine, queue, wakes) = handle(8);
+
+        for x in 1..=5 {
+            engine.forward_input(&InputEvent::MouseMove { x, y: 2 });
+        }
+
+        assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::MouseMove]);
+        assert_eq!(wakes.load(Ordering::SeqCst), 1);
+        assert_eq!(
+            *engine.pending_move.lock().expect("lock"),
+            Some(InputEvent::MouseMove { x: 5, y: 2 })
+        );
+    }
+
+    #[test]
+    fn a_dropped_move_marker_lets_the_next_move_queue_a_new_one() {
+        let (engine, queue, _) = handle(1);
+        engine.set_volume(1).expect("fills the queue");
+
+        engine.forward_input(&InputEvent::MouseMove { x: 1, y: 1 });
+
+        assert_eq!(*engine.pending_move.lock().expect("lock"), None);
+        assert_eq!(queue.try_iter().count(), 1, "only the volume command is queued");
+    }
+
+    #[test]
+    fn other_events_are_queued_as_they_are_and_a_full_queue_drops_them() {
+        let (engine, queue, wakes) = handle(1);
+        let key = InputEvent::Key {
+            vk: 0x41,
+            scan: 0x1E,
+            down: true,
+            extended: false,
+        };
+
+        engine.forward_input(&key);
+        engine.forward_input(&InputEvent::FocusClick);
+
+        assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::Input(key)]);
+        assert_eq!(wakes.load(Ordering::SeqCst), 1);
     }
 
     #[test]

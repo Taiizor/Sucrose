@@ -143,6 +143,33 @@ pub fn view_settings(developer_mode: bool, allow_invalid_certificates: bool) -> 
     }
 }
 
+/// A number as JSON text with no exponent and at most three decimals: the invariant form the DevTools protocol takes (the
+/// legacy host formatted with the invariant culture too).
+fn json_number(value: f64) -> String {
+    let rounded = (value * 1000.0).round() / 1000.0;
+    // -0 prints as "-0"; both zeros are plain 0.
+    if rounded == 0.0 {
+        "0".to_owned()
+    } else {
+        rounded.to_string()
+    }
+}
+
+/// The parameters of the `Input.dispatchMouseEvent` call that turns the wheel: `x` and `y` are relative to the page's
+/// surface in physical pixels, `delta` is the raw wheel amount (120 per notch, positive away from the user). The
+/// protocol takes CSS pixels, so everything is divided by the monitor `scale` (120 at 150 % is 80); the page zoom stays
+/// 1. The vertical amount is negated, as the legacy engine does (engines.md section 5).
+#[must_use]
+pub fn wheel_params(delta: i32, x: i32, y: i32, scale: f64) -> String {
+    let scale = if scale > 0.0 { scale } else { 1.0 };
+    format!(
+        r#"{{"type":"mouseWheel","x":{},"y":{},"deltaX":0,"deltaY":{},"modifiers":0,"pointerType":"mouse"}}"#,
+        json_number(f64::from(x) / scale),
+        json_number(f64::from(y) / scale),
+        json_number(-f64::from(delta) / scale),
+    )
+}
+
 /// The host name of `uri` for a log line: what follows `://` up to the first `/`, `?`, `#` or `:` (a user name before
 /// an `@` is dropped). Never the path or the query, which can carry secrets.
 #[must_use]
@@ -161,6 +188,7 @@ mod imp {
     use std::{
         cell::Cell,
         path::{Path, PathBuf},
+        rc::Rc,
         sync::{Arc, mpsc},
         time::{Duration, Instant},
     };
@@ -171,7 +199,7 @@ mod imp {
         serve::{self, Content},
     };
     use webview2_com::{
-        AcceleratorKeyPressedEventHandler, CoreWebView2EnvironmentOptions,
+        AcceleratorKeyPressedEventHandler, CallDevToolsProtocolMethodCompletedHandler, CoreWebView2EnvironmentOptions,
         CreateCoreWebView2ControllerCompletedHandler, CreateCoreWebView2EnvironmentCompletedHandler,
         DownloadStartingEventHandler, ExecuteScriptCompletedHandler,
         Microsoft::Web::WebView2::Win32::{
@@ -188,7 +216,7 @@ mod imp {
     };
     use windows::{
         Win32::{
-            Foundation::{E_POINTER, HWND, RECT, RPC_E_CHANGED_MODE},
+            Foundation::{E_POINTER, HWND, LPARAM, RECT, RPC_E_CHANGED_MODE, WPARAM},
             Graphics::Gdi::{MONITOR_DEFAULTTONEAREST, MonitorFromRect},
             System::Com::{
                 COINIT_APARTMENTTHREADED, CoInitializeEx, CoUninitialize, IStream, STGM_READ, STGM_SHARE_DENY_NONE,
@@ -198,17 +226,17 @@ mod imp {
                 Input::KeyboardAndMouse::{GetKeyState, VK_CONTROL, VK_SHIFT},
                 Shell::{SHCreateMemStream, SHCreateStreamOnFileEx},
                 WindowsAndMessaging::{
-                    DispatchMessageW, MSG, MsgWaitForMultipleObjects, PM_REMOVE, PeekMessageW, PostQuitMessage,
-                    QS_ALLINPUT, TranslateMessage, WM_QUIT,
+                    DispatchMessageW, FindWindowExW, MSG, MsgWaitForMultipleObjects, PM_REMOVE, PeekMessageW,
+                    PostMessageW, PostQuitMessage, QS_ALLINPUT, TranslateMessage, WM_QUIT,
                 },
             },
         },
-        core::{BOOL, Interface, PCWSTR, PWSTR},
+        core::{BOOL, Interface, PCWSTR, PWSTR, w},
     };
 
     use super::{
         HostError, HostStart, bounds_size, header_block, ranged_reply, scale_for_dpi, stream_path, uri_host,
-        view_settings,
+        view_settings, wheel_params,
     };
 
     /// How long the environment and the controller get to come up.
@@ -516,6 +544,43 @@ mod imp {
         }
     }
 
+    /// The Chromium widget that takes the posted input messages: the first `Chrome_WidgetWin_0` under `parent` (the
+    /// surface that holds the controller), else the first `Chrome_WidgetWin_1`, searched in the direct children first and
+    /// then two levels deeper, as the legacy app walks WebView2's window chain. Only this renderer's own window tree is
+    /// searched, never the desktop (T-04-46).
+    fn find_widget(parent: HWND) -> Option<(isize, &'static str)> {
+        /// The first window of `class` among the descendants of `parent`, direct children first, down to `depth` more
+        /// levels.
+        fn search(parent: HWND, class: PCWSTR, depth: u32) -> Option<HWND> {
+            // SAFETY: `parent` is a window of this thread's surface and `class` a valid NUL-terminated literal;
+            // FindWindowExW only reads the window tree and fails for a window that is gone.
+            if let Ok(found) = unsafe { FindWindowExW(Some(parent), None, class, PCWSTR::null()) } {
+                return Some(found);
+            }
+            if depth == 0 {
+                return None;
+            }
+            let mut previous: Option<HWND> = None;
+            // SAFETY: as above; the previous child is a handle FindWindowExW returned a moment ago.
+            while let Ok(child) = unsafe { FindWindowExW(Some(parent), previous, PCWSTR::null(), PCWSTR::null()) } {
+                if let Some(found) = search(child, class, depth - 1) {
+                    return Some(found);
+                }
+                previous = Some(child);
+            }
+            None
+        }
+        for (name, class) in [
+            ("Chrome_WidgetWin_0", w!("Chrome_WidgetWin_0")),
+            ("Chrome_WidgetWin_1", w!("Chrome_WidgetWin_1")),
+        ] {
+            if let Some(found) = search(parent, class, 2) {
+                return Some((found.0 as isize, name));
+            }
+        }
+        None
+    }
+
     /// The WebView2 pieces of one renderer; closing it (or dropping it) releases them in order.
     pub struct Host {
         environment: Option<ICoreWebView2Environment>,
@@ -524,6 +589,11 @@ mod imp {
         webview: Option<ICoreWebView2>,
         tokens: Tokens,
         scale: Cell<f64>,
+        /// The surface window that holds the controller: the root of the search for the input widget.
+        parent: HWND,
+        /// The Chromium widget input is posted to, 0 until found (after the first navigation, and again when a post
+        /// fails). Shared with the navigation handler, which looks it up once the page exists.
+        target: Rc<Cell<isize>>,
         /// Whether this host set COM up on its thread and so owes the matching `CoUninitialize`.
         com: bool,
     }
@@ -559,6 +629,8 @@ mod imp {
                 webview: None,
                 tokens: Tokens::default(),
                 scale: Cell::new(1.0),
+                parent: HWND(parent as usize as *mut std::ffi::c_void),
+                target: Rc::new(Cell::new(0)),
                 com: true,
             };
             host.open(parent, rect, url, start)?;
@@ -712,6 +784,8 @@ mod imp {
 
                 let on_loaded = Arc::clone(&start.on_loaded);
                 let page_calls = Arc::clone(&start.page_calls);
+                let target = Rc::clone(&self.target);
+                let surface = self.parent;
                 let handler = NavigationCompletedEventHandler::create(Box::new(move |sender, args| {
                     let url = sender.as_ref().map_or_else(String::new, |webview| {
                         let mut source = PWSTR::null();
@@ -721,6 +795,16 @@ mod imp {
                     });
                     let status = args.map_or(0, |args| completed_status(&args));
                     tracing::info!(url = ?url, status, "page loaded");
+                    // The Chromium widget exists once the first page is up: find it now, not on the first input.
+                    if target.get() == 0 {
+                        match find_widget(surface) {
+                            Some((widget, class)) => {
+                                tracing::debug!(class, "input target found");
+                                target.set(widget);
+                            }
+                            None => tracing::debug!("the page has no Chromium widget window yet"),
+                        }
+                    }
                     // The page calls run in the order the planner gave them: ExecuteScript keeps the order it is
                     // called in on this thread.
                     if let Some(webview) = &sender {
@@ -782,6 +866,57 @@ mod imp {
                         bottom: height,
                     })
                     .map_err(|error| HostError::Setup(error.to_string()))
+            }
+        }
+
+        /// Posts one legacy input message to the Chromium widget of this page; `false` when there is no such window (yet)
+        /// or the post failed, after which the widget is looked up again next time.
+        pub fn post_to_widget(&self, message: u32, wparam: usize, lparam: isize) -> bool {
+            if self.target.get() == 0 {
+                match find_widget(self.parent) {
+                    Some((widget, class)) => {
+                        tracing::debug!(class, "input target found");
+                        self.target.set(widget);
+                    }
+                    None => return false,
+                }
+            }
+            // SAFETY: plain integers and a window handle of this page; PostMessageW validates the handle and fails for a
+            // window that is gone, which is handled below.
+            let posted = unsafe {
+                PostMessageW(
+                    Some(HWND(self.target.get() as *mut std::ffi::c_void)),
+                    message,
+                    WPARAM(wparam),
+                    LPARAM(lparam),
+                )
+            };
+            if posted.is_err() {
+                self.target.set(0);
+            }
+            posted.is_ok()
+        }
+
+        /// Turns the mouse wheel by `delta` (120 per notch) at `(x, y)` of the page through the DevTools protocol, as the
+        /// legacy WebView engine does. The position is relative to the surface, in physical pixels.
+        pub fn send_mouse_wheel(&self, x: i32, y: i32, delta: i32) {
+            let Some(webview) = &self.webview else {
+                return;
+            };
+            let params = wide(&wheel_params(delta, x, y, self.scale.get()));
+            let method = wide("Input.dispatchMouseEvent");
+            let handler = CallDevToolsProtocolMethodCompletedHandler::create(Box::new(|code, _result| {
+                if let Err(error) = code {
+                    tracing::debug!(%error, "the wheel call failed");
+                }
+                Ok(())
+            }));
+            // SAFETY: both strings are NUL-terminated and outlive the call, which copies them; the handler is a COM
+            // object the call keeps its own reference to; the webview belongs to this thread.
+            if let Err(error) = unsafe {
+                webview.CallDevToolsProtocolMethod(PCWSTR(method.as_ptr()), PCWSTR(params.as_ptr()), &handler)
+            } {
+                tracing::debug!(%error, "the wheel call could not be started");
             }
         }
 
@@ -922,6 +1057,14 @@ mod stub {
             Ok(())
         }
 
+        /// No page to post to.
+        pub fn post_to_widget(&self, _message: u32, _wparam: usize, _lparam: isize) -> bool {
+            false
+        }
+
+        /// No page to turn.
+        pub fn send_mouse_wheel(&self, _x: i32, _y: i32, _delta: i32) {}
+
         /// Nothing to show the tools of.
         pub fn open_devtools(&self) -> Result<(), HostError> {
             Err(HostError::Unsupported)
@@ -1023,6 +1166,22 @@ mod tests {
             "developer mode does not allow bad certificates"
         );
         assert!(view_settings(false, true).allow_invalid_certificates);
+    }
+
+    #[test]
+    fn the_wheel_delta_is_divided_by_the_monitor_scale_and_the_vertical_amount_is_negated() {
+        assert_eq!(
+            wheel_params(120, 300, 200, 1.5),
+            r#"{"type":"mouseWheel","x":200,"y":133.333,"deltaX":0,"deltaY":-80,"modifiers":0,"pointerType":"mouse"}"#
+        );
+        assert_eq!(
+            wheel_params(-120, 0, 0, 1.0),
+            r#"{"type":"mouseWheel","x":0,"y":0,"deltaX":0,"deltaY":120,"modifiers":0,"pointerType":"mouse"}"#
+        );
+        assert!(
+            wheel_params(240, 10, 10, 0.0).contains(r#""deltaY":-240"#),
+            "an unknown scale is 1"
+        );
     }
 
     #[test]
