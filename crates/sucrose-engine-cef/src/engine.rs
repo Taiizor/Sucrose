@@ -153,6 +153,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             }
         }),
         profile: acquire_profile(assignment.slot),
+        allow_invalid_certificates: assignment.web.allow_invalid_certificates,
     };
     // The page comes from the virtual origin (D-14): the theme folder first, then the generated content.
     let url = origin::page_url(&theme_dir, &assignment.source);

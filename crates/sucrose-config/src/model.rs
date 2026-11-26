@@ -862,11 +862,7 @@ impl Settings {
                 library_start: engine.boolean("LibraryStart", true),
                 store_start: engine.boolean("StoreStart", true),
                 stay_awake: engine.boolean("StayAwake", false),
-                allow_invalid_certificates: {
-                    // RED stub: the value is read but not used yet.
-                    let _ = engine.boolean("AllowInvalidCertificates", false);
-                    false
-                },
+                allow_invalid_certificates: engine.boolean("AllowInvalidCertificates", false),
                 extra: engine.rest(),
             },
             backgroundog: Backgroundog {

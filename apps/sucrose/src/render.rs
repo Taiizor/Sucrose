@@ -777,6 +777,7 @@ fn connect_with_retry(endpoint: &str) -> Result<Connection, IpcError> {
 #[cfg(test)]
 mod tests {
     use sucrose_core::theme::WallpaperType;
+    use sucrose_ipc::protocol::WebOptions;
 
     use super::*;
 
@@ -831,6 +832,7 @@ mod tests {
             kind: WallpaperType::Video,
             engine: sucrose_core::settings::EngineType::VlcPlayerLive,
             theme_dir: "C:/".to_owned(),
+            web: WebOptions::default(),
         };
 
         let error = start_engine(EngineId::Vlc, 0, &assignment, || {

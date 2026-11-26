@@ -29,7 +29,7 @@ use sucrose_ipc::{
         Launch, LaunchReply, MAX_PATH_TEXT, MaintainReport, MoveOutcome, MoveRefusal, PortalEvent, PortalPage,
         PortalRequest, RuleState, RuntimeState, SettingChange, UseOutcome, UseRefusal,
     },
-    protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
+    protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService, WebOptions},
     service_endpoint,
 };
 use sucrose_platform::{
@@ -2522,6 +2522,8 @@ struct Job {
     engine: EngineType,
     /// The absolute path of the theme folder.
     theme_dir: String,
+    /// How the web engines behave for this job (D-12).
+    web: WebOptions,
 }
 
 impl Job {
@@ -2537,6 +2539,7 @@ impl Job {
             kind: self.kind,
             engine: self.engine,
             theme_dir: self.theme_dir.clone(),
+            web: self.web,
         }
     }
 }
@@ -3588,7 +3591,15 @@ fn job_for(theme: &SelectedTheme, engine: &Engine, pause: PauseKind) -> Result<J
         kind,
         engine: chosen.to_legacy(),
         theme_dir,
+        web: web_options(engine),
     })
+}
+
+/// The web engine options the Engine section leads to: certificates are validated unless the user allowed invalid ones.
+fn web_options(engine: &Engine) -> WebOptions {
+    WebOptions {
+        allow_invalid_certificates: engine.allow_invalid_certificates,
+    }
 }
 
 /// The player settings the Engine section leads to.
@@ -3608,6 +3619,19 @@ mod tests {
 
     use super::*;
     use crate::supervisor::ENGINE_MISSING;
+
+    #[test]
+    fn web_jobs_validate_certificates_unless_the_engine_section_allows_invalid_ones() {
+        let mut engine = Engine::default();
+        assert!(
+            !web_options(&engine).allow_invalid_certificates,
+            "D-12: validation is the default"
+        );
+
+        engine.allow_invalid_certificates = true;
+
+        assert!(web_options(&engine).allow_invalid_certificates);
+    }
 
     fn hello(protocol_version: u16, pid: u32, slot: u8) -> ToService {
         ToService::Hello {
@@ -4573,6 +4597,7 @@ mod tests {
             kind: WallpaperType::Video,
             engine: EngineType::MpvPlayerLive,
             theme_dir: "C:/".to_owned(),
+            web: WebOptions::default(),
         };
         Fleet::new(Some(job), SharedAssignments::default())
     }
@@ -4916,6 +4941,7 @@ mod tests {
             kind: WallpaperType::Video,
             engine: EngineType::MpvPlayerLive,
             theme_dir: "C:/themes/new".to_owned(),
+            web: WebOptions::default(),
         }
     }
 

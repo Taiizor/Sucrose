@@ -54,6 +54,8 @@ pub struct CefStart {
     /// The browser profile this instance runs on (D-33, D-35); `None` runs on in-memory caches, which keep nothing.
     /// The host keeps the lease until CEF has shut down, so the folder stays this instance's all that time.
     pub profile: Option<Arc<ProfileLease>>,
+    /// Whether the user allowed invalid TLS certificates (D-12, `Engine.AllowInvalidCertificates`); off by default.
+    pub allow_invalid_certificates: bool,
 }
 
 impl std::fmt::Debug for CefStart {
@@ -112,11 +114,10 @@ pub struct SettingsValues {
 /// See [`profile_paths`].
 pub fn settings_values(profile: Option<&Path>, allow_invalid_certificates: bool) -> Result<SettingsValues, CefError> {
     let (root_cache_path, cache_path) = profile_paths(profile)?;
-    let _ = allow_invalid_certificates;
     Ok(SettingsValues {
         root_cache_path,
         cache_path,
-        ignore_certificate_errors: false,
+        ignore_certificate_errors: allow_invalid_certificates,
     })
 }
 
@@ -176,7 +177,8 @@ mod imp {
     };
 
     use super::{
-        CefError, CefStart, LoadedCallback, ProfileLease, Pump, browser_size, next_pump_delay_ms, profile_paths,
+        CefError, CefStart, IGNORE_CERTIFICATE_ERRORS_SWITCH, LoadedCallback, ProfileLease, Pump, browser_size,
+        next_pump_delay_ms, settings_values,
     };
 
     /// How long `close` pumps for the browser to go away before it gives up and shuts CEF down anyway.
@@ -203,11 +205,29 @@ mod imp {
     wrap_app! {
         struct HostApp {
             handler: BrowserProcessHandler,
+            ignore_certificate_errors: bool,
         }
 
         impl App {
             fn browser_process_handler(&self) -> Option<BrowserProcessHandler> {
                 Some(self.handler.clone())
+            }
+
+            // CEF's settings have no field for accepting invalid certificates, so the browser process adds Chromium's
+            // switch itself, and only when the user allowed it (D-12): there is no OnCertificateError override, so
+            // everything else is rejected.
+            fn on_before_command_line_processing(
+                &self,
+                process_type: Option<&CefString>,
+                command_line: Option<&mut CommandLine>,
+            ) {
+                let browser_process = process_type.is_none_or(|kind| kind.to_string().is_empty());
+                if !(self.ignore_certificate_errors && browser_process) {
+                    return;
+                }
+                if let Some(command_line) = command_line {
+                    command_line.append_switch(Some(&CefString::from(IGNORE_CERTIFICATE_ERRORS_SWITCH)));
+                }
             }
         }
     }
@@ -379,11 +399,13 @@ mod imp {
                 closed: AtomicBool::new(false),
                 on_loaded: Arc::clone(&start.on_loaded),
             });
-            let mut app = HostApp::new(PumpHandler::new(Arc::clone(&pump)));
             // The persistent profile of the first instance or an ephemeral one (D-33); both paths name the same folder, so
             // CEF's process singleton lock and the profile never meet another running instance's.
-            let (root_cache_path, cache_path) =
-                profile_paths(start.profile.as_deref().map(|lease| lease.path.as_path()))?;
+            let values = settings_values(
+                start.profile.as_deref().map(|lease| lease.path.as_path()),
+                start.allow_invalid_certificates,
+            )?;
+            let mut app = HostApp::new(PumpHandler::new(Arc::clone(&pump)), values.ignore_certificate_errors);
             let settings = Settings {
                 no_sandbox: 1,
                 external_message_pump: 1,
@@ -392,8 +414,8 @@ mod imp {
                 browser_subprocess_path: CefString::from(utf8(&start.subprocess_path, "subprocess")?.as_str()),
                 log_file: CefString::from(utf8(&start.log_file, "log file")?.as_str()),
                 locale: CefString::from("en-US"),
-                root_cache_path: CefString::from(root_cache_path.as_str()),
-                cache_path: CefString::from(cache_path.as_str()),
+                root_cache_path: CefString::from(values.root_cache_path.as_str()),
+                cache_path: CefString::from(values.cache_path.as_str()),
                 // The legacy host's PersistSessionCookies; it only takes effect with a cache path.
                 persist_session_cookies: 1,
                 ..Settings::default()

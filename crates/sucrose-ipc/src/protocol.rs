@@ -14,7 +14,7 @@ use sucrose_core::{
 use crate::portal::{Launch, PortalPage};
 
 /// Version of this protocol, sent in [`ToService::Hello`] so the service can refuse a renderer it cannot talk to.
-pub const PROTOCOL_VERSION: u16 = 5;
+pub const PROTOCOL_VERSION: u16 = 6;
 
 /// Messages from a renderer to the service.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
@@ -137,6 +137,14 @@ impl Default for PlaybackSettings {
     }
 }
 
+/// How the web engines are configured for a renderer, taken from the Engine section (D-12).
+#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub struct WebOptions {
+    /// Whether the web engine accepts invalid TLS certificates (`Engine.AllowInvalidCertificates`). Off by default: the
+    /// engine validates certificates and rejects the rest.
+    pub allow_invalid_certificates: bool,
+}
+
 /// One wallpaper job for a renderer: a monitor and the file or page to show on it.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Assignment {
@@ -157,6 +165,8 @@ pub struct Assignment {
     pub engine: EngineType,
     /// The absolute path of the theme folder; a Web theme's page and its assets live under it.
     pub theme_dir: String,
+    /// How the web engines behave for this job; the other engines ignore it.
+    pub web: WebOptions,
 }
 
 #[cfg(test)]
@@ -176,6 +186,7 @@ mod tests {
             kind: WallpaperType::Video,
             engine: EngineType::MpvPlayerLive,
             theme_dir: "C:\\themes\\a".to_owned(),
+            web: WebOptions::default(),
         }))
         .expect("encode Assign");
 
@@ -309,6 +320,7 @@ mod tests {
             kind: WallpaperType::Video,
             engine: EngineType::MpvPlayerLive,
             theme_dir: "C:\\themes".to_owned(),
+            web: WebOptions::default(),
         });
 
         let bytes = postcard::to_stdvec(&message).expect("encode");
@@ -327,11 +339,22 @@ mod tests {
             kind: WallpaperType::Web,
             engine: EngineType::CefSharpLive,
             theme_dir: "C:\\themes\\hello".to_owned(),
+            web: WebOptions {
+                allow_invalid_certificates: true,
+            },
         });
 
         let bytes = postcard::to_stdvec(&message).expect("encode");
 
         assert_eq!(bytes[0], 1);
         assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
+    }
+
+    #[test]
+    fn web_options_validate_certificates_by_default() {
+        assert!(
+            !WebOptions::default().allow_invalid_certificates,
+            "D-12: validation is the default"
+        );
     }
 }
