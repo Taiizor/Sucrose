@@ -173,6 +173,7 @@ Windows only; macOS and Linux follow in Phases 6–7. Store, theme creation, cyc
     - A requirement that spans rounds is marked Complete only in the round that lands its last part.
     - Requirements and decisions that belong to later rounds are not gaps of an earlier round. The requirement and decision coverage gates of each round report them as deferred to their round.
     - Phase verification (`human_verify_mode` end-of-phase) runs only after Round E has executed.
+    - **Round B scope (maintainer decision on 2026-11-26, at the Round B /gsd-plan-phase run).** Round B adds plans from 04-22 on and leaves the Round A plans unchanged. Its final maintainer checkpoint also reruns the 04-20 slice-1 steps that failed or were skipped (1, 3, 5, 6 and 8) for the 8 Web themes and the fixture pages on both CEF and WebView2. When they pass, it marks the Round A requirements that 04-20 left Pending (TYPE-03, ENG-07, WAPI-01, WAPI-02, WAPI-04, FMT-07). The open defects from 04-20 (Web themes that fail inside the page, for example the CORS-like error of "Test Sucrose API" and "SucrosePropertyListener is not defined" on Critter Crossing, and the CEF GPU process crash) are fixed in separate /gsd-debug sessions, not in Round B plans. The checkpoint plan names those fixes as its precondition; if they have not landed, its Complete rule applies as written.
 
 ### Research resolutions (confirmed by the maintainer on 2026-11-26)
 The research (`04-RESEARCH.md`, Open Questions for the Maintainer) raised five questions. The maintainer chose the recommended option for each:

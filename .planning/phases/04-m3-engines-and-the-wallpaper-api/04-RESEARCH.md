@@ -823,7 +823,7 @@ fn main() {
 | A23 | Chromium honours the last occurrence of a repeated switch | Pitfall 9 | Merge logic still harmless. |
 | A24 | CEF dist size, `chrome://credits` availability | Findings 1 | Package-size and notice work in Phase 5. |
 
-## Open Questions for the Maintainer
+## Open Questions for the Maintainer (RESOLVED)
 
 **Resolved on 2026-11-26:** the maintainer confirmed the recommended option for all five questions. They are recorded in `04-CONTEXT.md` as D-32 (question 1), D-33 (2), D-34 (3), D-36 (4) and D-35 (5).
 

@@ -40,3 +40,42 @@
 | Legacy JS API: SucroseCompatible SystemAudio | OPT-OUT | not needed yet: Round B (WAPI-05, WAPI-06) |
 | Legacy JS API: Round D data keys | OPT-OUT | SystemGraphic, SystemNetwork, SystemStorage, SystemBattery; not needed yet: Round D (WAPI-03) |
 | Legacy JS API: generated-page functions | OPT-OUT | GifContent, VideoContent, YouTubeContent pages; not needed yet: generated pages arrive in Round B (WAPI-08); SucrosePause and SucrosePlay are already called when a page defines them (04-09) |
+
+## Round B (D-31 slices 2 and 3: WebView2, Windows audio and media session APIs, Direct2D, the YouTube IFrame API)
+
+> Same rule: full coverage by default, every opt-out reasoned. The Round A rows above stay as written; where a Round B row decides a capability that Round A marked "not needed yet", the Round B row is the decision.
+
+| capability | decision | reason |
+|---|---|---|
+| webview2: runtime version for detection (04-22) | INTEGRATE | GetAvailableCoreWebView2BrowserVersionString, no WebView created |
+| webview2: environment with options (04-22, 04-25) | INTEGRATE | user data folder, language, extensions and crash reporting off, AdditionalBrowserArguments |
+| webview2: controller as a child of the surface (04-22) | INTEGRATE | bounds, RasterizationScale, raw-pixel BoundsMode, black background, Close |
+| webview2: WebResourceRequested responses for the origin (04-22, 04-23) | INTEGRATE | AddWebResourceRequestedFilter, CreateWebResourceResponse, Range |
+| webview2: request header edit for youtube hosts (04-35) | INTEGRATE | Referer filled only when missing |
+| webview2: SetVirtualHostNameToFolderMapping | OPT-OUT | explicitly out of scope: one folder per host would split the D-14 single origin; media over it is documented as slow |
+| webview2: Navigate and NavigationCompleted (04-22) | INTEGRATE | HttpStatusCode decides the page calls |
+| webview2: ExecuteScript for the page calls (04-24) | INTEGRATE | |
+| webview2: AddScriptToExecuteOnDocumentCreated | OPT-OUT | not needed yet: the web Duplicate time-base shim is Round C (D-04) |
+| webview2: DevTools, context menu and accelerator settings (04-25) | INTEGRATE | AreDevToolsEnabled, AreDefaultContextMenusEnabled, AcceleratorKeyPressed |
+| webview2: OpenDevToolsWindow (04-25) | INTEGRATE | only on the Portal's Open DevTools (D-13) |
+| webview2: ServerCertificateErrorDetected AlwaysAllow (04-25) | INTEGRATE | only with the opt-in switch (D-12) |
+| webview2: DownloadStarting cancel (04-22) | INTEGRATE | legacy |
+| webview2: Input.dispatchMouseEvent for the wheel (04-25) | INTEGRATE | CallDevToolsProtocolMethod |
+| webview2: TrySuspend and Resume | OPT-OUT | not needed yet: Heavy pause is Round D (D-22); Light pause runs inside the page |
+| webview2: IsMuted and audio state | OPT-OUT | not needed yet: Web and URL page volume and the sound rules are Round D; generated pages set their media volume in the page |
+| webview2: host objects and web messages | OPT-OUT | explicitly out of scope: the legacy API is one-way script strings; a page-to-host channel is a research anti-pattern |
+| webview2: ProcessFailed handling | OPT-OUT | not needed yet: a failed browser process ends the renderer, which the Phase 2 supervisor restarts |
+| cef: Referer fill in OnBeforeResourceLoad (04-35) | INTEGRATE | decides the Round A "not needed yet" row; only a missing Referer, only youtube hosts |
+| cef: SetAudioMuted / browser volume, Round B decision | OPT-OUT | not needed yet: generated pages set their media volume in the page (04-33); Web and URL page volume is Round D |
+| wasapi: loopback capture of the default render device (04-28) | INTEGRATE | IAudioClient loopback, IAudioCaptureClient, IMMNotificationClient device change; decides the Round A row |
+| gsmtc: current media session and its change events (04-29) | INTEGRATE | media properties, playback info, timeline, thumbnail stream; decides the Round A row |
+| gsmtc: playback control commands | OPT-OUT | explicitly out of scope: the legacy API only reports now-playing data; Sucrose never controls another app's playback |
+| direct2d: HwndRenderTarget presenter (04-30) | INTEGRATE | D2D1CreateFactory, CreateBitmap, CopyFromMemory, DrawBitmap |
+| gdi: StretchDIBits fallback presenter (04-31) | INTEGRATE | |
+| image: GIF, APNG and animated WebP decoding (04-30, 04-32) | INTEGRATE | also GIF and lossless WebP encoding for the generated fixtures |
+| youtube iframe api: the legacy player calls (04-35) | INTEGRATE | YT.Player with the legacy playerVars, loadPlaylist, playVideoAt, setLoop, setShuffle, setVolume, play/pause, state and error events |
+| youtube iframe api: getCurrentTime and seekTo for clock sync | OPT-OUT | not needed yet: Duplicate sync is Round C (D-04) |
+| youtube data api | OPT-OUT | explicitly out of scope: no API key, as in the legacy app (TYPE-05) |
+| legacy js api: SucroseCompatible SystemAudio (04-28, 04-29) | INTEGRATE | decides the Round A row |
+| legacy js api: GifContent, VideoContent, YouTubeContent pages (04-33, 04-35) | INTEGRATE | decides the Round A row |
+| microsoft: WebView2 Evergreen Bootstrapper install (04-27) | INTEGRATE | download over HTTPS, Authenticode-verified, run with /silent /install |

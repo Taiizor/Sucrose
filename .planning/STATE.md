@@ -1,17 +1,17 @@
 ---
 gsd_state_version: "1.0"
-current_phase: 04
+current_phase: 4
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
 stopped_at: Completed 04-21-PLAN.md
-last_updated: "2026-11-26T20:06:49.422Z"
+last_updated: "2026-11-26T21:59:33.698Z"
 last_activity: 2026-11-26
 last_activity_desc: Phase 04 Round A executed (04-01..04-21)
-state_head: 2187bcd0ab931590b8de8b6af58ee354099b1ee3
+state_head: 47153a63af0d68fbd539a8274ce71a06b94ca799
 progress:
   total_phases: 8
   completed_phases: 3
-  total_plans: 100
+  total_plans: 117
   completed_plans: 100
   percent: 38
 ---
@@ -27,11 +27,11 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 
 ## Current Position
 
-Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 21 of 21
-Status: Round A executed (plans 04-01..04-21); Rounds B–E not planned yet, so phase verification waits (it runs after Round E)
-Last activity: 2026-11-26 — 04-21 CEF vs CefSharp measurement recorded in docs/MEASUREMENTS.md
-Next step: decide whether the 04-20 slice-1 checks need a rerun now that the CEF close fix is in, then `/gsd-plan-phase 4` plans Round B (slices 2 and 3).
+Phase: 4 (M3 — Engines and the wallpaper API) — READY TO EXECUTE
+Plan: 21 of 38
+Status: Round A executed (plans 04-01..04-21); Round B planned (04-22..04-38, D-31 slices 2 and 3) and ready to execute; Rounds C–E not planned yet, so phase verification waits (it runs after Round E)
+Last activity: 2026-11-26 — Round B planned: 17 plans (04-22..04-38), plan checker passed after three iterations and three maintainer-approved follow-ups on 04-37
+Next step: /gsd-debug for the in-page Web theme failures and the CEF GPU process crash (04-37 names their fixes as its precondition), then `/gsd-execute-phase 4` runs Round B.
 
 Progress: [████░░░░░░] 38%
 
@@ -312,6 +312,8 @@ Recent decisions affecting current work:
 - [Phase 04]: Forwarded positions are relative to the renderer rectangle; InputEvent Debug never shows which key it was (T-04-45)
 - [Phase 04]: 04-20: Complete rule case 2: step 1 failed and steps 5, 6, 8 were skipped, so requirements-completed is empty and no requirement is marked Complete; the Shut Down Windows dialog defect is a blocker for /gsd-debug
 - [Phase 04]: 04-21: M3 CEF row records Rust alone because --row refused the pair (no Rust GPU adapter, G-02-6); C# CefSharp numbers in the paragraph; Rust RAM lower and CPU higher recorded as found, not tuned
+- [Phase 04]: Round B planned (2026-11-26): 04-22..04-38 for D-31 slices 2 and 3 (WebView2; built-in GIF/APNG/WebP, generated pages, URL, YouTube), threat IDs T-04-50..T-04-81. Maintainer decisions: add plans and leave Round A unchanged; the final checkpoint 04-37 reruns the failed or skipped 04-20 steps on CEF and WebView2 and can mark TYPE-03, ENG-07, WAPI-01, WAPI-02, WAPI-04 and FMT-07; the open 04-20 defects go to /gsd-debug and are its precondition; step B6 (two monitors with DISPLAY9) is a required ENG-02 proof.
+- [Phase 04]: Round B coverage gate override (approved deferral, 04-CONTEXT D-31): the 21 requirements of Rounds C–E (TYPE-06, ENG-04, ENG-05, DESK-02..04, PLAY-02..04, PERF-01..04, PERF-06..09, PROP-01..04) and their 16 CONTEXT decisions (D-01, D-03, D-05, D-07, D-08, D-18..D-21, D-23, D-25, D-27..D-30, D-36) are deferred to their round, not dropped; every Round B requirement is covered.
 
 ### Pending Todos
 

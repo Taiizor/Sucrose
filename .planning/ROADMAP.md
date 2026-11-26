@@ -276,7 +276,7 @@ Plans:
   3. User can show a wallpaper per display, spanned or duplicated, put a different wallpaper on each monitor, and choose the working area or the full display bounds and a stretch mode, with every engine.
   4. Changing a value in the properties editor (all ten control types, texts in the user's language) changes the running wallpaper immediately; the user can restore defaults, turn on developer mode with a remote debugging port, and add, remove or reset web engine arguments.
   5. Each performance condition (lock, sleep, user switch, screen saver, focus, fullscreen, CPU/memory/GPU, network, battery, remote desktop/VM) runs its configured Close, Pause or Resume with the legacy timings; pausing goes through the engine and never suspends processes; volume, loop, shuffle and the two sound rules apply to every engine.
-**Plans**: 21/21 plans executed (Round A = D-31 slice 1; Rounds B–E are planned after Round A has executed, 04-CONTEXT D-31 "Planning rounds")
+**Plans**: 21/38 plans executed (Round A = D-31 slice 1, 04-01..04-21, executed; Round B = D-31 slices 2 and 3, 04-22..04-38, planned; Rounds C–E are planned after the previous round has executed, 04-CONTEXT D-31 "Planning rounds")
 Plans:
 **Wave 1**
 - [x] 04-01-PLAN.md — D-32 CEF delay-load spike, part 1: pinned CEF via fetch-engines and CEF_PATH, delay-loaded libcef.dll, CEF subprocess routing, fixture Web library
@@ -338,6 +338,57 @@ Plans:
 
 **Wave 20** *(blocked on Wave 19 completion)*
 - [x] 04-21-PLAN.md — Maintainer measurement: CEF against C# CefSharp RAM/CPU into MEASUREMENTS.md
+
+**Wave 21** *(blocked on Wave 20 completion)*
+- [ ] 04-22-PLAN.md — WebView2 plays a Web theme from the virtual origin: engine crate, runtime detection, shared reply planner (ENG-02, D-14)
+
+**Wave 22** *(blocked on Wave 21 completion)*
+- [ ] 04-23-PLAN.md — WebView2 serves the origin like CEF: range replies, traversal and seek fixtures, synth-library --engine (SEC-02 kept)
+
+**Wave 23** *(blocked on Wave 22 completion)*
+- [ ] 04-24-PLAN.md — The JavaScript API on WebView2 from a shared page module; storage and concurrent profiles (WAPI-01..04, FMT-07, D-33)
+
+**Wave 24** *(blocked on Wave 23 completion)*
+- [ ] 04-25-PLAN.md — WebView2 switches, debugging port, developer mode, certificates and input (WAPI-09, WAPI-10, WAPI-07, D-12, D-13, D-17)
+
+**Wave 25** *(blocked on Wave 24 completion)*
+- [ ] 04-26-PLAN.md — Portal: WebView2 row, status line and Arguments editor, SettingChange::WebArguments (WAPI-10)
+
+**Wave 26** *(blocked on Wave 25 completion)*
+- [ ] 04-27-PLAN.md — Verified WebView2 Runtime install path; marks ENG-06
+
+**Wave 27** *(blocked on Wave 26 completion)*
+- [ ] 04-28-PLAN.md — Audio spectrum: WASAPI loopback and the legacy visualizer, only while a page wants it (WAPI-05)
+
+**Wave 28** *(blocked on Wave 27 completion)*
+- [ ] 04-29-PLAN.md — Now playing from the Windows media session, album art over chunked IPC (WAPI-06)
+
+**Wave 29** *(blocked on Wave 28 completion)*
+- [ ] 04-30-PLAN.md — Built-in GIF renderer: lazy decode, Direct2D, loop, Light pause, resize; Gif cards usable (TYPE-02)
+
+**Wave 30** *(blocked on Wave 29 completion)*
+- [ ] 04-31-PLAN.md — Built-in GIF renderer: the four stretch modes and the GDI fallback presenter (DESK-05 part)
+
+**Wave 31** *(blocked on Wave 30 completion)*
+- [ ] 04-32-PLAN.md — APNG and WebP on the built-in renderer, generated fixtures, TYPE-02 edges and memory bound
+
+**Wave 32** *(blocked on Wave 31 completion)*
+- [ ] 04-33-PLAN.md — Generated GifContent and VideoContent pages on both web engines, built-in sets with the D-06 volume (WAPI-08, PROP-05 part)
+
+**Wave 33** *(blocked on Wave 32 completion)*
+- [ ] 04-34-PLAN.md — URL wallpapers on both web engines: ThemeSource, the address gate with the YouTube ids, input (TYPE-04)
+
+**Wave 34** *(blocked on Wave 33 completion)*
+- [ ] 04-35-PLAN.md — YouTube wallpapers: the legacy IFrame API page, Referer hook (TYPE-05, WAPI-08)
+
+**Wave 35** *(blocked on Wave 34 completion)*
+- [ ] 04-36-PLAN.md — Portal: Gif Player, Url Engine and YouTube Engine rows, Built-in choice and fallback (ENG-07)
+
+**Wave 36** *(blocked on Wave 35 completion)*
+- [ ] 04-37-PLAN.md — Maintainer checkpoint: 04-20 reruns on CEF and WebView2 plus the slice 2 and 3 checks; marks the Round B completions
+
+**Wave 37** *(blocked on Wave 36 completion)*
+- [ ] 04-38-PLAN.md — Maintainer measurement: WebView2 against C# WebView, built-in GIF against mpv and C# mpv, into MEASUREMENTS.md
 
 **UI hint**: yes
 **Notes**: Engine binaries ship inside the package (D-028); own `bindgen` bindings loaded with `libloading` (D-013). Legacy bugs are fixed, not ported: CEF path traversal (SEC-02), ping checked first even at threshold 0 (PERF-07), Application wallpapers with fake handles or one process for all screens (TYPE-06), debugger-attach and `NtSuspendProcess` pausing (PLAY-05). Record per-engine RAM/CPU from release builds in `docs/MEASUREMENTS.md`.
