@@ -368,6 +368,49 @@ mod tests {
     }
 
     #[test]
+    fn origin_byte_range_reads_the_three_single_forms() {
+        let partial = |start, end| ByteRange::Partial { start, end };
+        assert_eq!(byte_range("bytes=0-99", 1000), partial(0, 99));
+        assert_eq!(byte_range("bytes=900-", 1000), partial(900, 999));
+        assert_eq!(byte_range("bytes=-100", 1000), partial(900, 999));
+    }
+
+    #[test]
+    fn origin_byte_range_clamps_to_the_file() {
+        let partial = |start, end| ByteRange::Partial { start, end };
+        assert_eq!(byte_range("bytes=990-5000", 1000), partial(990, 999));
+        assert_eq!(byte_range("bytes=-5000", 1000), partial(0, 999));
+        assert_eq!(byte_range("bytes=0-0", 1000), partial(0, 0));
+        assert_eq!(byte_range(" bytes=5-6 ", 10), partial(5, 6));
+    }
+
+    #[test]
+    fn origin_byte_range_past_the_end_is_unsatisfiable() {
+        assert_eq!(byte_range("bytes=1000-", 1000), ByteRange::Unsatisfiable);
+        assert_eq!(byte_range("bytes=1000-1005", 1000), ByteRange::Unsatisfiable);
+        assert_eq!(byte_range("bytes=-0", 1000), ByteRange::Unsatisfiable);
+        assert_eq!(byte_range("bytes=0-", 0), ByteRange::Unsatisfiable);
+    }
+
+    #[test]
+    fn origin_byte_range_ignores_what_it_cannot_serve_as_one_range() {
+        assert_eq!(byte_range("bytes=0-9,20-29", 1000), ByteRange::Full);
+        for malformed in [
+            "",
+            "bytes=",
+            "bytes=a-b",
+            "bytes=5-2",
+            "items=0-9",
+            "0-9",
+            "bytes=-",
+            "bytes=--1",
+            "bytes=1-2-3",
+        ] {
+            assert_eq!(byte_range(malformed, 1000), ByteRange::Full, "{malformed}");
+        }
+    }
+
+    #[test]
     fn origin_page_url_encodes_each_segment() {
         let theme = Path::new("C:\\t\\a b");
         assert_eq!(
