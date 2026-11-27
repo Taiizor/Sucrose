@@ -319,6 +319,33 @@ impl fmt::Display for ThemeRejection {
 
 impl std::error::Error for ThemeRejection {}
 
+/// What a theme plays, decided by its type: a file inside the theme folder, or an address on the web. The two never
+/// travel as one untyped string, so a later type cannot slip through the wrong gate.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum ThemeSource {
+    /// Absolute path of the video file, image or web page, verified to be a regular file inside the theme folder.
+    File(PathBuf),
+    /// An absolute http or https address with a host (a Url theme, or a YouTube theme with a video or list id).
+    Address(String),
+}
+
+/// The video and playlist ids of a YouTube address, as the legacy `Various.cs` reads them from the `v` and `list` query
+/// parameters.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct YouTubeIds {
+    /// The `v` parameter.
+    pub video: Option<String>,
+    /// The `list` parameter.
+    pub list: Option<String>,
+}
+
+/// The ids of a YouTube `address`: `None` when it carries neither a `v` nor a `list` parameter, or when one it carries
+/// is not an id (each of `[A-Za-z0-9_-]`, 1 to 64 characters; a parameter given twice is not one).
+pub fn youtube_ids(address: &str) -> Option<YouTubeIds> {
+    let _ = address;
+    None
+}
+
 /// A selected theme that passed the gate.
 #[derive(Debug, Clone)]
 pub struct SelectedTheme {
@@ -326,8 +353,8 @@ pub struct SelectedTheme {
     pub dir: PathBuf,
     /// Its `SucroseInfo.json`.
     pub info: SucroseInfo,
-    /// Absolute path of the video file or web page, verified to be a regular file inside `dir`.
-    pub source_path: PathBuf,
+    /// What it plays: the verified file inside `dir`, or the verified address.
+    pub source: ThemeSource,
 }
 
 /// Why a `Source` cannot be played, judged on its text alone.
@@ -418,11 +445,13 @@ pub fn check_selected(
             current: *app,
         });
     }
-    let source_path = verified_source(&dir, &info.source).map_err(|reason| ThemeRejection::SourceInvalid {
-        folder: folder.clone(),
-        reason: reason.to_owned(),
-    })?;
-    Ok(SelectedTheme { dir, info, source_path })
+    let source = verified_source(&dir, &info.source)
+        .map(ThemeSource::File)
+        .map_err(|reason| ThemeRejection::SourceInvalid {
+            folder: folder.clone(),
+            reason: reason.to_owned(),
+        })?;
+    Ok(SelectedTheme { dir, info, source })
 }
 
 #[cfg(test)]

@@ -21,7 +21,7 @@ use sucrose_core::{
     APP_LONG_NAME,
     compatible::DataGroup,
     paths::{legacy_data_dir, legacy_setting_dir, setting_dir},
-    theme::{SelectedTheme, ThemeRejection, WallpaperType, check_selected},
+    theme::{SelectedTheme, ThemeRejection, ThemeSource, WallpaperType, check_selected},
     version::app_version,
 };
 use sucrose_ipc::{
@@ -4120,11 +4120,13 @@ fn job_for(
     theme_mode: ThemeMode,
     engines: &EngineReport,
 ) -> Result<Job, String> {
-    let source = theme
-        .source_path
-        .to_str()
-        .ok_or_else(|| "the Source path is not valid UTF-8".to_owned())?
-        .to_owned();
+    let source = match &theme.source {
+        ThemeSource::File(path) => path
+            .to_str()
+            .ok_or_else(|| "the Source path is not valid UTF-8".to_owned())?
+            .to_owned(),
+        ThemeSource::Address(address) => address.clone(),
+    };
     let theme_dir = std::path::absolute(&theme.dir)
         .map_err(|_| "the theme folder path cannot be made absolute".to_owned())?
         .to_str()
@@ -5405,7 +5407,7 @@ mod tests {
         );
 
         let theme = selected.unwrap_or_else(|rejection| panic!("the real selected theme is refused: {rejection}"));
-        assert!(theme.source_path.is_file());
+        assert!(matches!(&theme.source, ThemeSource::File(path) if path.is_file()));
     }
 
     fn fleet_with_a_job() -> Fleet {

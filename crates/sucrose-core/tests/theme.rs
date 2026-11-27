@@ -7,7 +7,10 @@ use std::{
 
 use serde_json::{Value, json};
 use sucrose_core::{
-    theme::{SucroseInfo, ThemeRejection, WallpaperType, check_selected, parse_info, write_info},
+    theme::{
+        SucroseInfo, ThemeRejection, ThemeSource, WallpaperType, YouTubeIds, check_selected, parse_info, write_info,
+        youtube_ids,
+    },
     version::{LegacyVersion, app_version},
 };
 
@@ -181,7 +184,7 @@ fn the_gate_accepts_a_playable_video_theme() {
 
     let selected = check_selected(library, "t", &app(), PLAYABLE).expect("playable");
 
-    assert!(selected.source_path.is_absolute() && selected.source_path.ends_with("video.mp4"));
+    assert!(matches!(&selected.source, ThemeSource::File(path) if path.is_absolute() && path.ends_with("video.mp4")));
     assert_eq!(selected.dir, library.join("t"));
 
     let nested = Scratch::new("ok-nested");
@@ -372,7 +375,7 @@ fn the_gate_accepts_a_web_theme_and_returns_its_page() {
     let selected = check_selected(library, "t", &app(), PLAYABLE).expect("playable");
 
     assert_eq!(selected.info.kind, WallpaperType::Web);
-    assert!(selected.source_path.is_absolute() && selected.source_path.ends_with("index.html"));
+    assert!(matches!(&selected.source, ThemeSource::File(path) if path.is_absolute() && path.ends_with("index.html")));
 }
 
 #[test]
@@ -410,4 +413,219 @@ fn a_web_theme_whose_source_is_empty_missing_a_folder_outside_or_an_address_is_r
             "{source:?}: {rejection}"
         );
     }
+}
+
+/// Every type the gate knows, for the table of which source each one takes.
+const EVERY_TYPE: [WallpaperType; 6] = [
+    WallpaperType::Gif,
+    WallpaperType::Url,
+    WallpaperType::Web,
+    WallpaperType::Video,
+    WallpaperType::YouTube,
+    WallpaperType::Application,
+];
+
+fn typed(kind: WallpaperType, source: &str) -> SucroseInfo {
+    SucroseInfo {
+        kind,
+        source: source.to_owned(),
+        ..fixture("SucroseInfo.video.json")
+    }
+}
+
+/// The text of the refusal for `source` on a theme of `kind` (every type playable).
+fn refusal(kind: WallpaperType, source: &str) -> String {
+    let scratch = Scratch::new("refusal");
+    let library = scratch.library_with(&typed(kind, source));
+    match check_selected(library, "t", &app(), EVERY_TYPE_PLAYABLE) {
+        Err(ThemeRejection::SourceInvalid { reason, .. }) => reason,
+        other => panic!("{kind:?} {source:?} must be refused as an invalid source: {other:?}"),
+    }
+}
+
+const EVERY_TYPE_PLAYABLE: &[WallpaperType] = &EVERY_TYPE;
+
+#[test]
+fn a_url_theme_with_an_http_or_https_address_plays_that_address() {
+    for address in [
+        "https://example.com/",
+        "http://example.com",
+        "HTTPS://Example.com/Path?q=1#frag",
+        "https://user@example.com:8443/p",
+        "https://[::1]:8080/",
+        "https://b\u{fc}cher.example/",
+    ] {
+        let scratch = Scratch::new("url-ok");
+        let library = scratch.library_with(&typed(WallpaperType::Url, address));
+
+        let selected = check_selected(library, "t", &app(), EVERY_TYPE_PLAYABLE).expect(address);
+
+        assert_eq!(selected.source, ThemeSource::Address(address.to_owned()), "{address}");
+    }
+}
+
+#[test]
+fn an_address_of_exactly_the_limit_passes_and_one_byte_more_is_refused() {
+    let base = "https://example.com/";
+    let at_limit = format!("{base}{}", "a".repeat(2048 - base.len()));
+    let scratch = Scratch::new("url-limit");
+    let library = scratch.library_with(&typed(WallpaperType::Url, &at_limit));
+    assert!(check_selected(library, "t", &app(), EVERY_TYPE_PLAYABLE).is_ok());
+
+    assert!(refusal(WallpaperType::Url, &format!("{at_limit}a")).contains("2048"));
+}
+
+#[test]
+fn a_url_theme_refuses_every_other_scheme_a_relative_text_and_an_address_without_a_host_each_with_its_own_reason() {
+    let empty = refusal(WallpaperType::Url, "");
+    let scheme: Vec<String> = [
+        "file:///C:/x",
+        "javascript:alert(1)",
+        "data:text/html,x",
+        "about:blank",
+        "ftp://example.com/",
+    ]
+    .iter()
+    .map(|source| refusal(WallpaperType::Url, source))
+    .collect();
+    let relative: Vec<String> = ["example.com", "/index.html", "index.html", "..\\x"]
+        .iter()
+        .map(|source| refusal(WallpaperType::Url, source))
+        .collect();
+    let hostless: Vec<String> = ["https://", "https:///x", "https://:80/", "https://@/x", "http://?q=1"]
+        .iter()
+        .map(|source| refusal(WallpaperType::Url, source))
+        .collect();
+    let spaced: Vec<String> = [
+        "https:// space.example",
+        "https://a.example/\tx",
+        "https://a.example/\nx",
+    ]
+    .iter()
+    .map(|source| refusal(WallpaperType::Url, source))
+    .collect();
+
+    assert!(empty.contains("no Source"), "{empty}");
+    assert!(
+        scheme.iter().all(|reason| reason.contains("http or https")),
+        "{scheme:?}"
+    );
+    assert!(
+        relative.iter().all(|reason| reason.contains("absolute")),
+        "{relative:?}"
+    );
+    assert!(hostless.iter().all(|reason| reason.contains("no host")), "{hostless:?}");
+    assert!(spaced.iter().all(|reason| reason.contains("whitespace")), "{spaced:?}");
+    let firsts = [&empty, &scheme[0], &relative[0], &hostless[0], &spaced[0]];
+    for (index, first) in firsts.iter().enumerate() {
+        for other in &firsts[index + 1..] {
+            assert_ne!(first, other, "two classes of refusal share a reason");
+        }
+    }
+}
+
+#[test]
+fn a_video_theme_with_an_address_is_still_refused_by_the_file_rule_and_a_url_theme_with_a_file_name_by_the_address_rule()
+ {
+    assert!(refusal(WallpaperType::Video, "https://example.com/x.mp4").contains("address, not a file"));
+    assert!(refusal(WallpaperType::Url, "video.mp4").contains("absolute"));
+}
+
+#[test]
+fn every_type_takes_the_source_its_kind_decides() {
+    let youtube = "https://www.youtube.com/watch?v=znNllvBt_Jg";
+    for kind in EVERY_TYPE {
+        let scratch = Scratch::new("table");
+        let file = scratch.library_with(&typed(kind, "video.mp4"));
+        let with_file = check_selected(file, "t", &app(), EVERY_TYPE_PLAYABLE);
+        let scratch = Scratch::new("table-address");
+        let address = scratch.library_with(&typed(kind, youtube));
+        let with_address = check_selected(address, "t", &app(), EVERY_TYPE_PLAYABLE);
+
+        match kind {
+            WallpaperType::Url | WallpaperType::YouTube => {
+                assert!(with_file.is_err(), "{kind:?} must not take a file");
+                assert_eq!(
+                    with_address.expect("an address").source,
+                    ThemeSource::Address(youtube.to_owned()),
+                    "{kind:?}"
+                );
+            }
+            _ => {
+                assert!(
+                    matches!(with_file.expect("a file").source, ThemeSource::File(path) if path.is_absolute()),
+                    "{kind:?}"
+                );
+                assert!(with_address.is_err(), "{kind:?} must not take an address");
+            }
+        }
+    }
+}
+
+#[test]
+fn a_youtube_theme_needs_a_v_or_a_list_id_in_its_address() {
+    for good in [
+        "https://www.youtube.com/watch?v=znNllvBt_Jg",
+        "https://www.youtube.com/playlist?list=PLx_y-1",
+        "https://www.youtube.com/watch?v=a1&list=PLb2",
+        "http://youtube.com/watch?x=1&v=abc#t=5",
+    ] {
+        let scratch = Scratch::new("yt-ok");
+        let library = scratch.library_with(&typed(WallpaperType::YouTube, good));
+        let selected = check_selected(library, "t", &app(), EVERY_TYPE_PLAYABLE).expect(good);
+        assert_eq!(selected.source, ThemeSource::Address(good.to_owned()));
+    }
+    let long = format!("https://www.youtube.com/watch?v={}", "a".repeat(65));
+    let neither = refusal(WallpaperType::YouTube, "https://www.youtube.com/");
+    let bad: Vec<String> = [
+        "https://www.youtube.com/watch?v=a<b",
+        "https://www.youtube.com/watch?v=",
+        "https://www.youtube.com/watch?v=a&v=b",
+        "https://www.youtube.com/watch?list=a%20b",
+        long.as_str(),
+    ]
+    .iter()
+    .map(|source| refusal(WallpaperType::YouTube, source))
+    .collect();
+
+    assert!(neither.contains("neither"), "{neither}");
+    assert!(bad.iter().all(|reason| reason.contains("not a valid")), "{bad:?}");
+    assert_ne!(neither, bad[0]);
+    assert!(refusal(WallpaperType::YouTube, "file:///x?v=abc").contains("http or https"));
+}
+
+#[test]
+fn youtube_ids_reads_the_v_and_list_parameters_as_the_legacy_app_does() {
+    let ids = |address: &str| youtube_ids(address);
+    assert_eq!(
+        ids("https://www.youtube.com/watch?v=znNllvBt_Jg"),
+        Some(YouTubeIds {
+            video: Some("znNllvBt_Jg".to_owned()),
+            list: None
+        })
+    );
+    assert_eq!(
+        ids("https://www.youtube.com/playlist?list=PLx_y-1"),
+        Some(YouTubeIds {
+            video: None,
+            list: Some("PLx_y-1".to_owned())
+        })
+    );
+    assert_eq!(
+        ids("https://www.youtube.com/watch?v=a1&list=PLb2"),
+        Some(YouTubeIds {
+            video: Some("a1".to_owned()),
+            list: Some("PLb2".to_owned())
+        })
+    );
+    assert_eq!(ids("https://www.youtube.com/"), None);
+    assert_eq!(ids("https://www.youtube.com/watch?v=a<b"), None);
+    assert_eq!(
+        ids(&format!("https://www.youtube.com/watch?v={}", "a".repeat(64))).map(|ids| ids.video.map(|v| v.len())),
+        Some(Some(64))
+    );
+    assert_eq!(
+        ids(&format!("https://www.youtube.com/watch?v={}", "a".repeat(65))),
+        None
+    );
 }
