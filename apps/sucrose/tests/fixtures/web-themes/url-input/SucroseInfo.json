@@ -1,0 +1,16 @@
+{
+  "AppVersion": "26.6.19.0",
+  "Version": "1.0.0.0",
+  "Title": "Sucrose fixture: url-input",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "A fixture URL theme for the input check: an interactive public WebGL page that follows the pointer.",
+  "Author": "Sucrose",
+  "Contact": "https://example.com/web",
+  "Type": 1,
+  "Source": "https://paveldogreat.github.io/WebGL-Fluid-Simulation/",
+  "Tags": [
+    "fixture"
+  ],
+  "Arguments": null
+}
