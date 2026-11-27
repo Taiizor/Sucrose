@@ -28,7 +28,7 @@ use sucrose_engine_web::{
     origin,
     page::{self, Complaints, PageKind, PageState},
     pages::{self, GeneratedPage},
-    profile::{self, ProfileLease},
+    profile::{self, ProfileKind, ProfileLease},
 };
 use sucrose_ipc::protocol::{Assignment, PlaybackSettings, WebOptions};
 use sucrose_platform::{
@@ -154,15 +154,31 @@ fn start_failure(error: &CefError) -> EngineError {
 /// The engine name of CEF's web data folders (`<data_dir>/Web/Cef`, D-35) and of its profile lock.
 const PROFILE_ENGINE: &str = "Cef";
 
-/// The profile this renderer runs on (D-33): the persistent `<data_dir>/Web/Cef` when no other running CEF renderer holds
-/// it, otherwise an emptied ephemeral folder of this slot. A failure to get any folder is logged and leaves the
+/// The profile this renderer runs on (D-33, D-040): the persistent `<data_dir>/Web/Cef` when the service told this
+/// renderer (the primary monitor's) to ask for it and no other running CEF renderer holds it, otherwise an emptied
+/// ephemeral folder of this slot. A failure to get any folder is logged and leaves the
 /// renderer on in-memory caches, so the wallpaper still plays; it just keeps nothing.
-fn acquire_profile(slot: u8) -> Option<Arc<ProfileLease>> {
+fn acquire_profile(slot: u8, monitor: &str, wanted: ProfileKind) -> Option<Arc<ProfileLease>> {
     let web = sucrose_core::paths::web_dir()?;
     let ephemeral = sucrose_core::paths::cache_dir()?.join("WebEphemeral");
-    match profile::acquire(&web, PROFILE_ENGINE, &ephemeral, slot) {
+    match profile::acquire(&web, PROFILE_ENGINE, &ephemeral, slot, wanted, profile::START_WAIT) {
         Ok(lease) => {
-            tracing::info!(kind = ?lease.kind, engine = PROFILE_ENGINE, path = ?lease.path, slot, "web profile");
+            tracing::info!(
+                kind = ?lease.kind,
+                wanted = ?wanted,
+                monitor,
+                engine = PROFILE_ENGINE,
+                path = ?lease.path,
+                slot,
+                "web profile"
+            );
+            if wanted == ProfileKind::Persistent && lease.kind == ProfileKind::Ephemeral {
+                tracing::info!(
+                    slot,
+                    monitor,
+                    "the persistent web profile is still held by another renderer, so this page keeps nothing across runs"
+                );
+            }
             Some(Arc::new(lease))
         }
         Err(error) => {
@@ -248,7 +264,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
                 }
             }
         }),
-        profile: acquire_profile(assignment.slot),
+        profile: acquire_profile(assignment.slot, &assignment.monitor, assignment.web_profile),
         allow_invalid_certificates: web.allow_invalid_certificates,
         arguments: web.arguments.clone(),
         sucrose: SucroseInputs {

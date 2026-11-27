@@ -46,6 +46,12 @@ pub fn primary(monitors: &[MonitorInfo]) -> Option<&MonitorInfo> {
     monitors.iter().find(|monitor| monitor.primary)
 }
 
+/// The monitor whose renderer owns the persistent web profile (D-040): the one flagged primary, otherwise the one with
+/// the lowest id (the fallback of the master election), `None` for an empty list.
+pub fn web_profile_owner(monitors: &[MonitorInfo]) -> Option<&MonitorInfo> {
+    primary(monitors).or_else(|| monitors.iter().min_by(|a, b| a.id.cmp(&b.id)))
+}
+
 /// What to do to go from the monitors `old` to the monitors `new`: first the closes, then the rectangle changes,
 /// then the spawns, each group ordered by monitor id. An empty `new` gives nothing: the OS reports no monitor for
 /// a moment while a monitor is plugged in or out, which must not stop the wallpaper.
@@ -396,6 +402,18 @@ mod tests {
         assert_eq!(primary(&[left(), right()]), Some(&left()));
         assert_eq!(primary(&[right(), left()]), Some(&left()));
         assert_eq!(primary(&[right()]), None);
+    }
+
+    #[test]
+    fn the_web_profile_owner_is_the_primary_in_any_order_else_the_lowest_id() {
+        assert_eq!(web_profile_owner(&[left(), right()]), Some(&left()));
+        assert_eq!(web_profile_owner(&[right(), left()]), Some(&left()));
+        let mut a = monitor("\\\\.\\DISPLAY2", rect(0, 0, 10, 10), 96, false);
+        let b = monitor("\\\\.\\DISPLAY1", rect(10, 0, 20, 10), 96, false);
+        assert_eq!(web_profile_owner(&[a.clone(), b.clone()]), Some(&b));
+        a.primary = true;
+        assert_eq!(web_profile_owner(&[b, a.clone()]), Some(&a));
+        assert_eq!(web_profile_owner(&[]), None);
     }
 
     #[test]

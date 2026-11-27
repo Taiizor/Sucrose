@@ -45,7 +45,7 @@ use sucrose_core::settings::{
     EngineType, FullScreenAction, FullScreenScope, GpuPreference, PauseKind, ScreenArea, ThemeMode,
 };
 use sucrose_engine::EngineId;
-use sucrose_engine_web::args;
+use sucrose_engine_web::{args, profile::ProfileKind};
 
 use crate::{
     data_hub::{DataModule, Delivery, Thumbnails, system_sampling_with_thumbnails},
@@ -70,7 +70,7 @@ use crate::{
     },
     topology::{
         Debounce, SlotMap, TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, TimerCommand, TopologyAction, diff, primary,
-        replace_all, with_area,
+        replace_all, web_profile_owner, with_area,
     },
 };
 
@@ -1123,6 +1123,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
             };
         }
         let primary_id = primary(&monitors).map(|monitor| monitor.id.clone());
+        fleet.web_owner = web_profile_owner(&monitors).map(|monitor| monitor.id.clone());
         let applied = fleet.apply(
             diff(&[], &monitors),
             &Ctx {
@@ -1133,7 +1134,13 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
         if applied.started == 0 && applied.failed > 0 {
             anyhow::bail!("cannot start a renderer for any monitor");
         }
-        tracing::info!(count = applied.started, monitors = ?ids, primary = ?primary_id, "renderers started");
+        tracing::info!(
+            count = applied.started,
+            monitors = ?ids,
+            primary = ?primary_id,
+            web_profile_owner = ?fleet.web_owner,
+            "renderers started"
+        );
         fleet.monitors = monitors;
         fleet.elect(&Ctx {
             supervisor: &supervisor,
@@ -2841,7 +2848,7 @@ impl Job {
     }
 
     /// The assignment of the renderer `slot` for `monitor`, whose rectangle is already the area to cover.
-    fn assignment(&self, slot: u8, monitor: &MonitorInfo) -> Assignment {
+    fn assignment(&self, slot: u8, monitor: &MonitorInfo, web_profile: ProfileKind) -> Assignment {
         let area = monitor.rect;
         Assignment {
             slot,
@@ -2854,6 +2861,7 @@ impl Job {
             theme_dir: self.theme_dir.clone(),
             web: self.web.clone(),
             input: self.input,
+            web_profile,
         }
     }
 }
@@ -2941,6 +2949,9 @@ struct Fleet {
     slots: SlotMap,
     /// The monitors the renderers follow, as last applied, with the rectangle of the area they cover.
     monitors: Vec<MonitorInfo>,
+    /// The monitor whose renderer asks for the persistent web profile (D-040): the primary of the snapshot being
+    /// applied, set before its spawns because the monitor list above is updated after them.
+    web_owner: Option<String>,
     assignments: SharedAssignments,
     debounce: Debounce,
     /// One restart budget per monitor slot (D-22).
@@ -3047,6 +3058,7 @@ impl Fleet {
             fallbacks,
             slots: SlotMap::default(),
             monitors: Vec::new(),
+            web_owner: None,
             assignments,
             debounce: Debounce::default(),
             budgets: HashMap::new(),
@@ -3247,13 +3259,38 @@ impl Fleet {
         // Every surface is put back after a display change, whether its monitor changed or not: explorer may have
         // moved the parent window the surface's position depends on (legacy parity).
         tracing::info!(changed = changed.len(), surfaces, "re-placing every surface");
+        self.web_owner = web_profile_owner(&monitors).map(|monitor| monitor.id.clone());
         let applied = self.apply(actions, ctx);
         self.monitors = monitors;
+        self.refresh_web_profiles();
         if !changed.is_empty() {
             // Unchanged monitors cannot change the master.
             self.elect(ctx);
         }
         applied
+    }
+
+    /// The profile the renderer of `monitor` asks for: the persistent one when it is the web profile owner.
+    fn web_profile_for(&self, monitor: &str) -> ProfileKind {
+        if self.web_owner.as_deref() == Some(monitor) {
+            ProfileKind::Persistent
+        } else {
+            ProfileKind::Ephemeral
+        }
+    }
+
+    /// Makes every stored assignment ask for the kind the current web profile owner implies, so the next start of each
+    /// slot follows the primary monitor; a running renderer keeps its lease until it ends.
+    fn refresh_web_profiles(&mut self) {
+        let owner = self.web_owner.clone();
+        let mut assignments = lock_assignments(&self.assignments);
+        for assignment in assignments.values_mut() {
+            assignment.web_profile = if owner.as_deref() == Some(assignment.monitor.as_str()) {
+                ProfileKind::Persistent
+            } else {
+                ProfileKind::Ephemeral
+            };
+        }
     }
 
     /// Carries out `actions` (see [`replace_all`]).
@@ -3284,7 +3321,8 @@ impl Fleet {
             tracing::error!(monitor = %monitor.id, "no free renderer slot");
             return false;
         };
-        lock_assignments(&self.assignments).insert(slot, job.assignment(slot, monitor));
+        let web_profile = self.web_profile_for(&monitor.id);
+        lock_assignments(&self.assignments).insert(slot, job.assignment(slot, monitor, web_profile));
         self.budgets.remove(&slot);
         self.stopped.remove(&slot);
         if self.fullscreen.as_ref().is_some_and(|rule| rule.closes(&monitor.id)) {
@@ -5502,12 +5540,18 @@ mod tests {
     /// without any renderer process: applying snapshots of these monitors never spawns.
     fn recording_fleet(monitors: &[MonitorInfo]) -> (Fleet, SharedRenderers, SentLogs) {
         let mut fleet = fleet_with_a_job();
+        fleet.web_owner = web_profile_owner(monitors).map(|monitor| monitor.id.clone());
         let renderers = SharedRenderers::default();
         let mut logs = HashMap::new();
         for monitor in monitors {
             fleet.monitors.push(monitor.clone());
             let slot = fleet.slots.assign(&monitor.id).expect("a free slot");
-            let assignment = fleet.job.as_ref().expect("a job").assignment(slot, monitor);
+            let web_profile = fleet.web_profile_for(&monitor.id);
+            let assignment = fleet
+                .job
+                .as_ref()
+                .expect("a job")
+                .assignment(slot, monitor, web_profile);
             lock_assignments(&fleet.assignments).insert(slot, assignment);
             let log = Arc::new(Mutex::new(Vec::new()));
             let record = Arc::clone(&log);
@@ -5573,6 +5617,71 @@ mod tests {
         let assignments = lock_assignments(&fleet.assignments);
         assert_eq!(assignments[&slot_first].rect, [0, 0, 1920, 1080]);
         assert_eq!(assignments[&slot_second].rect, [-1920, 0, 0, 1080]);
+    }
+
+    #[test]
+    fn the_primary_monitor_gets_the_persistent_web_profile_in_any_list_order() {
+        let first = "\\\\.\\DISPLAY1";
+        let second = "\\\\.\\DISPLAY9";
+        let (fleet, _renderers, _logs) = recording_fleet(&[
+            monitor_at(second, false, [1920, 0, 3840, 1080]),
+            monitor_at(first, true, [0, 0, 1920, 1080]),
+        ]);
+
+        let assignments = lock_assignments(&fleet.assignments);
+
+        let slot_first = fleet.slots.slot_of(first).expect("a slot");
+        let slot_second = fleet.slots.slot_of(second).expect("a slot");
+        assert_eq!(assignments[&slot_first].web_profile, ProfileKind::Persistent);
+        assert_eq!(assignments[&slot_second].web_profile, ProfileKind::Ephemeral);
+    }
+
+    #[test]
+    fn a_snapshot_that_moves_the_primary_flag_flips_the_stored_web_profiles() {
+        let first = "\\\\.\\DISPLAY1";
+        let second = "\\\\.\\DISPLAY9";
+        let (mut fleet, renderers, _logs) = recording_fleet(&[
+            monitor_at(first, true, [0, 0, 1920, 1080]),
+            monitor_at(second, false, [1920, 0, 3840, 1080]),
+        ]);
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+
+        fleet.apply_snapshot(
+            vec![
+                monitor_at(first, false, [0, 0, 1920, 1080]),
+                monitor_at(second, true, [1920, 0, 3840, 1080]),
+            ],
+            &ctx,
+        );
+
+        let slot_first = fleet.slots.slot_of(first).expect("a slot");
+        let slot_second = fleet.slots.slot_of(second).expect("a slot");
+        let assignments = lock_assignments(&fleet.assignments);
+        assert_eq!(assignments[&slot_first].web_profile, ProfileKind::Ephemeral);
+        assert_eq!(assignments[&slot_second].web_profile, ProfileKind::Persistent);
+    }
+
+    #[test]
+    fn a_use_restart_keeps_the_web_profile_of_each_slot() {
+        let first = "\\\\.\\DISPLAY1";
+        let second = "\\\\.\\DISPLAY9";
+        let (mut fleet, _renderers, _logs) = recording_fleet(&[
+            monitor_at(second, false, [1920, 0, 3840, 1080]),
+            monitor_at(first, true, [0, 0, 1920, 1080]),
+        ]);
+        let job = fleet.job.clone().expect("a job");
+
+        fleet.adopt_job(job);
+
+        let slot_first = fleet.slots.slot_of(first).expect("a slot");
+        let slot_second = fleet.slots.slot_of(second).expect("a slot");
+        let assignments = lock_assignments(&fleet.assignments);
+        assert_eq!(assignments[&slot_first].web_profile, ProfileKind::Persistent);
+        assert_eq!(assignments[&slot_second].web_profile, ProfileKind::Ephemeral);
     }
 
     #[test]

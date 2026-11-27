@@ -1102,6 +1102,7 @@ mod tests {
             theme_dir: "C:/".to_owned(),
             web: WebOptions::default(),
             input: InputSettings::default(),
+            web_profile: sucrose_engine_web::profile::ProfileKind::Ephemeral,
         };
 
         let error = start_engine(EngineId::Vlc, 0, &assignment, || {

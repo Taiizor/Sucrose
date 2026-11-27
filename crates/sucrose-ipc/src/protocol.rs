@@ -11,12 +11,12 @@ use sucrose_core::{
     settings::{EngineType, InputType, PauseKind, Stretch},
     theme::WallpaperType,
 };
-use sucrose_engine_web::args::Switch;
+use sucrose_engine_web::{args::Switch, profile::ProfileKind};
 
 use crate::portal::{Launch, PortalPage};
 
 /// Version of this protocol, sent in [`ToService::Hello`] so the service can refuse a renderer it cannot talk to.
-pub const PROTOCOL_VERSION: u16 = 9;
+pub const PROTOCOL_VERSION: u16 = 10;
 
 /// Messages from a renderer to the service.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
@@ -253,6 +253,9 @@ pub struct Assignment {
     pub web: WebOptions,
     /// Which input a web wallpaper gets.
     pub input: InputSettings,
+    /// The profile the renderer's web engine asks for: the service sets [`ProfileKind::Persistent`] for the primary
+    /// monitor's renderer only (D-040). The other engines ignore it.
+    pub web_profile: ProfileKind,
 }
 
 #[cfg(test)]
@@ -274,6 +277,7 @@ mod tests {
             theme_dir: "C:\\themes\\a".to_owned(),
             web: WebOptions::default(),
             input: InputSettings::default(),
+            web_profile: ProfileKind::Ephemeral,
         }))
         .expect("encode Assign");
 
@@ -409,10 +413,33 @@ mod tests {
             theme_dir: "C:\\themes".to_owned(),
             web: WebOptions::default(),
             input: InputSettings::default(),
+            web_profile: ProfileKind::Ephemeral,
         });
 
         let bytes = postcard::to_stdvec(&message).expect("encode");
 
+        assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
+    }
+
+    #[test]
+    fn an_assignment_with_the_persistent_web_profile_survives_the_wire() {
+        let message = ToRenderer::Assign(Assignment {
+            slot: 0,
+            monitor: "\\\\.\\DISPLAY1".to_owned(),
+            rect: [0, 0, 1920, 1080],
+            source: "C:\\themes\\hello\\index.html".to_owned(),
+            settings: PlaybackSettings::default(),
+            kind: WallpaperType::Web,
+            engine: EngineType::CefSharpLive,
+            theme_dir: "C:\\themes\\hello".to_owned(),
+            web: WebOptions::default(),
+            input: InputSettings::default(),
+            web_profile: ProfileKind::Persistent,
+        });
+
+        let bytes = postcard::to_stdvec(&message).expect("encode");
+
+        assert_eq!(bytes[0], 1, "Assign keeps its wire index");
         assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
     }
 
@@ -443,6 +470,7 @@ mod tests {
                 input_type: InputType::OnlyKeyboard,
                 desktop_only: true,
             },
+            web_profile: ProfileKind::Persistent,
         });
 
         let bytes = postcard::to_stdvec(&message).expect("encode");
@@ -525,8 +553,8 @@ mod tests {
     #[test]
     fn the_protocol_version_stays_when_messages_are_only_appended() {
         assert_eq!(
-            PROTOCOL_VERSION, 9,
-            "Assignment.input is a new field, which appending a variant cannot express"
+            PROTOCOL_VERSION, 10,
+            "Assignment.web_profile is a new field, which appending a variant cannot express"
         );
     }
 

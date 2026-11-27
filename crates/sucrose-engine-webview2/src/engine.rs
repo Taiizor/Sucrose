@@ -28,7 +28,7 @@ use sucrose_engine_web::{
     origin,
     page::{self, Complaints, PageKind, PageState},
     pages::{self, GeneratedPage},
-    profile::{self, ProfileLease},
+    profile::{self, ProfileKind, ProfileLease},
 };
 use sucrose_ipc::protocol::{Assignment, PlaybackSettings, WebOptions};
 use sucrose_platform::input::{InputEvent, focus_click_messages, key_message, mouse_message};
@@ -139,15 +139,31 @@ fn start_failure(error: &HostError) -> EngineError {
     }
 }
 
-/// The profile this renderer runs on (D-33): the persistent `<data_dir>/Web/WebView2` when no other running WebView2
-/// renderer holds it, otherwise an emptied ephemeral folder of this slot. A failure to get any folder is logged and the
+/// The profile this renderer runs on (D-33, D-040): the persistent `<data_dir>/Web/WebView2` when the service told this
+/// renderer (the primary monitor's) to ask for it and no other running WebView2 renderer holds it, otherwise an emptied
+/// ephemeral folder of this slot. A failure to get any folder is logged and the
 /// renderer falls back to a scratch folder, so the wallpaper still plays; it just keeps nothing.
-fn acquire_profile(slot: u8) -> Option<Arc<ProfileLease>> {
+fn acquire_profile(slot: u8, monitor: &str, wanted: ProfileKind) -> Option<Arc<ProfileLease>> {
     let web = sucrose_core::paths::web_dir()?;
     let ephemeral = sucrose_core::paths::cache_dir()?.join("WebEphemeral");
-    match profile::acquire(&web, PROFILE_ENGINE, &ephemeral, slot) {
+    match profile::acquire(&web, PROFILE_ENGINE, &ephemeral, slot, wanted, profile::START_WAIT) {
         Ok(lease) => {
-            tracing::info!(kind = ?lease.kind, engine = PROFILE_ENGINE, path = ?lease.path, slot, "web profile");
+            tracing::info!(
+                kind = ?lease.kind,
+                wanted = ?wanted,
+                monitor,
+                engine = PROFILE_ENGINE,
+                path = ?lease.path,
+                slot,
+                "web profile"
+            );
+            if wanted == ProfileKind::Persistent && lease.kind == ProfileKind::Ephemeral {
+                tracing::info!(
+                    slot,
+                    monitor,
+                    "the persistent web profile is still held by another renderer, so this page keeps nothing across runs"
+                );
+            }
             Some(Arc::new(lease))
         }
         Err(error) => {
@@ -236,7 +252,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         "chromium switches"
     );
 
-    let profile = acquire_profile(assignment.slot);
+    let profile = acquire_profile(assignment.slot, &assignment.monitor, assignment.web_profile);
     let scratch = profile.is_none().then(|| {
         std::env::temp_dir()
             .join("SucroseWebView2")
