@@ -27,6 +27,11 @@ impl DesktopSurface {
         0
     }
 
+    /// Never true: no surface exists on this OS.
+    pub fn has_keyboard_focus(&self) -> bool {
+        false
+    }
+
     /// Always fails on this OS.
     pub fn set_rect(&self, _rect: RectPx) -> Result<Placement, PlatformError> {
         Err(PlatformError::Unsupported("desktop surface"))

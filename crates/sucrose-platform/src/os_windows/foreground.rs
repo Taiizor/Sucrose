@@ -1,14 +1,15 @@
-//! The foreground window, read for the fullscreen rule. Only geometry, the window class, the owning process and
-//! state flags are read: a window title can hold private text and is never touched (T-02-28).
+//! The foreground window, read for the fullscreen rule and for where a keystroke goes. Only geometry, the window
+//! class, the owning process, the keyboard focus and state flags are read: a window title can hold private text and is
+//! never touched (T-02-28).
 
 use std::mem::size_of;
 
 use windows::Win32::{
-    Foundation::RECT,
+    Foundation::{HWND, RECT},
     Graphics::Dwm::{DWMWA_CLOAKED, DwmGetWindowAttribute},
     UI::WindowsAndMessaging::{
-        AllowSetForegroundWindow, GetClassNameW, GetForegroundWindow, GetWindowRect, GetWindowThreadProcessId,
-        IsIconic, IsWindowVisible,
+        AllowSetForegroundWindow, GUITHREADINFO, GetClassNameW, GetForegroundWindow, GetGUIThreadInfo, GetWindowRect,
+        GetWindowThreadProcessId, IsChild, IsIconic, IsWindowVisible,
     },
 };
 
@@ -76,9 +77,98 @@ pub(crate) fn foreground_window() -> Option<ForegroundWindow> {
     })
 }
 
+/// Whether the keyboard focus of the foreground window's thread is `ancestor` or one of its descendants, i.e. whether a
+/// key the user types now is delivered by Windows to a window inside `ancestor`. A child window of another thread
+/// shares that thread's input state (Windows attaches the queues), so a browser widget inside a desktop surface can
+/// hold the focus of the shell's desktop thread while the desktop is in front. `false` when nothing can be read.
+pub(crate) fn keyboard_focus_within(ancestor: HWND) -> bool {
+    // SAFETY: the call takes no arguments and only reads the window manager's focus state.
+    let foreground = unsafe { GetForegroundWindow() };
+    if foreground.is_invalid() {
+        return false;
+    }
+    // SAFETY: any handle value is accepted; a window that closed in the meantime gives thread id 0, handled below.
+    let thread = unsafe { GetWindowThreadProcessId(foreground, None) };
+    if thread == 0 {
+        return false;
+    }
+    let mut info = GUITHREADINFO {
+        cbSize: size_of::<GUITHREADINFO>() as u32,
+        ..Default::default()
+    };
+    // SAFETY: `info` is a valid out pointer whose cbSize is set to its size, as the call requires; it only reads the
+    // input state of the thread, which may have ended (the call then fails).
+    if unsafe { GetGUIThreadInfo(thread, &mut info) }.is_err() {
+        return false;
+    }
+    is_within(ancestor, info.hwndFocus)
+}
+
+/// Whether `window` is `ancestor` itself or a child window somewhere below it (across processes too).
+fn is_within(ancestor: HWND, window: HWND) -> bool {
+    if window.is_invalid() || ancestor.is_invalid() {
+        return false;
+    }
+    // SAFETY: both are plain handle values; IsChild only walks the parent chain and is false for a window that is gone.
+    window == ancestor || unsafe { IsChild(ancestor, window) }.as_bool()
+}
+
 #[cfg(test)]
 mod tests {
+    use windows::{
+        Win32::UI::WindowsAndMessaging::{CreateWindowExW, DestroyWindow, WINDOW_EX_STYLE, WS_CHILD, WS_POPUP},
+        core::w,
+    };
+
     use super::*;
+
+    /// A hidden window of the built-in STATIC class (no window procedure of ours), a child of `parent` when given.
+    fn static_window(parent: Option<HWND>) -> HWND {
+        let style = if parent.is_some() { WS_CHILD } else { WS_POPUP };
+        // SAFETY: a system class and literal strings; no menu, instance or creation data; nothing is shown.
+        unsafe {
+            CreateWindowExW(
+                WINDOW_EX_STYLE(0),
+                w!("STATIC"),
+                None,
+                style,
+                0,
+                0,
+                10,
+                10,
+                parent,
+                None,
+                None,
+                None,
+            )
+        }
+        .expect("a STATIC window")
+    }
+
+    #[test]
+    fn a_window_is_within_itself_and_its_ancestors_but_not_its_children_or_strangers() {
+        let surface = static_window(None);
+        let browser = static_window(Some(surface));
+        let widget = static_window(Some(browser));
+        let stranger = static_window(None);
+
+        let seen = [
+            is_within(surface, surface),
+            is_within(surface, browser),
+            is_within(surface, widget),
+            is_within(browser, surface),
+            is_within(surface, stranger),
+            is_within(surface, HWND::default()),
+            // None of these hidden windows of a test thread can hold the foreground window's keyboard focus.
+            keyboard_focus_within(surface),
+        ];
+        for window in [widget, browser, surface, stranger] {
+            // SAFETY: a window created above by this thread.
+            let _ = unsafe { DestroyWindow(window) };
+        }
+
+        assert_eq!(seen, [true, true, true, false, false, false, false]);
+    }
 
     #[test]
     fn granting_the_foreground_to_a_process_that_does_not_exist_fails_without_panicking() {

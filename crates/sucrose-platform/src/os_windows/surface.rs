@@ -39,7 +39,7 @@ use windows::{
     core::{BOOL, HRESULT, PCWSTR, w},
 };
 
-use super::{event_loop::wait_pumping, os_error};
+use super::{event_loop::wait_pumping, foreground::keyboard_focus_within, os_error};
 use crate::{
     Placement, PlatformError, RectPx,
     geometry::{PlacementVerdict, placement_verdict},
@@ -701,6 +701,14 @@ impl DesktopSurface {
     /// The window handle as a number, for engines that embed into it (mpv `wid`).
     pub fn native_handle(&self) -> u64 {
         self.hwnd.0 as usize as u64
+    }
+
+    /// Whether a key the user types now goes to a window inside this surface by itself: the keyboard focus of the
+    /// foreground window's thread is the surface or one of its descendants. The surface is a child of a shell window,
+    /// so it shares the shell's input state (Windows attaches the queues), and an embedded browser that took the focus
+    /// gets the desktop's real keystrokes while the desktop is in front.
+    pub fn has_keyboard_focus(&self) -> bool {
+        keyboard_focus_within(self.hwnd)
     }
 
     /// One attach attempt. `last_resort` is only set for the attempt after the deadline: it attaches in the raised

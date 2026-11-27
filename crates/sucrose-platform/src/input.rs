@@ -321,6 +321,19 @@ pub fn should_forward(filter: &InputFilter, event: &InputEvent, cursor_inside: b
     device_on && cursor_inside
 }
 
+/// Whether a renderer posts `event`, once [`should_forward`] let it through. A key is not posted while the page's own
+/// window has the keyboard focus of the window the user works in (`page_has_keyboard_focus`, only asked for a key):
+/// the desktop surface shares the input state of the shell's desktop thread, so Windows then delivers the real key to
+/// the page itself, and posting it as well would make the page see every key twice. Mouse events are always posted:
+/// a real click on the desktop goes to the shell's icons window, never to the page.
+#[must_use]
+pub fn should_post(event: &InputEvent, page_has_keyboard_focus: impl FnOnce() -> bool) -> bool {
+    match event {
+        InputEvent::Key { .. } => !page_has_keyboard_focus(),
+        _ => true,
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -515,6 +528,60 @@ mod tests {
             Some((WM_KEYUP, 0x41))
         );
         assert_eq!(key_message(&InputEvent::MouseMove { x: 0, y: 0 }), None);
+    }
+
+    #[test]
+    fn one_key_press_posts_exactly_one_keydown_and_one_keyup() {
+        // One raw make record and one raw break record of the A key, as the raw input decoder reads them.
+        let messages: Vec<_> = [0x0, RI_KEY_BREAK]
+            .into_iter()
+            .filter_map(|flags| key_event(0x41, 0x1E, flags, 0x41))
+            .filter_map(|event| key_message(&event))
+            .collect();
+
+        assert_eq!(
+            messages,
+            [
+                (WM_KEYDOWN, 0x41, 0x011E_0001),
+                (WM_KEYUP, 0x41, 0xC11E_0001_u32 as usize as isize)
+            ],
+            "the legacy pair and nothing else: no WM_CHAR, no second keydown"
+        );
+    }
+
+    #[test]
+    fn a_key_is_left_to_windows_while_the_page_has_the_keyboard_focus_itself() {
+        let up = InputEvent::Key {
+            vk: 0x41,
+            scan: 0x1E,
+            down: false,
+            extended: false,
+        };
+
+        for key in [KEY_EVENT, up] {
+            assert!(!should_post(&key, || true), "{key:?} reaches the focused page already");
+            assert!(
+                should_post(&key, || false),
+                "{key:?} is posted to a page without the focus"
+            );
+        }
+    }
+
+    #[test]
+    fn mouse_events_are_always_posted_and_never_look_up_the_keyboard_focus() {
+        let button = InputEvent::Button {
+            button: MouseButton::Left,
+            down: true,
+            x: 1,
+            y: 1,
+        };
+
+        for event in [MOUSE_EVENT, WHEEL_EVENT, button] {
+            assert!(
+                should_post(&event, || panic!("the focus is only looked up for a key")),
+                "{event:?}"
+            );
+        }
     }
 
     #[test]

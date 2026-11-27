@@ -28,7 +28,7 @@ use sucrose_ipc::{
 };
 use sucrose_platform::{
     DesktopSurface, DpiAwareness, EventLoop, Flow, LoopEnd, LoopEvent, LoopProxy, PlacementVerdict, Platform, RectPx,
-    input::{InputEvent, InputFilter, cursor_inside, devices, is_desktop_class, should_forward},
+    input::{InputEvent, InputFilter, cursor_inside, devices, is_desktop_class, should_forward, should_post},
     monotonic_ns,
 };
 
@@ -271,6 +271,8 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
     let mut desktop_focus = DesktopFocus::new();
     // A keyboard-only wallpaper gets one click before its first key so the page has the keyboard focus (legacy).
     let mut focus_click_due = input_filter.input_type == InputType::OnlyKeyboard;
+    // Whether the page's window had the keyboard focus at the last key, only to log when that changes.
+    let mut page_focus_seen = None;
     // A wake means a new rectangle or, for an engine with a pump, queued commands: the surface is moved here because
     // only this thread may touch it, and the pump is the only thing that calls an engine bound to this thread. The
     // loop ends when the reader thread asks for it, or when Windows destroys the surface (the surface posts the quit
@@ -304,7 +306,16 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
                 let inside = position.is_some_and(|position| cursor_inside(current_rect, position));
                 // Only looked up while InputDesktop is on, and at most once a second.
                 let desktop = !input_filter.desktop_only || desktop_focus.is_desktop();
-                if should_forward(&input_filter, &event, inside, desktop) {
+                // A key is not posted while the page's own window has the keyboard focus: Windows delivers the real key
+                // to it then (the surface shares the shell's input state), and a posted copy would double it.
+                let has_focus = || {
+                    let focused = surface.has_keyboard_focus();
+                    if page_focus_seen.replace(focused) != Some(focused) {
+                        tracing::debug!(focused, "page keyboard focus changed, keys are posted only without it");
+                    }
+                    focused
+                };
+                if should_forward(&input_filter, &event, inside, desktop) && should_post(&event, has_focus) {
                     if focus_click_due && matches!(event, InputEvent::Key { .. }) {
                         focus_click_due = false;
                         engine.forward_input(&InputEvent::FocusClick);
