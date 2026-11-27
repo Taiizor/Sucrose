@@ -13,7 +13,7 @@ use sucrose_core::{
 };
 use sucrose_engine_web::{
     js::{self, KIND_COMPATIBLE, KIND_PROPERTY, LEGACY_RUN_ORDER, PageCall},
-    page::{Complaints, PageState, describe, load_templates, page_calls, push_calls, wanted_groups},
+    page::{Complaints, PageKind, PageState, describe, load_templates, page_calls, push_calls, wanted_groups},
 };
 
 /// A scratch theme folder with the given `SucroseProperties.json` and `SucroseCompatible.json` texts (none: no file),
@@ -72,9 +72,9 @@ fn a_loaded_page_gets_its_property_calls_in_file_order_and_a_failed_load_gets_no
     let theme = Theme::new(Some(TWO_PROPERTIES), None);
     let (state, complaints) = (fresh_state(), Complaints::default());
 
-    let calls = page_calls(&theme.0, 200, &state, &complaints);
-    let failed = page_calls(&theme.0, 404, &state, &complaints);
-    let unloaded = page_calls(&theme.0, 0, &state, &complaints);
+    let calls = page_calls(PageKind::Theme, &theme.0, 200, &state, &complaints);
+    let failed = page_calls(PageKind::Theme, &theme.0, 404, &state, &complaints);
+    let unloaded = page_calls(PageKind::Theme, &theme.0, 0, &state, &complaints);
 
     assert_eq!(keys(&calls), ["property:b", "property:a"]);
     assert!(failed.is_empty(), "only a page that loaded with status 200 gets calls");
@@ -87,7 +87,7 @@ fn the_compatible_calls_follow_every_property_call_in_the_legacy_order_without_t
     let theme = Theme::new(Some(TWO_PROPERTIES), Some(COMPATIBLE));
     let (state, complaints) = (fresh_state(), Complaints::default());
 
-    let calls = page_calls(&theme.0, 200, &state, &complaints);
+    let calls = page_calls(PageKind::Theme, &theme.0, 200, &state, &complaints);
 
     assert_eq!(
         keys(&calls),
@@ -111,7 +111,7 @@ fn the_compatible_calls_use_the_values_the_engine_was_last_told() {
     state.set_looping(false);
     state.set_volume(40);
 
-    let calls = page_calls(&theme.0, 200, &state, &Complaints::default());
+    let calls = page_calls(PageKind::Theme, &theme.0, 200, &state, &Complaints::default());
 
     let scripts: Vec<&str> = calls.iter().map(|call| call.script.as_str()).collect();
     assert_eq!(scripts, ["L('False');", "S('Fill');", "V(40);"]);
@@ -122,8 +122,8 @@ fn a_reload_sends_every_key_again() {
     let theme = Theme::new(Some(TWO_PROPERTIES), Some(COMPATIBLE));
     let (state, complaints) = (fresh_state(), Complaints::default());
 
-    let first = page_calls(&theme.0, 200, &state, &complaints);
-    let reload = page_calls(&theme.0, 200, &state, &complaints);
+    let first = page_calls(PageKind::Theme, &theme.0, 200, &state, &complaints);
+    let reload = page_calls(PageKind::Theme, &theme.0, 200, &state, &complaints);
 
     assert_eq!(first, reload);
     assert_eq!(reload.len(), 5);
@@ -135,7 +135,7 @@ fn a_page_that_loads_while_paused_is_paused_after_its_calls() {
     let state = fresh_state();
     state.set_paused(true);
 
-    let calls = page_calls(&theme.0, 200, &state, &Complaints::default());
+    let calls = page_calls(PageKind::Theme, &theme.0, 200, &state, &Complaints::default());
 
     assert_eq!(keys(&calls), ["property:b", "property:a", "pause:pause"]);
     assert_eq!(calls[2].script, js::pause_script(true));
@@ -146,7 +146,7 @@ fn a_theme_without_files_gets_no_calls_and_no_complaint() {
     let theme = Theme::new(None, None);
     let (state, complaints) = (fresh_state(), Complaints::default());
 
-    assert!(page_calls(&theme.0, 200, &state, &complaints).is_empty());
+    assert!(page_calls(PageKind::Theme, &theme.0, 200, &state, &complaints).is_empty());
     assert!(!complaints.properties.load(Ordering::SeqCst) && !complaints.compatible.load(Ordering::SeqCst));
 }
 
@@ -155,7 +155,7 @@ fn an_unparsable_file_gives_no_calls_for_it_and_is_reported_once_while_the_other
     let theme = Theme::new(Some("{ nope"), Some(COMPATIBLE));
     let (state, complaints) = (fresh_state(), Complaints::default());
 
-    let calls = page_calls(&theme.0, 200, &state, &complaints);
+    let calls = page_calls(PageKind::Theme, &theme.0, 200, &state, &complaints);
 
     assert_eq!(
         keys(&calls),
@@ -171,7 +171,7 @@ fn an_unparsable_file_gives_no_calls_for_it_and_is_reported_once_while_the_other
         "the first failure is the one that is logged"
     );
     assert!(!complaints.compatible.load(Ordering::SeqCst));
-    assert_eq!(page_calls(&theme.0, 200, &state, &complaints).len(), 3);
+    assert_eq!(page_calls(PageKind::Theme, &theme.0, 200, &state, &complaints).len(), 3);
 }
 
 #[test]
@@ -273,7 +273,7 @@ fn the_calls_fixture_gets_its_property_calls_in_file_order_then_the_non_data_com
     let theme = calls_fixture();
     let state = fresh_state();
 
-    let calls = page_calls(&theme, 200, &state, &Complaints::default());
+    let calls = page_calls(PageKind::Theme, &theme, 200, &state, &Complaints::default());
 
     let property: Vec<&str> = calls
         .iter()

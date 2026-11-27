@@ -6,9 +6,20 @@ use std::{
     sync::atomic::{AtomicU32, Ordering},
 };
 
-use sucrose_core::theme::WallpaperType;
-use sucrose_engine_web::pages::{
-    GeneratedPage, PageError, ensure_file, ensure_file_with, ensure_written, generated_url, prepare_in,
+use serde_json::Value;
+use sucrose_core::{
+    properties::{ControlKind, SucroseProperties, parse_properties},
+    settings::Stretch,
+    theme::WallpaperType,
+};
+use sucrose_engine_web::{
+    args::WebEngine,
+    js::{self, KIND_ENGINE, KIND_PROPERTY},
+    page::{Complaints, PageKind, PageState, page_calls},
+    pages::{
+        GeneratedPage, PageError, builtin_set, effective_volume, engine_volume_level, ensure_file, ensure_file_with,
+        ensure_written, generated_url, loop_script, prepare_in, stretch_script, volume_script,
+    },
 };
 
 /// A scratch folder, removed on drop.
@@ -319,5 +330,315 @@ fn a_gif_theme_prepares_the_gif_page() {
     assert_eq!(
         url.as_deref(),
         Some("https://sucrose.wallpaper.engine/GifContent.html?src=animation.gif")
+    );
+}
+
+/// The keys of the legacy CEF and WebView sets in their legacy order (SE/Manage/Internal.cs), with the D-06 volume right
+/// after `muted`.
+const SET_KEYS: [&str; 16] = [
+    "only",
+    "scale",
+    "saturate",
+    "hue-rotate",
+    "brightness",
+    "contrast",
+    "blur",
+    "grayscale",
+    "sepia",
+    "invert",
+    "mirror",
+    "animation",
+    "playbackRate",
+    "muted",
+    "volume",
+    "caption",
+];
+
+fn set_keys(set: &SucroseProperties) -> Vec<&str> {
+    set.list.iter().map(|(key, _)| key.as_str()).collect()
+}
+
+fn scratch_state() -> PageState {
+    PageState::new(false, 100, true, true, Stretch::UniformToFill, "Dark")
+}
+
+#[test]
+fn both_built_in_sets_parse_and_hold_the_legacy_keys_in_the_legacy_order_with_the_volume_after_muted() {
+    for (engine, label) in [(WebEngine::Cef, "onlyCef"), (WebEngine::WebView2, "onlyWeb")] {
+        let set = builtin_set(engine);
+
+        let mut expected = SET_KEYS.to_vec();
+        expected[0] = label;
+        assert_eq!(set_keys(set), expected, "{engine:?}");
+        assert_eq!(set.listener, "SucrosePropertyListener('{0}', {1});");
+        assert!(!set.list.is_empty(), "a built-in set is never empty");
+    }
+}
+
+#[test]
+fn the_volume_is_a_slider_from_0_to_100_in_steps_of_1_that_starts_at_full_volume() {
+    for engine in [WebEngine::Cef, WebEngine::WebView2] {
+        let (_, volume) = builtin_set(engine)
+            .list
+            .iter()
+            .find(|(key, _)| key == "volume")
+            .expect("the volume control");
+
+        let ControlKind::Slider { min, max, step, value } = volume.kind else {
+            panic!("the volume is not a slider: {:?}", volume.kind);
+        };
+        assert_eq!((min, max, step, value), (0.0, 100.0, 1.0, 100.0), "{engine:?}");
+    }
+}
+
+#[test]
+fn the_volume_has_an_english_text_and_help_in_every_culture_of_the_set() {
+    for engine in [WebEngine::Cef, WebEngine::WebView2] {
+        let set = builtin_set(engine);
+        let (_, volume) = set.list.iter().find(|(key, _)| key == "volume").expect("volume");
+        let (text, help) = (
+            volume.text.as_deref().expect("a text key"),
+            volume.help.as_deref().expect("a help key"),
+        );
+
+        assert!(!set.localization.is_empty(), "{engine:?}: at least the English table");
+        for (culture, texts) in &set.localization {
+            for key in [text, help] {
+                let found = texts.iter().find(|(name, _)| name == key);
+                assert!(
+                    found.is_some_and(|(_, shown)| !shown.is_empty()),
+                    "{engine:?} {culture}: no text for {key}"
+                );
+            }
+        }
+    }
+}
+
+#[test]
+fn keys_are_compared_byte_for_byte_as_the_legacy_json_spells_them() {
+    let keys = set_keys(builtin_set(WebEngine::Cef));
+
+    for exact in ["hue-rotate", "playbackRate", "muted", "volume"] {
+        assert!(keys.contains(&exact), "{exact}");
+    }
+    for wrong in ["hue_rotate", "playbackrate", "Muted", "Volume", "mute"] {
+        assert!(!keys.contains(&wrong), "{wrong}");
+    }
+}
+
+#[test]
+fn the_volume_key_collides_with_no_legacy_key_of_the_set() {
+    for engine in [WebEngine::Cef, WebEngine::WebView2] {
+        let keys = set_keys(builtin_set(engine));
+        let mut seen = std::collections::HashSet::new();
+        for key in keys {
+            assert!(seen.insert(key.to_ascii_lowercase()), "{engine:?}: {key} repeats a key");
+        }
+    }
+}
+
+#[test]
+fn the_calls_of_a_set_come_one_per_control_in_the_order_of_its_list_with_its_listener_format() {
+    let theme = Scratch::new();
+
+    let calls = js::property_calls_of(builtin_set(WebEngine::Cef), &theme.0);
+
+    let keys: Vec<&str> = calls.iter().map(|call| call.key.as_str()).collect();
+    let mut expected = SET_KEYS.to_vec();
+    expected[0] = "onlyCef";
+    assert_eq!(keys, expected);
+    assert!(calls.iter().all(|call| call.kind == KIND_PROPERTY));
+    let volume = calls.iter().find(|call| call.key == "volume").expect("volume call");
+    assert!(
+        volume.script.starts_with("SucrosePropertyListener('volume', {\r\n"),
+        "{}",
+        volume.script
+    );
+    assert!(volume.script.contains("\"type\": \"slider\""));
+    assert!(volume.script.contains("\"value\": 100.0") || volume.script.contains("\"value\": 100"));
+}
+
+fn slider_set(value: f64) -> SucroseProperties {
+    parse_properties(&format!(
+        r#"{{"PropertyListener":"f('{{0}}', {{1}});","PropertyList":{{"s":{{"type":"slider","min":-5,"max":5,"step":1,"value":{value}}}}}}}"#
+    ))
+    .expect("a valid set")
+}
+
+fn slider_value_of(set: &SucroseProperties) -> f64 {
+    let calls = js::property_calls_of(set, Path::new("."));
+    let script = &calls.first().expect("one call").script;
+    // The script is `f('s', <control>);`: the control is the object from the first brace to the last.
+    let json = &script[script.find('{').expect("control")..=script.rfind('}').expect("end")];
+    let control: Value = serde_json::from_str(json).expect("control JSON");
+    control["value"].as_f64().expect("a number")
+}
+
+#[test]
+fn a_slider_value_equal_to_its_bounds_is_used_as_it_is_and_one_outside_is_clamped() {
+    assert!((slider_value_of(&slider_set(-5.0)) - -5.0).abs() < f64::EPSILON, "min");
+    assert!((slider_value_of(&slider_set(5.0)) - 5.0).abs() < f64::EPSILON, "max");
+    assert!((slider_value_of(&slider_set(2.5)) - 2.5).abs() < f64::EPSILON, "inside");
+    assert!(
+        (slider_value_of(&slider_set(5.5)) - 5.0).abs() < f64::EPSILON,
+        "above max"
+    );
+    assert!(
+        (slider_value_of(&slider_set(-99.0)) - -5.0).abs() < f64::EPSILON,
+        "below min"
+    );
+}
+
+#[test]
+fn a_control_without_a_value_takes_the_default_of_its_type() {
+    let set = parse_properties(
+        r#"{"PropertyListener":"f('{0}', {1});","PropertyList":{"c":{"type":"checkbox"},"t":{"type":"textbox"},"s":{"type":"slider","min":0,"max":9,"step":1}}}"#,
+    )
+    .expect("a valid set");
+
+    let calls = js::property_calls_of(&set, Path::new("."));
+
+    assert_eq!(calls.len(), 3);
+    assert!(calls[0].script.contains("\"value\": false"), "{}", calls[0].script);
+    assert!(calls[1].script.contains("\"value\": \"\""), "{}", calls[1].script);
+    assert!(
+        calls[2].script.contains("\"value\": 0"),
+        "a slider without a value is 0: {}",
+        calls[2].script
+    );
+}
+
+#[test]
+fn two_controls_with_equal_values_keep_the_order_of_the_list() {
+    let set = parse_properties(
+        r#"{"PropertyListener":"f('{0}', {1});","PropertyList":{"z":{"type":"checkbox","value":true},"a":{"type":"checkbox","value":true},"m":{"type":"checkbox","value":true}}}"#,
+    )
+    .expect("a valid set");
+
+    let keys: Vec<String> = js::property_calls_of(&set, Path::new("."))
+        .into_iter()
+        .map(|call| call.key)
+        .collect();
+
+    assert_eq!(keys, ["z", "a", "m"]);
+}
+
+#[test]
+fn the_engine_scripts_are_the_legacy_calls() {
+    assert_eq!(volume_script(0), "SucroseVolume(0);");
+    assert_eq!(volume_script(100), "SucroseVolume(100);");
+    assert_eq!(volume_script(250), "SucroseVolume(100);", "the level is capped at 100");
+    assert_eq!(loop_script(GeneratedPage::Gif, true), "SucroseLoopMode(true);");
+    assert_eq!(loop_script(GeneratedPage::Video, false), "SucroseLoopMode(false);");
+    assert_eq!(
+        stretch_script(GeneratedPage::Gif, Stretch::UniformToFill),
+        "SucroseStretchMode('UniformToFill');"
+    );
+    assert_eq!(
+        stretch_script(GeneratedPage::Video, Stretch::None),
+        "SucroseStretchMode('None');"
+    );
+}
+
+#[test]
+fn the_page_volume_is_the_engine_volume_times_the_property_volume() {
+    assert!((effective_volume(50, 40.0, false) - 0.2).abs() < 1e-9);
+    assert!((effective_volume(100, 100.0, false) - 1.0).abs() < 1e-9);
+    assert!(effective_volume(0, 100.0, false).abs() < 1e-9);
+    assert!(effective_volume(50, 40.0, true).abs() < 1e-9, "muted gives 0");
+    assert!(
+        (effective_volume(100, 250.0, false) - 1.0).abs() < 1e-9,
+        "the property is capped"
+    );
+    assert_eq!(engine_volume_level(50, true), 50);
+    assert_eq!(
+        engine_volume_level(50, false),
+        0,
+        "a renderer that does not play the sound sends 0"
+    );
+}
+
+#[test]
+fn a_generated_page_gets_the_set_then_the_engine_values_and_nothing_of_the_themes_own_files() {
+    let theme = Scratch::new();
+    std::fs::write(
+        theme.0.join("SucroseProperties.json"),
+        r#"{"PropertyListener":"own('{0}', {1});","PropertyList":{"mine":{"type":"checkbox","value":true}}}"#,
+    )
+    .expect("the theme's own file");
+    std::fs::write(
+        theme.0.join("SucroseCompatible.json"),
+        r#"{"LoopMode":"L('{0}');","VolumeLevel":"V({0});"}"#,
+    )
+    .expect("the compatible file");
+    let state = scratch_state();
+    state.set_volume(70);
+    state.set_looping(false);
+    state.set_stretch(Stretch::Fill);
+    let kind = PageKind::Generated(GeneratedPage::Video, builtin_set(WebEngine::Cef));
+
+    let calls = page_calls(kind, &theme.0, 200, &state, &Complaints::default());
+
+    let keys: Vec<String> = calls.iter().map(|call| format!("{}:{}", call.kind, call.key)).collect();
+    let property_count = SET_KEYS.len();
+    assert_eq!(calls.len(), property_count + 3, "{keys:?}");
+    assert!(
+        keys.iter()
+            .all(|key| !key.contains("mine") && !key.starts_with("compatible")),
+        "{keys:?}"
+    );
+    assert_eq!(
+        &keys[property_count..],
+        ["engine:volume", "engine:loop", "engine:stretch"],
+        "the current values run once, after the set"
+    );
+    let scripts: Vec<&str> = calls[property_count..]
+        .iter()
+        .map(|call| call.script.as_str())
+        .collect();
+    assert_eq!(
+        scripts,
+        [
+            "SucroseVolume(70);",
+            "SucroseLoopMode(false);",
+            "SucroseStretchMode('Fill');"
+        ]
+    );
+    assert!(calls[property_count..].iter().all(|call| call.kind == KIND_ENGINE));
+}
+
+#[test]
+fn a_generated_page_that_did_not_load_gets_nothing_and_a_paused_one_ends_with_the_pause() {
+    let theme = Scratch::new();
+    let state = scratch_state();
+    let kind = PageKind::Generated(GeneratedPage::Gif, builtin_set(WebEngine::WebView2));
+
+    assert!(page_calls(kind, &theme.0, 404, &state, &Complaints::default()).is_empty());
+
+    state.set_paused(true);
+    let calls = page_calls(kind, &theme.0, 200, &state, &Complaints::default());
+    assert_eq!(calls.last().expect("calls").kind, js::KIND_PAUSE);
+}
+
+#[test]
+fn a_follower_tells_its_generated_page_volume_zero_and_a_master_the_wallpaper_volume() {
+    let state = scratch_state();
+    state.set_volume(80);
+
+    assert_eq!(
+        sucrose_engine_web::page::volume_call(&state).script,
+        "SucroseVolume(80);"
+    );
+
+    state.set_audio(false);
+    assert_eq!(
+        sucrose_engine_web::page::volume_call(&state).script,
+        "SucroseVolume(0);"
+    );
+
+    state.set_audio(true);
+    assert_eq!(
+        sucrose_engine_web::page::volume_call(&state).script,
+        "SucroseVolume(80);"
     );
 }

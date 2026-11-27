@@ -14,17 +14,44 @@ use std::{
 use serde_json::Value;
 use sucrose_core::{
     compatible::{COMPATIBLE_FILE, CompatibleKey, DataGroup, read_compatible},
-    properties::PropertiesError,
+    properties::{PropertiesError, SucroseProperties},
     settings::Stretch,
 };
 
-use crate::js::{self, CompatibleState, PageCall};
+use crate::{
+    js::{self, CompatibleState, PageCall},
+    pages::{self, GeneratedPage},
+};
+
+/// What a web engine shows: a theme's own page, or a page Sucrose generated for a Gif or Video theme together with the
+/// built-in property set that page uses. The page decides which calls the page gets after it loaded.
+#[derive(Debug, Clone, Copy)]
+pub enum PageKind {
+    /// The page of a Web theme: its own `SucroseProperties.json` and `SucroseCompatible.json`, and system data on request.
+    Theme,
+    /// A generated page with its built-in set: the set's property calls and the current engine values, and no
+    /// compatible calls and no system data.
+    Generated(GeneratedPage, &'static SucroseProperties),
+}
+
+impl PageKind {
+    /// The generated page, when this is one.
+    #[must_use]
+    pub fn generated(&self) -> Option<GeneratedPage> {
+        match self {
+            Self::Theme => None,
+            Self::Generated(page, _) => Some(*page),
+        }
+    }
+}
 
 /// The newest value of each setting and of each system data group, shared by the thread-safe handle of an engine and the
 /// surface thread that runs the page calls.
 #[derive(Debug)]
 pub struct PageState {
     paused: AtomicBool,
+    /// Whether this renderer plays the sound (D-02): a follower does not.
+    audio: AtomicBool,
     volume: AtomicU8,
     looping: AtomicBool,
     shuffle: AtomicBool,
@@ -48,6 +75,7 @@ impl PageState {
     ) -> Self {
         Self {
             paused: AtomicBool::new(paused),
+            audio: AtomicBool::new(true),
             volume: AtomicU8::new(volume.min(100)),
             looping: AtomicBool::new(looping),
             shuffle: AtomicBool::new(shuffle),
@@ -66,6 +94,17 @@ impl PageState {
     /// Keeps whether the renderer is paused.
     pub fn set_paused(&self, paused: bool) {
         self.paused.store(paused, Ordering::SeqCst);
+    }
+
+    /// Whether this renderer plays the sound, as last set; the legacy default and the start state is on.
+    #[must_use]
+    pub fn audio(&self) -> bool {
+        self.audio.load(Ordering::SeqCst)
+    }
+
+    /// Keeps whether this renderer plays the sound.
+    pub fn set_audio(&self, audio: bool) {
+        self.audio.store(audio, Ordering::SeqCst);
     }
 
     /// The last volume, 0..=100.
@@ -169,17 +208,64 @@ pub fn describe(error: &PropertiesError) -> String {
     }
 }
 
+/// The calls that tell a generated page what the engine holds: the volume level (0 for a renderer that does not play
+/// the sound), whether the media loops and how it is fitted. They are the same scripts the engine runs when one of these
+/// changes while the page plays.
+#[must_use]
+pub fn engine_calls(page: GeneratedPage, state: &PageState) -> Vec<PageCall> {
+    vec![
+        volume_call(state),
+        PageCall {
+            kind: js::KIND_ENGINE,
+            key: "loop".to_owned(),
+            script: pages::loop_script(page, state.looping()),
+        },
+        PageCall {
+            kind: js::KIND_ENGINE,
+            key: "stretch".to_owned(),
+            script: pages::stretch_script(page, state.stretch()),
+        },
+    ]
+}
+
+/// The volume call of a generated page: the engine's volume, or 0 for a renderer that does not play the sound (D-06, D-02).
+#[must_use]
+pub fn volume_call(state: &PageState) -> PageCall {
+    PageCall {
+        kind: js::KIND_ENGINE,
+        key: "volume".to_owned(),
+        script: pages::volume_script(pages::engine_volume_level(state.volume(), state.audio())),
+    }
+}
+
 /// The scripts a page gets after its main frame loaded, in the order they must run (WAPI-01, WAPI-02): the property
 /// calls of `SucroseProperties.json`, one per control in file order; then the non-data compatible calls of
 /// `SucroseCompatible.json` in the legacy run order, so they come after every property call and before the first data
 /// push; then, when the renderer was paused before the page finished loading, the pause. Only a loaded page (HTTP 200)
 /// gets them; a theme without a file or with nothing in it gets none, and a file that cannot be used is logged once
 /// per renderer (`complaints`) while the page still plays. A reload runs this again, so every key is sent again.
+///
+/// A generated page (`PageKind::Generated`) gets the property calls of its built-in set instead (never the theme's
+/// own file, and no compatible calls), then the current engine values once (volume, loop, stretch), then the pause.
 #[must_use]
-pub fn page_calls(theme_dir: &Path, status: i32, state: &PageState, complaints: &Complaints) -> Vec<PageCall> {
+pub fn page_calls(
+    kind: PageKind,
+    theme_dir: &Path,
+    status: i32,
+    state: &PageState,
+    complaints: &Complaints,
+) -> Vec<PageCall> {
     if status != 200 {
         tracing::debug!(status, "no page calls: the main frame did not load with status 200");
         return Vec::new();
+    }
+    if let PageKind::Generated(page, set) = kind {
+        let mut calls = js::property_calls_of(set, theme_dir);
+        calls.extend(engine_calls(page, state));
+        if state.paused() {
+            calls.push(js::pause_call(true));
+        }
+        return calls;
     }
     let mut calls = match js::property_calls(theme_dir) {
         Ok(calls) => calls,

@@ -13,7 +13,7 @@ use std::{
 use serde_json::Value;
 use sucrose_core::{
     compatible::{COMPATIBLE_FILE, CompatibleError, CompatibleKey, DataGroup, read_compatible},
-    properties::{Control, ControlKind, PROPERTIES_FILE, PropertiesError, read_properties},
+    properties::{Control, ControlKind, PROPERTIES_FILE, PropertiesError, SucroseProperties, read_properties},
     settings::Stretch,
 };
 
@@ -113,6 +113,8 @@ pub const KIND_PROPERTY: &str = "property";
 pub const KIND_COMPATIBLE: &str = "compatible";
 /// The kind of the in-page pause and resume calls.
 pub const KIND_PAUSE: &str = "pause";
+/// The kind of the calls that tell a generated page what the engine currently holds (volume, loop, stretch).
+pub const KIND_ENGINE: &str = "engine";
 
 /// One script to run in the main frame of a page, with what it is for (the log shows `kind` and `key`).
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -205,18 +207,44 @@ pub fn property_calls(theme_dir: &Path) -> Result<Vec<PageCall>, PropertiesError
         Err(PropertiesError::Missing(_)) => return Ok(Vec::new()),
         Err(error) => return Err(error),
     };
-    Ok(properties
+    Ok(calls_of(&properties, theme_dir, false))
+}
+
+/// The property calls of a given set, one per control in the order of its `PropertyList`, with the set's own listener
+/// format: what a generated page gets from its built-in set (PROP-05). Unlike a theme's own file, a slider value is held
+/// inside its bounds (a value equal to `min` or `max` is passed as it is, one outside is clamped), because the values of
+/// a built-in set are edited by Sucrose's own editor and a page must never be told a number its control cannot show.
+#[must_use]
+pub fn property_calls_of(properties: &SucroseProperties, theme_dir: &Path) -> Vec<PageCall> {
+    calls_of(properties, theme_dir, true)
+}
+
+/// One slider's value held inside its bounds; every other control as it is. A slider whose bounds are reversed or not
+/// numbers is left alone.
+fn clamped(control: &Control) -> Control {
+    let mut control = control.clone();
+    if let ControlKind::Slider { min, max, value, .. } = &mut control.kind
+        && *min <= *max
+    {
+        *value = value.clamp(*min, *max);
+    }
+    control
+}
+
+fn calls_of(properties: &SucroseProperties, theme_dir: &Path, clamp: bool) -> Vec<PageCall> {
+    properties
         .list
         .iter()
         .filter_map(|(key, control)| {
-            let script = property_call(&properties.listener, key, &control_json(theme_dir, control));
+            let control = if clamp { clamped(control) } else { control.clone() };
+            let script = property_call(&properties.listener, key, &control_json(theme_dir, &control));
             (!script.is_empty()).then(|| PageCall {
                 kind: KIND_PROPERTY,
                 key: key.clone(),
                 script,
             })
         })
-        .collect())
+        .collect()
 }
 
 /// The value a compatible template is formatted with, written as C# writes it into `string.Format`.

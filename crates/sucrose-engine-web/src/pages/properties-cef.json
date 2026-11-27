@@ -1,0 +1,138 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "onlyCef": {
+      "type": "label",
+      "value": "Property.Localization.CefSharp"
+    },
+    "scale": {
+      "max": 5,
+      "min": -5,
+      "step": 0.5,
+      "text": "Property.Localization.Zoom",
+      "type": "slider",
+      "value": 0
+    },
+    "saturate": {
+      "max": 100,
+      "min": -100,
+      "step": 1,
+      "text": "Property.Localization.Saturation",
+      "type": "slider",
+      "value": 0
+    },
+    "hue-rotate": {
+      "max": 100,
+      "min": -100,
+      "step": 1,
+      "text": "Property.Localization.Hue",
+      "type": "slider",
+      "value": 0
+    },
+    "brightness": {
+      "max": 100,
+      "min": -100,
+      "step": 1,
+      "text": "Property.Localization.Brightness",
+      "type": "slider",
+      "value": 0
+    },
+    "contrast": {
+      "max": 100,
+      "min": -100,
+      "step": 1,
+      "text": "Property.Localization.Contrast",
+      "type": "slider",
+      "value": 0
+    },
+    "blur": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Property.Localization.Blur",
+      "type": "slider",
+      "value": 0
+    },
+    "grayscale": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Property.Localization.Grayscale",
+      "type": "slider",
+      "value": 0
+    },
+    "sepia": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Property.Localization.Sepia",
+      "type": "slider",
+      "value": 0
+    },
+    "invert": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Property.Localization.Invert",
+      "type": "slider",
+      "value": 0
+    },
+    "mirror": {
+      "type": "dropdown",
+      "text": "Property.Localization.Mirror",
+      "value": 0,
+      "items": [
+        "Property.Localization.Mirror.Flat",
+        "Property.Localization.Mirror.Vertical",
+        "Property.Localization.Mirror.Horizontal",
+        "Property.Localization.Mirror.VerticalHorizontal"
+      ]
+    },
+    "animation": {
+      "type": "dropdown",
+      "text": "Property.Localization.Animation",
+      "value": 0,
+      "items": [
+        "Property.Localization.Animation.Flat",
+        "Property.Localization.Animation.Flip",
+        "Property.Localization.Animation.Pulse",
+        "Property.Localization.Animation.Shake",
+        "Property.Localization.Animation.Bounce",
+        "Property.Localization.Animation.Wiggle"
+      ]
+    },
+    "playbackRate": {
+      "max": 2.5,
+      "min": 0.25,
+      "step": 0.1,
+      "text": "Property.Localization.Speed",
+      "type": "slider",
+      "value": 1
+    },
+    "muted": {
+      "text": "Property.Localization.Mute",
+      "type": "checkbox",
+      "value": false
+    },
+    "volume": {
+      "help": "Property.Localization.Volume.Help",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Property.Localization.Volume",
+      "type": "slider",
+      "value": 100
+    },
+    "caption": {
+      "text": "Property.Localization.Caption",
+      "type": "checkbox",
+      "value": false
+    }
+  },
+  "PropertyLocalization": {
+    "en": {
+      "Property.Localization.Volume": "Volume",
+      "Property.Localization.Volume.Help": "Adjusts this wallpaper's volume. The result is multiplied by the Sound volume in Settings."
+    }
+  }
+}

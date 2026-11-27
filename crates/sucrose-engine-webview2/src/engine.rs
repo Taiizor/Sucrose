@@ -23,8 +23,8 @@ use sucrose_engine::{
 use sucrose_engine_web::{
     args::{self, SucroseInputs, WebEngine},
     js, origin,
-    page::{self, Complaints, PageState},
-    pages,
+    page::{self, Complaints, PageKind, PageState},
+    pages::{self, GeneratedPage},
     profile::{self, ProfileLease},
 };
 use sucrose_ipc::protocol::{Assignment, PlaybackSettings, WebOptions};
@@ -47,6 +47,8 @@ enum Command {
         level: PauseLevel,
     },
     Volume(u8),
+    /// Whether this renderer plays the sound changed (D-02): a generated page is told the level it plays at.
+    Audio(bool),
     Loop(bool),
     /// The value of the `ShuffleMode` call changed (PLAY-01).
     Shuffle(bool),
@@ -103,6 +105,8 @@ pub struct WebView2Pump {
     /// The top left corner of the surface on the virtual screen: input positions are made relative to it.
     origin: (i32, i32),
     theme_dir: PathBuf,
+    /// The generated page this renderer shows (a Gif or Video theme), `None` for a theme's own page.
+    generated: Option<GeneratedPage>,
     /// The non-empty templates of the theme, read when the first snapshot arrives.
     templates: Option<Vec<(CompatibleKey, String)>>,
     /// Held until the host is closed: the profile folder is free for the next instance only once WebView2 no longer
@@ -198,6 +202,10 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
     let web = &assignment.web;
     let state = Arc::new(initial_state(&assignment.settings, &web.theme_type, web.shuffle));
     let calls_state = Arc::clone(&state);
+    let generated = GeneratedPage::for_kind(assignment.kind);
+    let page_kind = generated.map_or(PageKind::Theme, |page| {
+        PageKind::Generated(page, pages::builtin_set(WebEngine::WebView2))
+    });
     let port = debugging_port(web.developer_port, assignment.slot);
     if let Some(port) = port {
         tracing::info!(port, slot = assignment.slot, "remote debugging");
@@ -238,7 +246,9 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         browser_arguments,
         developer_mode: web.developer_mode,
         allow_invalid_certificates: web.allow_invalid_certificates,
-        page_calls: Arc::new(move |_url, status| page::page_calls(&calls_dir, status, &calls_state, &complaints)),
+        page_calls: Arc::new(move |_url, status| {
+            page::page_calls(page_kind, &calls_dir, status, &calls_state, &complaints)
+        }),
         // The first finished main-frame load is the first frame the user can see.
         on_loaded: Arc::new(move |_url, status| {
             if !told.swap(true, Ordering::SeqCst) {
@@ -246,7 +256,12 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             }
             // Once per renderer, after the page and its calls: a reload keeps the data it already asked for.
             if status == 200 && !asked.swap(true, Ordering::SeqCst) {
-                let groups = page::wanted_groups(&wanted_dir, status);
+                // A generated page asks for no system data.
+                let groups = if page_kind.generated().is_some() {
+                    Vec::new()
+                } else {
+                    page::wanted_groups(&wanted_dir, status)
+                };
                 if !groups.is_empty() {
                     tracing::info!(groups = ?groups, "data wanted");
                     on_data_wanted(groups);
@@ -289,6 +304,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             pending_move,
             origin: (assignment.rect[0], assignment.rect[1]),
             theme_dir,
+            generated,
             templates: None,
             profile,
             scratch,
@@ -380,6 +396,14 @@ impl Engine for WebView2Engine {
         Ok(())
     }
 
+    /// A generated page plays at the engine volume only while this renderer plays the sound (D-02, D-06); a theme's own
+    /// page keeps its Round A behaviour (its volume is Round D).
+    fn set_audio(&self, on: bool) -> Result<(), EngineError> {
+        self.state.set_audio(on);
+        self.queue(Command::Audio(on));
+        Ok(())
+    }
+
     /// A running WebView2 renderer cannot show another page in place: the service starts a new renderer for it.
     fn load_source(&self, _source: &Path, _settings: &PlaybackSettings) -> Result<(), EngineError> {
         Err(EngineError::Unsupported {
@@ -467,23 +491,48 @@ impl WebView2Pump {
             }
             tracing::debug!(?command, "queued command reached the WebView2 thread");
             match command {
-                Command::Data | Command::Volume(_) | Command::Stretch(_) | Command::MouseMove | Command::Input(_) => {}
+                Command::Data | Command::MouseMove | Command::Input(_) => {}
                 Command::OpenDevTools => {
                     if let Err(error) = self.host.open_devtools() {
                         tracing::warn!(%error, "cannot open the WebView2 developer tools");
                     }
                 }
-                Command::Pause { paused, .. } => {
-                    let call = js::pause_call(paused);
-                    tracing::debug!(kind = call.kind, key = ?call.key, "page call");
-                    self.host.execute_script(&call.script);
+                Command::Pause { paused, .. } => self.run(&js::pause_call(paused)),
+                // A generated page is told the new value; a theme's own page gets the compatible calls again.
+                Command::Loop(on) => match self.generated {
+                    Some(page) => self.run(&js::PageCall {
+                        kind: js::KIND_ENGINE,
+                        key: "loop".to_owned(),
+                        script: pages::loop_script(page, on),
+                    }),
+                    None => data_pushed = true,
+                },
+                Command::Shuffle(_) => data_pushed |= self.generated.is_none(),
+                Command::Stretch(stretch) => {
+                    if let Some(page) = self.generated {
+                        self.run(&js::PageCall {
+                            kind: js::KIND_ENGINE,
+                            key: "stretch".to_owned(),
+                            script: pages::stretch_script(page, stretch),
+                        });
+                    }
                 }
-                Command::Loop(_) | Command::Shuffle(_) => data_pushed = true,
+                Command::Volume(_) | Command::Audio(_) => {
+                    if self.generated.is_some() {
+                        self.run(&page::volume_call(&self.state));
+                    }
+                }
             }
         }
         if data_pushed {
             self.push_data();
         }
+    }
+
+    /// Runs one call in the page, logged as a `page call` at debug.
+    fn run(&self, call: &js::PageCall) {
+        tracing::debug!(kind = call.kind, key = ?call.key, "page call");
+        self.host.execute_script(&call.script);
     }
 
     /// Hands one input event to the page: the legacy message to the Chromium widget, positions relative to the surface;
@@ -512,6 +561,9 @@ impl WebView2Pump {
     /// Runs the templates with the newest data in the page: the non-data keys again and each data key that has a
     /// snapshot.
     fn push_data(&mut self) {
+        if self.generated.is_some() {
+            return;
+        }
         let templates = self
             .templates
             .get_or_insert_with(|| page::load_templates(&self.theme_dir));
@@ -680,6 +732,22 @@ mod tests {
 
         assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::Input(key)]);
         assert_eq!(wakes.load(Ordering::SeqCst), 1);
+    }
+
+    #[test]
+    fn a_change_of_the_sound_role_is_kept_and_queued_so_a_generated_page_is_told_its_level() {
+        let (engine, queue, wakes) = handle(4);
+        assert!(
+            engine.state.audio(),
+            "a renderer plays the sound until it is told otherwise"
+        );
+
+        engine.set_audio(false).expect("audio");
+
+        assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::Audio(false)]);
+        assert_eq!(wakes.load(Ordering::SeqCst), 1);
+        assert!(!engine.state.audio());
+        assert_eq!(page::volume_call(&engine.state).script, "SucroseVolume(0);");
     }
 
     #[test]

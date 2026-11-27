@@ -8,12 +8,17 @@
 use std::{
     fs, io,
     path::{Path, PathBuf},
+    sync::OnceLock,
 };
 
 use percent_encoding::{AsciiSet, NON_ALPHANUMERIC, utf8_percent_encode};
-use sucrose_core::theme::WallpaperType;
+use sucrose_core::{
+    properties::{SucroseProperties, parse_properties},
+    settings::Stretch,
+    theme::WallpaperType,
+};
 
-use crate::origin::ORIGIN;
+use crate::{args::WebEngine, origin::ORIGIN};
 
 /// Everything but the unreserved characters is escaped, so the `/` of a relative path travels as `%2F` inside the query.
 const QUERY: &AsciiSet = &NON_ALPHANUMERIC.remove(b'-').remove(b'.').remove(b'_').remove(b'~');
@@ -235,4 +240,60 @@ pub fn prepare(kind: WallpaperType, theme_dir: &Path, source: &str) -> Result<Op
         .ok_or(PageError::NoCacheFolder)?
         .join("Content");
     prepare_in(&content, kind, theme_dir, source)
+}
+
+/// The built-in property set the generated pages of `engine` use (PROP-05): the legacy CEF or WebView set decoded from
+/// `SE/Manage/Internal.cs`, with the D-06 `volume` slider right after `muted`. A Gif or Video theme on a web engine
+/// always gets this set and never its own `SucroseProperties.json`, as in the legacy app.
+///
+/// # Panics
+/// Never for the files in this build: a test parses both, so an invalid set cannot ship.
+#[must_use]
+pub fn builtin_set(engine: WebEngine) -> &'static SucroseProperties {
+    static CEF: OnceLock<SucroseProperties> = OnceLock::new();
+    static WEBVIEW: OnceLock<SucroseProperties> = OnceLock::new();
+    let (slot, text) = match engine {
+        WebEngine::Cef => (&CEF, include_str!("pages/properties-cef.json")),
+        WebEngine::WebView2 => (&WEBVIEW, include_str!("pages/properties-webview.json")),
+    };
+    slot.get_or_init(|| {
+        parse_properties(text).expect("the embedded built-in property set is valid JSON (a test parses it)")
+    })
+}
+
+/// The level `SucroseVolume` is told: the wallpaper volume (0..=100) while this renderer plays the sound, 0 when it does
+/// not (a follower, D-02, or any renderer told `set_audio(false)`).
+#[must_use]
+pub fn engine_volume_level(volume: u8, audio: bool) -> u8 {
+    if audio { volume.min(100) } else { 0 }
+}
+
+/// The script that hands a generated page the engine's volume level (0..=100).
+#[must_use]
+pub fn volume_script(level: u8) -> String {
+    format!("SucroseVolume({});", level.min(100))
+}
+
+/// The script that sets whether the media loops. Both pages answer `SucroseLoopMode(<bool>)`, as the legacy GIF page does.
+#[must_use]
+pub fn loop_script(_page: GeneratedPage, on: bool) -> String {
+    format!("SucroseLoopMode({on});")
+}
+
+/// The script that fits the media to the surface by the legacy stretch name. Both pages answer
+/// `SucroseStretchMode('<Name>')`, as the legacy GIF page does.
+#[must_use]
+pub fn stretch_script(_page: GeneratedPage, stretch: Stretch) -> String {
+    format!("SucroseStretchMode('{}');", stretch.legacy_name())
+}
+
+/// The volume a generated page plays at, as a fraction of full scale (D-06): the engine's level (0..=100) times the
+/// property's (0..=100) over 10 000, and 0 when the property `muted` is on. The pages compute the same product in
+/// `SucroseApplyVolume`; this is the rule written once where it can be tested.
+#[must_use]
+pub fn effective_volume(engine_level: u8, property: f64, muted: bool) -> f64 {
+    if muted || !property.is_finite() {
+        return 0.0;
+    }
+    (f64::from(engine_level.min(100)) / 100.0) * (property.clamp(0.0, 100.0) / 100.0)
 }
