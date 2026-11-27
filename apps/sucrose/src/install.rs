@@ -450,6 +450,7 @@ mod tests {
         run: Result<i32, String>,
         installed: bool,
         calls: Mutex<Vec<&'static str>>,
+        run_args: Mutex<Vec<String>>,
         file_seen_at_run: Mutex<Option<bool>>,
     }
 
@@ -461,8 +462,13 @@ mod tests {
                 run: Ok(0),
                 installed: true,
                 calls: Mutex::new(Vec::new()),
+                run_args: Mutex::new(Vec::new()),
                 file_seen_at_run: Mutex::new(None),
             }
+        }
+
+        fn run_args(&self) -> Vec<String> {
+            self.run_args.lock().expect("run args").clone()
         }
 
         fn calls(&self) -> Vec<&'static str> {
@@ -479,7 +485,7 @@ mod tests {
             progress: Progress<'_>,
         ) -> Result<(), DownloadError> {
             self.calls.lock().expect("calls").push("download");
-            assert!(url.starts_with("https://aka.ms/vc14/vc_redist."));
+            assert!(url.starts_with("https://"));
             progress(5, Some(10));
             if cancel.load(Ordering::SeqCst) {
                 return Err(DownloadError::Cancelled);
@@ -496,7 +502,7 @@ mod tests {
 
         fn run(&self, path: &Path, args: &str) -> Result<i32, String> {
             self.calls.lock().expect("calls").push("run");
-            assert_eq!(args, "/install /passive /norestart");
+            self.run_args.lock().expect("run args").push(args.to_owned());
             *self.file_seen_at_run.lock().expect("seen") = Some(path.is_file());
             self.run.clone()
         }
@@ -541,6 +547,7 @@ mod tests {
             ]
         );
         assert_eq!(fake.calls(), ["download", "verify", "run", "installed"]);
+        assert_eq!(fake.run_args(), ["/install /passive /norestart"]);
         assert_eq!(*fake.file_seen_at_run.lock().expect("seen"), Some(true));
         assert!(scratch.install_folder_is_empty());
     }
@@ -686,7 +693,66 @@ mod tests {
             Some("https://aka.ms/vc14/vc_redist.arm64.exe")
         );
         assert_eq!(url(Arch::Other), None);
-        assert_eq!(Prerequisite::WebView2Runtime.url(Arch::X64), None);
+    }
+
+    #[test]
+    fn the_webview2_bootstrapper_has_one_https_address_for_every_architecture_and_silent_arguments() {
+        for arch in [Arch::X86, Arch::X64, Arch::Arm64] {
+            assert_eq!(
+                Prerequisite::WebView2Runtime.url(arch).as_deref(),
+                Some("https://go.microsoft.com/fwlink/p/?LinkId=2124703"),
+                "{arch:?}"
+            );
+        }
+        assert_eq!(Prerequisite::WebView2Runtime.url(Arch::Other), None);
+        assert_eq!(Prerequisite::WebView2Runtime.arguments(), "/silent /install");
+        assert_eq!(Prerequisite::WebView2Runtime.file_name(), "webview2_setup.exe");
+    }
+
+    #[test]
+    fn a_webview2_install_runs_the_bootstrapper_silently_and_is_done_when_the_runtime_is_there() {
+        let scratch = Scratch::new("webview2");
+        let fake = Fake::working();
+        let seen = Mutex::new(Vec::new());
+
+        run_install(
+            Prerequisite::WebView2Runtime,
+            Arch::X64,
+            &fake,
+            &scratch.0,
+            &AtomicBool::new(false),
+            &|stage| seen.lock().expect("stages").push(stage),
+        );
+
+        assert_eq!(seen.into_inner().expect("stages").last(), Some(&InstallStage::Done));
+        assert_eq!(fake.calls(), ["download", "verify", "run", "installed"]);
+        assert_eq!(fake.run_args(), ["/silent /install"]);
+        assert!(scratch.install_folder_is_empty());
+    }
+
+    #[test]
+    fn a_webview2_install_whose_runtime_is_still_missing_afterwards_is_an_installer_failure() {
+        let scratch = Scratch::new("webview2-missing");
+        let fake = Fake {
+            installed: false,
+            ..Fake::working()
+        };
+        let seen = Mutex::new(Vec::new());
+
+        run_install(
+            Prerequisite::WebView2Runtime,
+            Arch::Arm64,
+            &fake,
+            &scratch.0,
+            &AtomicBool::new(false),
+            &|stage| seen.lock().expect("stages").push(stage),
+        );
+
+        assert_eq!(
+            seen.into_inner().expect("stages").last(),
+            Some(&InstallStage::Failed(InstallFailure::Installer))
+        );
+        assert!(scratch.install_folder_is_empty());
     }
 
     #[test]
@@ -696,7 +762,7 @@ mod tests {
 
         run_install(
             Prerequisite::WebView2Runtime,
-            Arch::X64,
+            Arch::Other,
             &Fake::working(),
             &scratch.0,
             &AtomicBool::new(false),
@@ -728,5 +794,107 @@ mod tests {
             }
             .is_final()
         );
+    }
+
+    /// A folder that is removed when it goes out of scope and, unless the test is already failing, must be gone then.
+    struct MustBeGone(PathBuf);
+
+    impl Drop for MustBeGone {
+        fn drop(&mut self) {
+            let _ = fs::remove_dir_all(&self.0);
+            if !thread::panicking() {
+                assert!(!self.0.exists(), "{} was not removed", self.0.display());
+            }
+        }
+    }
+
+    /// The system's download and signature check; the run only records what it was asked to run, and a copy of the verified
+    /// file is kept in `keep` for the tampering check.
+    struct RecordedRun {
+        keep: PathBuf,
+        signer: Mutex<Option<String>>,
+        ran: Mutex<Vec<String>>,
+    }
+
+    impl Steps for RecordedRun {
+        fn download(
+            &self,
+            url: &str,
+            dest: &Path,
+            cancel: &AtomicBool,
+            progress: Progress<'_>,
+        ) -> Result<(), DownloadError> {
+            SystemSteps.download(url, dest, cancel, progress)
+        }
+
+        fn verify(&self, path: &Path) -> Result<(), String> {
+            let signer = sucrose_platform::current()
+                .verify_microsoft_signature(path)
+                .map_err(|error| error.to_string())?;
+            *self.signer.lock().expect("signer") = Some(signer.subject);
+            fs::copy(path, &self.keep).map_err(|error| error.to_string())?;
+            Ok(())
+        }
+
+        fn run(&self, _path: &Path, args: &str) -> Result<i32, String> {
+            self.ran.lock().expect("ran").push(args.to_owned());
+            Ok(0)
+        }
+
+        fn installed(&self, _prerequisite: Prerequisite) -> bool {
+            true
+        }
+    }
+
+    /// The real Evergreen Bootstrapper goes through the worker up to the run step (ENG-06, D-15): downloaded over HTTPS
+    /// from the fwlink address, accepted by the Microsoft signature check, handed to the run step with the silent
+    /// arguments (which only records them), and a copy with one byte changed is refused. Needs the network.
+    #[test]
+    #[ignore = "downloads the real WebView2 Bootstrapper from Microsoft"]
+    #[allow(
+        clippy::print_stdout,
+        reason = "the signer the check reports is quoted in the plan summary"
+    )]
+    fn webview2_bootstrapper_downloads_and_passes_the_signature_check() {
+        let root = MustBeGone(std::env::temp_dir().join(format!("sucrose-webview2-download-{}", std::process::id())));
+        let tamper = MustBeGone(std::env::temp_dir().join(format!("sucrose-webview2-tamper-{}", std::process::id())));
+        let _ = fs::remove_dir_all(&root.0);
+        let _ = fs::remove_dir_all(&tamper.0);
+        let copy_dir = PrivateDir::create(&tamper.0).expect("the second private folder can be created");
+        let steps = RecordedRun {
+            keep: copy_dir.0.join("webview2_setup.exe"),
+            signer: Mutex::new(None),
+            ran: Mutex::new(Vec::new()),
+        };
+        let seen = Mutex::new(Vec::new());
+
+        run_install(
+            Prerequisite::WebView2Runtime,
+            Arch::current(),
+            &steps,
+            &root.0,
+            &AtomicBool::new(false),
+            &|stage| seen.lock().expect("stages").push(stage),
+        );
+
+        let seen = seen.into_inner().expect("stages");
+        assert!(seen.contains(&InstallStage::Verifying), "{seen:?}");
+        assert_eq!(seen.last(), Some(&InstallStage::Done), "{seen:?}");
+        assert_eq!(*steps.ran.lock().expect("ran"), ["/silent /install"]);
+        let signer = steps.signer.lock().expect("signer").clone();
+        println!("signer reported by the check: {signer:?}");
+        assert_eq!(signer.as_deref(), Some("Microsoft Corporation"));
+        assert!(
+            fs::read_dir(root.0.join("Install")).is_ok_and(|mut entries| entries.next().is_none()),
+            "the download folder is gone"
+        );
+
+        let mut bytes = fs::read(&steps.keep).expect("the kept copy can be read");
+        let middle = bytes.len() / 2;
+        bytes[middle] ^= 0xFF;
+        fs::write(&steps.keep, &bytes).expect("the changed copy can be written");
+        let refused = SystemSteps.verify(&steps.keep);
+        println!("one byte changed: {refused:?}");
+        assert!(refused.is_err(), "a copy with one byte changed must be refused");
     }
 }
