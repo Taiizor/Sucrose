@@ -274,6 +274,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             engine: WebEngine::Cef,
         },
         developer_mode: web.developer_mode,
+        user_agent: web.user_agent.clone(),
     };
     // The page comes from the virtual origin (D-14): the theme folder first, then the generated content. A Gif, Video
     // or YouTube theme plays through a generated page that is written into the content folder.

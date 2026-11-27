@@ -689,6 +689,7 @@ fn selected_job(settings: &Settings, legacy_root: &Path, engines: &EngineReport)
             &settings.engine,
             settings.backgroundog.pause,
             settings.portal.theme_mode,
+            &settings.general.user_agent,
             engines,
         )
         .map_err(|reason| ThemeRejection::SourceInvalid {
@@ -3573,6 +3574,7 @@ fn handle_use(
                 &settings.engine,
                 settings.backgroundog.pause,
                 settings.portal.theme_mode,
+                &settings.general.user_agent,
                 &fleet.engines,
             )
             .map_err(|reason| ThemeRejection::SourceInvalid {
@@ -3747,6 +3749,7 @@ fn restart_wallpapers(
         &settings.engine,
         settings.backgroundog.pause,
         settings.portal.theme_mode,
+        &settings.general.user_agent,
         &fleet.engines,
     )?;
     Ok(fleet.restart_with(job, renderers).len())
@@ -3986,6 +3989,7 @@ fn plan_from(settings: &Settings, legacy_root: &std::path::Path, engines: &Engin
         &settings.engine,
         settings.backgroundog.pause,
         settings.portal.theme_mode,
+        &settings.general.user_agent,
         engines,
     ) {
         Ok(job) => {
@@ -4043,21 +4047,23 @@ fn apply_gpu_preference(platform: &dyn sucrose_platform::Platform, preference: G
     }
 }
 
-/// Runs the gate (D-13) on the selected theme and, when it passes, builds what every renderer plays. The error is
-/// one English sentence for the log and the tooltip: the gate's own reason.
+/// Runs the gate (D-13) on the selected theme and, when it passes, builds what every renderer plays: the engine
+/// settings, the pause rule, the theme mode and `General.UserAgent` (`user_agent`) are read here. The error is one
+/// English sentence for the log and the tooltip: the gate's own reason.
 fn plan_for(
     location: &std::path::Path,
     selected: &str,
     engine: &Engine,
     pause: PauseKind,
     theme_mode: ThemeMode,
+    user_agent: &str,
     engines: &EngineReport,
 ) -> Result<Job, String> {
     let theme = check_selected(location, selected, &app_version(), PLAYABLE)
         .map_err(|rejection| printable(&rejection.to_string()))?;
     // Debug formatting for the text a theme or the settings supply: control characters show as escapes.
     tracing::info!(theme = ?selected, kind = ?theme.info.kind, source = ?theme.info.source, "selected theme");
-    job_for(&theme, engine, pause, theme_mode, engines)
+    job_for(&theme, engine, pause, theme_mode, user_agent, engines)
 }
 
 /// The wallpaper type whose engine `change` sets, `None` for every other setting.
@@ -4123,6 +4129,7 @@ fn restart_for_engine(
         &settings.engine,
         settings.backgroundog.pause,
         settings.portal.theme_mode,
+        &settings.general.user_agent,
         &fleet.engines,
     ) {
         Ok(job) => job,
@@ -4157,12 +4164,14 @@ fn configured_engine(engine: &Engine, kind: WallpaperType) -> EngineType {
 
 /// What every renderer plays for a theme that passed the gate, with the playback settings of Engine.json. The engine
 /// is chosen here from the detected engines, with its fallback (D-11, ENG-07): the configured one when it is available,
-/// else the first that is. The setting itself is never changed.
+/// else the first that is. The setting itself is never changed. `user_agent` is `General.UserAgent`; only a web engine
+/// gets it (see [`web_user_agent`]).
 fn job_for(
     theme: &SelectedTheme,
     engine: &Engine,
     pause: PauseKind,
     theme_mode: ThemeMode,
+    user_agent: &str,
     engines: &EngineReport,
 ) -> Result<Job, String> {
     let source = match &theme.source {
@@ -4199,6 +4208,7 @@ fn job_for(
         theme_dir,
         web: WebOptions {
             theme_type: legacy_theme_type(theme_mode).to_owned(),
+            user_agent: web_user_agent(chosen, user_agent),
             ..web_options(engine, chosen)
         },
         input: input_settings(engine),
@@ -4236,7 +4246,27 @@ fn web_options(engine: &Engine, chosen: EngineId) -> WebOptions {
         developer_port: engine.developer_port,
         shuffle: engine.wallpaper_shuffle,
         theme_type: WebOptions::default().theme_type,
+        // `job_for` fills it from General.UserAgent, as it does `theme_type`.
+        user_agent: String::new(),
     }
+}
+
+/// The user agent a job hands to its engine, from `General.UserAgent` (legacy: `CefSettings.UserAgent` and
+/// `CoreWebView2.Settings.UserAgent`). Only the two web engines get one: the value as stored, never trimmed. An empty
+/// or blank value, or one with a control character (CR, LF, NUL, tab), gives an empty string, which both engines read
+/// as their own user agent; the control-character case warns with the length only, never the text (T-uov-01, T-uov-02).
+fn web_user_agent(chosen: EngineId, configured: &str) -> String {
+    if !matches!(chosen, EngineId::Cef | EngineId::WebView2) || configured.trim().is_empty() {
+        return String::new();
+    }
+    if configured.chars().any(char::is_control) {
+        tracing::warn!(
+            len = configured.len(),
+            "the user agent has a control character, the web engines keep their own"
+        );
+        return String::new();
+    }
+    configured.to_owned()
 }
 
 /// The input forwarding settings the Engine section leads to (WAPI-07): read when the job is made, so a change saved
@@ -4469,6 +4499,49 @@ mod tests {
             !web_options(&Engine::default(), EngineId::Cef).developer_mode,
             "off by default"
         );
+    }
+
+    #[test]
+    fn web_jobs_carry_the_general_user_agent_and_player_jobs_none() {
+        use sucrose_config::model::DEFAULT_USER_AGENT;
+
+        assert_eq!(web_user_agent(EngineId::Cef, DEFAULT_USER_AGENT), DEFAULT_USER_AGENT);
+        assert_eq!(
+            web_user_agent(EngineId::WebView2, "My Agent 1.0"),
+            "My Agent 1.0",
+            "exactly as stored, not trimmed"
+        );
+        assert_eq!(web_user_agent(EngineId::WebView2, " padded "), " padded ");
+        for player in [
+            EngineId::Mpv,
+            EngineId::Vlc,
+            EngineId::BuiltInGif,
+            EngineId::BuiltInVideo,
+            EngineId::AppEmbedder,
+        ] {
+            assert_eq!(
+                web_user_agent(player, DEFAULT_USER_AGENT),
+                "",
+                "{player:?} has no user agent"
+            );
+        }
+        assert_eq!(
+            web_options(&Engine::default(), EngineId::Cef).user_agent,
+            "",
+            "job_for fills it"
+        );
+    }
+
+    #[test]
+    fn a_blank_user_agent_or_one_with_a_control_character_leaves_the_engines_own() {
+        for blank in ["", "   ", " \t "] {
+            assert_eq!(web_user_agent(EngineId::Cef, blank), "", "{blank:?}");
+            assert_eq!(web_user_agent(EngineId::WebView2, blank), "", "{blank:?}");
+        }
+        for bad in ["Bad\r\nX-Injected: 1", "A\u{0}B", "tab\tin"] {
+            assert_eq!(web_user_agent(EngineId::Cef, bad), "", "{bad:?}");
+            assert_eq!(web_user_agent(EngineId::WebView2, bad), "", "{bad:?}");
+        }
     }
 
     #[test]
@@ -6229,11 +6302,16 @@ mod tests {
                 &Engine::default(),
                 PauseKind::default(),
                 ThemeMode::Dark,
+                "Probe/1",
                 &installed_engines(),
             )
             .expect("a Url theme makes a job");
 
             assert_eq!(job.source, "https://example.com/");
+            assert_eq!(
+                job.web.user_agent, "Probe/1",
+                "a Url job carries the user agent of the General section"
+            );
             assert_eq!(job.kind, WallpaperType::Url);
             assert!(matches!(job.engine, EngineType::CefSharpLive | EngineType::WebViewLive));
         }
@@ -6648,6 +6726,7 @@ mod tests {
         let mut job = web_job();
         job.web.allow_invalid_certificates = true;
         job.web.hardware_acceleration = false;
+        job.web.user_agent = "Probe/1".to_owned();
 
         fleet.restart_with(job, &renderers);
 
@@ -6659,6 +6738,10 @@ mod tests {
             "a restarted renderer reads the saved switch"
         );
         assert!(!assignment.web.hardware_acceleration);
+        assert_eq!(
+            assignment.web.user_agent, "Probe/1",
+            "a restart carries the user agent saved now"
+        );
     }
 
     #[test]

@@ -16,7 +16,7 @@ use sucrose_engine_web::{args::Switch, profile::ProfileKind};
 use crate::portal::{Launch, PortalPage};
 
 /// Version of this protocol, sent in [`ToService::Hello`] so the service can refuse a renderer it cannot talk to.
-pub const PROTOCOL_VERSION: u16 = 10;
+pub const PROTOCOL_VERSION: u16 = 11;
 
 /// Messages from a renderer to the service.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
@@ -191,11 +191,15 @@ pub struct WebOptions {
     /// The legacy `ThemeType` name (`Dark` or `Light`) the `ThemeType` and `SystemTheme` compatible calls carry: the
     /// migrated `Portal.ThemeMode`, with `System` resolved by the service (WAPI-02).
     pub theme_type: String,
+    /// `General.UserAgent` for the web engines: the `User-Agent` header and `navigator.userAgent` of every page and
+    /// frame. The service decides the value when the job is made, so a change applies at the next start. Empty keeps
+    /// the engine's own (legacy: `CefSettings.UserAgent` and `CoreWebView2.Settings.UserAgent`). Appended last.
+    pub user_agent: String,
 }
 
 impl Default for WebOptions {
-    /// Validation on, no switches, no developer tools, and the legacy defaults of the compatible calls: shuffle on and
-    /// the `Dark` theme name.
+    /// Validation on, no switches, no developer tools, no user agent of its own, and the legacy defaults of the
+    /// compatible calls: shuffle on and the `Dark` theme name.
     fn default() -> Self {
         Self {
             allow_invalid_certificates: false,
@@ -205,6 +209,7 @@ impl Default for WebOptions {
             developer_port: 0,
             shuffle: true,
             theme_type: "Dark".to_owned(),
+            user_agent: String::new(),
         }
     }
 }
@@ -465,6 +470,7 @@ mod tests {
                 developer_port: 9222,
                 shuffle: false,
                 theme_type: "Light".to_owned(),
+                user_agent: "Sucrose/2.4 (Windows NT 10.0; Wallpaper Engine) SucroseWebKit".to_owned(),
             },
             input: InputSettings {
                 input_type: InputType::OnlyKeyboard,
@@ -553,8 +559,8 @@ mod tests {
     #[test]
     fn the_protocol_version_stays_when_messages_are_only_appended() {
         assert_eq!(
-            PROTOCOL_VERSION, 10,
-            "Assignment.web_profile is a new field, which appending a variant cannot express"
+            PROTOCOL_VERSION, 11,
+            "WebOptions.user_agent is a new field, which appending a variant cannot express"
         );
     }
 
@@ -573,6 +579,10 @@ mod tests {
 
         assert!(options.shuffle, "WallpaperShuffle defaults to on");
         assert_eq!(options.theme_type, "Dark");
+        assert_eq!(
+            options.user_agent, "",
+            "no user agent of its own: the engine keeps its own"
+        );
     }
 
     #[test]

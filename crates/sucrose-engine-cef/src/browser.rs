@@ -78,6 +78,8 @@ pub struct CefStart {
     /// Whether developer mode is on (D-13): the context menu has Inspect, and F12 and Ctrl+Shift+I open DevTools. Off,
     /// the menu is empty and the DevTools shortcuts are swallowed. DevTools never open by themselves.
     pub developer_mode: bool,
+    /// `General.UserAgent` as the service decided it (legacy `CefSettings.UserAgent`); empty keeps CEF's own.
+    pub user_agent: String,
 }
 
 impl std::fmt::Debug for CefStart {
@@ -138,13 +140,20 @@ pub struct SettingsValues {
     /// data folder anyway (`root_cache_path` wins over the switch), so the switch moves nothing. `None` for in-memory
     /// caches, which have no folder.
     pub user_data_dir: Option<String>,
+    /// The user agent CEF reports for every page and frame; empty for CEF's own.
+    pub user_agent: String,
 }
 
-/// The settings values for a profile folder and the user's Allow invalid certificates choice (D-12).
+/// The settings values for a profile folder, the user's Allow invalid certificates choice (D-12) and the user agent
+/// the service decided on (empty keeps CEF's own).
 ///
 /// # Errors
 /// See [`profile_paths`].
-pub fn settings_values(profile: Option<&Path>, allow_invalid_certificates: bool) -> Result<SettingsValues, CefError> {
+pub fn settings_values(
+    profile: Option<&Path>,
+    allow_invalid_certificates: bool,
+    user_agent: &str,
+) -> Result<SettingsValues, CefError> {
     let (root_cache_path, cache_path) = profile_paths(profile)?;
     let user_data_dir = (!root_cache_path.is_empty()).then(|| root_cache_path.clone());
     Ok(SettingsValues {
@@ -152,6 +161,7 @@ pub fn settings_values(profile: Option<&Path>, allow_invalid_certificates: bool)
         cache_path,
         ignore_certificate_errors: allow_invalid_certificates,
         user_data_dir,
+        user_agent: user_agent.to_owned(),
     })
 }
 
@@ -874,6 +884,7 @@ mod imp {
             let values = settings_values(
                 start.profile.as_deref().map(|lease| lease.path.as_path()),
                 start.allow_invalid_certificates,
+                &start.user_agent,
             )?;
             // The user's switches merged with Sucrose's own: setting keys CEF does not take and names that are not switch
             // names are left out and logged; everything else passes, unknown switches included (D-17).
@@ -888,6 +899,7 @@ mod imp {
                 switches = %plan.applied.iter().map(Switch::render).collect::<Vec<_>>().join(" "),
                 allow_invalid_certificates = values.ignore_certificate_errors,
                 user_data_dir = values.user_data_dir.is_some(),
+                user_agent = ?values.user_agent,
                 "chromium switches"
             );
             let mut app = HostApp::new(
@@ -906,6 +918,8 @@ mod imp {
                 locale: CefString::from("en-US"),
                 root_cache_path: CefString::from(values.root_cache_path.as_str()),
                 cache_path: CefString::from(values.cache_path.as_str()),
+                // The legacy CefSettings.UserAgent; an empty value is CEF's own user agent.
+                user_agent: CefString::from(values.user_agent.as_str()),
                 // The legacy host's PersistSessionCookies; it only takes effect with a cache path.
                 persist_session_cookies: 1,
                 // 0 leaves the debugging port off (D-13); a port is only set from a DeveloperPort above 0.
@@ -1371,9 +1385,9 @@ mod tests {
     fn certificate_errors_are_ignored_only_when_invalid_certificates_are_allowed() {
         let folder = std::env::temp_dir().join("sucrose-certificate-settings");
 
-        let validating = settings_values(Some(&folder), false).expect("validating");
-        let allowing = settings_values(Some(&folder), true).expect("allowing");
-        let in_memory = settings_values(None, false).expect("in memory");
+        let validating = settings_values(Some(&folder), false, "").expect("validating");
+        let allowing = settings_values(Some(&folder), true, "").expect("allowing");
+        let in_memory = settings_values(None, false, "").expect("in memory");
 
         assert!(
             !validating.ignore_certificate_errors,
@@ -1392,11 +1406,22 @@ mod tests {
     }
 
     #[test]
+    fn the_user_agent_of_the_job_is_what_cef_gets_and_empty_keeps_cefs_own() {
+        let folder = std::env::temp_dir().join("sucrose-user-agent-settings");
+
+        let probe = settings_values(Some(&folder), false, "Probe/1").expect("a user agent");
+        let own = settings_values(None, false, "").expect("none");
+
+        assert_eq!(probe.user_agent, "Probe/1");
+        assert_eq!(own.user_agent, "", "an empty value is CEF's own user agent");
+    }
+
+    #[test]
     fn the_profile_folder_is_also_the_user_data_dir_and_in_memory_caches_have_none() {
         let folder = std::env::temp_dir().join("sucrose-user-data-dir");
 
-        let persistent = settings_values(Some(&folder), false).expect("a folder");
-        let in_memory = settings_values(None, false).expect("in memory");
+        let persistent = settings_values(Some(&folder), false, "").expect("a folder");
+        let in_memory = settings_values(None, false, "").expect("in memory");
 
         assert_eq!(
             persistent.user_data_dir.as_deref(),
