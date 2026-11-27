@@ -15,6 +15,7 @@ use crossbeam_channel::{Receiver, Sender, TrySendError, bounded};
 use sucrose_core::{
     compatible::{CompatibleKey, DataGroup},
     settings::Stretch,
+    theme::WallpaperType,
 };
 use sucrose_engine::{
     PauseLevel,
@@ -86,6 +87,8 @@ pub struct WebView2Engine {
     wake: Arc<dyn Fn() + Send + Sync>,
     state: Arc<PageState>,
     pending_move: PendingMove,
+    /// Whether the page takes forwarded input: a Web or Url page does, a generated Gif or Video page does not.
+    takes_input: bool,
 }
 
 impl std::fmt::Debug for WebView2Engine {
@@ -107,6 +110,8 @@ pub struct WebView2Pump {
     theme_dir: PathBuf,
     /// The generated page this renderer shows (a Gif or Video theme), `None` for a theme's own page.
     generated: Option<GeneratedPage>,
+    /// Whether this renderer shows the address of a Url theme: such a page gets no compatible calls and no data.
+    url_page: bool,
     /// The non-empty templates of the theme, read when the first snapshot arrives.
     templates: Option<Vec<(CompatibleKey, String)>>,
     /// Held until the host is closed: the profile folder is free for the next instance only once WebView2 no longer
@@ -203,9 +208,8 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
     let state = Arc::new(initial_state(&assignment.settings, &web.theme_type, web.shuffle));
     let calls_state = Arc::clone(&state);
     let generated = GeneratedPage::for_kind(assignment.kind);
-    let page_kind = generated.map_or(PageKind::Theme, |page| {
-        PageKind::Generated(page, pages::builtin_set(WebEngine::WebView2))
-    });
+    let page_kind = PageKind::for_wallpaper(assignment.kind, WebEngine::WebView2);
+    let url_page = assignment.kind == WallpaperType::Url;
     let port = debugging_port(web.developer_port, assignment.slot);
     if let Some(port) = port {
         tracing::info!(port, slot = assignment.slot, "remote debugging");
@@ -256,11 +260,11 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             }
             // Once per renderer, after the page and its calls: a reload keeps the data it already asked for.
             if status == 200 && !asked.swap(true, Ordering::SeqCst) {
-                // A generated page asks for no system data.
-                let groups = if page_kind.generated().is_some() {
-                    Vec::new()
-                } else {
+                // Only a Web theme's own page asks for system data: a generated page and a URL page ask for none.
+                let groups = if page_kind.is_theme() {
                     page::wanted_groups(&wanted_dir, status)
+                } else {
+                    Vec::new()
                 };
                 if !groups.is_empty() {
                     tracing::info!(groups = ?groups, "data wanted");
@@ -271,15 +275,20 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
     };
     // The page comes from the virtual origin (D-14): the theme folder first, then the generated content. A Gif or Video
     // theme plays through a generated page that is written into the content folder.
-    let url = match pages::prepare(assignment.kind, &theme_dir, &assignment.source) {
-        Ok(Some(url)) => url,
-        Ok(None) => origin::page_url(&theme_dir, &assignment.source),
-        Err(error) => {
-            tracing::error!(%error, kind = ?assignment.kind, "cannot prepare the generated page");
-            remove_scratch();
-            return Err(EngineError::Start {
-                reason: error.to_string(),
-            });
+    let url = if url_page {
+        // A Url theme navigates straight to its address, which the theme gate verified (http or https only).
+        assignment.source.clone()
+    } else {
+        match pages::prepare(assignment.kind, &theme_dir, &assignment.source) {
+            Ok(Some(url)) => url,
+            Ok(None) => origin::page_url(&theme_dir, &assignment.source),
+            Err(error) => {
+                tracing::error!(%error, kind = ?assignment.kind, "cannot prepare the generated page");
+                remove_scratch();
+                return Err(EngineError::Start {
+                    reason: error.to_string(),
+                });
+            }
         }
     };
     let host = Host::start(wid, assignment.rect, &url, &host_start).map_err(|error| {
@@ -296,6 +305,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             wake: Arc::new(move || proxy.wake()),
             state: Arc::clone(&state),
             pending_move: Arc::clone(&pending_move),
+            takes_input: page_kind.takes_input(),
         }),
         pump: Some(Box::new(WebView2Pump {
             host,
@@ -305,6 +315,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             origin: (assignment.rect[0], assignment.rect[1]),
             theme_dir,
             generated,
+            url_page,
             templates: None,
             profile,
             scratch,
@@ -423,7 +434,7 @@ impl Engine for WebView2Engine {
     }
 
     fn takes_input(&self) -> bool {
-        true
+        self.takes_input
     }
 
     /// Keeps the newest mouse move and queues one marker for a burst of them; every other event is queued as it is. A
@@ -561,7 +572,7 @@ impl WebView2Pump {
     /// Runs the templates with the newest data in the page: the non-data keys again and each data key that has a
     /// snapshot.
     fn push_data(&mut self) {
-        if self.generated.is_some() {
+        if self.generated.is_some() || self.url_page {
             return;
         }
         let templates = self
@@ -622,6 +633,7 @@ mod tests {
             }),
             state: Arc::new(initial_state(&PlaybackSettings::default(), "Dark", true)),
             pending_move: PendingMove::default(),
+            takes_input: true,
         };
         (engine, receiver, wakes)
     }

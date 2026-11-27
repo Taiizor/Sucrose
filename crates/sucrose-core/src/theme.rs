@@ -267,7 +267,7 @@ pub enum ThemeRejection {
         /// The type it has.
         found: WallpaperType,
     },
-    /// `Source` is not a regular file inside the theme folder.
+    /// `Source` is not a regular file inside the theme folder, or (Url and YouTube themes) not an acceptable address.
     SourceInvalid {
         /// Folder name as selected.
         folder: String,
@@ -342,8 +342,93 @@ pub struct YouTubeIds {
 /// The ids of a YouTube `address`: `None` when it carries neither a `v` nor a `list` parameter, or when one it carries
 /// is not an id (each of `[A-Za-z0-9_-]`, 1 to 64 characters; a parameter given twice is not one).
 pub fn youtube_ids(address: &str) -> Option<YouTubeIds> {
-    let _ = address;
-    None
+    checked_youtube_ids(address).ok()
+}
+
+/// The longest address a Url or YouTube theme may carry.
+const MAX_ADDRESS_BYTES: usize = 2048;
+
+/// The longest YouTube video or playlist id.
+const MAX_YOUTUBE_ID: usize = 64;
+
+/// The value of the query parameter `key`: `None` when absent, `Some(None)` when it is given more than once (the
+/// legacy reader joins the values with a comma, which is not an id), `Some(Some(value))` otherwise.
+fn query_parameter<'a>(query: &'a str, key: &str) -> Option<Option<&'a str>> {
+    let mut values = query
+        .split('&')
+        .filter_map(|pair| pair.split_once('='))
+        .filter(|(name, _)| *name == key)
+        .map(|(_, value)| value);
+    let first = values.next()?;
+    Some(if values.next().is_some() { None } else { Some(first) })
+}
+
+/// Whether `id` is a YouTube id the page can embed: 1 to 64 characters of `[A-Za-z0-9_-]`.
+fn is_youtube_id(id: &str) -> bool {
+    (1..=MAX_YOUTUBE_ID).contains(&id.len())
+        && id
+            .bytes()
+            .all(|byte| byte.is_ascii_alphanumeric() || matches!(byte, b'_' | b'-'))
+}
+
+/// [`youtube_ids`] with the reason it found none.
+fn checked_youtube_ids(address: &str) -> Result<YouTubeIds, &'static str> {
+    let query = address
+        .split_once('?')
+        .map_or("", |(_, rest)| rest.split('#').next().unwrap_or(""));
+    let read = |key: &str| -> Result<Option<String>, &'static str> {
+        match query_parameter(query, key) {
+            None => Ok(None),
+            Some(Some(value)) if is_youtube_id(value) => Ok(Some(value.to_owned())),
+            Some(_) => Err("a YouTube id in the Source is not a valid id"),
+        }
+    };
+    let (video, list) = (read("v")?, read("list")?);
+    if video.is_none() && list.is_none() {
+        return Err("the YouTube address has neither a v nor a list parameter");
+    }
+    Ok(YouTubeIds { video, list })
+}
+
+/// Checks the `Source` of a Url or YouTube theme and returns it unchanged: an absolute http or https address with a
+/// host, at most 2048 bytes, without whitespace or control characters. Every other scheme (`file:`, `javascript:`,
+/// `data:`, `about:`), a relative text and an address without a host are refused, so a theme can never make a web
+/// engine open a local file or run script through its Source (T-04-72).
+fn verified_address(source: &str) -> Result<String, &'static str> {
+    if source.is_empty() {
+        return Err("the theme has no Source");
+    }
+    if source.len() > MAX_ADDRESS_BYTES {
+        return Err("the Source address is longer than 2048 bytes");
+    }
+    if source.chars().any(|c| c.is_whitespace() || c.is_control()) {
+        return Err("the Source address contains whitespace or control characters");
+    }
+    let Some((scheme, rest)) = source.split_once(':') else {
+        return Err("the Source is not an absolute address");
+    };
+    let mut scheme_chars = scheme.chars();
+    let scheme_syntax = scheme_chars.next().is_some_and(|c| c.is_ascii_alphabetic())
+        && scheme_chars.all(|c| c.is_ascii_alphanumeric() || matches!(c, '+' | '-' | '.'));
+    if !scheme_syntax {
+        return Err("the Source is not an absolute address");
+    }
+    if !scheme.eq_ignore_ascii_case("http") && !scheme.eq_ignore_ascii_case("https") {
+        return Err("the Source address is not an http or https address");
+    }
+    let Some(after_slashes) = rest.strip_prefix("//") else {
+        return Err("the Source address has no host");
+    };
+    let authority = after_slashes.split(['/', '?', '#', '\\']).next().unwrap_or("");
+    let host_and_port = authority.rsplit_once('@').map_or(authority, |(_, host)| host);
+    let host = match host_and_port.strip_prefix('[') {
+        Some(bracketed) => bracketed.split(']').next().unwrap_or(""),
+        None => host_and_port.split(':').next().unwrap_or(""),
+    };
+    if host.is_empty() {
+        return Err("the Source address has no host");
+    }
+    Ok(source.to_owned())
 }
 
 /// A selected theme that passed the gate.
@@ -401,7 +486,7 @@ fn verified_source(theme_dir: &Path, source: &str) -> Result<PathBuf, &'static s
 
 /// Decides whether the theme selected in the library may start: a folder that exists, a readable `SucroseInfo.json`, a
 /// type listed in `playable` and a `Source` that is a regular file inside the folder (a video file, or the page of a
-/// Web theme). Every failure is its own [`ThemeRejection`]; nothing is started or written.
+/// Web theme) or, for a Url or YouTube theme, an http or https address. Every failure is its own [`ThemeRejection`]; nothing is started or written.
 ///
 /// A theme whose `AppVersion` is newer than `app` is refused too (needs a newer app); the same version is accepted.
 pub fn check_selected(
@@ -445,12 +530,18 @@ pub fn check_selected(
             current: *app,
         });
     }
-    let source = verified_source(&dir, &info.source)
-        .map(ThemeSource::File)
-        .map_err(|reason| ThemeRejection::SourceInvalid {
-            folder: folder.clone(),
-            reason: reason.to_owned(),
-        })?;
+    let source = match info.kind {
+        WallpaperType::Url => verified_address(&info.source).map(ThemeSource::Address),
+        WallpaperType::YouTube => verified_address(&info.source).and_then(|address| {
+            checked_youtube_ids(&address)?;
+            Ok(ThemeSource::Address(address))
+        }),
+        _ => verified_source(&dir, &info.source).map(ThemeSource::File),
+    }
+    .map_err(|reason| ThemeRejection::SourceInvalid {
+        folder: folder.clone(),
+        reason: reason.to_owned(),
+    })?;
     Ok(SelectedTheme { dir, info, source })
 }
 

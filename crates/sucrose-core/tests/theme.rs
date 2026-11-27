@@ -435,7 +435,8 @@ fn typed(kind: WallpaperType, source: &str) -> SucroseInfo {
 
 /// The text of the refusal for `source` on a theme of `kind` (every type playable).
 fn refusal(kind: WallpaperType, source: &str) -> String {
-    let scratch = Scratch::new("refusal");
+    // The tests run in parallel: each thread gets a folder of its own.
+    let scratch = Scratch::new(&format!("refusal-{:?}", std::thread::current().id()));
     let library = scratch.library_with(&typed(kind, source));
     match check_selected(library, "t", &app(), EVERY_TYPE_PLAYABLE) {
         Err(ThemeRejection::SourceInvalid { reason, .. }) => reason,

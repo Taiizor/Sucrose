@@ -91,7 +91,10 @@ impl EngineReport {
     pub fn availability_for(&self, kind: WallpaperType, engine: EngineId) -> Availability {
         let plays = match engine {
             EngineId::Cef | EngineId::WebView2 => {
-                matches!(kind, WallpaperType::Web | WallpaperType::Gif | WallpaperType::Video)
+                matches!(
+                    kind,
+                    WallpaperType::Web | WallpaperType::Gif | WallpaperType::Video | WallpaperType::Url
+                )
             }
             _ => true,
         };
@@ -1039,21 +1042,24 @@ mod tests {
         let report = EngineReport::from_fn(|_| Availability::Installed { version: None });
 
         for engine in [EngineId::Cef, EngineId::WebView2] {
-            for kind in [WallpaperType::Web, WallpaperType::Gif, WallpaperType::Video] {
+            for kind in [
+                WallpaperType::Web,
+                WallpaperType::Gif,
+                WallpaperType::Video,
+                WallpaperType::Url,
+            ] {
                 assert!(
                     report.availability_for(kind, engine).is_available(),
-                    "{engine:?} plays {kind:?} (a theme page or a generated page)"
+                    "{engine:?} plays {kind:?} (a theme page, a generated page or an address)"
                 );
             }
-            for kind in [WallpaperType::Url, WallpaperType::YouTube] {
-                assert_eq!(
-                    report.availability_for(kind, engine),
-                    Availability::Unsupported {
-                        why: Unsupported::NotInThisBuild
-                    },
-                    "{engine:?} {kind:?}"
-                );
-            }
+            assert_eq!(
+                report.availability_for(WallpaperType::YouTube, engine),
+                Availability::Unsupported {
+                    why: Unsupported::NotInThisBuild
+                },
+                "{engine:?} YouTube"
+            );
         }
     }
 

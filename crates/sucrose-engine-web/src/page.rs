@@ -16,9 +16,11 @@ use sucrose_core::{
     compatible::{COMPATIBLE_FILE, CompatibleKey, DataGroup, read_compatible},
     properties::{PropertiesError, SucroseProperties},
     settings::Stretch,
+    theme::WallpaperType,
 };
 
 use crate::{
+    args::WebEngine,
     js::{self, CompatibleState, PageCall},
     pages::{self, GeneratedPage},
 };
@@ -32,14 +34,41 @@ pub enum PageKind {
     /// A generated page with its built-in set: the set's property calls and the current engine values, and no
     /// compatible calls and no system data.
     Generated(GeneratedPage, &'static SucroseProperties),
+    /// The page of a Url theme: a site Sucrose does not own. It gets no property calls, no compatible calls and no
+    /// system data (legacy `engines.md` §8); only the in-page pause, which is no part of the wallpaper API.
+    Url,
 }
 
 impl PageKind {
+    /// What `engine` shows for a wallpaper of `kind`: a generated page for Gif and Video, the address itself for Url,
+    /// the theme's own page for everything else a web engine plays.
+    #[must_use]
+    pub fn for_wallpaper(kind: WallpaperType, engine: WebEngine) -> Self {
+        match (kind, GeneratedPage::for_kind(kind)) {
+            (_, Some(page)) => Self::Generated(page, pages::builtin_set(engine)),
+            (WallpaperType::Url, None) => Self::Url,
+            (_, None) => Self::Theme,
+        }
+    }
+
+    /// Whether the page is a Web theme's own page (the only one with theme files for calls and system data).
+    #[must_use]
+    pub fn is_theme(&self) -> bool {
+        matches!(self, Self::Theme)
+    }
+
+    /// Whether the renderer forwards mouse and keyboard input to the page: Web and Url pages do, the generated Gif
+    /// and Video pages do not (legacy `engines.md` §5).
+    #[must_use]
+    pub fn takes_input(&self) -> bool {
+        matches!(self, Self::Theme | Self::Url)
+    }
+
     /// The generated page, when this is one.
     #[must_use]
     pub fn generated(&self) -> Option<GeneratedPage> {
         match self {
-            Self::Theme => None,
+            Self::Theme | Self::Url => None,
             Self::Generated(page, _) => Some(*page),
         }
     }
@@ -258,6 +287,14 @@ pub fn page_calls(
     if status != 200 {
         tracing::debug!(status, "no page calls: the main frame did not load with status 200");
         return Vec::new();
+    }
+    if let PageKind::Url = kind {
+        // Not a wallpaper API call: the Light pause of a page that was paused before it finished loading.
+        return if state.paused() {
+            vec![js::pause_call(true)]
+        } else {
+            Vec::new()
+        };
     }
     if let PageKind::Generated(page, set) = kind {
         let mut calls = js::property_calls_of(set, theme_dir);

@@ -1,0 +1,16 @@
+{
+  "AppVersion": "26.6.19.0",
+  "Version": "1.0.0.0",
+  "Title": "Sucrose fixture: url",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "A fixture URL theme for engine runs: it navigates to a page that stays online (IANA's example.com).",
+  "Author": "Sucrose",
+  "Contact": "https://example.com/web",
+  "Type": 1,
+  "Source": "https://example.com/",
+  "Tags": [
+    "fixture"
+  ],
+  "Arguments": null
+}

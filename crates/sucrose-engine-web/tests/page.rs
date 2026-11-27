@@ -337,3 +337,44 @@ fn a_page_without_a_compatible_file_wants_no_data() {
 
     assert!(wanted_groups(&theme.0, 200).is_empty());
 }
+
+#[test]
+fn a_url_page_gets_no_property_compatible_or_data_calls_even_beside_theme_files() {
+    let theme = Theme::new(Some(TWO_PROPERTIES), Some(WITH_DATA));
+    let state = fresh_state();
+
+    assert!(page_calls(PageKind::Url, &theme.0, 200, &state, &Complaints::default()).is_empty());
+
+    state.set_paused(true);
+    let paused = page_calls(PageKind::Url, &theme.0, 200, &state, &Complaints::default());
+    assert_eq!(
+        paused.len(),
+        1,
+        "only the Light pause of a page paused before it loaded"
+    );
+    assert_eq!(paused[0].kind, js::KIND_PAUSE);
+    assert!(page_calls(PageKind::Url, &theme.0, 404, &state, &Complaints::default()).is_empty());
+}
+
+#[test]
+fn the_page_kind_of_a_wallpaper_decides_its_pages_and_whether_it_takes_input() {
+    use sucrose_core::theme::WallpaperType;
+    use sucrose_engine_web::args::WebEngine;
+
+    for engine in [WebEngine::Cef, WebEngine::WebView2] {
+        let kind = |wallpaper| PageKind::for_wallpaper(wallpaper, engine);
+        assert!(kind(WallpaperType::Web).is_theme());
+        assert!(matches!(kind(WallpaperType::Url), PageKind::Url));
+        assert!(kind(WallpaperType::Gif).generated().is_some());
+        assert!(kind(WallpaperType::Video).generated().is_some());
+        // Legacy: input only for Web, Url and Application; the generated Gif and Video pages get none.
+        assert!(kind(WallpaperType::Web).takes_input());
+        assert!(kind(WallpaperType::Url).takes_input());
+        assert!(!kind(WallpaperType::Gif).takes_input());
+        assert!(!kind(WallpaperType::Video).takes_input());
+        assert!(
+            !kind(WallpaperType::Url).is_theme(),
+            "a Url page has no theme files to read"
+        );
+    }
+}

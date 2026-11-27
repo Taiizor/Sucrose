@@ -2790,7 +2790,12 @@ struct Plan {
 
 /// The wallpaper types the service plays in this build (D-31 slices 1 to 3); later slices extend it. Gif plays on the
 /// built-in renderer or, as the migrated settings say, on mpv.
-const PLAYABLE: &[WallpaperType] = &[WallpaperType::Video, WallpaperType::Web, WallpaperType::Gif];
+const PLAYABLE: &[WallpaperType] = &[
+    WallpaperType::Video,
+    WallpaperType::Web,
+    WallpaperType::Gif,
+    WallpaperType::Url,
+];
 
 /// Whether a running renderer can load another wallpaper in place: only mpv can. A renderer is one process with one
 /// engine, so a Use that changes the engine (mpv, the built-in GIF renderer, a web engine) needs a new renderer; and
@@ -6071,6 +6076,66 @@ mod tests {
             assert_eq!(theme.info.kind, WallpaperType::Gif);
         }
 
+        fn url_job(address: &str, engine: EngineType) -> Job {
+            Job {
+                kind: WallpaperType::Url,
+                engine,
+                theme_dir: "C:/themes/site".to_owned(),
+                ..use_job(address)
+            }
+        }
+
+        #[test]
+        fn url_is_playable_and_its_job_carries_the_address_as_the_source() {
+            assert!(PLAYABLE.contains(&WallpaperType::Url));
+            let info = sucrose_core::theme::parse_info(
+                r#"{"AppVersion":"26.6.19.0","Title":"Site","Type":1,"Source":"https://example.com/"}"#,
+            )
+            .expect("a Url SucroseInfo parses");
+            let theme = SelectedTheme {
+                dir: std::path::PathBuf::from("C:/themes/site"),
+                info,
+                source: ThemeSource::Address("https://example.com/".to_owned()),
+            };
+
+            let job = job_for(
+                &theme,
+                &Engine::default(),
+                PauseKind::default(),
+                ThemeMode::Dark,
+                &installed_engines(),
+            )
+            .expect("a Url theme makes a job");
+
+            assert_eq!(job.source, "https://example.com/");
+            assert_eq!(job.kind, WallpaperType::Url);
+            assert!(matches!(job.engine, EngineType::CefSharpLive | EngineType::WebViewLive));
+        }
+
+        #[test]
+        fn two_url_themes_with_the_same_address_are_two_themes_and_only_the_same_folder_is_already_applied() {
+            // The folder is the identity (TYPE-04): the same address in another folder restarts the renderer like any
+            // other web-engine Use, and only the folder that plays is AlreadyApplied.
+            let same_address = url_job("https://example.com/", EngineType::CefSharpLive);
+            let other = decide_use(&UseInput {
+                folder: "site-b",
+                gate: Ok(same_address.clone()),
+                selected: "site-a",
+                running_engine: Some(EngineType::CefSharpLive),
+                ..use_input()
+            });
+            assert!(matches!(other, UseDecision::Restart(_)), "{other:?}");
+
+            let same = decide_use(&UseInput {
+                folder: "site-a",
+                gate: Ok(same_address),
+                selected: "site-a",
+                running_engine: Some(EngineType::CefSharpLive),
+                ..use_input()
+            });
+            assert!(matches!(same, UseDecision::AlreadyApplied), "{same:?}");
+        }
+
         #[test]
         fn restarts_between_web_themes_because_cef_cannot_load_another_page_in_place() {
             let web_to_web = decide_use(&UseInput {
@@ -6238,13 +6303,18 @@ mod tests {
                 .join("tests")
                 .join("fixtures")
                 .join("library");
+            // A Url theme plays since 04-34: it passes the gate as an address.
+            let url = check_selected(&library, "url-source", &app_version(), PLAYABLE).expect("a Url theme passes");
+            assert_eq!(
+                url.source,
+                ThemeSource::Address("https://www.example.com/page".to_owned())
+            );
             for (folder, expected) in [
                 ("../x", UseRefusal::NotFound),
                 ("a/b", UseRefusal::NotFound),
                 ("a\\b", UseRefusal::NotFound),
                 ("", UseRefusal::NotFound),
                 ("no-such-folder", UseRefusal::NotFound),
-                ("url-source", UseRefusal::TypeNotPlayable),
                 ("newer-version", UseRefusal::NewerVersion),
                 ("broken-json", UseRefusal::Corrupt),
             ] {
