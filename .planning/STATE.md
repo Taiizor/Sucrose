@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-27-PLAN.md
-last_updated: "2026-11-27T00:21:13.630Z"
+stopped_at: Completed 04-28-PLAN.md
+last_updated: "2026-11-27T00:50:49.839Z"
 last_activity: 2026-11-27
 last_activity_desc: Phase 04 execution started
-state_head: 735f7a5a8238dbaf56a570d5bcf054e82ccb26ff
+state_head: 9a277d2f57f8ea636e69aec99087c7a48143f0a1
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 117
-  completed_plans: 106
+  completed_plans: 107
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 28 of 38
+Plan: 29 of 38
 Status: Ready to execute
 Last activity: 2026-11-27 — Phase 04 execution started
 Next step: /gsd-debug for the in-page Web theme failures and the CEF GPU process crash (04-37 names their fixes as its precondition), then `/gsd-execute-phase 4` runs Round B.
@@ -161,6 +161,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P25 | 15 min | 3 tasks | 11 files |
 | Phase 04 P26 | 15 min | 2 tasks | 8 files |
 | Phase 04 P27 | 9 min | 2 tasks | 5 files |
+| Phase 04 P28 | 22 min | 2 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -328,6 +329,8 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-25: the WebView2 browser arguments are planned in sucrose-engine-web (plan_webview2_command_line, browser_arguments) and the legacy key table is shared as sucrose_engine_web::keys; DevTools stay enabled but closed unless asked (D-13)
 - [Phase 04]: 04-26: WebArguments reuses the CEF switch validation and is stored in the legacy Engine.WebArguments list; one ArgumentsEditor per web engine routed by engine
 - [Phase 04]: 04-27: installable() is architecture-aware: runtime and VC++ hints are installable only where the prerequisite has a download address on this processor
+- [Phase 04]: 04-28: default render device change noticed by polling the device id once a second, not IMMNotificationClient (needs a direct windows-core dependency, T-04-SC)
+- [Phase 04]: 04-28: the audio capture feeds silence by elapsed time so bars fall to 0 on a device that plays nothing; a running silent capture publishes 128 zeros
 
 ### Pending Todos
 
@@ -366,6 +369,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-27T00:20:32.288Z
-Stopped at: Completed 04-27-PLAN.md
+Last session: 2026-11-27T00:50:09.488Z
+Stopped at: Completed 04-28-PLAN.md
 Resume file: None
