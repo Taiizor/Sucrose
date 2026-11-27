@@ -3,7 +3,7 @@
 
 mod common;
 
-use std::path::PathBuf;
+use std::{collections::BTreeMap, path::PathBuf};
 
 use common::{
     PortalClient, TestService, copy_fixture_library, copy_web_fixture, service_runs, skipped, write_gif_theme,
@@ -551,6 +551,51 @@ fn renderer_logs(service: &TestService) -> String {
         .filter(|entry| entry.file_name().to_string_lossy().starts_with("Renderer"))
         .filter_map(|entry| std::fs::read_to_string(entry.path()).ok())
         .collect()
+}
+
+/// The renderer log file names carry the slot (`Renderer-<slot>.<date>.log`); the files of one slot are joined in date
+/// order, and the engine-start lines of a slot's log are told apart from the rest.
+#[test]
+fn renderer_logs_are_grouped_by_the_slot_in_their_file_name() {
+    assert_eq!(slot_of("Renderer-0.2026-11-27.log"), Some(0));
+    assert_eq!(slot_of("Renderer-12.2026-11-28.log"), Some(12));
+    assert_eq!(slot_of("CefRenderer-0.log"), None);
+    assert_eq!(slot_of("Service.2026-11-27.log"), None);
+    assert_eq!(slot_of("Renderer-x.2026-11-27.log"), None);
+    assert_eq!(slot_of("Renderer-.log"), None);
+
+    let by_slot = logs_by_slot(vec![
+        ("Renderer-1.2026-11-28.log".to_string(), "b2".to_string()),
+        ("Service.2026-11-27.log".to_string(), "svc".to_string()),
+        ("Renderer-0.2026-11-27.log".to_string(), "a0".to_string()),
+        ("CefRenderer-0.log".to_string(), "cef".to_string()),
+        ("Renderer-1.2026-11-27.log".to_string(), "b1".to_string()),
+    ]);
+    assert_eq!(by_slot.keys().copied().collect::<Vec<_>>(), vec![0, 1]);
+    assert_eq!(by_slot[&0], "a0\n");
+    assert_eq!(by_slot[&1], "b1\nb2\n");
+
+    let log = "t engine started engine=\"Cef\"\nassignment received slot=0\nchromium switches x\nt engine started engine=\"WebView2\"\n";
+    assert_eq!(
+        starts(log),
+        vec!["t engine started engine=\"Cef\"", "t engine started engine=\"WebView2\""]
+    );
+}
+
+/// The 04-37 shape: two monitors, one CEF renderer each. The joined count already read 2 after the first Use, so a wait
+/// for the restart returned before the second renderer existed; every slot has to reach the count on its own.
+#[test]
+fn every_monitor_slot_has_to_reach_the_count() {
+    let start = "t engine started engine=\"Cef\"\n";
+    let two_slots_one_start = BTreeMap::from([(0, start.to_string()), (1, start.to_string())]);
+    assert!(every_slot_started(&two_slots_one_start, 2, 1));
+    assert!(!every_slot_started(&two_slots_one_start, 2, 2));
+
+    let one_slot_two_starts = BTreeMap::from([(0, start.repeat(2))]);
+    assert!(!every_slot_started(&one_slot_two_starts, 2, 1), "the second monitor has no renderer yet");
+    assert!(every_slot_started(&one_slot_two_starts, 1, 2));
+
+    assert!(!every_slot_started(&BTreeMap::new(), 1, 1));
 }
 
 /// The whole chain of a Web theme: the engine report says Web plays, Use of the `hello` fixture is applied, the settings
