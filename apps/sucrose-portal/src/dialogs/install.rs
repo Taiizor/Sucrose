@@ -443,4 +443,27 @@ mod tests {
             "Install Microsoft Visual C++ Redistributable"
         );
     }
+
+    #[test]
+    fn install_the_webview2_runtime_has_its_own_title_and_keeps_the_body_and_every_stage_copy() {
+        let name = tr(prerequisite_key(sucrose_ipc::portal::PrerequisiteView::WebView2Runtime));
+
+        assert_eq!(name.as_ref(), "WebView2 Runtime");
+        assert_eq!(
+            crate::i18n::tr_with("Portal.EngineInstall.Title", &[("prerequisite", &name)]).as_ref(),
+            "Install WebView2 Runtime"
+        );
+        assert_eq!(
+            tr("Portal.EngineInstall.Body").as_ref(),
+            "Sucrose will download the installer from Microsoft, check that it is signed by Microsoft, and then run it. Windows may ask for your permission."
+        );
+        // The dialog's states take no prerequisite: the stages and the failure copies are the ones of the VC++ path.
+        assert_eq!(
+            state(Stage::Verifying).status,
+            Status::Line("Portal.EngineInstall.Verifying")
+        );
+        assert_eq!(tr("Portal.EngineInstall.Verifying").as_ref(), "Checking the signature…");
+        assert_eq!(tr("Portal.EngineInstall.Installing").as_ref(), "Installing…");
+        assert_eq!(tr("Portal.EngineInstall.Rechecking").as_ref(), "Checking again…");
+    }
 }

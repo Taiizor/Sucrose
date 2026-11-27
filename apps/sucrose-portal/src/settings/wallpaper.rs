@@ -1398,6 +1398,47 @@ mod tests {
     }
 
     #[test]
+    fn wallpaper_install_a_missing_or_outdated_webview2_runtime_gets_install_or_repair_and_a_ready_one_nothing() {
+        use sucrose_ipc::portal::PrerequisiteView;
+
+        let missing_runtime = EngineState::Missing {
+            hint: HintView::RuntimeMissing,
+            installable: true,
+        };
+        let action = super::install_action(Some(&missing_runtime));
+        assert_eq!(
+            action,
+            Some(super::InstallAction {
+                prerequisite: PrerequisiteView::WebView2Runtime,
+                repair: false
+            })
+        );
+        assert_eq!(super::install_label(action.expect("an action")).as_ref(), "Install");
+
+        let outdated = EngineState::Missing {
+            hint: HintView::RuntimeOutdated {
+                found: "100.0".to_owned(),
+                needed: "131.0.2903.70".to_owned(),
+            },
+            installable: true,
+        };
+        let action = super::install_action(Some(&outdated)).expect("an action");
+        assert_eq!(action.prerequisite, PrerequisiteView::WebView2Runtime);
+        assert_eq!(super::install_label(action).as_ref(), "Repair");
+
+        assert_eq!(
+            super::install_action(Some(&ready())),
+            None,
+            "a ready runtime offers nothing"
+        );
+        let without_download = EngineState::Missing {
+            hint: HintView::RuntimeMissing,
+            installable: false,
+        };
+        assert_eq!(super::install_action(Some(&without_download)), None);
+    }
+
+    #[test]
     fn wallpaper_install_nothing_is_offered_for_a_ready_engine_an_unsupported_one_or_no_report() {
         assert_eq!(super::install_action(Some(&ready())), None);
         assert_eq!(
