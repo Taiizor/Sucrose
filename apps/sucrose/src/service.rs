@@ -3632,6 +3632,7 @@ fn handle_use(
     }
     apply_gpu_preference(platform, host.settings().engine.gpu_preference);
     fleet.adopt_job(job);
+    fleet.web_owner = web_profile_owner(&monitors).map(|monitor| monitor.id.clone());
     let applied = fleet.apply(diff(&[], &monitors), ctx);
     fleet.monitors = monitors;
     fleet.elect(ctx);
