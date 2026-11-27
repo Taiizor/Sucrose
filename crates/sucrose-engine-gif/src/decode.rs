@@ -1,6 +1,6 @@
-//! Lazy, bounded animation decoding. Pure code, the same on every OS.
+//! Lazy, bounded animation decoding of GIF, APNG and animated WebP. Pure code, the same on every OS.
 //!
-//! An [`Animation`] decodes one frame at a time from its source, scales a frame down to fit the bound it was opened
+//! The format is told by the first bytes of the file, never by its extension. An [`Animation`] decodes one frame at a time from its source, scales a frame down to fit the bound it was opened
 //! with (never up) and converts it to premultiplied BGRA once, so the presenter copies it as it is. Nothing here
 //! keeps a frame after it was handed out: the memory of a playing animation is a few frames, whatever its length
 //! (T-04-66). A file that is not a supported animation, or is damaged, is a [`DecodeError`] with a reason, never a
@@ -13,8 +13,8 @@ use std::{
 };
 
 use image::{
-    AnimationDecoder, ImageDecoder, Limits, RgbaImage,
-    codecs::gif::GifDecoder,
+    AnimationDecoder, Delay, DynamicImage, Frame, Frames, ImageDecoder, Limits, RgbaImage,
+    codecs::{gif::GifDecoder, png::PngDecoder, webp::WebPDecoder},
     imageops::{self, FilterType},
 };
 
@@ -24,8 +24,12 @@ pub const DEFAULT_DELAY_MS: u32 = 100;
 /// The largest animation canvas side the decoder accepts. A hostile header cannot make it allocate more (T-04-66).
 const MAX_SIDE: u32 = 16_384;
 
-/// The most memory the decoder may allocate for one canvas (T-04-66); 04-32 adds the source size cap on top.
+/// The most memory the decoder may allocate for one canvas (T-04-66).
 const MAX_ALLOC: u64 = 256 * 1024 * 1024;
+
+/// The most pixels a source canvas may have (8192 x 8192). A larger source is refused from its header, before any frame
+/// is decoded (T-04-69).
+pub const MAX_SOURCE_PIXELS: u64 = 8192 * 8192;
 
 /// Why an animation could not be decoded. One reason per value, shown in the log and the tray.
 #[derive(Debug, thiserror::Error, PartialEq, Eq)]
@@ -34,11 +38,16 @@ pub enum DecodeError {
     #[error("the animation file cannot be read: {0}")]
     Io(String),
     /// The file is not an animation format this renderer knows.
-    #[error("the file is not a GIF animation")]
+    #[error("the file is not a GIF, APNG or WebP animation")]
     NotAnimation,
-    /// The format is known but not played yet.
-    #[error("{0} animations are not supported yet")]
-    Unsupported(&'static str),
+    /// The picture is larger than [`MAX_SOURCE_PIXELS`] allows.
+    #[error("the picture is {width} x {height} pixels, above the limit of 8192 x 8192")]
+    TooLarge {
+        /// Width of the canvas.
+        width: u32,
+        /// Height of the canvas.
+        height: u32,
+    },
     /// The file is damaged or too large for the decoder's limits.
     #[error("the animation is damaged or too large: {0}")]
     Malformed(String),
@@ -93,25 +102,64 @@ pub struct DecodedFrame {
     pub delay_ms: u32,
 }
 
-/// The format of a file, by its first bytes (never by the extension).
+/// The format a file turned out to be, decided by its bytes (never by the extension).
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum Format {
+pub enum Format {
+    /// A GIF.
+    Gif,
+    /// A PNG with an `acTL` chunk (animated).
+    Apng,
+    /// A PNG without one: a single picture.
+    Png,
+    /// A WebP, animated (`ANIM`) or a single picture.
+    WebP,
+}
+
+/// What the first bytes of a file say it is, before the decoder looks closer.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum Sniffed {
     Gif,
     Png,
     WebP,
     Unknown,
 }
 
-fn sniff(head: &[u8]) -> Format {
+fn sniff(head: &[u8]) -> Sniffed {
     if head.starts_with(b"GIF87a") || head.starts_with(b"GIF89a") {
-        Format::Gif
+        Sniffed::Gif
     } else if head.starts_with(b"\x89PNG\r\n\x1a\n") {
-        Format::Png
+        Sniffed::Png
     } else if head.len() >= 12 && &head[..4] == b"RIFF" && &head[8..12] == b"WEBP" {
-        Format::WebP
+        Sniffed::WebP
     } else {
-        Format::Unknown
+        Sniffed::Unknown
     }
+}
+
+/// Refuses a canvas of `width` x `height` above [`MAX_SOURCE_PIXELS`].
+fn check_size(width: u32, height: u32) -> Result<(), DecodeError> {
+    if u64::from(width) * u64::from(height) > MAX_SOURCE_PIXELS {
+        return Err(DecodeError::TooLarge { width, height });
+    }
+    Ok(())
+}
+
+/// The decoder limits every format gets.
+fn limits() -> Limits {
+    let mut limits = Limits::default();
+    limits.max_image_width = Some(MAX_SIDE);
+    limits.max_image_height = Some(MAX_SIDE);
+    limits.max_alloc = Some(MAX_ALLOC);
+    limits
+}
+
+/// A single picture as a one-frame animation, decoded when the frame is asked for. Its delay is 0, so it gets the
+/// default one like any frame without a delay.
+fn still(decoder: impl ImageDecoder + 'static) -> Frames<'static> {
+    Frames::new(Box::new(std::iter::once_with(move || {
+        DynamicImage::from_decoder(decoder)
+            .map(|picture| Frame::from_parts(picture.into_rgba8(), 0, 0, Delay::from_numer_denom_ms(0, 1)))
+    })))
 }
 
 /// The size a `width` by `height` frame is scaled to so it fits `max`: the same size when it already fits, never
@@ -164,6 +212,55 @@ struct RawFrame {
     delay_ms: u32,
 }
 
+impl RawFrame {
+    fn new(image: RgbaImage, delay_ms: u32) -> Self {
+        #[cfg(test)]
+        live::born();
+        Self { image, delay_ms }
+    }
+}
+
+#[cfg(test)]
+impl Drop for RawFrame {
+    fn drop(&mut self) {
+        live::died();
+    }
+}
+
+/// Counts the decoded canvases alive on this thread, so a test can see that a long animation is never in memory as a
+/// whole (T-04-66).
+#[cfg(test)]
+pub(crate) mod live {
+    use std::cell::Cell;
+
+    thread_local! {
+        static NOW: Cell<usize> = const { Cell::new(0) };
+        static PEAK: Cell<usize> = const { Cell::new(0) };
+    }
+
+    pub(super) fn born() {
+        NOW.with(|now| {
+            now.set(now.get() + 1);
+            PEAK.with(|peak| peak.set(peak.get().max(now.get())));
+        });
+    }
+
+    pub(super) fn died() {
+        NOW.with(|now| now.set(now.get().saturating_sub(1)));
+    }
+
+    /// Starts counting from nothing.
+    pub(crate) fn reset() {
+        NOW.with(|now| now.set(0));
+        PEAK.with(|peak| peak.set(0));
+    }
+
+    /// The most canvases that were alive together since [`reset`].
+    pub(crate) fn peak() -> usize {
+        PEAK.with(Cell::get)
+    }
+}
+
 /// An animation being decoded one frame at a time. It is not `Send` (the frame iterator is not): the thread that
 /// decodes opens it.
 pub struct Animation {
@@ -171,8 +268,15 @@ pub struct Animation {
     max: (u32, u32),
     scaling: Scaling,
     frames: image::Frames<'static>,
+    format: Format,
+    /// The size of the canvas, before any scaling.
+    canvas: (u32, u32),
     /// The first frame, decoded by `open` so that a damaged file fails there and not mid-wallpaper.
     pending: Option<RawFrame>,
+    /// What came after the first frame, looked at by `open` to know whether the file is a single picture.
+    ahead: Option<Result<Option<RawFrame>, DecodeError>>,
+    /// The file holds exactly one frame: it is shown once and needs no frame timer.
+    single: bool,
 }
 
 impl std::fmt::Debug for Animation {
@@ -180,6 +284,7 @@ impl std::fmt::Debug for Animation {
         f.debug_struct("Animation")
             .field("source", &self.source)
             .field("max", &self.max)
+            .field("format", &self.format)
             .finish_non_exhaustive()
     }
 }
@@ -217,39 +322,99 @@ impl Animation {
                 Err(error) => return Err(DecodeError::Io(error.to_string())),
             }
         }
-        match sniff(&head[..read]) {
-            Format::Gif => {}
-            Format::Png => return Err(DecodeError::Unsupported("APNG")),
-            Format::WebP => return Err(DecodeError::Unsupported("WebP")),
-            Format::Unknown => return Err(DecodeError::NotAnimation),
+        let sniffed = sniff(&head[..read]);
+        if sniffed == Sniffed::Unknown {
+            return Err(DecodeError::NotAnimation);
+        }
+        if sniffed == Sniffed::Gif && read >= 10 {
+            // The logical screen size is in the header: a huge canvas is refused before the decoder is built.
+            check_size(
+                u32::from(u16::from_le_bytes([head[6], head[7]])),
+                u32::from(u16::from_le_bytes([head[8], head[9]])),
+            )?;
         }
         reader.rewind().map_err(|error| DecodeError::Io(error.to_string()))?;
-        let mut decoder = GifDecoder::new(reader).map_err(|error| DecodeError::Malformed(error.to_string()))?;
-        let mut limits = Limits::default();
-        limits.max_image_width = Some(MAX_SIDE);
-        limits.max_image_height = Some(MAX_SIDE);
-        limits.max_alloc = Some(MAX_ALLOC);
-        decoder
-            .set_limits(limits)
-            .map_err(|error| DecodeError::Malformed(error.to_string()))?;
-        let mut frames = decoder.into_frames();
+        let malformed = |error: image::ImageError| DecodeError::Malformed(error.to_string());
+        let (format, canvas, mut frames) = match sniffed {
+            Sniffed::Gif => {
+                let mut decoder = GifDecoder::new(reader).map_err(malformed)?;
+                let canvas = decoder.dimensions();
+                check_size(canvas.0, canvas.1)?;
+                decoder.set_limits(limits()).map_err(malformed)?;
+                (Format::Gif, canvas, decoder.into_frames())
+            }
+            Sniffed::Png => {
+                let decoder = PngDecoder::with_limits(reader, limits()).map_err(malformed)?;
+                let canvas = decoder.dimensions();
+                check_size(canvas.0, canvas.1)?;
+                if decoder.is_apng().map_err(malformed)? {
+                    (Format::Apng, canvas, decoder.apng().map_err(malformed)?.into_frames())
+                } else {
+                    (Format::Png, canvas, still(decoder))
+                }
+            }
+            Sniffed::WebP => {
+                let mut decoder = WebPDecoder::new(reader).map_err(malformed)?;
+                let canvas = decoder.dimensions();
+                check_size(canvas.0, canvas.1)?;
+                decoder.set_limits(limits()).map_err(malformed)?;
+                if decoder.has_animation() {
+                    (Format::WebP, canvas, decoder.into_frames())
+                } else {
+                    (Format::WebP, canvas, still(decoder))
+                }
+            }
+            Sniffed::Unknown => return Err(DecodeError::NotAnimation),
+        };
         let first = match frames.next() {
             None => return Err(DecodeError::NoFrames),
-            Some(Err(error)) => return Err(DecodeError::Malformed(error.to_string())),
+            Some(Err(error)) => return Err(malformed(error)),
             Some(Ok(frame)) => raw(frame),
         };
+        let ahead = match frames.next() {
+            None => Ok(None),
+            Some(Err(error)) => Err(malformed(error)),
+            Some(Ok(frame)) => Ok(Some(raw(frame))),
+        };
+        let single = matches!(ahead, Ok(None));
         Ok(Self {
             source,
             max: (max.0.max(1), max.1.max(1)),
             scaling,
             frames,
+            format,
+            canvas,
             pending: Some(first),
+            ahead: Some(ahead),
+            single,
         })
+    }
+
+    /// The format the file turned out to be.
+    #[must_use]
+    pub fn format(&self) -> Format {
+        self.format
+    }
+
+    /// The width and height of the canvas in the file, before any scaling.
+    #[must_use]
+    pub fn canvas(&self) -> (u32, u32) {
+        self.canvas
+    }
+
+    /// Whether the file holds exactly one frame (a still picture or a one-frame animation): it is shown once and no
+    /// frame timer is needed.
+    #[must_use]
+    pub fn is_single(&self) -> bool {
+        self.single
     }
 
     fn pull(&mut self) -> Result<Option<RawFrame>, DecodeError> {
         if let Some(frame) = self.pending.take() {
             return Ok(Some(frame));
+        }
+        if let Some(ahead) = self.ahead.take() {
+            return ahead;
         }
         match self.frames.next() {
             None => Ok(None),
@@ -293,10 +458,10 @@ impl Animation {
 fn raw(frame: image::Frame) -> RawFrame {
     let (numer, denom) = frame.delay().numer_denom_ms();
     let delay_ms = numer.checked_div(denom).unwrap_or(0);
-    RawFrame {
-        image: frame.into_buffer(),
-        delay_ms: if delay_ms == 0 { DEFAULT_DELAY_MS } else { delay_ms },
-    }
+    RawFrame::new(
+        frame.into_buffer(),
+        if delay_ms == 0 { DEFAULT_DELAY_MS } else { delay_ms },
+    )
 }
 
 fn finish(frame: RawFrame, max: (u32, u32), scaling: Scaling) -> DecodedFrame {
@@ -353,7 +518,7 @@ pub(crate) mod fixtures {
             let mut encoder = GifEncoder::new_with_speed(&mut bytes, 10);
             encoder.set_repeat(Repeat::Infinite).expect("repeat");
             for (index, delay) in delays_ms.iter().enumerate() {
-                let red = u8::try_from(index * 70).expect("few frames");
+                let red = u8::try_from(index * 70 % 256).expect("below 256");
                 let image = RgbaImage::from_pixel(width, height, Rgba([red, 90, 160, 255]));
                 encoder
                     .encode_frame(Frame::from_parts(image, 0, 0, Delay::from_numer_denom_ms(*delay, 1)))
@@ -453,10 +618,7 @@ mod tests {
     #[test]
     fn pixels_are_premultiplied_bgra() {
         let frame = finish(
-            RawFrame {
-                image: RgbaImage::from_pixel(1, 1, image::Rgba([200, 100, 50, 128])),
-                delay_ms: 10,
-            },
+            RawFrame::new(RgbaImage::from_pixel(1, 1, image::Rgba([200, 100, 50, 128])), 10),
             (1, 1),
             Scaling::Within,
         );
@@ -472,18 +634,147 @@ mod tests {
         }
     }
 
+    /// A plain PNG of one colour, from image's encoder (no acTL chunk).
+    fn still_png(width: u32, height: u32) -> Vec<u8> {
+        use image::ImageEncoder;
+        let mut bytes = Vec::new();
+        image::codecs::png::PngEncoder::new(&mut bytes)
+            .write_image(
+                RgbaImage::from_pixel(width, height, image::Rgba([70, 90, 160, 255])).as_raw(),
+                width,
+                height,
+                image::ExtendedColorType::Rgba8,
+            )
+            .expect("png");
+        bytes
+    }
+
+    /// A still lossless WebP of one colour, from image's encoder (no ANIM chunk).
+    fn still_webp(width: u32, height: u32) -> Vec<u8> {
+        let mut bytes = Vec::new();
+        image::codecs::webp::WebPEncoder::new_lossless(&mut bytes)
+            .encode(
+                RgbaImage::from_pixel(width, height, image::Rgba([70, 90, 160, 255])).as_raw(),
+                width,
+                height,
+                image::ExtendedColorType::Rgba8,
+            )
+            .expect("webp");
+        bytes
+    }
+
     #[test]
-    fn png_and_webp_are_not_supported_yet() {
-        let png = b"\x89PNG\r\n\x1a\n....".to_vec();
-        assert_eq!(
-            Animation::open_source(memory(png), (10, 10)).expect_err("png"),
-            DecodeError::Unsupported("APNG")
+    fn the_bytes_decide_the_format_not_the_extension() {
+        let dir = std::env::temp_dir().join(format!("sucrose-gif-sniff-{}", std::process::id()));
+        std::fs::create_dir_all(&dir).expect("dir");
+        let gif_named_png = dir.join("really-a-gif.png");
+        std::fs::write(&gif_named_png, gif_bytes(8, 8, &[10, 10])).expect("write");
+        let animation = Animation::open(&gif_named_png, (8, 8)).expect("open");
+        assert_eq!(animation.format(), Format::Gif);
+        assert!(!animation.is_single());
+        let png_named_gif = dir.join("really-a-png.gif");
+        std::fs::write(&png_named_gif, still_png(8, 8)).expect("write");
+        let animation = Animation::open(&png_named_gif, (8, 8)).expect("open");
+        assert_eq!(animation.format(), Format::Png);
+        std::fs::remove_dir_all(&dir).expect("clean");
+    }
+
+    #[test]
+    fn a_plain_png_and_a_still_webp_open_as_one_frame_that_gets_the_default_delay() {
+        for (bytes, format) in [(still_png(12, 6), Format::Png), (still_webp(12, 6), Format::WebP)] {
+            let mut animation = Animation::open_source(memory(bytes), (12, 6)).expect("open");
+            assert_eq!(animation.format(), format);
+            assert!(animation.is_single(), "{format:?}");
+            assert_eq!(animation.canvas(), (12, 6));
+            let frame = animation.next_frame().expect("frame").expect("a frame");
+            assert_eq!((frame.width, frame.height, frame.delay_ms), (12, 6, DEFAULT_DELAY_MS));
+            assert_eq!(animation.next_frame().expect("end"), None, "{format:?}");
+        }
+    }
+
+    #[test]
+    fn a_one_frame_gif_is_single_and_a_two_frame_gif_is_not() {
+        let one = Animation::open_source(memory(gif_bytes(8, 8, &[10])), (8, 8)).expect("open");
+        assert!(one.is_single());
+        let two = Animation::open_source(memory(gif_bytes(8, 8, &[10, 10])), (8, 8)).expect("open");
+        assert!(!two.is_single());
+    }
+
+    #[test]
+    fn a_png_or_webp_that_is_cut_short_or_empty_is_an_error_with_a_reason() {
+        for bytes in [still_png(16, 16), still_webp(16, 16)] {
+            for cut in [8, 12, 20, 33, bytes.len() / 2, bytes.len() - 1] {
+                let result = Animation::open_source(memory(bytes[..cut].to_vec()), (16, 16))
+                    .and_then(|mut animation| animation.next_frame());
+                if let Err(error) = result {
+                    assert!(!error.to_string().is_empty(), "cut at {cut}");
+                } else {
+                    // Only a cut that loses nothing the decoder needs may succeed; it never panics either way.
+                }
+            }
+        }
+        assert!(Animation::open_source(memory(b"RIFF\0\0\0\0WEBP".to_vec()), (8, 8)).is_err());
+        assert!(Animation::open_source(memory(b"\x89PNG\r\n\x1a\n".to_vec()), (8, 8)).is_err());
+    }
+
+    #[test]
+    fn a_long_animation_is_never_in_memory_as_a_whole_and_its_first_frame_does_not_wait_for_the_rest() {
+        use std::time::Instant;
+
+        // 120 frames of 1920 x 1080: the whole decoded animation would be about a gigabyte. One frame is encoded and its
+        // block repeated, so building the file is cheap; the decoder still reads 120 frames.
+        let one = gif_bytes(1920, 1080, &[10]);
+        let first_block = one
+            .windows(3)
+            .position(|bytes| bytes == [0x21, 0xF9, 0x04])
+            .expect("a graphic control block");
+        let (head, rest) = one.split_at(first_block);
+        let (block, trailer) = rest.split_at(rest.len() - 1);
+        let mut bytes = head.to_vec();
+        for _ in 0..120 {
+            bytes.extend_from_slice(block);
+        }
+        bytes.extend_from_slice(trailer);
+        live::reset();
+        let started = Instant::now();
+        let mut animation = Animation::open_source(memory(bytes), (480, 270)).expect("open");
+        let first = animation.next_frame().expect("frame").expect("a frame");
+        let first_after = started.elapsed();
+        assert_eq!((first.width, first.height), (480, 270));
+        let mut frames = 1;
+        while let Some(frame) = animation.next_frame().expect("frame") {
+            assert_eq!((frame.width, frame.height), (480, 270));
+            frames += 1;
+        }
+        let whole = started.elapsed();
+        assert_eq!(frames, 120);
+        assert!(
+            live::peak() <= 2,
+            "{} decoded canvases were alive together, at most 2 may be",
+            live::peak()
         );
-        let webp = b"RIFF\0\0\0\0WEBPVP8 ".to_vec();
-        assert_eq!(
-            Animation::open_source(memory(webp), (10, 10)).expect_err("webp"),
-            DecodeError::Unsupported("WebP")
+        assert!(
+            first_after * 4 < whole,
+            "the first frame took {first_after:?} of {whole:?}: it must not wait for the other frames"
         );
+    }
+
+    #[test]
+    fn a_gif_header_above_the_pixel_limit_is_refused_before_any_decoding() {
+        // "GIF89a", a 9000 x 9000 logical screen, no colour table, then the trailer.
+        let mut header = b"GIF89a".to_vec();
+        header.extend_from_slice(&9000_u16.to_le_bytes());
+        header.extend_from_slice(&9000_u16.to_le_bytes());
+        header.extend_from_slice(&[0, 0, 0, 0x3B]);
+        let error = Animation::open_source(memory(header), (100, 100)).expect_err("too large");
+        assert_eq!(
+            error,
+            DecodeError::TooLarge {
+                width: 9000,
+                height: 9000
+            }
+        );
+        assert!(error.to_string().contains("9000"), "{error}");
     }
 
     #[test]

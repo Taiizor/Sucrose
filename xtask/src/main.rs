@@ -9,6 +9,7 @@ mod bindgen_mpv;
 mod fetch_engines;
 mod localize;
 mod measure;
+mod media;
 mod synth_library;
 
 const USAGE: &str = "usage: cargo xtask <task>
@@ -18,6 +19,7 @@ tasks:
   ci             run the checks CI runs: fmt, clippy, test
   fetch-engines  download, verify and place pinned engine binaries (xtask/engines.toml; --engine libmpv|cef|all, --arch, --from, --print-sha256)
   localize       convert the legacy XAML strings to the Portal's rust-i18n YAML (--lang EN, --check)
+  media-fixtures write the animated GIF, APNG and WebP test fixtures (--out <dir>; default crates/sucrose-engine-gif/tests/fixtures)
   measure        sample RAM, CPU and GPU of the running wallpaper processes (--side rust|csharp|portal, --row, --portal-summary, --portal-row, --portal-log; the log-split summary attributes the growth)
   synth-library  write a synthetic library and prepared settings for UI runs (--out, --count, --seed, --force, --web-fixtures, --select, --engine <Type>=<EngineType>)
 ";
@@ -30,6 +32,7 @@ fn main() -> ExitCode {
         Some("fetch-engines") => fetch_engines::run(&args[2..]),
         Some("localize") => localize::run(&args[2..]),
         Some("measure") => measure::run(&args[2..]),
+        Some("media-fixtures") => media::run(&args[2..]),
         Some("synth-library") => synth_library::run(&args[2..]),
         _ => {
             eprint!("{USAGE}");

@@ -11,8 +11,9 @@
 //! `--web-fixtures` also copies the fixture Web themes of `apps/sucrose/tests/fixtures/web-themes` into the library
 //! (a Thumbnail and a Preview they do not carry are written from the pool), and `--select <folder>` selects one of the
 //! themes the run wrote, so an engine run needs neither the maintainer's library nor his settings. `--media-fixtures`
-//! adds the animation theme `gif-anim` (a 480 x 270 GIF of 24 frames of 50 ms that draws its frame number as blocks,
-//! made by the same encoder path as the previews), which `--select` can name too. `--engine
+//! adds the animation themes `gif-anim`, `apng-anim` and `webp-anim` (480 x 270, 24 frames of 50 ms that draw their frame
+//! number as blocks, built by `media.rs`) and the Video theme `video-clip` (placeholder clip bytes), which `--select`
+//! can name too. `--engine
 //! <Type>=<EngineType>` (repeatable, legacy names) sets the engine of a wallpaper type in those settings; an engine the
 //! type does not allow, or an unknown type, is refused before anything is written.
 
@@ -28,6 +29,8 @@ use std::{
 use image::{
     Delay, ExtendedColorType, Frame, RgbaImage, codecs::gif::GifEncoder, codecs::gif::Repeat, codecs::jpeg::JpegEncoder,
 };
+
+use crate::media;
 use sucrose_config::{
     model::Settings,
     store::{SETTINGS_FILE, write_atomic},
@@ -74,7 +77,7 @@ pub struct Plan {
     pub force: bool,
     /// Also copies the fixture Web themes into the library.
     pub web_fixtures: bool,
-    /// Also writes the animation fixture theme `gif-anim` into the library.
+    /// Also writes the media fixture themes (`gif-anim`, `apng-anim`, `webp-anim`, `video-clip`) into the library.
     pub media_fixtures: bool,
     /// Folder name of a theme this run writes, selected in the prepared settings.
     pub select: Option<String>,
@@ -523,54 +526,38 @@ fn marker_for(plan: &Plan) -> String {
     text
 }
 
-/// The folder and Source file of the animation fixture theme (`--media-fixtures`).
+/// The folder and Source file of the GIF animation fixture theme (`--media-fixtures`).
 const GIF_FIXTURE_FOLDER: &str = "gif-anim";
 const GIF_FIXTURE_SOURCE: &str = "animation.gif";
+/// The APNG and WebP animation themes and the video theme `--media-fixtures` adds next to `gif-anim`.
+const APNG_FIXTURE_FOLDER: &str = "apng-anim";
+const APNG_FIXTURE_SOURCE: &str = "animation.png";
+const WEBP_FIXTURE_FOLDER: &str = "webp-anim";
+const WEBP_FIXTURE_SOURCE: &str = "animation.webp";
+/// A Video theme whose clip is the synthetic placeholder bytes: 04-33 plays it as a generated page, a checkpoint copies
+/// a real clip over it.
+const VIDEO_FIXTURE_FOLDER: &str = "video-clip";
+const VIDEO_FIXTURE_SOURCE: &str = "clip.mp4";
+/// The themes `--media-fixtures` writes, by folder name.
+const MEDIA_FIXTURE_FOLDERS: [&str; 4] = [
+    GIF_FIXTURE_FOLDER,
+    APNG_FIXTURE_FOLDER,
+    WEBP_FIXTURE_FOLDER,
+    VIDEO_FIXTURE_FOLDER,
+];
 
-/// The animation fixture: 480 x 270, 24 frames of 50 ms (a 1.2 s loop). Frame `n` draws `n` in binary as five blocks
-/// (most significant first) under a bar that moves 20 pixels per frame, on a background whose colour also follows the
-/// frame, so every frame differs and a presented frame can be told from its neighbours. Nothing random: the same bytes
-/// on every run.
+/// The animation fixture: 480 x 270, 24 frames of 50 ms (a 1.2 s loop), the frames of `media::counter_frame`. Nothing
+/// random: the same bytes on every run.
+fn counter_parts() -> Vec<media::Part> {
+    media::counter_parts(480, 270, 24, 50)
+}
+
+/// The GIF of the counter animation.
 fn encode_counter_gif() -> Outcome<Vec<u8>> {
-    const WIDTH: u32 = 480;
-    const HEIGHT: u32 = 270;
-    const FRAMES: u32 = 24;
-    let pixel = |frame: u32, x: u32, y: u32| -> image::Rgba<u8> {
-        let tint = u8::try_from(frame * 8).unwrap_or(u8::MAX);
-        let background = [
-            30_u8.saturating_add(tint),
-            40,
-            120_u8.saturating_sub(u8::try_from(frame * 3).unwrap_or(0)),
-        ];
-        let bar = y < 30 && (frame * 20..frame * 20 + 20).contains(&x);
-        let block = (100..170).contains(&y)
-            && (0..5_u32).any(|slot| {
-                let left = 60 + slot * 80;
-                (left..left + 60).contains(&x) && frame >> (4 - slot) & 1 == 1
-            });
-        let slot_frame =
-            (100..170).contains(&y) && (0..5_u32).any(|slot| (60 + slot * 80..120 + slot * 80).contains(&x));
-        if bar || block {
-            image::Rgba([255, 255, 255, 255])
-        } else if slot_frame {
-            image::Rgba([20, 20, 20, 255])
-        } else {
-            image::Rgba([background[0], background[1], background[2], 255])
-        }
-    };
-    let mut bytes = Vec::new();
-    {
-        let mut encoder = GifEncoder::new_with_speed(&mut bytes, 10);
-        let failed = |error: image::ImageError| format!("cannot encode the animation fixture: {error}");
-        encoder.set_repeat(Repeat::Infinite).map_err(failed)?;
-        for frame in 0..FRAMES {
-            let image = RgbaImage::from_fn(WIDTH, HEIGHT, |x, y| pixel(frame, x, y));
-            encoder
-                .encode_frame(Frame::from_parts(image, 0, 0, Delay::from_numer_denom_ms(50, 1)))
-                .map_err(failed)?;
-        }
-    }
-    Ok(bytes)
+    let parts = counter_parts();
+    let frames: Vec<RgbaImage> = parts.iter().map(|part| part.image.clone()).collect();
+    let delays: Vec<u32> = parts.iter().map(|part| part.delay_ms).collect();
+    media::animated_gif(&frames, &delays)
 }
 
 /// The fixture Web themes (`--web-fixtures`), resolved from the workspace root and never from the current directory.
@@ -700,7 +687,12 @@ fn marker_matches(text: &str, plan: &Plan) -> bool {
 fn is_up_to_date(out: &Path, plan: &Plan) -> bool {
     let marked =
         !plan.web_fixtures && fs::read_to_string(out.join(MARKER)).is_ok_and(|text| marker_matches(&text, plan));
-    let wrote = plan.count + usize::from(plan.media_fixtures);
+    let wrote = plan.count
+        + if plan.media_fixtures {
+            MEDIA_FIXTURE_FOLDERS.len()
+        } else {
+            0
+        };
     marked
         && out.join("Setting").join(SETTINGS_FILE).is_file()
         && library::scan(&out.join("Library"), &app_version())
@@ -738,7 +730,7 @@ fn generate_full(plan: &Plan, pool: &PoolPlan, fixtures_dir: &Path) -> Outcome<G
     };
     if let Some(select) = &plan.select {
         let synthetic = (0..plan.count).any(|index| theme_name(plan.seed, index) == *select);
-        let media = plan.media_fixtures && select == GIF_FIXTURE_FOLDER;
+        let media = plan.media_fixtures && MEDIA_FIXTURE_FOLDERS.contains(&select.as_str());
         if !synthetic && !media && !fixtures.contains(select) {
             return Err(format!(
                 "--select {select}: this run writes no theme with that folder name (fixtures: {}; use --web-fixtures or --media-fixtures)",
@@ -827,22 +819,61 @@ fn generate_full(plan: &Plan, pool: &PoolPlan, fixtures_dir: &Path) -> Outcome<G
         fill_missing_images(&dir, &thumbnails[0], &previews[0])?;
     }
     if plan.media_fixtures {
-        if fixtures.iter().any(|fixture| fixture == GIF_FIXTURE_FOLDER) {
+        if let Some(clash) = fixtures
+            .iter()
+            .find(|fixture| MEDIA_FIXTURE_FOLDERS.contains(&fixture.as_str()))
+        {
             return Err(format!(
-                "the Web fixture folder '{GIF_FIXTURE_FOLDER}' has the name of the animation fixture"
+                "the Web fixture folder '{clash}' has the name of an animation fixture"
             ));
         }
-        let dir = library_dir.join(GIF_FIXTURE_FOLDER);
-        create_dir(&dir)?;
-        let mut info = theme_info(0, WallpaperType::Gif, GIF_FIXTURE_SOURCE, APP_VERSION)?;
-        info.title = "Animation fixture (gif-anim)".to_owned();
-        info.description =
-            "A 24 frame GIF that draws its frame number, made by cargo xtask synth-library --media-fixtures."
-                .to_owned();
-        write_file(&dir.join("SucroseInfo.json"), &info_bytes(&info)?)?;
-        write_file(&dir.join("Thumbnail.jpg"), &thumbnails[0])?;
-        write_file(&dir.join("Preview.gif"), &previews[0])?;
-        write_file(&dir.join(GIF_FIXTURE_SOURCE), &encode_counter_gif()?)?;
+        let counter_size = (480, 270);
+        let counter = counter_parts();
+        let themes: [(&str, WallpaperType, &str, &str, Vec<u8>); 4] = [
+            (
+                GIF_FIXTURE_FOLDER,
+                WallpaperType::Gif,
+                GIF_FIXTURE_SOURCE,
+                "A 24 frame GIF that draws its frame number, made by cargo xtask synth-library --media-fixtures.",
+                encode_counter_gif()?,
+            ),
+            (
+                APNG_FIXTURE_FOLDER,
+                WallpaperType::Gif,
+                APNG_FIXTURE_SOURCE,
+                "A 24 frame animated PNG that draws its frame number, made by cargo xtask synth-library --media-fixtures.",
+                media::apng(counter_size, &counter)?,
+            ),
+            (
+                WEBP_FIXTURE_FOLDER,
+                WallpaperType::Gif,
+                WEBP_FIXTURE_SOURCE,
+                "A 24 frame animated WebP that draws its frame number, made by cargo xtask synth-library --media-fixtures.",
+                media::animated_webp(counter_size, &counter)?,
+            ),
+            (
+                VIDEO_FIXTURE_FOLDER,
+                WallpaperType::Video,
+                VIDEO_FIXTURE_SOURCE,
+                "A video theme whose clip is placeholder bytes, made by cargo xtask synth-library --media-fixtures; copy a real clip over it to play it.",
+                FAKE_VIDEO.to_vec(),
+            ),
+        ];
+        for (folder, kind, source, description, bytes) in themes {
+            let dir = library_dir.join(folder);
+            create_dir(&dir)?;
+            let mut info = theme_info(0, kind, source, APP_VERSION)?;
+            info.title = if kind == WallpaperType::Gif {
+                format!("Animation fixture ({folder})")
+            } else {
+                format!("Media fixture ({folder})")
+            };
+            info.description = description.to_owned();
+            write_file(&dir.join("SucroseInfo.json"), &info_bytes(&info)?)?;
+            write_file(&dir.join("Thumbnail.jpg"), &thumbnails[0])?;
+            write_file(&dir.join("Preview.gif"), &previews[0])?;
+            write_file(&dir.join(source), &bytes)?;
+        }
     }
 
     // Corrupt folder one: valid description, thumbnail and source, but no Preview.gif.
@@ -877,7 +908,13 @@ fn generate_full(plan: &Plan, pool: &PoolPlan, fixtures_dir: &Path) -> Outcome<G
     write_atomic(&setting_dir.join(SETTINGS_FILE), &bytes).map_err(io_error("write", &setting_dir))?;
 
     let scan = library::scan(&library_dir, &app_version()).map_err(io_error("scan", &library_dir))?;
-    let expected = plan.count + fixtures.len() + usize::from(plan.media_fixtures);
+    let expected = plan.count
+        + fixtures.len()
+        + if plan.media_fixtures {
+            MEDIA_FIXTURE_FOLDERS.len()
+        } else {
+            0
+        };
     if scan.themes.len() != expected || scan.corrupt.len() != CORRUPT {
         return Err(format!(
             "the library scan found {} themes and {} corrupt folders, expected {expected} and {CORRUPT}",
@@ -1407,8 +1444,37 @@ mod tests {
         assert!(theme.join("animation.gif").is_file());
         assert!(theme.join("Thumbnail.jpg").is_file());
         assert!(theme.join("Preview.gif").is_file());
+        for (folder, source) in [
+            ("apng-anim", "animation.png"),
+            ("webp-anim", "animation.webp"),
+            ("video-clip", "clip.mp4"),
+        ] {
+            assert!(out.join("Library").join(folder).join(source).is_file(), "{folder}");
+        }
         let scan = library::scan(&out.join("Library"), &app_version()).unwrap();
-        assert_eq!(scan.themes.len(), 3, "two synthetic themes and the animation");
+        assert_eq!(
+            scan.themes.len(),
+            6,
+            "two synthetic themes, three animations and the clip"
+        );
+        let kinds: Vec<(String, WallpaperType)> = scan
+            .themes
+            .iter()
+            .filter(|theme| MEDIA_FIXTURE_FOLDERS.contains(&theme.folder.as_str()))
+            .map(|theme| (theme.folder.clone(), theme.info.kind))
+            .collect();
+        assert!(
+            kinds.contains(&("apng-anim".to_owned(), WallpaperType::Gif)),
+            "{kinds:?}"
+        );
+        assert!(
+            kinds.contains(&("webp-anim".to_owned(), WallpaperType::Gif)),
+            "{kinds:?}"
+        );
+        assert!(
+            kinds.contains(&("video-clip".to_owned(), WallpaperType::Video)),
+            "{kinds:?}"
+        );
         assert_eq!(scan.corrupt.len(), CORRUPT);
         let settings = fs::read_to_string(out.join("Setting").join(SETTINGS_FILE)).unwrap();
         assert!(settings.contains("\"Selected\": \"gif-anim\""), "{settings}");

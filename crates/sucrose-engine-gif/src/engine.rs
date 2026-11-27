@@ -55,6 +55,8 @@ type FitKey = (Stretch, (u32, u32), (u32, u32));
 enum Message {
     /// The next frame of the animation.
     Frame(DecodedFrame),
+    /// The only frame of the file: shown once, with no frame timer. The decoder stopped after sending it.
+    Still(DecodedFrame),
     /// The animation ended. `continues` says the decoder saw loop on and carries on with frame 0 by itself; otherwise
     /// it stopped.
     PassEnd { continues: bool },
@@ -168,6 +170,14 @@ fn decode_loop(
             return;
         }
     };
+    if skip == 0 {
+        let (width, height) = animation.canvas();
+        tracing::info!(
+            "gif opened format={:?} width={width} height={height} single={}",
+            animation.format(),
+            animation.is_single()
+        );
+    }
     match animation.skip(skip) {
         Ok(skipped) if skipped < skip => {
             // The animation is shorter than the frame index asked for (the file changed): the pass is over.
@@ -188,6 +198,11 @@ fn decode_loop(
     }
     loop {
         match animation.next_frame() {
+            Ok(Some(frame)) if animation.is_single() => {
+                // A still picture or a one-frame animation is sent once: nothing loops and no timer runs.
+                send(Message::Still(frame));
+                return;
+            }
             Ok(Some(frame)) => {
                 if !send(Message::Frame(frame)) {
                     return;
@@ -326,6 +341,8 @@ pub struct GifPump {
     resync: bool,
     /// The animation ended and loop is off: the last frame stays.
     finished: bool,
+    /// The file is a single frame: it was shown once, no timer runs and loop has nothing to restart.
+    still: bool,
     /// The decoder gave up: the last frame stays.
     failed: bool,
     /// Whether the last present failed, so a streak is logged once.
@@ -376,6 +393,7 @@ impl GifPump {
             shown: None,
             resync: false,
             finished: false,
+            still: false,
             failed: false,
             present_failing: false,
         };
@@ -389,6 +407,7 @@ impl GifPump {
         self.peeked = None;
         self.generation += 1;
         self.finished = false;
+        self.still = false;
         self.failed = false;
         self.decoder = Some(Decoder::spawn(
             self.source.clone(),
@@ -471,6 +490,17 @@ impl GifPump {
         }
     }
 
+    /// Shows the only frame of the file and stops: no timer is armed and nothing follows it.
+    fn show_still(&mut self, frame: DecodedFrame, now: Instant) {
+        self.show(frame, now);
+        self.due = None;
+        self.remaining = None;
+        self.finished = true;
+        self.still = true;
+        self.decoder = None;
+        self.timers.kill(GIF_TIMER);
+    }
+
     /// Logs the rectangles the shown frame is drawn with when the mode or a size changed since the last line.
     fn note_fit(&mut self) {
         let Some(frame) = self.frame_size else {
@@ -493,6 +523,7 @@ impl GifPump {
         if self.resync {
             match self.next_message() {
                 Ok(Message::Frame(frame)) => self.show(frame, now),
+                Ok(Message::Still(frame)) => self.show_still(frame, now),
                 Ok(other) => {
                     // Nothing to redraw at that index any more: the new decoder carries on from its own state.
                     self.resync = false;
@@ -522,6 +553,10 @@ impl GifPump {
                     if let Some(due) = self.due {
                         self.arm(due.saturating_duration_since(now));
                     }
+                    return;
+                }
+                Ok(Message::Still(frame)) => {
+                    self.show_still(frame, now);
                     return;
                 }
                 Ok(Message::PassEnd { continues }) => {
@@ -567,7 +602,7 @@ impl GifPump {
             match command {
                 Command::Pause { paused, .. } => self.pause(paused, now),
                 Command::Loop(looping) => {
-                    if looping && self.finished {
+                    if looping && self.finished && !self.still {
                         // set_loop(true) after the last frame: start again from frame 0.
                         self.shown = None;
                         self.due = None;
@@ -908,6 +943,43 @@ mod tests {
         rig.run_until(|rig| rig.numbers().len() >= 5);
         assert_eq!(&rig.numbers()[3..5], [0, 1], "loop on starts again from frame 0");
         assert!(!rig.pump.finished);
+    }
+
+    #[test]
+    fn a_single_frame_is_shown_once_and_arms_no_frame_timer_whatever_loop_says() {
+        for looping in [true, false] {
+            let mut rig = Rig::new(1, (16, 9), (16, 9), looping);
+            rig.run_until(|rig| !rig.numbers().is_empty());
+            rig.settle();
+            assert_eq!(rig.numbers(), [0], "loop {looping}: shown once and never again");
+            assert!(
+                rig.timers.armed.lock().expect("lock").is_empty(),
+                "loop {looping}: no frame timer was armed"
+            );
+            assert_eq!(rig.playing.load(Ordering::SeqCst), 1);
+            assert!(rig.pump.finished && rig.pump.still);
+
+            rig.engine.set_loop(!looping).expect("loop");
+            rig.settle();
+            assert_eq!(rig.numbers(), [0], "turning loop around redraws nothing");
+            assert!(rig.timers.armed.lock().expect("lock").is_empty());
+        }
+    }
+
+    #[test]
+    fn a_single_frame_is_redrawn_once_for_a_new_size_and_still_starts_no_timer() {
+        let mut rig = Rig::new(1, (32, 18), (32, 18), true);
+        rig.run_until(|rig| !rig.numbers().is_empty());
+        rig.pump.resize_to([0, 0, 16, 9]);
+        rig.run_until(|rig| rig.numbers().len() >= 2);
+        rig.settle();
+        assert_eq!(rig.numbers().len(), 2, "one more draw for the new size and no more");
+        assert_eq!(
+            rig.recorder.shown.lock().expect("lock")[1].1,
+            16,
+            "prepared for the new surface"
+        );
+        assert!(rig.timers.armed.lock().expect("lock").is_empty());
     }
 
     #[test]
