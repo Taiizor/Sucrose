@@ -8,13 +8,18 @@ rust-version.workspace = true
 publish.workspace = true
 
 [dependencies]
+realfft = { workspace = true }
 serde_json = { workspace = true }
 sucrose-core = { workspace = true }
 thiserror = { workspace = true }
+tracing = { workspace = true }
 
 [target.'cfg(windows)'.dependencies]
 windows = { workspace = true, features = [
     "Win32_Foundation",
+    "Win32_Media_Audio",
+    "Win32_System_Com",
+    "Win32_System_Com_StructuredStorage",
     "Win32_System_Performance",
     "Win32_System_SystemInformation",
 ] }

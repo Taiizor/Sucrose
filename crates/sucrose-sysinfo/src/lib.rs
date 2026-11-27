@@ -8,13 +8,16 @@
 #![allow(unsafe_code)]
 #![warn(clippy::undocumented_unsafe_blocks)]
 
+mod audio;
 mod date;
 mod memory;
 mod processor;
+pub mod visualizer;
 mod wmi_info;
 
 use serde_json::Value;
 
+pub use audio::{AudioCapture, audio_unavailable};
 pub use date::date_snapshot;
 pub use memory::{memory_snapshot, memory_unavailable};
 pub use processor::{ProcessorSampler, processor_unavailable};

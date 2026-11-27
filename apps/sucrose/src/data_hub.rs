@@ -14,7 +14,7 @@ use crossbeam_channel::{Receiver, RecvTimeoutError, Sender, bounded};
 use serde_json::Value;
 use sucrose_core::compatible::DataGroup;
 use sucrose_platform::PlatformError;
-use sucrose_sysinfo::{ProcessorSampler, SysInfoError};
+use sucrose_sysinfo::{AudioCapture, ProcessorSampler, SysInfoError};
 
 use crate::modules::{module_off, start_module};
 
@@ -318,9 +318,11 @@ impl<T> Held<T> {
 }
 
 /// What the system sampler keeps between readings: the processor counters (open while a page wants the Processor group),
-/// the BIOS and motherboard texts (read once from WMI) and which groups already logged a failure.
+/// the loopback capture of the Audio group (open while a page wants Audio), the BIOS and motherboard texts (read once from
+/// WMI) and which groups already logged a failure.
 struct SystemState {
     processor: Held<ProcessorSampler>,
+    audio: Held<AudioCapture>,
     bios: Held<Value>,
     motherboard: Held<Value>,
     logged: HashSet<DataGroup>,
@@ -330,6 +332,7 @@ impl SystemState {
     fn new() -> Self {
         Self {
             processor: Held::Empty,
+            audio: Held::Empty,
             bios: Held::Empty,
             motherboard: Held::Empty,
             logged: HashSet::new(),
@@ -354,6 +357,7 @@ impl SystemState {
                 Some(sucrose_sysinfo::memory_unavailable()),
             ),
             DataGroup::Processor => self.processor(),
+            DataGroup::Audio => self.audio(),
             DataGroup::Bios => {
                 let mut held = std::mem::replace(&mut self.bios, Held::Empty);
                 let value = self.once(
@@ -454,11 +458,43 @@ impl SystemState {
         }
     }
 
+    /// The Audio group: the loopback capture is opened by the first reading and kept until the group is released (D-24). A
+    /// device that cannot be captured gives the legacy default and is tried again after [`RETRY_AFTER`].
+    fn audio(&mut self) -> Option<Value> {
+        if self.audio.may_try() {
+            match AudioCapture::start() {
+                Ok(capture) => {
+                    tracing::info!(format = capture.format(), "audio capture started");
+                    self.audio = Held::Ready(capture);
+                }
+                Err(SysInfoError::Unsupported(what)) => {
+                    tracing::debug!(group = ?DataGroup::Audio, what, "the data group has no provider on this OS");
+                    return None;
+                }
+                Err(error) => {
+                    self.failed(DataGroup::Audio, &error);
+                    self.audio = Held::Failed(Instant::now());
+                }
+            }
+        }
+        match &self.audio {
+            Held::Ready(capture) => Some(capture.snapshot()),
+            _ => Some(sucrose_sysinfo::audio_unavailable()),
+        }
+    }
+
     /// No running page wants `group` any more: whatever is held for it goes (the counters close, a cached read is
     /// dropped, so a later page reads it afresh) and a failure may be logged again.
     fn release(&mut self, group: DataGroup) {
         match group {
             DataGroup::Processor => self.processor = Held::Empty,
+            DataGroup::Audio => {
+                if matches!(self.audio, Held::Ready(_)) {
+                    tracing::info!("audio capture stopped");
+                }
+                // Dropping the capture stops its thread and lets the device go.
+                self.audio = Held::Empty;
+            }
             DataGroup::Bios => self.bios = Held::Empty,
             DataGroup::Motherboard => self.motherboard = Held::Empty,
             _ => {}
@@ -628,7 +664,7 @@ mod tests {
     fn the_system_sampler_gives_the_date_and_nothing_for_groups_without_a_provider() {
         let sample = system_sampler();
 
-        assert!(sample(DataGroup::Audio).is_none());
+        assert!(sample(DataGroup::Battery).is_none(), "the battery has no provider yet");
         #[cfg(windows)]
         {
             let text = sample(DataGroup::Date).expect("the date reads");
@@ -849,5 +885,86 @@ mod tests {
         release(DataGroup::Processor);
         let again = sample(DataGroup::Processor).expect("a later page opens the counters afresh");
         assert!(again.contains("\"Cores\""));
+    }
+
+    #[test]
+    fn audio_is_released_when_its_last_page_stops_wanting_it_and_the_other_groups_go_on() {
+        let (sample, _reads) = counting_sampler();
+        let (deliver, _log) = recording_deliver(|_| Delivery::Sent);
+        let (release, released) = recording_release();
+        let mut module = DataModule::new(sample, deliver).with_release(release);
+
+        module.want(0, 10, &[DataGroup::Date, DataGroup::Audio]);
+        module.want(1, 11, &[DataGroup::Audio]);
+        module.want(0, 10, &[DataGroup::Date]);
+        assert!(
+            released.lock().expect("released").is_empty(),
+            "page 1 still wants the audio"
+        );
+        module.release(1, None);
+
+        assert!(module.running(), "page 0 still wants the date");
+        assert_eq!(*released.lock().expect("released"), [DataGroup::Audio]);
+    }
+
+    #[test]
+    fn a_page_that_wants_audio_again_gets_it_read_afresh_after_the_release() {
+        let (sample, reads) = counting_sampler();
+        let (deliver, _log) = recording_deliver(|_| Delivery::Sent);
+        let (release, released) = recording_release();
+        let mut module = DataModule::new(sample, deliver).with_release(release);
+
+        module.want(0, 10, &[DataGroup::Audio]);
+        module.release(0, None);
+        assert!(
+            !module.running(),
+            "no page wants anything: the hub and the capture are gone"
+        );
+        assert!(released.lock().expect("released").contains(&DataGroup::Audio));
+        module.want(0, 12, &[DataGroup::Audio]);
+
+        assert!(module.running());
+        thread::sleep(TICK * 3);
+        assert!(
+            reads.lock().expect("reads").contains(&DataGroup::Audio),
+            "the new page's hub reads the audio group"
+        );
+    }
+
+    #[test]
+    fn releasing_audio_forgets_a_failed_start_so_the_next_page_tries_at_once() {
+        let mut state = SystemState::new();
+        state.audio = Held::Failed(Instant::now());
+        assert!(!state.audio.may_try(), "a failure waits for the retry delay");
+
+        state.release(DataGroup::Audio);
+
+        assert!(state.audio.may_try());
+    }
+
+    #[cfg(windows)]
+    #[test]
+    fn the_system_sampler_gives_the_audio_group_and_lets_the_capture_go_on_release() {
+        let (sample, release) = system_sampling();
+
+        let first: serde_json::Value =
+            serde_json::from_str(&sample(DataGroup::Audio).expect("the audio group reads")).expect("JSON");
+        thread::sleep(Duration::from_millis(300));
+        let second: serde_json::Value =
+            serde_json::from_str(&sample(DataGroup::Audio).expect("the audio group reads")).expect("JSON");
+
+        for value in [&first, &second] {
+            // A machine with a render device gives 128 bands; one without gives the legacy default.
+            let bands = value["Data"].as_array().map(Vec::len);
+            assert!(bands == Some(128) || bands == Some(0), "{bands:?}");
+            assert_eq!(value["DataLeft"].as_array().map(Vec::len), bands);
+            assert_eq!(value["DataRight"].as_array().map(Vec::len), bands);
+        }
+        release(DataGroup::Audio);
+        assert!(
+            sample(DataGroup::Audio).is_some(),
+            "a later page opens the capture afresh"
+        );
+        release(DataGroup::Audio);
     }
 }

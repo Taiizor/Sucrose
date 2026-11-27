@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sucrose fixture: audio</title>
+<style>
+  html, body { margin: 0; width: 100%; height: 100%; background: #101418; color: #e6edf3; overflow: hidden; }
+  body { font-family: "Segoe UI", sans-serif; padding: 2vw; box-sizing: border-box; }
+  h1 { font-size: 3vw; margin: 0 0 1vw; }
+  #info { font-size: 1.6vw; color: #8ab4f8; margin-bottom: 1vw; }
+  canvas { width: 96vw; height: 60vh; display: block; background: #1a2027; }
+</style>
+</head>
+<body>
+<h1>Sucrose fixture: audio</h1>
+<div id="info">waiting for SystemAudio</div>
+<canvas id="bars" width="1280" height="480"></canvas>
+<script>
+  // The audio fixture: SucroseCompatible.json defines SystemAudio, so the service captures the default render device and
+  // calls SucroseAudioData about ten times a second. The page draws the 128 mono bands (Data) and reports every call with
+  // fetch('/__calls/compatible/SystemAudio'): the origin answers 404 and the renderer log records the path, which is how a
+  // run proves the calls without a host object or a message channel.
+  window.__calls = [];
+  var canvas = document.getElementById("bars");
+  var context = canvas.getContext("2d");
+  var info = document.getElementById("info");
+
+  function draw(data) {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    var width = canvas.width / data.length;
+    for (var i = 0; i < data.length; i++) {
+      var value = Math.max(0, Math.min(1, data[i]));
+      var height = value * canvas.height;
+      context.fillStyle = "hsl(" + Math.round(200 + 140 * i / data.length) + ", 80%, 60%)";
+      context.fillRect(i * width + 1, canvas.height - height, Math.max(1, width - 2), height);
+    }
+  }
+
+  // SystemAudio: {"Data": [128 mono bands], "DataLeft": [128], "DataRight": [128], ...} with every value in [0, 1].
+  function SucroseAudioData(audio) {
+    var data = audio && audio.Data ? audio.Data : [];
+    var peak = 0;
+    for (var i = 0; i < data.length; i++) peak = Math.max(peak, data[i]);
+    window.__calls.push({ kind: "compatible", key: "SystemAudio", payload: audio });
+    info.textContent = "SystemAudio: " + data.length + " bands, left " + (audio.DataLeft || []).length +
+      ", right " + (audio.DataRight || []).length + ", peak " + peak.toFixed(3);
+    draw(data);
+    fetch("/__calls/compatible/SystemAudio", { cache: "no-store" }).catch(function () {});
+  }
+</script>
+</body>
+</html>

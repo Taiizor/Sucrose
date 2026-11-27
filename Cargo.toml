@@ -49,6 +49,8 @@ percent-encoding = "2.3.2"
 postcard = { version = "1.2.0", features = ["use-std"] }
 # The native handle of a GPUI window (gpui Window implements HasWindowHandle) for the DWM backdrop call in sucrose-platform; GPUI already depends on 0.6.2, so no second copy is built.
 raw-window-handle = "0.6.2"
+# WAPI-05: the real FFT of the audio visualizer (the legacy one used MathNet's); verdict OK in the 04-RESEARCH package audit.
+realfft = "3.5.1"
 rust-i18n = "4.2.4"
 serde = { version = "1.0.229", features = ["derive"] }
 # preserve_order: object keys keep the order they were read or inserted in, which the legacy page calls rely on (Newtonsoft writes properties in declaration order, plan 04-09); indexmap is already in the lock file.
