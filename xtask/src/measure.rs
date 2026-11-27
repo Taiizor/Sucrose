@@ -36,9 +36,12 @@ const USAGE: &str = "usage:
   cargo xtask measure --portal-row <real.json> <synth.json> --portal-logs <real.log> <synth.log> [--rounds <n>]
 
   --side      rust: every sucrose.exe (roles service, renderer for --render, cef for a CEF subprocess with
-              --type=); csharp: Sucrose.Launcher, Sucrose.Live.MpvPlayer, Sucrose.Live.CefSharp (cefsharp),
-              CefSharp.BrowserSubprocess (cefsharp-subprocess) and Sucrose.Backgroundog; portal: the
-              sucrose-portal.exe process
+              --type=) and the msedgewebview2.exe processes of a Sucrose WebView2 wallpaper (webview2: the
+              command line names sucrose.exe as the host, or the user data folder is a Sucrose Web/WebView2 or
+              WebEphemeral/WebView2 folder; other applications' WebView2 is never counted); csharp:
+              Sucrose.Launcher, Sucrose.Live.MpvPlayer, Sucrose.Live.CefSharp (cefsharp), CefSharp.BrowserSubprocess
+              (cefsharp-subprocess), Sucrose.Live.WebView (webview), its msedgewebview2.exe processes
+              (webview-subprocess) and Sucrose.Backgroundog; portal: the sucrose-portal.exe process
   --warmup    seconds to wait before sampling (default 60); with --portal-summary/--portal-row the
               warm-up window of the run (default 20)
   --duration  seconds to sample, once per second (default 300)
@@ -95,11 +98,28 @@ const DWM_IMAGE: &str = "dwm.exe";
 const UNKNOWN_ADAPTER: &str = "unknown adapter";
 /// C# roles that make up the subtotal (D-27): the wallpaper engine process(es) of the run plus Backgroundog. A video
 /// run has the MpvPlayer, a CEF Web run has Sucrose.Live.CefSharp and its CefSharp.BrowserSubprocess children.
-const CSHARP_SUBTOTAL_ROLES: [&str; 4] = ["mpv-player", "cefsharp", "cefsharp-subprocess", "backgroundog"];
+const CSHARP_SUBTOTAL_ROLES: [&str; 6] = [
+    "mpv-player",
+    "cefsharp",
+    "cefsharp-subprocess",
+    "webview",
+    "webview-subprocess",
+    "backgroundog",
+];
 /// Rust roles of a CEF wallpaper that sit next to the service and the renderer (CEF subprocesses, `--type=`).
 const RUST_CEF_ROLE: &str = "cef";
 /// The two C# CefSharp roles.
 const CSHARP_CEF_ROLES: [&str; 2] = ["cefsharp", "cefsharp-subprocess"];
+/// Rust role of the `msedgewebview2.exe` processes that belong to a Sucrose WebView2 wallpaper.
+const RUST_WEBVIEW2_ROLE: &str = "webview2";
+/// The two C# WebView roles: Sucrose.Live.WebView and its msedgewebview2 processes.
+const CSHARP_WEBVIEW_ROLES: [&str; 2] = ["webview", "webview-subprocess"];
+/// The WebView2 command-line switch that names the host executable of an embedded browser.
+const WEBVIEW_HOST_SWITCH: &str = "--webview-exe-name=";
+/// The Rust host executable (service and renderer share one image).
+const RUST_WEBVIEW_HOST: &str = "sucrose.exe";
+/// The C# host executable of the WebView engine.
+const CSHARP_WEBVIEW_HOST: &str = "sucrose.live.webview.exe";
 
 /// Which application's processes are measured.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -377,6 +397,8 @@ pub fn classify(side: Side, name: &str, cmd: &[String]) -> Option<&'static str> 
     let lower = name.to_ascii_lowercase();
     let stem = lower.strip_suffix(".exe").unwrap_or(&lower);
     match side {
+        Side::Rust if stem == "msedgewebview2" => rust_webview2(cmd).then_some(RUST_WEBVIEW2_ROLE),
+        Side::Csharp if stem == "msedgewebview2" => csharp_webview(cmd).then_some("webview-subprocess"),
         Side::Rust if stem == "sucrose" => {
             // CEF starts its subprocesses (GPU, utility, renderer, ...) from the renderer's own image with `--type=`.
             let cef_subprocess = cmd.iter().any(|a| a.starts_with("--type="));
@@ -393,6 +415,7 @@ pub fn classify(side: Side, name: &str, cmd: &[String]) -> Option<&'static str> 
             "sucrose.launcher" => Some("launcher"),
             "sucrose.live.mpvplayer" => Some("mpv-player"),
             "sucrose.live.cefsharp" => Some("cefsharp"),
+            "sucrose.live.webview" => Some("webview"),
             "cefsharp.browsersubprocess" => Some("cefsharp-subprocess"),
             "sucrose.backgroundog" => Some("backgroundog"),
             _ => None,
@@ -400,6 +423,48 @@ pub fn classify(side: Side, name: &str, cmd: &[String]) -> Option<&'static str> 
         Side::Portal if stem == "sucrose-portal" => Some("portal"),
         Side::Rust | Side::Portal => None,
     }
+}
+
+/// The value of a `--name=value` switch in a command line, without quotes; the first occurrence wins.
+fn switch_value<'a>(cmd: &'a [String], prefix: &str) -> Option<&'a str> {
+    cmd.iter()
+        .find(|a| {
+            a.len() >= prefix.len()
+                && a.is_char_boundary(prefix.len())
+                && a[..prefix.len()].eq_ignore_ascii_case(prefix)
+        })
+        .map(|a| a[prefix.len()..].trim_matches('"'))
+}
+
+/// Whether a path (either separator, any case) holds the two folders `first` and `second` one after the other.
+fn path_has_pair(path: &str, first: &str, second: &str) -> bool {
+    let parts: Vec<String> = path
+        .trim_matches('"')
+        .split(['\\', '/'])
+        .map(str::to_ascii_lowercase)
+        .collect();
+    parts.windows(2).any(|w| w[0] == first && w[1] == second)
+}
+
+/// Whether an `msedgewebview2.exe` belongs to a Sucrose (Rust) wallpaper: its host marker names `sucrose.exe`; without
+/// a marker its user data folder sits under a Sucrose data folder's `Web\WebView2` or `WebEphemeral\WebView2`. A marker
+/// that names another host is decisive, so another application's WebView2 is never counted.
+fn rust_webview2(cmd: &[String]) -> bool {
+    if let Some(host) = switch_value(cmd, WEBVIEW_HOST_SWITCH) {
+        return host.eq_ignore_ascii_case(RUST_WEBVIEW_HOST);
+    }
+    switch_value(cmd, "--user-data-dir=")
+        .is_some_and(|dir| path_has_pair(dir, "web", "webview2") || path_has_pair(dir, "webephemeral", "webview2"))
+}
+
+/// Whether an `msedgewebview2.exe` belongs to the C# WebView engine: its host marker names Sucrose.Live.WebView.exe;
+/// without a marker the command line contains `Sucrose`, as the legacy Kill code matched it. A marker that names
+/// another host is decisive.
+fn csharp_webview(cmd: &[String]) -> bool {
+    if let Some(host) = switch_value(cmd, WEBVIEW_HOST_SWITCH) {
+        return host.eq_ignore_ascii_case(CSHARP_WEBVIEW_HOST);
+    }
+    cmd.iter().any(|a| a.contains("Sucrose"))
 }
 
 /// One matching process.
@@ -1187,6 +1252,9 @@ pub fn subtotal_label(present: &[&str]) -> String {
     if present.iter().any(|r| CSHARP_CEF_ROLES.contains(r)) {
         parts.push("CefSharp");
     }
+    if present.iter().any(|r| CSHARP_WEBVIEW_ROLES.contains(r)) {
+        parts.push("WebView");
+    }
     if present.contains(&"backgroundog") {
         parts.push("Backgroundog");
     }
@@ -1222,11 +1290,25 @@ pub fn csharp_cell(report: &Report) -> String {
     if let Some(sub) = &report.subtotal {
         let _ = write!(cell, "; {}: {}", sub.label, cell_metrics(&sub.metrics));
     }
-    if CSHARP_CEF_ROLES.iter().any(|r| count_role(report, r) > 0) {
+    if CSHARP_CEF_ROLES
+        .iter()
+        .chain(CSHARP_WEBVIEW_ROLES.iter())
+        .any(|r| count_role(report, r) > 0)
+    {
         let _ = write!(
             cell,
             "; by role (sum of averages): {}",
-            role_breakdown(report, &["launcher", "cefsharp", "cefsharp-subprocess", "backgroundog"])
+            role_breakdown(
+                report,
+                &[
+                    "launcher",
+                    "cefsharp",
+                    "cefsharp-subprocess",
+                    "webview",
+                    "webview-subprocess",
+                    "backgroundog"
+                ]
+            )
         );
     }
     cell
@@ -1236,21 +1318,30 @@ pub fn csharp_cell(report: &Report) -> String {
 pub fn rust_cell(report: &Report) -> String {
     let renderers = count_role(report, "renderer");
     let cef = count_role(report, RUST_CEF_ROLE);
+    let webview2 = count_role(report, RUST_WEBVIEW2_ROLE);
     let mut cell = format!(
-        "service + {renderers} renderer{}{}: {}",
+        "service + {renderers} renderer{}{}{}: {}",
         if renderers == 1 { "" } else { "s" },
         if cef == 0 {
             String::new()
         } else {
             format!(" + {cef} cef process{}", if cef == 1 { "" } else { "es" })
         },
+        if webview2 == 0 {
+            String::new()
+        } else {
+            format!(
+                " + {webview2} webview2 process{}",
+                if webview2 == 1 { "" } else { "es" }
+            )
+        },
         cell_metrics(&report.total)
     );
-    if cef > 0 {
+    if cef > 0 || webview2 > 0 {
         let _ = write!(
             cell,
             "; by role (sum of averages): {}",
-            role_breakdown(report, &["service", "renderer", RUST_CEF_ROLE])
+            role_breakdown(report, &["service", "renderer", RUST_CEF_ROLE, RUST_WEBVIEW2_ROLE])
         );
     }
     cell
@@ -1317,11 +1408,15 @@ fn any_role_adapters<'a>(report: &'a Report, roles: &[&str], who: &str) -> Resul
 pub fn same_adapter(csharp: &Report, rust: &Report) -> Result<AdapterRef, String> {
     let c = if CSHARP_CEF_ROLES.iter().any(|r| count_role(csharp, r) > 0) {
         any_role_adapters(csharp, &CSHARP_CEF_ROLES, "C#")?
+    } else if CSHARP_WEBVIEW_ROLES.iter().any(|r| count_role(csharp, r) > 0) {
+        any_role_adapters(csharp, &CSHARP_WEBVIEW_ROLES, "C#")?
     } else {
         role_adapters(csharp, "mpv-player", "C#")?
     };
     let r = if count_role(rust, RUST_CEF_ROLE) > 0 {
         any_role_adapters(rust, &["renderer", RUST_CEF_ROLE], "Rust")?
+    } else if count_role(rust, RUST_WEBVIEW2_ROLE) > 0 {
+        any_role_adapters(rust, &["renderer", RUST_WEBVIEW2_ROLE], "Rust")?
     } else {
         role_adapters(rust, "renderer", "Rust")?
     };
@@ -2412,6 +2507,163 @@ mod tests {
             Some("cefsharp-subprocess")
         );
         assert_eq!(classify(Side::Rust, "CefSharp.BrowserSubprocess.exe", &[]), None);
+    }
+
+    #[test]
+    fn classify_sees_the_webview2_process_tree_on_both_sides() {
+        // A Rust WebView2 wallpaper: the marker names sucrose.exe as the host, wherever the process sits in the tree.
+        let host = strings(&[
+            "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\158.0.4370.33\\msedgewebview2.exe",
+            "--embedded-browser-webview=1",
+            "--webview-exe-name=sucrose.exe",
+            "--webview-exe-version=0.1.0",
+        ]);
+        assert_eq!(classify(Side::Rust, "msedgewebview2.exe", &host), Some("webview2"));
+        let child = strings(&[
+            "msedgewebview2.exe",
+            "--type=gpu-process",
+            "--webview-exe-name=Sucrose.exe",
+        ]);
+        assert_eq!(classify(Side::Rust, "MSEdgeWebView2.exe", &child), Some("webview2"));
+        let quoted = strings(&["msedgewebview2.exe", "--webview-exe-name=\"sucrose.exe\""]);
+        assert_eq!(classify(Side::Rust, "msedgewebview2.exe", &quoted), Some("webview2"));
+        // Another application's WebView2 is never counted, with or without a path that looks alike.
+        let teams = strings(&["msedgewebview2.exe", "--webview-exe-name=Teams.exe"]);
+        assert_eq!(classify(Side::Rust, "msedgewebview2.exe", &teams), None);
+        assert_eq!(classify(Side::Rust, "msedgewebview2.exe", &[]), None);
+        let other_user_data = strings(&[
+            "msedgewebview2.exe",
+            "--webview-exe-name=Teams.exe",
+            "--user-data-dir=C:\\Users\\x\\AppData\\Roaming\\Sucrose\\Web\\WebView2",
+        ]);
+        assert_eq!(classify(Side::Rust, "msedgewebview2.exe", &other_user_data), None);
+        // No exe-name marker: the user data folder under a Sucrose data folder's Web\WebView2 or WebEphemeral\WebView2.
+        let persistent = strings(&[
+            "msedgewebview2.exe",
+            "--user-data-dir=C:\\Users\\x\\AppData\\Roaming\\Sucrose\\Web\\WebView2",
+        ]);
+        assert_eq!(
+            classify(Side::Rust, "msedgewebview2.exe", &persistent),
+            Some("webview2")
+        );
+        let ephemeral = strings(&[
+            "msedgewebview2.exe",
+            "--user-data-dir=\"E:\\p\\target\\round-b\\Cache\\WebEphemeral\\WebView2\\1\"",
+        ]);
+        assert_eq!(classify(Side::Rust, "msedgewebview2.exe", &ephemeral), Some("webview2"));
+        let crashpad = strings(&[
+            "msedgewebview2.exe",
+            "--database=C:\\Users\\x\\AppData\\Roaming\\Sucrose\\Web\\WebView2\\EBWebView\\Crashpad",
+        ]);
+        assert_eq!(classify(Side::Rust, "msedgewebview2.exe", &crashpad), None);
+        let teams_folder = strings(&[
+            "msedgewebview2.exe",
+            "--user-data-dir=C:\\Users\\x\\AppData\\Local\\Teams\\WebView2",
+        ]);
+        assert_eq!(classify(Side::Rust, "msedgewebview2.exe", &teams_folder), None);
+        // The Rust side never counts a C# process and the Portal/C# sides never count the Rust role.
+        assert_eq!(classify(Side::Rust, "Sucrose.Live.WebView.exe", &[]), None);
+        assert_eq!(classify(Side::Portal, "msedgewebview2.exe", &host), None);
+
+        // C#: the host process and its msedgewebview2 children.
+        assert_eq!(classify(Side::Csharp, "Sucrose.Live.WebView.exe", &[]), Some("webview"));
+        let c_host = strings(&["msedgewebview2.exe", "--webview-exe-name=Sucrose.Live.WebView.exe"]);
+        assert_eq!(
+            classify(Side::Csharp, "msedgewebview2.exe", &c_host),
+            Some("webview-subprocess")
+        );
+        // The legacy Kill code matched the command line text Sucrose.
+        let c_legacy = strings(&[
+            "msedgewebview2.exe",
+            "--user-data-dir=C:\\Users\\x\\AppData\\Roaming\\Sucrose\\Cache\\WebView2",
+        ]);
+        assert_eq!(
+            classify(Side::Csharp, "msedgewebview2.exe", &c_legacy),
+            Some("webview-subprocess")
+        );
+        assert_eq!(classify(Side::Csharp, "msedgewebview2.exe", &teams), None);
+        assert_eq!(classify(Side::Csharp, "msedgewebview2.exe", &[]), None);
+        // Another host named in the marker wins over a path that happens to contain Sucrose.
+        let c_other = strings(&[
+            "msedgewebview2.exe",
+            "--webview-exe-name=Sucrose.Portal.exe",
+            "--user-data-dir=C:\\Users\\x\\AppData\\Roaming\\Sucrose\\Cache\\WebView2",
+        ]);
+        assert_eq!(classify(Side::Csharp, "msedgewebview2.exe", &c_other), None);
+        // The Rust renderer's own WebView2 processes are not C# processes.
+        assert_eq!(classify(Side::Csharp, "msedgewebview2.exe", &host), None);
+    }
+
+    #[test]
+    fn subtotal_label_names_the_webview_processes_present() {
+        assert_eq!(
+            subtotal_label(&["launcher", "webview", "webview-subprocess", "backgroundog"]),
+            "WebView + Backgroundog"
+        );
+        assert_eq!(subtotal_label(&["webview", "backgroundog"]), "WebView + Backgroundog");
+        assert!(CSHARP_SUBTOTAL_ROLES.contains(&"webview"));
+        assert!(CSHARP_SUBTOTAL_ROLES.contains(&"webview-subprocess"));
+    }
+
+    #[test]
+    fn row_prints_the_webview2_totals_per_role_on_both_sides() {
+        let csharp = report(
+            "csharp",
+            &[
+                "launcher",
+                "webview",
+                "webview-subprocess",
+                "webview-subprocess",
+                "backgroundog",
+            ],
+            true,
+        );
+        let rust = report(
+            "rust",
+            &["service", "renderer", "webview2", "webview2", "webview2"],
+            false,
+        );
+        let row = format_row(&csharp, &rust, "s", "n");
+        assert!(row.contains("5 processes: RAM 100 MB"), "{row}");
+        assert!(row.contains("webview x1: RAM 100 MB, CPU 1.00%"), "{row}");
+        assert!(row.contains("webview-subprocess x2: RAM 200 MB, CPU 2.00%"), "{row}");
+        assert!(
+            row.contains("| service + 1 renderer + 3 webview2 processes: RAM 100 MB"),
+            "{row}"
+        );
+        assert!(
+            row.contains(
+                "service x1: RAM 100 MB, CPU 1.00%, renderer x1: RAM 100 MB, CPU 1.00%, webview2 x3: RAM 300 MB"
+            ),
+            "{row}"
+        );
+        let one = format_row(
+            &report("csharp", &["launcher", "webview", "backgroundog"], true),
+            &report("rust", &["service", "renderer", "webview2"], false),
+            "s",
+            "n",
+        );
+        assert!(one.contains("service + 1 renderer + 1 webview2 process:"), "{one}");
+    }
+
+    #[test]
+    fn webview2_pair_shares_an_adapter_when_the_gpu_users_agree() {
+        let nvidia = adapter("0x0_0xA", "NVIDIA GeForce RTX 3050 Laptop GPU");
+        let intel = adapter("0x0_0xB", "Intel(R) UHD Graphics");
+        let mut csharp = report(
+            "csharp",
+            &["launcher", "webview", "webview-subprocess", "webview-subprocess"],
+            true,
+        );
+        csharp.processes[3].gpu_adapter = Some(nvidia.clone());
+        let mut rust = report("rust", &["service", "renderer", "webview2", "webview2"], false);
+        rust.processes[3].gpu_adapter = Some(nvidia.clone());
+        assert_eq!(same_adapter(&csharp, &rust), Ok(nvidia));
+        // A WebView2 GPU process on another adapter is refused; no GPU user at all is refused too.
+        rust.processes[2].gpu_adapter = Some(intel);
+        assert!(same_adapter(&csharp, &rust).is_err());
+        let none = report("rust", &["service", "renderer", "webview2"], false);
+        assert!(same_adapter(&csharp, &none).is_err());
     }
 
     #[test]
