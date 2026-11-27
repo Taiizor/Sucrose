@@ -4,9 +4,9 @@ current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
 stopped_at: Completed 04-37-PLAN.md
-last_updated: "2026-11-27T12:33:41.024Z"
+last_updated: "2026-11-27T13:49:33.406Z"
 last_activity: 2026-11-27
-last_activity_desc: Phase 04 execution started
+last_activity_desc: Resolved debug session cef-web-themes-stuck-loading
 state_head: 86507011d846a0450609f9cfc46ee31088f66783
 progress:
   total_phases: 8
@@ -30,8 +30,8 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
 Plan: 38 of 38
 Status: Ready to execute
-Last activity: 2026-11-27 — Phase 04 execution started
-Next step: 04-38 (measurement checkpoint, ready gate), or /gsd-debug for the 04-37 defects D1-D8 first: the maintainer's choice.
+Last activity: 2026-11-27 — Resolved debug session cef-web-themes-stuck-loading (a0e22d9a)
+Next step: 04-38 (measurement checkpoint, ready gate; measure with a build that has the cef-web-themes-stuck-loading fix, a0e22d9a or later, since CEF now renders on the GPU), or /gsd-debug for the open 04-37 defects (D2, D3, D5, D6 WebView2 half, D7, D8) first: the maintainer's choice.
 
 Progress: [████░░░░░░] 38%
 
@@ -378,11 +378,10 @@ None yet.
 - [Phase 6]: No Apple Developer ID yet (D-025); macOS packages stay unsigned, manual tests need a real Mac
 - [Phase 7]: Linux package formats are decided in Phase 7
 - [All phases]: Measure RAM/CPU of user-visible changes in release builds; record notable numbers in `docs/MEASUREMENTS.md`
-- CEF GPU process crashes 3 times at the start of a Web wallpaper on the maintainer machine (software fallback renders); look at it at the 04-20 checkpoint
 - [Phase 4]: RESOLVED 2026-11-26 (/gsd-debug, `.planning/debug/resolved/cef-close-shutdown-dialog.md`): the Windows "Shut Down Windows" dialog after every CEF theme switch (04-20 run). Cause: our CEF life span handler kept the default DoClose, so CEF posted WM_CLOSE to the browser's top-level ancestor, which under the desktop surface is Progman; the close then timed out after 5 s and the renderer crashed in cef::shutdown (0xffff7003). Fix: DoClose answers 1 for the wallpaper browser and the renderer destroys the browser window itself. Maintainer run 2026-11-26: no dialog, 14 of 14 CEF closes in 4-28 ms, every CEF renderer exit code 0. The 04-20 slice-1 check still needs its gap-closure re-run.
-- [Phase 4]: 04-20 maintainer run: web themes (e.g. Test Sucrose API) fail inside the page with a CORS-like error although every page loads with status 200; not triaged yet (04-37 D1: on CEF some Web themes stay on loading, WebView2 opens them).
-- [Phase 4]: 04-37 maintainer run (2026-11-27) found D1-D9, for /gsd-debug (details in 04-37-SUMMARY.md): D1 CEF Web themes stuck on loading; D2 white border at the screen edges on some Web themes (both engines); D3 WebView2 certs frame still fails after Allow invalid certificates + Restart now; D4 CEF seek fixture video never visible; D5 WebView2 video-clip page black; D6 url-input black on CEF and no mouse reaction on WebView2; D7 YouTube player UI (title, play/pause, bottom UI) visible on both engines; D8 audio bars silent in Music Tunnel and audio on both engines, now playing unconfirmed; D9 (D-33 design) the first renderer to start takes the persistent web profile, so the primary monitor can run ephemeral (proposal for the maintainer: prefer the primary monitor, not decided). TYPE-03, TYPE-04, TYPE-05, ENG-02, ENG-03, WAPI-05, WAPI-06 and WAPI-08 stay open for /gsd-verify-work.
-- 04-35: CEF refuses the YouTube player-frame access (hideIframeElement SecurityError) despite --disable-web-security; UI hiding and in-frame properties do not apply on CEF; decide a fix touching D-021 and check in 04-37 (also WebView2)
+- [Phase 4]: RESOLVED 2026-11-27 (/gsd-debug, `.planning/debug/resolved/cef-web-themes-stuck-loading.md`): the CEF GPU process crashing 3 times at every start (concern since the 04-20 checkpoint), the 04-20 CORS-like error of Test Sucrose API, 04-37 D1 (CEF Web themes stuck on loading), D4 (CEF seek fixture video), the CEF half of D6 (url-input black on CEF) and Music Tunnel misbehaving on CEF. Causes: sucrose.exe had no Windows 10 compatibility manifest (CEF's GPU process is the same executable and crashed, so no page got WebGL); Chrome dropped --disable-web-security because --user-data-dir was not on the CEF command line; the CEF scheme handler did not implement Skip, so every Range starting past byte 0 failed. Fix a0e22d9a: build.rs has the MSVC linker embed the manifest (/MANIFEST:EMBED, no build dependency), the CEF browser process gets --user-data-dir set to its profile folder, the scheme handler implements Skip. Maintainer run 2026-11-27: themes open, the seek video reaches the middle of the clip, url-input and Music Tunnel render on CEF, "GPU process exited" 0 times. Still open: D2 (white border), D8 (audio bars), the WebView2 mouse half of D6. 04-38 measurements must use a build with this fix (a0e22d9a or later): CEF now renders on the GPU, and the 04-21 M3 CEF row was taken in software rendering after the GPU crashes.
+- [Phase 4]: 04-37 maintainer run (2026-11-27) found D1-D9, for /gsd-debug (details in 04-37-SUMMARY.md): D1 CEF Web themes stuck on loading; D2 white border at the screen edges on some Web themes (both engines); D3 WebView2 certs frame still fails after Allow invalid certificates + Restart now; D4 CEF seek fixture video never visible; D5 WebView2 video-clip page black; D6 url-input black on CEF and no mouse reaction on WebView2; D7 YouTube player UI (title, play/pause, bottom UI) visible on both engines; D8 audio bars silent in Music Tunnel and audio on both engines, now playing unconfirmed; D9 (D-33 design) the first renderer to start takes the persistent web profile, so the primary monitor can run ephemeral (proposal for the maintainer: prefer the primary monitor, not decided). TYPE-03, TYPE-04, TYPE-05, ENG-02, ENG-03, WAPI-05, WAPI-06 and WAPI-08 stay open for /gsd-verify-work. Status 2026-11-27: D1, D4 and the CEF half of D6 resolved by cef-web-themes-stuck-loading (see above); D2, D3, D5, the WebView2 half of D6, D7 and D8 stay open.
+- 04-35: the CEF part is fixed (cef-web-themes-stuck-loading, 2026-11-27: Chrome dropped --disable-web-security without --user-data-dir; the player frame is reached on CEF now); the player UI still showing on WebView2 stays with 04-37 D7
 
 ### Quick Tasks Completed
 
