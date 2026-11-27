@@ -249,33 +249,53 @@ async function toggleAudioTrack(e, t) {
 }
 
 // Hides every YouTube control except the video and the captions. This reaches into the player frame, which works only
-// because web security is off for the wallpaper browser (legacy; docs/FEATURES.md).
+// because web security is off for the wallpaper browser (legacy; docs/FEATURES.md). YouTube's newer embed draws its
+// controls (the title, the play/pause and previous/next buttons, More videos, the logo, the time, the progress bar and the
+// end screen) in layers next to the player (#player-controls, #bottom-sheet-wrapper), outside #movie_player, so
+// everything in the frame that is not on the way to the player is hidden too. The pass runs at once and after every
+// change of the frame's tree.
 function hideIframeElement() {
   const e = document.querySelector("iframe"), t = e.contentDocument || e.contentWindow.document;
-  new MutationObserver(e => {
-    e.forEach(e => {
-      if ("childList" === e.type || "subtree" === e.type) {
-        customBody = t.body;
-        customPlayer = t.getElementById("player");
-        const e = t.querySelector("#movie_player");
-        e.querySelectorAll(":scope *:not(.html5-video-container):not(.video-stream.html5-main-video)").forEach(e => {
-          const t = (e.className || "").toString().toLowerCase();
-          t.includes("caption") || t.includes("ytp-caption") || e.getAttribute && ("status" === e.getAttribute("role") || e.getAttribute("aria-live")) || e.style.setProperty("display", "none", "important");
-        });
-        const a = '.ytp-caption-window-container, .ytp-caption-segment, [role="status"], [aria-live]';
-        e.querySelectorAll(a).forEach(e => {
-          e.style.setProperty("display", "block", "important");
-          e.style.setProperty("z-index", "2147483647", "important");
-        });
-        if (!t.getElementById("Sucrose")) {
-          const e = t.createElement("style");
-          e.id = "Sucrose";
-          e.textContent = "@keyframes flip{0%{transform: rotateY(0)}100%{transform: rotateY(360deg)}}@keyframes pulse{0%{transform: scale(1);opacity: 1}50%{transform: scale(1.1);opacity: 0.7}100%{transform: scale(1);opacity: 1}}@keyframes shake{0%{transform: translateX(0)}25%{transform: translateX(-5px)}50%{transform: translateX(5px)}75%{transform: translateX(-5px)}100%{transform: translateX(0)}}@keyframes bounce{0%, 100%{transform: translateY(0)}50%{transform: translateY(-20px)}}@keyframes rotate{0%{transform: rotate(0deg)}100%{transform: rotate(360deg)}}@keyframes wiggle{0%{transform: translateX(0)}25%{transform: translateX(-10px)}50%{transform: translateX(10px)}75%{transform: translateX(-10px)}100%{transform: translateX(0)}}";
-          t.head.appendChild(e);
-        }
-      }
+  const hide = () => {
+    customBody = t.body;
+    customPlayer = t.getElementById("player");
+    const e = t.querySelector("#movie_player");
+    // The frame is still being built: the next change runs this again.
+    if (!e) { return; }
+    e.querySelectorAll(":scope *:not(.html5-video-container):not(.video-stream.html5-main-video)").forEach(e => {
+      const t = (e.className || "").toString().toLowerCase();
+      t.includes("caption") || t.includes("ytp-caption") || e.getAttribute && ("status" === e.getAttribute("role") || e.getAttribute("aria-live")) || e.style.setProperty("display", "none", "important");
     });
-  }).observe(t, { childList: true, subtree: true });
+    const a = '.ytp-caption-window-container, .ytp-caption-segment, [role="status"], [aria-live]';
+    e.querySelectorAll(a).forEach(e => {
+      e.style.setProperty("display", "block", "important");
+      e.style.setProperty("z-index", "2147483647", "important");
+    });
+    SucroseHidePlayerSiblings(e);
+    if (!t.getElementById("Sucrose")) {
+      const e = t.createElement("style");
+      e.id = "Sucrose";
+      e.textContent = "[data-sucrose-hidden]{display:none !important}@keyframes flip{0%{transform: rotateY(0)}100%{transform: rotateY(360deg)}}@keyframes pulse{0%{transform: scale(1);opacity: 1}50%{transform: scale(1.1);opacity: 0.7}100%{transform: scale(1);opacity: 1}}@keyframes shake{0%{transform: translateX(0)}25%{transform: translateX(-5px)}50%{transform: translateX(5px)}75%{transform: translateX(-5px)}100%{transform: translateX(0)}}@keyframes bounce{0%, 100%{transform: translateY(0)}50%{transform: translateY(-20px)}}@keyframes rotate{0%{transform: rotate(0deg)}100%{transform: rotate(360deg)}}@keyframes wiggle{0%{transform: translateX(0)}25%{transform: translateX(-10px)}50%{transform: translateX(10px)}75%{transform: translateX(-10px)}100%{transform: translateX(0)}}";
+      t.head.appendChild(e);
+    }
+  };
+  new MutationObserver(hide).observe(t, { childList: true, subtree: true });
+  hide();
+}
+
+// Hides what the player frame shows next to the player: at every level from #movie_player up to the body, each sibling
+// element except scripts and styles. The player and the elements that hold it stay. YouTube resets the inline style of
+// its controls while it starts, so each hidden element is also marked for the rule of the Sucrose style sheet.
+function SucroseHidePlayerSiblings(moviePlayer) {
+  const body = moviePlayer.ownerDocument.body;
+  for (let node = moviePlayer; node !== body && node.parentElement; node = node.parentElement) {
+    for (const sibling of node.parentElement.children) {
+      if (sibling !== node && !/^(SCRIPT|STYLE|LINK|NOSCRIPT)$/.test(sibling.tagName)) {
+        sibling.style.setProperty("display", "none", "important");
+        sibling.setAttribute("data-sucrose-hidden", "");
+      }
+    }
+  }
 }
 
 function toggleFullScreen() {

@@ -477,6 +477,58 @@ fn the_youtube_page_has_the_legacy_functions_the_legacy_player_vars_and_only_two
     );
 }
 
+/// YouTube's embed draws its controls (the title, play/pause, More videos, the logo, the time and the progress bar) in
+/// layers next to the player (`#player-controls`, `#bottom-sheet-wrapper`), outside `#movie_player`, so the legacy pass
+/// that hid only the inside of `#movie_player` left them on the wallpaper (04-37 D7, debug session
+/// youtube-player-ui-visible). The pass also hides every sibling on the way from the player up to the body, runs at once
+/// and after every change of the frame's tree, and waits while the frame has no player yet.
+#[test]
+fn the_youtube_page_hides_the_controls_next_to_the_player_not_only_inside_it() {
+    let html = GeneratedPage::YouTube.html();
+    let function = |name: &str| {
+        let start = html
+            .find(&format!("function {name}("))
+            .unwrap_or_else(|| panic!("{name} exists"));
+        let end = html[start..].find("\n}\n").map_or(html.len(), |length| start + length);
+        &html[start..end]
+    };
+
+    let hide = function("hideIframeElement");
+    assert!(
+        hide.contains("SucroseHidePlayerSiblings(e);"),
+        "the pass hides what sits next to the player"
+    );
+    assert!(
+        hide.contains("if (!e) { return; }"),
+        "no TypeError while the frame has no player yet"
+    );
+    assert!(hide.contains("new MutationObserver(hide).observe(t, { childList: true, subtree: true });"));
+    assert!(
+        hide.trim_end().ends_with("hide();"),
+        "the pass also runs at once, not only after the next change"
+    );
+    // The legacy rules for the inside of the player stay: everything but the video is hidden, the captions are kept.
+    assert!(hide.contains(r#":scope *:not(.html5-video-container):not(.video-stream.html5-main-video)"#));
+    assert!(hide.contains(r#"'.ytp-caption-window-container, .ytp-caption-segment, [role="status"], [aria-live]'"#));
+
+    let siblings = function("SucroseHidePlayerSiblings");
+    assert!(
+        siblings.contains("node = node.parentElement") && siblings.contains("node !== body"),
+        "every level from the player up to the body"
+    );
+    assert!(siblings.contains("for (const sibling of node.parentElement.children)"));
+    assert!(
+        siblings.contains("sibling !== node"),
+        "the player and what holds it stay"
+    );
+    assert!(siblings.contains(r#"sibling.style.setProperty("display", "none", "important")"#));
+    assert!(siblings.contains("SCRIPT|STYLE"), "scripts and styles are left alone");
+    // YouTube resets the inline style of its controls while it starts (two frames of the title on CEF): the hidden
+    // elements are also marked, and the Sucrose style sheet hides the mark.
+    assert!(siblings.contains(r#"sibling.setAttribute("data-sucrose-hidden", "")"#));
+    assert!(hide.contains(r#"e.textContent = "[data-sucrose-hidden]{display:none !important}@keyframes flip{"#));
+}
+
 #[test]
 fn the_youtube_engine_scripts_are_the_legacy_calls() {
     assert_eq!(loop_script(GeneratedPage::YouTube, true), "setLoop(true);");
