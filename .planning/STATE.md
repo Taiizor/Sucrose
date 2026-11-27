@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-28-PLAN.md
-last_updated: "2026-11-27T00:50:49.839Z"
+stopped_at: Completed 04-29-PLAN.md
+last_updated: "2026-11-27T01:24:44.849Z"
 last_activity: 2026-11-27
 last_activity_desc: Phase 04 execution started
-state_head: 9a277d2f57f8ea636e69aec99087c7a48143f0a1
+state_head: 780c176e54576880aad36c5c0a1c0b4e2dc73df1
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 117
-  completed_plans: 107
+  completed_plans: 108
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 29 of 38
+Plan: 30 of 38
 Status: Ready to execute
 Last activity: 2026-11-27 — Phase 04 execution started
 Next step: /gsd-debug for the in-page Web theme failures and the CEF GPU process crash (04-37 names their fixes as its precondition), then `/gsd-execute-phase 4` runs Round B.
@@ -162,6 +162,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P26 | 15 min | 2 tasks | 8 files |
 | Phase 04 P27 | 9 min | 2 tasks | 5 files |
 | Phase 04 P28 | 22 min | 2 tasks | 12 files |
+| Phase 04 P29 | 26 min | 2 tasks | 13 files |
 
 ## Accumulated Context
 
@@ -331,6 +332,8 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-27: installable() is architecture-aware: runtime and VC++ hints are installable only where the prerequisite has a download address on this processor
 - [Phase 04]: 04-28: default render device change noticed by polling the device id once a second, not IMMNotificationClient (needs a direct windows-core dependency, T-04-SC)
 - [Phase 04]: 04-28: the audio capture feeds silence by elapsed time so bars fall to 0 on a device that plays nothing; a running silent capture publishes 128 zeros
+- [Phase 04]: 04-29: GSMTC change handlers only signal the media worker; the worker reads and updates the record (WinRT reads block, so they stay off thread-pool callbacks)
+- [Phase 04]: 04-29: a chunk set that did not fit a renderer's queue is offered again as a new blob id; art over the 2 MiB BLOB_MAX is replaced by an empty ThumbnailString (04-37 to decide whether to raise the cap)
 
 ### Pending Todos
 
@@ -369,6 +372,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-27T00:50:09.488Z
-Stopped at: Completed 04-28-PLAN.md
+Last session: 2026-11-27T01:24:04.793Z
+Stopped at: Completed 04-29-PLAN.md
 Resume file: None
