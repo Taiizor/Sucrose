@@ -38,10 +38,16 @@ use crate::{
 /// The engine rows of the page, in the order they are drawn.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum EngineRow {
+    /// Gif Player, in the Extensions group.
+    Gif,
     /// Video Player, in the Extensions group.
     Video,
+    /// Url Engine, in the Engines group.
+    Url,
     /// Web Engine, in the Engines group.
     Web,
+    /// YouTube Engine, in the Engines group.
+    YouTube,
 }
 
 impl EngineRow {
@@ -51,40 +57,55 @@ impl EngineRow {
     /// The wallpaper type whose engine the row sets.
     pub fn kind(self) -> WallpaperType {
         match self {
+            Self::Gif => WallpaperType::Gif,
             Self::Video => WallpaperType::Video,
+            Self::Url => WallpaperType::Url,
             Self::Web => WallpaperType::Web,
+            Self::YouTube => WallpaperType::YouTube,
         }
     }
 
     /// The engines the legacy app lets this type use, in the legacy order.
     pub fn allowed(self) -> &'static [EngineType] {
         match self {
+            Self::Gif => EngineType::GIF,
             Self::Video => EngineType::VIDEO,
+            Self::Url => EngineType::URL,
             Self::Web => EngineType::WEB,
+            Self::YouTube => EngineType::YOUTUBE,
         }
     }
 
     /// The engine the service reported for this type.
     pub fn value(self, settings: &PortalSettings) -> EngineType {
         match self {
+            Self::Gif => settings.gif_engine,
             Self::Video => settings.video_engine,
+            Self::Url => settings.url_engine,
             Self::Web => settings.web_engine,
+            Self::YouTube => settings.youtube_engine,
         }
     }
 
     /// The change that sets this row to `engine`.
     pub fn change(self, engine: EngineType) -> SettingChange {
         match self {
+            Self::Gif => SettingChange::GifEngine(engine),
             Self::Video => SettingChange::VideoEngine(engine),
+            Self::Url => SettingChange::UrlEngine(engine),
             Self::Web => SettingChange::WebEngine(engine),
+            Self::YouTube => SettingChange::YouTubeEngine(engine),
         }
     }
 
     /// The row a change belongs to, if it belongs to one.
     pub fn of(change: &SettingChange) -> Option<Self> {
         match change {
+            SettingChange::GifEngine(_) => Some(Self::Gif),
             SettingChange::VideoEngine(_) => Some(Self::Video),
+            SettingChange::UrlEngine(_) => Some(Self::Url),
             SettingChange::WebEngine(_) => Some(Self::Web),
+            SettingChange::YouTubeEngine(_) => Some(Self::YouTube),
             _ => None,
         }
     }
@@ -93,19 +114,34 @@ impl EngineRow {
         match self {
             Self::Video => 0,
             Self::Web => 1,
+            Self::Gif => 2,
+            Self::Url => 3,
+            Self::YouTube => 4,
         }
     }
 
     /// The legacy keys of the row's title and description.
     fn keys(self) -> (&'static str, &'static str) {
         match self {
+            Self::Gif => (
+                "Portal.WallpaperSettingPage.GifPlayer",
+                "Portal.WallpaperSettingPage.GifPlayer.Description",
+            ),
             Self::Video => (
                 "Portal.WallpaperSettingPage.VideoPlayer",
                 "Portal.WallpaperSettingPage.VideoPlayer.Description",
             ),
+            Self::Url => (
+                "Portal.WallpaperSettingPage.UrlPlayer",
+                "Portal.WallpaperSettingPage.UrlPlayer.Description",
+            ),
             Self::Web => (
                 "Portal.WallpaperSettingPage.WebPlayer",
                 "Portal.WallpaperSettingPage.WebPlayer.Description",
+            ),
+            Self::YouTube => (
+                "Portal.WallpaperSettingPage.YouTubePlayer",
+                "Portal.WallpaperSettingPage.YouTubePlayer.Description",
             ),
         }
     }
@@ -833,8 +869,11 @@ fn warning_alert(
 ) -> AnyElement {
     let colors = theme::warning_colors(cx);
     let id = match row {
+        EngineRow::Gif => "engine-alert-gif",
         EngineRow::Video => "engine-alert-video",
+        EngineRow::Url => "engine-alert-url",
         EngineRow::Web => "engine-alert-web",
+        EngineRow::YouTube => "engine-alert-youtube",
     };
     h_flex()
         .id(id)
@@ -866,8 +905,11 @@ fn warning_alert(
             alert.child(
                 div().flex_none().child(
                     Button::new(match row {
+                        EngineRow::Gif => "engine-install-gif",
                         EngineRow::Video => "engine-install-video",
+                        EngineRow::Url => "engine-install-url",
                         EngineRow::Web => "engine-install-web",
+                        EngineRow::YouTube => "engine-install-youtube",
                     })
                     .small()
                     .outline()
@@ -971,7 +1013,7 @@ mod tests {
 
     use super::{
         EngineRow, Flag, RestartSetting, StatusLine, alert_text, engine_choices, hint_text, input_module_choices,
-        input_type_choices, needs_refresh, restart_trigger, row_alert, should_prompt, status_line,
+        input_type_choices, needs_refresh, restart_trigger, row_alert, row_install_action, should_prompt, status_line,
     };
     use sucrose_ipc::portal::{FallbackView, HintView};
 
@@ -1165,6 +1207,240 @@ mod tests {
         assert!(!needs_refresh(&SettingChange::WallpaperLoop(false)));
         assert!(!needs_refresh(&SettingChange::InputDesktop(true)));
         assert!(!needs_refresh(&SettingChange::LibraryPagination(5)));
+    }
+
+    /// A report of Round B: the built-in GIF renderer, mpv, WebView2 and CEF are in this build and installed; libVLC is not.
+    fn round_b() -> EngineReportView {
+        let both_web = vec![EngineType::WebViewLive, EngineType::CefSharpLive];
+        EngineReportView {
+            engines: vec![
+                state(EngineType::XavierLive, ready()),
+                state(EngineType::MpvPlayerLive, ready()),
+                state(EngineType::WebViewLive, ready()),
+                state(EngineType::CefSharpLive, ready()),
+                state(
+                    EngineType::VlcPlayerLive,
+                    EngineState::Unsupported { architecture: false },
+                ),
+            ],
+            supported: vec![
+                WallpaperType::Gif,
+                WallpaperType::Video,
+                WallpaperType::Url,
+                WallpaperType::Web,
+                WallpaperType::YouTube,
+            ],
+            playable: vec![
+                WallpaperType::Gif,
+                WallpaperType::Video,
+                WallpaperType::Url,
+                WallpaperType::Web,
+                WallpaperType::YouTube,
+            ],
+            offered: vec![
+                OfferedView {
+                    kind: WallpaperType::Gif,
+                    engines: vec![
+                        EngineType::XavierLive,
+                        EngineType::MpvPlayerLive,
+                        EngineType::WebViewLive,
+                        EngineType::CefSharpLive,
+                    ],
+                },
+                OfferedView {
+                    kind: WallpaperType::Video,
+                    engines: vec![
+                        EngineType::MpvPlayerLive,
+                        EngineType::WebViewLive,
+                        EngineType::CefSharpLive,
+                    ],
+                },
+                OfferedView {
+                    kind: WallpaperType::Url,
+                    engines: both_web.clone(),
+                },
+                OfferedView {
+                    kind: WallpaperType::Web,
+                    engines: both_web.clone(),
+                },
+                OfferedView {
+                    kind: WallpaperType::YouTube,
+                    engines: both_web,
+                },
+            ],
+            fallbacks: Vec::new(),
+        }
+    }
+
+    #[test]
+    fn wallpaper_the_rows_follow_the_legacy_page_order_and_each_one_owns_its_type() {
+        assert_eq!(
+            EngineRow::ALL.as_slice(),
+            [
+                EngineRow::Gif,
+                EngineRow::Video,
+                EngineRow::Url,
+                EngineRow::Web,
+                EngineRow::YouTube
+            ]
+            .as_slice()
+        );
+        let kinds: Vec<WallpaperType> = EngineRow::ALL.into_iter().map(EngineRow::kind).collect();
+        assert_eq!(
+            kinds,
+            vec![
+                WallpaperType::Gif,
+                WallpaperType::Video,
+                WallpaperType::Url,
+                WallpaperType::Web,
+                WallpaperType::YouTube
+            ]
+        );
+        let mut indexes: Vec<usize> = EngineRow::ALL.into_iter().map(EngineRow::index).collect();
+        indexes.sort_unstable();
+        assert_eq!(
+            indexes,
+            vec![0, 1, 2, 3, 4],
+            "each row has its own select, in the order of ALL"
+        );
+        for (position, row) in EngineRow::ALL.into_iter().enumerate() {
+            assert_eq!(row.index(), position);
+        }
+    }
+
+    #[test]
+    fn wallpaper_the_new_rows_read_and_send_their_own_engine() {
+        let mut settings = settings();
+        settings.gif_engine = EngineType::XavierLive;
+        settings.url_engine = EngineType::WebViewLive;
+        settings.youtube_engine = EngineType::CefSharpLive;
+        assert_eq!(EngineRow::Gif.value(&settings), EngineType::XavierLive);
+        assert_eq!(EngineRow::Url.value(&settings), EngineType::WebViewLive);
+        assert_eq!(EngineRow::YouTube.value(&settings), EngineType::CefSharpLive);
+        assert_eq!(
+            EngineRow::Gif.change(EngineType::XavierLive),
+            SettingChange::GifEngine(EngineType::XavierLive)
+        );
+        assert_eq!(
+            EngineRow::Url.change(EngineType::WebViewLive),
+            SettingChange::UrlEngine(EngineType::WebViewLive)
+        );
+        assert_eq!(
+            EngineRow::YouTube.change(EngineType::CefSharpLive),
+            SettingChange::YouTubeEngine(EngineType::CefSharpLive)
+        );
+        assert_eq!(EngineRow::Gif.allowed(), EngineType::GIF);
+        assert_eq!(EngineRow::Url.allowed(), EngineType::URL);
+        assert_eq!(EngineRow::YouTube.allowed(), EngineType::YOUTUBE);
+        assert_eq!(
+            EngineRow::Gif.keys().0,
+            "Portal.WallpaperSettingPage.GifPlayer",
+            "the legacy title keys"
+        );
+        assert_eq!(EngineRow::Url.keys().0, "Portal.WallpaperSettingPage.UrlPlayer");
+        assert_eq!(EngineRow::YouTube.keys().0, "Portal.WallpaperSettingPage.YouTubePlayer");
+    }
+
+    #[test]
+    fn wallpaper_the_gif_player_lists_built_in_webview2_cef_and_mpv_without_a_suffix() {
+        let choices = engine_choices(EngineRow::Gif, Some(&round_b()), EngineType::MpvPlayerLive);
+
+        assert_eq!(
+            shown(&choices),
+            [
+                (EngineType::XavierLive, "Built-in".to_owned(), false),
+                (EngineType::WebViewLive, "WebView2".to_owned(), false),
+                (EngineType::CefSharpLive, "CEF".to_owned(), false),
+                (EngineType::MpvPlayerLive, "mpv".to_owned(), false),
+            ],
+            "the legacy order of the type, libVLC is not in this build"
+        );
+    }
+
+    #[test]
+    fn wallpaper_the_gif_player_adds_a_stored_libvlc_with_the_not_installed_suffix() {
+        let choices = engine_choices(EngineRow::Gif, Some(&round_b()), EngineType::VlcPlayerLive);
+
+        assert_eq!(
+            shown(&choices).last(),
+            Some(&(EngineType::VlcPlayerLive, "libVLC".to_owned(), true))
+        );
+        assert_eq!(choices.len(), 5);
+        assert_eq!(choices[4].suffix.as_deref(), Some("Not installed"));
+    }
+
+    #[test]
+    fn wallpaper_the_gif_player_shows_the_two_legacy_built_in_names_as_one_choice() {
+        // Vexana and Xavier are the same renderer (D-10); the Portal writes Xavier, a stored Vexana shows as it.
+        let mut settings = settings();
+        settings.gif_engine = EngineType::VexanaLive;
+        assert_eq!(EngineRow::Gif.value(&settings), EngineType::XavierLive);
+
+        let choices = engine_choices(EngineRow::Gif, Some(&round_b()), EngineRow::Gif.value(&settings));
+        assert_eq!(
+            shown(&choices)[0],
+            (EngineType::XavierLive, "Built-in".to_owned(), false)
+        );
+        assert_eq!(
+            choices
+                .iter()
+                .filter(|choice| choice.title.as_ref() == "Built-in")
+                .count(),
+            1
+        );
+        assert_eq!(row_alert(EngineRow::Gif, &settings, Some(&round_b())), None);
+    }
+
+    #[test]
+    fn wallpaper_the_video_url_and_youtube_rows_list_what_the_report_offers() {
+        let report = round_b();
+        assert_eq!(
+            shown(&engine_choices(
+                EngineRow::Video,
+                Some(&report),
+                EngineType::MpvPlayerLive
+            )),
+            [
+                (EngineType::WebViewLive, "WebView2".to_owned(), false),
+                (EngineType::CefSharpLive, "CEF".to_owned(), false),
+                (EngineType::MpvPlayerLive, "mpv".to_owned(), false),
+            ]
+        );
+        for row in [EngineRow::Url, EngineRow::Web, EngineRow::YouTube] {
+            assert_eq!(
+                shown(&engine_choices(row, Some(&report), EngineType::CefSharpLive)),
+                [
+                    (EngineType::WebViewLive, "WebView2".to_owned(), false),
+                    (EngineType::CefSharpLive, "CEF".to_owned(), false),
+                ],
+                "{row:?}"
+            );
+        }
+    }
+
+    #[test]
+    fn wallpaper_alert_a_gif_set_to_libvlc_names_the_built_in_fallback_the_service_runs() {
+        let mut settings = settings();
+        settings.gif_engine = EngineType::VlcPlayerLive;
+        let mut report = round_b();
+        report.fallbacks = vec![FallbackView {
+            kind: WallpaperType::Gif,
+            configured: EngineType::VlcPlayerLive,
+            playing: EngineType::XavierLive,
+            notify: true,
+        }];
+
+        let alert = row_alert(EngineRow::Gif, &settings, Some(&report));
+
+        assert_eq!(
+            alert.as_deref(),
+            Some("libVLC isn't available, so GIF wallpapers play with Built-in for now.")
+        );
+        assert_eq!(
+            row_install_action(EngineRow::Gif, &settings, Some(&report)),
+            None,
+            "a build without libVLC has nothing to install"
+        );
     }
 
     #[test]
