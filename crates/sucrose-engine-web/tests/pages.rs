@@ -140,7 +140,10 @@ fn ensure_written_creates_the_pages_in_an_empty_folder_and_leaves_identical_ones
         .and_then(|meta| meta.modified())
         .expect("modified time");
 
-    assert_eq!(first, [GeneratedPage::Video, GeneratedPage::Gif, GeneratedPage::YouTube]);
+    assert_eq!(
+        first,
+        [GeneratedPage::Video, GeneratedPage::Gif, GeneratedPage::YouTube]
+    );
     assert_eq!(written, GeneratedPage::Video.html());
     assert_eq!(
         std::fs::read_to_string(content.join("YouTubeContent.html")).expect("youtube page exists"),
@@ -176,7 +179,7 @@ fn a_different_page_is_replaced_through_a_temporary_file_and_no_temporary_file_s
     names.sort();
     assert_eq!(
         names,
-        ["GifContent.html", "VideoContent.html"],
+        ["GifContent.html", "VideoContent.html", "YouTubeContent.html"],
         "no temporary file is left"
     );
 }
@@ -463,9 +466,15 @@ fn the_youtube_page_has_the_legacy_functions_the_legacy_player_vars_and_only_two
     addresses.dedup();
     assert_eq!(
         addresses,
-        ["https://sucrose.wallpaper.engine/", "https://www.youtube.com/iframe_api"]
+        [
+            "https://sucrose.wallpaper.engine/",
+            "https://www.youtube.com/iframe_api"
+        ]
     );
-    assert!(!html.to_lowercase().contains("apikey") && !html.contains("key="), "no API key");
+    assert!(
+        !html.to_lowercase().contains("apikey") && !html.contains("key="),
+        "no API key"
+    );
 }
 
 #[test]
@@ -480,7 +489,11 @@ fn the_youtube_engine_scripts_are_the_legacy_calls() {
         shuffle_script(GeneratedPage::YouTube, false).as_deref(),
         Some("setShuffle(false);")
     );
-    assert_eq!(shuffle_script(GeneratedPage::Video, true), None, "only YouTube has a shuffle");
+    assert_eq!(
+        shuffle_script(GeneratedPage::Video, true),
+        None,
+        "only YouTube has a shuffle"
+    );
     assert_eq!(shuffle_script(GeneratedPage::Gif, true), None);
     assert_eq!(volume_script(35), "SucroseVolume(35);");
 }
@@ -506,8 +519,14 @@ fn a_youtube_page_gets_the_set_then_volume_loop_shuffle_and_stretch_and_takes_no
         ["volume", "loop", "shuffle", "stretch"],
         "the engine values run once after the set"
     );
-    let scripts: Vec<&str> = calls[property_count..].iter().map(|call| call.script.as_str()).collect();
-    assert_eq!(scripts[..3], ["SucroseVolume(40);", "setLoop(true);", "setShuffle(false);"]);
+    let scripts: Vec<&str> = calls[property_count..]
+        .iter()
+        .map(|call| call.script.as_str())
+        .collect();
+    assert_eq!(
+        scripts[..3],
+        ["SucroseVolume(40);", "setLoop(true);", "setShuffle(false);"]
+    );
     assert!(calls[property_count..].iter().all(|call| call.kind == KIND_ENGINE));
 }
 

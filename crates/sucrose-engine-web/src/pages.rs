@@ -1,9 +1,11 @@
-//! The generated pages of the web engines (WAPI-08, D-14): the legacy `VideoContent.html` and `GifContent.html` that
-//! play a Video or a Gif theme inside a web engine. The pages are embedded in the binary, written into
-//! `<cache_dir>/Content` when they are missing or differ (the folder the virtual origin serves after the theme folder),
-//! and loaded as `https://sucrose.wallpaper.engine/<Name>Content.html?src=<media path relative to the theme folder>`. The
-//! page reads the path from `location.search` and requests the media from the same origin, so a video seeks through
-//! `Range` like any other theme file. No OS code and no unsafe: both web engines call these functions.
+//! The generated pages of the web engines (WAPI-08, D-14): the legacy `VideoContent.html`, `GifContent.html` and
+//! `YouTubeContent.html` that play a Video, a Gif or a YouTube theme inside a web engine. The pages are embedded in the
+//! binary, written into `<cache_dir>/Content` when they are missing or differ (the folder the virtual origin serves
+//! after the theme folder), and loaded as `https://sucrose.wallpaper.engine/<Name>Content.html?src=<media path relative
+//! to the theme folder>`. The page reads the path from `location.search` and requests the media from the same origin,
+//! so a video seeks through `Range` like any other theme file. The YouTube page takes the ids of the video and the
+//! playlist instead (`?v=<id>&list=<id>`) and loads only the public IFrame API. No OS code and no unsafe: both web
+//! engines call these functions.
 
 use std::{
     fs, io,
@@ -15,7 +17,7 @@ use percent_encoding::{AsciiSet, NON_ALPHANUMERIC, utf8_percent_encode};
 use sucrose_core::{
     properties::{SucroseProperties, parse_properties},
     settings::Stretch,
-    theme::WallpaperType,
+    theme::{WallpaperType, youtube_ids},
 };
 
 use crate::{args::WebEngine, origin::ORIGIN};
@@ -30,11 +32,13 @@ pub enum GeneratedPage {
     Video,
     /// `GifContent.html`: the legacy canvas player with its embedded GIF decoder.
     Gif,
+    /// `YouTubeContent.html`: the legacy IFrame API page; it gets the video and playlist ids in its query.
+    YouTube,
 }
 
 impl GeneratedPage {
     /// Every generated page, in the order they are written.
-    pub const ALL: &'static [Self] = &[Self::Video, Self::Gif];
+    pub const ALL: &'static [Self] = &[Self::Video, Self::Gif, Self::YouTube];
 
     /// The page that plays a wallpaper of `kind`; `None` for a type that is not a generated page.
     #[must_use]
@@ -42,6 +46,7 @@ impl GeneratedPage {
         match kind {
             WallpaperType::Video => Some(Self::Video),
             WallpaperType::Gif => Some(Self::Gif),
+            WallpaperType::YouTube => Some(Self::YouTube),
             _ => None,
         }
     }
@@ -52,6 +57,7 @@ impl GeneratedPage {
         match self {
             Self::Video => "VideoContent.html",
             Self::Gif => "GifContent.html",
+            Self::YouTube => "YouTubeContent.html",
         }
     }
 
@@ -61,6 +67,7 @@ impl GeneratedPage {
         match self {
             Self::Video => include_str!("pages/VideoContent.html"),
             Self::Gif => include_str!("pages/GifContent.html"),
+            Self::YouTube => include_str!("pages/YouTubeContent.html"),
         }
     }
 }
@@ -74,6 +81,9 @@ pub enum PageError {
     /// The source is not inside the theme folder.
     #[error("the media source is not inside the theme folder")]
     OutsideTheme,
+    /// The YouTube address has no usable video or playlist id.
+    #[error("the YouTube address has no usable video or playlist id")]
+    NoYouTubeId,
     /// There is no cache folder to write the pages into.
     #[error("there is no cache folder for the generated pages")]
     NoCacheFolder,
@@ -133,13 +143,36 @@ fn relative_source(theme_dir: &Path, source: &str) -> Result<String, PageError> 
     Ok(segments.join("/"))
 }
 
+/// The address of the YouTube page for the YouTube `address` of a theme: the origin, the page and the `v` and `list` ids
+/// the address carries (`?v=<id>&list=<id>`, either one alone too). The ids are limited to `[A-Za-z0-9_-]` and 64
+/// characters by [`youtube_ids`], so they need no escaping (T-04-74).
+fn youtube_url(address: &str) -> Result<String, PageError> {
+    let ids = youtube_ids(address).ok_or(PageError::NoYouTubeId)?;
+    let mut parameters = Vec::new();
+    if let Some(video) = ids.video {
+        parameters.push(format!("v={video}"));
+    }
+    if let Some(list) = ids.list {
+        parameters.push(format!("list={list}"));
+    }
+    Ok(format!(
+        "{ORIGIN}{}?{}",
+        GeneratedPage::YouTube.file_name(),
+        parameters.join("&")
+    ))
+}
+
 /// The address a web engine loads for `page` to play `source`: the origin, the page and the media path relative to the
-/// theme folder, percent-encoded as one query value.
+/// theme folder, percent-encoded as one query value; for the YouTube page the `source` is the theme's YouTube address
+/// and the query carries its ids.
 ///
 /// # Errors
-/// [`PageError::OutsideTheme`] for a source outside `theme_dir` (or with a `..` segment) and [`PageError::Empty`] for
-/// a source with no file in it.
+/// [`PageError::OutsideTheme`] for a source outside `theme_dir` (or with a `..` segment), [`PageError::Empty`] for
+/// a source with no file in it and [`PageError::NoYouTubeId`] for a YouTube address without a usable id.
 pub fn generated_url(page: GeneratedPage, theme_dir: &Path, source: &str) -> Result<String, PageError> {
+    if page == GeneratedPage::YouTube {
+        return youtube_url(source);
+    }
     let relative = relative_source(theme_dir, source)?;
     let mut url = format!("{ORIGIN}{}?src=", page.file_name());
     url.extend(utf8_percent_encode(&relative, QUERY));
@@ -274,14 +307,25 @@ pub fn volume_script(level: u8) -> String {
     format!("SucroseVolume({});", level.min(100))
 }
 
-/// The script that sets whether the media loops. Both pages answer `SucroseLoopMode(<bool>)`, as the legacy GIF page does.
+/// The script that sets whether the media loops. The Gif and Video pages answer `SucroseLoopMode(<bool>)`, as the legacy GIF
+/// page does; the YouTube page answers the legacy `setLoop(<bool>)`, which it forces to false for a single video.
 #[must_use]
-pub fn loop_script(_page: GeneratedPage, on: bool) -> String {
-    format!("SucroseLoopMode({on});")
+pub fn loop_script(page: GeneratedPage, on: bool) -> String {
+    match page {
+        GeneratedPage::YouTube => format!("setLoop({on});"),
+        GeneratedPage::Gif | GeneratedPage::Video => format!("SucroseLoopMode({on});"),
+    }
 }
 
-/// The script that fits the media to the surface by the legacy stretch name. Both pages answer
-/// `SucroseStretchMode('<Name>')`, as the legacy GIF page does.
+/// The script that sets whether a playlist plays in random order: only the YouTube page has a shuffle (the legacy
+/// `setShuffle(<bool>)`), so every other page gets none.
+#[must_use]
+pub fn shuffle_script(page: GeneratedPage, on: bool) -> Option<String> {
+    matches!(page, GeneratedPage::YouTube).then(|| format!("setShuffle({on});"))
+}
+
+/// The script that fits the media to the surface by the legacy stretch name. Every page answers
+/// `SucroseStretchMode('<Name>')`, as the legacy GIF page does (the YouTube page ignores it: its player fills the surface).
 #[must_use]
 pub fn stretch_script(_page: GeneratedPage, stretch: Stretch) -> String {
     format!("SucroseStretchMode('{}');", stretch.legacy_name())

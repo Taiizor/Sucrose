@@ -89,7 +89,7 @@ pub struct WebView2Engine {
     wake: Arc<dyn Fn() + Send + Sync>,
     state: Arc<PageState>,
     pending_move: PendingMove,
-    /// Whether the page takes forwarded input: a Web or Url page does, a generated Gif or Video page does not.
+    /// Whether the page takes forwarded input: a Web or Url page does, a generated Gif, Video or YouTube page does not.
     takes_input: bool,
 }
 
@@ -110,7 +110,7 @@ pub struct WebView2Pump {
     /// The top left corner of the surface on the virtual screen: input positions are made relative to it.
     origin: (i32, i32),
     theme_dir: PathBuf,
-    /// The generated page this renderer shows (a Gif or Video theme), `None` for a theme's own page.
+    /// The generated page this renderer shows (a Gif, Video or YouTube theme), `None` for a theme's own page.
     generated: Option<GeneratedPage>,
     /// Whether this renderer shows the address of a Url theme: such a page gets no compatible calls and no data.
     url_page: bool,
@@ -275,8 +275,8 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             }
         }),
     };
-    // The page comes from the virtual origin (D-14): the theme folder first, then the generated content. A Gif or Video
-    // theme plays through a generated page that is written into the content folder.
+    // The page comes from the virtual origin (D-14): the theme folder first, then the generated content. A Gif, Video
+    // or YouTube theme plays through a generated page that is written into the content folder.
     let url = if url_page {
         // A Url theme navigates straight to its address, which the theme gate verified (http or https only).
         assignment.source.clone()
@@ -397,7 +397,8 @@ impl Engine for WebView2Engine {
         Ok(())
     }
 
-    /// The page's `ShuffleMode` call follows with the next compatible push, which the command triggers.
+    /// A theme's page gets its `ShuffleMode` call with the next compatible push, which the command triggers; the YouTube
+    /// page gets `setShuffle` at once.
     fn set_shuffle(&self, shuffle: bool) {
         self.state.set_shuffle(shuffle);
         self.queue(Command::Shuffle(shuffle));
@@ -518,7 +519,15 @@ impl WebView2Pump {
                     }),
                     None => data_pushed = true,
                 },
-                Command::Shuffle(_) => data_pushed |= self.generated.is_none(),
+                // The YouTube page is told the new value; a theme's own page gets the compatible calls again.
+                Command::Shuffle(on) => match self.generated {
+                    Some(page) => {
+                        if let Some(call) = page::shuffle_call(page, on) {
+                            self.run(&call);
+                        }
+                    }
+                    None => data_pushed = true,
+                },
                 Command::Stretch(stretch) => {
                     if let Some(page) = self.generated {
                         self.run(&js::PageCall {

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Sucrose generated page (YouTubeContent.html). The ids come from location.search ("v" and "list") and are only used
+     after they match [A-Za-z0-9_-]{1,64}; they are never written as markup. The page uses the public YouTube IFrame API
+     (no API key, no account). Function names are the legacy ones. -->
+<style>
+body{margin:0;padding:0;overflow:hidden;background:#000}
+iframe{margin:0;position:absolute;left:0;top:0;overflow:hidden}
+#player{width:100%;height:100vh}
+</style>
+</head>
+<body>
+<div id="player"></div>
+<script>
+var tag = document.createElement("script");
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName("script")[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+function SucroseId(name) {
+  var value = new URLSearchParams(location.search).get(name);
+  return value && /^[A-Za-z0-9_-]{1,64}$/.test(value) ? value : "";
+}
+
+var player, customBody, customPlayer, videoId = SucroseId("v"), playlistId = SucroseId("list");
+// What the engine says before the player exists is kept and applied once it is ready (D-06: the engine's volume times
+// the property volume; the Light pause).
+var ready = false, paused = false, engineVolume = 0, propertyVolume = 100, propertyMuted = false;
+
+function onYouTubeIframeAPIReady() {
+  var e = {
+    height: "100%",
+    width: "100%",
+    playerVars: {
+      autoplay: 1,
+      loop: 1,
+      controls: 0,
+      disablekb: 1,
+      modestbranding: 1,
+      fs: 0,
+      rel: 0,
+      iv_load_policy: 3,
+      playsinline: 0,
+      cc_load_policy: 0,
+      version: 3,
+      showinfo: 0,
+      suggestedQuality: "highres",
+      origin: "https://sucrose.wallpaper.engine/",
+      widget_referrer: "strict-origin-when-cross-origin"
+    },
+    events: { onStateChange: onPlayerStateChange, onReady: onPlayerReady, onError: onPlayerError }
+  };
+  if (videoId) { e.videoId = videoId; e.playerVars.playlist = videoId; }
+  player = new YT.Player("player", e);
+}
+
+function onPlayerReady(e) {
+  if (playlistId) {
+    player.loadPlaylist({ list: playlistId, listType: "playlist", index: 0, startSeconds: 0, suggestedQuality: "highres" });
+  }
+  if (videoId && !playlistId) { player.setLoop(false); }
+  e.target.setPlaybackQuality("highres");
+  e.target.setVolume(0);
+  ready = true;
+  try { hideIframeElement(); } catch (error) { console.warn("The player frame could not be reached: " + error); }
+  toggleFullScreen();
+  SucroseApplyVolume();
+  if (paused) { player.pauseVideo(); }
+}
+
+var shuffleMode = true, prevIndex = -1, first = true;
+
+function onPlayerStateChange(e) {
+  // A video that starts while the Light pause holds is paused again.
+  if (paused && e.data === YT.PlayerState.PLAYING) { player.pauseVideo(); return; }
+  if (playlistId) {
+    if (e.data === YT.PlayerState.ENDED) {
+      if (shuffleMode) {
+        var t = player.getPlaylist();
+        player.playVideoAt(Math.floor(Math.random() * t.length));
+      } else {
+        var a = player.getPlaylistIndex();
+        if (a === prevIndex) { prevIndex = -1; player.playVideoAt(0); } else { prevIndex = a; }
+      }
+    } else if (first && -1 === e.data) {
+      first = false;
+      if (shuffleMode) {
+        var t = player.getPlaylist();
+        player.playVideoAt(Math.floor(Math.random() * t.length));
+      }
+    }
+  } else if (e.data === YT.PlayerState.ENDED) {
+    player.seekTo(0);
+    player.playVideo();
+  }
+}
+
+function onPlayerError(e) {
+  if (playlistId && e.data) {
+    var t = player.getPlaylist(), a = player.getPlaylistIndex();
+    if (a + 1 < t.length) { player.playVideoAt(a + 1); } else if (t.length > 0) { player.playVideoAt(0); }
+  } else if (videoId && !playlistId && e.data) {
+    switch (e.data) {
+      case 2: console.warn("Invalid parameter."); break;
+      case 5: console.warn("Video cannot be played."); forceReload(); break;
+      case 100: console.warn("Video not found."); break;
+      case 101:
+      case 150: console.warn("Video is restricted."); break;
+      default: console.error("Unknown error: " + e.data);
+    }
+  }
+}
+
+async function SucrosePropertyListener(e, t) {
+  // The volume and the mute are the engine's: they only need the player, not the player frame.
+  if (e === "volume") { propertyVolume = Math.max(0, Math.min(100, Number(t.value))); SucroseApplyVolume(); return; }
+  if (e === "muted") {
+    propertyMuted = Boolean(t.value);
+    if (ready) { if (propertyMuted) { player.mute(); } else { player.unMute(); } }
+    return;
+  }
+  switch (null == customPlayer && await waitForCondition(() => null != customPlayer), e) {
+    case "scale": customBody.style.transform = `scale(${1 + t.value / 10})`; break;
+    case "saturate": customPlayer.style.filter = applyFilter(customPlayer.style.filter, `saturate(${1 + t.value / 100})`); break;
+    case "hue-rotate": customPlayer.style.filter = applyFilter(customPlayer.style.filter, `hue-rotate(${t.value}deg)`); break;
+    case "brightness": customPlayer.style.filter = applyFilter(customPlayer.style.filter, `brightness(${1 + t.value / 100})`); break;
+    case "contrast": customPlayer.style.filter = applyFilter(customPlayer.style.filter, `contrast(${1 + t.value / 100})`); break;
+    case "blur": customPlayer.style.filter = applyFilter(customPlayer.style.filter, `blur(${t.value}px)`); break;
+    case "grayscale": customPlayer.style.filter = applyFilter(customPlayer.style.filter, `grayscale(${t.value / 100})`); break;
+    case "sepia": customPlayer.style.filter = applyFilter(customPlayer.style.filter, `sepia(${t.value / 100})`); break;
+    case "invert": customPlayer.style.filter = applyFilter(customPlayer.style.filter, `invert(${t.value / 100})`); break;
+    case "mirror":
+      switch (["Flat", "Vertical", "Horizontal", "VerticalHorizontal"][t.value]) {
+        case "Vertical": customPlayer.style.transform = "scaleY(-1)"; break;
+        case "Horizontal": customPlayer.style.transform = "scaleX(-1)"; break;
+        case "VerticalHorizontal": customPlayer.style.transform = "scale(-1, -1)"; break;
+        default: customPlayer.style.transform = "scale(1, 1)";
+      }
+      break;
+    case "animation": customPlayer.style.animation = applyAnimation(["Flat", "Flip", "Pulse", "Shake", "Bounce", "Wiggle"][t.value]); break;
+    case "playbackRate": player.setPlaybackRate(parseFloat(t.value)); break;
+    case "caption": toggleCaptions(Boolean(t.value));
+  }
+}
+
+function applyAnimation(e) {
+  let t = "";
+  switch (e) {
+    case "Flip": t = "flip 2s infinite"; break;
+    case "Pulse": t = "pulse 1.5s infinite"; break;
+    case "Shake": t = "shake 0.5s ease infinite"; break;
+    case "Bounce": t = "bounce 1s ease infinite"; break;
+    case "Wiggle": t = "wiggle 0.5s ease infinite"; break;
+    default: t = e;
+  }
+  return t;
+}
+
+function waitForCondition(e) {
+  return new Promise(t => {
+    const a = () => { e() ? t() : requestAnimationFrame(a); };
+    a();
+  });
+}
+
+function applyFilter(e, t) {
+  const a = e.split(" ").filter(e => !e.startsWith(t.split("(")[0]));
+  a.push(t);
+  return a.join(" ");
+}
+
+function playFirst() {
+  if (!player || (-1 != player.getPlayerState() && 3 != player.getPlayerState())) { return; }
+  playVideo();
+}
+
+function playVideo() { player.playVideo(); }
+function pauseVideo() { player.pauseVideo(); }
+function setVolume(e) { player.setVolume(e); }
+function setShuffle(e) { shuffleMode = e; }
+function forceReload() { location.reload(true); }
+
+function setLoop(e) {
+  if (e && videoId && !playlistId) { e = false; }
+  player.setLoop(e);
+  if (e && checkVideoEnded()) { playVideo(); }
+}
+
+function checkVideoEnded() { return player.getPlayerState() === YT.PlayerState.ENDED; }
+function checkPlayingStatus() { return player.getPlayerState() === YT.PlayerState.PLAYING; }
+
+// D-06: what the engine says (the wallpaper volume, 0 when this renderer does not play the sound) times what the
+// property says (0..100); the player plays at the product, as a level from 0 to 100.
+function SucroseApplyVolume() {
+  if (!ready) { return; }
+  player.setVolume(Math.round(Math.max(0, Math.min(100, (engineVolume * propertyVolume) / 100))));
+  if (propertyMuted) { player.mute(); }
+}
+
+function SucroseVolume(level) {
+  engineVolume = Math.max(0, Math.min(100, Number(level)));
+  SucroseApplyVolume();
+}
+
+// The Light pause (PLAY-05): the player pauses, and a video that starts later (the next in the list) is paused too.
+function SucrosePause() {
+  paused = true;
+  if (ready) { player.pauseVideo(); }
+}
+
+function SucrosePlay() {
+  paused = false;
+  if (ready) { player.playVideo(); }
+}
+
+// The player fills the surface; there is no stretch to choose (legacy: YouTube is not stretched).
+function SucroseStretchMode(name) { }
+
+async function toggleCaptions(e, t) {
+  if (!player) { console.error("Player instance not found."); return; }
+  player.loadModule("captions");
+  await new Promise(e => setTimeout(e, 500));
+  if (!e) { console.info("Subtitles have been turned off."); player.setOption("captions", "track", {}); return; }
+  const a = (t || navigator.language || navigator.userLanguage || "en").split("-")[0], r = player.getOption("captions", "tracklist") || [];
+  if (0 === r.length) { console.error("No subtitles are available for this video."); return; }
+  let l = r.find(e => e.languageCode === a);
+  if (l) { console.info(`Subtitles enabled in '${l.languageCode}'.`); }
+  else { l = r.find(e => e.is_default) || r[0]; console.warn(`Subtitles in '${a}' not found, switched to '${l.languageCode}'.`); }
+  player.setOption("captions", "track", { languageCode: l.languageCode });
+}
+
+async function toggleAudioTrack(e, t) {
+  if (!player) { console.error("Player instance not found."); return; }
+  player.loadModule("audioTracks");
+  await new Promise(e => setTimeout(e, 500));
+  if (!e) { player.setOption("audioTracks", "track", {}); console.info("Audio track has been turned off (if supported)."); return; }
+  const a = (t || navigator.language || navigator.userLanguage || "en").split("-")[0], r = player.getOption("audioTracks", "tracklist") || [];
+  if (0 === r.length) { console.error("No alternative audio tracks are available for this video."); return; }
+  let l = r.find(e => e.languageCode === a);
+  if (l) { console.info(`Audio track set to '${l.languageCode}'.`); }
+  else { l = r.find(e => e.is_default) || r[0]; console.warn(`Audio track in '${a}' not found, switched to '${l.languageCode}'.`); }
+  player.setOption("audioTracks", "track", { languageCode: l.languageCode });
+}
+
+// Hides every YouTube control except the video and the captions. This reaches into the player frame, which works only
+// because web security is off for the wallpaper browser (legacy; docs/FEATURES.md).
+function hideIframeElement() {
+  const e = document.querySelector("iframe"), t = e.contentDocument || e.contentWindow.document;
+  new MutationObserver(e => {
+    e.forEach(e => {
+      if ("childList" === e.type || "subtree" === e.type) {
+        customBody = t.body;
+        customPlayer = t.getElementById("player");
+        const e = t.querySelector("#movie_player");
+        e.querySelectorAll(":scope *:not(.html5-video-container):not(.video-stream.html5-main-video)").forEach(e => {
+          const t = (e.className || "").toString().toLowerCase();
+          t.includes("caption") || t.includes("ytp-caption") || e.getAttribute && ("status" === e.getAttribute("role") || e.getAttribute("aria-live")) || e.style.setProperty("display", "none", "important");
+        });
+        const a = '.ytp-caption-window-container, .ytp-caption-segment, [role="status"], [aria-live]';
+        e.querySelectorAll(a).forEach(e => {
+          e.style.setProperty("display", "block", "important");
+          e.style.setProperty("z-index", "2147483647", "important");
+        });
+        if (!t.getElementById("Sucrose")) {
+          const e = t.createElement("style");
+          e.id = "Sucrose";
+          e.textContent = "@keyframes flip{0%{transform: rotateY(0)}100%{transform: rotateY(360deg)}}@keyframes pulse{0%{transform: scale(1);opacity: 1}50%{transform: scale(1.1);opacity: 0.7}100%{transform: scale(1);opacity: 1}}@keyframes shake{0%{transform: translateX(0)}25%{transform: translateX(-5px)}50%{transform: translateX(5px)}75%{transform: translateX(-5px)}100%{transform: translateX(0)}}@keyframes bounce{0%, 100%{transform: translateY(0)}50%{transform: translateY(-20px)}}@keyframes rotate{0%{transform: rotate(0deg)}100%{transform: rotate(360deg)}}@keyframes wiggle{0%{transform: translateX(0)}25%{transform: translateX(-10px)}50%{transform: translateX(10px)}75%{transform: translateX(-10px)}100%{transform: translateX(0)}}";
+          t.head.appendChild(e);
+        }
+      }
+    });
+  }).observe(t, { childList: true, subtree: true });
+}
+
+function toggleFullScreen() {
+  var e = document.getElementById("player");
+  var asked = e.requestFullscreen ? e.requestFullscreen() : e.mozRequestFullScreen ? e.mozRequestFullScreen() : e.webkitRequestFullscreen ? e.webkitRequestFullscreen() : e.msRequestFullscreen && e.msRequestFullscreen();
+  if (asked && asked.catch) { asked.catch(function () { }); }
+}
+</script>
+</body>
+</html>

@@ -515,24 +515,25 @@ fn use_theme(portal: &mut PortalClient, folder: &str) -> UseOutcome {
 }
 
 #[test]
-fn use_of_a_youtube_theme_is_refused_and_the_selection_is_unchanged() {
-    if !service_runs("use_of_a_youtube_theme_is_refused_and_the_selection_is_unchanged") {
+fn use_of_an_application_theme_is_refused_and_the_selection_is_unchanged() {
+    if !service_runs("use_of_an_application_theme_is_refused_and_the_selection_is_unchanged") {
         return;
     }
-    let service = TestService::start("use-youtube", &json!({}));
+    let service = TestService::start("use-application", &json!({}));
     copy_fixture_library(&service);
-    // A YouTube theme: no fixture holds one, and the type is the one no engine plays yet (04-35 adds it). Gif plays
-    // since 04-30 and Url since 04-34.
-    let theme = service.dir.join("Library").join("youtube-source");
+    // An Application theme: no fixture holds one, and the type is the one no engine plays yet (Round E). Gif plays
+    // since 04-30, Url since 04-34 and YouTube since 04-35.
+    let theme = service.dir.join("Library").join("application-source");
     std::fs::create_dir_all(&theme).expect("the theme folder can be created");
     std::fs::write(
         theme.join("SucroseInfo.json"),
-        r#"{"AppVersion":"26.10.19.0","Title":"Clip","Type":4,"Source":"https://www.youtube.com/watch?v=znNllvBt_Jg"}"#,
+        r#"{"AppVersion":"26.10.19.0","Title":"Clip","Type":5,"Source":"clip.exe"}"#,
     )
     .expect("the theme file can be written");
+    std::fs::write(theme.join("clip.exe"), b"not a program").expect("the source file can be written");
     let (mut portal, _) = PortalClient::hello(&service, None);
 
-    let outcome = use_theme(&mut portal, "youtube-source");
+    let outcome = use_theme(&mut portal, "application-source");
 
     assert_eq!(outcome, UseOutcome::Refused(UseRefusal::TypeNotPlayable));
     assert_eq!(service.settings_file()["Library"]["Selected"], "");

@@ -2789,12 +2789,13 @@ struct Plan {
 }
 
 /// The wallpaper types the service plays in this build (D-31 slices 1 to 3); later slices extend it. Gif plays on the
-/// built-in renderer or, as the migrated settings say, on mpv.
+/// built-in renderer or, as the migrated settings say, on mpv; Url and YouTube play on the web engines.
 const PLAYABLE: &[WallpaperType] = &[
     WallpaperType::Video,
     WallpaperType::Web,
     WallpaperType::Gif,
     WallpaperType::Url,
+    WallpaperType::YouTube,
 ];
 
 /// Whether a running renderer can load another wallpaper in place: only mpv can. A renderer is one process with one
@@ -6083,6 +6084,21 @@ mod tests {
                 theme_dir: "C:/themes/site".to_owned(),
                 ..use_job(address)
             }
+        }
+
+        #[test]
+        fn youtube_is_playable_and_the_gate_gives_its_address_as_the_source() {
+            assert!(PLAYABLE.contains(&WallpaperType::YouTube));
+            let library = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+                .join("tests")
+                .join("fixtures")
+                .join("web-themes");
+            let theme =
+                check_selected(&library, "youtube", &app_version(), PLAYABLE).expect("the YouTube fixture passes");
+            assert_eq!(
+                theme.source,
+                ThemeSource::Address("https://www.youtube.com/watch?v=znNllvBt_Jg".to_owned())
+            );
         }
 
         #[test]

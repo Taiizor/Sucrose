@@ -25,8 +25,8 @@ use crate::{
     pages::{self, GeneratedPage},
 };
 
-/// What a web engine shows: a theme's own page, or a page Sucrose generated for a Gif or Video theme together with the
-/// built-in property set that page uses. The page decides which calls the page gets after it loaded.
+/// What a web engine shows: a theme's own page, or a page Sucrose generated for a Gif, Video or YouTube theme together
+/// with the built-in property set that page uses. The page decides which calls the page gets after it loaded.
 #[derive(Debug, Clone, Copy)]
 pub enum PageKind {
     /// The page of a Web theme: its own `SucroseProperties.json` and `SucroseCompatible.json`, and system data on request.
@@ -40,7 +40,7 @@ pub enum PageKind {
 }
 
 impl PageKind {
-    /// What `engine` shows for a wallpaper of `kind`: a generated page for Gif and Video, the address itself for Url,
+    /// What `engine` shows for a wallpaper of `kind`: a generated page for Gif, Video and YouTube, the address itself for Url,
     /// the theme's own page for everything else a web engine plays.
     #[must_use]
     pub fn for_wallpaper(kind: WallpaperType, engine: WebEngine) -> Self {
@@ -57,8 +57,8 @@ impl PageKind {
         matches!(self, Self::Theme)
     }
 
-    /// Whether the renderer forwards mouse and keyboard input to the page: Web and Url pages do, the generated Gif
-    /// and Video pages do not (legacy `engines.md` §5).
+    /// Whether the renderer forwards mouse and keyboard input to the page: Web and Url pages do, the generated Gif,
+    /// Video and YouTube pages do not (legacy `engines.md` §5).
     #[must_use]
     pub fn takes_input(&self) -> bool {
         matches!(self, Self::Theme | Self::Url)
@@ -238,23 +238,35 @@ pub fn describe(error: &PropertiesError) -> String {
 }
 
 /// The calls that tell a generated page what the engine holds: the volume level (0 for a renderer that does not play
-/// the sound), whether the media loops and how it is fitted. They are the same scripts the engine runs when one of these
-/// changes while the page plays.
+/// the sound), whether the media loops, whether a playlist shuffles (the YouTube page only) and how it is fitted. They
+/// are the same scripts the engine runs when one of these changes while the page plays.
 #[must_use]
 pub fn engine_calls(page: GeneratedPage, state: &PageState) -> Vec<PageCall> {
-    vec![
+    let mut calls = vec![
         volume_call(state),
         PageCall {
             kind: js::KIND_ENGINE,
             key: "loop".to_owned(),
             script: pages::loop_script(page, state.looping()),
         },
-        PageCall {
-            kind: js::KIND_ENGINE,
-            key: "stretch".to_owned(),
-            script: pages::stretch_script(page, state.stretch()),
-        },
-    ]
+    ];
+    calls.extend(shuffle_call(page, state.shuffle()));
+    calls.push(PageCall {
+        kind: js::KIND_ENGINE,
+        key: "stretch".to_owned(),
+        script: pages::stretch_script(page, state.stretch()),
+    });
+    calls
+}
+
+/// The shuffle call of a generated page: only the YouTube page has one (the legacy `setShuffle`); `None` for the others.
+#[must_use]
+pub fn shuffle_call(page: GeneratedPage, on: bool) -> Option<PageCall> {
+    pages::shuffle_script(page, on).map(|script| PageCall {
+        kind: js::KIND_ENGINE,
+        key: "shuffle".to_owned(),
+        script,
+    })
 }
 
 /// The volume call of a generated page: the engine's volume, or 0 for a renderer that does not play the sound (D-06, D-02).

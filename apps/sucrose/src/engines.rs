@@ -86,14 +86,18 @@ impl EngineReport {
 
     /// What `engine` can play a wallpaper of `kind` with in this build: the engine's own state, except that the web
     /// engines (CEF and WebView2) play only the types whose page they have: Web themes, and the types that have a
-    /// generated page (GIF and Video so far; URL and YouTube follow). A type they cannot play yet counts as not in
+    /// generated page (GIF, Video and YouTube) or an address (URL). A type they cannot play yet counts as not in
     /// this build.
     pub fn availability_for(&self, kind: WallpaperType, engine: EngineId) -> Availability {
         let plays = match engine {
             EngineId::Cef | EngineId::WebView2 => {
                 matches!(
                     kind,
-                    WallpaperType::Web | WallpaperType::Gif | WallpaperType::Video | WallpaperType::Url
+                    WallpaperType::Web
+                        | WallpaperType::Gif
+                        | WallpaperType::Video
+                        | WallpaperType::Url
+                        | WallpaperType::YouTube
                 )
             }
             _ => true,
@@ -1047,6 +1051,7 @@ mod tests {
                 WallpaperType::Gif,
                 WallpaperType::Video,
                 WallpaperType::Url,
+                WallpaperType::YouTube,
             ] {
                 assert!(
                     report.availability_for(kind, engine).is_available(),
@@ -1054,11 +1059,11 @@ mod tests {
                 );
             }
             assert_eq!(
-                report.availability_for(WallpaperType::YouTube, engine),
+                report.availability_for(WallpaperType::Application, engine),
                 Availability::Unsupported {
                     why: Unsupported::NotInThisBuild
                 },
-                "{engine:?} YouTube"
+                "{engine:?} Application"
             );
         }
     }
