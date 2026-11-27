@@ -85,10 +85,16 @@ impl EngineReport {
     }
 
     /// What `engine` can play a wallpaper of `kind` with in this build: the engine's own state, except that the web
-    /// engines (CEF and WebView2) play only Web themes until their generated pages for GIF, video, URL and YouTube
-    /// themes arrive in a later round, so a type they cannot play yet counts as not in this build.
+    /// engines (CEF and WebView2) play only the types whose page they have: Web themes, and the types that have a
+    /// generated page (Video on CEF so far; GIF, URL and YouTube follow). A type they cannot play yet counts as not in
+    /// this build.
     pub fn availability_for(&self, kind: WallpaperType, engine: EngineId) -> Availability {
-        if matches!(engine, EngineId::Cef | EngineId::WebView2) && kind != WallpaperType::Web {
+        let plays = match engine {
+            EngineId::Cef => matches!(kind, WallpaperType::Web | WallpaperType::Video),
+            EngineId::WebView2 => kind == WallpaperType::Web,
+            _ => true,
+        };
+        if !plays {
             return Availability::Unsupported {
                 why: Unsupported::NotInThisBuild,
             };
@@ -852,14 +858,14 @@ mod tests {
             [
                 OfferedView {
                     kind: WallpaperType::Video,
-                    engines: vec![EngineType::MpvPlayerLive],
+                    engines: vec![EngineType::MpvPlayerLive, EngineType::CefSharpLive],
                 },
                 OfferedView {
                     kind: WallpaperType::Web,
                     engines: vec![EngineType::CefSharpLive],
                 },
             ],
-            "CEF plays no video yet, so Video does not offer it; WebView2 is not in this build"
+            "CEF plays a video through its generated page, so Video offers it; WebView2 is not in this build"
         );
     }
 
@@ -1028,20 +1034,31 @@ mod tests {
     }
 
     #[test]
-    fn the_web_engines_do_not_play_a_video_until_their_generated_pages_exist() {
+    fn the_web_engines_play_the_types_whose_pages_they_have_and_nothing_else() {
         let report = EngineReport::from_fn(|_| Availability::Installed { version: None });
 
+        assert!(
+            report
+                .availability_for(WallpaperType::Video, EngineId::Cef)
+                .is_available(),
+            "CEF plays a Video theme through its generated page"
+        );
         for engine in [EngineId::Cef, EngineId::WebView2] {
             assert!(
                 report.availability_for(WallpaperType::Web, engine).is_available(),
                 "{engine:?}"
             );
-            for kind in [
-                WallpaperType::Gif,
-                WallpaperType::Video,
-                WallpaperType::Url,
-                WallpaperType::YouTube,
-            ] {
+            let not_yet: &[WallpaperType] = if engine == EngineId::Cef {
+                &[WallpaperType::Gif, WallpaperType::Url, WallpaperType::YouTube]
+            } else {
+                &[
+                    WallpaperType::Gif,
+                    WallpaperType::Video,
+                    WallpaperType::Url,
+                    WallpaperType::YouTube,
+                ]
+            };
+            for kind in not_yet.iter().copied() {
                 assert_eq!(
                     report.availability_for(kind, engine),
                     Availability::Unsupported {

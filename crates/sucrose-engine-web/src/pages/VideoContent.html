@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+<!-- Sucrose generated page (VideoContent.html). The media path comes from location.search ("src", relative to the theme
+     folder) and is only ever used as a URL on this origin, never as markup. Function names are the legacy ones. -->
+<style>
+body{margin:0;padding:0;overflow:hidden;background:#000}
+video{position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;object-fit:cover}
+video::-webkit-media-controls,video::-webkit-media-controls-current-time-display,video::-webkit-media-controls-fullscreen-button,video::-webkit-media-controls-mute-button,video::-webkit-media-controls-overflow-button,video::-webkit-media-controls-overflow-menu-button,video::-webkit-media-controls-play-button,video::-webkit-media-controls-time-remaining-display,video::-webkit-media-controls-timeline,video::-webkit-media-controls-toggle-closed-captions-button,video::-webkit-media-controls-volume-slider{display:none!important}
+@keyframes flip{0%{transform:rotateY(0)}100%{transform:rotateY(360deg)}}@keyframes pulse{0%{transform:scale(1);opacity:1}50%{transform:scale(1.1);opacity:.7}100%{transform:scale(1);opacity:1}}@keyframes shake{0%{transform:translateX(0)}25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-5px)}100%{transform:translateX(0)}}@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}@keyframes rotate{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes wiggle{0%{transform:translateX(0)}25%{transform:translateX(-10px)}50%{transform:translateX(10px)}75%{transform:translateX(-10px)}100%{transform:translateX(0)}}
+</style>
+</head>
+<body>
+<video id="video" name="media" autoplay loop></video>
+<script>
+var body = document.body, video = document.getElementById("video");
+// D-06: what the engine says (the wallpaper volume, 0 when this renderer is not the sound follower) times what the
+// property says (0..100); the page plays at the product.
+var engineVolume = 100, propertyVolume = 100;
+
+function SucroseSource() {
+  var source = new URLSearchParams(location.search).get("src");
+  if (!source) { return ""; }
+  return "/" + source.split("/").map(encodeURIComponent).join("/");
+}
+
+function SucroseApplyVolume() {
+  var level = (engineVolume / 100) * (propertyVolume / 100);
+  video.volume = Math.max(0, Math.min(1, level));
+}
+
+async function SucrosePropertyListener(e, a) {
+  switch (null != body && null != video || await waitForCondition((() => null != body && null != video)), e) {
+    case "scale": body.style.transform = `scale(${1 + a.value / 10})`; break;
+    case "saturate": video.style.filter = applyFilter(video.style.filter, `saturate(${1 + a.value / 100})`); break;
+    case "hue-rotate": video.style.filter = applyFilter(video.style.filter, `hue-rotate(${a.value}deg)`); break;
+    case "brightness": video.style.filter = applyFilter(video.style.filter, `brightness(${1 + a.value / 100})`); break;
+    case "contrast": video.style.filter = applyFilter(video.style.filter, `contrast(${1 + a.value / 100})`); break;
+    case "blur": video.style.filter = applyFilter(video.style.filter, `blur(${a.value}px)`); break;
+    case "grayscale": video.style.filter = applyFilter(video.style.filter, `grayscale(${a.value / 100})`); break;
+    case "sepia": video.style.filter = applyFilter(video.style.filter, `sepia(${a.value / 100})`); break;
+    case "invert": video.style.filter = applyFilter(video.style.filter, `invert(${a.value / 100})`); break;
+    case "mirror":
+      switch (["Flat", "Vertical", "Horizontal", "VerticalHorizontal"][a.value]) {
+        case "Vertical": video.style.transform = "scaleY(-1)"; break;
+        case "Horizontal": video.style.transform = "scaleX(-1)"; break;
+        case "VerticalHorizontal": video.style.transform = "scale(-1, -1)"; break;
+        default: video.style.transform = "scale(1, 1)";
+      }
+      break;
+    case "animation": video.style.animation = applyAnimation(["Flat", "Flip", "Pulse", "Shake", "Bounce", "Wiggle"][a.value]); break;
+    case "playbackRate": video.playbackRate = a.value; break;
+    case "muted": video.muted = Boolean(a.value); break;
+    case "volume": propertyVolume = Math.max(0, Math.min(100, Number(a.value))); SucroseApplyVolume(); break;
+  }
+}
+
+function applyAnimation(e) {
+  let a = "";
+  switch (e) {
+    case "Flip": a = "flip 2s infinite"; break;
+    case "Pulse": a = "pulse 1.5s infinite"; break;
+    case "Shake": a = "shake 0.5s ease infinite"; break;
+    case "Bounce": a = "bounce 1s ease infinite"; break;
+    case "Wiggle": a = "wiggle 0.5s ease infinite"; break;
+    default: a = e;
+  }
+  return a;
+}
+
+function waitForCondition(e) {
+  return new Promise((a => {
+    const t = () => { e() ? a() : (body = document.body, video = document.getElementById("video"), requestAnimationFrame(t)); };
+    t();
+  }));
+}
+
+function applyFilter(e, a) {
+  const t = e.split(" ").filter((e => !e.startsWith(a.split("(")[0])));
+  return t.push(a), t.join(" ");
+}
+
+function SucrosePlay() {
+  var started = video.play();
+  if (started && started.catch) { started.catch(function () { }); }
+}
+
+function SucrosePause() { video.pause(); }
+
+function SucroseLoopMode(on) {
+  video.loop = Boolean(on);
+  if (video.loop && video.ended) { SucrosePlay(); }
+}
+
+function SucroseStretchMode(name) {
+  switch (name) {
+    case "None": video.style.objectFit = "none"; break;
+    case "Fill": video.style.objectFit = "fill"; break;
+    case "Uniform": video.style.objectFit = "contain"; break;
+    case "UniformToFill": video.style.objectFit = "cover"; break;
+  }
+}
+
+function SucroseVolume(level) {
+  engineVolume = Math.max(0, Math.min(100, Number(level)));
+  SucroseApplyVolume();
+}
+
+var sucroseSource = SucroseSource();
+if (sucroseSource) {
+  video.src = sucroseSource;
+  SucrosePlay();
+}
+</script>
+</body>
+</html>

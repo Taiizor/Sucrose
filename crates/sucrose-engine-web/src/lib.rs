@@ -12,5 +12,6 @@ pub mod keys;
 pub mod mime;
 pub mod origin;
 pub mod page;
+pub mod pages;
 pub mod profile;
 pub mod serve;
