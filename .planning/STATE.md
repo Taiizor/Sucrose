@@ -31,7 +31,7 @@ Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
 Plan: 38 of 38
 Status: Ready to execute
 Last activity: 2026-11-27 — Resolved debug session webview2-browser-exit-slow (04-37 D10 follow-up, e747c7be; SmartScreen off by default on WebView2, D-041)
-Next step: 04-38 (measurement checkpoint, ready gate; measure with a build that has the cef-web-themes-stuck-loading fix, a0e22d9a or later, since CEF now renders on the GPU; mind the open WebView2 video-clip software-decode observation), or /gsd-debug for the open 04-37 defects (D9 with D10, D13) first, and the small tasks listed under Pending Todos: the maintainer's choice.
+Next step: small task (e), the WebView2 SmartScreen setting (D-041, /gsd-quick); then one maintainer session: a gap-closure re-check of the 04-37 steps that failed (TYPE-03, ENG-02, ENG-03, WAPI-08, TYPE-04, TYPE-05 with a public playlist, WAPI-05/06 with Ray Music Visualizer or the audio fixture for bars) and 04-38 (measurement; use a build with a0e22d9a and e747c7be or later). Open findings: D13 (occasional duplicate mousedown), the WebView2 software decode of the 4K VP9 clip (Round D), BROWSER_EXIT_WAIT 1 s is tight under a full parallel test run (one 1034 ms exit seen).
 
 Progress: [████░░░░░░] 38%
 
@@ -365,10 +365,10 @@ Recent decisions affecting current work:
 ### Pending Todos
 
 - [Phase 4]: Small tasks after the 04-37 debug batch (asked by the maintainer on 2026-11-27):
-  - (a) D9 + D10: give the persistent web profile to the primary monitor (the D9 decision, amends 04-CONTEXT D-33) and fix the slot-1 WebView2 profile folder that is still locked after a quick switch (os error 32)
-  - (b) 04-29 album art over the 2 MiB blob cap: re-encode (downscale) the art so it fits under BLOB_MAX instead of replacing it with an empty ThumbnailString; the cap stays. Seen in a real run on 2026-11-27 (audio-bars-silent maintainer check, both engines): while a local FLAC track played, the cover did not show; the service logged "the album art is too large for the renderer, the page gets none size=3145928" at each page start (10 times, 5 on WebView2 and 5 on CEF), i.e. 3.0 MiB of base64 for about 2.25 MiB of art, and no thumbnail read error
-  - (c) apps/sucrose/tests/portal.rs desktop tests that assume one monitor: count the `engine started` lines per renderer slot, so they pass with several monitors
-  - (d) General.UserAgent applied on both web engines as the legacy app does (CefSettings.UserAgent, CoreWebView2.Settings.UserAgent; default `Sucrose/2.4 (Windows NT 10.0; Wallpaper Engine) SucroseWebKit`); the docs/FEATURES.md YouTube row says Not yet
+  - DONE 2026-11-27 (quick 261127-uos, bd84d9af..93e3f099; D-040): (a) D9 + D10: give the persistent web profile to the primary monitor (the D9 decision, amends 04-CONTEXT D-33) and fix the slot-1 WebView2 profile folder that is still locked after a quick switch (os error 32)
+  - DONE 2026-11-27 (quick 261127-uot, 5de6cf69..e54c0523; maintainer saw the FLAC cover, 3145928 -> 167404 chars, 768x768): (b) 04-29 album art over the 2 MiB blob cap: re-encode (downscale) the art so it fits under BLOB_MAX instead of replacing it with an empty ThumbnailString; the cap stays. Seen in a real run on 2026-11-27 (audio-bars-silent maintainer check, both engines): while a local FLAC track played, the cover did not show; the service logged "the album art is too large for the renderer, the page gets none size=3145928" at each page start (10 times, 5 on WebView2 and 5 on CEF), i.e. 3.0 MiB of base64 for about 2.25 MiB of art, and no thumbnail read error
+  - DONE 2026-11-27 (quick 261127-uou, 72e4b592..7b0f4abd; cargo test --workspace passes with DISPLAY9 attached): (c) apps/sucrose/tests/portal.rs desktop tests that assume one monitor: count the `engine started` lines per renderer slot, so they pass with several monitors
+  - DONE 2026-11-27 (quick 261127-uov, faf94eb8..a4048b8f; PROTOCOL_VERSION 11): (d) General.UserAgent applied on both web engines as the legacy app does (CefSettings.UserAgent, CoreWebView2.Settings.UserAgent; default `Sucrose/2.4 (Windows NT 10.0; Wallpaper Engine) SucroseWebKit`); the docs/FEATURES.md YouTube row says Not yet
   - (e) WebView2 SmartScreen setting per D-041 (the maintainer's decision on 2026-11-27: the user chooses, off by default; webview2-browser-exit-slow): planned key `Engine.WebViewSmartScreen` (boolean, default false; a migrated, missing or non-boolean value reads false), a toggle on the Wallpaper page under the WebView2 engine row, the restart prompt as for Allow invalid certificates (only WebView2 wallpapers restart); on, Sucrose's own WebView2 switches leave `msSmartScreenProtection` out; BROWSER_EXIT_WAIT stays 1 s (D-041 says why); when it lands, rename the test args_webview2_always_runs_without_smartscreen_and_cef_never_gets_the_switch and update the docs/FEATURES.md Web and web-data rows
 
 ### Blockers/Concerns
@@ -403,6 +403,10 @@ Recent decisions affecting current work:
 |---|-------------|------|--------|-----------|
 | 261122-723 | Target architectures (D-027): Windows x86/x64/ARM64, macOS universal, Linux x86_64/aarch64; CI matrix, docs, FND-02 | 2026-11-22 | 971149f4 | [261122-723-add-target-architecture-support-d-027-wi](./quick/261122-723-add-target-architecture-support-d-027-wi/) |
 | 2 | Shorten the COVERAGE.md no-integration reason to under 200 chars so the phase 03 api-coverage verify:pre gate passes | 2026-11-25 | d33531f2 | — |
+| 261127-uos | 04-37 D9+D10: persistent web profile on the primary monitor; WebView2 profile folder lock after a quick switch | 2026-11-27 | 93e3f099 | [261127-uos-04-37-d9-d10-give-the-persistent-web-profile-to-the-primary](./quick/261127-uos-04-37-d9-d10-give-the-persistent-web-profile-to-the-primary/) |
+| 261127-uot | 04-29: album art over the 2 MiB blob cap is downscaled to fit instead of dropped | 2026-11-27 | e54c0523 | [261127-uot-04-29-album-art-over-the-2-mib-blob-max-is-re-encoded-or-dow](./quick/261127-uot-04-29-album-art-over-the-2-mib-blob-max-is-re-encoded-or-dow/) |
+| 261127-uou | portal.rs desktop tests count engine starts per renderer slot (pass with DISPLAY9 attached) | 2026-11-27 | 7b0f4abd | [261127-uou-apps-sucrose-tests-portal-rs-real-desktop-tests-that-assume](./quick/261127-uou-apps-sucrose-tests-portal-rs-real-desktop-tests-that-assume/) |
+| 261127-uov | General.UserAgent applied on CEF and WebView2 like the legacy app | 2026-11-27 | a4048b8f | [261127-uov-apply-the-general-useragent-setting-on-both-web-engines-cef](./quick/261127-uov-apply-the-general-useragent-setting-on-both-web-engines-cef/) |
 
 ## Deferred Items
 

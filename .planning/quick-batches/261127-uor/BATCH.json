@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "batch_id": "261127-uor",
+  "created_at": "2026-11-27T19:05:42.881Z",
+  "options": {},
+  "base_revision": "d1d76bd7e4b4249b095a22fcd519d1e8c97ecc06",
+  "head_revision": null,
+  "items": [
+    {
+      "quick_id": "261127-uos",
+      "client_id": null,
+      "description": "04-37 D9+D10: give the persistent web profile to the primary monitor when several monitors play a Web wallpaper (maintainer decision 2026-11-27, amends 04-CONTEXT D-33 \"first renderer to start takes it\"), and fix the slot-1 WebView2 profile folder still locked after a quick theme switch (os error 32, WARN \"no web profile folder; the page keeps nothing\", seen 2026-11-27 in cargo test with DISPLAY9 attached)",
+      "status": "complete",
+      "depends_on": [],
+      "planned_files": [
+        "crates/sucrose-engine-web/src/profile.rs",
+        "crates/sucrose-engine-web/tests/profile.rs",
+        "crates/sucrose-ipc/src/protocol.rs",
+        "apps/sucrose/src/topology.rs",
+        "apps/sucrose/src/service.rs",
+        "apps/sucrose/src/render.rs",
+        "crates/sucrose-engine-cef/src/engine.rs",
+        "crates/sucrose-engine-webview2/src/engine.rs",
+        "crates/sucrose-engine-webview2/src/host.rs",
+        "docs/DECISIONS.md",
+        "docs/FEATURES.md",
+        ".planning/phases/04-m3-engines-and-the-wallpaper-api/04-CONTEXT.md"
+      ],
+      "directory": null,
+      "worktree": null,
+      "dispatched_worktree": null,
+      "dispatched_branch": null,
+      "dispatched_base": null,
+      "wave": 0,
+      "commit": "93e3f099",
+      "failure_reason": null
+    },
+    {
+      "quick_id": "261127-uot",
+      "client_id": null,
+      "description": "04-29 album art over the 2 MiB BLOB_MAX is re-encoded or downscaled so it fits, instead of being dropped with WARN \"the album art is too large for the renderer, the page gets none\" (maintainer decision 2026-11-27; evidence: a local FLAC track with 3,145,928-byte art); no new crate without the maintainer's approval",
+      "status": "complete",
+      "depends_on": [],
+      "planned_files": [
+        "crates/sucrose-sysinfo/src/media.rs",
+        "crates/sucrose-sysinfo/src/lib.rs",
+        "apps/sucrose/src/data_hub.rs",
+        "docs/FEATURES.md"
+      ],
+      "directory": null,
+      "worktree": null,
+      "dispatched_worktree": null,
+      "dispatched_branch": null,
+      "dispatched_base": null,
+      "wave": 1,
+      "commit": "e54c0523",
+      "failure_reason": null
+    },
+    {
+      "quick_id": "261127-uou",
+      "client_id": null,
+      "description": "apps/sucrose/tests/portal.rs real-desktop tests that assume one monitor (wait_for_engine_starts counts engine starts over all renderers) so cargo test --workspace passes with the virtual monitor DISPLAY9 attached (an_engine_change_restarts_the_running_wallpaper_on_the_engine_chosen; switching_web_themes_on_webview2_closes_each_renderer_cleanly also fails on the D10 WARN)",
+      "status": "complete",
+      "depends_on": [
+        "261127-uos"
+      ],
+      "planned_files": [
+        "apps/sucrose/tests/portal.rs",
+        ".planning/phases/04-m3-engines-and-the-wallpaper-api/deferred-items.md"
+      ],
+      "directory": null,
+      "worktree": null,
+      "dispatched_worktree": null,
+      "dispatched_branch": null,
+      "dispatched_base": null,
+      "wave": 3,
+      "commit": "7b0f4abd",
+      "failure_reason": null
+    },
+    {
+      "quick_id": "261127-uov",
+      "client_id": null,
+      "description": "Apply the General.UserAgent setting on both web engines (CEF and WebView2) like the legacy C# app does (docs/FEATURES.md YouTube row says Not yet)",
+      "status": "complete",
+      "depends_on": [],
+      "planned_files": [
+        "crates/sucrose-ipc/src/protocol.rs",
+        "apps/sucrose/src/service.rs",
+        "crates/sucrose-engine-cef/src/browser.rs",
+        "crates/sucrose-engine-cef/src/engine.rs",
+        "crates/sucrose-engine-webview2/src/host.rs",
+        "crates/sucrose-engine-webview2/src/engine.rs",
+        "docs/FEATURES.md"
+      ],
+      "directory": null,
+      "worktree": null,
+      "dispatched_worktree": null,
+      "dispatched_branch": null,
+      "dispatched_base": null,
+      "wave": 2,
+      "commit": "a4048b8f",
+      "failure_reason": null
+    }
+  ]
+}
