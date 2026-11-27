@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-29-PLAN.md
-last_updated: "2026-11-27T01:24:44.849Z"
+stopped_at: Completed 04-30-PLAN.md
+last_updated: "2026-11-27T01:57:49.584Z"
 last_activity: 2026-11-27
 last_activity_desc: Phase 04 execution started
-state_head: 780c176e54576880aad36c5c0a1c0b4e2dc73df1
+state_head: 798428f4ff411643b042276c9a834cf45be8baf0
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 117
-  completed_plans: 108
+  completed_plans: 109
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 30 of 38
+Plan: 31 of 38
 Status: Ready to execute
 Last activity: 2026-11-27 — Phase 04 execution started
 Next step: /gsd-debug for the in-page Web theme failures and the CEF GPU process crash (04-37 names their fixes as its precondition), then `/gsd-execute-phase 4` runs Round B.
@@ -163,6 +163,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P27 | 9 min | 2 tasks | 5 files |
 | Phase 04 P28 | 22 min | 2 tasks | 12 files |
 | Phase 04 P29 | 26 min | 2 tasks | 13 files |
+| Phase 04 P30 | 25 min | 2 tasks | 15 files |
 
 ## Accumulated Context
 
@@ -334,6 +335,8 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-28: the audio capture feeds silence by elapsed time so bars fall to 0 on a device that plays nothing; a running silent capture publishes 128 zeros
 - [Phase 04]: 04-29: GSMTC change handlers only signal the media worker; the worker reads and updates the record (WinRT reads block, so they stay off thread-pool callbacks)
 - [Phase 04]: 04-29: a chunk set that did not fit a renderer's queue is offered again as a new blob id; art over the 2 MiB BLOB_MAX is replaced by an empty ThumbnailString (04-37 to decide whether to raise the cap)
+- [Phase 04]: 04-30: the built-in GIF renderer opens its Animation on the decode thread (image's frame iterator is not Send); start waits for the first frame so a damaged file is a start failure
+- [Phase 04]: 04-30: decide_use loads in place only between two mpv wallpapers; every other engine change restarts the renderers (UseInput.running_engine replaces running_kind)
 
 ### Pending Todos
 
@@ -372,6 +375,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-27T01:24:04.793Z
-Stopped at: Completed 04-29-PLAN.md
+Last session: 2026-11-27T01:57:27.359Z
+Stopped at: Completed 04-30-PLAN.md
 Resume file: None
