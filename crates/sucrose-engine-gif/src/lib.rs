@@ -2,7 +2,8 @@
 //!
 //! The animation is decoded lazily on a thread of its own, one frame at a time and never the whole animation in memory
 //! ([`decode`], pure and the same on every OS). The frames are shown with Direct2D on a child window of the desktop
-//! surface ([`present`]), driven from the thread that owns the surface ([`engine`]).
+//! surface ([`present`], with a GDI fallback where Direct2D cannot draw), driven from the thread that owns the surface
+//! ([`engine`]). [`fit`] holds the stretch rectangles both presenters draw.
 
 // Engine/FFI crate: allowed to opt out of the workspace `unsafe_code` lint (D-011); only the presenter uses it.
 #![allow(unsafe_code)]
@@ -10,6 +11,7 @@
 
 pub mod decode;
 pub mod engine;
+pub mod fit;
 pub mod present;
 
 /// Whether this build contains the built-in GIF renderer: only Windows has the Direct2D presenter (D-002).

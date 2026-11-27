@@ -24,8 +24,9 @@ use sucrose_ipc::protocol::{Assignment, PlaybackSettings};
 use sucrose_platform::LoopTimers;
 
 use crate::{
-    decode::{Animation, DecodedFrame, Source},
-    present::Presenter,
+    decode::{Animation, DecodedFrame, Scaling, Source},
+    fit,
+    present::{PresentError, Presenter},
 };
 
 /// The engine's name in the log.
@@ -46,6 +47,9 @@ const FRAME_CHANNEL: usize = 2;
 #[cfg(windows)]
 const FIRST_FRAME_WAIT: Duration = Duration::from_secs(8);
 
+/// What a `gif fit` line was about: the stretch mode, the frame size and the surface size.
+type FitKey = (Stretch, (u32, u32), (u32, u32));
+
 /// What the decode thread sends the pump.
 #[derive(Debug)]
 enum Message {
@@ -64,6 +68,7 @@ enum Command {
     Pause { paused: bool, level: PauseLevel },
     Loop(bool),
     Load(PathBuf),
+    Stretch(Stretch),
 }
 
 /// The values the handle and the decode thread read from any thread.
@@ -103,11 +108,18 @@ struct Decoder {
 impl Decoder {
     /// Starts decoding `source` for a surface of `bound`, skipping `skip` frames first, so the first frame sent is
     /// frame `skip`.
-    fn spawn(source: Source, bound: (u32, u32), skip: usize, looping: Arc<Shared>, wake: Wake) -> Self {
+    fn spawn(
+        source: Source,
+        bound: (u32, u32),
+        scaling: Scaling,
+        skip: usize,
+        looping: Arc<Shared>,
+        wake: Wake,
+    ) -> Self {
         let (sender, receiver) = bounded(FRAME_CHANNEL);
         let thread = thread::Builder::new()
             .name("gif-decode".to_owned())
-            .spawn(move || decode_loop(&source, bound, skip, &looping, &sender, &wake))
+            .spawn(move || decode_loop(&source, bound, scaling, skip, &looping, &sender, &wake))
             .map_err(|error| tracing::error!(%error, "cannot start the GIF decode thread"))
             .ok();
         Self {
@@ -136,6 +148,7 @@ impl Drop for Decoder {
 fn decode_loop(
     source: &Source,
     bound: (u32, u32),
+    scaling: Scaling,
     skip: usize,
     shared: &Shared,
     sender: &Sender<Message>,
@@ -148,7 +161,7 @@ fn decode_loop(
         }
         sent
     };
-    let mut animation = match Animation::open_source(source.clone(), bound) {
+    let mut animation = match Animation::open_scaled(source.clone(), bound, scaling) {
         Ok(animation) => animation,
         Err(error) => {
             send(Message::Failed(error.to_string()));
@@ -262,8 +275,9 @@ impl Engine for GifEngine {
         Ok(())
     }
 
-    /// The animation fills the surface until 04-31 adds the four stretch modes.
-    fn set_stretch(&self, _stretch: Stretch) -> Result<(), EngineError> {
+    /// The four modes place the frame as the legacy WPF `Image` did (`fit::fit`); the surface thread applies it.
+    fn set_stretch(&self, stretch: Stretch) -> Result<(), EngineError> {
+        self.queue(Command::Stretch(stretch));
         Ok(())
     }
 
@@ -289,6 +303,12 @@ pub struct GifPump {
     on_playing: Option<Arc<dyn Fn() + Send + Sync>>,
     source: Source,
     bound: (u32, u32),
+    /// The stretch mode in force: the rectangles come from it and the decoder prepares frames for it.
+    stretch: Stretch,
+    /// The size of the frame on screen, for the `gif fit` log line.
+    frame_size: Option<(u32, u32)>,
+    /// What the `gif fit` line last said, so it is logged when the mode or a size changes and not on every frame.
+    logged_fit: Option<FitKey>,
     decoder: Option<Decoder>,
     /// A message taken from the channel before the pump was ready for it (`start` waits for the first one).
     peeked: Option<Message>,
@@ -320,6 +340,7 @@ impl GifPump {
         timers: Box<dyn TimerPort>,
         source: Source,
         bound: (u32, u32),
+        stretch: Stretch,
         looping: bool,
         wake: Wake,
         on_playing: Arc<dyn Fn() + Send + Sync>,
@@ -343,6 +364,9 @@ impl GifPump {
             on_playing: Some(on_playing),
             source,
             bound,
+            stretch,
+            frame_size: None,
+            logged_fit: None,
             decoder: None,
             peeked: None,
             generation: 0,
@@ -369,6 +393,7 @@ impl GifPump {
         self.decoder = Some(Decoder::spawn(
             self.source.clone(),
             self.bound,
+            fit::scaling(self.stretch),
             skip,
             Arc::clone(&self.shared),
             Arc::clone(&self.wake),
@@ -417,8 +442,10 @@ impl GifPump {
 
     fn show(&mut self, frame: DecodedFrame, now: Instant) {
         let delay = Duration::from_millis(u64::from(frame.delay_ms));
+        self.frame_size = Some((frame.width, frame.height));
         match self.presenter.present(frame) {
             Ok(()) => self.present_failing = false,
+            Err(PresentError::DeviceLost) => tracing::debug!("the render target was lost while presenting a GIF frame"),
             Err(reason) => {
                 if !self.present_failing {
                     tracing::warn!(%reason, "cannot present a GIF frame");
@@ -426,6 +453,7 @@ impl GifPump {
                 self.present_failing = true;
             }
         }
+        self.note_fit();
         if !self.resync {
             self.shown = Some(self.shown.map_or(0, |index| index + 1));
             // The previous due time keeps the pace (a timer that fires late does not slow the animation), unless the
@@ -441,6 +469,20 @@ impl GifPump {
             tracing::info!(frame_ms = delay.as_millis() as u64, "gif first frame presented");
             on_playing();
         }
+    }
+
+    /// Logs the rectangles the shown frame is drawn with when the mode or a size changed since the last line.
+    fn note_fit(&mut self) {
+        let Some(frame) = self.frame_size else {
+            return;
+        };
+        let key = (self.stretch, frame, self.bound);
+        if self.logged_fit == Some(key) {
+            return;
+        }
+        self.logged_fit = Some(key);
+        let (dest, src) = fit::fit(self.stretch, frame, self.bound);
+        tracing::debug!("gif fit stretch={:?} dest={dest:?} src={src:?}", self.stretch);
     }
 
     /// Does what is due at `now`: shows the next frame when the shown one has stayed long enough, and arms the timer
@@ -532,6 +574,7 @@ impl GifPump {
                         self.restart(0);
                     }
                 }
+                Command::Stretch(stretch) => self.apply_stretch(stretch),
                 Command::Load(path) => {
                     self.source = Source::Path(path);
                     self.shown = None;
@@ -558,15 +601,23 @@ impl GifPump {
         }
     }
 
-    /// The surface changed to `rect`: the window and the render target follow it, and a new size re-opens the decoder
-    /// at the frame on screen.
-    pub fn resize_to(&mut self, rect: [i32; 4]) {
-        let size = surface_size(rect);
-        self.presenter.resize(size.0, size.1);
-        if size == self.bound {
+    /// A new stretch mode: the presenter draws the frame on screen again with the new rectangles, and the decoder is
+    /// reopened at that frame when the mode needs frames prepared another way (Fill and Uniform share one).
+    fn apply_stretch(&mut self, stretch: Stretch) {
+        if stretch == self.stretch {
             return;
         }
-        self.bound = size;
+        let reprepare = fit::scaling(stretch) != fit::scaling(self.stretch);
+        self.stretch = stretch;
+        self.presenter.set_stretch(stretch);
+        self.note_fit();
+        if reprepare {
+            self.reopen_at_shown();
+        }
+    }
+
+    /// Reopens the decoder at the frame on screen so that it comes again prepared for the new bound or mode.
+    fn reopen_at_shown(&mut self) {
         match self.shown {
             Some(index) if !self.failed => {
                 self.restart(index);
@@ -578,6 +629,19 @@ impl GifPump {
             }
             _ => self.restart(0),
         }
+    }
+
+    /// The surface changed to `rect`: the window and the render target follow it, and a new size re-opens the decoder
+    /// at the frame on screen.
+    pub fn resize_to(&mut self, rect: [i32; 4]) {
+        let size = surface_size(rect);
+        self.presenter.resize(size.0, size.1);
+        if size == self.bound {
+            return;
+        }
+        self.bound = size;
+        self.note_fit();
+        self.reopen_at_shown();
     }
 }
 
@@ -626,7 +690,6 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
 #[cfg(windows)]
 mod imp {
     use super::*;
-    use crate::present::D2dPresenter;
 
     pub(super) fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<Started, EngineError> {
         let SurfaceHooks {
@@ -636,11 +699,12 @@ mod imp {
             on_data_wanted: _,
         } = hooks;
         let bound = surface_size(assignment.rect);
-        let presenter = D2dPresenter::new(wid, bound.0, bound.1).map_err(|reason| {
+        let stretch = assignment.settings.stretch;
+        let presenter = crate::present::open(wid, bound.0, bound.1, stretch).map_err(|reason| {
             tracing::error!(%reason, "cannot create the GIF presenter");
             EngineError::Start { reason }
         })?;
-        tracing::info!("gif presenter=Direct2D");
+        tracing::info!("gif presenter={} stretch={stretch:?}", presenter.name());
         let source = Source::Path(PathBuf::from(&assignment.source));
         let wake: Wake = Arc::new(move || proxy.wake());
         let (engine, mut pump) = GifPump::new(
@@ -648,6 +712,7 @@ mod imp {
             Box::new(timers),
             source,
             bound,
+            stretch,
             assignment.settings.looping,
             wake,
             on_playing,
@@ -694,12 +759,13 @@ mod tests {
         /// The frame numbers and sizes shown, in order.
         shown: Mutex<Vec<(u32, u32, u32)>>,
         resizes: Mutex<Vec<(u32, u32)>>,
+        stretches: Mutex<Vec<Stretch>>,
     }
 
     struct FakePresenter(Arc<Recorder>);
 
     impl Presenter for FakePresenter {
-        fn present(&mut self, frame: DecodedFrame) -> Result<(), String> {
+        fn present(&mut self, frame: DecodedFrame) -> Result<(), PresentError> {
             self.0
                 .shown
                 .lock()
@@ -710,6 +776,10 @@ mod tests {
 
         fn resize(&mut self, width: u32, height: u32) {
             self.0.resizes.lock().expect("lock").push((width, height));
+        }
+
+        fn set_stretch(&mut self, stretch: Stretch) {
+            self.0.stretches.lock().expect("lock").push(stretch);
         }
 
         fn name(&self) -> &'static str {
@@ -746,6 +816,10 @@ mod tests {
 
     impl Rig {
         fn new(frames: usize, size: (u32, u32), bound: (u32, u32), looping: bool) -> Self {
+            Self::with_stretch(frames, size, bound, looping, Stretch::Fill)
+        }
+
+        fn with_stretch(frames: usize, size: (u32, u32), bound: (u32, u32), looping: bool, stretch: Stretch) -> Self {
             let recorder = Arc::new(Recorder::default());
             let timers = Arc::new(TimerLog::default());
             let playing = Arc::new(AtomicU32::new(0));
@@ -756,6 +830,7 @@ mod tests {
                 Box::new(FakeTimers(Arc::clone(&timers))),
                 Source::Memory(Arc::from(bytes)),
                 bound,
+                stretch,
                 looping,
                 Arc::new(|| {}),
                 Arc::new(move || {
@@ -887,6 +962,53 @@ mod tests {
     }
 
     #[test]
+    fn the_stretch_at_start_decides_how_the_first_frame_is_prepared() {
+        // A 100 x 100 animation on a 40 x 20 surface: Fill and Uniform fit it, UniformToFill keeps it covering the
+        // surface and None keeps only the centre that fits.
+        for (stretch, expected) in [
+            (Stretch::Fill, (20, 20)),
+            (Stretch::Uniform, (20, 20)),
+            (Stretch::UniformToFill, (40, 40)),
+            (Stretch::None, (40, 20)),
+        ] {
+            let mut rig = Rig::with_stretch(2, (100, 100), (40, 20), true, stretch);
+            rig.run_until(|rig| !rig.numbers().is_empty());
+            let shown = rig.recorder.shown.lock().expect("lock")[0];
+            assert_eq!((shown.1, shown.2), expected, "{stretch:?}");
+        }
+    }
+
+    #[test]
+    fn a_new_stretch_reaches_the_presenter_and_reopens_the_decoder_only_when_frames_are_prepared_differently() {
+        let mut rig = Rig::with_stretch(4, (100, 100), (40, 20), true, Stretch::Fill);
+        rig.run_until(|rig| rig.numbers().len() >= 2);
+        let generation = rig.pump.generation();
+
+        // Fill to Uniform: the same frames, drawn with other rectangles.
+        rig.engine.set_stretch(Stretch::Uniform).expect("stretch");
+        rig.pump.drain_at(rig.clock);
+        assert_eq!(
+            rig.recorder.stretches.lock().expect("lock").as_slice(),
+            [Stretch::Uniform]
+        );
+        assert_eq!(rig.pump.generation(), generation);
+
+        // The same mode again changes nothing.
+        rig.engine.set_stretch(Stretch::Uniform).expect("stretch");
+        rig.pump.drain_at(rig.clock);
+        assert_eq!(rig.recorder.stretches.lock().expect("lock").len(), 1);
+
+        // Uniform to UniformToFill: frames are prepared to cover, so the decoder reopens at the frame on screen.
+        let before = rig.recorder.shown.lock().expect("lock").len();
+        rig.engine.set_stretch(Stretch::UniformToFill).expect("stretch");
+        rig.pump.drain_at(rig.clock);
+        assert_eq!(rig.pump.generation(), generation + 1);
+        rig.run_until(|rig| rig.recorder.shown.lock().expect("lock").len() > before);
+        let redrawn = rig.recorder.shown.lock().expect("lock")[before];
+        assert_eq!(redrawn, (1, 40, 40), "frame 1 is drawn again, prepared to cover");
+    }
+
+    #[test]
     fn a_damaged_file_fails_the_first_frame_wait_with_a_reason() {
         let recorder = Arc::new(Recorder::default());
         let (_engine, mut pump) = GifPump::new(
@@ -894,6 +1016,7 @@ mod tests {
             Box::new(FakeTimers(Arc::default())),
             Source::Memory(Arc::from(b"not a gif".to_vec())),
             (8, 8),
+            Stretch::Fill,
             true,
             Arc::new(|| {}),
             Arc::new(|| {}),

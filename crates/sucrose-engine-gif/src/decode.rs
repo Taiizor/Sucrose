@@ -127,6 +127,37 @@ pub fn fit(width: u32, height: u32, max: (u32, u32)) -> (u32, u32) {
     (scaled(width).min(max_w), scaled(height).min(max_h))
 }
 
+/// How a decoded frame is prepared for the surface it is bound to (chosen from the stretch mode, see `fit::scaling`).
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub enum Scaling {
+    /// Scaled down, aspect kept, until it fits the bound; never up.
+    #[default]
+    Within,
+    /// Scaled down, aspect kept, only until it still covers the bound; never up.
+    Cover,
+    /// Never scaled: only the centre that fits the bound is kept.
+    Crop,
+}
+
+/// The size a `width` by `height` frame is scaled to for `max` under `scaling`. A cropped frame keeps its scale: the
+/// size returned is the size of the centre that stays.
+#[must_use]
+pub fn scaled_size(width: u32, height: u32, max: (u32, u32), scaling: Scaling) -> (u32, u32) {
+    let (max_w, max_h) = (max.0.max(1), max.1.max(1));
+    match scaling {
+        Scaling::Within => fit(width, height, max),
+        Scaling::Crop => (width.clamp(1, max_w), height.clamp(1, max_h)),
+        Scaling::Cover => {
+            let scale = (f64::from(max_w) / f64::from(width.max(1))).max(f64::from(max_h) / f64::from(height.max(1)));
+            if scale >= 1.0 {
+                return (width.max(1), height.max(1));
+            }
+            let scaled = |side: u32, floor: u32| ((f64::from(side) * scale).round() as u32).max(floor.min(side)).max(1);
+            (scaled(width, max_w), scaled(height, max_h))
+        }
+    }
+}
+
 /// A frame before scaling: the composed canvas and its delay.
 struct RawFrame {
     image: RgbaImage,
@@ -138,6 +169,7 @@ struct RawFrame {
 pub struct Animation {
     source: Source,
     max: (u32, u32),
+    scaling: Scaling,
     frames: image::Frames<'static>,
     /// The first frame, decoded by `open` so that a damaged file fails there and not mid-wallpaper.
     pending: Option<RawFrame>,
@@ -166,6 +198,14 @@ impl Animation {
     /// # Errors
     /// See [`Animation::open`].
     pub fn open_source(source: Source, max: (u32, u32)) -> Result<Self, DecodeError> {
+        Self::open_scaled(source, max, Scaling::Within)
+    }
+
+    /// [`Animation::open_source`] with the frames prepared under `scaling` instead of fitted.
+    ///
+    /// # Errors
+    /// See [`Animation::open`].
+    pub fn open_scaled(source: Source, max: (u32, u32), scaling: Scaling) -> Result<Self, DecodeError> {
         let mut reader = source.open()?;
         let mut head = [0_u8; 12];
         let mut read = 0;
@@ -201,6 +241,7 @@ impl Animation {
         Ok(Self {
             source,
             max: (max.0.max(1), max.1.max(1)),
+            scaling,
             frames,
             pending: Some(first),
         })
@@ -222,7 +263,7 @@ impl Animation {
     /// # Errors
     /// A [`DecodeError`] when the file turns out damaged after the first frame.
     pub fn next_frame(&mut self) -> Result<Option<DecodedFrame>, DecodeError> {
-        Ok(self.pull()?.map(|frame| finish(frame, self.max)))
+        Ok(self.pull()?.map(|frame| finish(frame, self.max, self.scaling)))
     }
 
     /// Steps over up to `count` frames without scaling them; returns how many were skipped (fewer when the animation
@@ -244,7 +285,7 @@ impl Animation {
     /// # Errors
     /// A [`DecodeError`] when the source cannot be opened again.
     pub fn rewind(&mut self) -> Result<(), DecodeError> {
-        *self = Self::open_source(self.source.clone(), self.max)?;
+        *self = Self::open_scaled(self.source.clone(), self.max, self.scaling)?;
         Ok(())
     }
 }
@@ -258,14 +299,26 @@ fn raw(frame: image::Frame) -> RawFrame {
     }
 }
 
-fn finish(frame: RawFrame, max: (u32, u32)) -> DecodedFrame {
-    let (width, height) = fit(frame.image.width(), frame.image.height(), max);
-    let scaled;
-    let image = if (width, height) == (frame.image.width(), frame.image.height()) {
+fn finish(frame: RawFrame, max: (u32, u32), scaling: Scaling) -> DecodedFrame {
+    let (source_w, source_h) = (frame.image.width(), frame.image.height());
+    let (width, height) = scaled_size(source_w, source_h, max, scaling);
+    let prepared;
+    let image = if (width, height) == (source_w, source_h) {
         &frame.image
     } else {
-        scaled = imageops::resize(&frame.image, width, height, FilterType::Triangle);
-        &scaled
+        prepared = if scaling == Scaling::Crop {
+            imageops::crop_imm(
+                &frame.image,
+                (source_w - width) / 2,
+                (source_h - height) / 2,
+                width,
+                height,
+            )
+            .to_image()
+        } else {
+            imageops::resize(&frame.image, width, height, FilterType::Triangle)
+        };
+        &prepared
     };
     let mut pixels = Vec::with_capacity(image.as_raw().len());
     for pixel in image.as_raw().as_chunks::<4>().0 {
@@ -377,6 +430,27 @@ mod tests {
     }
 
     #[test]
+    fn cover_keeps_the_frame_as_large_as_the_surface_needs_and_crop_keeps_only_the_centre() {
+        assert_eq!(scaled_size(1000, 1000, (960, 540), Scaling::Cover), (960, 960));
+        assert_eq!(scaled_size(4000, 3000, (1920, 1080), Scaling::Cover), (1920, 1440));
+        assert_eq!(
+            scaled_size(320, 180, (960, 540), Scaling::Cover),
+            (320, 180),
+            "never scaled up"
+        );
+        assert_eq!(scaled_size(3840, 2160, (1920, 1080), Scaling::Crop), (1920, 1080));
+        assert_eq!(scaled_size(320, 180, (1920, 1080), Scaling::Crop), (320, 180));
+        assert_eq!(scaled_size(1000, 1000, (1920, 1080), Scaling::Within), (1000, 1000));
+    }
+
+    #[test]
+    fn a_cropped_frame_is_the_centre_of_the_original() {
+        let wide = Animation::open_scaled(memory(gif_bytes(40, 20, &[10])), (20, 20), Scaling::Crop).expect("open");
+        let frame = wide.into_first();
+        assert_eq!((frame.width, frame.height), (20, 20));
+    }
+
+    #[test]
     fn pixels_are_premultiplied_bgra() {
         let frame = finish(
             RawFrame {
@@ -384,6 +458,7 @@ mod tests {
                 delay_ms: 10,
             },
             (1, 1),
+            Scaling::Within,
         );
         assert_eq!(frame.pixels, [25, 50, 100, 128]);
     }
