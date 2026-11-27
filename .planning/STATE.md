@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-34-PLAN.md
-last_updated: "2026-11-27T03:51:00.115Z"
+stopped_at: Completed 04-35-PLAN.md
+last_updated: "2026-11-27T04:18:00.943Z"
 last_activity: 2026-11-27
 last_activity_desc: Phase 04 execution started
-state_head: 8e88317226e439bd31304356a34e8406d8c479f8
+state_head: 45d79dc0153c3df35cff623a5076d1af7e9deb66
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 117
-  completed_plans: 113
+  completed_plans: 114
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 35 of 38
+Plan: 36 of 38
 Status: Ready to execute
 Last activity: 2026-11-27 — Phase 04 execution started
 Next step: /gsd-debug for the in-page Web theme failures and the CEF GPU process crash (04-37 names their fixes as its precondition), then `/gsd-execute-phase 4` runs Round B.
@@ -168,6 +168,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P32 | 22 min | 2 tasks | 10 files |
 | Phase 04 P33 | 21 min | 3 tasks | 14 files |
 | Phase 04 P34 | 20 min | 2 tasks | 14 files |
+| Phase 04 P35 | 19 min | 2 tasks | 17 files |
 
 ## Accumulated Context
 
@@ -348,6 +349,9 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-33: GifContent.html keeps the legacy gifuct-js bundle (MIT, Matt Way) with its notice added; the legacy page shipped it without one, maintainer to confirm
 - [Phase 04]: 04-34: the theme source is a typed ThemeSource (file or address); Url and YouTube Sources pass an http/https-only address gate
 - [Phase 04]: 04-34: only consecutive mouse moves are coalesced (MoveSlot); web pages take input by page kind (Web and Url yes, generated Gif and Video no)
+- [Phase 04]: 04-35: The YouTube page's SucroseStretchMode is a no-op (the player fills the surface; legacy YouTube is not stretched), so the engines' stretch path stays uniform for every generated page
+- [Phase 04]: 04-35: referer_for fills only a missing Referer for https youtube.com and youtube-nocookie.com hosts (subdomains included) with the virtual origin and never replaces one; CEF returns a request handler only for those hosts
+- [Phase 04]: 04-35: the YouTube page keeps the engine volume at 0 until the first SucroseVolume call and applies the product with the property volume once the player is ready (a pause before ready is applied on ready too)
 
 ### Pending Todos
 
@@ -368,6 +372,7 @@ None yet.
 - CEF GPU process crashes 3 times at the start of a Web wallpaper on the maintainer machine (software fallback renders); look at it at the 04-20 checkpoint
 - [Phase 4]: RESOLVED 2026-11-26 (/gsd-debug, `.planning/debug/resolved/cef-close-shutdown-dialog.md`): the Windows "Shut Down Windows" dialog after every CEF theme switch (04-20 run). Cause: our CEF life span handler kept the default DoClose, so CEF posted WM_CLOSE to the browser's top-level ancestor, which under the desktop surface is Progman; the close then timed out after 5 s and the renderer crashed in cef::shutdown (0xffff7003). Fix: DoClose answers 1 for the wallpaper browser and the renderer destroys the browser window itself. Maintainer run 2026-11-26: no dialog, 14 of 14 CEF closes in 4-28 ms, every CEF renderer exit code 0. The 04-20 slice-1 check still needs its gap-closure re-run.
 - [Phase 4]: 04-20 maintainer run: web themes (e.g. Test Sucrose API) fail inside the page with a CORS-like error although every page loads with status 200; not triaged yet.
+- 04-35: CEF refuses the YouTube player-frame access (hideIframeElement SecurityError) despite --disable-web-security; UI hiding and in-frame properties do not apply on CEF; decide a fix touching D-021 and check in 04-37 (also WebView2)
 
 ### Quick Tasks Completed
 
@@ -386,6 +391,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-27T03:50:36.132Z
-Stopped at: Completed 04-34-PLAN.md
+Last session: 2026-11-27T04:17:18.502Z
+Stopped at: Completed 04-35-PLAN.md
 Resume file: None
