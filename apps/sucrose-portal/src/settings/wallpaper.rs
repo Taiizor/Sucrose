@@ -51,8 +51,9 @@ pub enum EngineRow {
 }
 
 impl EngineRow {
-    /// Every row, in the order of `WallpaperPage::selects`.
-    pub const ALL: [Self; 2] = [Self::Video, Self::Web];
+    /// Every row, in the order of `WallpaperPage::selects` (the legacy page order: Gif and Video in Extensions, then Url,
+    /// Web and YouTube in Engines).
+    pub const ALL: [Self; 5] = [Self::Gif, Self::Video, Self::Url, Self::Web, Self::YouTube];
 
     /// The wallpaper type whose engine the row sets.
     pub fn kind(self) -> WallpaperType {
@@ -76,10 +77,14 @@ impl EngineRow {
         }
     }
 
-    /// The engine the service reported for this type.
+    /// The engine the service reported for this type. The legacy names of the built-in GIF renderer are one choice
+    /// (D-10): a stored `VexanaLive` is shown as `XavierLive`, the name the Portal writes.
     pub fn value(self, settings: &PortalSettings) -> EngineType {
         match self {
-            Self::Gif => settings.gif_engine,
+            Self::Gif => match settings.gif_engine {
+                EngineType::VexanaLive => EngineType::XavierLive,
+                engine => engine,
+            },
             Self::Video => settings.video_engine,
             Self::Url => settings.url_engine,
             Self::Web => settings.web_engine,
@@ -112,10 +117,10 @@ impl EngineRow {
 
     fn index(self) -> usize {
         match self {
-            Self::Video => 0,
-            Self::Web => 1,
-            Self::Gif => 2,
-            Self::Url => 3,
+            Self::Gif => 0,
+            Self::Video => 1,
+            Self::Url => 2,
+            Self::Web => 3,
             Self::YouTube => 4,
         }
     }
@@ -260,6 +265,8 @@ pub fn engine_choices(
     row.allowed()
         .iter()
         .copied()
+        // VexanaLive is the same renderer as XavierLive (D-10); the list shows it once, under the name the Portal writes.
+        .filter(|engine| *engine != EngineType::VexanaLive)
         .filter(|engine| offered.contains(engine) || *engine == stored)
         .map(|engine| {
             let choice = Choice::new(engine, tr(engine_label_key(engine)));
@@ -523,7 +530,7 @@ pub struct WallpaperPage {
     web_arguments: Entity<ArgumentsEditor>,
     connected: bool,
     /// One select per [`EngineRow`], in the order of [`EngineRow::ALL`].
-    selects: [ChoiceSelect<EngineType>; 2],
+    selects: [ChoiceSelect<EngineType>; EngineRow::ALL.len()],
     /// The Interaction Method select.
     input_type: ChoiceSelect<InputType>,
     /// The Interaction Module select (RawInput only).
@@ -994,9 +1001,19 @@ impl Render for WallpaperPage {
                 self.wallpaper_group(cx),
                 super::group(
                     tr("Portal.Area.Extensions"),
-                    vec![self.engine_row(EngineRow::Video, cx)],
+                    vec![
+                        self.engine_row(EngineRow::Gif, cx),
+                        self.engine_row(EngineRow::Video, cx),
+                    ],
                 ),
-                super::group(tr("Portal.Area.Engines"), vec![self.engine_row(EngineRow::Web, cx)]),
+                super::group(
+                    tr("Portal.Area.Engines"),
+                    vec![
+                        self.engine_row(EngineRow::Url, cx),
+                        self.engine_row(EngineRow::Web, cx),
+                        self.engine_row(EngineRow::YouTube, cx),
+                    ],
+                ),
                 self.web_engines_group(cx),
             ],
         )

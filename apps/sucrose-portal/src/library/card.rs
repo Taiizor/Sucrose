@@ -495,6 +495,50 @@ mod tests {
     }
 
     #[test]
+    fn gif_url_and_youtube_themes_are_usable_once_the_service_reports_them_and_application_themes_are_not() {
+        let idle = runtime(None, false, RuleState::None);
+        let round_b = EngineReportView {
+            supported: vec![
+                WallpaperType::Gif,
+                WallpaperType::Video,
+                WallpaperType::Url,
+                WallpaperType::Web,
+                WallpaperType::YouTube,
+            ],
+            playable: vec![
+                WallpaperType::Gif,
+                WallpaperType::Video,
+                WallpaperType::Url,
+                WallpaperType::Web,
+                WallpaperType::YouTube,
+            ],
+            ..ready()
+        };
+        for kind in [WallpaperType::Gif, WallpaperType::Url, WallpaperType::YouTube] {
+            assert_eq!(
+                use_state(
+                    &theme(kind, Compatibility::Compatible),
+                    Some(&idle),
+                    Some(&round_b),
+                    true
+                ),
+                CardUse::Enabled,
+                "{kind:?}"
+            );
+        }
+        assert_eq!(
+            use_state(
+                &theme(WallpaperType::Application, Compatibility::Compatible),
+                Some(&idle),
+                Some(&round_b),
+                true
+            ),
+            CardUse::Disabled(DisabledReason::UnsupportedType),
+            "Application waits for Round E"
+        );
+    }
+
+    #[test]
     fn the_card_waits_for_the_engine_report_before_it_allows_use() {
         let idle = runtime(None, false, RuleState::None);
         assert_eq!(
