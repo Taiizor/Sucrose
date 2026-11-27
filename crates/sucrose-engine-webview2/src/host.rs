@@ -241,7 +241,8 @@ mod imp {
         youtube::{referer_for, request_filters},
     };
     use webview2_com::{
-        AcceleratorKeyPressedEventHandler, CallDevToolsProtocolMethodCompletedHandler, CoreWebView2EnvironmentOptions,
+        AcceleratorKeyPressedEventHandler, BrowserProcessExitedEventHandler,
+        CallDevToolsProtocolMethodCompletedHandler, CoreWebView2EnvironmentOptions,
         CreateCoreWebView2ControllerCompletedHandler, CreateCoreWebView2EnvironmentCompletedHandler,
         DownloadStartingEventHandler, ExecuteScriptCompletedHandler,
         Microsoft::Web::WebView2::Win32::{
@@ -249,9 +250,10 @@ mod imp {
             COREWEBVIEW2_KEY_EVENT_KIND_SYSTEM_KEY_DOWN, COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_ALWAYS_ALLOW,
             COREWEBVIEW2_WEB_RESOURCE_CONTEXT_ALL, CreateCoreWebView2EnvironmentWithOptions, ICoreWebView2,
             ICoreWebView2_4, ICoreWebView2_14, ICoreWebView2Controller, ICoreWebView2Controller2,
-            ICoreWebView2Controller3, ICoreWebView2Environment, ICoreWebView2EnvironmentOptions,
-            ICoreWebView2NavigationCompletedEventArgs, ICoreWebView2NavigationCompletedEventArgs2,
-            ICoreWebView2Settings3, ICoreWebView2WebResourceRequest, ICoreWebView2WebResourceRequestedEventArgs,
+            ICoreWebView2Controller3, ICoreWebView2Environment, ICoreWebView2Environment5,
+            ICoreWebView2EnvironmentOptions, ICoreWebView2NavigationCompletedEventArgs,
+            ICoreWebView2NavigationCompletedEventArgs2, ICoreWebView2Settings3, ICoreWebView2WebResourceRequest,
+            ICoreWebView2WebResourceRequestedEventArgs,
         },
         NavigationCompletedEventHandler, ServerCertificateErrorDetectedEventHandler, WebResourceRequestedEventHandler,
         take_pwstr,
@@ -284,6 +286,12 @@ mod imp {
     /// How long the environment and the controller get to come up.
     const CREATE_TIMEOUT: Duration = Duration::from_secs(30);
 
+    /// How long a closing host waits for WebView2's browser process to exit before it lets go of the profile folder
+    /// (04-37 D10). Measured: about 0.2 to 0.3 s on a profile that has run before, about 6.2 s when the profile folder
+    /// is new (the first run of a folder), so the bound sits above the slow case. A Quit (2 s grace) or a library move
+    /// (4 s) that cannot wait ends the renderer through the job object, as it did before the renderer waited at all.
+    const BROWSER_EXIT_WAIT: Duration = Duration::from_secs(8);
+
     /// How long to wait before the one retry of the environment (a previous renderer's browser process may still hold
     /// the same user data folder).
     const RETRY_DELAY: Duration = Duration::from_secs(2);
@@ -314,7 +322,12 @@ mod imp {
     /// callbacks through the message loop of the thread that started the operation, so waiting without pumping would
     /// never finish.
     fn wait_for<T>(rx: &mpsc::Receiver<T>, what: &'static str) -> Result<T, HostError> {
-        let deadline = Instant::now() + CREATE_TIMEOUT;
+        pump_until(rx, what, CREATE_TIMEOUT)
+    }
+
+    /// [`wait_for`] with the time it may take.
+    fn pump_until<T>(rx: &mpsc::Receiver<T>, what: &'static str, timeout: Duration) -> Result<T, HostError> {
+        let deadline = Instant::now() + timeout;
         loop {
             if let Ok(value) = rx.try_recv() {
                 return Ok(value);
@@ -340,6 +353,64 @@ mod imp {
                 }
             }
         }
+    }
+
+    /// A registration for the exit of the WebView2 browser process of an environment (04-37 D10).
+    struct ExitWatch {
+        environment: ICoreWebView2Environment5,
+        token: i64,
+        exited: mpsc::Receiver<()>,
+    }
+
+    /// Registers for the exit of the browser process of `environment`; `None` when the runtime is too old to say.
+    fn watch_browser_exit(environment: &ICoreWebView2Environment) -> Option<ExitWatch> {
+        let environment = match environment.cast::<ICoreWebView2Environment5>() {
+            Ok(environment) => environment,
+            Err(error) => {
+                tracing::debug!(%error, "this WebView2 runtime cannot report its browser process exit");
+                return None;
+            }
+        };
+        let (sender, exited) = mpsc::channel();
+        let handler = BrowserProcessExitedEventHandler::create(Box::new(move |_environment, _args| {
+            // The receiver is gone after a timeout; nobody waits for the event then.
+            let _ = sender.send(());
+            Ok(())
+        }));
+        let mut token = 0_i64;
+        // SAFETY: the handler is a COM object the call keeps its own reference to, and `token` outlives the call.
+        match unsafe { environment.add_BrowserProcessExited(&handler, &mut token) } {
+            Ok(()) => Some(ExitWatch {
+                environment,
+                token,
+                exited,
+            }),
+            Err(error) => {
+                tracing::debug!(%error, "cannot watch the WebView2 browser process");
+                None
+            }
+        }
+    }
+
+    /// Pumps this thread's messages until the browser process of `watch` exited or [`BROWSER_EXIT_WAIT`] passed, logs
+    /// which, and removes the registration.
+    fn await_browser_exit(watch: ExitWatch) {
+        let started = Instant::now();
+        let outcome = pump_until(&watch.exited, "the WebView2 browser process to exit", BROWSER_EXIT_WAIT);
+        let elapsed_ms = started.elapsed().as_millis();
+        match outcome {
+            Ok(()) => tracing::info!(elapsed_ms, "webview2 browser process exited"),
+            Err(HostError::TimedOut(_)) => tracing::warn!(
+                elapsed_ms,
+                "the WebView2 browser process did not exit in time; its profile folder may still be in use"
+            ),
+            Err(_) => tracing::debug!(
+                elapsed_ms,
+                "the message loop is ending, not waiting for the WebView2 browser process"
+            ),
+        }
+        // SAFETY: the token came from the registration on this environment; a failure only means it is gone.
+        let _ = unsafe { watch.environment.remove_BrowserProcessExited(watch.token) };
     }
 
     /// One attempt at the environment on `folder`.
@@ -1025,8 +1096,9 @@ mod imp {
             }
         }
 
-        /// Closes the controller, then releases the webview, the controller and the environment in that order. Call it
-        /// before the surface is dropped. Nothing is posted to any window: the controller is a child of the desktop
+        /// Closes the controller, releases the webview and the controller, waits (bounded) for WebView2's browser process
+        /// to exit, then releases the environment: the profile folder is free for the next renderer only after that
+        /// (04-37 D10). Call it before the surface is dropped. Nothing is posted to any window: the controller is a child of the desktop
         /// surface, and a close message to its top-level ancestor would reach the shell (the Round A CEF lesson).
         pub fn close(mut self) {
             self.close_inner();
@@ -1058,6 +1130,12 @@ mod imp {
                 // SAFETY: the token came from this controller's registration; a failure only means it is gone.
                 let _ = unsafe { controller.remove_AcceleratorKeyPressed(token) };
             }
+            // Registered before the close, so an exit that follows at once is not missed.
+            let watch = if opened {
+                self.environment.as_ref().and_then(watch_browser_exit)
+            } else {
+                None
+            };
             if let Some(controller) = &self.controller {
                 // SAFETY: the controller belongs to this thread; closing twice is harmless, the second answer is an
                 // error that is logged.
@@ -1068,6 +1146,9 @@ mod imp {
             self.webview = None;
             self.controller3 = None;
             self.controller = None;
+            if let Some(watch) = watch {
+                await_browser_exit(watch);
+            }
             self.environment = None;
             if opened {
                 tracing::info!("webview2 closed");

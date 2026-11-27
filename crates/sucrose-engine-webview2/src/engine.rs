@@ -644,7 +644,8 @@ impl SurfacePump for WebView2Pump {
         } = *self;
         // The controller first: its window is a child of the surface.
         host.close();
-        // The profile folder is free for the next instance only once WebView2 no longer writes to it.
+        // The profile folder is free for the next instance only once WebView2 no longer writes to it: `host.close()`
+        // returned after WebView2's browser process exited (or the bounded wait ended), so the lease ends here (D10).
         drop(profile);
         if let Some(folder) = scratch {
             let _ = std::fs::remove_dir_all(folder);

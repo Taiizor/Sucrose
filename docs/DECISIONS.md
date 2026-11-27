@@ -222,6 +222,12 @@ When you make or change a decision, add an entry here in the same change.
 - Why: the providers are thin wrappers over OS counters that would otherwise sit in `sucrose-platform`, which would then mix the service-wide platform trait with data that only the on-demand data hub (D-24) reads; a crate of its own keeps the unsafe surface, its tests and its per-OS code in one place and lets the hub be absent (D-008) without dragging those dependencies into other crates.
 - Consequences: CLAUDE.md non-negotiable 5, `.claude/rules/platform-ffi.md` and `docs/ARCHITECTURE.md` list the crate. The first provider is the Date group (`GetLocalTime`); Memory, Processor, Bios and Motherboard follow in plan 04-11, the other groups in Round D.
 
+## D-040: The primary monitor keeps the persistent web profile
+- Status: Accepted (2026-11-27), the maintainer's decision on 04-37 D9; amends the profile rule of D-038 (04-CONTEXT D-33)
+- Decision: the service picks the owner of the persistent web profile from the monitor list (the primary monitor, else the monitor with the lowest id) and sends each renderer the kind to ask for in `Assignment.web_profile`. Only the owner tries the OS lock (`.sucrose-profile.lock`), waiting at most 1 s for an instance that is still ending, and then runs ephemeral; every other instance is ephemeral without touching the lock. A primary switch while playing moves the profile at the next start of each renderer: the stored assignments are refreshed on every monitor snapshot, a running renderer keeps its lease until it ends.
+- Why: the user looks at the primary monitor, and the lock race gave its web data to whichever renderer started first (04-37 A5: the storage fixture on DISPLAY1 stayed at 1 while DISPLAY9 held the profile).
+- Consequences: replaces the D-038 consequence that the owner "follows which renderer locked first". A WebView2 renderer releases its profile only after its browser process exited (`BrowserProcessExited`, bounded; 04-37 D10), and an ephemeral folder that is still in use is emptied with retries for up to 1 s. The bound of the browser exit wait is 8 s, not 1 s: on the maintainer's machine the browser process took about 0.25 s to exit in some closes and about 6.2 s in others, and a shorter bound only logged warnings and left the folder in use. `PROTOCOL_VERSION` is 10. D-038 itself is unchanged.
+
 ---
 
 ## Open questions

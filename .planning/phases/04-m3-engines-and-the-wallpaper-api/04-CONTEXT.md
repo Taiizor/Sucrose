@@ -188,6 +188,7 @@ The research (`04-RESEARCH.md`, Open Questions for the Maintainer) raised five q
   - localStorage, IndexedDB and cookies therefore persist only for the first instance; volumes stay independent (D-06).
   - Record it in `docs/FEATURES.md`.
   - **Reversibility:** costly — which instance keeps its web data is user-visible.
+  - **Amended 2026-11-27 (04-37 D9, maintainer):** with several monitors the persistent profile goes to the primary monitor's instance, not to the first one that locks; see `docs/DECISIONS.md` D-040.
 - **D-34:** **`sucrose-sysinfo` becomes an unsafe-allowed platform-provider crate.**
   - A new `docs/DECISIONS.md` entry adds it to the D-011 list, with per-OS `cfg` inside it (PDH, WASAPI, GSMTC, ICMP) and a `// SAFETY:` comment on each block.
   - `sucrose-core` stays free of OS code.

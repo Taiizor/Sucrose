@@ -524,3 +524,74 @@ fn concurrent_instances_planning_origin_replies_get_their_own_answers() {
         }
     });
 }
+
+/// A file held open without delete sharing makes the removal of its folder fail like a process of the ended engine
+/// still using it (sharing violation, os error 32).
+#[cfg(windows)]
+mod held_folder {
+    use std::{fs::OpenOptions, os::windows::fs::OpenOptionsExt, thread, time::Duration};
+
+    use super::{Instant, ProfileKind, Scratch, acquire, fs};
+
+    /// Holds `<ephemeral>/Cef/1/held.bin` open for `hold` on another thread; returns once the file is open.
+    fn hold(scratch: &Scratch, hold: Duration) -> thread::JoinHandle<()> {
+        let folder = scratch.ephemeral().join("Cef").join("1");
+        fs::create_dir_all(&folder).expect("held folder");
+        let file = OpenOptions::new()
+            .write(true)
+            .create(true)
+            .truncate(true)
+            .share_mode(0)
+            .open(folder.join("held.bin"))
+            .expect("open without sharing");
+        thread::spawn(move || {
+            thread::sleep(hold);
+            drop(file);
+        })
+    }
+
+    #[test]
+    fn profile_an_ephemeral_folder_still_in_use_is_emptied_after_retries() {
+        let scratch = Scratch::new("held-retry");
+        let holder = hold(&scratch, Duration::from_millis(200));
+
+        let lease = acquire(
+            &scratch.web(),
+            "Cef",
+            &scratch.ephemeral(),
+            1,
+            ProfileKind::Ephemeral,
+            Duration::from_secs(2),
+        )
+        .expect("emptied after the holder let go");
+        holder.join().expect("holder thread");
+
+        assert_eq!(lease.kind, ProfileKind::Ephemeral);
+        assert_eq!(
+            fs::read_dir(&lease.path).expect("read").count(),
+            0,
+            "the folder is empty"
+        );
+    }
+
+    #[test]
+    fn profile_an_ephemeral_folder_that_stays_in_use_fails_after_the_wait() {
+        let scratch = Scratch::new("held-fail");
+        let holder = hold(&scratch, Duration::from_secs(1));
+
+        let started = Instant::now();
+        let result = acquire(
+            &scratch.web(),
+            "Cef",
+            &scratch.ephemeral(),
+            1,
+            ProfileKind::Ephemeral,
+            Duration::from_millis(200),
+        );
+        let waited = started.elapsed();
+        holder.join().expect("holder thread");
+
+        assert!(result.is_err(), "the folder was still in use");
+        assert!(waited >= Duration::from_millis(200), "waited {waited:?}");
+    }
+}

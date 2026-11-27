@@ -72,17 +72,33 @@ pub fn acquire(
         return Ok(lease);
     }
     let path = ephemeral_root.join(engine).join(slot.to_string());
-    match fs::remove_dir_all(&path) {
-        Ok(()) => {}
-        Err(error) if error.kind() == io::ErrorKind::NotFound => {}
-        Err(error) => return Err(error),
-    }
+    empty_folder(&path, wait)?;
     fs::create_dir_all(&path)?;
     Ok(ProfileLease {
         kind: ProfileKind::Ephemeral,
         path,
         _lock: None,
     })
+}
+
+/// Removes `path` with everything in it. A folder that cannot be removed (a process of the ended engine still has a
+/// file open, a sharing violation on Windows) is tried again every [`RETRY_EVERY`] until `wait` has passed, then the
+/// last error is returned. A folder that is not there is already empty.
+fn empty_folder(path: &Path, wait: Duration) -> io::Result<()> {
+    let deadline = Instant::now() + wait;
+    loop {
+        match fs::remove_dir_all(path) {
+            Ok(()) => return Ok(()),
+            Err(error) if error.kind() == io::ErrorKind::NotFound => return Ok(()),
+            Err(error) => {
+                let now = Instant::now();
+                if now >= deadline {
+                    return Err(error);
+                }
+                thread::sleep(RETRY_EVERY.min(deadline - now));
+            }
+        }
+    }
 }
 
 /// Locks the persistent folder of `engine`, trying again every [`RETRY_EVERY`] until `wait` has passed; `None` when
