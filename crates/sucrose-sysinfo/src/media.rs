@@ -280,6 +280,18 @@ fn encode_jpeg(image: &image::DynamicImage) -> Option<Vec<u8>> {
     Some(bytes)
 }
 
+/// Encodes `image` as a PNG that keeps its alpha, as small as the encoder can make it.
+fn encode_png(image: &image::DynamicImage) -> Option<Vec<u8>> {
+    let mut bytes = Vec::new();
+    let encoder = image::codecs::png::PngEncoder::new_with_quality(
+        &mut bytes,
+        image::codecs::png::CompressionType::Best,
+        image::codecs::png::FilterType::Adaptive,
+    );
+    image.to_rgba8().write_with_encoder(encoder).ok()?;
+    Some(bytes)
+}
+
 /// Re-encodes the art until its base64 text is at most `max_text` long: first at its own size, then with both sides scaled
 /// down together (always from the decoded original, so the aspect ratio holds). `None` when the art cannot be decoded, or does
 /// not fit within `ART_ATTEMPTS` encodes and `ART_MIN_SIDE`.
@@ -292,18 +304,17 @@ fn fit_art(payload: &[u8], max_text: usize) -> Option<Fitted> {
         return None;
     }
     let opaque = !original.color().has_alpha() || original.pixels().all(|(_, _, pixel)| pixel.0[3] == 255);
-    if !opaque {
-        return None;
-    }
+    // Opaque art becomes a JPEG; art with a transparent pixel stays a PNG so its alpha survives.
+    let encode = if opaque { encode_jpeg } else { encode_png };
     let mut scale = 1.0_f64;
     let (mut new_width, mut new_height) = (width, height);
     let mut attempts = 0;
     loop {
         let bytes = if attempts == 0 {
-            encode_jpeg(&original)?
+            encode(&original)?
         } else {
             let resized = original.resize_exact(new_width, new_height, image::imageops::FilterType::CatmullRom);
-            encode_jpeg(&resized)?
+            encode(&resized)?
         };
         attempts += 1;
         let length = text_len(bytes.len());
@@ -1096,6 +1107,29 @@ mod tests {
         assert!(i64::from(decoded.width()) * 400 - i64::from(decoded.height()) * 600 <= 600);
         assert!(i64::from(decoded.height()) * 600 - i64::from(decoded.width()) * 400 <= 600);
         assert!(decoded.width().max(decoded.height()) >= ART_MIN_SIDE);
+    }
+
+    #[test]
+    fn transparent_art_stays_a_png_with_its_alpha_when_it_is_made_smaller() {
+        let mut seed = 5;
+        let art = image::RgbaImage::from_fn(300, 300, |x, y| {
+            let alpha = if (x, y) == (0, 0) {
+                255
+            } else {
+                64 + noise(&mut seed) / 2
+            };
+            image::Rgba([noise(&mut seed), noise(&mut seed), noise(&mut seed), alpha])
+        });
+        let png = png_of(&art);
+        let budget = base64(&png).len() / 2;
+
+        let text = thumbnail_text_within(&png, true, budget);
+
+        assert!(!text.is_empty() && text.len() <= budget);
+        let bytes = unbase64(&text);
+        assert_eq!(image::guess_format(&bytes).expect("a format"), image::ImageFormat::Png);
+        let decoded = image::load_from_memory(&bytes).expect("a PNG").to_rgba8();
+        assert!(decoded.pixels().any(|pixel| pixel.0[3] < 255));
     }
 
     #[test]
