@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-35-PLAN.md
-last_updated: "2026-11-27T04:18:00.943Z"
+stopped_at: Completed 04-36-PLAN.md
+last_updated: "2026-11-27T04:46:20.756Z"
 last_activity: 2026-11-27
 last_activity_desc: Phase 04 execution started
-state_head: 45d79dc0153c3df35cff623a5076d1af7e9deb66
+state_head: 8c09175a259c535c49665b7c0cf05b2d8cfdb0a1
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 117
-  completed_plans: 114
+  completed_plans: 115
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 36 of 38
+Plan: 37 of 38
 Status: Ready to execute
 Last activity: 2026-11-27 — Phase 04 execution started
 Next step: /gsd-debug for the in-page Web theme failures and the CEF GPU process crash (04-37 names their fixes as its precondition), then `/gsd-execute-phase 4` runs Round B.
@@ -169,6 +169,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P33 | 21 min | 3 tasks | 14 files |
 | Phase 04 P34 | 20 min | 2 tasks | 14 files |
 | Phase 04 P35 | 19 min | 2 tasks | 17 files |
+| Phase 04 P36 | 21 min | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -352,6 +353,8 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-35: The YouTube page's SucroseStretchMode is a no-op (the player fills the surface; legacy YouTube is not stretched), so the engines' stretch path stays uniform for every generated page
 - [Phase 04]: 04-35: referer_for fills only a missing Referer for https youtube.com and youtube-nocookie.com hosts (subdomains included) with the virtual origin and never replaces one; CEF returns a request handler only for those hosts
 - [Phase 04]: 04-35: the YouTube page keeps the engine volume at 0 until the first SucroseVolume call and applies the product with the property volume once the player is ready (a pause before ready is applied on ready too)
+- [Phase 04]: 04-36: Gif select order follows the legacy allowed list (Built-in, WebView2, CEF, mpv, libVLC), as the Video row does, not the plan prose order
+- [Phase 04]: 04-36: a stored VexanaLive shows as the single Built-in choice (XavierLive); VexanaLive is never a second list entry
 
 ### Pending Todos
 
@@ -391,6 +394,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-27T04:17:18.502Z
-Stopped at: Completed 04-35-PLAN.md
+Last session: 2026-11-27T04:45:58.897Z
+Stopped at: Completed 04-36-PLAN.md
 Resume file: None
