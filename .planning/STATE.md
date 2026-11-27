@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-33-PLAN.md
-last_updated: "2026-11-27T03:23:35.043Z"
+stopped_at: Completed 04-34-PLAN.md
+last_updated: "2026-11-27T03:51:00.115Z"
 last_activity: 2026-11-27
 last_activity_desc: Phase 04 execution started
-state_head: 4fa51d419e3178e4128e328ea7fc8a3fda942a7b
+state_head: 8e88317226e439bd31304356a34e8406d8c479f8
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 117
-  completed_plans: 112
+  completed_plans: 113
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 34 of 38
+Plan: 35 of 38
 Status: Ready to execute
 Last activity: 2026-11-27 — Phase 04 execution started
 Next step: /gsd-debug for the in-page Web theme failures and the CEF GPU process crash (04-37 names their fixes as its precondition), then `/gsd-execute-phase 4` runs Round B.
@@ -167,6 +167,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P31 | 11 min | 2 tasks | 7 files |
 | Phase 04 P32 | 22 min | 2 tasks | 10 files |
 | Phase 04 P33 | 21 min | 3 tasks | 14 files |
+| Phase 04 P34 | 20 min | 2 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -345,6 +346,8 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-32: the frame delay rule is the legacy one for GIF, APNG and WebP (0 ms plays at 100 ms, other delays as given); a one-frame file is sent as Message::Still, shown once with no frame timer
 - [Phase 04]: 04-33: property_calls_of clamps slider values to their bounds while a theme's own file is passed as is; the generated pages' volume control uses Property.Localization.Volume keys with an English PropertyLocalization table
 - [Phase 04]: 04-33: GifContent.html keeps the legacy gifuct-js bundle (MIT, Matt Way) with its notice added; the legacy page shipped it without one, maintainer to confirm
+- [Phase 04]: 04-34: the theme source is a typed ThemeSource (file or address); Url and YouTube Sources pass an http/https-only address gate
+- [Phase 04]: 04-34: only consecutive mouse moves are coalesced (MoveSlot); web pages take input by page kind (Web and Url yes, generated Gif and Video no)
 
 ### Pending Todos
 
@@ -383,6 +386,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-27T03:23:12.589Z
-Stopped at: Completed 04-33-PLAN.md
+Last session: 2026-11-27T03:50:36.132Z
+Stopped at: Completed 04-34-PLAN.md
 Resume file: None
