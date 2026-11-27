@@ -339,6 +339,7 @@ fn write(settings: &mut Settings, change: &SettingChange) {
         SettingChange::InputModuleType(value) => settings.engine.input_module_type = *value,
         SettingChange::InputDesktop(value) => settings.engine.input_desktop = *value,
         SettingChange::AllowInvalidCertificates(value) => settings.engine.allow_invalid_certificates = *value,
+        SettingChange::WebViewSmartScreen(value) => settings.engine.webview_smartscreen = *value,
         SettingChange::CefArguments(list) => settings.engine.cef_arguments = args::to_cef_map(&to_switches(list)),
         SettingChange::WebArguments(list) => settings.engine.web_arguments = args::to_web_list(&to_switches(list)),
         SettingChange::DeveloperMode(value) => settings.engine.developer_mode = *value,
@@ -392,6 +393,7 @@ fn view_of(settings: &Settings) -> PortalSettings {
         allow_invalid_certificates: settings.engine.allow_invalid_certificates,
         developer_mode: settings.engine.developer_mode,
         developer_port: settings.engine.developer_port,
+        webview_smartscreen: settings.engine.webview_smartscreen,
     }
 }
 
@@ -718,6 +720,21 @@ mod tests {
         let file = fs::read(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).expect("the settings file exists");
         let json: serde_json::Value = serde_json::from_slice(&file).expect("the file is JSON");
         assert_eq!(json["Engine"]["AllowInvalidCertificates"], true);
+    }
+
+    #[test]
+    fn a_webview2_smartscreen_change_is_stored_and_shown() {
+        let scratch = Scratch::new("smartscreen");
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+        assert!(!host.view().webview_smartscreen, "off by default (D-041)");
+
+        let stored = host.apply(SettingChange::WebViewSmartScreen(true));
+
+        assert_eq!(stored, Ok(SettingChange::WebViewSmartScreen(true)));
+        assert!(host.view().webview_smartscreen);
+        let file = fs::read(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).expect("the settings file exists");
+        let json: serde_json::Value = serde_json::from_slice(&file).expect("the file is JSON");
+        assert_eq!(json["Engine"]["WebViewSmartScreen"], true);
     }
 
     #[test]

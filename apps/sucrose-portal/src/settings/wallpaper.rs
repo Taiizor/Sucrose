@@ -513,8 +513,22 @@ pub fn restart_trigger(
             now.hardware_acceleration,
             previous.hardware_acceleration,
         )),
+        SettingChange::WebViewSmartScreen(_) => Some((
+            RestartSetting::SmartScreen,
+            now.webview_smartscreen,
+            previous.webview_smartscreen,
+        )),
         _ => None,
     }
+}
+
+/// Whether a committed change moves what Sucrose's own switches are computed from (Hardware Acceleration and the
+/// WebView2 SmartScreen setting), so the Arguments editors must ask for their read-only rows again.
+fn refreshes_own_switches(change: &SettingChange) -> bool {
+    matches!(
+        change,
+        SettingChange::HardwareAcceleration(_) | SettingChange::WebViewSmartScreen(_)
+    )
 }
 
 /// The Wallpaper settings page.
@@ -684,8 +698,9 @@ impl WallpaperPage {
         if needs_refresh(change) {
             self.refresh(window, cx);
         }
-        // Sucrose's own switches follow Hardware Acceleration (the read-only rows of the editor).
-        if matches!(change, SettingChange::HardwareAcceleration(_)) {
+        // Sucrose's own switches follow Hardware Acceleration and the SmartScreen setting (the read-only rows of the
+        // editor).
+        if refreshes_own_switches(change) {
             for editor in self.editors() {
                 editor.update(cx, |editor, _| editor.request());
             }
@@ -843,6 +858,29 @@ impl WallpaperPage {
         .build(cx)
     }
 
+    /// The WebView2 SmartScreen row (D-041): a switch under the WebView2 row, off by default, with the info hint that on
+    /// sends the wallpaper's address to Microsoft and can make a quick switch slow. The service saves it; the restart
+    /// prompt follows the broadcast.
+    fn smartscreen_row(&self, cx: &mut Context<Self>) -> AnyElement {
+        let state = self.state();
+        let on = self.settings.as_ref().is_some_and(|s| s.webview_smartscreen);
+        let switch = Switch::new("web-smartscreen")
+            .checked(on)
+            .disabled(state.disabled())
+            .accessibility_label(tr("Portal.WallpaperSettingPage.SmartScreen"))
+            .on_click(cx.listener(|this, value: &bool, _, _| {
+                this.send(SettingChange::WebViewSmartScreen(*value));
+            }));
+        SettingRow::new(
+            tr("Portal.WallpaperSettingPage.SmartScreen"),
+            Some(tr("Portal.WallpaperSettingPage.SmartScreen.Description")),
+        )
+        .control(switch, 40.)
+        .footer(info_alert(tr("Portal.WallpaperSettingPage.SmartScreen.Hint"), cx))
+        .state(state)
+        .build(cx)
+    }
+
     /// The row of one web engine: its title, its status line and its Arguments editor (UI-SPEC E2, E4).
     fn web_engine_row(&self, engine: EngineType, editor: &Entity<ArgumentsEditor>, cx: &App) -> AnyElement {
         let line = status_line(engine, state_of(self.engines.as_ref(), engine));
@@ -853,15 +891,16 @@ impl WallpaperPage {
             .build(cx)
     }
 
-    /// The Web Engine Settings group: the certificate switch, then the WebView2 row and the CEF row, each with its
-    /// status line and its own Arguments editor.
+    /// The Web Engine Settings group: the certificate switch, then the WebView2 row, the WebView2 SmartScreen switch
+    /// directly under it, and the CEF row; each engine row has its status line and its own Arguments editor.
     fn web_engines_group(&self, cx: &mut Context<Self>) -> AnyElement {
         let certificates = self.certificates_row(cx);
         let webview2 = self.web_engine_row(EngineType::WebViewLive, &self.web_arguments, cx);
+        let smartscreen = self.smartscreen_row(cx);
         let cef = self.web_engine_row(EngineType::CefSharpLive, &self.arguments, cx);
         super::group(
             tr("Portal.WallpaperSettingPage.WebEngines"),
-            vec![certificates, webview2, cef],
+            vec![certificates, webview2, smartscreen, cef],
         )
     }
 }
@@ -1030,7 +1069,8 @@ mod tests {
 
     use super::{
         EngineRow, Flag, RestartSetting, StatusLine, alert_text, engine_choices, hint_text, input_module_choices,
-        input_type_choices, needs_refresh, restart_trigger, row_alert, row_install_action, should_prompt, status_line,
+        input_type_choices, needs_refresh, refreshes_own_switches, restart_trigger, row_alert, row_install_action,
+        should_prompt, status_line,
     };
     use sucrose_ipc::portal::{FallbackView, HintView};
 
@@ -1120,7 +1160,31 @@ mod tests {
             allow_invalid_certificates: false,
             developer_mode: false,
             developer_port: 0,
+            webview_smartscreen: false,
         }
+    }
+
+    #[test]
+    fn restart_trigger_of_the_smartscreen_switch_names_it_and_both_values() {
+        let before = settings();
+        let mut after = settings();
+        after.webview_smartscreen = true;
+
+        assert_eq!(
+            restart_trigger(&SettingChange::WebViewSmartScreen(true), &before, &after),
+            Some((RestartSetting::SmartScreen, true, false))
+        );
+        assert_eq!(
+            restart_trigger(&SettingChange::WebViewSmartScreen(false), &after, &before),
+            Some((RestartSetting::SmartScreen, false, true))
+        );
+    }
+
+    #[test]
+    fn own_switches_are_asked_again_after_hardware_acceleration_or_smartscreen_changes() {
+        assert!(refreshes_own_switches(&SettingChange::HardwareAcceleration(false)));
+        assert!(refreshes_own_switches(&SettingChange::WebViewSmartScreen(true)));
+        assert!(!refreshes_own_switches(&SettingChange::AllowInvalidCertificates(true)));
     }
 
     #[test]

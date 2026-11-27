@@ -15,7 +15,7 @@ use sucrose_core::{
 };
 
 /// Version of the Portal protocol, sent in `PortalHello` so the service can refuse a Portal it cannot talk to.
-pub const PORTAL_PROTOCOL_VERSION: u16 = 7;
+pub const PORTAL_PROTOCOL_VERSION: u16 = 8;
 
 /// The longest path text, in bytes, the service accepts from a Portal and puts into a message it sends. It keeps the
 /// largest possible [`PortalEvent::Welcome`] far below [`crate::frame::MAX_FRAME`].
@@ -451,6 +451,9 @@ pub enum SettingChange {
     /// `"--name=value"`, D-17); applies the next time a WebView2 wallpaper starts. Like [`SettingChange::CefArguments`] it
     /// has no field in [`PortalSettings`]: the Portal asks for the list with [`PortalRequest::GetArguments`].
     WebArguments(Vec<SwitchView>),
+    /// Whether WebView2 wallpapers run with Edge SmartScreen (D-041, `Engine.WebViewSmartScreen`); applies the next time
+    /// a WebView2 wallpaper starts. Appended after [`SettingChange::WebArguments`].
+    WebViewSmartScreen(bool),
 }
 
 /// The settings the Portal shows: a view of the service's settings, never the file (D-11).
@@ -524,6 +527,8 @@ pub struct PortalSettings {
     pub developer_mode: bool,
     /// The debugging port, 0 for none.
     pub developer_port: u16,
+    /// Whether WebView2 wallpapers run with Edge SmartScreen.
+    pub webview_smartscreen: bool,
 }
 
 impl PortalSettings {
@@ -564,6 +569,7 @@ impl PortalSettings {
             SettingChange::CefArguments(_) | SettingChange::WebArguments(_) => {}
             SettingChange::DeveloperMode(value) => self.developer_mode = *value,
             SettingChange::DeveloperPort(value) => self.developer_port = *value,
+            SettingChange::WebViewSmartScreen(value) => self.webview_smartscreen = *value,
         }
     }
 }
@@ -774,6 +780,7 @@ mod tests {
             allow_invalid_certificates: false,
             developer_mode: false,
             developer_port: 0,
+            webview_smartscreen: false,
         }
     }
 
@@ -810,8 +817,8 @@ mod tests {
     }
 
     #[test]
-    fn the_portal_protocol_is_at_version_seven_since_webview2_has_its_own_argument_change() {
-        assert_eq!(PORTAL_PROTOCOL_VERSION, 7);
+    fn the_portal_protocol_is_at_version_eight_since_the_settings_view_has_the_smartscreen_setting() {
+        assert_eq!(PORTAL_PROTOCOL_VERSION, 8);
     }
 
     #[test]
@@ -989,6 +996,7 @@ mod tests {
             SettingChange::DeveloperMode(false),
             SettingChange::DeveloperPort(0),
             SettingChange::WebArguments(Vec::new()),
+            SettingChange::WebViewSmartScreen(false),
         ];
         for (expected, change) in changes.iter().enumerate() {
             assert_eq!(usize::from(index(change)), expected, "{change:?}");
@@ -1099,7 +1107,7 @@ mod tests {
     #[test]
     fn apply_sets_exactly_the_field_a_change_names() {
         let base = view();
-        let cases: [(SettingChange, PortalSettings); 20] = [
+        let cases: [(SettingChange, PortalSettings); 21] = [
             (
                 SettingChange::GifEngine(EngineType::VlcPlayerLive),
                 PortalSettings {
@@ -1240,6 +1248,13 @@ mod tests {
                     ..view()
                 },
             ),
+            (
+                SettingChange::WebViewSmartScreen(true),
+                PortalSettings {
+                    webview_smartscreen: true,
+                    ..view()
+                },
+            ),
         ];
         for (change, expected) in cases {
             let mut settings = base.clone();
@@ -1262,6 +1277,7 @@ mod tests {
             SettingChange::LibraryPreviewHide(true),
             SettingChange::DeleteCorrupt(true),
             SettingChange::AppExit(false),
+            SettingChange::WebViewSmartScreen(true),
         ] {
             settings.apply(&change);
         }
@@ -1272,6 +1288,7 @@ mod tests {
         assert_eq!(settings.adaptive_layout, 9);
         assert!(settings.library_preview && settings.library_preview_hide && settings.delete_corrupt);
         assert!(!settings.app_exit);
+        assert!(settings.webview_smartscreen);
     }
 
     #[test]

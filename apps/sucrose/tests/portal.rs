@@ -1328,6 +1328,97 @@ fn saved_webview2_arguments_reach_the_restarted_renderer() {
     }
 }
 
+/// The WebView2 SmartScreen switch of the Portal (D-041): with a Web wallpaper on WebView2, `WebViewSmartScreen(true)` is
+/// saved, broadcast and written to `Engine.WebViewSmartScreen`, and restarts nothing by itself. A restart asked for CEF
+/// leaves the renderer alone; `RestartWallpapers` for WebView2 starts a second renderer per slot whose `chromium
+/// switches` line has no `msSmartScreenProtection` while the first one had it. It plays a real wallpaper, so it runs on
+/// purpose and skips where WebView2 cannot play Web here.
+#[test]
+#[ignore = "plays a Web wallpaper on the desktop from a scratch data folder; quick 261128-0du runs it"]
+fn webview2_smartscreen_saved_from_the_portal_restarts_only_the_webview2_wallpapers() {
+    const TEST: &str = "webview2_smartscreen_saved_from_the_portal_restarts_only_the_webview2_wallpapers";
+    if !service_runs(TEST) {
+        return;
+    }
+    let service = TestService::start("webview2-smartscreen", &json!({ "Engine": { "Web": "WebViewLive" } }));
+    copy_web_fixture(&service, "hello");
+    let (mut portal, _) = PortalClient::hello(&service, None);
+    let report = wait_for_engines(&portal);
+    if !report.playable.contains(&WallpaperType::Web) || !webview2_is_ready(&report) {
+        skipped(TEST, "the WebView2 Runtime is missing");
+        return;
+    }
+    assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
+    let first = wait_for_engine_starts_on_every_slot(&service, 1);
+    if first
+        .values()
+        .filter_map(|log| starts(log).first().copied())
+        .any(|line| !line.contains("engine=\"WebView2\""))
+    {
+        skipped(
+            TEST,
+            "WebView2 did not start the wallpaper here (the service fell back to another engine)",
+        );
+        return;
+    }
+    for (slot, log) in &first {
+        assert!(
+            log.contains("msSmartScreenProtection") && log.contains("webview_smartscreen=false"),
+            "SmartScreen is off by default on slot {slot}: {log}"
+        );
+    }
+
+    portal.request(&PortalRequest::Change(SettingChange::WebViewSmartScreen(true)));
+    loop {
+        match portal.next_event_any() {
+            Some(PortalEvent::Changed(SettingChange::WebViewSmartScreen(true))) => break,
+            Some(PortalEvent::Rejected { reason, .. }) => panic!("the SmartScreen switch was refused: {reason}"),
+            Some(_) => {}
+            None => panic!("the SmartScreen switch was not broadcast"),
+        }
+    }
+    assert_eq!(service.settings_file()["Engine"]["WebViewSmartScreen"], true);
+    let by_slot = renderer_logs_by_slot(&service);
+    assert!(
+        exactly_one_start_per_slot(&by_slot),
+        "a saved setting never restarts the wallpaper by itself, one start on every slot: {by_slot:?}"
+    );
+
+    // A restart asked for CEF changes nothing: the wallpaper runs on WebView2.
+    portal.request(&PortalRequest::RestartWallpapers {
+        engines: vec![EngineType::CefSharpLive],
+    });
+    std::thread::sleep(std::time::Duration::from_secs(2));
+    let by_slot = renderer_logs_by_slot(&service);
+    assert!(
+        exactly_one_start_per_slot(&by_slot),
+        "a restart of CEF leaves the WebView2 renderer alone, one start on every slot: {by_slot:?}"
+    );
+
+    portal.request(&PortalRequest::RestartWallpapers {
+        engines: vec![EngineType::WebViewLive],
+    });
+    let after = wait_for_engine_starts_on_every_slot(&service, 2);
+    for (slot, logs) in &after {
+        let switches: Vec<&str> = logs.lines().filter(|line| line.contains("chromium switches")).collect();
+        assert_eq!(
+            switches.len(),
+            2,
+            "two renderers of slot {slot} logged their switches: {logs}"
+        );
+        assert!(
+            switches[0].contains("msSmartScreenProtection"),
+            "the first renderer of slot {slot} had SmartScreen off: {}",
+            switches[0]
+        );
+        assert!(
+            switches[1].contains("webview_smartscreen=true") && !switches[1].contains("msSmartScreenProtection"),
+            "the second renderer of slot {slot} reads the saved setting: {}",
+            switches[1]
+        );
+    }
+}
+
 /// Open DevTools (D-13): with a Web wallpaper running on CEF, the Portal's `OpenDevTools` for its monitor reaches that
 /// monitor's renderer, which opens the developer tools, logs `devtools opened` and confirms, so the answer is `opened: true`.
 /// A monitor without a wallpaper is answered `opened: false` and nothing opens. Nothing opens the developer tools before

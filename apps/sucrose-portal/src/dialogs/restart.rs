@@ -1,5 +1,5 @@
 //! The shared Restart wallpapers prompt (UI-SPEC "Restart prompt", E12, D-17). A setting that a renderer reads only when it
-//! starts (the certificate switch, the CEF arguments, Hardware Acceleration) is saved first; when a wallpaper that reads it
+//! starts (the certificate switch, the CEF arguments, Hardware Acceleration, the WebView2 SmartScreen switch) is saved first; when a wallpaper that reads it
 //! runs, this dialog asks whether to restart those wallpapers now. Restart now restarts only the wallpapers on the
 //! affected engines, Later, Escape and a click outside keep the saved change for the next start. Nothing here restarts
 //! anything by itself.
@@ -41,6 +41,8 @@ pub enum RestartSetting {
     Certificates,
     /// Hardware Acceleration; every engine reads it.
     HardwareAcceleration,
+    /// The WebView2 SmartScreen switch (D-041); only WebView2 wallpapers read it.
+    SmartScreen,
     /// Default Developer Tools; both web engines read it.
     DeveloperMode,
     /// The debugging port; both web engines read it.
@@ -55,6 +57,7 @@ impl RestartSetting {
             Self::Certificates | Self::DeveloperMode | Self::DeveloperPort => {
                 matches!(engine, EngineType::WebViewLive | EngineType::CefSharpLive)
             }
+            Self::SmartScreen => engine == EngineType::WebViewLive,
             Self::HardwareAcceleration => true,
         }
     }
@@ -65,6 +68,7 @@ impl RestartSetting {
             Self::Arguments(_) => "Portal.RestartPrompt.Setting.Arguments",
             Self::Certificates => "Portal.RestartPrompt.Setting.Certificates",
             Self::HardwareAcceleration => "Portal.RestartPrompt.Setting.HardwareAcceleration",
+            Self::SmartScreen => "Portal.RestartPrompt.Setting.SmartScreen",
             Self::DeveloperMode => "Portal.RestartPrompt.Setting.DeveloperMode",
             Self::DeveloperPort => "Portal.RestartPrompt.Setting.DeveloperPort",
         }
@@ -247,6 +251,25 @@ mod tests {
                 &[CefSharpLive, MpvPlayerLive]
             ),
             "no WebView2 wallpaper runs: no prompt, the change applies at the next start"
+        );
+    }
+
+    #[test]
+    fn restart_the_smartscreen_setting_names_only_the_webview2_wallpapers() {
+        let running = [MpvPlayerLive, CefSharpLive, WebViewLive, CefSharpLive];
+
+        assert_eq!(affected_engines(RestartSetting::SmartScreen, &running), [WebViewLive]);
+        assert!(!should_prompt(
+            RestartSetting::SmartScreen,
+            &true,
+            &false,
+            &[CefSharpLive, MpvPlayerLive]
+        ));
+        assert!(!should_prompt(RestartSetting::SmartScreen, &true, &true, &running));
+        assert!(should_prompt(RestartSetting::SmartScreen, &true, &false, &running));
+        assert_eq!(
+            prompt_text(RestartSetting::SmartScreen, &[WebViewLive]),
+            "The SmartScreen setting applies when the WebView2 wallpapers restart."
         );
     }
 

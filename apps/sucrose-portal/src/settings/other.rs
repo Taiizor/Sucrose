@@ -416,6 +416,7 @@ mod tests {
             allow_invalid_certificates: false,
             developer_mode: false,
             developer_port: 0,
+            webview_smartscreen: false,
         }
     }
 
