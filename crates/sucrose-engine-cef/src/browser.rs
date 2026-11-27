@@ -119,6 +119,12 @@ pub fn profile_paths(profile: Option<&Path>) -> Result<(String, String), CefErro
 /// for it, so the browser process appends this switch itself, and only when the user allowed invalid certificates.
 pub const IGNORE_CERTIFICATE_ERRORS_SWITCH: &str = "ignore-certificate-errors";
 
+/// The Chromium switch that names the user data folder. CEF keeps its profile in `root_cache_path` and hands that folder
+/// to Chromium internally, never on the command line, but Chrome's early startup check only looks at the command line:
+/// without this switch it removes `--disable-web-security` (a legacy default, D-17) and the page runs with CORS and
+/// the same-origin rules on, unlike the legacy CefSharp app and WebView2.
+pub const USER_DATA_DIR_SWITCH: &str = "user-data-dir";
+
 /// The profile and certificate values of the CEF settings, decided before CEF is touched so they can be tested.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct SettingsValues {
@@ -128,6 +134,10 @@ pub struct SettingsValues {
     pub cache_path: String,
     /// Whether invalid TLS certificates are accepted (D-12): only when the user allowed it, never by default.
     pub ignore_certificate_errors: bool,
+    /// The value of [`USER_DATA_DIR_SWITCH`] for the browser process: the profile folder, which CEF uses as the user
+    /// data folder anyway (`root_cache_path` wins over the switch), so the switch moves nothing. `None` for in-memory
+    /// caches, which have no folder.
+    pub user_data_dir: Option<String>,
 }
 
 /// The settings values for a profile folder and the user's Allow invalid certificates choice (D-12).
@@ -136,10 +146,12 @@ pub struct SettingsValues {
 /// See [`profile_paths`].
 pub fn settings_values(profile: Option<&Path>, allow_invalid_certificates: bool) -> Result<SettingsValues, CefError> {
     let (root_cache_path, cache_path) = profile_paths(profile)?;
+    let user_data_dir = (!root_cache_path.is_empty()).then(|| root_cache_path.clone());
     Ok(SettingsValues {
         root_cache_path,
         cache_path,
         ignore_certificate_errors: allow_invalid_certificates,
+        user_data_dir,
     })
 }
 
@@ -258,8 +270,8 @@ mod imp {
 
     use super::{
         CefError, CefStart, CloseStep, IGNORE_CERTIFICATE_ERRORS_SWITCH, INSPECT_COMMAND_ID, KeyAction, LoadedCallback,
-        PageCallsCallback, ProfileLease, Pump, browser_size, close_step, do_close_answer, key_action,
-        next_pump_delay_ms, settings_values,
+        PageCallsCallback, ProfileLease, Pump, USER_DATA_DIR_SWITCH, browser_size, close_step, do_close_answer,
+        key_action, next_pump_delay_ms, settings_values,
     };
 
     /// `EVENTFLAG_SHIFT_DOWN` and `EVENTFLAG_CONTROL_DOWN` of a CEF key event's modifiers.
@@ -295,6 +307,7 @@ mod imp {
             handler: BrowserProcessHandler,
             ignore_certificate_errors: bool,
             switches: Vec<Switch>,
+            user_data_dir: Option<String>,
         }
 
         impl App {
@@ -306,7 +319,8 @@ mod imp {
             // browser's command line. CEF's settings have no field for accepting invalid certificates, so the browser
             // process also adds Chromium's switch itself, and only when the user allowed it (D-12): there is no
             // OnCertificateError override, so everything else is rejected. Switches go in one by one through the
-            // command line API, never through a shell (T-04-20).
+            // command line API, never through a shell (T-04-20). The profile folder also goes on as `--user-data-dir`,
+            // unless the user's switches name one: Chrome's startup check drops `--disable-web-security` without it.
             fn on_before_command_line_processing(
                 &self,
                 process_type: Option<&CefString>,
@@ -328,6 +342,13 @@ mod imp {
                 }
                 if self.ignore_certificate_errors {
                     command_line.append_switch(Some(&CefString::from(IGNORE_CERTIFICATE_ERRORS_SWITCH)));
+                }
+                let user_data_dir_switch = CefString::from(USER_DATA_DIR_SWITCH);
+                if let Some(folder) = &self.user_data_dir
+                    && command_line.has_switch(Some(&user_data_dir_switch)) == 0
+                {
+                    command_line
+                        .append_switch_with_value(Some(&user_data_dir_switch), Some(&CefString::from(folder.as_str())));
                 }
             }
         }
@@ -700,12 +721,14 @@ mod imp {
             tracing::info!(
                 switches = %plan.applied.iter().map(Switch::render).collect::<Vec<_>>().join(" "),
                 allow_invalid_certificates = values.ignore_certificate_errors,
+                user_data_dir = values.user_data_dir.is_some(),
                 "chromium switches"
             );
             let mut app = HostApp::new(
                 PumpHandler::new(Arc::clone(&pump)),
                 values.ignore_certificate_errors,
                 plan.applied,
+                values.user_data_dir.clone(),
             );
             let settings = Settings {
                 no_sandbox: 1,
@@ -1110,6 +1133,22 @@ mod tests {
             "the choice does not move the profile"
         );
         assert_eq!(IGNORE_CERTIFICATE_ERRORS_SWITCH, "ignore-certificate-errors");
+    }
+
+    #[test]
+    fn the_profile_folder_is_also_the_user_data_dir_and_in_memory_caches_have_none() {
+        let folder = std::env::temp_dir().join("sucrose-user-data-dir");
+
+        let persistent = settings_values(Some(&folder), false).expect("a folder");
+        let in_memory = settings_values(None, false).expect("in memory");
+
+        assert_eq!(
+            persistent.user_data_dir.as_deref(),
+            Some(persistent.root_cache_path.as_str()),
+            "the switch names the folder CEF already uses, so Chrome keeps --disable-web-security and nothing moves"
+        );
+        assert_eq!(in_memory.user_data_dir, None, "no folder, no switch");
+        assert_eq!(USER_DATA_DIR_SWITCH, "user-data-dir");
     }
 
     #[test]
