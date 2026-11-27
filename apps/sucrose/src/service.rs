@@ -2788,15 +2788,16 @@ struct Plan {
     gpu: GpuPreference,
 }
 
-/// The wallpaper types the service plays in this build (D-31 slice 1); later slices extend it.
-const PLAYABLE: &[WallpaperType] = &[WallpaperType::Video, WallpaperType::Web];
+/// The wallpaper types the service plays in this build (D-31 slices 1 to 3); later slices extend it. Gif plays on the
+/// built-in renderer or, as the migrated settings say, on mpv.
+const PLAYABLE: &[WallpaperType] = &[WallpaperType::Video, WallpaperType::Web, WallpaperType::Gif];
 
-/// Whether a wallpaper type is shown by CEF; every other playable type is played by mpv. Two types on different
-/// engines need new renderers on a Use, because a renderer is one process with one engine; and a CEF renderer cannot
-/// switch to another page in place (its `load_source` is unsupported until the page calls of 04-09), so a Use while
-/// one runs starts a new renderer.
-fn uses_cef(kind: WallpaperType) -> bool {
-    kind == WallpaperType::Web
+/// Whether a running renderer can load another wallpaper in place: only mpv can. A renderer is one process with one
+/// engine, so a Use that changes the engine (mpv, the built-in GIF renderer, a web engine) needs a new renderer; and
+/// neither a web engine nor the built-in renderer switches to another file in place yet (their `load_source` is a
+/// restart until later plans), so a Use while one of them runs starts a new renderer too.
+fn loads_in_place(running: EngineType, next: EngineType) -> bool {
+    EngineId::from_legacy(running) == EngineId::Mpv && EngineId::from_legacy(next) == EngineId::Mpv
 }
 
 /// What every renderer plays: the same video or web page with the same settings on each monitor (D-01).
@@ -3401,8 +3402,8 @@ struct UseInput<'a> {
     selected: &'a str,
     /// Whether renderers run.
     running: bool,
-    /// The type of the theme the renderers play now, when the fleet has a job.
-    running_kind: Option<WallpaperType>,
+    /// The engine of the job the renderers play now, when the fleet has a job.
+    running_engine: Option<EngineType>,
     /// What the fullscreen rule does to the wallpaper now.
     rule: RuleState,
     /// Whether the library is being moved.
@@ -3455,14 +3456,14 @@ fn decide_use(input: &UseInput<'_>) -> UseDecision {
         return UseDecision::AlreadyApplied;
     }
     if input.running {
-        // A new renderer when the engine changes, and whenever the running one is CEF (it cannot load another page).
+        // A new renderer when the engine changes, and whenever either engine cannot load another file in place.
         if input
-            .running_kind
-            .is_some_and(|kind| uses_cef(kind) || uses_cef(job.kind))
+            .running_engine
+            .is_some_and(|running| loads_in_place(running, job.engine))
         {
-            UseDecision::Restart(job.clone())
-        } else {
             UseDecision::Load(job.clone())
+        } else {
+            UseDecision::Restart(job.clone())
         }
     } else {
         UseDecision::Start(job.clone())
@@ -3540,7 +3541,7 @@ fn handle_use(
             gate,
             selected: &settings.library.selected,
             running: fleet.job.is_some() && !ctx.supervisor.pids().is_empty(),
-            running_kind: fleet.job.as_ref().map(|job| job.kind),
+            running_engine: fleet.job.as_ref().map(|job| job.engine),
             rule: fleet.rule_state(),
             moving: fleet.library_move.is_some(),
         };
@@ -5790,7 +5791,7 @@ mod tests {
             gate: Ok(use_job("C:/themes/new/video.mp4")),
             selected: "old",
             running: true,
-            running_kind: Some(WallpaperType::Video),
+            running_engine: Some(EngineType::MpvPlayerLive),
             rule: RuleState::None,
             moving: false,
         }
@@ -6004,17 +6005,75 @@ mod tests {
             assert_eq!(job.kind, WallpaperType::Web);
 
             let to_video = decide_use(&UseInput {
-                running_kind: Some(WallpaperType::Web),
+                running_engine: Some(EngineType::CefSharpLive),
                 ..use_input()
             });
             assert!(matches!(to_video, UseDecision::Restart(_)), "{to_video:?}");
+        }
+
+        fn gif_job(engine: EngineType) -> Job {
+            Job {
+                kind: WallpaperType::Gif,
+                engine,
+                ..use_job("C:/themes/anim/animation.gif")
+            }
+        }
+
+        #[test]
+        fn decide_use_restarts_whenever_the_built_in_gif_renderer_is_on_either_side() {
+            // mpv -> built-in GIF, built-in GIF -> mpv, built-in GIF -> built-in GIF, built-in GIF -> web: a GIF set to
+            // the built-in engine never ends up in an mpv renderer, and the built-in renderer is not told to load in place.
+            let cases = [
+                (EngineType::MpvPlayerLive, gif_job(EngineType::XavierLive)),
+                (EngineType::XavierLive, use_job("C:/themes/new/video.mp4")),
+                (EngineType::XavierLive, gif_job(EngineType::VexanaLive)),
+                (EngineType::VexanaLive, gif_job(EngineType::XavierLive)),
+                (EngineType::XavierLive, web_job()),
+                (EngineType::WebViewLive, gif_job(EngineType::XavierLive)),
+            ];
+            for (running, job) in cases {
+                let decision = decide_use(&UseInput {
+                    gate: Ok(job.clone()),
+                    running_engine: Some(running),
+                    ..use_input()
+                });
+                assert!(
+                    matches!(decision, UseDecision::Restart(_)),
+                    "{running:?} -> {:?}: {decision:?}",
+                    job.engine
+                );
+            }
+        }
+
+        #[test]
+        fn decide_use_loads_in_place_only_between_two_mpv_wallpapers() {
+            let gif_on_mpv = decide_use(&UseInput {
+                gate: Ok(gif_job(EngineType::MpvPlayerLive)),
+                ..use_input()
+            });
+            assert!(matches!(gif_on_mpv, UseDecision::Load(_)), "{gif_on_mpv:?}");
+        }
+
+        #[test]
+        fn gif_is_playable_so_gif_cards_can_be_used() {
+            assert!(PLAYABLE.contains(&WallpaperType::Gif));
+            let library = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+                .join("..")
+                .join("..")
+                .join("crates")
+                .join("sucrose-core")
+                .join("tests")
+                .join("fixtures")
+                .join("library");
+            let theme = check_selected(&library, "gif", &app_version(), PLAYABLE).expect("a Gif theme passes the gate");
+            assert_eq!(theme.info.kind, WallpaperType::Gif);
         }
 
         #[test]
         fn restarts_between_web_themes_because_cef_cannot_load_another_page_in_place() {
             let web_to_web = decide_use(&UseInput {
                 gate: Ok(web_job()),
-                running_kind: Some(WallpaperType::Web),
+                running_engine: Some(EngineType::CefSharpLive),
                 folder: "other",
                 ..use_input()
             });
@@ -6032,7 +6091,7 @@ mod tests {
             let decision = decide_use(&UseInput {
                 folder: "old",
                 gate: Ok(web_job()),
-                running_kind: Some(WallpaperType::Web),
+                running_engine: Some(EngineType::CefSharpLive),
                 ..use_input()
             });
 
@@ -6183,7 +6242,7 @@ mod tests {
                 ("a\\b", UseRefusal::NotFound),
                 ("", UseRefusal::NotFound),
                 ("no-such-folder", UseRefusal::NotFound),
-                ("gif", UseRefusal::TypeNotPlayable),
+                ("url-source", UseRefusal::TypeNotPlayable),
                 ("newer-version", UseRefusal::NewerVersion),
                 ("broken-json", UseRefusal::Corrupt),
             ] {

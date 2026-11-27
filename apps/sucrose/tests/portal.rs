@@ -515,15 +515,16 @@ fn use_theme(portal: &mut PortalClient, folder: &str) -> UseOutcome {
 }
 
 #[test]
-fn use_of_a_gif_theme_is_refused_and_the_selection_is_unchanged() {
-    if !service_runs("use_of_a_gif_theme_is_refused_and_the_selection_is_unchanged") {
+fn use_of_a_url_theme_is_refused_and_the_selection_is_unchanged() {
+    if !service_runs("use_of_a_url_theme_is_refused_and_the_selection_is_unchanged") {
         return;
     }
-    let service = TestService::start("use-gif", &json!({}));
+    let service = TestService::start("use-url", &json!({}));
     copy_fixture_library(&service);
     let (mut portal, _) = PortalClient::hello(&service, None);
 
-    let outcome = use_theme(&mut portal, "gif");
+    // Gif plays since 04-30; a Url theme is the type no engine plays yet (04-35 adds it).
+    let outcome = use_theme(&mut portal, "url-source");
 
     assert_eq!(outcome, UseOutcome::Refused(UseRefusal::TypeNotPlayable));
     assert_eq!(service.settings_file()["Library"]["Selected"], "");

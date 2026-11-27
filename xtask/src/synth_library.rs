@@ -10,7 +10,9 @@
 //!
 //! `--web-fixtures` also copies the fixture Web themes of `apps/sucrose/tests/fixtures/web-themes` into the library
 //! (a Thumbnail and a Preview they do not carry are written from the pool), and `--select <folder>` selects one of the
-//! themes the run wrote, so an engine run needs neither the maintainer's library nor his settings. `--engine
+//! themes the run wrote, so an engine run needs neither the maintainer's library nor his settings. `--media-fixtures`
+//! adds the animation theme `gif-anim` (a 480 x 270 GIF of 24 frames of 50 ms that draws its frame number as blocks,
+//! made by the same encoder path as the previews), which `--select` can name too. `--engine
 //! <Type>=<EngineType>` (repeatable, legacy names) sets the engine of a wallpaper type in those settings; an engine the
 //! type does not allow, or an unknown type, is refused before anything is written.
 
@@ -72,6 +74,8 @@ pub struct Plan {
     pub force: bool,
     /// Also copies the fixture Web themes into the library.
     pub web_fixtures: bool,
+    /// Also writes the animation fixture theme `gif-anim` into the library.
+    pub media_fixtures: bool,
     /// Folder name of a theme this run writes, selected in the prepared settings.
     pub select: Option<String>,
     /// The engine of a wallpaper type in the prepared settings (`--engine <Type>=<EngineType>`), in the order given.
@@ -127,14 +131,15 @@ fn set_engine(settings: &mut Settings, kind: WallpaperType, engine: EngineType) 
 }
 
 impl Plan {
-    /// Reads `--out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] [--select <folder>] [--engine
-    /// <Type>=<EngineType>]...`.
+    /// Reads `--out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] [--media-fixtures] [--select <folder>]
+    /// [--engine <Type>=<EngineType>]...`.
     fn parse(args: &[String]) -> Outcome<Self> {
         let mut out = None;
         let mut count = None;
         let mut seed = DEFAULT_SEED;
         let mut force = false;
         let mut web_fixtures = false;
+        let mut media_fixtures = false;
         let mut select = None;
         let mut engines = Vec::new();
         let mut it = args.iter();
@@ -159,6 +164,7 @@ impl Plan {
                 }
                 "--force" => force = true,
                 "--web-fixtures" => web_fixtures = true,
+                "--media-fixtures" => media_fixtures = true,
                 "--select" => select = Some(value("--select")?.clone()),
                 "--engine" => engines.push(parse_engine(value("--engine")?)?),
                 other => return Err(format!("unknown argument '{other}'")),
@@ -170,14 +176,15 @@ impl Plan {
             seed,
             force,
             web_fixtures,
+            media_fixtures,
             select,
             engines,
         })
     }
 }
 
-/// `cargo xtask synth-library --out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] [--select <folder>]
-/// [--engine <Type>=<EngineType>]...`
+/// `cargo xtask synth-library --out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] [--media-fixtures]
+/// [--select <folder>] [--engine <Type>=<EngineType>]...`
 pub fn run(args: &[String]) -> ExitCode {
     let result = Plan::parse(args).and_then(|plan| generate(&plan));
     match result {
@@ -186,7 +193,7 @@ pub fn run(args: &[String]) -> ExitCode {
             eprintln!("synth-library: {message}");
             eprintln!(
                 "usage: cargo xtask synth-library --out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] \
-                 [--select <folder>] [--engine <Type>=<EngineType>]..."
+                 [--media-fixtures] [--select <folder>] [--engine <Type>=<EngineType>]..."
             );
             ExitCode::FAILURE
         }
@@ -507,10 +514,63 @@ fn marker_for(plan: &Plan) -> String {
     if let Some(select) = &plan.select {
         text.push_str(&format!("select={select}\n"));
     }
+    if plan.media_fixtures {
+        text.push_str("media-fixtures\n");
+    }
     for (kind, engine) in &plan.engines {
         text.push_str(&format!("engine={kind:?}={}\n", engine.legacy_name()));
     }
     text
+}
+
+/// The folder and Source file of the animation fixture theme (`--media-fixtures`).
+const GIF_FIXTURE_FOLDER: &str = "gif-anim";
+const GIF_FIXTURE_SOURCE: &str = "animation.gif";
+
+/// The animation fixture: 480 x 270, 24 frames of 50 ms (a 1.2 s loop). Frame `n` draws `n` in binary as five blocks
+/// (most significant first) under a bar that moves 20 pixels per frame, on a background whose colour also follows the
+/// frame, so every frame differs and a presented frame can be told from its neighbours. Nothing random: the same bytes
+/// on every run.
+fn encode_counter_gif() -> Outcome<Vec<u8>> {
+    const WIDTH: u32 = 480;
+    const HEIGHT: u32 = 270;
+    const FRAMES: u32 = 24;
+    let pixel = |frame: u32, x: u32, y: u32| -> image::Rgba<u8> {
+        let tint = u8::try_from(frame * 8).unwrap_or(u8::MAX);
+        let background = [
+            30_u8.saturating_add(tint),
+            40,
+            120_u8.saturating_sub(u8::try_from(frame * 3).unwrap_or(0)),
+        ];
+        let bar = y < 30 && (frame * 20..frame * 20 + 20).contains(&x);
+        let block = (100..170).contains(&y)
+            && (0..5_u32).any(|slot| {
+                let left = 60 + slot * 80;
+                (left..left + 60).contains(&x) && frame >> (4 - slot) & 1 == 1
+            });
+        let slot_frame =
+            (100..170).contains(&y) && (0..5_u32).any(|slot| (60 + slot * 80..120 + slot * 80).contains(&x));
+        if bar || block {
+            image::Rgba([255, 255, 255, 255])
+        } else if slot_frame {
+            image::Rgba([20, 20, 20, 255])
+        } else {
+            image::Rgba([background[0], background[1], background[2], 255])
+        }
+    };
+    let mut bytes = Vec::new();
+    {
+        let mut encoder = GifEncoder::new_with_speed(&mut bytes, 10);
+        let failed = |error: image::ImageError| format!("cannot encode the animation fixture: {error}");
+        encoder.set_repeat(Repeat::Infinite).map_err(failed)?;
+        for frame in 0..FRAMES {
+            let image = RgbaImage::from_fn(WIDTH, HEIGHT, |x, y| pixel(frame, x, y));
+            encoder
+                .encode_frame(Frame::from_parts(image, 0, 0, Delay::from_numer_denom_ms(50, 1)))
+                .map_err(failed)?;
+        }
+    }
+    Ok(bytes)
 }
 
 /// The fixture Web themes (`--web-fixtures`), resolved from the workspace root and never from the current directory.
@@ -640,10 +700,11 @@ fn marker_matches(text: &str, plan: &Plan) -> bool {
 fn is_up_to_date(out: &Path, plan: &Plan) -> bool {
     let marked =
         !plan.web_fixtures && fs::read_to_string(out.join(MARKER)).is_ok_and(|text| marker_matches(&text, plan));
+    let wrote = plan.count + usize::from(plan.media_fixtures);
     marked
         && out.join("Setting").join(SETTINGS_FILE).is_file()
         && library::scan(&out.join("Library"), &app_version())
-            .is_ok_and(|scan| scan.themes.len() == plan.count && scan.corrupt.len() == CORRUPT)
+            .is_ok_and(|scan| scan.themes.len() == wrote && scan.corrupt.len() == CORRUPT)
 }
 
 fn generate(plan: &Plan) -> Outcome<()> {
@@ -677,9 +738,10 @@ fn generate_full(plan: &Plan, pool: &PoolPlan, fixtures_dir: &Path) -> Outcome<G
     };
     if let Some(select) = &plan.select {
         let synthetic = (0..plan.count).any(|index| theme_name(plan.seed, index) == *select);
-        if !synthetic && !fixtures.contains(select) {
+        let media = plan.media_fixtures && select == GIF_FIXTURE_FOLDER;
+        if !synthetic && !media && !fixtures.contains(select) {
             return Err(format!(
-                "--select {select}: this run writes no theme with that folder name (fixtures: {}; use --web-fixtures)",
+                "--select {select}: this run writes no theme with that folder name (fixtures: {}; use --web-fixtures or --media-fixtures)",
                 if fixtures.is_empty() {
                     "none".to_owned()
                 } else {
@@ -764,6 +826,24 @@ fn generate_full(plan: &Plan, pool: &PoolPlan, fixtures_dir: &Path) -> Outcome<G
         copy_tree(&fixtures_dir.join(fixture), &dir)?;
         fill_missing_images(&dir, &thumbnails[0], &previews[0])?;
     }
+    if plan.media_fixtures {
+        if fixtures.iter().any(|fixture| fixture == GIF_FIXTURE_FOLDER) {
+            return Err(format!(
+                "the Web fixture folder '{GIF_FIXTURE_FOLDER}' has the name of the animation fixture"
+            ));
+        }
+        let dir = library_dir.join(GIF_FIXTURE_FOLDER);
+        create_dir(&dir)?;
+        let mut info = theme_info(0, WallpaperType::Gif, GIF_FIXTURE_SOURCE, APP_VERSION)?;
+        info.title = "Animation fixture (gif-anim)".to_owned();
+        info.description =
+            "A 24 frame GIF that draws its frame number, made by cargo xtask synth-library --media-fixtures."
+                .to_owned();
+        write_file(&dir.join("SucroseInfo.json"), &info_bytes(&info)?)?;
+        write_file(&dir.join("Thumbnail.jpg"), &thumbnails[0])?;
+        write_file(&dir.join("Preview.gif"), &previews[0])?;
+        write_file(&dir.join(GIF_FIXTURE_SOURCE), &encode_counter_gif()?)?;
+    }
 
     // Corrupt folder one: valid description, thumbnail and source, but no Preview.gif.
     let no_preview = library_dir.join(theme_name(plan.seed, plan.count));
@@ -797,7 +877,7 @@ fn generate_full(plan: &Plan, pool: &PoolPlan, fixtures_dir: &Path) -> Outcome<G
     write_atomic(&setting_dir.join(SETTINGS_FILE), &bytes).map_err(io_error("write", &setting_dir))?;
 
     let scan = library::scan(&library_dir, &app_version()).map_err(io_error("scan", &library_dir))?;
-    let expected = plan.count + fixtures.len();
+    let expected = plan.count + fixtures.len() + usize::from(plan.media_fixtures);
     if scan.themes.len() != expected || scan.corrupt.len() != CORRUPT {
         return Err(format!(
             "the library scan found {} themes and {} corrupt folders, expected {expected} and {CORRUPT}",
@@ -941,6 +1021,7 @@ mod tests {
             seed,
             force: false,
             web_fixtures: false,
+            media_fixtures: false,
             select: select.map(str::to_owned),
             engines: Vec::new(),
         };
@@ -997,6 +1078,7 @@ mod tests {
             seed: 7,
             force: false,
             web_fixtures: false,
+            media_fixtures: false,
             select: None,
             engines: Vec::new(),
         };
@@ -1141,6 +1223,7 @@ mod tests {
             seed: 1,
             force: true,
             web_fixtures: false,
+            media_fixtures: false,
             select: None,
             engines: Vec::new(),
         };
@@ -1157,6 +1240,7 @@ mod tests {
             let with_flags = Plan {
                 out: real.join("synth-guard-test"),
                 web_fixtures: true,
+                media_fixtures: false,
                 select: Some("hello".to_owned()),
                 ..plan.clone()
             };
@@ -1207,6 +1291,7 @@ mod tests {
             seed: 5,
             force: false,
             web_fixtures,
+            media_fixtures: false,
             select: select.map(str::to_owned),
             engines: Vec::new(),
         }
@@ -1262,6 +1347,87 @@ mod tests {
             generate_full(&plan, &tiny_pool(), &fixtures).unwrap(),
             Generated::Written
         );
+        fs::remove_dir_all(&fixtures).unwrap();
+        fs::remove_dir_all(&out).unwrap();
+    }
+
+    #[test]
+    fn synth_parse_reads_media_fixtures() {
+        let plan = Plan::parse(&strings(&[
+            "--out",
+            "x",
+            "--count",
+            "2",
+            "--media-fixtures",
+            "--select",
+            "gif-anim",
+        ]))
+        .unwrap();
+        assert!(plan.media_fixtures);
+        assert_eq!(plan.select.as_deref(), Some("gif-anim"));
+        assert!(
+            !Plan::parse(&strings(&["--out", "x", "--count", "2"]))
+                .unwrap()
+                .media_fixtures
+        );
+    }
+
+    #[test]
+    fn synth_the_animation_fixture_is_24_frames_of_50_ms_and_the_same_bytes_every_time() {
+        use image::{AnimationDecoder, codecs::gif::GifDecoder};
+
+        let bytes = encode_counter_gif().unwrap();
+        assert_eq!(bytes, encode_counter_gif().unwrap(), "no randomness");
+        let frames = GifDecoder::new(io::Cursor::new(bytes))
+            .unwrap()
+            .into_frames()
+            .collect_frames()
+            .unwrap();
+        assert_eq!(frames.len(), 24);
+        for frame in &frames {
+            assert_eq!((frame.buffer().width(), frame.buffer().height()), (480, 270));
+            assert_eq!(frame.delay().numer_denom_ms(), (50, 1));
+        }
+        assert_ne!(frames[0].buffer(), frames[1].buffer(), "every frame differs");
+    }
+
+    #[test]
+    fn synth_media_fixtures_write_the_gif_theme_and_select_it() {
+        let fixtures = scratch_fixtures("media-fixtures");
+        let out = temp_folder("media-fixtures-out");
+        let mut plan = plan_for(&out, false, Some("gif-anim"));
+        plan.media_fixtures = true;
+        plan.engines = vec![(WallpaperType::Gif, EngineType::XavierLive)];
+        assert_eq!(
+            generate_full(&plan, &tiny_pool(), &fixtures).unwrap(),
+            Generated::Written
+        );
+
+        let theme = out.join("Library").join("gif-anim");
+        assert!(theme.join("animation.gif").is_file());
+        assert!(theme.join("Thumbnail.jpg").is_file());
+        assert!(theme.join("Preview.gif").is_file());
+        let scan = library::scan(&out.join("Library"), &app_version()).unwrap();
+        assert_eq!(scan.themes.len(), 3, "two synthetic themes and the animation");
+        assert_eq!(scan.corrupt.len(), CORRUPT);
+        let settings = fs::read_to_string(out.join("Setting").join(SETTINGS_FILE)).unwrap();
+        assert!(settings.contains("\"Selected\": \"gif-anim\""), "{settings}");
+        assert!(settings.contains("XavierLive"), "{settings}");
+        // The marker records the fixture, so a second identical run is up to date and a run without it rewrites.
+        assert_eq!(
+            generate_full(&plan, &tiny_pool(), &fixtures).unwrap(),
+            Generated::UpToDate
+        );
+        let mut without = plan_for(&out, false, None);
+        without.engines = plan.engines.clone();
+        assert_eq!(
+            generate_full(&without, &tiny_pool(), &fixtures).unwrap(),
+            Generated::Written
+        );
+        assert!(!out.join("Library").join("gif-anim").exists());
+        // Without the flag the animation cannot be selected.
+        let refused = generate_full(&plan_for(&out, false, Some("gif-anim")), &tiny_pool(), &fixtures).unwrap_err();
+        assert!(refused.contains("--select"), "{refused}");
         fs::remove_dir_all(&fixtures).unwrap();
         fs::remove_dir_all(&out).unwrap();
     }

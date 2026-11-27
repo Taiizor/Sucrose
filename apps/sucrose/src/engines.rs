@@ -417,10 +417,23 @@ fn detect_with(
         },
         EngineId::Cef => cef_state(exe_dir, exists, vc_missing.clone()),
         EngineId::WebView2 => webview2_state(sucrose_engine_webview2::BUILT, webview2_version),
+        EngineId::BuiltInGif => built_in_gif_state(sucrose_engine_gif::BUILT),
         _ => Availability::Unsupported {
             why: Unsupported::NotInThisBuild,
         },
     })
+}
+
+/// The built-in GIF renderer: part of the executable, so it is installed wherever it is built (Windows); it has no files
+/// and no version of its own.
+fn built_in_gif_state(built: bool) -> Availability {
+    if built {
+        Availability::Installed { version: None }
+    } else {
+        Availability::Unsupported {
+            why: Unsupported::NotInThisBuild,
+        }
+    }
 }
 
 /// CEF: built for this architecture, its files next to the executable and its prerequisite installed.
@@ -987,12 +1000,7 @@ mod tests {
     fn engines_that_are_not_built_report_not_in_this_build() {
         let report = detect_with(Path::new("."), None, &everything_there, None, None);
 
-        for engine in [
-            EngineId::Vlc,
-            EngineId::BuiltInGif,
-            EngineId::BuiltInVideo,
-            EngineId::AppEmbedder,
-        ] {
+        for engine in [EngineId::Vlc, EngineId::BuiltInVideo, EngineId::AppEmbedder] {
             assert_eq!(
                 report.availability(engine),
                 Availability::Unsupported {
@@ -1001,6 +1009,22 @@ mod tests {
                 "{engine:?}"
             );
         }
+    }
+
+    #[test]
+    fn the_built_in_gif_renderer_is_installed_where_it_is_built() {
+        assert_eq!(built_in_gif_state(true), Availability::Installed { version: None });
+        assert_eq!(
+            built_in_gif_state(false),
+            Availability::Unsupported {
+                why: Unsupported::NotInThisBuild
+            }
+        );
+        let report = detect_with(Path::new("."), None, &everything_there, None, None);
+        assert_eq!(
+            report.availability(EngineId::BuiltInGif),
+            built_in_gif_state(sucrose_engine_gif::BUILT)
+        );
     }
 
     #[test]

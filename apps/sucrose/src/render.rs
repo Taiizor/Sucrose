@@ -469,6 +469,7 @@ fn start_engine(
         EngineId::Mpv => sucrose_engine_mpv::engine::start(wid, assignment),
         EngineId::Cef => sucrose_engine_cef::engine::start(wid, assignment, hooks()),
         EngineId::WebView2 => sucrose_engine_webview2::engine::start(wid, assignment, hooks()),
+        EngineId::BuiltInGif => sucrose_engine_gif::engine::start(wid, assignment, hooks()),
         other => Err(EngineError::Unsupported {
             what: format!("The {other:?} engine"),
         }),

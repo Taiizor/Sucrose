@@ -7060,6 +7060,7 @@ dependencies = [
  "sucrose-core",
  "sucrose-engine",
  "sucrose-engine-cef",
+ "sucrose-engine-gif",
  "sucrose-engine-mpv",
  "sucrose-engine-web",
  "sucrose-engine-webview2",
@@ -7113,6 +7114,21 @@ dependencies = [
  "sucrose-core",
  "sucrose-engine",
  "sucrose-engine-web",
+ "sucrose-ipc",
+ "sucrose-platform",
+ "thiserror 2.0.21",
+ "tracing",
+ "windows 0.62.2",
+]
+
+[[package]]
+name = "sucrose-engine-gif"
+version = "26.11.22+1"
+dependencies = [
+ "crossbeam-channel",
+ "image",
+ "sucrose-core",
+ "sucrose-engine",
  "sucrose-ipc",
  "sucrose-platform",
  "thiserror 2.0.21",

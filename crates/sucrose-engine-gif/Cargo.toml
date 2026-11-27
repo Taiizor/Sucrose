@@ -1,0 +1,32 @@
+[package]
+name = "sucrose-engine-gif"
+description = "Built-in GIF renderer: lazy animation decoding and Direct2D presentation on the desktop surface"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+crossbeam-channel = { workspace = true }
+image = { workspace = true }
+sucrose-core = { workspace = true }
+sucrose-engine = { workspace = true }
+sucrose-ipc = { workspace = true }
+sucrose-platform = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true, features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Direct2D",
+    "Win32_Graphics_Direct2D_Common",
+    "Win32_Graphics_Dxgi_Common",
+    "Win32_Graphics_Gdi",
+    "Win32_System_LibraryLoader",
+    "Win32_UI_WindowsAndMessaging",
+] }
+
+[lints]
+workspace = true
