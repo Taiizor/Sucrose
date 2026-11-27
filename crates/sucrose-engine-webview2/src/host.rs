@@ -287,10 +287,14 @@ mod imp {
     const CREATE_TIMEOUT: Duration = Duration::from_secs(30);
 
     /// How long a closing host waits for WebView2's browser process to exit before it lets go of the profile folder
-    /// (04-37 D10). Measured: about 0.2 to 0.3 s on a profile that has run before, about 6.2 s when the profile folder
-    /// is new (the first run of a folder), so the bound sits above the slow case. A Quit (2 s grace) or a library move
-    /// (4 s) that cannot wait ends the renderer through the job object, as it did before the renderer waited at all.
-    const BROWSER_EXIT_WAIT: Duration = Duration::from_secs(8);
+    /// (04-37 D10, D-040). The browser exits about 0.25 s after the close. The about 6.3 s exits seen before came from
+    /// Edge SmartScreen: a folder that was never used sends a SmartScreen check with its first navigation, and a close
+    /// while it is in flight holds the browser's tear-down (debug session webview2-browser-exit-slow); Sucrose's own
+    /// switches turn SmartScreen off by default (D-041; the user setting that turns it on is pending). The bound stays
+    /// 1 s with SmartScreen on too: it sits under the Quit grace (2 s) and the library move grace (4 s), and a bound
+    /// that covered the stall would only make the switch wait for it. A later exit is logged and the next renderer
+    /// retries the folder.
+    const BROWSER_EXIT_WAIT: Duration = Duration::from_secs(1);
 
     /// How long to wait before the one retry of the environment (a previous renderer's browser process may still hold
     /// the same user data folder).

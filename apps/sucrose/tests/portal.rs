@@ -878,6 +878,90 @@ fn switching_web_themes_on_webview2_closes_each_renderer_cleanly() {
     assert!(!logs.contains(" WARN "), "no renderer warned: {logs}");
 }
 
+/// The renderer logs, one text per renderer slot file.
+fn renderer_log_files(service: &TestService) -> Vec<String> {
+    let Ok(entries) = std::fs::read_dir(service.dir.join("Log")) else {
+        return Vec::new();
+    };
+    entries
+        .filter_map(Result::ok)
+        .filter(|entry| entry.file_name().to_string_lossy().starts_with("Renderer"))
+        .filter_map(|entry| std::fs::read_to_string(entry.path()).ok())
+        .collect()
+}
+
+/// A WebView2 renderer closed just after its start on a profile folder that was never used lets go of it at once
+/// (debug session webview2-browser-exit-slow, D-041). With Edge SmartScreen on, the first navigation of a new folder sent
+/// a SmartScreen check, and a close while it was in flight kept the browser process about 6 s, so a quick theme switch
+/// waited that long for the next page. Every folder here is new (the scratch folder is made again and an ephemeral
+/// folder is emptied at every start), and the GIF theme that follows starts no browser on them. It plays real
+/// wallpapers, so it skips where WebView2 is not available.
+#[test]
+fn a_webview2_renderer_closed_right_after_its_start_on_a_new_profile_exits_at_once() {
+    const TEST: &str = "a_webview2_renderer_closed_right_after_its_start_on_a_new_profile_exits_at_once";
+    if !service_runs(TEST) {
+        return;
+    }
+    let service = TestService::start("webview2-early-close", &json!({ "Engine": { "Web": "WebViewLive" } }));
+    copy_web_fixture(&service, "hello");
+    write_gif_theme(&service, "gif");
+    let (mut portal, _) = PortalClient::hello(&service, None);
+    let report = wait_for_engines(&portal);
+    if !report.playable.contains(&WallpaperType::Web) || !webview2_is_ready(&report) {
+        skipped(TEST, "the WebView2 Runtime is missing");
+        return;
+    }
+    assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
+    let first = wait_for_engine_starts(&service, 1);
+    if !first.contains("engine started engine=\"WebView2\"") {
+        skipped(TEST, "WebView2 did not start the wallpaper here");
+        return;
+    }
+    // Every renderer has its file once the first engine started; close them all just after their own start, while the
+    // first navigation is under way.
+    let renderers = renderer_log_files(&service).len();
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+    while renderer_log_files(&service)
+        .iter()
+        .any(|log| !log.contains("engine started"))
+    {
+        assert!(std::time::Instant::now() < deadline, "not every renderer started");
+        std::thread::sleep(std::time::Duration::from_millis(10));
+    }
+    assert_eq!(use_theme(&mut portal, "gif"), UseOutcome::Applied);
+
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+    let logs = loop {
+        let logs = renderer_logs(&service);
+        if logs.matches("webview2 closed").count() >= renderers {
+            break logs;
+        }
+        assert!(
+            std::time::Instant::now() < deadline,
+            "the {renderers} WebView2 renderer(s) did not close: {logs}"
+        );
+        std::thread::sleep(std::time::Duration::from_millis(100));
+    };
+
+    let exits: Vec<u64> = logs
+        .lines()
+        .filter(|line| line.contains("webview2 browser process exited"))
+        .filter_map(|line| line.split("elapsed_ms=").nth(1))
+        .filter_map(|rest| rest.split_whitespace().next()?.parse().ok())
+        .collect();
+    assert_eq!(
+        exits.len(),
+        renderers,
+        "every closed renderer saw its browser process exit within the bound: {logs}"
+    );
+    assert!(
+        exits.iter().all(|elapsed| *elapsed < 1000),
+        "each browser process exited within a second of the close: {exits:?}"
+    );
+    assert!(!logs.contains("did not exit in time"), "{logs}");
+    assert!(!logs.contains("no web profile folder"), "{logs}");
+}
+
 /// The restart prompt's "Restart now" (D-17): with a Web wallpaper running on CEF, turning Allow invalid certificates on
 /// is saved and broadcast, the runtime state names CEF among the engines that run, and RestartWallpapers for CEF ends that
 /// renderer and starts a new one that reads the switch (its log says so). A restart asked for another engine leaves the

@@ -4,8 +4,8 @@
 use std::{collections::BTreeMap, fs, path::Path};
 
 use sucrose_engine_web::args::{
-    ArgError, CEF_SETTING_KEYS, SucroseInputs, Switch, WebEngine, browser_arguments, debugging_port,
-    effective_switches, from_cef_map, from_web_list, legacy_defaults_cef, legacy_defaults_web, merge,
+    ArgError, CEF_SETTING_KEYS, SucroseInputs, Switch, WEBVIEW2_SMARTSCREEN_FEATURE, WebEngine, browser_arguments,
+    debugging_port, effective_switches, from_cef_map, from_web_list, legacy_defaults_cef, legacy_defaults_web, merge,
     plan_cef_command_line, plan_webview2_command_line, repeated_names, sucrose_switches, to_cef_map, to_web_list,
     validate_name,
 };
@@ -163,7 +163,11 @@ fn args_hardware_acceleration_adds_the_gpu_switches_by_engine_and_build() {
     let off_web = sucrose_switches(&inputs(false, 26300, WebEngine::WebView2));
     assert_eq!(
         to_web_list(&off_web),
-        ["--disable-gpu", "--disable-gpu-vsync"],
+        [
+            "--disable-gpu",
+            "--disable-gpu-vsync",
+            "--disable-features=msSmartScreenProtection"
+        ],
         "WebView2 always gets them"
     );
 }
@@ -293,6 +297,48 @@ fn args_windows_11_24h2_drops_the_users_gpu_compositing_switch_for_cef_only() {
     assert!(names(&web).contains(&"disable-gpu-compositing"));
 }
 
+#[test]
+fn args_webview2_always_runs_without_smartscreen_and_cef_never_gets_the_switch() {
+    let smartscreen_off = Switch::with_value("disable-features", WEBVIEW2_SMARTSCREEN_FEATURE);
+    for hardware_acceleration in [true, false] {
+        for port in [None, Some(9300)] {
+            let mut web = inputs(hardware_acceleration, 26100, WebEngine::WebView2);
+            web.debugging_port = port;
+            assert!(sucrose_switches(&web).contains(&smartscreen_off), "{web:?}");
+            let mut cef = inputs(hardware_acceleration, 26100, WebEngine::Cef);
+            cef.debugging_port = port;
+            assert!(
+                !names(&sucrose_switches(&cef)).contains(&"disable-features"),
+                "CEF has no SmartScreen: {cef:?}"
+            );
+        }
+    }
+
+    // The legacy defaults already carry disable-features: SmartScreen joins that one switch, the legacy items stay.
+    let defaults = from_web_list(&legacy_defaults_web());
+    let plan = plan_webview2_command_line(&defaults, &inputs(true, 26100, WebEngine::WebView2));
+    let disabled: Vec<&Switch> = plan
+        .applied
+        .iter()
+        .filter(|switch| switch.name == "disable-features")
+        .collect();
+    assert_eq!(disabled.len(), 1, "never repeated: {:?}", plan.applied);
+    let items: Vec<&str> = disabled[0].value.as_deref().unwrap_or_default().split(',').collect();
+    assert_eq!(items.last(), Some(&WEBVIEW2_SMARTSCREEN_FEATURE));
+    assert!(items.contains(&"IsolateOrigins") && items.contains(&"MediaEngagementBypassAutoplayPolicies"));
+
+    // A user list that already names the feature does not get it twice.
+    let listed = [Switch::with_value(
+        "disable-features",
+        "Translate,msSmartScreenProtection",
+    )];
+    let plan = plan_webview2_command_line(&listed, &inputs(true, 26100, WebEngine::WebView2));
+    assert_eq!(
+        browser_arguments(&plan.applied),
+        "--disable-features=Translate,msSmartScreenProtection --enable-gpu --enable-gpu-vsync"
+    );
+}
+
 fn text_of(user: &[&str], hardware_acceleration: bool, port: Option<u16>) -> String {
     let user = from_web_list(&user.iter().map(|entry| (*entry).to_owned()).collect::<Vec<_>>());
     let mut inputs = inputs(hardware_acceleration, 26100, WebEngine::WebView2);
@@ -310,7 +356,8 @@ fn args_the_webview2_text_is_one_line_of_the_user_switches_and_sucroses_own() {
 
     assert_eq!(
         text,
-        "--autoplay-policy=no-user-gesture-required --disable-web-security --enable-gpu --enable-gpu-vsync"
+        "--autoplay-policy=no-user-gesture-required --disable-web-security --enable-gpu --enable-gpu-vsync \
+         --disable-features=msSmartScreenProtection"
     );
 }
 
@@ -321,7 +368,7 @@ fn args_the_webview2_text_merges_the_feature_lists_into_one_switch_with_a_port()
     assert_eq!(
         text,
         "--enable-features=Foo,Bar,msEdgeDevToolsWdpRemoteDebugging --disable-gpu --disable-gpu-vsync \
-         --remote-debugging-port=9223 --remote-allow-origins=*"
+         --remote-debugging-port=9223 --remote-allow-origins=* --disable-features=msSmartScreenProtection"
     );
     assert_eq!(text.matches("enable-features").count(), 1);
 }
@@ -348,7 +395,10 @@ fn args_the_webview2_plan_leaves_out_invalid_names() {
     let user = [Switch::flag("good"), Switch::flag("bad name --evil"), Switch::flag("")];
     let plan = plan_webview2_command_line(&user, &inputs(true, 0, WebEngine::WebView2));
 
-    assert_eq!(names(&plan.applied), ["good", "enable-gpu", "enable-gpu-vsync"]);
+    assert_eq!(
+        names(&plan.applied),
+        ["good", "enable-gpu", "enable-gpu-vsync", "disable-features"]
+    );
     assert_eq!(plan.invalid.len(), 2);
     assert!(!browser_arguments(&plan.applied).contains("evil"));
 }
