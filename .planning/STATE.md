@@ -358,6 +358,9 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-36: a stored VexanaLive shows as the single Built-in choice (XavierLive); VexanaLive is never a second list entry
 - [Phase 04]: 04-37: Complete rule applied per requirement; TYPE-02, ENG-07, WAPI-01, WAPI-02, WAPI-04, FMT-07, WAPI-09 and WAPI-10 marked, TYPE-03, TYPE-04, TYPE-05, ENG-02, ENG-03, WAPI-05, WAPI-06 and WAPI-08 stay open (defects D1-D8 recorded)
 - [Phase 04]: 04-37: D9 (D-33) design finding, with two monitors the first renderer to start takes the persistent web profile so the primary monitor can run ephemeral; proposal to prefer the primary monitor awaits the maintainer
+- [Phase 04]: 04-37 D9 decided by the maintainer (2026-11-27): with several monitors the persistent web profile goes to the primary monitor (amends 04-CONTEXT D-33); build it together with the D10 fix (slot-1 profile folder still locked after a quick switch, os error 32)
+- [Phase 04]: 04-29 album art over the 2 MiB blob cap: re-encode (downscale) the art so it fits under BLOB_MAX, do not raise the cap (maintainer left the choice to the orchestrator; low resource use, the page only shows a thumbnail)
+- [Phase 04]: 04-33 GIF decoder bundle in GifContent.html (gifuct-js + jsBinarySchemaParser, MIT upstream, notice added): license reading confirmed by the maintainer (2026-11-27)
 
 ### Pending Todos
 
