@@ -192,6 +192,41 @@ pub fn copy_web_fixture(service: &TestService, name: &str) {
     copy_tree(&from, &service.dir.join("Library").join(name));
 }
 
+/// Writes a GIF theme `name` into the scratch library of `service`: a `SucroseInfo.json` of Type 0 and the animation
+/// fixture of sucrose-engine-gif as its Source.
+pub fn write_gif_theme(service: &TestService, name: &str) {
+    let from = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("..")
+        .join("..")
+        .join("crates")
+        .join("sucrose-engine-gif")
+        .join("tests")
+        .join("fixtures")
+        .join("anim.gif");
+    let dir = service.dir.join("Library").join(name);
+    fs::create_dir_all(&dir).expect("the theme folder can be created");
+    fs::copy(&from, dir.join("animation.gif")).expect("the animation fixture can be copied");
+    let info = json!({
+        "AppVersion": "26.6.19.0",
+        "Version": "1.0.0.0",
+        "Title": format!("Sucrose fixture: {name}"),
+        "Thumbnail": "thumbnail.jpg",
+        "Preview": "preview.gif",
+        "Description": "A fixture GIF theme for engine runs.",
+        "Author": "Sucrose",
+        "Contact": "https://example.com/gif",
+        "Type": 0,
+        "Source": "animation.gif",
+        "Tags": ["fixture"],
+        "Arguments": null,
+    });
+    fs::write(
+        dir.join("SucroseInfo.json"),
+        serde_json::to_vec_pretty(&info).expect("the theme info encodes"),
+    )
+    .expect("the theme info can be written");
+}
+
 fn copy_tree(from: &Path, to: &Path) {
     fs::create_dir_all(to).expect("the destination folder can be created");
     for entry in fs::read_dir(from).expect("the fixture folder can be read") {

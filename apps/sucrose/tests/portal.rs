@@ -5,7 +5,9 @@ mod common;
 
 use std::path::PathBuf;
 
-use common::{PortalClient, TestService, copy_fixture_library, copy_web_fixture, service_runs, skipped};
+use common::{
+    PortalClient, TestService, copy_fixture_library, copy_web_fixture, service_runs, skipped, write_gif_theme,
+};
 use serde_json::{Value, json};
 use sucrose_core::{
     library::scan,
@@ -744,6 +746,89 @@ fn an_engine_change_restarts_the_running_wallpaper_on_the_engine_chosen() {
         logs.lines()
             .any(|line| line.contains("engine started") && line.contains("engine=\"WebView2\"")),
         "the second renderer plays on WebView2: {logs}"
+    );
+}
+
+/// An engine change for Gif (D-10, D-11): with mpv chosen, a GIF theme plays on mpv; choosing the built-in choice (written
+/// as `XavierLive`) ends that renderer and starts one on the built-in GIF renderer with no fallback; choosing libVLC,
+/// which this build lacks, keeps the stored value, plays on the built-in renderer and reports the fallback. It plays a real
+/// wallpaper on the desktop from a scratch data folder, so it runs on purpose and skips where mpv is not installed.
+#[test]
+#[ignore = "plays a GIF wallpaper on the desktop from a scratch data folder; plan 36 runs it"]
+fn a_gif_engine_change_moves_the_running_gif_to_the_built_in_renderer() {
+    const NAME: &str = "a_gif_engine_change_moves_the_running_gif_to_the_built_in_renderer";
+    if !service_runs(NAME) {
+        return;
+    }
+    let service = TestService::start("gif-engine", &json!({ "Engine": { "Gif": "MpvPlayerLive" } }));
+    write_gif_theme(&service, "gif-anim");
+    let (mut portal, _) = PortalClient::hello(&service, None);
+    let report = wait_for_engines(&portal);
+    let mpv_ready = report
+        .engines
+        .iter()
+        .any(|engine| engine.engine == EngineType::MpvPlayerLive && matches!(engine.state, EngineState::Ready { .. }));
+    if !report.playable.contains(&WallpaperType::Gif) || !mpv_ready {
+        skipped(NAME, "libmpv is not installed next to the executable");
+        return;
+    }
+    assert_eq!(use_theme(&mut portal, "gif-anim"), UseOutcome::Applied);
+    let first = wait_for_engine_starts(&service, 1);
+    assert!(
+        first.contains("engine=\"Mpv\""),
+        "the configured engine is mpv: {first}"
+    );
+
+    portal.request(&PortalRequest::Change(SettingChange::GifEngine(EngineType::XavierLive)));
+
+    let logs = wait_for_engine_starts(&service, 2);
+    let started = |engine: &str| {
+        logs.lines()
+            .filter(|line| line.contains("engine started") && line.contains(engine))
+            .count()
+    };
+    assert_eq!(
+        started("engine=\"BuiltInGif\""),
+        1,
+        "the second renderer plays on the built-in one: {logs}"
+    );
+    assert_eq!(started("engine=\"Mpv\""), 1, "mpv started once: {logs}");
+    assert_eq!(service.settings_file()["Engine"]["Gif"], "XavierLive");
+    // Whatever reports followed the restart, the last one names no fallback for Gif.
+    portal.request(&PortalRequest::DetectEngines);
+    // The service answers in order, so the report of DetectEngines is the last one; Memory events keep coming, so the
+    // read ends at the deadline, not at silence.
+    let mut last = None;
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(3);
+    while std::time::Instant::now() < deadline {
+        if let Some(PortalEvent::Engines(report)) = portal.next_event_any() {
+            last = Some(report);
+        }
+    }
+    let last = last.expect("an engine report followed the change");
+    assert!(
+        !last
+            .fallbacks
+            .iter()
+            .any(|fallback| fallback.kind == WallpaperType::Gif),
+        "the built-in renderer is the configured engine, so nothing falls back: {last:?}"
+    );
+
+    portal.request(&PortalRequest::Change(SettingChange::GifEngine(
+        EngineType::VlcPlayerLive,
+    )));
+
+    let fallback = wait_for_fallback(&portal, |fallback| fallback.kind == WallpaperType::Gif);
+    assert_eq!(fallback.configured, EngineType::VlcPlayerLive);
+    assert_eq!(
+        fallback.playing,
+        EngineType::XavierLive,
+        "the built-in renderer plays instead (its one canonical name)"
+    );
+    assert_eq!(
+        service.settings_file()["Engine"]["Gif"],
+        "VlcPlayerLive",
+        "the fallback keeps the setting (D-11)"
     );
 }
 
