@@ -212,6 +212,27 @@ pub fn do_close_answer(popup: bool) -> i32 {
     i32::from(!popup)
 }
 
+/// Where a focus request of the browser comes from, CEF's `cef_focus_source_t` without its types.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum FocusRequest {
+    /// CEF focuses the browser because a page load started: the address the browser is made with (every wallpaper
+    /// start) and every [`CefHost::navigate`].
+    Navigation,
+    /// Something gave the browser the focus: `CefBrowserHost::SetFocus` or a `WM_SETFOCUS` of the browser window.
+    System,
+}
+
+/// What the focus handler answers to CEF's `OnSetFocus`; 1 cancels the focus. By default CEF focuses the widget
+/// (`::SetFocus`) whenever the host loads an address, and in the input state the desktop surface shares with the shell
+/// that takes the keyboard focus of the desktop and activates its top-level window (Progman), which can take the
+/// foreground from the user's window (debug session cef-start-steals-focus). So the wallpaper browser cancels a navigation's focus, as the legacy
+/// host did (CefSharp's default focus handler); the page gets the focus from a forwarded click instead, which Chromium
+/// handles by focusing itself. A popup of the page is a window of its own and keeps CEF's default.
+#[must_use]
+pub fn set_focus_answer(popup: bool, request: FocusRequest) -> i32 {
+    i32::from(!popup && request == FocusRequest::Navigation)
+}
+
 /// The command id of the context menu's Inspect item: the first id CEF leaves to applications (`MENU_ID_USER_FIRST`).
 pub const INSPECT_COMMAND_ID: i32 = 26500;
 
@@ -260,7 +281,7 @@ mod imp {
         UI::WindowsAndMessaging::{
             DestroyWindow, FindWindowExW, GWL_STYLE, GetClientRect, GetWindowLongPtrW, GetWindowRect, PostMessageW,
             SW_SHOWNOACTIVATE, SWP_FRAMECHANGED, SWP_NOACTIVATE, SWP_NOMOVE, SWP_NOSIZE, SWP_NOZORDER,
-            SetWindowLongPtrW, SetWindowPos, ShowWindow, WS_THICKFRAME, WS_VISIBLE,
+            SetWindowLongPtrW, SetWindowPos, ShowWindow, WS_EX_NOACTIVATE, WS_THICKFRAME, WS_VISIBLE,
         },
     };
     use windows::core::{PCWSTR, w};
@@ -271,9 +292,9 @@ mod imp {
     };
 
     use super::{
-        CefError, CefStart, CloseStep, IGNORE_CERTIFICATE_ERRORS_SWITCH, INSPECT_COMMAND_ID, KeyAction, LoadedCallback,
-        PageCallsCallback, ProfileLease, Pump, USER_DATA_DIR_SWITCH, browser_size, close_step, do_close_answer,
-        key_action, next_pump_delay_ms, settings_values,
+        CefError, CefStart, CloseStep, FocusRequest, IGNORE_CERTIFICATE_ERRORS_SWITCH, INSPECT_COMMAND_ID, KeyAction,
+        LoadedCallback, PageCallsCallback, ProfileLease, Pump, USER_DATA_DIR_SWITCH, browser_size, close_step,
+        do_close_answer, key_action, next_pump_delay_ms, set_focus_answer, settings_values,
     };
 
     /// `EVENTFLAG_SHIFT_DOWN` and `EVENTFLAG_CONTROL_DOWN` of a CEF key event's modifiers.
@@ -281,7 +302,14 @@ mod imp {
     const CONTROL_DOWN: u32 = 1 << 2;
 
     /// The window info of the wallpaper browser: a child of the desktop surface at 0,0, `width` x `height`, created
-    /// hidden and shown by [`show_browser_window`] once CEF has made it.
+    /// hidden and shown by [`show_browser_window`] once CEF has made it, and with `WS_EX_NOACTIVATE`.
+    ///
+    /// Without `WS_EX_NOACTIVATE` in the window info CEF shows Chromium's widget with `SW_SHOWNORMAL`, and Chromium then
+    /// activates it (`SetForegroundWindow`) and gives it the focus (`SetFocus`) while the browser is made. The surface
+    /// shares the shell's input state, so that takes the keyboard focus of the desktop and activates Progman, which can
+    /// take the foreground from the user's window (debug session cef-start-steals-focus). CEF copies the style onto the
+    /// widget for that first show only, so a forwarded click still focuses the page; the browser window keeps it, which
+    /// changes nothing else for a child window. The legacy host (CefSharp's `ActivateBrowserOnCreation` off) did the same.
     ///
     /// Chromium's widget window inside the browser window (`Chrome_WidgetWin_1`) has `WS_THICKFRAME` and keeps the
     /// default sizing frame from its first `WM_NCCALCSIZE` until its first frame change. In a visible browser window
@@ -304,6 +332,7 @@ mod imp {
             },
         );
         info.style &= !WS_VISIBLE.0;
+        info.ex_style |= WS_EX_NOACTIVATE.0;
         info
     }
 
@@ -712,6 +741,29 @@ mod imp {
         }
     }
 
+    wrap_focus_handler! {
+        struct PageFocus;
+
+        impl FocusHandler {
+            // A page load must not focus the wallpaper: see `set_focus_answer`.
+            fn on_set_focus(&self, browser: Option<&mut Browser>, source: FocusSource) -> ::std::os::raw::c_int {
+                let popup = browser.is_some_and(|browser| browser.is_popup() == 1);
+                let request = if source == FocusSource::NAVIGATION {
+                    FocusRequest::Navigation
+                } else {
+                    FocusRequest::System
+                };
+                let answer = set_focus_answer(popup, request);
+                tracing::debug!(?request, popup, cancelled = answer == 1, "browser focus request");
+                answer
+            }
+
+            fn on_got_focus(&self, _browser: Option<&mut Browser>) {
+                tracing::debug!("the browser got the focus");
+            }
+        }
+    }
+
     wrap_client! {
         struct HostClient {
             life_span: LifeSpanHandler,
@@ -719,6 +771,7 @@ mod imp {
             download: DownloadHandler,
             menu: ContextMenuHandler,
             keys: KeyboardHandler,
+            focus: FocusHandler,
             requests: RequestHandler,
         }
 
@@ -741,6 +794,10 @@ mod imp {
 
             fn keyboard_handler(&self) -> Option<KeyboardHandler> {
                 Some(self.keys.clone())
+            }
+
+            fn focus_handler(&self) -> Option<FocusHandler> {
+                Some(self.focus.clone())
             }
 
             fn request_handler(&self) -> Option<RequestHandler> {
@@ -888,6 +945,7 @@ mod imp {
                 NoDownloads::new(),
                 PageMenu::new(start.developer_mode),
                 PageKeys::new(start.developer_mode),
+                PageFocus::new(),
                 PageRequests::new(RefererFill::new()),
             );
             let browser = browser_host_create_browser_sync(
@@ -1137,7 +1195,7 @@ mod imp {
 
         // Only builds the window info; no CEF code runs.
         #[test]
-        fn the_wallpaper_browser_window_is_made_hidden_as_a_child_of_the_surface() {
+        fn the_wallpaper_browser_window_is_made_hidden_and_not_activating_as_a_child_of_the_surface() {
             let parent = cef::sys::HWND(0x1234 as *mut cef::sys::HWND__);
             let info = wallpaper_window_info(parent, 1920, 1080);
 
@@ -1148,6 +1206,12 @@ mod imp {
             );
             let child = windows::Win32::UI::WindowsAndMessaging::WS_CHILD.0;
             assert_eq!(info.style & child, child, "it stays a child window of the surface");
+            assert_eq!(
+                info.ex_style & WS_EX_NOACTIVATE.0,
+                WS_EX_NOACTIVATE.0,
+                "without it CEF shows the widget activating and focused, which takes the desktop's focus and can take \
+                 the foreground from the user's window"
+            );
             assert_eq!(info.parent_window.0, parent.0);
             assert_eq!(
                 (info.bounds.x, info.bounds.y, info.bounds.width, info.bounds.height),
@@ -1363,6 +1427,26 @@ mod tests {
             0,
             "a popup of the page is a top-level window of its own and closes the standard way"
         );
+    }
+
+    #[test]
+    fn a_page_load_never_focuses_the_wallpaper_browser() {
+        assert_eq!(
+            set_focus_answer(false, FocusRequest::Navigation),
+            1,
+            "CEF's default would focus the widget and activate Progman, the shell's window, at every page load"
+        );
+        assert_eq!(
+            set_focus_answer(false, FocusRequest::System),
+            0,
+            "an explicit focus of the browser stays allowed"
+        );
+        assert_eq!(
+            set_focus_answer(true, FocusRequest::Navigation),
+            0,
+            "a popup of the page is a window of its own and keeps CEF's default"
+        );
+        assert_eq!(set_focus_answer(true, FocusRequest::System), 0);
     }
 
     #[test]
