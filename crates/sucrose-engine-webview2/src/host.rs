@@ -779,7 +779,8 @@ mod imp {
                 self.tokens.accelerator = Some(token);
 
                 // Chromium refuses an invalid certificate unless the user allowed them (D-12): nothing is registered
-                // without the switch.
+                // without the setting. With it the engine also passes ignore-certificate-errors, so this legacy handler
+                // only sees an error the switch did not cover.
                 if view.allow_invalid_certificates {
                     let fourteenth: ICoreWebView2_14 = webview.cast().map_err(setup)?;
                     let handler = ServerCertificateErrorDetectedEventHandler::create(Box::new(|_sender, args| {

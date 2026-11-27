@@ -22,7 +22,7 @@ use sucrose_engine::{
     engine::{Engine, EngineClock, EngineError, Started, SurfaceHooks, SurfacePump},
 };
 use sucrose_engine_web::{
-    args::{self, SucroseInputs, WebEngine},
+    args::{self, SucroseInputs, Switch, WebEngine},
     js,
     moves::MoveSlot,
     origin,
@@ -170,9 +170,14 @@ fn debugging_port(developer_port: u16, slot: u8) -> Option<u16> {
     }
 }
 
+/// The Chromium switch that accepts every invalid TLS certificate: the switch CEF gets for Allow invalid certificates
+/// (`sucrose_engine_cef::browser::IGNORE_CERTIFICATE_ERRORS_SWITCH`).
+const IGNORE_CERTIFICATE_ERRORS: &str = "ignore-certificate-errors";
+
 /// The `AdditionalBrowserArguments` text of a renderer: the user's `WebArguments` (the service already put the legacy
 /// defaults there for an empty list) merged with Sucrose's own switches, never stored (D-17, WAPI-10). Names that are
-/// not switch names are left out and logged.
+/// not switch names are left out and logged. Allow invalid certificates adds `ignore-certificate-errors`, as for CEF
+/// (D-12): an error allowed through the certificate event instead holds each request about ten seconds in WebView2.
 fn browser_arguments(web: &WebOptions, port: Option<u16>) -> String {
     let inputs = SucroseInputs {
         hardware_acceleration: web.hardware_acceleration,
@@ -180,9 +185,17 @@ fn browser_arguments(web: &WebOptions, port: Option<u16>) -> String {
         windows_build: sucrose_platform::os_build(),
         engine: WebEngine::WebView2,
     };
-    let plan = args::plan_webview2_command_line(&web.arguments, &inputs);
+    let mut plan = args::plan_webview2_command_line(&web.arguments, &inputs);
     for (name, error) in &plan.invalid {
         tracing::warn!(name = %name, %error, "a switch name is not valid, the switch is left out");
+    }
+    if web.allow_invalid_certificates
+        && !plan
+            .applied
+            .iter()
+            .any(|switch| switch.name == IGNORE_CERTIFICATE_ERRORS)
+    {
+        plan.applied.push(Switch::flag(IGNORE_CERTIFICATE_ERRORS));
     }
     args::browser_arguments(&plan.applied)
 }
@@ -882,6 +895,34 @@ mod tests {
         assert!(text.contains("--enable-gpu"), "{text}");
         assert!(!text.contains("remote-debugging-port"), "{text}");
         assert!(!text.contains('\n'));
+    }
+
+    #[test]
+    fn allow_invalid_certificates_gives_webview2_the_switch_cef_gets_and_only_then() {
+        let allowed = WebOptions {
+            allow_invalid_certificates: true,
+            ..WebOptions::default()
+        };
+        let listed = WebOptions {
+            allow_invalid_certificates: true,
+            arguments: args::from_web_list(&["--ignore-certificate-errors".to_owned()]),
+            ..WebOptions::default()
+        };
+
+        let text = browser_arguments(&allowed, None);
+
+        assert_eq!(text.matches("--ignore-certificate-errors").count(), 1, "{text}");
+        assert!(
+            !browser_arguments(&WebOptions::default(), None).contains("ignore-certificate-errors"),
+            "D-12: certificates are validated by default"
+        );
+        assert_eq!(
+            browser_arguments(&listed, None)
+                .matches("ignore-certificate-errors")
+                .count(),
+            1,
+            "a switch the user already lists is not added twice"
+        );
     }
 
     #[test]
