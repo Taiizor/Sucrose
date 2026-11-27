@@ -590,6 +590,11 @@ fn starts(log: &str) -> Vec<&str> {
     log.lines().filter(|line| line.contains("engine started")).collect()
 }
 
+/// Whether the renderer of every monitor slot logged exactly one engine start.
+fn exactly_one_start_per_slot(by_slot: &BTreeMap<u32, String>) -> bool {
+    by_slot.len() == monitor_slots() && by_slot.values().all(|log| starts(log).len() == 1)
+}
+
 /// Whether at least `slots` slots have at least `count` engine starts each.
 fn every_slot_started(by_slot: &BTreeMap<u32, String>, slots: usize, count: usize) -> bool {
     by_slot.values().filter(|log| starts(log).len() >= count).count() >= slots
@@ -827,22 +832,6 @@ fn webview2_is_ready(report: &EngineReportView) -> bool {
         .any(|engine| engine.engine == EngineType::WebViewLive && matches!(engine.state, EngineState::Ready { .. }))
 }
 
-/// Waits until the renderer logs have at least `count` `engine started` lines.
-fn wait_for_engine_starts(service: &TestService, count: usize) -> String {
-    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
-    loop {
-        let logs = renderer_logs(service);
-        if logs.matches("engine started").count() >= count {
-            return logs;
-        }
-        assert!(
-            std::time::Instant::now() < deadline,
-            "the renderer did not start {count} time(s): {logs}"
-        );
-        std::thread::sleep(std::time::Duration::from_millis(250));
-    }
-}
-
 /// A running Web wallpaper restarts on the engine just chosen: with WebView2 installed, choosing it ends the CEF renderer
 /// and starts a new one on WebView2, so nothing falls back. (The fallback itself is covered where an engine is missing:
 /// `engines::tests::a_missing_configured_engine_falls_back_for_this_run_and_says_why`.) It plays a real wallpaper, so
@@ -911,26 +900,26 @@ fn a_gif_engine_change_moves_the_running_gif_to_the_built_in_renderer() {
         return;
     }
     assert_eq!(use_theme(&mut portal, "gif-anim"), UseOutcome::Applied);
-    let first = wait_for_engine_starts(&service, 1);
-    assert!(
-        first.contains("engine=\"Mpv\""),
-        "the configured engine is mpv: {first}"
-    );
+    let first = wait_for_engine_starts_on_every_slot(&service, 1);
+    for (slot, log) in &first {
+        assert!(
+            starts(log)[0].contains("engine=\"Mpv\""),
+            "the configured engine is mpv on slot {slot}: {log}"
+        );
+    }
 
     portal.request(&PortalRequest::Change(SettingChange::GifEngine(EngineType::XavierLive)));
 
-    let logs = wait_for_engine_starts(&service, 2);
-    let started = |engine: &str| {
-        logs.lines()
-            .filter(|line| line.contains("engine started") && line.contains(engine))
-            .count()
-    };
-    assert_eq!(
-        started("engine=\"BuiltInGif\""),
-        1,
-        "the second renderer plays on the built-in one: {logs}"
-    );
-    assert_eq!(started("engine=\"Mpv\""), 1, "mpv started once: {logs}");
+    let after = wait_for_engine_starts_on_every_slot(&service, 2);
+    for (slot, log) in &after {
+        let started = |engine: &str| starts(log).iter().filter(|line| line.contains(engine)).count();
+        assert_eq!(
+            started("engine=\"BuiltInGif\""),
+            1,
+            "the second renderer of slot {slot} plays on the built-in one: {log}"
+        );
+        assert_eq!(started("engine=\"Mpv\""), 1, "mpv started once on slot {slot}: {log}");
+    }
     assert_eq!(service.settings_file()["Engine"]["Gif"], "XavierLive");
     // Whatever reports followed the restart, the last one names no fallback for Gif.
     portal.request(&PortalRequest::DetectEngines);
@@ -972,7 +961,8 @@ fn a_gif_engine_change_moves_the_running_gif_to_the_built_in_renderer() {
 
 /// Two theme switches in a row on WebView2 (the Round A CEF close lesson): the renderer of each theme closes its
 /// controller before the surface goes, the service starts the next one, and the logs show the close and no WARN. It plays
-/// real wallpapers, so it skips where CEF or WebView2 is not available.
+/// real wallpapers, so it skips where CEF or WebView2 is not available. With several monitors every monitor's renderer is
+/// checked.
 #[test]
 fn switching_web_themes_on_webview2_closes_each_renderer_cleanly() {
     if !service_runs("switching_web_themes_on_webview2_closes_each_renderer_cleanly") {
@@ -991,41 +981,25 @@ fn switching_web_themes_on_webview2_closes_each_renderer_cleanly() {
         return;
     }
     assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
-    wait_for_engine_starts(&service, 1);
+    wait_for_engine_starts_on_every_slot(&service, 1);
     assert_eq!(use_theme(&mut portal, "storage"), UseOutcome::Applied);
-    wait_for_engine_starts(&service, 2);
+    wait_for_engine_starts_on_every_slot(&service, 2);
     assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
 
-    let logs = wait_for_engine_starts(&service, 3);
+    let by_slot = wait_for_engine_starts_on_every_slot(&service, 3);
 
-    let closed = logs.matches("webview2 closed").count();
-    assert!(
-        closed >= 2,
-        "the first two renderers logged their close ({closed}): {logs}"
-    );
-    let started = |engine: &str| {
-        logs.lines()
-            .filter(|line| line.contains("engine started") && line.contains(engine))
-            .count()
-    };
-    assert_eq!(
-        started("engine=\"WebView2\""),
-        started(""),
-        "every renderer plays on WebView2: {logs}"
-    );
-    assert!(!logs.contains(" WARN "), "no renderer warned: {logs}");
-}
-
-/// The renderer logs, one text per renderer slot file.
-fn renderer_log_files(service: &TestService) -> Vec<String> {
-    let Ok(entries) = std::fs::read_dir(service.dir.join("Log")) else {
-        return Vec::new();
-    };
-    entries
-        .filter_map(Result::ok)
-        .filter(|entry| entry.file_name().to_string_lossy().starts_with("Renderer"))
-        .filter_map(|entry| std::fs::read_to_string(entry.path()).ok())
-        .collect()
+    for (slot, logs) in &by_slot {
+        let closed = logs.matches("webview2 closed").count();
+        assert!(
+            closed >= 2,
+            "the first two renderers of slot {slot} logged their close ({closed}): {logs}"
+        );
+        assert!(
+            starts(logs).iter().all(|line| line.contains("engine=\"WebView2\"")),
+            "every renderer of slot {slot} plays on WebView2: {logs}"
+        );
+        assert!(!logs.contains(" WARN "), "no renderer of slot {slot} warned: {logs}");
+    }
 }
 
 /// A WebView2 renderer closed just after its start on a profile folder that was never used lets go of it at once
@@ -1050,54 +1024,55 @@ fn a_webview2_renderer_closed_right_after_its_start_on_a_new_profile_exits_at_on
         return;
     }
     assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
-    let first = wait_for_engine_starts(&service, 1);
-    if !first.contains("engine started engine=\"WebView2\"") {
+    let first = wait_for_engine_starts_polling(&service, 1, std::time::Duration::from_millis(10));
+    if first
+        .values()
+        .filter_map(|log| starts(log).first().copied())
+        .any(|line| !line.contains("engine=\"WebView2\""))
+    {
         skipped(TEST, "WebView2 did not start the wallpaper here");
         return;
     }
-    // Every renderer has its file once the first engine started; close them all just after their own start, while the
-    // first navigation is under way.
-    let renderers = renderer_log_files(&service).len();
-    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
-    while renderer_log_files(&service)
-        .iter()
-        .any(|log| !log.contains("engine started"))
-    {
-        assert!(std::time::Instant::now() < deadline, "not every renderer started");
-        std::thread::sleep(std::time::Duration::from_millis(10));
-    }
+    // Every monitor's renderer started (the wait is per slot and polls fast): they are closed just after their own start,
+    // while the first navigation is under way.
     assert_eq!(use_theme(&mut portal, "gif"), UseOutcome::Applied);
 
     let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
-    let logs = loop {
-        let logs = renderer_logs(&service);
-        if logs.matches("webview2 closed").count() >= renderers {
-            break logs;
+    let by_slot = loop {
+        let by_slot = renderer_logs_by_slot(&service);
+        if first
+            .keys()
+            .all(|slot| by_slot.get(slot).is_some_and(|log| log.contains("webview2 closed")))
+        {
+            break by_slot;
         }
         assert!(
             std::time::Instant::now() < deadline,
-            "the {renderers} WebView2 renderer(s) did not close: {logs}"
+            "the WebView2 renderer of every slot did not close: {by_slot:?}"
         );
         std::thread::sleep(std::time::Duration::from_millis(100));
     };
 
-    let exits: Vec<u64> = logs
-        .lines()
-        .filter(|line| line.contains("webview2 browser process exited"))
-        .filter_map(|line| line.split("elapsed_ms=").nth(1))
-        .filter_map(|rest| rest.split_whitespace().next()?.parse().ok())
-        .collect();
-    assert_eq!(
-        exits.len(),
-        renderers,
-        "every closed renderer saw its browser process exit within the bound: {logs}"
-    );
-    assert!(
-        exits.iter().all(|elapsed| *elapsed < 1000),
-        "each browser process exited within a second of the close: {exits:?}"
-    );
-    assert!(!logs.contains("did not exit in time"), "{logs}");
-    assert!(!logs.contains("no web profile folder"), "{logs}");
+    for slot in first.keys() {
+        let logs = &by_slot[slot];
+        let exits: Vec<u64> = logs
+            .lines()
+            .filter(|line| line.contains("webview2 browser process exited"))
+            .filter_map(|line| line.split("elapsed_ms=").nth(1))
+            .filter_map(|rest| rest.split_whitespace().next()?.parse().ok())
+            .collect();
+        assert_eq!(
+            exits.len(),
+            1,
+            "the closed renderer of slot {slot} saw its browser process exit within the bound: {logs}"
+        );
+        assert!(
+            exits.iter().all(|elapsed| *elapsed < 1000),
+            "the browser process of slot {slot} exited within a second of the close: {exits:?}"
+        );
+        assert!(!logs.contains("did not exit in time"), "slot {slot}: {logs}");
+        assert!(!logs.contains("no web profile folder"), "slot {slot}: {logs}");
+    }
 }
 
 /// The restart prompt's "Restart now" (D-17): with a Web wallpaper running on CEF, turning Allow invalid certificates on
@@ -1122,25 +1097,13 @@ fn restart_now_restarts_only_the_affected_wallpapers() {
         return;
     }
     assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
-    let started = |count: usize| {
-        let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
-        loop {
-            let logs = renderer_logs(&service);
-            if logs.matches("engine started").count() >= count {
-                return logs;
-            }
-            assert!(
-                std::time::Instant::now() < deadline,
-                "the renderer did not start {count} time(s): {logs}"
-            );
-            std::thread::sleep(std::time::Duration::from_millis(250));
-        }
-    };
-    let first = started(1);
-    assert!(
-        first.contains("allow_invalid_certificates=false"),
-        "certificates are validated by default: {first}"
-    );
+    let first = wait_for_engine_starts_on_every_slot(&service, 1);
+    for (slot, log) in &first {
+        assert!(
+            log.contains("allow_invalid_certificates=false"),
+            "certificates are validated by default on slot {slot}: {log}"
+        );
+    }
     // The runtime state names the engine of the wallpaper that runs, once its renderer is up.
     let deadline = std::time::Instant::now() + std::time::Duration::from_secs(10);
     loop {
@@ -1174,10 +1137,10 @@ fn restart_now_restarts_only_the_affected_wallpapers() {
         }
     }
     assert_eq!(service.settings_file()["Engine"]["AllowInvalidCertificates"], true);
-    assert_eq!(
-        renderer_logs(&service).matches("engine started").count(),
-        1,
-        "a saved setting never restarts the wallpaper by itself"
+    let by_slot = renderer_logs_by_slot(&service);
+    assert!(
+        exactly_one_start_per_slot(&by_slot),
+        "a saved setting never restarts the wallpaper by itself, one start on every slot: {by_slot:?}"
     );
 
     // Another engine's restart changes nothing.
@@ -1185,20 +1148,22 @@ fn restart_now_restarts_only_the_affected_wallpapers() {
         engines: vec![EngineType::MpvPlayerLive],
     });
     std::thread::sleep(std::time::Duration::from_secs(2));
-    assert_eq!(
-        renderer_logs(&service).matches("engine started").count(),
-        1,
-        "a restart of mpv leaves the CEF renderer alone"
+    let by_slot = renderer_logs_by_slot(&service);
+    assert!(
+        exactly_one_start_per_slot(&by_slot),
+        "a restart of mpv leaves the CEF renderer alone, one start on every slot: {by_slot:?}"
     );
 
     portal.request(&PortalRequest::RestartWallpapers {
         engines: vec![EngineType::CefSharpLive],
     });
-    let logs = started(2);
-    assert!(
-        logs.contains("allow_invalid_certificates=true"),
-        "the new renderer reads the switch: {logs}"
-    );
+    let after = wait_for_engine_starts_on_every_slot(&service, 2);
+    for (slot, log) in &after {
+        assert!(
+            log.contains("allow_invalid_certificates=true"),
+            "the new renderer of slot {slot} reads the switch: {log}"
+        );
+    }
 }
 
 /// WebView2 switches saved from a Portal client reach the next renderer (D-17, WAPI-10): with a Web wallpaper on
@@ -1222,18 +1187,24 @@ fn saved_webview2_arguments_reach_the_restarted_renderer() {
         return;
     }
     assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
-    let first = wait_for_engine_starts(&service, 1);
-    if !first.contains("engine started engine=\"WebView2\"") {
+    let first = wait_for_engine_starts_on_every_slot(&service, 1);
+    if first
+        .values()
+        .filter_map(|log| starts(log).first().copied())
+        .any(|line| !line.contains("engine=\"WebView2\""))
+    {
         skipped(
             TEST,
             "WebView2 did not start the wallpaper here (the service fell back to another engine)",
         );
         return;
     }
-    assert!(
-        !first.contains("Translate"),
-        "the legacy defaults do not name Translate: {first}"
-    );
+    for (slot, log) in &first {
+        assert!(
+            !log.contains("Translate"),
+            "the legacy defaults do not name Translate on slot {slot}: {log}"
+        );
+    }
 
     // The list the editor would start from: the legacy defaults, with Translate added to disable-features.
     portal.request(&PortalRequest::GetArguments {
@@ -1282,23 +1253,28 @@ fn saved_webview2_arguments_reach_the_restarted_renderer() {
             .any(|entry| entry.starts_with("--disable-features=") && entry.ends_with(",Translate")),
         "a valued switch is stored as --name=value: {stored:?}"
     );
-    assert_eq!(
-        renderer_logs(&service).matches("engine started").count(),
-        1,
-        "a saved setting never restarts the wallpaper by itself"
+    let by_slot = renderer_logs_by_slot(&service);
+    assert!(
+        exactly_one_start_per_slot(&by_slot),
+        "a saved setting never restarts the wallpaper by itself, one start on every slot: {by_slot:?}"
     );
 
     portal.request(&PortalRequest::RestartWallpapers {
         engines: vec![EngineType::WebViewLive],
     });
-    let logs = wait_for_engine_starts(&service, 2);
-    let switches: Vec<&str> = logs.lines().filter(|line| line.contains("chromium switches")).collect();
-    assert_eq!(switches.len(), 2, "two renderers logged their switches: {logs}");
-    let second = switches
-        .iter()
-        .find(|line| line.contains("Translate"))
-        .unwrap_or_else(|| panic!("the second renderer has the saved switch: {logs}"));
-    assert!(second.contains("disable-features="), "{second}");
+    let after = wait_for_engine_starts_on_every_slot(&service, 2);
+    for (slot, logs) in &after {
+        let switches: Vec<&str> = logs.lines().filter(|line| line.contains("chromium switches")).collect();
+        assert_eq!(
+            switches.len(),
+            2,
+            "two renderers of slot {slot} logged their switches: {logs}"
+        );
+        assert!(
+            switches[1].contains("Translate") && switches[1].contains("disable-features="),
+            "the second renderer of slot {slot} has the saved switch: {logs}"
+        );
+    }
 }
 
 /// Open DevTools (D-13): with a Web wallpaper running on CEF, the Portal's `OpenDevTools` for its monitor reaches that
