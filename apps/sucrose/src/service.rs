@@ -25,7 +25,7 @@ use sucrose_core::{
     version::app_version,
 };
 use sucrose_ipc::{
-    Connection, IpcError, Listener,
+    Connection, IpcError, Listener, blob,
     portal::{
         EngineReportView, Launch, LaunchReply, MAX_PATH_TEXT, MaintainReport, MoveOutcome, MoveRefusal, PortalEvent,
         PortalPage, PortalRequest, RuleState, RuntimeState, SettingChange, UseOutcome, UseRefusal,
@@ -48,7 +48,7 @@ use sucrose_engine::EngineId;
 use sucrose_engine_web::args;
 
 use crate::{
-    data_hub::{DataModule, Delivery, system_sampling},
+    data_hub::{DataModule, Delivery, Thumbnails, system_sampling_with_thumbnails},
     engines::{self, EngineReport, FallbackNote, Fallbacks},
     fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
     install::{InstallStage, InstallWorker, Prerequisite, SystemSteps},
@@ -1207,12 +1207,19 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
     let mut memory = MemoryModule::default();
     module_off("memory");
     // The data hub exists only while a running page needs system data (D-24): nothing runs until one asks.
-    let (data_sample, data_release) = system_sampling();
+    let (data_sample, data_release, data_take) = system_sampling_with_thumbnails();
     let mut data = DataModule::new(data_sample, {
         let renderers = Arc::clone(&renderers);
         Arc::new(move |slot, batch| deliver_data(&renderers, slot, batch))
     })
-    .with_release(data_release);
+    .with_release(data_release)
+    .with_thumbnails(Thumbnails {
+        take: data_take,
+        deliver: {
+            let renderers = Arc::clone(&renderers);
+            Arc::new(move |slot, id, bytes| deliver_blob(&renderers, slot, id, bytes))
+        },
+    });
     if start_fullscreen(&mut fleet, plan.fullscreen, plan.scope, plan.pause) {
         timers.set(FULLSCREEN_TIMER, FULLSCREEN_POLL_MS);
     }
@@ -2854,6 +2861,27 @@ fn deliver_data(renderers: &Mutex<Renderers>, slot: u8, batch: Vec<(DataGroup, S
         },
         None => Delivery::Gone,
     }
+}
+
+/// Offers the album art `bytes` (blob `id`) to the renderer of `slot` as chunks through its writer queue, never waiting
+/// for it. The chunks are not droppable like a snapshot; if the queue cannot take all of them the delivery is
+/// [`Delivery::Dropped`] and the hub offers the art again as a new blob (the renderer drops the partial one).
+fn deliver_blob(renderers: &Mutex<Renderers>, slot: u8, id: u32, bytes: &[u8]) -> Delivery {
+    let messages = blob::chunks(id, bytes);
+    if messages.is_empty() {
+        // Over the cap: the hub never offers it, but a chunkless blob must not be reported as sent.
+        return Delivery::Dropped;
+    }
+    let renderers = lock(renderers);
+    let Some(link) = renderers.connections.get(&slot) else {
+        return Delivery::Gone;
+    };
+    for message in messages {
+        if link.offer(message) != Offer::Queued {
+            return Delivery::Dropped;
+        }
+    }
+    Delivery::Sent
 }
 
 /// Sends `message` to the renderer of `slot`. `false` when it has no connection (it is still starting) or the send

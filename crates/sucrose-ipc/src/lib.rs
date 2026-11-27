@@ -8,6 +8,7 @@
 //! The same endpoint serves the Portal: the first message of a connection tells the service which kind of peer it is
 //! (D-033), and the Portal's own messages live in [`portal`].
 
+pub mod blob;
 pub mod frame;
 pub mod portal;
 pub mod protocol;

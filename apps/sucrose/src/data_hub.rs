@@ -13,6 +13,7 @@ use std::{
 use crossbeam_channel::{Receiver, RecvTimeoutError, Sender, bounded};
 use serde_json::Value;
 use sucrose_core::compatible::DataGroup;
+use sucrose_ipc::blob::BLOB_MAX;
 use sucrose_platform::PlatformError;
 use sucrose_sysinfo::{AudioCapture, MediaSession, ProcessorSampler, SysInfoError};
 
@@ -42,6 +43,24 @@ pub type Deliver = Arc<dyn Fn(u8, Vec<(DataGroup, String)>) -> Delivery + Send +
 /// Tells the sampler that no running page wants `group` any more, so it can let go of what it holds for it (an open
 /// performance-counter query, a cached read).
 pub type Release = Arc<dyn Fn(DataGroup) + Send + Sync>;
+
+/// Takes the album art of the current track as the text of `ThumbnailString` when the track changed since the last call
+/// (empty text when the track has none); `None` while nothing changed.
+pub type TakeThumbnail = Arc<dyn Fn() -> Option<String> + Send + Sync>;
+
+/// Offers the art `bytes` of blob `id` to the renderer of a slot as chunks through its writer queue, never waiting for it.
+/// Chunks are not droppable like a snapshot: a full queue is [`Delivery::Dropped`] and the hub offers the art again with a
+/// new id on the next tick.
+pub type DeliverBlob = Arc<dyn Fn(u8, u32, &[u8]) -> Delivery + Send + Sync>;
+
+/// How the album art travels: where the hub takes a changed thumbnail from and how it reaches a renderer (WAPI-06).
+#[derive(Clone)]
+pub struct Thumbnails {
+    /// The source of a changed thumbnail.
+    pub take: TakeThumbnail,
+    /// The delivery of one thumbnail to a renderer.
+    pub deliver: DeliverBlob,
+}
 
 /// How many ticks pass between two readings of `group`: the legacy rates (Date every tick, the performance groups once
 /// a second, the battery every two seconds). Bios and Motherboard are read from WMI once and kept by the sampler, so
@@ -85,11 +104,16 @@ pub struct DataHub {
 
 impl DataHub {
     /// Starts the worker.
-    fn start(wanted: Shared, sample: Sampler, deliver: Deliver) -> std::io::Result<Self> {
+    fn start(
+        wanted: Shared,
+        sample: Sampler,
+        deliver: Deliver,
+        thumbnails: Option<Thumbnails>,
+    ) -> std::io::Result<Self> {
         let (stop, stopped) = bounded::<()>(0);
         let worker = thread::Builder::new()
             .name("data-hub".to_owned())
-            .spawn(move || run(&wanted, &stopped, &sample, &deliver))?;
+            .spawn(move || run(&wanted, &stopped, &sample, &deliver, thumbnails.as_ref()))?;
         tracing::info!("data hub started");
         Ok(Self {
             stop: Some(stop),
@@ -112,9 +136,9 @@ impl Drop for DataHub {
 }
 
 /// The worker: one pass per [`TICK`] until the stop channel closes.
-fn run(wanted: &Shared, stopped: &Receiver<()>, sample: &Sampler, deliver: &Deliver) {
+fn run(wanted: &Shared, stopped: &Receiver<()>, sample: &Sampler, deliver: &Deliver, thumbnails: Option<&Thumbnails>) {
     let mut tick: u64 = 0;
-    let mut missing = HashSet::new();
+    let mut state = PassState::default();
     let mut next = Instant::now() + TICK;
     loop {
         match stopped.recv_timeout(next.saturating_duration_since(Instant::now())) {
@@ -127,8 +151,81 @@ fn run(wanted: &Shared, stopped: &Receiver<()>, sample: &Sampler, deliver: &Deli
             .iter()
             .map(|(slot, entry)| (*slot, entry.groups.clone()))
             .collect();
-        pass(tick, &slots, sample, deliver, &mut missing);
+        pass(tick, &slots, sample, deliver, thumbnails, &mut state);
         tick = tick.wrapping_add(1);
+    }
+}
+
+/// What the worker keeps from one pass to the next.
+#[derive(Default)]
+struct PassState {
+    /// The groups that already logged that this build has no data for them.
+    missing: HashSet<DataGroup>,
+    thumbnail: ThumbnailState,
+}
+
+/// The album art being delivered: the current text as bytes under a blob id, and the slots that already got it.
+#[derive(Default)]
+struct ThumbnailState {
+    /// The id of the newest blob; a new art or a retry takes the next one.
+    last_id: u32,
+    current: Option<(u32, Vec<u8>)>,
+    served: HashSet<u8>,
+}
+
+/// Delivers the album art to the renderers whose page wants Audio. A changed thumbnail goes to every such renderer; one that
+/// asks later (a page that started while the track plays) gets the art it missed; a queue that was full gets it again
+/// with a new id. Nothing is held while no page wants Audio (T-04-64). Chunks go out before the pass's Data batch.
+fn serve_thumbnails(slots: &[(u8, Vec<DataGroup>)], thumbnails: &Thumbnails, state: &mut ThumbnailState) {
+    let audio_slots: Vec<u8> = slots
+        .iter()
+        .filter(|(_, groups)| groups.contains(&DataGroup::Audio))
+        .map(|(slot, _)| *slot)
+        .collect();
+    if audio_slots.is_empty() {
+        state.current = None;
+        state.served.clear();
+        return;
+    }
+    if let Some(text) = (thumbnails.take)() {
+        let mut bytes = text.into_bytes();
+        if bytes.len() > BLOB_MAX {
+            tracing::warn!(
+                size = bytes.len(),
+                "the album art is too large for the renderer, the page gets none"
+            );
+            bytes.clear();
+        }
+        state.last_id = state.last_id.wrapping_add(1);
+        tracing::debug!(size = bytes.len(), "album art taken");
+        state.current = Some((state.last_id, bytes));
+        state.served.clear();
+    }
+    state.served.retain(|slot| audio_slots.contains(slot));
+    let Some((id, bytes)) = state.current.as_mut() else {
+        return;
+    };
+    let mut retried = false;
+    for slot in audio_slots {
+        if state.served.contains(&slot) {
+            continue;
+        }
+        match (thumbnails.deliver)(slot, *id, bytes) {
+            Delivery::Sent => {
+                state.served.insert(slot);
+            }
+            Delivery::Dropped => {
+                tracing::debug!(slot, "a renderer's queue is full, the album art is offered again");
+                retried = true;
+            }
+            Delivery::Gone => {}
+        }
+    }
+    if retried {
+        // A renderer that got part of the chunks drops that blob; the next offer is a blob of its own.
+        state.last_id = state.last_id.wrapping_add(1);
+        *id = state.last_id;
+        state.served.clear();
     }
 }
 
@@ -139,7 +236,8 @@ fn pass(
     slots: &[(u8, Vec<DataGroup>)],
     sample: &Sampler,
     deliver: &Deliver,
-    missing: &mut HashSet<DataGroup>,
+    thumbnails: Option<&Thumbnails>,
+    state: &mut PassState,
 ) {
     let mut snapshots: HashMap<DataGroup, String> = HashMap::new();
     for group in DataGroup::ALL {
@@ -152,11 +250,14 @@ fn pass(
                 snapshots.insert(group, text);
             }
             None => {
-                if missing.insert(group) {
+                if state.missing.insert(group) {
                     tracing::debug!(?group, "no data for this group on this build, it is skipped");
                 }
             }
         }
+    }
+    if let Some(thumbnails) = thumbnails {
+        serve_thumbnails(slots, thumbnails, &mut state.thumbnail);
     }
     for (slot, groups) in slots {
         let batch: Vec<(DataGroup, String)> = DataGroup::ALL
@@ -183,6 +284,8 @@ pub struct DataModule {
     deliver: Deliver,
     /// Called for a group when the last page that wanted it is gone, and for every group when the hub stops.
     release: Option<Release>,
+    /// Where the album art comes from and how it reaches a renderer; without it no art is delivered.
+    thumbnails: Option<Thumbnails>,
     /// The groups some renderer wanted at the last change, to see which ones were dropped.
     held: HashSet<DataGroup>,
 }
@@ -197,6 +300,7 @@ impl DataModule {
             sample,
             deliver,
             release: None,
+            thumbnails: None,
             held: HashSet::new(),
         }
     }
@@ -205,6 +309,13 @@ impl DataModule {
     #[must_use]
     pub fn with_release(mut self, release: Release) -> Self {
         self.release = Some(release);
+        self
+    }
+
+    /// Sets how the album art of the Audio group is taken and delivered (WAPI-06).
+    #[must_use]
+    pub fn with_thumbnails(mut self, thumbnails: Thumbnails) -> Self {
+        self.thumbnails = Some(thumbnails);
         self
     }
 
@@ -256,13 +367,14 @@ impl DataModule {
         let any_wanted = !wanted_groups.is_empty();
         match (any_wanted, self.hub.is_some()) {
             (true, false) => {
-                let (wanted, sample, deliver) = (
+                let (wanted, sample, deliver, thumbnails) = (
                     Arc::clone(&self.wanted),
                     Arc::clone(&self.sample),
                     Arc::clone(&self.deliver),
+                    self.thumbnails.clone(),
                 );
                 self.hub = start_module("data hub", any_wanted, || {
-                    DataHub::start(wanted, sample, deliver).map_err(|error| PlatformError::Failed {
+                    DataHub::start(wanted, sample, deliver, thumbnails).map_err(|error| PlatformError::Failed {
                         context: "data hub",
                         message: error.to_string(),
                     })
@@ -514,6 +626,14 @@ impl SystemState {
         }
     }
 
+    /// The album art of the current track when the track changed since the last call (the Audio group's media session).
+    fn take_thumbnail(&mut self) -> Option<String> {
+        match &self.media {
+            Held::Ready(session) => session.thumbnail_if_changed(),
+            _ => None,
+        }
+    }
+
     /// No running page wants `group` any more: whatever is held for it goes (the counters close, a cached read is
     /// dropped, so a later page reads it afresh) and a failure may be logged again.
     fn release(&mut self, group: DataGroup) {
@@ -542,8 +662,16 @@ impl SystemState {
 /// The sampler of this build and the release that goes with it: the groups `sucrose-sysinfo` provides, as the JSON text
 /// the legacy payload holds. Everything the sampler holds sits behind one lock, so a release from the service thread
 /// waits for a reading in progress on the hub thread.
+#[cfg(test)]
 #[must_use]
 pub fn system_sampling() -> (Sampler, Release) {
+    let (sample, release, _take) = system_sampling_with_thumbnails();
+    (sample, release)
+}
+
+/// [`system_sampling`] with the source of the album art of the Audio group, which shares the sampler's media session.
+#[must_use]
+pub fn system_sampling_with_thumbnails() -> (Sampler, Release, TakeThumbnail) {
     let state = Arc::new(Mutex::new(SystemState::new()));
     let sample: Sampler = {
         let state = Arc::clone(&state);
@@ -552,10 +680,14 @@ pub fn system_sampling() -> (Sampler, Release) {
             serde_json::to_string(&value).ok()
         })
     };
+    let take: TakeThumbnail = {
+        let state = Arc::clone(&state);
+        Arc::new(move || state.lock().unwrap_or_else(PoisonError::into_inner).take_thumbnail())
+    };
     let release: Release = Arc::new(move |group| {
         state.lock().unwrap_or_else(PoisonError::into_inner).release(group);
     });
-    (sample, release)
+    (sample, release, take)
 }
 
 /// The sampler of [`system_sampling`] without its release.
@@ -607,7 +739,7 @@ mod tests {
             (2, vec![DataGroup::Bios]),
         ];
 
-        pass(0, &slots, &sample, &deliver, &mut HashSet::new());
+        pass(0, &slots, &sample, &deliver, None, &mut PassState::default());
 
         assert_eq!(
             *reads.lock().expect("reads"),
@@ -629,8 +761,15 @@ mod tests {
         let (sample, reads) = counting_sampler();
         let (deliver, _log) = recording_deliver(|_| Delivery::Sent);
 
-        pass(0, &[(0, vec![DataGroup::Date])], &sample, &deliver, &mut HashSet::new());
-        pass(1, &[], &sample, &deliver, &mut HashSet::new());
+        pass(
+            0,
+            &[(0, vec![DataGroup::Date])],
+            &sample,
+            &deliver,
+            None,
+            &mut PassState::default(),
+        );
+        pass(1, &[], &sample, &deliver, None, &mut PassState::default());
 
         assert_eq!(*reads.lock().expect("reads"), [DataGroup::Date]);
     }
@@ -642,7 +781,7 @@ mod tests {
         let slots = vec![(0, vec![DataGroup::Date, DataGroup::Memory])];
 
         for tick in 0..11 {
-            pass(tick, &slots, &sample, &deliver, &mut HashSet::new());
+            pass(tick, &slots, &sample, &deliver, None, &mut PassState::default());
         }
 
         let reads = reads.lock().expect("reads");
@@ -669,8 +808,8 @@ mod tests {
         });
         let slots = vec![(0, vec![DataGroup::Date])];
 
-        pass(0, &slots, &sample, &deliver, &mut HashSet::new());
-        pass(1, &slots, &sample, &deliver, &mut HashSet::new());
+        pass(0, &slots, &sample, &deliver, None, &mut PassState::default());
+        pass(1, &slots, &sample, &deliver, None, &mut PassState::default());
 
         assert_eq!(
             reads.lock().expect("reads").len(),
@@ -690,10 +829,210 @@ mod tests {
             &[(0, vec![DataGroup::Audio])],
             &sample,
             &deliver,
-            &mut HashSet::new(),
+            None,
+            &mut PassState::default(),
         );
 
         assert!(log.lock().expect("log").is_empty());
+    }
+
+    /// A blob deliverer that records "blob <slot> <id> <size>" lines into `log`, and a data deliverer that records "data <slot>".
+    fn blob_log(
+        log: &Arc<Mutex<Vec<String>>>,
+        answer: impl Fn(u8) -> Delivery + Send + Sync + 'static,
+    ) -> (Deliver, DeliverBlob) {
+        let for_data = Arc::clone(log);
+        let deliver: Deliver = Arc::new(move |slot, _batch| {
+            for_data.lock().expect("log").push(format!("data {slot}"));
+            Delivery::Sent
+        });
+        let for_blob = Arc::clone(log);
+        let blob: DeliverBlob = Arc::new(move |slot, id, bytes| {
+            for_blob
+                .lock()
+                .expect("log")
+                .push(format!("blob {slot} {id} {}", bytes.len()));
+            answer(slot)
+        });
+        (deliver, blob)
+    }
+
+    /// A source that gives each text once, in order, then nothing.
+    fn art_source(texts: &[&str]) -> TakeThumbnail {
+        let queue = Arc::new(Mutex::new(
+            texts.iter().map(|text| (*text).to_owned()).collect::<Vec<_>>(),
+        ));
+        Arc::new(move || {
+            let mut queue = queue.lock().expect("queue");
+            if queue.is_empty() { None } else { Some(queue.remove(0)) }
+        })
+    }
+
+    #[test]
+    fn a_changed_thumbnail_goes_to_each_audio_renderer_once_before_the_data_batch() {
+        let log = Arc::new(Mutex::new(Vec::new()));
+        let (deliver, blob) = blob_log(&log, |_| Delivery::Sent);
+        let thumbnails = Thumbnails {
+            take: art_source(&["QUJD"]),
+            deliver: blob,
+        };
+        let (sample, _reads) = counting_sampler();
+        let slots = vec![(0, vec![DataGroup::Audio]), (1, vec![DataGroup::Date])];
+        let mut state = PassState::default();
+
+        pass(0, &slots, &sample, &deliver, Some(&thumbnails), &mut state);
+        pass(1, &slots, &sample, &deliver, Some(&thumbnails), &mut state);
+
+        assert_eq!(
+            *log.lock().expect("log"),
+            ["blob 0 1 4", "data 0", "data 1", "data 0", "data 1"],
+            "the art goes out once, only to the Audio renderer, and before its data"
+        );
+    }
+
+    #[test]
+    fn a_renderer_that_wants_audio_later_gets_the_art_it_missed() {
+        let log = Arc::new(Mutex::new(Vec::new()));
+        let (deliver, blob) = blob_log(&log, |_| Delivery::Sent);
+        let thumbnails = Thumbnails {
+            take: art_source(&["QUJD"]),
+            deliver: blob,
+        };
+        let (sample, _reads) = counting_sampler();
+        let mut state = PassState::default();
+
+        pass(
+            0,
+            &[(0, vec![DataGroup::Audio])],
+            &sample,
+            &deliver,
+            Some(&thumbnails),
+            &mut state,
+        );
+        pass(
+            1,
+            &[(0, vec![DataGroup::Audio]), (1, vec![DataGroup::Audio])],
+            &sample,
+            &deliver,
+            Some(&thumbnails),
+            &mut state,
+        );
+
+        let log = log.lock().expect("log");
+        assert_eq!(log.iter().filter(|line| line.starts_with("blob 0 ")).count(), 1);
+        assert_eq!(log.iter().filter(|line| line.starts_with("blob 1 1 ")).count(), 1);
+    }
+
+    #[test]
+    fn a_new_track_goes_out_under_a_new_id_and_an_empty_art_is_a_blob_of_no_bytes() {
+        let log = Arc::new(Mutex::new(Vec::new()));
+        let (deliver, blob) = blob_log(&log, |_| Delivery::Sent);
+        let thumbnails = Thumbnails {
+            take: art_source(&["QUJD", ""]),
+            deliver: blob,
+        };
+        let (sample, _reads) = counting_sampler();
+        let slots = vec![(0, vec![DataGroup::Audio])];
+        let mut state = PassState::default();
+
+        for tick in 0..3 {
+            pass(tick, &slots, &sample, &deliver, Some(&thumbnails), &mut state);
+        }
+
+        let blobs: Vec<String> = log
+            .lock()
+            .expect("log")
+            .iter()
+            .filter(|line| line.starts_with("blob"))
+            .cloned()
+            .collect();
+        assert_eq!(blobs, ["blob 0 1 4", "blob 0 2 0"]);
+    }
+
+    #[test]
+    fn a_full_queue_offers_the_art_again_as_a_new_blob_on_the_next_tick() {
+        let log = Arc::new(Mutex::new(Vec::new()));
+        let refusals = Arc::new(AtomicUsize::new(1));
+        let counter = Arc::clone(&refusals);
+        let (deliver, blob) = blob_log(&log, move |_| {
+            if counter.fetch_sub(1, Ordering::SeqCst) > 0 {
+                Delivery::Dropped
+            } else {
+                Delivery::Sent
+            }
+        });
+        let thumbnails = Thumbnails {
+            take: art_source(&["QUJD"]),
+            deliver: blob,
+        };
+        let (sample, _reads) = counting_sampler();
+        let slots = vec![(0, vec![DataGroup::Audio])];
+        let mut state = PassState::default();
+
+        pass(0, &slots, &sample, &deliver, Some(&thumbnails), &mut state);
+        pass(1, &slots, &sample, &deliver, Some(&thumbnails), &mut state);
+        pass(2, &slots, &sample, &deliver, Some(&thumbnails), &mut state);
+
+        let blobs: Vec<String> = log
+            .lock()
+            .expect("log")
+            .iter()
+            .filter(|line| line.starts_with("blob"))
+            .cloned()
+            .collect();
+        assert_eq!(
+            blobs,
+            ["blob 0 1 4", "blob 0 2 4"],
+            "a retry is a blob of its own, then it stays served"
+        );
+    }
+
+    #[test]
+    fn nothing_is_held_or_delivered_while_no_page_wants_audio() {
+        let log = Arc::new(Mutex::new(Vec::new()));
+        let (deliver, blob) = blob_log(&log, |_| Delivery::Sent);
+        let thumbnails = Thumbnails {
+            take: art_source(&["QUJD"]),
+            deliver: blob,
+        };
+        let (sample, _reads) = counting_sampler();
+        let mut state = PassState::default();
+
+        pass(
+            0,
+            &[(0, vec![DataGroup::Date])],
+            &sample,
+            &deliver,
+            Some(&thumbnails),
+            &mut state,
+        );
+
+        assert!(state.thumbnail.current.is_none());
+        assert!(log.lock().expect("log").iter().all(|line| !line.starts_with("blob")));
+    }
+
+    #[test]
+    fn art_over_the_blob_cap_is_replaced_by_an_empty_one() {
+        let log = Arc::new(Mutex::new(Vec::new()));
+        let (deliver, blob) = blob_log(&log, |_| Delivery::Sent);
+        let huge = "A".repeat(BLOB_MAX + 1);
+        let take: TakeThumbnail = {
+            let once = Arc::new(Mutex::new(Some(huge)));
+            Arc::new(move || once.lock().expect("once").take())
+        };
+        let thumbnails = Thumbnails { take, deliver: blob };
+        let (sample, _reads) = counting_sampler();
+
+        pass(
+            0,
+            &[(0, vec![DataGroup::Audio])],
+            &sample,
+            &deliver,
+            Some(&thumbnails),
+            &mut PassState::default(),
+        );
+
+        assert_eq!(log.lock().expect("log")[0], "blob 0 1 0");
     }
 
     #[test]

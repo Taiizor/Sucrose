@@ -21,7 +21,9 @@ use sucrose_engine::{
     sync::{Follower, SyncAction, drift_s},
 };
 use sucrose_ipc::{
-    Connection, IpcError, connect,
+    Connection, IpcError,
+    blob::{Outcome, Reassembler},
+    connect,
     protocol::{Assignment, ClockTick, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService},
 };
 use sucrose_platform::{
@@ -507,7 +509,8 @@ fn judge_hello_reply(reply: Result<ToRenderer, IpcError>) -> anyhow::Result<Hell
             | ToRenderer::OpenDevTools
             | ToRenderer::Data(_)
             | ToRenderer::SetLoop(_)
-            | ToRenderer::SetShuffle(_),
+            | ToRenderer::SetShuffle(_)
+            | ToRenderer::Blob { .. },
         ) => {
             tracing::warn!("ignoring a control message that arrived before the assignment");
             Ok(HelloReply::Skip)
@@ -528,6 +531,55 @@ fn wait_for_assignment(connection: &mut Connection) -> anyhow::Result<Option<Ass
     }
 }
 
+/// The album art of the Audio group as this renderer holds it: the chunks of one blob at a time are put back together, and
+/// the newest complete text goes into every Audio snapshot before the page gets it (WAPI-06, Pitfall 7). The art is never
+/// logged beyond its size (T-04-64).
+#[derive(Default)]
+struct Art {
+    reader: Reassembler,
+    /// The newest `ThumbnailString`; empty until a blob completed or when the track has no art.
+    text: String,
+}
+
+impl Art {
+    /// Takes one chunk. A blob that completes replaces the text; one that does not fit is dropped and logged once.
+    fn blob(&mut self, id: u32, seq: u16, total: u16, bytes: &[u8]) {
+        match self.reader.push(id, seq, total, bytes) {
+            Outcome::Done(id, bytes) => match String::from_utf8(bytes) {
+                Ok(text) => {
+                    tracing::debug!(id, size = text.len(), "album art received");
+                    self.text = text;
+                }
+                Err(_) => tracing::warn!(id, "the album art is not text, it is ignored"),
+            },
+            Outcome::Dropped(id, reason) => tracing::warn!(id, ?reason, "a chunked payload was dropped"),
+            Outcome::Pending | Outcome::Ignored => {}
+        }
+    }
+
+    /// `data` with the newest art in its Audio group. Without art, or without an Audio group, it is returned as it came.
+    fn merge(&self, mut data: Vec<(DataGroup, String)>) -> Vec<(DataGroup, String)> {
+        if self.text.is_empty() {
+            return data;
+        }
+        for (group, text) in &mut data {
+            if *group != DataGroup::Audio {
+                continue;
+            }
+            // The text is the hub's compact JSON; it is written back the same way, with the art in its key.
+            if let Ok(mut value) = serde_json::from_str::<serde_json::Value>(text)
+                && let Some(slot) = value.get_mut("ThumbnailString")
+            {
+                *slot = serde_json::Value::String(self.text.clone());
+                if let Ok(merged) = serde_json::to_string(&value) {
+                    *text = merged;
+                }
+            }
+        }
+        data
+    }
+}
+
 /// Applies the service's pause and volume commands to `engine` until the service asks the renderer to stop or the
 /// connection ends. A new rectangle is handed to the main thread through `pending_rect` and `proxy`. `pause_level` is
 /// the level every pause is carried out at; a new source brings the level of its own settings.
@@ -540,6 +592,7 @@ fn wait_for_close(
     mut pause_level: PauseLevel,
 ) {
     let mut following = FollowState::default();
+    let mut art = Art::default();
     loop {
         match connection.recv::<ToRenderer>() {
             Ok(ToRenderer::Close) => {
@@ -586,7 +639,8 @@ fn wait_for_close(
                 }
             }
             // Handed to the engine as it is; an engine without a page ignores it.
-            Ok(ToRenderer::Data(data)) => engine.push_data(data),
+            Ok(ToRenderer::Data(data)) => engine.push_data(art.merge(data)),
+            Ok(ToRenderer::Blob { id, seq, total, bytes }) => art.blob(id, seq, total, &bytes),
             Ok(ToRenderer::SetRole(role)) => {
                 apply_role(role, engine, sync);
                 following.reset(engine.clock().map_or(1.0, EngineClock::speed));
@@ -906,6 +960,82 @@ mod tests {
     use sucrose_ipc::protocol::{InputSettings, WebOptions};
 
     use super::*;
+
+    fn audio_text() -> String {
+        r#"{"State":true,"Title":"Song","Data":[0.5],"ThumbnailString":"","PlaybackState":"Playing"}"#.to_owned()
+    }
+
+    fn send_art(art: &mut Art, id: u32, text: &str) {
+        for message in sucrose_ipc::blob::chunks(id, text.as_bytes()) {
+            if let ToRenderer::Blob { id, seq, total, bytes } = message {
+                art.blob(id, seq, total, &bytes);
+            }
+        }
+    }
+
+    #[test]
+    fn the_newest_art_goes_into_the_audio_group_in_place_and_nothing_else_changes() {
+        let mut art = Art::default();
+        send_art(&mut art, 1, "QUJD");
+        let data = vec![
+            (DataGroup::Date, "{\"State\":true}".to_owned()),
+            (DataGroup::Audio, audio_text()),
+        ];
+
+        let merged = art.merge(data);
+
+        assert_eq!(merged[0], (DataGroup::Date, "{\"State\":true}".to_owned()));
+        assert_eq!(
+            merged[1].1,
+            r#"{"State":true,"Title":"Song","Data":[0.5],"ThumbnailString":"QUJD","PlaybackState":"Playing"}"#
+        );
+    }
+
+    #[test]
+    fn without_art_a_snapshot_is_handed_on_as_it_came() {
+        let art = Art::default();
+
+        assert_eq!(
+            art.merge(vec![(DataGroup::Audio, audio_text())]),
+            vec![(DataGroup::Audio, audio_text())]
+        );
+    }
+
+    #[test]
+    fn art_bigger_than_one_frame_is_put_back_together_and_a_newer_one_replaces_it() {
+        let mut art = Art::default();
+        let big = "A".repeat(150 * 1024);
+
+        send_art(&mut art, 1, &big);
+        assert_eq!(art.text.len(), big.len());
+        send_art(&mut art, 2, "newer");
+
+        assert_eq!(art.text, "newer");
+        let merged = art.merge(vec![(DataGroup::Audio, audio_text())]);
+        assert!(merged[0].1.contains("\"ThumbnailString\":\"newer\""));
+    }
+
+    #[test]
+    fn an_empty_art_clears_the_previous_one() {
+        let mut art = Art::default();
+        send_art(&mut art, 1, "QUJD");
+
+        send_art(&mut art, 2, "");
+
+        assert!(art.text.is_empty());
+        assert_eq!(art.merge(vec![(DataGroup::Audio, audio_text())])[0].1, audio_text());
+    }
+
+    #[test]
+    fn a_chunk_set_with_a_wrong_order_keeps_the_art_that_was_there() {
+        let mut art = Art::default();
+        send_art(&mut art, 1, "QUJD");
+
+        // Chunk 1 of 2 without chunk 0.
+        art.blob(2, 1, 2, b"zz");
+
+        assert_eq!(art.text, "QUJD");
+    }
 
     #[test]
     fn a_missing_engine_exits_with_code_2() {

@@ -103,6 +103,19 @@ pub enum ToRenderer {
     SetLoop(bool),
     /// The value of the `ShuffleMode` compatible call of a web page: the Portal's Shuffle Mode switch (PLAY-01).
     SetShuffle(bool),
+    /// One chunk of a payload bigger than a frame (the album art of the Audio group): chunk `seq` of `total` of blob `id`,
+    /// at most [`crate::blob::BLOB_CHUNK`] bytes. The chunks of a blob come in order; [`crate::blob::Reassembler`] puts them
+    /// back together.
+    Blob {
+        /// Which blob the chunk belongs to.
+        id: u32,
+        /// The chunk's place, from 0.
+        seq: u16,
+        /// How many chunks the blob has.
+        total: u16,
+        /// The chunk's bytes.
+        bytes: Vec<u8>,
+    },
 }
 
 /// What a renderer does when several monitors show the same wallpaper (D-02).
@@ -492,6 +505,21 @@ mod tests {
             assert_eq!(bytes[0], index, "{message:?}");
             assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
         }
+    }
+
+    #[test]
+    fn blob_keeps_its_wire_index_and_survives_the_wire() {
+        let message = ToRenderer::Blob {
+            id: 7,
+            seq: 1,
+            total: 3,
+            bytes: vec![1, 2, 3],
+        };
+        let bytes = postcard::to_stdvec(&message).expect("encode");
+
+        // Appended after SetLoop (10) and SetShuffle (11).
+        assert_eq!(bytes[0], 12);
+        assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
     }
 
     #[test]
