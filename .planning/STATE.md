@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-36-PLAN.md
-last_updated: "2026-11-27T04:46:20.756Z"
+stopped_at: Completed 04-37-PLAN.md
+last_updated: "2026-11-27T12:33:41.024Z"
 last_activity: 2026-11-27
 last_activity_desc: Phase 04 execution started
-state_head: 8c09175a259c535c49665b7c0cf05b2d8cfdb0a1
+state_head: 86507011d846a0450609f9cfc46ee31088f66783
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 117
-  completed_plans: 115
+  completed_plans: 116
   percent: 38
 ---
 
@@ -28,10 +28,10 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 37 of 38
+Plan: 38 of 38
 Status: Ready to execute
 Last activity: 2026-11-27 — Phase 04 execution started
-Next step: /gsd-debug for the in-page Web theme failures and the CEF GPU process crash (04-37 names their fixes as its precondition), then `/gsd-execute-phase 4` runs Round B.
+Next step: 04-38 (measurement checkpoint, ready gate), or /gsd-debug for the 04-37 defects D1-D8 first: the maintainer's choice.
 
 Progress: [████░░░░░░] 38%
 
@@ -170,6 +170,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P34 | 20 min | 2 tasks | 14 files |
 | Phase 04 P35 | 19 min | 2 tasks | 17 files |
 | Phase 04 P36 | 21 min | 2 tasks | 6 files |
+| Phase 04 P37 | 35min | 3 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -355,6 +356,8 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-35: the YouTube page keeps the engine volume at 0 until the first SucroseVolume call and applies the product with the property volume once the player is ready (a pause before ready is applied on ready too)
 - [Phase 04]: 04-36: Gif select order follows the legacy allowed list (Built-in, WebView2, CEF, mpv, libVLC), as the Video row does, not the plan prose order
 - [Phase 04]: 04-36: a stored VexanaLive shows as the single Built-in choice (XavierLive); VexanaLive is never a second list entry
+- [Phase 04]: 04-37: Complete rule applied per requirement; TYPE-02, ENG-07, WAPI-01, WAPI-02, WAPI-04, FMT-07, WAPI-09 and WAPI-10 marked, TYPE-03, TYPE-04, TYPE-05, ENG-02, ENG-03, WAPI-05, WAPI-06 and WAPI-08 stay open (defects D1-D8 recorded)
+- [Phase 04]: 04-37: D9 (D-33) design finding, with two monitors the first renderer to start takes the persistent web profile so the primary monitor can run ephemeral; proposal to prefer the primary monitor awaits the maintainer
 
 ### Pending Todos
 
@@ -374,7 +377,8 @@ None yet.
 - [All phases]: Measure RAM/CPU of user-visible changes in release builds; record notable numbers in `docs/MEASUREMENTS.md`
 - CEF GPU process crashes 3 times at the start of a Web wallpaper on the maintainer machine (software fallback renders); look at it at the 04-20 checkpoint
 - [Phase 4]: RESOLVED 2026-11-26 (/gsd-debug, `.planning/debug/resolved/cef-close-shutdown-dialog.md`): the Windows "Shut Down Windows" dialog after every CEF theme switch (04-20 run). Cause: our CEF life span handler kept the default DoClose, so CEF posted WM_CLOSE to the browser's top-level ancestor, which under the desktop surface is Progman; the close then timed out after 5 s and the renderer crashed in cef::shutdown (0xffff7003). Fix: DoClose answers 1 for the wallpaper browser and the renderer destroys the browser window itself. Maintainer run 2026-11-26: no dialog, 14 of 14 CEF closes in 4-28 ms, every CEF renderer exit code 0. The 04-20 slice-1 check still needs its gap-closure re-run.
-- [Phase 4]: 04-20 maintainer run: web themes (e.g. Test Sucrose API) fail inside the page with a CORS-like error although every page loads with status 200; not triaged yet.
+- [Phase 4]: 04-20 maintainer run: web themes (e.g. Test Sucrose API) fail inside the page with a CORS-like error although every page loads with status 200; not triaged yet (04-37 D1: on CEF some Web themes stay on loading, WebView2 opens them).
+- [Phase 4]: 04-37 maintainer run (2026-11-27) found D1-D9, for /gsd-debug (details in 04-37-SUMMARY.md): D1 CEF Web themes stuck on loading; D2 white border at the screen edges on some Web themes (both engines); D3 WebView2 certs frame still fails after Allow invalid certificates + Restart now; D4 CEF seek fixture video never visible; D5 WebView2 video-clip page black; D6 url-input black on CEF and no mouse reaction on WebView2; D7 YouTube player UI (title, play/pause, bottom UI) visible on both engines; D8 audio bars silent in Music Tunnel and audio on both engines, now playing unconfirmed; D9 (D-33 design) the first renderer to start takes the persistent web profile, so the primary monitor can run ephemeral (proposal for the maintainer: prefer the primary monitor, not decided). TYPE-03, TYPE-04, TYPE-05, ENG-02, ENG-03, WAPI-05, WAPI-06 and WAPI-08 stay open for /gsd-verify-work.
 - 04-35: CEF refuses the YouTube player-frame access (hideIframeElement SecurityError) despite --disable-web-security; UI hiding and in-frame properties do not apply on CEF; decide a fix touching D-021 and check in 04-37 (also WebView2)
 
 ### Quick Tasks Completed
@@ -394,6 +398,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-27T11:52:53Z
-Stopped at: Session resumed, proceeding to 04-37 Task 3 (maintainer run started at T0 2026-11-27 14:52:53 +03, shortened scope: A6 and A7 dropped, B4 one Showcase video per engine, no playlist)
+Last session: 2026-11-27T12:32:18.319Z
+Stopped at: Completed 04-37-PLAN.md
 Resume file: None

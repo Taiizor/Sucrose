@@ -26,7 +26,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 ### Wallpaper types
 
 - [x] **TYPE-01**: User can set a Video theme as the desktop wallpaper (Win ✅ · mac ✅ · Linux ✅)
-- [ ] **TYPE-02**: User can set a GIF theme, drawn by Sucrose's built-in renderer, which also plays APNG and WebP (Win ✅ · mac ✅ · Linux ✅)
+- [x] **TYPE-02**: User can set a GIF theme, drawn by Sucrose's built-in renderer, which also plays APNG and WebP (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-03**: User can set a Web theme (local HTML) on a web engine: WebView2/CEF on Windows, WKWebView/CEF on macOS, WebKitGTK/CEF on Linux (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-04**: User can set a URL wallpaper; it receives forwarded input (its Sucrose mute and volume set is part of PROP-05, D-06) (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-05**: User can set a YouTube wallpaper (IFrame API page, no API key) with playlist, shuffle, loop and hidden player UI (Win ✅ · mac ✅ · Linux ✅)
@@ -40,7 +40,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **ENG-04**: The libVLC engine plays video when libVLC is installed
 - [ ] **ENG-05**: The built-in OS video engine (Media Foundation on Windows) plays video with no engine installed (D-006)
 - [x] **ENG-06**: Sucrose detects the engines and prerequisites it needs (bundled engine binaries present and loadable, WebView2 Runtime version, VC++ Redist for CEF) and shows install or repair hints; the WebView2 Runtime and VC++ Redist are user-side downloads (D-028)
-- [ ] **ENG-07**: User can choose, per wallpaper type, which installed engine plays it (legacy `Engine.json` keys Gif/Url/Web/Video/YouTube/Application). If the chosen engine is not installed, Sucrose falls back to the built-in engine or another installed one and tells the user (D-006, D-028)
+- [x] **ENG-07**: User can choose, per wallpaper type, which installed engine plays it (legacy `Engine.json` keys Gif/Url/Web/Video/YouTube/Application). If the chosen engine is not installed, Sucrose falls back to the built-in engine or another installed one and tells the user (D-006, D-028)
 
 ### Desktop and display
 
@@ -79,16 +79,16 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 
 ### Web wallpaper API (`engines.md` §6–7)
 
-- [ ] **WAPI-01**: Web wallpapers receive `PropertyListener` property calls, including `filedropdown` file lists, formatted by the strings in `SucroseProperties.json` (Win ✅ · mac ✅ · Linux ✅)
-- [ ] **WAPI-02**: `SucroseCompatible.json` templates (16 keys) work, keeping legacy `True`/`False` booleans and indented JSON (Win ✅ · mac ✅ · Linux ✅)
+- [x] **WAPI-01**: Web wallpapers receive `PropertyListener` property calls, including `filedropdown` file lists, formatted by the strings in `SucroseProperties.json` (Win ✅ · mac ✅ · Linux ✅)
+- [x] **WAPI-02**: `SucroseCompatible.json` templates (16 keys) work, keeping legacy `True`/`False` booleans and indented JSON (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **WAPI-03**: Web wallpapers receive date, CPU, memory, GPU, network, storage and battery data with the legacy payload keys (`formats.md` §5, `engines.md` §6b) (Win ✅ · mac ✅ · Linux ✅)
-- [ ] **WAPI-04**: Web wallpapers receive BIOS and motherboard data (Win ✅ · mac ⚠️ · Linux ⚠️)
+- [x] **WAPI-04**: Web wallpapers receive BIOS and motherboard data (Win ✅ · mac ⚠️ · Linux ⚠️)
 - [ ] **WAPI-05**: Web wallpapers receive the audio spectrum: 128 logarithmic bands, left/right/mono (`services.md` §1.2) (Win ✅ · mac ⚠️ permission · Linux ✅)
 - [ ] **WAPI-06**: Web wallpapers receive now-playing data (media session with thumbnail) (Win ✅ · mac ❌/⚠️ · Linux ✅ MPRIS)
 - [ ] **WAPI-07**: Mouse and keyboard input is forwarded to Web, URL and Application wallpapers (Win ✅ · mac ⚠️ · Linux ⚠️ X11 / ❌ most Wayland)
 - [ ] **WAPI-08**: GIF, Video and YouTube themes can run as generated pages in web engines, with their property keys (Win ✅ · mac ✅ · Linux ✅)
-- [ ] **WAPI-09**: User can turn on developer mode with a remote debugging port (Win ✅ · mac ✅ · Linux ✅)
-- [ ] **WAPI-10**: **New:** user can add, remove and reset web engine arguments (Chromium switches) in the UI; legacy switches stay the defaults (D-021) (Win ✅ · mac ✅ · Linux ✅)
+- [x] **WAPI-09**: User can turn on developer mode with a remote debugging port (Win ✅ · mac ✅ · Linux ✅)
+- [x] **WAPI-10**: **New:** user can add, remove and reset web engine arguments (Chromium switches) in the UI; legacy switches stay the defaults (D-021) (Win ✅ · mac ✅ · Linux ✅)
 
 ### Properties editor (legacy Sucrose.Property, `services.md` §6, `formats.md` §3)
 
@@ -163,7 +163,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **FMT-04**: Theme archives are validated with the legacy rules (`formats.md` §3)
 - [ ] **FMT-05**: The store protocol and cache layout stay compatible (D-022, `formats.md` §4)
 - [x] **FMT-06**: The data folder layout (`Setting`, `Log`, `Cache`, `Library`, `Showcase`) and 25-character theme folder names stay the same (`formats.md` §2)
-- [ ] **FMT-07**: The web wallpaper JavaScript API stays compatible (`engines.md` §6), proven with fixture pages
+- [x] **FMT-07**: The web wallpaper JavaScript API stays compatible (`engines.md` §6), proven with fixture pages
 - [x] **FMT-08**: The selected theme and library location of an existing C# install are read from the legacy `Library.json` and `General.json` (read-only until FMT-01)
 
 ### Security
@@ -235,7 +235,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | ARCH-04 | Phase 3 | Complete |
 | ARCH-05 | Phase 3 | Complete |
 | TYPE-01 | Phase 2 | Complete |
-| TYPE-02 | Phase 4 | Pending |
+| TYPE-02 | Phase 4 | Complete |
 | TYPE-03 | Phase 4 | Pending |
 | TYPE-04 | Phase 4 | Pending |
 | TYPE-05 | Phase 4 | Pending |
@@ -246,7 +246,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | ENG-04 | Phase 4 | Pending |
 | ENG-05 | Phase 4 | Pending |
 | ENG-06 | Phase 4 | Complete |
-| ENG-07 | Phase 4 | Pending |
+| ENG-07 | Phase 4 | Complete |
 | DESK-01 | Phase 2 | Complete |
 | DESK-02 | Phase 4 | Pending |
 | DESK-03 | Phase 4 | Pending |
@@ -273,16 +273,16 @@ Which phases cover which requirements. Filled during roadmap creation.
 | PERF-07 | Phase 4 | Pending |
 | PERF-08 | Phase 4 | Pending |
 | PERF-09 | Phase 4 | Pending |
-| WAPI-01 | Phase 4 | Pending |
-| WAPI-02 | Phase 4 | Pending |
+| WAPI-01 | Phase 4 | Complete |
+| WAPI-02 | Phase 4 | Complete |
 | WAPI-03 | Phase 4 | Pending |
-| WAPI-04 | Phase 4 | Pending |
+| WAPI-04 | Phase 4 | Complete |
 | WAPI-05 | Phase 4 | Pending |
 | WAPI-06 | Phase 4 | Pending |
 | WAPI-07 | Phase 4 | Pending |
 | WAPI-08 | Phase 4 | Pending |
-| WAPI-09 | Phase 4 | Pending |
-| WAPI-10 | Phase 4 | Pending |
+| WAPI-09 | Phase 4 | Complete |
+| WAPI-10 | Phase 4 | Complete |
 | PROP-01 | Phase 4 | Pending |
 | PROP-02 | Phase 4 | Pending |
 | PROP-03 | Phase 4 | Pending |
@@ -333,7 +333,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | FMT-04 | Phase 5 | Pending |
 | FMT-05 | Phase 5 | Pending |
 | FMT-06 | Phase 3 | Complete |
-| FMT-07 | Phase 4 | Pending |
+| FMT-07 | Phase 4 | Complete |
 | FMT-08 | Phase 2 | Complete |
 | SEC-01 | Phase 5 | Pending |
 | SEC-02 | Phase 4 | Complete |
