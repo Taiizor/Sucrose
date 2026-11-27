@@ -14,7 +14,7 @@ use crossbeam_channel::{Receiver, RecvTimeoutError, Sender, bounded};
 use serde_json::Value;
 use sucrose_core::compatible::DataGroup;
 use sucrose_platform::PlatformError;
-use sucrose_sysinfo::{AudioCapture, ProcessorSampler, SysInfoError};
+use sucrose_sysinfo::{AudioCapture, MediaSession, ProcessorSampler, SysInfoError};
 
 use crate::modules::{module_off, start_module};
 
@@ -323,6 +323,8 @@ impl<T> Held<T> {
 struct SystemState {
     processor: Held<ProcessorSampler>,
     audio: Held<AudioCapture>,
+    /// The current media session, open while a page wants Audio next to the capture; it fills the media keys.
+    media: Held<MediaSession>,
     bios: Held<Value>,
     motherboard: Held<Value>,
     logged: HashSet<DataGroup>,
@@ -333,6 +335,7 @@ impl SystemState {
         Self {
             processor: Held::Empty,
             audio: Held::Empty,
+            media: Held::Empty,
             bios: Held::Empty,
             motherboard: Held::Empty,
             logged: HashSet::new(),
@@ -477,9 +480,37 @@ impl SystemState {
                 }
             }
         }
-        match &self.audio {
-            Held::Ready(capture) => Some(capture.snapshot()),
-            _ => Some(sucrose_sysinfo::audio_unavailable()),
+        let media = self.media_fields();
+        Some(match (&self.audio, media) {
+            (Held::Ready(capture), Some(media)) => capture.snapshot_with(&media),
+            (Held::Ready(capture), None) => capture.snapshot(),
+            (_, Some(media)) => sucrose_sysinfo::audio_unavailable_with(&media),
+            (_, None) => sucrose_sysinfo::audio_unavailable(),
+        })
+    }
+
+    /// The media keys of the Audio group: the media session is opened by the first reading and kept until the group is
+    /// released. `None` when there is no session manager (the group then keeps its legacy defaults for those keys).
+    fn media_fields(&mut self) -> Option<serde_json::Map<String, Value>> {
+        if self.media.may_try() {
+            match MediaSession::start() {
+                Ok(session) => {
+                    tracing::info!("media session followed");
+                    self.media = Held::Ready(session);
+                }
+                Err(SysInfoError::Unsupported(what)) => {
+                    tracing::debug!(group = ?DataGroup::Audio, what, "no media session provider on this OS");
+                    self.media = Held::Failed(Instant::now());
+                }
+                Err(error) => {
+                    self.failed(DataGroup::Audio, &error);
+                    self.media = Held::Failed(Instant::now());
+                }
+            }
+        }
+        match &self.media {
+            Held::Ready(session) => Some(session.fields()),
+            _ => None,
         }
     }
 
@@ -494,6 +525,11 @@ impl SystemState {
                 }
                 // Dropping the capture stops its thread and lets the device go.
                 self.audio = Held::Empty;
+                // The media session goes with it: what is playing is followed only while a page wants Audio (T-04-64).
+                if matches!(self.media, Held::Ready(_)) {
+                    tracing::info!("media session released");
+                }
+                self.media = Held::Empty;
             }
             DataGroup::Bios => self.bios = Held::Empty,
             DataGroup::Motherboard => self.motherboard = Held::Empty,

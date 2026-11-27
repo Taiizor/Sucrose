@@ -7225,6 +7225,7 @@ dependencies = [
 name = "sucrose-sysinfo"
 version = "26.11.22+1"
 dependencies = [
+ "image",
  "realfft",
  "serde_json",
  "sucrose-core",

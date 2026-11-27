@@ -8,12 +8,15 @@
   body { font-family: "Segoe UI", sans-serif; padding: 2vw; box-sizing: border-box; }
   h1 { font-size: 3vw; margin: 0 0 1vw; }
   #info { font-size: 1.6vw; color: #8ab4f8; margin-bottom: 1vw; }
+  #media { font-size: 1.6vw; color: #c9d1d9; margin-bottom: 1vw; }
+  #art { height: 14vh; width: 14vh; object-fit: cover; background: #1a2027; vertical-align: middle; margin-right: 1vw; }
   canvas { width: 96vw; height: 60vh; display: block; background: #1a2027; }
 </style>
 </head>
 <body>
 <h1>Sucrose fixture: audio</h1>
 <div id="info">waiting for SystemAudio</div>
+<div id="media"><img id="art" alt=""><span id="now">nothing is playing</span></div>
 <canvas id="bars" width="1280" height="480"></canvas>
 <script>
   // The audio fixture: SucroseCompatible.json defines SystemAudio, so the service captures the default render device and
@@ -24,6 +27,9 @@
   var canvas = document.getElementById("bars");
   var context = canvas.getContext("2d");
   var info = document.getElementById("info");
+  var now = document.getElementById("now");
+  var art = document.getElementById("art");
+  var lastState = null;
 
   function draw(data) {
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -45,6 +51,16 @@
     info.textContent = "SystemAudio: " + data.length + " bands, left " + (audio.DataLeft || []).length +
       ", right " + (audio.DataRight || []).length + ", peak " + peak.toFixed(3);
     draw(data);
+    // The media session of the Audio group: the title, the artist and the state under the bars, the art when there is
+    // some (ThumbnailString is the base64 of a PNG or of the player's own image). A change of PlaybackState is reported
+    // with fetch('/__audio/state/<PlaybackState>'): the origin answers 404 and the renderer log records the path.
+    now.textContent = audio.State ? (audio.Title || "(no title)") + " - " + (audio.Artist || "(no artist)") + " [" +
+      audio.PlaybackState + ", " + audio.SourceAppId + "]" : "nothing is playing";
+    if (audio.ThumbnailString) { art.src = "data:image/png;base64," + audio.ThumbnailString; } else { art.removeAttribute("src"); }
+    if (audio.PlaybackState !== lastState) {
+      lastState = audio.PlaybackState;
+      fetch("/__audio/state/" + encodeURIComponent(lastState), { cache: "no-store" }).catch(function () {});
+    }
     fetch("/__calls/compatible/SystemAudio", { cache: "no-store" }).catch(function () {});
   }
 </script>

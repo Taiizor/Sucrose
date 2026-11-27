@@ -4,15 +4,15 @@
 //! starts it with the first such page and drops it with the last.
 //!
 //! Captured samples never leave the capture thread: they live in the visualizer's in-memory ring, and only the 128-band
-//! magnitudes are published (T-04-62). The media-session fields of the object stay at their legacy defaults until the
-//! now-playing provider fills them.
+//! magnitudes are published (T-04-62). The media-session fields of the object are at their legacy defaults unless the caller
+//! passes the keys of a [`crate::MediaSession`] (`snapshot_with`, `audio_unavailable_with`).
 
 use std::{
     sync::{Arc, Mutex, PoisonError, mpsc},
     thread::JoinHandle,
 };
 
-use serde_json::{Value, json};
+use serde_json::{Map, Value, json};
 
 use crate::{SysInfoError, visualizer::Bands};
 
@@ -72,12 +72,13 @@ pub(crate) fn convert(bytes: &[u8], format: SampleFormat, out: &mut Vec<f32>) {
 }
 
 /// The Audio object, the keys in the order of `GetAudioInfo` in `Data.cs`. `bands` fills the three spectrum arrays (mono is
-/// `Data`); without them they are empty, as in the legacy default. Every media field is at its legacy default.
-fn payload(bands: Option<&Bands>) -> Value {
+/// `Data`); without them they are empty, as in the legacy default. The media fields are at their legacy default unless
+/// `media` holds their keys, which then replace them in place (the key order of `GetAudioInfo` stays).
+fn payload(bands: Option<&Bands>, media: Option<&Map<String, Value>>) -> Value {
     let (mono, left, right) = bands.map_or((Vec::new(), Vec::new(), Vec::new()), |bands| {
         (bands.mono.clone(), bands.left.clone(), bands.right.clone())
     });
-    json!({
+    let mut object = json!({
         "State": false,
         "Title": "",
         "Artist": "",
@@ -105,14 +106,32 @@ fn payload(bands: Option<&Bands>) -> Value {
         "PositionSetFileTime": "0001-01-01T00:00:00",
         "MaxSeekTime": 0.0,
         "MinSeekTime": 0.0
-    })
+    });
+    if let (Some(media), Some(fields)) = (media, object.as_object_mut()) {
+        for (key, value) in media {
+            // Only keys the object has: the spectrum and the thumbnail are not the media session's to set here.
+            if !matches!(key.as_str(), "Data" | "DataLeft" | "DataRight" | "ThumbnailString")
+                && let Some(slot) = fields.get_mut(key)
+            {
+                *slot = value.clone();
+            }
+        }
+    }
+    object
 }
 
 /// The Audio group of the legacy default, which a page sees while no device can be captured: `State` false, empty
 /// arrays.
 #[must_use]
 pub fn audio_unavailable() -> Value {
-    payload(None)
+    payload(None, None)
+}
+
+/// [`audio_unavailable`] with the media keys of a media session: a page on a machine whose render device cannot be
+/// captured still sees what is playing.
+#[must_use]
+pub fn audio_unavailable_with(media: &Map<String, Value>) -> Value {
+    payload(None, Some(media))
 }
 
 /// A running loopback capture of the default render device: a worker thread that keeps the latest bands.
@@ -170,7 +189,14 @@ impl AudioCapture {
     #[must_use]
     pub fn snapshot(&self) -> Value {
         let bands = self.latest.lock().unwrap_or_else(PoisonError::into_inner);
-        payload(Some(&bands))
+        payload(Some(&bands), None)
+    }
+
+    /// The Audio object with the latest bands and the media keys of a media session.
+    #[must_use]
+    pub fn snapshot_with(&self, media: &Map<String, Value>) -> Value {
+        let bands = self.latest.lock().unwrap_or_else(PoisonError::into_inner);
+        payload(Some(&bands), Some(media))
     }
 }
 
@@ -612,8 +638,34 @@ mod tests {
 
     #[test]
     fn the_object_has_the_get_audio_info_keys_in_that_order() {
-        assert_eq!(keys(&payload(None)), KEYS);
-        assert_eq!(keys(&payload(Some(&Bands::silent()))), KEYS);
+        assert_eq!(keys(&payload(None, None)), KEYS);
+        assert_eq!(keys(&payload(Some(&Bands::silent()), None)), KEYS);
+    }
+
+    #[test]
+    fn the_legacy_default_media_keys_are_those_of_the_media_provider() {
+        let plain = payload(None, None);
+        let with_defaults = payload(None, Some(&crate::media_unavailable()));
+
+        assert_eq!(plain, with_defaults);
+    }
+
+    #[test]
+    fn media_keys_replace_their_defaults_in_place_and_never_touch_the_spectrum_or_the_thumbnail() {
+        let mut media = Map::new();
+        media.insert("Title".to_owned(), json!("Song"));
+        media.insert("State".to_owned(), json!(true));
+        media.insert("Data".to_owned(), json!([1.0]));
+        media.insert("ThumbnailString".to_owned(), json!("abc"));
+        media.insert("Unknown".to_owned(), json!(1));
+
+        let value = payload(Some(&Bands::silent()), Some(&media));
+
+        assert_eq!(keys(&value), KEYS, "no key added or moved");
+        assert_eq!(value["Title"], "Song");
+        assert_eq!(value["State"], true);
+        assert_eq!(value["Data"].as_array().map(Vec::len), Some(BAND_COUNT));
+        assert_eq!(value["ThumbnailString"], "");
     }
 
     #[test]
@@ -623,7 +675,7 @@ mod tests {
         bands.left[4] = 0.5;
         bands.right[5] = 0.75;
 
-        let value = payload(Some(&bands));
+        let value = payload(Some(&bands), None);
 
         for key in ["Data", "DataLeft", "DataRight"] {
             let array = value[key].as_array().expect("an array");
@@ -656,7 +708,7 @@ mod tests {
 
     #[test]
     fn the_double_fields_are_written_with_a_decimal_point_like_newtonsoft_does() {
-        let text = serde_json::to_string(&payload(None)).expect("JSON");
+        let text = serde_json::to_string(&payload(None, None)).expect("JSON");
 
         assert!(text.contains("\"PlaybackRate\":0.0"), "{text}");
         assert!(text.contains("\"EndTime\":0.0"), "{text}");

@@ -8,6 +8,7 @@ rust-version.workspace = true
 publish.workspace = true
 
 [dependencies]
+image = { workspace = true }
 realfft = { workspace = true }
 serde_json = { workspace = true }
 sucrose-core = { workspace = true }
@@ -16,6 +17,11 @@ tracing = { workspace = true }
 
 [target.'cfg(windows)'.dependencies]
 windows = { workspace = true, features = [
+    "Foundation",
+    "Media",
+    "Media_Control",
+    "Storage_Streams",
+    "Wdk_System_SystemServices",
     "Win32_Foundation",
     "Win32_Media_Audio",
     "Win32_System_Com",
