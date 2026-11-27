@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-26-PLAN.md
-last_updated: "2026-11-27T00:06:46.029Z"
+stopped_at: Completed 04-27-PLAN.md
+last_updated: "2026-11-27T00:21:13.630Z"
 last_activity: 2026-11-27
 last_activity_desc: Phase 04 execution started
-state_head: e5877f70491d8d76a22169e763931e70f204cc54
+state_head: 735f7a5a8238dbaf56a570d5bcf054e82ccb26ff
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 117
-  completed_plans: 105
+  completed_plans: 106
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 27 of 38
+Plan: 28 of 38
 Status: Ready to execute
 Last activity: 2026-11-27 — Phase 04 execution started
 Next step: /gsd-debug for the in-page Web theme failures and the CEF GPU process crash (04-37 names their fixes as its precondition), then `/gsd-execute-phase 4` runs Round B.
@@ -160,6 +160,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P24 | 14 min | 2 tasks | 8 files |
 | Phase 04 P25 | 15 min | 3 tasks | 11 files |
 | Phase 04 P26 | 15 min | 2 tasks | 8 files |
+| Phase 04 P27 | 9 min | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -326,6 +327,7 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-24: WebView2 runs page calls inside NavigationCompleted before the loaded hook, so DataWanted follows the page and its calls as on CEF
 - [Phase 04]: 04-25: the WebView2 browser arguments are planned in sucrose-engine-web (plan_webview2_command_line, browser_arguments) and the legacy key table is shared as sucrose_engine_web::keys; DevTools stay enabled but closed unless asked (D-13)
 - [Phase 04]: 04-26: WebArguments reuses the CEF switch validation and is stored in the legacy Engine.WebArguments list; one ArgumentsEditor per web engine routed by engine
+- [Phase 04]: 04-27: installable() is architecture-aware: runtime and VC++ hints are installable only where the prerequisite has a download address on this processor
 
 ### Pending Todos
 
@@ -364,6 +366,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-27T00:06:27.237Z
-Stopped at: Completed 04-26-PLAN.md
+Last session: 2026-11-27T00:20:32.288Z
+Stopped at: Completed 04-27-PLAN.md
 Resume file: None

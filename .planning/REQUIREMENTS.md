@@ -39,7 +39,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **ENG-03**: The CEF engine hosts the same wallpapers with the same JavaScript API
 - [ ] **ENG-04**: The libVLC engine plays video when libVLC is installed
 - [ ] **ENG-05**: The built-in OS video engine (Media Foundation on Windows) plays video with no engine installed (D-006)
-- [ ] **ENG-06**: Sucrose detects the engines and prerequisites it needs (bundled engine binaries present and loadable, WebView2 Runtime version, VC++ Redist for CEF) and shows install or repair hints; the WebView2 Runtime and VC++ Redist are user-side downloads (D-028)
+- [x] **ENG-06**: Sucrose detects the engines and prerequisites it needs (bundled engine binaries present and loadable, WebView2 Runtime version, VC++ Redist for CEF) and shows install or repair hints; the WebView2 Runtime and VC++ Redist are user-side downloads (D-028)
 - [ ] **ENG-07**: User can choose, per wallpaper type, which installed engine plays it (legacy `Engine.json` keys Gif/Url/Web/Video/YouTube/Application). If the chosen engine is not installed, Sucrose falls back to the built-in engine or another installed one and tells the user (D-006, D-028)
 
 ### Desktop and display
@@ -245,7 +245,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | ENG-03 | Phase 4 | Pending |
 | ENG-04 | Phase 4 | Pending |
 | ENG-05 | Phase 4 | Pending |
-| ENG-06 | Phase 4 | Pending |
+| ENG-06 | Phase 4 | Complete |
 | ENG-07 | Phase 4 | Pending |
 | DESK-01 | Phase 2 | Complete |
 | DESK-02 | Phase 4 | Pending |
