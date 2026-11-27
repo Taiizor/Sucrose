@@ -255,10 +255,12 @@ mod imp {
 
     use cef::{args::Args, *};
     use windows::Win32::{
-        Foundation::{HWND, LPARAM, WPARAM},
+        Foundation::{HWND, LPARAM, RECT, WPARAM},
         System::LibraryLoader::LoadLibraryW,
         UI::WindowsAndMessaging::{
-            DestroyWindow, FindWindowExW, PostMessageW, SWP_NOACTIVATE, SWP_NOZORDER, SetWindowPos,
+            DestroyWindow, FindWindowExW, GWL_STYLE, GetClientRect, GetWindowLongPtrW, GetWindowRect, PostMessageW,
+            SW_SHOWNOACTIVATE, SWP_FRAMECHANGED, SWP_NOACTIVATE, SWP_NOMOVE, SWP_NOSIZE, SWP_NOZORDER,
+            SetWindowLongPtrW, SetWindowPos, ShowWindow, WS_THICKFRAME, WS_VISIBLE,
         },
     };
     use windows::core::{PCWSTR, w};
@@ -277,6 +279,113 @@ mod imp {
     /// `EVENTFLAG_SHIFT_DOWN` and `EVENTFLAG_CONTROL_DOWN` of a CEF key event's modifiers.
     const SHIFT_DOWN: u32 = 1 << 1;
     const CONTROL_DOWN: u32 = 1 << 2;
+
+    /// The window info of the wallpaper browser: a child of the desktop surface at 0,0, `width` x `height`, created
+    /// hidden and shown by [`show_browser_window`] once CEF has made it.
+    ///
+    /// Chromium's widget window inside the browser window (`Chrome_WidgetWin_1`) has `WS_THICKFRAME` and keeps the
+    /// default sizing frame from its first `WM_NCCALCSIZE` until its first frame change. In a visible browser window
+    /// Windows paints that classic 7 px frame into the desktop surface during the creation, and nothing paints over it:
+    /// the widget never paints its client area with GDI, so the frame stays on screen until the GPU process shows the
+    /// first frame of the page, a light border around the screen while a wallpaper loads (debug session
+    /// web-loading-white-border). A hidden window paints nothing while it is made.
+    fn wallpaper_window_info(parent: cef::sys::HWND, width: i32, height: i32) -> WindowInfo {
+        let mut info = WindowInfo {
+            runtime_style: RuntimeStyle::ALLOY,
+            ..WindowInfo::default()
+        }
+        .set_as_child(
+            parent,
+            &Rect {
+                x: 0,
+                y: 0,
+                width,
+                height,
+            },
+        );
+        info.style &= !WS_VISIBLE.0;
+        info
+    }
+
+    /// Shows the browser window that [`wallpaper_window_info`] created hidden, after taking the sizing frame off
+    /// Chromium's widget ([`drop_sizing_frame`]). A widget that still has a non-client frame is logged, because that
+    /// frame would show until the page's first frame.
+    fn show_browser_window(browser: &Browser) {
+        let Some(host) = browser.host() else {
+            tracing::warn!("the browser has no host, its window cannot be shown");
+            return;
+        };
+        let window = HWND(host.window_handle().0.cast());
+        // SAFETY: `window` is this thread's browser window and the class is a valid NUL-terminated literal;
+        // FindWindowExW only reads the window tree and fails for a window that is gone.
+        let widget = unsafe { FindWindowExW(Some(window), None, w!("Chrome_WidgetWin_1"), PCWSTR::null()) }.ok();
+        if let Some(widget) = widget {
+            drop_sizing_frame(widget);
+        }
+        let frame = widget.and_then(non_client_size);
+        // SAFETY: `window` belongs to this thread's browser; ShowWindow validates the handle. The return value is the
+        // previous visibility, which is not needed.
+        let _ = unsafe { ShowWindow(window, SW_SHOWNOACTIVATE) };
+        match frame {
+            Some((0, 0)) | None => tracing::debug!(widget = widget.is_some(), "browser window shown"),
+            Some((width, height)) => tracing::warn!(
+                width,
+                height,
+                "the Chromium widget still has a window frame when its browser window is shown; it may show as a border \
+                 until the page's first frame"
+            ),
+        }
+    }
+
+    /// Takes `WS_THICKFRAME` off Chromium's widget window. Its `WM_NCCALCSIZE` gives the whole window to the page, but
+    /// `DefWindowProc` still draws the classic sizing frame of a `WS_THICKFRAME` window over the client area on some
+    /// non-client messages (the frame came back about 0.4 s after the show, with the widget's title and size unchanged,
+    /// and stayed until the page's first GPU frame). A child of the desktop surface is never resized with the mouse, so
+    /// the style has no use here.
+    fn drop_sizing_frame(widget: HWND) {
+        // SAFETY: reads a style of a window of this thread's browser; 0 for a window that is gone.
+        let style = unsafe { GetWindowLongPtrW(widget, GWL_STYLE) };
+        let Some(without) = without_sizing_frame(style) else {
+            return;
+        };
+        // SAFETY: changes a style of a window of this thread's browser; the return value is the old style.
+        let _ = unsafe { SetWindowLongPtrW(widget, GWL_STYLE, without) };
+        // SAFETY: plain handle and flags; only the frame is recalculated (no move, size, z-order or activation).
+        let changed = unsafe {
+            SetWindowPos(
+                widget,
+                None,
+                0,
+                0,
+                0,
+                0,
+                SWP_FRAMECHANGED | SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE,
+            )
+        };
+        if let Err(error) = changed {
+            tracing::warn!(%error, "the Chromium widget's frame change was not applied");
+        }
+    }
+
+    /// `style` without `WS_THICKFRAME`, or `None` when it has none.
+    fn without_sizing_frame(style: isize) -> Option<isize> {
+        let frame = WS_THICKFRAME.0 as isize;
+        (style & frame != 0).then_some(style & !frame)
+    }
+
+    /// How much wider and taller `window` is than its client area: the size of its non-client frame.
+    fn non_client_size(window: HWND) -> Option<(i32, i32)> {
+        let mut outer = RECT::default();
+        let mut client = RECT::default();
+        // SAFETY: both rectangles are valid out pointers; the calls fail for a window that is gone.
+        unsafe { GetWindowRect(window, &mut outer) }.ok()?;
+        // SAFETY: as above.
+        unsafe { GetClientRect(window, &mut client) }.ok()?;
+        Some((
+            (outer.right - outer.left) - (client.right - client.left),
+            (outer.bottom - outer.top) - (client.bottom - client.top),
+        ))
+    }
 
     /// What the handlers share with the host.
     struct Shared {
@@ -767,19 +876,7 @@ mod imp {
             let (width, height) = browser_size(rect);
             // SAFETY-free: the handle is only an identifier CEF passes to Win32.
             let parent = cef::sys::HWND(parent_hwnd as usize as *mut cef::sys::HWND__);
-            let window_info = WindowInfo {
-                runtime_style: RuntimeStyle::ALLOY,
-                ..WindowInfo::default()
-            }
-            .set_as_child(
-                parent,
-                &Rect {
-                    x: 0,
-                    y: 0,
-                    width,
-                    height,
-                },
-            );
+            let window_info = wallpaper_window_info(parent, width, height);
             let browser_settings = BrowserSettings {
                 // Opaque black until the page paints.
                 background_color: 0xFF00_0000,
@@ -805,6 +902,7 @@ mod imp {
                 cef::shutdown();
                 return Err(CefError::CreateBrowser);
             };
+            show_browser_window(&browser);
             Ok(Self {
                 browser,
                 pump,
@@ -1035,6 +1133,100 @@ mod imp {
 
             handler.on_before_close(None);
             assert!(shared.closed.load(Ordering::SeqCst));
+        }
+
+        // Only builds the window info; no CEF code runs.
+        #[test]
+        fn the_wallpaper_browser_window_is_made_hidden_as_a_child_of_the_surface() {
+            let parent = cef::sys::HWND(0x1234 as *mut cef::sys::HWND__);
+            let info = wallpaper_window_info(parent, 1920, 1080);
+
+            assert_eq!(
+                info.style & WS_VISIBLE.0,
+                0,
+                "a visible browser window lets Windows paint the Chromium widget's sizing frame into the surface"
+            );
+            let child = windows::Win32::UI::WindowsAndMessaging::WS_CHILD.0;
+            assert_eq!(info.style & child, child, "it stays a child window of the surface");
+            assert_eq!(info.parent_window.0, parent.0);
+            assert_eq!(
+                (info.bounds.x, info.bounds.y, info.bounds.width, info.bounds.height),
+                (0, 0, 1920, 1080)
+            );
+            assert_eq!(info.runtime_style, RuntimeStyle::ALLOY);
+        }
+
+        #[test]
+        fn only_the_sizing_frame_is_taken_off_a_window_style() {
+            // Chromium's widget style seen under the surface: WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS |
+            // WS_CLIPCHILDREN | WS_THICKFRAME | WS_MAXIMIZEBOX.
+            assert_eq!(without_sizing_frame(0x5605_0000), Some(0x5601_0000));
+            assert_eq!(
+                without_sizing_frame(0x5601_0000),
+                None,
+                "a style without the frame stays as it is"
+            );
+        }
+
+        // A plain Win32 window stands in for Chromium's widget: a hidden child with WS_THICKFRAME gets the default
+        // sizing frame, and after drop_sizing_frame it has no style bit and no non-client area left to paint.
+        #[test]
+        fn a_widget_without_its_sizing_frame_has_no_frame_left_to_paint() {
+            use windows::Win32::UI::WindowsAndMessaging::{CreateWindowExW, WINDOW_EX_STYLE, WS_CHILD, WS_POPUP};
+
+            // SAFETY: the system STATIC class with valid literals, no menu or creation data; the windows are never
+            // shown and are destroyed below.
+            let parent = unsafe {
+                CreateWindowExW(
+                    WINDOW_EX_STYLE(0),
+                    w!("STATIC"),
+                    w!("sucrose test parent"),
+                    WS_POPUP,
+                    0,
+                    0,
+                    400,
+                    300,
+                    None,
+                    None,
+                    None,
+                    None,
+                )
+            }
+            .expect("a hidden STATIC window can be created");
+            // SAFETY: as above, a child of the window made just above.
+            let widget = unsafe {
+                CreateWindowExW(
+                    WINDOW_EX_STYLE(0),
+                    w!("STATIC"),
+                    w!("sucrose test widget"),
+                    WS_CHILD | WS_VISIBLE | WS_THICKFRAME,
+                    0,
+                    0,
+                    400,
+                    300,
+                    Some(parent),
+                    None,
+                    None,
+                    None,
+                )
+            }
+            .expect("a child STATIC window can be created");
+            let before = non_client_size(widget).expect("the test window has a size");
+
+            drop_sizing_frame(widget);
+
+            let after = non_client_size(widget).expect("the test window has a size");
+            // SAFETY: reads a style of the test window.
+            let style = unsafe { GetWindowLongPtrW(widget, GWL_STYLE) };
+            // SAFETY: destroys the test windows this thread made; the child goes with its parent.
+            unsafe { DestroyWindow(parent) }.expect("the test window can be destroyed");
+            assert!(
+                before.0 > 0 && before.1 > 0,
+                "a WS_THICKFRAME child starts with a sizing frame: {before:?}"
+            );
+            assert_eq!(after, (0, 0), "no non-client frame is left");
+            assert_eq!(style & WS_THICKFRAME.0 as isize, 0);
+            assert_ne!(style & WS_VISIBLE.0 as isize, 0, "nothing else of the style changes");
         }
     }
 }
