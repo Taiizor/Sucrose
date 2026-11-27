@@ -541,16 +541,95 @@ fn use_of_an_application_theme_is_refused_and_the_selection_is_unchanged() {
     assert_eq!(service.settings_file()["Library"]["Selected"], "");
 }
 
-/// The text of the renderer logs of `service` (`<data>/Log/Renderer-*.log`), empty when there are none yet.
-fn renderer_logs(service: &TestService) -> String {
+/// The slot of a renderer log file (`Renderer-<slot>.<date>.log`); `CefRenderer-` and `Service.` files are not renderer logs.
+fn slot_of(file_name: &str) -> Option<u32> {
+    let (slot, _) = file_name.strip_prefix("Renderer-")?.split_once('.')?;
+    slot.parse().ok()
+}
+
+/// Turns (file name, text) pairs into the text of each renderer slot: the files of one slot are joined in file-name
+/// (date) order, each ending in a line break, so the lines of two files never merge.
+fn logs_by_slot(mut files: Vec<(String, String)>) -> BTreeMap<u32, String> {
+    files.sort();
+    let mut by_slot = BTreeMap::new();
+    for (name, text) in files {
+        let Some(slot) = slot_of(&name) else { continue };
+        let log: &mut String = by_slot.entry(slot).or_default();
+        log.push_str(&text);
+        if !text.ends_with('\n') {
+            log.push('\n');
+        }
+    }
+    by_slot
+}
+
+/// The renderer logs of `service` (`<data>/Log/Renderer-<slot>.<date>.log`) by slot, empty while there are none yet.
+fn renderer_logs_by_slot(service: &TestService) -> BTreeMap<u32, String> {
     let Ok(entries) = std::fs::read_dir(service.dir.join("Log")) else {
-        return String::new();
+        return BTreeMap::new();
     };
-    entries
+    let files = entries
         .filter_map(Result::ok)
-        .filter(|entry| entry.file_name().to_string_lossy().starts_with("Renderer"))
-        .filter_map(|entry| std::fs::read_to_string(entry.path()).ok())
-        .collect()
+        .filter_map(|entry| {
+            let name = entry.file_name().to_string_lossy().into_owned();
+            slot_of(&name)?;
+            Some((name, std::fs::read_to_string(entry.path()).ok()?))
+        })
+        .collect();
+    logs_by_slot(files)
+}
+
+/// The text of the renderer logs of `service` joined over all slots, for presence checks that hold with any number of
+/// monitors; counts belong to one slot's log.
+fn renderer_logs(service: &TestService) -> String {
+    renderer_logs_by_slot(service).into_values().collect()
+}
+
+/// The engine-start lines of one slot's log, in log order.
+fn starts(log: &str) -> Vec<&str> {
+    log.lines().filter(|line| line.contains("engine started")).collect()
+}
+
+/// Whether at least `slots` slots have at least `count` engine starts each.
+fn every_slot_started(by_slot: &BTreeMap<u32, String>, slots: usize, count: usize) -> bool {
+    by_slot.values().filter(|log| starts(log).len() >= count).count() >= slots
+}
+
+/// How many renderer slots a Use starts: the service starts one renderer per connected monitor (apps/sucrose/src/service.rs),
+/// and the OS list reaches this process too. Never less than one.
+fn monitor_slots() -> usize {
+    sucrose_platform::current().monitors().len().max(1)
+}
+
+/// Waits until the renderer of every monitor slot logged at least `count` engine starts and returns the logs by slot.
+fn wait_for_engine_starts_on_every_slot(service: &TestService, count: usize) -> BTreeMap<u32, String> {
+    wait_for_engine_starts_polling(service, count, std::time::Duration::from_millis(250))
+}
+
+/// The wait of [`wait_for_engine_starts_on_every_slot`] with its own poll interval, for a test that has to act right
+/// after the starts.
+fn wait_for_engine_starts_polling(
+    service: &TestService,
+    count: usize,
+    poll: std::time::Duration,
+) -> BTreeMap<u32, String> {
+    let slots = monitor_slots();
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+    loop {
+        let by_slot = renderer_logs_by_slot(service);
+        if every_slot_started(&by_slot, slots, count) {
+            return by_slot;
+        }
+        assert!(
+            std::time::Instant::now() < deadline,
+            "{slots} slot(s) had to log {count} start(s) each, seen {:?}: {by_slot:?}",
+            by_slot
+                .iter()
+                .map(|(slot, log)| (*slot, starts(log).len()))
+                .collect::<Vec<_>>()
+        );
+        std::thread::sleep(poll);
+    }
 }
 
 /// The renderer log file names carry the slot (`Renderer-<slot>.<date>.log`); the files of one slot are joined in date
@@ -578,7 +657,10 @@ fn renderer_logs_are_grouped_by_the_slot_in_their_file_name() {
     let log = "t engine started engine=\"Cef\"\nassignment received slot=0\nchromium switches x\nt engine started engine=\"WebView2\"\n";
     assert_eq!(
         starts(log),
-        vec!["t engine started engine=\"Cef\"", "t engine started engine=\"WebView2\""]
+        vec![
+            "t engine started engine=\"Cef\"",
+            "t engine started engine=\"WebView2\""
+        ]
     );
 }
 
@@ -592,7 +674,10 @@ fn every_monitor_slot_has_to_reach_the_count() {
     assert!(!every_slot_started(&two_slots_one_start, 2, 2));
 
     let one_slot_two_starts = BTreeMap::from([(0, start.repeat(2))]);
-    assert!(!every_slot_started(&one_slot_two_starts, 2, 1), "the second monitor has no renderer yet");
+    assert!(
+        !every_slot_started(&one_slot_two_starts, 2, 1),
+        "the second monitor has no renderer yet"
+    );
     assert!(every_slot_started(&one_slot_two_starts, 1, 2));
 
     assert!(!every_slot_started(&BTreeMap::new(), 1, 1));
@@ -761,7 +846,8 @@ fn wait_for_engine_starts(service: &TestService, count: usize) -> String {
 /// A running Web wallpaper restarts on the engine just chosen: with WebView2 installed, choosing it ends the CEF renderer
 /// and starts a new one on WebView2, so nothing falls back. (The fallback itself is covered where an engine is missing:
 /// `engines::tests::a_missing_configured_engine_falls_back_for_this_run_and_says_why`.) It plays a real wallpaper, so
-/// it skips where CEF or WebView2 is not available.
+/// it skips where CEF or WebView2 is not available. With several monitors every monitor's renderer restarts on the engine
+/// chosen.
 #[test]
 fn an_engine_change_restarts_the_running_wallpaper_on_the_engine_chosen() {
     if !service_runs("an_engine_change_restarts_the_running_wallpaper_on_the_engine_chosen") {
@@ -779,19 +865,26 @@ fn an_engine_change_restarts_the_running_wallpaper_on_the_engine_chosen() {
         return;
     }
     assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
-    let first = wait_for_engine_starts(&service, 1);
-    assert!(first.contains("engine=\"Cef\""), "the default engine is CEF: {first}");
+    let first = wait_for_engine_starts_on_every_slot(&service, 1);
+    for (slot, log) in &first {
+        assert!(
+            starts(log)[0].contains("engine=\"Cef\""),
+            "the default engine is CEF on slot {slot}: {log}"
+        );
+    }
 
     portal.request(&PortalRequest::Change(SettingChange::WebEngine(
         EngineType::WebViewLive,
     )));
 
-    let logs = wait_for_engine_starts(&service, 2);
-    assert!(
-        logs.lines()
-            .any(|line| line.contains("engine started") && line.contains("engine=\"WebView2\"")),
-        "the second renderer plays on WebView2: {logs}"
-    );
+    let after = wait_for_engine_starts_on_every_slot(&service, 2);
+    for (slot, log) in &after {
+        let restarted = &starts(log)[1..];
+        assert!(
+            restarted.iter().all(|line| line.contains("engine=\"WebView2\"")),
+            "the renderer of slot {slot} after the change plays on WebView2: {log}"
+        );
+    }
 }
 
 /// An engine change for Gif (D-10, D-11): with mpv chosen, a GIF theme plays on mpv; choosing the built-in choice (written
