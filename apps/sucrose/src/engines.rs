@@ -18,6 +18,8 @@ use sucrose_engine::{
 use sucrose_ipc::portal::{EngineReportView, EngineState, EngineStateView, FallbackView, HintView, OfferedView};
 use sucrose_platform::{Arch, Platform, VcRedist};
 
+use crate::install::Prerequisite;
+
 /// Every engine the report covers, in the order the Portal lists them.
 pub const ALL: [EngineId; 7] = [
     EngineId::Mpv,
@@ -302,9 +304,20 @@ fn hint_view(hint: &Hint) -> HintView {
     }
 }
 
-/// Whether Sucrose can fix a missing part itself: a prerequisite it can download and run (04-18), not its own files.
+/// Whether Sucrose can fix a missing part itself: a prerequisite it can download and run (04-18, 04-27) for this
+/// processor, not its own files.
 fn installable(hint: &Hint) -> bool {
-    !matches!(hint, Hint::FilesMissing)
+    installable_on(hint, Arch::current())
+}
+
+/// [`installable`] for the processor `arch`: true when the prerequisite the hint names has a download address there.
+fn installable_on(hint: &Hint, arch: Arch) -> bool {
+    let prerequisite = match hint {
+        Hint::FilesMissing => return false,
+        Hint::VcRedistMissing { .. } => Prerequisite::VcRedist,
+        Hint::RuntimeMissing | Hint::RuntimeOutdated { .. } => Prerequisite::WebView2Runtime,
+    };
+    prerequisite.url(arch).is_some()
 }
 
 /// The Portal's form of an availability.
@@ -377,6 +390,12 @@ fn vc_missing(found: Option<&VcRedist>) -> Option<Hint> {
 /// [`detect`] applies, asked again after an install.
 pub fn vc_is_fine(found: Option<&VcRedist>) -> bool {
     vc_missing(found).is_none()
+}
+
+/// Whether a WebView2 Runtime newer than the legacy floor is installed (version `None`: none): the rule [`detect`]
+/// applies, asked again after an install.
+pub fn webview2_is_fine(version: Option<&str>) -> bool {
+    matches!(webview2_state(true, version), Availability::Installed { .. })
 }
 
 /// [`detect`] with the machine's answers given: `exists` says whether a file or folder is there, and
@@ -933,6 +952,35 @@ mod tests {
     fn missing_engine_files_are_not_installable_by_sucrose() {
         assert!(!installable(&Hint::FilesMissing));
         assert!(installable(&Hint::RuntimeMissing));
+    }
+
+    #[test]
+    fn a_missing_or_outdated_webview2_runtime_is_installable_where_a_download_exists() {
+        let outdated = Hint::RuntimeOutdated {
+            found: "100.0".to_owned(),
+            needed: WEBVIEW2_FLOOR.to_owned(),
+        };
+        for arch in [Arch::X86, Arch::X64, Arch::Arm64] {
+            assert!(installable_on(&Hint::RuntimeMissing, arch), "{arch:?}");
+            assert!(installable_on(&outdated, arch), "{arch:?}");
+            assert!(!installable_on(&Hint::FilesMissing, arch), "{arch:?}");
+        }
+        assert!(!installable_on(&Hint::RuntimeMissing, Arch::Other));
+        assert!(!installable_on(&outdated, Arch::Other));
+        assert!(installable_on(
+            &Hint::VcRedistMissing {
+                needed: "14.40".to_owned()
+            },
+            Arch::X64
+        ));
+    }
+
+    #[test]
+    fn the_install_recheck_accepts_only_a_runtime_newer_than_the_floor() {
+        assert!(webview2_is_fine(Some("158.0.4370.33")));
+        assert!(!webview2_is_fine(Some(WEBVIEW2_FLOOR)));
+        assert!(!webview2_is_fine(Some("100.0.1")));
+        assert!(!webview2_is_fine(None));
     }
 
     #[test]

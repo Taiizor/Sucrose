@@ -28,6 +28,10 @@ use crate::engines;
 /// The most bytes an installer download may have (the Visual C++ bootstrapper is about 25 MiB).
 pub const MAX_INSTALLER_BYTES: u64 = 128 << 20;
 
+/// The Evergreen Bootstrapper of the WebView2 Runtime, the short link the C# app uses (D-15). It redirects to Microsoft's
+/// download servers; the download only follows redirects to HTTPS.
+const WEBVIEW2_BOOTSTRAPPER_URL: &str = "https://go.microsoft.com/fwlink/p/?LinkId=2124703";
+
 /// How often the download reports its progress.
 const PROGRESS_EVERY: Duration = Duration::from_millis(250);
 
@@ -41,7 +45,7 @@ const ACCEPTED_EXIT_CODES: [i32; 3] = [0, 1638, 3010];
 pub enum Prerequisite {
     /// The Visual C++ Redistributable CEF needs.
     VcRedist,
-    /// The WebView2 Runtime (Round B: no download is wired yet).
+    /// The WebView2 Runtime the WebView2 engine needs (the Evergreen Bootstrapper picks the runtime for the device).
     WebView2Runtime,
 }
 
@@ -55,7 +59,7 @@ impl Prerequisite {
     }
 
     /// The official Microsoft download of this prerequisite for `arch`, the same short link the C# app uses; `None` where
-    /// none is known (WebView2 until Round B, a processor without a Visual C++ runtime).
+    /// none is known (a processor without a Visual C++ runtime or a WebView2 Runtime).
     pub fn url(self, arch: Arch) -> Option<String> {
         match self {
             Self::VcRedist => {
@@ -67,7 +71,11 @@ impl Prerequisite {
                 };
                 Some(format!("https://aka.ms/vc14/vc_redist.{suffix}.exe"))
             }
-            Self::WebView2Runtime => None,
+            // One address for every architecture: the Bootstrapper installs the runtime that fits the device.
+            Self::WebView2Runtime => match arch {
+                Arch::X86 | Arch::X64 | Arch::Arm64 => Some(WEBVIEW2_BOOTSTRAPPER_URL.to_owned()),
+                Arch::Other => None,
+            },
         }
     }
 
@@ -83,7 +91,7 @@ impl Prerequisite {
     fn arguments(self) -> &'static str {
         match self {
             Self::VcRedist => "/install /passive /norestart",
-            Self::WebView2Runtime => "",
+            Self::WebView2Runtime => "/silent /install",
         }
     }
 
@@ -94,7 +102,7 @@ impl Prerequisite {
                 let found = sucrose_platform::current().vc_redist(Arch::current());
                 engines::vc_is_fine(found.as_ref())
             }
-            Self::WebView2Runtime => false,
+            Self::WebView2Runtime => engines::webview2_is_fine(sucrose_engine_webview2::runtime_version().as_deref()),
         }
     }
 }
