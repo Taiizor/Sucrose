@@ -1,189 +1,207 @@
 {
   "version": "1.0",
-  "timestamp": "2026-11-26T07:00:01.348Z",
+  "timestamp": "2026-11-27T05:04:59.061Z",
   "phase": "04",
   "phase_name": "M3 — Engines and the wallpaper API",
   "phase_dir": ".planning/phases/04-m3-engines-and-the-wallpaper-api",
-  "plan": 15,
-  "task": 1,
-  "total_tasks": 2,
+  "plan": 37,
+  "task": 2,
+  "total_tasks": 3,
   "status": "paused",
   "completed_tasks": [
     {
-      "id": "04-01",
-      "name": "Plan 04-01",
+      "id": "04-22",
+      "name": "Plan 04-22: WebView2 tracer plan",
       "status": "done",
-      "commit": "d9620024"
+      "commit": "c7baf452"
     },
     {
-      "id": "04-02",
-      "name": "Plan 04-02",
+      "id": "04-23",
+      "name": "Plan 04-23: WebView2 range and traversal plan",
       "status": "done",
-      "commit": "fa463748"
+      "commit": "27e3678b"
     },
     {
-      "id": "04-03",
-      "name": "Plan 04-03",
+      "id": "04-24",
+      "name": "Plan 04-24: WebView2 page calls plan",
       "status": "done",
-      "commit": "5b742f22"
+      "commit": "f71e5d69"
     },
     {
-      "id": "04-04",
-      "name": "Plan 04-04",
+      "id": "04-25",
+      "name": "Plan 04-25: WebView2 web engine settings plan",
       "status": "done",
-      "commit": "451877d7"
+      "commit": "d04cd8ff"
     },
     {
-      "id": "04-05",
-      "name": "Plan 04-05",
+      "id": "04-26",
+      "name": "Plan 04-26: WebView2 in the Portal plan",
       "status": "done",
-      "commit": "780f7446"
+      "commit": "384b846f"
     },
     {
-      "id": "04-06",
-      "name": "Plan 04-06",
+      "id": "04-27",
+      "name": "Plan 04-27: WebView2 Runtime install plan",
       "status": "done",
-      "commit": "8f0a6433"
+      "commit": "2bf5b6f1"
     },
     {
-      "id": "04-07",
-      "name": "Plan 04-07",
+      "id": "04-28",
+      "name": "Plan 04-28: audio spectrum plan",
       "status": "done",
-      "commit": "fa581ee8"
+      "commit": "83ca35b5"
     },
     {
-      "id": "04-08",
-      "name": "Plan 04-08",
+      "id": "04-29",
+      "name": "Plan 04-29: now playing plan",
       "status": "done",
-      "commit": "64dca7e5"
+      "commit": "479d218b"
     },
     {
-      "id": "04-09",
-      "name": "Plan 04-09",
+      "id": "04-30",
+      "name": "Plan 04-30: built-in GIF renderer plan",
       "status": "done",
-      "commit": "40940eac"
+      "commit": "2331a61c"
     },
     {
-      "id": "04-10",
-      "name": "Plan 04-10",
+      "id": "04-31",
+      "name": "Plan 04-31: stretch and GDI fallback plan",
       "status": "done",
-      "commit": "71d79351"
+      "commit": "53552894"
     },
     {
-      "id": "04-11",
-      "name": "Plan 04-11",
+      "id": "04-32",
+      "name": "Plan 04-32: APNG and WebP on the built-in renderer plan",
       "status": "done",
-      "commit": "4c888541"
+      "commit": "b564a439"
     },
     {
-      "id": "04-12",
-      "name": "Plan 04-12",
+      "id": "04-33",
+      "name": "Plan 04-33: generated GIF and video pages plan",
       "status": "done",
-      "commit": "4d21886c"
+      "commit": "6164edc8"
     },
     {
-      "id": "04-13",
-      "name": "Plan 04-13",
+      "id": "04-34",
+      "name": "Plan 04-34: URL wallpapers plan",
       "status": "done",
-      "commit": "034182fd"
+      "commit": "1fb74f22"
     },
     {
-      "id": "04-14",
-      "name": "Plan 04-14",
+      "id": "04-35",
+      "name": "Plan 04-35: YouTube wallpapers plan",
       "status": "done",
-      "commit": "7d0f9081"
+      "commit": "10db4f49"
+    },
+    {
+      "id": "04-36",
+      "name": "Plan 04-36: Gif, Url and YouTube engine rows plan",
+      "status": "done",
+      "commit": "950867c0"
+    },
+    {
+      "id": "04-37 Task 1",
+      "name": "Prepare the Round B run and prove it unattended (release build, scratch migration, scratch library, CEF and WebView2 smoke, fallback capture)",
+      "status": "done",
+      "commit": "0e08ccc1"
+    },
+    {
+      "id": "04-37 Task 2",
+      "name": "Ready gate (checkpoint:human-action, blocking)",
+      "status": "in_progress",
+      "progress": "Checkpoint returned and presented to the maintainer in Turkish; the maintainer paused instead of replying start/skip. Nothing is running and no clock has started."
     }
   ],
   "remaining_tasks": [
     {
-      "id": "04-15",
-      "name": "Plan 04-15",
+      "id": "04-37 Task 2",
+      "name": "Ready gate: maintainer replies \"start\" (with a public YouTube playlist link or \"no playlist\", and whether \\\\.\\DISPLAY9 is attached) or \"skip\"",
       "status": "not_started"
     },
     {
-      "id": "04-16",
-      "name": "Plan 04-16",
+      "id": "04-37 Task 3",
+      "name": "Maintainer checks Round B (Part A, then Part B, about 60 min); verdicts decide what is marked Complete",
       "status": "not_started"
     },
     {
-      "id": "04-17",
-      "name": "Plan 04-17",
-      "status": "not_started"
-    },
-    {
-      "id": "04-18",
-      "name": "Plan 04-18",
-      "status": "not_started"
-    },
-    {
-      "id": "04-19",
-      "name": "Plan 04-19",
-      "status": "not_started"
-    },
-    {
-      "id": "04-20",
-      "name": "Plan 04-20",
-      "status": "not_started"
-    },
-    {
-      "id": "04-21",
-      "name": "Plan 04-21",
+      "id": "04-38",
+      "name": "Teach cargo xtask measure the WebView2 process trees; measure Web on Rust WebView2 vs C# WebView, GIF on Rust built-in vs Rust mpv vs C# mpv (autonomous: false)",
       "status": "not_started"
     }
   ],
   "blockers": [
     {
-      "description": "CEF's GPU process exited three times (0x80000003) right after page load on the maintainer's machine (04-02); Chromium fell back to software compositing and kept rendering. Cause unknown (virtual display adapter or layered Progman surface). Recorded in D-036 and as a STATE blocker for the 04-20 checkpoint.",
+      "description": "The three defects named in the 04-37 precondition are not fixed: \"Test Sucrose API\" CORS-like in-page error, \"SucrosePropertyListener is not defined\" on Critter Crossing, and the CEF GPU process crash (gpu-recent-crash-count=3). No /gsd-debug session exists for them.",
       "type": "technical",
-      "workaround": "Software compositing keeps the page rendering; investigate at 04-20."
+      "workaround": "04-37 runs anyway on \"start\"; steps they break fail and their requirements stay Pending (Complete rule case 2). Alternative: run /gsd-debug first, then redo 04-37 Task 1 build and smoke."
     },
     {
-      "description": "Flaky tests seen by executors under build load: two timing tests in apps/sucrose/tests/portal.rs (04-05), sucrose-platform os_windows::memory::tests::memory_detail_counts_live_heap_blocks (04-13), and an os error 5 in the cef-dll-sys build script (04-14). Each passed on rerun; the orchestrator's cargo build/test gates passed after every plan through 04-13.",
+      "description": "04-35: CEF refuses the YouTube player-frame access (hideIframeElement SecurityError) despite --disable-web-security; player UI is not hidden and in-frame properties do not apply on CEF. A fix touches D-021. WebView2 not examined.",
       "type": "technical",
-      "workaround": "Rerun before treating as a failure; consider a /gsd-debug pass on the memory test."
+      "workaround": "Observe at 04-37 A5/B4; decide a fix later."
+    },
+    {
+      "description": "Disk space on E: ran out during the 04-30 gate (target/debug had grown to 107 GB, 46 GB of it incremental cache).",
+      "type": "external",
+      "workaround": "Maintainer approved deleting target/debug/incremental; E: had 130 GB free at the 04-36 gate. Check df -h /mnt/e at every gate."
     }
   ],
   "async_jobs": [],
   "human_actions_pending": [
     {
-      "action": "04-20 checkpoint: maintainer run of a release build with the 8 Web themes and the fixture themes (closes TYPE-03, ENG-07, WAPI-04 and other Round A partials).",
-      "context": "Plan 04-20 is autonomous: false. Prepare first and start any clock only after the maintainer replies \"start\" (memory: gsd-timed-checkpoint-ready-gate, gsd-checkpoint-app-lifetime).",
+      "action": "Answer the 04-37 ready gate: close the C# Sucrose app fully (tray icon gone) for the whole run, then reply \"start\" with a public YouTube playlist link or \"no playlist\" and say whether \\\\.\\DISPLAY9 is attached; or reply \"skip\" (halted SUMMARY).",
+      "context": "Round B end-to-end maintainer check on CEF and WebView2; about 60 minutes.",
       "blocking": true
     },
     {
-      "action": "04-21 checkpoint: measure one Web theme on the Rust CEF engine against the C# CefSharp engine with cargo xtask measure.",
-      "context": "Plan 04-21 is autonomous: false; take T0 when the sampler prints `sampling ...`.",
-      "blocking": true
+      "action": "Decide 04-29 album art over the 2 MiB blob cap: raise BLOB_MAX or re-encode the art smaller.",
+      "context": "The first track of the maintainer session had art of 3.1 MB as base64; the page gets an empty ThumbnailString.",
+      "blocking": false
     },
     {
-      "action": "Human-judgment items left by executors for 04-20 or the verifier: DevTools window opening (04-08), Portal reverting a rejected engine select (04-13), bad-certificate page with the switch off/on and Ephemeral profile on a second monitor (04-07), Light pause behind a fullscreen app (04-09), the calls fixture page tables (04-11), the tray tooltip (04-12), a foreign https request answered by CEF networking (04-06).",
-      "context": "Listed in each plan SUMMARY as human_judgment or not proven live.",
+      "action": "Confirm or reject the 04-33 license reading of the legacy GIF decoder bundle (gifuct-js + jsBinarySchemaParser, MIT upstream, notice added) in GifContent.html.",
+      "context": "The plan said a missing license stops the task; the executor treated \"none\" as \"cannot be established\" and kept it. If rejected, GifContent.html is the one file to drop.",
+      "blocking": false
+    },
+    {
+      "action": "Optionally decide whether to run the /gsd-debug sessions for the three open defects before the 04-37 run.",
+      "context": "STATE.md \"Next step\" still names them as the 04-37 precondition.",
       "blocking": false
     }
   ],
   "decisions": [
     {
-      "decision": "Executors run sequentially on the main working tree (ISOLATION=none).",
-      "rationale": "worktree.base-check degraded: HEAD is ahead of origin/HEAD (develop-rust unpushed); parallelization is off in config anyway.",
+      "decision": "Round B ran sequentially on the main working tree",
+      "rationale": "worktree.base-check degraded (HEAD differed from origin/HEAD) and parallelization is off",
       "phase": "04"
     },
     {
-      "decision": "Every executor prompt from 04-13 on carries an orchestrator note on line endings (record git ls-files --eol before editing, restore CRLF before commit on files that were w/crlf).",
-      "rationale": "04-12 left CRLF files as LF after cargo fmt through the Windows wrapper.",
+      "decision": "Orchestrator ran cargo build, cargo test and the wave:post gates (schema-drift, codebase-drift, ui.safety-gate) after every plan; all passed for 04-22..04-36 (tests grew from 1411 to 1664, 0 failures)",
+      "rationale": "post-merge gate in serial mode",
       "phase": "04"
     },
     {
-      "decision": "Restored CRLF on apps/sucrose/src/main.rs and apps/sucrose/src/service.rs after 04-12; other 04-12 files left as they are.",
-      "rationale": "Only those two had evidence of a CRLF pre-state (stat-only M entries with w/crlf before 04-12); guessing the rest from neighbours is unsafe.",
+      "decision": "Deleted target/debug/incremental (46 GB) after the 04-30 build failed with os error 112",
+      "rationale": "maintainer chose that option; pure cache",
       "phase": "04"
     },
     {
-      "decision": "Took the two maintainer commits to .cargo/config.toml (221396c1, 3ee00410: rust-lld linker, dependency dev profile line-tables-only + opt-level 1) as deliberate.",
-      "rationale": "Made by the maintainer during 04-14; not reverted.",
+      "decision": "ENG-06 marked Complete by 04-27 without a live install on a machine lacking the WebView2 Runtime",
+      "rationale": "Complete rule case 1 per the plan; recorded as coverage D4 for /gsd-verify-work",
+      "phase": "04"
+    },
+    {
+      "decision": "04-36 Gif engine select follows the legacy allowed order (Built-in, WebView2, CEF, mpv, libVLC), not the plan prose order",
+      "rationale": "the plan prose contradicted itself; matches the Video row",
+      "phase": "04"
+    },
+    {
+      "decision": "Phase verification waits until Round E",
+      "rationale": "standing STATE decision for the Round A-E split",
       "phase": "04"
     }
   ],
   "uncommitted_files": [],
-  "next_action": "Run /gsd-execute-phase 04. It skips 04-01..04-14 (SUMMARYs present) and dispatches 04-15. Before dispatching, run the post-plan gates that were not run for 04-14 (cargo build, cargo test, and the execute:wave:post gates), and add the line-ending orchestrator note to every executor prompt.",
-  "context_notes": "Round A of Phase 4 (D-31 slice 1, plans 04-01..04-21). 14/21 plans are done, each committed with a SUMMARY; the tracking in STATE.md/ROADMAP.md was written by the sequential executors. The orchestrator built each executor prompt in the REPL (execute-plan.md, summary template, checkpoints.md, tdd.md when applicable, worktree-path-safety.md and executor-examples.md inlined; a project_root_pin bound to the repo root), recorded a plan-scoped dispatch-isolation none, and after each plan ran: spot-check, cargo build (300 s), cargo test, then the verify-schema-drift, verify-codebase-drift and ui-safety-gate checks. All passed for 04-01..04-13. After Round A, Phase verification does not run until Round E: the next step is /gsd-plan-phase 4 (Round B, \"Add more plans\"). The 04-14 run was interrupted by the maintainer only after its SUMMARY commit had landed."
+  "next_action": "Re-present the 04-37 ready gate (Turkish) from .continue-here.md, confirm with tasklist.exe that no sucrose process runs, and on \"start\" spawn a continuation gsd-executor for 04-37 at Task 2 with the completed-tasks table (do not re-dispatch from scratch; the safe-resume gate will see the 0e08ccc1 production commit without a SUMMARY, which is this checkpoint, not a broken run). If code changed since 0e08ccc1 (for example /gsd-debug fixes), the continuation must first rebuild the release build and redo the CEF and WebView2 smoke of Task 1.",
+  "context_notes": "/gsd-execute-phase 4 executed Round B plans 04-22..04-36 in this session (about 6.5 h), each with spot-checks and orchestrator gates. 04-37 Task 1 finished; the session paused at the Task 2 ready gate. 04-38 follows 04-37. develop-rust is pushed (origin/develop-rust = 0e08ccc1)."
 }
