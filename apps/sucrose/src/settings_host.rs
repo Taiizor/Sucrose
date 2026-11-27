@@ -261,6 +261,7 @@ pub fn arguments_answer(engine: EngineType, settings: &Settings, windows_build: 
         debugging_port: args::debugging_port(stored.developer_port, 0).ok().flatten(),
         windows_build,
         engine: web_engine,
+        webview_smartscreen: stored.webview_smartscreen,
     });
     PortalEvent::Arguments {
         engine,
@@ -912,6 +913,30 @@ mod tests {
             panic!("not an Arguments answer");
         };
         assert_eq!(user, vec![switch("my-own-switch", None), switch("x", Some("1"))]);
+    }
+
+    #[test]
+    fn the_webview2_arguments_answer_lists_the_smartscreen_switch_only_while_smartscreen_is_off() {
+        let mut settings = Settings::default();
+        let sucrose_of = |settings: &Settings| {
+            let PortalEvent::Arguments { sucrose, .. } = arguments_answer(EngineType::WebViewLive, settings, 22631)
+            else {
+                panic!("not an Arguments answer");
+            };
+            sucrose
+        };
+
+        assert!(
+            sucrose_of(&settings).contains(&switch("disable-features", Some("msSmartScreenProtection"))),
+            "D-041: SmartScreen is off by default"
+        );
+
+        settings.engine.webview_smartscreen = true;
+
+        assert!(
+            sucrose_of(&settings).iter().all(|view| view.name != "disable-features"),
+            "with SmartScreen on the editor lists no disable-features switch of Sucrose's"
+        );
     }
 
     #[test]

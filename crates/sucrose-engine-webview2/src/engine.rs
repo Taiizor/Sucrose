@@ -194,12 +194,14 @@ const IGNORE_CERTIFICATE_ERRORS: &str = "ignore-certificate-errors";
 /// defaults there for an empty list) merged with Sucrose's own switches, never stored (D-17, WAPI-10). Names that are
 /// not switch names are left out and logged. Allow invalid certificates adds `ignore-certificate-errors`, as for CEF
 /// (D-12): an error allowed through the certificate event instead holds each request about ten seconds in WebView2.
+/// The SmartScreen switch follows `WebOptions.webview_smartscreen` (D-041): it is there unless the setting is on.
 fn browser_arguments(web: &WebOptions, port: Option<u16>) -> String {
     let inputs = SucroseInputs {
         hardware_acceleration: web.hardware_acceleration,
         debugging_port: port,
         windows_build: sucrose_platform::os_build(),
         engine: WebEngine::WebView2,
+        webview_smartscreen: web.webview_smartscreen,
     };
     let mut plan = args::plan_webview2_command_line(&web.arguments, &inputs);
     for (name, error) in &plan.invalid {
@@ -250,6 +252,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         switches = %browser_arguments,
         allow_invalid_certificates = web.allow_invalid_certificates,
         user_agent = ?web.user_agent,
+        webview_smartscreen = web.webview_smartscreen,
         "chromium switches"
     );
 
@@ -914,6 +917,25 @@ mod tests {
         assert!(text.contains("--enable-gpu"), "{text}");
         assert!(!text.contains("remote-debugging-port"), "{text}");
         assert!(!text.contains('\n'));
+    }
+
+    #[test]
+    fn smartscreen_on_leaves_the_smartscreen_feature_out_of_the_browser_arguments() {
+        let off = WebOptions {
+            arguments: args::from_web_list(&args::legacy_defaults_web()),
+            ..WebOptions::default()
+        };
+        let on = WebOptions {
+            webview_smartscreen: true,
+            ..off.clone()
+        };
+
+        let text_off = browser_arguments(&off, None);
+        let text_on = browser_arguments(&on, None);
+
+        assert!(text_off.contains("msSmartScreenProtection"), "{text_off}");
+        assert!(!text_on.contains("msSmartScreenProtection"), "{text_on}");
+        assert!(text_on.contains("IsolateOrigins"), "{text_on}");
     }
 
     #[test]

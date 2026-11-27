@@ -4229,7 +4229,8 @@ fn legacy_theme_type(mode: ThemeMode) -> &'static str {
 /// The web engine options the Engine section leads to: certificates are validated unless the user allowed invalid ones,
 /// the switches are the user's for the chosen web engine (an empty list means the legacy defaults, as in the legacy
 /// app; D-17), and the developer settings follow `DeveloperMode` and `DeveloperPort` (D-13). Read when the job is
-/// made, so a change saved while a renderer runs applies at its next start (WAPI-10).
+/// made, so a change saved while a renderer runs applies at its next start (WAPI-10). `Engine.WebViewSmartScreen` goes to
+/// every engine's options and only the WebView2 renderer reads it (D-041), as with the certificate setting.
 fn web_options(engine: &Engine, chosen: EngineId) -> WebOptions {
     let arguments = match chosen {
         EngineId::Cef if engine.cef_arguments.is_empty() => args::from_cef_map(&args::legacy_defaults_cef()),
@@ -4248,6 +4249,7 @@ fn web_options(engine: &Engine, chosen: EngineId) -> WebOptions {
         theme_type: WebOptions::default().theme_type,
         // `job_for` fills it from General.UserAgent, as it does `theme_type`.
         user_agent: String::new(),
+        webview_smartscreen: engine.webview_smartscreen,
     }
 }
 
@@ -4444,6 +4446,19 @@ mod tests {
         engine.allow_invalid_certificates = true;
 
         assert!(web_options(&engine, EngineId::Cef).allow_invalid_certificates);
+    }
+
+    #[test]
+    fn web_jobs_carry_the_webview2_smartscreen_setting() {
+        let mut engine = Engine::default();
+        assert!(
+            !web_options(&engine, EngineId::WebView2).webview_smartscreen,
+            "D-041: SmartScreen is off by default"
+        );
+
+        engine.webview_smartscreen = true;
+
+        assert!(web_options(&engine, EngineId::WebView2).webview_smartscreen);
     }
 
     #[test]

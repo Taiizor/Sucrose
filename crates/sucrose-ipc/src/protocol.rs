@@ -16,7 +16,7 @@ use sucrose_engine_web::{args::Switch, profile::ProfileKind};
 use crate::portal::{Launch, PortalPage};
 
 /// Version of this protocol, sent in [`ToService::Hello`] so the service can refuse a renderer it cannot talk to.
-pub const PROTOCOL_VERSION: u16 = 11;
+pub const PROTOCOL_VERSION: u16 = 12;
 
 /// Messages from a renderer to the service.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
@@ -195,11 +195,14 @@ pub struct WebOptions {
     /// frame. The service decides the value when the job is made, so a change applies at the next start. Empty keeps
     /// the engine's own (legacy: `CefSettings.UserAgent` and `CoreWebView2.Settings.UserAgent`). Appended last.
     pub user_agent: String,
+    /// `Engine.WebViewSmartScreen`: only WebView2 reads it. On, Sucrose's own switches leave Edge SmartScreen on
+    /// (D-041); off turns it off. Read when the job is made, so a change applies at the next start. Appended last.
+    pub webview_smartscreen: bool,
 }
 
 impl Default for WebOptions {
-    /// Validation on, no switches, no developer tools, no user agent of its own, and the legacy defaults of the
-    /// compatible calls: shuffle on and the `Dark` theme name.
+    /// Validation on, no switches, no developer tools, no user agent of its own, SmartScreen off, and the legacy
+    /// defaults of the compatible calls: shuffle on and the `Dark` theme name.
     fn default() -> Self {
         Self {
             allow_invalid_certificates: false,
@@ -210,6 +213,7 @@ impl Default for WebOptions {
             shuffle: true,
             theme_type: "Dark".to_owned(),
             user_agent: String::new(),
+            webview_smartscreen: false,
         }
     }
 }
@@ -471,6 +475,7 @@ mod tests {
                 shuffle: false,
                 theme_type: "Light".to_owned(),
                 user_agent: "Sucrose/2.4 (Windows NT 10.0; Wallpaper Engine) SucroseWebKit".to_owned(),
+                webview_smartscreen: true,
             },
             input: InputSettings {
                 input_type: InputType::OnlyKeyboard,
@@ -559,9 +564,14 @@ mod tests {
     #[test]
     fn the_protocol_version_stays_when_messages_are_only_appended() {
         assert_eq!(
-            PROTOCOL_VERSION, 11,
-            "WebOptions.user_agent is a new field, which appending a variant cannot express"
+            PROTOCOL_VERSION, 12,
+            "WebOptions.webview_smartscreen is a new field, which appending a variant cannot express"
         );
+    }
+
+    #[test]
+    fn web_options_run_webview2_without_smartscreen_by_default() {
+        assert!(!WebOptions::default().webview_smartscreen);
     }
 
     #[test]

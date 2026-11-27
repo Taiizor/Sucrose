@@ -301,7 +301,7 @@ mod imp {
     /// (04-37 D10, D-040). The browser exits about 0.25 s after the close. The about 6.3 s exits seen before came from
     /// Edge SmartScreen: a folder that was never used sends a SmartScreen check with its first navigation, and a close
     /// while it is in flight holds the browser's tear-down (debug session webview2-browser-exit-slow); Sucrose's own
-    /// switches turn SmartScreen off by default (D-041; the user setting that turns it on is pending). The bound stays
+    /// switches turn SmartScreen off by default (D-041; `Engine.WebViewSmartScreen` turns it on). The bound stays
     /// 1 s with SmartScreen on too: it sits under the Quit grace (2 s) and the library move grace (4 s), and a bound
     /// that covered the stall would only make the switch wait for it. A later exit is logged and the next renderer
     /// retries the folder.

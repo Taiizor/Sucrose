@@ -3,7 +3,7 @@
 //!
 //! The legacy app stores the CefSharp switches as a dictionary (`Engine.CefArguments`) and the WebView2 switches as a
 //! list of `--name=value` strings (`Engine.WebArguments`). Both convert to one ordered list of [`Switch`] values here.
-//! Sucrose's own switches (hardware acceleration, the debugging origin rule, SmartScreen off by default on WebView2)
+//! Sucrose's own switches (hardware acceleration, the debugging origin rule, SmartScreen off on WebView2 unless the user turns it on)
 //! are **computed** from the settings every time and merged in; they are never written into the user's lists, so the
 //! user's text stays what the user typed.
 //! No OS code and no CEF types: it builds and tests on every OS.
@@ -29,7 +29,7 @@ const MIN_DEBUGGING_PORT: u16 = 1024;
 const FEATURE_LIST_SWITCHES: [&str; 2] = ["enable-features", "disable-features"];
 
 /// The Edge feature of WebView2's SmartScreen URL checks, which Sucrose's own switches turn off by default through
-/// `disable-features` (D-041; the user setting that turns SmartScreen on is pending, per D-041). With it on, a profile
+/// `disable-features` (D-041; `Engine.WebViewSmartScreen` turns SmartScreen on, and the feature is then left out). With it on, a profile
 /// folder that was never used sends a SmartScreen check with its first navigation, and a close while that check is in
 /// flight keeps the browser process about 6 s before it exits and lets go of the folder (debug session
 /// webview2-browser-exit-slow); every check also sends the wallpaper's address to Microsoft. CEF has no SmartScreen.
@@ -159,6 +159,9 @@ pub struct SucroseInputs {
     pub windows_build: u32,
     /// The engine the switches are for.
     pub engine: WebEngine,
+    /// `Engine.WebViewSmartScreen`: WebView2 runs with Edge SmartScreen, so Sucrose's own switches leave
+    /// [`WEBVIEW2_SMARTSCREEN_FEATURE`] out. CEF has no SmartScreen and ignores it.
+    pub webview_smartscreen: bool,
 }
 
 /// The result of preparing the command line of a CEF browser process.
@@ -287,8 +290,9 @@ pub fn legacy_defaults_web() -> Vec<String> {
 ///   off adds `disable-gpu` and `disable-gpu-vsync`, for CEF only below Windows build [`GERMANIUM_BUILD`];
 /// - a debugging port adds `remote-allow-origins=*` (legacy, kept under D-021); WebView2 also gets the port and its
 ///   DevTools feature switch, while CEF takes the port from its settings;
-/// - WebView2 gets `disable-features` with [`WEBVIEW2_SMARTSCREEN_FEATURE`] (SmartScreen off, the default of D-041;
-///   the user setting that turns SmartScreen on is pending), merged into the user's `disable-features` list.
+/// - WebView2 gets `disable-features` with [`WEBVIEW2_SMARTSCREEN_FEATURE`] (SmartScreen off, the default of D-041) unless
+///   `webview_smartscreen` is true; merged into the user's `disable-features` list, and a user list that names the
+///   feature keeps it.
 #[must_use]
 pub fn sucrose_switches(inputs: &SucroseInputs) -> Vec<Switch> {
     let mut switches = Vec::new();
@@ -319,7 +323,7 @@ pub fn sucrose_switches(inputs: &SucroseInputs) -> Vec<Switch> {
             ));
         }
     }
-    if inputs.engine == WebEngine::WebView2 {
+    if inputs.engine == WebEngine::WebView2 && !inputs.webview_smartscreen {
         switches.push(Switch::with_value("disable-features", WEBVIEW2_SMARTSCREEN_FEATURE));
     }
     switches

@@ -16,6 +16,7 @@ fn inputs(hardware_acceleration: bool, windows_build: u32, engine: WebEngine) ->
         debugging_port: None,
         windows_build,
         engine,
+        webview_smartscreen: false,
     }
 }
 
@@ -298,19 +299,30 @@ fn args_windows_11_24h2_drops_the_users_gpu_compositing_switch_for_cef_only() {
 }
 
 #[test]
-fn args_webview2_always_runs_without_smartscreen_and_cef_never_gets_the_switch() {
+fn args_webview2_runs_without_smartscreen_unless_the_setting_turns_it_on_and_cef_never_gets_the_switch() {
     let smartscreen_off = Switch::with_value("disable-features", WEBVIEW2_SMARTSCREEN_FEATURE);
     for hardware_acceleration in [true, false] {
         for port in [None, Some(9300)] {
-            let mut web = inputs(hardware_acceleration, 26100, WebEngine::WebView2);
-            web.debugging_port = port;
-            assert!(sucrose_switches(&web).contains(&smartscreen_off), "{web:?}");
-            let mut cef = inputs(hardware_acceleration, 26100, WebEngine::Cef);
-            cef.debugging_port = port;
-            assert!(
-                !names(&sucrose_switches(&cef)).contains(&"disable-features"),
-                "CEF has no SmartScreen: {cef:?}"
-            );
+            for smartscreen in [false, true] {
+                let mut web = inputs(hardware_acceleration, 26100, WebEngine::WebView2);
+                web.debugging_port = port;
+                web.webview_smartscreen = smartscreen;
+                if smartscreen {
+                    assert!(
+                        !names(&sucrose_switches(&web)).contains(&"disable-features"),
+                        "SmartScreen on leaves the feature switch out: {web:?}"
+                    );
+                } else {
+                    assert!(sucrose_switches(&web).contains(&smartscreen_off), "{web:?}");
+                }
+                let mut cef = inputs(hardware_acceleration, 26100, WebEngine::Cef);
+                cef.debugging_port = port;
+                cef.webview_smartscreen = smartscreen;
+                assert!(
+                    !names(&sucrose_switches(&cef)).contains(&"disable-features"),
+                    "CEF has no SmartScreen: {cef:?}"
+                );
+            }
         }
     }
 
@@ -333,6 +345,27 @@ fn args_webview2_always_runs_without_smartscreen_and_cef_never_gets_the_switch()
         "Translate,msSmartScreenProtection",
     )];
     let plan = plan_webview2_command_line(&listed, &inputs(true, 26100, WebEngine::WebView2));
+    assert_eq!(
+        browser_arguments(&plan.applied),
+        "--disable-features=Translate,msSmartScreenProtection --enable-gpu --enable-gpu-vsync"
+    );
+
+    // With the setting on the legacy defaults keep exactly their own items and the feature is not added.
+    let mut on = inputs(true, 26100, WebEngine::WebView2);
+    on.webview_smartscreen = true;
+    let plan = plan_webview2_command_line(&defaults, &on);
+    let disabled: Vec<&Switch> = plan
+        .applied
+        .iter()
+        .filter(|switch| switch.name == "disable-features")
+        .collect();
+    assert_eq!(disabled.len(), 1, "{:?}", plan.applied);
+    let items: Vec<&str> = disabled[0].value.as_deref().unwrap_or_default().split(',').collect();
+    assert!(!items.contains(&WEBVIEW2_SMARTSCREEN_FEATURE), "{items:?}");
+    assert!(items.contains(&"IsolateOrigins") && items.contains(&"MediaEngagementBypassAutoplayPolicies"));
+
+    // A user list that names the feature keeps it, once, with the setting on.
+    let plan = plan_webview2_command_line(&listed, &on);
     assert_eq!(
         browser_arguments(&plan.applied),
         "--disable-features=Translate,msSmartScreenProtection --enable-gpu --enable-gpu-vsync"

@@ -272,6 +272,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             debugging_port,
             windows_build: sucrose_platform::os_build(),
             engine: WebEngine::Cef,
+            webview_smartscreen: web.webview_smartscreen,
         },
         developer_mode: web.developer_mode,
         user_agent: web.user_agent.clone(),

@@ -331,6 +331,11 @@ pub struct Engine {
     /// certificate and a migration leaves this off all the same: D-12 makes validation the default.
     #[serde(rename = "AllowInvalidCertificates")]
     pub allow_invalid_certificates: bool,
+    /// Whether WebView2 wallpapers run with Edge SmartScreen (new, D-041, `WebViewSmartScreen`). Off leaves SmartScreen
+    /// off through Sucrose's own switches; on matches the legacy WebView2 engine. The legacy app has no such key, so a
+    /// migrated file reads off.
+    #[serde(rename = "WebViewSmartScreen")]
+    pub webview_smartscreen: bool,
     /// Keys of the section this build does not know.
     #[serde(flatten)]
     pub extra: Map<String, Value>,
@@ -615,6 +620,7 @@ impl Default for Engine {
             store_start: true,
             stay_awake: false,
             allow_invalid_certificates: false,
+            webview_smartscreen: false,
             extra: Map::new(),
         }
     }
@@ -863,6 +869,7 @@ impl Settings {
                 store_start: engine.boolean("StoreStart", true),
                 stay_awake: engine.boolean("StayAwake", false),
                 allow_invalid_certificates: engine.boolean("AllowInvalidCertificates", false),
+                webview_smartscreen: engine.boolean("WebViewSmartScreen", false),
                 extra: engine.rest(),
             },
             backgroundog: Backgroundog {
@@ -1228,6 +1235,41 @@ mod tests {
         ] {
             let settings = Settings::from_slice(text.as_bytes()).unwrap();
             assert!(!settings.engine.allow_invalid_certificates, "{text}");
+        }
+    }
+
+    #[test]
+    fn webview_smartscreen_defaults_to_off_and_survives_a_round_trip() {
+        let missing = Settings::from_slice(br#"{"Engine":{"WallpaperVolume":7}}"#).unwrap();
+        assert!(
+            !missing.engine.webview_smartscreen,
+            "a file without the key runs WebView2 without SmartScreen"
+        );
+        let written = serde_json::to_value(&missing).unwrap();
+        assert_eq!(
+            written["Engine"]["WebViewSmartScreen"], false,
+            "the key is written back as false"
+        );
+
+        let on = Settings::from_slice(br#"{"Engine":{"WebViewSmartScreen":true}}"#).unwrap();
+        assert!(on.engine.webview_smartscreen);
+        let again = Settings::from_slice(&on.to_bytes().unwrap()).unwrap();
+        assert!(again.engine.webview_smartscreen, "true survives a round trip");
+        assert_eq!(
+            serde_json::to_value(&again).unwrap()["Engine"]["WebViewSmartScreen"],
+            true
+        );
+    }
+
+    #[test]
+    fn a_non_boolean_webview_smartscreen_reads_off() {
+        for text in [
+            r#"{"Engine":{"WebViewSmartScreen":"yes"}}"#,
+            r#"{"Engine":{"WebViewSmartScreen":1}}"#,
+            r#"{"Engine":{"WebViewSmartScreen":null}}"#,
+        ] {
+            let settings = Settings::from_slice(text.as_bytes()).unwrap();
+            assert!(!settings.engine.webview_smartscreen, "{text}");
         }
     }
 

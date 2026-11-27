@@ -1075,6 +1075,57 @@ fn a_webview2_renderer_closed_right_after_its_start_on_a_new_profile_exits_at_on
     }
 }
 
+/// The WebView2 SmartScreen setting is read from the file at the start (D-041): with `Engine.WebViewSmartScreen` true a
+/// Web wallpaper on WebView2 starts without `msSmartScreenProtection` in its switches (the legacy `disable-features`
+/// items stay) and its `chromium switches` line says `webview_smartscreen=true`. It plays real wallpapers, so it skips
+/// where WebView2 is not available.
+#[test]
+fn the_webview2_smartscreen_setting_leaves_the_smartscreen_switch_out_of_the_renderer() {
+    const TEST: &str = "the_webview2_smartscreen_setting_leaves_the_smartscreen_switch_out_of_the_renderer";
+    if !service_runs(TEST) {
+        return;
+    }
+    let service = TestService::start(
+        "webview2-smartscreen-on",
+        &json!({ "Engine": { "Web": "WebViewLive", "WebViewSmartScreen": true } }),
+    );
+    copy_web_fixture(&service, "hello");
+    let (mut portal, _) = PortalClient::hello(&service, None);
+    let report = wait_for_engines(&portal);
+    if !report.playable.contains(&WallpaperType::Web) || !webview2_is_ready(&report) {
+        skipped(TEST, "the WebView2 Runtime is missing");
+        return;
+    }
+    assert_eq!(use_theme(&mut portal, "hello"), UseOutcome::Applied);
+    let first = wait_for_engine_starts_on_every_slot(&service, 1);
+    if first
+        .values()
+        .filter_map(|log| starts(log).first().copied())
+        .any(|line| !line.contains("engine=\"WebView2\""))
+    {
+        skipped(TEST, "WebView2 did not start the wallpaper here");
+        return;
+    }
+    for (slot, logs) in &first {
+        let switches: Vec<&str> = logs.lines().filter(|line| line.contains("chromium switches")).collect();
+        assert_eq!(
+            switches.len(),
+            1,
+            "one renderer of slot {slot} logged its switches: {logs}"
+        );
+        let line = switches[0];
+        assert!(line.contains("webview_smartscreen=true"), "slot {slot}: {line}");
+        assert!(
+            line.contains("IsolateOrigins"),
+            "the legacy items stay on slot {slot}: {line}"
+        );
+        assert!(
+            !line.contains("msSmartScreenProtection"),
+            "SmartScreen is left on on slot {slot}: {line}"
+        );
+    }
+}
+
 /// The restart prompt's "Restart now" (D-17): with a Web wallpaper running on CEF, turning Allow invalid certificates on
 /// is saved and broadcast, the runtime state names CEF among the engines that run, and RestartWallpapers for CEF ends that
 /// renderer and starts a new one that reads the switch (its log says so). A restart asked for another engine leaves the
