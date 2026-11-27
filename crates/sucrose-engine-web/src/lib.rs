@@ -10,6 +10,7 @@ pub mod args;
 pub mod js;
 pub mod keys;
 pub mod mime;
+pub mod moves;
 pub mod origin;
 pub mod page;
 pub mod pages;

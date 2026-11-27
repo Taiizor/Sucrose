@@ -6,7 +6,7 @@
 use std::{
     path::{Path, PathBuf},
     sync::{
-        Arc, Mutex, PoisonError,
+        Arc,
         atomic::{AtomicBool, Ordering},
     },
 };
@@ -23,7 +23,9 @@ use sucrose_engine::{
 };
 use sucrose_engine_web::{
     args::{self, SucroseInputs, WebEngine},
-    js, origin,
+    js,
+    moves::MoveSlot,
+    origin,
     page::{self, Complaints, PageKind, PageState},
     pages::{self, GeneratedPage},
     profile::{self, ProfileLease},
@@ -66,7 +68,7 @@ enum Command {
     OpenDevTools,
     /// A data snapshot arrived: run the templates with the newest values (kept in the [`PageState`]).
     Data,
-    /// A mouse move is waiting in [`State::pending_move`]; one marker covers a whole burst of moves.
+    /// A mouse move is waiting in [`State::moves`]; one marker covers a whole burst of consecutive moves.
     MouseMove,
     /// A button, wheel or key event to hand to the page.
     Input(InputEvent),
@@ -81,7 +83,7 @@ struct State {
     page: PageState,
     /// The newest mouse move not yet handed to the page: a mouse moves a thousand times a second, so moves are
     /// coalesced here instead of filling the command queue.
-    pending_move: Mutex<Option<InputEvent>>,
+    moves: MoveSlot<InputEvent>,
 }
 
 impl State {
@@ -96,7 +98,7 @@ impl State {
                 settings.stretch,
                 web.theme_type.clone(),
             ),
-            pending_move: Mutex::new(None),
+            moves: MoveSlot::default(),
         }
     }
 }
@@ -416,27 +418,25 @@ impl Engine for CefEngine {
         self.takes_input
     }
 
-    /// Keeps the newest mouse move and queues one marker for a burst of them; every other event is queued as it is. A
-    /// full queue drops the event without a word about its content (T-04-45).
+    /// Keeps the newest mouse move and queues one marker for a burst of consecutive moves; every other event is queued as
+    /// it is, behind the move that came before it, so input keeps its order. A full queue drops the event without a word
+    /// about its content (T-04-45).
     fn forward_input(&self, event: &InputEvent) {
         if let InputEvent::MouseMove { .. } = event {
-            let first = self
-                .state
-                .pending_move
-                .lock()
-                .unwrap_or_else(PoisonError::into_inner)
-                .replace(*event)
-                .is_none();
-            if first {
+            if self.state.moves.offer(*event) {
                 match self.commands.try_send(Command::MouseMove) {
                     Ok(()) => (self.wake)(),
-                    Err(_) => {
-                        // Nobody will take it: the next move must queue a marker again.
-                        *self.state.pending_move.lock().unwrap_or_else(PoisonError::into_inner) = None;
-                    }
+                    // Nobody will take it: the next move must queue a marker again.
+                    Err(_) => self.state.moves.marker_dropped(),
                 }
             }
             return;
+        }
+        // A move still waiting goes first: its marker would otherwise hand it to the page after this event.
+        if let Some(moved) = self.state.moves.flush_before_other()
+            && self.commands.try_send(Command::Input(moved)).is_err()
+        {
+            tracing::debug!("the CEF command queue is full or closed, an input event is dropped");
         }
         match self.commands.try_send(Command::Input(*event)) {
             Ok(()) => (self.wake)(),
@@ -468,13 +468,7 @@ impl CefPump {
             // Input is never logged: it is what the user types and moves (T-04-45).
             match command {
                 Command::MouseMove => {
-                    let moved = self
-                        .state
-                        .pending_move
-                        .lock()
-                        .unwrap_or_else(PoisonError::into_inner)
-                        .take();
-                    if let Some(event) = moved {
+                    if let Some(event) = self.state.moves.take_at_marker() {
                         self.post_input(&event);
                     }
                     continue;
@@ -650,9 +644,53 @@ mod tests {
         assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::MouseMove]);
         assert_eq!(wakes.load(Ordering::SeqCst), 1);
         assert_eq!(
-            *engine.state.pending_move.lock().expect("lock"),
+            engine.state.moves.pending(),
             Some(InputEvent::MouseMove { x: 99, y: 198 })
         );
+    }
+
+    #[test]
+    fn a_click_keeps_its_place_between_the_moves_around_it() {
+        let (engine, queue, _) = handle(8);
+        let key = InputEvent::Key {
+            vk: 0x41,
+            scan: 0x1E,
+            down: true,
+            extended: false,
+        };
+        let first = InputEvent::MouseMove { x: 1, y: 1 };
+        let second = InputEvent::MouseMove { x: 2, y: 2 };
+
+        engine.forward_input(&first);
+        engine.forward_input(&key);
+        engine.forward_input(&second);
+
+        // The move before the key is queued ahead of it and its marker is skipped; the move after it has its own.
+        assert_eq!(
+            queue.try_iter().collect::<Vec<_>>(),
+            [
+                Command::MouseMove,
+                Command::Input(first),
+                Command::Input(key),
+                Command::MouseMove
+            ]
+        );
+        assert_eq!(
+            engine.state.moves.take_at_marker(),
+            None,
+            "the first marker was left behind"
+        );
+        assert_eq!(engine.state.moves.take_at_marker(), Some(second));
+    }
+
+    #[test]
+    fn a_generated_page_takes_no_input_and_the_handle_reports_what_it_was_started_with() {
+        let (mut engine, _queue, _) = handle(1);
+        assert!(engine.takes_input());
+
+        engine.takes_input = false;
+
+        assert!(!engine.takes_input());
     }
 
     #[test]
@@ -661,11 +699,7 @@ mod tests {
         engine.queue(Command::Volume(1));
 
         engine.forward_input(&InputEvent::MouseMove { x: 1, y: 1 });
-        assert_eq!(
-            *engine.state.pending_move.lock().expect("lock"),
-            None,
-            "nothing will take it"
-        );
+        assert_eq!(engine.state.moves.pending(), None, "nothing will take it");
 
         queue.try_iter().for_each(drop);
         engine.forward_input(&InputEvent::MouseMove { x: 2, y: 2 });

@@ -28,7 +28,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [x] **TYPE-01**: User can set a Video theme as the desktop wallpaper (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-02**: User can set a GIF theme, drawn by Sucrose's built-in renderer, which also plays APNG and WebP (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-03**: User can set a Web theme (local HTML) on a web engine: WebView2/CEF on Windows, WKWebView/CEF on macOS, WebKitGTK/CEF on Linux (Win ✅ · mac ✅ · Linux ✅)
-- [ ] **TYPE-04**: User can set a URL wallpaper; it has no properties and receives forwarded input (Win ✅ · mac ✅ · Linux ✅)
+- [ ] **TYPE-04**: User can set a URL wallpaper; it receives forwarded input (its Sucrose mute and volume set is part of PROP-05, D-06) (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-05**: User can set a YouTube wallpaper (IFrame API page, no API key) with playlist, shuffle, loop and hidden player UI (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-06**: User can set an Application wallpaper that embeds another app's window, with one process per screen in every mode and real window handles (legacy bugs fixed) (Win ✅ · mac ❌ · Linux ⚠️ X11 only)
 
@@ -96,7 +96,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [ ] **PROP-02**: Property changes apply live to the running wallpaper over IPC (replacing legacy watcher files)
 - [ ] **PROP-03**: Property texts appear in the user's language (`PropertyLocalization`)
 - [ ] **PROP-04**: User can restore defaults, refresh, and delete the property copy
-- [ ] **PROP-05**: Built-in property sets exist for web pages, mpv (raw mpv property names) and VLC
+- [ ] **PROP-05**: Built-in property sets exist for web pages (with a volume next to mute, D-06), mpv (raw mpv property names) and VLC, plus a Sucrose mute + volume set for URL wallpapers and Web themes without their own file (D-06)
 
 ### Library (`portal.md` §2)
 

@@ -6,7 +6,7 @@
 use std::{
     path::{Path, PathBuf},
     sync::{
-        Arc, Mutex, PoisonError,
+        Arc,
         atomic::{AtomicBool, Ordering},
     },
 };
@@ -23,7 +23,9 @@ use sucrose_engine::{
 };
 use sucrose_engine_web::{
     args::{self, SucroseInputs, WebEngine},
-    js, origin,
+    js,
+    moves::MoveSlot,
+    origin,
     page::{self, Complaints, PageKind, PageState},
     pages::{self, GeneratedPage},
     profile::{self, ProfileLease},
@@ -66,7 +68,7 @@ enum Command {
 
 /// The newest mouse move not yet handed to the page: a mouse moves a thousand times a second, so moves are coalesced in
 /// this slot instead of filling the command queue.
-type PendingMove = Arc<Mutex<Option<InputEvent>>>;
+type PendingMove = Arc<MoveSlot<InputEvent>>;
 
 /// The state a renderer starts with: not paused, the playback settings and the web options of its assignment.
 fn initial_state(settings: &PlaybackSettings, theme_type: &str, shuffle: bool) -> PageState {
@@ -437,26 +439,25 @@ impl Engine for WebView2Engine {
         self.takes_input
     }
 
-    /// Keeps the newest mouse move and queues one marker for a burst of them; every other event is queued as it is. A
-    /// full queue drops the event without a word about its content (T-04-45).
+    /// Keeps the newest mouse move and queues one marker for a burst of consecutive moves; every other event is queued as
+    /// it is, behind the move that came before it, so input keeps its order. A full queue drops the event without a word
+    /// about its content (T-04-45).
     fn forward_input(&self, event: &InputEvent) {
         if let InputEvent::MouseMove { .. } = event {
-            let first = self
-                .pending_move
-                .lock()
-                .unwrap_or_else(PoisonError::into_inner)
-                .replace(*event)
-                .is_none();
-            if first {
+            if self.pending_move.offer(*event) {
                 match self.commands.try_send(Command::MouseMove) {
                     Ok(()) => (self.wake)(),
-                    Err(_) => {
-                        // Nobody will take it: the next move must queue a marker again.
-                        *self.pending_move.lock().unwrap_or_else(PoisonError::into_inner) = None;
-                    }
+                    // Nobody will take it: the next move must queue a marker again.
+                    Err(_) => self.pending_move.marker_dropped(),
                 }
             }
             return;
+        }
+        // A move still waiting goes first: its marker would otherwise hand it to the page after this event.
+        if let Some(moved) = self.pending_move.flush_before_other()
+            && self.commands.try_send(Command::Input(moved)).is_err()
+        {
+            tracing::debug!("the WebView2 command queue is full or closed, an input event is dropped");
         }
         match self.commands.try_send(Command::Input(*event)) {
             Ok(()) => (self.wake)(),
@@ -488,8 +489,7 @@ impl WebView2Pump {
             // Input is never logged: it is what the user types and moves (T-04-45).
             match command {
                 Command::MouseMove => {
-                    let moved = self.pending_move.lock().unwrap_or_else(PoisonError::into_inner).take();
-                    if let Some(event) = moved {
+                    if let Some(event) = self.pending_move.take_at_marker() {
                         self.post_input(&event);
                     }
                     continue;
@@ -713,9 +713,53 @@ mod tests {
         assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::MouseMove]);
         assert_eq!(wakes.load(Ordering::SeqCst), 1);
         assert_eq!(
-            *engine.pending_move.lock().expect("lock"),
+            engine.pending_move.pending(),
             Some(InputEvent::MouseMove { x: 5, y: 2 })
         );
+    }
+
+    #[test]
+    fn a_click_keeps_its_place_between_the_moves_around_it() {
+        let (engine, queue, _) = handle(8);
+        let key = InputEvent::Key {
+            vk: 0x41,
+            scan: 0x1E,
+            down: true,
+            extended: false,
+        };
+        let first = InputEvent::MouseMove { x: 1, y: 1 };
+        let second = InputEvent::MouseMove { x: 2, y: 2 };
+
+        engine.forward_input(&first);
+        engine.forward_input(&key);
+        engine.forward_input(&second);
+
+        // The move before the key is queued ahead of it and its marker is skipped; the move after it has its own.
+        assert_eq!(
+            queue.try_iter().collect::<Vec<_>>(),
+            [
+                Command::MouseMove,
+                Command::Input(first),
+                Command::Input(key),
+                Command::MouseMove
+            ]
+        );
+        assert_eq!(
+            engine.pending_move.take_at_marker(),
+            None,
+            "the first marker was left behind"
+        );
+        assert_eq!(engine.pending_move.take_at_marker(), Some(second));
+    }
+
+    #[test]
+    fn a_generated_page_takes_no_input_and_the_handle_reports_what_it_was_started_with() {
+        let (mut engine, _queue, _) = handle(1);
+        assert!(engine.takes_input());
+
+        engine.takes_input = false;
+
+        assert!(!engine.takes_input());
     }
 
     #[test]
@@ -725,7 +769,7 @@ mod tests {
 
         engine.forward_input(&InputEvent::MouseMove { x: 1, y: 1 });
 
-        assert_eq!(*engine.pending_move.lock().expect("lock"), None);
+        assert_eq!(engine.pending_move.pending(), None);
         assert_eq!(queue.try_iter().count(), 1, "only the volume command is queued");
     }
 
