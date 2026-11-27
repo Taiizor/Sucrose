@@ -251,7 +251,10 @@ mod imp {
     };
     use windows::core::{PCWSTR, w};
 
-    use sucrose_engine_web::args::{Switch, plan_cef_command_line};
+    use sucrose_engine_web::{
+        args::{Switch, plan_cef_command_line},
+        youtube::{https_host, referer_for},
+    };
 
     use super::{
         CefError, CefStart, CloseStep, IGNORE_CERTIFICATE_ERRORS_SWITCH, INSPECT_COMMAND_ID, KeyAction, LoadedCallback,
@@ -408,6 +411,56 @@ mod imp {
         }
     }
 
+    wrap_resource_request_handler! {
+        struct RefererFill;
+
+        impl ResourceRequestHandler {
+            // The safety net of the YouTube page (D-14): a request to a YouTube host that carries no Referer gets the
+            // virtual origin; a Referer that is there is never replaced.
+            fn on_before_resource_load(
+                &self,
+                _browser: Option<&mut Browser>,
+                _frame: Option<&mut Frame>,
+                request: Option<&mut Request>,
+                _callback: Option<&mut Callback>,
+            ) -> ReturnValue {
+                if let Some(request) = request {
+                    let url = CefString::from(&request.url()).to_string();
+                    let existing = CefString::from(&request.referrer_url()).to_string();
+                    let existing = (!existing.is_empty()).then_some(existing.as_str());
+                    if let Some(referer) = referer_for(&url, existing) {
+                        request.set_referrer(Some(&CefString::from(referer.as_str())), ReferrerPolicy::ORIGIN);
+                        tracing::debug!(host = ?https_host(&url).unwrap_or_default(), "referer filled");
+                    }
+                }
+                ReturnValue::CONTINUE
+            }
+        }
+    }
+
+    wrap_request_handler! {
+        struct PageRequests {
+            fill: ResourceRequestHandler,
+        }
+
+        impl RequestHandler {
+            // Only a request to a YouTube host gets a handler at all; every other request stays as CEF makes it.
+            fn resource_request_handler(
+                &self,
+                _browser: Option<&mut Browser>,
+                _frame: Option<&mut Frame>,
+                request: Option<&mut Request>,
+                _is_navigation: ::std::os::raw::c_int,
+                _is_download: ::std::os::raw::c_int,
+                _request_initiator: Option<&CefString>,
+                _disable_default_handling: Option<&mut ::std::os::raw::c_int>,
+            ) -> Option<ResourceRequestHandler> {
+                let url = CefString::from(&request?.url()).to_string();
+                referer_for(&url, None).map(|_| self.fill.clone())
+            }
+        }
+    }
+
     wrap_download_handler! {
         struct NoDownloads;
 
@@ -536,6 +589,7 @@ mod imp {
             download: DownloadHandler,
             menu: ContextMenuHandler,
             keys: KeyboardHandler,
+            requests: RequestHandler,
         }
 
         impl Client {
@@ -557,6 +611,10 @@ mod imp {
 
             fn keyboard_handler(&self) -> Option<KeyboardHandler> {
                 Some(self.keys.clone())
+            }
+
+            fn request_handler(&self) -> Option<RequestHandler> {
+                Some(self.requests.clone())
             }
         }
     }
@@ -710,6 +768,7 @@ mod imp {
                 NoDownloads::new(),
                 PageMenu::new(start.developer_mode),
                 PageKeys::new(start.developer_mode),
+                PageRequests::new(RefererFill::new()),
             );
             let browser = browser_host_create_browser_sync(
                 Some(&window_info),

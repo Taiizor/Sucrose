@@ -30,7 +30,10 @@ fn a_missing_referer_is_the_virtual_origin_for_a_youtube_request() {
 
 #[test]
 fn a_referer_the_request_already_carries_is_never_replaced() {
-    assert_eq!(referer_for("https://www.youtube.com/embed/x", Some("https://example.com/")), None);
+    assert_eq!(
+        referer_for("https://www.youtube.com/embed/x", Some("https://example.com/")),
+        None
+    );
     assert_eq!(referer_for("https://www.youtube.com/embed/x", Some(ORIGIN)), None);
     assert_eq!(referer_for("https://www.youtube.com/embed/x", Some("")), None);
 }

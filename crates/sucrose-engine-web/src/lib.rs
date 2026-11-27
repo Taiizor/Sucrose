@@ -16,3 +16,4 @@ pub mod page;
 pub mod pages;
 pub mod profile;
 pub mod serve;
+pub mod youtube;

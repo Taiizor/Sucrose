@@ -197,6 +197,7 @@ mod imp {
         keys::{KeyAction, key_action},
         origin,
         serve::{self, Content},
+        youtube::{referer_for, request_filters},
     };
     use webview2_com::{
         AcceleratorKeyPressedEventHandler, CallDevToolsProtocolMethodCompletedHandler, CoreWebView2EnvironmentOptions,
@@ -416,6 +417,44 @@ mod imp {
             headers.GetHeader(PCWSTR(name.as_ptr()), &mut value).ok()?;
             Some(take_pwstr(value))
         }
+    }
+
+    /// The address of the request of `args`; `None` when WebView2 cannot say.
+    fn request_uri(args: &ICoreWebView2WebResourceRequestedEventArgs) -> Option<String> {
+        // SAFETY: the request belongs to this event; the returned string is freed by `take_pwstr`.
+        unsafe {
+            let request = args.Request().ok()?;
+            let mut uri = PWSTR::null();
+            request.Uri(&mut uri).ok()?;
+            Some(take_pwstr(uri))
+        }
+    }
+
+    /// Whether `uri` is an address of the virtual origin (what the planner answers).
+    fn is_origin_uri(uri: &str) -> bool {
+        uri.get(..origin::ORIGIN.len())
+            .is_some_and(|head| head.eq_ignore_ascii_case(origin::ORIGIN))
+    }
+
+    /// The Referer safety net of the YouTube page (D-14): a request to a YouTube host that carries no Referer gets the
+    /// virtual origin. A Referer that is there is never replaced and the response is left to the network.
+    fn fill_referer(args: &ICoreWebView2WebResourceRequestedEventArgs, uri: &str) -> windows::core::Result<()> {
+        // SAFETY: the request and its headers belong to this event.
+        let request = unsafe { args.Request()? };
+        let existing = request_header(&request, "Referer");
+        let Some(referer) = referer_for(uri, existing.as_deref()) else {
+            return Ok(());
+        };
+        let name = wide("Referer");
+        let value = wide(&referer);
+        // SAFETY: the headers belong to this event; both strings are NUL-terminated and outlive the call.
+        unsafe {
+            request
+                .Headers()?
+                .SetHeader(PCWSTR(name.as_ptr()), PCWSTR(value.as_ptr()))?;
+        }
+        tracing::debug!(host = %uri_host(uri), "referer filled");
+        Ok(())
     }
 
     /// The reply to send and its body for a planned `reply`: a range as a memory stream of at most
@@ -766,12 +805,28 @@ mod imp {
                 webview
                     .AddWebResourceRequestedFilter(PCWSTR(filter.as_ptr()), COREWEBVIEW2_WEB_RESOURCE_CONTEXT_ALL)
                     .map_err(setup)?;
+                // The YouTube hosts are only looked at, to fill a missing Referer; the network answers them.
+                for filter in request_filters() {
+                    let filter = wide(&filter);
+                    webview
+                        .AddWebResourceRequestedFilter(PCWSTR(filter.as_ptr()), COREWEBVIEW2_WEB_RESOURCE_CONTEXT_ALL)
+                        .map_err(setup)?;
+                }
                 let roots = start.roots.clone();
                 let served = environment.clone();
                 let handler = WebResourceRequestedEventHandler::create(Box::new(move |_sender, args| {
                     let Some(args) = args else {
                         return Ok(());
                     };
+                    match request_uri(&args) {
+                        Some(uri) if !is_origin_uri(&uri) => {
+                            if let Err(error) = fill_referer(&args, &uri) {
+                                tracing::warn!(%error, host = %uri_host(&uri), "cannot fill the referer");
+                            }
+                            return Ok(());
+                        }
+                        _ => {}
+                    }
                     if let Err(error) = answer(&served, &roots, &args) {
                         tracing::warn!(%error, "origin request failed, answering 404");
                         return respond(&served, &args, &serve::Reply::not_found(), None);
