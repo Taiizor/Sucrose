@@ -99,8 +99,8 @@ pub fn browser_size(rect: [i32; 4]) -> (i32, i32) {
 }
 
 /// The `root_cache_path` and `cache_path` CEF gets for a profile folder: both are that folder, made absolute (CEF
-/// requires it), so the persistent profile of the first instance is exactly `<data_dir>/Web/Cef` (D-35). No profile
-/// gives two empty paths, which CEF reads as in-memory caches (nothing is kept).
+/// requires it), so the persistent profile (the primary monitor's renderer) is exactly `<data_dir>/Web/Cef` (D-35). No
+/// profile gives two empty paths, which CEF reads as in-memory caches (nothing is kept).
 ///
 /// # Errors
 /// `CefError::Initialize` for a folder that cannot be made absolute or is not valid UTF-8.
@@ -879,7 +879,7 @@ mod imp {
                 on_loaded: Arc::clone(&start.on_loaded),
                 page_calls: Arc::clone(&start.page_calls),
             });
-            // The persistent profile of the first instance or an ephemeral one (D-33); both paths name the same folder, so
+            // The persistent profile (primary monitor) or an ephemeral one (D-33); both paths name the same folder, so
             // CEF's process singleton lock and the profile never meet another running instance's.
             let values = settings_values(
                 start.profile.as_deref().map(|lease| lease.path.as_path()),
