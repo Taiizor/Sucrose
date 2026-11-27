@@ -394,6 +394,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-27T04:45:58.897Z
-Stopped at: Completed 04-36-PLAN.md
+Last session: 2026-11-27T11:52:53Z
+Stopped at: Session resumed, proceeding to 04-37 Task 3 (maintainer run started at T0 2026-11-27 14:52:53 +03, shortened scope: A6 and A7 dropped, B4 one Showcase video per engine, no playlist)
 Resume file: None
