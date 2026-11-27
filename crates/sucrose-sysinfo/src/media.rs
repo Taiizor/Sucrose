@@ -35,6 +35,19 @@ const MAX_ART: u64 = 8 * 1024 * 1024;
 /// How long a track without art is asked again: players publish the art a moment after the title.
 #[cfg_attr(not(windows), allow(dead_code))]
 const ART_RETRY: std::time::Duration = std::time::Duration::from_secs(10);
+/// The longest `ThumbnailString` the media session gives. The service sends the art to a renderer as one IPC blob, the data
+/// hub checks at compile time that this is not above that blob cap, and art that would be longer is made smaller to fit.
+pub const THUMBNAIL_TEXT_MAX: usize = 2 * 1024 * 1024;
+/// The JPEG quality of opaque art that is made smaller.
+const ART_JPEG_QUALITY: u8 = 90;
+/// Art is never scaled down below this many pixels on its longer side.
+const ART_MIN_SIDE: u32 = 64;
+/// How many times art is encoded while it is made to fit.
+const ART_ATTEMPTS: u32 = 8;
+/// The most pixels a side of the art may have for it to be decoded.
+const ART_DECODE_SIDE: u32 = 8192;
+/// The most memory the decoder may allocate for one art.
+const ART_DECODE_ALLOC: u64 = 256 * 1024 * 1024;
 
 /// What the worker thread is told.
 #[cfg_attr(not(windows), allow(dead_code))]
@@ -233,20 +246,133 @@ fn crop_png(source: &image::RgbaImage) -> Option<Vec<u8>> {
     Some(png)
 }
 
-/// The legacy `Thumbnail.Create`: the base64 of the art. Unless the system is Cobalt, art whose pixel (0, 0) is transparent is
-/// cropped to 233 x 233 at (34, 1) and re-encoded as PNG first. Art that cannot be decoded goes out as it is.
-pub(crate) fn thumbnail_text(bytes: &[u8], cobalt: bool) -> String {
-    if !cobalt && let Ok(decoded) = image::load_from_memory(bytes) {
-        let rgba = decoded.to_rgba8();
-        if rgba.width() > 0
-            && rgba.height() > 0
-            && rgba.get_pixel(0, 0).0[3] == 0
-            && let Some(png) = crop_png(&rgba)
-        {
-            return base64(&png);
+/// Decodes untrusted art within `ART_DECODE_SIDE` and `ART_DECODE_ALLOC`; art beyond them, or that cannot be read, gives `None`.
+fn decode_art(bytes: &[u8]) -> Option<image::DynamicImage> {
+    let mut reader = image::ImageReader::new(std::io::Cursor::new(bytes))
+        .with_guessed_format()
+        .ok()?;
+    let mut limits = image::Limits::default();
+    limits.max_image_width = Some(ART_DECODE_SIDE);
+    limits.max_image_height = Some(ART_DECODE_SIDE);
+    limits.max_alloc = Some(ART_DECODE_ALLOC);
+    reader.limits(limits);
+    reader.decode().ok()
+}
+
+/// The length of the base64 text of `bytes` encoded bytes.
+fn text_len(bytes: usize) -> usize {
+    bytes.div_ceil(3) * 4
+}
+
+/// Art made to fit: the encoded bytes, the sides and how many encodes it took.
+struct Fitted {
+    bytes: Vec<u8>,
+    width: u32,
+    height: u32,
+    attempts: u32,
+}
+
+/// Encodes `image` as a JPEG of `ART_JPEG_QUALITY`.
+fn encode_jpeg(image: &image::DynamicImage) -> Option<Vec<u8>> {
+    let mut bytes = Vec::new();
+    let encoder = image::codecs::jpeg::JpegEncoder::new_with_quality(&mut bytes, ART_JPEG_QUALITY);
+    image.to_rgb8().write_with_encoder(encoder).ok()?;
+    Some(bytes)
+}
+
+/// Re-encodes the art until its base64 text is at most `max_text` long: first at its own size, then with both sides scaled
+/// down together (always from the decoded original, so the aspect ratio holds). `None` when the art cannot be decoded, or does
+/// not fit within `ART_ATTEMPTS` encodes and `ART_MIN_SIDE`.
+fn fit_art(payload: &[u8], max_text: usize) -> Option<Fitted> {
+    use image::GenericImageView;
+
+    let original = decode_art(payload)?;
+    let (width, height) = original.dimensions();
+    if width == 0 || height == 0 {
+        return None;
+    }
+    let opaque = !original.color().has_alpha() || original.pixels().all(|(_, _, pixel)| pixel.0[3] == 255);
+    if !opaque {
+        return None;
+    }
+    let mut scale = 1.0_f64;
+    let (mut new_width, mut new_height) = (width, height);
+    let mut attempts = 0;
+    loop {
+        let bytes = if attempts == 0 {
+            encode_jpeg(&original)?
+        } else {
+            let resized = original.resize_exact(new_width, new_height, image::imageops::FilterType::CatmullRom);
+            encode_jpeg(&resized)?
+        };
+        attempts += 1;
+        let length = text_len(bytes.len());
+        if length <= max_text {
+            return Some(Fitted {
+                bytes,
+                width: new_width,
+                height: new_height,
+                attempts,
+            });
+        }
+        if attempts >= ART_ATTEMPTS {
+            return None;
+        }
+        let factor = ((max_text as f64 / length as f64).sqrt() * 0.9).clamp(0.25, 0.75);
+        scale *= factor;
+        let side = |original: u32| ((f64::from(original) * scale).round() as u32).max(1);
+        (new_width, new_height) = (side(width), side(height));
+        if new_width.max(new_height) < ART_MIN_SIDE {
+            return None;
         }
     }
-    base64(bytes)
+}
+
+/// The legacy `Thumbnail.Create`: the base64 of the art. Unless the system is Cobalt, art whose pixel (0, 0) is transparent is
+/// cropped to 233 x 233 at (34, 1) and re-encoded as PNG first. Art that cannot be decoded goes out as it is. Art whose text
+/// would be over `THUMBNAIL_TEXT_MAX` is made smaller to fit.
+pub(crate) fn thumbnail_text(bytes: &[u8], cobalt: bool) -> String {
+    thumbnail_text_within(bytes, cobalt, THUMBNAIL_TEXT_MAX)
+}
+
+/// `thumbnail_text` with its own text limit: the legacy text when it fits, the art made to fit when it does not, and an
+/// empty text (with a warning) when it cannot be made to fit.
+pub(crate) fn thumbnail_text_within(bytes: &[u8], cobalt: bool, max_text: usize) -> String {
+    let mut cropped = None;
+    if !cobalt && let Some(decoded) = decode_art(bytes) {
+        let rgba = decoded.to_rgba8();
+        if rgba.width() > 0 && rgba.height() > 0 && rgba.get_pixel(0, 0).0[3] == 0 {
+            cropped = crop_png(&rgba);
+        }
+    }
+    let payload = cropped.as_deref().unwrap_or(bytes);
+    let length = text_len(payload.len());
+    if length <= max_text {
+        return base64(payload);
+    }
+    let started = std::time::Instant::now();
+    match fit_art(payload, max_text) {
+        Some(fitted) => {
+            let text = base64(&fitted.bytes);
+            tracing::debug!(
+                text = length,
+                fitted = text.len(),
+                width = fitted.width,
+                height = fitted.height,
+                attempts = fitted.attempts,
+                elapsed_ms = started.elapsed().as_millis() as u64,
+                "the album art was made smaller to fit the renderer"
+            );
+            text
+        }
+        None => {
+            tracing::warn!(
+                size = length,
+                "the album art cannot be made small enough for the renderer, the page gets none"
+            );
+            String::new()
+        }
+    }
 }
 
 /// What the worker and the reader share.
@@ -875,7 +1001,11 @@ mod tests {
     }
 
     fn decode(text: &str) -> image::RgbaImage {
-        // The reverse of base64 for the test only.
+        image::load_from_memory(&unbase64(text)).expect("a PNG").to_rgba8()
+    }
+
+    /// The reverse of base64 for the test only.
+    fn unbase64(text: &str) -> Vec<u8> {
         let mut bytes = Vec::new();
         let mut bits = 0_u32;
         let mut count = 0;
@@ -895,7 +1025,100 @@ mod tests {
                 bits &= (1 << count) - 1;
             }
         }
-        image::load_from_memory(&bytes).expect("a PNG").to_rgba8()
+        bytes
+    }
+
+    /// A fixed-seed linear congruential generator: the same noise on every run, with no extra crate.
+    fn noise(seed: &mut u64) -> u8 {
+        *seed = seed
+            .wrapping_mul(6_364_136_223_846_793_005)
+            .wrapping_add(1_442_695_040_888_963_407);
+        (*seed >> 56) as u8
+    }
+
+    /// An opaque picture of noise: it compresses badly, so it is a stand-in for large cover art.
+    fn noisy(width: u32, height: u32) -> image::RgbaImage {
+        let mut seed = 7;
+        image::RgbaImage::from_fn(width, height, |_, _| {
+            image::Rgba([noise(&mut seed), noise(&mut seed), noise(&mut seed), 255])
+        })
+    }
+
+    #[test]
+    fn a_3_mib_art_text_fits_the_media_session_limit_as_a_smaller_jpeg() {
+        let png = png_of(&noisy(900, 900));
+        assert!(base64(&png).len() > THUMBNAIL_TEXT_MAX);
+
+        let text = thumbnail_text(&png, true);
+
+        assert!(!text.is_empty() && text.len() <= THUMBNAIL_TEXT_MAX);
+        let bytes = unbase64(&text);
+        assert_eq!(image::guess_format(&bytes).expect("a format"), image::ImageFormat::Jpeg);
+        let decoded = image::load_from_memory(&bytes).expect("a JPEG");
+        assert_eq!(decoded.width(), decoded.height());
+        assert!(decoded.width() <= 900);
+    }
+
+    #[test]
+    fn oversized_opaque_art_is_reencoded_at_its_own_size_when_that_fits() {
+        let mut seed = 11;
+        let photo = image::RgbaImage::from_fn(512, 512, |x, y| {
+            let wobble = |seed: &mut u64| i32::from(noise(seed) % 17) - 8;
+            let channel = |base: u32, seed: &mut u64| (base as i32 + wobble(seed)).clamp(0, 255) as u8;
+            image::Rgba([
+                channel(x / 2, &mut seed),
+                channel(y / 2, &mut seed),
+                channel((x + y) / 4, &mut seed),
+                255,
+            ])
+        });
+        let png = png_of(&photo);
+        let budget = base64(&png).len() / 2;
+
+        let text = thumbnail_text_within(&png, true, budget);
+
+        assert!(!text.is_empty() && text.len() <= budget);
+        let bytes = unbase64(&text);
+        assert_eq!(image::guess_format(&bytes).expect("a format"), image::ImageFormat::Jpeg);
+        let decoded = image::load_from_memory(&bytes).expect("a JPEG");
+        assert_eq!((decoded.width(), decoded.height()), (512, 512));
+    }
+
+    #[test]
+    fn art_that_still_does_not_fit_is_downscaled_keeping_its_aspect_ratio() {
+        let png = png_of(&noisy(600, 400));
+
+        let text = thumbnail_text_within(&png, true, 40_000);
+
+        assert!(!text.is_empty() && text.len() <= 40_000);
+        let decoded = image::load_from_memory(&unbase64(&text)).expect("a picture");
+        assert!(decoded.width() < 600);
+        assert!(i64::from(decoded.width()) * 400 - i64::from(decoded.height()) * 600 <= 600);
+        assert!(i64::from(decoded.height()) * 600 - i64::from(decoded.width()) * 400 <= 600);
+        assert!(decoded.width().max(decoded.height()) >= ART_MIN_SIDE);
+    }
+
+    #[test]
+    fn art_that_fits_goes_out_unchanged_up_to_the_last_character() {
+        let png = png_of(&noisy(40, 40));
+        let whole = base64(&png);
+
+        assert_eq!(thumbnail_text_within(&png, true, whole.len()), whole);
+        assert_ne!(thumbnail_text_within(&png, true, whole.len() - 1), whole);
+    }
+
+    #[test]
+    fn art_that_cannot_be_decoded_and_does_not_fit_gives_an_empty_text() {
+        let junk = b"not an image".repeat(100);
+
+        assert_eq!(thumbnail_text_within(&junk, true, 64), "");
+    }
+
+    #[test]
+    fn art_that_cannot_fit_above_the_smallest_side_gives_an_empty_text() {
+        let png = png_of(&noisy(300, 300));
+
+        assert_eq!(thumbnail_text_within(&png, true, 16), "");
     }
 
     #[test]

@@ -20,7 +20,7 @@ use serde_json::Value;
 
 pub use audio::{AudioCapture, audio_unavailable, audio_unavailable_with};
 pub use date::date_snapshot;
-pub use media::{MediaSession, media_unavailable};
+pub use media::{MediaSession, THUMBNAIL_TEXT_MAX, media_unavailable};
 pub use memory::{memory_snapshot, memory_unavailable};
 pub use processor::{ProcessorSampler, processor_unavailable};
 pub use wmi_info::{bios_snapshot, bios_unavailable, motherboard_snapshot, motherboard_unavailable};

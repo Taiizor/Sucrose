@@ -19,6 +19,11 @@ use sucrose_sysinfo::{AudioCapture, MediaSession, ProcessorSampler, SysInfoError
 
 use crate::modules::{module_off, start_module};
 
+const _: () = assert!(
+    sucrose_sysinfo::THUMBNAIL_TEXT_MAX <= BLOB_MAX,
+    "the album art of the media session must fit one IPC blob"
+);
+
 /// The hub's tick: the legacy Backgroundog timer, which refreshes the Date group every time.
 pub const TICK: Duration = Duration::from_millis(100);
 
@@ -189,6 +194,8 @@ fn serve_thumbnails(slots: &[(u8, Vec<DataGroup>)], thumbnails: &Thumbnails, sta
     }
     if let Some(text) = (thumbnails.take)() {
         let mut bytes = text.into_bytes();
+        // The media session's art already fits (THUMBNAIL_TEXT_MAX); this guard only keeps a payload that the chunks would
+        // refuse from going out as nothing.
         if bytes.len() > BLOB_MAX {
             tracing::warn!(
                 size = bytes.len(),
@@ -1009,6 +1016,33 @@ mod tests {
 
         assert!(state.thumbnail.current.is_none());
         assert!(log.lock().expect("log").iter().all(|line| !line.starts_with("blob")));
+    }
+
+    #[test]
+    fn art_at_the_media_session_limit_goes_out_as_one_whole_blob() {
+        let log = Arc::new(Mutex::new(Vec::new()));
+        let (deliver, blob) = blob_log(&log, |_| Delivery::Sent);
+        let full = "A".repeat(sucrose_sysinfo::THUMBNAIL_TEXT_MAX);
+        let take: TakeThumbnail = {
+            let once = Arc::new(Mutex::new(Some(full)));
+            Arc::new(move || once.lock().expect("once").take())
+        };
+        let thumbnails = Thumbnails { take, deliver: blob };
+        let (sample, _reads) = counting_sampler();
+
+        pass(
+            0,
+            &[(0, vec![DataGroup::Audio])],
+            &sample,
+            &deliver,
+            Some(&thumbnails),
+            &mut PassState::default(),
+        );
+
+        assert_eq!(
+            log.lock().expect("log")[0],
+            format!("blob 0 1 {}", sucrose_sysinfo::THUMBNAIL_TEXT_MAX)
+        );
     }
 
     #[test]
