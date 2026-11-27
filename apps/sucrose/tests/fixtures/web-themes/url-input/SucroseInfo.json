@@ -4,7 +4,7 @@
   "Title": "Sucrose fixture: url-input",
   "Thumbnail": "thumbnail.jpg",
   "Preview": "preview.gif",
-  "Description": "A fixture URL theme for the input check: an interactive public WebGL page that follows the pointer.",
+  "Description": "A fixture URL theme for the input check: an interactive public WebGL page that draws where the pointer drags (hold the left button and move; a plain move does nothing on this page).",
   "Author": "Sucrose",
   "Contact": "https://example.com/web",
   "Type": 1,

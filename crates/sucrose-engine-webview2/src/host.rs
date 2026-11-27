@@ -183,6 +183,47 @@ pub fn uri_host(uri: &str) -> &str {
     host.split(':').next().unwrap_or_default()
 }
 
+/// The class of WebView2's host window: created in this process under the surface, it holds the browser's widget and does
+/// not hand posted input on to the page.
+pub const HOST_WIDGET_CLASS: &str = "Chrome_WidgetWin_0";
+
+/// The class of the browser process's widget that takes the posted input messages and feeds them to the page.
+pub const INPUT_WIDGET_CLASS: &str = "Chrome_WidgetWin_1";
+
+/// The window the legacy input messages go to, in the window tree under `surface` (the window that holds the controller),
+/// given each window's direct children and class: the [`INPUT_WIDGET_CLASS`] child of the first [`HOST_WIDGET_CLASS`]
+/// window, as the legacy app walks WebView2's window chain (`Helper/Handle.cs`), else the first [`INPUT_WIDGET_CLASS`]
+/// window. The host window itself is never the target; while it holds no widget yet there is none, and the next event
+/// looks again. Each search takes the direct children first, then goes down to two levels deeper; only the surface's own
+/// tree is searched, never the desktop (T-04-46).
+#[must_use]
+pub fn input_widget<W: Copy>(surface: W, children: impl Fn(W) -> Vec<W>, class: impl Fn(W) -> String) -> Option<W> {
+    fn search<W: Copy>(
+        parent: W,
+        wanted: &str,
+        depth: u32,
+        children: &impl Fn(W) -> Vec<W>,
+        class: &impl Fn(W) -> String,
+    ) -> Option<W> {
+        let below = children(parent);
+        if let Some(found) = below.iter().copied().find(|child| class(*child) == wanted) {
+            return Some(found);
+        }
+        if depth == 0 {
+            return None;
+        }
+        below
+            .into_iter()
+            .find_map(|child| search(child, wanted, depth - 1, children, class))
+    }
+    match search(surface, HOST_WIDGET_CLASS, 2, &children, &class) {
+        Some(host) => children(host)
+            .into_iter()
+            .find(|child| class(*child) == INPUT_WIDGET_CLASS),
+        None => search(surface, INPUT_WIDGET_CLASS, 2, &children, &class),
+    }
+}
+
 #[cfg(windows)]
 mod imp {
     use std::{
@@ -227,17 +268,17 @@ mod imp {
                 Input::KeyboardAndMouse::{GetKeyState, VK_CONTROL, VK_SHIFT},
                 Shell::{SHCreateMemStream, SHCreateStreamOnFileEx},
                 WindowsAndMessaging::{
-                    DispatchMessageW, FindWindowExW, MSG, MsgWaitForMultipleObjects, PM_REMOVE, PeekMessageW,
-                    PostMessageW, PostQuitMessage, QS_ALLINPUT, TranslateMessage, WM_QUIT,
+                    DispatchMessageW, FindWindowExW, GetClassNameW, MSG, MsgWaitForMultipleObjects, PM_REMOVE,
+                    PeekMessageW, PostMessageW, PostQuitMessage, QS_ALLINPUT, TranslateMessage, WM_QUIT,
                 },
             },
         },
-        core::{BOOL, Interface, PCWSTR, PWSTR, w},
+        core::{BOOL, Interface, PCWSTR, PWSTR},
     };
 
     use super::{
-        HostError, HostStart, bounds_size, header_block, ranged_reply, scale_for_dpi, stream_path, uri_host,
-        view_settings, wheel_params,
+        HostError, HostStart, INPUT_WIDGET_CLASS, bounds_size, header_block, input_widget, ranged_reply, scale_for_dpi,
+        stream_path, uri_host, view_settings, wheel_params,
     };
 
     /// How long the environment and the controller get to come up.
@@ -583,41 +624,31 @@ mod imp {
         }
     }
 
-    /// The Chromium widget that takes the posted input messages: the first `Chrome_WidgetWin_0` under `parent` (the
-    /// surface that holds the controller), else the first `Chrome_WidgetWin_1`, searched in the direct children first and
-    /// then two levels deeper, as the legacy app walks WebView2's window chain. Only this renderer's own window tree is
-    /// searched, never the desktop (T-04-46).
+    /// The direct children of `parent`, in Z order.
+    fn child_windows(parent: HWND) -> Vec<HWND> {
+        let mut children = Vec::new();
+        let mut previous: Option<HWND> = None;
+        // SAFETY: `parent` is a window of this thread's surface tree; FindWindowExW only reads the window tree and fails
+        // for a window that is gone; the previous child is a handle it returned a moment ago.
+        while let Ok(child) = unsafe { FindWindowExW(Some(parent), previous, PCWSTR::null(), PCWSTR::null()) } {
+            children.push(child);
+            previous = Some(child);
+        }
+        children
+    }
+
+    /// The class name of `window`, empty when it is gone.
+    fn window_class(window: HWND) -> String {
+        let mut name = [0_u16; 256];
+        // SAFETY: the buffer is valid for its whole length, which is the count passed; a window that is gone gives 0.
+        let copied = unsafe { GetClassNameW(window, &mut name) };
+        String::from_utf16_lossy(&name[..usize::try_from(copied).unwrap_or(0).min(name.len())])
+    }
+
+    /// The Chromium widget that takes the posted input messages, chosen by [`input_widget`] in the window tree under
+    /// `parent` (the surface that holds the controller), with the class it has for the log.
     fn find_widget(parent: HWND) -> Option<(isize, &'static str)> {
-        /// The first window of `class` among the descendants of `parent`, direct children first, down to `depth` more
-        /// levels.
-        fn search(parent: HWND, class: PCWSTR, depth: u32) -> Option<HWND> {
-            // SAFETY: `parent` is a window of this thread's surface and `class` a valid NUL-terminated literal;
-            // FindWindowExW only reads the window tree and fails for a window that is gone.
-            if let Ok(found) = unsafe { FindWindowExW(Some(parent), None, class, PCWSTR::null()) } {
-                return Some(found);
-            }
-            if depth == 0 {
-                return None;
-            }
-            let mut previous: Option<HWND> = None;
-            // SAFETY: as above; the previous child is a handle FindWindowExW returned a moment ago.
-            while let Ok(child) = unsafe { FindWindowExW(Some(parent), previous, PCWSTR::null(), PCWSTR::null()) } {
-                if let Some(found) = search(child, class, depth - 1) {
-                    return Some(found);
-                }
-                previous = Some(child);
-            }
-            None
-        }
-        for (name, class) in [
-            ("Chrome_WidgetWin_0", w!("Chrome_WidgetWin_0")),
-            ("Chrome_WidgetWin_1", w!("Chrome_WidgetWin_1")),
-        ] {
-            if let Some(found) = search(parent, class, 2) {
-                return Some((found.0 as isize, name));
-            }
-        }
-        None
+        input_widget(parent, child_windows, window_class).map(|found| (found.0 as isize, INPUT_WIDGET_CLASS))
     }
 
     /// The WebView2 pieces of one renderer; closing it (or dropping it) releases them in order.
@@ -1250,6 +1281,50 @@ mod tests {
         assert_eq!(uri_host("https://[::1]:9000/"), "::1");
         assert_eq!(uri_host("example.org/path"), "example.org");
         assert_eq!(uri_host(""), "");
+    }
+
+    /// A window tree as `(class, children)` by window number; window 1 is the surface.
+    fn chosen(tree: &[(u32, &str, &[u32])]) -> Option<u32> {
+        let node = |window: u32| tree.iter().find(|(id, _, _)| *id == window).copied();
+        input_widget(
+            1,
+            |window| node(window).map_or_else(Vec::new, |(_, _, children)| children.to_vec()),
+            |window| node(window).map_or_else(String::new, |(_, class, _)| (*class).to_owned()),
+        )
+    }
+
+    #[test]
+    fn input_goes_to_the_browser_widget_inside_webview2s_host_window() {
+        // The tree a WebView2 renderer has (04-37 debug run): the host window lives in this process, the widget inside it
+        // in the browser process, and only that one hands posted input to the page.
+        let tree: &[(u32, &str, &[u32])] = &[
+            (1, "SucroseDesktopSurface", &[2]),
+            (2, "Chrome_WidgetWin_0", &[3]),
+            (3, "Chrome_WidgetWin_1", &[4, 5]),
+            (4, "Chrome_RenderWidgetHostHWND", &[]),
+            (5, "Intermediate D3D Window", &[]),
+        ];
+
+        assert_eq!(chosen(tree), Some(3), "never the host window itself");
+    }
+
+    #[test]
+    fn a_host_window_without_its_browser_widget_yet_is_no_target_and_the_widget_alone_is_one() {
+        let waiting: &[(u32, &str, &[u32])] = &[
+            (1, "SucroseDesktopSurface", &[2, 3]),
+            (2, "Chrome_WidgetWin_0", &[]),
+            (3, "Chrome_WidgetWin_1", &[]),
+        ];
+        let widget_only: &[(u32, &str, &[u32])] = &[
+            (1, "SucroseDesktopSurface", &[6]),
+            (6, "Other", &[3]),
+            (3, "Chrome_WidgetWin_1", &[]),
+        ];
+        let nothing: &[(u32, &str, &[u32])] = &[(1, "SucroseDesktopSurface", &[])];
+
+        assert_eq!(chosen(waiting), None, "looked up again at the next event");
+        assert_eq!(chosen(widget_only), Some(3));
+        assert_eq!(chosen(nothing), None);
     }
 
     #[test]
