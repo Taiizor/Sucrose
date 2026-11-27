@@ -276,7 +276,7 @@ Plans:
   3. User can show a wallpaper per display, spanned or duplicated, put a different wallpaper on each monitor, and choose the working area or the full display bounds and a stretch mode, with every engine.
   4. Changing a value in the properties editor (all ten control types, texts in the user's language) changes the running wallpaper immediately; the user can restore defaults, turn on developer mode with a remote debugging port, and add, remove or reset web engine arguments.
   5. Each performance condition (lock, sleep, user switch, screen saver, focus, fullscreen, CPU/memory/GPU, network, battery, remote desktop/VM) runs its configured Close, Pause or Resume with the legacy timings; pausing goes through the engine and never suspends processes; volume, loop, shuffle and the two sound rules apply to every engine.
-**Plans**: 30/38 plans executed (Round A = D-31 slice 1, 04-01..04-21, executed; Round B = D-31 slices 2 and 3, 04-22..04-38, planned; Rounds C–E are planned after the previous round has executed, 04-CONTEXT D-31 "Planning rounds")
+**Plans**: 31/38 plans executed (Round A = D-31 slice 1, 04-01..04-21, executed; Round B = D-31 slices 2 and 3, 04-22..04-38, planned; Rounds C–E are planned after the previous round has executed, 04-CONTEXT D-31 "Planning rounds")
 Plans:
 **Wave 1**
 - [x] 04-01-PLAN.md — D-32 CEF delay-load spike, part 1: pinned CEF via fetch-engines and CEF_PATH, delay-loaded libcef.dll, CEF subprocess routing, fixture Web library
@@ -367,7 +367,7 @@ Plans:
 - [x] 04-30-PLAN.md — Built-in GIF renderer: lazy decode, Direct2D, loop, Light pause, resize; Gif cards usable (TYPE-02)
 
 **Wave 30** *(blocked on Wave 29 completion)*
-- [ ] 04-31-PLAN.md — Built-in GIF renderer: the four stretch modes and the GDI fallback presenter (DESK-05 part)
+- [x] 04-31-PLAN.md — Built-in GIF renderer: the four stretch modes and the GDI fallback presenter (DESK-05 part)
 
 **Wave 31** *(blocked on Wave 30 completion)*
 - [ ] 04-32-PLAN.md — APNG and WebP on the built-in renderer, generated fixtures, TYPE-02 edges and memory bound
@@ -460,7 +460,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
 | 2. M1 — Video wallpaper on the desktop (Windows) | 29/29 | Complete    | 2026-11-23 |
 | 3. M2 — Service, IPC and Portal connected | 50/50 | Complete    | 2026-11-25 |
-| 4. M3 — Engines and the wallpaper API | 30/38 | In Progress | - |
+| 4. M3 — Engines and the wallpaper API | 31/38 | In Progress | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
 | 6. M5 — macOS | 0/TBD | Not started | - |
 | 7. M6 — Linux (X11, then Wayland compositors) | 0/TBD | Not started | - |

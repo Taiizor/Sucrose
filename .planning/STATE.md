@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-30-PLAN.md
-last_updated: "2026-11-27T01:57:49.584Z"
+stopped_at: Completed 04-31-PLAN.md
+last_updated: "2026-11-27T02:26:44.370Z"
 last_activity: 2026-11-27
 last_activity_desc: Phase 04 execution started
-state_head: 798428f4ff411643b042276c9a834cf45be8baf0
+state_head: 3279d2b7fc6cad03a323816b34bdc9c0b242bc21
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 117
-  completed_plans: 109
+  completed_plans: 110
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 31 of 38
+Plan: 32 of 38
 Status: Ready to execute
 Last activity: 2026-11-27 — Phase 04 execution started
 Next step: /gsd-debug for the in-page Web theme failures and the CEF GPU process crash (04-37 names their fixes as its precondition), then `/gsd-execute-phase 4` runs Round B.
@@ -164,6 +164,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P28 | 22 min | 2 tasks | 12 files |
 | Phase 04 P29 | 26 min | 2 tasks | 13 files |
 | Phase 04 P30 | 25 min | 2 tasks | 15 files |
+| Phase 04 P31 | 11 min | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -337,6 +338,8 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-29: a chunk set that did not fit a renderer's queue is offered again as a new blob id; art over the 2 MiB BLOB_MAX is replaced by an empty ThumbnailString (04-37 to decide whether to raise the cap)
 - [Phase 04]: 04-30: the built-in GIF renderer opens its Animation on the decode thread (image's frame iterator is not Send); start waits for the first frame so a damaged file is a start failure
 - [Phase 04]: 04-30: decide_use loads in place only between two mpv wallpapers; every other engine change restarts the renderers (UseInput.running_engine replaces running_kind)
+- [Phase 04]: 04-31: the built-in GIF decoder is stretch-aware (Within, Cover, Crop) so None shows the centre at 1:1 and UniformToFill does not upscale a fitted frame; a mode change needing another preparation re-opens the decoder at the shown frame
+- [Phase 04]: 04-31: the third D2DERR_RECREATE_TARGET in a row switches the built-in GIF renderer to a GDI StretchDIBits presenter (a success in between resets the count); the GDI path is only unit-tested (assumption A15)
 
 ### Pending Todos
 
@@ -375,6 +378,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-27T01:57:27.359Z
-Stopped at: Completed 04-30-PLAN.md
+Last session: 2026-11-27T02:26:17.401Z
+Stopped at: Completed 04-31-PLAN.md
 Resume file: None
