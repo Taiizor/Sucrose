@@ -8,6 +8,9 @@
 <!-- Sucrose generated page (VideoContent.html). The media path comes from location.search ("src", relative to the theme
      folder) and is only ever used as a URL on this origin, never as markup. Function names are the legacy ones. -->
 <style>
+/* The "scale" property transforms body, which then holds the fixed video: body must be as tall as the viewport (the
+   legacy page had no doctype, and quirks mode made it so). */
+html,body{height:100%}
 body{margin:0;padding:0;overflow:hidden;background:#000}
 video{position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;object-fit:cover}
 video::-webkit-media-controls,video::-webkit-media-controls-current-time-display,video::-webkit-media-controls-fullscreen-button,video::-webkit-media-controls-mute-button,video::-webkit-media-controls-overflow-button,video::-webkit-media-controls-overflow-menu-button,video::-webkit-media-controls-play-button,video::-webkit-media-controls-time-remaining-display,video::-webkit-media-controls-timeline,video::-webkit-media-controls-toggle-closed-captions-button,video::-webkit-media-controls-volume-slider{display:none!important}

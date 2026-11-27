@@ -839,3 +839,65 @@ fn a_follower_tells_its_generated_page_volume_zero_and_a_master_the_wallpaper_vo
         "SucroseVolume(80);"
     );
 }
+
+/// The plain rules of the first `<style>` block of `html` as (selectors, declarations); `@` blocks are skipped.
+fn style_rules(html: &str) -> Vec<(Vec<String>, String)> {
+    let start = html.find("<style>").expect("a style block") + "<style>".len();
+    let end = start + html[start..].find("</style>").expect("the end of the style block");
+    let mut css = html[start..end].to_owned();
+    while let Some(open) = css.find("/*") {
+        let close = css[open..].find("*/").map_or(css.len(), |at| open + at + 2);
+        css.replace_range(open..close, "");
+    }
+    let mut rules = Vec::new();
+    let mut rest = css.as_str();
+    while let Some(open) = rest.find('{') {
+        let selector = rest[..open].trim().to_owned();
+        let mut depth = 0;
+        let mut close = open;
+        for (at, c) in rest[open..].char_indices() {
+            match c {
+                '{' => depth += 1,
+                '}' => {
+                    depth -= 1;
+                    if depth == 0 {
+                        close = open + at;
+                        break;
+                    }
+                }
+                _ => {}
+            }
+        }
+        if !selector.starts_with('@') {
+            let selectors = selector.split(',').map(|part| part.trim().to_owned()).collect();
+            rules.push((selectors, rest[open + 1..close].replace([' ', '\n'], "")));
+        }
+        rest = &rest[close + 1..];
+    }
+    rules
+}
+
+#[test]
+fn a_page_whose_scale_property_transforms_its_body_keeps_the_body_as_tall_as_the_viewport() {
+    // The built-in "scale" property (default 0, sent at every start) sets body.style.transform; a transformed body holds
+    // the page's position:fixed media, so a body without a height would leave the media 0 px tall (04-37 D5).
+    for page in [GeneratedPage::Video, GeneratedPage::Gif] {
+        let html = page.html();
+        let compact: String = html.chars().filter(|c| !c.is_whitespace()).collect();
+        assert!(
+            compact.contains("case\"scale\":body.style.transform"),
+            "{} no longer scales its body; revisit this test",
+            page.file_name()
+        );
+        let sized = |element: &str| {
+            style_rules(html).iter().any(|(selectors, declarations)| {
+                selectors.iter().any(|selector| selector == element) && declarations.contains("height:100%")
+            })
+        };
+        assert!(
+            sized("html") && sized("body"),
+            "{}: html and body must be height:100%",
+            page.file_name()
+        );
+    }
+}
