@@ -249,6 +249,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
     tracing::info!(
         switches = %browser_arguments,
         allow_invalid_certificates = web.allow_invalid_certificates,
+        user_agent = ?web.user_agent,
         "chromium switches"
     );
 
@@ -281,6 +282,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         browser_arguments,
         developer_mode: web.developer_mode,
         allow_invalid_certificates: web.allow_invalid_certificates,
+        user_agent: web.user_agent.clone(),
         page_calls: Arc::new(move |_url, status| {
             page::page_calls(page_kind, &calls_dir, status, &calls_state, &complaints)
         }),

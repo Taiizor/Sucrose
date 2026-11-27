@@ -33,6 +33,9 @@ pub struct HostStart {
     pub developer_mode: bool,
     /// `Engine.AllowInvalidCertificates`: certificate errors are allowed instead of refused (D-12). Off by default.
     pub allow_invalid_certificates: bool,
+    /// `General.UserAgent` as the service decided it (legacy `CoreWebView2.Settings.UserAgent`); empty keeps
+    /// WebView2's own.
+    pub user_agent: String,
     /// The scripts a page gets after every completed main-frame navigation: they run before `on_loaded`.
     pub page_calls: PageCallsHook,
     /// Called after every completed main-frame navigation.
@@ -141,6 +144,14 @@ pub fn view_settings(developer_mode: bool, allow_invalid_certificates: bool) -> 
         accelerator_keys: true,
         allow_invalid_certificates,
     }
+}
+
+/// The user agent to set on the page's settings: `None` for an empty value, so the COM call is skipped instead of relying
+/// on `put_UserAgent`'s empty-string rule, otherwise the value as given (the service already refused blank and
+/// control-character values).
+#[must_use]
+pub fn user_agent_override(user_agent: &str) -> Option<&str> {
+    (!user_agent.is_empty()).then_some(user_agent)
 }
 
 /// A number as JSON text with no exponent and at most three decimals: the invariant form the DevTools protocol takes (the
@@ -252,8 +263,8 @@ mod imp {
             ICoreWebView2_4, ICoreWebView2_14, ICoreWebView2Controller, ICoreWebView2Controller2,
             ICoreWebView2Controller3, ICoreWebView2Environment, ICoreWebView2Environment5,
             ICoreWebView2EnvironmentOptions, ICoreWebView2NavigationCompletedEventArgs,
-            ICoreWebView2NavigationCompletedEventArgs2, ICoreWebView2Settings3, ICoreWebView2WebResourceRequest,
-            ICoreWebView2WebResourceRequestedEventArgs,
+            ICoreWebView2NavigationCompletedEventArgs2, ICoreWebView2Settings2, ICoreWebView2Settings3,
+            ICoreWebView2WebResourceRequest, ICoreWebView2WebResourceRequestedEventArgs,
         },
         NavigationCompletedEventHandler, ServerCertificateErrorDetectedEventHandler, WebResourceRequestedEventHandler,
         take_pwstr,
@@ -280,7 +291,7 @@ mod imp {
 
     use super::{
         HostError, HostStart, INPUT_WIDGET_CLASS, bounds_size, header_block, input_widget, ranged_reply, scale_for_dpi,
-        stream_path, uri_host, view_settings, wheel_params,
+        stream_path, uri_host, user_agent_override, view_settings, wheel_params,
     };
 
     /// How long the environment and the controller get to come up.
@@ -793,7 +804,8 @@ mod imp {
             self.controller = Some(controller.clone());
 
             // SAFETY: the controller and the webview belong to this thread; every call below only passes plain
-            // values, strings that outlive it, or COM objects whose references the callee takes.
+            // values, strings that outlive it (the UTF-16 buffer of the user agent lives until the call returns), or
+            // COM objects whose references the callee takes.
             unsafe {
                 let webview = controller.CoreWebView2().map_err(setup)?;
                 self.webview = Some(webview.clone());
@@ -847,6 +859,21 @@ mod imp {
                     third
                         .SetAreBrowserAcceleratorKeysEnabled(view.accelerator_keys)
                         .map_err(setup)?;
+                }
+                // The legacy hosts set CoreWebView2.Settings.UserAgent in every page type's initialization handler; this
+                // host is shared by all of them, so one call before the first navigation covers them. A failure leaves
+                // WebView2's own user agent: the wallpaper still plays.
+                if let Some(agent) = user_agent_override(&start.user_agent) {
+                    let text = wide(agent);
+                    let applied = settings
+                        .cast::<ICoreWebView2Settings2>()
+                        .and_then(|second| second.SetUserAgent(PCWSTR(text.as_ptr())));
+                    match applied {
+                        Ok(()) => tracing::info!(user_agent = ?agent, "user agent"),
+                        Err(error) => {
+                            tracing::warn!(%error, "cannot set the user agent, the page gets WebView2's own");
+                        }
+                    }
                 }
 
                 // The legacy blocked keys and the DevTools shortcuts go through the table CEF uses (D-13).
@@ -1256,6 +1283,16 @@ pub use stub::Host;
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn an_empty_user_agent_keeps_webview2s_own_and_a_value_is_set_as_given() {
+        assert_eq!(user_agent_override(""), None);
+        assert_eq!(
+            user_agent_override("SucroseProbe/1.0 (uov check)"),
+            Some("SucroseProbe/1.0 (uov check)")
+        );
+        assert_eq!(user_agent_override(" padded "), Some(" padded "), "never trimmed");
+    }
 
     #[test]
     fn the_bounds_are_the_rectangle_size_and_never_below_one_pixel() {
