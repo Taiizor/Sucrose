@@ -554,6 +554,32 @@ mod tests {
     }
 
     #[test]
+    fn media_the_committed_fixtures_are_the_generators_output() {
+        let scratch = std::env::temp_dir().join(format!("sucrose-media-fixtures-{}", std::process::id()));
+        write_fixtures(&scratch).unwrap();
+        let committed = crate::workspace_root().join(FIXTURES_DIR);
+        for (name, bytes) in fixture_files().unwrap() {
+            assert_eq!(
+                fs::read(scratch.join(name)).unwrap(),
+                bytes,
+                "{name}: the written file is the builder's output"
+            );
+            let on_disk =
+                fs::read(committed.join(name)).unwrap_or_else(|error| panic!("{name} is not committed: {error}"));
+            assert!(
+                on_disk == bytes,
+                "{name} differs from the generator: run cargo xtask media-fixtures and commit the result"
+            );
+            assert!(
+                bytes.len() < 64 * 1024,
+                "{name} is {} bytes, a fixture stays under 64 KiB",
+                bytes.len()
+            );
+        }
+        fs::remove_dir_all(&scratch).unwrap();
+    }
+
+    #[test]
     fn media_builders_refuse_what_is_not_an_animation() {
         let whole = RgbaImage::new(8, 8);
         assert!(apng((8, 8), &[]).is_err());

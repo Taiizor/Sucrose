@@ -136,6 +136,42 @@ fn sniff(head: &[u8]) -> Sniffed {
     }
 }
 
+/// How many bytes at the start of a file [`declared_size`] reads.
+const HEAD_LEN: usize = 32;
+
+/// The canvas size a file declares in its first bytes, when they hold it: the GIF logical screen, the PNG header, the
+/// WebP extended header or the first bitstream header. `None` when the head is too short or says nothing about it.
+fn declared_size(format: Sniffed, head: &[u8]) -> Option<(u32, u32)> {
+    let le16 = |at: usize| {
+        head.get(at..at + 2)
+            .map(|bytes| u32::from(u16::from_le_bytes([bytes[0], bytes[1]])))
+    };
+    let le24 = |at: usize| {
+        head.get(at..at + 3)
+            .map(|b| u32::from(b[0]) | u32::from(b[1]) << 8 | u32::from(b[2]) << 16)
+    };
+    match format {
+        Sniffed::Gif => Some((le16(6)?, le16(8)?)),
+        Sniffed::Png if head.get(12..16) == Some(b"IHDR") => {
+            let be32 = |at: usize| {
+                head.get(at..at + 4)
+                    .map(|b| u32::from_be_bytes([b[0], b[1], b[2], b[3]]))
+            };
+            Some((be32(16)?, be32(20)?))
+        }
+        Sniffed::WebP => match head.get(12..16)? {
+            b"VP8X" => Some((le24(24)? + 1, le24(27)? + 1)),
+            b"VP8L" if head.get(20) == Some(&0x2f) => {
+                let bits = head.get(21..25).map(|b| u32::from_le_bytes([b[0], b[1], b[2], b[3]]))?;
+                Some(((bits & 0x3FFF) + 1, (bits >> 14 & 0x3FFF) + 1))
+            }
+            b"VP8 " => Some((le16(26)? & 0x3FFF, le16(28)? & 0x3FFF)),
+            _ => None,
+        },
+        _ => None,
+    }
+}
+
 /// Refuses a canvas of `width` x `height` above [`MAX_SOURCE_PIXELS`].
 fn check_size(width: u32, height: u32) -> Result<(), DecodeError> {
     if u64::from(width) * u64::from(height) > MAX_SOURCE_PIXELS {
@@ -312,7 +348,7 @@ impl Animation {
     /// See [`Animation::open`].
     pub fn open_scaled(source: Source, max: (u32, u32), scaling: Scaling) -> Result<Self, DecodeError> {
         let mut reader = source.open()?;
-        let mut head = [0_u8; 12];
+        let mut head = [0_u8; HEAD_LEN];
         let mut read = 0;
         while read < head.len() {
             match reader.read(&mut head[read..]) {
@@ -326,12 +362,9 @@ impl Animation {
         if sniffed == Sniffed::Unknown {
             return Err(DecodeError::NotAnimation);
         }
-        if sniffed == Sniffed::Gif && read >= 10 {
-            // The logical screen size is in the header: a huge canvas is refused before the decoder is built.
-            check_size(
-                u32::from(u16::from_le_bytes([head[6], head[7]])),
-                u32::from(u16::from_le_bytes([head[8], head[9]])),
-            )?;
+        if let Some((width, height)) = declared_size(sniffed, &head[..read]) {
+            // The size is in the header: a huge canvas is refused before the decoder is built.
+            check_size(width, height)?;
         }
         reader.rewind().map_err(|error| DecodeError::Io(error.to_string()))?;
         let malformed = |error: image::ImageError| DecodeError::Malformed(error.to_string());
