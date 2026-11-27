@@ -1,0 +1,16 @@
+{
+  "AppVersion": "26.6.19.0",
+  "Version": "1.0.0.0",
+  "Title": "Sucrose fixture: youtube",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "A fixture YouTube theme for engine runs: the Showcase video Floating in Space (12 hours, one video).",
+  "Author": "Sucrose",
+  "Contact": "https://example.com/web",
+  "Type": 4,
+  "Source": "https://www.youtube.com/watch?v=znNllvBt_Jg",
+  "Tags": [
+    "fixture"
+  ],
+  "Arguments": null
+}

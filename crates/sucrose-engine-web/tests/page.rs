@@ -367,7 +367,9 @@ fn the_page_kind_of_a_wallpaper_decides_its_pages_and_whether_it_takes_input() {
         assert!(matches!(kind(WallpaperType::Url), PageKind::Url));
         assert!(kind(WallpaperType::Gif).generated().is_some());
         assert!(kind(WallpaperType::Video).generated().is_some());
-        // Legacy: input only for Web, Url and Application; the generated Gif and Video pages get none.
+        assert!(kind(WallpaperType::YouTube).generated().is_some());
+        // Legacy: input only for Web, Url and Application; the generated Gif, Video and YouTube pages get none.
+        assert!(!kind(WallpaperType::YouTube).takes_input());
         assert!(kind(WallpaperType::Web).takes_input());
         assert!(kind(WallpaperType::Url).takes_input());
         assert!(!kind(WallpaperType::Gif).takes_input());

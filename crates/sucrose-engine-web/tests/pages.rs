@@ -18,7 +18,7 @@ use sucrose_engine_web::{
     page::{Complaints, PageKind, PageState, page_calls},
     pages::{
         GeneratedPage, PageError, builtin_set, effective_volume, engine_volume_level, ensure_file, ensure_file_with,
-        ensure_written, generated_url, loop_script, prepare_in, stretch_script, volume_script,
+        ensure_written, generated_url, loop_script, prepare_in, shuffle_script, stretch_script, volume_script,
     },
 };
 
@@ -108,18 +108,18 @@ fn a_source_outside_the_theme_folder_is_an_error() {
 }
 
 #[test]
-fn generated_pages_exist_for_gif_and_video_themes_only_so_far() {
+fn generated_pages_exist_for_gif_video_and_youtube_themes_only_so_far() {
     assert_eq!(
         GeneratedPage::for_kind(WallpaperType::Video),
         Some(GeneratedPage::Video)
     );
     assert_eq!(GeneratedPage::for_kind(WallpaperType::Gif), Some(GeneratedPage::Gif));
-    for kind in [
-        WallpaperType::Web,
-        WallpaperType::Url,
-        WallpaperType::YouTube,
-        WallpaperType::Application,
-    ] {
+    assert_eq!(
+        GeneratedPage::for_kind(WallpaperType::YouTube),
+        Some(GeneratedPage::YouTube)
+    );
+    assert_eq!(GeneratedPage::YouTube.file_name(), "YouTubeContent.html");
+    for kind in [WallpaperType::Web, WallpaperType::Url, WallpaperType::Application] {
         assert_eq!(GeneratedPage::for_kind(kind), None, "{kind:?}");
     }
 }
@@ -140,8 +140,12 @@ fn ensure_written_creates_the_pages_in_an_empty_folder_and_leaves_identical_ones
         .and_then(|meta| meta.modified())
         .expect("modified time");
 
-    assert_eq!(first, [GeneratedPage::Video, GeneratedPage::Gif]);
+    assert_eq!(first, [GeneratedPage::Video, GeneratedPage::Gif, GeneratedPage::YouTube]);
     assert_eq!(written, GeneratedPage::Video.html());
+    assert_eq!(
+        std::fs::read_to_string(content.join("YouTubeContent.html")).expect("youtube page exists"),
+        GeneratedPage::YouTube.html()
+    );
     assert_eq!(
         std::fs::read_to_string(content.join("GifContent.html")).expect("gif page exists"),
         GeneratedPage::Gif.html()
@@ -157,7 +161,10 @@ fn a_different_page_is_replaced_through_a_temporary_file_and_no_temporary_file_s
 
     let written = ensure_written(&scratch.0).expect("replace");
 
-    assert_eq!(written, [GeneratedPage::Video, GeneratedPage::Gif]);
+    assert_eq!(
+        written,
+        [GeneratedPage::Video, GeneratedPage::Gif, GeneratedPage::YouTube]
+    );
     assert_eq!(
         std::fs::read_to_string(scratch.0.join("VideoContent.html")).expect("page"),
         GeneratedPage::Video.html()
@@ -331,6 +338,177 @@ fn a_gif_theme_prepares_the_gif_page() {
         url.as_deref(),
         Some("https://sucrose.wallpaper.engine/GifContent.html?src=animation.gif")
     );
+}
+
+#[test]
+fn a_youtube_address_carries_the_ids_of_the_theme_source() {
+    let theme = Path::new("C:/lib/t");
+    let url = |source: &str| generated_url(GeneratedPage::YouTube, theme, source);
+
+    assert_eq!(
+        url("https://www.youtube.com/watch?v=znNllvBt_Jg").expect("a video"),
+        "https://sucrose.wallpaper.engine/YouTubeContent.html?v=znNllvBt_Jg"
+    );
+    assert_eq!(
+        url("https://www.youtube.com/watch?v=abc&list=PL-1_x").expect("both"),
+        "https://sucrose.wallpaper.engine/YouTubeContent.html?v=abc&list=PL-1_x"
+    );
+    assert_eq!(
+        url("https://www.youtube.com/playlist?list=PL-1_x").expect("a list"),
+        "https://sucrose.wallpaper.engine/YouTubeContent.html?list=PL-1_x"
+    );
+    for refused in [
+        "https://www.youtube.com/",
+        "https://www.youtube.com/watch?v=a%20b",
+        "https://www.youtube.com/watch?v=a&v=b",
+        "",
+    ] {
+        assert!(
+            matches!(url(refused), Err(PageError::NoYouTubeId)),
+            "{refused:?} carries no usable id"
+        );
+    }
+}
+
+#[test]
+fn a_youtube_theme_prepares_the_youtube_page_and_a_bad_address_writes_nothing() {
+    let scratch = Scratch::new();
+    let theme = scratch.0.join("theme");
+    let content = scratch.0.join("Content");
+
+    let refused = prepare_in(&content, WallpaperType::YouTube, &theme, "https://www.youtube.com/");
+    assert!(matches!(refused, Err(PageError::NoYouTubeId)), "{refused:?}");
+    assert!(!content.exists(), "nothing is written for a refused address");
+
+    let url = prepare_in(
+        &content,
+        WallpaperType::YouTube,
+        &theme,
+        "https://www.youtube.com/watch?v=znNllvBt_Jg",
+    )
+    .expect("prepared");
+
+    assert_eq!(
+        url.as_deref(),
+        Some("https://sucrose.wallpaper.engine/YouTubeContent.html?v=znNllvBt_Jg")
+    );
+    assert!(content.join("YouTubeContent.html").is_file());
+}
+
+#[test]
+fn the_youtube_page_has_the_legacy_functions_the_legacy_player_vars_and_only_two_addresses() {
+    let html = GeneratedPage::YouTube.html();
+
+    for name in [
+        "onYouTubeIframeAPIReady",
+        "onPlayerReady",
+        "onPlayerStateChange",
+        "onPlayerError",
+        "SucrosePropertyListener",
+        "playFirst",
+        "playVideo",
+        "pauseVideo",
+        "setVolume",
+        "setShuffle",
+        "forceReload",
+        "setLoop",
+        "checkVideoEnded",
+        "checkPlayingStatus",
+        "toggleCaptions",
+        "toggleAudioTrack",
+        "hideIframeElement",
+        "toggleFullScreen",
+        "SucrosePause",
+        "SucrosePlay",
+        "SucroseVolume",
+        "SucroseStretchMode",
+    ] {
+        assert!(
+            html.contains(&format!("function {name}(")) || html.contains(&format!("function {name} (")),
+            "{name}"
+        );
+    }
+    for player_var in [
+        "autoplay: 1",
+        "loop: 1",
+        "controls: 0",
+        "disablekb: 1",
+        "modestbranding: 1",
+        "fs: 0",
+        "rel: 0",
+        "iv_load_policy: 3",
+        "playsinline: 0",
+        "cc_load_policy: 0",
+        "version: 3",
+        "showinfo: 0",
+        "suggestedQuality: \"highres\"",
+        "origin: \"https://sucrose.wallpaper.engine/\"",
+        "widget_referrer: \"strict-origin-when-cross-origin\"",
+    ] {
+        assert!(html.contains(player_var), "{player_var}");
+    }
+    assert!(html.contains("new URLSearchParams(location.search)"));
+    assert!(!html.contains("innerHTML"), "the ids are never written as markup");
+    // The only addresses in the page: the public IFrame API script and the virtual origin of the player.
+    let mut addresses = Vec::new();
+    for scheme in ["https://", "http://"] {
+        for (at, _) in html.match_indices(scheme) {
+            let end = html[at..]
+                .find(['"', '\'', ' ', '<', ')'])
+                .map_or(html.len(), |length| at + length);
+            addresses.push(&html[at..end]);
+        }
+    }
+    addresses.sort_unstable();
+    addresses.dedup();
+    assert_eq!(
+        addresses,
+        ["https://sucrose.wallpaper.engine/", "https://www.youtube.com/iframe_api"]
+    );
+    assert!(!html.to_lowercase().contains("apikey") && !html.contains("key="), "no API key");
+}
+
+#[test]
+fn the_youtube_engine_scripts_are_the_legacy_calls() {
+    assert_eq!(loop_script(GeneratedPage::YouTube, true), "setLoop(true);");
+    assert_eq!(loop_script(GeneratedPage::YouTube, false), "setLoop(false);");
+    assert_eq!(
+        shuffle_script(GeneratedPage::YouTube, true).as_deref(),
+        Some("setShuffle(true);")
+    );
+    assert_eq!(
+        shuffle_script(GeneratedPage::YouTube, false).as_deref(),
+        Some("setShuffle(false);")
+    );
+    assert_eq!(shuffle_script(GeneratedPage::Video, true), None, "only YouTube has a shuffle");
+    assert_eq!(shuffle_script(GeneratedPage::Gif, true), None);
+    assert_eq!(volume_script(35), "SucroseVolume(35);");
+}
+
+#[test]
+fn a_youtube_page_gets_the_set_then_volume_loop_shuffle_and_stretch_and_takes_no_input() {
+    let theme = Scratch::new();
+    let state = scratch_state();
+    state.set_volume(40);
+    state.set_looping(true);
+    state.set_shuffle(false);
+    let kind = PageKind::for_wallpaper(WallpaperType::YouTube, WebEngine::Cef);
+
+    assert_eq!(kind.generated(), Some(GeneratedPage::YouTube));
+    assert!(!kind.takes_input(), "legacy: YouTube gets no input");
+    let calls = page_calls(kind, &theme.0, 200, &state, &Complaints::default());
+
+    let property_count = SET_KEYS.len();
+    let keys: Vec<String> = calls.iter().map(|call| call.key.clone()).collect();
+    assert_eq!(calls.len(), property_count + 4, "{keys:?}");
+    assert_eq!(
+        &keys[property_count..],
+        ["volume", "loop", "shuffle", "stretch"],
+        "the engine values run once after the set"
+    );
+    let scripts: Vec<&str> = calls[property_count..].iter().map(|call| call.script.as_str()).collect();
+    assert_eq!(scripts[..3], ["SucroseVolume(40);", "setLoop(true);", "setShuffle(false);"]);
+    assert!(calls[property_count..].iter().all(|call| call.kind == KIND_ENGINE));
 }
 
 /// The keys of the legacy CEF and WebView sets in their legacy order (SE/Manage/Internal.cs), with the D-06 volume right
