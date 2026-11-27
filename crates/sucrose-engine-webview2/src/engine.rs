@@ -24,6 +24,7 @@ use sucrose_engine_web::{
     args::{self, SucroseInputs, WebEngine},
     js, origin,
     page::{self, Complaints, PageState},
+    pages,
     profile::{self, ProfileLease},
 };
 use sucrose_ipc::protocol::{Assignment, PlaybackSettings, WebOptions};
@@ -253,8 +254,19 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             }
         }),
     };
-    // The page comes from the virtual origin (D-14): the theme folder first, then the generated content.
-    let url = origin::page_url(&theme_dir, &assignment.source);
+    // The page comes from the virtual origin (D-14): the theme folder first, then the generated content. A Gif or Video
+    // theme plays through a generated page that is written into the content folder.
+    let url = match pages::prepare(assignment.kind, &theme_dir, &assignment.source) {
+        Ok(Some(url)) => url,
+        Ok(None) => origin::page_url(&theme_dir, &assignment.source),
+        Err(error) => {
+            tracing::error!(%error, kind = ?assignment.kind, "cannot prepare the generated page");
+            remove_scratch();
+            return Err(EngineError::Start {
+                reason: error.to_string(),
+            });
+        }
+    };
     let host = Host::start(wid, assignment.rect, &url, &host_start).map_err(|error| {
         tracing::error!(%error, "cannot start WebView2");
         remove_scratch();

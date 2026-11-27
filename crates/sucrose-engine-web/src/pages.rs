@@ -23,17 +23,20 @@ const QUERY: &AsciiSet = &NON_ALPHANUMERIC.remove(b'-').remove(b'.').remove(b'_'
 pub enum GeneratedPage {
     /// `VideoContent.html`: one `<video>` that fills the surface.
     Video,
+    /// `GifContent.html`: the legacy canvas player with its embedded GIF decoder.
+    Gif,
 }
 
 impl GeneratedPage {
     /// Every generated page, in the order they are written.
-    pub const ALL: &'static [Self] = &[Self::Video];
+    pub const ALL: &'static [Self] = &[Self::Video, Self::Gif];
 
     /// The page that plays a wallpaper of `kind`; `None` for a type that is not a generated page.
     #[must_use]
     pub fn for_kind(kind: WallpaperType) -> Option<Self> {
         match kind {
             WallpaperType::Video => Some(Self::Video),
+            WallpaperType::Gif => Some(Self::Gif),
             _ => None,
         }
     }
@@ -43,6 +46,7 @@ impl GeneratedPage {
     pub const fn file_name(self) -> &'static str {
         match self {
             Self::Video => "VideoContent.html",
+            Self::Gif => "GifContent.html",
         }
     }
 
@@ -51,6 +55,7 @@ impl GeneratedPage {
     pub const fn html(self) -> &'static str {
         match self {
             Self::Video => include_str!("pages/VideoContent.html"),
+            Self::Gif => include_str!("pages/GifContent.html"),
         }
     }
 }

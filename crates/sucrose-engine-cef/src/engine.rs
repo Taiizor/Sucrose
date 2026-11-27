@@ -238,8 +238,8 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         },
         developer_mode: web.developer_mode,
     };
-    // The page comes from the virtual origin (D-14): the theme folder first, then the generated content. A Video theme
-    // (and a Gif theme, once its page exists) plays through a generated page that is written into the content folder.
+    // The page comes from the virtual origin (D-14): the theme folder first, then the generated content. A Gif or Video
+    // theme plays through a generated page that is written into the content folder.
     let url = match pages::prepare(assignment.kind, &theme_dir, &assignment.source) {
         Ok(Some(url)) => url,
         Ok(None) => origin::page_url(&theme_dir, &assignment.source),

@@ -86,12 +86,13 @@ impl EngineReport {
 
     /// What `engine` can play a wallpaper of `kind` with in this build: the engine's own state, except that the web
     /// engines (CEF and WebView2) play only the types whose page they have: Web themes, and the types that have a
-    /// generated page (Video on CEF so far; GIF, URL and YouTube follow). A type they cannot play yet counts as not in
+    /// generated page (GIF and Video so far; URL and YouTube follow). A type they cannot play yet counts as not in
     /// this build.
     pub fn availability_for(&self, kind: WallpaperType, engine: EngineId) -> Availability {
         let plays = match engine {
-            EngineId::Cef => matches!(kind, WallpaperType::Web | WallpaperType::Video),
-            EngineId::WebView2 => kind == WallpaperType::Web,
+            EngineId::Cef | EngineId::WebView2 => {
+                matches!(kind, WallpaperType::Web | WallpaperType::Gif | WallpaperType::Video)
+            }
             _ => true,
         };
         if !plays {
@@ -1037,28 +1038,14 @@ mod tests {
     fn the_web_engines_play_the_types_whose_pages_they_have_and_nothing_else() {
         let report = EngineReport::from_fn(|_| Availability::Installed { version: None });
 
-        assert!(
-            report
-                .availability_for(WallpaperType::Video, EngineId::Cef)
-                .is_available(),
-            "CEF plays a Video theme through its generated page"
-        );
         for engine in [EngineId::Cef, EngineId::WebView2] {
-            assert!(
-                report.availability_for(WallpaperType::Web, engine).is_available(),
-                "{engine:?}"
-            );
-            let not_yet: &[WallpaperType] = if engine == EngineId::Cef {
-                &[WallpaperType::Gif, WallpaperType::Url, WallpaperType::YouTube]
-            } else {
-                &[
-                    WallpaperType::Gif,
-                    WallpaperType::Video,
-                    WallpaperType::Url,
-                    WallpaperType::YouTube,
-                ]
-            };
-            for kind in not_yet.iter().copied() {
+            for kind in [WallpaperType::Web, WallpaperType::Gif, WallpaperType::Video] {
+                assert!(
+                    report.availability_for(kind, engine).is_available(),
+                    "{engine:?} plays {kind:?} (a theme page or a generated page)"
+                );
+            }
+            for kind in [WallpaperType::Url, WallpaperType::YouTube] {
                 assert_eq!(
                     report.availability_for(kind, engine),
                     Availability::Unsupported {

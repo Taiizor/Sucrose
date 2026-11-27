@@ -97,11 +97,12 @@ fn a_source_outside_the_theme_folder_is_an_error() {
 }
 
 #[test]
-fn generated_pages_exist_for_a_video_theme_only_so_far() {
+fn generated_pages_exist_for_gif_and_video_themes_only_so_far() {
     assert_eq!(
         GeneratedPage::for_kind(WallpaperType::Video),
         Some(GeneratedPage::Video)
     );
+    assert_eq!(GeneratedPage::for_kind(WallpaperType::Gif), Some(GeneratedPage::Gif));
     for kind in [
         WallpaperType::Web,
         WallpaperType::Url,
@@ -128,8 +129,12 @@ fn ensure_written_creates_the_pages_in_an_empty_folder_and_leaves_identical_ones
         .and_then(|meta| meta.modified())
         .expect("modified time");
 
-    assert_eq!(first, [GeneratedPage::Video]);
+    assert_eq!(first, [GeneratedPage::Video, GeneratedPage::Gif]);
     assert_eq!(written, GeneratedPage::Video.html());
+    assert_eq!(
+        std::fs::read_to_string(content.join("GifContent.html")).expect("gif page exists"),
+        GeneratedPage::Gif.html()
+    );
     assert!(second.is_empty(), "an identical page is not written again");
     assert_eq!(before, after, "an identical page is not touched");
 }
@@ -141,16 +146,21 @@ fn a_different_page_is_replaced_through_a_temporary_file_and_no_temporary_file_s
 
     let written = ensure_written(&scratch.0).expect("replace");
 
-    assert_eq!(written, [GeneratedPage::Video]);
+    assert_eq!(written, [GeneratedPage::Video, GeneratedPage::Gif]);
     assert_eq!(
         std::fs::read_to_string(scratch.0.join("VideoContent.html")).expect("page"),
         GeneratedPage::Video.html()
     );
-    let names: Vec<String> = std::fs::read_dir(&scratch.0)
+    let mut names: Vec<String> = std::fs::read_dir(&scratch.0)
         .expect("list")
         .filter_map(|entry| entry.ok()?.file_name().into_string().ok())
         .collect();
-    assert_eq!(names, ["VideoContent.html"], "no temporary file is left");
+    names.sort();
+    assert_eq!(
+        names,
+        ["GifContent.html", "VideoContent.html"],
+        "no temporary file is left"
+    );
 }
 
 #[test]
@@ -250,5 +260,64 @@ fn the_video_page_has_the_legacy_functions_and_reads_its_media_from_the_query() 
     assert!(
         !html.contains("http:") && !html.contains("https:"),
         "the page loads nothing from the network"
+    );
+}
+
+#[test]
+fn a_gif_address_points_at_the_gif_page_with_the_encoded_source() {
+    let url = generated_url(GeneratedPage::Gif, Path::new("C:/lib/t"), "C:/lib/t/animation.gif").expect("inside");
+
+    assert_eq!(
+        url,
+        "https://sucrose.wallpaper.engine/GifContent.html?src=animation.gif"
+    );
+}
+
+#[test]
+fn the_gif_page_has_every_legacy_function_and_its_decoder_with_the_license_notice() {
+    let html = GeneratedPage::Gif.html();
+
+    for name in [
+        "SucrosePropertyListener",
+        "SucroseStretchMode",
+        "SucroseLoopMode",
+        "SucroseSpeedRate",
+        "SucrosePlay",
+        "SucrosePause",
+        "SucrosePlayPause",
+        "SucroseVolume",
+    ] {
+        assert!(html.contains(&format!("function {name}(")), "{name}");
+    }
+    assert!(
+        html.contains("setTimeout(SucrosePlay,1500)"),
+        "the legacy delayed start"
+    );
+    assert!(html.contains("new URLSearchParams(location.search)"));
+    assert!(html.contains("The MIT License (MIT)") && html.contains("Copyright (c) 2015 Matt Way"));
+    assert!(!html.contains("innerHTML"), "the media path is never written as markup");
+    assert!(!html.contains("{Source}"), "the legacy placeholder is gone");
+    assert!(
+        !html.contains("http:") && !html.contains("https:"),
+        "the page loads nothing from the network"
+    );
+}
+
+#[test]
+fn a_gif_theme_prepares_the_gif_page() {
+    let scratch = Scratch::new();
+    let theme = scratch.0.join("theme");
+
+    let url = prepare_in(
+        &scratch.0.join("Content"),
+        WallpaperType::Gif,
+        &theme,
+        &theme.join("animation.gif").to_string_lossy(),
+    )
+    .expect("prepared");
+
+    assert_eq!(
+        url.as_deref(),
+        Some("https://sucrose.wallpaper.engine/GifContent.html?src=animation.gif")
     );
 }
