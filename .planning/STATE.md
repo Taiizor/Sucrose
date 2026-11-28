@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-47-PLAN.md
-last_updated: "2026-11-28T18:03:08.630Z"
+stopped_at: Completed 04-48-PLAN.md
+last_updated: "2026-11-28T18:42:19.764Z"
 last_activity: 2026-11-28
 last_activity_desc: Phase 04 execution started
-state_head: 6337c6c0227e9f19b2c1a8b85604097f831718e5
+state_head: b6c9a77ae10b89c0bd7a75b5099d6e860d2b5df3
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 135
-  completed_plans: 126
+  completed_plans: 127
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 48 of 56
+Plan: 49 of 56
 Status: Ready to execute
 Last activity: 2026-11-28 — Phase 04 execution started
 Next step: Round B is executed and all its requirements are Complete (04-39 done 2026-11-28; Farm Weather Cycles addendum 04:37; Addendum 2 marked TYPE-05 and ENG-02 on the machine proofs of the debug fixes 62ec2f49 and f5d57b98, maintainer decision 2026-11-28). TYPE-03, TYPE-04, TYPE-05, WAPI-05, WAPI-06, WAPI-08, ENG-02 and ENG-03 are Complete. Next: execute Round C (/gsd-execute-phase 4 runs 04-40..04-56; 04-40 has a short maintainer DISPLAY9 off/on step, 04-56 is the final Round C checkpoint with DISPLAY9 attached and the unattended measurement); phase verification runs only after Round E. Open findings: D13 (occasional duplicate mousedown), the WebView2 software decode of the 4K VP9 clip (Round D), BROWSER_EXIT_WAIT 1.5 s is still exceeded on a fully saturated CPU (16 busy threads; recorded as expected degraded behaviour), S3 expired.badssl.com did not load within 13 s in one of five runs (badssl.com slow, not blocking).
@@ -181,6 +181,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P45 | 15 min | 2 tasks | 10 files |
 | Phase 04 P46 | 22 min | 3 tasks | 13 files |
 | Phase 04 P47 | 13 min | 2 tasks | 5 files |
+| Phase 04 P48 | 29 min | 3 tasks | 22 files |
 
 ## Accumulated Context
 
@@ -389,6 +390,8 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-46: Display Preferences shows only what the service broadcast; a radio shows the asked mode as Applying until the broadcast and reverts on Rejected (placement toast)
 - [Phase 04]: 04-46: a focused tile or row handles the dialog's Confirm action itself, so Enter selects instead of confirming and closing the dialog
 - [Phase 04]: 04-47: a badge counts only for a connected monitor whose renderer runs the theme; the placement mode comes from the stored settings (LibrarySettings.display_screen_type), so no protocol version changes
+- [Phase 04]: 04-48: the service takes only the value of a property change (type, bounds, texts stay the working copy's); the working copy is written atomically at most every 300 ms and on editor close; the D-20 import runs once on a worker into a staging folder
+- [Phase 04]: 04-48 spike: the editor window opens at the taskbar corner of the Portal's monitor; GPUI places the client origin half an invisible frame (4 px) above the request for a window with an app-drawn title bar, corrected from the second window on
 
 ### Pending Todos
 
@@ -447,6 +450,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-28T18:02:44.167Z
-Stopped at: Completed 04-47-PLAN.md
+Last session: 2026-11-28T18:41:54.999Z
+Stopped at: Completed 04-48-PLAN.md
 Resume file: None
