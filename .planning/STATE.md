@@ -31,7 +31,7 @@ Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
 Plan: 39 of 39
 Status: Round B executed; Round C is planned next
 Last activity: 2026-11-28 — Phase 04 execution started
-Next step: Round B is executed (04-39 done 2026-11-28). Open Round B requirements, each with its recorded reason in 04-39-SUMMARY: TYPE-03 and ENG-03 (Farm Weather Cycles was never Used on CEF: one 10 s check), TYPE-05 and ENG-02 (P1a-WV2 run 1 started the playlist at index 17 with Shuffle Mode off: /gsd-debug, then rerun P1a-WV2; ENG-02 also one 1052 ms WebView2 browser exit). TYPE-04, WAPI-05, WAPI-06 and WAPI-08 are Complete. Then plan Round C (04-CONTEXT D-31 "Planning rounds"). Open findings: D13 (occasional duplicate mousedown), the WebView2 software decode of the 4K VP9 clip (Round D), BROWSER_EXIT_WAIT 1 s is tight (exits of 1034 and 1052 ms seen), C2 (a Web theme appears on both monitors after about 1 to 2.4 s on WebView2, not about 1 s: webview2-browser-exit-slow), S3 expired.badssl.com did not load within 13 s in one of five runs (badssl.com slow, not blocking).
+Next step: Round B is executed (04-39 done 2026-11-28; addendum check of Farm Weather Cycles on CEF passed 04:37). Open Round B requirements, each with its recorded reason in 04-39-SUMMARY: TYPE-05 and ENG-02 (P1a-WV2 run 1 started the playlist at index 17 with Shuffle Mode off: /gsd-debug, then rerun P1a-WV2; ENG-02 also one 1052 ms WebView2 browser exit). TYPE-03, TYPE-04, WAPI-05, WAPI-06, WAPI-08 and ENG-03 are Complete. Then plan Round C (04-CONTEXT D-31 "Planning rounds"). Open findings: D13 (occasional duplicate mousedown), the WebView2 software decode of the 4K VP9 clip (Round D), BROWSER_EXIT_WAIT 1 s is tight (exits of 1034 and 1052 ms seen), C2 (a Web theme appears on both monitors after about 1 to 2.4 s on WebView2, not about 1 s: webview2-browser-exit-slow), S3 expired.badssl.com did not load within 13 s in one of five runs (badssl.com slow, not blocking).
 
 Progress: [████░░░░░░] 38%
 
@@ -366,7 +366,7 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-33 GIF decoder bundle in GifContent.html (gifuct-js + jsBinarySchemaParser, MIT upstream, notice added): license reading confirmed by the maintainer (2026-11-27)
 - [Phase 04]: 04-38: M3 WebView2 row is Rust-only because --row refused the pair (GPU adapter sets differ, G-02-6); C# numbers are in the paragraph; the tool was not changed
 - [Phase 04]: 04-38: built-in GIF renderer uses less RAM than Rust/C# mpv but more CPU and GPU time; recorded as found, flagged for /gsd-verify-work, not tuned
-- [Phase 04]: 04-39: Complete rule case 1 for TYPE-04, WAPI-05, WAPI-06, WAPI-08; case 2 for TYPE-03 and ENG-03 (Farm Weather Cycles never Used on CEF) and TYPE-05 and ENG-02 (P1a-WV2 run 1 measured a FAIL: start index 17 with Shuffle Mode off); reruns passing does not undo the FAIL
+- [Phase 04]: 04-39: Complete rule case 1 for TYPE-04, WAPI-05, WAPI-06, WAPI-08; case 2 for TYPE-03 and ENG-03 (Farm Weather Cycles never Used on CEF) and TYPE-05 and ENG-02 (P1a-WV2 run 1 measured a FAIL: start index 17 with Shuffle Mode off); reruns passing does not undo the FAIL. Addendum 2026-11-28 04:37: Farm Weather Cycles Used on CEF, maintainer "ok", page loaded 200 on both renderers, GPU exits 0, so TYPE-03 and ENG-03 are Complete as well (rule case 1)
 
 ### Pending Todos
 

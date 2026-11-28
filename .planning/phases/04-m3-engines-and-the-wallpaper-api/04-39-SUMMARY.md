@@ -8,7 +8,7 @@ requires:
     provides: "04-37 verdicts and defects D1-D9, the 2026-11-27 debug sessions and quick batch 261127-uor (D-040, D-041), 04-38 measurements"
 provides:
   - "The Round B re-check on one release build that carries all 14 fix commits: Task 1 machine proofs (S1-S7, P1), the maintainer's Part 1 (CEF) and Part 2 (WebView2) verdicts, C1 and C2 with DISPLAY9 attached, and the log checks L1-L7"
-  - "Four requirements marked Complete (TYPE-04, WAPI-05, WAPI-06, WAPI-08); TYPE-03, TYPE-05, ENG-02 and ENG-03 stay open with a recorded FAIL or an unchecked step"
+  - "Six requirements marked Complete (TYPE-03, TYPE-04, WAPI-05, WAPI-06, WAPI-08 and ENG-03, the last two via the 2026-11-28 04:37 addendum for TYPE-03 and ENG-03); TYPE-05 and ENG-02 stay open for the P1a-WV2 FAIL"
 affects: [verify-work, gsd-debug, round-c, round-d]
 plan_head_before: b5eec90ff5dc3107c7e746df4ed897d08cef21d1
 plan_head_after: b5eec90ff5dc3107c7e746df4ed897d08cef21d1
@@ -20,14 +20,14 @@ tech-stack:
   added: []
   patterns:
     - "A measured FAIL of one probe run (P1a-WV2 run 1) keeps every requirement whose cell it is open, even though both reruns passed"
-    - "A step the maintainer called ok is still judged against the Service log: Farm Weather Cycles has no Use event on CEF, so that cell is recorded as not checked"
+    - "A step the maintainer called ok is still judged against the Service log: Farm Weather Cycles had no Use event on CEF in A1, so that cell was recorded as not checked until the addendum re-check (2026-11-28 04:37) closed it"
 key-files:
   created: []
   modified: []
 key-decisions:
-  - "Complete rule case 1 applies to TYPE-04, WAPI-05, WAPI-06 and WAPI-08 (every cell of their rows passed); case 2 applies to TYPE-03 and ENG-03 (Farm Weather Cycles never Used on CEF), TYPE-05 and ENG-02 (P1a-WV2 run 1 measured a FAIL)"
+  - "Complete rule case 1 applies to TYPE-04, WAPI-05, WAPI-06 and WAPI-08 (every cell of their rows passed), and after the addendum to TYPE-03 and ENG-03 (Farm Weather Cycles now Used on CEF, every other cell passed); case 2 applies to TYPE-05 and ENG-02 (P1a-WV2 run 1 measured a FAIL)"
   - "WAPI-08 is listed although P1a-WV2 run 1 failed: the cell of WAPI-08 that names P1a-WV2 measures the scale key reaching the YouTube page, and that read was scale(1) in all three runs; the FAIL measured the playlist start index"
-requirements-completed: [TYPE-04, WAPI-05, WAPI-06, WAPI-08]
+requirements-completed: [TYPE-03, TYPE-04, WAPI-05, WAPI-06, WAPI-08, ENG-03]
 duration: "about 26 min of maintainer run (T0 03:56:30 to the stop at 04:22:16 local); Task 1 and the ready gate were earlier"
 completed: 2026-11-28
 status: complete
@@ -62,12 +62,12 @@ coverage:
         ref: "Part 1 and Part 2 replies below; log checks L1-L7"
         status: pass
     human_judgment: true
-    rationale: "The replies are the maintainer's eye verdicts; the one step the logs contradict (A1, Farm Weather Cycles not Used on CEF) and C2's slower-than-1-s appearance need a human decision"
+    rationale: "The replies are the maintainer's eye verdicts; the one step the logs contradicted (A1, Farm Weather Cycles not Used on CEF) was re-checked in the addendum, and C2's slower-than-1-s appearance needs a human decision"
 ---
 
 # Phase 4 Plan 39: Round B re-check Summary
 
-**The re-check of the failed 04-37 steps on one release build with all 14 fixes passed url-input, the audio bars, now playing and the generated GIF, video and YouTube pages on both web engines (TYPE-04, WAPI-05, WAPI-06, WAPI-08 marked), but the WebView2 playlist probe started at index 17 with Shuffle Mode off in 1 of 3 runs (TYPE-05, ENG-02 stay open) and the log shows Farm Weather Cycles was never Used on CEF (TYPE-03, ENG-03 stay open).**
+**The re-check of the failed 04-37 steps on one release build with all 14 fixes passed url-input, the audio bars, now playing and the generated GIF, video and YouTube pages on both web engines (TYPE-04, WAPI-05, WAPI-06, WAPI-08 marked), but the WebView2 playlist probe started at index 17 with Shuffle Mode off in 1 of 3 runs (TYPE-05, ENG-02 stay open); the log showed Farm Weather Cycles was never Used on CEF in A1, and the addendum re-check that night passed it (TYPE-03, ENG-03 marked).**
 
 ## Performance
 
@@ -83,7 +83,7 @@ coverage:
 - The maintainer re-checked Part 1 (CEF) and Part 2 (WebView2) with DISPLAY1 and DISPLAY9 attached; every step reply was "ok" except C2, where the windows appeared within a few seconds instead of about 1 s.
 - D-040 held on the desktop: only DISPLAY1's renderer logged `kind=Persistent` (67 lines, CEF and WebView2), DISPLAY9's logged `kind=Ephemeral` (67 lines), and the storage fixture counted 1, 2, 3 on DISPLAY1 and 1, 1, 1 on DISPLAY9.
 - The D-041 browser-exit fix held: 83 of 84 WebView2 browser exits took 174 to 461 ms; one took 1052 ms (finding F4).
-- Four requirements are marked (TYPE-04, WAPI-05, WAPI-06, WAPI-08); four stay open with the failure or the unchecked step recorded verbatim below.
+- Four requirements were marked at the end of the sitting (TYPE-04, WAPI-05, WAPI-06, WAPI-08); TYPE-03 and ENG-03 were marked after the addendum re-check (below); TYPE-05 and ENG-02 stay open with the failure recorded verbatim below.
 
 ## Task 1 proofs (first executor, results in `target/round-b-recheck-probe/`)
 
@@ -177,7 +177,7 @@ His one-word "ok" covers the step as the orchestrator presented it (each sub-che
 
 | Defect | Fix in the build | Re-checked by | Outcome |
 |---|---|---|---|
-| D1 CEF Web themes stuck on loading (and the GPU process crash) | a0e22d9a | A1, L2 | 7 of 8 themes reached "playing" and he said ok; GPU exits 0 (L2); **Farm Weather Cycles not Used on CEF, so one theme is not checked** |
+| D1 CEF Web themes stuck on loading (and the GPU process crash) | a0e22d9a | A1, L2 | 7 of 8 themes reached "playing" and he said ok; GPU exits 0 (L2); 7 of 8 themes in the sitting; **Farm Weather Cycles re-checked on CEF in the addendum (04:37): ok, page loaded 200, GPU exits 0** |
 | D2 white border at the screen edges | 6c6d9a3c | A1, A3 | "a1 ok" and "a3 ok" (white-frame check while loading and after, and the shared-edge glances, each part of the step as presented); not separately reported |
 | D3 WebView2 certs frame | cf8f7d6a | S3 (Task 1) | on: loaded in 4 of 5 runs within 3.6 s, 0 `certificate error allowed` lines; one run did not load within about 13 s (badssl.com slow); off: refused. **Mostly re-checked; flagged for /gsd-verify-work (F5); it blocks no mark** |
 | D4 CEF seek video never visible | a0e22d9a | A5-CEF | "a5 ok"; seek Used at 03:59:50 and 04:00:18 |
@@ -197,7 +197,7 @@ His one-word "ok" covers the step as the orchestrator presented it (each sub-che
 
 | Requirement: part | CEF | WebView2 |
 |---|---|---|
-| TYPE-03: a Web theme (local HTML) plays | A1: **not checked for 1 of 8** (7 themes Used and ok; Farm Weather Cycles never Used on CEF) | A3: pass (8 of 8 Used, "a3 ok") |
+| TYPE-03: a Web theme (local HTML) plays | A1: pass (7 themes Used in the sitting and ok; Farm Weather Cycles Used on CEF in the addendum, "ok") | A3: pass (8 of 8 Used, "a3 ok") |
 | TYPE-04: a URL wallpaper plays | B3-CEF: pass | B3-WV2: pass |
 | TYPE-04: it receives forwarded input | B3-CEF: pass (drag, window-in-front sentence) | B3-WV2: pass |
 | TYPE-04: its mute and volume set | PROP-05 by the requirement's own text (D-06), not claimed | PROP-05, not claimed |
@@ -210,7 +210,7 @@ His one-word "ok" covers the step as the orchestrator presented it (each sub-che
 | ENG-02: hosts URL wallpapers | - | B3-WV2: pass |
 | ENG-02: hosts YouTube wallpapers | - | B4-WV2: pass; **P1a-WV2: FAIL (run 1 of 3)** |
 | ENG-02: the C#-compatible JavaScript API | - | 04-37 A5 calls, keys, tables, traversal and seek: stand; C1: pass (L4); S5: pass |
-| ENG-03: hosts Web wallpapers | A1: **not checked for 1 of 8** (as above) | - |
+| ENG-03: hosts Web wallpapers | A1: pass (as above, 8 of 8 with the addendum) | - |
 | ENG-03: hosts URL wallpapers | B3-CEF: pass | - |
 | ENG-03: hosts YouTube wallpapers | B4-CEF: pass; P1a: pass | - |
 | ENG-03: the same JavaScript API | 04-37 A5 calls, keys, tables, traversal, storage: stand; A5-CEF: pass; S5-CEF: pass | - |
@@ -229,7 +229,7 @@ His one-word "ok" covers the step as the orchestrator presented it (each sub-che
 ## Edge truths and their evidence
 
 - **TYPE-03 adjacency (shared edge, DISPLAY1 and DISPLAY9 at x=1920):** the glance at the end of A1 (CEF) and at the end of C2 (WebView2) was part of each step as presented; his replies "a1 ok" and "c2 her şey ok" cover it; neither glance was reported separately.
-- **TYPE-03 empty (the 7 Web themes without SucroseCompatible.json and Test Sucrose API):** WebView2: all 8 left their loading screen ("a3 ok"; Farm Weather Cycles loaded at 04:12:28 with status 200 on both monitors). CEF: 7 of 8 (Farm Weather Cycles was not Used). Interactive Rocket's own property calls throwing is theme content and was not counted.
+- **TYPE-03 empty (the 7 Web themes without SucroseCompatible.json and Test Sucrose API):** WebView2: all 8 left their loading screen ("a3 ok"; Farm Weather Cycles loaded at 04:12:28 with status 200 on both monitors). CEF: 7 of 8 in the sitting, the 8th (Farm Weather Cycles) in the addendum: all 8 left their loading screen. Interactive Rocket's own property calls throwing is theme content and was not counted.
 - **TYPE-03 ordering:** L6 holds (statuses in order, the last Use stayed); his C2 verdict says everything was ok.
 - **ENG-02 concurrency:** L3 holds (only DISPLAY1 Persistent); L5 measured one `did not exit in time` line (1052 ms), so this Edge truth is **not fully met** (finding F4); no `no web profile folder` line.
 - **ENG-03 concurrency:** L2: 0 GPU process exits; L3 holds (Cef folder Persistent on DISPLAY1 only, Ephemeral on DISPLAY9); met.
@@ -245,7 +245,7 @@ His one-word "ok" covers the step as the orchestrator presented it (each sub-che
 
 The shared Round B rule, verbatim: (1) the run finished and every proof of the requirement's last part passed → the SUMMARY lists it in `requirements-completed`; (2) the run finished but a proof of the requirement measured a FAIL or a step of it was not checked (for example no playlist link, an unreachable site, a debug fix that has not landed) → the SUMMARY's front matter says `status: complete` (the run finished), the requirement is left out of `requirements-completed`, and the failure or the unchecked step is recorded verbatim and flagged for /gsd-verify-work; (3) the run was skipped or did not finish → a halted SUMMARY (`status: halted`) with `requirements-completed: []`. The run finished, so `status: complete`. The proofs of each requirement are the cells of its rows in the table above.
 
-**Case 1 - listed in requirements-completed:**
+**Case 1 - listed in requirements-completed (TYPE-03 and ENG-03 added by the addendum, last two rows):**
 
 | Requirement | Every cell passed | Debug sessions whose fix the passing steps confirm |
 |---|---|---|
@@ -253,24 +253,24 @@ The shared Round B rule, verbatim: (1) the run finished and every proof of the r
 | WAPI-05 | S5-CEF, S5, B5-CEF, B5-WV2 and the sysinfo tests | audio-bars-silent (the corrected themes, no code fix) |
 | WAPI-06 | B5-CEF, B5-WV2, S5-CEF, S5 and the media test | audio-bars-silent (the corrected themes); 5de6cf69 (cover re-encode) |
 | WAPI-08 | S6-CEF, S6, S7, S4, B2-WV2, B4-CEF, B4-WV2, the pages.rs tests and the scale-key reads | webview2-certs-video-input (44758204, the video page), youtube-player-ui-visible (adfb0922) |
+| TYPE-03 (addendum) | A1 on CEF (7 themes in the sitting, Farm Weather Cycles in the addendum) and A3 on WebView2 (8 of 8); the edge truths (adjacency, empty, ordering) as above | cef-web-themes-stuck-loading (a0e22d9a), the white-border fix (6c6d9a3c) |
+| ENG-03 (addendum) | A1 (8 of 8 with the addendum), B3-CEF, B4-CEF, P1a, A5-CEF, S5-CEF; concurrency (L2, L3) met | cef-web-themes-stuck-loading (a0e22d9a) |
 
 WAPI-08 note: P1a-WV2 appears in WAPI-08's property-keys cell for the YouTube page on WebView2. That cell measures the `scale` key reaching the page, and `scaleKey: scale(1)` was read in all three runs including the failed run 1; the FAIL of run 1 measured the playlist start index, which is TYPE-05's and ENG-02's cell. If the verifier reads the probe step as a whole, WAPI-08 is the one mark to reconsider.
 
-**Case 2 - left out of requirements-completed, flagged for /gsd-verify-work (and /gsd-debug where noted):**
+**Case 2 - left out of requirements-completed, flagged for /gsd-verify-work (and /gsd-debug where noted); TYPE-03 and ENG-03 were in this table until the addendum closed their one open cell:**
 
 | Requirement | Why it stays open (verbatim) |
 |---|---|
-| TYPE-03 | Cell "TYPE-03: a Web theme plays, CEF, A1 (the 8 themes)": the Service log has Use events for 7 of the 8 themes on CEF and none for Farm Weather Cycles (grep of all six logs: Farm appears only on WebView2 at 04:12:28). One Use of Farm Weather Cycles on CEF closes it; A3 on WebView2 passed. |
-| ENG-03 | Cell "ENG-03: hosts Web wallpapers, A1": the same missing theme; every other ENG-03 cell passed. |
 | TYPE-05 | **P1a-WV2 run 1 measured a FAIL**: `startIndex: 17` with `shuffleMode: false` (expected 0), `indicesSeen: [17, 18, 28, 0]`; reruns 1 and 2 passed. Flagged for /gsd-debug (F1). The reruns do not undo the measured FAIL. |
 | ENG-02 | The same **P1a-WV2 FAIL** is a cell of "ENG-02: hosts YouTube wallpapers"; all other ENG-02 cells passed (A3, B3-WV2, B4-WV2, C1, S5). The one 1052 ms browser exit (L5, F4) is a failed Edge truth of ENG-02 concurrency. |
 
-Never listed, as the plan says: any requirement outside these eight; C2 marks nothing.
+Never listed, as the plan says: any requirement outside these eight; C2 marks nothing. The case 2 table above keeps TYPE-05 and ENG-02 only.
 
 ## Findings for /gsd-debug and /gsd-verify-work
 
 - **F1 (P1a-WV2, TYPE-05 and ENG-02):** the playlist started at index 17 with Shuffle Mode off in 1 of 3 WebView2 runs. Analysed cause (not proven): the YouTube page defaults `shuffleMode` to true and the first state change can pick a random video before `setShuffle(false)` arrives. Shuffle Mode was still on during his B4-WV2 playlist Use, so that step does not exercise the Shuffle-off start. Needs a /gsd-debug session and a rerun of P1a-WV2.
-- **F2 (A1 gap, TYPE-03 and ENG-03):** Farm Weather Cycles was not Used on CEF. This is a 10 s eye check (Web Engine CEF, Use Farm Weather Cycles, no loading screen, no white frame), not a defect.
+- **F2 (A1 gap, TYPE-03 and ENG-03): closed by the addendum.** Farm Weather Cycles was not Used on CEF in the sitting; the addendum Used it on CEF the same night and the maintainer said ok.
 - **F3 (C2, no requirement):** he saw the windows on both monitors after a few seconds, not about 1 s. The log corroborates a part of it (see C2 timing: median 1.09 s, longest 2.36 s, the two monitors within 0.25 s of each other); the long part is the new WebView2 and the page load, not the browser exit. For the pending debug session webview2-browser-exit-slow.
 - **F4 (L5, ENG-02):** one `did not exit in time` with `elapsed_ms=1052` on DISPLAY1 at 04:12:22 while closing a YouTube page; 83 other exits took 174 to 461 ms. STATE.md already records BROWSER_EXIT_WAIT 1 s as tight under load (one 1034 ms exit seen earlier); the maintainer's PC was not under a build here.
 - **F5 (D3, no requirement):** S3 run 1 did not load expired.badssl.com within about 13 s; the other four runs loaded in 0.55 to 3.6 s and the setting-off run was refused. Flagged for /gsd-verify-work; it blocks no mark.
@@ -291,7 +291,7 @@ Never listed, as the plan says: any requirement outside these eight; C2 marks no
 
 ## Decisions Made
 
-- Complete rule case 1 for TYPE-04, WAPI-05, WAPI-06, WAPI-08; case 2 for TYPE-03, ENG-03 (an unchecked theme) and TYPE-05, ENG-02 (a measured FAIL), applied per cell as the plan defines it. The P1a-WV2 FAIL is not softened because the reruns passed.
+- Complete rule case 1 for TYPE-04, WAPI-05, WAPI-06, WAPI-08 and, after the addendum, TYPE-03 and ENG-03 (their one unchecked theme passed; every other cell of their rows had passed); case 2 for TYPE-05 and ENG-02 (a measured FAIL), applied per cell as the plan defines it. The P1a-WV2 FAIL is not softened because the reruns passed.
 - WAPI-08 is listed on the reading that its P1a-WV2 cell measures the scale key (see the note above); flagged so the verifier can reverse it.
 
 ## Deviations from Plan
@@ -300,7 +300,7 @@ None - the plan was executed as written, except that the Task 3 run was driven b
 
 ## Issues Encountered
 
-- The P1a-WV2 FAIL and the missing Farm Weather Cycles Use above; nothing was fixed in this plan.
+- The P1a-WV2 FAIL and the missing Farm Weather Cycles Use above (the latter closed by the addendum); nothing was fixed in this plan.
 - The 36 ERROR lines come from two Uses of the synthetic placeholder Video themes (L1), not from any step.
 
 ## Known Stubs
@@ -317,12 +317,46 @@ None - no external service configuration required.
 
 ## Next Phase Readiness
 
-- /gsd-verify-work: TYPE-03 and ENG-03 need one Use of Farm Weather Cycles on CEF; TYPE-05 and ENG-02 need the P1a-WV2 FAIL fixed (/gsd-debug, F1) and P1a-WV2 rerun, and ENG-02 also F4; the DISPLAY9 glance (F7) and TYPE-04 ordering (F6) stay human_needed.
+- /gsd-verify-work: TYPE-03 and ENG-03 are closed by the addendum (Farm Weather Cycles on CEF); TYPE-05 and ENG-02 need the P1a-WV2 FAIL fixed (/gsd-debug, F1) and P1a-WV2 rerun, and ENG-02 also F4; the DISPLAY9 glance (F7) and TYPE-04 ordering (F6) stay human_needed.
 - Round C (display modes, properties editor) can start; the open Round B requirements above do not block it, but phase verification waits until Round E.
+
+## Addendum (2026-11-28 04:37, A1 Farm Weather Cycles on CEF)
+
+After the sitting above, this SUMMARY recorded TYPE-03 and ENG-03 as case 2 because the Service log had no Use event of Farm Weather Cycles (folder `ynGju7Rw1cDhNQdT2Y6lfcE5B`) on CEF in A1; it was Used only on WebView2 (04:12:28). The orchestrator told the maintainer, he chose an addendum check ("ek kontrol"), and it ran the same night on the same release build (HEAD `b5eec90f` build; no build input changed since, only docs commits).
+
+**Room:** the C# app was closed; DISPLAY9 attached (\\.\DISPLAY1 and \\.\DISPLAY9, 1920x1080 each); no Rust Sucrose process before the start. The scratch settings `target/round-b-recheck/Setting/Sucrose.json` had `Engine.Web` set to CefSharpLive and `Library.Selected` to Critter Crossing-1 for the check (backup `target/round-b-recheck-Sucrose.json.pre-addendum`; restored afterwards, `cmp` same).
+
+**T0:** 04:37:11 local (+03:00): the Portal started with focus, same command and `SUCROSE_LOG` as Task 3. Service log: `engine chosen kind=Web configured=CefSharpLive engine=Cef fell_back=false` and `renderers started count=2 monitors=[DISPLAY1, DISPLAY9] primary=DISPLAY1 web_profile_owner=DISPLAY1` (01:37:08Z), `wallpaper status status=Sucrose — playing Critter Crossing` (01:37:10Z).
+
+**What the maintainer was asked (in Turkish), exactly A1's checks for this one theme:** Use Farm Weather Cycles in the Portal and look for about 10 s: it leaves its loading screen; no white frame at the screen edges while loading or after; at the DISPLAY1/DISPLAY9 edge no white frame and neither monitor shows part of the other's page.
+
+**Reply, verbatim:** `ok` (translation: ok).
+
+**Log lines (copied to `target/round-b-recheck-logs/addendum/`):**
+
+- Service 01:38:35.001581Z: `engine chosen kind=Web configured=CefSharpLive engine=Cef fell_back=false`
+- Service 01:38:35.017684Z: `theme used kind=Some(Web) transition=Restart renderers=2`
+- Service 01:38:37.106294Z: `wallpaper status status=Sucrose — playing Farm Weather Cycles`
+- Both Renderer logs 01:38:37Z: `sucrose_engine_cef::browser::imp: page loaded url="https://sucrose.wallpaper.engine/Farm.html" status=200`
+- `GPU process exited`: 0 lines in `CefRenderer-0.log` and `CefRenderer-1.log` (L2 holds for this run too).
+
+**Cleanup:** the apps were stopped at 04:39:13 with `taskkill.exe /IM sucrose-portal.exe /F` and `taskkill.exe /IM sucrose.exe /F`; `tasklist.exe` showed no Rust Sucrose process left.
+
+**Cells changed by the addendum:**
+
+| Cell | Before | After |
+|---|---|---|
+| TYPE-03: a Web theme plays, CEF, A1 (the 8 themes) | not checked for 1 of 8 | pass (8 of 8: 7 in the sitting, Farm Weather Cycles here) |
+| ENG-03: hosts Web wallpapers, A1 | not checked for 1 of 8 | pass |
+| A1 verdict | 7 of 8 themes, Farm not Used | 8 of 8 Used and ok on CEF |
+
+**Complete rule re-applied (verbatim rule, case 1) with the plan's "Requirement parts per engine" table as the one authoritative list:** TYPE-03's rows are the one part "a Web theme (local HTML) plays": A1 on CEF now pass, A3 on WebView2 pass (8 of 8, "a3 ok"); no other TYPE-03 cell exists in the table. ENG-03's rows are Web (A1: pass), URL (B3-CEF: pass), YouTube (B4-CEF and P1a: pass) and the same JavaScript API (04-37 A5 stands, A5-CEF and S5-CEF: pass). P1a-WV2 appears in no ENG-03 cell (ENG-03 is CEF only, its YouTube cell names B4-CEF and the CEF P1a, which passed 4 of 4). Every cell of both requirements has passed, so **TYPE-03 and ENG-03 are listed in `requirements-completed`**. The edge truths of both (TYPE-03 adjacency, empty and ordering; ENG-03 concurrency) were met in the sitting and the addendum adds no contrary evidence. TYPE-05 and ENG-02 are untouched: they stay open for the P1a-WV2 FAIL (and ENG-02 for F4).
+
+**Not covered by the addendum:** the DISPLAY1/DISPLAY9 edge look for the other seven CEF themes stays the sitting's "a1 ok" (not separately reported, as recorded above).
 
 ## Self-Check
 
-**PASSED.** Checked after writing: the 14 fix commits are ancestors of HEAD (listed above); the six copied logs exist in `target/round-b-recheck-logs/`; the probe results `p1a-wv2.json`, `certs-off.json` and the others exist in `target/round-b-recheck-probe/`; `tasklist.exe` shows 0 Rust Sucrose processes; no code commit exists (`git rev-list --count b5eec90f..HEAD` = 0 before the docs commit), matching `commits: 0`.
+**PASSED.** Checked after writing: the 14 fix commits are ancestors of HEAD (listed above); the six copied logs exist in `target/round-b-recheck-logs/`; the probe results `p1a-wv2.json`, `certs-off.json` and the others exist in `target/round-b-recheck-probe/`; `tasklist.exe` shows 0 Rust Sucrose processes; no code commit exists (`git rev-list --count b5eec90f..HEAD` = 0 before the docs commit), matching `commits: 0`. Addendum (2026-11-28 04:37) checked: the Farm Weather Cycles Service and Renderer log lines are in `target/round-b-recheck-logs/addendum/`; `tasklist.exe` showed no Rust Sucrose process after the stop at 04:39:13; the scratch settings were restored (`cmp` same); this docs-only addendum adds no code commit.
 
 ---
 *Phase: 04-m3-engines-and-the-wallpaper-api*
