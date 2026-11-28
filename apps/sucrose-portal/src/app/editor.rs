@@ -12,6 +12,13 @@
 //! such side, which gives the bottom corner. [`editor_origin`] and [`taskbar_edge`] are pure functions of physical pixels, so every edge and the
 //! mirrored right-to-left corners are unit tests; the window itself is given the origin divided by the monitor's scale,
 //! because GPUI places a window in logical pixels of the display it is opened on.
+//!
+//! Measured by plan 48's spike on Windows 11 (DISPLAY1, bottom taskbar, 100 %): the window opens at the computed corner in x
+//! exactly, and 4 px higher than computed in y. The client origin GPUI reads back lies half of the invisible resize frame
+//! above the requested top, because a window with the title bar drawn by the app has that frame at the bottom only
+//! (`FRAME_SHIFT`); the first window of a run logs the difference as `editor placed ... agree=false` and the next window
+//! of the run asks for the shifted origin. A window is placed in logical pixels of the display named in its options:
+//! without `display_id` GPUI converts with the primary display's scale.
 
 use std::time::{Duration, Instant};
 
