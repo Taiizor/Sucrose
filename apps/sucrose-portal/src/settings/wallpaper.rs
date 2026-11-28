@@ -1,5 +1,5 @@
-//! The Wallpaper page (UI-SPEC "Settings pages: Wallpaper"): the Wallpaper group (Interaction Method, Loop Mode, Shuffle
-//! Mode and Hardware Acceleration; Screen Layout and Stretch Mode wait for Round C), the Extensions group with the Video
+//! The Wallpaper page (UI-SPEC "Settings pages: Wallpaper"): the Wallpaper group (Interaction Method, Screen Layout,
+//! Stretch Mode, Loop Mode, Shuffle Mode and Hardware Acceleration), the Extensions group with the Video
 //! Player and the Engines group with the Web Engine. Later plans add the other engine rows and the Web Engine Settings.
 //! Every control sends a SettingChange and shows only what the service broadcast; the engine choices come from the
 //! engine report (the Portal never decides which engines exist), plus the stored engine when the report does not offer it.
@@ -12,7 +12,7 @@ use gpui_kit::component::{
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
 use sucrose_core::{
-    settings::{EngineType, InputModuleType, InputType},
+    settings::{EngineType, InputModuleType, InputType, ScreenArea, Stretch},
     theme::WallpaperType,
 };
 use sucrose_ipc::portal::{
@@ -228,6 +228,40 @@ pub fn input_type_choices() -> Vec<Choice<InputType>> {
     .into_iter()
     .map(|input| Choice::new(input, tr(input_type_label_key(input))))
     .collect()
+}
+
+/// The key of a screen layout's label.
+pub fn screen_layout_label_key(area: ScreenArea) -> &'static str {
+    match area {
+        ScreenArea::WorkingArea => "Portal.Enum.ScreenType.WorkingArea",
+        ScreenArea::DisplayBound => "Portal.Enum.ScreenType.DisplayBound",
+    }
+}
+
+/// The options of the Screen Layout select, in the legacy order.
+pub fn screen_layout_choices() -> Vec<Choice<ScreenArea>> {
+    [ScreenArea::WorkingArea, ScreenArea::DisplayBound]
+        .into_iter()
+        .map(|area| Choice::new(area, tr(screen_layout_label_key(area))))
+        .collect()
+}
+
+/// The key of a stretch mode's label.
+pub fn stretch_label_key(stretch: Stretch) -> &'static str {
+    match stretch {
+        Stretch::None => "Portal.Enum.Stretch.None",
+        Stretch::Fill => "Portal.Enum.Stretch.Fill",
+        Stretch::Uniform => "Portal.Enum.Stretch.Uniform",
+        Stretch::UniformToFill => "Portal.Enum.Stretch.UniformToFill",
+    }
+}
+
+/// The options of the Stretch Mode select, in the legacy order.
+pub fn stretch_choices() -> Vec<Choice<Stretch>> {
+    [Stretch::None, Stretch::Fill, Stretch::Uniform, Stretch::UniformToFill]
+        .into_iter()
+        .map(|stretch| Choice::new(stretch, tr(stretch_label_key(stretch))))
+        .collect()
 }
 
 /// The options of the Interaction Module select: RawInput is the only module (the legacy Native one is not ported).
@@ -492,7 +526,14 @@ pub fn install_label(action: InstallAction) -> SharedString {
 /// Whether a change moves a select of this page, so the selects must show the broadcast value again (the switches are
 /// drawn from the settings and need nothing).
 fn needs_refresh(change: &SettingChange) -> bool {
-    EngineRow::of(change).is_some() || matches!(change, SettingChange::InputType(_) | SettingChange::InputModuleType(_))
+    EngineRow::of(change).is_some()
+        || matches!(
+            change,
+            SettingChange::InputType(_)
+                | SettingChange::InputModuleType(_)
+                | SettingChange::ScreenType(_)
+                | SettingChange::StretchType(_)
+        )
 }
 
 /// The setting a committed change belongs to when a renderer reads it only when it starts, with the committed value and the
@@ -549,6 +590,10 @@ pub struct WallpaperPage {
     input_type: ChoiceSelect<InputType>,
     /// The Interaction Module select (RawInput only).
     input_module: ChoiceSelect<InputModuleType>,
+    /// The Screen Layout select.
+    screen_layout: ChoiceSelect<ScreenArea>,
+    /// The Stretch Mode select.
+    stretch: ChoiceSelect<Stretch>,
     _subscriptions: Vec<Subscription>,
 }
 
@@ -566,6 +611,8 @@ impl WallpaperPage {
         };
         let input_type = choice_select(input_type_choices(), None, window, cx);
         let input_module = choice_select(input_module_choices(), None, window, cx);
+        let screen_layout = choice_select(screen_layout_choices(), None, window, cx);
+        let stretch = choice_select(stretch_choices(), None, window, cx);
         let mut subscriptions: Vec<Subscription> = EngineRow::ALL
             .into_iter()
             .map(|row| {
@@ -580,6 +627,12 @@ impl WallpaperPage {
         subscriptions.push(on_choice(&input_module, window, cx, |this, module, _, _| {
             this.send(SettingChange::InputModuleType(module));
         }));
+        subscriptions.push(on_choice(&screen_layout, window, cx, |this, area, _, _| {
+            this.send(SettingChange::ScreenType(area));
+        }));
+        subscriptions.push(on_choice(&stretch, window, cx, |this, stretch, _, _| {
+            this.send(SettingChange::StretchType(stretch));
+        }));
         Self {
             link,
             settings: None,
@@ -591,6 +644,8 @@ impl WallpaperPage {
             selects,
             input_type,
             input_module,
+            screen_layout,
+            stretch,
             _subscriptions: subscriptions,
         }
     }
@@ -733,6 +788,12 @@ impl WallpaperPage {
             .any(|select| select.read(cx).focus_handle(cx).contains_focused(window, cx))
             || self.input_type.read(cx).focus_handle(cx).contains_focused(window, cx)
             || self.input_module.read(cx).focus_handle(cx).contains_focused(window, cx)
+            || self
+                .screen_layout
+                .read(cx)
+                .focus_handle(cx)
+                .contains_focused(window, cx)
+            || self.stretch.read(cx).focus_handle(cx).contains_focused(window, cx)
             || self.editors().iter().any(|editor| editor.read(cx).focused(window, cx))
     }
 
@@ -748,6 +809,8 @@ impl WallpaperPage {
         }
         show_choice(&self.input_type, &settings.input_type, window, cx);
         show_choice(&self.input_module, &settings.input_module_type, window, cx);
+        show_choice(&self.screen_layout, &settings.screen_type, window, cx);
+        show_choice(&self.stretch, &settings.stretch, window, cx);
     }
 
     /// Sends `change`; the selects keep showing the broadcast value until the service answers.
@@ -771,8 +834,9 @@ impl WallpaperPage {
             .on_click(cx.listener(move |this, value: &bool, _, _| this.send(flag.change(*value))))
     }
 
-    /// The Wallpaper group: Interaction Method with its module and desktop-focus options in the footer, then the Loop
-    /// Mode, Shuffle Mode and Hardware Acceleration switches (the legacy order).
+    /// The Wallpaper group: Interaction Method with its module and desktop-focus options in the footer, the Screen
+    /// Layout and Stretch Mode selects, then the Loop Mode, Shuffle Mode and Hardware Acceleration switches (the legacy
+    /// order). Both selects apply to the running wallpaper at once.
     fn wallpaper_group(&self, cx: &mut Context<Self>) -> AnyElement {
         let state = self.state();
         let settings = self.settings.clone();
@@ -794,7 +858,21 @@ impl WallpaperPage {
         )
         .state(state)
         .build(cx);
-        let mut rows = vec![interaction];
+        let screen_layout = SettingRow::new(
+            tr("Portal.WallpaperSettingPage.ScreenLayout"),
+            Some(tr("Portal.WallpaperSettingPage.ScreenLayout.Description")),
+        )
+        .control(select_box(&self.screen_layout, state.disabled()), SELECT_WIDTH)
+        .state(state)
+        .build(cx);
+        let stretch = SettingRow::new(
+            tr("Portal.WallpaperSettingPage.StretchMode"),
+            Some(tr("Portal.WallpaperSettingPage.StretchMode.Description")),
+        )
+        .control(select_box(&self.stretch, state.disabled()), SELECT_WIDTH)
+        .state(state)
+        .build(cx);
+        let mut rows = vec![interaction, screen_layout, stretch];
         for flag in Flag::ALL {
             let (_, title, description) = flag.keys();
             let on = settings.as_ref().is_some_and(|s| flag.value(s));
@@ -1064,13 +1142,13 @@ mod tests {
     use sucrose_core::{settings::EngineType, theme::WallpaperType};
     use sucrose_ipc::portal::{EngineReportView, EngineState, EngineStateView, OfferedView, SettingChange};
 
-    use sucrose_core::settings::{InputModuleType, InputType};
+    use sucrose_core::settings::{InputModuleType, InputType, ScreenArea, Stretch};
     use sucrose_ipc::portal::PortalSettings;
 
     use super::{
         EngineRow, Flag, RestartSetting, StatusLine, alert_text, engine_choices, hint_text, input_module_choices,
         input_type_choices, needs_refresh, refreshes_own_switches, restart_trigger, row_alert, row_install_action,
-        should_prompt, status_line,
+        screen_layout_choices, should_prompt, status_line, stretch_choices,
     };
     use sucrose_ipc::portal::{FallbackView, HintView};
 
@@ -1246,6 +1324,43 @@ mod tests {
                 (InputType::MouseKeyboard, "Mouse & Keyboard".to_owned()),
             ]
         );
+    }
+
+    #[test]
+    fn wallpaper_group_screen_layout_lists_working_area_then_display_bound_and_sends_its_own_change() {
+        let shown: Vec<(ScreenArea, String)> = screen_layout_choices()
+            .iter()
+            .map(|choice| (choice.value, choice.title.to_string()))
+            .collect();
+
+        assert_eq!(
+            shown,
+            [
+                (ScreenArea::WorkingArea, "Working Area".to_owned()),
+                (ScreenArea::DisplayBound, "Display Bound".to_owned()),
+            ]
+        );
+        assert!(needs_refresh(&SettingChange::ScreenType(ScreenArea::WorkingArea)));
+    }
+
+    #[test]
+    fn wallpaper_group_stretch_mode_lists_the_four_legacy_values_in_the_legacy_order_and_refreshes_its_select() {
+        let shown: Vec<(Stretch, String)> = stretch_choices()
+            .iter()
+            .map(|choice| (choice.value, choice.title.to_string()))
+            .collect();
+
+        assert_eq!(
+            shown,
+            [
+                (Stretch::None, "None".to_owned()),
+                (Stretch::Fill, "Fill".to_owned()),
+                (Stretch::Uniform, "Uniform".to_owned()),
+                (Stretch::UniformToFill, "Uniform to Fill".to_owned()),
+            ]
+        );
+        assert!(needs_refresh(&SettingChange::StretchType(Stretch::Fill)));
+        assert!(!needs_refresh(&SettingChange::WallpaperShuffle(true)));
     }
 
     #[test]
