@@ -1163,6 +1163,8 @@ mod tests {
             webview_smartscreen: false,
             screen_device: String::new(),
             display_screen_type: sucrose_core::settings::DisplayScreenType::PerDisplay,
+            screen_type: sucrose_core::settings::ScreenArea::default(),
+            stretch: sucrose_core::settings::Stretch::default(),
         }
     }
 

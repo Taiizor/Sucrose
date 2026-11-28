@@ -12,7 +12,7 @@ use serde_json::{Value, json};
 use sucrose_core::{
     library::scan,
     paths::legacy_data_dir,
-    settings::{DisplayScreenType, EngineType, ThemeMode},
+    settings::{DisplayScreenType, EngineType, ScreenArea, Stretch, ThemeMode},
     theme::{WallpaperType, check_selected},
     version::app_version,
 };
@@ -957,6 +957,75 @@ fn a_gif_engine_change_moves_the_running_gif_to_the_built_in_renderer() {
         service.settings_file()["Engine"]["Gif"],
         "VlcPlayerLive",
         "the fallback keeps the setting (D-11)"
+    );
+}
+
+/// A Stretch Mode change and a Screen Layout change on a GIF wallpaper of the built-in renderer (DESK-04, DESK-05): the
+/// renderers refit their content and the service moves the surfaces, with no restart (one engine start per slot) and with
+/// both values stored under their legacy names. It plays a real wallpaper on the desktop from a scratch data folder, so
+/// it runs on purpose.
+#[test]
+#[ignore = "plays a GIF wallpaper on the desktop from a scratch data folder; plan 45 runs it"]
+fn a_stretch_and_a_layout_change_reach_the_running_renderer_without_a_restart() {
+    const NAME: &str = "a_stretch_and_a_layout_change_reach_the_running_renderer_without_a_restart";
+    if !service_runs(NAME) {
+        return;
+    }
+    let service = TestService::start("stretch-layout", &json!({ "Engine": { "Gif": "XavierLive" } }));
+    write_gif_theme(&service, "gif-anim");
+    let (mut portal, _) = PortalClient::hello(&service, None);
+    assert_eq!(use_theme(&mut portal, "gif-anim"), UseOutcome::Applied);
+    let first = wait_for_engine_starts_on_every_slot(&service, 1);
+    for (slot, log) in &first {
+        assert!(
+            starts(log)[0].contains("engine=\"BuiltInGif\""),
+            "the built-in renderer plays on slot {slot}: {log}"
+        );
+    }
+    let mut changed = |change: SettingChange| {
+        portal.request(&PortalRequest::Change(change.clone()));
+        let deadline = std::time::Instant::now() + std::time::Duration::from_secs(10);
+        while std::time::Instant::now() < deadline {
+            match portal.next_event() {
+                Some(PortalEvent::Changed(stored)) if stored == change => return,
+                Some(PortalEvent::Rejected { change, reason }) => panic!("{change:?} was rejected: {reason}"),
+                Some(_) => {}
+                None => break,
+            }
+        }
+        panic!("{change:?} never came back as Changed");
+    };
+
+    changed(SettingChange::StretchType(Stretch::None));
+    changed(SettingChange::ScreenType(ScreenArea::WorkingArea));
+
+    assert_eq!(service.settings_file()["Engine"]["StretchType"], "None");
+    assert_eq!(service.settings_file()["Engine"]["ScreenType"], "WorkingArea");
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(15);
+    loop {
+        let by_slot = renderer_logs_by_slot(&service);
+        let refit = by_slot.len() == monitor_slots()
+            && by_slot.values().all(|log| {
+                log.lines()
+                    .any(|line| line.contains("stretch changed") && line.contains("None"))
+            });
+        if refit {
+            break;
+        }
+        assert!(
+            std::time::Instant::now() < deadline,
+            "a renderer never logged the stretch change: {by_slot:?}"
+        );
+        std::thread::sleep(std::time::Duration::from_millis(100));
+    }
+    let log = wait_for_service_log(&service, "the surfaces re-placed on the working area", |log| {
+        log.contains("the screen layout was applied") && log.contains("re-placing its surface")
+    });
+    assert!(!log.contains("closing its renderer"), "no renderer was closed: {log}");
+    let after = renderer_logs_by_slot(&service);
+    assert!(
+        exactly_one_start_per_slot(&after),
+        "neither change restarts a renderer: {after:?}"
     );
 }
 

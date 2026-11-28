@@ -11,13 +11,14 @@
 use serde::{Deserialize, Serialize};
 use sucrose_core::{
     settings::{
-        Backdrop, DisplayScreenType, EngineType, InputModuleType, InputType, SortKind, SortMode, Stretch, ThemeMode,
+        Backdrop, DisplayScreenType, EngineType, InputModuleType, InputType, ScreenArea, SortKind, SortMode, Stretch,
+        ThemeMode,
     },
     theme::WallpaperType,
 };
 
 /// Version of the Portal protocol, sent in `PortalHello` so the service can refuse a Portal it cannot talk to.
-pub const PORTAL_PROTOCOL_VERSION: u16 = 10;
+pub const PORTAL_PROTOCOL_VERSION: u16 = 11;
 
 /// The longest path text, in bytes, the service accepts from a Portal and puts into a message it sends. It keeps the
 /// largest possible [`PortalEvent::Welcome`] far below [`crate::frame::MAX_FRAME`].
@@ -479,6 +480,12 @@ pub enum SettingChange {
     /// applies it at once, so the renderers whose monitor or theme changes restart and the others play on. Appended
     /// after [`SettingChange::ScreenDevice`].
     DisplayScreenType(DisplayScreenType),
+    /// Which part of each monitor a wallpaper covers (`Engine.ScreenType`, DESK-04): the service saves it and moves
+    /// every surface onto the new area at once, with no restart. Appended after [`SettingChange::DisplayScreenType`].
+    ScreenType(ScreenArea),
+    /// How the wallpaper is fitted to its surface (`Engine.StretchType`, DESK-05): the service saves it and sends it to
+    /// every renderer at once, with no restart. Appended after [`SettingChange::ScreenType`].
+    StretchType(Stretch),
 }
 
 /// The settings the Portal shows: a view of the service's settings, never the file (D-11).
@@ -558,6 +565,10 @@ pub struct PortalSettings {
     pub screen_device: String,
     /// How wallpapers are spread over the monitors: one per monitor, the same one on every monitor or one across all.
     pub display_screen_type: DisplayScreenType,
+    /// Which part of each monitor a wallpaper covers: the working area or the whole display.
+    pub screen_type: ScreenArea,
+    /// How the wallpaper is fitted to its surface.
+    pub stretch: Stretch,
 }
 
 impl PortalSettings {
@@ -601,6 +612,8 @@ impl PortalSettings {
             SettingChange::WebViewSmartScreen(value) => self.webview_smartscreen = *value,
             SettingChange::ScreenDevice(value) => self.screen_device.clone_from(value),
             SettingChange::DisplayScreenType(value) => self.display_screen_type = *value,
+            SettingChange::ScreenType(value) => self.screen_type = *value,
+            SettingChange::StretchType(value) => self.stretch = *value,
         }
     }
 }
@@ -840,6 +853,8 @@ mod tests {
             webview_smartscreen: false,
             screen_device: String::new(),
             display_screen_type: DisplayScreenType::PerDisplay,
+            screen_type: ScreenArea::default(),
+            stretch: Stretch::default(),
         }
     }
 
@@ -877,8 +892,8 @@ mod tests {
     }
 
     #[test]
-    fn the_portal_protocol_is_at_version_ten_since_the_settings_view_names_the_display_mode() {
-        assert_eq!(PORTAL_PROTOCOL_VERSION, 10);
+    fn the_portal_protocol_is_at_version_eleven_since_the_settings_view_names_the_area_and_the_stretch() {
+        assert_eq!(PORTAL_PROTOCOL_VERSION, 11);
     }
 
     #[test]
@@ -1060,6 +1075,8 @@ mod tests {
             SettingChange::WebViewSmartScreen(false),
             SettingChange::ScreenDevice(String::new()),
             SettingChange::DisplayScreenType(DisplayScreenType::PerDisplay),
+            SettingChange::ScreenType(ScreenArea::default()),
+            SettingChange::StretchType(Stretch::default()),
         ];
         for (expected, change) in changes.iter().enumerate() {
             assert_eq!(usize::from(index(change)), expected, "{change:?}");
@@ -1208,7 +1225,7 @@ mod tests {
     #[test]
     fn apply_sets_exactly_the_field_a_change_names() {
         let base = view();
-        let cases: [(SettingChange, PortalSettings); 23] = [
+        let cases: [(SettingChange, PortalSettings); 25] = [
             (
                 SettingChange::GifEngine(EngineType::VlcPlayerLive),
                 PortalSettings {
@@ -1367,6 +1384,20 @@ mod tests {
                 SettingChange::DisplayScreenType(DisplayScreenType::SpanAcross),
                 PortalSettings {
                     display_screen_type: DisplayScreenType::SpanAcross,
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::ScreenType(ScreenArea::DisplayBound),
+                PortalSettings {
+                    screen_type: ScreenArea::DisplayBound,
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::StretchType(Stretch::Fill),
+                PortalSettings {
+                    stretch: Stretch::Fill,
                     ..view()
                 },
             ),

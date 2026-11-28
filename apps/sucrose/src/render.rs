@@ -525,6 +525,7 @@ fn judge_hello_reply(reply: Result<ToRenderer, IpcError>) -> anyhow::Result<Hell
             | ToRenderer::Data(_)
             | ToRenderer::SetLoop(_)
             | ToRenderer::SetShuffle(_)
+            | ToRenderer::SetStretch(_)
             | ToRenderer::Blob { .. }
             | ToRenderer::TimeBase { .. },
         ) => {
@@ -694,6 +695,12 @@ fn wait_for_close(
                 engine.set_shuffle(shuffle);
                 tracing::info!(shuffle, "shuffle changed");
             }
+            // Stretch Mode: the engine refits its content on the same surface (DESK-05). An engine that does not stretch
+            // (YouTube, URL and Web pages) accepts the call and keeps its page.
+            Ok(ToRenderer::SetStretch(stretch)) => match engine.set_stretch(stretch) {
+                Ok(()) => tracing::info!(?stretch, "stretch changed"),
+                Err(error) => tracing::warn!(%error, ?stretch, "cannot change the stretch mode"),
+            },
             // The group grew or its pause ended: the engine counts its content position from the new instant (D-043).
             Ok(ToRenderer::TimeBase { epoch_unix_ms }) => {
                 engine.set_time_base(epoch_unix_ms);
@@ -1141,7 +1148,11 @@ mod tests {
 
     #[test]
     fn a_loop_or_shuffle_change_before_the_assignment_waits_on_like_any_control_message() {
-        for message in [ToRenderer::SetLoop(false), ToRenderer::SetShuffle(true)] {
+        for message in [
+            ToRenderer::SetLoop(false),
+            ToRenderer::SetShuffle(true),
+            ToRenderer::SetStretch(sucrose_core::settings::Stretch::Fill),
+        ] {
             assert!(matches!(judge_hello_reply(Ok(message)), Ok(HelloReply::Skip)));
         }
     }

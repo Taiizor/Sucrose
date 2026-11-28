@@ -123,6 +123,9 @@ pub enum ToRenderer {
         /// The instant as Unix milliseconds.
         epoch_unix_ms: u64,
     },
+    /// How the wallpaper is fitted to the surface: the Portal's Stretch Mode, applied to the playing wallpaper without
+    /// restarting it (DESK-05). Appended after [`ToRenderer::TimeBase`].
+    SetStretch(Stretch),
 }
 
 /// What a renderer does when several monitors show the same wallpaper (D-02).
@@ -586,6 +589,18 @@ mod tests {
         // Appended after Blob (12).
         assert_eq!(bytes[0], 13);
         assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
+    }
+
+    #[test]
+    fn set_stretch_keeps_its_wire_index_and_survives_the_wire() {
+        for stretch in Stretch::ALL {
+            let message = ToRenderer::SetStretch(*stretch);
+            let bytes = postcard::to_stdvec(&message).expect("encode");
+
+            // Appended after TimeBase (13).
+            assert_eq!(bytes[0], 14, "{message:?}");
+            assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
+        }
     }
 
     #[test]

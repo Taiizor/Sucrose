@@ -353,6 +353,8 @@ fn write(settings: &mut Settings, change: &SettingChange) {
         SettingChange::WebViewSmartScreen(value) => settings.engine.webview_smartscreen = *value,
         SettingChange::ScreenDevice(value) => settings.engine.screen_device.clone_from(value),
         SettingChange::DisplayScreenType(value) => settings.engine.display_screen_type = *value,
+        SettingChange::ScreenType(value) => settings.engine.screen = *value,
+        SettingChange::StretchType(value) => settings.engine.stretch = *value,
         SettingChange::CefArguments(list) => settings.engine.cef_arguments = args::to_cef_map(&to_switches(list)),
         SettingChange::WebArguments(list) => settings.engine.web_arguments = args::to_web_list(&to_switches(list)),
         SettingChange::DeveloperMode(value) => settings.engine.developer_mode = *value,
@@ -409,6 +411,8 @@ fn view_of(settings: &Settings) -> PortalSettings {
         webview_smartscreen: settings.engine.webview_smartscreen,
         screen_device: clip(&settings.engine.screen_device),
         display_screen_type: settings.engine.display_screen_type,
+        screen_type: settings.engine.screen,
+        stretch: settings.engine.stretch,
     }
 }
 
@@ -416,7 +420,9 @@ fn view_of(settings: &Settings) -> PortalSettings {
 mod tests {
     use std::{fs, path::PathBuf};
 
-    use sucrose_core::settings::{DisplayScreenType, EngineType, InputModuleType, InputType, ThemeMode};
+    use sucrose_core::settings::{
+        DisplayScreenType, EngineType, InputModuleType, InputType, ScreenArea, Stretch, ThemeMode,
+    };
     use sucrose_ipc::portal::MAX_PATH_TEXT;
 
     use super::*;
@@ -801,6 +807,45 @@ mod tests {
                 fs::read(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).expect("the settings file exists");
             let json: serde_json::Value = serde_json::from_slice(&file).expect("the file is JSON");
             assert_eq!(json["Engine"]["DisplayScreenType"], name);
+        }
+    }
+
+    #[test]
+    fn a_screen_layout_and_a_stretch_change_are_stored_under_their_legacy_names_and_shown() {
+        let scratch = Scratch::new("layoutstretch");
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+        assert_eq!(host.view().screen_type, ScreenArea::DisplayBound, "the legacy default");
+        assert_eq!(host.view().stretch, Stretch::UniformToFill, "the legacy default");
+        let read = |name: &str, key: &str| {
+            let file =
+                fs::read(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).expect("the settings file exists");
+            let json: serde_json::Value = serde_json::from_slice(&file).expect("the file is JSON");
+            assert_eq!(json["Engine"][name], key, "{name}");
+        };
+
+        for (area, name) in [
+            (ScreenArea::WorkingArea, "WorkingArea"),
+            (ScreenArea::DisplayBound, "DisplayBound"),
+        ] {
+            assert_eq!(
+                host.apply(SettingChange::ScreenType(area)),
+                Ok(SettingChange::ScreenType(area))
+            );
+            assert_eq!(host.view().screen_type, area);
+            read("ScreenType", name);
+        }
+        for (stretch, name) in [
+            (Stretch::None, "None"),
+            (Stretch::Fill, "Fill"),
+            (Stretch::Uniform, "Uniform"),
+            (Stretch::UniformToFill, "UniformToFill"),
+        ] {
+            assert_eq!(
+                host.apply(SettingChange::StretchType(stretch)),
+                Ok(SettingChange::StretchType(stretch))
+            );
+            assert_eq!(host.view().stretch, stretch);
+            read("StretchType", name);
         }
     }
 

@@ -1593,11 +1593,23 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                                 );
                                                 last_engines = None;
                                             }
-                                            // Loop Mode and Shuffle Mode reach the playing wallpapers at once; the other
+                                            // Loop Mode, Shuffle Mode and Stretch Mode reach the playing wallpapers at once; the other
                                             // Wallpaper settings are read when the next wallpaper starts.
                                             if let Some(message) = live_message(&stored) {
                                                 let told = fleet.apply_live(&message, &renderers);
                                                 tracing::info!(renderers = told.len(), "a live setting was sent to the renderers");
+                                            }
+                                            // The Screen Layout moves every surface onto its new area, no restart (DESK-04).
+                                            if let SettingChange::ScreenType(screen) = &stored {
+                                                fleet.change_screen(
+                                                    *screen,
+                                                    platform.monitors(),
+                                                    quitting,
+                                                    &Ctx {
+                                                        supervisor: &supervisor,
+                                                        renderers: &renderers,
+                                                    },
+                                                );
                                             }
                                             // The target monitor only decides where the next Use goes: no renderer changes.
                                             if let SettingChange::ScreenDevice(device) = &stored {
@@ -3491,6 +3503,34 @@ impl Fleet {
         applied
     }
 
+    /// The Screen Layout changed to `screen` (DESK-04): every job covers the new area, and every surface moves onto its
+    /// monitor's work area or display bounds (the Span surface onto the union of them) with `SetRect`, no renderer
+    /// restarts. `monitors` are the monitors the OS reports now. A slot whose renderer a fullscreen rule closed has no
+    /// connection to tell: its stored rectangle is updated, which its restart uses. While the library moves the
+    /// snapshot is kept for the end of the move.
+    fn change_screen(
+        &mut self,
+        screen: ScreenArea,
+        monitors: Vec<MonitorInfo>,
+        quitting: bool,
+        ctx: &Ctx<'_>,
+    ) -> Applied {
+        for job in self.jobs.values_mut() {
+            job.screen = screen;
+        }
+        if self.jobs.is_empty() {
+            return Applied::default();
+        }
+        let applied = self.apply_or_defer(with_area(monitors, screen), quitting, ctx);
+        tracing::info!(
+            ?screen,
+            started = applied.started,
+            failed = applied.failed,
+            "the screen layout was applied"
+        );
+        applied
+    }
+
     /// Starts the renderers the rule closed and wants back, once their old renderer has ended. Retried on every tick
     /// until it works.
     fn respawn_closed(&mut self, ctx: &Ctx<'_>) {
@@ -4533,10 +4573,15 @@ impl Fleet {
         self.jobs.insert(folder, job);
     }
 
-    /// Applies a live setting `message` (loop or shuffle) to what plays: the job and the shared assignments, so a renderer
-    /// started or restarted later gets it too, and every connected renderer. It is no Use: nothing restarts and the
-    /// restart budgets stay. Returns the slots that were told.
+    /// Applies a live setting `message` (loop, shuffle or stretch) to what plays: the job and the shared assignments, so a
+    /// renderer started or restarted later gets it too, and every connected renderer. It is no Use: nothing restarts and
+    /// the restart budgets stay. Returns the slots that were told. A stretch every job already has is not sent again.
     fn apply_live(&mut self, message: &ToRenderer, renderers: &SharedRenderers) -> Vec<u8> {
+        if let ToRenderer::SetStretch(stretch) = message
+            && self.jobs.values().all(|job| job.settings.stretch == *stretch)
+        {
+            return Vec::new();
+        }
         {
             let mut assignments = lock_assignments(&self.assignments);
             for assignment in assignments.values_mut() {
@@ -4905,22 +4950,25 @@ fn engine_change_kind(change: &SettingChange) -> Option<WallpaperType> {
 }
 
 /// The message a saved setting sends to the running renderers at once, `None` for a setting that is read when the next
-/// wallpaper starts (PLAY-01): Loop Mode and Shuffle Mode reach what plays, while Hardware Acceleration and the
-/// interaction settings are read by the next renderer that starts.
+/// wallpaper starts (PLAY-01): Loop Mode, Shuffle Mode and Stretch Mode reach what plays, while Hardware Acceleration and
+/// the interaction settings are read by the next renderer that starts. Screen Layout is no renderer message: it moves
+/// the surfaces (`Fleet::change_screen`).
 fn live_message(change: &SettingChange) -> Option<ToRenderer> {
     match change {
         SettingChange::WallpaperLoop(looping) => Some(ToRenderer::SetLoop(*looping)),
         SettingChange::WallpaperShuffle(shuffle) => Some(ToRenderer::SetShuffle(*shuffle)),
+        SettingChange::StretchType(stretch) => Some(ToRenderer::SetStretch(*stretch)),
         _ => None,
     }
 }
 
-/// Puts the value of a live setting `message` (loop or shuffle) into the playback settings and web options a job or an
-/// assignment carries; every other message changes nothing.
+/// Puts the value of a live setting `message` (loop, shuffle or stretch) into the playback settings and web options a
+/// job or an assignment carries; every other message changes nothing.
 fn put_live(settings: &mut PlaybackSettings, web: &mut WebOptions, message: &ToRenderer) {
     match message {
         ToRenderer::SetLoop(looping) => settings.looping = *looping,
         ToRenderer::SetShuffle(shuffle) => web.shuffle = *shuffle,
+        ToRenderer::SetStretch(stretch) => settings.stretch = *stretch,
         _ => {}
     }
 }
@@ -5130,7 +5178,7 @@ fn playback_settings(engine: &Engine, pause: PauseKind) -> PlaybackSettings {
 mod tests {
     use sucrose_config::model::DisplayAssignment;
     use sucrose_core::{
-        settings::{InputModuleType, InputType},
+        settings::{InputModuleType, InputType, Stretch},
         theme::ThemeRejection,
     };
 
@@ -8329,7 +8377,7 @@ mod tests {
     }
 
     #[test]
-    fn live_message_maps_loop_and_shuffle_and_nothing_else() {
+    fn live_message_maps_loop_shuffle_and_stretch_and_nothing_else() {
         assert_eq!(
             live_message(&SettingChange::WallpaperLoop(false)),
             Some(ToRenderer::SetLoop(false))
@@ -8338,7 +8386,12 @@ mod tests {
             live_message(&SettingChange::WallpaperShuffle(true)),
             Some(ToRenderer::SetShuffle(true))
         );
+        assert_eq!(
+            live_message(&SettingChange::StretchType(Stretch::Fill)),
+            Some(ToRenderer::SetStretch(Stretch::Fill))
+        );
         for change in [
+            SettingChange::ScreenType(ScreenArea::WorkingArea),
             SettingChange::HardwareAcceleration(false),
             SettingChange::InputType(InputType::Close),
             SettingChange::InputModuleType(InputModuleType::RawInput),
@@ -8380,6 +8433,175 @@ mod tests {
             fleet.budgets.len(),
             fleet.slots.active_slots().len(),
             "a live setting is no Use: the restart budgets stay"
+        );
+    }
+
+    #[test]
+    fn a_stretch_change_reaches_every_renderer_and_the_assignments_and_the_same_value_twice_sends_nothing() {
+        let (mut fleet, renderers, logs) = recording_fleet(&both_monitors());
+        let slots = fleet.slots.active_slots();
+        assert_eq!(fleet.job().expect("a job").settings.stretch, Stretch::UniformToFill);
+
+        let told = fleet.apply_live(&ToRenderer::SetStretch(Stretch::Fill), &renderers);
+
+        assert_eq!(told, slots);
+        assert_eq!(fleet.job().expect("a job").settings.stretch, Stretch::Fill);
+        let again = fleet.apply_live(&ToRenderer::SetStretch(Stretch::Fill), &renderers);
+
+        assert!(again.is_empty(), "the same value twice tells nobody");
+        for slot in &slots {
+            assert_eq!(
+                sent_to(&renderers, &logs, *slot),
+                vec![ToRenderer::SetStretch(Stretch::Fill)],
+                "one message only, slot {slot}"
+            );
+            assert_eq!(
+                lock_assignments(&fleet.assignments)[slot].settings.stretch,
+                Stretch::Fill,
+                "a renderer that restarts later keeps the new value, slot {slot}"
+            );
+        }
+    }
+
+    #[test]
+    fn a_stretch_change_while_the_wallpaper_is_paused_is_applied_and_kept_for_the_resume() {
+        let (mut fleet, renderers, logs) = recording_fleet(&both_monitors());
+        let mut rule = Rule::new(FullScreenAction::Pause, ActionScope::AllMonitors);
+        let all = [D1.to_owned(), D9.to_owned()];
+        for _ in 0..5 {
+            rule.tick(&[D1.to_owned()], &all);
+        }
+        fleet.fullscreen = Some(rule);
+        assert_eq!(fleet.rule_state(), RuleState::Paused);
+
+        let told = fleet.apply_live(&ToRenderer::SetStretch(Stretch::None), &renderers);
+
+        assert_eq!(told, fleet.slots.active_slots(), "a paused renderer is told as well");
+        for slot in fleet.slots.active_slots() {
+            assert_eq!(
+                sent_to(&renderers, &logs, slot),
+                vec![ToRenderer::SetStretch(Stretch::None)]
+            );
+            assert_eq!(
+                lock_assignments(&fleet.assignments)[&slot].settings.stretch,
+                Stretch::None
+            );
+        }
+        assert_eq!(fleet.rule_state(), RuleState::Paused, "no resume was sent");
+    }
+
+    /// The two test monitors as the OS reports them: the work area leaves 40 pixels for the taskbar.
+    fn both_monitors_with_a_taskbar() -> Vec<MonitorInfo> {
+        both_monitors()
+            .into_iter()
+            .map(|monitor| MonitorInfo {
+                work: RectPx {
+                    bottom: monitor.rect.bottom - 40,
+                    ..monitor.rect
+                },
+                ..monitor
+            })
+            .collect()
+    }
+
+    #[test]
+    fn a_screen_layout_change_only_moves_the_surfaces_without_a_restart() {
+        let (mut fleet, renderers, logs) = recording_fleet(&both_monitors());
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        for slot in fleet.slots.active_slots() {
+            fleet.budgets.insert(slot, RestartBudget::default());
+        }
+
+        let applied = fleet.change_screen(ScreenArea::WorkingArea, both_monitors_with_a_taskbar(), false, &ctx);
+
+        assert_eq!(applied, Applied::default(), "nothing started and nothing failed");
+        assert_eq!(fleet.job().expect("a job").screen, ScreenArea::WorkingArea);
+        let first = fleet.slots.slot_of(D1).expect("a slot");
+        let second = fleet.slots.slot_of(D9).expect("a slot");
+        assert_eq!(
+            lock_assignments(&fleet.assignments)[&second].rect,
+            [1920, 0, 3840, 1040]
+        );
+        assert_eq!(fleet.slots.active_slots().len(), 2, "no slot was closed or added");
+        assert_eq!(fleet.budgets.len(), 2, "no Use: the restart budgets stay");
+
+        fleet.change_screen(ScreenArea::DisplayBound, both_monitors_with_a_taskbar(), false, &ctx);
+
+        assert_eq!(
+            sent_to(&renderers, &logs, first),
+            vec![
+                ToRenderer::SetRect([0, 0, 1920, 1040]),
+                ToRenderer::SetRect([0, 0, 1920, 1080])
+            ],
+            "only moves, no Close and no restart"
+        );
+        assert_eq!(
+            sent_to(&renderers, &logs, second),
+            vec![
+                ToRenderer::SetRect([1920, 0, 3840, 1040]),
+                ToRenderer::SetRect([1920, 0, 3840, 1080])
+            ]
+        );
+        assert_eq!(
+            lock_assignments(&fleet.assignments)[&second].rect,
+            [1920, 0, 3840, 1080]
+        );
+    }
+
+    #[test]
+    fn a_screen_layout_change_moves_a_span_surface_onto_the_union_of_the_chosen_areas() {
+        let span = placement::span_target(&both_monitors(), ScreenArea::DisplayBound, "main").expect("a target");
+        let (mut fleet, renderers, logs) = recording_fleet(std::slice::from_ref(&span.monitor));
+        fleet.placement.mode = DisplayScreenType::SpanAcross;
+        fleet.placement.selected = "main".to_owned();
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+
+        fleet.change_screen(ScreenArea::WorkingArea, both_monitors_with_a_taskbar(), false, &ctx);
+
+        let slot = fleet.slots.slot_of(placement::SPAN_TARGET).expect("the span slot");
+        assert_eq!(
+            sent_to(&renderers, &logs, slot),
+            vec![ToRenderer::SetRect([0, 0, 3840, 1040])]
+        );
+    }
+
+    #[test]
+    fn a_screen_layout_change_while_a_rule_has_closed_a_renderer_updates_only_its_stored_rectangle() {
+        let (mut fleet, renderers, logs) = recording_fleet(&both_monitors());
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        let closed = fleet.slots.slot_of(D9).expect("a slot");
+        let open = fleet.slots.slot_of(D1).expect("a slot");
+        fleet.rule_closed.close(closed, false);
+        lock(&renderers).connections.remove(&closed);
+
+        let applied = fleet.change_screen(ScreenArea::WorkingArea, both_monitors_with_a_taskbar(), false, &ctx);
+
+        assert_eq!(
+            applied,
+            Applied::default(),
+            "the closed renderer is not started by a layout change"
+        );
+        assert_eq!(
+            lock_assignments(&fleet.assignments)[&closed].rect,
+            [1920, 0, 3840, 1040],
+            "its restart uses the new rectangle"
+        );
+        assert!(fleet.rule_closed.is_closed(closed), "still closed");
+        assert_eq!(
+            sent_to(&renderers, &logs, open),
+            vec![ToRenderer::SetRect([0, 0, 1920, 1040])]
         );
     }
 
