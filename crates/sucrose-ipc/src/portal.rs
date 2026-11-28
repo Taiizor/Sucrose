@@ -15,11 +15,20 @@ use sucrose_core::{
 };
 
 /// Version of the Portal protocol, sent in `PortalHello` so the service can refuse a Portal it cannot talk to.
-pub const PORTAL_PROTOCOL_VERSION: u16 = 8;
+pub const PORTAL_PROTOCOL_VERSION: u16 = 9;
 
 /// The longest path text, in bytes, the service accepts from a Portal and puts into a message it sends. It keeps the
 /// largest possible [`PortalEvent::Welcome`] far below [`crate::frame::MAX_FRAME`].
 pub const MAX_PATH_TEXT: usize = 4096;
+
+/// The most monitors [`RuntimeState::displays`] lists (connected ones and stored assignments of monitors that are not
+/// connected); the same number as the assignments the settings keep.
+pub const MAX_DISPLAYS: usize = 64;
+
+/// The longest text, in bytes, of one field of a [`DisplayView`] (a device path, a device name, a theme folder). The
+/// service cuts longer text, which keeps the largest [`RuntimeState`] below the frame limit; real device paths are
+/// shorter.
+pub const MAX_DISPLAY_TEXT: usize = 128;
 
 /// A page of the Portal that can be opened directly.
 #[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq)]
@@ -125,6 +134,13 @@ pub enum PortalRequest {
     },
     /// Stop the running download ("Stop Download"). Once the installer has started it cannot be stopped from here.
     CancelInstall,
+    /// Remove the wallpaper of one monitor (D-07): its entry leaves the stored assignments and its renderer closes,
+    /// leaving the Windows wallpaper there; the other monitors play on. `None` stops the single wallpaper of Span and
+    /// Duplicate. Never deletes a theme or a file. Appended after [`PortalRequest::CancelInstall`].
+    RemoveWallpaper {
+        /// The stable id of the monitor ([`DisplayView::monitor_id`]), or `None` for the single wallpaper.
+        monitor_id: Option<String>,
+    },
 }
 
 /// Messages from the service to the Portal.
@@ -454,6 +470,9 @@ pub enum SettingChange {
     /// Whether WebView2 wallpapers run with Edge SmartScreen (D-041, `Engine.WebViewSmartScreen`); applies the next time
     /// a WebView2 wallpaper starts. Appended after [`SettingChange::WebArguments`].
     WebViewSmartScreen(bool),
+    /// The monitor the next Use in Per display goes to (D-02, `Engine.ScreenDevice`): the device name of a connected
+    /// monitor, or empty for the first one. It changes no renderer. Appended after [`SettingChange::WebViewSmartScreen`].
+    ScreenDevice(String),
 }
 
 /// The settings the Portal shows: a view of the service's settings, never the file (D-11).
@@ -529,6 +548,8 @@ pub struct PortalSettings {
     pub developer_port: u16,
     /// Whether WebView2 wallpapers run with Edge SmartScreen.
     pub webview_smartscreen: bool,
+    /// The device name of the monitor the next Use in Per display goes to; empty for the first monitor.
+    pub screen_device: String,
 }
 
 impl PortalSettings {
@@ -570,6 +591,7 @@ impl PortalSettings {
             SettingChange::DeveloperMode(value) => self.developer_mode = *value,
             SettingChange::DeveloperPort(value) => self.developer_port = *value,
             SettingChange::WebViewSmartScreen(value) => self.webview_smartscreen = *value,
+            SettingChange::ScreenDevice(value) => self.screen_device.clone_from(value),
         }
     }
 }
@@ -590,6 +612,32 @@ pub struct RuntimeState {
     /// The monitor and the engine of each wallpaper that runs now, by monitor in the service's slot order. The Portal
     /// reads it to decide whether a changed setting needs the restart prompt (D-17).
     pub running_engines: Vec<(String, EngineType)>,
+    /// What every monitor shows (D-02, D-07, D-08): the connected monitors from left to right, then the stored
+    /// assignments of monitors that are not connected; at most [`MAX_DISPLAYS`].
+    pub displays: Vec<DisplayView>,
+}
+
+/// One monitor, or the stored assignment of a monitor that is not connected, as the Portal shows it.
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
+pub struct DisplayView {
+    /// The stable id the assignment is stored under (the device path, else the device name).
+    pub monitor_id: String,
+    /// The device name (`\\.\DISPLAY9`); the name stored with the assignment for a monitor that is not connected.
+    pub device_name: String,
+    /// The number shown on the monitor: the trailing number of the device name, else its 1-based position from the left.
+    pub number: u8,
+    /// The monitor rectangle `[left, top, right, bottom]` in virtual-desktop pixels; zeros when not connected.
+    pub rect: [i32; 4],
+    /// Whether this is the primary monitor.
+    pub primary: bool,
+    /// Whether the monitor is connected now.
+    pub connected: bool,
+    /// The folder name of the theme assigned to it, if any.
+    pub theme: Option<String>,
+    /// Whether a renderer plays on it now.
+    pub running: bool,
+    /// The engine that plays there, when one does.
+    pub engine: Option<EngineType>,
 }
 
 /// What a performance rule does to the wallpaper.
@@ -781,6 +829,7 @@ mod tests {
             developer_mode: false,
             developer_port: 0,
             webview_smartscreen: false,
+            screen_device: String::new(),
         }
     }
 
@@ -813,12 +862,13 @@ mod tests {
             library_moving: false,
             tray_visible: false,
             running_engines: Vec::new(),
+            displays: Vec::new(),
         }
     }
 
     #[test]
-    fn the_portal_protocol_is_at_version_eight_since_the_settings_view_has_the_smartscreen_setting() {
-        assert_eq!(PORTAL_PROTOCOL_VERSION, 8);
+    fn the_portal_protocol_is_at_version_nine_since_the_runtime_state_lists_the_displays() {
+        assert_eq!(PORTAL_PROTOCOL_VERSION, 9);
     }
 
     #[test]
@@ -846,6 +896,7 @@ mod tests {
                 prerequisite: PrerequisiteView::VcRedist,
             },
             PortalRequest::CancelInstall,
+            PortalRequest::RemoveWallpaper { monitor_id: None },
         ];
         for (expected, request) in requests.iter().enumerate() {
             assert_eq!(usize::from(index(request)), expected, "{request:?}");
@@ -997,6 +1048,7 @@ mod tests {
             SettingChange::DeveloperPort(0),
             SettingChange::WebArguments(Vec::new()),
             SettingChange::WebViewSmartScreen(false),
+            SettingChange::ScreenDevice(String::new()),
         ];
         for (expected, change) in changes.iter().enumerate() {
             assert_eq!(usize::from(index(change)), expected, "{change:?}");
@@ -1105,9 +1157,47 @@ mod tests {
     }
 
     #[test]
+    fn the_largest_runtime_state_encodes_below_the_frame_limit() {
+        // 64 displays whose device paths, names and themes are as long as the service lets them be.
+        let long = "\u{20ac}".repeat(MAX_DISPLAY_TEXT / 3);
+        assert!(long.len() <= MAX_DISPLAY_TEXT);
+        let display = DisplayView {
+            monitor_id: long.clone(),
+            device_name: long.clone(),
+            number: u8::MAX,
+            rect: [i32::MIN, i32::MIN, i32::MAX, i32::MAX],
+            primary: true,
+            connected: true,
+            theme: Some(long.clone()),
+            running: true,
+            engine: Some(EngineType::CefSharpLive),
+        };
+        let mut runtime = runtime();
+        runtime.selected = Some(long);
+        runtime.running_engines = vec![("\\\\.\\DISPLAY9".to_owned(), EngineType::CefSharpLive); MAX_DISPLAYS];
+        runtime.displays = vec![display; MAX_DISPLAYS];
+        let event = PortalEvent::Runtime(runtime);
+
+        let bytes = postcard::to_stdvec(&event).expect("encode");
+
+        let limit = usize::try_from(MAX_FRAME / 2).expect("the limit fits");
+        assert!(bytes.len() < limit, "{} bytes", bytes.len());
+        assert_eq!(postcard::from_bytes::<PortalEvent>(&bytes).expect("decode"), event);
+    }
+
+    #[test]
+    fn remove_wallpaper_and_the_display_views_survive_the_wire() {
+        for monitor_id in [None, Some("PATH#\\\\.\\DISPLAY9".to_owned())] {
+            let request = PortalRequest::RemoveWallpaper { monitor_id };
+            let bytes = postcard::to_stdvec(&request).expect("encode");
+            assert_eq!(postcard::from_bytes::<PortalRequest>(&bytes).expect("decode"), request);
+        }
+    }
+
+    #[test]
     fn apply_sets_exactly_the_field_a_change_names() {
         let base = view();
-        let cases: [(SettingChange, PortalSettings); 21] = [
+        let cases: [(SettingChange, PortalSettings); 22] = [
             (
                 SettingChange::GifEngine(EngineType::VlcPlayerLive),
                 PortalSettings {
@@ -1252,6 +1342,13 @@ mod tests {
                 SettingChange::WebViewSmartScreen(true),
                 PortalSettings {
                     webview_smartscreen: true,
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::ScreenDevice("\\\\.\\DISPLAY9".to_owned()),
+                PortalSettings {
+                    screen_device: "\\\\.\\DISPLAY9".to_owned(),
                     ..view()
                 },
             ),

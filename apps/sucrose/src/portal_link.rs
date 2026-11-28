@@ -15,7 +15,8 @@ use sucrose_core::settings::EngineType;
 use sucrose_ipc::{
     Connection, connect,
     portal::{
-        Launch, LaunchReply, MAX_PATH_TEXT, PORTAL_PROTOCOL_VERSION, PortalEvent, PortalPage, RuleState, RuntimeState,
+        DisplayView, Launch, LaunchReply, MAX_PATH_TEXT, PORTAL_PROTOCOL_VERSION, PortalEvent, PortalPage, RuleState,
+        RuntimeState,
     },
     protocol::ToService,
 };
@@ -316,7 +317,7 @@ fn exchange(endpoint: &str) -> Result<LaunchReply, String> {
 
 /// What the service tells the Portal it is doing: the selected theme from the settings, whether a renderer runs, what
 /// the fullscreen rule does to the wallpaper, whether the library is being moved and whether the tray exists. It is
-/// never written to Sucrose.json (D-23).
+/// never written to Sucrose.json (D-23). `displays` is what every monitor shows (D-02).
 pub fn runtime_state(
     settings: &Settings,
     running: bool,
@@ -324,6 +325,7 @@ pub fn runtime_state(
     library_moving: bool,
     tray_visible: bool,
     running_engines: Vec<(String, EngineType)>,
+    displays: Vec<DisplayView>,
 ) -> RuntimeState {
     RuntimeState {
         selected: Some(settings.library.selected.as_str())
@@ -334,6 +336,7 @@ pub fn runtime_state(
         library_moving,
         tray_visible,
         running_engines,
+        displays,
     }
 }
 
@@ -658,7 +661,7 @@ mod tests {
         let mut settings = Settings::default();
         settings.library.selected = "abc".to_owned();
 
-        let runtime = runtime_state(&settings, true, RuleState::None, false, false, Vec::new());
+        let runtime = runtime_state(&settings, true, RuleState::None, false, false, Vec::new(), Vec::new());
 
         assert_eq!(runtime.selected.as_deref(), Some("abc"));
         assert!(runtime.running && !runtime.tray_visible);
@@ -669,7 +672,15 @@ mod tests {
         let settings = Settings::default();
         let running = vec![("DISPLAY1".to_owned(), EngineType::CefSharpLive)];
 
-        let runtime = runtime_state(&settings, true, RuleState::None, false, false, running.clone());
+        let runtime = runtime_state(
+            &settings,
+            true,
+            RuleState::None,
+            false,
+            false,
+            running.clone(),
+            Vec::new(),
+        );
 
         assert_eq!(runtime.running_engines, running);
     }
@@ -678,8 +689,8 @@ mod tests {
     fn the_runtime_state_says_when_the_library_moves() {
         let settings = Settings::default();
 
-        assert!(runtime_state(&settings, false, RuleState::None, true, false, Vec::new()).library_moving);
-        assert!(!runtime_state(&settings, false, RuleState::None, false, false, Vec::new()).library_moving);
+        assert!(runtime_state(&settings, false, RuleState::None, true, false, Vec::new(), Vec::new()).library_moving);
+        assert!(!runtime_state(&settings, false, RuleState::None, false, false, Vec::new(), Vec::new()).library_moving);
     }
 
     #[test]
@@ -687,7 +698,7 @@ mod tests {
         let settings = Settings::default();
 
         assert_eq!(
-            runtime_state(&settings, false, RuleState::None, false, false, Vec::new()).selected,
+            runtime_state(&settings, false, RuleState::None, false, false, Vec::new(), Vec::new()).selected,
             None
         );
     }

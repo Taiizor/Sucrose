@@ -27,8 +27,8 @@ use sucrose_core::{
 use sucrose_ipc::{
     Connection, IpcError, Listener, blob,
     portal::{
-        EngineReportView, Launch, LaunchReply, MAX_PATH_TEXT, MaintainReport, MoveOutcome, MoveRefusal, PortalEvent,
-        PortalPage, PortalRequest, RuleState, RuntimeState, SettingChange, UseOutcome, UseRefusal,
+        DisplayView, EngineReportView, Launch, LaunchReply, MAX_PATH_TEXT, MaintainReport, MoveOutcome, MoveRefusal,
+        PortalEvent, PortalPage, PortalRequest, RuleState, RuntimeState, SettingChange, UseOutcome, UseRefusal,
     },
     protocol::{
         Assignment, ClockTick, InputSettings, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService,
@@ -60,7 +60,7 @@ use crate::{
     },
     placement::{self, Placement, Target},
     portal_link::{
-        PortalAdmission, PortalLink, PortalRegistry, ask_service_to_open_portal, portal_args, runtime_state,
+        PortalAdmission, PortalLink, PortalRegistry, ask_service_to_open_portal, clip, portal_args, runtime_state,
         spawn_pending,
     },
     settings_host::{SettingsHost, arguments_answer, describe},
@@ -1598,6 +1598,10 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                                 let told = fleet.apply_live(&message, &renderers);
                                                 tracing::info!(renderers = told.len(), "a live setting was sent to the renderers");
                                             }
+                                            // The target monitor only decides where the next Use goes: no renderer changes.
+                                            if let SettingChange::ScreenDevice(device) = &stored {
+                                                fleet.placement.screen_device.clone_from(device);
+                                            }
                                             portals.send(PortalEvent::Changed(stored));
                                         }
                                         Err(reason) => {
@@ -1636,6 +1640,24 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                         folder,
                                         outcome: done.outcome,
                                     });
+                                }
+                                PortalRequest::RemoveWallpaper { monitor_id } => {
+                                    let next = handle_remove(
+                                        monitor_id.as_deref(),
+                                        &mut host,
+                                        &mut fleet,
+                                        &Ctx {
+                                            supervisor: &supervisor,
+                                            renderers: &renderers,
+                                        },
+                                    );
+                                    if let Some(next) = next {
+                                        status = next;
+                                        tracing::info!(status = %status.text(), "wallpaper status");
+                                        if let Some(tray) = &tray {
+                                            tray.set_tooltip(&status.tooltip());
+                                        }
+                                    }
                                 }
                                 PortalRequest::DetectEngines => {
                                     // Look again: an engine installed or repaired meanwhile is used from the next start of
@@ -3030,6 +3052,10 @@ struct Fleet {
     slots: SlotMap,
     /// The monitors that have a renderer, as last applied, with the rectangle of the area they cover.
     monitors: Vec<MonitorInfo>,
+    /// Every connected monitor of the last snapshot that was applied, whether it has a renderer or not: what the Portal
+    /// is told about the displays (D-02, D-07, D-08). A snapshot with no monitor is the OS in the middle of a hot-plug
+    /// and leaves it as it was.
+    connected: Vec<MonitorInfo>,
     /// The monitor whose renderer asks for the persistent web profile (D-040): the primary of the snapshot being
     /// applied, set before its spawns because the monitor list above is updated after them.
     web_owner: Option<String>,
@@ -3146,6 +3172,7 @@ impl Fleet {
             fallbacks,
             slots: SlotMap::default(),
             monitors: Vec::new(),
+            connected: Vec::new(),
             web_owner: None,
             assignments,
             debounce: Debounce::default(),
@@ -3438,6 +3465,7 @@ impl Fleet {
             return Applied::default();
         }
         log_monitors_identified(&monitors);
+        self.connected.clone_from(&monitors);
         // Which of the connected monitors play, and what: the renderers follow the targets, not every monitor (D-01).
         let targets = self.placed(&monitors);
         let target_monitors: Vec<MonitorInfo> = targets.iter().map(|target| target.monitor.clone()).collect();
@@ -3958,14 +3986,128 @@ fn handle_use(
 /// What the Portal is told the service is doing now.
 fn current_runtime(host: &SettingsHost, fleet: &Fleet, supervisor: &Supervisor, tray_visible: bool) -> RuntimeState {
     let running = fleet.has_jobs() && !supervisor.pids().is_empty();
-    runtime_state(
+    let slots = supervisor.slots();
+    let mut runtime = runtime_state(
         host.settings(),
         running,
         fleet.rule_state(),
         fleet.library_move.is_some(),
         tray_visible,
-        fleet.engines_running(&supervisor.slots()),
-    )
+        fleet.engines_running(&slots),
+        fleet.displays(&slots),
+    );
+    // The theme on the target monitor in Per display, the single theme otherwise.
+    runtime.selected = fleet
+        .shown_theme(&host.settings().library.selected)
+        .map(|theme| clip(&theme));
+    runtime
+}
+
+impl Fleet {
+    /// What every monitor shows (D-02, D-07, D-08): the connected monitors of the last snapshot and the stored
+    /// assignments of monitors that are not connected, with what plays on each now.
+    fn displays(&self, running: &[u8]) -> Vec<DisplayView> {
+        let targets = self.placement.targets(&self.connected);
+        let playing: BTreeMap<String, EngineType> = self.engines_running(running).into_iter().collect();
+        placement::display_views(
+            &self.connected,
+            &targets,
+            self.placement.assignments.as_deref().unwrap_or_default(),
+            &playing,
+        )
+    }
+
+    /// The theme the Portal calls selected: in Per display the one placed on the target monitor (none when that monitor
+    /// has no wallpaper), otherwise the single `stored` theme (`Library.Selected`), none while it is empty. Before the
+    /// first snapshot no monitor is known and the stored theme stands in.
+    fn shown_theme(&self, stored: &str) -> Option<String> {
+        let single = Some(stored).filter(|theme| !theme.is_empty()).map(str::to_owned);
+        if self.placement.mode != DisplayScreenType::PerDisplay || self.connected.is_empty() {
+            return single;
+        }
+        let target = placement::target_monitor(&self.connected, &self.placement.screen_device)?;
+        self.placement
+            .targets(&self.connected)
+            .into_iter()
+            .find(|placed| placed.monitor.id == target.id)
+            .map(|placed| placed.theme)
+    }
+
+    /// The renderer of the monitor `id` closes and the monitor leaves the fleet's placement: what Remove Wallpaper does
+    /// to one monitor. The Windows wallpaper is left as it is; the other monitors play on.
+    fn drop_monitor(&mut self, id: &str, ctx: &Ctx<'_>) {
+        self.close(id, ctx);
+        self.monitors.retain(|monitor| monitor.id != id);
+        self.elect(ctx);
+    }
+}
+
+/// What the tray says when the last wallpaper was removed.
+const WALLPAPER_REMOVED: &str = "the wallpaper was removed";
+
+/// Handles the Portal's Remove Wallpaper (D-07). Never deletes a theme or a file: it only changes what the settings
+/// assign.
+///
+/// `Some(id)`: the entry of that monitor leaves `Engine.DisplayAssignments`; in Per display its renderer closes too (an
+/// entry of a monitor that is not connected has none, and nothing restarts). `None` stops the single wallpaper of Span
+/// and Duplicate: every renderer closes and `Library.Selected` is empty until the next Use. Returns the tray status
+/// when no renderer is left.
+fn handle_remove(
+    monitor_id: Option<&str>,
+    host: &mut SettingsHost,
+    fleet: &mut Fleet,
+    ctx: &Ctx<'_>,
+) -> Option<Status> {
+    if fleet.library_move.is_some() {
+        tracing::info!("remove wallpaper ignored: the library is being moved");
+        return None;
+    }
+    let per_display = fleet.placement.mode == DisplayScreenType::PerDisplay;
+    match monitor_id {
+        Some(id) => {
+            let Some(list) = placement::remove_entry(fleet.placement.assignments.as_deref(), id) else {
+                tracing::info!("remove wallpaper ignored: no such monitor has a wallpaper assigned");
+                return None;
+            };
+            if let Err(reason) = host.update(|settings| settings.engine.display_assignments = Some(list.clone())) {
+                tracing::warn!(%reason, "the assignments cannot be saved, nothing was removed");
+                return None;
+            }
+            fleet.placement.assignments = Some(list);
+            if per_display {
+                let playing: Vec<String> = fleet
+                    .monitors
+                    .iter()
+                    .filter(|monitor| placement::id_matches(monitor.stable_id(), id))
+                    .map(|monitor| monitor.id.clone())
+                    .collect();
+                for device in playing {
+                    fleet.drop_monitor(&device, ctx);
+                }
+            }
+            tracing::info!("the wallpaper of a monitor was removed");
+        }
+        None => {
+            if per_display {
+                tracing::info!("remove wallpaper ignored: Per display removes one monitor's wallpaper at a time");
+                return None;
+            }
+            if let Err(reason) = host.update(|settings| settings.library.selected.clear()) {
+                tracing::warn!(%reason, "the selection cannot be saved, nothing was removed");
+                return None;
+            }
+            fleet.placement.selected.clear();
+            let playing: Vec<String> = fleet.monitors.iter().map(|monitor| monitor.id.clone()).collect();
+            for device in playing {
+                fleet.drop_monitor(&device, ctx);
+            }
+            tracing::info!("the single wallpaper was removed");
+        }
+    }
+    fleet.prune_jobs();
+    fleet.monitors.is_empty().then(|| Status::NoWallpaper {
+        reason: WALLPAPER_REMOVED.to_owned(),
+    })
 }
 
 impl Fleet {
@@ -6381,6 +6523,277 @@ mod tests {
         assert!(fleet.monitors.is_empty());
     }
 
+    /// A fleet in Per display whose monitors play the themes of `plays` (device name, theme), with a job for each theme,
+    /// the placement, the connected monitors and the settings file that go with it.
+    fn per_display_fleet(
+        plays: &[(&str, &str)],
+        connected: &[MonitorInfo],
+        name: &str,
+    ) -> (Fleet, SharedRenderers, SentLogs, SettingsHost, std::path::PathBuf) {
+        let playing: Vec<MonitorInfo> = connected
+            .iter()
+            .filter(|monitor| plays.iter().any(|(id, _)| *id == monitor.id))
+            .cloned()
+            .collect();
+        let (mut fleet, renderers, logs) = recording_fleet(&playing);
+        let list: Vec<DisplayAssignment> = plays
+            .iter()
+            .map(|(id, theme)| DisplayAssignment {
+                monitor_id: (*id).to_owned(),
+                device_name: (*id).to_owned(),
+                theme: (*theme).to_owned(),
+            })
+            .collect();
+        for (_, theme) in plays {
+            let mut job = use_job(&format!("C:/themes/{theme}/video.mp4"));
+            format!("C:/themes/{theme}").clone_into(&mut job.theme_dir);
+            fleet.jobs.insert((*theme).to_owned(), job);
+        }
+        fleet.placement = Placement {
+            mode: DisplayScreenType::PerDisplay,
+            assignments: Some(list.clone()),
+            selected: "main".to_owned(),
+            screen_device: String::new(),
+        };
+        fleet.connected = connected.to_vec();
+        for monitor in &playing {
+            let theme = plays.iter().find(|(id, _)| *id == monitor.id).map(|(_, theme)| *theme);
+            fleet
+                .targets
+                .insert(monitor.id.clone(), theme.unwrap_or("main").to_owned());
+            let slot = fleet.slots.slot_of(&monitor.id).expect("a slot");
+            lock(&renderers).groups.insert(slot, theme.unwrap_or("main").to_owned());
+        }
+        let dir = std::env::temp_dir().join(format!("sucrose-service-{}-{name}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&dir);
+        let (mut host, _) = SettingsHost::open(&dir, None);
+        host.update(|settings| {
+            settings.engine.display_screen_type = DisplayScreenType::PerDisplay;
+            settings.engine.display_assignments = Some(list);
+            settings.library.selected = "main".to_owned();
+        })
+        .expect("the settings are saved");
+        (fleet, renderers, logs, host, dir)
+    }
+
+    const D1: &str = "\\\\.\\DISPLAY1";
+    const D9: &str = "\\\\.\\DISPLAY9";
+
+    fn both_monitors() -> Vec<MonitorInfo> {
+        vec![
+            monitor_at(D1, true, [0, 0, 1920, 1080]),
+            monitor_at(D9, false, [1920, 0, 3840, 1080]),
+        ]
+    }
+
+    /// Waits until the renderer of `slot` was sent its Close: the log is read as it is written, because `sent_to` would
+    /// take that Close for its own sentinel.
+    fn was_told_to_close(logs: &SentLogs, slot: u8) -> bool {
+        let deadline = Instant::now() + Duration::from_secs(5);
+        while Instant::now() < deadline {
+            if logs[&slot]
+                .lock()
+                .unwrap_or_else(PoisonError::into_inner)
+                .contains(&ToRenderer::Close)
+            {
+                return true;
+            }
+            thread::sleep(Duration::from_millis(10));
+        }
+        false
+    }
+
+    fn stored_ids(host: &SettingsHost) -> Vec<String> {
+        host.settings()
+            .engine
+            .display_assignments
+            .iter()
+            .flatten()
+            .map(|entry| entry.monitor_id.clone())
+            .collect()
+    }
+
+    #[test]
+    fn removing_one_monitors_wallpaper_closes_its_renderer_stores_the_rest_and_the_other_monitor_plays_on() {
+        let (mut fleet, renderers, logs, mut host, dir) =
+            per_display_fleet(&[(D1, "main"), (D9, "other")], &both_monitors(), "remove-one");
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        let slot_d1 = fleet.slots.slot_of(D1).expect("a slot");
+        let slot_d9 = fleet.slots.slot_of(D9).expect("a slot");
+
+        let status = handle_remove(Some(D9), &mut host, &mut fleet, &ctx);
+
+        assert!(status.is_none(), "DISPLAY1 still plays");
+        assert_eq!(stored_ids(&host), [D1], "only the entry of DISPLAY9 left the file");
+        assert_eq!(fleet.slots.slot_of(D9), None, "its renderer is told to close");
+        assert!(was_told_to_close(&logs, slot_d9));
+        assert!(!sent_to(&renderers, &logs, slot_d1).contains(&ToRenderer::Close));
+        assert_eq!(fleet.slots.slot_of(D1), Some(slot_d1));
+        assert_eq!(fleet.monitors.iter().map(|m| m.id.as_str()).collect::<Vec<_>>(), [D1]);
+        let views = fleet.displays(&[]);
+        assert_eq!(views.len(), 2, "the monitor is still listed, with no theme");
+        assert_eq!(views[1].device_name, D9);
+        assert!(views[1].connected && views[1].theme.is_none());
+        assert_eq!(views[0].theme.as_deref(), Some("main"));
+
+        // An id that has no entry changes nothing; the last monitor's wallpaper leaves the tray with no wallpaper.
+        assert!(handle_remove(Some(D9), &mut host, &mut fleet, &ctx).is_none());
+        assert_eq!(stored_ids(&host), [D1]);
+        let status = handle_remove(Some(D1), &mut host, &mut fleet, &ctx);
+        assert!(matches!(status, Some(Status::NoWallpaper { .. })), "{status:?}");
+        assert!(stored_ids(&host).is_empty());
+        assert_eq!(
+            host.settings().engine.display_assignments,
+            Some(Vec::new()),
+            "the list stays, empty: nothing plays on restart"
+        );
+        assert!(fleet.monitors.is_empty());
+        let _ = std::fs::remove_dir_all(dir);
+    }
+
+    #[test]
+    fn removing_the_entry_of_a_monitor_that_is_not_connected_restarts_nothing() {
+        let connected = [monitor_at(D1, true, [0, 0, 1920, 1080])];
+        let (mut fleet, renderers, logs, mut host, dir) =
+            per_display_fleet(&[(D1, "main"), (D9, "other")], &connected, "remove-away");
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        let slot_d1 = fleet.slots.slot_of(D1).expect("a slot");
+        let views = fleet.displays(&[]);
+        assert_eq!(views.len(), 2);
+        assert!(!views[1].connected && views[1].theme.as_deref() == Some("other"));
+
+        let status = handle_remove(Some(D9), &mut host, &mut fleet, &ctx);
+
+        assert!(status.is_none());
+        assert_eq!(stored_ids(&host), [D1]);
+        assert_eq!(fleet.slots.slot_of(D1), Some(slot_d1), "DISPLAY1 keeps its renderer");
+        assert_eq!(sent_to(&renderers, &logs, slot_d1), [], "nothing was sent to it");
+        assert_eq!(fleet.displays(&[]).len(), 1);
+        let _ = std::fs::remove_dir_all(dir);
+    }
+
+    #[test]
+    fn remove_all_stops_the_single_wallpaper_of_span_and_duplicate_and_is_ignored_in_per_display() {
+        let (mut fleet, renderers, logs, mut host, dir) =
+            per_display_fleet(&[(D1, "main"), (D9, "main")], &both_monitors(), "remove-all");
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        let slots = [
+            fleet.slots.slot_of(D1).expect("a slot"),
+            fleet.slots.slot_of(D9).expect("a slot"),
+        ];
+
+        assert!(
+            handle_remove(None, &mut host, &mut fleet, &ctx).is_none(),
+            "Per display ignores it"
+        );
+        assert_eq!(fleet.monitors.len(), 2);
+        assert_eq!(host.settings().library.selected, "main");
+
+        fleet.placement.mode = DisplayScreenType::SameDuplicate;
+        let status = handle_remove(None, &mut host, &mut fleet, &ctx);
+
+        assert!(matches!(status, Some(Status::NoWallpaper { .. })), "{status:?}");
+        for slot in slots {
+            assert!(was_told_to_close(&logs, slot), "slot {slot}");
+        }
+        assert!(fleet.monitors.is_empty());
+        assert_eq!(
+            host.settings().library.selected,
+            "",
+            "no theme plays until the next Use"
+        );
+        assert_eq!(fleet.shown_theme(""), None);
+        assert!(fleet.displays(&[]).iter().all(|view| view.theme.is_none()));
+        let _ = std::fs::remove_dir_all(dir);
+    }
+
+    #[test]
+    fn the_selected_theme_is_the_one_on_the_target_monitor_in_per_display_and_the_single_one_otherwise() {
+        let (mut fleet, _renderers, _logs, _host, dir) =
+            per_display_fleet(&[(D1, "main"), (D9, "other")], &both_monitors(), "shown");
+
+        assert_eq!(
+            fleet.shown_theme("stored").as_deref(),
+            Some("main"),
+            "the first monitor by default"
+        );
+        fleet.placement.screen_device = D9.to_owned();
+        assert_eq!(fleet.shown_theme("stored").as_deref(), Some("other"));
+        fleet.placement.screen_device = "\\\\.\\DISPLAY7".to_owned();
+        assert_eq!(
+            fleet.shown_theme("stored").as_deref(),
+            Some("main"),
+            "an unknown device is the first monitor"
+        );
+        fleet.placement.assignments = Some(Vec::new());
+        assert_eq!(fleet.shown_theme("stored"), None, "the target monitor has no wallpaper");
+        fleet.placement.mode = DisplayScreenType::SpanAcross;
+        assert_eq!(fleet.shown_theme("stored").as_deref(), Some("stored"));
+        assert_eq!(fleet.shown_theme(""), None);
+        let _ = std::fs::remove_dir_all(dir);
+    }
+
+    #[test]
+    fn a_monitor_that_goes_keeps_its_entry_and_one_that_returns_gets_its_theme_back() {
+        let one = [monitor_at(D1, true, [0, 0, 1920, 1080])];
+        let (mut fleet, renderers, _logs, _host, dir) =
+            per_display_fleet(&[(D1, "main"), (D9, "other")], &one, "return");
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+
+        // DISPLAY9 is not there: DISPLAY1 plays on and the entry of DISPLAY9 is listed as not connected.
+        assert_eq!(fleet.apply_snapshot(one.to_vec(), &ctx), Applied::default());
+        let away = fleet.displays(&[]);
+        assert_eq!(away.len(), 2);
+        assert!(away[0].connected && !away[1].connected);
+        assert_eq!(away[1].theme.as_deref(), Some("other"));
+        assert_eq!(
+            fleet.placement.assignments.as_ref().map(Vec::len),
+            Some(2),
+            "the entry stays"
+        );
+
+        // The OS reports no monitor for a moment: nothing starts or stops and the list stays as it was.
+        assert_eq!(fleet.apply_snapshot(Vec::new(), &ctx), Applied::default());
+        assert_eq!(fleet.displays(&[]), away);
+
+        // The monitor returns: it is placed with its stored theme and a renderer is spawned for it.
+        let back = both_monitors();
+        let targets = fleet.placed(&back);
+        assert_eq!(
+            targets
+                .iter()
+                .map(|t| (t.monitor.id.as_str(), t.theme.as_str()))
+                .collect::<Vec<_>>(),
+            [(D1, "main"), (D9, "other")]
+        );
+        let target_monitors: Vec<MonitorInfo> = targets.iter().map(|t| t.monitor.clone()).collect();
+        assert_eq!(
+            placement::actions(&fleet.monitors, &target_monitors, false),
+            [TopologyAction::Spawn(back[1].clone())]
+        );
+        assert!(
+            fleet.jobs.contains_key("other"),
+            "its theme has a job, so the spawn can read it"
+        );
+        let _ = std::fs::remove_dir_all(dir);
+    }
+
     #[test]
     fn a_use_on_the_target_monitor_loads_only_its_renderer() {
         let (mut fleet, renderers, logs) = two_theme_fleet();
@@ -7707,6 +8120,7 @@ mod tests {
             library_moving: false,
             tray_visible: false,
             running_engines: Vec::new(),
+            displays: Vec::new(),
         }
     }
 

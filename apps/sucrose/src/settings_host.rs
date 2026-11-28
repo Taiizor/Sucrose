@@ -130,6 +130,7 @@ pub fn validate(change: SettingChange) -> Result<SettingChange, String> {
         }
         SettingChange::CefArguments(list) => SettingChange::CefArguments(check_switches(list)?),
         SettingChange::WebArguments(list) => SettingChange::WebArguments(check_switches(list)?),
+        SettingChange::ScreenDevice(device) => SettingChange::ScreenDevice(check_device(device)?),
         other => other,
     })
 }
@@ -281,6 +282,16 @@ fn allowed_engine(engine: EngineType, allowed: &[EngineType]) -> Result<EngineTy
     }
 }
 
+/// The device name of the monitor the next Use in Per display goes to: empty (the first monitor) or a text of at most
+/// [`MAX_PATH_TEXT`] bytes without a NUL. A name that is no connected monitor is stored as it is: the placement falls
+/// back to the first monitor (the legacy auto-choose, T-04-93).
+fn check_device(device: String) -> Result<String, String> {
+    if device.len() > MAX_PATH_TEXT || device.contains('\0') {
+        return Err("The monitor name is not valid.".to_owned());
+    }
+    Ok(device)
+}
+
 /// A background image is no image (empty), or an absolute path of at most [`MAX_PATH_TEXT`] bytes that ends in one of
 /// [`IMAGE_EXTENSIONS`]. Whether the file exists is the Portal's business when it draws it.
 fn check_image(text: &str) -> Result<(), String> {
@@ -340,6 +351,7 @@ fn write(settings: &mut Settings, change: &SettingChange) {
         SettingChange::InputDesktop(value) => settings.engine.input_desktop = *value,
         SettingChange::AllowInvalidCertificates(value) => settings.engine.allow_invalid_certificates = *value,
         SettingChange::WebViewSmartScreen(value) => settings.engine.webview_smartscreen = *value,
+        SettingChange::ScreenDevice(value) => settings.engine.screen_device.clone_from(value),
         SettingChange::CefArguments(list) => settings.engine.cef_arguments = args::to_cef_map(&to_switches(list)),
         SettingChange::WebArguments(list) => settings.engine.web_arguments = args::to_web_list(&to_switches(list)),
         SettingChange::DeveloperMode(value) => settings.engine.developer_mode = *value,
@@ -394,6 +406,7 @@ fn view_of(settings: &Settings) -> PortalSettings {
         developer_mode: settings.engine.developer_mode,
         developer_port: settings.engine.developer_port,
         webview_smartscreen: settings.engine.webview_smartscreen,
+        screen_device: clip(&settings.engine.screen_device),
     }
 }
 
@@ -735,6 +748,32 @@ mod tests {
         let file = fs::read(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).expect("the settings file exists");
         let json: serde_json::Value = serde_json::from_slice(&file).expect("the file is JSON");
         assert_eq!(json["Engine"]["WebViewSmartScreen"], true);
+    }
+
+    #[test]
+    fn a_screen_device_change_is_stored_shown_and_bounded() {
+        let scratch = Scratch::new("screendevice");
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+        assert_eq!(host.view().screen_device, "", "the first monitor by default");
+
+        let device = "\\\\.\\DISPLAY9".to_owned();
+        let stored = host.apply(SettingChange::ScreenDevice(device.clone()));
+
+        assert_eq!(stored, Ok(SettingChange::ScreenDevice(device.clone())));
+        assert_eq!(host.view().screen_device, device);
+        let file = fs::read(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).expect("the settings file exists");
+        let json: serde_json::Value = serde_json::from_slice(&file).expect("the file is JSON");
+        assert_eq!(json["Engine"]["ScreenDevice"], device.as_str());
+
+        assert_eq!(
+            host.apply(SettingChange::ScreenDevice(String::new())),
+            Ok(SettingChange::ScreenDevice(String::new())),
+            "empty means the first monitor"
+        );
+        assert!(validate(SettingChange::ScreenDevice("d".repeat(MAX_PATH_TEXT + 1))).is_err());
+        assert!(validate(SettingChange::ScreenDevice("a\0b".to_owned())).is_err());
+        assert!(validate(SettingChange::ScreenDevice("d".repeat(MAX_PATH_TEXT))).is_ok());
+        assert_eq!(host.view().screen_device, "", "a refused change stored nothing");
     }
 
     #[test]

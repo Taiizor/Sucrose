@@ -20,7 +20,8 @@ use sucrose_ipc::{
     connect,
     portal::{
         EngineReportView, EngineState, FallbackView, Launch, LaunchReply, MaintainReport, MoveOutcome, MoveRefusal,
-        PortalEvent, PortalPage, PortalRequest, SettingChange, StartupInfo, StartupMode, UseOutcome, UseRefusal,
+        PortalEvent, PortalPage, PortalRequest, RuntimeState, SettingChange, StartupInfo, StartupMode, UseOutcome,
+        UseRefusal,
     },
     protocol::ToService,
     service_endpoint_for,
@@ -956,6 +957,199 @@ fn a_gif_engine_change_moves_the_running_gif_to_the_built_in_renderer() {
         service.settings_file()["Engine"]["Gif"],
         "VlcPlayerLive",
         "the fallback keeps the setting (D-11)"
+    );
+}
+
+/// What the Portal last heard of the monitors: the displays of the newest Runtime event (or of the Welcome), read until
+/// `wanted` holds for them. Returns that runtime state.
+fn wait_for_runtime(
+    portal: &PortalClient,
+    first: Option<RuntimeState>,
+    wanted: impl Fn(&RuntimeState) -> bool,
+) -> RuntimeState {
+    let mut seen = first;
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+    loop {
+        if let Some(runtime) = &seen
+            && wanted(runtime)
+        {
+            return runtime.clone();
+        }
+        assert!(
+            std::time::Instant::now() < deadline,
+            "the runtime state never matched, the last one was {seen:?}"
+        );
+        if let Some(PortalEvent::Runtime(runtime)) = portal.next_event_any() {
+            seen = Some(runtime);
+        }
+    }
+}
+
+/// Per display on two monitors: the Portal sees both of them with their themes (`RuntimeState.displays`), moves the target
+/// monitor with `ScreenDevice`, uses a theme there (only that monitor's renderer restarts) and removes it again with
+/// `RemoveWallpaper` (its renderer ends and its entry leaves the file; the other monitor plays on). It plays real
+/// wallpapers on two monitors from a scratch data folder, so it runs on purpose and skips with fewer than two.
+#[test]
+#[ignore = "plays wallpapers on two monitors from a scratch data folder; plan 42 runs it"]
+#[allow(clippy::print_stderr)]
+fn the_target_monitor_gets_the_use_and_remove_frees_it() {
+    const NAME: &str = "the_target_monitor_gets_the_use_and_remove_frees_it";
+    if !service_runs(NAME) {
+        return;
+    }
+    let mut monitors = sucrose_platform::current().monitors();
+    monitors.sort_by(|a, b| a.id.cmp(&b.id));
+    if monitors.len() < 2 {
+        eprintln!("{NAME}: skipped: fewer than two monitors are connected");
+        return;
+    }
+    let (first, last) = (monitors[0].clone(), monitors[monitors.len() - 1].clone());
+    let entry = |monitor: &sucrose_platform::MonitorInfo, theme: &str| json!({ "MonitorId": monitor.stable_id(), "DeviceName": monitor.id, "Theme": theme });
+    // Only these two monitors play: a third one would have no entry and no renderer.
+    let service = TestService::start(
+        "target-monitor",
+        &json!({
+            "Library": { "Selected": "gif-anim" },
+            "Engine": {
+                "Gif": "XavierLive",
+                "DisplayScreenType": "PerDisplay",
+                "ScreenDevice": "",
+                "DisplayAssignments": [entry(&first, "gif-anim"), entry(&last, "gif-two")],
+            },
+        }),
+    );
+    // The themes exist before the service reads its settings, so it places both wallpapers at its start.
+    for theme in ["gif-anim", "gif-two", "gif-three"] {
+        write_gif_theme(&service, theme);
+    }
+    let service = service.restart();
+    let (mut portal, welcome) = PortalClient::hello(&service, None);
+    let PortalEvent::Welcome { runtime, .. } = welcome else {
+        panic!("the first event is the Welcome: {welcome:?}");
+    };
+
+    // Both monitors play their own theme, and the Portal is told which.
+    let started = wait_for_engine_starts_on_every_slot(&service, 1);
+    assert_eq!(started.len(), 2, "one renderer per assigned monitor: {started:?}");
+    let both = |runtime: &RuntimeState| {
+        runtime.displays.len() == 2
+            && runtime
+                .displays
+                .iter()
+                .all(|display| display.connected && display.running)
+    };
+    let runtime = wait_for_runtime(&portal, Some(runtime), both);
+    let theme_of = |runtime: &RuntimeState, monitor: &sucrose_platform::MonitorInfo| {
+        runtime
+            .displays
+            .iter()
+            .find(|display| display.device_name == monitor.id)
+            .and_then(|display| display.theme.clone())
+    };
+    assert_eq!(theme_of(&runtime, &first).as_deref(), Some("gif-anim"));
+    assert_eq!(theme_of(&runtime, &last).as_deref(), Some("gif-two"));
+    assert!(
+        runtime.displays[0].rect[0] <= runtime.displays[1].rect[0],
+        "left to right: {:?}",
+        runtime.displays
+    );
+    assert_eq!(
+        runtime.selected.as_deref(),
+        Some("gif-anim"),
+        "the target is the first monitor"
+    );
+
+    // The target moves to the other monitor: only the setting and what is selected change.
+    portal.request(&PortalRequest::Change(SettingChange::ScreenDevice(last.id.clone())));
+    let runtime = wait_for_runtime(&portal, None, |runtime| runtime.selected.as_deref() == Some("gif-two"));
+    assert!(both(&runtime), "no renderer changed: {runtime:?}");
+    assert_eq!(service.settings_file()["Engine"]["ScreenDevice"], last.id.as_str());
+    assert!(
+        renderer_logs_by_slot(&service)
+            .values()
+            .all(|log| starts(log).len() == 1),
+        "no renderer restarted for a new target"
+    );
+
+    // A Use goes to the target monitor: its renderer restarts on the new theme, the other one is not touched.
+    assert_eq!(use_theme(&mut portal, "gif-three"), UseOutcome::Applied);
+    let runtime = wait_for_runtime(&portal, None, |runtime| {
+        both(runtime) && runtime.selected.as_deref() == Some("gif-three")
+    });
+    assert_eq!(theme_of(&runtime, &last).as_deref(), Some("gif-three"));
+    assert_eq!(theme_of(&runtime, &first).as_deref(), Some("gif-anim"));
+    // The renderer of the target monitor ends and comes back on the new theme: wait for its second engine start.
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+    let after = loop {
+        let by_slot = renderer_logs_by_slot(&service);
+        if by_slot.values().any(|log| starts(log).len() >= 2) {
+            break by_slot;
+        }
+        assert!(
+            std::time::Instant::now() < deadline,
+            "no renderer started a second time: {by_slot:?}"
+        );
+        std::thread::sleep(std::time::Duration::from_millis(250));
+    };
+    let restarted: Vec<u32> = after
+        .iter()
+        .filter(|(_, log)| starts(log).len() >= 2)
+        .map(|(slot, _)| *slot)
+        .collect();
+    assert_eq!(restarted.len(), 1, "exactly one renderer restarted: {after:?}");
+    assert!(
+        after
+            .iter()
+            .filter(|(slot, _)| !restarted.contains(slot))
+            .all(|(_, log)| starts(log).len() == 1),
+        "the other monitor kept its single engine start: {after:?}"
+    );
+    let stored = &service.settings_file()["Engine"]["DisplayAssignments"];
+    let themes: Vec<(&str, &str)> = stored
+        .as_array()
+        .expect("the assignments are stored")
+        .iter()
+        .map(|entry| {
+            (
+                entry["DeviceName"].as_str().unwrap_or(""),
+                entry["Theme"].as_str().unwrap_or(""),
+            )
+        })
+        .collect();
+    assert!(themes.contains(&(last.id.as_str(), "gif-three")), "{themes:?}");
+    assert!(themes.contains(&(first.id.as_str(), "gif-anim")), "{themes:?}");
+
+    // Remove Wallpaper frees the target monitor: its renderer ends, its entry leaves the file, the other plays on.
+    portal.request(&PortalRequest::RemoveWallpaper {
+        monitor_id: Some(last.stable_id().to_owned()),
+    });
+    let runtime = wait_for_runtime(&portal, None, |runtime| {
+        runtime
+            .displays
+            .iter()
+            .any(|display| display.device_name == last.id && display.theme.is_none() && !display.running)
+    });
+    assert!(
+        runtime.displays.iter().any(|display| display.device_name == first.id
+            && display.running
+            && display.theme.as_deref() == Some("gif-anim")),
+        "the other monitor plays on: {runtime:?}"
+    );
+    assert_eq!(runtime.selected, None, "the target monitor shows nothing now");
+    let stored = service.settings_file();
+    let entries = stored["Engine"]["DisplayAssignments"]
+        .as_array()
+        .expect("the assignments are stored");
+    assert_eq!(entries.len(), 1, "{entries:?}");
+    assert_eq!(entries[0]["DeviceName"], first.id.as_str());
+    // The theme itself is untouched.
+    assert!(
+        service
+            .dir
+            .join("Library")
+            .join("gif-three")
+            .join("SucroseInfo.json")
+            .is_file()
     );
 }
 

@@ -9,7 +9,8 @@
 use std::collections::{BTreeMap, BTreeSet};
 
 use sucrose_config::model::{DisplayAssignment, MAX_DISPLAY_ASSIGNMENTS, Settings};
-use sucrose_core::settings::DisplayScreenType;
+use sucrose_core::settings::{DisplayScreenType, EngineType};
+use sucrose_ipc::portal::{DisplayView, MAX_DISPLAY_TEXT, MAX_DISPLAYS};
 use sucrose_platform::MonitorInfo;
 
 use crate::topology::{TopologyAction, diff, replace_all};
@@ -194,6 +195,106 @@ pub fn with_assignment(
         return None;
     }
     Some(list)
+}
+
+/// `assignments` without the entry of `monitor_id` (Remove Wallpaper, D-07); the other entries stay as they were. `None`
+/// when no entry has that id: nothing changes then.
+pub fn remove_entry(assignments: Option<&[DisplayAssignment]>, monitor_id: &str) -> Option<Vec<DisplayAssignment>> {
+    let list = assignments?;
+    let position = list
+        .iter()
+        .position(|entry| id_matches(&entry.monitor_id, monitor_id))?;
+    let mut rest = list.to_vec();
+    rest.remove(position);
+    Some(rest)
+}
+
+/// Whether `requested` names the monitor stored under `full`: the id as it is, or as the Portal got it, cut to
+/// [`MAX_DISPLAY_TEXT`] (see [`display_views`]).
+pub fn id_matches(full: &str, requested: &str) -> bool {
+    full == requested || cut(full) == requested
+}
+
+/// The number a monitor shows: the trailing number of its device name (`\\.\DISPLAY9` is 9), else its 1-based
+/// `position` from the left. At most 255.
+pub fn display_number(device_name: &str, position: usize) -> u8 {
+    let digits = device_name.len() - device_name.trim_end_matches(|c: char| c.is_ascii_digit()).len();
+    let number = device_name
+        .get(device_name.len() - digits..)
+        .and_then(|text| text.parse::<usize>().ok())
+        .filter(|number| *number > 0)
+        .unwrap_or(position);
+    u8::try_from(number).unwrap_or(u8::MAX)
+}
+
+/// What every monitor shows, for the Portal (D-02, D-07, D-08): the connected `monitors` from left to right (then
+/// top to bottom, then by device name, so the enumeration order of the OS changes nothing), each with the theme
+/// `targets` place on it and whether a renderer plays there (`playing` maps a device name to its engine); then the
+/// stored `assignments` whose monitor is not connected, in their stored order. At most [`MAX_DISPLAYS`].
+pub fn display_views(
+    monitors: &[MonitorInfo],
+    targets: &[Target],
+    assignments: &[DisplayAssignment],
+    playing: &BTreeMap<String, EngineType>,
+) -> Vec<DisplayView> {
+    let mut ordered: Vec<&MonitorInfo> = monitors.iter().collect();
+    ordered.sort_by(|a, b| (a.rect.left, a.rect.top, &a.id).cmp(&(b.rect.left, b.rect.top, &b.id)));
+    let mut seen: BTreeSet<&str> = BTreeSet::new();
+    ordered.retain(|monitor| seen.insert(monitor.stable_id()));
+    let mut views: Vec<DisplayView> = ordered
+        .iter()
+        .enumerate()
+        .map(|(index, monitor)| {
+            let engine = playing.get(&monitor.id).copied();
+            DisplayView {
+                monitor_id: cut(monitor.stable_id()),
+                device_name: cut(&monitor.id),
+                number: display_number(&monitor.id, index + 1),
+                rect: [
+                    monitor.rect.left,
+                    monitor.rect.top,
+                    monitor.rect.right,
+                    monitor.rect.bottom,
+                ],
+                primary: monitor.primary,
+                connected: true,
+                theme: targets
+                    .iter()
+                    .find(|target| target.monitor.id == monitor.id)
+                    .map(|target| cut(&target.theme)),
+                running: engine.is_some(),
+                engine,
+            }
+        })
+        .collect();
+    for entry in assignments {
+        if !seen.insert(entry.monitor_id.as_str()) {
+            continue;
+        }
+        let position = views.len() + 1;
+        views.push(DisplayView {
+            monitor_id: cut(&entry.monitor_id),
+            device_name: cut(&entry.device_name),
+            number: display_number(&entry.device_name, position),
+            rect: [0; 4],
+            primary: false,
+            connected: false,
+            theme: Some(cut(&entry.theme)),
+            running: false,
+            engine: None,
+        });
+    }
+    views.truncate(MAX_DISPLAYS);
+    views
+}
+
+/// `text` cut to [`MAX_DISPLAY_TEXT`] bytes at a character boundary.
+fn cut(text: &str) -> String {
+    let mut end = text.len().min(MAX_DISPLAY_TEXT);
+    while !text.is_char_boundary(end) {
+        end -= 1;
+    }
+    text.get(..end).unwrap_or_default().to_owned()
 }
 
 /// The monitor ids each theme plays on, for the groups that share a clock and a sound (D-04, D-05).
@@ -496,5 +597,150 @@ mod tests {
         let new = [monitor(D1, true)];
         assert_eq!(actions(&old, &new, false), diff(&old, &new));
         assert_eq!(actions(&old, &new, true), replace_all(&old, &new));
+    }
+
+    fn at(id: &str, left: i32, primary: bool) -> MonitorInfo {
+        let mut monitor = monitor(id, primary);
+        monitor.rect.left = left;
+        monitor.rect.right = left + 1920;
+        monitor
+    }
+
+    fn views(monitors: &[MonitorInfo], list: &[DisplayAssignment], playing: &[(&str, EngineType)]) -> Vec<DisplayView> {
+        let targets = per_display(monitors, Some(list), "", "");
+        let playing: BTreeMap<String, EngineType> =
+            playing.iter().map(|(id, engine)| ((*id).to_owned(), *engine)).collect();
+        display_views(monitors, &targets, list, &playing)
+    }
+
+    #[test]
+    fn a_display_number_is_the_trailing_number_of_the_device_name_else_the_position() {
+        assert_eq!(display_number(D9, 1), 9);
+        assert_eq!(display_number(D1, 2), 1);
+        assert_eq!(display_number("\\\\.\\DISPLAY12", 1), 12);
+        assert_eq!(display_number("Monitor", 3), 3, "no number in the name");
+        assert_eq!(display_number("", 2), 2);
+        assert_eq!(display_number("\\\\.\\DISPLAY0", 4), 4, "zero is no monitor number");
+        assert_eq!(
+            display_number("DISPLAY99999", 1),
+            u8::MAX,
+            "too large for a number badge"
+        );
+    }
+
+    #[test]
+    fn the_displays_list_the_monitors_left_to_right_whatever_the_enumeration_order() {
+        let list = [entry(D1, "a"), entry(D9, "b")];
+        let ordered = [at(D1, 0, true), at(D9, 1920, false)];
+        let shuffled = [at(D9, 1920, false), at(D1, 0, true)];
+        let views_a = views(&ordered, &list, &[(D1, EngineType::XavierLive)]);
+        assert_eq!(views_a, views(&shuffled, &list, &[(D1, EngineType::XavierLive)]));
+        assert_eq!(views_a.len(), 2);
+        assert_eq!((views_a[0].device_name.as_str(), views_a[0].number), (D1, 1));
+        assert_eq!((views_a[1].device_name.as_str(), views_a[1].number), (D9, 9));
+        assert_eq!(views_a[0].theme.as_deref(), Some("a"));
+        assert_eq!(views_a[1].theme.as_deref(), Some("b"));
+        assert!(views_a[0].primary && views_a[0].connected && views_a[0].running);
+        assert_eq!(views_a[0].engine, Some(EngineType::XavierLive));
+        assert!(
+            !views_a[1].running && views_a[1].engine.is_none(),
+            "no renderer there yet"
+        );
+        assert_eq!(views_a[1].rect, [1920, 0, 3840, 1080]);
+        assert_eq!(views_a[1].monitor_id, format!("PATH#{D9}"));
+    }
+
+    #[test]
+    fn an_assignment_of_a_monitor_that_is_not_connected_follows_the_connected_ones() {
+        let list = [entry(D2, "gone"), entry(D1, "a"), entry(D2, "again")];
+        let monitors = [at(D1, 0, true)];
+        let listed = views(&monitors, &list, &[]);
+        assert_eq!(listed.len(), 2, "the repeated id is listed once");
+        assert!(listed[0].connected);
+        let away = &listed[1];
+        assert!(!away.connected && !away.running && !away.primary);
+        assert_eq!((away.device_name.as_str(), away.theme.as_deref()), (D2, Some("gone")));
+        assert_eq!(away.monitor_id, format!("PATH#{D2}"));
+        assert_eq!(away.rect, [0; 4]);
+        assert_eq!(away.number, 2);
+    }
+
+    #[test]
+    fn with_no_monitor_connected_every_stored_entry_is_listed_as_not_connected() {
+        let list = [entry(D1, "a"), entry(D9, "b")];
+        let listed = views(&[], &list, &[]);
+        assert_eq!(listed.len(), 2);
+        assert!(
+            listed
+                .iter()
+                .all(|view| !view.connected && !view.running && view.theme.is_some())
+        );
+        assert_eq!(listed[0].device_name, D1);
+        assert_eq!(listed[1].device_name, D9);
+    }
+
+    #[test]
+    fn with_no_entry_every_connected_monitor_is_listed_with_no_theme() {
+        let monitors = [at(D1, 0, true), at(D9, 1920, false)];
+        let targets = per_display(&monitors, Some(&[]), "", "");
+        let listed = display_views(&monitors, &targets, &[], &BTreeMap::new());
+        assert_eq!(listed.len(), 2);
+        assert!(
+            listed
+                .iter()
+                .all(|view| view.connected && view.theme.is_none() && !view.running)
+        );
+        assert!(display_views(&[], &[], &[], &BTreeMap::new()).is_empty());
+    }
+
+    #[test]
+    fn a_name_without_a_number_takes_its_position_from_the_left() {
+        let monitors = [at("Right", 1920, false), at("Left", 0, true)];
+        let listed = display_views(&monitors, &[], &[], &BTreeMap::new());
+        assert_eq!(
+            listed
+                .iter()
+                .map(|view| (view.device_name.as_str(), view.number))
+                .collect::<Vec<_>>(),
+            [("Left", 1), ("Right", 2)]
+        );
+    }
+
+    #[test]
+    fn the_displays_never_list_more_than_the_largest_runtime_allows() {
+        let list: Vec<DisplayAssignment> = (0..MAX_DISPLAY_ASSIGNMENTS)
+            .map(|n| entry(&format!("M{n}"), "t"))
+            .collect();
+        let monitors: Vec<MonitorInfo> = (0..8).map(|n| at(&format!("C{n}"), n * 1920, n == 0)).collect();
+        let listed = views(&monitors, &list, &[]);
+        assert_eq!(listed.len(), MAX_DISPLAYS);
+        let long = "x".repeat(MAX_DISPLAY_TEXT * 2);
+        let listed = display_views(&[], &[], &[entry(&long, &long)], &BTreeMap::new());
+        assert_eq!(listed[0].monitor_id.len(), MAX_DISPLAY_TEXT, "long text is cut");
+        assert!(id_matches(&format!("PATH#{long}"), &listed[0].monitor_id));
+    }
+
+    #[test]
+    fn removing_an_entry_drops_exactly_that_monitor_and_an_unknown_id_changes_nothing() {
+        let list = [entry(D1, "a"), entry(D9, "b")];
+        let rest = remove_entry(Some(&list), &format!("PATH#{D9}")).unwrap();
+        assert_eq!(rest, [entry(D1, "a")]);
+        assert_eq!(remove_entry(Some(&list), "PATH#nowhere"), None);
+        assert_eq!(remove_entry(Some(&[]), "x"), None);
+        assert_eq!(remove_entry(None, "x"), None);
+        let last = remove_entry(Some(&[entry(D1, "a")]), &format!("PATH#{D1}")).unwrap();
+        assert!(
+            last.is_empty(),
+            "the list stays, empty: nothing plays, and the file keeps its meaning"
+        );
+    }
+
+    #[test]
+    fn an_id_cut_for_the_portal_still_names_its_monitor() {
+        let long = "p".repeat(MAX_DISPLAY_TEXT + 40);
+        assert!(id_matches(&long, &long));
+        assert!(id_matches(&long, &long[..MAX_DISPLAY_TEXT]));
+        assert!(!id_matches(&long, "other"));
+        assert!(!id_matches("short", "shor"));
     }
 }
