@@ -7,8 +7,11 @@ use gpui_kit::component::{ActiveTheme, Icon, Sizable, skeleton::Skeleton, spinne
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
 
-use sucrose_core::library::{Compatibility, LibraryTheme};
-use sucrose_ipc::portal::{EngineReportView, PortalRequest, RuleState, RuntimeState};
+use sucrose_core::{
+    library::{Compatibility, LibraryTheme},
+    settings::DisplayScreenType,
+};
+use sucrose_ipc::portal::{DisplayView, EngineReportView, PortalRequest, RuleState, RuntimeState};
 
 use super::layout::{Arrow, CARD_HEIGHT};
 use crate::{i18n::tr, ipc::ServiceLink};
@@ -68,6 +71,27 @@ pub struct CardData {
     pub preview_hide: bool,
     /// What the pointer entering or leaving the card does (the hover preview).
     pub on_hover: HoverHandler,
+}
+
+/// The most monitor badges a card draws before the rest collapse into one "+N" badge (UI-SPEC Library card).
+pub const MAX_MONITOR_BADGES: usize = 2;
+
+/// One badge on a card: where the theme plays.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum Badge {
+    /// The theme plays on the monitor with this number.
+    Monitor(u8),
+    /// The theme plays on every monitor (Span and Duplicate).
+    All,
+    /// The numbers of the monitors beyond [`MAX_MONITOR_BADGES`], behind one "+N" badge.
+    More(Vec<u8>),
+}
+
+/// The badges of the card of `folder`: one per connected monitor that plays it now, at most [`MAX_MONITOR_BADGES`], then
+/// `More`; one `All` in Span and Duplicate, where the single wallpaper covers every monitor; none when it does not play.
+pub fn monitor_badges(folder: &str, displays: &[DisplayView], mode: DisplayScreenType) -> Vec<Badge> {
+    let _ = (folder, displays, mode);
+    Vec::new()
 }
 
 /// Whether the title strip shows: it hides only while a preview plays and `LibraryPreviewHide` is on (LIB-06).
@@ -374,19 +398,22 @@ pub fn render_skeleton_card(width: Pixels) -> impl IntoElement {
 #[cfg(test)]
 mod tests {
     // Not `use super::*`: the crate root glob-imports GPUI, whose `test` macro would shadow the built-in attribute.
-    use super::{CardData, CardUse, DisabledReason, Thumb, render_card, strip_visible, use_state};
+    use super::{
+        Badge, CardData, CardUse, DisabledReason, Thumb, monitor_badges, render_card, strip_visible, use_state,
+    };
     use gpui_kit::{
         Context, FocusHandle, ImageSource, IntoElement, Render, RenderImage, Styled as _, TestAppContext,
         VisualTestContext, Window, img, px,
     };
     use image::{Delay, Frame, Rgba, RgbaImage};
     use std::{path::PathBuf, rc::Rc, sync::Arc, time::Duration};
+    use sucrose_core::settings::DisplayScreenType;
     use sucrose_core::{
         library::{Compatibility, LibraryTheme},
         theme::{SucroseInfo, WallpaperType},
         version::LegacyVersion,
     };
-    use sucrose_ipc::portal::{EngineReportView, RuleState, RuntimeState};
+    use sucrose_ipc::portal::{DisplayView, EngineReportView, RuleState, RuntimeState};
 
     fn theme(kind: WallpaperType, compatibility: Compatibility) -> LibraryTheme {
         LibraryTheme {
@@ -707,6 +734,107 @@ mod tests {
             state(&video(), &moving, false),
             CardUse::Disabled(DisabledReason::Unavailable)
         );
+    }
+
+    fn display(number: u8, theme: Option<&str>, running: bool, connected: bool) -> DisplayView {
+        DisplayView {
+            monitor_id: format!("monitor-{number}"),
+            device_name: format!("\\\\.\\DISPLAY{number}"),
+            number,
+            rect: [0, 0, 1920, 1080],
+            primary: number == 1,
+            connected,
+            theme: theme.map(str::to_owned),
+            running,
+            engine: None,
+        }
+    }
+
+    fn badges(displays: &[DisplayView], mode: DisplayScreenType) -> Vec<Badge> {
+        monitor_badges("Rain", displays, mode)
+    }
+
+    #[test]
+    fn badges_a_theme_on_two_monitors_has_one_badge_per_monitor() {
+        let displays = [
+            display(1, Some("Rain"), true, true),
+            display(9, Some("Rain"), true, true),
+        ];
+        assert_eq!(
+            badges(&displays, DisplayScreenType::PerDisplay),
+            [Badge::Monitor(1), Badge::Monitor(9)]
+        );
+    }
+
+    #[test]
+    fn badges_a_theme_on_one_monitor_has_one_badge_and_the_other_monitor_none() {
+        let displays = [
+            display(1, Some("Rain"), true, true),
+            display(9, Some("Snow"), true, true),
+        ];
+        assert_eq!(badges(&displays, DisplayScreenType::PerDisplay), [Badge::Monitor(1)]);
+        assert_eq!(
+            monitor_badges("Snow", &displays, DisplayScreenType::PerDisplay),
+            [Badge::Monitor(9)]
+        );
+    }
+
+    #[test]
+    fn badges_the_third_and_later_monitors_collapse_into_more() {
+        let three = [
+            display(1, Some("Rain"), true, true),
+            display(2, Some("Rain"), true, true),
+            display(9, Some("Rain"), true, true),
+        ];
+        assert_eq!(
+            badges(&three, DisplayScreenType::PerDisplay),
+            [Badge::Monitor(1), Badge::Monitor(2), Badge::More(vec![9])]
+        );
+        let five: Vec<DisplayView> = [1, 2, 3, 4, 9]
+            .into_iter()
+            .map(|number| display(number, Some("Rain"), true, true))
+            .collect();
+        assert_eq!(
+            badges(&five, DisplayScreenType::PerDisplay),
+            [Badge::Monitor(1), Badge::Monitor(2), Badge::More(vec![3, 4, 9])]
+        );
+    }
+
+    #[test]
+    fn badges_span_and_duplicate_show_one_all_badge_however_many_monitors_play() {
+        let displays = [
+            display(1, Some("Rain"), true, true),
+            display(9, Some("Rain"), true, true),
+        ];
+        for mode in [DisplayScreenType::SpanAcross, DisplayScreenType::SameDuplicate] {
+            assert_eq!(badges(&displays, mode), [Badge::All], "{mode:?}");
+        }
+        let one = [display(1, Some("Rain"), true, true)];
+        assert_eq!(badges(&one, DisplayScreenType::SameDuplicate), [Badge::All]);
+    }
+
+    #[test]
+    fn badges_a_theme_that_does_not_run_has_none() {
+        let assigned_only = [display(1, Some("Rain"), false, true)];
+        assert!(badges(&assigned_only, DisplayScreenType::PerDisplay).is_empty());
+        assert!(badges(&assigned_only, DisplayScreenType::SameDuplicate).is_empty());
+        let other = [display(1, Some("Snow"), true, true)];
+        assert!(badges(&other, DisplayScreenType::PerDisplay).is_empty());
+        assert!(badges(&[], DisplayScreenType::SpanAcross).is_empty());
+        let empty = [display(1, None, false, true)];
+        assert!(badges(&empty, DisplayScreenType::PerDisplay).is_empty());
+    }
+
+    #[test]
+    fn badges_a_monitor_that_is_not_connected_never_gives_one() {
+        let displays = [
+            display(1, Some("Rain"), true, true),
+            display(9, Some("Rain"), true, false),
+        ];
+        assert_eq!(badges(&displays, DisplayScreenType::PerDisplay), [Badge::Monitor(1)]);
+        let gone = [display(9, Some("Rain"), true, false)];
+        assert!(badges(&gone, DisplayScreenType::PerDisplay).is_empty());
+        assert!(badges(&gone, DisplayScreenType::SameDuplicate).is_empty());
     }
 
     /// A two-frame image whose frames last 20 ms each.
