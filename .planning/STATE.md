@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-41-PLAN.md
-last_updated: "2026-11-28T15:28:15.161Z"
+stopped_at: Completed 04-42-PLAN.md
+last_updated: "2026-11-28T15:52:24.109Z"
 last_activity: 2026-11-28
 last_activity_desc: Phase 04 execution started
-state_head: 5452e0d6426c0ddbc221756225779e9bf180c4c9
+state_head: 677431b7558f4067a730cdabd1b223c912c2699d
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 135
-  completed_plans: 120
+  completed_plans: 121
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 42 of 56
+Plan: 43 of 56
 Status: Ready to execute
 Last activity: 2026-11-28 — Phase 04 execution started
 Next step: Round B is executed and all its requirements are Complete (04-39 done 2026-11-28; Farm Weather Cycles addendum 04:37; Addendum 2 marked TYPE-05 and ENG-02 on the machine proofs of the debug fixes 62ec2f49 and f5d57b98, maintainer decision 2026-11-28). TYPE-03, TYPE-04, TYPE-05, WAPI-05, WAPI-06, WAPI-08, ENG-02 and ENG-03 are Complete. Next: execute Round C (/gsd-execute-phase 4 runs 04-40..04-56; 04-40 has a short maintainer DISPLAY9 off/on step, 04-56 is the final Round C checkpoint with DISPLAY9 attached and the unattended measurement); phase verification runs only after Round E. Open findings: D13 (occasional duplicate mousedown), the WebView2 software decode of the 4K VP9 clip (Round D), BROWSER_EXIT_WAIT 1.5 s is still exceeded on a fully saturated CPU (16 busy threads; recorded as expected degraded behaviour), S3 expired.badssl.com did not load within 13 s in one of five runs (badssl.com slow, not blocking).
@@ -175,6 +175,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P39 | 26 min | 3 tasks | 0 files |
 | Phase 04 P40 | about 20 min (continuation) | 3 tasks | 9 files |
 | Phase 04 P41 | 25 min | 3 tasks | 9 files |
+| Phase 04 P42 | 17 min | 2 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -373,6 +374,7 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-39: Complete rule case 1 for TYPE-04, WAPI-05, WAPI-06, WAPI-08; case 2 for TYPE-03 and ENG-03 (Farm Weather Cycles never Used on CEF) and TYPE-05 and ENG-02 (P1a-WV2 run 1 measured a FAIL: start index 17 with Shuffle Mode off); reruns passing does not undo the FAIL. Addendum 2026-11-28 04:37: Farm Weather Cycles Used on CEF, maintainer "ok", page loaded 200 on both renderers, GPU exits 0, so TYPE-03 and ENG-03 are Complete as well (rule case 1). Addendum 2 (2026-11-28): after the debug fixes 62ec2f49 (playlist first start waits for setShuffle; P1a-WV2 10/10 at index 0) and f5d57b98 (BROWSER_EXIT_WAIT 1.5 s; 72 closes, no WARN), the maintainer chose to mark TYPE-05 and ENG-02 Complete on the machine proofs without a new eye check (rule case 1). C2/F3 (a Web theme appears on both monitors 0.7 to 2.4 s after a switch on WebView2) accepted by the maintainer 2026-11-28 ("C2 kabul"), no fix planned
 - [Phase 04]: 04-40: device path stable across replug: yes (DISPLAY9 MTT1337 id unchanged after a projection switch and a Device Manager disable/enable); 04-41 keeps monitorDevicePath as the monitor id, no EDID second key needed
 - [Phase 04]: D-042: Engine.DisplayAssignments remembers per-monitor wallpapers by the stable monitor id; renderers are grouped by theme (one clock and one sound per theme)
+- [Phase 04]: 04-42: RuntimeState.selected is the theme on the target monitor in Per display; Remove Wallpaper(None) in Span and Duplicate clears Library.Selected; display view texts are cut at 128 bytes
 
 ### Pending Todos
 
@@ -431,6 +433,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-28T15:27:50.756Z
-Stopped at: Completed 04-41-PLAN.md
+Last session: 2026-11-28T15:51:59.749Z
+Stopped at: Completed 04-42-PLAN.md
 Resume file: None
