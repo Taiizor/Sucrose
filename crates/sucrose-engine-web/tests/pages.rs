@@ -485,13 +485,7 @@ fn the_youtube_page_has_the_legacy_functions_the_legacy_player_vars_and_only_two
 #[test]
 fn the_youtube_page_hides_the_controls_next_to_the_player_not_only_inside_it() {
     let html = GeneratedPage::YouTube.html();
-    let function = |name: &str| {
-        let start = html
-            .find(&format!("function {name}("))
-            .unwrap_or_else(|| panic!("{name} exists"));
-        let end = html[start..].find("\n}\n").map_or(html.len(), |length| start + length);
-        &html[start..end]
-    };
+    let function = |name: &str| page_function(html, name);
 
     let hide = function("hideIframeElement");
     assert!(
@@ -527,6 +521,63 @@ fn the_youtube_page_hides_the_controls_next_to_the_player_not_only_inside_it() {
     // elements are also marked, and the Sucrose style sheet hides the mark.
     assert!(siblings.contains(r#"sibling.setAttribute("data-sucrose-hidden", "")"#));
     assert!(hide.contains(r#"e.textContent = "[data-sucrose-hidden]{display:none !important}@keyframes flip{"#));
+}
+
+/// The text of the page function `name`, from `function name(` to its closing brace at the start of a line.
+fn page_function<'a>(html: &'a str, name: &str) -> &'a str {
+    let start = html
+        .find(&format!("function {name}("))
+        .unwrap_or_else(|| panic!("{name} exists"));
+    let end = html[start..].find("\n}\n").map_or(html.len(), |length| start + length);
+    &html[start..end]
+}
+
+/// The engine says whether a playlist shuffles (`setShuffle`) once the page has loaded, and the player's first -1
+/// state can come before that (traced on both engines: about 0.2 s after `loadPlaylist`, only 0.15-0.25 s after the
+/// engine's call); the legacy page then took its `shuffleMode = true` default and started a list
+/// at a random video with Shuffle off (04-39 P1a-WV2, debug session webview2-playlist-starts-at-a). The first start
+/// waits for the engine's word: until it comes the list plays from its first video, and a shuffled list gets its random
+/// start when `setShuffle(true)` arrives.
+#[test]
+fn a_playlist_makes_its_random_first_start_only_once_the_engine_said_it_shuffles() {
+    let html = GeneratedPage::YouTube.html();
+
+    assert!(
+        html.contains(
+            "var shuffleMode = true, shuffleTold = false, shufflePending = false, prevIndex = -1, first = true;"
+        ),
+        "the legacy default stays, and the page knows whether the engine has said"
+    );
+    let state = page_function(html, "onPlayerStateChange");
+    let branch = state
+        .find("} else if (first && -1 === e.data) {")
+        .map(|start| &state[start..])
+        .expect("the first-start branch");
+    let branch = &branch[..branch.find("\n    }\n").expect("the end of the branch")];
+    assert!(
+        branch
+            .contains("if (!shuffleTold) { shufflePending = true; } else if (shuffleMode) { SucroseShuffleStart(); }"),
+        "{branch}"
+    );
+    assert!(
+        !branch.contains("playVideoAt"),
+        "no random start on the default before the engine said"
+    );
+
+    let set = page_function(html, "setShuffle");
+    assert!(
+        set.contains("shuffleMode = e;") && set.contains("shuffleTold = true;"),
+        "{set}"
+    );
+    assert!(
+        set.contains("if (shufflePending) { shufflePending = false; if (shuffleMode) { SucroseShuffleStart(); } }"),
+        "a start that came first is shuffled only when the engine says shuffle: {set}"
+    );
+    assert!(
+        page_function(html, "SucroseShuffleStart")
+            .contains("player.playVideoAt(Math.floor(Math.random() * t.length));"),
+        "the legacy random index"
+    );
 }
 
 #[test]

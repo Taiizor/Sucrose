@@ -74,7 +74,17 @@ function onPlayerReady(e) {
   if (paused) { player.pauseVideo(); }
 }
 
-var shuffleMode = true, prevIndex = -1, first = true;
+// Whether a playlist shuffles is the engine's word (setShuffle), and the engine says it once the page has loaded, which
+// can be after the player started the list: the first video's -1 state comes about 0.2 s after loadPlaylist, and the load
+// event and the engine's script can come later on a slow start. Until the engine has said, the list plays from its first
+// video; the random first start of a shuffled list is made when setShuffle arrives (debug session
+// webview2-playlist-starts-at-a; the legacy page took its shuffleMode default then).
+var shuffleMode = true, shuffleTold = false, shufflePending = false, prevIndex = -1, first = true;
+
+function SucroseShuffleStart() {
+  var t = player.getPlaylist() || [];
+  player.playVideoAt(Math.floor(Math.random() * t.length));
+}
 
 function onPlayerStateChange(e) {
   // A video that starts while the Light pause holds is paused again.
@@ -90,10 +100,7 @@ function onPlayerStateChange(e) {
       }
     } else if (first && -1 === e.data) {
       first = false;
-      if (shuffleMode) {
-        var t = player.getPlaylist();
-        player.playVideoAt(Math.floor(Math.random() * t.length));
-      }
+      if (!shuffleTold) { shufflePending = true; } else if (shuffleMode) { SucroseShuffleStart(); }
     }
   } else if (e.data === YT.PlayerState.ENDED) {
     player.seekTo(0);
@@ -183,7 +190,11 @@ function playFirst() {
 function playVideo() { player.playVideo(); }
 function pauseVideo() { player.pauseVideo(); }
 function setVolume(e) { player.setVolume(e); }
-function setShuffle(e) { shuffleMode = e; }
+function setShuffle(e) {
+  shuffleMode = e;
+  shuffleTold = true;
+  if (shufflePending) { shufflePending = false; if (shuffleMode) { SucroseShuffleStart(); } }
+}
 function forceReload() { location.reload(true); }
 
 function setLoop(e) {
