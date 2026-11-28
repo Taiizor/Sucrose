@@ -276,7 +276,7 @@ Plans:
   3. User can show a wallpaper per display, spanned or duplicated, put a different wallpaper on each monitor, and choose the working area or the full display bounds and a stretch mode, with every engine.
   4. Changing a value in the properties editor (all ten control types, texts in the user's language) changes the running wallpaper immediately; the user can restore defaults, turn on developer mode with a remote debugging port, and add, remove or reset web engine arguments.
   5. Each performance condition (lock, sleep, user switch, screen saver, focus, fullscreen, CPU/memory/GPU, network, battery, remote desktop/VM) runs its configured Close, Pause or Resume with the legacy timings; pausing goes through the engine and never suspends processes; volume, loop, shuffle and the two sound rules apply to every engine.
-**Plans**: 38/39 plans executed (Round A = D-31 slice 1, 04-01..04-21, executed; Round B = D-31 slices 2 and 3, 04-22..04-38, planned, plus 04-39, the re-check of the failed 04-37 steps after the debug batch, planned 2026-11-28; Rounds C–E are planned after the previous round has executed, 04-CONTEXT D-31 "Planning rounds")
+**Plans**: 39/39 plans executed (Round A = D-31 slice 1, 04-01..04-21, executed; Round B = D-31 slices 2 and 3, 04-22..04-38, planned, plus 04-39, the re-check of the failed 04-37 steps after the debug batch, planned 2026-11-28; Rounds C–E are planned after the previous round has executed, 04-CONTEXT D-31 "Planning rounds")
 Plans:
 **Wave 1**
 - [x] 04-01-PLAN.md — D-32 CEF delay-load spike, part 1: pinned CEF via fetch-engines and CEF_PATH, delay-loaded libcef.dll, CEF subprocess routing, fixture Web library
@@ -391,7 +391,7 @@ Plans:
 - [x] 04-38-PLAN.md — Maintainer measurement: WebView2 against C# WebView, built-in GIF against mpv and C# mpv, into MEASUREMENTS.md
 
 **Wave 38** *(blocked on Wave 37 completion)*
-- [ ] 04-39-PLAN.md — Maintainer checkpoint: re-check of the failed 04-37 steps after the debug batch on CEF and WebView2 (DISPLAY9 attached), the D-040 storage check and fast WebView2 switching; marks the open Round B requirements
+- [x] 04-39-PLAN.md — Maintainer checkpoint: re-check of the failed 04-37 steps after the debug batch on CEF and WebView2 (DISPLAY9 attached), the D-040 storage check and fast WebView2 switching; marks the open Round B requirements
 
 **UI hint**: yes
 **Notes**: Engine binaries ship inside the package (D-028); own `bindgen` bindings loaded with `libloading` (D-013). Legacy bugs are fixed, not ported: CEF path traversal (SEC-02), ping checked first even at threshold 0 (PERF-07), Application wallpapers with fake handles or one process for all screens (TYPE-06), debugger-attach and `NtSuspendProcess` pausing (PLAY-05). Record per-engine RAM/CPU from release builds in `docs/MEASUREMENTS.md`.
@@ -463,7 +463,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
 | 2. M1 — Video wallpaper on the desktop (Windows) | 29/29 | Complete    | 2026-11-23 |
 | 3. M2 — Service, IPC and Portal connected | 50/50 | Complete    | 2026-11-25 |
-| 4. M3 — Engines and the wallpaper API | 38/39 | In Progress | - |
+| 4. M3 — Engines and the wallpaper API | 39/39 | In Progress | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
 | 6. M5 — macOS | 0/TBD | Not started | - |
 | 7. M6 — Linux (X11, then Wayland compositors) | 0/TBD | Not started | - |

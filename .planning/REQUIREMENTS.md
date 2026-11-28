@@ -28,7 +28,7 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [x] **TYPE-01**: User can set a Video theme as the desktop wallpaper (Win ✅ · mac ✅ · Linux ✅)
 - [x] **TYPE-02**: User can set a GIF theme, drawn by Sucrose's built-in renderer, which also plays APNG and WebP (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-03**: User can set a Web theme (local HTML) on a web engine: WebView2/CEF on Windows, WKWebView/CEF on macOS, WebKitGTK/CEF on Linux (Win ✅ · mac ✅ · Linux ✅)
-- [ ] **TYPE-04**: User can set a URL wallpaper; it receives forwarded input (its Sucrose mute and volume set is part of PROP-05, D-06) (Win ✅ · mac ✅ · Linux ✅)
+- [x] **TYPE-04**: User can set a URL wallpaper; it receives forwarded input (its Sucrose mute and volume set is part of PROP-05, D-06) (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-05**: User can set a YouTube wallpaper (IFrame API page, no API key) with playlist, shuffle, loop and hidden player UI (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-06**: User can set an Application wallpaper that embeds another app's window, with one process per screen in every mode and real window handles (legacy bugs fixed) (Win ✅ · mac ❌ · Linux ⚠️ X11 only)
 
@@ -83,10 +83,10 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [x] **WAPI-02**: `SucroseCompatible.json` templates (16 keys) work, keeping legacy `True`/`False` booleans and indented JSON (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **WAPI-03**: Web wallpapers receive date, CPU, memory, GPU, network, storage and battery data with the legacy payload keys (`formats.md` §5, `engines.md` §6b) (Win ✅ · mac ✅ · Linux ✅)
 - [x] **WAPI-04**: Web wallpapers receive BIOS and motherboard data (Win ✅ · mac ⚠️ · Linux ⚠️)
-- [ ] **WAPI-05**: Web wallpapers receive the audio spectrum: 128 logarithmic bands, left/right/mono (`services.md` §1.2) (Win ✅ · mac ⚠️ permission · Linux ✅)
-- [ ] **WAPI-06**: Web wallpapers receive now-playing data (media session with thumbnail) (Win ✅ · mac ❌/⚠️ · Linux ✅ MPRIS)
+- [x] **WAPI-05**: Web wallpapers receive the audio spectrum: 128 logarithmic bands, left/right/mono (`services.md` §1.2) (Win ✅ · mac ⚠️ permission · Linux ✅)
+- [x] **WAPI-06**: Web wallpapers receive now-playing data (media session with thumbnail) (Win ✅ · mac ❌/⚠️ · Linux ✅ MPRIS)
 - [ ] **WAPI-07**: Mouse and keyboard input is forwarded to Web, URL and Application wallpapers (Win ✅ · mac ⚠️ · Linux ⚠️ X11 / ❌ most Wayland)
-- [ ] **WAPI-08**: GIF, Video and YouTube themes can run as generated pages in web engines, with their property keys (Win ✅ · mac ✅ · Linux ✅)
+- [x] **WAPI-08**: GIF, Video and YouTube themes can run as generated pages in web engines, with their property keys (Win ✅ · mac ✅ · Linux ✅)
 - [x] **WAPI-09**: User can turn on developer mode with a remote debugging port (Win ✅ · mac ✅ · Linux ✅)
 - [x] **WAPI-10**: **New:** user can add, remove and reset web engine arguments (Chromium switches) in the UI; legacy switches stay the defaults (D-021) (Win ✅ · mac ✅ · Linux ✅)
 
@@ -237,7 +237,7 @@ Which phases cover which requirements. Filled during roadmap creation.
 | TYPE-01 | Phase 2 | Complete |
 | TYPE-02 | Phase 4 | Complete |
 | TYPE-03 | Phase 4 | Pending |
-| TYPE-04 | Phase 4 | Pending |
+| TYPE-04 | Phase 4 | Complete |
 | TYPE-05 | Phase 4 | Pending |
 | TYPE-06 | Phase 4 | Pending |
 | ENG-01 | Phase 2 | Complete |
@@ -277,10 +277,10 @@ Which phases cover which requirements. Filled during roadmap creation.
 | WAPI-02 | Phase 4 | Complete |
 | WAPI-03 | Phase 4 | Pending |
 | WAPI-04 | Phase 4 | Complete |
-| WAPI-05 | Phase 4 | Pending |
-| WAPI-06 | Phase 4 | Pending |
+| WAPI-05 | Phase 4 | Complete |
+| WAPI-06 | Phase 4 | Complete |
 | WAPI-07 | Phase 4 | Pending |
-| WAPI-08 | Phase 4 | Pending |
+| WAPI-08 | Phase 4 | Complete |
 | WAPI-09 | Phase 4 | Complete |
 | WAPI-10 | Phase 4 | Complete |
 | PROP-01 | Phase 4 | Pending |

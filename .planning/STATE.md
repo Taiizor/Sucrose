@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-38-PLAN.md
-last_updated: "2026-11-28T00:39:06.276Z"
+stopped_at: Completed 04-39-PLAN.md
+last_updated: "2026-11-28T01:28:58.726Z"
 last_activity: 2026-11-28
 last_activity_desc: Phase 04 execution started
-state_head: 750f2c07a08f7b79cb379099ff755c2c5fec16a8
+state_head: b5eec90ff5dc3107c7e746df4ed897d08cef21d1
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 118
-  completed_plans: 117
+  completed_plans: 118
   percent: 38
 ---
 
@@ -29,9 +29,9 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
 Plan: 39 of 39
-Status: Ready to execute
+Status: Round B executed; Round C is planned next
 Last activity: 2026-11-28 — Phase 04 execution started
-Next step: 04-39 (04-38 done 2026-11-28: the measurement rows are in docs/MEASUREMENTS.md; the C# app is closed and DISPLAY9 is attached again; planned 2026-11-28: re-check of the failed 04-37 steps after the debug batch, with DISPLAY9 attached: A1/A3, A5-CEF, B2-WV2, B3, B4 with the public playlist that plays embedded (PLATNX_t55hdpWZS7sShzhjQIw5q6WEG5w or PLk6n5YKD7kakme_X3SjKHTl9AlKYrd78z), B5 with Ray Music Visualizer or the audio fixture, the D-040 storage eye check and fast WebView2 switching; Task 1 proves the build and runs the machine proofs S3..S7 and P1 unattended). Open findings: D13 (occasional duplicate mousedown), the WebView2 software decode of the 4K VP9 clip (Round D), BROWSER_EXIT_WAIT 1 s is tight under a full parallel test run (one 1034 ms exit seen).
+Next step: Round B is executed (04-39 done 2026-11-28). Open Round B requirements, each with its recorded reason in 04-39-SUMMARY: TYPE-03 and ENG-03 (Farm Weather Cycles was never Used on CEF: one 10 s check), TYPE-05 and ENG-02 (P1a-WV2 run 1 started the playlist at index 17 with Shuffle Mode off: /gsd-debug, then rerun P1a-WV2; ENG-02 also one 1052 ms WebView2 browser exit). TYPE-04, WAPI-05, WAPI-06 and WAPI-08 are Complete. Then plan Round C (04-CONTEXT D-31 "Planning rounds"). Open findings: D13 (occasional duplicate mousedown), the WebView2 software decode of the 4K VP9 clip (Round D), BROWSER_EXIT_WAIT 1 s is tight (exits of 1034 and 1052 ms seen), C2 (a Web theme appears on both monitors after about 1 to 2.4 s on WebView2, not about 1 s: webview2-browser-exit-slow), S3 expired.badssl.com did not load within 13 s in one of five runs (badssl.com slow, not blocking).
 
 Progress: [████░░░░░░] 38%
 
@@ -172,6 +172,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P36 | 21 min | 2 tasks | 6 files |
 | Phase 04 P37 | 35min | 3 tasks | 1 files |
 | Phase 04 P38 | 75 min | 3 tasks | 3 files |
+| Phase 04 P39 | 26 min | 3 tasks | 0 files |
 
 ## Accumulated Context
 
@@ -365,6 +366,7 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-33 GIF decoder bundle in GifContent.html (gifuct-js + jsBinarySchemaParser, MIT upstream, notice added): license reading confirmed by the maintainer (2026-11-27)
 - [Phase 04]: 04-38: M3 WebView2 row is Rust-only because --row refused the pair (GPU adapter sets differ, G-02-6); C# numbers are in the paragraph; the tool was not changed
 - [Phase 04]: 04-38: built-in GIF renderer uses less RAM than Rust/C# mpv but more CPU and GPU time; recorded as found, flagged for /gsd-verify-work, not tuned
+- [Phase 04]: 04-39: Complete rule case 1 for TYPE-04, WAPI-05, WAPI-06, WAPI-08; case 2 for TYPE-03 and ENG-03 (Farm Weather Cycles never Used on CEF) and TYPE-05 and ENG-02 (P1a-WV2 run 1 measured a FAIL: start index 17 with Shuffle Mode off); reruns passing does not undo the FAIL
 
 ### Pending Todos
 
@@ -423,6 +425,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-28T00:38:42.372Z
-Stopped at: Completed 04-38-PLAN.md
+Last session: 2026-11-28T01:28:37.077Z
+Stopped at: Completed 04-39-PLAN.md
 Resume file: None
