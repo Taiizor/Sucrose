@@ -1020,7 +1020,7 @@ fn the_time_base_call_is_one_function_call_with_the_epoch_for_a_generated_page_a
 
 #[test]
 fn every_generated_page_defines_the_sync_function_and_keeps_its_legacy_functions() {
-    for page in [GeneratedPage::Video] {
+    for page in GeneratedPage::ALL {
         let html = page.html();
         assert!(
             html.contains("function SucroseSyncTime("),
@@ -1045,6 +1045,37 @@ fn every_generated_page_defines_the_sync_function_and_keeps_its_legacy_functions
             );
         }
     }
+}
+
+#[test]
+fn the_gif_frame_loop_asks_the_time_base_at_its_loop_wrap_and_the_youtube_page_seeks_only_past_half_a_second() {
+    let gif: String = GeneratedPage::Gif
+        .html()
+        .chars()
+        .filter(|c| !c.is_whitespace())
+        .collect();
+    assert!(
+        gif.contains("++y>=f.length&&w?(y=0,\"function\"==typeofSucroseGifWrap&&(y=SucroseGifWrap(f,x)))"),
+        "the wrap of the frame loop no longer asks the time base"
+    );
+    let youtube: String = GeneratedPage::YouTube
+        .html()
+        .chars()
+        .filter(|c| !c.is_whitespace())
+        .collect();
+    assert!(youtube.contains("setInterval(SucroseSyncStep,2000)"));
+    assert!(youtube.contains("Math.abs(drift)>0.5"));
+    assert!(youtube.contains("player.seekTo(expected,true)"));
+    let video: String = GeneratedPage::Video
+        .html()
+        .chars()
+        .filter(|c| !c.is_whitespace())
+        .collect();
+    assert!(
+        video.contains("Math.abs(drift)>1"),
+        "a video seeks for drifts over a second"
+    );
+    assert!(video.contains("video.currentTime=expected"));
 }
 
 #[test]

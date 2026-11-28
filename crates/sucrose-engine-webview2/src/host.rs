@@ -40,6 +40,9 @@ pub struct HostStart {
     pub page_calls: PageCallsHook,
     /// Called after every completed main-frame navigation.
     pub on_loaded: LoadedHook,
+    /// A script that runs in every new document before the page's own scripts: the time base shim of a Web or Url page
+    /// that is part of a theme group (D-04). `None` for a single wallpaper and for a generated page.
+    pub document_start_script: Option<String>,
 }
 
 /// Why WebView2 did not start.
@@ -252,8 +255,8 @@ mod imp {
         youtube::{referer_for, request_filters},
     };
     use webview2_com::{
-        AcceleratorKeyPressedEventHandler, BrowserProcessExitedEventHandler,
-        CallDevToolsProtocolMethodCompletedHandler, CoreWebView2EnvironmentOptions,
+        AcceleratorKeyPressedEventHandler, AddScriptToExecuteOnDocumentCreatedCompletedHandler,
+        BrowserProcessExitedEventHandler, CallDevToolsProtocolMethodCompletedHandler, CoreWebView2EnvironmentOptions,
         CreateCoreWebView2ControllerCompletedHandler, CreateCoreWebView2EnvironmentCompletedHandler,
         DownloadStartingEventHandler, ExecuteScriptCompletedHandler,
         Microsoft::Web::WebView2::Win32::{
@@ -1030,6 +1033,14 @@ mod imp {
                 fourth.add_DownloadStarting(&handler, &mut token).map_err(setup)?;
                 self.tokens.download = Some(token);
 
+                // The time base shim goes in before the first navigation, so it runs before the page's own scripts. A shim
+                // that cannot be registered leaves the page unsynced, never unshown (best effort).
+                if let Some(script) = &start.document_start_script
+                    && let Err(error) = add_document_script(&webview, script)
+                {
+                    tracing::warn!(%error, "the time base script could not be registered, the page is not synced");
+                }
+
                 let target = wide(url);
                 webview.Navigate(PCWSTR(target.as_ptr())).map_err(setup)?;
             }
@@ -1203,6 +1214,23 @@ mod imp {
         fn drop(&mut self) {
             self.close_inner();
         }
+    }
+
+    /// Registers `script` to run in every document the webview creates from now on, before the page's own scripts, and waits
+    /// (pumping messages) until WebView2 has taken it, so the navigation that follows is certain to run it. The page gets
+    /// no way back: the script has no host object and no message channel.
+    fn add_document_script(webview: &ICoreWebView2, script: &str) -> Result<(), HostError> {
+        let source = wide(script);
+        let (sender, receiver) = mpsc::channel();
+        let handler = AddScriptToExecuteOnDocumentCreatedCompletedHandler::create(Box::new(move |code, _id| {
+            let _ = sender.send(code);
+            Ok(())
+        }));
+        // SAFETY: `source` is NUL-terminated and outlives the call, which copies it; the handler is a COM object the
+        // call keeps its own reference to; the webview belongs to this thread.
+        unsafe { webview.AddScriptToExecuteOnDocumentCreated(PCWSTR(source.as_ptr()), &handler) }
+            .map_err(|error| HostError::Setup(error.to_string()))?;
+        wait_for(&receiver, "registering the time base script")?.map_err(|error| HostError::Setup(error.to_string()))
     }
 
     /// Starts `script` in the main frame of `webview`. WebView2 runs scripts in the order they were started on this

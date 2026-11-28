@@ -219,6 +219,29 @@ function SucroseVolume(level) {
   SucroseApplyVolume();
 }
 
+// The shared time base of a theme group (D-043): every 2 s the page compares where the player is with where the wall clock says
+// it should be since the epoch (modulo the duration of the video it shows) and seeks when the two are over 0.5 s apart.
+// A playlist is synced inside the video both pages show. A paused page, a player that is not playing and a live stream
+// (no duration) are left alone.
+var syncEpoch = 0, syncTimer = 0;
+
+function SucroseSyncTime(epoch) {
+  syncEpoch = Number(epoch) || 0;
+  if (syncTimer) { clearInterval(syncTimer); syncTimer = 0; }
+  if (syncEpoch) { syncTimer = setInterval(SucroseSyncStep, 2000); }
+}
+
+function SucroseSyncStep() {
+  if (!syncEpoch || !ready || paused || player.getPlayerState() !== YT.PlayerState.PLAYING) { return; }
+  var duration = player.getDuration();
+  if (!isFinite(duration) || duration <= 0) { return; }
+  var rate = player.getPlaybackRate() || 1;
+  var expected = ((((Date.now() - syncEpoch) / 1000) * rate) % duration + duration) % duration;
+  var drift = player.getCurrentTime() - expected;
+  if (drift > duration / 2) { drift -= duration; } else if (drift < -duration / 2) { drift += duration; }
+  if (Math.abs(drift) > 0.5) { player.seekTo(expected, true); }
+}
+
 // The Light pause (PLAY-05): the player pauses, and a video that starts later (the next in the list) is paused too.
 function SucrosePause() {
   paused = true;

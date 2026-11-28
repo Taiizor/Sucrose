@@ -80,6 +80,9 @@ pub struct CefStart {
     pub developer_mode: bool,
     /// `General.UserAgent` as the service decided it (legacy `CefSettings.UserAgent`); empty keeps CEF's own.
     pub user_agent: String,
+    /// A script that runs in every new document before the page's own scripts: the time base shim of a Web or Url page
+    /// that is part of a theme group (D-04). `None` for a single wallpaper and for a generated page.
+    pub document_start_script: Option<String>,
 }
 
 impl std::fmt::Debug for CefStart {
@@ -277,7 +280,7 @@ mod imp {
         cell::Cell,
         path::Path,
         sync::{
-            Arc, Mutex,
+            Arc, Mutex, PoisonError,
             atomic::{AtomicBool, Ordering},
         },
         thread::{self, ThreadId},
@@ -436,6 +439,11 @@ mod imp {
         ready_to_close: AtomicBool,
         on_loaded: LoadedCallback,
         page_calls: PageCallsCallback,
+        /// The browser was made on about:blank so that the document-start script could be registered before the page
+        /// loads: the load end of that blank page is not the wallpaper's first frame.
+        skip_blank: AtomicBool,
+        /// The shim to run when the page has loaded, set only when DevTools did not take it at document start.
+        late_script: Mutex<Option<String>>,
     }
 
     wrap_browser_process_handler! {
@@ -546,7 +554,20 @@ mod imp {
                     return;
                 }
                 let url = CefString::from(&frame.url()).to_string();
+                if url == BLANK_PAGE && self.shared.skip_blank.load(Ordering::SeqCst) {
+                    tracing::debug!("the blank page the time base script was registered on finished loading");
+                    return;
+                }
                 tracing::info!(url = ?url, status = http_status_code, "page loaded");
+                // The fallback of a time base shim DevTools did not take at document start: it runs now, late.
+                let late = self.shared.late_script.lock().unwrap_or_else(PoisonError::into_inner).take();
+                if let Some(script) = late {
+                    frame.execute_java_script(
+                        Some(&CefString::from(script.as_str())),
+                        Some(&CefString::from("sucrose://page-call")),
+                        0,
+                    );
+                }
                 // The page's own scripts have run by now: the calls go in before the first frame is reported.
                 for call in (self.shared.page_calls)(&url, http_status_code) {
                     tracing::debug!(kind = call.kind, key = ?call.key, "page call");
@@ -657,6 +678,27 @@ mod imp {
         if let Err(error) = unsafe { DestroyWindow(window) } {
             tracing::debug!(%error, "the browser window is already gone");
         }
+    }
+
+    /// The address a browser is made on while a document-start script is registered before the wallpaper page loads.
+    const BLANK_PAGE: &str = "about:blank";
+
+    /// Registers `script` with the DevTools protocol (`Page.addScriptToEvaluateOnNewDocument`) through the browser host
+    /// in this process: it runs in every new document of the browser before the page's own scripts. Nothing opens a
+    /// port or a channel; the page gets no way back. `false` when CEF refused the call.
+    fn register_document_script(browser: &Browser, script: &str) -> bool {
+        let Some(host) = browser.host() else { return false };
+        let Some(mut params) = dictionary_value_create() else {
+            return false;
+        };
+        if params.set_string(Some(&CefString::from("source")), Some(&CefString::from(script))) != 1 {
+            return false;
+        }
+        host.execute_dev_tools_method(
+            0,
+            Some(&CefString::from("Page.addScriptToEvaluateOnNewDocument")),
+            Some(&mut params),
+        ) != 0
     }
 
     /// Shows DevTools for `browser` in a window of its own, on top of nothing (never as a child of the wallpaper), at
@@ -878,6 +920,8 @@ mod imp {
                 ready_to_close: AtomicBool::new(false),
                 on_loaded: Arc::clone(&start.on_loaded),
                 page_calls: Arc::clone(&start.page_calls),
+                skip_blank: AtomicBool::new(false),
+                late_script: Mutex::new(None),
             });
             // The persistent profile (primary monitor) or an ephemeral one (D-33); both paths name the same folder, so
             // CEF's process singleton lock and the profile never meet another running instance's.
@@ -962,10 +1006,20 @@ mod imp {
                 PageFocus::new(),
                 PageRequests::new(RefererFill::new()),
             );
+            // A time base shim must be in place before the page's own scripts run: the browser is made on about:blank, the
+            // script is registered with DevTools, and then the page is loaded.
+            let first = if start.document_start_script.is_some() {
+                BLANK_PAGE
+            } else {
+                url
+            };
+            if start.document_start_script.is_some() {
+                shared.skip_blank.store(true, Ordering::SeqCst);
+            }
             let browser = browser_host_create_browser_sync(
                 Some(&window_info),
                 Some(&mut client),
-                Some(&CefString::from(url)),
+                Some(&CefString::from(first)),
                 Some(&browser_settings),
                 None,
                 None,
@@ -974,6 +1028,18 @@ mod imp {
                 cef::shutdown();
                 return Err(CefError::CreateBrowser);
             };
+            if let Some(script) = &start.document_start_script {
+                if register_document_script(&browser, script) {
+                    tracing::info!("time base script registered at document start");
+                } else {
+                    // Best effort: the shim runs when the page has loaded instead, which offsets the clocks from then on.
+                    tracing::warn!("DevTools did not take the time base script; it runs after the page loaded instead");
+                    *shared.late_script.lock().unwrap_or_else(PoisonError::into_inner) = Some(script.clone());
+                }
+                if let Some(frame) = browser.main_frame() {
+                    frame.load_url(Some(&CefString::from(url)));
+                }
+            }
             show_browser_window(&browser);
             Ok(Self {
                 browser,
@@ -1173,6 +1239,8 @@ mod imp {
                 ready_to_close: AtomicBool::new(false),
                 on_loaded: Arc::new(|_, _| {}),
                 page_calls: Arc::new(|_, _| Vec::new()),
+                skip_blank: AtomicBool::new(false),
+                late_script: Mutex::new(None),
             })
         }
 

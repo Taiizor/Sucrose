@@ -1,0 +1,16 @@
+{
+  "AppVersion": "26.6.19.0",
+  "Version": "1.0.0.0",
+  "Title": "Sucrose fixture: sync",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "A fixture Web theme for the time base runs: a canvas bar drawn from performance.now() and a probe function. Not a real theme.",
+  "Author": "Sucrose",
+  "Contact": "https://example.com/web",
+  "Type": 2,
+  "Source": "index.html",
+  "Tags": [
+    "fixture"
+  ],
+  "Arguments": null
+}

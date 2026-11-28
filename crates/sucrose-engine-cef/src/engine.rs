@@ -64,6 +64,8 @@ enum Command {
     /// The value of the `ShuffleMode` call changed (PLAY-01).
     Shuffle(bool),
     Stretch(Stretch),
+    /// The shared time base of the theme group arrived or moved (D-043): a generated page is told the epoch.
+    TimeBase(u64),
     /// Show DevTools: the Portal's Open DevTools button (D-13).
     OpenDevTools,
     /// A data snapshot arrived: run the templates with the newest values (kept in the [`PageState`]).
@@ -276,6 +278,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         },
         developer_mode: web.developer_mode,
         user_agent: web.user_agent.clone(),
+        document_start_script: page::document_start_script(page_kind, assignment.time_base),
     };
     // The page comes from the virtual origin (D-14): the theme folder first, then the generated content. A Gif, Video
     // or YouTube theme plays through a generated page that is written into the content folder.
@@ -415,6 +418,13 @@ impl Engine for CefEngine {
         Ok(())
     }
 
+    /// The page follows the time base of its theme group (D-04, D-043): the epoch is kept for a page that has not loaded
+    /// yet, and a generated page is told at once.
+    fn set_time_base(&self, epoch_unix_ms: u64) {
+        self.state.page.set_time_base(epoch_unix_ms);
+        self.queue(Command::TimeBase(epoch_unix_ms));
+    }
+
     /// A running CEF renderer cannot show another page in place: the service starts a new renderer for it.
     fn load_source(&self, _source: &Path, _settings: &PlaybackSettings) -> Result<(), EngineError> {
         Err(EngineError::Unsupported {
@@ -528,6 +538,11 @@ impl CefPump {
                             key: "stretch".to_owned(),
                             script: pages::stretch_script(page, stretch),
                         });
+                    }
+                }
+                Command::TimeBase(epoch) => {
+                    if let Some(call) = js::time_base_call(self.generated, epoch) {
+                        self.run(&call);
                     }
                 }
                 Command::Volume(_) | Command::Audio(_) => {
@@ -658,6 +673,20 @@ mod tests {
             takes_input: true,
         };
         (engine, receiver, wakes)
+    }
+
+    #[test]
+    fn a_time_base_is_kept_and_queued_for_the_page() {
+        let (engine, queue, wakes) = handle(4);
+
+        engine.set_time_base(1_764_345_600_123);
+
+        assert_eq!(engine.state.page.time_base(), Some(1_764_345_600_123));
+        assert_eq!(
+            queue.try_iter().collect::<Vec<_>>(),
+            [Command::TimeBase(1_764_345_600_123)]
+        );
+        assert_eq!(wakes.load(Ordering::SeqCst), 1);
     }
 
     #[test]

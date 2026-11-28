@@ -291,6 +291,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
         page_calls: Arc::new(move |_url, status| {
             page::page_calls(page_kind, &calls_dir, status, &calls_state, &complaints)
         }),
+        document_start_script: page::document_start_script(page_kind, assignment.time_base),
         // The first finished main-frame load is the first frame the user can see.
         on_loaded: Arc::new(move |_url, status| {
             if !told.swap(true, Ordering::SeqCst) {

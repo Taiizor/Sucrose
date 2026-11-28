@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sucrose fixture: sync</title>
+<style>
+html,body{margin:0;height:100%;background:#101820;overflow:hidden}
+canvas{display:block;width:100%;height:100%}
+</style>
+</head>
+<body>
+<canvas id="c" width="960" height="540"></canvas>
+<script>
+// A deterministic page for the time base probes (04-44): the bar is a function of performance.now() only, and the probe
+// reads the same clock through window.__syncNow. With a time base both are the time since the epoch, so two monitors
+// of one theme group agree.
+var canvas = document.getElementById("c"), context = canvas.getContext("2d");
+window.__syncNow = function () { return performance.now(); };
+function draw(stamp) {
+  var t = stamp % 4000 / 4000;
+  context.fillStyle = "#101820";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+  context.fillStyle = "#f2aa4c";
+  context.fillRect(t * (canvas.width - 80), canvas.height / 2 - 40, 80, 80);
+  requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>
