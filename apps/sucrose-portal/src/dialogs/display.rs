@@ -6,18 +6,40 @@
 //! The model (what the dialog shows for a runtime state) is plain data built by [DisplayModel::build], so every rule of
 //! the dialog is tested without a window; [DisplayPreferences] draws it.
 
+use std::{
+    collections::HashMap,
+    path::{Path, PathBuf},
+    rc::Rc,
+    sync::Arc,
+};
+
 use gpui_kit::assets::IconName;
-use gpui_kit::component::{ActiveTheme as _, Icon, Sizable as _, WindowExt as _, h_flex, skeleton::Skeleton, v_flex};
+use gpui_kit::base::actions::Confirm;
+use gpui_kit::component::{
+    ActiveTheme as _, Disableable as _, Icon, Sizable as _, StyledExt as _, WindowExt as _,
+    button::Button,
+    h_flex,
+    radio::{Radio, RadioGroup},
+    scroll::ScrollableElement as _,
+    skeleton::Skeleton,
+    spinner::Spinner,
+    tooltip::Tooltip,
+    v_flex,
+};
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
 use sucrose_core::settings::DisplayScreenType;
 use sucrose_ipc::portal::{DisplayView, PortalRequest, PortalSettings, RuleState, RuntimeState, SettingChange};
 
-use super::body;
+use super::{body, close_footer};
 use crate::{
+    atlas,
     i18n::{tr, tr_with},
     ipc::ServiceLink,
-    library::LibraryView,
+    library::{
+        LibraryView, ThemeBrief,
+        thumbs::{Bucket, decode_thumbnail},
+    },
 };
 
 /// Width of the dialog: a 680 px canvas plus 24 px padding on each side (UI-SPEC).
@@ -36,9 +58,12 @@ pub const DETAIL_WIDTH: f32 = 120.0;
 const SECTION_GAP: f32 = 24.0;
 /// The tile corner radius.
 const TILE_RADIUS: f32 = 8.0;
+/// The height of a row of the monitor list (UI-SPEC).
+const ROW_HEIGHT: f32 = 48.0;
+/// The most the monitor list takes before it scrolls (UI-SPEC).
+const LIST_MAX_HEIGHT: f32 = 200.0;
 
 /// The three placement modes in the order the radios list them.
-#[allow(dead_code, reason = "the Placement Mode radios of the next task read it")]
 pub const MODES: [DisplayScreenType; 3] = [
     DisplayScreenType::PerDisplay,
     DisplayScreenType::SpanAcross,
@@ -46,7 +71,6 @@ pub const MODES: [DisplayScreenType; 3] = [
 ];
 
 /// The keys of the title and the description of a placement mode.
-#[allow(dead_code, reason = "the Placement Mode radios of the next task read it")]
 pub fn mode_keys(mode: DisplayScreenType) -> (&'static str, &'static str) {
     match mode {
         DisplayScreenType::PerDisplay => (
@@ -141,7 +165,6 @@ pub struct ModeState {
     pending: Option<DisplayScreenType>,
 }
 
-#[allow(dead_code, reason = "the Placement Mode radios of the next task choose and reject")]
 impl ModeState {
     /// The mode the service reported (Welcome or Changed).
     pub fn set_stored(&mut self, mode: DisplayScreenType) {
@@ -245,7 +268,6 @@ pub struct RowModel {
     pub can_remove: bool,
 }
 
-#[allow(dead_code, reason = "the list of the next task sends these requests")]
 impl RowModel {
     /// The request Remove Wallpaper sends: for one monitor, or for the single wallpaper.
     pub fn remove_request(&self) -> PortalRequest {
@@ -257,9 +279,9 @@ impl RowModel {
         }
     }
 
-    /// The request a click on the row sends, when the row selects a target.
+    /// The request a click on the row sends: it selects the monitor as the target, unless it already is.
     pub fn select_request(&self) -> Option<PortalRequest> {
-        self.selectable
+        (self.selectable && !self.selected)
             .then(|| PortalRequest::Change(SettingChange::ScreenDevice(self.device_name.clone())))
     }
 }
@@ -275,7 +297,6 @@ pub struct MissingModel {
     pub theme: Option<String>,
 }
 
-#[allow(dead_code, reason = "the Not connected section of the next task sends this request")]
 impl MissingModel {
     /// The request Remove sends.
     pub fn remove_request(&self) -> PortalRequest {
@@ -439,39 +460,95 @@ fn union(rects: &[TileRect]) -> Option<TileRect> {
     })
 }
 
-/// The dialog's state: what the service reported and the focus handles of its parts.
+/// How a lookup finds the title and the thumbnail of the theme in a folder.
+type ThemeLookup = Rc<dyn Fn(&str, &App) -> Option<ThemeBrief>>;
+
+/// Where the decode of a tile thumbnail stands.
+enum ThumbState {
+    /// The thumbnail is being decoded on a background thread.
+    Loading,
+    /// The decoded thumbnail, at tile size.
+    Ready(Arc<RenderImage>),
+    /// It cannot be decoded: the tile shows the card fallback.
+    Failed,
+}
+
+/// What a tile shows where its thumbnail goes.
+enum TileThumb {
+    /// The monitor has no wallpaper.
+    Empty,
+    /// The decoded thumbnail.
+    Ready(Arc<RenderImage>),
+    /// Waiting for the decode.
+    Loading,
+    /// The theme is unknown or its thumbnail cannot be decoded.
+    Failed,
+}
+
+/// Held by the open dialog: when the dialog is dropped, the thumbnails it decoded are released.
+struct CloseGuard;
+
+/// The dialog's state: what the service reported, the thumbnails of the tiles and the focus handles of its parts.
 pub struct DisplayPreferences {
     /// Sends the requests.
     link: ServiceLink,
-    /// The library, which knows the themes the monitors play.
-    #[allow(
-        dead_code,
-        reason = "the thumbnails and the list rows read the themes in the next task"
-    )]
-    library: Entity<LibraryView>,
+    /// Finds the title and the thumbnail of a theme in the library.
+    lookup: ThemeLookup,
     /// The placement mode the radios show.
     mode: ModeState,
     /// The device name of the target monitor, as the service stored it.
     device: String,
     /// What every monitor shows, from the latest runtime state; none before the first report.
     runtime: Option<RuntimeState>,
+    /// The tile thumbnails by file; only while the dialog is open.
+    thumbs: HashMap<PathBuf, ThumbState>,
+    /// The running decodes; dropped with the dialog.
+    tasks: Vec<Task<()>>,
+    /// Whether the dialog is open.
+    open: bool,
+    /// The width the thumbnails are decoded at, from the window scale factor.
+    bucket: Bucket,
     /// One focus handle per tile, for the arrow keys.
     tile_focus: Vec<FocusHandle>,
+    /// One focus handle per row of the list.
+    row_focus: Vec<FocusHandle>,
     /// The group of radios, which has the focus when the dialog opens.
     radio_focus: FocusHandle,
+    /// The focus moves to the first radio once the dialog has been drawn.
+    focus_radios: bool,
+    /// Asks for the thumbnails again when the library finds a theme; dropped with the model.
+    _library: Option<Subscription>,
 }
 
 impl DisplayPreferences {
-    /// An empty dialog model: it shows the loading state until the service reports.
+    /// An empty dialog model that finds themes in the library: it shows the loading state until the service reports.
     pub fn new(link: ServiceLink, library: Entity<LibraryView>, cx: &mut Context<Self>) -> Self {
+        let lookup: ThemeLookup = {
+            let library = library.clone();
+            Rc::new(move |folder, cx| library.read(cx).theme_brief(folder))
+        };
+        let mut model = Self::with_lookup(link, lookup, cx);
+        model._library = Some(cx.observe(&library, |this, _, cx| this.request_thumbnails(cx)));
+        model
+    }
+
+    /// An empty dialog model with its own way to find themes.
+    fn with_lookup(link: ServiceLink, lookup: ThemeLookup, cx: &mut Context<Self>) -> Self {
         Self {
             link,
-            library,
+            lookup,
             mode: ModeState::default(),
             device: String::new(),
             runtime: None,
+            thumbs: HashMap::new(),
+            tasks: Vec::new(),
+            open: false,
+            bucket: Bucket::W360,
             tile_focus: Vec::new(),
+            row_focus: Vec::new(),
             radio_focus: cx.focus_handle(),
+            focus_radios: false,
+            _library: None,
         }
     }
 
@@ -491,6 +568,7 @@ impl DisplayPreferences {
     /// What every monitor shows changed.
     pub fn set_runtime(&mut self, runtime: RuntimeState, cx: &mut Context<Self>) {
         self.runtime = Some(runtime);
+        self.request_thumbnails(cx);
         cx.notify();
     }
 
@@ -509,6 +587,20 @@ impl DisplayPreferences {
         }
     }
 
+    /// The service refused a setting. A refused placement change (mode or target) is the dialog's: the radios show the
+    /// broadcast mode again, and the result is true so the caller tells the user. Any other change is not the dialog's.
+    pub fn on_rejected(&mut self, change: &SettingChange, cx: &mut Context<Self>) -> bool {
+        match change {
+            SettingChange::DisplayScreenType(_) => {
+                self.mode.rejected();
+                cx.notify();
+                true
+            }
+            SettingChange::ScreenDevice(_) => true,
+            _ => false,
+        }
+    }
+
     /// The model of what the dialog shows now.
     pub fn model(&self) -> DisplayModel {
         DisplayModel::build(
@@ -519,40 +611,217 @@ impl DisplayPreferences {
         )
     }
 
-    /// Keeps one focus handle per tile.
-    fn sync_focus(&mut self, tiles: usize, cx: &mut Context<Self>) {
+    /// A radio was chosen: the request goes to the service and the radios wait for its broadcast.
+    fn choose_mode(&mut self, index: usize, cx: &mut Context<Self>) {
+        let Some(mode) = MODES.get(index).copied() else {
+            return;
+        };
+        if self.mode.choose(mode) {
+            self.link
+                .send(PortalRequest::Change(SettingChange::DisplayScreenType(mode)));
+            cx.notify();
+        }
+    }
+
+    /// The dialog opened: thumbnails are decoded for the tiles from now until it closes.
+    fn on_opened(&mut self, window: &Window, cx: &mut Context<Self>) {
+        self.open = true;
+        self.focus_radios = true;
+        self.bucket = Bucket::for_scale(window.scale_factor());
+        self.request_thumbnails(cx);
+        cx.notify();
+    }
+
+    /// The dialog closed: the decodes stop and every thumbnail leaves the atlas (docs/GPUI.md).
+    fn on_closed(&mut self, cx: &mut Context<Self>) {
+        self.open = false;
+        self.tasks.clear();
+        let images = self.thumbs.drain().filter_map(|(_, state)| match state {
+            ThumbState::Ready(image) => Some(image),
+            ThumbState::Loading | ThumbState::Failed => None,
+        });
+        atlas::release_images(cx, images);
+    }
+
+    /// The thumbnail files of the connected monitors' themes.
+    fn wanted_thumbnails(&self, cx: &App) -> Vec<PathBuf> {
+        let Some(runtime) = &self.runtime else {
+            return Vec::new();
+        };
+        let mut wanted: Vec<PathBuf> = Vec::new();
+        for display in runtime.displays.iter().filter(|display| display.connected) {
+            let brief = display.theme.as_deref().and_then(|folder| (self.lookup)(folder, cx));
+            if let Some(brief) = brief
+                && !wanted.contains(&brief.thumbnail)
+            {
+                wanted.push(brief.thumbnail);
+            }
+        }
+        wanted
+    }
+
+    /// Starts the decode of every tile thumbnail that is not decoded yet, off the UI thread, and lets go of the ones no
+    /// tile needs any more. Nothing happens while the dialog is closed.
+    fn request_thumbnails(&mut self, cx: &mut Context<Self>) {
+        if !self.open {
+            return;
+        }
+        let wanted = self.wanted_thumbnails(cx);
+        let stale: Vec<PathBuf> = self
+            .thumbs
+            .keys()
+            .filter(|path| !wanted.contains(path))
+            .cloned()
+            .collect();
+        let released = stale.into_iter().filter_map(|path| match self.thumbs.remove(&path) {
+            Some(ThumbState::Ready(image)) => Some(image),
+            _ => None,
+        });
+        atlas::release_images(cx, released.collect::<Vec<_>>());
+        for path in wanted {
+            if self.thumbs.contains_key(&path) {
+                continue;
+            }
+            self.thumbs.insert(path.clone(), ThumbState::Loading);
+            let bucket = self.bucket;
+            let task = cx.spawn(async move |this, cx| {
+                let file = path.clone();
+                let decoded = cx
+                    .background_executor()
+                    .spawn(async move { decode_thumbnail(&file, bucket) })
+                    .await;
+                this.update(cx, |this, cx| this.on_decoded(&path, decoded, cx)).ok();
+            });
+            self.tasks.push(task);
+        }
+    }
+
+    /// A background decode finished. A result nobody waits for any more (the dialog closed, the tile changed) is released
+    /// at once.
+    fn on_decoded(&mut self, path: &Path, decoded: anyhow::Result<Arc<RenderImage>>, cx: &mut Context<Self>) {
+        let waiting = self.open && matches!(self.thumbs.get(path), Some(ThumbState::Loading));
+        match decoded {
+            Ok(image) if waiting => {
+                self.thumbs.insert(path.to_owned(), ThumbState::Ready(image));
+            }
+            Ok(image) => atlas::release_image(cx, image),
+            Err(error) => {
+                tracing::warn!(%error, "a monitor thumbnail cannot be decoded");
+                if waiting {
+                    self.thumbs.insert(path.to_owned(), ThumbState::Failed);
+                }
+            }
+        }
+        cx.notify();
+    }
+
+    /// What the tile of the monitor that plays folder shows.
+    fn tile_thumb(&self, folder: Option<&str>, cx: &App) -> TileThumb {
+        let Some(folder) = folder else {
+            return TileThumb::Empty;
+        };
+        let Some(brief) = (self.lookup)(folder, cx) else {
+            return TileThumb::Failed;
+        };
+        match self.thumbs.get(&brief.thumbnail) {
+            Some(ThumbState::Ready(image)) => TileThumb::Ready(image.clone()),
+            Some(ThumbState::Failed) => TileThumb::Failed,
+            Some(ThumbState::Loading) | None => TileThumb::Loading,
+        }
+    }
+
+    /// The title of the theme in folder: its title from the library, else the folder name.
+    fn theme_title(&self, folder: &str, cx: &App) -> String {
+        (self.lookup)(folder, cx).map_or_else(|| folder.to_owned(), |brief| brief.title)
+    }
+
+    /// Keeps one focus handle per tile and per row.
+    fn sync_focus(&mut self, tiles: usize, rows: usize, cx: &mut Context<Self>) {
         while self.tile_focus.len() < tiles {
             self.tile_focus.push(cx.focus_handle());
         }
         self.tile_focus.truncate(tiles);
+        while self.row_focus.len() < rows {
+            self.row_focus.push(cx.focus_handle());
+        }
+        self.row_focus.truncate(rows);
+    }
+
+    /// The first thumbnail that is decoded, for the tests.
+    #[cfg(test)]
+    fn ready_images(&self) -> Vec<Arc<RenderImage>> {
+        self.thumbs
+            .values()
+            .filter_map(|state| match state {
+                ThumbState::Ready(image) => Some(image.clone()),
+                ThumbState::Loading | ThumbState::Failed => None,
+            })
+            .collect()
     }
 }
 
-/// Opens Display Preferences over the window.
+/// Opens Display Preferences over the window. The thumbnails of the tiles are decoded while it is open and released when
+/// it closes; the focus lands on the Placement Mode radios, and the dialog layer gives it back to the element that had it.
 pub fn open_display_preferences(display: &Entity<DisplayPreferences>, window: &mut Window, cx: &mut App) {
+    display.update(cx, |display, cx| display.on_opened(window, cx));
+    let guard = watch_close(display, cx);
     let content = display.clone();
     window.open_dialog(cx, move |dialog, _, _| {
+        // The guard lives as long as the dialog's builder does.
+        let _ = &guard;
         dialog
             .title(tr("Portal.DisplayPreferences.Title"))
             .w(px(WIDTH))
             .child(content.clone())
-            .footer(super::close_footer(tr("Portal.DisplayPreferences.Close")))
+            .footer(close_footer(tr("Portal.DisplayPreferences.Close")))
     });
     let radios = display.read(cx).radio_focus.clone();
     window.focus(&radios, cx);
 }
 
+/// A guard whose release tells the model that its dialog is gone, however the dialog was closed (Close, Escape, a click
+/// outside).
+fn watch_close(display: &Entity<DisplayPreferences>, cx: &mut App) -> Entity<CloseGuard> {
+    let display = display.downgrade();
+    cx.new(move |cx| {
+        cx.on_release(move |_, cx| {
+            display.update(cx, |display, cx| display.on_closed(cx)).ok();
+        })
+        .detach();
+        CloseGuard
+    })
+}
+
 impl Render for DisplayPreferences {
     fn render(&mut self, window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
         let model = self.model();
-        let canvas = self.canvas(&model, cx);
-        body(window, [v_flex().gap(px(SECTION_GAP)).child(canvas).into_any_element()])
+        self.sync_focus(model.tiles.len(), model.rows.len(), cx);
+        if self.focus_radios && !model.loading {
+            // The radios are tab stops once this frame is drawn: the focus moves from the group to its first radio then.
+            self.focus_radios = false;
+            let group = self.radio_focus.clone();
+            window.on_next_frame(move |window, cx| {
+                window.focus(&group, cx);
+                window.focus_next(cx);
+            });
+        }
+        let mut sections: Vec<AnyElement> = vec![self.canvas(&model, cx), self.placement(&model, cx)];
+        if !model.rows.is_empty() {
+            sections.push(self.list(&model, cx));
+        }
+        if !model.missing.is_empty() {
+            sections.push(self.not_connected(&model, cx));
+        }
+        body(
+            window,
+            [v_flex().gap(px(SECTION_GAP)).children(sections).into_any_element()],
+        )
     }
 }
 
 impl DisplayPreferences {
     /// The monitor canvas: one tile per connected monitor, or one skeleton while the service has not reported.
-    fn canvas(&mut self, model: &DisplayModel, cx: &mut Context<Self>) -> AnyElement {
+    fn canvas(&self, model: &DisplayModel, cx: &mut Context<Self>) -> AnyElement {
         let surface = cx.theme().secondary.opacity(0.55);
         let frame = div()
             .id("display-canvas")
@@ -568,7 +837,6 @@ impl DisplayPreferences {
                 .child(Skeleton::new().size_full().rounded(px(TILE_RADIUS)))
                 .into_any_element();
         }
-        self.sync_focus(model.tiles.len(), cx);
         let accent = cx.theme().primary;
         let tiles: Vec<AnyElement> = model
             .tiles
@@ -595,15 +863,9 @@ impl DisplayPreferences {
     }
 
     /// One monitor tile.
-    fn tile(&self, index: usize, tile: &TileModel, cx: &mut Context<Self>) -> AnyElement {
+    fn tile(&self, index: usize, tile: &TileModel, cx: &App) -> AnyElement {
         let theme = cx.theme();
-        let (border, secondary, muted, accent, filled) = (
-            theme.border,
-            theme.secondary,
-            theme.muted_foreground,
-            theme.primary,
-            theme.muted,
-        );
+        let (border, secondary, muted, accent) = (theme.border, theme.secondary, theme.muted_foreground, theme.primary);
         let wide = tile.rect.width >= DETAIL_WIDTH;
         let label = tr_with(
             "Portal.DisplayPreferences.Monitor",
@@ -614,10 +876,24 @@ impl DisplayPreferences {
         let handles = self.tile_focus.clone();
         let link = self.link.clone();
         let request = (tile.clickable && !tile.selected).then(|| tile.select_request());
-        let layer = if tile.theme.is_some() {
-            div().absolute().inset_0().bg(filled).into_any_element()
-        } else {
-            v_flex()
+        let layer = match self.tile_thumb(tile.theme.as_deref(), cx) {
+            TileThumb::Ready(image) => img(image)
+                .absolute()
+                .inset_0()
+                .size_full()
+                .object_fit(ObjectFit::Cover)
+                .into_any_element(),
+            TileThumb::Loading => Skeleton::new().absolute().inset_0().size_full().into_any_element(),
+            TileThumb::Failed => div()
+                .absolute()
+                .inset_0()
+                .flex()
+                .items_center()
+                .justify_center()
+                .bg(secondary)
+                .child(Icon::new(IconName::ImageOff).with_size(px(24.)).text_color(muted))
+                .into_any_element(),
+            TileThumb::Empty => v_flex()
                 .absolute()
                 .inset_0()
                 .items_center()
@@ -629,7 +905,7 @@ impl DisplayPreferences {
                 .when(wide, |column| {
                     column.child(div().text_xs().child(tr("Portal.DisplayPreferences.WindowsWallpaper")))
                 })
-                .into_any_element()
+                .into_any_element(),
         };
         let number = h_flex()
             .absolute()
@@ -664,13 +940,7 @@ impl DisplayPreferences {
             ))
             .text_color(white())
             .text_size(px(12.))
-            .child(tr_with(
-                "Portal.DisplayPreferences.Resolution",
-                &[
-                    ("width", &tile.size.0.to_string()),
-                    ("height", &tile.size.1.to_string()),
-                ],
-            ));
+            .child(resolution_text(tile.size));
         let rule = tile.rule.map(|rule| {
             div()
                 .absolute()
@@ -711,8 +981,17 @@ impl DisplayPreferences {
                     .aria_label(label)
                     .cursor_pointer()
                     .hover(move |style| style.border_2().border_color(ring))
-                    // A click, and Enter or Space on the focused tile (GPUI turns those into a click), set the target.
-                    .on_click(move |_, _, _| {
+                    // A click, and Space on the focused tile (GPUI turns it into a click), set the target.
+                    .on_click({
+                        let (link, request) = (link.clone(), request.clone());
+                        move |_, _, _| {
+                            if let Some(request) = &request {
+                                link.send(request.clone());
+                            }
+                        }
+                    })
+                    // The dialog binds Enter to its own confirmation, which closes it: the focused tile takes Enter first.
+                    .on_action(move |_: &Confirm, _, _| {
                         if let Some(request) = &request {
                             link.send(request.clone());
                         }
@@ -746,26 +1025,310 @@ impl DisplayPreferences {
             })
             .into_any_element()
     }
+
+    /// The Placement Mode card: its title and description, the Applying indicator and the three radios.
+    fn placement(&self, model: &DisplayModel, cx: &mut Context<Self>) -> AnyElement {
+        let theme = cx.theme();
+        let (border, surface, muted, accent) = (
+            theme.border,
+            theme.secondary.opacity(0.55),
+            theme.muted_foreground,
+            theme.primary,
+        );
+        let this = cx.entity();
+        let selected = model
+            .mode
+            .and_then(|mode| MODES.iter().position(|known| *known == mode));
+        let radios = MODES.iter().enumerate().map(|(index, mode)| {
+            let (title, description) = mode_keys(*mode);
+            Radio::new(("placement-mode", index))
+                .debug_selector(move || format!("display-radio-{index}"))
+                .accessibility_label(tr(title))
+                .h(px(56.))
+                .child(
+                    v_flex()
+                        .gap_1()
+                        .child(div().text_sm().font_semibold().child(tr(title)))
+                        .child(div().text_xs().text_color(muted).child(tr(description))),
+                )
+        });
+        let applying = model.applying.then(|| {
+            h_flex()
+                .flex_none()
+                .gap_2()
+                .items_center()
+                .text_xs()
+                .text_color(muted)
+                .child(Spinner::new().with_size(px(16.)).color(accent))
+                .child(tr("Portal.DisplayPreferences.Applying"))
+        });
+        v_flex()
+            .gap_3()
+            .p_4()
+            .rounded(px(TILE_RADIUS))
+            .border_1()
+            .border_color(border)
+            .bg(surface)
+            .child(
+                h_flex()
+                    .gap_3()
+                    .items_center()
+                    .child(
+                        v_flex()
+                            .flex_1()
+                            .min_w_0()
+                            .child(
+                                div()
+                                    .text_sm()
+                                    .font_semibold()
+                                    .child(tr("Portal.DisplayPreferences.Expander")),
+                            )
+                            .child(
+                                div()
+                                    .text_xs()
+                                    .text_color(muted)
+                                    .child(tr("Portal.DisplayPreferences.Expander.Description")),
+                            ),
+                    )
+                    .children(applying),
+            )
+            .child(
+                div().id("placement-radios").track_focus(&self.radio_focus).child(
+                    RadioGroup::new("placement-mode")
+                        .children(radios)
+                        .selected_index(selected)
+                        .disabled(model.loading)
+                        .w_full()
+                        .on_click(move |index, _, cx| {
+                            this.update(cx, |this, cx| this.choose_mode(*index, cx));
+                        }),
+                ),
+            )
+            .into_any_element()
+    }
+
+    /// The monitor list: one row per connected monitor in Per display, one All screens row in Span and Duplicate.
+    fn list(&self, model: &DisplayModel, cx: &App) -> AnyElement {
+        let rows: Vec<AnyElement> = model
+            .rows
+            .iter()
+            .enumerate()
+            .map(|(index, row)| self.row(index, row, cx))
+            .collect();
+        v_flex()
+            .id("display-list")
+            .gap_1()
+            .max_h(px(LIST_MAX_HEIGHT))
+            .children(rows)
+            .overflow_y_scrollbar()
+            .into_any_element()
+    }
+
+    /// One row of the list.
+    fn row(&self, index: usize, row: &RowModel, cx: &App) -> AnyElement {
+        let theme = cx.theme();
+        let (muted, accent, hover, secondary) = (
+            theme.muted_foreground,
+            theme.primary,
+            theme.secondary.opacity(0.55),
+            theme.secondary,
+        );
+        let name = match row.number {
+            Some(number) => tr_with(
+                "Portal.DisplayPreferences.Monitor",
+                &[("number", &number.to_string()), ("device", &row.device_name)],
+            ),
+            None => tr("Portal.DisplayPreferences.AllScreens"),
+        };
+        let wallpaper = match row.theme.as_deref() {
+            Some(folder) => self.theme_title(folder, cx),
+            None => tr("Portal.DisplayPreferences.NoWallpaper").to_string(),
+        };
+        let detail = match row.size {
+            Some(size) => format!("{}, {wallpaper}", resolution_text(size)),
+            None => wallpaper,
+        };
+        let link = self.link.clone();
+        let remove = row.remove_request();
+        let select = row.select_request();
+        let handle = self.row_focus.get(index).cloned();
+        let tip = SharedString::from(format!("{name}: {detail}"));
+        let text = v_flex()
+            .id(("display-row-text", index))
+            .flex_1()
+            .min_w_0()
+            .tooltip(move |window, cx| Tooltip::new(tip.clone()).build(window, cx))
+            .child(div().text_sm().font_semibold().truncate().child(name.clone()))
+            .child(div().text_xs().text_color(muted).truncate().child(detail));
+        let badge = row.number.map(|number| {
+            div()
+                .flex_none()
+                .h(px(20.))
+                .min_w(px(20.))
+                .px_2()
+                .flex()
+                .items_center()
+                .justify_center()
+                .rounded_full()
+                .bg(secondary)
+                .text_size(px(12.))
+                .child(number.to_string())
+        });
+        let can_remove = row.can_remove;
+        h_flex()
+            .id(("display-row", index))
+            .debug_selector(move || format!("display-row-{index}"))
+            .w_full()
+            .h(px(ROW_HEIGHT))
+            .flex_none()
+            .gap_3()
+            .items_center()
+            .rounded(px(TILE_RADIUS))
+            .when(select.is_some(), |row_div| {
+                row_div
+                    .when_some(handle, |row_div, handle| row_div.track_focus(&handle))
+                    .focus_visible(move |style| style.bg(hover))
+                    .hover(move |style| style.bg(hover))
+                    .cursor_pointer()
+                    .role(Role::Button)
+                    .aria_label(name)
+                    .on_click({
+                        let (link, select) = (link.clone(), select.clone());
+                        move |_, _, _| {
+                            if let Some(request) = &select {
+                                link.send(request.clone());
+                            }
+                        }
+                    })
+                    // Enter on the focused row selects it instead of confirming (and closing) the dialog.
+                    .on_action({
+                        let link = link.clone();
+                        move |_: &Confirm, _, _| {
+                            if let Some(request) = &select {
+                                link.send(request.clone());
+                            }
+                        }
+                    })
+            })
+            // The 3 px accent indicator at the start edge marks the target row.
+            .child(
+                div()
+                    .flex_none()
+                    .w(px(3.))
+                    .h(px(32.))
+                    .rounded_full()
+                    .when(row.selected, |indicator| indicator.bg(accent)),
+            )
+            .children(badge)
+            .child(text)
+            .child(
+                // The button is its own click: it must not also select the row.
+                div()
+                    .flex_none()
+                    .pr_2()
+                    .debug_selector(move || format!("display-remove-{index}"))
+                    .on_mouse_down(MouseButton::Left, |_, _, cx| cx.stop_propagation())
+                    .child(
+                        Button::new(("display-remove", index))
+                            .outline()
+                            .label(tr("Portal.DisplayPreferences.Remove"))
+                            .disabled(!can_remove)
+                            .on_click(move |_, _, _| link.send(remove.clone())),
+                    ),
+            )
+            .into_any_element()
+    }
+
+    /// The Not connected section: the stored assignments of monitors that are absent, each with a Remove button.
+    fn not_connected(&self, model: &DisplayModel, cx: &App) -> AnyElement {
+        let muted = cx.theme().muted_foreground;
+        let rows: Vec<AnyElement> = model
+            .missing
+            .iter()
+            .enumerate()
+            .map(|(index, missing)| {
+                let wallpaper = missing
+                    .theme
+                    .as_deref()
+                    .map(|folder| self.theme_title(folder, cx))
+                    .unwrap_or_default();
+                let link = self.link.clone();
+                let remove = missing.remove_request();
+                h_flex()
+                    .id(("display-missing", index))
+                    .w_full()
+                    .h(px(ROW_HEIGHT))
+                    .flex_none()
+                    .gap_3()
+                    .items_center()
+                    .child(div().flex_none().w(px(3.)).h(px(32.)))
+                    .child(Icon::new(IconName::MonitorOff).text_color(muted))
+                    .child(
+                        v_flex()
+                            .flex_1()
+                            .min_w_0()
+                            .child(div().text_sm().truncate().child(tr_with(
+                                "Portal.DisplayPreferences.NotConnected",
+                                &[("number", &missing.number.to_string())],
+                            )))
+                            .child(div().text_xs().text_color(muted).truncate().child(wallpaper)),
+                    )
+                    .child(
+                        div().flex_none().pr_2().child(
+                            Button::new(("display-missing-remove", index))
+                                .debug_selector(move || format!("display-missing-remove-{index}"))
+                                .outline()
+                                .label(tr("Portal.DisplayPreferences.Remove"))
+                                .on_click(move |_, _, _| link.send(remove.clone())),
+                        ),
+                    )
+                    .into_any_element()
+            })
+            .collect();
+        v_flex()
+            .gap_2()
+            .child(
+                div()
+                    .text_xs()
+                    .text_color(muted)
+                    .child(tr("Portal.DisplayPreferences.NotConnectedTitle")),
+            )
+            .child(v_flex().gap_1().children(rows))
+            .into_any_element()
+    }
+}
+
+/// The size of a monitor as the dialog writes it: "1920 x 1080".
+fn resolution_text(size: (i32, i32)) -> SharedString {
+    tr_with(
+        "Portal.DisplayPreferences.Resolution",
+        &[("width", &size.0.to_string()), ("height", &size.1.to_string())],
+    )
 }
 
 #[cfg(test)]
 mod tests {
-    use std::{cell::RefCell, rc::Rc};
+    use std::{cell::RefCell, path::PathBuf, rc::Rc};
 
     use gpui_kit::base::Root;
     use gpui_kit::component::{WindowExt as _, v_flex};
     use gpui_kit::{
         AppContext as _, Context, Entity, IntoElement, Modifiers, ParentElement as _, Render, Styled as _,
-        TestAppContext, Window, px, size,
+        TestAppContext, VisualTestContext, Window, div, px, size,
     };
     use sucrose_core::settings::{DisplayScreenType, EngineType};
     use sucrose_ipc::portal::{DisplayView, PortalRequest, RuleState, RuntimeState, SettingChange};
 
     use super::{
         CANVAS_HEIGHT, CANVAS_INSET, CANVAS_WIDTH, DisplayModel, DisplayPreferences, MIN_TILE, ModeState, RowKey,
-        canvas_layout,
+        ThemeLookup, TileThumb, canvas_layout, open_display_preferences,
     };
-    use crate::{header::Header, ipc::ServiceLink, library::LibraryView, settings::Mode};
+    use crate::{
+        header::Header,
+        ipc::ServiceLink,
+        library::{LibraryView, ThemeBrief},
+        settings::Mode,
+    };
 
     const DISPLAY1: &str = "\\\\.\\DISPLAY1";
     const DISPLAY9: &str = "\\\\.\\DISPLAY9";
@@ -1105,5 +1668,349 @@ mod tests {
         });
         let model = display.read_with(window, |display, _| display.model());
         assert!(model.tiles[0].selected && !model.tiles[1].selected);
+    }
+
+    /// A view with nothing in it; the dialog opens over it.
+    struct Blank;
+
+    impl Render for Blank {
+        fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
+            div()
+        }
+    }
+
+    /// A lookup that knows no theme.
+    fn no_themes() -> ThemeLookup {
+        Rc::new(|_, _| None)
+    }
+
+    /// A window with Display Preferences open over it in the given mode, fed with the runtime state.
+    fn open_window(
+        cx: &mut TestAppContext,
+        lookup: ThemeLookup,
+        mode: DisplayScreenType,
+        state: RuntimeState,
+    ) -> (
+        Entity<DisplayPreferences>,
+        &mut VisualTestContext,
+        crossbeam_channel::Receiver<PortalRequest>,
+    ) {
+        cx.update(gpui_kit::init);
+        let (link, requests) = ServiceLink::recording();
+        let slot: Rc<RefCell<Option<Entity<DisplayPreferences>>>> = Rc::default();
+        let handed = slot.clone();
+        let (_, window) = cx.add_window_view(move |window, cx| {
+            let display = cx.new(|cx| DisplayPreferences::with_lookup(link, lookup, cx));
+            *handed.borrow_mut() = Some(display);
+            let blank = cx.new(|_| Blank);
+            Root::new(blank, window, cx)
+        });
+        let display = slot
+            .borrow()
+            .clone()
+            .expect("the display model was built with the window");
+        // Tall enough for the whole dialog: a click outside the scrolled body would reach nothing.
+        window.simulate_resize(size(px(1000.), px(1300.)));
+        display.update(window, |display, cx| {
+            display.set_placement(mode, DISPLAY1.to_owned(), cx);
+            display.set_runtime(state, cx);
+        });
+        window.update(|window, cx| open_display_preferences(&display, window, cx));
+        window.run_until_parked();
+        window.update(|window, _| window.refresh());
+        window.run_until_parked();
+        (display, window, requests)
+    }
+
+    fn click(window: &mut VisualTestContext, selector: &'static str) {
+        let bounds = window
+            .debug_bounds(selector)
+            .unwrap_or_else(|| panic!("no element tagged {selector}"));
+        window.simulate_click(bounds.center(), Modifiers::none());
+        window.run_until_parked();
+    }
+
+    fn sent(requests: &crossbeam_channel::Receiver<PortalRequest>) -> Vec<PortalRequest> {
+        requests.try_iter().collect()
+    }
+
+    fn mode_request(mode: DisplayScreenType) -> PortalRequest {
+        PortalRequest::Change(SettingChange::DisplayScreenType(mode))
+    }
+
+    /// Both monitors play a theme.
+    fn both_play() -> RuntimeState {
+        runtime(vec![
+            display(DISPLAY1, 1, [0, 0, 1920, 1080], Some("a")),
+            display(DISPLAY9, 9, [1920, 0, 3840, 1080], Some("b")),
+        ])
+    }
+
+    #[gpui_kit::test]
+    fn display_placement_a_radio_sends_one_change_and_waits_for_the_broadcast(cx: &mut TestAppContext) {
+        let (display, window, requests) = open_window(cx, no_themes(), DisplayScreenType::PerDisplay, two());
+        assert!(!display.read_with(window, |display, _| display.model().applying));
+
+        click(window, "display-radio-1");
+        assert_eq!(sent(&requests), vec![mode_request(DisplayScreenType::SpanAcross)]);
+        let model = display.read_with(window, |display, _| display.model());
+        assert!(model.applying, "Applying shows until the service confirms");
+        assert_eq!(model.mode, Some(DisplayScreenType::SpanAcross));
+
+        click(window, "display-radio-1");
+        assert!(
+            sent(&requests).is_empty(),
+            "the mode already asked for is not asked again"
+        );
+
+        display.update(window, |display, cx| {
+            display.on_setting(&SettingChange::DisplayScreenType(DisplayScreenType::SpanAcross), cx);
+        });
+        assert!(!display.read_with(window, |display, _| display.model().applying));
+    }
+
+    #[gpui_kit::test]
+    fn display_placement_a_rejected_change_reverts_the_radios_and_asks_for_the_toast(cx: &mut TestAppContext) {
+        let (display, window, requests) = open_window(cx, no_themes(), DisplayScreenType::PerDisplay, two());
+        click(window, "display-radio-2");
+        assert_eq!(sent(&requests), vec![mode_request(DisplayScreenType::SameDuplicate)]);
+
+        let refused = SettingChange::DisplayScreenType(DisplayScreenType::SameDuplicate);
+        let toast = display.update(window, |display, cx| display.on_rejected(&refused, cx));
+        assert!(toast, "a refused placement change raises the placement toast");
+        let model = display.read_with(window, |display, _| display.model());
+        assert_eq!(
+            model.mode,
+            Some(DisplayScreenType::PerDisplay),
+            "the radios show the stored mode"
+        );
+        assert!(!model.applying);
+
+        let other = SettingChange::WallpaperLoop(true);
+        assert!(!display.update(window, |display, cx| display.on_rejected(&other, cx)));
+        let target = SettingChange::ScreenDevice(DISPLAY9.to_owned());
+        assert!(display.update(window, |display, cx| display.on_rejected(&target, cx)));
+    }
+
+    #[gpui_kit::test]
+    fn display_placement_the_radios_are_disabled_until_the_service_has_reported(cx: &mut TestAppContext) {
+        cx.update(gpui_kit::init);
+        let (link, requests) = ServiceLink::recording();
+        let slot: Rc<RefCell<Option<Entity<DisplayPreferences>>>> = Rc::default();
+        let handed = slot.clone();
+        let (_, window) = cx.add_window_view(move |window, cx| {
+            let display = cx.new(|cx| DisplayPreferences::with_lookup(link, no_themes(), cx));
+            *handed.borrow_mut() = Some(display);
+            let blank = cx.new(|_| Blank);
+            Root::new(blank, window, cx)
+        });
+        let display = slot
+            .borrow()
+            .clone()
+            .expect("the display model was built with the window");
+        window.simulate_resize(size(px(1000.), px(900.)));
+        window.update(|window, cx| open_display_preferences(&display, window, cx));
+        window.run_until_parked();
+
+        assert!(display.read_with(window, |display, _| display.model().loading));
+        assert!(
+            window.debug_bounds("display-tile-0").is_none(),
+            "the canvas is one skeleton"
+        );
+        click(window, "display-radio-1");
+        assert!(sent(&requests).is_empty(), "a disabled radio asks for nothing");
+    }
+
+    #[gpui_kit::test]
+    fn display_list_remove_sends_the_monitor_and_does_not_also_select_the_row(cx: &mut TestAppContext) {
+        let (_, window, requests) = open_window(cx, no_themes(), DisplayScreenType::PerDisplay, both_play());
+        click(window, "display-remove-1");
+        assert_eq!(
+            sent(&requests),
+            vec![PortalRequest::RemoveWallpaper {
+                monitor_id: Some("id-9".to_owned())
+            }],
+            "only the removal, not a ScreenDevice for the row"
+        );
+        click(window, "display-row-1");
+        assert_eq!(
+            sent(&requests),
+            vec![PortalRequest::Change(SettingChange::ScreenDevice(DISPLAY9.to_owned()))],
+            "a click on the row selects the monitor as the target"
+        );
+        click(window, "display-row-0");
+        assert!(
+            sent(&requests).is_empty(),
+            "the row that is the target asks for nothing"
+        );
+    }
+
+    #[gpui_kit::test]
+    fn display_list_remove_is_disabled_on_a_monitor_without_a_wallpaper(cx: &mut TestAppContext) {
+        let (_, window, requests) = open_window(cx, no_themes(), DisplayScreenType::PerDisplay, two());
+        click(window, "display-remove-1");
+        assert!(sent(&requests).is_empty());
+        click(window, "display-remove-0");
+        assert_eq!(
+            sent(&requests),
+            vec![PortalRequest::RemoveWallpaper {
+                monitor_id: Some("id-1".to_owned())
+            }]
+        );
+    }
+
+    #[gpui_kit::test]
+    fn display_list_span_has_one_all_screens_row_that_removes_the_single_wallpaper(cx: &mut TestAppContext) {
+        let (_, window, requests) = open_window(cx, no_themes(), DisplayScreenType::SpanAcross, both_play());
+        assert!(window.debug_bounds("display-row-0").is_some());
+        assert!(window.debug_bounds("display-row-1").is_none(), "one row in Span");
+        click(window, "display-tile-0");
+        assert!(sent(&requests).is_empty(), "tiles are not clickable in Span");
+        click(window, "display-remove-0");
+        assert_eq!(
+            sent(&requests),
+            vec![PortalRequest::RemoveWallpaper { monitor_id: None }]
+        );
+    }
+
+    #[gpui_kit::test]
+    fn display_not_connected_assignments_have_their_own_section_with_a_remove_button(cx: &mut TestAppContext) {
+        let mut state = two();
+        state.displays.push(missing(3, "c"));
+        let (display, window, requests) = open_window(cx, no_themes(), DisplayScreenType::PerDisplay, state);
+        click(window, "display-missing-remove-0");
+        assert_eq!(
+            sent(&requests),
+            vec![PortalRequest::RemoveWallpaper {
+                monitor_id: Some("id-3".to_owned())
+            }]
+        );
+        // Without such an assignment the section is gone.
+        display.update(window, |display, cx| display.set_runtime(two(), cx));
+        window.run_until_parked();
+        assert!(window.debug_bounds("display-missing-remove-0").is_none());
+    }
+
+    /// A lookup that knows the themes a and b, both with the thumbnail at the same file.
+    fn lookup_of(file: PathBuf) -> ThemeLookup {
+        Rc::new(move |folder, _| {
+            matches!(folder, "a" | "b").then(|| ThemeBrief {
+                title: format!("Theme {folder}"),
+                thumbnail: file.clone(),
+            })
+        })
+    }
+
+    fn scratch_dir(name: &str) -> PathBuf {
+        let dir = std::env::temp_dir().join(format!("sucrose-display-{name}-{}", std::process::id()));
+        std::fs::create_dir_all(&dir).expect("a scratch folder");
+        dir
+    }
+
+    #[gpui_kit::test]
+    fn display_thumbnails_are_decoded_in_the_background_drawn_and_released_when_the_dialog_closes(
+        cx: &mut TestAppContext,
+    ) {
+        let dir = scratch_dir("thumb");
+        let file = dir.join("thumb.png");
+        image::RgbaImage::from_pixel(64, 36, image::Rgba([200, 30, 30, 255]))
+            .save(&file)
+            .expect("a thumbnail file");
+        let (display, window, _requests) = open_window(cx, lookup_of(file), DisplayScreenType::PerDisplay, both_play());
+
+        let images = display.read_with(window, |display, _| display.ready_images());
+        assert_eq!(images.len(), 1, "both monitors share one thumbnail file, decoded once");
+        let image = images[0].clone();
+        assert!(
+            window.update(|window, _| window.has_image_atlas_entry(&image)),
+            "the tiles draw it"
+        );
+
+        window.update(|window, cx| window.close_dialog(cx));
+        window.run_until_parked();
+        window.executor().advance_clock(std::time::Duration::from_secs(1));
+        window.run_until_parked();
+        assert!(!window.update(|window, cx| window.has_active_dialog(cx)));
+        assert!(
+            display.read_with(window, |display, _| display.ready_images().is_empty()),
+            "the model lets go of the thumbnails"
+        );
+        assert!(
+            !window.update(|window, _| window.has_image_atlas_entry(&image)),
+            "and the atlas of the window does not keep them"
+        );
+        std::fs::remove_dir_all(dir).ok();
+    }
+
+    #[gpui_kit::test]
+    fn display_thumbnails_a_file_that_is_no_image_gives_the_tile_the_fallback(cx: &mut TestAppContext) {
+        let dir = scratch_dir("bad");
+        let file = dir.join("thumb.png");
+        std::fs::write(&file, b"not an image").expect("a bad thumbnail file");
+        let (display, window, _requests) = open_window(cx, lookup_of(file), DisplayScreenType::PerDisplay, both_play());
+        assert!(display.read_with(window, |display, _| display.ready_images().is_empty()));
+        assert!(display.read_with(window, |display, cx| matches!(
+            display.tile_thumb(Some("a"), cx),
+            TileThumb::Failed
+        )));
+        assert!(display.read_with(window, |display, cx| matches!(
+            display.tile_thumb(None, cx),
+            TileThumb::Empty
+        )));
+        std::fs::remove_dir_all(dir).ok();
+    }
+
+    #[gpui_kit::test]
+    fn display_keyboard_arrows_move_between_tiles_and_enter_selects(cx: &mut TestAppContext) {
+        let (display, window, requests) = open_window(cx, no_themes(), DisplayScreenType::PerDisplay, two());
+        let (first, second) = display.read_with(window, |display, _| {
+            (display.tile_focus[0].clone(), display.tile_focus[1].clone())
+        });
+        window.update(|window, cx| window.focus(&first, cx));
+        window.simulate_keystrokes("right");
+        assert!(
+            window.update(|window, _| second.is_focused(window)),
+            "right moves to the next tile"
+        );
+        window.simulate_keystrokes("right");
+        assert!(
+            window.update(|window, _| second.is_focused(window)),
+            "the last tile stays"
+        );
+        window.simulate_keystrokes("left");
+        assert!(window.update(|window, _| first.is_focused(window)), "left moves back");
+        window.simulate_keystrokes("right");
+        window.simulate_keystrokes("enter");
+        window.run_until_parked();
+        assert_eq!(
+            sent(&requests),
+            vec![PortalRequest::Change(SettingChange::ScreenDevice(DISPLAY9.to_owned()))],
+            "Enter on the focused tile selects it"
+        );
+        assert!(
+            window.update(|window, cx| window.has_active_dialog(cx)),
+            "and does not confirm (close) the dialog"
+        );
+    }
+
+    #[gpui_kit::test]
+    fn display_keyboard_focus_lands_on_the_radios_and_escape_closes_the_dialog(cx: &mut TestAppContext) {
+        let (display, window, _requests) = open_window(cx, no_themes(), DisplayScreenType::PerDisplay, two());
+        window.run_until_parked();
+        window.update(|window, _| window.refresh());
+        window.run_until_parked();
+        let radios = display.read_with(window, |display, _| display.radio_focus.clone());
+        assert!(
+            window.update(|window, cx| radios.contains_focused(window, cx)),
+            "the focus is in the radio group"
+        );
+        window.simulate_keystrokes("escape");
+        window.run_until_parked();
+        window.executor().advance_clock(std::time::Duration::from_secs(1));
+        window.run_until_parked();
+        assert!(
+            !window.update(|window, cx| window.has_active_dialog(cx)),
+            "Escape closes it"
+        );
     }
 }

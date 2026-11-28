@@ -159,6 +159,15 @@ fn thumb_key(times: &HashMap<PathBuf, Option<SystemTime>>, theme: &LibraryTheme,
     }
 }
 
+/// What Display Preferences shows of a theme: its title and its thumbnail file.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ThemeBrief {
+    /// The title as the cards show it.
+    pub title: String,
+    /// The thumbnail file, verified to exist inside the theme folder.
+    pub thumbnail: PathBuf,
+}
+
 /// The user asked, from an empty or unreadable library, to change where Sucrose looks for themes: the window opens
 /// Settings > General.
 pub struct ChangeLocation;
@@ -282,6 +291,19 @@ impl LibraryView {
             _jump_subscription: jump_subscription,
             _visibility: visibility,
         }
+    }
+
+    /// The title and the thumbnail of the theme in `folder`, when the scanned library has it.
+    pub fn theme_brief(&self, folder: &str) -> Option<ThemeBrief> {
+        let theme = self.themes.iter().find(|theme| theme.folder == folder).or_else(|| {
+            self.themes
+                .iter()
+                .find(|theme| theme.folder.eq_ignore_ascii_case(folder))
+        })?;
+        Some(ThemeBrief {
+            title: library::display_title(&theme.info, &theme.folder).to_owned(),
+            thumbnail: theme.thumbnail.clone(),
+        })
     }
 
     /// The service reported what it is doing: the Selected pill and the disabled reasons follow it, never the clicks.

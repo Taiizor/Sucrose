@@ -508,6 +508,8 @@ impl PortalApp {
                 }
                 PortalEvent::Rejected { reason, change } => {
                     tracing::warn!(%reason, "the service did not apply a setting");
+                    // A refused placement change is the Display Preferences dialog's: its radios show the broadcast mode again.
+                    let placement = self.display.update(cx, |display, cx| display.on_rejected(&change, cx));
                     self.wallpaper.update(cx, |page, cx| page.on_rejected(&change, cx));
                     // The control that sent it shows the broadcast value again.
                     if let Some(settings) = &self.settings {
@@ -524,7 +526,12 @@ impl PortalApp {
                         // The hint stays on and shows again next time; the user asked to close.
                         window.remove_window();
                     }
-                    toast::show_error(tr("Portal.Setting.SaveFailed"), window, cx);
+                    let text = if placement {
+                        tr("Portal.DisplayPreferences.PlacementFailed")
+                    } else {
+                        tr("Portal.Setting.SaveFailed")
+                    };
+                    toast::show_error(text, window, cx);
                 }
                 PortalEvent::InstallProgress(stage) => install::on_progress(stage, window, cx),
                 PortalEvent::RestartFailed { reason } => {
