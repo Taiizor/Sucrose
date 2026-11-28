@@ -14,8 +14,8 @@ use sucrose_core::{
 };
 use sucrose_engine_web::{
     args::WebEngine,
-    js::{self, KIND_ENGINE, KIND_PROPERTY},
-    page::{Complaints, PageKind, PageState, page_calls},
+    js::{self, KIND_ENGINE, KIND_PROPERTY, sync_shim_script, time_base_call},
+    page::{Complaints, PageKind, PageState, document_start_script, page_calls},
     pages::{
         GeneratedPage, PageError, builtin_set, effective_volume, engine_volume_level, ensure_file, ensure_file_with,
         ensure_written, generated_url, loop_script, prepare_in, shuffle_script, stretch_script, volume_script,
@@ -1003,4 +1003,124 @@ fn a_page_whose_scale_property_transforms_its_body_keeps_the_body_as_tall_as_the
             page.file_name()
         );
     }
+}
+
+#[test]
+fn the_time_base_call_is_one_function_call_with_the_epoch_for_a_generated_page_and_nothing_for_another() {
+    for page in GeneratedPage::ALL {
+        let call = time_base_call(Some(*page), 1_764_345_600_123).expect("a generated page follows the time base");
+        assert_eq!(call.script, "SucroseSyncTime(1764345600123);");
+        assert_eq!((call.kind, call.key.as_str()), (KIND_ENGINE, "time-base"));
+    }
+    assert!(
+        time_base_call(None, 1_764_345_600_123).is_none(),
+        "a theme or Url page has no such function"
+    );
+}
+
+#[test]
+fn every_generated_page_defines_the_sync_function_and_keeps_its_legacy_functions() {
+    for page in [GeneratedPage::Video] {
+        let html = page.html();
+        assert!(
+            html.contains("function SucroseSyncTime("),
+            "{} has no SucroseSyncTime",
+            page.file_name()
+        );
+        for legacy in [
+            "function SucroseStretchMode(",
+            "function SucroseVolume(",
+            "function SucrosePropertyListener(",
+            "function SucrosePause(",
+            "function SucrosePlay(",
+        ] {
+            // The GIF page is minified: its legacy functions have no space after the keyword's name only in places.
+            let compact: String = html.chars().filter(|c| !c.is_whitespace()).collect();
+            let want: String = legacy.chars().filter(|c| !c.is_whitespace()).collect();
+            let want_async: String = format!("async{want}");
+            assert!(
+                compact.contains(&want) || compact.contains(&want_async),
+                "{} lost {legacy}",
+                page.file_name()
+            );
+        }
+    }
+}
+
+#[test]
+fn a_generated_page_that_loads_after_the_time_base_arrived_gets_the_call_last() {
+    let theme = Scratch::new();
+    let state = scratch_state();
+    state.set_paused(true);
+    let kind = PageKind::Generated(GeneratedPage::Video, builtin_set(WebEngine::Cef));
+
+    let without = page_calls(kind, &theme.0, 200, &state, &Complaints::default());
+    assert!(
+        without.iter().all(|call| call.key != "time-base"),
+        "no time base, no call"
+    );
+
+    state.set_time_base(1_764_345_600_123);
+    let with = page_calls(kind, &theme.0, 200, &state, &Complaints::default());
+
+    assert_eq!(with.len(), without.len() + 1);
+    assert_eq!(
+        with.last().map(|call| call.script.as_str()),
+        Some("SucroseSyncTime(1764345600123);")
+    );
+    assert_eq!(&with[..without.len()], &without[..], "the other calls keep their order");
+}
+
+#[test]
+fn only_a_web_or_url_page_with_a_time_base_gets_the_document_start_shim() {
+    let generated = PageKind::Generated(GeneratedPage::Gif, builtin_set(WebEngine::WebView2));
+
+    assert!(
+        document_start_script(PageKind::Theme, None).is_none(),
+        "a single wallpaper gets no shim"
+    );
+    assert!(document_start_script(PageKind::Url, None).is_none());
+    assert!(
+        document_start_script(generated, Some(5)).is_none(),
+        "a generated page follows through its own function"
+    );
+    assert_eq!(
+        document_start_script(PageKind::Theme, Some(1_764_345_600_123)),
+        Some(sync_shim_script(1_764_345_600_123))
+    );
+    assert!(document_start_script(PageKind::Url, Some(1_764_345_600_123)).is_some());
+}
+
+#[test]
+fn the_sync_shim_offsets_the_page_clocks_by_the_epoch_and_never_touches_date_or_opens_a_channel() {
+    let shim = sync_shim_script(1_764_345_600_123);
+
+    assert_eq!(shim.matches("1764345600123").count(), 2, "{shim}");
+    assert!(shim.contains("performance.now=function"));
+    assert!(shim.contains("window.requestAnimationFrame=function"));
+    assert!(shim.contains("getAnimations"));
+    assert!(
+        shim.contains("iterations===Infinity"),
+        "only endless animations are aligned"
+    );
+    // Date is only read: the wall time of a clock theme stays what it is.
+    assert!(
+        !shim.contains("Date=") && !shim.contains("Date.now=") && !shim.contains("Date.prototype"),
+        "{shim}"
+    );
+    for channel in [
+        "postMessage",
+        "chrome.webview",
+        "fetch(",
+        "XMLHttpRequest",
+        "WebSocket",
+        "window.sucrose",
+        "globalThis",
+    ] {
+        assert!(
+            !shim.contains(channel),
+            "the shim must not open a channel or a global: {channel}"
+        );
+    }
+    assert!(!shim.contains('\n'), "one line, so it registers as one script");
 }

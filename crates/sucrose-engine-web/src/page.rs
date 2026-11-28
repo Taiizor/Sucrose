@@ -7,7 +7,7 @@ use std::{
     path::Path,
     sync::{
         Mutex, PoisonError,
-        atomic::{AtomicBool, AtomicU8, Ordering},
+        atomic::{AtomicBool, AtomicU8, AtomicU64, Ordering},
     },
 };
 
@@ -85,6 +85,8 @@ pub struct PageState {
     looping: AtomicBool,
     shuffle: AtomicBool,
     stretch: Mutex<Stretch>,
+    /// The epoch of the shared time base in unix milliseconds (D-043); 0 while the renderer has none.
+    time_base: AtomicU64,
     /// The legacy `ThemeType` name the `ThemeType` and `SystemTheme` calls carry, fixed for the life of the renderer.
     theme_type: String,
     /// The newest snapshot of each system data group the service pushed.
@@ -109,6 +111,7 @@ impl PageState {
             looping: AtomicBool::new(looping),
             shuffle: AtomicBool::new(shuffle),
             stretch: Mutex::new(stretch),
+            time_base: AtomicU64::new(0),
             theme_type: theme_type.into(),
             data: Mutex::new(Vec::new()),
         }
@@ -178,6 +181,17 @@ impl PageState {
     /// Keeps how the wallpaper is fitted.
     pub fn set_stretch(&self, stretch: Stretch) {
         *self.stretch.lock().unwrap_or_else(PoisonError::into_inner) = stretch;
+    }
+
+    /// The epoch of the time base of this renderer's theme group, when it has one (D-043).
+    #[must_use]
+    pub fn time_base(&self) -> Option<u64> {
+        Some(self.time_base.load(Ordering::SeqCst)).filter(|epoch| *epoch != 0)
+    }
+
+    /// Keeps the epoch of the time base; the newest one wins. A zero epoch is no time base.
+    pub fn set_time_base(&self, epoch_unix_ms: u64) {
+        self.time_base.store(epoch_unix_ms, Ordering::SeqCst);
     }
 
     /// What the non-data compatible calls are built from, as the engine was last told (WAPI-02).
@@ -314,6 +328,12 @@ pub fn page_calls(
         if state.paused() {
             calls.push(js::pause_call(true));
         }
+        // After every other call: a page that loaded after the time base arrived follows it from its first second.
+        calls.extend(
+            state
+                .time_base()
+                .and_then(|epoch| js::time_base_call(Some(page), epoch)),
+        );
         return calls;
     }
     let mut calls = match js::property_calls(theme_dir) {
@@ -337,6 +357,17 @@ pub fn page_calls(
         calls.push(js::pause_call(true));
     }
     calls
+}
+
+/// The script a Web or Url page gets at document start, before its own scripts: the sync shim of the time base, when the
+/// renderer started with one (D-04, best effort). A generated page follows the time base through its own function, and a
+/// single wallpaper (no time base) gets nothing: its page behaves exactly as without the feature.
+#[must_use]
+pub fn document_start_script(kind: PageKind, time_base: Option<u64>) -> Option<String> {
+    match kind {
+        PageKind::Theme | PageKind::Url => time_base.filter(|epoch| *epoch != 0).map(js::sync_shim_script),
+        PageKind::Generated(..) => None,
+    }
 }
 
 /// The system data groups the theme's `SucroseCompatible.json` asks for, in the legacy payload order; empty for a theme

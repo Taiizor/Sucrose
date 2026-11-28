@@ -113,6 +113,41 @@ function SucroseVolume(level) {
   SucroseApplyVolume();
 }
 
+// The shared time base of a theme group (D-043): once a second the page compares where the video is with where the wall
+// clock says it should be since the epoch, and corrects a small drift through the playback rate and a large one with a
+// seek. The rate the page itself chose (the property) is kept and restored.
+var syncEpoch = 0, syncTimer = 0, syncBase = 1, syncSet = 1;
+
+function SucroseSyncTime(epoch) {
+  syncEpoch = Number(epoch) || 0;
+  if (syncTimer) { clearInterval(syncTimer); syncTimer = 0; }
+  if (!syncEpoch) { return; }
+  syncBase = video.playbackRate;
+  syncSet = syncBase;
+  SucroseSyncStep();
+  syncTimer = setInterval(SucroseSyncStep, 1000);
+}
+
+function SucroseSyncStep() {
+  var duration = video.duration;
+  if (!syncEpoch || !isFinite(duration) || duration <= 0 || video.paused || video.readyState < 2) { return; }
+  // A rate the page set itself (the playbackRate property) is the new base.
+  if (video.playbackRate !== syncSet) { syncBase = video.playbackRate; }
+  var expected = ((Date.now() - syncEpoch) / 1000) * syncBase;
+  if (video.loop) { expected = ((expected % duration) + duration) % duration; } else { expected = Math.min(expected, duration); }
+  var drift = video.currentTime - expected;
+  if (video.loop) {
+    if (drift > duration / 2) { drift -= duration; } else if (drift < -duration / 2) { drift += duration; }
+  }
+  if (Math.abs(drift) > 1) {
+    video.currentTime = expected;
+    drift = 0;
+  }
+  var rate = Math.abs(drift) > 0.02 ? syncBase * (1 - Math.max(-0.25, Math.min(0.25, drift * 0.5))) : syncBase;
+  syncSet = rate;
+  video.playbackRate = rate;
+}
+
 var sucroseSource = SucroseSource();
 if (sucroseSource) {
   video.src = sucroseSource;

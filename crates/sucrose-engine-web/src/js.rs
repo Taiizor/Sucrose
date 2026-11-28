@@ -17,6 +17,8 @@ use sucrose_core::{
     settings::Stretch,
 };
 
+use crate::pages::GeneratedPage;
+
 /// Why a format string could not be applied: the cases where .NET throws a `FormatException`.
 #[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
 pub enum FormatError {
@@ -465,4 +467,41 @@ pub fn pause_call(paused: bool) -> PageCall {
         key: if paused { "pause" } else { "resume" }.to_owned(),
         script: pause_script(paused).to_owned(),
     }
+}
+
+/// The call that hands a generated page the shared time base of its theme group (D-043): `SucroseSyncTime(<epoch>);`,
+/// with the epoch in unix milliseconds. The generated Video, Gif and YouTube pages follow it; a theme's own page and a
+/// Url page have no such function, so they get no call (they get [`sync_shim_script`] at document start instead).
+#[must_use]
+pub fn time_base_call(page: Option<GeneratedPage>, epoch_unix_ms: u64) -> Option<PageCall> {
+    page.map(|_| PageCall {
+        kind: KIND_ENGINE,
+        key: "time-base".to_owned(),
+        script: format!("SucroseSyncTime({epoch_unix_ms});"),
+    })
+}
+
+/// The document-start script of a Web or Url page that is part of a time-base group (D-04, D-043; best effort): it makes
+/// `performance.now()` and the timestamp `requestAnimationFrame` hands its callbacks count the time since `epoch_unix_ms`
+/// (so two pages that draw from them agree), and sets running infinite CSS animations to the same moment after the page
+/// loaded. `Date` is never touched: a clock theme keeps the wall time. The text is built from the one integer; it adds
+/// no global the page could call into Sucrose with and has no channel back (T-04-98).
+#[must_use]
+pub fn sync_shim_script(epoch_unix_ms: u64) -> String {
+    format!(
+        "(function(){{try{{\
+var off=(Date.now()-{epoch_unix_ms})-performance.now();\
+var now=performance.now.bind(performance);\
+performance.now=function(){{return now()+off;}};\
+var raf=window.requestAnimationFrame.bind(window);\
+window.requestAnimationFrame=function(cb){{return typeof cb==='function'?raf(function(ts){{cb(ts+off);}}):raf(cb);}};\
+window.addEventListener('load',function(){{try{{\
+var since=Date.now()-{epoch_unix_ms};\
+document.getAnimations().forEach(function(a){{\
+var timing=a.effect&&a.effect.getComputedTiming?a.effect.getComputedTiming():null;\
+if(a.playState==='running'&&timing&&timing.iterations===Infinity){{a.currentTime=since;}}\
+}});\
+}}catch(e){{}}}});\
+}}catch(e){{}}}})();"
+    )
 }
