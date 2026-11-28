@@ -439,6 +439,7 @@ mod tests {
             library_moving: false,
             tray_visible: true,
             running_engines: Vec::new(),
+            displays: Vec::new(),
         }
     }
 
@@ -671,6 +672,26 @@ mod tests {
             &*DisabledReason::Moving.tooltip(),
             "Please wait while the location is being changed"
         );
+    }
+
+    #[test]
+    fn the_selected_pill_follows_the_theme_on_the_target_monitor() {
+        // The service reports the theme of the target monitor as selected (RuntimeState.selected): the card of that
+        // theme says Selected, the card of a theme that plays only on another monitor can be used there.
+        let on_target = runtime(Some("Rain"), true, RuleState::None);
+        assert_eq!(
+            state(&video(), &on_target, true),
+            CardUse::Disabled(DisabledReason::Selected)
+        );
+        let mut elsewhere = video();
+        "Snow".clone_into(&mut elsewhere.folder);
+        assert_eq!(
+            state(&elsewhere, &on_target, true),
+            CardUse::Enabled,
+            "Use goes to the target monitor, where this theme does not play"
+        );
+        let nothing_on_target = runtime(None, true, RuleState::None);
+        assert_eq!(state(&video(), &nothing_on_target, true), CardUse::Enabled);
     }
 
     #[test]

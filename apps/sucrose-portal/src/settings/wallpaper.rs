@@ -1161,6 +1161,7 @@ mod tests {
             developer_mode: false,
             developer_port: 0,
             webview_smartscreen: false,
+            screen_device: String::new(),
         }
     }
 
