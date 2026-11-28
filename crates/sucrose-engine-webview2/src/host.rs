@@ -298,14 +298,21 @@ mod imp {
     const CREATE_TIMEOUT: Duration = Duration::from_secs(30);
 
     /// How long a closing host waits for WebView2's browser process to exit before it lets go of the profile folder
-    /// (04-37 D10, D-040). The browser exits about 0.25 s after the close. The about 6.3 s exits seen before came from
-    /// Edge SmartScreen: a folder that was never used sends a SmartScreen check with its first navigation, and a close
-    /// while it is in flight holds the browser's tear-down (debug session webview2-browser-exit-slow); Sucrose's own
-    /// switches turn SmartScreen off by default (D-041; `Engine.WebViewSmartScreen` turns it on). The bound stays
-    /// 1 s with SmartScreen on too: it sits under the Quit grace (2 s) and the library move grace (4 s), and a bound
-    /// that covered the stall would only make the switch wait for it. A later exit is logged and the next renderer
-    /// retries the folder.
-    const BROWSER_EXIT_WAIT: Duration = Duration::from_secs(1);
+    /// (04-37 D10, D-040). The browser exits about 0.2-0.35 s after the close. Now and then the Runtime takes a slower
+    /// path of its own shutdown: every child process has ended by about 0.3 s, and the browser process then waits,
+    /// idle, until it exits 0.77-1.12 s after the close on an otherwise idle machine. An audio output stream on a
+    /// profile folder's first start sends it there in about 1 close in 10, and a close in the first second of a start
+    /// while the parallel test suite runs nearly always (0.82-1.25 s), mostly for both monitors' browsers at once;
+    /// nothing in Sucrose's close sequence or the page's work does (debug session webview2-browser-exit-can-exce,
+    /// WebView2 Runtime 158). The bound of 1.5 s waits that path out (1251 ms the longest seen) and stays under the
+    /// Quit grace (2 s) and the library move grace (4 s), which end a renderer that is still waiting. Two cases outlast
+    /// any bound under those graces: a CPU saturated by other work (more than 2.5 s with 16 busy threads on 16 logical
+    /// CPUs; 8 change nothing), and Edge SmartScreen (about 6.3 s): a folder that was never used sends a SmartScreen
+    /// check with its first navigation, and a close while it is in flight holds the browser's tear-down (debug session
+    /// webview2-browser-exit-slow); Sucrose's own switches turn SmartScreen off by default (D-041;
+    /// `Engine.WebViewSmartScreen` turns it on). A bound that covered them would only make the switch wait for them. A
+    /// later exit is logged and the next renderer retries the folder.
+    const BROWSER_EXIT_WAIT: Duration = Duration::from_millis(1500);
 
     /// How long to wait before the one retry of the environment (a previous renderer's browser process may still hold
     /// the same user data folder).

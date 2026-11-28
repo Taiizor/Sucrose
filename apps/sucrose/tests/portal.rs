@@ -1006,10 +1006,14 @@ fn switching_web_themes_on_webview2_closes_each_renderer_cleanly() {
 /// (debug session webview2-browser-exit-slow, D-041). With Edge SmartScreen on, the first navigation of a new folder sent
 /// a SmartScreen check, and a close while it was in flight kept the browser process about 6 s, so a quick theme switch
 /// waited that long for the next page. Every folder here is new (the scratch folder is made again and an ephemeral
-/// folder is emptied at every start), and the GIF theme that follows starts no browser on them. It plays real
-/// wallpapers, so it skips where WebView2 is not available.
+/// folder is emptied at every start), and the GIF theme that follows starts no browser on them. "At once" is within the
+/// exit-wait bound (`BROWSER_EXIT_WAIT`, 1.5 s): while the whole test suite runs, such a close nearly always takes the
+/// Runtime's own slower shutdown path, which ended 0.82-1.25 s after the close (debug session
+/// webview2-browser-exit-can-exce). It plays real wallpapers, so it skips where WebView2 is not available.
 #[test]
 fn a_webview2_renderer_closed_right_after_its_start_on_a_new_profile_exits_at_once() {
+    // The renderer's `BROWSER_EXIT_WAIT` (crates/sucrose-engine-webview2/src/host.rs), in milliseconds.
+    const BROWSER_EXIT_WAIT_MS: u64 = 1500;
     const TEST: &str = "a_webview2_renderer_closed_right_after_its_start_on_a_new_profile_exits_at_once";
     if !service_runs(TEST) {
         return;
@@ -1067,8 +1071,8 @@ fn a_webview2_renderer_closed_right_after_its_start_on_a_new_profile_exits_at_on
             "the closed renderer of slot {slot} saw its browser process exit within the bound: {logs}"
         );
         assert!(
-            exits.iter().all(|elapsed| *elapsed < 1000),
-            "the browser process of slot {slot} exited within a second of the close: {exits:?}"
+            exits.iter().all(|elapsed| *elapsed < BROWSER_EXIT_WAIT_MS),
+            "the browser process of slot {slot} exited within the exit-wait bound of the close: {exits:?}"
         );
         assert!(!logs.contains("did not exit in time"), "slot {slot}: {logs}");
         assert!(!logs.contains("no web profile folder"), "slot {slot}: {logs}");
