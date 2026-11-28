@@ -8,7 +8,7 @@ requires:
     provides: "04-37 verdicts and defects D1-D9, the 2026-11-27 debug sessions and quick batch 261127-uor (D-040, D-041), 04-38 measurements"
 provides:
   - "The Round B re-check on one release build that carries all 14 fix commits: Task 1 machine proofs (S1-S7, P1), the maintainer's Part 1 (CEF) and Part 2 (WebView2) verdicts, C1 and C2 with DISPLAY9 attached, and the log checks L1-L7"
-  - "Six requirements marked Complete (TYPE-03, TYPE-04, WAPI-05, WAPI-06, WAPI-08 and ENG-03, the last two via the 2026-11-28 04:37 addendum for TYPE-03 and ENG-03); TYPE-05 and ENG-02 stay open for the P1a-WV2 FAIL"
+  - "Eight requirements marked Complete (TYPE-03, TYPE-04, WAPI-05, WAPI-06, WAPI-08 and ENG-03, the last two via the 2026-11-28 04:37 addendum for TYPE-03 and ENG-03; TYPE-05 and ENG-02 via Addendum 2 on 2026-11-28, on the machine proofs of the debug fixes 62ec2f49 and f5d57b98)"
 affects: [verify-work, gsd-debug, round-c, round-d]
 plan_head_before: b5eec90ff5dc3107c7e746df4ed897d08cef21d1
 plan_head_after: b5eec90ff5dc3107c7e746df4ed897d08cef21d1
@@ -26,8 +26,9 @@ key-files:
   modified: []
 key-decisions:
   - "Complete rule case 1 applies to TYPE-04, WAPI-05, WAPI-06 and WAPI-08 (every cell of their rows passed), and after the addendum to TYPE-03 and ENG-03 (Farm Weather Cycles now Used on CEF, every other cell passed); case 2 applies to TYPE-05 and ENG-02 (P1a-WV2 run 1 measured a FAIL)"
+  - "Addendum 2 (2026-11-28): the maintainer chose to mark TYPE-05 and ENG-02 Complete on the machine proofs of the two /gsd-debug sessions (P1a-WV2 10 of 10 at index 0 on the fixed page, P1a-CEF at 0, P1c-WV2 random; BROWSER_EXIT_WAIT 1.5 s with 72 new-folder closes and no WARN), without a new maintainer eye check"
   - "WAPI-08 is listed although P1a-WV2 run 1 failed: the cell of WAPI-08 that names P1a-WV2 measures the scale key reaching the YouTube page, and that read was scale(1) in all three runs; the FAIL measured the playlist start index"
-requirements-completed: [TYPE-03, TYPE-04, WAPI-05, WAPI-06, WAPI-08, ENG-03]
+requirements-completed: [TYPE-03, TYPE-04, WAPI-05, WAPI-06, WAPI-08, ENG-03, TYPE-05, ENG-02]
 duration: "about 26 min of maintainer run (T0 03:56:30 to the stop at 04:22:16 local); Task 1 and the ready gate were earlier"
 completed: 2026-11-28
 status: complete
@@ -53,6 +54,9 @@ coverage:
       - kind: integration
         ref: "target/round-b-recheck-probe/p1a-wv2.json"
         status: fail
+      - kind: integration
+        ref: ".planning/debug/resolved/webview2-playlist-starts-at-a.md (fix 62ec2f49): P1a-WV2 10 of 10 at index 0, P1a-CEF at 0, P1c-WV2 random; pages.rs a_playlist_makes_its_random_first_start_only_once_the_engine_said_it_shuffles (Addendum 2)"
+        status: pass
     human_judgment: true
     rationale: "A measured FAIL in one of three runs; a race is the analysed cause, not a proven one; the verifier or /gsd-debug must judge"
   - id: D4
@@ -83,7 +87,7 @@ coverage:
 - The maintainer re-checked Part 1 (CEF) and Part 2 (WebView2) with DISPLAY1 and DISPLAY9 attached; every step reply was "ok" except C2, where the windows appeared within a few seconds instead of about 1 s.
 - D-040 held on the desktop: only DISPLAY1's renderer logged `kind=Persistent` (67 lines, CEF and WebView2), DISPLAY9's logged `kind=Ephemeral` (67 lines), and the storage fixture counted 1, 2, 3 on DISPLAY1 and 1, 1, 1 on DISPLAY9.
 - The D-041 browser-exit fix held: 83 of 84 WebView2 browser exits took 174 to 461 ms; one took 1052 ms (finding F4).
-- Four requirements were marked at the end of the sitting (TYPE-04, WAPI-05, WAPI-06, WAPI-08); TYPE-03 and ENG-03 were marked after the addendum re-check (below); TYPE-05 and ENG-02 stay open with the failure recorded verbatim below.
+- Four requirements were marked at the end of the sitting (TYPE-04, WAPI-05, WAPI-06, WAPI-08); TYPE-03 and ENG-03 were marked after the addendum re-check (below); TYPE-05 and ENG-02 stay open with the failure recorded verbatim below (both marked later in Addendum 2, after the debug fixes).
 
 ## Task 1 proofs (first executor, results in `target/round-b-recheck-probe/`)
 
@@ -354,9 +358,31 @@ After the sitting above, this SUMMARY recorded TYPE-03 and ENG-03 as case 2 beca
 
 **Not covered by the addendum:** the DISPLAY1/DISPLAY9 edge look for the other seven CEF themes stays the sitting's "a1 ok" (not separately reported, as recorded above).
 
+## Addendum 2 (2026-11-28, TYPE-05 and ENG-02 after the debug fixes)
+
+After this plan, the two open findings went through /gsd-debug and were fixed on develop-rust:
+
+- **P1a-WV2 FAIL (playlist start index 17 with Shuffle Mode off): fix `62ec2f49`**, session `.planning/debug/resolved/webview2-playlist-starts-at-a.md`. Root cause: `YouTubeContent.html` decided a playlist's first start on the first -1 state with its `shuffleMode = true` default, and on a slow start that state came before the engine's `setShuffle` call. The page now waits until the engine has said the shuffle value before it makes a random first start. Proofs on a release build that embeds the fixed page: P1a-WV2 10 of 10 at index 0 with advance 0 to 1 and the list loop 28 to 0; P1a-CEF at index 0; P1c-WV2 (Shuffle on) random (19); fault injection with `setShuffle` 400 ms late: off 2 of 2 at 0, on 2 of 2 random, and the unfixed page started at 21 and 8 under the same delay. New test `a_playlist_makes_its_random_first_start_only_once_the_engine_said_it_shuffles` (pages.rs).
+- **F4 (one `did not exit in time` at 1052 ms, the ENG-02 concurrency Edge truth): fix `f5d57b98`**, session `.planning/debug/resolved/webview2-browser-exit-can-exce.md`. Root cause: the WebView2 Runtime's own slower shutdown path (0.77 to 1.12 s on an idle machine, up to 1.25 s under the test suite) sat on the 1 s bound. `BROWSER_EXIT_WAIT` is now 1.5 s (D-040 and D-041 amended, FEATURES.md and MEASUREMENTS.md updated). Proofs: 72 closes on new profile folders, 3 of them on the slow path (941, 958 and 1057 ms), every one logged `webview2 browser process exited`, no WARN and no `no web profile folder`; the two WebView2 portal tests green in 6 of 6 runs with slow-path closes of 817 to 1251 ms. A fully saturated CPU (16 busy threads) still holds the browser beyond 1.5 s; that is recorded as expected degraded behaviour in host.rs, D-040, FEATURES.md and MEASUREMENTS.md.
+
+**Maintainer decision (2026-11-28, during `/gsd-execute-phase 04`):** asked whether to mark TYPE-05 and ENG-02 Complete on these machine proofs, the maintainer chose "Evet, işaretle" (translation: yes, mark them). No new maintainer eye check was run. The B4-WV2 and B4-CEF eye checks of the sitting above stand.
+
+**Cells changed by Addendum 2:**
+
+| Cell | Before | After |
+|---|---|---|
+| TYPE-05: playlist, WebView2 | B4-WV2: pass; P1a-WV2: FAIL (run 1 of 3) | B4-WV2: pass; P1a-WV2 on the fixed page: pass (10 of 10) |
+| TYPE-05: shuffle, WebView2 | P1a-WV2: FAIL (run 1); P1c-WV2: pass | P1a-WV2 on the fixed page: pass (10 of 10 at index 0 with Shuffle off); P1c-WV2: pass (random 19); late-`setShuffle` injection: pass |
+| ENG-02: hosts YouTube wallpapers | B4-WV2: pass; P1a-WV2: FAIL (run 1 of 3) | B4-WV2: pass; P1a-WV2 on the fixed page: pass (10 of 10) |
+| ENG-02 concurrency Edge truth | not fully met (F4, 1052 ms) | met with the 1.5 s bound (72 closes, no WARN; portal tests 6 of 6) |
+
+**Complete rule re-applied (case 1):** every cell of TYPE-05 (IFrame API page, playlist, shuffle, loop, hidden player UI, on both engines) and of ENG-02 (Web, URL, YouTube, the C#-compatible JavaScript API) has now passed, and the ENG-02 concurrency Edge truth is met with the 1.5 s bound, so **TYPE-05 and ENG-02 are listed in `requirements-completed`**. The CEF cells were already passing and the CEF re-run of P1a on the fixed page started at 0.
+
+**Not covered by Addendum 2:** C2 (a Web theme appears on both monitors after about 1 to 2.4 s on WebView2, not about 1 s) is still a finding for a human decision; it is not a cell of TYPE-05 or ENG-02. It is finding F3 above; the debug session that asked for this desktop check, `.planning/debug/resolved/webview2-browser-exit-slow.md`, was resolved on 2026-11-27 (fix e747c7be), and the log shows the long part is now the new WebView2's start and the page load, not the browser exit.
+
 ## Self-Check
 
-**PASSED.** Checked after writing: the 14 fix commits are ancestors of HEAD (listed above); the six copied logs exist in `target/round-b-recheck-logs/`; the probe results `p1a-wv2.json`, `certs-off.json` and the others exist in `target/round-b-recheck-probe/`; `tasklist.exe` shows 0 Rust Sucrose processes; no code commit exists (`git rev-list --count b5eec90f..HEAD` = 0 before the docs commit), matching `commits: 0`. Addendum (2026-11-28 04:37) checked: the Farm Weather Cycles Service and Renderer log lines are in `target/round-b-recheck-logs/addendum/`; `tasklist.exe` showed no Rust Sucrose process after the stop at 04:39:13; the scratch settings were restored (`cmp` same); this docs-only addendum adds no code commit.
+**PASSED.** Checked after writing: the 14 fix commits are ancestors of HEAD (listed above); the six copied logs exist in `target/round-b-recheck-logs/`; the probe results `p1a-wv2.json`, `certs-off.json` and the others exist in `target/round-b-recheck-probe/`; `tasklist.exe` shows 0 Rust Sucrose processes; no code commit exists (`git rev-list --count b5eec90f..HEAD` = 0 before the docs commit), matching `commits: 0`. Addendum (2026-11-28 04:37) checked: the Farm Weather Cycles Service and Renderer log lines are in `target/round-b-recheck-logs/addendum/`; `tasklist.exe` showed no Rust Sucrose process after the stop at 04:39:13; the scratch settings were restored (`cmp` same); this docs-only addendum adds no code commit. Addendum 2 (2026-11-28) checked: both debug sessions are in `.planning/debug/resolved/` with `status: resolved`; `62ec2f49` and `f5d57b98` are ancestors of HEAD; Addendum 2 is docs-only.
 
 ---
 *Phase: 04-m3-engines-and-the-wallpaper-api*

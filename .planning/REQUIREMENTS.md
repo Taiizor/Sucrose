@@ -29,13 +29,13 @@ Derived from `docs/FEATURES.md` (parity checklist, D-003: every feature is kept)
 - [x] **TYPE-02**: User can set a GIF theme, drawn by Sucrose's built-in renderer, which also plays APNG and WebP (Win ✅ · mac ✅ · Linux ✅)
 - [x] **TYPE-03**: User can set a Web theme (local HTML) on a web engine: WebView2/CEF on Windows, WKWebView/CEF on macOS, WebKitGTK/CEF on Linux (Win ✅ · mac ✅ · Linux ✅)
 - [x] **TYPE-04**: User can set a URL wallpaper; it receives forwarded input (its Sucrose mute and volume set is part of PROP-05, D-06) (Win ✅ · mac ✅ · Linux ✅)
-- [ ] **TYPE-05**: User can set a YouTube wallpaper (IFrame API page, no API key) with playlist, shuffle, loop and hidden player UI (Win ✅ · mac ✅ · Linux ✅)
+- [x] **TYPE-05**: User can set a YouTube wallpaper (IFrame API page, no API key) with playlist, shuffle, loop and hidden player UI (Win ✅ · mac ✅ · Linux ✅)
 - [ ] **TYPE-06**: User can set an Application wallpaper that embeds another app's window, with one process per screen in every mode and real window handles (legacy bugs fixed) (Win ✅ · mac ❌ · Linux ⚠️ X11 only)
 
 ### Engines
 
 - [x] **ENG-01**: The libmpv engine ships inside the Sucrose package, is loaded at runtime, embeds into the desktop surface, and supports hardware decoding, loop, pause and volume (D-013, D-028)
-- [ ] **ENG-02**: The WebView2 engine hosts Web, URL and YouTube wallpapers with the C#-compatible JavaScript API
+- [x] **ENG-02**: The WebView2 engine hosts Web, URL and YouTube wallpapers with the C#-compatible JavaScript API
 - [x] **ENG-03**: The CEF engine hosts the same wallpapers with the same JavaScript API
 - [ ] **ENG-04**: The libVLC engine plays video when libVLC is installed
 - [ ] **ENG-05**: The built-in OS video engine (Media Foundation on Windows) plays video with no engine installed (D-006)
@@ -238,10 +238,10 @@ Which phases cover which requirements. Filled during roadmap creation.
 | TYPE-02 | Phase 4 | Complete |
 | TYPE-03 | Phase 4 | Complete |
 | TYPE-04 | Phase 4 | Complete |
-| TYPE-05 | Phase 4 | Pending |
+| TYPE-05 | Phase 4 | Complete |
 | TYPE-06 | Phase 4 | Pending |
 | ENG-01 | Phase 2 | Complete |
-| ENG-02 | Phase 4 | Pending |
+| ENG-02 | Phase 4 | Complete |
 | ENG-03 | Phase 4 | Complete |
 | ENG-04 | Phase 4 | Pending |
 | ENG-05 | Phase 4 | Pending |
