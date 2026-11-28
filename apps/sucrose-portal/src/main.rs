@@ -139,7 +139,8 @@ fn main() -> anyhow::Result<ExitCode> {
             );
             toast::configure(cx);
             cx.on_window_closed(|cx, _| {
-                if cx.windows().is_empty() {
+                // The Portal window is the app: the editor window alone does not keep it running.
+                if cx.windows().is_empty() || app::editor::only_editor_left(cx) {
                     cx.quit();
                 }
             })

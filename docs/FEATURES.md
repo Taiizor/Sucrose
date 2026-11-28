@@ -83,7 +83,7 @@ Actions Close / Pause / Resume per condition; trigger after 5 consecutive 1 s po
 | Feature | Notes | Status |
 |---|---|---|
 | Controls: label, button, slider, textbox, checkbox, dropdown, numberbox, passwordbox, filedropdown, colorpicker | `services.md` §6, `formats.md` §3 | ⬜ |
-| Live apply to the running wallpaper | Legacy uses watcher files; replace with IPC. | ⬜ |
+| Live apply to the running wallpaper | Legacy uses watcher files; replace with IPC. Rust (Phase 4 Round C, 04-48 spike): the Portal's editor sends one `ChangeProperty` per change (a slider drag at most every 50 ms and once on release) to the service, which checks the key and the control type against its working copy, takes only the value (a number held inside its bounds) and sends `ApplyProperty` to every renderer of that theme; the CEF renderer runs the theme's `PropertyListener` call again for that key. The service is the only writer of property files: the working copy `<data_dir>/Properties/<Theme>Base` is written atomically at most every 300 ms and once when the editor closes; the theme's own file is never written. D-20: before the first working copy, every non-delta file of the C# `Cache\Properties` is copied there once (the C# folder is only read). Web themes with their own `SucroseProperties.json` on CEF only for now. | â¬ |
 | Per-language texts (`PropertyLocalization`) | | ⬜ |
 | Restore default, refresh, delete copy | | ⬜ |
 | Built-in property sets for web pages, mpv, VLC | mpv keys are raw mpv property names. | ⬜ |

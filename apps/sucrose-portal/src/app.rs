@@ -2,6 +2,8 @@
 
 use std::time::Duration;
 
+pub mod editor;
+
 use gpui_kit::component::{ActiveTheme, TitleBar, WindowExt as _, v_flex};
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
@@ -21,7 +23,7 @@ use crate::{
     header::{Header, HeaderEvent},
     i18n::{tr, tr_count_with, tr_with},
     ipc::{ConnectionState, LinkEvent, ServiceLink, next_state},
-    library::{ChangeLocation, LibraryView, bin_name},
+    library::{ChangeLocation, Customize, LibraryView, bin_name},
     settings::{
         Mode, SettingsTab,
         arguments::saved_list,
@@ -93,10 +95,19 @@ pub struct PortalApp {
     closing_after_hint: bool,
     /// Closes the window when the service does not answer; dropped with the app.
     _hint_timer: Option<Task<()>>,
+    /// Follows the Customize icons of the library cards.
+    _customize_events: Subscription,
+    /// The folder the measurement-only switch (`SUCROSE_MEASURE_EDITOR`) opens the editor for once the service has
+    /// answered; read once at start, never a command line flag.
+    measure_editor: Option<String>,
 }
 
 /// How long the window waits for the service to confirm that the hint is off before it closes anyway.
 const HINT_WRITE_WAIT: Duration = Duration::from_secs(1);
+
+/// The environment variable that names a theme folder the editor opens for by itself, for the spike of plan 48 and the
+/// measurement of plan 56. It is read once at start and is not a command line flag.
+const MEASURE_EDITOR_ENV: &str = "SUCROSE_MEASURE_EDITOR";
 
 impl PortalApp {
     /// Builds the app, applies `early` (the events that were ready before the window opened) and starts awaiting the
@@ -150,6 +161,9 @@ impl PortalApp {
         });
         let library_events = cx.subscribe_in(&library, window, |this, _, _: &ChangeLocation, window, cx| {
             this.set_mode(Mode::Settings(SettingsTab::General), window, cx);
+        });
+        let customize_events = cx.subscribe_in(&library, window, |this, _, event: &Customize, window, cx| {
+            this.open_editor(&event.0, window, cx);
         });
         let header_events = cx.subscribe_in(&header, window, |this, _, event: &HeaderEvent, window, cx| {
             this.set_mode(event.0, window, cx);
@@ -209,6 +223,10 @@ impl PortalApp {
             tray_hint_shown: false,
             closing_after_hint: false,
             _hint_timer: None,
+            _customize_events: customize_events,
+            measure_editor: std::env::var(MEASURE_EDITOR_ENV)
+                .ok()
+                .filter(|folder| !folder.is_empty()),
         };
         // The first close with the hint on explains the tray (UI-05); every other close goes through.
         let this = cx.weak_entity();
@@ -220,6 +238,17 @@ impl PortalApp {
             app.on_link_event(event, window, cx);
         }
         app
+    }
+
+    /// Opens the properties editor for `folder` (or shows the folder in the open one) next to the taskbar of the monitor
+    /// that holds this window.
+    pub fn open_editor(&mut self, folder: &str, window: &mut Window, cx: &mut Context<Self>) {
+        let title = self
+            .library
+            .read(cx)
+            .title_of(folder)
+            .unwrap_or_else(|| folder.to_owned());
+        editor::open_editor(folder, &title, &self.link, window, cx);
     }
 
     /// Shows `mode`. Leaving the library stops its hover preview; the library itself (page, scroll position, search text)
@@ -407,6 +436,12 @@ impl PortalApp {
                     });
                     self.settings = Some(settings);
                     self.runtime = Some(runtime);
+                    // The measurement-only switch: the editor opens once, after the first Welcome, without focus when
+                    // this window has none.
+                    if let Some(folder) = self.measure_editor.take() {
+                        tracing::info!("editor opened (measurement switch)");
+                        cx.defer_in(window, move |this, window, cx| this.open_editor(&folder, window, cx));
+                    }
                     self.apply_theme(window, cx);
                     self.apply_backdrop(window, cx);
                     self.apply_background(window, cx);
@@ -555,6 +590,10 @@ impl PortalApp {
                         page.on_arguments(engine, [user, sucrose, defaults], window, cx)
                     });
                 }
+                // The answer to the editor's open request goes to the editor window.
+                event @ (PortalEvent::Properties(_)
+                | PortalEvent::PropertiesBlob { .. }
+                | PortalEvent::PropertiesFailed { .. }) => editor::forward(&event, cx),
                 PortalEvent::AlreadyOpen { existing_pid } => {
                     tracing::info!(existing_pid, "already open");
                     cx.quit();

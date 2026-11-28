@@ -338,6 +338,15 @@ pub const REQUIRED_KEYS: &[&str] = &[
     "Portal.DisplayPreferences.Monitor",
     "Portal.DisplayPreferences.NoWallpaper",
     "Portal.DisplayPreferences.WindowsWallpaper",
+    "Property.WindowTitle",
+    "Property.Type.NotSupport",
+    "Property.Empty.Title",
+    "Property.Empty.Body",
+    "Property.Unreadable",
+    "Property.Chip.NotRunning",
+    "Property.Chip.Playing",
+    "Property.Status.Live",
+    "Property.Status.NotRunning",
 ];
 
 #[cfg(test)]

@@ -37,6 +37,9 @@ pub enum Thumb {
 /// What a click on a card does.
 pub type UseHandler = Rc<dyn Fn(&mut Window, &mut App)>;
 
+/// What a click on the Customize icon of a card does: it opens the properties editor and never starts Use.
+pub type CustomizeHandler = Rc<dyn Fn(&mut Window, &mut App)>;
+
 /// What the pointer entering (`true`) or leaving (`false`) a card does.
 pub type HoverHandler = Rc<dyn Fn(bool, &mut Window, &mut App)>;
 
@@ -76,6 +79,8 @@ pub struct CardData {
     pub preview_hide: bool,
     /// What the pointer entering or leaving the card does (the hover preview).
     pub on_hover: HoverHandler,
+    /// What the Customize icon does; `None` on a card that has no properties to edit, which draws no icon.
+    pub customize: Option<CustomizeHandler>,
 }
 
 /// The most monitor badges a card draws before the rest collapse into one "+N" badge (UI-SPEC Library card).
@@ -267,6 +272,12 @@ pub fn render_card(data: CardData, width: Pixels, cx: &App) -> impl IntoElement 
     let on_use = Rc::clone(&data.on_use);
     let on_arrow = Rc::clone(&data.on_arrow);
     let on_hover = Rc::clone(&data.on_hover);
+    let group = SharedString::from(format!("library-card-group-{index}"));
+    // The icon sits left of the red incompatible pill when both show (UI-SPEC Library card).
+    let customize_right = if data.needs_newer_app { px(46.) } else { px(8.) };
+    let customize = data
+        .customize
+        .map(|on_customize| render_customize(index, customize_right, group.clone(), on_customize));
     let show_strip = strip_visible(data.preview.is_some(), data.preview_hide);
     let selected = data.selected;
     let badge_pills: Vec<Stateful<Div>> = data
@@ -352,6 +363,7 @@ pub fn render_card(data: CardData, width: Pixels, cx: &App) -> impl IntoElement 
         });
     div()
         .id(("library-card", index))
+        .group(group)
         .relative()
         .flex_none()
         .w(width)
@@ -460,6 +472,52 @@ pub fn render_card(data: CardData, width: Pixels, cx: &App) -> impl IntoElement 
                     .tooltip(|window, cx| Tooltip::new(tr("Portal.LibraryCard.VersionTip")).build(window, cx)),
             )
         })
+        .children(customize)
+}
+
+/// The Customize icon: a 32 x 32 hit area at the top-right with a 28 px circle of black at 55 % and the white
+/// SlidersHorizontal icon (an image-overlay exception to the theme tokens). It is drawn while the card is hovered and when it
+/// has the keyboard focus itself, and its click is the icon's alone: the mouse press is consumed so the card never sees a
+/// click and never starts Use.
+fn render_customize(index: usize, right: Pixels, group: SharedString, on_customize: CustomizeHandler) -> Stateful<Div> {
+    let label = tr("Portal.LibraryCard.MenuCustomize");
+    let tip = label.clone();
+    div()
+        .id(("library-card-customize", index))
+        .absolute()
+        .top(px(8.))
+        .right(right)
+        .size(px(32.))
+        .flex()
+        .items_center()
+        .justify_center()
+        .cursor_pointer()
+        .opacity(0.)
+        .group_hover(group, |style| style.opacity(1.))
+        .focus_visible(|style| style.opacity(1.))
+        .tab_stop(true)
+        .role(Role::Button)
+        .aria_label(label)
+        .tooltip(move |window, cx| Tooltip::new(tip.clone()).build(window, cx))
+        .on_mouse_down(MouseButton::Left, |_, _, cx| cx.stop_propagation())
+        .on_click(move |_, window, cx| {
+            cx.stop_propagation();
+            on_customize(window, cx);
+        })
+        .child(
+            div()
+                .size(px(28.))
+                .flex()
+                .items_center()
+                .justify_center()
+                .rounded_full()
+                .bg(black().opacity(0.55))
+                .child(
+                    Icon::new(IconName::SlidersHorizontal)
+                        .with_size(px(16.))
+                        .text_color(white()),
+                ),
+        )
 }
 
 /// One monitor badge: a neutral pill (black at 55 % with white text, an image-overlay exception), 20 px high, with the
@@ -980,9 +1038,92 @@ mod tests {
                 preview: None,
                 preview_hide: false,
                 on_hover: Rc::new(|_, _, _| {}),
+                customize: None,
             };
             render_card(data, px(240.), cx)
         }
+    }
+
+    /// A window root that shows one card with a Customize icon; Use and Customize are counted apart.
+    struct CustomizeHost {
+        used: Rc<Cell<usize>>,
+        customized: Rc<Cell<usize>>,
+        needs_newer_app: bool,
+        focus: FocusHandle,
+    }
+
+    impl Render for CustomizeHost {
+        fn render(&mut self, _: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
+            let used = self.used.clone();
+            let customized = self.customized.clone();
+            let data = CardData {
+                index: 0,
+                title: "Rain".into(),
+                description: None,
+                thumb: Thumb::Failed,
+                needs_newer_app: self.needs_newer_app,
+                selected: false,
+                badges: Vec::new(),
+                pending: false,
+                state: CardUse::Enabled,
+                focus: self.focus.clone(),
+                on_use: Rc::new(move |_, _| used.set(used.get() + 1)),
+                on_arrow: Rc::new(|_, _, _| {}),
+                preview: None,
+                preview_hide: false,
+                on_hover: Rc::new(|_, _, _| {}),
+                customize: Some(Rc::new(move |_, _| customized.set(customized.get() + 1))),
+            };
+            render_card(data, px(240.), cx)
+        }
+    }
+
+    #[gpui_kit::test]
+    fn a_click_on_the_customize_icon_customizes_and_never_starts_use(cx: &mut TestAppContext) {
+        cx.update(gpui_kit::init);
+        let used = Rc::new(Cell::new(0));
+        let customized = Rc::new(Cell::new(0));
+        let (used_shared, customized_shared) = (used.clone(), customized.clone());
+        let (_, window) = cx.add_window_view(|_, cx| CustomizeHost {
+            used: used_shared,
+            customized: customized_shared,
+            needs_newer_app: false,
+            focus: cx.focus_handle(),
+        });
+        window.run_until_parked();
+
+        // The 32 px hit area sits 8 px from the top and the right edge of the 240 px card: its centre is (216, 24).
+        window.simulate_click(point(px(216.), px(24.)), Modifiers::default());
+        window.run_until_parked();
+
+        assert_eq!(customized.get(), 1, "the icon got the click");
+        assert_eq!(used.get(), 0, "the card did not");
+        // A click elsewhere on the card is still Use.
+        window.simulate_click(point(px(100.), px(100.)), Modifiers::default());
+        window.run_until_parked();
+        assert_eq!(used.get(), 1);
+        assert_eq!(customized.get(), 1);
+    }
+
+    #[gpui_kit::test]
+    fn the_customize_icon_moves_left_of_the_newer_version_pill(cx: &mut TestAppContext) {
+        cx.update(gpui_kit::init);
+        let used = Rc::new(Cell::new(0));
+        let customized = Rc::new(Cell::new(0));
+        let (used_shared, customized_shared) = (used.clone(), customized.clone());
+        let (_, window) = cx.add_window_view(|_, cx| CustomizeHost {
+            used: used_shared,
+            customized: customized_shared,
+            needs_newer_app: true,
+            focus: cx.focus_handle(),
+        });
+        window.run_until_parked();
+
+        // Now its centre is 38 px further left: (178, 24).
+        window.simulate_click(point(px(178.), px(24.)), Modifiers::default());
+        window.run_until_parked();
+
+        assert_eq!((customized.get(), used.get()), (1, 0));
     }
 
     #[gpui_kit::test]
@@ -1056,6 +1197,7 @@ mod tests {
                 preview: Some(self.preview.clone()),
                 preview_hide: true,
                 on_hover: Rc::new(|_, _, _| {}),
+                customize: None,
             };
             render_card(data, px(240.), cx)
         }

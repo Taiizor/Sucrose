@@ -29,6 +29,7 @@ use sucrose_core::{
     library::{self, LibraryTheme},
     paths,
     settings::{DisplayScreenType, SortKind, SortMode},
+    theme::WallpaperType,
     version::app_version,
 };
 use sucrose_ipc::portal::{EngineReportView, MaintainReport, PortalRequest, PortalSettings, RuntimeState, UseOutcome};
@@ -176,6 +177,11 @@ pub struct ThemeBrief {
 pub struct ChangeLocation;
 
 impl EventEmitter<ChangeLocation> for LibraryView {}
+
+/// The Customize icon of the card of this folder was clicked: the app opens the properties editor for it.
+pub struct Customize(pub String);
+
+impl EventEmitter<Customize> for LibraryView {}
 
 /// The library page: owned by the Portal's root entity, which feeds it the settings the service reports.
 pub struct LibraryView {
@@ -374,6 +380,14 @@ impl LibraryView {
         self.pending_use = Some(folder.to_owned());
         card::send_use(&self.link, folder);
         cx.notify();
+    }
+
+    /// The title the card of `folder` shows, when the library has that theme.
+    pub fn title_of(&self, folder: &str) -> Option<String> {
+        self.themes
+            .iter()
+            .find(|theme| theme.folder == folder)
+            .map(|theme| library::display_title(&theme.info, &theme.folder).to_owned())
     }
 
     /// The service answered a Use request: only the spinner of the folder it names goes away.
@@ -859,6 +873,19 @@ impl LibraryView {
             let on_use: card::UseHandler = Rc::new(move |_, cx| {
                 on_use_view.update(cx, |view, cx| view.use_theme(&folder, cx)).ok();
             });
+            let needs_newer_app = matches!(theme.compatibility, library::Compatibility::NeedsNewerApp { .. });
+            // Only the Web themes have a properties editor in this build (the service answers the others with "no
+            // properties"); the other types follow with their engines' sets.
+            let customize: Option<card::CustomizeHandler> = (theme.info.kind == WallpaperType::Web && !needs_newer_app)
+                .then(|| {
+                    let customize_view = this.clone();
+                    let customize_folder = theme.folder.clone();
+                    Rc::new(move |_: &mut Window, cx: &mut App| {
+                        customize_view
+                            .update(cx, |_, cx| cx.emit(Customize(customize_folder.clone())))
+                            .ok();
+                    }) as card::CustomizeHandler
+                });
             let on_arrow: card::ArrowHandler = {
                 let handles = Rc::clone(&handles);
                 Rc::new(move |arrow, window, cx| {
@@ -891,6 +918,7 @@ impl LibraryView {
                 preview: self.preview.image_of(&theme.folder).cloned(),
                 preview_hide: settings.preview_hide,
                 on_hover,
+                customize,
             });
         }
         cards

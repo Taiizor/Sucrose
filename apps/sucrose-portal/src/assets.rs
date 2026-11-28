@@ -40,6 +40,7 @@ gpui_kit::assets::icon_assets!(
         SearchX,
         Settings,
         Shield,
+        SlidersHorizontal,
         Sun,
         TriangleAlert,
         Users,
