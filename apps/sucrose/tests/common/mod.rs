@@ -55,7 +55,9 @@ pub struct TestService {
 
 impl TestService {
     /// Prepares `<target tmp>/portal/<name>` with a `Setting/Sucrose.json` (nothing selected, tray hidden, an empty
-    /// library) merged with `overrides` section by section, starts the service on it and waits for its endpoint.
+    /// library, one theme on every monitor) merged with `overrides` section by section, starts the service on it and
+    /// waits for its endpoint. Per display would play on one monitor only (D-03), and these tests exercise the
+    /// renderer of every connected monitor.
     pub fn start(name: &str, overrides: &Value) -> Self {
         let dir = PathBuf::from(env!("CARGO_TARGET_TMPDIR")).join("portal").join(name);
         if dir.exists() {
@@ -68,6 +70,7 @@ impl TestService {
             json!({
                 "Library": { "Location": library.to_string_lossy(), "Selected": "" },
                 "General": { "AppVisible": false },
+                "Engine": { "DisplayScreenType": "SameDuplicate" },
             }),
             overrides,
         );

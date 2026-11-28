@@ -32,12 +32,12 @@ use image::{
 
 use crate::media;
 use sucrose_config::{
-    model::Settings,
+    model::{DisplayAssignment, Settings},
     store::{SETTINGS_FILE, write_atomic},
 };
 use sucrose_core::{
     library, paths,
-    settings::EngineType,
+    settings::{DisplayScreenType, EngineType},
     theme::{SucroseInfo, WallpaperType},
     version::{LegacyVersion, app_version},
 };
@@ -83,6 +83,37 @@ pub struct Plan {
     pub select: Option<String>,
     /// The engine of a wallpaper type in the prepared settings (`--engine <Type>=<EngineType>`), in the order given.
     pub engines: Vec<(WallpaperType, EngineType)>,
+    /// The display mode of the prepared settings (`--display-mode`), the legacy name; `None` keeps the default.
+    pub display_mode: Option<DisplayScreenType>,
+    /// The device name of the monitor a single wallpaper plays on (`--screen-device`, `ScreenDevice`).
+    pub screen_device: Option<String>,
+    /// `--assign <device name>=<folder>`: the wallpaper of a connected monitor in Per display, stored under the stable
+    /// id the platform reports (`Engine.DisplayAssignments`), in the order given.
+    pub assigns: Vec<(String, String)>,
+}
+
+/// Reads one `--assign` value, `<device name>=<folder>`: the device name is a Windows display device (it starts with
+/// a backslash pair), the folder a plain folder name.
+fn parse_assign(text: &str) -> Outcome<(String, String)> {
+    let (device, folder) = text
+        .split_once('=')
+        .ok_or_else(|| format!("--assign must look like <device name>=<folder>, not '{text}'"))?;
+    if device.is_empty() || folder.is_empty() {
+        return Err(format!(
+            "--assign {text}: both the device name and the folder are needed"
+        ));
+    }
+    if folder.contains(['/', '\\', ':']) || folder.contains("..") {
+        return Err(format!("--assign {text}: '{folder}' is not a plain folder name"));
+    }
+    Ok((device.to_owned(), folder.to_owned()))
+}
+
+/// Reads one `--display-mode` value: a legacy `DisplayScreenType` name.
+fn parse_display_mode(text: &str) -> Outcome<DisplayScreenType> {
+    DisplayScreenType::from_legacy_name(text).ok_or_else(|| {
+        format!("--display-mode: '{text}' is not a display mode (PerDisplay, SpanAcross, SameDuplicate)")
+    })
 }
 
 /// The engines the legacy app allows for a wallpaper type.
@@ -135,7 +166,8 @@ fn set_engine(settings: &mut Settings, kind: WallpaperType, engine: EngineType) 
 
 impl Plan {
     /// Reads `--out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] [--media-fixtures] [--select <folder>]
-    /// [--engine <Type>=<EngineType>]...`.
+    /// [--engine <Type>=<EngineType>]... [--display-mode <mode>] [--screen-device <device name>]
+    /// [--assign <device name>=<folder>]...`.
     fn parse(args: &[String]) -> Outcome<Self> {
         let mut out = None;
         let mut count = None;
@@ -145,6 +177,9 @@ impl Plan {
         let mut media_fixtures = false;
         let mut select = None;
         let mut engines = Vec::new();
+        let mut display_mode = None;
+        let mut screen_device = None;
+        let mut assigns: Vec<(String, String)> = Vec::new();
         let mut it = args.iter();
         while let Some(arg) = it.next() {
             let mut value = |flag: &str| it.next().ok_or_else(|| format!("{flag} needs a value"));
@@ -170,6 +205,15 @@ impl Plan {
                 "--media-fixtures" => media_fixtures = true,
                 "--select" => select = Some(value("--select")?.clone()),
                 "--engine" => engines.push(parse_engine(value("--engine")?)?),
+                "--display-mode" => display_mode = Some(parse_display_mode(value("--display-mode")?)?),
+                "--screen-device" => screen_device = Some(value("--screen-device")?.clone()),
+                "--assign" => {
+                    let assign = parse_assign(value("--assign")?)?;
+                    if assigns.iter().any(|(device, _)| *device == assign.0) {
+                        return Err(format!("--assign names {} twice", assign.0));
+                    }
+                    assigns.push(assign);
+                }
                 other => return Err(format!("unknown argument '{other}'")),
             }
         }
@@ -182,12 +226,16 @@ impl Plan {
             media_fixtures,
             select,
             engines,
+            display_mode,
+            screen_device,
+            assigns,
         })
     }
 }
 
 /// `cargo xtask synth-library --out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] [--media-fixtures]
-/// [--select <folder>] [--engine <Type>=<EngineType>]...`
+/// [--select <folder>] [--engine <Type>=<EngineType>]... [--display-mode <mode>] [--screen-device <device name>]
+/// [--assign <device name>=<folder>]...`
 pub fn run(args: &[String]) -> ExitCode {
     let result = Plan::parse(args).and_then(|plan| generate(&plan));
     match result {
@@ -196,7 +244,8 @@ pub fn run(args: &[String]) -> ExitCode {
             eprintln!("synth-library: {message}");
             eprintln!(
                 "usage: cargo xtask synth-library --out <dir> --count <n> [--seed <u64>] [--force] [--web-fixtures] \
-                 [--media-fixtures] [--select <folder>] [--engine <Type>=<EngineType>]..."
+                 [--media-fixtures] [--select <folder>] [--engine <Type>=<EngineType>]... [--display-mode <mode>] \
+                 [--screen-device <device name>] [--assign <device name>=<folder>]..."
             );
             ExitCode::FAILURE
         }
@@ -523,6 +572,15 @@ fn marker_for(plan: &Plan) -> String {
     for (kind, engine) in &plan.engines {
         text.push_str(&format!("engine={kind:?}={}\n", engine.legacy_name()));
     }
+    if let Some(mode) = plan.display_mode {
+        text.push_str(&format!("display-mode={mode:?}\n"));
+    }
+    if let Some(device) = &plan.screen_device {
+        text.push_str(&format!("screen-device={device}\n"));
+    }
+    for (device, folder) in &plan.assigns {
+        text.push_str(&format!("assign={device}={folder}\n"));
+    }
     text
 }
 
@@ -683,10 +741,13 @@ fn marker_matches(text: &str, plan: &Plan) -> bool {
 }
 
 /// Whether `out` already holds a finished run of this plan whose library and settings are still there. A run with
-/// `--web-fixtures` is never up to date: the fixture files may have changed since.
+/// `--web-fixtures` is never up to date: the fixture files may have changed since. Neither is a run that places
+/// wallpapers: the service rewrites the settings it reads (the stored assignments), so they are written again.
 fn is_up_to_date(out: &Path, plan: &Plan) -> bool {
-    let marked =
-        !plan.web_fixtures && fs::read_to_string(out.join(MARKER)).is_ok_and(|text| marker_matches(&text, plan));
+    let placed = plan.display_mode.is_some() || plan.screen_device.is_some() || !plan.assigns.is_empty();
+    let marked = !plan.web_fixtures
+        && !placed
+        && fs::read_to_string(out.join(MARKER)).is_ok_and(|text| marker_matches(&text, plan));
     let wrote = plan.count
         + if plan.media_fixtures {
             MEDIA_FIXTURE_FOLDERS.len()
@@ -706,6 +767,13 @@ fn generate(plan: &Plan) -> Outcome<()> {
 /// Writes the whole synthetic folder, checks it with the library scan and prints the result.
 fn generate_with(plan: &Plan, pool: &PoolPlan) -> Outcome<Generated> {
     generate_full(plan, pool, &web_fixtures_dir())
+}
+
+/// Whether the run writes a theme with the folder name `name`: a synthetic one, a media fixture or a Web fixture.
+fn writes_theme(plan: &Plan, fixtures: &[String], name: &str) -> bool {
+    let synthetic = (0..plan.count).any(|index| theme_name(plan.seed, index) == name);
+    let media = plan.media_fixtures && MEDIA_FIXTURE_FOLDERS.contains(&name);
+    synthetic || media || fixtures.iter().any(|fixture| fixture == name)
 }
 
 /// `generate_with` with the fixtures folder given, so tests can use their own.
@@ -728,19 +796,44 @@ fn generate_full(plan: &Plan, pool: &PoolPlan, fixtures_dir: &Path) -> Outcome<G
     } else {
         Vec::new()
     };
-    if let Some(select) = &plan.select {
-        let synthetic = (0..plan.count).any(|index| theme_name(plan.seed, index) == *select);
-        let media = plan.media_fixtures && MEDIA_FIXTURE_FOLDERS.contains(&select.as_str());
-        if !synthetic && !media && !fixtures.contains(select) {
-            return Err(format!(
-                "--select {select}: this run writes no theme with that folder name (fixtures: {}; use --web-fixtures or --media-fixtures)",
-                if fixtures.is_empty() {
-                    "none".to_owned()
-                } else {
-                    fixtures.join(", ")
-                }
-            ));
+    // The placement is checked the same way: a folder this run writes, a monitor that is connected now.
+    let mut stored = Vec::new();
+    if !plan.assigns.is_empty() {
+        let monitors = sucrose_platform::current().monitors();
+        for (device, folder) in &plan.assigns {
+            let monitor = monitors
+                .iter()
+                .find(|monitor| monitor.id.eq_ignore_ascii_case(device))
+                .ok_or_else(|| {
+                    let known: Vec<&str> = monitors.iter().map(|monitor| monitor.id.as_str()).collect();
+                    format!(
+                        "--assign {device}: no such monitor is connected (connected: {})",
+                        known.join(", ")
+                    )
+                })?;
+            if !writes_theme(plan, &fixtures, folder) {
+                return Err(format!(
+                    "--assign {device}={folder}: this run writes no theme with that folder name (use --web-fixtures or --media-fixtures)"
+                ));
+            }
+            stored.push(DisplayAssignment {
+                monitor_id: monitor.stable_id().to_owned(),
+                device_name: monitor.id.clone(),
+                theme: folder.clone(),
+            });
         }
+    }
+    if let Some(select) = &plan.select
+        && !writes_theme(plan, &fixtures, select)
+    {
+        return Err(format!(
+            "--select {select}: this run writes no theme with that folder name (fixtures: {}; use --web-fixtures or --media-fixtures)",
+            if fixtures.is_empty() {
+                "none".to_owned()
+            } else {
+                fixtures.join(", ")
+            }
+        ));
     }
     if out.exists() {
         let marked = out.join(MARKER).is_file();
@@ -898,6 +991,15 @@ fn generate_full(plan: &Plan, pool: &PoolPlan, fixtures_dir: &Path) -> Outcome<G
     settings.library.selected = plan.select.clone().unwrap_or_default();
     for (kind, engine) in &plan.engines {
         set_engine(&mut settings, *kind, *engine);
+    }
+    if let Some(mode) = plan.display_mode {
+        settings.engine.display_screen_type = mode;
+    }
+    if let Some(device) = &plan.screen_device {
+        settings.engine.screen_device.clone_from(device);
+    }
+    if !stored.is_empty() {
+        settings.engine.display_assignments = Some(stored);
     }
     settings.library.delete_corrupt = false;
     settings.general.app_visible = false;
@@ -1061,6 +1163,9 @@ mod tests {
             media_fixtures: false,
             select: select.map(str::to_owned),
             engines: Vec::new(),
+            display_mode: None,
+            screen_device: None,
+            assigns: Vec::new(),
         };
         let text = marker_text(40, 7);
         assert!(marker_matches(&text, &plan(40, 7, None)));
@@ -1118,6 +1223,9 @@ mod tests {
             media_fixtures: false,
             select: None,
             engines: Vec::new(),
+            display_mode: None,
+            screen_device: None,
+            assigns: Vec::new(),
         };
         assert_eq!(generate_with(&plan, &pool).unwrap(), Generated::Written);
         let probe = out.join("Library").join(theme_name(7, 0)).join("SucroseInfo.json");
@@ -1263,6 +1371,9 @@ mod tests {
             media_fixtures: false,
             select: None,
             engines: Vec::new(),
+            display_mode: None,
+            screen_device: None,
+            assigns: Vec::new(),
         };
         // The real data folder of this machine is guarded by name, so a plan inside it is refused whatever else is true.
         if let Some(real) = paths::legacy_data_dir() {
@@ -1331,6 +1442,9 @@ mod tests {
             media_fixtures: false,
             select: select.map(str::to_owned),
             engines: Vec::new(),
+            display_mode: None,
+            screen_device: None,
+            assigns: Vec::new(),
         }
     }
 
@@ -1615,6 +1729,114 @@ mod tests {
         );
         let settings = fs::read_to_string(out.join("Setting").join(SETTINGS_FILE)).unwrap();
         assert!(settings.contains("\"Web\": \"CefSharpLive\""), "{settings}");
+        fs::remove_dir_all(&fixtures).unwrap();
+        fs::remove_dir_all(&base).unwrap();
+    }
+
+    #[test]
+    fn synth_parse_reads_the_placement_options() {
+        let plan = Plan::parse(&strings(&[
+            "--out",
+            "x",
+            "--count",
+            "2",
+            "--display-mode",
+            "SpanAcross",
+            "--screen-device",
+            "\\\\.\\DISPLAY9",
+            "--assign",
+            "\\\\.\\DISPLAY1=gif-anim",
+            "--assign",
+            "\\\\.\\DISPLAY9=webp-anim",
+        ]))
+        .unwrap();
+        assert_eq!(plan.display_mode, Some(DisplayScreenType::SpanAcross));
+        assert_eq!(plan.screen_device.as_deref(), Some("\\\\.\\DISPLAY9"));
+        assert_eq!(
+            plan.assigns,
+            vec![
+                ("\\\\.\\DISPLAY1".to_owned(), "gif-anim".to_owned()),
+                ("\\\\.\\DISPLAY9".to_owned(), "webp-anim".to_owned())
+            ]
+        );
+        let plain = Plan::parse(&strings(&["--out", "x", "--count", "2"])).unwrap();
+        assert_eq!(
+            (plain.display_mode, plain.screen_device, plain.assigns.len()),
+            (None, None, 0)
+        );
+    }
+
+    #[test]
+    fn synth_a_bad_placement_option_is_an_error() {
+        for (flag, value) in [
+            ("--display-mode", "Everywhere"),
+            ("--assign", "\\\\.\\DISPLAY1"),
+            ("--assign", "=gif-anim"),
+            ("--assign", "\\\\.\\DISPLAY1="),
+            ("--assign", "\\\\.\\DISPLAY1=../up"),
+            ("--assign", "\\\\.\\DISPLAY1=a/b"),
+        ] {
+            let error = Plan::parse(&strings(&["--out", "x", "--count", "2", flag, value])).unwrap_err();
+            assert!(error.contains(flag), "{flag} {value}: {error}");
+        }
+        for flag in ["--display-mode", "--screen-device", "--assign"] {
+            assert!(
+                Plan::parse(&strings(&["--out", "x", "--count", "2", flag])).is_err(),
+                "{flag}"
+            );
+        }
+        let twice = strings(&["--out", "x", "--count", "2", "--assign", "D=a", "--assign", "D=b"]);
+        assert!(Plan::parse(&twice).unwrap_err().contains("twice"));
+    }
+
+    #[test]
+    fn synth_the_display_mode_and_screen_device_are_written_and_an_unknown_monitor_writes_nothing() {
+        let fixtures = scratch_fixtures("fixtures-placement");
+        let base = temp_folder("fixtures-placement-out");
+        let out = base.join("ok");
+        let plan = Plan::parse(&strings(&[
+            "--out",
+            &out.to_string_lossy(),
+            "--count",
+            "2",
+            "--seed",
+            "6",
+            "--display-mode",
+            "SameDuplicate",
+            "--screen-device",
+            "\\\\.\\DISPLAY9",
+        ]))
+        .unwrap();
+        generate_full(&plan, &tiny_pool(), &fixtures).unwrap();
+        let settings = fs::read_to_string(out.join("Setting").join(SETTINGS_FILE)).unwrap();
+        assert!(
+            settings.contains("\"DisplayScreenType\": \"SameDuplicate\""),
+            "{settings}"
+        );
+        assert!(
+            settings.contains("\"ScreenDevice\": \"\\\\\\\\.\\\\DISPLAY9\""),
+            "{settings}"
+        );
+        assert!(!settings.contains("DisplayAssignments"), "{settings}");
+        // A run that places wallpapers is never up to date: the service rewrites the settings it reads.
+        assert_eq!(
+            generate_full(&plan, &tiny_pool(), &fixtures).unwrap(),
+            Generated::Written
+        );
+
+        let refused = base.join("refused");
+        let unknown = Plan::parse(&strings(&[
+            "--out",
+            &refused.to_string_lossy(),
+            "--count",
+            "2",
+            "--assign",
+            "\\\\.\\DISPLAY777=hello",
+        ]))
+        .unwrap();
+        let error = generate_full(&unknown, &tiny_pool(), &fixtures).unwrap_err();
+        assert!(error.contains("--assign") && error.contains("DISPLAY777"), "{error}");
+        assert!(!refused.exists(), "nothing is written for a refused placement");
         fs::remove_dir_all(&fixtures).unwrap();
         fs::remove_dir_all(&base).unwrap();
     }

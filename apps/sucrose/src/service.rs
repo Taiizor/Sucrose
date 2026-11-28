@@ -1,7 +1,7 @@
 //! Service mode: owns the endpoint (single instance, D-023), starts a renderer and listens to it.
 
 use std::{
-    collections::{HashMap, HashSet, hash_map::Entry},
+    collections::{BTreeMap, BTreeSet, HashMap, HashSet, hash_map::Entry},
     path::{Component, Path, PathBuf},
     sync::{
         Arc, Mutex, MutexGuard, PoisonError,
@@ -58,6 +58,7 @@ use crate::{
         MEMORY_TIMER, MemoryModule, ModuleAction, PortalEnd, end_portal, module_off, pids_by_slot, start_module,
         tray_action,
     },
+    placement::{self, Placement, Target},
     portal_link::{
         PortalAdmission, PortalLink, PortalRegistry, ask_service_to_open_portal, portal_args, runtime_state,
         spawn_pending,
@@ -69,8 +70,8 @@ use crate::{
         decide_exit,
     },
     topology::{
-        Debounce, SlotMap, TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, TimerCommand, TopologyAction, diff, primary,
-        replace_all, web_profile_owner, with_area,
+        Debounce, SlotMap, TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, TimerCommand, TopologyAction, primary,
+        web_profile_owner, with_area,
     },
 };
 
@@ -646,17 +647,23 @@ fn resume_wallpaper(
     let (title, no_wallpaper) = match gate {
         Ok(job) => {
             let title = (job.title.clone(), job.fallback.clone());
-            if fleet.job.is_some() || !closed.is_empty() {
+            if fleet.has_jobs() || !closed.is_empty() {
                 fleet.adopt_job(job);
             }
             (Some(title), None)
         }
         Err(rejection) => {
-            fleet.job = None;
+            let selected = fleet.placement.selected.clone();
+            fleet.jobs.remove(&selected);
             fleet.fallbacks.clear();
             (None, Some(rejection.to_string()))
         }
     };
+    // The other themes of the placement name the new library too.
+    let others = other_jobs(host.settings(), root, &fleet.engines);
+    for (_, job) in others {
+        fleet.adopt_job(job);
+    }
     // The job names the new library now: the monitor change of the move is applied and the closed slots come back (with
     // no job they are forgotten instead of started).
     let applied = fleet.finish_move(ctx);
@@ -810,9 +817,31 @@ struct Renderers {
     connections: HashMap<u8, Link>,
     /// Set when shutdown begins: a renderer that connects later is told to close at once.
     closing: bool,
-    /// The slot of the master clock (D-02); the others are followers. Kept under the same lock as the connections so
-    /// a role is never sent from a stale election.
-    master: Option<u8>,
+    /// The group each renderer slot belongs to: the folder of the theme it plays. Renderers of one theme share a
+    /// master clock and one sound; two themes are two groups (D-04, D-05, D-030).
+    groups: HashMap<u8, String>,
+    /// The slot of the master clock of each group (D-02); the others of the group are followers. Kept under the same
+    /// lock as the connections so a role is never sent from a stale election.
+    masters: HashMap<String, u8>,
+}
+
+impl Renderers {
+    /// The slot of the master clock of the group `slot` belongs to.
+    fn master_of(&self, slot: u8) -> Option<u8> {
+        self.masters
+            .get(self.groups.get(&slot).map_or("", String::as_str))
+            .copied()
+    }
+
+    /// The connected slots that share a group with `slot`, `slot` included.
+    fn group_mates(&self, slot: u8) -> Vec<u8> {
+        let group = self.groups.get(&slot);
+        self.connections
+            .keys()
+            .copied()
+            .filter(|other| self.groups.get(other) == group)
+            .collect()
+    }
 }
 
 type SharedRenderers = Arc<Mutex<Renderers>>;
@@ -836,6 +865,9 @@ const TRAY_ICON: &[u8] = include_bytes!("../assets/TrayIcon.ico");
 
 /// Why no wallpaper plays while the OS reports no monitor.
 const NO_MONITOR: &str = "the OS reports no monitor";
+
+/// Why no wallpaper plays while monitors are connected but none has a wallpaper assigned (Per display, D-01).
+const NOTHING_PLACED: &str = "no connected monitor has a wallpaper assigned";
 
 /// The hint for a failure that has no repair step of its own.
 const CHECK_THE_LOG: &str = "Check the log for details.";
@@ -1008,7 +1040,7 @@ fn printable(text: &str) -> String {
 /// Starts the fullscreen rule through the module gate (D-008): with FullScreenPerformance Resume, or with no wallpaper
 /// to act on, nothing is built and the module logs that it is off. `true` when the rule is on and its timer has to run.
 fn start_fullscreen(fleet: &mut Fleet, action: FullScreenAction, scope: ActionScope, pause: PauseKind) -> bool {
-    let wanted = action != FullScreenAction::Resume && fleet.job.is_some();
+    let wanted = action != FullScreenAction::Resume && fleet.has_jobs();
     start_module("fullscreen", wanted, || {
         Ok(fleet.enable_fullscreen(action, scope, pause))
     })
@@ -1108,6 +1140,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
     let (plan, mut host) = plan_wallpapers(&engines);
     let assignments = SharedAssignments::default();
     let mut fleet = Fleet::new(plan.job, Arc::clone(&assignments), engines);
+    fleet.configure(Placement::from_settings(host.settings()), plan.others);
     let mut status = plan.status;
 
     // The main thread only pumps messages and drains the channel (D-012): IPC reads and child waits run on threads
@@ -1126,22 +1159,24 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
         }
     })?;
     // One renderer per connected monitor (D-01), each playing the same video on its own monitor's surface.
-    if let Some(screen) = fleet.job.as_ref().map(|job| job.screen) {
+    if let Some(screen) = fleet.screen() {
         // Before the first renderer exists: Windows reads the per-app GPU preference when a process creates its
         // Direct3D device, and every renderer runs this same executable.
         apply_gpu_preference(&*platform, plan.gpu);
         let monitors = with_area(platform.monitors(), screen);
-        let ids: Vec<&str> = monitors.iter().map(|monitor| monitor.id.as_str()).collect();
         if monitors.is_empty() {
             status = Status::NoWallpaper {
                 reason: NO_MONITOR.to_owned(),
             };
         }
-        log_monitors_identified(&monitors);
         let primary_id = primary(&monitors).map(|monitor| monitor.id.clone());
-        fleet.web_owner = web_profile_owner(&monitors).map(|monitor| monitor.id.clone());
-        let applied = fleet.apply(
-            diff(&[], &monitors),
+        // What a migrated legacy file means (D-03): stored once below, once the snapshot is applied.
+        let derived = fleet
+            .placement
+            .derived(&monitors)
+            .filter(|_| fleet.jobs.contains_key(&fleet.placement.selected));
+        let applied = fleet.apply_snapshot(
+            monitors.clone(),
             &Ctx {
                 supervisor: &supervisor,
                 renderers: &renderers,
@@ -1150,18 +1185,32 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
         if applied.started == 0 && applied.failed > 0 {
             anyhow::bail!("cannot start a renderer for any monitor");
         }
+        if applied.started == 0 && !monitors.is_empty() {
+            status = Status::NoWallpaper {
+                reason: NOTHING_PLACED.to_owned(),
+            };
+        }
+        let placed: Vec<&str> = fleet.monitors.iter().map(|monitor| monitor.id.as_str()).collect();
         tracing::info!(
             count = applied.started,
-            monitors = ?ids,
+            monitors = ?placed,
+            connected = monitors.len(),
             primary = ?primary_id,
             web_profile_owner = ?fleet.web_owner,
             "renderers started"
         );
-        fleet.monitors = monitors;
-        fleet.elect(&Ctx {
-            supervisor: &supervisor,
-            renderers: &renderers,
-        });
+        if let Some(list) = derived {
+            let entries = list.len();
+            match host.update(|settings| settings.engine.display_assignments = Some(list.clone())) {
+                Ok(()) => {
+                    tracing::info!(entries, "the legacy placement is stored as display assignments");
+                    fleet.placement.assignments = Some(list);
+                }
+                Err(reason) => {
+                    tracing::warn!(%reason, "the display assignments cannot be saved, the legacy placement stays")
+                }
+            }
+        }
     }
     let accept = Accept {
         renderers: Arc::clone(&renderers),
@@ -1315,7 +1364,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                             slot,
                             pid,
                             &message,
-                            fleet.job.as_ref().map(Job::current),
+                            fleet.current_of(slot),
                         ) else {
                             tracing::debug!(
                                 slot,
@@ -1436,7 +1485,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                             &status,
                             decision,
                             class,
-                            fleet.job.as_ref().map(Job::current),
+                            fleet.current_of(exited.slot),
                             monitor,
                         );
                         if let (Some(next), Decision::GiveUp(_)) = (&next, decision) {
@@ -1718,7 +1767,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                     // Only this button opens DevTools (D-13): the renderer of that monitor, and only when
                                     // it plays a web wallpaper on a web engine (T-04-39).
                                     let running = supervisor.slots();
-                                    let job = fleet.job.as_ref().map(|job| (job.kind, job.engine));
+                                    let job = fleet.job_of_monitor(&monitor).map(|job| (job.kind, job.engine));
                                     let target = devtools_slot(job, &fleet.slots, &running, &monitor);
                                     match target {
                                         // A second click while the renderer is still answering waits for the same answer.
@@ -1994,7 +2043,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
         // Monitors and DPI are the service's to watch: a surface parented into the desktop no longer hears about
         // them. The events come in bursts, so they only (re)start the debounce.
         LoopEvent::DisplayChanged => {
-            if !quitting && fleet.job.is_some() {
+            if !quitting && fleet.has_jobs() {
                 run_timers(&timers, fleet.debounce.display_changed().timers);
             }
             Flow::Continue
@@ -2080,7 +2129,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
             Flow::Continue
         }
         LoopEvent::Timer(id) => {
-            let Some(screen) = fleet.job.as_ref().map(|job| job.screen) else {
+            let Some(screen) = fleet.screen() else {
                 timers.kill(id);
                 return Flow::Continue;
             };
@@ -2106,7 +2155,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                     },
                 );
                 if applied.started > 0 && status.is_waiting_for_a_monitor() {
-                    if let Some(job) = &fleet.job {
+                    if let Some(job) = fleet.any_job() {
                         status = Status::Starting {
                             title: job.title.clone(),
                             fallback: job.fallback.clone(),
@@ -2124,12 +2173,12 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
         LoopEvent::Input(_) => Flow::Continue,
         // explorer.exe started again: the surfaces have to be replaced, so each monitor gets a new renderer.
         LoopEvent::ShellRestarted => {
-            if !quitting && fleet.job.is_some() && fleet.library_move.is_none() {
+            if !quitting && fleet.has_jobs() && fleet.library_move.is_none() {
                 let acted = fleet.shell_restarted(&Ctx {
                     supervisor: &supervisor,
                     renderers: &renderers,
                 });
-                if acted && let Some(next) = status.restarting(fleet.job.as_ref().map(Job::current)) {
+                if acted && let Some(next) = status.restarting(fleet.any_job().map(Job::current)) {
                     status = next;
                     if let Some(tray) = &tray {
                         tray.set_tooltip(&status.tooltip());
@@ -2550,7 +2599,7 @@ fn register_writer(renderers: &Mutex<Renderers>, slot: u8, pid: u32, connection:
 /// service's own sends so that it cannot interleave with another message.
 fn send_role(renderers: &Mutex<Renderers>, slot: u8) {
     let state = lock(renderers);
-    let role = if state.master == Some(slot) {
+    let role = if state.master_of(slot) == Some(slot) {
         Role::Master
     } else {
         Role::Follower
@@ -2577,14 +2626,16 @@ fn clock_targets(master: Option<u8>, from: u8, connected: impl IntoIterator<Item
 /// Hands the master's clock reading to the followers; a reading from any other renderer is ignored.
 fn relay_clock(renderers: &Mutex<Renderers>, from: u8, tick: ClockTick) {
     let state = lock(renderers);
-    if state.master != Some(from) {
+    let master = state.master_of(from);
+    if master != Some(from) {
         tracing::debug!(
             slot = from,
             "ignoring a clock reading from a renderer that is not the master"
         );
         return;
     }
-    let targets = clock_targets(state.master, from, state.connections.keys().copied());
+    // Only the renderers that play the same theme follow this clock (T-04-92).
+    let targets = clock_targets(master, from, state.group_mates(from));
     for slot in targets {
         if let Some(link) = state.connections.get(&slot) {
             match link.offer(ToRenderer::Clock(tick)) {
@@ -2792,8 +2843,10 @@ fn accept_hello(spawned: &HashMap<u32, u8>, connected: &HashSet<u8>, message: &T
 
 /// What the settings and the selected theme lead to.
 struct Plan {
-    /// What every renderer plays and how, when the selected theme is a video this build can play.
+    /// What the selected theme plays and how, when it is a wallpaper this build can play.
     job: Option<Job>,
+    /// The jobs of the other themes the display assignments name, by folder name; a theme the gate refuses has none.
+    others: BTreeMap<String, Job>,
     /// What the tray says before any renderer has reported.
     status: Status,
     /// General.json AppVisible: whether the tray exists at all (D-15).
@@ -2855,6 +2908,13 @@ struct Job {
 }
 
 impl Job {
+    /// The folder name of the theme in the library: what assignments and groups call the theme.
+    fn folder(&self) -> String {
+        Path::new(&self.theme_dir)
+            .file_name()
+            .map_or_else(String::new, |name| name.to_string_lossy().into_owned())
+    }
+
     /// The title and fallback the status transitions need.
     fn current(&self) -> Current<'_> {
         Current {
@@ -2956,14 +3016,19 @@ struct Applied {
 /// The renderers of the monitors: one slot per monitor, keyed by the monitor's device name so that the same monitors
 /// in another enumeration order change nothing, and nothing can start twice for one monitor.
 struct Fleet {
-    /// `None` when no renderer is wanted (the theme is rejected).
-    job: Option<Job>,
+    /// What each theme that has a renderer, or may get one, plays: the job of every theme the placement names, by the
+    /// theme's folder name. A theme the gate rejected has none and its monitors get no renderer.
+    jobs: BTreeMap<String, Job>,
+    /// What decides which monitor plays which theme (D-01), as the settings say now.
+    placement: Placement,
+    /// The theme each monitor with a renderer plays, by device name, as placed by the last snapshot.
+    targets: BTreeMap<String, String>,
     /// What the machine can play with, as detected at the start or when a Portal last asked (ENG-06).
     engines: EngineReport,
     /// The fallbacks that run now (D-11); nothing is stored.
     fallbacks: Fallbacks,
     slots: SlotMap,
-    /// The monitors the renderers follow, as last applied, with the rectangle of the area they cover.
+    /// The monitors that have a renderer, as last applied, with the rectangle of the area they cover.
     monitors: Vec<MonitorInfo>,
     /// The monitor whose renderer asks for the persistent web profile (D-040): the primary of the snapshot being
     /// applied, set before its spawns because the monitor list above is updated after them.
@@ -3063,13 +3128,20 @@ impl Fleet {
         self.slots.monitor_of(slot).is_some() && !self.rule_closed.is_closed(slot)
     }
 
+    /// A fleet whose one job plays on every monitor, until [`Fleet::configure`] gives it the placement of the settings.
     fn new(job: Option<Job>, assignments: SharedAssignments, engines: EngineReport) -> Self {
         let mut fallbacks = Fallbacks::default();
-        if let Some(job) = &job {
+        let mut jobs = BTreeMap::new();
+        let mut selected = String::new();
+        if let Some(job) = job {
             fallbacks.set(job.kind, job.fallback.clone());
+            selected = job.folder();
+            jobs.insert(selected.clone(), job);
         }
         Self {
-            job,
+            jobs,
+            placement: Placement::everywhere(selected),
+            targets: BTreeMap::new(),
             engines,
             fallbacks,
             slots: SlotMap::default(),
@@ -3088,10 +3160,93 @@ impl Fleet {
         }
     }
 
+    /// Takes the placement of the settings and the jobs of the themes it names besides the selected one.
+    fn configure(&mut self, placement: Placement, others: BTreeMap<String, Job>) {
+        self.placement = placement;
+        for (folder, job) in others {
+            self.fallbacks.set(job.kind, job.fallback.clone());
+            self.jobs.insert(folder, job);
+        }
+    }
+
+    /// The job of the selected theme (`Library.Selected`): what the tray names and what Span and Duplicate play.
+    fn job(&self) -> Option<&Job> {
+        self.jobs.get(&self.placement.selected)
+    }
+
+    /// The selected theme's job, else any job: what the settings of the whole wallpaper (the area it covers) come from.
+    fn any_job(&self) -> Option<&Job> {
+        self.job().or_else(|| self.jobs.values().next())
+    }
+
+    /// Whether any theme has a job: without one nothing is wanted.
+    fn has_jobs(&self) -> bool {
+        !self.jobs.is_empty()
+    }
+
+    /// The area the wallpapers cover (Engine.json ScreenType); every job carries the same one.
+    fn screen(&self) -> Option<ScreenArea> {
+        self.any_job().map(|job| job.screen)
+    }
+
+    /// The theme the monitor `id` plays: the one placed for it, else the selected one.
+    fn theme_of_monitor(&self, id: &str) -> String {
+        self.targets
+            .get(id)
+            .cloned()
+            .unwrap_or_else(|| self.placement.selected.clone())
+    }
+
+    /// The theme the renderer of `slot` plays, `None` for a slot without a monitor.
+    fn theme_of_slot(&self, slot: u8) -> Option<String> {
+        self.slots
+            .monitor_of(slot)
+            .map(|monitor| self.theme_of_monitor(monitor))
+    }
+
+    /// The job of the renderer of `slot`.
+    fn job_of_slot(&self, slot: u8) -> Option<&Job> {
+        self.theme_of_slot(slot).and_then(|theme| self.jobs.get(&theme))
+    }
+
+    /// The job of the renderer on the monitor `id`.
+    fn job_of_monitor(&self, id: &str) -> Option<&Job> {
+        self.jobs.get(&self.theme_of_monitor(id))
+    }
+
+    /// The title and fallback the tray status of `slot` needs: its own theme's, else the selected one's.
+    fn current_of(&self, slot: u8) -> Option<Current<'_>> {
+        self.job_of_slot(slot).or_else(|| self.job()).map(Job::current)
+    }
+
+    /// The active slots whose renderer plays `theme`.
+    fn slots_of(&self, theme: &str) -> Vec<u8> {
+        self.slots
+            .active_slots()
+            .into_iter()
+            .filter(|slot| self.theme_of_slot(*slot).as_deref() == Some(theme))
+            .collect()
+    }
+
+    /// The targets for `monitors` that have a job; a target whose theme was refused is logged and left out.
+    fn placed(&self, monitors: &[MonitorInfo]) -> Vec<Target> {
+        self.placement
+            .targets(monitors)
+            .into_iter()
+            .filter(|target| {
+                let playable = self.jobs.contains_key(&target.theme);
+                if !playable {
+                    tracing::warn!(monitor = %target.monitor.id, theme = ?target.theme, "no wallpaper is placed, the theme was refused");
+                }
+                playable
+            })
+            .collect()
+    }
+
     /// Switches the fullscreen rule on for `action` unless it is Resume, which disables it: then no timer and no
     /// state exist at all (D-008). `true` when the rule is on and its timer has to run.
     fn enable_fullscreen(&mut self, action: FullScreenAction, scope: ActionScope, pause: PauseKind) -> bool {
-        if action == FullScreenAction::Resume || self.job.is_none() {
+        if action == FullScreenAction::Resume || !self.has_jobs() {
             return false;
         }
         if pause == PauseKind::Heavy {
@@ -3148,7 +3303,7 @@ impl Fleet {
             return;
         }
         for slot in self.rule_closed.ready() {
-            if self.job.is_none() || self.slots.monitor_of(slot).is_none() {
+            if self.job_of_slot(slot).is_none() {
                 self.rule_closed.forget(slot);
                 continue;
             }
@@ -3186,17 +3341,20 @@ impl Fleet {
         }
     }
 
-    /// The slot of the master clock: the renderer of the monitor `choose_master` picks among those whose renderer
-    /// plays, `current` being the slot of the present master. A renderer that has not shown its first frame has no
-    /// clock yet, so it is never elected.
-    fn master_slot(&self, current: Option<u8>) -> Option<u8> {
+    /// The slot of the master clock of the group `group` (the renderers that play one theme): the renderer of the
+    /// monitor `choose_master` picks among those of the group whose renderer plays, `current` being the slot of the
+    /// present master. A renderer that has not shown its first frame has no clock yet, so it is never elected, and
+    /// a renderer never becomes the master of another theme's group.
+    fn master_slot(&self, group: &str, current: Option<u8>) -> Option<u8> {
         let candidates: Vec<MonitorInfo> = self
             .monitors
             .iter()
             .filter(|monitor| {
-                self.slots
-                    .slot_of(&monitor.id)
-                    .is_some_and(|slot| self.playing.contains(&slot))
+                self.theme_of_monitor(&monitor.id) == group
+                    && self
+                        .slots
+                        .slot_of(&monitor.id)
+                        .is_some_and(|slot| self.playing.contains(&slot))
             })
             .cloned()
             .collect();
@@ -3204,24 +3362,40 @@ impl Fleet {
         choose_master(current, &candidates).and_then(|id| self.slots.slot_of(&id))
     }
 
-    /// Elects the master again for the monitors as they are now. When it changed, the new master is told to take the
-    /// audio at the configured volume and the old one, if it still has a monitor, to follow (D-02). A renderer that
-    /// is still starting has no connection yet and gets its role when it says Hello.
+    /// Elects the master of every group again for the monitors as they are now (one group per theme, D-04). When a
+    /// group's master changed, the new master is told to take the audio at the configured volume and the old one, if
+    /// it still has a monitor, to follow (D-02, D-05). A renderer that is still starting has no connection yet and
+    /// gets its role when it says Hello.
     fn elect(&self, ctx: &Ctx<'_>) {
-        let volume = self.job.as_ref().map_or(100, |job| job.settings.volume);
         let mut state = lock(ctx.renderers);
-        let old = state.master;
-        let wanted = self.master_slot(old);
-        if old == wanted {
-            return;
-        }
-        state.master = wanted;
-        tracing::info!(?old, new = ?wanted, "master clock elected");
-        for (slot, message) in role_changes(old, wanted, &self.slots.active_slots(), volume) {
-            if let Some(link) = state.connections.get(&slot)
-                && link.offer(message) == Offer::Failed
-            {
-                tracing::warn!(slot, "cannot send a role change to a renderer");
+        let mut groups: BTreeSet<String> = self
+            .monitors
+            .iter()
+            .map(|monitor| self.theme_of_monitor(&monitor.id))
+            .collect();
+        groups.extend(state.masters.keys().cloned());
+        for group in groups {
+            let old = state.masters.get(&group).copied();
+            let wanted = self.master_slot(&group, old);
+            if old == wanted {
+                continue;
+            }
+            match wanted {
+                Some(slot) => {
+                    state.masters.insert(group.clone(), slot);
+                }
+                None => {
+                    state.masters.remove(&group);
+                }
+            }
+            tracing::info!(?old, new = ?wanted, "master clock elected");
+            let volume = self.jobs.get(&group).map_or(100, |job| job.settings.volume);
+            for (slot, message) in role_changes(old, wanted, &self.slots.active_slots(), volume) {
+                if let Some(link) = state.connections.get(&slot)
+                    && link.offer(message) == Offer::Failed
+                {
+                    tracing::warn!(slot, "cannot send a role change to a renderer");
+                }
             }
         }
     }
@@ -3247,7 +3421,7 @@ impl Fleet {
         let mut applied = Applied::default();
         if let Some(monitors) = self.pending_snapshot.take() {
             // With no job (the theme is gone) the topology is ignored, as it is outside a move.
-            if self.job.is_some() {
+            if self.has_jobs() {
                 applied = self.apply_snapshot(monitors, ctx);
             }
         }
@@ -3264,21 +3438,41 @@ impl Fleet {
             return Applied::default();
         }
         log_monitors_identified(&monitors);
-        let changed = diff(&self.monitors, &monitors);
-        let actions = replace_all(&self.monitors, &monitors);
+        // Which of the connected monitors play, and what: the renderers follow the targets, not every monitor (D-01).
+        let targets = self.placed(&monitors);
+        let target_monitors: Vec<MonitorInfo> = targets.iter().map(|target| target.monitor.clone()).collect();
+        let changed = placement::actions(&self.monitors, &target_monitors, false);
+        let actions = placement::actions(&self.monitors, &target_monitors, true);
         let surfaces = actions
             .iter()
             .filter(|action| matches!(action, TopologyAction::SetRect(..)))
             .count();
+        for target in &targets {
+            tracing::info!(
+                monitor = %target.monitor.id,
+                stable_id = %target.monitor.stable_id(),
+                theme = ?target.theme,
+                "wallpaper placed"
+            );
+        }
+        self.targets = targets
+            .iter()
+            .map(|target| (target.monitor.id.clone(), target.theme.clone()))
+            .collect();
         if !changed.is_empty() {
             tracing::info!(actions = changed.len(), "applying a monitor change");
         }
         // Every surface is put back after a display change, whether its monitor changed or not: explorer may have
         // moved the parent window the surface's position depends on (legacy parity).
         tracing::info!(changed = changed.len(), surfaces, "re-placing every surface");
-        self.web_owner = web_profile_owner(&monitors).map(|monitor| monitor.id.clone());
+        tracing::info!(
+            monitors = target_monitors.len(),
+            groups = placement::groups(&targets).len(),
+            "placement applied"
+        );
+        self.web_owner = web_profile_owner(&target_monitors).map(|monitor| monitor.id.clone());
         let applied = self.apply(actions, ctx);
-        self.monitors = monitors;
+        self.monitors = target_monitors;
         self.refresh_web_profiles();
         if !changed.is_empty() {
             // Unchanged monitors cannot change the master.
@@ -3331,7 +3525,9 @@ impl Fleet {
 
     /// Starts the renderer for `monitor`; `false` when it could not be started.
     fn spawn(&mut self, monitor: &MonitorInfo, ctx: &Ctx<'_>) -> bool {
-        let Some(job) = &self.job else {
+        let theme = self.theme_of_monitor(&monitor.id);
+        let Some(job) = self.jobs.get(&theme) else {
+            tracing::warn!(monitor = %monitor.id, theme = ?theme, "no renderer starts, the theme has no job");
             return false;
         };
         let Some(slot) = self.slots.assign(&monitor.id) else {
@@ -3340,6 +3536,8 @@ impl Fleet {
         };
         let web_profile = self.web_profile_for(&monitor.id);
         lock_assignments(&self.assignments).insert(slot, job.assignment(slot, monitor, web_profile));
+        // The renderer joins the group of its theme: one master clock and one sound per theme (D-04, D-05).
+        lock(ctx.renderers).groups.insert(slot, theme);
         self.budgets.remove(&slot);
         self.stopped.remove(&slot);
         if self.fullscreen.as_ref().is_some_and(|rule| rule.closes(&monitor.id)) {
@@ -3403,6 +3601,8 @@ impl Fleet {
             return;
         };
         lock_assignments(&self.assignments).remove(&slot);
+        self.targets.remove(id);
+        lock(ctx.renderers).groups.remove(&slot);
         self.rule_closed.forget(slot);
         // A renderer that has not said Hello yet has no connection: it is told to close when it does, because its
         // assignment is gone.
@@ -3602,8 +3802,8 @@ fn handle_use(
             folder,
             gate,
             selected: &settings.library.selected,
-            running: fleet.job.is_some() && !ctx.supervisor.pids().is_empty(),
-            running_engine: fleet.job.as_ref().map(|job| job.engine),
+            running: fleet.has_jobs() && !ctx.supervisor.pids().is_empty(),
+            running_engine: fleet.job().map(|job| job.engine),
             rule: fleet.rule_state(),
             moving: fleet.library_move.is_some(),
         };
@@ -3640,6 +3840,7 @@ fn handle_use(
     let title = job.title.clone();
     let fallback = job.fallback.clone();
     if !starting {
+        fleet.put_everywhere(&job.folder(), ctx.renderers);
         let reached = match transition {
             UseTransition::LoadSource => fleet.load_source(job, ctx.renderers),
             UseTransition::Restart => fleet.restart_with(job, ctx.renderers),
@@ -3649,11 +3850,9 @@ fn handle_use(
         return UseDone::applied(Some(Status::Starting { title, fallback }));
     }
     apply_gpu_preference(platform, host.settings().engine.gpu_preference);
+    fleet.placement.selected = job.folder();
     fleet.adopt_job(job);
-    fleet.web_owner = web_profile_owner(&monitors).map(|monitor| monitor.id.clone());
-    let applied = fleet.apply(diff(&[], &monitors), ctx);
-    fleet.monitors = monitors;
-    fleet.elect(ctx);
+    let applied = fleet.apply_snapshot(monitors, ctx);
     let arm_fullscreen = fleet.fullscreen.is_none() && {
         let settings = host.settings();
         start_fullscreen(
@@ -3683,28 +3882,31 @@ fn handle_use(
 
 /// What the Portal is told the service is doing now.
 fn current_runtime(host: &SettingsHost, fleet: &Fleet, supervisor: &Supervisor, tray_visible: bool) -> RuntimeState {
-    let running = fleet.job.is_some() && !supervisor.pids().is_empty();
+    let running = fleet.has_jobs() && !supervisor.pids().is_empty();
     runtime_state(
         host.settings(),
         running,
         fleet.rule_state(),
         fleet.library_move.is_some(),
         tray_visible,
-        engines_running(fleet.job.as_ref(), &fleet.slots, &supervisor.slots()),
+        fleet.engines_running(&supervisor.slots()),
     )
 }
 
-/// The monitor and the engine of each wallpaper that runs: the slots with a running renderer, by monitor, on the engine
-/// of the job (one job plays on every monitor, D-01). The Portal reads it to know whether a saved setting needs the
-/// restart prompt.
-fn engines_running(job: Option<&Job>, slots: &SlotMap, running: &[u8]) -> Vec<(String, EngineType)> {
-    let Some(job) = job else {
-        return Vec::new();
-    };
-    running
-        .iter()
-        .filter_map(|slot| slots.monitor_of(*slot).map(|monitor| (monitor.to_owned(), job.engine)))
-        .collect()
+impl Fleet {
+    /// The monitor and the engine of each wallpaper that runs: the slots with a running renderer, by monitor, on the
+    /// engine of the job of the theme that monitor plays (D-01). The Portal reads it to know whether a saved setting
+    /// needs the restart prompt.
+    fn engines_running(&self, running: &[u8]) -> Vec<(String, EngineType)> {
+        running
+            .iter()
+            .filter_map(|slot| {
+                let monitor = self.slots.monitor_of(*slot)?;
+                let job = self.job_of_monitor(monitor)?;
+                Some((monitor.to_owned(), job.engine))
+            })
+            .collect()
+    }
 }
 
 /// Whether a wallpaper of `kind` on `engine` has developer tools to open: a Web, Url or YouTube wallpaper on a web engine.
@@ -3749,7 +3951,13 @@ fn restart_wallpapers(
     legacy_root: Option<&Path>,
     renderers: &SharedRenderers,
 ) -> Result<usize, String> {
-    if !restart_affects(fleet.job.as_ref().map(|job| job.engine), engines) {
+    let affected: Vec<String> = fleet
+        .jobs
+        .iter()
+        .filter(|(_, job)| restart_affects(Some(job.engine), engines))
+        .map(|(folder, _)| folder.clone())
+        .collect();
+    if affected.is_empty() {
         return Ok(0);
     }
     if fleet.library_move.is_some() {
@@ -3759,16 +3967,20 @@ fn restart_wallpapers(
         return Err("the library folder cannot be found".to_owned());
     };
     let settings = host.settings();
-    let job = plan_for(
-        &settings.library_location(root),
-        &settings.library.selected,
-        &settings.engine,
-        settings.backgroundog.pause,
-        settings.portal.theme_mode,
-        &settings.general.user_agent,
-        &fleet.engines,
-    )?;
-    Ok(fleet.restart_with(job, renderers).len())
+    let mut closed = 0;
+    for folder in affected {
+        let job = plan_for(
+            &settings.library_location(root),
+            &folder,
+            &settings.engine,
+            settings.backgroundog.pause,
+            settings.portal.theme_mode,
+            &settings.general.user_agent,
+            &fleet.engines,
+        )?;
+        closed += fleet.restart_with(job, renderers).len();
+    }
+    Ok(closed)
 }
 
 /// Sends the Portal `runtime` when it differs from the last one sent (and remembers it either way, so a Portal that
@@ -3815,7 +4027,7 @@ impl Fleet {
     /// Whether a wallpaper is still wanted: a theme is selected and at least one monitor's renderer runs, is about to
     /// start, or waits for the fullscreen rule to bring it back. A renderer that ended for good does not count.
     fn wallpaper_wanted(&self) -> bool {
-        if self.job.is_none() {
+        if !self.has_jobs() {
             return false;
         }
         let slots = self.slots.active_slots();
@@ -3839,13 +4051,19 @@ impl Fleet {
         }
     }
 
-    /// Makes `job` what every renderer plays from now on: the shared assignments (so a renderer started or restarted
-    /// later plays it) and the restart budgets. An explicit Use resets the budgets: a user who replaced a bad theme is
-    /// not locked out by its old crashes (a renderer that keeps crashing is still stopped after 3 crashes in 60 s).
+    /// Makes `job` what the renderers of its theme play from now on: the shared assignments (so a renderer started or
+    /// restarted later plays it) and the restart budgets of those renderers. An explicit Use resets the budgets: a user
+    /// who replaced a bad theme is not locked out by its old crashes (a renderer that keeps crashing is still stopped
+    /// after 3 crashes in 60 s). The renderers of other themes are not touched.
     fn adopt_job(&mut self, job: Job) {
+        let folder = job.folder();
+        let slots = self.slots_of(&folder);
         {
             let mut assignments = lock_assignments(&self.assignments);
-            for assignment in assignments.values_mut() {
+            for assignment in assignments
+                .values_mut()
+                .filter(|assignment| slots.contains(&assignment.slot))
+            {
                 assignment.source.clone_from(&job.source);
                 assignment.settings = job.settings;
                 assignment.kind = job.kind;
@@ -3856,9 +4074,11 @@ impl Fleet {
                 assignment.web.clone_from(&job.web);
             }
         }
-        self.budgets.clear();
+        for slot in &slots {
+            self.budgets.remove(slot);
+        }
         self.fallbacks.set(job.kind, job.fallback.clone());
-        self.job = Some(job);
+        self.jobs.insert(folder, job);
     }
 
     /// Applies a live setting `message` (loop or shuffle) to what plays: the job and the shared assignments, so a renderer
@@ -3871,7 +4091,7 @@ impl Fleet {
                 put_live(&mut assignment.settings, &mut assignment.web, message);
             }
         }
-        if let Some(job) = self.job.as_mut() {
+        for job in self.jobs.values_mut() {
             put_live(&mut job.settings, &mut job.web, message);
         }
         self.slots
@@ -3881,28 +4101,48 @@ impl Fleet {
             .collect()
     }
 
-    /// Switches the running renderers to `job` without restarting them (D-26): the assignments are updated first,
-    /// then every connected renderer is sent LoadSource. A renderer that has not connected yet reads the new
-    /// assignment at its Hello. Returns the slots that were told.
+    /// The used theme plays on every monitor that has a renderer (Span and Duplicate, and a legacy single wallpaper):
+    /// `theme` becomes the selected one, every renderer joins its group and the master clock of the old group moves to it.
+    fn put_everywhere(&mut self, theme: &str, renderers: &SharedRenderers) {
+        self.placement.selected = theme.to_owned();
+        for placed in self.targets.values_mut() {
+            theme.clone_into(placed);
+        }
+        let mut state = lock(renderers);
+        let moved: Vec<String> = state.masters.keys().filter(|group| *group != theme).cloned().collect();
+        for group in moved {
+            if let Some(master) = state.masters.remove(&group) {
+                state.masters.entry(theme.to_owned()).or_insert(master);
+            }
+        }
+        for slot in self.slots.active_slots() {
+            state.groups.insert(slot, theme.to_owned());
+        }
+    }
+
+    /// Switches the running renderers of `job`'s theme to it without restarting them (D-26): the assignments are
+    /// updated first, then every connected renderer of the theme is sent LoadSource. A renderer that has not
+    /// connected yet reads the new assignment at its Hello. Returns the slots that were told.
     fn load_source(&mut self, job: Job, renderers: &SharedRenderers) -> Vec<u8> {
         let message = ToRenderer::LoadSource {
             source: job.source.clone(),
             settings: job.settings,
         };
+        let folder = job.folder();
         self.adopt_job(job);
-        self.slots
-            .active_slots()
+        self.slots_of(&folder)
             .into_iter()
             .filter(|slot| send_to(renderers, *slot, &message))
             .collect()
     }
 
-    /// The Restart transition: every connected renderer is closed and comes back once its old one has ended (the
-    /// path of the fullscreen rule's Close), playing `job`. Returns the slots that were closed.
+    /// The Restart transition: every connected renderer of `job`'s theme is closed and comes back once its old one
+    /// has ended (the path of the fullscreen rule's Close), playing `job`. Returns the slots that were closed.
     fn restart_with(&mut self, job: Job, renderers: &SharedRenderers) -> Vec<u8> {
+        let folder = job.folder();
         self.adopt_job(job);
         let mut closed = Vec::new();
-        for slot in self.slots.active_slots() {
+        for slot in self.slots_of(&folder) {
             if !lock(renderers).connections.contains_key(&slot) {
                 continue;
             }
@@ -3944,6 +4184,7 @@ fn plan_wallpapers(engines: &EngineReport) -> (Plan, SettingsHost) {
         tracing::warn!("the OS reports no config folder, so the settings cannot be found");
         let plan = Plan {
             job: None,
+            others: BTreeMap::new(),
             status: Status::NoWallpaper {
                 reason: "the OS reports no config folder, so the settings cannot be read".to_owned(),
             },
@@ -4019,6 +4260,7 @@ fn plan_from(settings: &Settings, legacy_root: &std::path::Path, engines: &Engin
     };
     Plan {
         job,
+        others: other_jobs(settings, legacy_root, engines),
         status,
         app_visible: settings.general.app_visible,
         selected_exists: !settings.library.selected.is_empty() && location.join(&settings.library.selected).is_dir(),
@@ -4027,6 +4269,33 @@ fn plan_from(settings: &Settings, legacy_root: &std::path::Path, engines: &Engin
         pause: settings.backgroundog.pause,
         gpu: settings.engine.gpu_preference,
     }
+}
+
+/// The jobs of the themes the display assignments name besides the selected one, by folder name. A theme the gate
+/// refuses is logged and has no job: its monitors get no renderer.
+fn other_jobs(settings: &Settings, legacy_root: &Path, engines: &EngineReport) -> BTreeMap<String, Job> {
+    let location = settings.library_location(legacy_root);
+    let mut jobs = BTreeMap::new();
+    for theme in placement::themes(&Placement::from_settings(settings)) {
+        if theme == settings.library.selected {
+            continue;
+        }
+        match plan_for(
+            &location,
+            &theme,
+            &settings.engine,
+            settings.backgroundog.pause,
+            settings.portal.theme_mode,
+            &settings.general.user_agent,
+            engines,
+        ) {
+            Ok(job) => {
+                jobs.insert(theme, job);
+            }
+            Err(reason) => tracing::warn!(theme = ?theme, %reason, "an assigned theme cannot be played"),
+        }
+    }
+    jobs
 }
 
 /// The monitors the fullscreen rule acts on for `Backgroundog.FullScreenScope` (Phase 2 D-05).
@@ -4132,38 +4401,48 @@ fn restart_for_engine(
     legacy_root: Option<&Path>,
     renderers: &SharedRenderers,
 ) -> bool {
-    if !engine_restart_wanted(fleet.job.as_ref().map(|job| job.kind), kind) {
+    let affected: Vec<String> = fleet
+        .jobs
+        .iter()
+        .filter(|(_, job)| engine_restart_wanted(Some(job.kind), kind))
+        .map(|(folder, _)| folder.clone())
+        .collect();
+    if affected.is_empty() {
         return false;
     }
     let Some(root) = legacy_root else {
         return false;
     };
     let settings = host.settings();
-    let job = match plan_for(
-        &settings.library_location(root),
-        &settings.library.selected,
-        &settings.engine,
-        settings.backgroundog.pause,
-        settings.portal.theme_mode,
-        &settings.general.user_agent,
-        &fleet.engines,
-    ) {
-        Ok(job) => job,
-        Err(reason) => {
-            // The setting is saved; what plays keeps playing until a start can use the new choice.
-            tracing::warn!(?kind, %reason, "the wallpaper keeps its engine, the new choice cannot be used now");
-            return false;
-        }
-    };
-    let engine = job.engine;
-    let closed = fleet.restart_with(job, renderers);
-    tracing::info!(
-        ?kind,
-        ?engine,
-        renderers = closed.len(),
-        "engine changed, the wallpaper restarts"
-    );
-    true
+    let mut restarted = false;
+    for folder in affected {
+        let job = match plan_for(
+            &settings.library_location(root),
+            &folder,
+            &settings.engine,
+            settings.backgroundog.pause,
+            settings.portal.theme_mode,
+            &settings.general.user_agent,
+            &fleet.engines,
+        ) {
+            Ok(job) => job,
+            Err(reason) => {
+                // The setting is saved; what plays keeps playing until a start can use the new choice.
+                tracing::warn!(?kind, %reason, "the wallpaper keeps its engine, the new choice cannot be used now");
+                continue;
+            }
+        };
+        let engine = job.engine;
+        let closed = fleet.restart_with(job, renderers);
+        tracing::info!(
+            ?kind,
+            ?engine,
+            renderers = closed.len(),
+            "engine changed, the wallpaper restarts"
+        );
+        restarted = true;
+    }
+    restarted
 }
 
 /// The engine the Engine section configures for a wallpaper type.
@@ -4309,8 +4588,9 @@ fn playback_settings(engine: &Engine, pause: PauseKind) -> PlaybackSettings {
 
 #[cfg(test)]
 mod tests {
+    use sucrose_config::model::DisplayAssignment;
     use sucrose_core::{
-        settings::{InputModuleType, InputType},
+        settings::{DisplayScreenType, InputModuleType, InputType},
         theme::ThemeRejection,
     };
 
@@ -5018,7 +5298,7 @@ mod tests {
             monitor.primary = monitor.id.ends_with("DISPLAY18");
         }
 
-        assert_eq!(fleet.master_slot(master), master);
+        assert_eq!(fleet.master_slot("main", master), master);
     }
 
     #[test]
@@ -5571,7 +5851,7 @@ mod tests {
             kind: WallpaperType::Video,
             engine: EngineType::MpvPlayerLive,
             fallback: None,
-            theme_dir: "C:/".to_owned(),
+            theme_dir: "C:/themes/main".to_owned(),
             web: WebOptions::default(),
             input: InputSettings::default(),
         };
@@ -5596,7 +5876,7 @@ mod tests {
     #[test]
     fn no_job_means_no_wallpaper_is_wanted() {
         let mut fleet = fleet_of(&[("a", true)], &[]);
-        fleet.job = None;
+        fleet.jobs.clear();
         assert!(!fleet.wallpaper_wanted());
     }
 
@@ -5655,11 +5935,7 @@ mod tests {
             fleet.monitors.push(monitor.clone());
             let slot = fleet.slots.assign(&monitor.id).expect("a free slot");
             let web_profile = fleet.web_profile_for(&monitor.id);
-            let assignment = fleet
-                .job
-                .as_ref()
-                .expect("a job")
-                .assignment(slot, monitor, web_profile);
+            let assignment = fleet.job().expect("a job").assignment(slot, monitor, web_profile);
             lock_assignments(&fleet.assignments).insert(slot, assignment);
             let log = Arc::new(Mutex::new(Vec::new()));
             let record = Arc::clone(&log);
@@ -5781,7 +6057,7 @@ mod tests {
             monitor_at(second, false, [1920, 0, 3840, 1080]),
             monitor_at(first, true, [0, 0, 1920, 1080]),
         ]);
-        let job = fleet.job.clone().expect("a job");
+        let job = fleet.job().cloned().expect("a job");
 
         fleet.adopt_job(job);
 
@@ -5820,7 +6096,7 @@ mod tests {
             let slot = fleet.slots.slot_of(id).expect("a slot");
             assert_eq!(sent_to(&renderers, &logs, slot), [ToRenderer::SetRect(rect)]);
         }
-        assert_eq!(lock(&renderers).master, None, "no election ran");
+        assert!(lock(&renderers).masters.is_empty(), "no election ran");
     }
 
     #[test]
@@ -5830,14 +6106,14 @@ mod tests {
             &["\\\\.\\DISPLAY1"],
         );
 
-        assert_eq!(fleet.master_slot(None), fleet.slots.slot_of("\\\\.\\DISPLAY1"));
+        assert_eq!(fleet.master_slot("main", None), fleet.slots.slot_of("\\\\.\\DISPLAY1"));
     }
 
     #[test]
     fn with_no_renderer_playing_there_is_no_master() {
         let fleet = fleet_of(&[("\\\\.\\DISPLAY1", true), ("\\\\.\\DISPLAY2", false)], &[]);
 
-        assert_eq!(fleet.master_slot(None), None);
+        assert_eq!(fleet.master_slot("main", None), None);
     }
 
     #[test]
@@ -5847,7 +6123,183 @@ mod tests {
             &["\\\\.\\DISPLAY1", "\\\\.\\DISPLAY18"],
         );
 
-        assert_eq!(fleet.master_slot(None), fleet.slots.slot_of("\\\\.\\DISPLAY18"));
+        assert_eq!(fleet.master_slot("main", None), fleet.slots.slot_of("\\\\.\\DISPLAY18"));
+    }
+
+    /// A fleet of four monitors that play two themes: D1 and D2 play the selected one, D3 and D4 another; every renderer
+    /// is connected and shows its first frame.
+    fn two_theme_fleet() -> (Fleet, SharedRenderers, SentLogs) {
+        let monitors = [
+            monitor_at("D1", true, [0, 0, 100, 100]),
+            monitor_at("D2", false, [100, 0, 200, 100]),
+            monitor_at("D3", false, [200, 0, 300, 100]),
+            monitor_at("D4", false, [300, 0, 400, 100]),
+        ];
+        let (mut fleet, renderers, logs) = recording_fleet(&monitors);
+        fleet
+            .jobs
+            .insert("other".to_owned(), use_job("C:/themes/other/video.mp4"));
+        for (id, theme) in [("D1", "main"), ("D2", "main"), ("D3", "other"), ("D4", "other")] {
+            fleet.targets.insert(id.to_owned(), theme.to_owned());
+            let slot = fleet.slots.slot_of(id).expect("a slot");
+            lock(&renderers).groups.insert(slot, theme.to_owned());
+            fleet.playing.insert(slot);
+        }
+        (fleet, renderers, logs)
+    }
+
+    #[test]
+    fn a_monitor_without_an_assignment_loses_its_renderer_and_the_others_play_on() {
+        let first = "\\\\.\\DISPLAY1";
+        let second = "\\\\.\\DISPLAY2";
+        let layout = || {
+            vec![
+                monitor_at(first, true, [0, 0, 1920, 1080]),
+                monitor_at(second, false, [1920, 0, 3840, 1080]),
+            ]
+        };
+        let (mut fleet, renderers, logs) = recording_fleet(&layout());
+        fleet.placement = Placement {
+            mode: DisplayScreenType::PerDisplay,
+            assignments: Some(vec![DisplayAssignment {
+                monitor_id: first.to_owned(),
+                device_name: first.to_owned(),
+                theme: "main".to_owned(),
+            }]),
+            selected: "main".to_owned(),
+            screen_device: String::new(),
+        };
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        let slot_first = fleet.slots.slot_of(first).expect("a slot");
+        let slot_second = fleet.slots.slot_of(second).expect("a slot");
+
+        let applied = fleet.apply_snapshot(layout(), &ctx);
+
+        assert_eq!(applied, Applied { started: 0, failed: 0 });
+        assert_eq!(
+            fleet.slots.slot_of(second),
+            None,
+            "the unassigned monitor has no renderer"
+        );
+        assert_eq!(fleet.slots.slot_of(first), Some(slot_first));
+        assert_eq!(
+            fleet.monitors.iter().map(|m| m.id.as_str()).collect::<Vec<_>>(),
+            [first]
+        );
+        assert_eq!(fleet.targets.get(first).map(String::as_str), Some("main"));
+        assert_eq!(
+            sent_to(&renderers, &logs, slot_first),
+            [ToRenderer::SetRect([0, 0, 1920, 1080])]
+        );
+        let deadline = Instant::now() + Duration::from_secs(5);
+        while logs[&slot_second]
+            .lock()
+            .unwrap_or_else(PoisonError::into_inner)
+            .is_empty()
+        {
+            assert!(
+                Instant::now() < deadline,
+                "the Close of the unassigned monitor was not written"
+            );
+            thread::sleep(Duration::from_millis(10));
+        }
+        assert_eq!(
+            *logs[&slot_second].lock().unwrap_or_else(PoisonError::into_inner),
+            [ToRenderer::Close]
+        );
+
+        // An empty placement closes the last renderer too: the monitors are there, nothing is assigned to them.
+        fleet.placement.assignments = Some(Vec::new());
+        fleet.apply_snapshot(layout(), &ctx);
+        assert_eq!(fleet.slots.slot_of(first), None);
+        assert!(fleet.monitors.is_empty());
+    }
+
+    #[test]
+    fn each_theme_has_its_own_master_and_a_clock_reaches_only_its_own_theme() {
+        let (fleet, renderers, logs) = two_theme_fleet();
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        let slot = |id: &str| fleet.slots.slot_of(id).expect("a slot");
+
+        fleet.elect(&ctx);
+
+        {
+            let state = lock(&renderers);
+            assert_eq!(
+                state.masters.get("main"),
+                Some(&slot("D1")),
+                "the primary leads its theme"
+            );
+            assert_eq!(
+                state.masters.get("other"),
+                Some(&slot("D3")),
+                "the other theme has its own master, the lowest device name"
+            );
+        }
+        relay_clock(&renderers, slot("D1"), tick());
+        relay_clock(&renderers, slot("D3"), tick());
+        relay_clock(&renderers, slot("D2"), tick());
+        assert_eq!(sent_to(&renderers, &logs, slot("D2")), [ToRenderer::Clock(tick())]);
+        assert_eq!(sent_to(&renderers, &logs, slot("D4")), [ToRenderer::Clock(tick())]);
+        let roles = |id: &str| sent_to(&renderers, &logs, slot(id));
+        assert_eq!(
+            roles("D1"),
+            [ToRenderer::SetRole(Role::Master), ToRenderer::SetVolume(100)],
+            "the master of a theme takes its sound and no clock of another theme"
+        );
+        assert_eq!(
+            roles("D3"),
+            [ToRenderer::SetRole(Role::Master), ToRenderer::SetVolume(100)],
+            "two themes play two sounds (D-05)"
+        );
+    }
+
+    #[test]
+    fn two_monitors_with_one_theme_share_one_master_that_stays_on_the_renderer_that_played_first() {
+        let (mut fleet, renderers, _logs) = two_theme_fleet();
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        let slot = |fleet: &Fleet, id: &str| fleet.slots.slot_of(id).expect("a slot");
+        // Only D2 of the first theme plays at first; D3 of the other one plays too.
+        let d1 = slot(&fleet, "D1");
+        fleet.playing.remove(&d1);
+        fleet.elect(&ctx);
+        assert_eq!(lock(&renderers).masters.get("main"), Some(&slot(&fleet, "D2")));
+
+        // The primary joins: the master stays where the clock already runs (D-030).
+        fleet.playing.insert(d1);
+        fleet.elect(&ctx);
+        assert_eq!(lock(&renderers).masters.get("main"), Some(&slot(&fleet, "D2")));
+        assert_eq!(
+            lock(&renderers).masters.len(),
+            2,
+            "one master per theme, not one per monitor"
+        );
+    }
+
+    #[test]
+    fn a_renderer_never_becomes_the_master_of_another_theme() {
+        let (fleet, _renderers, _logs) = two_theme_fleet();
+        let d3 = fleet.slots.slot_of("D3").expect("a slot");
+        let d4 = fleet.slots.slot_of("D4").expect("a slot");
+        assert_eq!(fleet.master_slot("main", Some(d3)), fleet.slots.slot_of("D1"));
+        assert_eq!(
+            fleet.master_slot("other", Some(d4)),
+            Some(d4),
+            "a sticky master of its own theme stays"
+        );
+        assert_eq!(fleet.master_slot("absent", None), None);
     }
 
     #[test]
@@ -6585,6 +7037,7 @@ mod tests {
             settings: job.settings,
         };
 
+        fleet.put_everywhere(&job.folder(), &renderers);
         let told = fleet.load_source(job, &renderers);
 
         assert_eq!(told, fleet.slots.active_slots());
@@ -6595,7 +7048,7 @@ mod tests {
         }
         assert!(fleet.budgets.is_empty(), "an explicit Use resets every restart budget");
         assert_eq!(
-            fleet.job.as_ref().map(|job| job.source.as_str()),
+            fleet.job().map(|job| job.source.as_str()),
             Some("C:/themes/new/video.mp4")
         );
     }
@@ -6647,7 +7100,7 @@ mod tests {
                 "a renderer that restarts later keeps the new value, slot {slot}"
             );
         }
-        assert!(!fleet.job.as_ref().expect("a job").settings.looping);
+        assert!(!fleet.job().expect("a job").settings.looping);
         assert_eq!(
             fleet.budgets.len(),
             fleet.slots.active_slots().len(),
@@ -6660,17 +7113,14 @@ mod tests {
         let monitors = [monitor_at("D1", true, [0, 0, 100, 100])];
         let (mut fleet, renderers, logs) = recording_fleet(&monitors);
         let slot = fleet.slots.slot_of("D1").expect("a slot");
-        assert!(
-            fleet.job.as_ref().expect("a job").web.shuffle,
-            "shuffle is on by default"
-        );
+        assert!(fleet.job().expect("a job").web.shuffle, "shuffle is on by default");
 
         let told = fleet.apply_live(&ToRenderer::SetShuffle(false), &renderers);
 
         assert_eq!(told, vec![slot]);
         assert_eq!(sent_to(&renderers, &logs, slot), vec![ToRenderer::SetShuffle(false)]);
         assert!(!lock_assignments(&fleet.assignments)[&slot].web.shuffle);
-        assert!(!fleet.job.as_ref().expect("a job").web.shuffle);
+        assert!(!fleet.job().expect("a job").web.shuffle);
     }
 
     #[test]
@@ -6693,7 +7143,9 @@ mod tests {
         let slot = fleet.slots.slot_of("D1").expect("a slot");
         lock(&renderers).connections.remove(&slot);
 
-        let told = fleet.load_source(use_job("C:/themes/new/video.mp4"), &renderers);
+        let job = use_job("C:/themes/new/video.mp4");
+        fleet.put_everywhere(&job.folder(), &renderers);
+        let told = fleet.load_source(job, &renderers);
 
         assert!(told.is_empty(), "nobody is connected to be told");
         assert_eq!(
@@ -6709,6 +7161,7 @@ mod tests {
         let mut job = use_job("C:/themes/new/video.mp4");
         job.settings.volume = 12;
 
+        fleet.put_everywhere(&job.folder(), &renderers);
         fleet.load_source(job, &renderers);
 
         let slot = fleet.slots.slot_of("D1").expect("a slot");
@@ -6723,7 +7176,9 @@ mod tests {
         ];
         let (mut fleet, renderers, logs) = recording_fleet(&monitors);
 
-        let closed = fleet.restart_with(use_job("C:/themes/new/video.mp4"), &renderers);
+        let job = use_job("C:/themes/new/video.mp4");
+        fleet.put_everywhere(&job.folder(), &renderers);
+        let closed = fleet.restart_with(job, &renderers);
 
         assert_eq!(closed, fleet.slots.active_slots());
         for slot in fleet.slots.active_slots() {
@@ -6762,6 +7217,7 @@ mod tests {
         job.web.hardware_acceleration = false;
         job.web.user_agent = "Probe/1".to_owned();
 
+        fleet.put_everywhere(&job.folder(), &renderers);
         fleet.restart_with(job, &renderers);
 
         let slot = fleet.slots.slot_of("D1").expect("a slot");
@@ -6783,7 +7239,7 @@ mod tests {
         let fleet = fleet_of(&[("D1", true), ("D2", false), ("D3", false)], &[]);
         let slot_of = |id: &str| fleet.slots.slot_of(id).expect("a slot");
 
-        let running = engines_running(fleet.job.as_ref(), &fleet.slots, &[slot_of("D1"), slot_of("D3"), 99]);
+        let running = fleet.engines_running(&[slot_of("D1"), slot_of("D3"), 99]);
 
         assert_eq!(
             running,
@@ -6793,8 +7249,11 @@ mod tests {
             ],
             "a slot without a monitor is left out"
         );
-        assert!(engines_running(None, &fleet.slots, &[slot_of("D1")]).is_empty());
-        assert!(engines_running(fleet.job.as_ref(), &fleet.slots, &[]).is_empty());
+        assert!(fleet.engines_running(&[]).is_empty());
+        let mut without_a_job = fleet_of(&[("D1", true)], &[]);
+        without_a_job.jobs.clear();
+        let slot = without_a_job.slots.slot_of("D1").expect("a slot");
+        assert!(without_a_job.engines_running(&[slot]).is_empty());
     }
 
     #[test]

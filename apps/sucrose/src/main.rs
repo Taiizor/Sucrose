@@ -16,6 +16,7 @@ mod install;
 mod library_ops;
 mod lifecycle;
 mod modules;
+mod placement;
 mod portal_link;
 mod render;
 mod service;

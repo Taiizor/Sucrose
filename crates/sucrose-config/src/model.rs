@@ -218,6 +218,27 @@ pub struct Warehouse {
     pub extra: Map<String, Value>,
 }
 
+/// How many assignments `Engine.DisplayAssignments` keeps (T-04-91).
+pub const MAX_DISPLAY_ASSIGNMENTS: usize = 64;
+
+/// The longest theme folder name an assignment may name (T-04-90).
+const MAX_ASSIGNED_THEME_CHARS: usize = 260;
+
+/// The wallpaper of one monitor in Per display mode: the monitor is remembered by its stable id (D-08, D-042).
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+pub struct DisplayAssignment {
+    /// The stable id of the monitor (`MonitorInfo::stable_id`): the display path's device path, the GDI name when
+    /// the OS gave none.
+    #[serde(rename = "MonitorId")]
+    pub monitor_id: String,
+    /// The GDI device name when the assignment was made, for display only.
+    #[serde(rename = "DeviceName")]
+    pub device_name: String,
+    /// The folder name of the theme in the library.
+    #[serde(rename = "Theme")]
+    pub theme: String,
+}
+
 /// The `Engine` section.
 #[derive(Debug, Clone, PartialEq, Serialize)]
 pub struct Engine {
@@ -263,6 +284,11 @@ pub struct Engine {
     /// The monitor a single wallpaper plays on, empty for the primary one (`ScreenDevice`).
     #[serde(rename = "ScreenDevice")]
     pub screen_device: String,
+    /// The wallpaper of each monitor in Per display mode (new, D-08, D-042, `DisplayAssignments`). `None` when the
+    /// file has no such key (a migrated legacy file: the service derives the list once, D-03); an empty list stays
+    /// empty and plays nothing.
+    #[serde(rename = "DisplayAssignments", skip_serializing_if = "Option::is_none")]
+    pub display_assignments: Option<Vec<DisplayAssignment>>,
     /// Which input is forwarded to web wallpapers (`InputType`).
     #[serde(rename = "InputType")]
     pub input_type: InputType,
@@ -598,6 +624,7 @@ impl Default for Engine {
             expand_screen_type: ScreenModeType::default(),
             display_screen_type: DisplayScreenType::default(),
             screen_device: String::new(),
+            display_assignments: None,
             input_type: InputType::default(),
             input_module_type: InputModuleType::default(),
             gif: EngineType::MpvPlayerLive,
@@ -843,6 +870,7 @@ impl Settings {
                     DisplayScreenType::from_legacy_name,
                 ),
                 screen_device: engine.string("ScreenDevice", ""),
+                display_assignments: engine.display_assignments("DisplayAssignments"),
                 input_type: engine.name("InputType", InputType::default(), InputType::from_legacy_name),
                 input_module_type: engine.name(
                     "InputModuleType",
@@ -1130,6 +1158,49 @@ impl Fields {
         }
     }
 
+    /// The per-monitor assignments: a missing key is `None`; an entry that is not an object, lacks a `MonitorId` or a
+    /// `Theme`, names a theme that is not a plain folder name, or repeats a `MonitorId` is dropped (the first entry of
+    /// an id wins) and at most [`MAX_DISPLAY_ASSIGNMENTS`] are kept, with one warning for everything dropped.
+    fn display_assignments(&mut self, key: &str) -> Option<Vec<DisplayAssignment>> {
+        let items = match self.map.remove(key) {
+            None => return None,
+            Some(Value::Array(items)) => items,
+            Some(_) => {
+                self.invalid(key);
+                return None;
+            }
+        };
+        let mut kept: Vec<DisplayAssignment> = Vec::new();
+        let mut dropped = 0_usize;
+        for item in items {
+            let Some(entry) = Self::assignment(&item) else {
+                dropped += 1;
+                continue;
+            };
+            if kept.len() >= MAX_DISPLAY_ASSIGNMENTS || kept.iter().any(|known| known.monitor_id == entry.monitor_id) {
+                dropped += 1;
+                continue;
+            }
+            kept.push(entry);
+        }
+        if dropped > 0 {
+            tracing::warn!(section = self.section, key, dropped, "display assignments dropped");
+        }
+        Some(kept)
+    }
+
+    fn assignment(item: &Value) -> Option<DisplayAssignment> {
+        let object = item.as_object()?;
+        let text = |name: &str| object.get(name).and_then(Value::as_str);
+        let monitor_id = text("MonitorId").filter(|id| !id.is_empty())?;
+        let theme = text("Theme").filter(|theme| is_plain_folder_name(theme))?;
+        Some(DisplayAssignment {
+            monitor_id: monitor_id.to_owned(),
+            device_name: text("DeviceName").unwrap_or_default().to_owned(),
+            theme: theme.to_owned(),
+        })
+    }
+
     /// An engine stored by its legacy name that must be one of `allowed`: any other name is the default.
     fn engine(&mut self, key: &str, default: EngineType, allowed: &[EngineType]) -> EngineType {
         match self.map.remove(key) {
@@ -1172,9 +1243,93 @@ impl Fields {
     }
 }
 
+/// Whether `name` is a plain folder name: no separator, no drive or UNC prefix, no `..`, no control character, not
+/// empty and not longer than [`MAX_ASSIGNED_THEME_CHARS`] (T-04-90).
+fn is_plain_folder_name(name: &str) -> bool {
+    !name.is_empty()
+        && name.chars().count() <= MAX_ASSIGNED_THEME_CHARS
+        && name != "."
+        && !name.contains("..")
+        && !name.chars().any(|c| c.is_control() || matches!(c, '/' | '\\' | ':'))
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn display_assignments_are_absent_by_default_and_stay_absent_on_a_round_trip() {
+        let settings = Settings::from_slice(br#"{"Engine":{"WallpaperVolume":7}}"#).unwrap();
+        assert_eq!(settings.engine.display_assignments, None);
+        let written = serde_json::to_value(&settings).unwrap();
+        assert!(
+            written["Engine"].get("DisplayAssignments").is_none(),
+            "an absent key is not written"
+        );
+    }
+
+    #[test]
+    fn display_assignments_are_read_in_order_and_written_back() {
+        let text = br#"{"Engine":{"DisplayAssignments":[
+            {"MonitorId":"DISPLAY#BOE#1","DeviceName":"\\\\.\\DISPLAY1","Theme":"a"},
+            {"MonitorId":"DISPLAY#MTT#2","DeviceName":"\\\\.\\DISPLAY9","Theme":"b"}]}}"#;
+        let settings = Settings::from_slice(text).unwrap();
+        let list = settings.engine.display_assignments.clone().unwrap();
+        assert_eq!(list.len(), 2);
+        assert_eq!(list[0].monitor_id, "DISPLAY#BOE#1");
+        assert_eq!(list[0].device_name, "\\\\.\\DISPLAY1");
+        assert_eq!(list[1].theme, "b");
+        let again = Settings::from_slice(&settings.to_bytes().unwrap()).unwrap();
+        assert_eq!(again, settings);
+        let value = serde_json::to_value(&again).unwrap();
+        assert_eq!(value["Engine"]["DisplayAssignments"][1]["MonitorId"], "DISPLAY#MTT#2");
+        assert_eq!(value["Engine"]["DisplayAssignments"][0]["Theme"], "a");
+    }
+
+    #[test]
+    fn an_empty_display_assignments_list_stays_an_empty_list() {
+        let settings = Settings::from_slice(br#"{"Engine":{"DisplayAssignments":[]}}"#).unwrap();
+        assert_eq!(settings.engine.display_assignments, Some(Vec::new()));
+        let value = serde_json::to_value(&settings).unwrap();
+        assert_eq!(value["Engine"]["DisplayAssignments"], serde_json::json!([]));
+    }
+
+    #[test]
+    fn display_assignments_drop_what_cannot_be_used() {
+        let text = br#"{"Engine":{"DisplayAssignments":[
+            5,
+            {"Theme":"no-monitor"},
+            {"MonitorId":"m0"},
+            {"MonitorId":"m1","Theme":"..\\up"},
+            {"MonitorId":"m2","Theme":"sub/dir"},
+            {"MonitorId":"m3","Theme":"C:evil"},
+            {"MonitorId":"m4","Theme":"a..b"},
+            {"MonitorId":"m5","Theme":""},
+            {"MonitorId":"ok","Theme":"first"},
+            {"MonitorId":"ok","Theme":"second"}]}}"#;
+        let settings = Settings::from_slice(text).unwrap();
+        let list = settings.engine.display_assignments.unwrap();
+        assert_eq!(list.len(), 1, "{list:?}");
+        assert_eq!((list[0].monitor_id.as_str(), list[0].theme.as_str()), ("ok", "first"));
+        assert_eq!(list[0].device_name, "", "a missing DeviceName is only a display name");
+    }
+
+    #[test]
+    fn at_most_the_first_64_display_assignments_are_kept() {
+        let items: Vec<String> = (0..70)
+            .map(|index| format!(r#"{{"MonitorId":"m{index}","Theme":"t{index}"}}"#))
+            .collect();
+        let text = format!(r#"{{"Engine":{{"DisplayAssignments":[{}]}}}}"#, items.join(","));
+        let settings = Settings::from_slice(text.as_bytes()).unwrap();
+        let list = settings.engine.display_assignments.unwrap();
+        assert_eq!(list.len(), MAX_DISPLAY_ASSIGNMENTS);
+        assert_eq!(list[63].monitor_id, "m63");
+    }
+
+    #[test]
+    fn a_display_assignments_value_that_is_not_a_list_reads_as_absent() {
+        let settings = Settings::from_slice(br#"{"Engine":{"DisplayAssignments":"x"}}"#).unwrap();
+        assert_eq!(settings.engine.display_assignments, None);
+    }
 
     #[test]
     fn defaults_are_the_legacy_defaults() {
