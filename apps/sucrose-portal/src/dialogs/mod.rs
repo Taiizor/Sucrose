@@ -6,6 +6,7 @@
 //! for Arabic and Hebrew (UI-SPEC E4 RTL row; the mirrored screenshot is due with UI-06).
 
 pub mod about;
+pub mod display;
 pub mod help;
 pub mod install;
 pub mod move_library;

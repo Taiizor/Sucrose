@@ -1,5 +1,5 @@
-//! The header row of the library mode (UI-SPEC E3, E4): the Library tab, the search box, the light/dark toggle, Premium and
-//! the more menu with Help and About (D-15: only what Phase 3 has). Items follow each other in flex order, so the row
+//! The header row of the library mode (UI-SPEC E3, E4): the Library tab, the search box, the light/dark toggle, Premium,
+//! Display Preferences and the more menu with Help and About (D-15). Items follow each other in flex order, so the row
 //! mirrors for Arabic and Hebrew (UI-SPEC E4 RTL row). Later plans add the settings gear.
 
 use std::time::Duration;
@@ -19,7 +19,10 @@ use sucrose_core::settings::ThemeMode;
 use sucrose_ipc::portal::{PortalRequest, SettingChange};
 
 use crate::{
-    dialogs,
+    dialogs::{
+        self,
+        display::{DisplayPreferences, open_display_preferences},
+    },
     i18n::tr,
     ipc::ServiceLink,
     library::LibraryView,
@@ -60,6 +63,8 @@ pub struct Header {
     library: Entity<LibraryView>,
     /// Sends the theme change to the service.
     link: ServiceLink,
+    /// The Display Preferences dialog's model; its button opens the dialog.
+    display: Entity<DisplayPreferences>,
     /// Whether the window shows the dark theme (what the toggle's icon reflects).
     dark: bool,
     search: Entity<InputState>,
@@ -72,6 +77,7 @@ impl Header {
     /// The header that filters `library`.
     pub fn new(
         library: Entity<LibraryView>,
+        display: Entity<DisplayPreferences>,
         link: ServiceLink,
         mode: Mode,
         window: &mut Window,
@@ -94,6 +100,7 @@ impl Header {
             mode,
             library,
             link,
+            display,
             dark: false,
             search,
             pending: None,
@@ -202,6 +209,7 @@ impl Header {
         };
         let target = toggle_target(self.dark);
         let premium_tip = tr("Portal.MainWindow.MenuPremiumStoreTip");
+        let display_tip = tr("Portal.MainWindow.MenuDisplayPreferencesTip");
         let more_tip = tr("Portal.MainWindow.MenuOtherOptionsTip");
         h_flex()
             .w_full()
@@ -256,6 +264,23 @@ impl Header {
                             .tooltip(premium_tip.clone())
                             .accessibility_label(premium_tip)
                             .on_click(|_, _, cx| dialogs::open_link(PREMIUM_URL, cx)),
+                    )
+                    .child(
+                        // The wrapper gives the view tests the button's bounds.
+                        div()
+                            .flex_none()
+                            .debug_selector(|| "display-preferences-button".to_string())
+                            .child(
+                                Button::new("display-preferences")
+                                    .ghost()
+                                    .icon(IconName::Monitor)
+                                    .tooltip(display_tip.clone())
+                                    .accessibility_label(display_tip)
+                                    .on_click(cx.listener(|this, _: &ClickEvent, window, cx| {
+                                        let display = this.display.clone();
+                                        open_display_preferences(&display, window, cx);
+                                    })),
+                            ),
                     )
                     .child(
                         Button::new("more")

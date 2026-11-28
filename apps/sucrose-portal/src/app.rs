@@ -14,6 +14,7 @@ use crate::{
     background::BackgroundImage,
     banner,
     dialogs::{
+        display::DisplayPreferences,
         install::{self, open_install_dialog},
         tray_hint::{self, TrayHint, should_hint},
     },
@@ -57,6 +58,8 @@ pub struct PortalApp {
     pub library: Entity<LibraryView>,
     /// The header row: the Library tab and the search box, or the settings tabs.
     pub header: Entity<Header>,
+    /// What the Display Preferences dialog shows; the header's button opens the dialog over it.
+    pub display: Entity<DisplayPreferences>,
     /// The General settings page.
     pub general: Entity<GeneralPage>,
     /// The Personal settings page.
@@ -122,10 +125,16 @@ impl PortalApp {
             |cx| LibraryView::new(link, window, cx)
         });
         let mode = Mode::from_page(page);
-        let header = cx.new({
+        let display = cx.new({
             let library = library.clone();
             let link = link.clone();
-            |cx| Header::new(library, link, mode, window, cx)
+            |cx| DisplayPreferences::new(link, library, cx)
+        });
+        let header = cx.new({
+            let library = library.clone();
+            let display = display.clone();
+            let link = link.clone();
+            |cx| Header::new(library, display, link, mode, window, cx)
         });
         let personal = cx.new({
             let link = link.clone();
@@ -183,6 +192,7 @@ impl PortalApp {
             link,
             library,
             header,
+            display,
             general,
             personal,
             wallpaper,
@@ -389,6 +399,8 @@ impl PortalApp {
                         self.general.update(cx, |page, cx| page.on_opened(cx));
                     }
                     self.wallpaper.update(cx, |page, cx| page.set_runtime(&runtime, cx));
+                    self.display
+                        .update(cx, |display, cx| display.load(&settings, &runtime, cx));
                     self.other.update(cx, |page, cx| {
                         page.load(&settings, window, cx);
                         page.set_runtime(&runtime, window, cx);
@@ -400,6 +412,7 @@ impl PortalApp {
                     self.apply_background(window, cx);
                 }
                 PortalEvent::Changed(change) => {
+                    self.display.update(cx, |display, cx| display.on_setting(&change, cx));
                     if let Some(settings) = &mut self.settings {
                         settings.apply(&change);
                         self.library
@@ -448,6 +461,8 @@ impl PortalApp {
                         .update(cx, |page, cx| page.set_moving(runtime.library_moving, cx));
                     self.wallpaper.update(cx, |page, cx| page.set_runtime(&runtime, cx));
                     self.other.update(cx, |page, cx| page.set_runtime(&runtime, window, cx));
+                    self.display
+                        .update(cx, |display, cx| display.set_runtime(runtime.clone(), cx));
                     self.runtime = Some(runtime);
                 }
                 PortalEvent::Startup(info) => {

@@ -160,6 +160,16 @@ impl ServiceLink {
     }
 }
 
+#[cfg(test)]
+impl ServiceLink {
+    /// A link with no service behind it: every request stays in the returned queue, for the view tests to read.
+    pub fn recording() -> (Self, Receiver<PortalRequest>) {
+        let (requests, queue) = bounded(REQUEST_QUEUE);
+        let (retry, _) = bounded(1);
+        (Self { requests, retry }, queue)
+    }
+}
+
 /// The write half of the current connection, shared by the reader thread (which fills and clears it) and the writer.
 type Slot = Arc<Mutex<Option<Connection>>>;
 
