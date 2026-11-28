@@ -352,6 +352,7 @@ fn write(settings: &mut Settings, change: &SettingChange) {
         SettingChange::AllowInvalidCertificates(value) => settings.engine.allow_invalid_certificates = *value,
         SettingChange::WebViewSmartScreen(value) => settings.engine.webview_smartscreen = *value,
         SettingChange::ScreenDevice(value) => settings.engine.screen_device.clone_from(value),
+        SettingChange::DisplayScreenType(value) => settings.engine.display_screen_type = *value,
         SettingChange::CefArguments(list) => settings.engine.cef_arguments = args::to_cef_map(&to_switches(list)),
         SettingChange::WebArguments(list) => settings.engine.web_arguments = args::to_web_list(&to_switches(list)),
         SettingChange::DeveloperMode(value) => settings.engine.developer_mode = *value,
@@ -407,6 +408,7 @@ fn view_of(settings: &Settings) -> PortalSettings {
         developer_port: settings.engine.developer_port,
         webview_smartscreen: settings.engine.webview_smartscreen,
         screen_device: clip(&settings.engine.screen_device),
+        display_screen_type: settings.engine.display_screen_type,
     }
 }
 
@@ -414,7 +416,7 @@ fn view_of(settings: &Settings) -> PortalSettings {
 mod tests {
     use std::{fs, path::PathBuf};
 
-    use sucrose_core::settings::{EngineType, InputModuleType, InputType, ThemeMode};
+    use sucrose_core::settings::{DisplayScreenType, EngineType, InputModuleType, InputType, ThemeMode};
     use sucrose_ipc::portal::MAX_PATH_TEXT;
 
     use super::*;
@@ -774,6 +776,32 @@ mod tests {
         assert!(validate(SettingChange::ScreenDevice("a\0b".to_owned())).is_err());
         assert!(validate(SettingChange::ScreenDevice("d".repeat(MAX_PATH_TEXT))).is_ok());
         assert_eq!(host.view().screen_device, "", "a refused change stored nothing");
+    }
+
+    #[test]
+    fn a_display_mode_change_is_stored_under_its_legacy_name_and_shown() {
+        let scratch = Scratch::new("displaymode");
+        let (mut host, _) = SettingsHost::open(&scratch.0, None);
+        assert_eq!(
+            host.view().display_screen_type,
+            DisplayScreenType::PerDisplay,
+            "the legacy default"
+        );
+
+        for (mode, name) in [
+            (DisplayScreenType::SpanAcross, "SpanAcross"),
+            (DisplayScreenType::SameDuplicate, "SameDuplicate"),
+            (DisplayScreenType::PerDisplay, "PerDisplay"),
+        ] {
+            let stored = host.apply(SettingChange::DisplayScreenType(mode));
+
+            assert_eq!(stored, Ok(SettingChange::DisplayScreenType(mode)));
+            assert_eq!(host.view().display_screen_type, mode);
+            let file =
+                fs::read(scratch.0.join(sucrose_config::store::SETTINGS_FILE)).expect("the settings file exists");
+            let json: serde_json::Value = serde_json::from_slice(&file).expect("the file is JSON");
+            assert_eq!(json["Engine"]["DisplayScreenType"], name);
+        }
     }
 
     #[test]

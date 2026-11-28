@@ -10,12 +10,14 @@
 
 use serde::{Deserialize, Serialize};
 use sucrose_core::{
-    settings::{Backdrop, EngineType, InputModuleType, InputType, SortKind, SortMode, Stretch, ThemeMode},
+    settings::{
+        Backdrop, DisplayScreenType, EngineType, InputModuleType, InputType, SortKind, SortMode, Stretch, ThemeMode,
+    },
     theme::WallpaperType,
 };
 
 /// Version of the Portal protocol, sent in `PortalHello` so the service can refuse a Portal it cannot talk to.
-pub const PORTAL_PROTOCOL_VERSION: u16 = 9;
+pub const PORTAL_PROTOCOL_VERSION: u16 = 10;
 
 /// The longest path text, in bytes, the service accepts from a Portal and puts into a message it sends. It keeps the
 /// largest possible [`PortalEvent::Welcome`] far below [`crate::frame::MAX_FRAME`].
@@ -473,6 +475,10 @@ pub enum SettingChange {
     /// The monitor the next Use in Per display goes to (D-02, `Engine.ScreenDevice`): the device name of a connected
     /// monitor, or empty for the first one. It changes no renderer. Appended after [`SettingChange::WebViewSmartScreen`].
     ScreenDevice(String),
+    /// How wallpapers are spread over the monitors (`Engine.DisplayScreenType`, D-04, D-09): the service saves it and
+    /// applies it at once, so the renderers whose monitor or theme changes restart and the others play on. Appended
+    /// after [`SettingChange::ScreenDevice`].
+    DisplayScreenType(DisplayScreenType),
 }
 
 /// The settings the Portal shows: a view of the service's settings, never the file (D-11).
@@ -550,6 +556,8 @@ pub struct PortalSettings {
     pub webview_smartscreen: bool,
     /// The device name of the monitor the next Use in Per display goes to; empty for the first monitor.
     pub screen_device: String,
+    /// How wallpapers are spread over the monitors: one per monitor, the same one on every monitor or one across all.
+    pub display_screen_type: DisplayScreenType,
 }
 
 impl PortalSettings {
@@ -592,6 +600,7 @@ impl PortalSettings {
             SettingChange::DeveloperPort(value) => self.developer_port = *value,
             SettingChange::WebViewSmartScreen(value) => self.webview_smartscreen = *value,
             SettingChange::ScreenDevice(value) => self.screen_device.clone_from(value),
+            SettingChange::DisplayScreenType(value) => self.display_screen_type = *value,
         }
     }
 }
@@ -830,6 +839,7 @@ mod tests {
             developer_port: 0,
             webview_smartscreen: false,
             screen_device: String::new(),
+            display_screen_type: DisplayScreenType::PerDisplay,
         }
     }
 
@@ -867,8 +877,8 @@ mod tests {
     }
 
     #[test]
-    fn the_portal_protocol_is_at_version_nine_since_the_runtime_state_lists_the_displays() {
-        assert_eq!(PORTAL_PROTOCOL_VERSION, 9);
+    fn the_portal_protocol_is_at_version_ten_since_the_settings_view_names_the_display_mode() {
+        assert_eq!(PORTAL_PROTOCOL_VERSION, 10);
     }
 
     #[test]
@@ -1049,6 +1059,7 @@ mod tests {
             SettingChange::WebArguments(Vec::new()),
             SettingChange::WebViewSmartScreen(false),
             SettingChange::ScreenDevice(String::new()),
+            SettingChange::DisplayScreenType(DisplayScreenType::PerDisplay),
         ];
         for (expected, change) in changes.iter().enumerate() {
             assert_eq!(usize::from(index(change)), expected, "{change:?}");
@@ -1197,7 +1208,7 @@ mod tests {
     #[test]
     fn apply_sets_exactly_the_field_a_change_names() {
         let base = view();
-        let cases: [(SettingChange, PortalSettings); 22] = [
+        let cases: [(SettingChange, PortalSettings); 23] = [
             (
                 SettingChange::GifEngine(EngineType::VlcPlayerLive),
                 PortalSettings {
@@ -1349,6 +1360,13 @@ mod tests {
                 SettingChange::ScreenDevice("\\\\.\\DISPLAY9".to_owned()),
                 PortalSettings {
                     screen_device: "\\\\.\\DISPLAY9".to_owned(),
+                    ..view()
+                },
+            ),
+            (
+                SettingChange::DisplayScreenType(DisplayScreenType::SpanAcross),
+                PortalSettings {
+                    display_screen_type: DisplayScreenType::SpanAcross,
                     ..view()
                 },
             ),

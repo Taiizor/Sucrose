@@ -3,15 +3,15 @@
 //! Pure rules, tested without a display: the service asks [`plan_targets`] for the monitors that get a renderer and the
 //! theme each one plays. In Per display the stored `Engine.DisplayAssignments` decide, matched to the connected
 //! monitors by their stable id; a migrated legacy file has no such list and the legacy `ScreenDevice` and
-//! `Library.Selected` give it once ([`derived_assignments`]). Span and Duplicate keep one theme on every
-//! monitor until their own plan builds them.
+//! `Library.Selected` give it once ([`derived_assignments`]). Duplicate puts the selected theme on every monitor, one
+//! renderer each; Span puts it on one renderer over the union of the monitors ([`span_target`], D-09).
 
 use std::collections::{BTreeMap, BTreeSet};
 
 use sucrose_config::model::{DisplayAssignment, MAX_DISPLAY_ASSIGNMENTS, Settings};
-use sucrose_core::settings::{DisplayScreenType, EngineType};
+use sucrose_core::settings::{DisplayScreenType, EngineType, ScreenArea};
 use sucrose_ipc::portal::{DisplayView, MAX_DISPLAY_TEXT, MAX_DISPLAYS};
-use sucrose_platform::MonitorInfo;
+use sucrose_platform::{MonitorInfo, RectPx};
 
 use crate::topology::{TopologyAction, diff, replace_all};
 
@@ -23,6 +23,9 @@ pub struct Target {
     /// The folder name of the theme.
     pub theme: String,
 }
+
+/// The id of the one surface Span covers: it is no monitor's device name, so it cannot clash with one.
+pub const SPAN_TARGET: &str = "span:all";
 
 /// What decides the targets: the display mode and the settings it reads, copied out of the settings file.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -106,8 +109,8 @@ pub fn target_monitor<'a>(monitors: &'a [MonitorInfo], screen_device: &str) -> O
 ///
 /// Per display with a stored list: a connected monitor with an entry (matched by stable id, the first entry of an id
 /// wins) plays that theme and every other monitor gets nothing. Per display without a list (a legacy file): the target
-/// monitor plays `selected` and nothing plays while `selected` is empty. Span and Duplicate: every monitor plays
-/// `selected`.
+/// monitor plays `selected` and nothing plays while `selected` is empty. Duplicate: every monitor plays `selected`, one
+/// renderer each. Span: one target over the union of the monitors plays `selected`.
 pub fn plan_targets(
     mode: DisplayScreenType,
     monitors: &[MonitorInfo],
@@ -139,7 +142,16 @@ pub fn plan_targets(
                 .into_iter()
                 .collect()
         }
-        (DisplayScreenType::SpanAcross | DisplayScreenType::SameDuplicate, _) => {
+        (DisplayScreenType::SpanAcross, _) => {
+            if selected.is_empty() {
+                return Vec::new();
+            }
+            // The monitors the service hands over already carry the area to cover as their rectangle.
+            span_target(monitors, ScreenArea::DisplayBound, selected)
+                .into_iter()
+                .collect()
+        }
+        (DisplayScreenType::SameDuplicate, _) => {
             if selected.is_empty() {
                 return Vec::new();
             }
@@ -152,6 +164,108 @@ pub fn plan_targets(
                 .collect()
         }
     }
+}
+
+/// The one target Span plays on (D-09, DESK-04): a surface named [`SPAN_TARGET`] whose rectangle is the bounding box of
+/// the monitors' display bounds, or of their work areas with [`ScreenArea::WorkingArea`]. Monitors that touch give
+/// exactly their union; monitors with a gap between them give the box around the gap, as the legacy union did. Its DPI
+/// and primary flag are the primary monitor's (else the lowest device name's). `None` for no monitor.
+pub fn span_target(monitors: &[MonitorInfo], area: ScreenArea, theme: &str) -> Option<Target> {
+    let by_id = sorted(monitors);
+    let chosen = |monitor: &MonitorInfo| match area {
+        ScreenArea::DisplayBound => monitor.rect,
+        ScreenArea::WorkingArea => monitor.work,
+    };
+    let first = chosen(by_id.first()?);
+    let union = by_id
+        .iter()
+        .map(|monitor| chosen(monitor))
+        .fold(first, |union, rect| RectPx {
+            left: union.left.min(rect.left),
+            top: union.top.min(rect.top),
+            right: union.right.max(rect.right),
+            bottom: union.bottom.max(rect.bottom),
+        });
+    let lead = by_id.iter().find(|monitor| monitor.primary).or(by_id.first())?;
+    Some(Target {
+        monitor: MonitorInfo {
+            id: SPAN_TARGET.to_owned(),
+            device_path: None,
+            edid: None,
+            friendly: None,
+            rect: union,
+            work: union,
+            dpi: lead.dpi,
+            primary: true,
+        },
+        theme: theme.to_owned(),
+    })
+}
+
+/// What the fleet does to go from the renderers on the old targets to the new ones.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum PlacementAction {
+    /// The target is gone: close its renderer.
+    Close(String),
+    /// The target stays with the same theme: put its surface on this rectangle and keep playing.
+    SetRect(String, RectPx),
+    /// The target stays but plays another theme now: its renderer takes the new theme (loaded in place when the engine
+    /// can, else closed and started again) and its surface goes onto the new rectangle.
+    Replace {
+        /// The new target.
+        target: Target,
+        /// The theme it played before.
+        from: String,
+    },
+    /// A new target: start a renderer for it.
+    Spawn(Target),
+}
+
+/// What to do to go from the targets `old` to the targets `new`: the closes first, then for each target that stays (in
+/// id order) a SetRect, or a Replace when its theme changed, then the spawns. With `every_survivor` a target that
+/// stays and keeps its theme is put back onto its rectangle even when nothing changed (legacy parity, see
+/// [`crate::topology::replace_all`]). An empty `new` closes every renderer.
+pub fn placement_actions(old: &[Target], new: &[Target], every_survivor: bool) -> Vec<PlacementAction> {
+    let by_monitor = |targets: &[Target]| {
+        let mut map: BTreeMap<String, Target> = BTreeMap::new();
+        for target in targets {
+            map.entry(target.monitor.id.clone()).or_insert_with(|| target.clone());
+        }
+        map
+    };
+    let (old_by, new_by) = (by_monitor(old), by_monitor(new));
+    let old_monitors: Vec<MonitorInfo> = old_by.values().map(|target| target.monitor.clone()).collect();
+    let new_monitors: Vec<MonitorInfo> = new_by.values().map(|target| target.monitor.clone()).collect();
+    let mut closes = Vec::new();
+    let mut moves: BTreeMap<String, PlacementAction> = BTreeMap::new();
+    let mut spawns = Vec::new();
+    for action in actions(&old_monitors, &new_monitors, every_survivor) {
+        match action {
+            TopologyAction::Close(id) => closes.push(PlacementAction::Close(id)),
+            TopologyAction::SetRect(id, rect) => {
+                moves.insert(id.clone(), PlacementAction::SetRect(id, rect));
+            }
+            TopologyAction::Spawn(monitor) => {
+                if let Some(target) = new_by.get(&monitor.id) {
+                    spawns.push(PlacementAction::Spawn(target.clone()));
+                }
+            }
+        }
+    }
+    for (id, target) in &new_by {
+        if let Some(before) = old_by.get(id)
+            && before.theme != target.theme
+        {
+            moves.insert(
+                id.clone(),
+                PlacementAction::Replace {
+                    target: target.clone(),
+                    from: before.theme.clone(),
+                },
+            );
+        }
+    }
+    closes.into_iter().chain(moves.into_values()).chain(spawns).collect()
 }
 
 /// The assignments a legacy file means (D-03): Per display with no stored list plays `selected` on the target monitor
@@ -295,6 +409,35 @@ fn cut(text: &str) -> String {
         end -= 1;
     }
     text.get(..end).unwrap_or_default().to_owned()
+}
+
+/// What the Portal is told about Span: the one span target shows as every connected monitor playing its theme, and the
+/// engine of the span renderer as the engine on each of them. Targets and renderers that are no span pass through.
+pub fn spread_span(
+    targets: Vec<Target>,
+    playing: BTreeMap<String, EngineType>,
+    connected: &[MonitorInfo],
+) -> (Vec<Target>, BTreeMap<String, EngineType>) {
+    let Some(span) = targets.iter().find(|target| target.monitor.id == SPAN_TARGET) else {
+        return (targets, playing);
+    };
+    let theme = span.theme.clone();
+    let engine = playing.get(SPAN_TARGET).copied();
+    let spread = sorted(connected)
+        .into_iter()
+        .map(|monitor| Target {
+            monitor: monitor.clone(),
+            theme: theme.clone(),
+        })
+        .collect();
+    let mut spread_playing: BTreeMap<String, EngineType> =
+        playing.into_iter().filter(|(id, _)| id != SPAN_TARGET).collect();
+    if let Some(engine) = engine {
+        for monitor in connected {
+            spread_playing.insert(monitor.id.clone(), engine);
+        }
+    }
+    (spread, spread_playing)
 }
 
 /// The monitor ids each theme plays on, for the groups that share a clock and a sound (D-04, D-05).
@@ -494,13 +637,220 @@ mod tests {
     }
 
     #[test]
-    fn span_and_duplicate_put_the_selected_theme_on_every_monitor() {
+    fn span_and_duplicate_play_the_selected_theme_and_an_empty_selection_plays_nothing() {
         let monitors = [monitor(D9, false), monitor(D1, true)];
+        let duplicate = plan_targets(DisplayScreenType::SameDuplicate, &monitors, None, "a", D9);
+        assert_eq!(pairs(&duplicate), [(D1, "a"), (D9, "a")]);
+        let span = plan_targets(DisplayScreenType::SpanAcross, &monitors, None, "a", D9);
+        assert_eq!(pairs(&span), [(SPAN_TARGET, "a")], "one renderer for all of them");
         for mode in [DisplayScreenType::SpanAcross, DisplayScreenType::SameDuplicate] {
-            let targets = plan_targets(mode, &monitors, None, "a", D9);
-            assert_eq!(pairs(&targets), [(D1, "a"), (D9, "a")]);
             assert!(plan_targets(mode, &monitors, None, "", D9).is_empty());
+            assert!(
+                plan_targets(mode, &[], None, "a", D9).is_empty(),
+                "a snapshot with no monitor"
+            );
         }
+    }
+
+    fn placed_at(id: &str, primary: bool, area: [i32; 4], work: [i32; 4]) -> MonitorInfo {
+        let rect = |a: [i32; 4]| RectPx {
+            left: a[0],
+            top: a[1],
+            right: a[2],
+            bottom: a[3],
+        };
+        MonitorInfo {
+            rect: rect(area),
+            work: rect(work),
+            ..monitor(id, primary)
+        }
+    }
+
+    fn rect_of(target: &Target) -> [i32; 4] {
+        let rect = target.monitor.rect;
+        [rect.left, rect.top, rect.right, rect.bottom]
+    }
+
+    #[test]
+    fn monitors_that_touch_give_a_span_rectangle_with_no_gap_and_no_overlap() {
+        let monitors = [
+            placed_at(D9, false, [1920, 0, 3840, 1080], [1920, 0, 3840, 1040]),
+            placed_at(D1, true, [0, 0, 1920, 1080], [0, 0, 1920, 1040]),
+        ];
+
+        let bound = span_target(&monitors, ScreenArea::DisplayBound, "a").expect("a target");
+        let work = span_target(&monitors, ScreenArea::WorkingArea, "a").expect("a target");
+
+        assert_eq!(rect_of(&bound), [0, 0, 3840, 1080], "exactly the union of the two");
+        assert_eq!(rect_of(&work), [0, 0, 3840, 1040], "the union of the work areas");
+        assert_eq!(bound.monitor.id, SPAN_TARGET);
+        assert_eq!(bound.monitor.stable_id(), SPAN_TARGET);
+        assert_eq!(bound.monitor.work, bound.monitor.rect);
+        assert!(bound.monitor.primary);
+        assert_eq!(bound.theme, "a");
+    }
+
+    #[test]
+    fn monitors_with_a_gap_or_a_negative_origin_give_the_bounding_rectangle() {
+        let gap = [
+            placed_at(D1, true, [0, 0, 1920, 1080], [0, 0, 1920, 1080]),
+            placed_at(D9, false, [2100, 200, 3000, 900], [2100, 200, 3000, 900]),
+        ];
+        assert_eq!(
+            rect_of(&span_target(&gap, ScreenArea::DisplayBound, "a").expect("a target")),
+            [0, 0, 3000, 1080],
+            "the box around the gap, as the legacy union did"
+        );
+        let left = [
+            placed_at(D1, true, [0, 0, 1920, 1080], [0, 0, 1920, 1040]),
+            placed_at(D9, false, [-1280, -200, 0, 824], [-1280, -200, 0, 824]),
+        ];
+        assert_eq!(
+            rect_of(&span_target(&left, ScreenArea::DisplayBound, "a").expect("a target")),
+            [-1280, -200, 1920, 1080],
+            "a monitor left of and above the primary one moves the origin"
+        );
+    }
+
+    #[test]
+    fn one_monitor_spans_to_its_own_rectangle_none_to_nothing_and_the_order_changes_nothing() {
+        let one = [placed_at(D1, true, [0, 0, 1920, 1080], [0, 0, 1920, 1040])];
+        assert_eq!(
+            rect_of(&span_target(&one, ScreenArea::DisplayBound, "a").expect("a target")),
+            [0, 0, 1920, 1080]
+        );
+        assert!(span_target(&[], ScreenArea::DisplayBound, "a").is_none());
+        let both = [
+            placed_at(D1, true, [0, 0, 1920, 1080], [0, 0, 1920, 1080]),
+            placed_at(D9, false, [1920, 0, 3840, 1080], [1920, 0, 3840, 1080]),
+        ];
+        let reversed = [both[1].clone(), both[0].clone()];
+        assert_eq!(
+            span_target(&both, ScreenArea::DisplayBound, "a"),
+            span_target(&reversed, ScreenArea::DisplayBound, "a")
+        );
+        let mut other_dpi = both.clone();
+        other_dpi[0].dpi = 144;
+        other_dpi[1].primary = false;
+        assert_eq!(
+            span_target(&other_dpi, ScreenArea::DisplayBound, "a")
+                .expect("a target")
+                .monitor
+                .dpi,
+            144,
+            "the DPI is the primary monitor's"
+        );
+    }
+
+    fn target(id: &str, theme: &str, area: [i32; 4]) -> Target {
+        Target {
+            monitor: placed_at(id, false, area, area),
+            theme: theme.to_owned(),
+        }
+    }
+
+    #[test]
+    fn a_change_of_theme_on_a_surviving_target_replaces_it_and_the_rest_is_closed_moved_or_spawned() {
+        let old = [
+            target(D1, "a", [0, 0, 100, 100]),
+            target(D2, "a", [100, 0, 200, 100]),
+            target(D9, "b", [200, 0, 300, 100]),
+        ];
+        let new = [
+            target(D1, "a", [0, 0, 100, 100]),
+            target(D2, "b", [100, 0, 200, 100]),
+            target("\\\\.\\DISPLAY3", "b", [300, 0, 400, 100]),
+        ];
+
+        let changed = placement_actions(&old, &new, false);
+        assert_eq!(
+            changed,
+            [
+                PlacementAction::Close(D9.to_owned()),
+                PlacementAction::Replace {
+                    target: new[1].clone(),
+                    from: "a".to_owned()
+                },
+                PlacementAction::Spawn(new[2].clone()),
+            ],
+            "the closes, then the survivors in id order, then the spawns"
+        );
+
+        let every = placement_actions(&old, &new, true);
+        assert!(
+            every.contains(&PlacementAction::SetRect(D1.to_owned(), new[0].monitor.rect)),
+            "a survivor that keeps its theme is put back too: {every:?}"
+        );
+    }
+
+    #[test]
+    fn going_from_per_display_to_span_closes_each_monitor_and_spawns_the_union() {
+        let per_display = [
+            target(D1, "a", [0, 0, 1920, 1080]),
+            target(D9, "b", [1920, 0, 3840, 1080]),
+        ];
+        let span = span_target(
+            &[
+                placed_at(D1, true, [0, 0, 1920, 1080], [0, 0, 1920, 1080]),
+                placed_at(D9, false, [1920, 0, 3840, 1080], [1920, 0, 3840, 1080]),
+            ],
+            ScreenArea::DisplayBound,
+            "a",
+        )
+        .expect("a target");
+
+        assert_eq!(
+            placement_actions(&per_display, std::slice::from_ref(&span), true),
+            [
+                PlacementAction::Close(D1.to_owned()),
+                PlacementAction::Close(D9.to_owned()),
+                PlacementAction::Spawn(span.clone()),
+            ]
+        );
+        assert_eq!(
+            placement_actions(std::slice::from_ref(&span), &per_display, true),
+            [
+                PlacementAction::Close(SPAN_TARGET.to_owned()),
+                PlacementAction::Spawn(per_display[0].clone()),
+                PlacementAction::Spawn(per_display[1].clone()),
+            ]
+        );
+        assert_eq!(
+            placement_actions(&per_display, &[], true),
+            [
+                PlacementAction::Close(D1.to_owned()),
+                PlacementAction::Close(D9.to_owned())
+            ],
+            "no target at all closes everything"
+        );
+    }
+
+    #[test]
+    fn a_monitor_that_joins_a_span_moves_its_surface_and_starts_nothing() {
+        let before = span_target(
+            &[placed_at(D1, true, [0, 0, 1920, 1080], [0, 0, 1920, 1080])],
+            ScreenArea::DisplayBound,
+            "a",
+        )
+        .expect("a target");
+        let after = span_target(
+            &[
+                placed_at(D1, true, [0, 0, 1920, 1080], [0, 0, 1920, 1080]),
+                placed_at(D9, false, [1920, 0, 3840, 1080], [1920, 0, 3840, 1080]),
+            ],
+            ScreenArea::DisplayBound,
+            "a",
+        )
+        .expect("a target");
+
+        assert_eq!(
+            placement_actions(std::slice::from_ref(&before), std::slice::from_ref(&after), false),
+            [PlacementAction::SetRect(SPAN_TARGET.to_owned(), after.monitor.rect)]
+        );
+        assert!(
+            placement_actions(std::slice::from_ref(&after), std::slice::from_ref(&after), false).is_empty(),
+            "nothing changed, nothing to do"
+        );
     }
 
     #[test]
@@ -533,6 +883,22 @@ mod tests {
             plan_targets(DisplayScreenType::SameDuplicate, &monitors, None, "", "").is_empty(),
             "an empty selection plays nothing"
         );
+    }
+
+    #[test]
+    fn the_portal_sees_a_span_as_every_monitor_playing_its_theme() {
+        let monitors = [monitor(D9, false), monitor(D1, true)];
+        let span = plan_targets(DisplayScreenType::SpanAcross, &monitors, None, "a", "");
+        let playing = BTreeMap::from([(SPAN_TARGET.to_owned(), EngineType::XavierLive)]);
+
+        let (targets, engines) = spread_span(span, playing, &monitors);
+
+        assert_eq!(pairs(&targets), [(D1, "a"), (D9, "a")]);
+        assert_eq!(engines.len(), 2);
+        assert_eq!(engines.get(D9), Some(&EngineType::XavierLive));
+        let duplicate = plan_targets(DisplayScreenType::SameDuplicate, &monitors, None, "a", "");
+        let (same, _) = spread_span(duplicate.clone(), BTreeMap::new(), &monitors);
+        assert_eq!(same, duplicate, "other modes pass through");
     }
 
     #[test]

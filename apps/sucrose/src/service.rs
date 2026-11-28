@@ -50,7 +50,9 @@ use sucrose_engine_web::{args, profile::ProfileKind};
 use crate::{
     data_hub::{DataModule, Delivery, Thumbnails, system_sampling_with_thumbnails},
     engines::{self, EngineReport, FallbackNote, Fallbacks},
-    fullscreen::{ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors},
+    fullscreen::{
+        ActionScope, FULLSCREEN_POLL_MS, FULLSCREEN_TIMER, Rule, RuleAction, covered_monitors, covered_surfaces,
+    },
     install::{InstallStage, InstallWorker, Prerequisite, SystemSteps},
     library_ops::{self, FinishStats, MaintainInput, MoveFailure, MovePlanDone, MoveStats, RealOps},
     lifecycle::{Closing, OPEN_LABEL, exit_label, should_exit, start_actions},
@@ -58,7 +60,7 @@ use crate::{
         MEMORY_TIMER, MemoryModule, ModuleAction, PortalEnd, end_portal, module_off, pids_by_slot, start_module,
         tray_action,
     },
-    placement::{self, Placement, Target},
+    placement::{self, Placement, PlacementAction, SPAN_TARGET, Target},
     portal_link::{
         PortalAdmission, PortalLink, PortalRegistry, ask_service_to_open_portal, clip, portal_args, runtime_state,
         spawn_pending,
@@ -70,8 +72,7 @@ use crate::{
         decide_exit,
     },
     topology::{
-        Debounce, SlotMap, TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, TimerCommand, TopologyAction, primary,
-        web_profile_owner, with_area,
+        Debounce, SlotMap, TOPOLOGY_DEBOUNCE, TOPOLOGY_SETTLE, TimerCommand, primary, web_profile_owner, with_area,
     },
 };
 
@@ -1602,6 +1603,18 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                             if let SettingChange::ScreenDevice(device) = &stored {
                                                 fleet.placement.screen_device.clone_from(device);
                                             }
+                                            // The display mode is saved and applied at once (DESK-02, D-02).
+                                            if let SettingChange::DisplayScreenType(mode) = &stored {
+                                                fleet.placement.mode = *mode;
+                                                fleet.replan(
+                                                    platform.as_ref(),
+                                                    quitting,
+                                                    &Ctx {
+                                                        supervisor: &supervisor,
+                                                        renderers: &renderers,
+                                                    },
+                                                );
+                                            }
                                             portals.send(PortalEvent::Changed(stored));
                                         }
                                         Err(reason) => {
@@ -3097,6 +3110,9 @@ struct Fleet {
     time_bases: HashMap<String, u64>,
     /// When the fullscreen rule paused the renderer of a slot, until it resumes: the time that was paused.
     paused_since: HashMap<u8, Instant>,
+    /// A display mode change was saved while a fullscreen rule had the wallpaper paused or closed: the fleet places the
+    /// renderers again when the rule lets go (D-02).
+    replan_pending: bool,
 }
 
 /// The renderers the fullscreen rule closed (FullScreenPerformance = Close) and has to bring back (D-06). A slot is
@@ -3206,6 +3222,7 @@ impl Fleet {
             pending_snapshot: None,
             time_bases: HashMap::new(),
             paused_since: HashMap::new(),
+            replan_pending: false,
         }
     }
 
@@ -3405,8 +3422,13 @@ impl Fleet {
         own_pids.push(std::process::id());
         let foreground = platform.foreground_window();
         // The whole monitor rectangles, not the work areas the surfaces may cover: a maximized window must not count.
-        let covered = covered_monitors(foreground.as_ref(), &platform.monitors(), &own_pids);
         let all: Vec<String> = self.monitors.iter().map(|monitor| monitor.id.clone()).collect();
+        // In Span one surface lies over every monitor: a fullscreen window on any of them covers it.
+        let covered = covered_surfaces(
+            covered_monitors(foreground.as_ref(), &platform.monitors(), &own_pids),
+            &all,
+            SPAN_TARGET,
+        );
         let actions = rule.tick(&covered, &all);
         if !actions.is_empty() {
             tracing::info!(action = ?actions.first().map(|(_, step)| *step), monitors = ?covered, renderers = actions.len(), "fullscreen rule changed");
@@ -3444,6 +3466,29 @@ impl Fleet {
             self.shift_time_base(&theme, &resumed, ctx.renderers);
         }
         self.respawn_closed(ctx);
+        // A display mode change saved while the rule held the wallpaper is applied once the rule lets go (D-02).
+        if self.replan_pending && self.rule_state() == RuleState::None {
+            self.replan(platform, false, ctx);
+        }
+    }
+
+    /// Places the renderers again for the monitors as they are now, after a display mode change: the renderers whose
+    /// target or theme changes are closed or restarted, the others play on. While a fullscreen rule has the wallpaper paused
+    /// or closed nothing moves yet: the change is kept and applied when the rule lets go (legacy: placement changes
+    /// restart the affected renderers unless the wallpaper is closed or paused, D-02). `Applied` is returned for
+    /// the log only.
+    fn replan(&mut self, platform: &dyn sucrose_platform::Platform, quitting: bool, ctx: &Ctx<'_>) -> Applied {
+        let Some(screen) = self.screen() else {
+            return Applied::default();
+        };
+        if self.rule_state() != RuleState::None {
+            tracing::info!(mode = ?self.placement.mode, "the display mode is saved, a fullscreen rule holds the wallpaper: it is applied when the rule lets go");
+            self.replan_pending = true;
+            return Applied::default();
+        }
+        let applied = self.apply_or_defer(with_area(platform.monitors(), screen), quitting, ctx);
+        tracing::info!(mode = ?self.placement.mode, started = applied.started, failed = applied.failed, "the display mode was applied");
+        applied
     }
 
     /// Starts the renderers the rule closed and wants back, once their old renderer has ended. Retried on every tick
@@ -3594,17 +3639,20 @@ impl Fleet {
         // Which of the connected monitors play, and what: the renderers follow the targets, not every monitor (D-01).
         let targets = self.placed(&monitors);
         let target_monitors: Vec<MonitorInfo> = targets.iter().map(|target| target.monitor.clone()).collect();
-        let changed = placement::actions(&self.monitors, &target_monitors, false);
-        let actions = placement::actions(&self.monitors, &target_monitors, true);
+        let before = self.running_targets();
+        let changed = placement::placement_actions(&before, &targets, false);
+        let actions = placement::placement_actions(&before, &targets, true);
         let surfaces = actions
             .iter()
-            .filter(|action| matches!(action, TopologyAction::SetRect(..)))
+            .filter(|action| matches!(action, PlacementAction::SetRect(..)))
             .count();
         for target in &targets {
+            let rect = target.monitor.rect;
             tracing::info!(
                 monitor = %target.monitor.id,
                 stable_id = %target.monitor.stable_id(),
                 theme = ?target.theme,
+                rect = ?[rect.left, rect.top, rect.right, rect.bottom],
                 "wallpaper placed"
             );
         }
@@ -3626,6 +3674,7 @@ impl Fleet {
         self.web_owner = web_profile_owner(&target_monitors).map(|monitor| monitor.id.clone());
         let applied = self.apply(actions, ctx);
         self.monitors = target_monitors;
+        self.replan_pending = false;
         self.refresh_web_profiles();
         if !changed.is_empty() {
             // Unchanged monitors cannot change the master.
@@ -3657,23 +3706,62 @@ impl Fleet {
         }
     }
 
-    /// Carries out `actions` (see [`replace_all`]).
-    fn apply(&mut self, actions: Vec<TopologyAction>, ctx: &Ctx<'_>) -> Applied {
+    /// The renderers that run now as targets: each monitor with a renderer and the theme it plays.
+    fn running_targets(&self) -> Vec<Target> {
+        self.monitors
+            .iter()
+            .map(|monitor| Target {
+                monitor: monitor.clone(),
+                theme: self.theme_of_monitor(&monitor.id),
+            })
+            .collect()
+    }
+
+    /// Carries out `actions` (see [`placement::placement_actions`]).
+    fn apply(&mut self, actions: Vec<PlacementAction>, ctx: &Ctx<'_>) -> Applied {
         let mut applied = Applied::default();
         for action in actions {
             match action {
-                TopologyAction::Spawn(monitor) => {
-                    if self.spawn(&monitor, ctx) {
+                PlacementAction::Spawn(target) => {
+                    if self.spawn(&target.monitor, ctx) {
                         applied.started += 1;
                     } else {
                         applied.failed += 1;
                     }
                 }
-                TopologyAction::Close(id) => self.close(&id, ctx),
-                TopologyAction::SetRect(id, rect) => self.move_to(&id, rect, ctx),
+                PlacementAction::Close(id) => self.close(&id, ctx),
+                PlacementAction::SetRect(id, rect) => self.move_to(&id, rect, ctx),
+                PlacementAction::Replace { target, from } => self.replace_theme(&target, &from, ctx),
             }
         }
         applied
+    }
+
+    /// The target keeps its surface and plays another theme now (a display mode change moved a theme onto it): its
+    /// surface goes onto the new rectangle, its renderer joins the group of the new theme and loads the new source in
+    /// place when both engines can (mpv), else it is closed and comes back with the new assignment. The renderers of
+    /// other targets are not touched.
+    fn replace_theme(&mut self, target: &Target, from: &str, ctx: &Ctx<'_>) {
+        let id = target.monitor.id.as_str();
+        self.move_to(id, target.monitor.rect, ctx);
+        let Some(job) = self.jobs.get(&target.theme).cloned() else {
+            tracing::warn!(monitor = %id, theme = ?target.theme, "no theme change, the theme has no job");
+            return;
+        };
+        let running_engine = self.jobs.get(from).map(|old| old.engine);
+        let in_place = running_engine.is_some_and(|running| loads_in_place(running, job.engine));
+        let theme = job.folder();
+        let slot = self.retarget(id, job, ctx.renderers);
+        self.trim_time_base(from);
+        if let Some(slot) = slot {
+            self.share_time_base(&theme, Some(slot), ctx.renderers);
+            let reached = match USE_TRANSITION {
+                UseTransition::LoadSource if in_place => self.load_slot(slot, ctx.renderers),
+                _ => self.restart_slot(slot, ctx.renderers),
+            };
+            tracing::info!(slot, monitor = %id, theme = ?target.theme, from = ?from, in_place, reached, "the theme of a surface changed");
+        }
+        self.revive_stopped(ctx.supervisor);
     }
 
     /// Starts the renderer for `monitor`; `false` when it could not be started.
@@ -4144,6 +4232,8 @@ impl Fleet {
     fn displays(&self, running: &[u8]) -> Vec<DisplayView> {
         let targets = self.placement.targets(&self.connected);
         let playing: BTreeMap<String, EngineType> = self.engines_running(running).into_iter().collect();
+        // A Span is one renderer over every monitor: the Portal sees each monitor playing its theme.
+        let (targets, playing) = placement::spread_span(targets, playing, &self.connected);
         placement::display_views(
             &self.connected,
             &targets,
@@ -7073,15 +7163,161 @@ mod tests {
                 .collect::<Vec<_>>(),
             [(D1, "main"), (D9, "other")]
         );
-        let target_monitors: Vec<MonitorInfo> = targets.iter().map(|t| t.monitor.clone()).collect();
         assert_eq!(
-            placement::actions(&fleet.monitors, &target_monitors, false),
-            [TopologyAction::Spawn(back[1].clone())]
+            placement::placement_actions(&fleet.running_targets(), &targets, false),
+            [PlacementAction::Spawn(targets[1].clone())]
         );
         assert!(
             fleet.jobs.contains_key("other"),
             "its theme has a job, so the spawn can read it"
         );
+        let _ = std::fs::remove_dir_all(dir);
+    }
+
+    fn duplicate_of_main(fleet: &mut Fleet) {
+        fleet.placement.mode = DisplayScreenType::SameDuplicate;
+        "main".clone_into(&mut fleet.placement.selected);
+    }
+
+    #[test]
+    fn duplicate_loads_the_selected_theme_into_the_renderer_that_played_another_and_leaves_the_other_alone() {
+        let (mut fleet, renderers, logs, _host, dir) =
+            per_display_fleet(&[(D1, "main"), (D9, "other")], &both_monitors(), "dup-load");
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        let one = fleet.slots.slot_of(D1).expect("a slot");
+        let nine = fleet.slots.slot_of(D9).expect("a slot");
+        duplicate_of_main(&mut fleet);
+
+        let applied = fleet.apply_snapshot(both_monitors(), &ctx);
+
+        assert_eq!(
+            applied,
+            Applied::default(),
+            "no renderer starts or fails: the mpv renderers load in place"
+        );
+        assert_eq!(fleet.targets.get(D9).map(String::as_str), Some("main"));
+        assert_eq!(lock(&renderers).groups.get(&nine).map(String::as_str), Some("main"));
+        let epoch = fleet.time_bases.get("main").copied().expect("the group has an epoch");
+        let first = sent_to(&renderers, &logs, one);
+        assert!(
+            !first
+                .iter()
+                .any(|message| matches!(message, ToRenderer::LoadSource { .. })),
+            "the monitor that already played the theme loads nothing: {first:?}"
+        );
+        assert!(
+            first.contains(&ToRenderer::TimeBase { epoch_unix_ms: epoch }),
+            "its group grew to two monitors: {first:?}"
+        );
+        let second = sent_to(&renderers, &logs, nine);
+        assert!(
+            second.iter().any(|message| matches!(
+                message,
+                ToRenderer::LoadSource { source, .. } if source.contains("main")
+            )),
+            "the other monitor loads the selected theme: {second:?}"
+        );
+        let assignments = lock_assignments(&fleet.assignments);
+        assert_eq!(
+            assignments[&nine].time_base,
+            Some(epoch),
+            "a restart of it joins the same time base"
+        );
+        assert!(
+            assignments[&nine].source.contains("main"),
+            "{}",
+            assignments[&nine].source
+        );
+        let _ = std::fs::remove_dir_all(dir);
+    }
+
+    #[test]
+    fn duplicate_restarts_a_renderer_whose_engine_cannot_load_the_theme_in_place() {
+        let (mut fleet, renderers, logs, _host, dir) =
+            per_display_fleet(&[(D1, "main"), (D9, "other")], &both_monitors(), "dup-restart");
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        let nine = fleet.slots.slot_of(D9).expect("a slot");
+        fleet.jobs.get_mut("main").expect("a job").engine = EngineType::XavierLive;
+        duplicate_of_main(&mut fleet);
+
+        fleet.apply_snapshot(both_monitors(), &ctx);
+
+        assert!(
+            was_told_to_close(&logs, nine),
+            "the renderer is closed and comes back with its new assignment"
+        );
+        assert!(fleet.rule_closed.is_closed(nine));
+        assert!(
+            fleet.rule_closed.back.contains(&nine),
+            "and is wanted back once it has ended"
+        );
+        assert_eq!(
+            lock_assignments(&fleet.assignments)[&nine].engine,
+            EngineType::XavierLive,
+            "the new renderer starts on the engine of the theme it plays now"
+        );
+        let _ = std::fs::remove_dir_all(dir);
+    }
+
+    #[test]
+    fn the_portal_sees_every_monitor_playing_a_span_and_the_engine_of_its_one_renderer() {
+        let (mut fleet, _renderers, _logs, _host, dir) =
+            per_display_fleet(&[(D1, "main")], &both_monitors(), "span-view");
+        fleet.placement.mode = DisplayScreenType::SpanAcross;
+        let span = placement::span_target(&fleet.connected, ScreenArea::DisplayBound, "main").expect("a target");
+        fleet.monitors = vec![span.monitor.clone()];
+        fleet.targets = BTreeMap::from([(SPAN_TARGET.to_owned(), "main".to_owned())]);
+        fleet.slots = SlotMap::default();
+        let slot = fleet.slots.assign(SPAN_TARGET).expect("a slot");
+
+        let views = fleet.displays(&[slot]);
+
+        assert_eq!(views.len(), 2);
+        for view in &views {
+            assert_eq!(view.theme.as_deref(), Some("main"), "{view:?}");
+            assert!(view.running, "{view:?}");
+            assert_eq!(view.engine, Some(EngineType::MpvPlayerLive));
+        }
+        let _ = std::fs::remove_dir_all(dir);
+    }
+
+    #[test]
+    fn a_display_mode_change_while_the_rule_holds_the_wallpaper_waits_for_the_rule() {
+        let (mut fleet, renderers, logs, _host, dir) =
+            per_display_fleet(&[(D1, "main"), (D9, "other")], &both_monitors(), "dup-rule");
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        let mut rule = Rule::new(FullScreenAction::Pause, ActionScope::AllMonitors);
+        let all = [D1.to_owned(), D9.to_owned()];
+        for _ in 0..5 {
+            rule.tick(&[D1.to_owned()], &all);
+        }
+        fleet.fullscreen = Some(rule);
+        assert_eq!(fleet.rule_state(), RuleState::Paused);
+        duplicate_of_main(&mut fleet);
+
+        let applied = fleet.replan(&GpuFake::new(false, false), false, &ctx);
+
+        assert_eq!(applied, Applied::default());
+        assert!(fleet.replan_pending, "the change is kept for the rule to let go");
+        assert_eq!(
+            fleet.targets.get(D9).map(String::as_str),
+            Some("other"),
+            "nothing moved"
+        );
+        let nine = fleet.slots.slot_of(D9).expect("a slot");
+        assert!(sent_to(&renderers, &logs, nine).is_empty());
         let _ = std::fs::remove_dir_all(dir);
     }
 

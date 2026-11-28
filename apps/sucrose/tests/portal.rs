@@ -12,7 +12,7 @@ use serde_json::{Value, json};
 use sucrose_core::{
     library::scan,
     paths::legacy_data_dir,
-    settings::{EngineType, ThemeMode},
+    settings::{DisplayScreenType, EngineType, ThemeMode},
     theme::{WallpaperType, check_selected},
     version::app_version,
 };
@@ -1151,6 +1151,230 @@ fn the_target_monitor_gets_the_use_and_remove_frees_it() {
             .join("SucroseInfo.json")
             .is_file()
     );
+}
+
+/// The text of the service logs of `service` (`<data>/Log/Service.<date>.log`), empty while there is none yet.
+fn service_log(service: &TestService) -> String {
+    let Ok(entries) = std::fs::read_dir(service.dir.join("Log")) else {
+        return String::new();
+    };
+    let mut files: Vec<(String, String)> = entries
+        .filter_map(Result::ok)
+        .filter_map(|entry| {
+            let name = entry.file_name().to_string_lossy().into_owned();
+            name.starts_with("Service.").then_some(())?;
+            Some((name, std::fs::read_to_string(entry.path()).ok()?))
+        })
+        .collect();
+    files.sort();
+    files.into_iter().map(|(_, text)| text).collect()
+}
+
+/// Waits until `done` holds for the service log and returns it; fails after 30 s.
+fn wait_for_service_log(service: &TestService, what: &str, done: impl Fn(&str) -> bool) -> String {
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+    loop {
+        let log = service_log(service);
+        if done(&log) {
+            return log;
+        }
+        assert!(
+            std::time::Instant::now() < deadline,
+            "the service log never showed {what}: {log}"
+        );
+        std::thread::sleep(std::time::Duration::from_millis(250));
+    }
+}
+
+/// The engine starts of every renderer log together.
+fn total_engine_starts(service: &TestService) -> usize {
+    renderer_logs_by_slot(service)
+        .values()
+        .map(|log| starts(log).len())
+        .sum()
+}
+
+/// Waits until the renderer logs hold `count` engine starts altogether, and returns the logs by slot.
+fn wait_for_total_engine_starts(service: &TestService, count: usize) -> BTreeMap<u32, String> {
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+    loop {
+        if total_engine_starts(service) >= count {
+            return renderer_logs_by_slot(service);
+        }
+        assert!(
+            std::time::Instant::now() < deadline,
+            "{count} engine starts were expected, seen {}: {:?}",
+            total_engine_starts(service),
+            renderer_logs_by_slot(service)
+        );
+        std::thread::sleep(std::time::Duration::from_millis(250));
+    }
+}
+
+/// Per display on two monitors, then Span, Duplicate and Per display again through `SettingChange::DisplayScreenType`:
+/// Span runs one renderer over the union of the monitors (the service log's `wallpaper placed` line names `span:all`
+/// and the union), Duplicate one renderer on each monitor with the selected theme, and Per display gives each monitor
+/// its own theme back. It plays real wallpapers on two monitors from a scratch data folder, so it runs on purpose and
+/// skips with fewer than two.
+#[test]
+#[ignore = "plays wallpapers on two monitors from a scratch data folder; plan 43 runs it"]
+#[allow(clippy::print_stderr)]
+fn a_display_mode_change_moves_the_wallpaper_to_the_union_and_back() {
+    const NAME: &str = "a_display_mode_change_moves_the_wallpaper_to_the_union_and_back";
+    if !service_runs(NAME) {
+        return;
+    }
+    let mut monitors = sucrose_platform::current().monitors();
+    monitors.sort_by(|a, b| a.id.cmp(&b.id));
+    if monitors.len() < 2 {
+        eprintln!("{NAME}: skipped: fewer than two monitors are connected");
+        return;
+    }
+    // Both monitors are assigned, so Per display plays one renderer on each.
+    let (first, last) = (monitors[0].clone(), monitors[monitors.len() - 1].clone());
+    let entry = |monitor: &sucrose_platform::MonitorInfo, theme: &str| json!({ "MonitorId": monitor.stable_id(), "DeviceName": monitor.id, "Theme": theme });
+    let service = TestService::start(
+        "display-mode",
+        &json!({
+            "Library": { "Selected": "gif-anim" },
+            "Engine": {
+                "Gif": "XavierLive",
+                "DisplayScreenType": "PerDisplay",
+                "ScreenDevice": "",
+                "DisplayAssignments": [entry(&first, "gif-anim"), entry(&last, "gif-two")],
+            },
+        }),
+    );
+    for theme in ["gif-anim", "gif-two"] {
+        write_gif_theme(&service, theme);
+    }
+    let service = service.restart();
+    let (mut portal, welcome) = PortalClient::hello(&service, None);
+    let PortalEvent::Welcome { runtime, .. } = welcome else {
+        panic!("the first event is the Welcome: {welcome:?}");
+    };
+    let slots = monitors.len();
+    let theme_of = |runtime: &RuntimeState, monitor: &sucrose_platform::MonitorInfo| {
+        runtime
+            .displays
+            .iter()
+            .find(|display| display.device_name == monitor.id)
+            .and_then(|display| display.theme.clone())
+    };
+
+    // Per display: every connected monitor plays, the first its own theme and the last another one.
+    let after_start = wait_for_total_engine_starts(&service, slots);
+    assert_eq!(after_start.len(), slots, "one renderer per monitor: {after_start:?}");
+    let runtime = wait_for_runtime(&portal, Some(runtime), |runtime| {
+        runtime.displays.len() == slots && runtime.displays.iter().all(|display| display.running)
+    });
+    assert_eq!(theme_of(&runtime, &first).as_deref(), Some("gif-anim"));
+    assert_eq!(theme_of(&runtime, &last).as_deref(), Some("gif-two"));
+
+    // Span: one renderer over the union of the monitors, playing the selected theme.
+    portal.request(&PortalRequest::Change(SettingChange::DisplayScreenType(
+        DisplayScreenType::SpanAcross,
+    )));
+    let union = {
+        let left = monitors
+            .iter()
+            .map(|monitor| monitor.rect.left)
+            .min()
+            .expect("a monitor");
+        let top = monitors
+            .iter()
+            .map(|monitor| monitor.rect.top)
+            .min()
+            .expect("a monitor");
+        let right = monitors
+            .iter()
+            .map(|monitor| monitor.rect.right)
+            .max()
+            .expect("a monitor");
+        let bottom = monitors
+            .iter()
+            .map(|monitor| monitor.rect.bottom)
+            .max()
+            .expect("a monitor");
+        format!("rect=[{left}, {top}, {right}, {bottom}]")
+    };
+    let log = wait_for_service_log(&service, "the span placement", |log| {
+        log.lines()
+            .any(|line| line.contains("wallpaper placed") && line.contains("monitor=span:all"))
+    });
+    let placed = log
+        .lines()
+        .rev()
+        .find(|line| line.contains("wallpaper placed") && line.contains("monitor=span:all"))
+        .expect("the span line");
+    assert!(
+        placed.contains(&union),
+        "the span covers the union of the monitors ({union}): {placed}"
+    );
+    let runtime = wait_for_runtime(&portal, None, |runtime| {
+        runtime
+            .displays
+            .iter()
+            .all(|display| display.running && display.theme.as_deref() == Some("gif-anim"))
+    });
+    assert_eq!(runtime.displays.len(), slots);
+    let by_slot = wait_for_total_engine_starts(&service, slots + 1);
+    assert_eq!(
+        total_engine_starts(&service),
+        slots + 1,
+        "exactly one renderer started for the span: {by_slot:?}"
+    );
+    assert!(
+        by_slot.values().any(|log| log.contains("monitor=span:all")),
+        "the new renderer was assigned the span target: {by_slot:?}"
+    );
+    assert_eq!(service.settings_file()["Engine"]["DisplayScreenType"], "SpanAcross");
+
+    // Duplicate: the span renderer ends and every monitor gets a renderer with the selected theme.
+    portal.request(&PortalRequest::Change(SettingChange::DisplayScreenType(
+        DisplayScreenType::SameDuplicate,
+    )));
+    let runtime = wait_for_runtime(&portal, None, |runtime| {
+        runtime.displays.len() == slots
+            && runtime
+                .displays
+                .iter()
+                .all(|display| display.running && display.theme.as_deref() == Some("gif-anim"))
+            && runtime.displays.iter().all(|display| display.engine.is_some())
+    });
+    assert_eq!(
+        theme_of(&runtime, &last).as_deref(),
+        Some("gif-anim"),
+        "both monitors play the selected theme"
+    );
+    wait_for_total_engine_starts(&service, slots + 1 + slots);
+    let log = service_log(&service);
+    for monitor in &monitors {
+        assert!(
+            log.lines().any(|line| line.contains("wallpaper placed")
+                && line.contains(&format!("monitor={}", monitor.id))
+                && line.contains("theme=\"gif-anim\"")),
+            "{} was placed with the selected theme: {log}",
+            monitor.id
+        );
+    }
+    assert_eq!(service.settings_file()["Engine"]["DisplayScreenType"], "SameDuplicate");
+
+    // Per display again: the stored assignments come back.
+    portal.request(&PortalRequest::Change(SettingChange::DisplayScreenType(
+        DisplayScreenType::PerDisplay,
+    )));
+    let runtime = wait_for_runtime(&portal, None, |runtime| {
+        runtime.displays.len() == slots
+            && runtime.displays.iter().all(|display| display.running)
+            && runtime
+                .displays
+                .iter()
+                .find(|display| display.device_name == last.id)
+                .is_some_and(|display| display.theme.as_deref() == Some("gif-two"))
+    });
+    assert_eq!(theme_of(&runtime, &first).as_deref(), Some("gif-anim"));
+    assert_eq!(service.settings_file()["Engine"]["DisplayScreenType"], "PerDisplay");
 }
 
 /// Two theme switches in a row on WebView2 (the Round A CEF close lesson): the renderer of each theme closes its

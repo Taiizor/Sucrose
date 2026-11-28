@@ -47,6 +47,21 @@ pub fn covered_monitors(fg: Option<&ForegroundWindow>, monitors: &[MonitorInfo],
         .collect()
 }
 
+/// The surfaces a fullscreen window covers, given the monitors it covers (`covered`) and the surfaces that have a
+/// renderer (`surfaces`). Per display and Duplicate have one surface per monitor, so the monitors are the surfaces. In Span
+/// one surface (`span`) lies over every monitor: a fullscreen window on any monitor covers it, and the rule acts on that
+/// one renderer.
+pub fn covered_surfaces(covered: Vec<String>, surfaces: &[String], span: &str) -> Vec<String> {
+    if !surfaces.iter().any(|surface| surface == span) {
+        return covered;
+    }
+    if covered.is_empty() {
+        covered
+    } else {
+        vec![span.to_owned()]
+    }
+}
+
 /// Turns a stream of yes/no samples into state flips: `trigger` equal samples in a row switch it on, `recover` equal
 /// samples in a row switch it off. A single odd sample inside a run starts the count over.
 #[derive(Debug, Clone)]
@@ -299,6 +314,24 @@ mod tests {
 
         assert!(covered_monitors(Some(&fg), &two_monitors(), &[1, 4242]).is_empty());
         assert_eq!(covered_monitors(Some(&fg), &two_monitors(), &[1, 2]), ["D1"]);
+    }
+
+    #[test]
+    fn in_span_a_fullscreen_window_on_any_monitor_covers_the_one_surface() {
+        let span = vec!["span:all".to_owned()];
+        let monitors = vec!["D1".to_owned(), "D9".to_owned()];
+        assert_eq!(covered_surfaces(vec!["D9".to_owned()], &span, "span:all"), span);
+        assert_eq!(
+            covered_surfaces(monitors.clone(), &span, "span:all"),
+            span,
+            "both is still one surface"
+        );
+        assert!(covered_surfaces(Vec::new(), &span, "span:all").is_empty());
+        assert_eq!(
+            covered_surfaces(vec!["D9".to_owned()], &monitors, "span:all"),
+            ["D9"],
+            "one surface per monitor leaves the monitors as they are"
+        );
     }
 
     #[test]

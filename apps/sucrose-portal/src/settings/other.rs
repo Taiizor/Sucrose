@@ -418,6 +418,7 @@ mod tests {
             developer_port: 0,
             webview_smartscreen: false,
             screen_device: String::new(),
+            display_screen_type: sucrose_core::settings::DisplayScreenType::PerDisplay,
         }
     }
 
