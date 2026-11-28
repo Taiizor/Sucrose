@@ -19,6 +19,7 @@ tracing = { workspace = true }
 [target.'cfg(windows)'.dependencies]
 tray-icon = { workspace = true }
 windows = { workspace = true, features = [
+    "Win32_Devices_Display",
     "Win32_Foundation",
     "Win32_Graphics_Direct3D",
     "Win32_Graphics_Direct3D11",

@@ -207,6 +207,9 @@ mod tests {
     fn monitor(id: &str, area: RectPx) -> MonitorInfo {
         MonitorInfo {
             id: id.to_owned(),
+            device_path: None,
+            edid: None,
+            friendly: None,
             rect: area,
             work: area,
             dpi: 96,

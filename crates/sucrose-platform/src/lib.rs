@@ -39,7 +39,7 @@ pub mod input;
 pub mod layout;
 
 pub use autostart::{AutostartState, autostart_state, disable_autostart, enable_autostart, legacy_entry};
-pub use geometry::{MonitorInfo, Placement, PlacementVerdict, RectPx};
+pub use geometry::{DisplayTarget, MonitorInfo, Placement, PlacementVerdict, RectPx, attach_display_ids, edid_key};
 pub use icon::truncate_tooltip;
 pub use imp::{DesktopSurface, EventLoop, LoopProxy, LoopTimers, RendererJob, Tray};
 pub use sucrose_core::settings::GpuPreference;

@@ -157,6 +157,20 @@ enum MaintenanceDecision {
     AnswerNothing,
 }
 
+/// Logs one `monitor identified` line per monitor, so the ids settings remember a monitor by (D-08) can be read from
+/// the Service log.
+fn log_monitors_identified(monitors: &[MonitorInfo]) {
+    for monitor in monitors {
+        tracing::info!(
+            device = %monitor.id,
+            stable_id = %monitor.stable_id(),
+            edid = ?monitor.edid,
+            friendly = ?monitor.friendly,
+            "monitor identified"
+        );
+    }
+}
+
 /// What a MaintainLibrary request does: maintenance and a library move never run together (WR-01); the move side is
 /// `MoveEnv::start`'s Busy refusal. `running` is a library-ops run that is going, `moving` a library move.
 fn maintenance_decision(running: bool, moving: bool) -> MaintenanceDecision {
@@ -1123,6 +1137,7 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                 reason: NO_MONITOR.to_owned(),
             };
         }
+        log_monitors_identified(&monitors);
         let primary_id = primary(&monitors).map(|monitor| monitor.id.clone());
         fleet.web_owner = web_profile_owner(&monitors).map(|monitor| monitor.id.clone());
         let applied = fleet.apply(
@@ -3248,6 +3263,7 @@ impl Fleet {
             tracing::info!("the OS reports no monitor, the renderers stay as they are");
             return Applied::default();
         }
+        log_monitors_identified(&monitors);
         let changed = diff(&self.monitors, &monitors);
         let actions = replace_all(&self.monitors, &monitors);
         let surfaces = actions
@@ -4938,6 +4954,9 @@ mod tests {
     fn monitor(id: &str, primary: bool) -> MonitorInfo {
         MonitorInfo {
             id: id.to_owned(),
+            device_path: None,
+            edid: None,
+            friendly: None,
             rect: RectPx::default(),
             work: RectPx::default(),
             dpi: 96,
