@@ -544,15 +544,17 @@ pub(crate) mod fixtures {
         codecs::gif::{GifEncoder, Repeat},
     };
 
-    /// A GIF of solid frames: frame `i` has red `i * 70`. `delays_ms` gives one delay per frame.
+    /// A GIF of solid frames: frame `i` has red `(i % 4) * 70` and green `20 + (i / 4) * 30`, so up to 32 frames have a
+    /// number of their own. `delays_ms` gives one delay per frame.
     pub(crate) fn gif_bytes(width: u32, height: u32, delays_ms: &[u32]) -> Vec<u8> {
         let mut bytes = Vec::new();
         {
             let mut encoder = GifEncoder::new_with_speed(&mut bytes, 10);
             encoder.set_repeat(Repeat::Infinite).expect("repeat");
             for (index, delay) in delays_ms.iter().enumerate() {
-                let red = u8::try_from(index * 70 % 256).expect("below 256");
-                let image = RgbaImage::from_pixel(width, height, Rgba([red, 90, 160, 255]));
+                let red = u8::try_from(index % 4 * 70).expect("below 256");
+                let green = u8::try_from(20 + index / 4 * 30).expect("below 256");
+                let image = RgbaImage::from_pixel(width, height, Rgba([red, green, 160, 255]));
                 encoder
                     .encode_frame(Frame::from_parts(image, 0, 0, Delay::from_numer_denom_ms(*delay, 1)))
                     .expect("frame");
@@ -561,9 +563,9 @@ pub(crate) mod fixtures {
         bytes
     }
 
-    /// The frame number a decoded frame shows, read from its red channel (BGRA: byte 2).
+    /// The frame number a decoded frame shows, read from its red and green channels (BGRA: bytes 2 and 1).
     pub(crate) fn frame_number(pixels: &[u8]) -> u32 {
-        (u32::from(pixels[2]) + 35) / 70
+        (u32::from(pixels[2]) + 35) / 70 + 4 * ((u32::from(pixels[1]) + 15).saturating_sub(20) / 30)
     }
 }
 

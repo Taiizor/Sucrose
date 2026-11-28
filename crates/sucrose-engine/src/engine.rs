@@ -115,6 +115,11 @@ pub trait Engine: Send + Sync {
             what: "Developer tools".to_owned(),
         })
     }
+    /// Hands the engine the shared time base of the group it plays in (D-043): the instant, as Unix milliseconds, that
+    /// renderers of one theme on several monitors count their content position from. An engine that follows it shows
+    /// the position the instant gives (a GIF by frame index, a page by its media time); mpv follows the master clock
+    /// of D-030 instead and keeps this default, which ignores it.
+    fn set_time_base(&self, _epoch_unix_ms: u64) {}
     /// Hands the engine a snapshot of the system data its page asked for, each group with its JSON text (D-24). Only a
     /// web engine has a page to give it to; every other engine ignores it.
     fn push_data(&self, _data: Vec<(DataGroup, String)>) {}

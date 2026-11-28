@@ -172,6 +172,9 @@ pub fn run(slot: u8) -> anyhow::Result<ExitCode> {
         }
     };
     tracing::info!(engine = engine.name(), "engine started");
+    if let Some(epoch) = assignment.time_base {
+        engine.set_time_base(epoch);
+    }
     if engine.clock().is_none() && playing_writer.is_none() {
         // Nothing would ever tell the service that this wallpaper plays.
         tracing::error!("cannot keep a write handle for the playing report");
@@ -522,7 +525,8 @@ fn judge_hello_reply(reply: Result<ToRenderer, IpcError>) -> anyhow::Result<Hell
             | ToRenderer::Data(_)
             | ToRenderer::SetLoop(_)
             | ToRenderer::SetShuffle(_)
-            | ToRenderer::Blob { .. },
+            | ToRenderer::Blob { .. }
+            | ToRenderer::TimeBase { .. },
         ) => {
             tracing::warn!("ignoring a control message that arrived before the assignment");
             Ok(HelloReply::Skip)
@@ -689,6 +693,11 @@ fn wait_for_close(
             Ok(ToRenderer::SetShuffle(shuffle)) => {
                 engine.set_shuffle(shuffle);
                 tracing::info!(shuffle, "shuffle changed");
+            }
+            // The group grew or its pause ended: the engine counts its content position from the new instant (D-043).
+            Ok(ToRenderer::TimeBase { epoch_unix_ms }) => {
+                engine.set_time_base(epoch_unix_ms);
+                tracing::info!(epoch_unix_ms, "time base changed");
             }
             // A second assignment is not part of this plan; later plans act on it.
             Ok(ToRenderer::Assign(_)) => tracing::warn!("ignoring an unexpected second assignment"),
@@ -1103,6 +1112,7 @@ mod tests {
             web: WebOptions::default(),
             input: InputSettings::default(),
             web_profile: sucrose_engine_web::profile::ProfileKind::Ephemeral,
+            time_base: None,
         };
 
         let error = start_engine(EngineId::Vlc, 0, &assignment, || {

@@ -2946,7 +2946,13 @@ impl Job {
     }
 
     /// The assignment of the renderer `slot` for `monitor`, whose rectangle is already the area to cover.
-    fn assignment(&self, slot: u8, monitor: &MonitorInfo, web_profile: ProfileKind) -> Assignment {
+    fn assignment(
+        &self,
+        slot: u8,
+        monitor: &MonitorInfo,
+        web_profile: ProfileKind,
+        time_base: Option<u64>,
+    ) -> Assignment {
         let area = monitor.rect;
         Assignment {
             slot,
@@ -2960,8 +2966,16 @@ impl Job {
             web: self.web.clone(),
             input: self.input,
             web_profile,
+            time_base,
         }
     }
+}
+
+/// The current time as Unix milliseconds: what the shared time base of a group is counted in (D-043).
+fn unix_now_ms() -> u64 {
+    std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .map_or(0, |since| u64::try_from(since.as_millis()).unwrap_or(u64::MAX))
 }
 
 /// Offers a data snapshot to the renderer of `slot` through its writer queue, never waiting for it (T-04-24).
@@ -3077,6 +3091,12 @@ struct Fleet {
     library_move: Option<LibraryMove>,
     /// A monitor change that settled while the library moved, applied when the move ends; the latest one wins (WR-03).
     pending_snapshot: Option<Vec<MonitorInfo>>,
+    /// The shared time base of each theme that has a renderer, as Unix milliseconds: set when the group's first renderer
+    /// is placed, kept while the group has a renderer, moved forward by the time a rule kept the whole group paused
+    /// (D-043). Only a group of more than one monitor hands it to its renderers.
+    time_bases: HashMap<String, u64>,
+    /// When the fullscreen rule paused the renderer of a slot, until it resumes: the time that was paused.
+    paused_since: HashMap<u8, Instant>,
 }
 
 /// The renderers the fullscreen rule closed (FullScreenPerformance = Close) and has to bring back (D-06). A slot is
@@ -3184,6 +3204,8 @@ impl Fleet {
             playing: HashSet::new(),
             library_move: None,
             pending_snapshot: None,
+            time_bases: HashMap::new(),
+            paused_since: HashMap::new(),
         }
     }
 
@@ -3270,6 +3292,95 @@ impl Fleet {
             .collect()
     }
 
+    /// How many monitors play `theme` now.
+    fn group_size(&self, theme: &str) -> usize {
+        self.targets.values().filter(|placed| placed.as_str() == theme).count()
+    }
+
+    /// The time base an assignment of `theme` carries (D-043): the group's epoch, set now when the group has none yet,
+    /// for a theme on more than one monitor; `None` for a wallpaper on one monitor.
+    fn time_base_for(&mut self, theme: &str) -> Option<u64> {
+        let epoch = *self.time_bases.entry(theme.to_owned()).or_insert_with(unix_now_ms);
+        (self.group_size(theme) > 1).then_some(epoch)
+    }
+
+    /// Forgets the epoch of a theme no monitor plays any more: a group that comes back starts a new one.
+    fn prune_time_bases(&mut self) {
+        let placed: BTreeSet<&str> = self.targets.values().map(String::as_str).collect();
+        self.time_bases.retain(|theme, _| placed.contains(theme.as_str()));
+    }
+
+    /// A group that shrank to one monitor: its renderer's stored assignment carries no time base any more.
+    fn trim_time_base(&mut self, theme: &str) {
+        if self.group_size(theme) > 1 {
+            return;
+        }
+        let slots = self.slots_of(theme);
+        let mut assignments = lock_assignments(&self.assignments);
+        for slot in slots {
+            if let Some(assignment) = assignments.get_mut(&slot) {
+                assignment.time_base = None;
+            }
+        }
+    }
+
+    /// The group of `theme` has more than one monitor: every renderer of it but `except` (the one that just joined, whose
+    /// assignment already carries it) reads the epoch from its stored assignment when it starts and is sent
+    /// [`ToRenderer::TimeBase`] when it runs. A group of one monitor gets nothing.
+    fn share_time_base(&mut self, theme: &str, except: Option<u8>, renderers: &SharedRenderers) {
+        if self.group_size(theme) < 2 {
+            return;
+        }
+        let Some(epoch) = self.time_bases.get(theme).copied() else {
+            return;
+        };
+        let slots: Vec<u8> = self
+            .slots_of(theme)
+            .into_iter()
+            .filter(|slot| Some(*slot) != except)
+            .collect();
+        {
+            let mut assignments = lock_assignments(&self.assignments);
+            for slot in &slots {
+                if let Some(assignment) = assignments.get_mut(slot) {
+                    assignment.time_base = Some(epoch);
+                }
+            }
+        }
+        for slot in slots {
+            send_to(renderers, slot, &ToRenderer::TimeBase { epoch_unix_ms: epoch });
+        }
+    }
+
+    /// The renderers of the group of `theme` were paused by the rule and the ones in `resumed` play again: when the
+    /// whole group was paused the epoch moves forward by the time it was, so the content position goes on where it
+    /// stopped (D-043), and the group is told. A group of which only some renderers paused keeps its epoch: the ones
+    /// that were paused join the grid at their next wrap.
+    fn shift_time_base(&mut self, theme: &str, resumed: &[(u8, Duration)], renderers: &SharedRenderers) {
+        let group = self.slots_of(theme);
+        if group.len() < 2 || !group.iter().all(|slot| resumed.iter().any(|(done, _)| done == slot)) {
+            return;
+        }
+        let Some(paused) = resumed
+            .iter()
+            .filter(|(slot, _)| group.contains(slot))
+            .map(|(_, paused)| *paused)
+            .min()
+        else {
+            return;
+        };
+        let Some(epoch) = self.time_bases.get_mut(theme) else {
+            return;
+        };
+        *epoch = epoch.saturating_add(u64::try_from(paused.as_millis()).unwrap_or(u64::MAX));
+        tracing::info!(
+            theme,
+            paused_ms = paused.as_millis() as u64,
+            "the time base moves forward by the pause"
+        );
+        self.share_time_base(theme, None, renderers);
+    }
+
     /// Switches the fullscreen rule on for `action` unless it is Resume, which disables it: then no timer and no
     /// state exist at all (D-008). `true` when the rule is on and its timer has to run.
     fn enable_fullscreen(&mut self, action: FullScreenAction, scope: ActionScope, pause: PauseKind) -> bool {
@@ -3300,6 +3411,7 @@ impl Fleet {
         if !actions.is_empty() {
             tracing::info!(action = ?actions.first().map(|(_, step)| *step), monitors = ?covered, renderers = actions.len(), "fullscreen rule changed");
         }
+        let mut resumed: Vec<(u8, Duration)> = Vec::new();
         for (monitor, action) in actions {
             let Some(slot) = self.slots.slot_of(&monitor) else {
                 continue;
@@ -3307,6 +3419,12 @@ impl Fleet {
             match action {
                 RuleAction::Pause | RuleAction::Resume => {
                     send_to(ctx.renderers, slot, &ToRenderer::Pause(action == RuleAction::Pause));
+                    // How long a renderer stood still moves the group's time base on (D-043).
+                    if action == RuleAction::Pause {
+                        self.paused_since.insert(slot, Instant::now());
+                    } else if let Some(since) = self.paused_since.remove(&slot) {
+                        resumed.push((slot, since.elapsed()));
+                    }
                 }
                 RuleAction::Close => {
                     // A slot with nothing running has nothing to close and nothing to bring back.
@@ -3317,6 +3435,13 @@ impl Fleet {
                 }
                 RuleAction::Respawn => self.rule_closed.want_back(slot),
             }
+        }
+        let themes: BTreeSet<String> = resumed
+            .iter()
+            .filter_map(|(slot, _)| self.theme_of_slot(*slot))
+            .collect();
+        for theme in themes {
+            self.shift_time_base(&theme, &resumed, ctx.renderers);
         }
         self.respawn_closed(ctx);
     }
@@ -3554,18 +3679,23 @@ impl Fleet {
     /// Starts the renderer for `monitor`; `false` when it could not be started.
     fn spawn(&mut self, monitor: &MonitorInfo, ctx: &Ctx<'_>) -> bool {
         let theme = self.theme_of_monitor(&monitor.id);
-        let Some(job) = self.jobs.get(&theme) else {
+        if !self.jobs.contains_key(&theme) {
             tracing::warn!(monitor = %monitor.id, theme = ?theme, "no renderer starts, the theme has no job");
             return false;
-        };
+        }
         let Some(slot) = self.slots.assign(&monitor.id) else {
             tracing::error!(monitor = %monitor.id, "no free renderer slot");
             return false;
         };
         let web_profile = self.web_profile_for(&monitor.id);
-        lock_assignments(&self.assignments).insert(slot, job.assignment(slot, monitor, web_profile));
-        // The renderer joins the group of its theme: one master clock and one sound per theme (D-04, D-05).
-        lock(ctx.renderers).groups.insert(slot, theme);
+        let time_base = self.time_base_for(&theme);
+        if let Some(job) = self.jobs.get(&theme) {
+            lock_assignments(&self.assignments).insert(slot, job.assignment(slot, monitor, web_profile, time_base));
+        }
+        // The renderer joins the group of its theme: one master clock and one sound per theme (D-04, D-05). A theme that
+        // now plays on more than one monitor tells the renderers that were there first (D-043).
+        lock(ctx.renderers).groups.insert(slot, theme.clone());
+        self.share_time_base(&theme, Some(slot), ctx.renderers);
         self.budgets.remove(&slot);
         self.stopped.remove(&slot);
         if self.fullscreen.as_ref().is_some_and(|rule| rule.closes(&monitor.id)) {
@@ -3629,9 +3759,14 @@ impl Fleet {
             return;
         };
         lock_assignments(&self.assignments).remove(&slot);
-        self.targets.remove(id);
+        let theme = self.targets.remove(id);
         lock(ctx.renderers).groups.remove(&slot);
         self.rule_closed.forget(slot);
+        self.paused_since.remove(&slot);
+        self.prune_time_bases();
+        if let Some(theme) = theme {
+            self.trim_time_base(&theme);
+        }
         // A renderer that has not said Hello yet has no connection: it is told to close when it does, because its
         // assignment is gone.
         let told = send_to(ctx.renderers, slot, &ToRenderer::Close);
@@ -4294,6 +4429,16 @@ impl Fleet {
         for slot in &slots {
             self.budgets.remove(slot);
         }
+        // A renderer restarted for this job joins the group's time base (D-043).
+        if !slots.is_empty() {
+            let time_base = self.time_base_for(&folder);
+            let mut assignments = lock_assignments(&self.assignments);
+            for slot in &slots {
+                if let Some(assignment) = assignments.get_mut(slot) {
+                    assignment.time_base = time_base;
+                }
+            }
+        }
         self.fallbacks.set(job.kind, job.fallback.clone());
         self.jobs.insert(folder, job);
     }
@@ -4351,6 +4496,7 @@ impl Fleet {
                 .map(|entry| entry.theme.clone()),
         );
         self.jobs.retain(|folder, _| keep.contains(folder));
+        self.prune_time_bases();
     }
 
     /// Per display: the monitor `monitor` plays `job`'s theme from now on and no other monitor changes. Its renderer (if
@@ -6239,7 +6385,7 @@ mod tests {
             fleet.monitors.push(monitor.clone());
             let slot = fleet.slots.assign(&monitor.id).expect("a free slot");
             let web_profile = fleet.web_profile_for(&monitor.id);
-            let assignment = fleet.job().expect("a job").assignment(slot, monitor, web_profile);
+            let assignment = fleet.job().expect("a job").assignment(slot, monitor, web_profile, None);
             lock_assignments(&fleet.assignments).insert(slot, assignment);
             let log = Arc::new(Mutex::new(Vec::new()));
             let record = Arc::clone(&log);
@@ -6450,6 +6596,151 @@ mod tests {
             fleet.playing.insert(slot);
         }
         (fleet, renderers, logs)
+    }
+
+    #[test]
+    fn a_theme_on_several_monitors_shares_one_epoch_and_a_theme_on_one_monitor_gets_none() {
+        let (mut fleet, _renderers, _logs) = two_theme_fleet();
+
+        let first = fleet.time_base_for("main").expect("two monitors play main");
+        assert_eq!(
+            fleet.time_base_for("main"),
+            Some(first),
+            "the epoch is kept while the group has a renderer"
+        );
+        assert!(first > 1_600_000_000_000, "Unix milliseconds: {first}");
+        let other = fleet.time_base_for("other").expect("two monitors play other");
+        assert!(other >= first, "each group takes its own epoch");
+
+        fleet.targets.remove("D4");
+        assert_eq!(fleet.time_base_for("other"), None, "a group of one gets no time base");
+        assert!(
+            fleet.time_bases.contains_key("other"),
+            "its epoch waits for the group to grow again"
+        );
+    }
+
+    #[test]
+    fn the_epoch_of_a_group_that_has_no_monitor_left_is_forgotten() {
+        let (mut fleet, _renderers, _logs) = two_theme_fleet();
+        fleet.time_base_for("main");
+        fleet.time_base_for("other");
+        fleet.targets.retain(|_, theme| theme != "other");
+
+        fleet.prune_time_bases();
+
+        assert!(fleet.time_bases.contains_key("main"));
+        assert!(
+            !fleet.time_bases.contains_key("other"),
+            "a new group starts a new epoch"
+        );
+    }
+
+    #[test]
+    fn a_group_that_grows_hands_its_epoch_to_the_renderers_that_were_there_first() {
+        let (mut fleet, renderers, logs) = two_theme_fleet();
+        fleet.time_bases.insert("main".to_owned(), 4242);
+        fleet.targets.remove("D4");
+        let joined = fleet.slots.slot_of("D2").expect("a slot");
+        let first = fleet.slots.slot_of("D1").expect("a slot");
+
+        fleet.share_time_base("main", Some(joined), &renderers);
+        fleet.share_time_base("other", None, &renderers);
+
+        assert_eq!(
+            sent_to(&renderers, &logs, first),
+            [ToRenderer::TimeBase { epoch_unix_ms: 4242 }],
+            "the renderer that was there first gets the epoch"
+        );
+        assert!(
+            sent_to(&renderers, &logs, joined).is_empty(),
+            "the one that joined reads it from its assignment"
+        );
+        let alone = fleet.slots.slot_of("D3").expect("a slot");
+        assert!(
+            sent_to(&renderers, &logs, alone).is_empty(),
+            "a group of one monitor is told nothing"
+        );
+        let assignments = lock_assignments(&fleet.assignments);
+        assert_eq!(assignments[&first].time_base, Some(4242));
+        assert_eq!(assignments[&alone].time_base, None);
+    }
+
+    #[test]
+    fn a_pause_of_the_whole_group_moves_the_epoch_forward_and_a_pause_of_part_of_it_does_not() {
+        let (mut fleet, renderers, logs) = two_theme_fleet();
+        fleet.time_bases.insert("main".to_owned(), 10_000);
+        let one = fleet.slots.slot_of("D1").expect("a slot");
+        let two = fleet.slots.slot_of("D2").expect("a slot");
+
+        fleet.shift_time_base("main", &[(one, Duration::from_millis(900))], &renderers);
+        assert_eq!(
+            fleet.time_bases["main"], 10_000,
+            "one renderer of two paused: the grid ran on"
+        );
+
+        fleet.shift_time_base(
+            "main",
+            &[(one, Duration::from_millis(5_000)), (two, Duration::from_millis(4_900))],
+            &renderers,
+        );
+        assert_eq!(
+            fleet.time_bases["main"], 14_900,
+            "the shorter of the two pauses is taken"
+        );
+        for slot in [one, two] {
+            assert_eq!(
+                sent_to(&renderers, &logs, slot),
+                [ToRenderer::TimeBase { epoch_unix_ms: 14_900 }],
+                "only the whole-group shift was announced"
+            );
+        }
+        assert_eq!(lock_assignments(&fleet.assignments)[&one].time_base, Some(14_900));
+    }
+
+    #[test]
+    fn closing_a_monitor_trims_the_group_it_leaves() {
+        let (mut fleet, renderers, _logs) = two_theme_fleet();
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        fleet.time_base_for("other");
+        let survivor = fleet.slots.slot_of("D3").expect("a slot");
+        lock_assignments(&fleet.assignments)
+            .get_mut(&survivor)
+            .expect("an assignment")
+            .time_base = Some(7);
+
+        fleet.close("D4", &ctx);
+        assert_eq!(
+            lock_assignments(&fleet.assignments)[&survivor].time_base,
+            None,
+            "a group of one monitor plays without a time base"
+        );
+        assert!(fleet.time_bases.contains_key("other"));
+
+        fleet.close("D3", &ctx);
+        assert!(
+            !fleet.time_bases.contains_key("other"),
+            "the last renderer of the group is gone"
+        );
+    }
+
+    #[test]
+    fn an_assignment_carries_the_time_base_it_is_given() {
+        let job = use_job("C:/themes/x/video.mp4");
+        let monitor = monitor_at("D1", true, [0, 0, 100, 100]);
+
+        assert_eq!(
+            job.assignment(0, &monitor, ProfileKind::Persistent, None).time_base,
+            None
+        );
+        assert_eq!(
+            job.assignment(0, &monitor, ProfileKind::Persistent, Some(99)).time_base,
+            Some(99)
+        );
     }
 
     #[test]
@@ -6949,6 +7240,45 @@ mod tests {
             lock(&renderers).masters.len(),
             2,
             "one master per theme, not one per monitor"
+        );
+    }
+
+    #[test]
+    fn the_master_of_a_duplicate_group_does_not_depend_on_the_order_the_os_lists_the_monitors_in() {
+        let masters: Vec<String> = [
+            [
+                monitor_at("\\\\.\\DISPLAY1", true, [0, 0, 1920, 1080]),
+                monitor_at("\\\\.\\DISPLAY9", false, [1920, 0, 3840, 1080]),
+            ],
+            [
+                monitor_at("\\\\.\\DISPLAY9", false, [1920, 0, 3840, 1080]),
+                monitor_at("\\\\.\\DISPLAY1", true, [0, 0, 1920, 1080]),
+            ],
+        ]
+        .iter()
+        .map(|monitors| {
+            let (mut fleet, renderers, _logs) = recording_fleet(monitors);
+            let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+            let ctx = Ctx {
+                supervisor: &supervisor,
+                renderers: &renderers,
+            };
+            for monitor in monitors {
+                fleet.targets.insert(monitor.id.clone(), "main".to_owned());
+                let slot = fleet.slots.slot_of(&monitor.id).expect("a slot");
+                lock(&renderers).groups.insert(slot, "main".to_owned());
+                fleet.playing.insert(slot);
+            }
+            fleet.elect(&ctx);
+            let master = *lock(&renderers).masters.get("main").expect("a master");
+            fleet.slots.monitor_of(master).expect("a monitor").to_owned()
+        })
+        .collect();
+
+        assert_eq!(masters[0], masters[1]);
+        assert_eq!(
+            masters[0], "\\\\.\\DISPLAY1",
+            "the primary monitor leads when both play"
         );
     }
 

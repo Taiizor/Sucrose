@@ -11,7 +11,7 @@ use std::{
         atomic::{AtomicBool, Ordering},
     },
     thread::{self, JoinHandle},
-    time::{Duration, Instant},
+    time::{Duration, Instant, SystemTime, UNIX_EPOCH},
 };
 
 use crossbeam_channel::{Receiver, Sender, TryRecvError, TrySendError, bounded};
@@ -24,7 +24,7 @@ use sucrose_ipc::protocol::{Assignment, PlaybackSettings};
 use sucrose_platform::LoopTimers;
 
 use crate::{
-    decode::{Animation, DecodedFrame, Scaling, Source},
+    decode::{Animation, DEFAULT_DELAY_MS, DecodedFrame, Scaling, Source},
     fit,
     present::{PresentError, Presenter},
 };
@@ -67,10 +67,52 @@ enum Message {
 /// A command the IPC threads queue for the surface thread.
 #[derive(Debug, Clone, PartialEq, Eq)]
 enum Command {
-    Pause { paused: bool, level: PauseLevel },
+    Pause {
+        paused: bool,
+        level: PauseLevel,
+    },
     Loop(bool),
     Load(PathBuf),
     Stretch(Stretch),
+    /// The group's time base: Unix milliseconds that the content position counts from (D-043).
+    TimeBase(u64),
+}
+
+/// The frame that is on screen `elapsed_ms` after the time base and how long it still stays (milliseconds), for an
+/// animation whose frames last `delays_ms` (a delay of 0 plays at the legacy 100 ms). With `looping` the animation
+/// repeats and the position is the elapsed time within one pass; without it the last frame stays once the pass is
+/// over, with nothing left of its delay. An empty list gives frame 0. Pure and bounded by the frame list: no division by
+/// zero, whatever the delays are.
+#[must_use]
+pub fn frame_at(delays_ms: &[u32], elapsed_ms: u64, looping: bool) -> (usize, u32) {
+    let delay = |ms: u32| u64::from(if ms == 0 { DEFAULT_DELAY_MS } else { ms });
+    let Some(last) = delays_ms.len().checked_sub(1) else {
+        return (0, 0);
+    };
+    let total: u64 = delays_ms.iter().map(|ms| delay(*ms)).sum();
+    let position = if looping {
+        elapsed_ms % total.max(1)
+    } else if elapsed_ms >= total {
+        return (last, 0);
+    } else {
+        elapsed_ms
+    };
+    let mut start = 0_u64;
+    for (index, ms) in delays_ms.iter().enumerate() {
+        let end = start + delay(*ms);
+        if position < end {
+            return (index, u32::try_from(end - position).unwrap_or(u32::MAX));
+        }
+        start = end;
+    }
+    (last, 0)
+}
+
+/// The current time as Unix milliseconds.
+fn unix_now_ms() -> u64 {
+    SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .map_or(0, |since| u64::try_from(since.as_millis()).unwrap_or(u64::MAX))
 }
 
 /// The values the handle and the decode thread read from any thread.
@@ -302,6 +344,11 @@ impl Engine for GifEngine {
         Ok(())
     }
 
+    /// The pump moves to the frame the time base gives at every loop wrap (D-043).
+    fn set_time_base(&self, epoch_unix_ms: u64) {
+        self.queue(Command::TimeBase(epoch_unix_ms));
+    }
+
     /// A GIF has no timeline the follower could use before Round C.
     fn clock(&self) -> Option<&dyn EngineClock> {
         None
@@ -347,6 +394,19 @@ pub struct GifPump {
     failed: bool,
     /// Whether the last present failed, so a streak is logged once.
     present_failing: bool,
+    /// The group's time base as Unix milliseconds; `None` for a wallpaper on one monitor (D-043).
+    epoch: Option<u64>,
+    /// An instant and the Unix time it was, so the Unix time at any later instant is that plus the time since: the time
+    /// base is compared with the pump's own clock, and a test moves both.
+    anchor: (Instant, u64),
+    /// The delays of one whole pass from frame 0, as far as they are known.
+    delays: Vec<u32>,
+    /// Whether `delays` holds a whole pass.
+    delays_known: bool,
+    /// Whether the pass under way started at frame 0 and its delays are being collected.
+    recording: bool,
+    /// The frame a time-base jump goes to: the next frame shown is it, and its delay is what is left of it.
+    jump_to: Option<usize>,
 }
 
 impl GifPump {
@@ -396,6 +456,12 @@ impl GifPump {
             still: false,
             failed: false,
             present_failing: false,
+            epoch: None,
+            anchor: (Instant::now(), unix_now_ms()),
+            delays: Vec::new(),
+            delays_known: false,
+            recording: true,
+            jump_to: None,
         };
         pump.restart(0);
         (engine, pump)
@@ -409,6 +475,11 @@ impl GifPump {
         self.finished = false;
         self.still = false;
         self.failed = false;
+        // Only a pass that starts at frame 0 can give the delays of the whole animation.
+        self.recording = skip == 0 && !self.delays_known;
+        if self.recording {
+            self.delays.clear();
+        }
         self.decoder = Some(Decoder::spawn(
             self.source.clone(),
             self.bound,
@@ -459,7 +530,47 @@ impl GifPump {
         self.timers.set(GIF_TIMER, ms);
     }
 
+    /// The Unix time at `now` by the pump's own clock.
+    fn wall(&self, now: Instant) -> u64 {
+        let since = now.saturating_duration_since(self.anchor.0);
+        self.anchor
+            .1
+            .saturating_add(u64::try_from(since.as_millis()).unwrap_or(u64::MAX))
+    }
+
+    /// Where the time base puts the animation now: the frame to jump to when a loop just wrapped, or `None` when there
+    /// is no time base, the delays of a whole pass are not known yet, or the frame the wrap came to is at most one frame
+    /// from the one the time base gives (the renderers of the group are in step).
+    fn sync_target(&self, now: Instant) -> Option<usize> {
+        let epoch = self.epoch?;
+        if !self.delays_known {
+            return None;
+        }
+        let frames = self.delays.len();
+        let (index, _) = frame_at(&self.delays, self.wall(now).saturating_sub(epoch), true);
+        let distance = index.min(frames - index);
+        (distance > 1).then_some(index)
+    }
+
+    /// A loop wrapped: learns the delays of the pass that ended when it was recorded whole, logs the wrap and returns
+    /// the frame the time base gives when it is more than one frame away.
+    fn note_wrap(&mut self, frames: usize, now: Instant) -> Option<usize> {
+        if self.recording && !self.delays_known && frames > 0 && self.delays.len() == frames {
+            self.delays_known = true;
+        }
+        // The next pass starts at frame 0, unless a jump below says otherwise.
+        self.recording = !self.delays_known;
+        if self.recording {
+            self.delays.clear();
+        }
+        tracing::debug!(unix_ms = self.wall(now), "gif loop wrapped");
+        self.sync_target(now)
+    }
+
     fn show(&mut self, frame: DecodedFrame, now: Instant) {
+        if self.recording && !self.resync {
+            self.delays.push(frame.delay_ms);
+        }
         let delay = Duration::from_millis(u64::from(frame.delay_ms));
         self.frame_size = Some((frame.width, frame.height));
         match self.presenter.present(frame) {
@@ -482,6 +593,15 @@ impl GifPump {
                 _ => now,
             };
             self.due = Some(base + delay);
+            // The frame a time-base jump came to stays for what the time base has left of it.
+            if let (Some(target), Some(epoch)) = (self.jump_to.take(), self.epoch)
+                && self.delays_known
+            {
+                let (index, left) = frame_at(&self.delays, self.wall(now).saturating_sub(epoch), true);
+                if index == target {
+                    self.due = Some(now + Duration::from_millis(u64::from(left)));
+                }
+            }
         }
         self.resync = false;
         if let Some(on_playing) = self.on_playing.take() {
@@ -564,9 +684,16 @@ impl GifPump {
                     tracing::debug!("gif loop completed frames={frames}");
                     if self.shared.looping.load(Ordering::SeqCst) {
                         self.shown = None;
-                        if !continues {
+                        match self.note_wrap(frames, now) {
+                            Some(target) => {
+                                // The group's time base puts the animation elsewhere: the decoder starts at that frame.
+                                self.restart(target);
+                                self.shown = target.checked_sub(1);
+                                self.jump_to = Some(target);
+                            }
                             // Loop was turned on after the decoder stopped: start it again from frame 0.
-                            self.restart(0);
+                            None if !continues => self.restart(0),
+                            None => {}
                         }
                     } else {
                         self.finished = true;
@@ -610,8 +737,14 @@ impl GifPump {
                     }
                 }
                 Command::Stretch(stretch) => self.apply_stretch(stretch),
+                Command::TimeBase(epoch) => {
+                    self.epoch = Some(epoch);
+                    tracing::debug!(epoch, "gif time base set");
+                }
                 Command::Load(path) => {
                     self.source = Source::Path(path);
+                    self.delays_known = false;
+                    self.jump_to = None;
                     self.shown = None;
                     self.due = None;
                     self.remaining = None;
@@ -657,6 +790,8 @@ impl GifPump {
             Some(index) if !self.failed => {
                 self.restart(index);
                 self.resync = true;
+                // The frame on screen is drawn again: it is not a new delay of the pass.
+                self.recording = false;
                 if self.finished {
                     // Leaving the finished state only to redraw: the pass ends again right after the frame.
                     self.finished = false;
@@ -840,6 +975,9 @@ mod tests {
         }
     }
 
+    /// What the pump's Unix clock reads at the rig's first tick.
+    const UNIX_BASE: u64 = 1_000_000;
+
     struct Rig {
         engine: Arc<GifEngine>,
         pump: GifPump,
@@ -855,12 +993,16 @@ mod tests {
         }
 
         fn with_stretch(frames: usize, size: (u32, u32), bound: (u32, u32), looping: bool, stretch: Stretch) -> Self {
+            Self::with_delays(&vec![10; frames], size, bound, looping, stretch)
+        }
+
+        fn with_delays(delays: &[u32], size: (u32, u32), bound: (u32, u32), looping: bool, stretch: Stretch) -> Self {
             let recorder = Arc::new(Recorder::default());
             let timers = Arc::new(TimerLog::default());
             let playing = Arc::new(AtomicU32::new(0));
             let counter = Arc::clone(&playing);
-            let bytes = gif_bytes(size.0, size.1, &vec![10; frames]);
-            let (engine, pump) = GifPump::new(
+            let bytes = gif_bytes(size.0, size.1, delays);
+            let (engine, mut pump) = GifPump::new(
                 Box::new(FakePresenter(Arc::clone(&recorder))),
                 Box::new(FakeTimers(Arc::clone(&timers))),
                 Source::Memory(Arc::from(bytes)),
@@ -872,13 +1014,16 @@ mod tests {
                     counter.fetch_add(1, Ordering::SeqCst);
                 }),
             );
+            let clock = Instant::now();
+            // The pump's Unix clock reads 1_000_000 ms at the rig's first tick.
+            pump.anchor = (clock, UNIX_BASE);
             Self {
                 engine,
                 pump,
                 recorder,
                 timers,
                 playing,
-                clock: Instant::now(),
+                clock,
             }
         }
 
@@ -1106,6 +1251,101 @@ mod tests {
         assert_eq!(rig.engine.name(), "BuiltInGif");
         assert!(rig.engine.set_volume(10).is_ok());
         assert!(rig.engine.set_audio(true).is_ok());
+    }
+
+    #[test]
+    fn frame_at_gives_the_frame_and_what_is_left_of_it() {
+        assert_eq!(frame_at(&[50; 24], 0, true), (0, 50));
+        assert_eq!(frame_at(&[50; 24], 49, true), (0, 1));
+        assert_eq!(frame_at(&[50; 24], 50, true), (1, 50));
+        assert_eq!(frame_at(&[50; 24], 1210, true), (0, 40), "the loop wraps after 1200 ms");
+        assert_eq!(
+            frame_at(&[50; 24], 1_200_000_000_010, true),
+            (0, 40),
+            "a long time is no problem"
+        );
+        assert_eq!(
+            frame_at(&[0, 50], 120, true),
+            (1, 30),
+            "a delay of 0 plays at the legacy 100 ms"
+        );
+    }
+
+    #[test]
+    fn frame_at_without_a_loop_keeps_the_last_frame_and_an_empty_list_is_frame_zero() {
+        assert_eq!(frame_at(&[50; 4], 199, false), (3, 1));
+        assert_eq!(frame_at(&[50; 4], 200, false), (3, 0));
+        assert_eq!(frame_at(&[50; 4], 9_999, false), (3, 0));
+        assert_eq!(frame_at(&[], 123, true), (0, 0));
+        assert_eq!(frame_at(&[], 123, false), (0, 0));
+        assert!(
+            frame_at(&[0, 0], u64::MAX, true).0 < 2,
+            "every delay of 0 still makes a loop"
+        );
+    }
+
+    /// Plays one whole pass of a four-frame animation of 100 ms frames (a 400 ms loop) with the time base at `epoch`
+    /// and returns the numbers shown up to two frames after the wrap. The rig ticks every 50 ms, so the wrap is handled
+    /// at 400 ms, or at 450 ms when the decoder thread is a round late: the epochs below are far from a frame boundary
+    /// at both.
+    fn shown_after_the_first_wrap(epoch: Option<u64>) -> Vec<u32> {
+        let mut rig = Rig::with_delays(&[100; 4], (16, 9), (16, 9), true, Stretch::Fill);
+        if let Some(epoch) = epoch {
+            rig.engine.set_time_base(epoch);
+        }
+        rig.run_until(|rig| rig.numbers().len() >= 6);
+        rig.numbers()
+    }
+
+    #[test]
+    fn at_a_wrap_the_animation_moves_to_the_frame_the_time_base_gives_when_it_is_more_than_one_frame_away() {
+        let numbers = shown_after_the_first_wrap(Some(UNIX_BASE - 220));
+        assert_eq!(&numbers[..4], [0, 1, 2, 3]);
+        assert_eq!(numbers[4], 2, "620 ms into a 400 ms loop is 220 ms: frame 2");
+        assert_eq!(numbers[5], 3, "and it plays on from there");
+    }
+
+    #[test]
+    fn a_frame_in_step_or_one_frame_away_is_left_alone_in_both_directions() {
+        for (epoch, name) in [
+            (UNIX_BASE, "on the grid"),
+            (UNIX_BASE - 100, "one frame ahead of the grid"),
+            (UNIX_BASE + 100, "one frame behind the grid"),
+        ] {
+            let numbers = shown_after_the_first_wrap(Some(epoch));
+            assert_eq!(
+                numbers[4], 0,
+                "{name}: the loop wraps to frame 0 as it does without a time base"
+            );
+        }
+        assert_eq!(shown_after_the_first_wrap(None)[4], 0, "no time base, no jump");
+    }
+
+    #[test]
+    fn the_first_pass_has_no_delays_to_jump_by_and_a_later_time_base_acts_at_the_next_wrap() {
+        let mut rig = Rig::with_delays(&[100; 4], (16, 9), (16, 9), true, Stretch::Fill);
+        rig.run_until(|rig| rig.numbers().len() >= 2);
+        rig.engine.set_time_base(UNIX_BASE - 220);
+        rig.run_until(|rig| rig.numbers().len() >= 6);
+        assert_eq!(
+            rig.numbers()[4],
+            2,
+            "the wrap after the time base arrived moves to frame 2"
+        );
+    }
+
+    #[test]
+    fn a_single_frame_ignores_the_time_base() {
+        let mut rig = Rig::with_delays(&[50], (16, 9), (16, 9), true, Stretch::Fill);
+        rig.engine.set_time_base(UNIX_BASE - 100);
+        rig.run_until(|rig| !rig.numbers().is_empty());
+        rig.settle();
+        assert_eq!(
+            rig.numbers(),
+            [0],
+            "a one-frame animation is shown once whatever the time base says"
+        );
+        assert!(rig.pump.finished && rig.pump.still);
     }
 
     #[test]

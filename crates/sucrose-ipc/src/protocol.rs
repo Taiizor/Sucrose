@@ -16,7 +16,7 @@ use sucrose_engine_web::{args::Switch, profile::ProfileKind};
 use crate::portal::{Launch, PortalPage};
 
 /// Version of this protocol, sent in [`ToService::Hello`] so the service can refuse a renderer it cannot talk to.
-pub const PROTOCOL_VERSION: u16 = 12;
+pub const PROTOCOL_VERSION: u16 = 13;
 
 /// Messages from a renderer to the service.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
@@ -115,6 +115,13 @@ pub enum ToRenderer {
         total: u16,
         /// The chunk's bytes.
         bytes: Vec<u8>,
+    },
+    /// The group's shared time base: renderers of one theme on several monitors play as if they all started at this
+    /// instant, so the content position of each is the time since it (D-043). Sent to the renderers of a group that
+    /// grew to more than one, and again, moved forward, when a pause of the whole group ended.
+    TimeBase {
+        /// The instant as Unix milliseconds.
+        epoch_unix_ms: u64,
     },
 }
 
@@ -265,6 +272,10 @@ pub struct Assignment {
     /// The profile the renderer's web engine asks for: the service sets [`ProfileKind::Persistent`] for the primary
     /// monitor's renderer only (D-040). The other engines ignore it.
     pub web_profile: ProfileKind,
+    /// The shared time base of the group this renderer belongs to, as Unix milliseconds (D-043): set only when the
+    /// theme plays on more than one monitor, `None` for a wallpaper on one monitor. [`ToRenderer::TimeBase`] moves it
+    /// later.
+    pub time_base: Option<u64>,
 }
 
 #[cfg(test)]
@@ -287,6 +298,7 @@ mod tests {
             web: WebOptions::default(),
             input: InputSettings::default(),
             web_profile: ProfileKind::Ephemeral,
+            time_base: None,
         }))
         .expect("encode Assign");
 
@@ -423,6 +435,7 @@ mod tests {
             web: WebOptions::default(),
             input: InputSettings::default(),
             web_profile: ProfileKind::Ephemeral,
+            time_base: None,
         });
 
         let bytes = postcard::to_stdvec(&message).expect("encode");
@@ -444,6 +457,7 @@ mod tests {
             web: WebOptions::default(),
             input: InputSettings::default(),
             web_profile: ProfileKind::Persistent,
+            time_base: None,
         });
 
         let bytes = postcard::to_stdvec(&message).expect("encode");
@@ -482,6 +496,7 @@ mod tests {
                 desktop_only: true,
             },
             web_profile: ProfileKind::Persistent,
+            time_base: None,
         });
 
         let bytes = postcard::to_stdvec(&message).expect("encode");
@@ -562,10 +577,46 @@ mod tests {
     }
 
     #[test]
+    fn time_base_keeps_its_wire_index_and_survives_the_wire() {
+        let message = ToRenderer::TimeBase {
+            epoch_unix_ms: 1_764_345_600_123,
+        };
+        let bytes = postcard::to_stdvec(&message).expect("encode");
+
+        // Appended after Blob (12).
+        assert_eq!(bytes[0], 13);
+        assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
+    }
+
+    #[test]
+    fn an_assignment_carries_the_time_base_of_its_group_or_none() {
+        for time_base in [None, Some(1_764_345_600_123_u64)] {
+            let message = ToRenderer::Assign(Assignment {
+                slot: 1,
+                monitor: "\\\\.\\DISPLAY9".to_owned(),
+                rect: [1920, 0, 3840, 1080],
+                source: "C:\\themes\\a.gif".to_owned(),
+                settings: PlaybackSettings::default(),
+                kind: WallpaperType::Gif,
+                engine: EngineType::XavierLive,
+                theme_dir: "C:\\themes".to_owned(),
+                web: WebOptions::default(),
+                input: InputSettings::default(),
+                web_profile: ProfileKind::Ephemeral,
+                time_base,
+            });
+            let bytes = postcard::to_stdvec(&message).expect("encode");
+
+            assert_eq!(bytes[0], 1, "Assign keeps its wire index");
+            assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
+        }
+    }
+
+    #[test]
     fn the_protocol_version_stays_when_messages_are_only_appended() {
         assert_eq!(
-            PROTOCOL_VERSION, 12,
-            "WebOptions.webview_smartscreen is a new field, which appending a variant cannot express"
+            PROTOCOL_VERSION, 13,
+            "Assignment.time_base is a new field, which appending a variant cannot express"
         );
     }
 

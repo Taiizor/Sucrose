@@ -504,6 +504,38 @@ mod tests {
     }
 
     #[test]
+    fn duplicate_gives_each_monitor_its_own_renderer_with_the_selected_theme_and_one_monitor_gives_one() {
+        let monitors = [monitor(D9, false), monitor(D1, true)];
+        let targets = plan_targets(DisplayScreenType::SameDuplicate, &monitors, None, "a", "");
+        assert_eq!(
+            pairs(&targets),
+            [(D1, "a"), (D9, "a")],
+            "one target per monitor, in device-name order"
+        );
+        assert_eq!(
+            groups(&targets)["a"],
+            [D1, D9],
+            "they form one group for the clock and the sound"
+        );
+
+        let alone = plan_targets(DisplayScreenType::SameDuplicate, &monitors[1..], None, "a", "");
+        assert_eq!(pairs(&alone), [(D1, "a")], "with one monitor Duplicate is Per display");
+        assert_eq!(
+            pairs(&per_display(&monitors[1..], None, "a", "")),
+            pairs(&alone),
+            "the same as Per display with the legacy single wallpaper"
+        );
+        assert!(
+            plan_targets(DisplayScreenType::SameDuplicate, &[], None, "a", "").is_empty(),
+            "no monitor, nothing to place"
+        );
+        assert!(
+            plan_targets(DisplayScreenType::SameDuplicate, &monitors, None, "", "").is_empty(),
+            "an empty selection plays nothing"
+        );
+    }
+
+    #[test]
     fn a_legacy_per_display_derives_one_assignment_for_the_screen_device() {
         let monitors = [monitor(D1, true), monitor(D9, false)];
         let derived = derived_assignments(DisplayScreenType::PerDisplay, &monitors, None, "a", D9).unwrap();
