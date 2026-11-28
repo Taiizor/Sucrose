@@ -66,7 +66,7 @@ coverage:
         ref: "Part 1 and Part 2 replies below; log checks L1-L7"
         status: pass
     human_judgment: true
-    rationale: "The replies are the maintainer's eye verdicts; the one step the logs contradicted (A1, Farm Weather Cycles not Used on CEF) was re-checked in the addendum, and C2's slower-than-1-s appearance needs a human decision"
+    rationale: "The replies are the maintainer's eye verdicts; the one step the logs contradicted (A1, Farm Weather Cycles not Used on CEF) was re-checked in the addendum, and C2's slower-than-1-s appearance (F3) was accepted by the maintainer on 2026-11-28"
 ---
 
 # Phase 4 Plan 39: Round B re-check Summary
@@ -275,7 +275,7 @@ Never listed, as the plan says: any requirement outside these eight; C2 marks no
 
 - **F1 (P1a-WV2, TYPE-05 and ENG-02):** the playlist started at index 17 with Shuffle Mode off in 1 of 3 WebView2 runs. Analysed cause (not proven): the YouTube page defaults `shuffleMode` to true and the first state change can pick a random video before `setShuffle(false)` arrives. Shuffle Mode was still on during his B4-WV2 playlist Use, so that step does not exercise the Shuffle-off start. Needs a /gsd-debug session and a rerun of P1a-WV2.
 - **F2 (A1 gap, TYPE-03 and ENG-03): closed by the addendum.** Farm Weather Cycles was not Used on CEF in the sitting; the addendum Used it on CEF the same night and the maintainer said ok.
-- **F3 (C2, no requirement):** he saw the windows on both monitors after a few seconds, not about 1 s. The log corroborates a part of it (see C2 timing: median 1.09 s, longest 2.36 s, the two monitors within 0.25 s of each other); the long part is the new WebView2 and the page load, not the browser exit. For the pending debug session webview2-browser-exit-slow.
+- **F3 (C2, no requirement):** he saw the windows on both monitors after a few seconds, not about 1 s. The log corroborates a part of it (see C2 timing: median 1.09 s, longest 2.36 s, the two monitors within 0.25 s of each other); the long part is the new WebView2 and the page load, not the browser exit. For the pending debug session webview2-browser-exit-slow. **Accepted by the maintainer (2026-11-28, verbatim: "C2 kabul"; translation: C2 accepted):** the 0.7 to 2.4 s appearance of a Web theme on both monitors after a switch on WebView2 is kept as it is; no fix is planned. F3 is closed.
 - **F4 (L5, ENG-02):** one `did not exit in time` with `elapsed_ms=1052` on DISPLAY1 at 04:12:22 while closing a YouTube page; 83 other exits took 174 to 461 ms. STATE.md already records BROWSER_EXIT_WAIT 1 s as tight under load (one 1034 ms exit seen earlier); the maintainer's PC was not under a build here.
 - **F5 (D3, no requirement):** S3 run 1 did not load expired.badssl.com within about 13 s; the other four runs loaded in 0.55 to 3.6 s and the setting-off run was refused. Flagged for /gsd-verify-work; it blocks no mark.
 - **F6 (TYPE-04 ordering):** changing Url Engine while url-input plays was not checked.
@@ -378,7 +378,7 @@ After this plan, the two open findings went through /gsd-debug and were fixed on
 
 **Complete rule re-applied (case 1):** every cell of TYPE-05 (IFrame API page, playlist, shuffle, loop, hidden player UI, on both engines) and of ENG-02 (Web, URL, YouTube, the C#-compatible JavaScript API) has now passed, and the ENG-02 concurrency Edge truth is met with the 1.5 s bound, so **TYPE-05 and ENG-02 are listed in `requirements-completed`**. The CEF cells were already passing and the CEF re-run of P1a on the fixed page started at 0.
 
-**Not covered by Addendum 2:** C2 (a Web theme appears on both monitors after about 1 to 2.4 s on WebView2, not about 1 s) is still a finding for a human decision; it is not a cell of TYPE-05 or ENG-02. It is finding F3 above; the debug session that asked for this desktop check, `.planning/debug/resolved/webview2-browser-exit-slow.md`, was resolved on 2026-11-27 (fix e747c7be), and the log shows the long part is now the new WebView2's start and the page load, not the browser exit.
+**Not covered by Addendum 2:** C2 (a Web theme appears on both monitors after about 1 to 2.4 s on WebView2, not about 1 s) is not a cell of TYPE-05 or ENG-02. It is finding F3 above, which the maintainer accepted on 2026-11-28 ("C2 kabul"); the debug session that asked for this desktop check, `.planning/debug/resolved/webview2-browser-exit-slow.md`, was resolved on 2026-11-27 (fix e747c7be), and the log shows the long part is now the new WebView2's start and the page load, not the browser exit.
 
 ## Self-Check
 
