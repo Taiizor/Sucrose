@@ -97,6 +97,8 @@ Known per-OS mechanisms:
 | Autostart | registry Run / Task Scheduler | LaunchAgent | XDG autostart | XDG autostart |
 | GPU preference | registry UserGpuPreferences per exe | not available (capability false) | not available | not available |
 
+A monitor carries the GDI device name (`\\.\DISPLAYn`) as `id`, which the surface slot map and the topology diff key on, and a stable id (`MonitorInfo::stable_id`: the display path's `monitorDevicePath` from `QueryDisplayConfig`, falling back to the GDI name when the OS reports none) that settings use to remember a monitor across restarts and replugs (D-08). The EDID key (manufacturer letters and product code) is read alongside for diagnostics and as a possible second key.
+
 ## Engines
 
 ```rust
