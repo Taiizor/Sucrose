@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-44-PLAN.md
-last_updated: "2026-11-28T16:48:26.195Z"
+stopped_at: Completed 04-45-PLAN.md
+last_updated: "2026-11-28T17:10:53.833Z"
 last_activity: 2026-11-28
 last_activity_desc: Phase 04 execution started
-state_head: 7321484b4a5bd91bc7c2ec47036d588822a755bd
+state_head: 21894e8e29570247bd254ce0471ab6176d706021
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 135
-  completed_plans: 123
+  completed_plans: 124
   percent: 38
 ---
 
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 ## Current Position
 
 Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 45 of 56
+Plan: 46 of 56
 Status: Ready to execute
 Last activity: 2026-11-28 — Phase 04 execution started
 Next step: Round B is executed and all its requirements are Complete (04-39 done 2026-11-28; Farm Weather Cycles addendum 04:37; Addendum 2 marked TYPE-05 and ENG-02 on the machine proofs of the debug fixes 62ec2f49 and f5d57b98, maintainer decision 2026-11-28). TYPE-03, TYPE-04, TYPE-05, WAPI-05, WAPI-06, WAPI-08, ENG-02 and ENG-03 are Complete. Next: execute Round C (/gsd-execute-phase 4 runs 04-40..04-56; 04-40 has a short maintainer DISPLAY9 off/on step, 04-56 is the final Round C checkpoint with DISPLAY9 attached and the unattended measurement); phase verification runs only after Round E. Open findings: D13 (occasional duplicate mousedown), the WebView2 software decode of the 4K VP9 clip (Round D), BROWSER_EXIT_WAIT 1.5 s is still exceeded on a fully saturated CPU (16 busy threads; recorded as expected degraded behaviour), S3 expired.badssl.com did not load within 13 s in one of five runs (badssl.com slow, not blocking).
@@ -178,6 +178,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P42 | 17 min | 2 tasks | 10 files |
 | Phase 04 P43 | 24 min | 3 tasks | 14 files |
 | Phase 04 P44 | 18 min | 3 tasks | 13 files |
+| Phase 04 P45 | 15 min | 2 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -381,6 +382,8 @@ Recent decisions affecting current work:
 - [Phase 04]: Span is one pseudo-monitor span:all over the union of display bounds or work areas; a Display Mode change diffs target lists and loads or restarts only the renderers whose theme changes
 - [Phase 04]: 04-44: the CEF time base shim is registered through DevTools Page.addScriptToEvaluateOnNewDocument (in-process browser host, browser made on about:blank first); WebView2 uses AddScriptToExecuteOnDocumentCreated
 - [Phase 04]: 04-44: only endless CSS animations are aligned to the epoch after load, and Date is never shimmed
+- [Phase 04]: 04-45: Screen Layout is applied through the snapshot path with no deferral under a fullscreen rule; only SetRect results and a closed slot's stored rectangle is updated
+- [Phase 04]: 04-45: a stretch every job already has is not sent again (guard in Fleet::apply_live)
 
 ### Pending Todos
 
@@ -439,6 +442,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-28T16:48:02.766Z
-Stopped at: Completed 04-44-PLAN.md
+Last session: 2026-11-28T17:10:29.432Z
+Stopped at: Completed 04-45-PLAN.md
 Resume file: None
