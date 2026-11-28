@@ -6,7 +6,7 @@
 use std::{
     path::{Path, PathBuf},
     sync::{
-        Arc,
+        Arc, Mutex,
         atomic::{AtomicBool, Ordering},
     },
 };
@@ -14,6 +14,7 @@ use std::{
 use crossbeam_channel::{Receiver, Sender, TrySendError, bounded};
 use sucrose_core::{
     compatible::{CompatibleKey, DataGroup},
+    properties::{PROPERTIES_FILE, read_properties},
     settings::Stretch,
     theme::WallpaperType,
 };
@@ -70,6 +71,9 @@ enum Command {
     OpenDevTools,
     /// A data snapshot arrived: run the templates with the newest values (kept in the [`PageState`]).
     Data,
+    /// A property changed in the editor: the changes wait in [`State::properties`], one marker per change. The marker
+    /// carries nothing because a control can hold a password and a command is logged.
+    Property,
     /// A mouse move is waiting in [`State::moves`]; one marker covers a whole burst of consecutive moves.
     MouseMove,
     /// A button, wheel or key event to hand to the page.
@@ -86,6 +90,10 @@ struct State {
     /// The newest mouse move not yet handed to the page: a mouse moves a thousand times a second, so moves are
     /// coalesced here instead of filling the command queue.
     moves: MoveSlot<InputEvent>,
+    /// The property changes not yet handed to the page, oldest first, the newest control of each key (PROP-02). A
+    /// change of a key that waits replaces its control, so a fast drag keeps the last value and the page is told in
+    /// the order the keys first changed.
+    properties: Mutex<Vec<(String, String)>>,
 }
 
 impl State {
@@ -101,7 +109,27 @@ impl State {
                 web.theme_type.clone(),
             ),
             moves: MoveSlot::default(),
+            properties: Mutex::new(Vec::new()),
         }
+    }
+
+    /// Keeps a changed control for the page; the newest control of a key that already waits replaces the older one.
+    fn push_property(&self, key: &str, control: &str) {
+        let Ok(mut waiting) = self.properties.lock() else {
+            return;
+        };
+        match waiting.iter_mut().find(|(waiting_key, _)| waiting_key == key) {
+            Some(entry) => entry.1 = control.to_owned(),
+            None => waiting.push((key.to_owned(), control.to_owned())),
+        }
+    }
+
+    /// Takes the waiting changes.
+    fn take_properties(&self) -> Vec<(String, String)> {
+        self.properties
+            .lock()
+            .map(|mut waiting| std::mem::take(&mut *waiting))
+            .unwrap_or_default()
     }
 }
 
@@ -138,6 +166,8 @@ pub struct CefPump {
     templates: Option<Vec<(CompatibleKey, String)>>,
     /// The left and top of the surface on the virtual screen: forwarded positions are made relative to it.
     origin: (i32, i32),
+    /// The `PropertyListener` format of the theme's own file, read when the first change arrives.
+    listener: Option<String>,
 }
 
 /// Why CEF did not start, as the engine failure the renderer reports.
@@ -321,6 +351,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             url_page,
             templates: None,
             origin: (assignment.rect[0], assignment.rect[1]),
+            listener: None,
         })),
     })
 }
@@ -443,6 +474,19 @@ impl Engine for CefEngine {
         Ok(())
     }
 
+    /// Keeps the changed control for the page and wakes the surface thread. Only a theme's own page has a property
+    /// listener: a generated page and a URL page answer [`EngineError::Unsupported`].
+    fn apply_property(&self, key: &str, control_json: &str) -> Result<(), EngineError> {
+        if !self.takes_input {
+            return Err(EngineError::Unsupported {
+                what: "Property changes of a generated page".to_owned(),
+            });
+        }
+        self.state.push_property(key, control_json);
+        self.queue(Command::Property);
+        Ok(())
+    }
+
     fn takes_input(&self) -> bool {
         self.takes_input
     }
@@ -494,6 +538,11 @@ impl CefPump {
                 data_pushed = true;
                 continue;
             }
+            // The controls are never logged: a passwordbox holds a secret.
+            if command == Command::Property {
+                self.apply_properties();
+                continue;
+            }
             // Input is never logged: it is what the user types and moves (T-04-45).
             match command {
                 Command::MouseMove => {
@@ -510,7 +559,7 @@ impl CefPump {
             }
             tracing::debug!(?command, "queued command reached the CEF thread");
             match command {
-                Command::Data | Command::MouseMove | Command::Input(_) => {}
+                Command::Data | Command::MouseMove | Command::Input(_) | Command::Property => {}
                 Command::OpenDevTools => self.host.open_devtools(),
                 Command::Pause { paused, .. } => self.run(&js::pause_call(paused)),
                 // A generated page is told the new value; a theme's own page gets the compatible calls again.
@@ -554,6 +603,29 @@ impl CefPump {
         }
         if data_pushed {
             self.push_data();
+        }
+    }
+
+    /// Tells the page every property change that waits, in the order the keys first changed: the theme's listener
+    /// format with the key and the control. A theme without a usable listener gets nothing, as at the page load.
+    fn apply_properties(&mut self) {
+        let changes = self.state.take_properties();
+        if changes.is_empty() || self.generated.is_some() || self.url_page {
+            return;
+        }
+        if self.listener.is_none() {
+            self.listener = Some(
+                read_properties(&self.theme_dir.join(PROPERTIES_FILE))
+                    .map(|properties| properties.listener)
+                    .unwrap_or_default(),
+            );
+        }
+        let listener = self.listener.as_deref().unwrap_or_default();
+        for (key, control) in changes {
+            match js::apply_property_call(listener, &key, &control) {
+                Some(call) => self.run(&call),
+                None => tracing::debug!(key = %key, "a property change makes no page call"),
+            }
         }
     }
 
@@ -854,6 +926,40 @@ mod tests {
 
         assert_eq!(queue.try_iter().collect::<Vec<_>>(), [Command::OpenDevTools]);
         assert_eq!(wakes.load(Ordering::SeqCst), 1);
+    }
+
+    #[test]
+    fn a_property_change_waits_for_the_surface_thread_and_the_newest_control_of_a_key_wins() {
+        let (engine, queue, wakes) = handle(8);
+
+        engine.apply_property("amount", "{\"value\":1}").expect("apply");
+        engine.apply_property("name", "{\"value\":\"a\"}").expect("apply");
+        engine.apply_property("amount", "{\"value\":2.5}").expect("apply");
+
+        assert_eq!(
+            queue.try_iter().collect::<Vec<_>>(),
+            [Command::Property, Command::Property, Command::Property]
+        );
+        assert_eq!(wakes.load(Ordering::SeqCst), 3);
+        assert_eq!(
+            engine.state.take_properties(),
+            [
+                ("amount".to_owned(), "{\"value\":2.5}".to_owned()),
+                ("name".to_owned(), "{\"value\":\"a\"}".to_owned())
+            ]
+        );
+        assert!(engine.state.take_properties().is_empty(), "taken once");
+    }
+
+    #[test]
+    fn a_generated_page_has_no_property_listener() {
+        let (mut engine, queue, _) = handle(4);
+        engine.takes_input = false;
+
+        let result = engine.apply_property("amount", "{}");
+
+        assert!(matches!(result, Err(EngineError::Unsupported { .. })));
+        assert_eq!(queue.try_iter().count(), 0);
     }
 
     #[test]

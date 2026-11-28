@@ -17,11 +17,12 @@ use sucrose_core::{
     version::app_version,
 };
 use sucrose_ipc::{
+    blob::{Outcome, Reassembler},
     connect,
     portal::{
         EngineReportView, EngineState, FallbackView, Launch, LaunchReply, MaintainReport, MoveOutcome, MoveRefusal,
-        PortalEvent, PortalPage, PortalRequest, RuntimeState, SettingChange, StartupInfo, StartupMode, UseOutcome,
-        UseRefusal,
+        PortalEvent, PortalPage, PortalRequest, PropertiesView, RuntimeState, SettingChange, StartupInfo, StartupMode,
+        UseOutcome, UseRefusal,
     },
     protocol::ToService,
     service_endpoint_for,
@@ -2464,5 +2465,127 @@ fn with_move_off_only_the_location_changes() {
     assert_eq!(
         service.settings_file()["Library"]["Location"],
         json!(other.to_string_lossy())
+    );
+}
+
+/// Reads the properties document the service answers an OpenProperties with: the `Properties` event, then its blob
+/// chunks. Other events (runtime states) are skipped. Returns the view and the document text.
+fn open_properties(portal: &PortalClient, folder: &str) -> (PropertiesView, String) {
+    let mut view = None;
+    let mut reader = Reassembler::new();
+    loop {
+        match portal.next_event_any() {
+            Some(PortalEvent::Properties(found)) if found.folder == folder => view = Some(found),
+            Some(PortalEvent::PropertiesFailed { folder, reason }) => panic!("{folder} did not open: {reason:?}"),
+            Some(PortalEvent::PropertiesBlob { id, seq, total, bytes }) => {
+                let view = view.as_ref().expect("the view comes before its chunks");
+                assert_eq!(id, view.blob_id);
+                match reader.push(id, seq, total, &bytes) {
+                    Outcome::Done(_, document) => {
+                        let text = String::from_utf8(document).expect("the document is UTF-8");
+                        return (view.clone(), text);
+                    }
+                    Outcome::Pending => {}
+                    other => panic!("the document chunks were refused: {other:?}"),
+                }
+            }
+            Some(_) => {}
+            None => panic!("no properties document arrived"),
+        }
+    }
+}
+
+/// A slider change in the editor reaches the running Web wallpaper (PROP-02): the service answers OpenProperties with the
+/// document of the `calls` fixture, a ChangeProperty of `amount` is saved in the Rust-owned working copy
+/// (`Properties/callsBase`, written by the service only) and told to the renderer, which logs `property applied`. The
+/// theme folder's own file stays byte for byte as it was. It plays a real wallpaper on the desktop, so it runs on
+/// purpose and skips where CEF is not installed; stopping the service closes what it started.
+#[test]
+#[ignore = "plays a Web wallpaper on CEF from a scratch data folder; plan 48 runs it"]
+fn a_property_change_reaches_the_running_web_wallpaper() {
+    let test = "a_property_change_reaches_the_running_web_wallpaper";
+    if !service_runs(test) {
+        return;
+    }
+    let service = TestService::start("property-change", &json!({ "Engine": { "Web": "CefSharpLive" } }));
+    copy_web_fixture(&service, "calls");
+    let theme_file = service.dir.join("Library").join("calls").join("SucroseProperties.json");
+    let before = std::fs::read(&theme_file).expect("the fixture has its properties file");
+    let (mut portal, _) = PortalClient::hello(&service, None);
+    let report = wait_for_engines(&portal);
+    if !report.playable.contains(&WallpaperType::Web) {
+        skipped(test, "CEF is not installed next to the executable");
+        return;
+    }
+    assert_eq!(use_theme(&mut portal, "calls"), UseOutcome::Applied);
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+    while !renderer_logs(&service).contains("engine started") {
+        assert!(
+            std::time::Instant::now() < deadline,
+            "the renderer did not start its engine: {}",
+            renderer_logs(&service)
+        );
+        std::thread::sleep(std::time::Duration::from_millis(250));
+    }
+    if !renderer_logs(&service).contains("engine started engine=\"Cef") {
+        skipped(test, "another engine than CEF played the wallpaper here");
+        return;
+    }
+
+    portal.request(&PortalRequest::OpenProperties {
+        folder: "calls".to_owned(),
+    });
+    let (view, document) = open_properties(&portal, "calls");
+    assert_eq!(view.kind, "Base");
+    assert!(!view.live_on.is_empty(), "the wallpaper plays on a monitor: {view:?}");
+    assert_eq!(view.engine, Some(EngineType::CefSharpLive));
+    assert!(
+        document.contains("\"amount\""),
+        "the document holds the slider: {document}"
+    );
+    assert!(
+        !service.dir.join("Properties").join("callsBase").exists(),
+        "opening writes nothing"
+    );
+
+    portal.request(&PortalRequest::ChangeProperty {
+        folder: "calls".to_owned(),
+        key: "amount".to_owned(),
+        control: json!({"type": "slider", "text": "Amount", "min": -5, "max": 5, "step": 0.5, "value": 2.5})
+            .to_string(),
+    });
+
+    let copy = service.dir.join("Properties").join("callsBase");
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(3);
+    let saved = loop {
+        if let Ok(text) = std::fs::read_to_string(&copy)
+            && text.contains("\"value\": 2.5")
+        {
+            break text;
+        }
+        assert!(
+            std::time::Instant::now() < deadline,
+            "the working copy never held 2.5 (it exists: {})",
+            copy.exists()
+        );
+        std::thread::sleep(std::time::Duration::from_millis(100));
+    };
+    assert!(
+        saved.contains("\"PropertyListener\""),
+        "the working copy is a whole property file"
+    );
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+    while !renderer_logs(&service).contains("property applied") {
+        assert!(
+            std::time::Instant::now() < deadline,
+            "the renderer never applied the property: {}",
+            renderer_logs(&service)
+        );
+        std::thread::sleep(std::time::Duration::from_millis(100));
+    }
+    assert_eq!(
+        std::fs::read(&theme_file).expect("the theme file"),
+        before,
+        "the theme folder's own file is never written"
     );
 }

@@ -52,6 +52,14 @@ pub fn properties_cache_dir() -> Option<PathBuf> {
     cache_dir().map(|dir| dir.join("Properties"))
 }
 
+/// Folder with the Rust app's own working copies of the property files (`<Theme><Type>`, D-20).
+///
+/// It sits beside [`cache_dir`], not inside it: a working copy holds what the user chose and cleaning the cache must
+/// never delete it. The service is its only writer (Pattern 6).
+pub fn properties_dir() -> Option<PathBuf> {
+    data_dir().map(|dir| dir.join("Properties"))
+}
+
 /// Data folder of the installed C# app, or `None` when the OS reports no config directory.
 ///
 /// Read-only: Sucrose never writes here (D-008). Unlike [`data_dir`] it ignores `SUCROSE_DATA_DIR`, because that
@@ -63,6 +71,12 @@ pub fn legacy_data_dir() -> Option<PathBuf> {
 /// Folder with the C# app's `Setting/*.json` files. Read-only, see [`legacy_data_dir`].
 pub fn legacy_setting_dir() -> Option<PathBuf> {
     legacy_data_dir().map(|dir| dir.join("Setting"))
+}
+
+/// Folder with the C# app's per-theme property caches (`Cache\Properties`). Read-only, see [`legacy_data_dir`]: D-20 copies
+/// its files into [`properties_dir`] once and never writes here.
+pub fn legacy_properties_cache_dir() -> Option<PathBuf> {
+    legacy_data_dir().map(|dir| dir.join("Cache").join("Properties"))
 }
 
 /// Folder where the C# app's mpv player keeps its cache (`Cache\MpvPlayer`). Read-only, see [`legacy_data_dir`].
@@ -89,6 +103,11 @@ mod tests {
             "web data lives outside Cache (D-35)"
         );
         assert_eq!(properties_cache_dir().unwrap(), root.join("Cache").join("Properties"));
+        assert_eq!(properties_dir().unwrap(), root.join("Properties"));
+        assert!(
+            !properties_dir().unwrap().starts_with(cache_dir().unwrap()),
+            "working copies live outside Cache (D-20)"
+        );
     }
 
     #[test]
@@ -100,5 +119,9 @@ mod tests {
         assert_eq!(legacy_data_dir().unwrap(), root);
         assert_eq!(legacy_setting_dir().unwrap(), root.join("Setting"));
         assert_eq!(legacy_mpv_cache_dir().unwrap(), root.join("Cache").join("MpvPlayer"));
+        assert_eq!(
+            legacy_properties_cache_dir().unwrap(),
+            root.join("Cache").join("Properties")
+        );
     }
 }

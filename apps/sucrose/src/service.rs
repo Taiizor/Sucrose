@@ -11,6 +11,8 @@ use std::{
     time::{Duration, Instant},
 };
 
+mod properties;
+
 use anyhow::Context as _;
 use crossbeam_channel::Sender;
 use sucrose_config::{
@@ -20,7 +22,7 @@ use sucrose_config::{
 use sucrose_core::{
     APP_LONG_NAME,
     compatible::DataGroup,
-    paths::{legacy_data_dir, legacy_setting_dir, setting_dir},
+    paths::{legacy_data_dir, legacy_properties_cache_dir, legacy_setting_dir, properties_dir, setting_dir},
     theme::{SelectedTheme, ThemeRejection, ThemeSource, WallpaperType, check_selected},
     version::app_version,
 };
@@ -28,7 +30,8 @@ use sucrose_ipc::{
     Connection, IpcError, Listener, blob,
     portal::{
         DisplayView, EngineReportView, Launch, LaunchReply, MAX_PATH_TEXT, MaintainReport, MoveOutcome, MoveRefusal,
-        PortalEvent, PortalPage, PortalRequest, RuleState, RuntimeState, SettingChange, UseOutcome, UseRefusal,
+        PortalEvent, PortalPage, PortalRequest, PropertiesFailure, PropertiesView, RuleState, RuntimeState,
+        SettingChange, UseOutcome, UseRefusal,
     },
     protocol::{
         Assignment, ClockTick, InputSettings, PROTOCOL_VERSION, PlaybackSettings, Role, ToRenderer, ToService,
@@ -47,6 +50,7 @@ use sucrose_core::settings::{
 use sucrose_engine::EngineId;
 use sucrose_engine_web::{args, profile::ProfileKind};
 
+use self::properties::{OpenError, PropertiesHost, ensure_imported};
 use crate::{
     data_hub::{DataModule, Delivery, Thumbnails, system_sampling_with_thumbnails},
     engines::{self, EngineReport, FallbackNote, Fallbacks},
@@ -131,6 +135,8 @@ enum Event {
     StartupLegacy(bool),
     /// The install worker reached a stage of the install the Portal asked for.
     Install(InstallStage),
+    /// The worker that imports the C# property caches (D-20) finished: how many files it copied, or why it stopped.
+    PropertiesImported(Result<usize, String>),
 }
 
 /// What the library-ops worker reports: the counts for the Portal and the showcase names for the settings.
@@ -269,6 +275,20 @@ const MOVE_CLOSE_GRACE_MS: u32 = 4000;
 
 /// The loop timer that ends the wait for a renderer's answer to Open DevTools (7; 1 to 6 are taken above).
 const DEVTOOLS_TIMER: u32 = 7;
+
+/// The loop timer of the property writes (8): the working copy of an edited theme is written at most every 300 ms.
+const PROPERTIES_TIMER: u32 = 8;
+
+/// Where the one-time import of the C# property caches (D-20) is.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum ImportPhase {
+    /// No property request came yet.
+    Idle,
+    /// The worker copies the files; property requests wait.
+    Running,
+    /// The import is over (or was not needed); requests run at once.
+    Done,
+}
 
 /// How long the Portal's Open DevTools waits for the renderer to say that the developer tools are open; later it is
 /// answered as failed.
@@ -1270,6 +1290,12 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
     }
     // The slot whose renderer was asked to open its developer tools and has not answered yet (Open DevTools, D-13).
     let mut devtools_pending: Option<u8> = None;
+    // The properties the Portal's editor has open (PROP-02): the service is the only writer of property files (Pattern 6).
+    let mut props = PropertiesHost::new(properties_dir());
+    // The one-time import of the C# caches runs on a worker at the first property request; requests wait for it.
+    let mut props_import = ImportPhase::Idle;
+    let mut props_waiting: Vec<PortalRequest> = Vec::new();
+    let mut props_timer_armed = false;
     // The runtime state last offered to the Portal, so that only a change is sent (D-23).
     let mut last_runtime: Option<RuntimeState> = None;
     // The engine report last offered to the Portal, so that only a change is sent; reset when a Portal registers or asks.
@@ -1832,6 +1858,34 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                                         }
                                     }
                                 }
+                                request @ (PortalRequest::OpenProperties { .. }
+                                | PortalRequest::ChangeProperty { .. }
+                                | PortalRequest::CloseProperties { .. }) => {
+                                    // The first property request starts the one-time import of the C# caches on a
+                                    // worker (D-20); requests wait for it so the order of the editor's messages holds.
+                                    if props_import == ImportPhase::Idle {
+                                        props_import = ImportPhase::Running;
+                                        start_properties_import(&notifier);
+                                    }
+                                    if props_import == ImportPhase::Done {
+                                        handle_property_request(
+                                            request,
+                                            &mut props,
+                                            &PropertyEnv {
+                                                host: &host,
+                                                fleet: &fleet,
+                                                running: &supervisor.slots(),
+                                                renderers: &renderers,
+                                                legacy_root: legacy_root.as_deref(),
+                                            },
+                                            &mut portals,
+                                            Instant::now(),
+                                        );
+                                        arm_properties_timer(&props, &timers, &mut props_timer_armed);
+                                    } else {
+                                        props_waiting.push(request);
+                                    }
+                                }
                                 PortalRequest::RestartWallpapers { engines } => {
                                     // "Restart now" of the restart prompt: only the wallpapers on the listed engines
                                     // restart, with the settings as saved now (T-04-38).
@@ -1915,8 +1969,36 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
                         .step(step);
                         settle_move(progress, &mut status, tray.as_ref(), &mut check_exit);
                     }
+                    Event::PropertiesImported(result) => {
+                        props_import = ImportPhase::Done;
+                        match result {
+                            Ok(copied) => tracing::info!(copied, "the C# property caches were imported"),
+                            Err(reason) => tracing::warn!(%reason, "the C# property caches could not be imported"),
+                        }
+                        for request in std::mem::take(&mut props_waiting) {
+                            handle_property_request(
+                                request,
+                                &mut props,
+                                &PropertyEnv {
+                                    host: &host,
+                                    fleet: &fleet,
+                                    running: &supervisor.slots(),
+                                    renderers: &renderers,
+                                    legacy_root: legacy_root.as_deref(),
+                                },
+                                &mut portals,
+                                Instant::now(),
+                            );
+                        }
+                        arm_properties_timer(&props, &timers, &mut props_timer_armed);
+                    }
                     Event::PortalGone { connection } => {
                         let was_registered = portals.gone(connection);
+                        if was_registered {
+                            // The editor went with the Portal: what it changed is saved now.
+                            props_waiting.clear();
+                            log_property_writes(props.close_all());
+                        }
                         let effect = portal_gone_effect(was_registered);
                         if was_registered {
                             tracing::info!("the portal disconnected");
@@ -2166,6 +2248,13 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
             announce_runtime(&mut portals, &mut last_runtime, &host, &fleet, &supervisor, tray.is_some());
             Flow::Continue
         }
+        LoopEvent::Timer(PROPERTIES_TIMER) => {
+            timers.kill(PROPERTIES_TIMER);
+            props_timer_armed = false;
+            log_property_writes(props.flush_due(Instant::now()));
+            arm_properties_timer(&props, &timers, &mut props_timer_armed);
+            Flow::Continue
+        }
         LoopEvent::Timer(DEVTOOLS_TIMER) => {
             timers.kill(DEVTOOLS_TIMER);
             // The renderer did not confirm in time: the Portal is told it failed instead of waiting for ever.
@@ -2237,12 +2326,166 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
         }
     });
     drop(tray);
+    // What the editor changed last is saved before the service ends.
+    log_property_writes(props.close_all());
     if loop_end == LoopEnd::Failed {
         // Not a Quit: the renderers die with the job object, and the failure must reach the exit code and the log.
         anyhow::bail!("the message loop failed, the service cannot run without it");
     }
     tracing::info!("the service stopped");
     Ok(())
+}
+
+/// What a property request needs from the rest of the service.
+struct PropertyEnv<'a> {
+    host: &'a SettingsHost,
+    fleet: &'a Fleet,
+    /// The slots with a running renderer.
+    running: &'a [u8],
+    renderers: &'a SharedRenderers,
+    legacy_root: Option<&'a Path>,
+}
+
+/// Starts the worker that copies the C# property caches into the Rust folder (D-20); it reports as
+/// [`Event::PropertiesImported`].
+fn start_properties_import(notifier: &Notifier) {
+    let worker = notifier.clone();
+    let started = thread::Builder::new()
+        .name("properties-import".to_owned())
+        .spawn(move || {
+            let result = match properties_dir() {
+                Some(to) => {
+                    ensure_imported(legacy_properties_cache_dir().as_deref(), &to).map_err(|error| error.to_string())
+                }
+                None => Ok(0),
+            };
+            worker.send(Event::PropertiesImported(result));
+        });
+    if let Err(error) = started {
+        tracing::warn!(%error, "cannot start the property import worker");
+        notifier.send(Event::PropertiesImported(Err(error.to_string())));
+    }
+}
+
+/// Logs what the property host wrote; a failed write is a warning and the document stays dirty.
+fn log_property_writes(results: Vec<(String, std::io::Result<()>)>) {
+    for (folder, result) in results {
+        match result {
+            Ok(()) => tracing::debug!(%folder, "a working copy was saved"),
+            Err(error) => tracing::warn!(%folder, %error, "a working copy could not be saved"),
+        }
+    }
+}
+
+/// Arms the property timer for the earliest write that waits, unless it is armed already (setting it again would move
+/// it, and a drag would never reach its write).
+fn arm_properties_timer(props: &PropertiesHost, timers: &LoopTimers, armed: &mut bool) {
+    if *armed {
+        return;
+    }
+    if let Some(due) = props.next_due() {
+        let wait = due.saturating_duration_since(Instant::now()).as_millis();
+        timers.set(PROPERTIES_TIMER, u32::try_from(wait).unwrap_or(u32::MAX).max(1));
+        *armed = true;
+    }
+}
+
+/// How a theme's properties could not be opened, as the Portal is told.
+fn property_failure_of(rejection: &ThemeRejection) -> PropertiesFailure {
+    match rejection {
+        ThemeRejection::NothingSelected | ThemeRejection::FolderMissing { .. } => PropertiesFailure::NotFound,
+        ThemeRejection::TypeNotPlayable { .. } => PropertiesFailure::NoProperties,
+        _ => PropertiesFailure::Unreadable,
+    }
+}
+
+/// The answer to an OpenProperties request: the view and the document, or why not. This plan serves the Web themes that
+/// have a SucroseProperties.json of their own; the other themes and the engine sets follow in later plans.
+fn open_properties(
+    folder: &str,
+    props: &mut PropertiesHost,
+    env: &PropertyEnv<'_>,
+) -> Result<(PropertiesView, Vec<u8>), PropertiesFailure> {
+    let root = env.legacy_root.ok_or(PropertiesFailure::Unreadable)?;
+    let theme = check_selected(
+        &env.host.settings().library_location(root),
+        folder,
+        &app_version(),
+        PLAYABLE,
+    )
+    .map_err(|rejection| property_failure_of(&rejection))?;
+    if theme.info.kind != WallpaperType::Web {
+        return Err(PropertiesFailure::NoProperties);
+    }
+    let opened = props.open(folder, &theme.dir).map_err(|error| match error {
+        OpenError::NoProperties => PropertiesFailure::NoProperties,
+        OpenError::Unreadable => PropertiesFailure::Unreadable,
+    })?;
+    let live_on = env
+        .fleet
+        .slots_of(folder)
+        .into_iter()
+        .filter(|slot| env.running.contains(slot))
+        .filter_map(|slot| env.fleet.slots.monitor_of(slot).map(str::to_owned))
+        .collect();
+    let view = PropertiesView {
+        folder: folder.to_owned(),
+        kind: properties::BASE.to_owned(),
+        blob_id: opened.blob_id,
+        culture: env.host.settings().general.culture.clone(),
+        live_on,
+        engine: env.fleet.jobs.get(folder).map(|job| job.engine),
+    };
+    Ok((view, opened.bytes))
+}
+
+/// Handles one request of the Portal's properties editor (PROP-02). A change is checked against the working copy by the
+/// host and then sent to every renderer of that theme; the working copy is written by the host's timer.
+fn handle_property_request(
+    request: PortalRequest,
+    props: &mut PropertiesHost,
+    env: &PropertyEnv<'_>,
+    portals: &mut PortalRegistry,
+    now: Instant,
+) {
+    match request {
+        PortalRequest::OpenProperties { folder } => match open_properties(&folder, props, env) {
+            Ok((view, bytes)) => {
+                tracing::info!(%folder, bytes = bytes.len(), "properties opened");
+                let chunks = blob::property_chunks(view.blob_id, &bytes);
+                portals.send(PortalEvent::Properties(view));
+                for chunk in chunks {
+                    portals.send(chunk);
+                }
+            }
+            Err(reason) => {
+                tracing::info!(%folder, ?reason, "properties could not be opened");
+                portals.send(PortalEvent::PropertiesFailed { folder, reason });
+            }
+        },
+        PortalRequest::ChangeProperty { folder, key, control } => match props.change(&folder, &key, &control, now) {
+            Ok(applied) => {
+                let slots: Vec<u8> = env
+                    .fleet
+                    .slots_of(&folder)
+                    .into_iter()
+                    .filter(|slot| env.running.contains(slot))
+                    .collect();
+                let message = ToRenderer::ApplyProperty { key, control: applied };
+                for slot in slots {
+                    send_to(env.renderers, slot, &message);
+                }
+            }
+            // The control is never logged: it can hold a password.
+            Err(refusal) => tracing::info!(%folder, key = %key, ?refusal, "a property change was refused"),
+        },
+        PortalRequest::CloseProperties { folder } => {
+            if let Some(result) = props.close(&folder) {
+                log_property_writes(vec![(folder, result)]);
+            }
+        }
+        _ => {}
+    }
 }
 
 /// Closes every renderer on a worker thread, so the message loop (and with it the tray) stays responsive while a

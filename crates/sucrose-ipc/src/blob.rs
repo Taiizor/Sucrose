@@ -7,7 +7,7 @@
 
 use std::time::{Duration, Instant};
 
-use crate::protocol::ToRenderer;
+use crate::{portal::PortalEvent, protocol::ToRenderer};
 
 /// The most bytes one chunk carries: a chunk plus its header stays well under a frame.
 pub const BLOB_CHUNK: usize = 48 * 1024;
@@ -38,6 +38,19 @@ pub fn chunks(id: u32, bytes: &[u8]) -> Vec<ToRenderer> {
             seq,
             total,
             bytes: part.to_vec(),
+        })
+        .collect()
+}
+
+/// Cuts `bytes` into the [`PortalEvent::PropertiesBlob`] chunks of document `id`, with the same rules as [`chunks`]: `seq`
+/// runs from 0, an empty document is one empty chunk and one over [`BLOB_MAX`] gives no chunks.
+#[must_use]
+pub fn property_chunks(id: u32, bytes: &[u8]) -> Vec<PortalEvent> {
+    chunks(id, bytes)
+        .into_iter()
+        .filter_map(|message| match message {
+            ToRenderer::Blob { id, seq, total, bytes } => Some(PortalEvent::PropertiesBlob { id, seq, total, bytes }),
+            _ => None,
         })
         .collect()
 }
@@ -188,6 +201,30 @@ mod tests {
         }
         let joined: Vec<u8> = parts.iter().flat_map(|part| part.3.iter().copied()).collect();
         assert_eq!(joined, payload);
+    }
+
+    #[test]
+    fn a_document_of_the_largest_size_round_trips_through_property_chunks() {
+        let document: Vec<u8> = (0..BLOB_MAX).map(|n| (n % 241) as u8).collect();
+        let mut reader = Reassembler::new();
+        let mut done = None;
+
+        for event in property_chunks(3, &document) {
+            let PortalEvent::PropertiesBlob { id, seq, total, bytes } = event else {
+                panic!("not a properties chunk");
+            };
+            assert!(bytes.len() <= BLOB_CHUNK);
+            if let Outcome::Done(id, bytes) = reader.push(id, seq, total, &bytes) {
+                done = Some((id, bytes));
+            }
+        }
+
+        assert_eq!(done, Some((3, document)));
+    }
+
+    #[test]
+    fn a_document_over_the_limit_gives_no_property_chunks() {
+        assert!(property_chunks(1, &vec![0; BLOB_MAX + 1]).is_empty());
     }
 
     #[test]

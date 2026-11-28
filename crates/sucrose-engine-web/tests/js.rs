@@ -14,8 +14,8 @@ use sucrose_core::{
 };
 use sucrose_engine_web::js::{
     CompatibleState, CompatibleValue, FormatError, KIND_COMPATIBLE, KIND_PAUSE, KIND_PROPERTY, LEGACY_RUN_ORDER,
-    compatible_call, compatible_calls, csharp_format, filedropdown_files, indented_json, non_data_calls, pause_call,
-    pause_script, property_call, property_calls, push_calls, try_csharp_format,
+    apply_property_call, compatible_call, compatible_calls, csharp_format, filedropdown_files, indented_json,
+    non_data_calls, pause_call, pause_script, property_call, property_calls, push_calls, try_csharp_format,
 };
 
 /// A scratch theme folder under the temp folder, removed on drop.
@@ -655,4 +655,42 @@ fn a_data_push_uses_the_newest_state_and_skips_an_empty_template_list() {
     assert!(push_calls(&[], &state, &[(DataGroup::Date, json!({}))]).is_empty());
     let calls = push_calls(&[(CompatibleKey::LoopMode, "L('{0}');")], &state, &[]);
     assert_eq!(calls[0].script, "L('False');");
+}
+
+#[test]
+fn an_applied_property_is_the_listener_call_with_the_serialized_control() {
+    let control = r#"{"type":"slider","text":"Amount","help":null,"min":-5.0,"max":5.0,"step":0.5,"value":2.5}"#;
+
+    let call = apply_property_call("SucrosePropertyListener('{0}', {1});", "amount", control).expect("a call");
+
+    assert_eq!(call.kind, KIND_PROPERTY);
+    assert_eq!(call.key, "amount");
+    let expected = property_call(
+        "SucrosePropertyListener('{0}', {1});",
+        "amount",
+        &serde_json::from_str(control).expect("json"),
+    );
+    assert_eq!(call.script, expected);
+    assert!(call.script.starts_with("SucrosePropertyListener('amount', {"));
+    assert!(call.script.contains("\"value\": 2.5"));
+}
+
+#[test]
+fn an_applied_property_is_the_same_call_every_time_and_a_script_in_the_control_stays_data() {
+    let control = r#"{"type":"textbox","text":"'); alert(1); ('","value":"x"}"#;
+
+    let first = apply_property_call("L('{0}', {1});", "name", control).expect("a call");
+    let second = apply_property_call("L('{0}', {1});", "name", control).expect("a call");
+
+    assert_eq!(first, second);
+    // The control is JSON inside the argument, never part of the call syntax: its quotes are escaped as JSON.
+    assert!(first.script.contains(r#""text": "'); alert(1); ('""#));
+}
+
+#[test]
+fn an_applied_property_that_is_not_an_object_or_has_no_usable_listener_makes_no_call() {
+    assert!(apply_property_call("L('{0}', {1});", "a", "[1]").is_none());
+    assert!(apply_property_call("L('{0}', {1});", "a", "not json").is_none());
+    assert!(apply_property_call("", "a", "{}").is_none());
+    assert!(apply_property_call("L('{0}', {", "a", "{}").is_none());
 }

@@ -144,6 +144,28 @@ pub enum PortalRequest {
         /// The stable id of the monitor ([`DisplayView::monitor_id`]), or `None` for the single wallpaper.
         monitor_id: Option<String>,
     },
+    /// Open the properties of the theme in this library folder in the editor: the service answers with
+    /// [`PortalEvent::Properties`] and its [`PortalEvent::PropertiesBlob`] chunks, or [`PortalEvent::PropertiesFailed`].
+    /// Appended after [`PortalRequest::RemoveWallpaper`].
+    OpenProperties {
+        /// Folder name of the theme inside the library.
+        folder: String,
+    },
+    /// One property of the open theme changed in the editor (PROP-02). The service checks the key and the control type
+    /// against its working copy, clamps the value, saves the working copy and tells the theme's renderers.
+    ChangeProperty {
+        /// Folder name of the theme inside the library.
+        folder: String,
+        /// The property name, the key in the property list.
+        key: String,
+        /// The control as its legacy JSON object text, at most [`MAX_PROPERTY_CONTROL`] bytes.
+        control: String,
+    },
+    /// The editor of this theme closed: the service writes the working copy now instead of waiting for its timer.
+    CloseProperties {
+        /// Folder name of the theme inside the library.
+        folder: String,
+    },
 }
 
 /// Messages from the service to the Portal.
@@ -228,6 +250,63 @@ pub enum PortalEvent {
     /// Where the install the Portal asked for is. Every stage is sent as it starts; `Done`, `Failed` and `Cancelled` are
     /// the last, and a new engine report follows `Done`.
     InstallProgress(InstallStageView),
+    /// The answer to a [`PortalRequest::OpenProperties`]: what the document is; its bytes follow as
+    /// [`PortalEvent::PropertiesBlob`] chunks of the blob `blob_id`. Appended after [`PortalEvent::InstallProgress`].
+    Properties(PropertiesView),
+    /// One chunk of the properties document of blob `id`: chunk `seq` of `total`, at most
+    /// [`crate::blob::BLOB_CHUNK`] bytes; [`crate::blob::Reassembler`] puts them back together.
+    PropertiesBlob {
+        /// Which document the chunk belongs to ([`PropertiesView::blob_id`]).
+        id: u32,
+        /// The chunk's place, from 0.
+        seq: u16,
+        /// How many chunks the document has.
+        total: u16,
+        /// The chunk's bytes.
+        bytes: Vec<u8>,
+    },
+    /// A [`PortalRequest::OpenProperties`] could not be answered.
+    PropertiesFailed {
+        /// The folder the request named.
+        folder: String,
+        /// Why.
+        reason: PropertiesFailure,
+    },
+}
+
+/// The longest control text, in bytes, a [`PortalRequest::ChangeProperty`] may carry. It stays under
+/// [`crate::frame::MAX_FRAME`] together with the folder and key texts, so one change is one frame.
+pub const MAX_PROPERTY_CONTROL: usize = 60 * 1024;
+
+/// The longest folder name or property key, in bytes, the service accepts in a property request.
+pub const MAX_PROPERTY_NAME: usize = 512;
+
+/// What the editor needs to know about the document that follows as blob chunks.
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
+pub struct PropertiesView {
+    /// Folder name of the theme inside the library.
+    pub folder: String,
+    /// Which property file this is (`Base` for a web theme's own file; the engine sets come later).
+    pub kind: String,
+    /// The blob that carries the document, the working copy as its JSON text.
+    pub blob_id: u32,
+    /// The culture the user's language picks from the file's localization tables, when the file has one.
+    pub culture: Option<String>,
+    /// The device names of the monitors whose renderer plays this folder now: the editor shows a live badge for them.
+    pub live_on: Vec<String>,
+    /// The engine that plays the theme now, when one does.
+    pub engine: Option<EngineType>,
+}
+
+/// Why a theme's properties could not be opened.
+#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq)]
+pub enum PropertiesFailure {
+    /// The folder is not a theme of the library.
+    NotFound,
+    /// The theme has no properties.
+    NoProperties,
+    /// The file or the working copy could not be read, or is bigger than a document may be.
+    Unreadable,
 }
 
 /// A part of the machine the service can install for an engine (D-15).
@@ -922,6 +1001,13 @@ mod tests {
             },
             PortalRequest::CancelInstall,
             PortalRequest::RemoveWallpaper { monitor_id: None },
+            PortalRequest::OpenProperties { folder: String::new() },
+            PortalRequest::ChangeProperty {
+                folder: String::new(),
+                key: String::new(),
+                control: String::new(),
+            },
+            PortalRequest::CloseProperties { folder: String::new() },
         ];
         for (expected, request) in requests.iter().enumerate() {
             assert_eq!(usize::from(index(request)), expected, "{request:?}");
@@ -977,10 +1063,59 @@ mod tests {
             PortalEvent::RestartFailed { reason: String::new() },
             PortalEvent::DevToolsResult { opened: true },
             PortalEvent::InstallProgress(InstallStageView::Verifying),
+            PortalEvent::Properties(PropertiesView {
+                folder: String::new(),
+                kind: "Base".to_owned(),
+                blob_id: 1,
+                culture: None,
+                live_on: Vec::new(),
+                engine: None,
+            }),
+            PortalEvent::PropertiesBlob {
+                id: 1,
+                seq: 0,
+                total: 1,
+                bytes: Vec::new(),
+            },
+            PortalEvent::PropertiesFailed {
+                folder: String::new(),
+                reason: PropertiesFailure::NotFound,
+            },
         ];
         for (expected, event) in events.iter().enumerate() {
             assert_eq!(usize::from(index(event)), expected, "{event:?}");
         }
+    }
+
+    #[test]
+    fn properties_failures_keep_their_wire_index_and_survive_the_wire() {
+        let reasons = [
+            PropertiesFailure::NotFound,
+            PropertiesFailure::NoProperties,
+            PropertiesFailure::Unreadable,
+        ];
+        for (expected, reason) in reasons.iter().enumerate() {
+            assert_eq!(usize::from(index(reason)), expected, "{reason:?}");
+            let event = PortalEvent::PropertiesFailed {
+                folder: "calls".to_owned(),
+                reason: *reason,
+            };
+            let bytes = postcard::to_stdvec(&event).expect("encode");
+            assert_eq!(postcard::from_bytes::<PortalEvent>(&bytes).expect("decode"), event);
+        }
+    }
+
+    #[test]
+    fn a_change_property_request_fits_a_frame_at_the_control_limit() {
+        let request = PortalRequest::ChangeProperty {
+            folder: "x".repeat(MAX_PROPERTY_NAME),
+            key: "k".repeat(MAX_PROPERTY_NAME),
+            control: "c".repeat(MAX_PROPERTY_CONTROL),
+        };
+        let bytes = postcard::to_stdvec(&request).expect("encode");
+
+        assert!(bytes.len() < MAX_FRAME as usize, "{} bytes", bytes.len());
+        assert_eq!(postcard::from_bytes::<PortalRequest>(&bytes).expect("decode"), request);
     }
 
     #[test]

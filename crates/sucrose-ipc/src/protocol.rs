@@ -126,6 +126,16 @@ pub enum ToRenderer {
     /// How the wallpaper is fitted to the surface: the Portal's Stretch Mode, applied to the playing wallpaper without
     /// restarting it (DESK-05). Appended after [`ToRenderer::TimeBase`].
     SetStretch(Stretch),
+    /// One property of the playing theme changed in the Portal's properties editor: the page gets its property call
+    /// again for `key` with this control (PROP-02). `control` is the control object as its legacy JSON text, at most
+    /// 64 KiB. The renderer never writes a property file; the service owns the working copy (Pattern 6). Appended after
+    /// [`ToRenderer::SetStretch`].
+    ApplyProperty {
+        /// The property name, the key in the property list.
+        key: String,
+        /// The control as its legacy JSON object text.
+        control: String,
+    },
 }
 
 /// What a renderer does when several monitors show the same wallpaper (D-02).
@@ -601,6 +611,19 @@ mod tests {
             assert_eq!(bytes[0], 14, "{message:?}");
             assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
         }
+    }
+
+    #[test]
+    fn apply_property_keeps_its_wire_index_and_survives_the_wire() {
+        let message = ToRenderer::ApplyProperty {
+            key: "amount".to_owned(),
+            control: "{\"type\":\"slider\",\"value\":2.5}".to_owned(),
+        };
+        let bytes = postcard::to_stdvec(&message).expect("encode");
+
+        // Appended after SetStretch (14).
+        assert_eq!(bytes[0], 15);
+        assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
     }
 
     #[test]

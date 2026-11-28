@@ -674,10 +674,15 @@ pub fn read_properties(path: &Path) -> Result<SucroseProperties, PropertiesError
     })
 }
 
-/// Writes `properties` the way the C# app does: 2-space indent, CRLF line endings, no byte order mark, no trailing
-/// newline. Only the given path is written.
-pub fn write_properties(path: &Path, properties: &SucroseProperties) -> io::Result<()> {
+/// The text of `properties` as the C# app writes it: 2-space indent, CRLF line endings, no byte order mark, no trailing
+/// newline.
+pub fn properties_text(properties: &SucroseProperties) -> io::Result<String> {
     let text = serde_json::to_string_pretty(properties).map_err(io::Error::other)?;
     // Line breaks inside strings are escaped, so every raw `\n` is structural.
-    fs::write(path, text.replace('\n', "\r\n"))
+    Ok(text.replace('\n', "\r\n"))
+}
+
+/// Writes `properties` the way the C# app does (see [`properties_text`]). Only the given path is written.
+pub fn write_properties(path: &Path, properties: &SucroseProperties) -> io::Result<()> {
+    fs::write(path, properties_text(properties)?)
 }

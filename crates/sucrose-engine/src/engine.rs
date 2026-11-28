@@ -115,6 +115,15 @@ pub trait Engine: Send + Sync {
             what: "Developer tools".to_owned(),
         })
     }
+    /// Tells the engine's page that one property changed in the properties editor (PROP-02): `control_json` is the
+    /// control as its legacy JSON object text, the page gets its property call again for `key`. Only a web engine with
+    /// a theme page of its own does; every other engine answers [`EngineError::Unsupported`], which the renderer logs.
+    /// The text can hold a password: an engine never logs it.
+    fn apply_property(&self, _key: &str, _control_json: &str) -> Result<(), EngineError> {
+        Err(EngineError::Unsupported {
+            what: "Property changes".to_owned(),
+        })
+    }
     /// Hands the engine the shared time base of the group it plays in (D-043): the instant, as Unix milliseconds, that
     /// renderers of one theme on several monitors count their content position from. An engine that follows it shows
     /// the position the instant gives (a GIF by frame index, a page by its media time); mpv follows the master clock

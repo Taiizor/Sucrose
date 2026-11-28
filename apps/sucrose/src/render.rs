@@ -527,7 +527,8 @@ fn judge_hello_reply(reply: Result<ToRenderer, IpcError>) -> anyhow::Result<Hell
             | ToRenderer::SetShuffle(_)
             | ToRenderer::SetStretch(_)
             | ToRenderer::Blob { .. }
-            | ToRenderer::TimeBase { .. },
+            | ToRenderer::TimeBase { .. }
+            | ToRenderer::ApplyProperty { .. },
         ) => {
             tracing::warn!("ignoring a control message that arrived before the assignment");
             Ok(HelloReply::Skip)
@@ -706,6 +707,11 @@ fn wait_for_close(
                 engine.set_time_base(epoch_unix_ms);
                 tracing::info!(epoch_unix_ms, "time base changed");
             }
+            // A property changed in the editor (PROP-02). The key is logged, the control never: a passwordbox holds a secret.
+            Ok(ToRenderer::ApplyProperty { key, control }) => match engine.apply_property(&key, &control) {
+                Ok(()) => tracing::info!(key = %key, "property applied"),
+                Err(error) => tracing::info!(key = %key, %error, "property not applied"),
+            },
             // A second assignment is not part of this plan; later plans act on it.
             Ok(ToRenderer::Assign(_)) => tracing::warn!("ignoring an unexpected second assignment"),
             Err(IpcError::Closed) => {

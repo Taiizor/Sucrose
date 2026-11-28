@@ -109,6 +109,23 @@ pub fn property_call(listener: &str, key: &str, control: &Value) -> String {
     csharp_format(listener, &[key, &indented_json(control)])
 }
 
+/// The call that tells a page one property changed in the properties editor: the theme's listener format with the key and
+/// the control, given as its JSON object text. `None` when the text is not a JSON object or the listener cannot be
+/// formatted (the legacy engine skips such a call). The control is serialized again, never pasted into the script.
+#[must_use]
+pub fn apply_property_call(listener: &str, key: &str, control_json: &str) -> Option<PageCall> {
+    let control: Value = serde_json::from_str(control_json).ok()?;
+    if !control.is_object() {
+        return None;
+    }
+    let script = property_call(listener, key, &control);
+    (!script.is_empty()).then(|| PageCall {
+        kind: KIND_PROPERTY,
+        key: key.to_owned(),
+        script,
+    })
+}
+
 /// The kind of a property call (see [`PageCall::kind`]).
 pub const KIND_PROPERTY: &str = "property";
 /// The kind of a compatible call.
