@@ -311,6 +311,28 @@ pub const REQUIRED_KEYS: &[&str] = &[
     "Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.None",
     "Portal.GeneralSettingPage.PrivateLibrary.OpenFolder",
     "Portal.TrayIcon.CloseCountdown",
+    // Display Preferences: the legacy keys it shows, then the new ones.
+    "Portal.MainWindow.MenuDisplayPreferencesTip",
+    "Portal.DisplayPreferences.Title",
+    "Portal.DisplayPreferences.Close",
+    "Portal.DisplayPreferences.Expander",
+    "Portal.DisplayPreferences.Expander.Description",
+    "Portal.DisplayPreferences.Expand",
+    "Portal.DisplayPreferences.Duplicate",
+    "Portal.DisplayPreferences.PerDisplay",
+    "Portal.DisplayPreferences.PerDisplay.Description",
+    "Portal.DisplayPreferences.Expand.Description",
+    "Portal.DisplayPreferences.Duplicate.Description",
+    "Portal.DisplayPreferences.AllScreens",
+    "Portal.DisplayPreferences.Remove",
+    "Portal.DisplayPreferences.NotConnected",
+    "Portal.DisplayPreferences.NotConnectedTitle",
+    "Portal.DisplayPreferences.PlacementFailed",
+    "Portal.DisplayPreferences.Resolution",
+    "Portal.DisplayPreferences.Applying",
+    "Portal.DisplayPreferences.Monitor",
+    "Portal.DisplayPreferences.NoWallpaper",
+    "Portal.DisplayPreferences.WindowsWallpaper",
 ];
 
 #[cfg(test)]

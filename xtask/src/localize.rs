@@ -16,7 +16,7 @@ const XAML_ROOT: &str = "src/Library/Sucrose.Resources/Locales/Portal";
 /// Folder of the Portal's locale files, relative to the workspace root.
 const OUT_DIR: &str = "apps/sucrose-portal/locales";
 /// Key prefixes of the UI-SPEC String Inventory; every other legacy key (store, wallpaper cycling, ...) stays out of Phase 3.
-const PREFIXES: [&str; 15] = [
+const PREFIXES: [&str; 16] = [
     "Portal.MainWindow.",
     "Portal.EmptyLibraryPage.",
     "Portal.SearchLibraryPage.",
@@ -28,6 +28,7 @@ const PREFIXES: [&str; 15] = [
     "Portal.GeneralSettingPage.",
     "Portal.PersonalSettingPage.",
     "Portal.WallpaperSettingPage.",
+    "Portal.DisplayPreferences.",
     "Portal.OtherSettingPage.Developer",
     "Portal.Area.",
     "Portal.Enum.",
@@ -380,6 +381,8 @@ mod tests {
             "Portal.Quoting85",
             "Portal.Release",
             "Portal.Copyright",
+            "Portal.DisplayPreferences.Title",
+            "Portal.DisplayPreferences.Expander.Description",
         ] {
             assert!(keep_key(key), "{key} should be kept");
         }
