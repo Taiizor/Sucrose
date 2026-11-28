@@ -8,7 +8,7 @@
 
 use std::collections::{BTreeMap, BTreeSet};
 
-use sucrose_config::model::{DisplayAssignment, Settings};
+use sucrose_config::model::{DisplayAssignment, MAX_DISPLAY_ASSIGNMENTS, Settings};
 use sucrose_core::settings::DisplayScreenType;
 use sucrose_platform::MonitorInfo;
 
@@ -177,6 +177,23 @@ pub fn assignment_for(monitor: &MonitorInfo, theme: &str) -> DisplayAssignment {
         device_name: monitor.id.clone(),
         theme: theme.to_owned(),
     }
+}
+
+/// `assignments` with the entry of `entry.monitor_id` replaced, or added at the end; the other entries stay as they
+/// were. `None` when the list is full ([`MAX_DISPLAY_ASSIGNMENTS`]) and the monitor has no entry.
+pub fn with_assignment(
+    assignments: Option<&[DisplayAssignment]>,
+    entry: DisplayAssignment,
+) -> Option<Vec<DisplayAssignment>> {
+    let mut list = assignments.map(<[DisplayAssignment]>::to_vec).unwrap_or_default();
+    if let Some(slot) = list.iter_mut().find(|known| known.monitor_id == entry.monitor_id) {
+        *slot = entry;
+    } else if list.len() < MAX_DISPLAY_ASSIGNMENTS {
+        list.push(entry);
+    } else {
+        return None;
+    }
+    Some(list)
 }
 
 /// The monitor ids each theme plays on, for the groups that share a clock and a sound (D-04, D-05).
@@ -421,6 +438,25 @@ mod tests {
             per_display(&monitors, Some(&derived), "a", D9),
             per_display(&monitors, None, "a", D9)
         );
+    }
+
+    #[test]
+    fn an_assignment_replaces_the_entry_of_its_monitor_and_keeps_the_others() {
+        let list = [entry(D1, "a"), entry(D9, "b")];
+        let next = with_assignment(Some(&list), entry(D9, "c")).unwrap();
+        assert_eq!(next, [entry(D1, "a"), entry(D9, "c")]);
+        let added = with_assignment(Some(&[entry(D1, "a")]), entry(D9, "c")).unwrap();
+        assert_eq!(added, [entry(D1, "a"), entry(D9, "c")]);
+        assert_eq!(with_assignment(None, entry(D1, "a")).unwrap(), [entry(D1, "a")]);
+        let full: Vec<DisplayAssignment> = (0..MAX_DISPLAY_ASSIGNMENTS)
+            .map(|n| entry(&format!("M{n}"), "t"))
+            .collect();
+        assert_eq!(
+            with_assignment(Some(&full), entry(D1, "a")),
+            None,
+            "a full list takes no new monitor"
+        );
+        assert!(with_assignment(Some(&full), entry("M3", "other")).is_some());
     }
 
     #[test]

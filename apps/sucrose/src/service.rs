@@ -42,7 +42,7 @@ use sucrose_platform::{
 };
 // ScreenArea is read below to choose the surface rectangle.
 use sucrose_core::settings::{
-    EngineType, FullScreenAction, FullScreenScope, GpuPreference, PauseKind, ScreenArea, ThemeMode,
+    DisplayScreenType, EngineType, FullScreenAction, FullScreenScope, GpuPreference, PauseKind, ScreenArea, ThemeMode,
 };
 use sucrose_engine::EngineId;
 use sucrose_engine_web::{args, profile::ProfileKind};
@@ -3768,7 +3768,11 @@ impl UseDone {
 }
 
 /// Handles the Portal's Use: the theme gate decides (T-03-22), the selection is stored, and the renderers switch to
-/// the new video (D-26) or, when none runs, start for it like a service start does. A refused Use changes nothing.
+/// the new wallpaper (D-26) or, when none runs, start for it like a service start does. A refused Use changes nothing.
+///
+/// In Per display the Use acts on the target monitor only (`Engine.ScreenDevice`, the first monitor when it names none):
+/// its entry of `Engine.DisplayAssignments` is replaced and only its renderer loads, restarts or starts (D-02); Span and
+/// Duplicate put the theme on every monitor.
 fn handle_use(
     folder: &str,
     host: &mut SettingsHost,
@@ -3779,6 +3783,20 @@ fn handle_use(
 ) -> UseDone {
     let Some(root) = legacy_root else {
         return UseDone::refused(UseRefusal::Unavailable);
+    };
+    let per_display = host.settings().engine.display_screen_type == DisplayScreenType::PerDisplay;
+    // The monitor a Per display Use acts on, looked at before anything changes: a Use with no monitor to show it on is
+    // refused, not half applied.
+    let connected = platform.monitors();
+    let target = if per_display {
+        let found = placement::target_monitor(&connected, &host.settings().engine.screen_device).cloned();
+        if found.is_none() {
+            tracing::info!("use refused: the OS reports no monitor");
+            return UseDone::refused(UseRefusal::Unavailable);
+        }
+        found
+    } else {
+        None
     };
     let (decision, kind) = {
         let settings = host.settings();
@@ -3798,12 +3816,29 @@ fn handle_use(
                 reason,
             })
         });
+        // What plays where the Use lands: the target monitor in Per display, every monitor otherwise.
+        let (selected, running, running_engine) = match &target {
+            Some(monitor) => {
+                let slot = fleet.slots.slot_of(&monitor.id);
+                let theme = fleet.targets.get(&monitor.id).map(String::as_str);
+                (
+                    theme.unwrap_or(""),
+                    slot.is_some_and(|slot| ctx.supervisor.slots().contains(&slot)),
+                    theme.and_then(|theme| fleet.jobs.get(theme)).map(|job| job.engine),
+                )
+            }
+            None => (
+                settings.library.selected.as_str(),
+                fleet.has_jobs() && !ctx.supervisor.pids().is_empty(),
+                fleet.job().map(|job| job.engine),
+            ),
+        };
         let input = UseInput {
             folder,
             gate,
-            selected: &settings.library.selected,
-            running: fleet.has_jobs() && !ctx.supervisor.pids().is_empty(),
-            running_engine: fleet.job().map(|job| job.engine),
+            selected,
+            running,
+            running_engine,
             rule: fleet.rule_state(),
             moving: fleet.library_move.is_some(),
         };
@@ -3816,43 +3851,83 @@ fn handle_use(
         }
         UseDecision::AlreadyApplied => {
             tracing::debug!("the theme is already in use, nothing is reloaded");
+            if host.settings().library.selected != folder
+                && let Ok(()) = host.update(|settings| settings.library.selected = folder.to_owned())
+            {
+                fleet.placement.selected = folder.to_owned();
+            }
             return UseDone::applied(None);
         }
         UseDecision::Load(job) => (job, false, USE_TRANSITION),
         UseDecision::Restart(job) => (job, false, UseTransition::Restart),
         UseDecision::Start(job) => (job, true, USE_TRANSITION),
     };
-    // Looked at before anything changes: a Use that cannot show anything is refused, not half applied.
-    let monitors = if starting {
-        let monitors = with_area(platform.monitors(), job.screen);
-        if monitors.is_empty() {
-            tracing::info!("use refused: the OS reports no monitor");
-            return UseDone::refused(UseRefusal::Unavailable);
+    // The monitors the new wallpaper covers: the whole monitor or its work area, chosen by the job.
+    let covered = with_area(connected, job.screen);
+    let target = target.and_then(|monitor| covered.iter().find(|known| known.id == monitor.id).cloned());
+    if starting && covered.is_empty() {
+        tracing::info!("use refused: the OS reports no monitor");
+        return UseDone::refused(UseRefusal::Unavailable);
+    }
+    // The assignments to store: the target monitor's entry replaced, the others as they were.
+    let assignments = match &target {
+        Some(monitor) => {
+            let entry = placement::assignment_for(monitor, &job.folder());
+            let Some(list) = placement::with_assignment(fleet.placement.assignments.as_deref(), entry) else {
+                tracing::warn!("the display assignments are full, nothing was changed");
+                return UseDone::failed("too many monitors have a wallpaper assigned".to_owned());
+            };
+            Some(list)
         }
-        monitors
-    } else {
-        Vec::new()
+        None => None,
     };
-    if let Err(reason) = host.update(|settings| settings.library.selected = folder.to_owned()) {
+    if let Err(reason) = host.update(|settings| {
+        settings.library.selected = folder.to_owned();
+        if let Some(list) = &assignments {
+            settings.engine.display_assignments = Some(list.clone());
+        }
+    }) {
         tracing::warn!(%reason, "the selection cannot be saved, nothing was changed");
         return UseDone::failed(reason);
+    }
+    fleet.placement.selected = job.folder();
+    if let Some(list) = assignments {
+        fleet.placement.assignments = Some(list);
     }
     let title = job.title.clone();
     let fallback = job.fallback.clone();
     if !starting {
-        fleet.put_everywhere(&job.folder(), ctx.renderers);
-        let reached = match transition {
-            UseTransition::LoadSource => fleet.load_source(job, ctx.renderers),
-            UseTransition::Restart => fleet.restart_with(job, ctx.renderers),
+        let reached = match &target {
+            Some(monitor) => {
+                let slot = fleet.retarget(&monitor.id, job, ctx.renderers);
+                let reached = slot.filter(|slot| match transition {
+                    UseTransition::LoadSource => fleet.load_slot(*slot, ctx.renderers),
+                    UseTransition::Restart => fleet.restart_slot(*slot, ctx.renderers),
+                });
+                fleet.elect(ctx);
+                usize::from(reached.is_some())
+            }
+            None => {
+                fleet.put_everywhere(&job.folder(), ctx.renderers);
+                let reached = match transition {
+                    UseTransition::LoadSource => fleet.load_source(job, ctx.renderers),
+                    UseTransition::Restart => fleet.restart_with(job, ctx.renderers),
+                };
+                reached.len()
+            }
         };
         fleet.revive_stopped(ctx.supervisor);
-        tracing::info!(?kind, ?transition, renderers = reached.len(), "theme used");
+        tracing::info!(?kind, ?transition, renderers = reached, "theme used");
         return UseDone::applied(Some(Status::Starting { title, fallback }));
     }
     apply_gpu_preference(platform, host.settings().engine.gpu_preference);
-    fleet.placement.selected = job.folder();
-    fleet.adopt_job(job);
-    let applied = fleet.apply_snapshot(monitors, ctx);
+    let applied = match &target {
+        Some(monitor) => fleet.start_target(monitor, job, ctx),
+        None => {
+            fleet.adopt_job(job);
+            fleet.apply_snapshot(covered, ctx)
+        }
+    };
     let arm_fullscreen = fleet.fullscreen.is_none() && {
         let settings = host.settings();
         start_fullscreen(
@@ -4118,6 +4193,93 @@ impl Fleet {
         for slot in self.slots.active_slots() {
             state.groups.insert(slot, theme.to_owned());
         }
+        drop(state);
+        self.prune_jobs();
+    }
+
+    /// Drops the jobs no monitor, assignment or selection needs any more.
+    fn prune_jobs(&mut self) {
+        let mut keep: BTreeSet<String> = self.targets.values().cloned().collect();
+        keep.insert(self.placement.selected.clone());
+        keep.extend(
+            self.placement
+                .assignments
+                .iter()
+                .flatten()
+                .map(|entry| entry.theme.clone()),
+        );
+        self.jobs.retain(|folder, _| keep.contains(folder));
+    }
+
+    /// Per display: the monitor `monitor` plays `job`'s theme from now on and no other monitor changes. Its renderer (if
+    /// it has one) joins the group of the new theme, takes the master clock of no group (the election gives it one),
+    /// and its assignment reads the new job. Returns the renderer's slot.
+    fn retarget(&mut self, monitor: &str, job: Job, renderers: &SharedRenderers) -> Option<u8> {
+        let folder = job.folder();
+        self.targets.insert(monitor.to_owned(), folder.clone());
+        let slot = self.slots.slot_of(monitor);
+        if let Some(slot) = slot {
+            let mut state = lock(renderers);
+            state.groups.insert(slot, folder);
+            // A renderer that led its old theme's clock follows until the election gives it the lead of the new one.
+            if state.masters.values().any(|master| *master == slot) {
+                state.masters.retain(|_, master| *master != slot);
+                if let Some(link) = state.connections.get(&slot)
+                    && link.offer(ToRenderer::SetRole(Role::Follower)) == Offer::Failed
+                {
+                    tracing::warn!(slot, "cannot send the role to a renderer that changed its theme");
+                }
+            }
+        }
+        self.adopt_job(job);
+        self.prune_jobs();
+        slot
+    }
+
+    /// Sends the renderer of `slot` the source its theme's job plays, without restarting it (D-26). `true` when it
+    /// was told.
+    fn load_slot(&self, slot: u8, renderers: &SharedRenderers) -> bool {
+        let Some(job) = self.job_of_slot(slot) else {
+            return false;
+        };
+        let message = ToRenderer::LoadSource {
+            source: job.source.clone(),
+            settings: job.settings,
+        };
+        send_to(renderers, slot, &message)
+    }
+
+    /// The Restart transition for one renderer: it is closed and comes back once it has ended, reading its assignment
+    /// again. `true` when it was closed.
+    fn restart_slot(&mut self, slot: u8, renderers: &SharedRenderers) -> bool {
+        if !lock(renderers).connections.contains_key(&slot) {
+            return false;
+        }
+        self.rule_closed.close(slot, false);
+        self.rule_closed.want_back(slot);
+        send_to(renderers, slot, &ToRenderer::Close)
+    }
+
+    /// Per display: starts (or starts again) the renderer of `monitor` for `job`; no other renderer is touched.
+    fn start_target(&mut self, monitor: &MonitorInfo, job: Job, ctx: &Ctx<'_>) -> Applied {
+        self.targets.insert(monitor.id.clone(), job.folder());
+        self.adopt_job(job);
+        self.prune_jobs();
+        if self.web_owner.is_none() {
+            self.web_owner = Some(monitor.id.clone());
+        }
+        let mut applied = Applied::default();
+        if self.spawn(monitor, ctx) {
+            applied.started = 1;
+        } else {
+            applied.failed = 1;
+        }
+        match self.monitors.iter_mut().find(|known| known.id == monitor.id) {
+            Some(known) => *known = monitor.clone(),
+            None => self.monitors.push(monitor.clone()),
+        }
+        self.elect(ctx);
+        applied
     }
 
     /// Switches the running renderers of `job`'s theme to it without restarting them (D-26): the assignments are
@@ -4590,7 +4752,7 @@ fn playback_settings(engine: &Engine, pause: PauseKind) -> PlaybackSettings {
 mod tests {
     use sucrose_config::model::DisplayAssignment;
     use sucrose_core::{
-        settings::{DisplayScreenType, InputModuleType, InputType},
+        settings::{InputModuleType, InputType},
         theme::ThemeRejection,
     };
 
@@ -6136,9 +6298,9 @@ mod tests {
             monitor_at("D4", false, [300, 0, 400, 100]),
         ];
         let (mut fleet, renderers, logs) = recording_fleet(&monitors);
-        fleet
-            .jobs
-            .insert("other".to_owned(), use_job("C:/themes/other/video.mp4"));
+        let mut other = use_job("C:/themes/other/video.mp4");
+        "C:/themes/other".clone_into(&mut other.theme_dir);
+        fleet.jobs.insert("other".to_owned(), other);
         for (id, theme) in [("D1", "main"), ("D2", "main"), ("D3", "other"), ("D4", "other")] {
             fleet.targets.insert(id.to_owned(), theme.to_owned());
             let slot = fleet.slots.slot_of(id).expect("a slot");
@@ -6217,6 +6379,95 @@ mod tests {
         fleet.apply_snapshot(layout(), &ctx);
         assert_eq!(fleet.slots.slot_of(first), None);
         assert!(fleet.monitors.is_empty());
+    }
+
+    #[test]
+    fn a_use_on_the_target_monitor_loads_only_its_renderer() {
+        let (mut fleet, renderers, logs) = two_theme_fleet();
+        let slot = |fleet: &Fleet, id: &str| fleet.slots.slot_of(id).expect("a slot");
+        let used = use_job("C:/themes/new/video.mp4");
+        let message = ToRenderer::LoadSource {
+            source: used.source.clone(),
+            settings: used.settings,
+        };
+
+        let moved = fleet.retarget("D2", used, &renderers).expect("D2 has a renderer");
+        assert!(fleet.load_slot(moved, &renderers));
+
+        assert_eq!(moved, slot(&fleet, "D2"));
+        assert_eq!(sent_to(&renderers, &logs, moved), [message]);
+        for id in ["D1", "D3", "D4"] {
+            assert_eq!(sent_to(&renderers, &logs, slot(&fleet, id)), [], "{id} is not touched");
+        }
+        let assignments = lock_assignments(&fleet.assignments);
+        assert_eq!(assignments[&moved].source, "C:/themes/new/video.mp4");
+        assert_eq!(assignments[&slot(&fleet, "D1")].source, "C:/wallpaper.mp4");
+        assert_eq!(fleet.targets.get("D2").map(String::as_str), Some("new"));
+        assert_eq!(fleet.targets.get("D1").map(String::as_str), Some("main"));
+        assert_eq!(lock(&renderers).groups.get(&moved).map(String::as_str), Some("new"));
+        assert!(fleet.jobs.contains_key("new") && fleet.jobs.contains_key("main"));
+    }
+
+    #[test]
+    fn a_restart_on_the_target_monitor_closes_only_its_renderer() {
+        let (mut fleet, renderers, logs) = two_theme_fleet();
+        let slot = |fleet: &Fleet, id: &str| fleet.slots.slot_of(id).expect("a slot");
+
+        let moved = fleet
+            .retarget("D2", use_job("C:/themes/new/video.mp4"), &renderers)
+            .expect("D2 has a renderer");
+        assert!(fleet.restart_slot(moved, &renderers));
+
+        assert!(
+            fleet.rule_closed.awaiting_exit(moved),
+            "its old renderer has to end first"
+        );
+        for id in ["D1", "D3", "D4"] {
+            let other = slot(&fleet, id);
+            assert!(!fleet.rule_closed.is_closed(other), "{id} keeps playing");
+            assert_eq!(sent_to(&renderers, &logs, other), [], "{id} is not touched");
+        }
+        assert_eq!(
+            lock_assignments(&fleet.assignments)[&moved].source,
+            "C:/themes/new/video.mp4",
+            "the renderer that comes back reads the new job"
+        );
+    }
+
+    #[test]
+    fn the_renderer_that_led_a_theme_and_moves_to_another_gives_the_clock_up() {
+        let (mut fleet, renderers, logs) = two_theme_fleet();
+        let supervisor = Supervisor::new(|_| {}).expect("the job object is created");
+        let ctx = Ctx {
+            supervisor: &supervisor,
+            renderers: &renderers,
+        };
+        let slot = |fleet: &Fleet, id: &str| fleet.slots.slot_of(id).expect("a slot");
+        fleet.elect(&ctx);
+        let d1 = slot(&fleet, "D1");
+        let d2 = slot(&fleet, "D2");
+        let d3 = slot(&fleet, "D3");
+        assert_eq!(lock(&renderers).masters.get("main"), Some(&d1));
+
+        // The master of "main" is used for the other theme: it follows there, and D2 takes the lead of "main".
+        let other_job = fleet.jobs["other"].clone();
+        fleet.retarget("D1", other_job, &renderers);
+        fleet.elect(&ctx);
+
+        let state = lock(&renderers);
+        assert_eq!(state.masters.get("main"), Some(&d2));
+        assert_eq!(
+            state.masters.get("other"),
+            Some(&d3),
+            "the clock that already runs stays"
+        );
+        drop(state);
+        let messages = sent_to(&renderers, &logs, d1);
+        assert_eq!(
+            messages.last(),
+            Some(&ToRenderer::SetRole(Role::Follower)),
+            "{messages:?}: the moved renderer follows the other theme's clock"
+        );
     }
 
     #[test]
@@ -6658,6 +6909,51 @@ mod tests {
 
     mod decide_use {
         use super::*;
+
+        #[test]
+        fn a_target_monitor_without_a_renderer_starts_while_the_other_monitors_play_on() {
+            // Per display: the inputs describe the target monitor only, so a monitor with nothing running starts
+            // for the used theme whatever the other monitors do.
+            let decision = decide_use(&UseInput {
+                selected: "",
+                running: false,
+                running_engine: None,
+                ..use_input()
+            });
+
+            assert!(matches!(decision, UseDecision::Start(_)), "{decision:?}");
+        }
+
+        #[test]
+        fn a_target_that_plays_the_theme_already_changes_nothing() {
+            let decision = decide_use(&UseInput {
+                selected: "new",
+                ..use_input()
+            });
+
+            assert!(matches!(decision, UseDecision::AlreadyApplied), "{decision:?}");
+        }
+
+        #[test]
+        fn a_target_that_does_not_play_it_yet_is_not_already_applied_even_when_another_monitor_does() {
+            // The theme of the other monitors is not what the target plays: the target's own theme decides.
+            let decision = decide_use(&UseInput {
+                selected: "other-monitor-theme",
+                ..use_input()
+            });
+
+            assert!(matches!(decision, UseDecision::Load(_)), "{decision:?}");
+        }
+
+        #[test]
+        fn a_target_on_the_built_in_gif_renderer_restarts_that_renderer_for_another_theme() {
+            let decision = decide_use(&UseInput {
+                running_engine: Some(EngineType::XavierLive),
+                ..use_input()
+            });
+
+            assert!(matches!(decision, UseDecision::Restart(_)), "{decision:?}");
+        }
 
         #[test]
         fn loads_the_theme_into_the_renderers_that_run() {
