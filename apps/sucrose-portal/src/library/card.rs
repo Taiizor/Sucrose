@@ -14,7 +14,10 @@ use sucrose_core::{
 use sucrose_ipc::portal::{DisplayView, EngineReportView, PortalRequest, RuleState, RuntimeState};
 
 use super::layout::{Arrow, CARD_HEIGHT};
-use crate::{i18n::tr, ipc::ServiceLink};
+use crate::{
+    i18n::{tr, tr_count_with, tr_with},
+    ipc::ServiceLink,
+};
 
 /// Height of the strip with the title and the description.
 const STRIP_HEIGHT: f32 = 56.0;
@@ -54,6 +57,8 @@ pub struct CardData {
     pub needs_newer_app: bool,
     /// Whether this theme is the selected one and the wallpaper plays (the "Selected" pill).
     pub selected: bool,
+    /// Where the theme plays now, one pill each right of the Selected pill (UI-SPEC E6); decoration, never a button.
+    pub badges: Vec<Badge>,
     /// Whether a Use request for this theme is in flight (the spinner).
     pub pending: bool,
     /// Whether Use works on this card, and when it does not, why (the hand cursor, the hover ring and the tooltip).
@@ -90,8 +95,57 @@ pub enum Badge {
 /// The badges of the card of `folder`: one per connected monitor that plays it now, at most [`MAX_MONITOR_BADGES`], then
 /// `More`; one `All` in Span and Duplicate, where the single wallpaper covers every monitor; none when it does not play.
 pub fn monitor_badges(folder: &str, displays: &[DisplayView], mode: DisplayScreenType) -> Vec<Badge> {
-    let _ = (folder, displays, mode);
-    Vec::new()
+    let mut numbers = displays
+        .iter()
+        .filter(|display| display.connected && display.running && display.theme.as_deref() == Some(folder))
+        .map(|display| display.number);
+    let Some(first) = numbers.next() else {
+        return Vec::new();
+    };
+    if mode != DisplayScreenType::PerDisplay {
+        return vec![Badge::All];
+    }
+    let mut badges = vec![Badge::Monitor(first)];
+    let mut rest = Vec::new();
+    for number in numbers {
+        if badges.len() < MAX_MONITOR_BADGES {
+            badges.push(Badge::Monitor(number));
+        } else {
+            rest.push(number);
+        }
+    }
+    if !rest.is_empty() {
+        badges.push(Badge::More(rest));
+    }
+    badges
+}
+
+impl Badge {
+    /// What the pill shows next to the Monitor icon: the monitor number, "All" or "+N".
+    pub fn text(&self) -> SharedString {
+        match self {
+            Self::Monitor(number) => SharedString::from(number.to_string()),
+            Self::All => tr("Portal.LibraryCard.MonitorBadgeAllLabel"),
+            Self::More(rest) => SharedString::from(format!("+{}", rest.len())),
+        }
+    }
+
+    /// The accessible description of the badge; the tooltip of the "+N" badge, which lists the monitors it stands for.
+    pub fn description(&self) -> SharedString {
+        match self {
+            Self::Monitor(number) => tr_with("Portal.LibraryCard.MonitorBadge", &[("number", &number.to_string())]),
+            Self::All => tr("Portal.LibraryCard.MonitorBadgeAll"),
+            Self::More(rest) => {
+                let list = rest.iter().map(u8::to_string).collect::<Vec<_>>().join(", ");
+                tr_count_with("Portal.LibraryCard.MonitorBadgeMore", rest.len(), &[("list", &list)])
+            }
+        }
+    }
+
+    /// Whether the pill starts with the Monitor icon ("+N" is text only).
+    fn has_icon(&self) -> bool {
+        !matches!(self, Self::More(_))
+    }
 }
 
 /// Whether the title strip shows: it hides only while a preview plays and `LibraryPreviewHide` is on (LIB-06).
@@ -214,6 +268,13 @@ pub fn render_card(data: CardData, width: Pixels, cx: &App) -> impl IntoElement 
     let on_arrow = Rc::clone(&data.on_arrow);
     let on_hover = Rc::clone(&data.on_hover);
     let show_strip = strip_visible(data.preview.is_some(), data.preview_hide);
+    let selected = data.selected;
+    let badge_pills: Vec<Stateful<Div>> = data
+        .badges
+        .into_iter()
+        .enumerate()
+        .map(|(position, badge)| render_badge(index, position, badge))
+        .collect();
     let label = data.title.clone();
     let enabled = data.state.is_enabled();
     let disabled_reason = match data.state {
@@ -337,24 +398,35 @@ pub fn render_card(data: CardData, width: Pixels, cx: &App) -> impl IntoElement 
             )
         })
         .when(show_strip, |card| card.child(strip))
-        .when(data.selected, |card| {
+        // The Selected pill and, right of it with an 8 px gap, the monitor badges (UI-SPEC E6).
+        .when(selected || !badge_pills.is_empty(), |card| {
             card.child(
                 div()
-                    .id(("library-card-selected", index))
+                    .id(("library-card-pills", index))
                     .absolute()
                     .top_2()
                     .left_2()
                     .flex()
                     .items_center()
-                    .gap_1()
-                    .h(px(24.))
-                    .px_2()
-                    .rounded_full()
-                    .bg(theme.primary)
-                    .text_color(theme.primary_foreground)
-                    .text_size(px(12.))
-                    .child(Icon::new(IconName::Check).with_size(px(14.)))
-                    .child(tr("Portal.LibraryCard.Selected")),
+                    .gap_2()
+                    .when(selected, |row| {
+                        row.child(
+                            div()
+                                .id(("library-card-selected", index))
+                                .flex()
+                                .items_center()
+                                .gap_1()
+                                .h(px(24.))
+                                .px_2()
+                                .rounded_full()
+                                .bg(theme.primary)
+                                .text_color(theme.primary_foreground)
+                                .text_size(px(12.))
+                                .child(Icon::new(IconName::Check).with_size(px(14.)))
+                                .child(tr("Portal.LibraryCard.Selected")),
+                        )
+                    })
+                    .children(badge_pills),
             )
         })
         .when(data.pending, |card| {
@@ -390,6 +462,35 @@ pub fn render_card(data: CardData, width: Pixels, cx: &App) -> impl IntoElement 
         })
 }
 
+/// One monitor badge: a neutral pill (black at 55 % with white text, an image-overlay exception), 20 px high, with the
+/// Monitor icon and the number, "All" or "+N". It is decoration with an accessible description and no click of its own,
+/// so a click on it reaches the card; only the "+N" badge has a tooltip, which lists the monitors it stands for.
+fn render_badge(card: usize, position: usize, badge: Badge) -> Stateful<Div> {
+    let description = badge.description();
+    let list = matches!(badge, Badge::More(_)).then(|| description.clone());
+    div()
+        // Up to MAX_MONITOR_BADGES + 1 badges per card, so card * 4 + position never repeats on a page.
+        .id(("library-card-badge", card * 4 + position))
+        .flex()
+        .items_center()
+        .gap_1()
+        .h(px(20.))
+        .px_2()
+        .rounded_full()
+        .bg(black().opacity(0.55))
+        .text_color(white())
+        .text_size(px(12.))
+        .role(Role::Image)
+        .aria_label(description)
+        .when(badge.has_icon(), |pill| {
+            pill.child(Icon::new(IconName::Monitor).with_size(px(12.)))
+        })
+        .child(badge.text())
+        .when_some(list, |pill, text| {
+            pill.tooltip(move |window, cx| Tooltip::new(text.clone()).build(window, cx))
+        })
+}
+
 /// A card-sized placeholder for the grid that shows while the library is scanned.
 pub fn render_skeleton_card(width: Pixels) -> impl IntoElement {
     Skeleton::new().flex_none().w(width).h(px(CARD_HEIGHT)).rounded(px(8.))
@@ -402,11 +503,11 @@ mod tests {
         Badge, CardData, CardUse, DisabledReason, Thumb, monitor_badges, render_card, strip_visible, use_state,
     };
     use gpui_kit::{
-        Context, FocusHandle, ImageSource, IntoElement, Render, RenderImage, Styled as _, TestAppContext,
-        VisualTestContext, Window, img, px,
+        Context, FocusHandle, ImageSource, IntoElement, Modifiers, Render, RenderImage, Styled as _, TestAppContext,
+        VisualTestContext, Window, img, point, px,
     };
     use image::{Delay, Frame, Rgba, RgbaImage};
-    use std::{path::PathBuf, rc::Rc, sync::Arc, time::Duration};
+    use std::{cell::Cell, path::PathBuf, rc::Rc, sync::Arc, time::Duration};
     use sucrose_core::settings::DisplayScreenType;
     use sucrose_core::{
         library::{Compatibility, LibraryTheme},
@@ -837,6 +938,87 @@ mod tests {
         assert!(badges(&gone, DisplayScreenType::SameDuplicate).is_empty());
     }
 
+    #[test]
+    fn badges_say_where_in_the_words_of_the_ui_spec() {
+        assert_eq!(&*Badge::Monitor(1).text(), "1");
+        assert_eq!(&*Badge::Monitor(1).description(), "Playing on monitor 1");
+        assert_eq!(&*Badge::All.text(), "All");
+        assert_eq!(&*Badge::All.description(), "Playing on all monitors");
+        assert_eq!(&*Badge::More(vec![9]).text(), "+1");
+        assert_eq!(&*Badge::More(vec![9]).description(), "Also playing on monitor 9");
+        assert_eq!(&*Badge::More(vec![3, 4, 9]).text(), "+3");
+        assert_eq!(
+            &*Badge::More(vec![3, 4, 9]).description(),
+            "Also playing on monitors 3, 4, 9"
+        );
+    }
+
+    /// A window root that shows one card with `badges` (and the Selected pill when `selected`); a click counts as Use.
+    struct BadgeHost {
+        badges: Vec<Badge>,
+        selected: bool,
+        used: Rc<Cell<usize>>,
+        focus: FocusHandle,
+    }
+
+    impl Render for BadgeHost {
+        fn render(&mut self, _: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
+            let used = self.used.clone();
+            let data = CardData {
+                index: 0,
+                title: "Rain".into(),
+                description: None,
+                thumb: Thumb::Failed,
+                needs_newer_app: false,
+                selected: self.selected,
+                badges: self.badges.clone(),
+                pending: false,
+                state: CardUse::Enabled,
+                focus: self.focus.clone(),
+                on_use: Rc::new(move |_, _| used.set(used.get() + 1)),
+                on_arrow: Rc::new(|_, _, _| {}),
+                preview: None,
+                preview_hide: false,
+                on_hover: Rc::new(|_, _, _| {}),
+            };
+            render_card(data, px(240.), cx)
+        }
+    }
+
+    #[gpui_kit::test]
+    fn a_click_on_a_badge_is_a_click_on_the_card_and_nothing_else(cx: &mut TestAppContext) {
+        cx.update(gpui_kit::init);
+        let used = Rc::new(Cell::new(0));
+        let shared = used.clone();
+        let (_, window) = cx.add_window_view(|_, cx| BadgeHost {
+            badges: vec![Badge::Monitor(1), Badge::Monitor(9), Badge::More(vec![3, 4])],
+            selected: true,
+            used: shared,
+            focus: cx.focus_handle(),
+        });
+        window.run_until_parked();
+        // The Selected pill is about 90 px wide at the card's top-left corner: 8 px inset, 8 px gap, then the badges.
+        window.simulate_click(point(px(130.), px(18.)), Modifiers::default());
+        window.run_until_parked();
+        assert_eq!(used.get(), 1, "the card got the click");
+    }
+
+    #[gpui_kit::test]
+    fn badges_render_without_the_selected_pill_and_with_it(cx: &mut TestAppContext) {
+        cx.update(gpui_kit::init);
+        for selected in [false, true] {
+            for badges in [vec![], vec![Badge::All], vec![Badge::Monitor(1), Badge::Monitor(9)]] {
+                let (_, window) = cx.add_window_view(|_, cx| BadgeHost {
+                    badges,
+                    selected,
+                    used: Rc::new(Cell::new(0)),
+                    focus: cx.focus_handle(),
+                });
+                window.run_until_parked();
+            }
+        }
+    }
+
     /// A two-frame image whose frames last 20 ms each.
     fn two_frames() -> Arc<RenderImage> {
         let frame = || {
@@ -865,6 +1047,7 @@ mod tests {
                 thumb: Thumb::Failed,
                 needs_newer_app: false,
                 selected: false,
+                badges: Vec::new(),
                 pending: false,
                 state: CardUse::Enabled,
                 focus: self.focus.clone(),

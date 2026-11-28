@@ -28,7 +28,7 @@ use gpui_kit::*;
 use sucrose_core::{
     library::{self, LibraryTheme},
     paths,
-    settings::{SortKind, SortMode},
+    settings::{DisplayScreenType, SortKind, SortMode},
     version::app_version,
 };
 use sucrose_ipc::portal::{EngineReportView, MaintainReport, PortalRequest, PortalSettings, RuntimeState, UseOutcome};
@@ -62,6 +62,8 @@ struct LibrarySettings {
     preview: bool,
     /// Whether the title strip hides while a preview plays.
     preview_hide: bool,
+    /// How wallpapers spread over the monitors: decides whether a card shows one badge per monitor or "All".
+    display_screen_type: DisplayScreenType,
 }
 
 /// What the OS calls the place deleted items wait in (UI-SPEC: "Recycle Bin" on Windows, "Trash" on macOS and Linux).
@@ -98,6 +100,7 @@ impl LibrarySettings {
             sort_kind: settings.library_sort_kind,
             preview: settings.library_preview,
             preview_hide: settings.library_preview_hide,
+            display_screen_type: settings.display_screen_type,
         }
     }
 }
@@ -864,6 +867,10 @@ impl LibraryView {
                     }
                 })
             };
+            let displays = self
+                .runtime
+                .as_ref()
+                .map_or(&[][..], |runtime| runtime.displays.as_slice());
             let selected = self
                 .runtime
                 .as_ref()
@@ -875,6 +882,7 @@ impl LibraryView {
                 thumb,
                 needs_newer_app: matches!(theme.compatibility, library::Compatibility::NeedsNewerApp { .. }),
                 selected,
+                badges: card::monitor_badges(&theme.folder, displays, settings.display_screen_type),
                 pending: self.pending_use.as_deref() == Some(&theme.folder),
                 state: card::use_state(theme, self.runtime.as_ref(), self.engines.as_ref(), self.connected),
                 focus: handles[position].clone(),
@@ -1028,7 +1036,7 @@ mod tests {
         assert_eq!(bin_name_for("linux"), "Trash");
     }
 
-    use sucrose_core::settings::{SortKind, SortMode};
+    use sucrose_core::settings::{DisplayScreenType, SortKind, SortMode};
 
     use super::{LibrarySettings, layout, page_after_settings_change, preview_stopped_by, thumb_for};
     use crate::library::card::Thumb;
@@ -1063,6 +1071,7 @@ mod tests {
             sort_kind: SortKind::Descending,
             preview: false,
             preview_hide: false,
+            display_screen_type: DisplayScreenType::PerDisplay,
         }
     }
 
