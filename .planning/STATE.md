@@ -3,16 +3,16 @@ gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
-stopped_at: Completed 04-37-PLAN.md
-last_updated: "2026-11-27T23:25:09.150Z"
+stopped_at: Completed 04-38-PLAN.md
+last_updated: "2026-11-28T00:39:06.276Z"
 last_activity: 2026-11-28
-last_activity_desc: Planned 04-39 (re-check of the failed 04-37 steps)
-state_head: 158603ecd0b034bcc075bf5e8e772ea2aa3195a5
+last_activity_desc: Phase 04 execution started
+state_head: 750f2c07a08f7b79cb379099ff755c2c5fec16a8
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 118
-  completed_plans: 116
+  completed_plans: 117
   percent: 38
 ---
 
@@ -27,11 +27,11 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 
 ## Current Position
 
-Phase: 04 (M3 — Engines and the wallpaper API) — READY TO EXECUTE
-Plan: 38 of 39
+Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
+Plan: 39 of 39
 Status: Ready to execute
-Last activity: 2026-11-28 - Planned 04-39 (re-check of the failed 04-37 steps, /gsd-plan-phase 4 "Add more plans"); completed quick task 261128-0du: WebView2 SmartScreen setting (D-041); quick batch 261127-uor done the same night
-Next step: one maintainer sitting: 04-38 (measurement, DISPLAY9 off; use a build with a0e22d9a and e747c7be or later), then 04-39 (planned 2026-11-28: re-check of the failed 04-37 steps after the debug batch, with DISPLAY9 attached: A1/A3, A5-CEF, B2-WV2, B3, B4 with the public playlist that plays embedded (PLATNX_t55hdpWZS7sShzhjQIw5q6WEG5w or PLk6n5YKD7kakme_X3SjKHTl9AlKYrd78z), B5 with Ray Music Visualizer or the audio fixture, the D-040 storage eye check and fast WebView2 switching; Task 1 proves the build and runs the machine proofs S3..S7 and P1 unattended). 04-38's last step reopens the C# app: ask the maintainer to close it again (tray) before 04-39 Task 1. Open findings: D13 (occasional duplicate mousedown), the WebView2 software decode of the 4K VP9 clip (Round D), BROWSER_EXIT_WAIT 1 s is tight under a full parallel test run (one 1034 ms exit seen).
+Last activity: 2026-11-28 — Phase 04 execution started
+Next step: 04-39 (04-38 done 2026-11-28: the measurement rows are in docs/MEASUREMENTS.md; the C# app is closed and DISPLAY9 is attached again; planned 2026-11-28: re-check of the failed 04-37 steps after the debug batch, with DISPLAY9 attached: A1/A3, A5-CEF, B2-WV2, B3, B4 with the public playlist that plays embedded (PLATNX_t55hdpWZS7sShzhjQIw5q6WEG5w or PLk6n5YKD7kakme_X3SjKHTl9AlKYrd78z), B5 with Ray Music Visualizer or the audio fixture, the D-040 storage eye check and fast WebView2 switching; Task 1 proves the build and runs the machine proofs S3..S7 and P1 unattended). Open findings: D13 (occasional duplicate mousedown), the WebView2 software decode of the 4K VP9 clip (Round D), BROWSER_EXIT_WAIT 1 s is tight under a full parallel test run (one 1034 ms exit seen).
 
 Progress: [████░░░░░░] 38%
 
@@ -171,6 +171,7 @@ Progress: [████░░░░░░] 38%
 | Phase 04 P35 | 19 min | 2 tasks | 17 files |
 | Phase 04 P36 | 21 min | 2 tasks | 6 files |
 | Phase 04 P37 | 35min | 3 tasks | 1 files |
+| Phase 04 P38 | 75 min | 3 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -362,6 +363,8 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-37 D9 decided by the maintainer (2026-11-27): with several monitors the persistent web profile goes to the primary monitor (amends 04-CONTEXT D-33); build it together with the D10 fix (slot-1 profile folder still locked after a quick switch, os error 32)
 - [Phase 04]: 04-29 album art over the 2 MiB blob cap: re-encode (downscale) the art so it fits under BLOB_MAX, do not raise the cap (maintainer left the choice to the orchestrator; low resource use, the page only shows a thumbnail)
 - [Phase 04]: 04-33 GIF decoder bundle in GifContent.html (gifuct-js + jsBinarySchemaParser, MIT upstream, notice added): license reading confirmed by the maintainer (2026-11-27)
+- [Phase 04]: 04-38: M3 WebView2 row is Rust-only because --row refused the pair (GPU adapter sets differ, G-02-6); C# numbers are in the paragraph; the tool was not changed
+- [Phase 04]: 04-38: built-in GIF renderer uses less RAM than Rust/C# mpv but more CPU and GPU time; recorded as found, flagged for /gsd-verify-work, not tuned
 
 ### Pending Todos
 
@@ -420,6 +423,6 @@ Items acknowledged and deferred at milestone close, most recent first:
 
 ## Session Continuity
 
-Last session: 2026-11-27T12:32:18.319Z
-Stopped at: Completed 04-37-PLAN.md
+Last session: 2026-11-28T00:38:42.372Z
+Stopped at: Completed 04-38-PLAN.md
 Resume file: None
