@@ -10,10 +10,16 @@ use sucrose_core::{
     compatible::{CompatibleKey, DataGroup},
     properties::PropertiesError,
     settings::Stretch,
+    theme::WallpaperType,
 };
 use sucrose_engine_web::{
+    args::WebEngine,
     js::{self, KIND_COMPATIBLE, KIND_PROPERTY, LEGACY_RUN_ORDER, PageCall},
-    page::{Complaints, PageKind, PageState, describe, load_templates, page_calls, push_calls, wanted_groups},
+    page::{
+        Complaints, PageKind, PageState, describe, load_templates, page_calls, property_change_calls,
+        property_listener, push_calls, wanted_groups,
+    },
+    pages::GeneratedPage,
 };
 
 /// A scratch theme folder with the given `SucroseProperties.json` and `SucroseCompatible.json` texts (none: no file),
@@ -379,4 +385,152 @@ fn the_page_kind_of_a_wallpaper_decides_its_pages_and_whether_it_takes_input() {
             "a Url page has no theme files to read"
         );
     }
+}
+
+/// A state whose assignment named the working copy `copy`.
+fn state_with_copy(copy: &Path) -> PageState {
+    fresh_state().with_working_copy(Some(copy.to_path_buf()))
+}
+
+const COPY: &str = r#"{"PropertyListener":"g('{0}', {1});","PropertyList":{"a":{"type":"textbox","value":"mine"},"c":{"type":"checkbox","value":false}}}"#;
+
+#[test]
+fn a_theme_page_builds_its_property_calls_from_the_working_copy_when_the_assignment_names_one() {
+    let theme = Theme::new(Some(TWO_PROPERTIES), None);
+    let copy = Theme::new(Some(COPY), None);
+    let state = state_with_copy(&copy.0.join("SucroseProperties.json"));
+
+    let calls = page_calls(PageKind::Theme, &theme.0, 200, &state, &Complaints::default());
+
+    assert_eq!(
+        keys(&calls),
+        ["property:a", "property:c"],
+        "the copy's list, not the theme's"
+    );
+    assert!(calls[0].script.starts_with("g('a', "), "{}", calls[0].script);
+    assert!(
+        calls[0].script.contains("mine"),
+        "the user's value: {}",
+        calls[0].script
+    );
+}
+
+#[test]
+fn a_page_without_a_working_copy_builds_its_calls_as_before() {
+    let theme = Theme::new(Some(TWO_PROPERTIES), None);
+
+    let calls = page_calls(PageKind::Theme, &theme.0, 200, &fresh_state(), &Complaints::default());
+
+    assert_eq!(keys(&calls), ["property:b", "property:a"]);
+}
+
+#[test]
+fn a_working_copy_that_cannot_be_read_falls_back_to_the_source_with_one_complaint() {
+    let theme = Theme::new(Some(TWO_PROPERTIES), None);
+    let copy = Theme::new(Some("{ not json"), None);
+    let state = state_with_copy(&copy.0.join("SucroseProperties.json"));
+    let complaints = Complaints::default();
+
+    let first = page_calls(PageKind::Theme, &theme.0, 200, &state, &complaints);
+    let reload = page_calls(PageKind::Theme, &theme.0, 200, &state, &complaints);
+
+    assert_eq!(keys(&first), ["property:b", "property:a"], "the theme's own file plays");
+    assert_eq!(first, reload);
+    assert!(complaints.copy.load(Ordering::SeqCst), "reported once per renderer");
+    let missing = state_with_copy(&copy.0.join("Nothing.json"));
+    let calls = page_calls(PageKind::Theme, &theme.0, 200, &missing, &Complaints::default());
+    assert_eq!(
+        keys(&calls),
+        ["property:b", "property:a"],
+        "a missing copy is no failure either"
+    );
+}
+
+#[test]
+fn a_generated_page_takes_the_set_of_its_working_copy_instead_of_the_built_in_one() {
+    let theme = Theme::new(None, None);
+    let copy = Theme::new(Some(COPY), None);
+    let kind = PageKind::for_wallpaper(WallpaperType::Gif, WebEngine::Cef);
+    let without = page_calls(kind, &theme.0, 200, &fresh_state(), &Complaints::default());
+    let state = state_with_copy(&copy.0.join("SucroseProperties.json"));
+
+    let with = page_calls(kind, &theme.0, 200, &state, &Complaints::default());
+
+    let property_keys = |calls: &[PageCall]| -> Vec<String> {
+        calls
+            .iter()
+            .filter(|call| call.kind == KIND_PROPERTY)
+            .map(|call| call.key.clone())
+            .collect()
+    };
+    assert_eq!(property_keys(&with), ["a", "c"]);
+    assert!(property_keys(&without).len() > 2, "the built-in set has more controls");
+    assert_eq!(
+        with.iter().filter(|call| call.kind != KIND_PROPERTY).count(),
+        without.iter().filter(|call| call.kind != KIND_PROPERTY).count(),
+        "the engine values run as before"
+    );
+}
+
+#[test]
+fn the_listener_of_a_change_is_the_copys_else_the_built_in_sets_else_the_themes_and_a_url_page_has_none() {
+    let theme = Theme::new(Some(TWO_PROPERTIES), None);
+    let copy = Theme::new(Some(COPY), None);
+    let with_copy = state_with_copy(&copy.0.join("SucroseProperties.json"));
+    let generated = PageKind::Generated(
+        GeneratedPage::Gif,
+        sucrose_engine_web::pages::builtin_set(WebEngine::Cef),
+    );
+
+    assert_eq!(
+        property_listener(PageKind::Theme, &theme.0, &with_copy),
+        "g('{0}', {1});"
+    );
+    assert_eq!(
+        property_listener(PageKind::Theme, &theme.0, &fresh_state()),
+        "f('{0}', {1});"
+    );
+    assert_eq!(property_listener(generated, &theme.0, &with_copy), "g('{0}', {1});");
+    assert_eq!(
+        property_listener(generated, &theme.0, &fresh_state()),
+        "SucrosePropertyListener('{0}', {1});"
+    );
+    assert_eq!(property_listener(PageKind::Url, &theme.0, &with_copy), "");
+}
+
+#[test]
+fn the_waiting_changes_become_calls_in_order_and_an_empty_listener_makes_none() {
+    let changes = vec![
+        ("amount".to_owned(), r#"{"type":"slider","value":2.5}"#.to_owned()),
+        ("bad".to_owned(), "[1]".to_owned()),
+        ("name".to_owned(), r#"{"type":"textbox","value":"a"}"#.to_owned()),
+    ];
+
+    let calls = property_change_calls("f('{0}', {1});", changes.clone());
+
+    assert_eq!(
+        keys(&calls),
+        ["property:amount", "property:name"],
+        "a non-object is left out"
+    );
+    assert!(calls[0].script.contains("2.5"));
+    assert!(property_change_calls("", changes).is_empty());
+}
+
+#[test]
+fn a_property_change_of_a_key_that_waits_replaces_its_control() {
+    let state = fresh_state();
+
+    state.push_property("amount", "{\"value\":1}");
+    state.push_property("name", "{\"value\":\"a\"}");
+    state.push_property("amount", "{\"value\":2.5}");
+
+    assert_eq!(
+        state.take_properties(),
+        [
+            ("amount".to_owned(), "{\"value\":2.5}".to_owned()),
+            ("name".to_owned(), "{\"value\":\"a\"}".to_owned())
+        ]
+    );
+    assert!(state.take_properties().is_empty());
 }

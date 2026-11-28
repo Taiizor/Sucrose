@@ -4,7 +4,7 @@
 //! code and no IPC type: each engine builds [`PageState`] from its own assignment (`sucrose-ipc` depends on this crate).
 
 use std::{
-    path::Path,
+    path::{Path, PathBuf},
     sync::{
         Mutex, PoisonError,
         atomic::{AtomicBool, AtomicU8, AtomicU64, Ordering},
@@ -14,7 +14,7 @@ use std::{
 use serde_json::Value;
 use sucrose_core::{
     compatible::{COMPATIBLE_FILE, CompatibleKey, DataGroup, read_compatible},
-    properties::{PropertiesError, SucroseProperties},
+    properties::{PROPERTIES_FILE, PropertiesError, SucroseProperties, read_properties},
     settings::Stretch,
     theme::WallpaperType,
 };
@@ -91,6 +91,13 @@ pub struct PageState {
     theme_type: String,
     /// The newest snapshot of each system data group the service pushed.
     data: Mutex<Vec<(DataGroup, Value)>>,
+    /// The working copy of the page's properties the assignment named (PROP-05, D-20), when there is one: the page
+    /// takes its property calls from it instead of the theme's own file or the built-in set.
+    working_copy: Option<PathBuf>,
+    /// The property changes not yet handed to the page, oldest first, the newest control of each key (PROP-02). A
+    /// change of a key that waits replaces its control, so a fast drag keeps the last value and the page is told in
+    /// the order the keys first changed.
+    properties: Mutex<Vec<(String, String)>>,
 }
 
 impl PageState {
@@ -114,7 +121,37 @@ impl PageState {
             time_base: AtomicU64::new(0),
             theme_type: theme_type.into(),
             data: Mutex::new(Vec::new()),
+            working_copy: None,
+            properties: Mutex::new(Vec::new()),
         }
+    }
+
+    /// The state that takes the page's property calls from `working_copy` (the assignment's `properties`), when it names one.
+    #[must_use]
+    pub fn with_working_copy(mut self, working_copy: Option<PathBuf>) -> Self {
+        self.working_copy = working_copy;
+        self
+    }
+
+    /// The working copy of the page's properties, when the assignment named one.
+    #[must_use]
+    pub fn working_copy(&self) -> Option<&Path> {
+        self.working_copy.as_deref()
+    }
+
+    /// Keeps a changed control for the page; the newest control of a key that already waits replaces the older one.
+    pub fn push_property(&self, key: &str, control: &str) {
+        let mut waiting = self.properties.lock().unwrap_or_else(PoisonError::into_inner);
+        match waiting.iter_mut().find(|(waiting_key, _)| waiting_key == key) {
+            Some(entry) => entry.1 = control.to_owned(),
+            None => waiting.push((key.to_owned(), control.to_owned())),
+        }
+    }
+
+    /// Takes the waiting property changes, oldest key first.
+    #[must_use]
+    pub fn take_properties(&self) -> Vec<(String, String)> {
+        std::mem::take(&mut *self.properties.lock().unwrap_or_else(PoisonError::into_inner))
     }
 
     /// Whether the renderer was last told to pause.
@@ -239,6 +276,8 @@ pub struct Complaints {
     pub properties: AtomicBool,
     /// `SucroseCompatible.json` was reported.
     pub compatible: AtomicBool,
+    /// The working copy was reported: either it was used (`properties from working copy`) or it could not be read.
+    pub copy: AtomicBool,
 }
 
 /// A reason for a log line that names what is wrong with a theme file without its path or its text (D-08).
@@ -322,8 +361,9 @@ pub fn page_calls(
             Vec::new()
         };
     }
+    let copy = working_set(state, complaints);
     if let PageKind::Generated(page, set) = kind {
-        let mut calls = js::property_calls_of(set, theme_dir);
+        let mut calls = js::property_calls_of(copy.as_ref().unwrap_or(set), theme_dir);
         calls.extend(engine_calls(page, state));
         if state.paused() {
             calls.push(js::pause_call(true));
@@ -336,7 +376,11 @@ pub fn page_calls(
         );
         return calls;
     }
-    let mut calls = match js::property_calls(theme_dir) {
+    let calls = match copy {
+        Some(set) => Ok(js::property_calls_from(&set, theme_dir)),
+        None => js::property_calls(theme_dir),
+    };
+    let mut calls = match calls {
         Ok(calls) => calls,
         Err(error) => {
             if !complaints.properties.swap(true, Ordering::SeqCst) {
@@ -357,6 +401,59 @@ pub fn page_calls(
         calls.push(js::pause_call(true));
     }
     calls
+}
+
+/// The set of the working copy the assignment named, read for a page load. A copy that cannot be read is reported once per
+/// renderer (its reason, never its path or text) and the page takes the properties of its source instead (T-04-108); one
+/// that can is reported once as `properties from working copy`.
+fn working_set(state: &PageState, complaints: &Complaints) -> Option<SucroseProperties> {
+    let path = state.working_copy()?;
+    match read_properties(path) {
+        Ok(set) => {
+            if !complaints.copy.swap(true, Ordering::SeqCst) {
+                tracing::info!(
+                    copy = %path.file_name().map(|name| name.to_string_lossy().into_owned()).unwrap_or_default(),
+                    "properties from working copy"
+                );
+            }
+            Some(set)
+        }
+        Err(error) => {
+            if !complaints.copy.swap(true, Ordering::SeqCst) {
+                tracing::warn!(reason = %describe(&error), "the working copy cannot be used, the page gets the properties of its source");
+            }
+            None
+        }
+    }
+}
+
+/// The listener format a property change of the editor is told to the page with: the working copy's when it can be read,
+/// else the built-in set's (a generated page) or the theme's own file's (a Web theme). A Url page has no listener, and a
+/// theme without a usable one gets an empty text, which makes no call.
+#[must_use]
+pub fn property_listener(kind: PageKind, theme_dir: &Path, state: &PageState) -> String {
+    if matches!(kind, PageKind::Url) {
+        return String::new();
+    }
+    if let Some(set) = state.working_copy().and_then(|path| read_properties(path).ok()) {
+        return set.listener;
+    }
+    match kind {
+        PageKind::Generated(_, set) => set.listener.clone(),
+        PageKind::Theme | PageKind::Url => read_properties(&theme_dir.join(PROPERTIES_FILE))
+            .map(|properties| properties.listener)
+            .unwrap_or_default(),
+    }
+}
+
+/// The page calls of the waiting property changes (`state.take_properties()`), one per change in order, with the page's
+/// `listener`. A change that makes no call (an empty listener, a control that is no JSON object) is left out.
+#[must_use]
+pub fn property_change_calls(listener: &str, changes: Vec<(String, String)>) -> Vec<PageCall> {
+    changes
+        .into_iter()
+        .filter_map(|(key, control)| js::apply_property_call(listener, &key, &control))
+        .collect()
 }
 
 /// The script a Web or Url page gets at document start, before its own scripts: the sync shim of the time base, when the

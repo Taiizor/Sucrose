@@ -14,10 +14,15 @@ use std::{
     time::{Duration, Instant},
 };
 
-use sucrose_core::properties::{
-    Control, ControlKind, PROPERTIES_FILE, PropertiesError, SucroseProperties, parse_properties, properties_text,
-    read_properties,
+use sucrose_core::{
+    properties::{
+        Control, ControlKind, PROPERTIES_FILE, PropertiesError, SucroseProperties, parse_properties, properties_text,
+        read_properties,
+    },
+    theme::WallpaperType,
 };
+use sucrose_engine::EngineId;
+use sucrose_engine_web::{args::WebEngine, pages};
 use sucrose_ipc::{blob::BLOB_MAX, portal::MAX_PROPERTY_CONTROL};
 
 /// The most often a working copy is written while the user keeps changing it (a drag sends a change every 50 ms).
@@ -25,6 +30,70 @@ pub const WRITE_INTERVAL: Duration = Duration::from_millis(300);
 
 /// The kind of a web theme's own property file: the working copy is `<Theme>Base`.
 pub const BASE: &str = "Base";
+
+/// Which property set a wallpaper has, named as the legacy app names its caches (`<Theme><Type>`, D-20, engines.md §7).
+/// The sets of mpv (`MpvPlayer`) and of Sucrose's own mute and volume (`Sucrose`) follow in later plans.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum PropertiesKind {
+    /// A Web theme's own `SucroseProperties.json`.
+    Base,
+    /// The built-in set of the generated pages on WebView2 (Gif, Video and YouTube themes).
+    WebView,
+    /// The built-in set of the generated pages on CEF (Gif, Video and YouTube themes).
+    CefSharp,
+}
+
+impl PropertiesKind {
+    /// The legacy type name that ends the working copy's file name.
+    #[must_use]
+    pub const fn suffix(self) -> &'static str {
+        match self {
+            Self::Base => BASE,
+            Self::WebView => "WebView",
+            Self::CefSharp => "CefSharp",
+        }
+    }
+}
+
+/// Which working copy a wallpaper of `wallpaper` on `engine` has (engines.md §7, services.md §6): a Web theme with its own
+/// file uses `Base` on either web engine; a Gif, Video or YouTube theme uses `WebView` on WebView2 and `CefSharp` on CEF,
+/// from that engine's built-in set (the theme's own file is ignored for them, as in the legacy app). A Web theme without
+/// its file, a URL wallpaper, the built-in GIF renderer and every other engine have none here.
+#[must_use]
+pub fn kind_for(wallpaper: WallpaperType, engine: EngineId, theme_dir: &Path) -> Option<PropertiesKind> {
+    match (wallpaper, engine) {
+        (WallpaperType::Web, EngineId::Cef | EngineId::WebView2) => theme_dir
+            .join(PROPERTIES_FILE)
+            .is_file()
+            .then_some(PropertiesKind::Base),
+        (WallpaperType::Gif | WallpaperType::Video | WallpaperType::YouTube, EngineId::Cef) => {
+            Some(PropertiesKind::CefSharp)
+        }
+        (WallpaperType::Gif | WallpaperType::Video | WallpaperType::YouTube, EngineId::WebView2) => {
+            Some(PropertiesKind::WebView)
+        }
+        _ => None,
+    }
+}
+
+/// The set a working copy of `kind` starts from: the theme's own file for `Base`, the engine's built-in set for the others.
+///
+/// # Errors
+/// The read error of a `Base` theme's file.
+pub fn source_for(kind: PropertiesKind, theme_dir: &Path) -> Result<SucroseProperties, PropertiesError> {
+    match kind {
+        PropertiesKind::Base => read_properties(&theme_dir.join(PROPERTIES_FILE)),
+        PropertiesKind::WebView => Ok(pages::builtin_set(WebEngine::WebView2).clone()),
+        PropertiesKind::CefSharp => Ok(pages::builtin_set(WebEngine::Cef).clone()),
+    }
+}
+
+/// Where the working copy of theme folder `folder` of `kind` is in `dir` (`<data_dir>/Properties`); `None` for a folder
+/// name that is not one plain name.
+#[must_use]
+pub fn copy_path(dir: &Path, folder: &str, kind: PropertiesKind) -> Option<PathBuf> {
+    plain_name(folder).then(|| dir.join(working_copy_name(folder, kind.suffix())))
+}
 
 /// The name of a working copy: the theme folder and the kind, as the C# app names its caches.
 #[must_use]
@@ -63,6 +132,10 @@ pub fn is_delta(name: &str) -> bool {
 /// # Errors
 /// The I/O error that stopped the copy; the staging folder is removed then.
 pub fn ensure_imported(from: Option<&Path>, to: &Path) -> io::Result<usize> {
+    // The service imports once before its first wallpaper and the property worker asks again: one at a time, so the
+    // second finds the folder renamed into place and does nothing.
+    static IMPORTING: std::sync::Mutex<()> = std::sync::Mutex::new(());
+    let _one_at_a_time = IMPORTING.lock().unwrap_or_else(std::sync::PoisonError::into_inner);
     let Some(from) = from.filter(|from| from.is_dir()) else {
         return Ok(0);
     };
@@ -158,6 +231,7 @@ pub enum Refusal {
 }
 
 struct Open {
+    kind: PropertiesKind,
     copy: PathBuf,
     properties: SucroseProperties,
     /// The instant the next write is due; set by the first change after a write and not moved by later ones, so a
@@ -186,27 +260,26 @@ impl PropertiesHost {
         }
     }
 
-    /// Opens the properties of the theme in library folder `folder`, whose own file is `theme_dir/SucroseProperties.json`.
-    /// The working copy is read when there is one (the user's values), the theme's file otherwise; opening writes
-    /// nothing. A document that is open already is returned as it is in memory.
+    /// Opens the properties of the theme in library folder `folder` as `kind`, whose source is [`source_for`].
+    /// The working copy is read when there is one (the user's values, also a C# copy imported by D-20), its source
+    /// otherwise; opening writes nothing. A document that is open already is returned as it is in memory.
     ///
     /// # Errors
     /// [`OpenError`] when there is nothing to edit or it cannot be read.
-    pub fn open(&mut self, folder: &str, theme_dir: &Path) -> Result<Opened, OpenError> {
-        if !plain_name(folder) {
-            return Err(OpenError::Unreadable);
-        }
+    pub fn open(&mut self, folder: &str, kind: PropertiesKind, theme_dir: &Path) -> Result<Opened, OpenError> {
         let dir = self.dir.clone().ok_or(OpenError::Unreadable)?;
+        let copy = copy_path(&dir, folder, kind).ok_or(OpenError::Unreadable)?;
+        // The theme's engine changed since it was opened (another set): the old document is saved and left.
+        if self.open.get(folder).is_some_and(|document| document.kind != kind) {
+            let _ = self.close(folder);
+        }
         if !self.open.contains_key(folder) {
-            let copy = dir.join(working_copy_name(folder, BASE));
             let properties = match read_properties(&copy) {
                 Ok(properties) => properties,
-                Err(PropertiesError::Missing(_)) => {
-                    read_properties(&theme_dir.join(PROPERTIES_FILE)).map_err(|error| match error {
-                        PropertiesError::Missing(_) => OpenError::NoProperties,
-                        _ => OpenError::Unreadable,
-                    })?
-                }
+                Err(PropertiesError::Missing(_)) => source_for(kind, theme_dir).map_err(|error| match error {
+                    PropertiesError::Missing(_) => OpenError::NoProperties,
+                    _ => OpenError::Unreadable,
+                })?,
                 // An unreadable copy is never replaced by the theme's file: it may be the user's, and the next save
                 // would overwrite it.
                 Err(_) => return Err(OpenError::Unreadable),
@@ -217,6 +290,7 @@ impl PropertiesHost {
             self.open.insert(
                 folder.to_owned(),
                 Open {
+                    kind,
                     copy,
                     properties,
                     due: None,
@@ -567,7 +641,7 @@ mod tests {
     fn opening_reads_the_theme_file_and_writes_nothing() {
         let (scratch, mut host, theme) = setup("open");
 
-        let opened = host.open("calls", &theme).expect("open");
+        let opened = host.open("calls", PropertiesKind::Base, &theme).expect("open");
 
         let text = String::from_utf8(opened.bytes).expect("utf8");
         assert!(text.contains("\"amount\""));
@@ -585,13 +659,16 @@ mod tests {
         )
         .expect("copy");
 
-        let opened = host.open("calls", &theme).expect("open");
+        let opened = host.open("calls", PropertiesKind::Base, &theme).expect("open");
 
         assert!(String::from_utf8(opened.bytes).expect("utf8").contains("\"value\": 3"));
         let (scratch, mut host, theme) = setup("broken");
         fs::create_dir_all(scratch.path("Properties")).expect("folder");
         fs::write(scratch.path("Properties").join("callsBase"), "{ not json").expect("copy");
-        assert_eq!(host.open("calls", &theme), Err(OpenError::Unreadable));
+        assert_eq!(
+            host.open("calls", PropertiesKind::Base, &theme),
+            Err(OpenError::Unreadable)
+        );
         assert_eq!(
             fs::read_to_string(scratch.path("Properties").join("callsBase")).expect("copy"),
             "{ not json",
@@ -603,13 +680,22 @@ mod tests {
     fn a_theme_with_no_properties_or_an_unreadable_file_fails_with_its_reason() {
         let (_scratch, mut host, theme) = setup("none");
         fs::remove_file(theme.join(PROPERTIES_FILE)).expect("remove");
-        assert_eq!(host.open("calls", &theme), Err(OpenError::NoProperties));
-        fs::write(theme.join(PROPERTIES_FILE), "{ not json").expect("write");
-        assert_eq!(host.open("calls", &theme), Err(OpenError::Unreadable));
-        fs::write(theme.join(PROPERTIES_FILE), r#"{"PropertyList":{}}"#).expect("write");
-        assert_eq!(host.open("calls", &theme), Err(OpenError::NoProperties));
         assert_eq!(
-            host.open("../x", &theme),
+            host.open("calls", PropertiesKind::Base, &theme),
+            Err(OpenError::NoProperties)
+        );
+        fs::write(theme.join(PROPERTIES_FILE), "{ not json").expect("write");
+        assert_eq!(
+            host.open("calls", PropertiesKind::Base, &theme),
+            Err(OpenError::Unreadable)
+        );
+        fs::write(theme.join(PROPERTIES_FILE), r#"{"PropertyList":{}}"#).expect("write");
+        assert_eq!(
+            host.open("calls", PropertiesKind::Base, &theme),
+            Err(OpenError::NoProperties)
+        );
+        assert_eq!(
+            host.open("../x", PropertiesKind::Base, &theme),
             Err(OpenError::Unreadable),
             "not a plain name"
         );
@@ -618,7 +704,7 @@ mod tests {
     #[test]
     fn a_change_is_held_inside_its_bounds_and_written_after_the_interval() {
         let (scratch, mut host, theme) = setup("change");
-        host.open("calls", &theme).expect("open");
+        host.open("calls", PropertiesKind::Base, &theme).expect("open");
         let now = Instant::now();
 
         let applied = host.change("calls", "amount", &slider(2.5), now).expect("change");
@@ -645,7 +731,7 @@ mod tests {
     #[test]
     fn the_same_change_twice_leaves_the_same_bytes() {
         let (scratch, mut host, theme) = setup("twice");
-        host.open("calls", &theme).expect("open");
+        host.open("calls", PropertiesKind::Base, &theme).expect("open");
         let now = Instant::now();
         let first = host.change("calls", "amount", &slider(2.5), now).expect("change");
         host.flush_due(now + WRITE_INTERVAL);
@@ -663,7 +749,7 @@ mod tests {
     #[test]
     fn a_change_of_an_unknown_key_or_another_type_is_refused_and_changes_nothing() {
         let (scratch, mut host, theme) = setup("refused");
-        host.open("calls", &theme).expect("open");
+        host.open("calls", PropertiesKind::Base, &theme).expect("open");
         let now = Instant::now();
 
         assert_eq!(
@@ -697,7 +783,7 @@ mod tests {
     #[test]
     fn only_the_value_comes_from_the_editor() {
         let (scratch, mut host, theme) = setup("value-only");
-        host.open("calls", &theme).expect("open");
+        host.open("calls", PropertiesKind::Base, &theme).expect("open");
         let now = Instant::now();
         let hostile = r#"{"type":"slider","text":"Hacked","min":-1000,"max":1000,"step":1,"value":4,"x":1}"#;
 
@@ -713,7 +799,7 @@ mod tests {
     #[test]
     fn a_fast_drag_ends_on_its_last_value_and_writes_at_most_every_interval() {
         let (scratch, mut host, theme) = setup("drag");
-        host.open("calls", &theme).expect("open");
+        host.open("calls", PropertiesKind::Base, &theme).expect("open");
         let start = Instant::now();
         let mut writes = 0;
 
@@ -740,7 +826,7 @@ mod tests {
     #[test]
     fn closing_writes_a_waiting_change_at_once_and_forgets_the_document() {
         let (scratch, mut host, theme) = setup("close");
-        host.open("calls", &theme).expect("open");
+        host.open("calls", PropertiesKind::Base, &theme).expect("open");
         host.change("calls", "name", r#"{"type":"textbox","value":"Rust"}"#, Instant::now())
             .expect("change");
 
@@ -759,7 +845,7 @@ mod tests {
     #[test]
     fn a_working_copy_keeps_the_legacy_text_form() {
         let (scratch, mut host, theme) = setup("form");
-        host.open("calls", &theme).expect("open");
+        host.open("calls", PropertiesKind::Base, &theme).expect("open");
         host.change("calls", "amount", &slider(1.0), Instant::now())
             .expect("change");
         host.close("calls");
@@ -769,5 +855,133 @@ mod tests {
         assert!(text.contains("\r\n"), "CRLF line ends like the C# app");
         assert!(!text.ends_with('\n'));
         assert!(read_properties(&scratch.path("Properties").join("callsBase")).is_ok());
+    }
+
+    #[test]
+    fn the_kind_of_a_working_copy_follows_the_wallpaper_type_and_the_engine() {
+        let (_scratch, _host, theme) = setup("kinds");
+        let bare = theme.parent().expect("library").join("bare");
+        fs::create_dir_all(&bare).expect("theme without a file");
+
+        let kind = |wallpaper, engine, dir: &Path| kind_for(wallpaper, engine, dir);
+
+        assert_eq!(
+            kind(WallpaperType::Web, EngineId::Cef, &theme),
+            Some(PropertiesKind::Base)
+        );
+        assert_eq!(
+            kind(WallpaperType::Web, EngineId::WebView2, &theme),
+            Some(PropertiesKind::Base)
+        );
+        assert_eq!(
+            kind(WallpaperType::Web, EngineId::Cef, &bare),
+            None,
+            "no file of its own: 04-51"
+        );
+        for wallpaper in [WallpaperType::Gif, WallpaperType::Video, WallpaperType::YouTube] {
+            assert_eq!(
+                kind(wallpaper, EngineId::WebView2, &theme),
+                Some(PropertiesKind::WebView)
+            );
+            assert_eq!(kind(wallpaper, EngineId::Cef, &theme), Some(PropertiesKind::CefSharp));
+            assert_eq!(
+                kind(wallpaper, EngineId::WebView2, &bare),
+                Some(PropertiesKind::WebView),
+                "a theme's own file is ignored for the generated pages"
+            );
+        }
+        assert_eq!(kind(WallpaperType::Url, EngineId::Cef, &theme), None);
+        assert_eq!(
+            kind(WallpaperType::Gif, EngineId::BuiltInGif, &theme),
+            None,
+            "the built-in GIF renderer has none"
+        );
+        assert_eq!(
+            kind(WallpaperType::Video, EngineId::Mpv, &theme),
+            None,
+            "mpv's set is 04-50"
+        );
+        assert_eq!(PropertiesKind::Base.suffix(), "Base");
+        assert_eq!(PropertiesKind::WebView.suffix(), "WebView");
+        assert_eq!(PropertiesKind::CefSharp.suffix(), "CefSharp");
+    }
+
+    #[test]
+    fn the_copy_path_is_inside_the_properties_folder_and_refuses_a_folder_that_is_no_plain_name() {
+        let dir = Path::new("C:/data/Properties");
+
+        assert_eq!(
+            copy_path(dir, "gif-anim", PropertiesKind::CefSharp),
+            Some(dir.join("gif-animCefSharp"))
+        );
+        assert_eq!(copy_path(dir, "..", PropertiesKind::Base), None);
+        assert_eq!(copy_path(dir, "a/b", PropertiesKind::WebView), None);
+        assert_eq!(copy_path(dir, "", PropertiesKind::Base), None);
+    }
+
+    #[test]
+    fn a_copy_created_from_a_built_in_set_keeps_the_legacy_order_with_the_volume_right_after_muted() {
+        for (kind, name) in [
+            (PropertiesKind::WebView, "gifWebView"),
+            (PropertiesKind::CefSharp, "gifCefSharp"),
+        ] {
+            let (scratch, mut host, _) = setup("builtin-order");
+            let gif = scratch.path("Library").join("gif");
+            fs::create_dir_all(&gif).expect("theme folder");
+            host.open("gif", kind, &gif).expect("a built-in set opens");
+            assert!(!scratch.path("Properties").exists(), "opening writes nothing");
+
+            let volume = r#"{"type":"slider","text":"x","min":0,"max":100,"step":1,"value":40}"#;
+            host.change("gif", "volume", volume, Instant::now()).expect("change");
+            host.close("gif");
+
+            let copy = read_properties(&scratch.path("Properties").join(name)).expect("the created copy reads");
+            let keys: Vec<&str> = copy.list.iter().map(|(key, _)| key.as_str()).collect();
+            let muted = keys.iter().position(|key| *key == "muted").expect("muted");
+            assert_eq!(keys.get(muted + 1), Some(&"volume"), "{kind:?}: {keys:?}");
+            let source = source_for(kind, &gif).expect("the built-in set");
+            let source_keys: Vec<&str> = source.list.iter().map(|(key, _)| key.as_str()).collect();
+            assert_eq!(keys, source_keys, "{kind:?}: the order of the set is kept");
+            assert_eq!(copy.listener, source.listener);
+        }
+    }
+
+    #[test]
+    fn a_working_copy_that_exists_is_used_as_it_is_also_for_a_built_in_set() {
+        let (scratch, mut host, _) = setup("imported-builtin");
+        let gif = scratch.path("Library").join("gif");
+        fs::create_dir_all(&gif).expect("theme folder");
+        fs::create_dir_all(scratch.path("Properties")).expect("folder");
+        let imported = THEME_FILE.replace("\"value\": 0 }", "\"value\": 4 }");
+        fs::write(scratch.path("Properties").join("gifWebView"), &imported).expect("a C# copy");
+
+        let opened = host.open("gif", PropertiesKind::WebView, &gif).expect("open");
+
+        let text = String::from_utf8(opened.bytes).expect("utf8");
+        assert!(
+            text.contains("\"value\": 4"),
+            "the imported customization applies: {text}"
+        );
+        assert!(!text.contains("muted"), "the built-in set is not mixed in");
+    }
+
+    #[test]
+    fn opening_another_kind_of_the_same_theme_saves_and_replaces_the_open_document() {
+        let (scratch, mut host, theme) = setup("kind-switch");
+        host.open("calls", PropertiesKind::Base, &theme).expect("open");
+        host.change("calls", "amount", &slider(1.0), Instant::now())
+            .expect("change");
+
+        host.open("calls", PropertiesKind::CefSharp, &theme)
+            .expect("open as a generated page");
+
+        assert!(
+            working_copy(&scratch).contains("\"value\": 1"),
+            "the first document was saved"
+        );
+        assert!(
+            host.change("calls", "amount", &slider(2.0), Instant::now()).is_err(),
+            "the built-in set has no amount"
+        );
     }
 }

@@ -1155,6 +1155,16 @@ pub fn run(portal_wanted: bool) -> anyhow::Result<()> {
         dpi = ?awareness,
         "service started"
     );
+    // D-20: the C# property caches are copied once before the first wallpaper starts, so that a renderer finds the
+    // customizations the user made in the C# app (the property worker would race the first assignment). Later runs find
+    // the folder and do nothing.
+    if let Some(to) = properties_dir() {
+        match ensure_imported(legacy_properties_cache_dir().as_deref(), &to) {
+            Ok(0) => {}
+            Ok(copied) => tracing::info!(copied, "the C# property caches were imported"),
+            Err(error) => tracing::warn!(%error, "the C# property caches could not be imported"),
+        }
+    }
     // The settings host owns the file for the whole run: it is the only writer (D-11).
     // What can play, from files and the registry only: no engine is loaded here (D-028).
     let engines = engines::detect(&engines::exe_dir(), &*platform);
@@ -2399,8 +2409,8 @@ fn property_failure_of(rejection: &ThemeRejection) -> PropertiesFailure {
     }
 }
 
-/// The answer to an OpenProperties request: the view and the document, or why not. This plan serves the Web themes that
-/// have a SucroseProperties.json of their own; the other themes and the engine sets follow in later plans.
+/// The answer to an OpenProperties request: the view and the document, or why not. It serves the working copies of the web
+/// engines (Base, WebView, CefSharp); the sets of mpv and of Sucrose itself follow in later plans.
 fn open_properties(
     folder: &str,
     props: &mut PropertiesHost,
@@ -2414,10 +2424,14 @@ fn open_properties(
         PLAYABLE,
     )
     .map_err(|rejection| property_failure_of(&rejection))?;
-    if theme.info.kind != WallpaperType::Web {
-        return Err(PropertiesFailure::NoProperties);
-    }
-    let opened = props.open(folder, &theme.dir).map_err(|error| match error {
+    // The engine that plays the theme, else the one its type is set to: it decides which working copy there is.
+    let engine = env.fleet.jobs.get(folder).map_or_else(
+        || configured_engine(&env.host.settings().engine, theme.info.kind),
+        |job| job.engine,
+    );
+    let kind = properties::kind_for(theme.info.kind, EngineId::from_legacy(engine), &theme.dir)
+        .ok_or(PropertiesFailure::NoProperties)?;
+    let opened = props.open(folder, kind, &theme.dir).map_err(|error| match error {
         OpenError::NoProperties => PropertiesFailure::NoProperties,
         OpenError::Unreadable => PropertiesFailure::Unreadable,
     })?;
@@ -2430,7 +2444,7 @@ fn open_properties(
         .collect();
     let view = PropertiesView {
         folder: folder.to_owned(),
-        kind: properties::BASE.to_owned(),
+        kind: kind.suffix().to_owned(),
         blob_id: opened.blob_id,
         culture: env.host.settings().general.culture.clone(),
         live_on,
@@ -3195,6 +3209,11 @@ struct Job {
     web: WebOptions,
     /// Which input a web wallpaper gets (WAPI-07).
     input: InputSettings,
+    /// Where this theme's working copy of its properties is or will be (`<data_dir>/Properties/<Theme><Type>`, D-20), for
+    /// a theme that has one on the engine that plays it. The file may not exist yet: it is made by the first change in
+    /// the editor, and every assignment looks at it when it is made, so a renderer started later (another monitor, a
+    /// restart) starts from the copy the first one's changes made.
+    properties: Option<PathBuf>,
 }
 
 impl Job {
@@ -3235,7 +3254,18 @@ impl Job {
             input: self.input,
             web_profile,
             time_base,
+            properties: self.working_copy(),
         }
+    }
+
+    /// The working copy of this theme's properties as an assignment carries it: its path when the file exists now, else
+    /// none (a theme that was never customized plays from its source).
+    fn working_copy(&self) -> Option<String> {
+        self.properties
+            .as_deref()
+            .filter(|copy| copy.is_file())
+            .and_then(Path::to_str)
+            .map(str::to_owned)
     }
 }
 
@@ -4797,6 +4827,8 @@ impl Fleet {
                 // hardware acceleration apply when the renderer starts again (D-17, WAPI-10).
                 assignment.engine = job.engine;
                 assignment.web.clone_from(&job.web);
+                // The copy a change in the editor made since the renderer first started (D-20).
+                assignment.properties = job.working_copy();
             }
         }
         for slot in &slots {
@@ -5316,6 +5348,7 @@ fn job_for(
     let configured = configured_engine(engine, kind);
     let picked = engines::pick(engines, kind, configured)?;
     let chosen = picked.engine;
+    let properties = working_copy_path(&theme.dir, kind, chosen);
     tracing::info!(
         kind = ?kind,
         configured = ?configured,
@@ -5338,7 +5371,18 @@ fn job_for(
             ..web_options(engine, chosen)
         },
         input: input_settings(engine),
+        properties,
     })
+}
+
+/// Where the working copy of the properties of the theme in `theme_dir` is, when its type on `engine` has one (D-20,
+/// engines.md §7): the file may not exist yet. It reads the folders and never writes: the C# caches were imported
+/// before the first wallpaper started (see [`run`]) and the copy is made by the first change in the editor.
+fn working_copy_path(theme_dir: &Path, kind: WallpaperType, engine: EngineId) -> Option<PathBuf> {
+    let properties_kind = properties::kind_for(kind, engine, theme_dir)?;
+    let folder = theme_dir.file_name()?.to_str()?;
+    let dir = std::path::absolute(properties_dir()?).ok()?;
+    properties::copy_path(&dir, folder, properties_kind)
 }
 
 /// The legacy `ThemeType` name the compatible calls `ThemeType` and `SystemTheme` carry for the migrated theme mode.
@@ -6685,6 +6729,7 @@ mod tests {
             theme_dir: "C:/themes/main".to_owned(),
             web: WebOptions::default(),
             input: InputSettings::default(),
+            properties: None,
         };
         Fleet::new(Some(job), SharedAssignments::default(), installed_engines())
     }
@@ -7970,6 +8015,7 @@ mod tests {
             theme_dir: "C:/themes/new".to_owned(),
             web: WebOptions::default(),
             input: InputSettings::default(),
+            properties: None,
         }
     }
 

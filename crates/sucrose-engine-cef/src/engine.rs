@@ -6,7 +6,7 @@
 use std::{
     path::{Path, PathBuf},
     sync::{
-        Arc, Mutex,
+        Arc,
         atomic::{AtomicBool, Ordering},
     },
 };
@@ -14,7 +14,6 @@ use std::{
 use crossbeam_channel::{Receiver, Sender, TrySendError, bounded};
 use sucrose_core::{
     compatible::{CompatibleKey, DataGroup},
-    properties::{PROPERTIES_FILE, read_properties},
     settings::Stretch,
     theme::WallpaperType,
 };
@@ -71,7 +70,7 @@ enum Command {
     OpenDevTools,
     /// A data snapshot arrived: run the templates with the newest values (kept in the [`PageState`]).
     Data,
-    /// A property changed in the editor: the changes wait in [`State::properties`], one marker per change. The marker
+    /// A property changed in the editor: the changes wait in [`PageState::take_properties`], one marker per change. The marker
     /// carries nothing because a control can hold a password and a command is logged.
     Property,
     /// A mouse move is waiting in [`State::moves`]; one marker covers a whole burst of consecutive moves.
@@ -90,15 +89,11 @@ struct State {
     /// The newest mouse move not yet handed to the page: a mouse moves a thousand times a second, so moves are
     /// coalesced here instead of filling the command queue.
     moves: MoveSlot<InputEvent>,
-    /// The property changes not yet handed to the page, oldest first, the newest control of each key (PROP-02). A
-    /// change of a key that waits replaces its control, so a fast drag keeps the last value and the page is told in
-    /// the order the keys first changed.
-    properties: Mutex<Vec<(String, String)>>,
 }
 
 impl State {
     /// The state a renderer starts with: not paused, the playback settings and the web options of its assignment.
-    fn new(settings: &PlaybackSettings, web: &WebOptions) -> Self {
+    fn new(settings: &PlaybackSettings, web: &WebOptions, working_copy: Option<PathBuf>) -> Self {
         Self {
             page: PageState::new(
                 false,
@@ -107,29 +102,10 @@ impl State {
                 web.shuffle,
                 settings.stretch,
                 web.theme_type.clone(),
-            ),
+            )
+            .with_working_copy(working_copy),
             moves: MoveSlot::default(),
-            properties: Mutex::new(Vec::new()),
         }
-    }
-
-    /// Keeps a changed control for the page; the newest control of a key that already waits replaces the older one.
-    fn push_property(&self, key: &str, control: &str) {
-        let Ok(mut waiting) = self.properties.lock() else {
-            return;
-        };
-        match waiting.iter_mut().find(|(waiting_key, _)| waiting_key == key) {
-            Some(entry) => entry.1 = control.to_owned(),
-            None => waiting.push((key.to_owned(), control.to_owned())),
-        }
-    }
-
-    /// Takes the waiting changes.
-    fn take_properties(&self) -> Vec<(String, String)> {
-        self.properties
-            .lock()
-            .map(|mut waiting| std::mem::take(&mut *waiting))
-            .unwrap_or_default()
     }
 }
 
@@ -141,6 +117,8 @@ pub struct CefEngine {
     state: Arc<State>,
     /// Whether the page takes forwarded input: a Web or Url page does, a generated Gif, Video or YouTube page does not.
     takes_input: bool,
+    /// Whether the page has a property listener: every page but a Url page does (PROP-02).
+    has_listener: bool,
 }
 
 impl std::fmt::Debug for CefEngine {
@@ -166,7 +144,10 @@ pub struct CefPump {
     templates: Option<Vec<(CompatibleKey, String)>>,
     /// The left and top of the surface on the virtual screen: forwarded positions are made relative to it.
     origin: (i32, i32),
-    /// The `PropertyListener` format of the theme's own file, read when the first change arrives.
+    /// What the page shows, for the listener of its property changes.
+    page_kind: PageKind,
+    /// The `PropertyListener` format of the working copy, the theme's own file or the built-in set, read when the first
+    /// change arrives.
     listener: Option<String>,
 }
 
@@ -250,7 +231,11 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
     let calls_dir = theme_dir.clone();
     let wanted_dir = theme_dir.clone();
     let web = &assignment.web;
-    let state = Arc::new(State::new(&assignment.settings, web));
+    let state = Arc::new(State::new(
+        &assignment.settings,
+        web,
+        assignment.properties.as_ref().map(PathBuf::from),
+    ));
     let calls_state = Arc::clone(&state);
     let generated = GeneratedPage::for_kind(assignment.kind);
     let page_kind = PageKind::for_wallpaper(assignment.kind, WebEngine::Cef);
@@ -340,6 +325,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             wake: Arc::new(move || engine_proxy.wake()),
             state: Arc::clone(&state),
             takes_input: page_kind.takes_input(),
+            has_listener: !url_page,
         }),
         pump: Some(Box::new(CefPump {
             host,
@@ -351,6 +337,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             url_page,
             templates: None,
             origin: (assignment.rect[0], assignment.rect[1]),
+            page_kind,
             listener: None,
         })),
     })
@@ -474,15 +461,15 @@ impl Engine for CefEngine {
         Ok(())
     }
 
-    /// Keeps the changed control for the page and wakes the surface thread. Only a theme's own page has a property
-    /// listener: a generated page and a URL page answer [`EngineError::Unsupported`].
+    /// Keeps the changed control for the page and wakes the surface thread. A theme's own page and a generated page have a
+    /// property listener; a URL page answers [`EngineError::Unsupported`].
     fn apply_property(&self, key: &str, control_json: &str) -> Result<(), EngineError> {
-        if !self.takes_input {
+        if !self.has_listener {
             return Err(EngineError::Unsupported {
-                what: "Property changes of a generated page".to_owned(),
+                what: "Property changes of a URL page".to_owned(),
             });
         }
-        self.state.push_property(key, control_json);
+        self.state.page.push_property(key, control_json);
         self.queue(Command::Property);
         Ok(())
     }
@@ -606,26 +593,23 @@ impl CefPump {
         }
     }
 
-    /// Tells the page every property change that waits, in the order the keys first changed: the theme's listener
-    /// format with the key and the control. A theme without a usable listener gets nothing, as at the page load.
+    /// Tells the page every property change that waits, in the order the keys first changed: the page's listener
+    /// format with the key and the control. A page without a usable listener gets nothing, as at the page load.
     fn apply_properties(&mut self) {
-        let changes = self.state.take_properties();
-        if changes.is_empty() || self.generated.is_some() || self.url_page {
+        let changes = self.state.page.take_properties();
+        if changes.is_empty() || self.url_page {
             return;
         }
-        if self.listener.is_none() {
-            self.listener = Some(
-                read_properties(&self.theme_dir.join(PROPERTIES_FILE))
-                    .map(|properties| properties.listener)
-                    .unwrap_or_default(),
-            );
+        let count = changes.len();
+        let listener = self
+            .listener
+            .get_or_insert_with(|| page::property_listener(self.page_kind, &self.theme_dir, &self.state.page));
+        let calls = page::property_change_calls(listener, changes);
+        if calls.len() < count {
+            tracing::debug!(count = count - calls.len(), "a property change makes no page call");
         }
-        let listener = self.listener.as_deref().unwrap_or_default();
-        for (key, control) in changes {
-            match js::apply_property_call(listener, &key, &control) {
-                Some(call) => self.run(&call),
-                None => tracing::debug!(key = %key, "a property change makes no page call"),
-            }
+        for call in calls {
+            self.run(&call);
         }
     }
 
@@ -741,8 +725,9 @@ mod tests {
             wake: Arc::new(move || {
                 counter.fetch_add(1, Ordering::SeqCst);
             }),
-            state: Arc::new(State::new(&PlaybackSettings::default(), &WebOptions::default())),
+            state: Arc::new(State::new(&PlaybackSettings::default(), &WebOptions::default(), None)),
             takes_input: true,
+            has_listener: true,
         };
         (engine, receiver, wakes)
     }
@@ -942,19 +927,24 @@ mod tests {
         );
         assert_eq!(wakes.load(Ordering::SeqCst), 3);
         assert_eq!(
-            engine.state.take_properties(),
+            engine.state.page.take_properties(),
             [
                 ("amount".to_owned(), "{\"value\":2.5}".to_owned()),
                 ("name".to_owned(), "{\"value\":\"a\"}".to_owned())
             ]
         );
-        assert!(engine.state.take_properties().is_empty(), "taken once");
+        assert!(engine.state.page.take_properties().is_empty(), "taken once");
     }
 
     #[test]
-    fn a_generated_page_has_no_property_listener() {
+    fn a_url_page_has_no_property_listener_and_a_generated_page_has() {
         let (mut engine, queue, _) = handle(4);
         engine.takes_input = false;
+        engine
+            .apply_property("amount", "{}")
+            .expect("a generated page takes property changes");
+        assert_eq!(queue.try_iter().count(), 1);
+        engine.has_listener = false;
 
         let result = engine.apply_property("amount", "{}");
 

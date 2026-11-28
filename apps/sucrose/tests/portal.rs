@@ -2589,3 +2589,106 @@ fn a_property_change_reaches_the_running_web_wallpaper() {
         "the theme folder's own file is never written"
     );
 }
+
+/// Waits until `copy` holds `needle` (the service writes a working copy at most every 300 ms), up to `seconds`.
+fn wait_for_copy(copy: &std::path::Path, needle: &str, seconds: u64) -> String {
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(seconds);
+    loop {
+        if let Ok(text) = std::fs::read_to_string(copy)
+            && text.contains(needle)
+        {
+            return text;
+        }
+        assert!(
+            std::time::Instant::now() < deadline,
+            "{} never held {needle} (it exists: {})",
+            copy.display(),
+            copy.exists()
+        );
+        std::thread::sleep(std::time::Duration::from_millis(100));
+    }
+}
+
+/// Waits until the renderer logs hold `needle`, up to `seconds`.
+fn wait_for_renderer_log(service: &TestService, needle: &str, seconds: u64) {
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(seconds);
+    while !renderer_logs(service).contains(needle) {
+        assert!(
+            std::time::Instant::now() < deadline,
+            "the renderer logs never held {needle}: {}",
+            renderer_logs(service)
+        );
+        std::thread::sleep(std::time::Duration::from_millis(100));
+    }
+}
+
+/// A Web theme's customization survives a restart on WebView2 (PROP-02, PROP-05, D-20): a slider change of the `calls`
+/// fixture is applied to the running page and saved in `Properties/callsBase`; the first renderer started without a copy
+/// (it logs no `properties from working copy`); after `RestartWallpapers` the new renderer's assignment names the copy
+/// and says so in its log; the fixture's own file stays byte for byte as it was. It plays a real wallpaper on the desktop,
+/// so it runs on purpose and skips where WebView2 cannot play Web here.
+#[test]
+#[ignore = "plays a Web wallpaper on WebView2 from a scratch data folder; plan 49 runs it"]
+fn a_web_theme_on_webview2_applies_a_change_and_restarts_with_it() {
+    const TEST: &str = "a_web_theme_on_webview2_applies_a_change_and_restarts_with_it";
+    if !service_runs(TEST) {
+        return;
+    }
+    let service = TestService::start("webview2-property", &json!({ "Engine": { "Web": "WebViewLive" } }));
+    copy_web_fixture(&service, "calls");
+    let theme_file = service.dir.join("Library").join("calls").join("SucroseProperties.json");
+    let before = std::fs::read(&theme_file).expect("the fixture has its properties file");
+    let (mut portal, _) = PortalClient::hello(&service, None);
+    let report = wait_for_engines(&portal);
+    if !report.playable.contains(&WallpaperType::Web) || !webview2_is_ready(&report) {
+        skipped(TEST, "the WebView2 Runtime is missing");
+        return;
+    }
+    assert_eq!(use_theme(&mut portal, "calls"), UseOutcome::Applied);
+    let first = wait_for_engine_starts_on_every_slot(&service, 1);
+    if first
+        .values()
+        .filter_map(|log| starts(log).first().copied())
+        .any(|line| !line.contains("engine=\"WebView2\""))
+    {
+        skipped(TEST, "another engine than WebView2 played the wallpaper here");
+        return;
+    }
+    assert!(
+        !renderer_logs(&service).contains("properties from working copy"),
+        "no copy exists yet, so the first renderer reads the theme's file"
+    );
+
+    portal.request(&PortalRequest::OpenProperties {
+        folder: "calls".to_owned(),
+    });
+    let (view, _) = open_properties(&portal, "calls");
+    assert_eq!(view.kind, "Base");
+    assert_eq!(view.engine, Some(EngineType::WebViewLive));
+    portal.request(&PortalRequest::ChangeProperty {
+        folder: "calls".to_owned(),
+        key: "amount".to_owned(),
+        control: json!({"type": "slider", "text": "Amount", "min": -5, "max": 5, "step": 0.5, "value": 2.5})
+            .to_string(),
+    });
+    wait_for_renderer_log(&service, "property applied", 5);
+    let copy = service.dir.join("Properties").join("callsBase");
+    wait_for_copy(&copy, "\"value\": 2.5", 3);
+
+    portal.request(&PortalRequest::RestartWallpapers {
+        engines: vec![EngineType::WebViewLive],
+    });
+    let after = wait_for_engine_starts_on_every_slot(&service, 2);
+    wait_for_renderer_log(&service, "properties from working copy", 10);
+    for (slot, log) in &after {
+        assert!(
+            log.contains("properties from working copy") && log.contains("callsBase"),
+            "the restarted renderer of slot {slot} starts from the copy: {log}"
+        );
+    }
+    assert_eq!(
+        std::fs::read(&theme_file).expect("the theme file"),
+        before,
+        "the theme folder's own file is never written"
+    );
+}

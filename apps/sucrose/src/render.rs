@@ -494,7 +494,7 @@ fn start_engine(
 #[derive(Debug)]
 enum HelloReply {
     /// The renderer has its job.
-    Assigned(Assignment),
+    Assigned(Box<Assignment>),
     /// The service asked the renderer to stop.
     Stop,
     /// A message that means nothing before the assignment: the wait goes on.
@@ -506,7 +506,7 @@ enum HelloReply {
 /// unrestarted for good (WR-16). A real stop is the `Close` message.
 fn judge_hello_reply(reply: Result<ToRenderer, IpcError>) -> anyhow::Result<HelloReply> {
     match reply {
-        Ok(ToRenderer::Assign(assignment)) => Ok(HelloReply::Assigned(assignment)),
+        Ok(ToRenderer::Assign(assignment)) => Ok(HelloReply::Assigned(Box::new(assignment))),
         Ok(ToRenderer::Close) => {
             tracing::info!("the service asked this renderer to close");
             Ok(HelloReply::Stop)
@@ -542,7 +542,7 @@ fn judge_hello_reply(reply: Result<ToRenderer, IpcError>) -> anyhow::Result<Hell
 fn wait_for_assignment(connection: &mut Connection) -> anyhow::Result<Option<Assignment>> {
     loop {
         match judge_hello_reply(connection.recv::<ToRenderer>())? {
-            HelloReply::Assigned(assignment) => return Ok(Some(assignment)),
+            HelloReply::Assigned(assignment) => return Ok(Some(*assignment)),
             HelloReply::Stop => return Ok(None),
             HelloReply::Skip => {}
         }
@@ -1126,6 +1126,7 @@ mod tests {
             input: InputSettings::default(),
             web_profile: sucrose_engine_web::profile::ProfileKind::Ephemeral,
             time_base: None,
+            properties: None,
         };
 
         let error = start_engine(EngineId::Vlc, 0, &assignment, || {

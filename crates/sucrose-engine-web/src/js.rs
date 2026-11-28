@@ -238,6 +238,14 @@ pub fn property_calls_of(properties: &SucroseProperties, theme_dir: &Path) -> Ve
     calls_of(properties, theme_dir, true)
 }
 
+/// The property calls of a theme's working copy: the same as [`property_calls`] of the theme's own file, one per control
+/// in the order of its `PropertyList` with the set's own listener, every value as the copy holds it (a copy is the user's
+/// customization of that file, so it is not held inside bounds the way a built-in set is).
+#[must_use]
+pub fn property_calls_from(properties: &SucroseProperties, theme_dir: &Path) -> Vec<PageCall> {
+    calls_of(properties, theme_dir, false)
+}
+
 /// One slider's value held inside its bounds; every other control as it is. A slider whose bounds are reversed or not
 /// numbers is left alone.
 fn clamped(control: &Control) -> Control {

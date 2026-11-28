@@ -16,7 +16,7 @@ use sucrose_engine_web::{args::Switch, profile::ProfileKind};
 use crate::portal::{Launch, PortalPage};
 
 /// Version of this protocol, sent in [`ToService::Hello`] so the service can refuse a renderer it cannot talk to.
-pub const PROTOCOL_VERSION: u16 = 13;
+pub const PROTOCOL_VERSION: u16 = 14;
 
 /// Messages from a renderer to the service.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
@@ -289,6 +289,10 @@ pub struct Assignment {
     /// theme plays on more than one monitor, `None` for a wallpaper on one monitor. [`ToRenderer::TimeBase`] moves it
     /// later.
     pub time_base: Option<u64>,
+    /// The absolute path of the theme's working copy of its properties (D-20), when it has one: a web engine takes its
+    /// property calls from it instead of the theme's own file or the built-in set. The service computes the path under
+    /// `<data_dir>/Properties`; a renderer that cannot read the file falls back to the source with one warning.
+    pub properties: Option<String>,
 }
 
 #[cfg(test)]
@@ -312,6 +316,7 @@ mod tests {
             input: InputSettings::default(),
             web_profile: ProfileKind::Ephemeral,
             time_base: None,
+            properties: None,
         }))
         .expect("encode Assign");
 
@@ -449,6 +454,7 @@ mod tests {
             input: InputSettings::default(),
             web_profile: ProfileKind::Ephemeral,
             time_base: None,
+            properties: None,
         });
 
         let bytes = postcard::to_stdvec(&message).expect("encode");
@@ -471,6 +477,7 @@ mod tests {
             input: InputSettings::default(),
             web_profile: ProfileKind::Persistent,
             time_base: None,
+            properties: None,
         });
 
         let bytes = postcard::to_stdvec(&message).expect("encode");
@@ -510,6 +517,7 @@ mod tests {
             },
             web_profile: ProfileKind::Persistent,
             time_base: None,
+            properties: None,
         });
 
         let bytes = postcard::to_stdvec(&message).expect("encode");
@@ -642,6 +650,32 @@ mod tests {
                 input: InputSettings::default(),
                 web_profile: ProfileKind::Ephemeral,
                 time_base,
+                properties: None,
+            });
+            let bytes = postcard::to_stdvec(&message).expect("encode");
+
+            assert_eq!(bytes[0], 1, "Assign keeps its wire index");
+            assert_eq!(postcard::from_bytes::<ToRenderer>(&bytes).expect("decode"), message);
+        }
+    }
+
+    #[test]
+    fn an_assignment_carries_the_working_copy_of_its_properties_or_none() {
+        for properties in [None, Some("C:\\Sucrose\\Properties\\callsBase".to_owned())] {
+            let message = ToRenderer::Assign(Assignment {
+                slot: 0,
+                monitor: "M".to_owned(),
+                rect: [0, 0, 10, 20],
+                source: "a.html".to_owned(),
+                settings: PlaybackSettings::default(),
+                kind: WallpaperType::Web,
+                engine: EngineType::WebViewLive,
+                theme_dir: "C:\\themes\\a".to_owned(),
+                web: WebOptions::default(),
+                input: InputSettings::default(),
+                web_profile: ProfileKind::Ephemeral,
+                time_base: None,
+                properties,
             });
             let bytes = postcard::to_stdvec(&message).expect("encode");
 
@@ -653,8 +687,8 @@ mod tests {
     #[test]
     fn the_protocol_version_stays_when_messages_are_only_appended() {
         assert_eq!(
-            PROTOCOL_VERSION, 13,
-            "Assignment.time_base is a new field, which appending a variant cannot express"
+            PROTOCOL_VERSION, 14,
+            "Assignment.properties is a new field, which appending a variant cannot express"
         );
     }
 

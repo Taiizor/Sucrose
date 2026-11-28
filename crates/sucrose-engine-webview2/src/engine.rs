@@ -62,6 +62,9 @@ enum Command {
     Data,
     /// The Portal's Open DevTools button (D-13).
     OpenDevTools,
+    /// A property changed in the editor: the changes wait in [`PageState::take_properties`], one marker per change. The
+    /// marker carries nothing because a control can hold a password and a command is logged.
+    Property,
     /// A mouse move is waiting in the shared pending slot; one marker covers a whole burst of moves.
     MouseMove,
     /// One input event the renderer's filters let through.
@@ -73,7 +76,12 @@ enum Command {
 type PendingMove = Arc<MoveSlot<InputEvent>>;
 
 /// The state a renderer starts with: not paused, the playback settings and the web options of its assignment.
-fn initial_state(settings: &PlaybackSettings, theme_type: &str, shuffle: bool) -> PageState {
+fn initial_state(
+    settings: &PlaybackSettings,
+    theme_type: &str,
+    shuffle: bool,
+    working_copy: Option<PathBuf>,
+) -> PageState {
     PageState::new(
         false,
         settings.volume,
@@ -82,6 +90,7 @@ fn initial_state(settings: &PlaybackSettings, theme_type: &str, shuffle: bool) -
         settings.stretch,
         theme_type,
     )
+    .with_working_copy(working_copy)
 }
 
 /// The thread-safe handle of a WebView2 renderer.
@@ -93,6 +102,8 @@ pub struct WebView2Engine {
     pending_move: PendingMove,
     /// Whether the page takes forwarded input: a Web or Url page does, a generated Gif, Video or YouTube page does not.
     takes_input: bool,
+    /// Whether the page has a property listener: every page but a Url page does (PROP-02).
+    has_listener: bool,
 }
 
 impl std::fmt::Debug for WebView2Engine {
@@ -118,6 +129,11 @@ pub struct WebView2Pump {
     url_page: bool,
     /// The non-empty templates of the theme, read when the first snapshot arrives.
     templates: Option<Vec<(CompatibleKey, String)>>,
+    /// What the page shows, for the listener of its property changes.
+    page_kind: PageKind,
+    /// The `PropertyListener` format of the working copy, the theme's own file or the built-in set, read when the first
+    /// change arrives.
+    listener: Option<String>,
     /// Held until the host is closed: the profile folder is free for the next instance only once WebView2 no longer
     /// uses it.
     profile: Option<Arc<ProfileLease>>,
@@ -240,7 +256,12 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
     let calls_dir = theme_dir.clone();
     let wanted_dir = theme_dir.clone();
     let web = &assignment.web;
-    let state = Arc::new(initial_state(&assignment.settings, &web.theme_type, web.shuffle));
+    let state = Arc::new(initial_state(
+        &assignment.settings,
+        &web.theme_type,
+        web.shuffle,
+        assignment.properties.as_ref().map(PathBuf::from),
+    ));
     let calls_state = Arc::clone(&state);
     let generated = GeneratedPage::for_kind(assignment.kind);
     let page_kind = PageKind::for_wallpaper(assignment.kind, WebEngine::WebView2);
@@ -345,6 +366,7 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             state: Arc::clone(&state),
             pending_move: Arc::clone(&pending_move),
             takes_input: page_kind.takes_input(),
+            has_listener: !url_page,
         }),
         pump: Some(Box::new(WebView2Pump {
             host,
@@ -356,6 +378,8 @@ pub fn start(wid: u64, assignment: &Assignment, hooks: SurfaceHooks) -> Result<S
             generated,
             url_page,
             templates: None,
+            page_kind,
+            listener: None,
             profile,
             scratch,
         })),
@@ -480,6 +504,19 @@ impl Engine for WebView2Engine {
         Ok(())
     }
 
+    /// Keeps the changed control for the page and wakes the surface thread. A theme's own page and a generated page have a
+    /// property listener; a URL page answers [`EngineError::Unsupported`].
+    fn apply_property(&self, key: &str, control_json: &str) -> Result<(), EngineError> {
+        if !self.has_listener {
+            return Err(EngineError::Unsupported {
+                what: "Property changes of a URL page".to_owned(),
+            });
+        }
+        self.state.push_property(key, control_json);
+        self.queue(Command::Property);
+        Ok(())
+    }
+
     fn takes_input(&self) -> bool {
         self.takes_input
     }
@@ -548,6 +585,7 @@ impl WebView2Pump {
             tracing::debug!(?command, "queued command reached the WebView2 thread");
             match command {
                 Command::Data | Command::MouseMove | Command::Input(_) => {}
+                Command::Property => self.apply_properties(),
                 Command::OpenDevTools => {
                     if let Err(error) = self.host.open_devtools() {
                         tracing::warn!(%error, "cannot open the WebView2 developer tools");
@@ -595,6 +633,26 @@ impl WebView2Pump {
         }
         if data_pushed {
             self.push_data();
+        }
+    }
+
+    /// Tells the page every property change that waits, in the order the keys first changed: the page's listener format
+    /// with the key and the control. A page without a usable listener gets nothing, as at the page load.
+    fn apply_properties(&mut self) {
+        let changes = self.state.take_properties();
+        if changes.is_empty() || self.url_page {
+            return;
+        }
+        let count = changes.len();
+        let listener = self
+            .listener
+            .get_or_insert_with(|| page::property_listener(self.page_kind, &self.theme_dir, &self.state));
+        let calls = page::property_change_calls(listener, changes);
+        if calls.len() < count {
+            tracing::debug!(count = count - calls.len(), "a property change makes no page call");
+        }
+        for call in calls {
+            self.run(&call);
         }
     }
 
@@ -690,9 +748,10 @@ mod tests {
             wake: Arc::new(move || {
                 counter.fetch_add(1, Ordering::SeqCst);
             }),
-            state: Arc::new(initial_state(&PlaybackSettings::default(), "Dark", true)),
+            state: Arc::new(initial_state(&PlaybackSettings::default(), "Dark", true, None)),
             pending_move: PendingMove::default(),
             takes_input: true,
+            has_listener: true,
         };
         (engine, receiver, wakes)
     }
@@ -1005,6 +1064,45 @@ mod tests {
         assert!(text.contains("--remote-allow-origins=*"), "{text}");
         assert_eq!(text.matches("--enable-features=").count(), 1, "{text}");
         assert!(text.contains("msEdgeDevToolsWdpRemoteDebugging"), "{text}");
+    }
+
+    #[test]
+    fn a_property_change_waits_for_the_surface_thread_and_the_newest_control_of_a_key_wins() {
+        let (engine, queue, wakes) = handle(8);
+
+        engine.apply_property("amount", "{\"value\":1}").expect("apply");
+        engine.apply_property("name", "{\"value\":\"a\"}").expect("apply");
+        engine.apply_property("amount", "{\"value\":2.5}").expect("apply");
+
+        assert_eq!(
+            queue.try_iter().collect::<Vec<_>>(),
+            [Command::Property, Command::Property, Command::Property]
+        );
+        assert_eq!(wakes.load(Ordering::SeqCst), 3);
+        assert_eq!(
+            engine.state.take_properties(),
+            [
+                ("amount".to_owned(), "{\"value\":2.5}".to_owned()),
+                ("name".to_owned(), "{\"value\":\"a\"}".to_owned())
+            ]
+        );
+        assert!(engine.state.take_properties().is_empty(), "taken once");
+    }
+
+    #[test]
+    fn a_url_page_has_no_property_listener_and_a_generated_page_has() {
+        let (mut engine, queue, _) = handle(4);
+        engine.takes_input = false;
+        engine
+            .apply_property("amount", "{}")
+            .expect("a generated page takes property changes");
+        assert_eq!(queue.try_iter().count(), 1);
+
+        engine.has_listener = false;
+        let result = engine.apply_property("amount", "{}");
+
+        assert!(matches!(result, Err(EngineError::Unsupported { .. })));
+        assert_eq!(queue.try_iter().count(), 0);
     }
 
     #[test]
