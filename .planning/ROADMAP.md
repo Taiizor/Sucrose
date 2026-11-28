@@ -276,7 +276,7 @@ Plans:
   3. User can show a wallpaper per display, spanned or duplicated, put a different wallpaper on each monitor, and choose the working area or the full display bounds and a stretch mode, with every engine.
   4. Changing a value in the properties editor (all ten control types, texts in the user's language) changes the running wallpaper immediately; the user can restore defaults, turn on developer mode with a remote debugging port, and add, remove or reset web engine arguments.
   5. Each performance condition (lock, sleep, user switch, screen saver, focus, fullscreen, CPU/memory/GPU, network, battery, remote desktop/VM) runs its configured Close, Pause or Resume with the legacy timings; pausing goes through the engine and never suspends processes; volume, loop, shuffle and the two sound rules apply to every engine.
-**Plans**: 39/39 plans executed (Round A = D-31 slice 1, 04-01..04-21, executed; Round B = D-31 slices 2 and 3, 04-22..04-38, planned, plus 04-39, the re-check of the failed 04-37 steps after the debug batch, planned 2026-11-28; Rounds C–E are planned after the previous round has executed, 04-CONTEXT D-31 "Planning rounds")
+**Plans**: 39/56 plans executed (Round A = D-31 slice 1, 04-01..04-21, executed; Round B = D-31 slices 2 and 3, 04-22..04-38, planned, plus 04-39, the re-check of the failed 04-37 steps after the debug batch, planned 2026-11-28; Round C = D-31 slices 4 and 5, 04-40..04-56, planned 2026-11-28; Rounds D–E are planned after the previous round has executed, 04-CONTEXT D-31 "Planning rounds")
 Plans:
 **Wave 1**
 - [x] 04-01-PLAN.md — D-32 CEF delay-load spike, part 1: pinned CEF via fetch-engines and CEF_PATH, delay-loaded libcef.dll, CEF subprocess routing, fixture Web library
@@ -393,6 +393,57 @@ Plans:
 **Wave 38** *(blocked on Wave 37 completion)*
 - [x] 04-39-PLAN.md — Maintainer checkpoint: re-check of the failed 04-37 steps after the debug batch on CEF and WebView2 (DISPLAY9 attached), the D-040 storage check and fast WebView2 switching; marks the open Round B requirements
 
+**Wave 39** *(blocked on Wave 38 completion)*
+- [ ] 04-40-PLAN.md — Slice-4 spike: monitors carry a stable id (QueryDisplayConfig device path, GDI fallback); DISPLAY9 off/on replug check (D-08, research question 3)
+
+**Wave 40** *(blocked on Wave 39 completion)*
+- [ ] 04-41-PLAN.md — Slice-4 tracer: two monitors play two themes from Engine.DisplayAssignments; per-theme clock groups; migrated Per display + ScreenDevice keep their meaning; Use on the target monitor; D-042
+
+**Wave 41** *(blocked on Wave 40 completion)*
+- [ ] 04-42-PLAN.md — Per-monitor state for the Portal: RuntimeState.displays, the target monitor setting, Remove Wallpaper, not-connected assignments and their return (D-02, D-07, D-08)
+
+**Wave 42** *(blocked on Wave 41 completion)*
+- [ ] 04-43-PLAN.md — Duplicate and Span in the service, the Display Mode setting, the shared time base with the built-in GIF renderer following it; D-043
+
+**Wave 43** *(blocked on Wave 42 completion)*
+- [ ] 04-44-PLAN.md — Web engines follow the time base: generated Video, GIF and YouTube pages in step, best-effort Web/URL sync shim (D-04)
+
+**Wave 44** *(blocked on Wave 43 completion)*
+- [ ] 04-45-PLAN.md — Screen Layout and Stretch Mode rows, applied live (DESK-04, DESK-05 part)
+
+**Wave 45** *(blocked on Wave 44 completion)*
+- [ ] 04-46-PLAN.md — Portal: Display Preferences dialog and header action (canvas, Placement Mode, target, Remove, Not connected)
+
+**Wave 46** *(blocked on Wave 45 completion)*
+- [ ] 04-47-PLAN.md — Portal: monitor badges on cards and the Display Preferences FEATURES row
+
+**Wave 47** *(blocked on Wave 46 completion)*
+- [ ] 04-48-PLAN.md — Slice-5 spike and tracer: the properties editor as a second Portal window by the taskbar; one slider change through the service (D-20 import, working copy) to a CEF wallpaper
+
+**Wave 48** *(blocked on Wave 47 completion)*
+- [ ] 04-49-PLAN.md — Working copies of every web wallpaper (Base, WebView, CefSharp), start from the copy, live changes on WebView2 and generated pages
+
+**Wave 49** *(blocked on Wave 48 completion)*
+- [ ] 04-50-PLAN.md — The mpv property set with the D-06 volume, legacy apply rules, refused unsafe mpv properties
+
+**Wave 50** *(blocked on Wave 49 completion)*
+- [ ] 04-51-PLAN.md — The Sucrose mute and volume set for URL and Web themes without a file, through the renderer's audio sessions; silent web followers
+
+**Wave 51** *(blocked on Wave 50 completion)*
+- [ ] 04-52-PLAN.md — Editor: the ten control types, live cadence, theme texts in the user's language (D-21), Property.* strings
+
+**Wave 52** *(blocked on Wave 51 completion)*
+- [ ] 04-53-PLAN.md — Editor: Restore Default, Refresh, Delete Copy, filedropdown add and delete; the all-controls fixture theme
+
+**Wave 53** *(blocked on Wave 52 completion)*
+- [ ] 04-54-PLAN.md — Editor entry points: the Customize enable rule on cards, Customize in Display Preferences; FEATURES, GPUI and ARCHITECTURE docs
+
+**Wave 54** *(blocked on Wave 53 completion)*
+- [ ] 04-55-PLAN.md — cargo xtask measure: Rust-only rows for several runs and steady-state Portal rows (measurement-only)
+
+**Wave 55** *(blocked on Wave 54 completion)*
+- [ ] 04-56-PLAN.md — Final Round C maintainer checkpoint (DISPLAY9 attached) and the unattended display-mode and editor measurement; marks DESK-03, DESK-04, PROP-01..04
+
 **UI hint**: yes
 **Notes**: Engine binaries ship inside the package (D-028); own `bindgen` bindings loaded with `libloading` (D-013). Legacy bugs are fixed, not ported: CEF path traversal (SEC-02), ping checked first even at threshold 0 (PERF-07), Application wallpapers with fake handles or one process for all screens (TYPE-06), debugger-attach and `NtSuspendProcess` pausing (PLAY-05). Record per-engine RAM/CPU from release builds in `docs/MEASUREMENTS.md`.
 
@@ -463,7 +514,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | 1. M0 — Foundation | 0/0 | Complete    | 2026-11-22 |
 | 2. M1 — Video wallpaper on the desktop (Windows) | 29/29 | Complete    | 2026-11-23 |
 | 3. M2 — Service, IPC and Portal connected | 50/50 | Complete    | 2026-11-25 |
-| 4. M3 — Engines and the wallpaper API | 39/39 | In Progress | - |
+| 4. M3 — Engines and the wallpaper API | 39/56 | In Progress | - |
 | 5. M4 — Product features | 0/TBD | Not started | - |
 | 6. M5 — macOS | 0/TBD | Not started | - |
 | 7. M6 — Linux (X11, then Wayland compositors) | 0/TBD | Not started | - |

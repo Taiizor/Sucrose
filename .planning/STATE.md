@@ -1,17 +1,17 @@
 ---
 gsd_state_version: "1.0"
-current_phase: 04
+current_phase: 4
 current_phase_name: M3 — Engines and the wallpaper API
 status: executing
 stopped_at: Completed 04-39-PLAN.md
-last_updated: "2026-11-28T01:28:58.726Z"
+last_updated: "2026-11-28T14:00:47.519Z"
 last_activity: 2026-11-28
-last_activity_desc: Phase 04 execution started
-state_head: b5eec90ff5dc3107c7e746df4ed897d08cef21d1
+last_activity_desc: Phase 04 Round C planned
+state_head: d2d32a846a525865b52c7e2a3b18af9dd7defeab
 progress:
   total_phases: 8
   completed_phases: 3
-  total_plans: 118
+  total_plans: 135
   completed_plans: 118
   percent: 38
 ---
@@ -27,11 +27,11 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 
 ## Current Position
 
-Phase: 04 (M3 — Engines and the wallpaper API) — EXECUTING
-Plan: 39 of 39
-Status: Round B executed; Round C is planned next
-Last activity: 2026-11-28 — Phase 04 execution started
-Next step: Round B is executed and all its requirements are Complete (04-39 done 2026-11-28; Farm Weather Cycles addendum 04:37; Addendum 2 marked TYPE-05 and ENG-02 on the machine proofs of the debug fixes 62ec2f49 and f5d57b98, maintainer decision 2026-11-28). TYPE-03, TYPE-04, TYPE-05, WAPI-05, WAPI-06, WAPI-08, ENG-02 and ENG-03 are Complete. Next: plan Round C (/gsd-plan-phase 4 -> "Add more plans", 04-CONTEXT D-31 "Planning rounds"); phase verification runs only after Round E. Open findings: D13 (occasional duplicate mousedown), the WebView2 software decode of the 4K VP9 clip (Round D), BROWSER_EXIT_WAIT 1.5 s is still exceeded on a fully saturated CPU (16 busy threads; recorded as expected degraded behaviour), S3 expired.badssl.com did not load within 13 s in one of five runs (badssl.com slow, not blocking).
+Phase: 4 (M3 — Engines and the wallpaper API) — READY TO EXECUTE
+Plan: 39 of 56
+Status: Round C planned (04-40..04-56); ready to execute
+Last activity: 2026-11-28 — Phase 04 Round C planned
+Next step: Round B is executed and all its requirements are Complete (04-39 done 2026-11-28; Farm Weather Cycles addendum 04:37; Addendum 2 marked TYPE-05 and ENG-02 on the machine proofs of the debug fixes 62ec2f49 and f5d57b98, maintainer decision 2026-11-28). TYPE-03, TYPE-04, TYPE-05, WAPI-05, WAPI-06, WAPI-08, ENG-02 and ENG-03 are Complete. Next: execute Round C (/gsd-execute-phase 4 runs 04-40..04-56; 04-40 has a short maintainer DISPLAY9 off/on step, 04-56 is the final Round C checkpoint with DISPLAY9 attached and the unattended measurement); phase verification runs only after Round E. Open findings: D13 (occasional duplicate mousedown), the WebView2 software decode of the 4K VP9 clip (Round D), BROWSER_EXIT_WAIT 1.5 s is still exceeded on a fully saturated CPU (16 busy threads; recorded as expected degraded behaviour), S3 expired.badssl.com did not load within 13 s in one of five runs (badssl.com slow, not blocking).
 
 Progress: [████░░░░░░] 38%
 
@@ -333,6 +333,8 @@ Recent decisions affecting current work:
 - [Phase 04]: Round B planned (2026-11-26): 04-22..04-38 for D-31 slices 2 and 3 (WebView2; built-in GIF/APNG/WebP, generated pages, URL, YouTube), threat IDs T-04-50..T-04-81. Maintainer decisions: add plans and leave Round A unchanged; the final checkpoint 04-37 reruns the failed or skipped 04-20 steps on CEF and WebView2 and can mark TYPE-03, ENG-07, WAPI-01, WAPI-02, WAPI-04 and FMT-07; the open 04-20 defects go to /gsd-debug and are its precondition; step B6 (two monitors with DISPLAY9) is a required ENG-02 proof.
 - [Phase 04]: Round B coverage gate override (approved deferral, 04-CONTEXT D-31): the 21 requirements of Rounds C–E (TYPE-06, ENG-04, ENG-05, DESK-02..04, PLAY-02..04, PERF-01..04, PERF-06..09, PROP-01..04) and their 16 CONTEXT decisions (D-01, D-03, D-05, D-07, D-08, D-18..D-21, D-23, D-25, D-27..D-30, D-36) are deferred to their round, not dropped; every Round B requirement is covered.
 - [Phase 04]: Round B re-check planned (2026-11-28): 04-39 (wave 38, after 04-38) re-runs the 04-37 steps that failed or were not checked after the 04-37 debug batch and quick batch 261127-uor, plus the D-040 storage eye check and fast WebView2 switching (maintainer choices); threat IDs T-04-82..T-04-87. It can mark TYPE-03, TYPE-04, TYPE-05, ENG-02, ENG-03, WAPI-05, WAPI-06 and WAPI-08; its "Requirement parts per engine" table names the proof of every requirement part on CEF and WebView2. Coverage gate override as for Round B (approved deferral, 04-CONTEXT D-31): the same 21 Round C–E requirements and 16 decisions stay deferred to their round. Plan checker: 9 passes (the haiku checker found a new item at each full pass; the maintainer chose "fix and check" each time); the final pass had 0 blockers and 0 warnings.
+- [Phase 04]: Round C planned (2026-11-28): 04-40..04-56 (waves 39..55) for D-31 slices 4 and 5 (display modes and per-monitor wallpapers with Display Preferences; the properties editor), threat IDs T-04-88..T-04-124. Maintainer decisions: add plans and leave 04-01..04-39 unchanged; D-08 confirmed (`Engine.DisplayAssignments` of `{MonitorId, DeviceName, Theme}`, monitorDevicePath with the GDI name as fallback, an EDID second key only if the 04-40 spike needs it); measurement unattended inside the final checkpoint 04-56 (no separate maintainer measurement plan, no C# comparison). 04-56 can mark DESK-03, DESK-04 and PROP-01..04; DESK-02, DESK-05 and PROP-05 are partial in Round C and complete in Round E. Planned decision entries: D-042 (per-monitor assignments) and D-043 (web pages and the built-in GIF follow a shared time base kept by the service; mpv keeps D-030). Plan checker: 1 pass, 0 blockers, 0 warnings, 3 info (the haiku checker said it checked structure and coverage, not every task action line by line).
+- [Phase 04]: Round C coverage gate override (approved deferral, 04-CONTEXT D-31): the 14 requirements of Rounds D and E (TYPE-06, ENG-04, ENG-05, PLAY-02..04, PERF-01..04, PERF-06..09) and their 7 CONTEXT decisions (D-23, D-25, D-27..D-30, D-36) are deferred to their round, not dropped; every Round C requirement is covered.
 - [Phase 04]: 04-22: WebView2 answers the virtual origin through sucrose_engine_web::serve::plan (shared with CEF); a Range request gets the whole file and 200 until 04-23
 - [Phase 04]: 04-22: the WebView2 page gets no host object and no message channel; environment creation retries once after 2 s with a 30 s capped message pump
 - [Phase 04]: 04-23: a WebView2 range body is a memory stream of at most 4 MiB (serve::MAX_RANGE_BODY) whose Content-Range names the bytes sent; whole files stream from disk
